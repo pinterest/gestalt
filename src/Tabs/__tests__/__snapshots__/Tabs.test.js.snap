@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs renders 1`] = `
+<div
+  className="Tabs"
+  role="tablist"
+>
+  <a
+    aria-selected={true}
+    className="tab tabIsActive"
+    href="#"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="tab"
+  >
+    <div
+      className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+    >
+      News
+    </div>
+  </a>
+  <a
+    aria-selected={false}
+    className="tab tabIsNotActive"
+    href="#"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="tab"
+  >
+    <div
+      className="Text fontSize3 gray leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+    >
+      You
+    </div>
+  </a>
+  <a
+    aria-selected={false}
+    className="tab tabIsNotActive"
+    href="#"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="tab"
+  >
+    <div
+      className="Text fontSize3 gray leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+    >
+      Messages
+    </div>
+  </a>
+</div>
+`;

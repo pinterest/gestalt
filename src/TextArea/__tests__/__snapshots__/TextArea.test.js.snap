@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField TextArea normal 1`] = `
+<span>
+  <textarea
+    aria-describedby={null}
+    aria-invalid="false"
+    className="textArea enabled normal"
+    disabled={false}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    rows={3}
+    value={undefined}
+  />
+</span>
+`;
+
+exports[`TextField TextArea with error 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea></span>"`;
+
+exports[`TextField TextArea with rows 1`] = `
+<span>
+  <textarea
+    aria-describedby={null}
+    aria-invalid="false"
+    className="textArea enabled normal"
+    disabled={false}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    rows={5}
+    value={undefined}
+  />
+</span>
+`;

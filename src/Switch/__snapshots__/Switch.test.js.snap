@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch 1`] = `
+<div
+  className="switch switchWhite"
+>
+  <input
+    checked={false}
+    className="checkbox checkboxEnabled"
+    disabled={false}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="slider sliderLeft sliderLight"
+  />
+</div>
+`;
+
+exports[`Switch disabled 1`] = `
+<div
+  className="switch switchLightGray"
+>
+  <input
+    checked={false}
+    className="checkbox"
+    disabled={true}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="slider sliderLeft sliderLight"
+  />
+</div>
+`;
+
+exports[`Switch switched & disabled 1`] = `
+<div
+  className="switch switchLightGray"
+>
+  <input
+    checked={false}
+    className="checkbox"
+    disabled={true}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="slider sliderLeft sliderLight"
+  />
+</div>
+`;
+
+exports[`Switch switched 1`] = `
+<div
+  className="switch switchWhite"
+>
+  <input
+    checked={false}
+    className="checkbox checkboxEnabled"
+    disabled={false}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="slider sliderLeft sliderLight"
+  />
+</div>
+`;

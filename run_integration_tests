@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+export DISPLAY=:99.0
+/etc/init.d/xvfb start
+
+cd test && npm start &
+
+PID=$!                    # get the Parent Process ID
+PGID=$(ps opgid= "$PID")  # get the Process Group ID
+
+until $(curl --output /dev/null --silent --head --fail http://localhost:3000/__ping); do
+    printf '.'
+    sleep 5
+done
+
+total_chunks=${BUILDKITE_PARALLEL_JOB_COUNT:=1}
+this_chunk=$((${BUILDKITE_PARALLEL_JOB:=0} + 1))
+
+NODE_ENV=integration ./node_modules/.bin/ghostjs --browser firefox $(./node_modules/.bin/babel-node ./scripts/chunk.js ${total_chunks} ${this_chunk} $(find src -name '*.ghost.js') $@)
+STATUS=$?
+
+# Kill the process group and all children of that process group.
+kill -- -$PGID &> /dev/null
+
+exit $STATUS

@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collection with default viewport 1`] = `
+<div
+  className="relative"
+  style={
+    Object {
+      "height": 200,
+      "width": 200,
+    }
+  }
+>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 0,
+        "top": 0,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      0
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 100,
+        "top": 100,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collection with limited viewport 1`] = `
+<div
+  className="relative"
+  style={
+    Object {
+      "height": 200,
+      "width": 200,
+    }
+  }
+>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 100,
+        "top": 100,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Collection with limited viewport and a few items 1`] = `
+<div
+  className="relative"
+  style={
+    Object {
+      "height": 200,
+      "width": 200,
+    }
+  }
+>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 0,
+        "top": 0,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      0
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 100,
+        "top": 0,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      1
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 0,
+        "top": 100,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      2
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 100,
+        "left": 100,
+        "top": 100,
+        "width": 100,
+      }
+    }
+  >
+    <div>
+      3
+    </div>
+  </div>
+</div>
+`;

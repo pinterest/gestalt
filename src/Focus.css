@@ -1,0 +1,9 @@
+.accessibilityOutline:focus {
+  box-shadow: 0 0 0 4px rgba(0, 132, 255, 0.5);
+  outline: 0;
+}
+
+.accessibilityOutlineFocus {
+  box-shadow: 0 0 0 4px rgba(0, 132, 255, 0.5);
+  outline: 0;
+}

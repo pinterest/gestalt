@@ -1,0 +1,62 @@
+steps:
+  - name: ":docker: :package:"
+    plugins:
+      docker-compose:
+        build: app
+        image-repository: 053722134931.dkr.ecr.us-east-1.amazonaws.com/pinterest
+    agents:
+      queue: elastic-builders
+  - wait
+  - name: ":eslint:"
+    command: npm run eslint
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
+  - name: ":stylelint:"
+    command: npm run stylelint
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
+  - name: ":flowtype:"
+    command: yarn flow check
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
+  - name: ":jest: :chrome:"
+    command: npm test -- --env jsdom
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
+  - name: ":jest: :node:"
+    command: npm test -- --env node
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
+  - name: ":ghost: %n"
+    command: npm run ghost
+    artifact_paths: 'screenshots/*'
+    timeout_in_minutes: 30
+    parallelism: 3
+    env:
+      BUILDKITE_PARALLEL_JOB_COUNT: $BUILDKITE_PARALLEL_JOB_COUNT
+      BUILDKITE_PARALLEL_JOB: $BUILDKITE_PARALLEL_JOB
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app

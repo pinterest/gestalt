@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text> 1`] = `
+<div
+  className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal"
+/>
+`;

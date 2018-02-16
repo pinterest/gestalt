@@ -1,0 +1,14 @@
+[version]
+0.65.0
+
+[ignore]
+<PROJECT_ROOT>/node_modules/stylelint.*
+<PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/*
+
+[options]
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment= \\(.\\|\n\\)*\\$FlowIssue
+esproposal.class_instance_fields=enable
+esproposal.class_static_fields=enable
+# necessary for webpack loader syntax.
+module.name_mapper='^.*\.css$' -> '<PROJECT_ROOT>/flow/stubs/CSSModuleStub.js'

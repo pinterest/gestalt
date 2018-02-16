@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`default 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel={null}
+  target={null}
+>
+  Link
+</a>
+`;
+
+exports[`inline 1`] = `
+<a
+  className="link accessibleFocusStyle"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel={null}
+  target={null}
+>
+  Link
+</a>
+`;
+
+exports[`regular 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel={null}
+  target={null}
+>
+  Link
+</a>
+`;
+
+exports[`target blank 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Link
+</a>
+`;
+
+exports[`target null 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel={null}
+  target={null}
+>
+  Link
+</a>
+`;
+
+exports[`target self 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel={null}
+  target="_self"
+>
+  Link
+</a>
+`;
+
+exports[`with onClick 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel={null}
+  target={null}
+>
+  Link
+</a>
+`;

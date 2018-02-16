@@ -1,0 +1,478 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultAvatar renders 2 avatars 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "boxShadow": "0 0 0 2px #fff",
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 108,
+        "width": 108,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 108,
+          "left": 0,
+          "top": 0,
+          "width": 53,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 108,
+            "width": 53,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 108,
+          "left": 55,
+          "top": 0,
+          "width": 53,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 108,
+            "width": 53,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DefaultAvatar renders 3 avatars 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "boxShadow": "0 0 0 2px #fff",
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 108,
+        "width": 109,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 108,
+          "left": 0,
+          "top": 0,
+          "width": 53,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 108,
+            "width": 53,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 53,
+          "left": 55,
+          "top": 0,
+          "width": 54,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 53,
+            "width": 54,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 53,
+          "left": 55,
+          "top": 55,
+          "width": 54,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 53,
+            "width": 54,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "boxShadow": "0 0 0 2px #fff",
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 108,
+        "width": 109,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 108,
+          "left": 0,
+          "top": 0,
+          "width": 53,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 108,
+            "width": 53,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 53,
+          "left": 55,
+          "top": 0,
+          "width": 54,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 53,
+            "width": 54,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 53,
+          "left": 55,
+          "top": 55,
+          "width": 54,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 53,
+            "width": 54,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DefaultAvatar renders multi-byte character initials 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "boxShadow": "0 0 0 2px #fff",
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 108,
+        "width": 108,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 108,
+          "left": 0,
+          "top": 0,
+          "width": 108,
+        }
+      }
+    >
+      <div
+        aria-label="💩 astral"
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": 108,
+          }
+        }
+      >
+        <div
+          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        >
+          <div
+            className="box"
+            style={
+              Object {
+                "fontSize": 28,
+                "lineHeight": "28px",
+              }
+            }
+          >
+            💩
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DefaultAvatar renders single-byte character initials 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "boxShadow": "0 0 0 2px #fff",
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 108,
+        "width": 108,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 108,
+          "left": 0,
+          "top": 0,
+          "width": 108,
+        }
+      }
+    >
+      <div
+        aria-label="Jane Smith"
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": 108,
+          }
+        }
+      >
+        <div
+          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        >
+          <div
+            className="box"
+            style={
+              Object {
+                "fontSize": 28,
+                "lineHeight": "28px",
+              }
+            }
+          >
+            J
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

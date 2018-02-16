@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SegmentedControl renders 1`] = `
+<div
+  className="SegmentedControl"
+  role="tablist"
+>
+  <button
+    aria-selected={true}
+    className="item md itemIsSelected"
+    onClick={[Function]}
+    role="tab"
+  >
+    <div
+      className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+    >
+      News
+    </div>
+  </button>
+  <button
+    aria-selected={false}
+    className="item md itemIsNotSelected"
+    onClick={[Function]}
+    role="tab"
+  >
+    <div
+      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+    >
+      You
+    </div>
+  </button>
+  <button
+    aria-selected={false}
+    className="item md itemIsNotSelected"
+    onClick={[Function]}
+    role="tab"
+  >
+    <div
+      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+    >
+      Messages
+    </div>
+  </button>
+</div>
+`;

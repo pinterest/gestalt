@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon has correct aria-hidden property applied when accessibilityLabel is an empty string 1`] = `
+<svg
+  aria-hidden={true}
+  aria-label=""
+  className="icon gray iconBlock"
+  height={16}
+  role="img"
+  viewBox="0 0 24 24"
+  width={16}
+>
+  <title>
+    
+  </title>
+  <path
+    d="test-file-stub"
+  />
+</svg>
+`;
+
+exports[`Icon renders 1`] = `
+<svg
+  aria-hidden={null}
+  aria-label="Add"
+  className="icon gray iconBlock"
+  height={16}
+  role="img"
+  viewBox="0 0 24 24"
+  width={16}
+>
+  <title>
+    Add
+  </title>
+  <path
+    d="test-file-stub"
+  />
+</svg>
+`;

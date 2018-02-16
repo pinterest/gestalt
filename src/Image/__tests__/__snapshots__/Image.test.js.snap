@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image matches snapshot 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingBottom": "100%",
+    }
+  }
+>
+  <img
+    alt="foo"
+    className="img"
+    onError={[Function]}
+    onLoad={[Function]}
+    sizes={undefined}
+    src="foo.png"
+    srcSet={undefined}
+  />
+</div>
+`;
+
+exports[`Image with fit: contain matches snapshot 1`] = `
+<div
+  aria-label="foo"
+  className="contain"
+  role="img"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "backgroundImage": "url('foo.png')",
+    }
+  }
+>
+  <div
+    className="absolute bottom0 box left0 overflowHidden right0 top0"
+  >
+    Foo.png
+  </div>
+</div>
+`;
+
+exports[`Image with fit: cover matches snapshot 1`] = `
+<div
+  aria-label="foo"
+  className="cover"
+  role="img"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "backgroundImage": "url('foo.png')",
+    }
+  }
+>
+  <div
+    className="absolute bottom0 box left0 overflowHidden right0 top0"
+  >
+    Foo.png
+  </div>
+</div>
+`;
+
+exports[`Image with overlay matches snapshot 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "paddingBottom": "100%",
+    }
+  }
+>
+  <img
+    alt="foo"
+    className="img"
+    onError={[Function]}
+    onLoad={[Function]}
+    sizes={undefined}
+    src="foo.png"
+    srcSet={undefined}
+  />
+  <div
+    className="absolute bottom0 box left0 overflowHidden right0 top0"
+  >
+    Foo.png
+  </div>
+</div>
+`;

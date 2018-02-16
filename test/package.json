@@ -1,0 +1,21 @@
+{
+  "name": "gestalt-integration-test-support",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "start": "npm run start:webpack-server | npm run start:node-server",
+    "start:webpack-server": "webpack-dev-server --hot --inline --progress --colors",
+    "start:node-server": "BABEL_DISABLE_CACHE=1 NODE_ENV=testing babel-node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

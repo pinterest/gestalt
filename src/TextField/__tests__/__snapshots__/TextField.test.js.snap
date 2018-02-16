@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField TextField normal 1`] = `
+<span>
+  <input
+    aria-describedby={null}
+    aria-invalid="false"
+    autoComplete={undefined}
+    className="textField enabled normal"
+    disabled={false}
+    id="test"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    pattern={undefined}
+    placeholder={undefined}
+    type="text"
+    value={undefined}
+  />
+</span>
+`;
+
+exports[`TextField TextField with autocomplete 1`] = `"<span><input type=\\"text\\" aria-invalid=\\"false\\" class=\\"textField enabled normal\\" id=\\"email\\"/></span>"`;
+
+exports[`TextField TextField with error 1`] = `"<span><input type=\\"text\\" aria-invalid=\\"true\\" class=\\"textField enabled errored\\" id=\\"test\\"/></span>"`;
+
+exports[`TextField TextField with name 1`] = `"<span><input type=\\"text\\" aria-invalid=\\"false\\" class=\\"textField enabled normal\\" id=\\"email\\" name=\\"email\\"/></span>"`;
+
+exports[`TextField TextField with type number 1`] = `"<span><input type=\\"number\\" aria-invalid=\\"false\\" class=\\"textField enabled normal\\" id=\\"test\\" pattern=\\"\\\\d*\\"/></span>"`;

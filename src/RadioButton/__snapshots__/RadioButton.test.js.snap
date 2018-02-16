@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton 1`] = `
+<div
+  className="RadioButton RadioButtonMd RadioButtonWhiteBg"
+>
+  <input
+    checked={false}
+    className="Input InputEnabled InputMd"
+    disabled={false}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />
+</div>
+`;
+
+exports[`RadioButton disabled 1`] = `
+<div
+  className="RadioButton RadioButtonMd RadioButtonLightGrayBg"
+>
+  <input
+    checked={false}
+    className="Input InputMd"
+    disabled={true}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />
+</div>
+`;
+
+exports[`RadioButton disabled small 1`] = `
+<div
+  className="RadioButton RadioButtonSm RadioButtonLightGrayBg"
+>
+  <input
+    checked={false}
+    className="Input InputSm"
+    disabled={true}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />
+</div>
+`;
+
+exports[`RadioButton small 1`] = `
+<div
+  className="RadioButton RadioButtonSm RadioButtonWhiteBg"
+>
+  <input
+    checked={false}
+    className="Input InputEnabled InputSm"
+    disabled={false}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />
+</div>
+`;

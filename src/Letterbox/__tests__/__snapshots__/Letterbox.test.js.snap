@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Letterbox covers square content in a horizontal frame 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": 50,
+      "width": 150,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginLeft": -0,
+        "marginTop": -50,
+      }
+    }
+  >
+    <div
+      className="Mask square"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Letterbox covers square content in a vertical frame 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": 150,
+      "width": 50,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginLeft": -50,
+        "marginTop": -0,
+      }
+    }
+  >
+    <div
+      className="Mask square"
+      style={
+        Object {
+          "height": 150,
+          "width": 150,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Letterbox crops tall content 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginLeft": -0,
+        "marginTop": -10.726950354609926,
+      }
+    }
+  >
+    <div
+      className="Mask square"
+      style={
+        Object {
+          "height": 71.45390070921985,
+          "width": 50,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Letterbox crops wide content 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginLeft": -2.27272727272727,
+        "marginTop": -0,
+      }
+    }
+  >
+    <div
+      className="Mask square"
+      style={
+        Object {
+          "height": 50,
+          "width": 54.54545454545454,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Letterbox fits square content 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": 50,
+      "width": 50,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "marginLeft": -0,
+        "marginTop": -0,
+      }
+    }
+  >
+    <div
+      className="Mask square"
+      style={
+        Object {
+          "height": 50,
+          "width": 50,
+        }
+      }
+    />
+  </div>
+</div>
+`;

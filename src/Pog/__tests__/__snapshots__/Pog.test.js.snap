@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pog active renders 1`] = `
+<div
+  className="pog transparent active"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="box circle"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Pog focused renders 1`] = `
+<div
+  className="pog transparent focused"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="box circle"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Pog hovered renders 1`] = `
+<div
+  className="pog transparent hovered"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="box circle"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Pog renders 1`] = `
+<div
+  className="pog transparent"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="box circle"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;

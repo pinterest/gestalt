@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box allows zero values for whitespace 1`] = `
+<div
+  className="box"
+/>
+`;
+
+exports[`Box dangerouslySetInlineStyle 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "width": 100,
+    }
+  }
+/>
+`;
+
+exports[`Box has correct *-flex-column classes when display is flexColumn 1`] = `
+<div
+  className="box lgDirectionColumn mdDirectionColumn smDirectionColumn xsDirectionColumn"
+/>
+`;
+
+exports[`Box has correct *-hide classes when display is false 1`] = `
+<div
+  className="box lgDisplayNone mdDisplayNone smDisplayNone xsDisplayNone"
+/>
+`;
+
+exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] = `
+<div
+  className="box lgDisplayInlineBlock mdDisplayInlineBlock smDisplayInlineBlock xsDisplayInlineBlock"
+/>
+`;
+
+exports[`Box has correct classes when display is flex 1`] = `
+<div
+  className="box"
+/>
+`;
+
+exports[`Box renders 1`] = `
+<div
+  className="box"
+/>
+`;

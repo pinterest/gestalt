@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column deprecated span 1`] = `
+<div
+  className="deprecatedColumn xsCol1"
+>
+  Hello world
+</div>
+`;
+
+exports[`Column span 1`] = `
+<div
+  className="xsCol1"
+>
+  Hello world
+</div>
+`;

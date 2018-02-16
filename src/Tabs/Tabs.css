@@ -1,0 +1,36 @@
+.Tabs {
+  composes: flex from '../Layout.css';
+  user-select: none;
+}
+
+.tab {
+  composes: accessibilityOutline from '../Focus.css';
+  composes: flex flexColumn itemCenter from "../Layout.css";
+  composes: noBorder pill from "../Borders.css";
+  composes: m0 from "../Whitespace.css";
+  composes: pointer from "../Cursor.css";
+  padding: 11px 16px;
+  text-decoration: none;
+}
+
+.tab:focus {
+  position: relative;
+}
+
+.tabIsNotActive {
+  composes: whiteBg gray from "../Colors.css";
+}
+
+.tab:focus,
+.tab:hover {
+  text-decoration: underline;
+}
+
+.tabIsNotActive:focus,
+.tabIsNotActive:hover {
+  color: #555;
+}
+
+.tabIsActive {
+  composes: lightGrayBg darkGray from "../Colors.css";
+}

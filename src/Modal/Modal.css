@@ -1,0 +1,14 @@
+.overlay {
+  height: 100%;
+  opacity: 0.9;
+  overflow-y: scroll;
+}
+
+.container {
+  height: 100%;
+}
+
+.wrapper {
+  max-height: 90%;
+  outline: none;
+}

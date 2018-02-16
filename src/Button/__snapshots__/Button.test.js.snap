@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button color="transparent" /> 1`] = `
+<button
+  aria-expanded={undefined}
+  aria-haspopup={undefined}
+  aria-label={undefined}
+  className="button md transparent enabled block"
+  disabled={false}
+  name={undefined}
+  onClick={[Function]}
+  type="button"
+>
+  <div
+    className="Text fontSize3 white leadingShort alignCenter fontStyleNormal fontWeightBold"
+  >
+    Hello World
+  </div>
+</button>
+`;

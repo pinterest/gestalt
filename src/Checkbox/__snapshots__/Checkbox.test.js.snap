@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={false}
+    className="input inputEnabled inputMd"
+    disabled={false}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="check checkWhite checkEnabled checkMd"
+  />
+</div>
+`;
+
+exports[`Checkbox checked 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={true}
+    className="input inputEnabled inputMd"
+    disabled={false}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="check checkDarkGray checkEnabled checkMd"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon white iconBlock"
+      height={12}
+      role="img"
+      viewBox="0 0 24 24"
+      width={12}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Checkbox disabled & checked 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={true}
+    className="input inputSm"
+    disabled={true}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="check checkGray checkSm"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon white iconBlock"
+      height={8}
+      role="img"
+      viewBox="0 0 24 24"
+      width={8}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Checkbox disabled 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={false}
+    className="input inputSm"
+    disabled={true}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="check checkLightGray checkSm"
+  />
+</div>
+`;
+
+exports[`Checkbox indeterminate 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={false}
+    className="input inputEnabled indeterminate inputMd"
+    disabled={false}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="check checkDarkGray checkEnabled checkMd"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon white iconBlock"
+      height={12}
+      role="img"
+      viewBox="0 0 24 24"
+      width={12}
+    >
+      <title>
+        
+      </title>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Checkbox small 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={false}
+    className="input inputEnabled inputSm"
+    disabled={false}
+    id="id"
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="check checkWhite checkEnabled checkSm"
+  />
+</div>
+`;

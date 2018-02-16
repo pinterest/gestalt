@@ -1,0 +1,31 @@
+.pointer {
+  cursor: pointer;
+}
+
+.zoomIn {
+  cursor: zoom-in;
+}
+
+.zoomOut {
+  cursor: zoom-out;
+}
+
+.copy {
+  cursor: copy;
+}
+
+.move {
+  cursor: move;
+}
+
+.noDrop {
+  cursor: no-drop;
+}
+
+.grab {
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
