@@ -33,7 +33,7 @@ const DefaultAvatar = ({ name }: { name: string }) => {
         <title>{name}</title>
         <text
           fontSize="50px"
-          fill="#FFFFFF"
+          fill="#fff"
           dominantBaseline="central"
           textAnchor="middle"
           className={[

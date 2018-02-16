@@ -26,9 +26,9 @@ card(
       },
       {
         name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 36px, sm: 60px, md: 108px, lg: 156px, xl: 198px`,
-        required: 'true',
+        type: `"sm" | "md" | "lg"`,
+        description: 'sm: 24px, md: 40px, lg: 72px',
+        required: true,
       },
     ]}
   />,
@@ -68,7 +68,7 @@ card(
           'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iBzx2mf8iyl4/v1/-1x-1.jpg',
       },
     ]}
-    size="md"
+    size="lg"
   />
 </Box>
 `}
@@ -79,28 +79,28 @@ card(
 
 card(
   'Size Combinations: 1 Person',
-  <Combination size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[ben]} {...props} />}
   </Combination>
 );
 
 card(
   'Size Combinations: 2 People',
-  <Combination size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[ben, evan]} {...props} />}
   </Combination>
 );
 
 card(
   'Size Combinations: 3 People',
-  <Combination size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[ben, evan, li]} {...props} />}
   </Combination>
 );
 
 card(
   'Size Combinations: 3 People (no pictures)',
-  <Combination size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination size={['sm', 'md', 'lg']}>
     {props => (
       <GroupAvatar
         collaborators={[ben, evan, li].map(collab => ({

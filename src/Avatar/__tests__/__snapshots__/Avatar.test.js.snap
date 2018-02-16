@@ -38,7 +38,7 @@ exports[`Avatar renders multibyte names 1`] = `
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
           dominantBaseline="central"
-          fill="#FFFFFF"
+          fill="#fff"
           fontSize="50px"
           textAnchor="middle"
         >
