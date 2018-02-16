@@ -10,5 +10,4 @@ console.log('publishing version ', version);
 shell.exec('npm publish --registry=https://registry.npmjs.org');
 shell.exec(`git tag v${version}`);
 shell.exec(`git push upstream tags/v${version}`);
-// Disable publishing the docs until Gestalt is open source
-// shell.exec('./scripts/ghpages.sh');
+shell.exec('./scripts/ghpages.sh');
