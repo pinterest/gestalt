@@ -13,7 +13,7 @@ or
 
 Gestalt exports each component as ES6 modules and a single, precompiled CSS file:
 
-```
+```js
 import { Text } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
 ```
@@ -24,13 +24,13 @@ That syntax is Webpack specific (and will work with Create React App), but you c
 
 Install dependencies.
 
-```
+```bash
 yarn
 ```
 
 Start the development server:
 
-```
+```bash
 yarn start
 open "http://localhost:8080"
 ```
@@ -38,20 +38,20 @@ Visit [http://localhost:8080/](http://localhost:8080) and click on a component t
 
 Running Jest unit tests:
 
-```
+```bash
 yarn test
 ```
 
 Using the Masonry playground:
 
-```
+```bash
 cd test && yarn start
 open "http://localhost:3000"
 ```
 
 Running Masonry's integration tests. This will likely leave hanging Firefox processes left over, so please be warned.
 
-```
+```bash
 ./run_integration_tests
 ```
 
