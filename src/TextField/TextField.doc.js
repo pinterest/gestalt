@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 import Label from '../Label/Label';
 import TextField from './TextField';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns('TextField', 'TextField allows for text input.');
 
@@ -131,39 +131,41 @@ card(
     <TextField id="number" type="number" value="" />
     ~~~
   `,
-  atom => {
-    const state = atom.deref();
-    return (
-      <Box paddingX={2}>
-        <TextFieldExample
-          label="With a placeholder"
-          state={state}
-          id="email"
-          type="email"
-          placeholder="Email Address"
-        />
-        <TextFieldExample
-          label="With a password"
-          state={state}
-          id="password"
-          type="password"
-        />
-        <TextFieldExample label="Date" state={state} id="date" type="date" />
-        <TextFieldExample
-          label="Number"
-          state={state}
-          id="number"
-          type="number"
-        />
-        <TextFieldExample
-          disabled
-          label="Disabled"
-          id="disabled"
-          value="Disabled TextField"
-        />
-      </Box>
-    );
-  }
+  <StateRecorder
+    fn={atom => {
+      const state = atom.deref();
+      return (
+        <Box paddingX={2}>
+          <TextFieldExample
+            label="With a placeholder"
+            state={state}
+            id="email"
+            type="email"
+            placeholder="Email Address"
+          />
+          <TextFieldExample
+            label="With a password"
+            state={state}
+            id="password"
+            type="password"
+          />
+          <TextFieldExample label="Date" state={state} id="date" type="date" />
+          <TextFieldExample
+            label="Number"
+            state={state}
+            id="number"
+            type="number"
+          />
+          <TextFieldExample
+            disabled
+            label="Disabled"
+            id="disabled"
+            value="Disabled TextField"
+          />
+        </Box>
+      );
+    }}
+  />
 );
 
 card(
@@ -177,19 +179,21 @@ card(
     <TextField errorMessage="This field can't be blank!" id="firstName" />
     ~~~
   `,
-  atom => (
-    <Box display="flex" direction="row" paddingX={2}>
-      <Box paddingY={2}>
-        <Box marginBottom={2}>
-          <Label htmlFor="firstName">With error message</Label>
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex" direction="row" paddingX={2}>
+        <Box paddingY={2}>
+          <Box marginBottom={2}>
+            <Label htmlFor="firstName">With error message</Label>
+          </Box>
+          <TextField
+            errorMessage="This field can't be blank!"
+            id="firstName"
+            onChange={({ value }) => atom.reset({ firstName: value })}
+            value={atom.deref().firstName}
+          />
         </Box>
-        <TextField
-          errorMessage="This field can't be blank!"
-          id="firstName"
-          onChange={({ value }) => atom.reset({ firstName: value })}
-          value={atom.deref().firstName}
-        />
       </Box>
-    </Box>
-  )
+    )}
+  />
 );
