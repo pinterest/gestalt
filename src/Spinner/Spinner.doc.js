@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Button from '../Button/Button';
 import Text from '../Text/Text';
 import Spinner from './Spinner';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns('Spinner');
 
@@ -36,24 +36,27 @@ card(
 
     The label on a spinner is for accessibility. You should pick labels that relate to the specific part of the product it's being used in ("Loading homefeed" for instance).
   `,
-  atom => (
-    <Box>
-      <Box paddingY={2}>
-        <Button
-          inline
-          text={!atom.deref().show ? 'Show spinner' : 'Hide spinner'}
-          onClick={() => {
-            atom.reset({ show: !atom.deref().show });
-          }}
-          size="md"
+  <StateRecorder
+    fn={atom => (
+      <Box>
+        <Box paddingY={2}>
+          <Button
+            inline
+            text={!atom.deref().show ? 'Show spinner' : 'Hide spinner'}
+            onClick={() => {
+              atom.reset({ show: !atom.deref().show });
+            }}
+            size="md"
+          />
+        </Box>
+        <Spinner
+          show={!!atom.deref().show}
+          accessibilityLabel="Example spinner"
         />
+        <Text>Data</Text>
       </Box>
-      <Spinner
-        show={!!atom.deref().show}
-        accessibilityLabel="Example spinner"
-      />
-      <Text>Data</Text>
-    </Box>
-  ),
-  { heading: false, initialState: { show: true } }
+    )}
+    initialState={{ show: true }}
+  />,
+  { heading: false }
 );
