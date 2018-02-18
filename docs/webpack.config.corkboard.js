@@ -5,7 +5,7 @@ const postcssReporter = require('postcss-reporter');
 const postcssUrl = require('postcss-url');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const breakpoints = require('./src/breakpoints.json');
+const breakpoints = require('../src/breakpoints.json');
 const webpack = require('webpack');
 
 const DEV_MODE = process.argv.includes('--dev');
@@ -23,11 +23,10 @@ module.exports = {
 
     // De-dupe module includes for fast development builds
     alias: {
-      'classnames/bind': `${__dirname}/node_modules/classnames/bind`,
-      corkboard: `${__dirname}/node_modules/corkboard`,
-      react: `${__dirname}/node_modules/react`,
-      'react-dom': `${__dirname}/node_modules/react-dom`,
-      'react-live': `${__dirname}/node_modules/react-live`,
+      'classnames/bind': `${__dirname}/../node_modules/classnames/bind`,
+      corkboard: `${__dirname}/../node_modules/corkboard`,
+      react: `${__dirname}/../node_modules/react`,
+      'react-dom': `${__dirname}/../node_modules/react-dom`,
     },
   },
   node: {
@@ -59,8 +58,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.join(__dirname, 'src'),
-        exclude: path.join(__dirname, 'node_modules'),
+        include: path.join(__dirname, '..', 'src'),
+        exclude: path.join(__dirname, '..', 'node_modules'),
         use: [
           {
             loader: 'css-loader',
@@ -104,8 +103,8 @@ module.exports = {
           },
         ],
         include: [
+          path.join(__dirname, '..', 'src'),
           path.join(__dirname, 'src'),
-          path.join(__dirname, 'docs'),
           path.dirname(require.resolve('corkboard')),
         ],
         exclude: /node_modules\/(?!(corkboard)\/).*/,

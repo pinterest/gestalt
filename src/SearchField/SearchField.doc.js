@@ -4,6 +4,7 @@ import * as React from 'react';
 import SearchField from './SearchField';
 import {
   ns,
+  md,
   card,
   PropTable,
   Example,
