@@ -13,7 +13,7 @@ const DEV_MODE = process.argv.includes('--dev');
 module.exports = {
   entry: ['./docs/src/index', 'webpack/hot/only-dev-server'],
   output: {
-    path: path.join(__dirname, 'docs'),
+    path: path.join(__dirname, 'docs', 'build'),
     pathinfo: true,
     filename: 'bundle.js',
     publicPath: '/',
@@ -139,10 +139,10 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: './docs/public/index.html',
       title: 'Gestalt',
       inject: true,
-      favicon: './favicon.png',
+      favicon: './docs/public/favicon.png',
     }),
     new webpack.DefinePlugin({
       'process.env': {
