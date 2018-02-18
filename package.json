@@ -27,7 +27,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "prettier": "prettier --write \"{codemods,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\"",
     "prepublish": "rollup -c rollup.config.js",
-    "start": "webpack-dev-server --config webpack.config.corkboard.js --progress --colors --open --dev",
+    "start": "webpack-dev-server --config webpack.config.corkboard.js --progress --colors --open",
     "stylelint": "stylelint \"src/**/*.css\"",
     "test:all": "npm run stylelint && npm run eslint && npm run flow && npm test && npm run ghost",
     "test": "jest",
@@ -63,12 +63,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.4.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^3.0.2",
     "flow-bin": "0.65.0",
     "flow-status-webpack-plugin": "^0.1.5",
     "ghost-axe": "^0.0.3",
     "ghostjs": "1.10.2",
-    "html-webpack-plugin": "^2.22.0",
+    "html-webpack-plugin": "^2.30.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.3.0",
     "json-loader": "^0.5.4",
@@ -104,8 +104,8 @@
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0",
     "svg-path-loader": "^0.0.4",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "jest": {
     "moduleNameMapper": {

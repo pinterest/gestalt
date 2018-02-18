@@ -12,7 +12,7 @@ import StateRecorderInternal from './StateRecorder';
 import cs from 'classnames';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
-import '!style!css!./AtomDark.css';
+import './AtomDark.css';
 
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';

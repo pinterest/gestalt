@@ -13,18 +13,29 @@ module.exports = {
     },
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]--[hash:base64:5]',
-          'postcss-loader',
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 2,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
         ],
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
       },
       {
         test: /\.svg$/,
