@@ -2,6 +2,7 @@ const breakpoints = require('../src/breakpoints.json');
 const postcssImport = require('postcss-import');
 const postcssUrl = require('postcss-url');
 const postcssCssNext = require('postcss-cssnext');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -43,17 +44,22 @@ module.exports = {
       },
     ],
   },
-  postcss(webpack) {
-    return [
-      postcssImport({ addDependencyTo: webpack }),
-      postcssUrl(),
-      postcssCssNext({
-        features: {
-          customMedia: {
-            extensions: breakpoints,
-          },
-        },
-      }),
-    ];
-  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: wp => [
+          postcssImport({ addDependencyTo: wp }),
+          postcssUrl(),
+          postcssCssNext({
+            features: {
+              customMedia: {
+                extensions: breakpoints,
+              },
+            },
+          }),
+        ],
+      },
+    }),
+  ],
 };

@@ -3,13 +3,13 @@ const postcss = require('postcss-import');
 const postcssUrl = require('postcss-url');
 const postcssCssNext = require('postcss-cssnext');
 const breakpoints = require('../src/breakpoints.json');
+const webpack = require('webpack');
 
 module.exports = {
   output: {
     path: './dist/',
     libraryTarget: 'commonjs2',
   },
-  plugins: [new ExtractTextPlugin('./css/bundle.css')],
   module: {
     loaders: [
       {
@@ -37,17 +37,23 @@ module.exports = {
       },
     ],
   },
-  postcss(webpack) {
-    return [
-      postcss({ addDependencyTo: webpack }),
-      postcssUrl(),
-      postcssCssNext({
-        features: {
-          customMedia: {
-            extensions: breakpoints,
-          },
-        },
-      }),
-    ];
-  },
+  plugins: [
+    new ExtractTextPlugin('./css/bundle.css'),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: wp => [
+          postcss({ addDependencyTo: wp }),
+          postcssUrl(),
+          postcssCssNext({
+            features: {
+              customMedia: {
+                extensions: breakpoints,
+              },
+            },
+          }),
+        ],
+      },
+    }),
+  ],
 };
