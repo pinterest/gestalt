@@ -8,7 +8,7 @@ import Checkbox from '../src/Checkbox/Checkbox';
 import Column from '../src/Column/Column';
 import Mask from '../src/Mask/Mask';
 import Heading from '../src/Heading/Heading';
-import StateRecorder from './StateRecorder';
+import StateRecorderInternal from './StateRecorder';
 import cs from 'classnames';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
@@ -16,6 +16,8 @@ import '!style!css!./AtomDark.css';
 
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
+
+export const StateRecorder = StateRecorderInternal;
 
 function Markdown({ text }) {
   const renderer = new Renderer();
@@ -143,21 +145,6 @@ export default function Card(props) {
     options: { heading, history, initialState, inspectData, stacked },
   } = props;
 
-  const partsOrStateRecorders = parts.map(part => {
-    if (typeof part === 'function') {
-      return (
-        <StateRecorder
-          fn={part}
-          historyLimit={100}
-          initialState={initialState}
-          showHistory={history}
-          showState={inspectData}
-        />
-      );
-    }
-    return part;
-  });
-
   return (
     <Box>
       {heading && (
@@ -171,9 +158,9 @@ export default function Card(props) {
         display="flex"
         direction={stacked ? 'column' : 'row'}
       >
-        {partsOrStateRecorders.map((node, i) => (
+        {parts.map((part, i) => (
           <Box paddingX={2} column={12} key={i}>
-            {node}
+            {part}
           </Box>
         ))}
       </Box>
@@ -305,7 +292,9 @@ export const PropTable = ({ props, Component }) => {
                         <Box>
                           <Text size="sm" __dangerouslyIncreaseLineHeight>
                             <code>
-                              sm{upcase(name)}, md{upcase(name)}, lg{upcase(name)}
+                              sm{upcase(name)}, md{upcase(name)}, lg{upcase(
+                                name
+                              )}
                             </code>
                           </Text>
                         </Box>

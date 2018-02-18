@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import Image from '../Image/Image';
 import Toast from './Toast';
 import Box from '../Box/Box';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'Toast',
@@ -63,44 +63,46 @@ card(
     />
     ~~~
   `,
-  atom => (
-    <div>
-      <Button
-        inline
-        text={
-          atom.deref().showToast ? 'Close toast' : 'Show confirmation toast'
-        }
-        onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
-        size="md"
-      />
-      {atom.deref().showToast ? (
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 68,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          <Toast
-            text={['Saved to', 'Home decor']}
-            thumbnail={
-              <Image
-                alt="Saved to home decor board"
-                naturalHeight={564}
-                naturalWidth={564}
-                src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-              />
-            }
-          />
-        </Box>
-      ) : null}
-    </div>
-  )
+  <StateRecorder
+    fn={atom => (
+      <div>
+        <Button
+          inline
+          text={
+            atom.deref().showToast ? 'Close toast' : 'Show confirmation toast'
+          }
+          onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
+          size="md"
+        />
+        {atom.deref().showToast ? (
+          <Box
+            fit
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 68,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast
+              text={['Saved to', 'Home decor']}
+              thumbnail={
+                <Image
+                  alt="Saved to home decor board"
+                  naturalHeight={564}
+                  naturalWidth={564}
+                  src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+                />
+              }
+            />
+          </Box>
+        ) : null}
+      </div>
+    )}
+  />
 );
 
 card(
@@ -114,35 +116,37 @@ card(
     <Toast text="Same great profile, just a new look. Learn more?" />
     ~~~
   `,
-  atom => (
-    <div>
-      <Button
-        inline
-        text={atom.deref().showToast ? 'Close toast' : 'Show guide toast'}
-        onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
-        size="md"
-      />
-      {atom.deref().showToast ? (
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 68,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          <Toast
-            icon="arrow-circle-forward"
-            text="Same great profile, just a new look. Learn more?"
-          />
-        </Box>
-      ) : null}
-    </div>
-  )
+  <StateRecorder
+    fn={atom => (
+      <div>
+        <Button
+          inline
+          text={atom.deref().showToast ? 'Close toast' : 'Show guide toast'}
+          onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
+          size="md"
+        />
+        {atom.deref().showToast ? (
+          <Box
+            fit
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 68,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast
+              icon="arrow-circle-forward"
+              text="Same great profile, just a new look. Learn more?"
+            />
+          </Box>
+        ) : null}
+      </div>
+    )}
+  />
 );
 
 card(
@@ -154,30 +158,32 @@ card(
     <Toast color="orange" text="Oops, we couldn't find that!" />
     ~~~
   `,
-  atom => (
-    <div>
-      <Button
-        inline
-        text={atom.deref().showToast ? 'Close toast' : 'Show error toast'}
-        onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
-        size="md"
-      />
-      {atom.deref().showToast ? (
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 68,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          <Toast color="orange" text="Oops, we couldn't find that!" />
-        </Box>
-      ) : null}
-    </div>
-  )
+  <StateRecorder
+    fn={atom => (
+      <div>
+        <Button
+          inline
+          text={atom.deref().showToast ? 'Close toast' : 'Show error toast'}
+          onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
+          size="md"
+        />
+        {atom.deref().showToast ? (
+          <Box
+            fit
+            dangerouslySetInlineStyle={{
+              __style: {
+                bottom: 68,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              },
+            }}
+            paddingX={1}
+            position="fixed"
+          >
+            <Toast color="orange" text="Oops, we couldn't find that!" />
+          </Box>
+        ) : null}
+      </div>
+    )}
+  />
 );

@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Label from '../Label/Label';
 import SelectList from './SelectList';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'SelectList',
@@ -144,23 +144,25 @@ card(
     </Box>
     ~~~
   `,
-  atom => (
-    <Box>
-      <Box paddingY={2}>
-        <Label htmlFor="country">
-          <Text>Country</Text>
-        </Label>
+  <StateRecorder
+    fn={atom => (
+      <Box>
+        <Box paddingY={2}>
+          <Label htmlFor="country">
+            <Text>Country</Text>
+          </Label>
+        </Box>
+        <SelectList
+          id="country"
+          name="country"
+          onChange={({ value }) => atom.reset({ value })}
+          options={countryOptions}
+          placeholder="Select country"
+          value={atom.deref().value}
+        />
       </Box>
-      <SelectList
-        id="country"
-        name="country"
-        onChange={({ value }) => atom.reset({ value })}
-        options={countryOptions}
-        placeholder="Select country"
-        value={atom.deref().value}
-      />
-    </Box>
-  )
+    )}
+  />
 );
 
 card(
@@ -189,24 +191,26 @@ card(
     </Box>
     ~~~
   `,
-  atom => (
-    <Box>
-      <Box paddingY={2}>
-        <Label htmlFor="city">
-          <Text>City</Text>
-        </Label>
+  <StateRecorder
+    fn={atom => (
+      <Box>
+        <Box paddingY={2}>
+          <Label htmlFor="city">
+            <Text>City</Text>
+          </Label>
+        </Box>
+        <SelectList
+          id="city"
+          errorMessage="This field can't be blank!"
+          name="city"
+          onChange={({ value }) => atom.reset({ value })}
+          options={cityOptions}
+          placeholder="Select city"
+          value={atom.deref().value}
+        />
       </Box>
-      <SelectList
-        id="city"
-        errorMessage="This field can't be blank!"
-        name="city"
-        onChange={({ value }) => atom.reset({ value })}
-        options={cityOptions}
-        placeholder="Select city"
-        value={atom.deref().value}
-      />
-    </Box>
-  )
+    )}
+  />
 );
 
 card(

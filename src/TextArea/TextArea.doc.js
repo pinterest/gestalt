@@ -4,7 +4,7 @@ import * as React from 'react';
 import Box from '../Box/Box';
 import Label from '../Label/Label';
 import TextArea from './TextArea';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns('TextArea', 'TextArea allows for multiline input.');
 
@@ -79,34 +79,37 @@ card(
     <TextArea id="aboutme" placeholder="Write something about yourself..." />
     ~~~
   `,
-  atom => (
-    <Box paddingX={2}>
-      <Box paddingY={3}>
-        <Box marginBottom={2}>
-          <Label htmlFor="aboutme">With a placeholder</Label>
+  <StateRecorder
+    fn={atom => (
+      <Box paddingX={2}>
+        <Box paddingY={3}>
+          <Box marginBottom={2}>
+            <Label htmlFor="aboutme">With a placeholder</Label>
+          </Box>
+          <TextArea
+            id="aboutme"
+            onChange={({ value }) => atom.reset({ placeholderValue: value })}
+            placeholder="Write something about yourself..."
+            value={atom.deref().placeholderValue}
+          />
         </Box>
-        <TextArea
-          id="aboutme"
-          onChange={({ value }) => atom.reset({ placeholderValue: value })}
-          placeholder="Write something about yourself..."
-          value={atom.deref().placeholderValue}
-        />
-      </Box>
 
-      <Box paddingY={3}>
-        <Box marginBottom={2}>
-          <Label htmlFor="disabled">Disabled</Label>
+        <Box paddingY={3}>
+          <Box marginBottom={2}>
+            <Label htmlFor="disabled">Disabled</Label>
+          </Box>
+          <TextArea
+            disabled
+            id="disabled"
+            onChange={({ value }) => atom.reset({ disabled: value })}
+            placeholder="A disabled TextArea"
+            value={atom.deref().disabled}
+          />
         </Box>
-        <TextArea
-          disabled
-          id="disabled"
-          onChange={({ value }) => atom.reset({ disabled: value })}
-          placeholder="A disabled TextArea"
-          value={atom.deref().disabled}
-        />
       </Box>
-    </Box>
-  )
+    )}
+    historyLimit={100}
+  />
 );
 
 card(
@@ -120,21 +123,23 @@ card(
     <TextArea errorMessage="This field can't be blank!" id="comment" />
     ~~~
   `,
-  atom => (
-    <Box paddingX={2}>
-      <Box paddingY={3}>
-        <Box marginBottom={2}>
-          <Label htmlFor="comment">With error message</Label>
+  <StateRecorder
+    fn={atom => (
+      <Box paddingX={2}>
+        <Box paddingY={3}>
+          <Box marginBottom={2}>
+            <Label htmlFor="comment">With error message</Label>
+          </Box>
+          <TextArea
+            errorMessage="This field can't be blank!"
+            id="comment"
+            onChange={({ value }) => atom.reset({ errorMsgValue: value })}
+            value={atom.deref().errorMsgValue}
+          />
         </Box>
-        <TextArea
-          errorMessage="This field can't be blank!"
-          id="comment"
-          onChange={({ value }) => atom.reset({ errorMsgValue: value })}
-          value={atom.deref().errorMsgValue}
-        />
       </Box>
-    </Box>
-  )
+    )}
+  />
 );
 
 card(
@@ -147,19 +152,21 @@ card(
     <TextArea id="rows" rows={5} />
     ~~~
   `,
-  atom => (
-    <Box paddingX={2}>
-      <Box paddingY={3}>
-        <Box marginBottom={2}>
-          <Label htmlFor="rows">With non-default rows</Label>
+  <StateRecorder
+    fn={atom => (
+      <Box paddingX={2}>
+        <Box paddingY={3}>
+          <Box marginBottom={2}>
+            <Label htmlFor="rows">With non-default rows</Label>
+          </Box>
+          <TextArea
+            id="rows"
+            onChange={({ value }) => atom.reset({ placeholderValue: value })}
+            rows={5}
+            value={atom.deref().placeholderValue}
+          />
         </Box>
-        <TextArea
-          id="rows"
-          onChange={({ value }) => atom.reset({ placeholderValue: value })}
-          rows={5}
-          value={atom.deref().placeholderValue}
-        />
       </Box>
-    </Box>
-  )
+    )}
+  />
 );

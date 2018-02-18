@@ -8,7 +8,7 @@ import Flyout from './Flyout';
 import IconButton from '../IconButton/IconButton';
 import Link from '../Link/Link';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'Flyout',
@@ -71,126 +71,148 @@ card(
     xl: 375px
     ~~~
   `,
-  atom => (
-    <Box display="flex">
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">xs</Heading>
-        <FlyoutEx
-          idealDirection="down"
-          isOpen={!!atom.deref().xs}
-          onDismiss={() => atom.reset({ xs: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().xs}
-              accessibilityHaspopup
-              icon="ellipsis"
-              onClick={() => atom.reset({ xs: !atom.deref().xs })}
-            />
-          }
-          size="xs"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading size="xs">xs</Heading>
-          </Box>
-        </FlyoutEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">sm</Heading>
-        <FlyoutEx
-          idealDirection="down"
-          isOpen={!!atom.deref().sm}
-          onDismiss={() => atom.reset({ sm: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().sm}
-              accessibilityHaspopup
-              icon="ellipsis"
-              onClick={() => atom.reset({ sm: !atom.deref().sm })}
-            />
-          }
-          size="sm"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading size="sm">sm</Heading>
-          </Box>
-        </FlyoutEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">md</Heading>
-        <FlyoutEx
-          idealDirection="down"
-          isOpen={!!atom.deref().md}
-          onDismiss={() => atom.reset({ md: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().md}
-              accessibilityHaspopup
-              icon="ellipsis"
-              onClick={() => atom.reset({ md: !atom.deref().md })}
-            />
-          }
-          size="md"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading size="md">md</Heading>
-          </Box>
-        </FlyoutEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">lg</Heading>
-        <FlyoutEx
-          idealDirection="down"
-          isOpen={!!atom.deref().lg}
-          onDismiss={() => atom.reset({ lg: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().lg}
-              accessibilityHaspopup
-              icon="ellipsis"
-              onClick={() => atom.reset({ lg: !atom.deref().lg })}
-            />
-          }
-          size="lg"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading size="lg">lg</Heading>
-          </Box>
-        </FlyoutEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2}>
-        <Heading size="xs">xl</Heading>
-        <FlyoutEx
-          idealDirection="down"
-          isOpen={!!atom.deref().xl}
-          onDismiss={() => atom.reset({ xl: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().xl}
-              accessibilityHaspopup
-              icon="ellipsis"
-              onClick={() => atom.reset({ xl: !atom.deref().xl })}
-            />
-          }
-          size="xl"
-        >
-          <Box
-            display="flex"
-            width="100%"
-            justifyContent="center"
-            padding={2}
-            alignItems="center"
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex">
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">xs</Heading>
+          <FlyoutEx
+            idealDirection="down"
+            isOpen={!!atom.deref().xs}
+            onDismiss={() => atom.reset({ xs: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().xs}
+                accessibilityHaspopup
+                icon="ellipsis"
+                onClick={() => atom.reset({ xs: !atom.deref().xs })}
+              />
+            }
+            size="xs"
           >
-            <Heading size="xl">xl</Heading>
-          </Box>
-        </FlyoutEx>
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading size="xs">xs</Heading>
+            </Box>
+          </FlyoutEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">sm</Heading>
+          <FlyoutEx
+            idealDirection="down"
+            isOpen={!!atom.deref().sm}
+            onDismiss={() => atom.reset({ sm: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().sm}
+                accessibilityHaspopup
+                icon="ellipsis"
+                onClick={() => atom.reset({ sm: !atom.deref().sm })}
+              />
+            }
+            size="sm"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading size="sm">sm</Heading>
+            </Box>
+          </FlyoutEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">md</Heading>
+          <FlyoutEx
+            idealDirection="down"
+            isOpen={!!atom.deref().md}
+            onDismiss={() => atom.reset({ md: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().md}
+                accessibilityHaspopup
+                icon="ellipsis"
+                onClick={() => atom.reset({ md: !atom.deref().md })}
+              />
+            }
+            size="md"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading size="md">md</Heading>
+            </Box>
+          </FlyoutEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">lg</Heading>
+          <FlyoutEx
+            idealDirection="down"
+            isOpen={!!atom.deref().lg}
+            onDismiss={() => atom.reset({ lg: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().lg}
+                accessibilityHaspopup
+                icon="ellipsis"
+                onClick={() => atom.reset({ lg: !atom.deref().lg })}
+              />
+            }
+            size="lg"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading size="lg">lg</Heading>
+            </Box>
+          </FlyoutEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2}>
+          <Heading size="xs">xl</Heading>
+          <FlyoutEx
+            idealDirection="down"
+            isOpen={!!atom.deref().xl}
+            onDismiss={() => atom.reset({ xl: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().xl}
+                accessibilityHaspopup
+                icon="ellipsis"
+                onClick={() => atom.reset({ xl: !atom.deref().xl })}
+              />
+            }
+            size="xl"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+              alignItems="center"
+            >
+              <Heading size="xl">xl</Heading>
+            </Box>
+          </FlyoutEx>
+        </Box>
       </Box>
-    </Box>
-  )
+    )}
+  />
 );
 
 card(
@@ -395,101 +417,103 @@ card(
     }
     ~~~
   `,
-  atom => (
-    <Box>
-      <Box alignItems="center" paddingY={2} display="flex" direction="row">
-        <Box paddingX={1}>
-          <Text bold inline>
-            #1
-          </Text>
+  <StateRecorder
+    fn={atom => (
+      <Box>
+        <Box alignItems="center" paddingY={2} display="flex" direction="row">
+          <Box paddingX={1}>
+            <Text bold inline>
+              #1
+            </Text>
+          </Box>
+          <FlyoutEx
+            idealDirection="down"
+            isOpen={!!atom.deref().more}
+            onDismiss={() => atom.reset({ more: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().more}
+                accessibilityHaspopup
+                icon="ellipsis"
+                onClick={() => atom.reset({ more: !atom.deref().more })}
+              />
+            }
+            size="xs"
+          >
+            {moreFlyout}
+          </FlyoutEx>
         </Box>
-        <FlyoutEx
-          idealDirection="down"
-          isOpen={!!atom.deref().more}
-          onDismiss={() => atom.reset({ more: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().more}
-              accessibilityHaspopup
-              icon="ellipsis"
-              onClick={() => atom.reset({ more: !atom.deref().more })}
-            />
-          }
-          size="xs"
-        >
-          {moreFlyout}
-        </FlyoutEx>
-      </Box>
-      <Box alignItems="center" paddingY={2} display="flex" direction="row">
-        <Box paddingX={1}>
-          <Text bold inline>
-            #2
-          </Text>
+        <Box alignItems="center" paddingY={2} display="flex" direction="row">
+          <Box paddingX={1}>
+            <Text bold inline>
+              #2
+            </Text>
+          </Box>
+          <FlyoutEx
+            idealDirection="right"
+            isOpen={!!atom.deref().profile}
+            onDismiss={() => atom.reset({ profile: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="Profile options"
+                accessibilityExpanded={!!atom.deref().profile}
+                accessibilityHaspopup
+                icon="person"
+                onClick={() => atom.reset({ profile: !atom.deref().profile })}
+              />
+            }
+          >
+            {profileFlyout}
+          </FlyoutEx>
         </Box>
-        <FlyoutEx
-          idealDirection="right"
-          isOpen={!!atom.deref().profile}
-          onDismiss={() => atom.reset({ profile: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="Profile options"
-              accessibilityExpanded={!!atom.deref().profile}
-              accessibilityHaspopup
-              icon="person"
-              onClick={() => atom.reset({ profile: !atom.deref().profile })}
-            />
-          }
-        >
-          {profileFlyout}
-        </FlyoutEx>
-      </Box>
-      <Box alignItems="center" paddingY={2} display="flex" direction="row">
-        <Box paddingX={1}>
-          <Text bold inline>
-            #3
-          </Text>
+        <Box alignItems="center" paddingY={2} display="flex" direction="row">
+          <Box paddingX={1}>
+            <Text bold inline>
+              #3
+            </Text>
+          </Box>
+          <FlyoutEx
+            isOpen={!!atom.deref().add}
+            onDismiss={() => atom.reset({ add: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="Add pin"
+                accessibilityExpanded={!!atom.deref().add}
+                accessibilityHaspopup
+                icon="add"
+                onClick={() => atom.reset({ add: !atom.deref().add })}
+              />
+            }
+          >
+            {plusFlyout}
+          </FlyoutEx>
         </Box>
-        <FlyoutEx
-          isOpen={!!atom.deref().add}
-          onDismiss={() => atom.reset({ add: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="Add pin"
-              accessibilityExpanded={!!atom.deref().add}
-              accessibilityHaspopup
-              icon="add"
-              onClick={() => atom.reset({ add: !atom.deref().add })}
-            />
-          }
-        >
-          {plusFlyout}
-        </FlyoutEx>
-      </Box>
-      <Box alignItems="center" paddingY={2} display="flex" direction="row">
-        <Box paddingX={1}>
-          <Text bold inline>
-            #4
-          </Text>
+        <Box alignItems="center" paddingY={2} display="flex" direction="row">
+          <Box paddingX={1}>
+            <Text bold inline>
+              #4
+            </Text>
+          </Box>
+          <FlyoutEx
+            idealDirection="up"
+            isOpen={!!atom.deref().help}
+            onDismiss={() => atom.reset({ help: false })}
+            anchor={
+              <Button
+                accessibilityExpanded={!!atom.deref().help}
+                accessibilityHaspopup
+                onClick={() => atom.reset({ help: !atom.deref().help })}
+                text="Help"
+              />
+            }
+          >
+            {helpFlyout}
+          </FlyoutEx>
         </Box>
-        <FlyoutEx
-          idealDirection="up"
-          isOpen={!!atom.deref().help}
-          onDismiss={() => atom.reset({ help: false })}
-          anchor={
-            <Button
-              accessibilityExpanded={!!atom.deref().help}
-              accessibilityHaspopup
-              onClick={() => atom.reset({ help: !atom.deref().help })}
-              text="Help"
-            />
-          }
-        >
-          {helpFlyout}
-        </FlyoutEx>
       </Box>
-    </Box>
-  )
+    )}
+  />
 );
 
 type Props = {

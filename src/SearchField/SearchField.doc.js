@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import SearchField from './SearchField';
-import { ns, card, PropTable } from '../../.corkboard/cards';
+import { ns, card, PropTable, StateRecorder } from '../../.corkboard/cards';
 import Box from '../Box/Box';
 import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';
@@ -48,38 +48,40 @@ card(
 
 card(
   'Demo',
-  atom => (
-    <div className="border">
-      <Box padding={3} display="flex" direction="row" alignItems="center">
-        <Box padding={3}>
-          <Icon
-            icon="pinterest"
-            color="red"
-            size={20}
-            accessibilityLabel="Pinterest"
-          />
+  <StateRecorder
+    fn={atom => (
+      <div className="border">
+        <Box padding={3} display="flex" direction="row" alignItems="center">
+          <Box padding={3}>
+            <Icon
+              icon="pinterest"
+              color="red"
+              size={20}
+              accessibilityLabel="Pinterest"
+            />
+          </Box>
+          <Box flex="grow" paddingX={2}>
+            <SearchField
+              accessibilityLabel="Demo Search Field"
+              id="searchField"
+              onChange={({ value }) => atom.reset({ value })}
+              placeholder="Search and explore"
+              value={atom.deref().value}
+            />
+          </Box>
+          <Box paddingX={2}>
+            <IconButton
+              accessibilityLabel="Notifications"
+              icon="speech-ellipsis"
+              size="md"
+            />
+          </Box>
+          <Box paddingX={2}>
+            <IconButton accessibilityLabel="Profile" icon="person" size="md" />
+          </Box>
         </Box>
-        <Box flex="grow" paddingX={2}>
-          <SearchField
-            accessibilityLabel="Demo Search Field"
-            id="searchField"
-            onChange={({ value }) => atom.reset({ value })}
-            placeholder="Search and explore"
-            value={atom.deref().value}
-          />
-        </Box>
-        <Box paddingX={2}>
-          <IconButton
-            accessibilityLabel="Notifications"
-            icon="speech-ellipsis"
-            size="md"
-          />
-        </Box>
-        <Box paddingX={2}>
-          <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-        </Box>
-      </Box>
-    </div>
-  ),
-  { initialState: { value: '' } }
+      </div>
+    )}
+    initialState={{ value: '' }}
+  />
 );
