@@ -115,39 +115,41 @@ card(
   `,
   <Example
     defaultCode={`
-const CheckboxExample = (props) => {
-	const CheckboxWithLabel = ({ id, label }) => (
-    <Box
-      alignItems="center"
-      direction="row"
-      display="flex"
-    >
-      <Checkbox
-        checked
-        id={id}
-        onChange={() => {}}
-      />
-      <Label htmlFor={id}>
-        <Box paddingX={2}>
-          <Text>{label}</Text>
-        </Box>
-      </Label>
-    </Box>
-  );
-
-	return (
-		<Box display="flex" direction="column" justifyContent="around">
-			<Box paddingY={1}>
-        <CheckboxWithLabel label="Email" id="email" />
-			</Box>
-			<Box paddingY={1}>
-				<CheckboxWithLabel label="Mobile push" id="push" />
-			</Box>
-			<Box paddingY={1}>
-        <CheckboxWithLabel label="Carrier pidgeon" id="pidgeon" />
+class CheckboxExample extends React.Component {
+  render() {
+    const CheckboxWithLabel = ({ id, label }) => (
+      <Box
+        alignItems="center"
+        direction="row"
+        display="flex"
+      >
+        <Checkbox
+          checked
+          id={id}
+          onChange={() => {}}
+        />
+        <Label htmlFor={id}>
+          <Box paddingX={2}>
+            <Text>{label}</Text>
+          </Box>
+        </Label>
       </Box>
-		</Box>
-	);
+    );
+
+  	return (
+  		<Box display="flex" direction="column" justifyContent="around" marginTop={-1} marginBottom={-1}>
+  			<Box paddingY={1}>
+          <CheckboxWithLabel label="Email" id="email" />
+  			</Box>
+  			<Box paddingY={1}>
+  				<CheckboxWithLabel label="Mobile push" id="push" />
+  			</Box>
+  			<Box paddingY={1}>
+          <CheckboxWithLabel label="Carrier pidgeon" id="pidgeon" />
+        </Box>
+  		</Box>
+  	);
+  }
 }
 `}
     scope={{ Box, Checkbox, Label, Text }}
