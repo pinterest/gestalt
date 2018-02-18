@@ -30,7 +30,7 @@ card(
 );
 
 card(
-  'Example',
+  'Example: Using with a form element',
   md`
     Whenever you are using a [SelectList](#/SelectList), [Switch](#/Switch), [TextField](#/TextField) or [TextArea](#/TextArea) component, you should use a \`Label\`.
 

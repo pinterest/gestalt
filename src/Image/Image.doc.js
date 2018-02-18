@@ -1,9 +1,7 @@
 // @flow
 import * as React from 'react';
-import Box from '../Box/Box';
 import Image from './Image';
-import Text from '../Text/Text';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 
 ns(
   'Image',
@@ -100,64 +98,50 @@ card(
     The color you pass into \`Image\` will be used to fill the placeholder that shows up
     as an image loads. The example shown has an empty \`src\` prop provided so it remains
     a placeholder.
-
-    ~~~jsx
-    <Image
-      alt="example.com"
-      color="rgb(111, 91, 77)"
-      naturalHeight={564}
-      naturalWidth={564}
-      src="..."
-    />
-    ~~~
   `,
-  <Box column={6} paddingX={2}>
-    <Image
-      alt="example.com"
-      color="rgb(111, 91, 77)"
-      naturalHeight={564}
-      naturalWidth={564}
-      src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-    />
-  </Box>
+  <Example
+    defaultCode={`
+<Column span={6}>
+  <Image
+    alt="example.com"
+    color="rgb(111, 91, 77)"
+    naturalHeight={564}
+    naturalWidth={564}
+    src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+  />
+</Column>
+`}
+    scope={{ Image }}
+  />,
+  { stacked: true }
 );
 
 card(
   'Overlay',
   md`
     You can overlay content on an Image by passing it children.
-
-    ~~~jsx
-    <Image
-      alt="..."
-      color="#000"
-      naturalHeight={751}
-      naturalWidth={564}
-      src="..."
-    >
-      <Box paddingX={2}>
-        <Text color="white">
-          Tropic greens: The taste of Petrol and Porcelain
-        </Text>
-      </Box>
-    </Image>
-    ~~~
   `,
-  <Box column={6} paddingX={2}>
-    <Image
-      alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-      color="rgb(231, 186, 176)"
-      naturalHeight={751}
-      naturalWidth={564}
-      src="https://s-media-cache-ak0.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
-    >
-      <Box padding={3}>
-        <Text color="white">
-          Tropic greens: The taste of Petrol and Porcelain
-        </Text>
-      </Box>
-    </Image>
-  </Box>
+  <Example
+    defaultCode={`
+<Box column={6} paddingX={2}>
+  <Image
+    alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
+    color="rgb(231, 186, 176)"
+    naturalHeight={751}
+    naturalWidth={564}
+    src="https://s-media-cache-ak0.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
+  >
+    <Box padding={3}>
+      <Text color="white">
+        Tropic greens: The taste of Petrol and Porcelain
+      </Text>
+    </Box>
+  </Image>
+</Box>
+  `}
+    scope={{ Image }}
+  />,
+  { stacked: true }
 );
 
 card(
@@ -185,118 +169,123 @@ card(
     * When using cover/contain, \`naturalHeight\` and \`naturalWidth\` are ignored since the aspect ratio is handled by the browser.
     * In order for cover/contain to work properly, the container must have some sort of implicit height.
   `,
-  <Box display="flex" direction="row" wrap>
-    <Box>
-      <h3>Tall content: cover vs contain</h3>
-      <Box display="flex" direction="row" justifyContent="around">
-        <Box
-          color="darkGray"
-          height={200}
-          width={200}
-          marginLeft={4}
-          marginRight={4}
-        >
-          <Image
-            alt="tall"
-            color="#000"
-            fit="contain"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
-          />
-        </Box>
-        <Box
-          color="darkGray"
-          height={200}
-          width={200}
-          marginLeft={4}
-          marginRight={4}
-        >
-          <Image
-            alt="tall"
-            color="#000"
-            fit="cover"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
-          />
-        </Box>
+  <Example
+    defaultCode={`
+<Box display="flex" direction="row" wrap>
+  <Box>
+    <h3>Tall content: cover vs contain</h3>
+    <Box display="flex" direction="row" justifyContent="around">
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="contain"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+        />
+      </Box>
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="cover"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+        />
       </Box>
     </Box>
-    <Box>
-      <h3>Wide content: cover vs contain</h3>
-      <Box display="flex" direction="row" justifyContent="around">
-        <Box
-          color="darkGray"
-          height={200}
-          width={200}
-          marginLeft={4}
-          marginRight={4}
-        >
-          <Image
-            alt="tall"
-            color="#000"
-            fit="contain"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
-          />
-        </Box>
-        <Box
-          color="darkGray"
-          height={200}
-          width={200}
-          marginLeft={4}
-          marginRight={4}
-        >
-          <Image
-            alt="tall"
-            color="#000"
-            fit="cover"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
-          />
-        </Box>
+  </Box>
+  <Box>
+    <h3>Wide content: cover vs contain</h3>
+    <Box display="flex" direction="row" justifyContent="around">
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="contain"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+        />
+      </Box>
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="cover"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+        />
       </Box>
     </Box>
-    <Box>
-      <h3>Square content: cover vs contain</h3>
-      <Box display="flex" direction="row" justifyContent="around">
-        <Box
-          color="darkGray"
-          height={200}
-          width={200}
-          marginLeft={4}
-          marginRight={4}
-        >
-          <Image
-            alt="tall"
-            color="#000"
-            fit="contain"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
-          />
-        </Box>
-        <Box
-          color="darkGray"
-          height={200}
-          width={200}
-          marginLeft={4}
-          marginRight={4}
-        >
-          <Image
-            alt="tall"
-            color="#000"
-            fit="cover"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
-          />
-        </Box>
+  </Box>
+  <Box>
+    <h3>Square content: cover vs contain</h3>
+    <Box display="flex" direction="row" justifyContent="around">
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="contain"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+        />
+      </Box>
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="cover"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+        />
       </Box>
     </Box>
-  </Box>,
+  </Box>
+</Box>
+`}
+    scope={{ Image }}
+  />,
   { stacked: true }
 );
