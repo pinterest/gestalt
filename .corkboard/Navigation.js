@@ -25,11 +25,11 @@ export default function Navigation(props, context) {
       router.push(to);
     };
     return (
-      <Link href={href} onClick={handleClick}>
-        <Text size="lg" bold leading="tall">
+      <Text bold leading="tall" color={isActive ? 'darkGray' : 'gray'}>
+        <Link href={href} onClick={handleClick}>
           {ns}
-        </Text>
-      </Link>
+        </Link>
+      </Text>
     );
   });
   const options = [{ label: '-', value: '#' }].concat(
@@ -68,9 +68,7 @@ export default function Navigation(props, context) {
             />
           </Box>
           <Box paddingX={1}>
-            <Heading size="xs">
-              Gestalt
-            </Heading>
+            <Heading size="xs">Gestalt</Heading>
           </Box>
         </Box>
         <Box role="list">

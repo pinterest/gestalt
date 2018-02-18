@@ -14,7 +14,9 @@ export default function App(props) {
         </Box>
       </Column>
       <Column span={12} mdSpan={10}>
-        <Box padding={4}>{children}</Box>
+        <Box padding={4}>
+          <Container>{children}</Container>
+        </Box>
       </Column>
     </Box>
   );

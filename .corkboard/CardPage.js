@@ -13,19 +13,17 @@ export default function CardPage(props) {
   return cards ? (
     <Box>
       {cards.map((card, i) => (
-        <Box marginBottom={4} id={`card-${i}`} key={i}>
+        <Box marginTop={6} marginBottom={6} id={`card-${i}`} key={i}>
           {card.fn()}
         </Box>
       ))}
     </Box>
   ) : (
     <Box>
-      <Heading size="lg" color="maroon">
-        Oops!
+      <Heading size="lg" color="red">
+        Oops
       </Heading>
-      <Heading size="md" color="red">
-        This page could not be found.
-      </Heading>
+      <Heading size="md">This page could not be found.</Heading>
     </Box>
   );
 }
