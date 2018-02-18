@@ -19,7 +19,7 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
 
     // De-dupe module includes for fast development builds
     alias: {
@@ -27,6 +27,7 @@ module.exports = {
       corkboard: `${__dirname}/node_modules/corkboard`,
       react: `${__dirname}/node_modules/react`,
       'react-dom': `${__dirname}/node_modules/react-dom`,
+      'react-live': `${__dirname}/node_modules/react-live`,
     },
   },
   node: {
@@ -39,32 +40,69 @@ module.exports = {
     stats: 'normal',
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.json$/,
-        loader: 'json-loader',
+        test: /\.css$/,
+        loader: 'style-loader',
       },
       {
         test: /\.css$/,
-        loader: 'style',
+        include: path.join(__dirname, '.corkboard'),
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
       },
       {
         test: /\.css$/,
         include: path.join(__dirname, 'src'),
         exclude: path.join(__dirname, 'node_modules'),
-        loaders: [
-          'css?modules&importLoaders=1&localIdentName=[path][name]---[local]---[hash:base64:5]',
-          'postcss',
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[path][name]---[local]---[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
         ],
       },
       {
         test: /\.css$/,
         include: [path.dirname(require.resolve('corkboard'))],
-        loaders: ['css?importLoaders=1', 'postcss'],
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
+        ],
       },
       {
         test: /\.js$/,
-        loaders: ['react-hot', 'babel?cacheDirectory'],
+        use: [
+          {
+            loader: 'react-hot-loader',
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
         include: [
           path.join(__dirname, 'src'),
           path.join(__dirname, '.corkboard'),
@@ -78,24 +116,27 @@ module.exports = {
       },
     ],
   },
-  postcss(wp) {
-    return [
-      postcssImport({
-        addDependencyTo: wp,
-      }),
-      postcssUrl(),
-      postcssCssNext({
-        features: {
-          customMedia: {
-            extensions: breakpoints,
-          },
-        },
-      }),
-      postcssBrowserReporter(),
-      postcssReporter(),
-    ];
-  },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: wp => [
+          postcssImport({
+            addDependencyTo: wp,
+          }),
+          postcssUrl(),
+          postcssCssNext({
+            features: {
+              customMedia: {
+                extensions: breakpoints,
+              },
+            },
+          }),
+          postcssBrowserReporter(),
+          postcssReporter(),
+        ],
+      },
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'index.html',

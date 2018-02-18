@@ -2,6 +2,7 @@ const breakpoints = require('../src/breakpoints.json');
 const postcssImport = require('postcss-import');
 const postcssUrl = require('postcss-url');
 const postcssCssNext = require('postcss-cssnext');
+const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -13,18 +14,29 @@ module.exports = {
     },
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]--[hash:base64:5]',
-          'postcss-loader',
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 2,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
         ],
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
       },
       {
         test: /\.svg$/,
@@ -32,17 +44,22 @@ module.exports = {
       },
     ],
   },
-  postcss(webpack) {
-    return [
-      postcssImport({ addDependencyTo: webpack }),
-      postcssUrl(),
-      postcssCssNext({
-        features: {
-          customMedia: {
-            extensions: breakpoints,
-          },
-        },
-      }),
-    ];
-  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: wp => [
+          postcssImport({ addDependencyTo: wp }),
+          postcssUrl(),
+          postcssCssNext({
+            features: {
+              customMedia: {
+                extensions: breakpoints,
+              },
+            },
+          }),
+        ],
+      },
+    }),
+  ],
 };
