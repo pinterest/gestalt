@@ -1,6 +1,6 @@
 // @chrislloyd: This linter is disabled because initialState is polymorphic.
 /* eslint react/forbid-prop-types:0 */
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 const atom = initialState => {
   let state = initialState;
@@ -21,31 +21,34 @@ const atom = initialState => {
 
 function Icon(props) {
   const { icon, label } = props;
-  return <i className={["fa", `fa-${icon}`].join(" ")} title={label} />;
+  return <i className={['fa', `fa-${icon}`].join(' ')} title={label} />;
 }
 
 function Control(props) {
   const { pred, color, children, onClick } = props;
-  const iconColor = pred ? color : "silver";
+  const iconColor = pred ? color : 'silver';
   if (pred) {
     return (
       <button
-        className={["block col-2 center", iconColor].join(" ")}
+        className={['block col-2 center', iconColor].join(' ')}
         onClick={onClick}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: 'pointer' }}
       >
         {children}
       </button>
     );
   }
   return (
-    <div className={["col-2 center", iconColor].join(" ")}>
-      {children}
-    </div>
+    <div className={['col-2 center', iconColor].join(' ')}>{children}</div>
   );
 }
 
 export default class StateRecorder extends Component {
+  static defaultProps = {
+    historyLimit: 100,
+    initialState: {},
+  };
+
   constructor(props) {
     super(props);
     this.handlePrevious = this.unboundHandlePrevious.bind(this);

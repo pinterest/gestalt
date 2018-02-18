@@ -13,7 +13,7 @@ import Switch from '../Switch/Switch';
 import Text from '../Text/Text';
 import TextArea from '../TextArea/TextArea';
 import TextField from '../TextField/TextField';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'Modal',
@@ -84,70 +84,72 @@ card(
     lg: 804px
     ~~~
   `,
-  atom => (
-    <Box display="flex">
-      <Box padding={2}>
-        <Button
-          text="size='sm'"
-          onClick={() => atom.reset({ sm: !atom.deref().sm })}
-        />
-        {atom.deref().sm && (
-          <Modal
-            accessibilityCloseLabel="close"
-            accessibilityModalLabel="View default padding and styling"
-            heading="Small modal"
-            onDismiss={() => atom.reset({ sm: false })}
-            footer={<Heading size="sm">Footer</Heading>}
-            size="sm"
-          >
-            <Box padding={2}>
-              <Heading size="sm">Children</Heading>
-            </Box>
-          </Modal>
-        )}
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex">
+        <Box padding={2}>
+          <Button
+            text="size='sm'"
+            onClick={() => atom.reset({ sm: !atom.deref().sm })}
+          />
+          {atom.deref().sm && (
+            <Modal
+              accessibilityCloseLabel="close"
+              accessibilityModalLabel="View default padding and styling"
+              heading="Small modal"
+              onDismiss={() => atom.reset({ sm: false })}
+              footer={<Heading size="sm">Footer</Heading>}
+              size="sm"
+            >
+              <Box padding={2}>
+                <Heading size="sm">Children</Heading>
+              </Box>
+            </Modal>
+          )}
+        </Box>
+        <Box padding={2}>
+          <Button
+            text="size='md'"
+            onClick={() => atom.reset({ md: !atom.deref().md })}
+          />
+          {atom.deref().md && (
+            <Modal
+              accessibilityCloseLabel="close"
+              accessibilityModalLabel="View default padding and styling"
+              heading="Medium modal"
+              onDismiss={() => atom.reset({ md: false })}
+              footer={<Heading size="sm">Footer</Heading>}
+              size="md"
+            >
+              <Box padding={2}>
+                <Heading size="sm">Children</Heading>
+              </Box>
+            </Modal>
+          )}
+        </Box>
+        <Box padding={2}>
+          <Button
+            text="size='lg'"
+            onClick={() => atom.reset({ lg: !atom.deref().lg })}
+          />
+          {atom.deref().lg && (
+            <Modal
+              accessibilityCloseLabel="close"
+              accessibilityModalLabel="View default padding and styling"
+              heading="Large modal"
+              onDismiss={() => atom.reset({ lg: false })}
+              footer={<Heading size="sm">Footer</Heading>}
+              size="md"
+            >
+              <Box padding={2}>
+                <Heading size="lg">Children</Heading>
+              </Box>
+            </Modal>
+          )}
+        </Box>
       </Box>
-      <Box padding={2}>
-        <Button
-          text="size='md'"
-          onClick={() => atom.reset({ md: !atom.deref().md })}
-        />
-        {atom.deref().md && (
-          <Modal
-            accessibilityCloseLabel="close"
-            accessibilityModalLabel="View default padding and styling"
-            heading="Medium modal"
-            onDismiss={() => atom.reset({ md: false })}
-            footer={<Heading size="sm">Footer</Heading>}
-            size="md"
-          >
-            <Box padding={2}>
-              <Heading size="sm">Children</Heading>
-            </Box>
-          </Modal>
-        )}
-      </Box>
-      <Box padding={2}>
-        <Button
-          text="size='lg'"
-          onClick={() => atom.reset({ lg: !atom.deref().lg })}
-        />
-        {atom.deref().lg && (
-          <Modal
-            accessibilityCloseLabel="close"
-            accessibilityModalLabel="View default padding and styling"
-            heading="Large modal"
-            onDismiss={() => atom.reset({ lg: false })}
-            footer={<Heading size="sm">Footer</Heading>}
-            size="md"
-          >
-            <Box padding={2}>
-              <Heading size="lg">Children</Heading>
-            </Box>
-          </Modal>
-        )}
-      </Box>
-    </Box>
-  )
+    )}
+  />
 );
 
 card(
@@ -176,33 +178,35 @@ card(
     </Modal>
     ~~~
   `,
-  atom => (
-    <Box>
-      <Button
-        size="lg"
-        text="View padding"
-        onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
-      />
-      {atom.deref().isOpen ? (
-        <Modal
-          accessibilityCloseLabel="close"
-          accessibilityModalLabel="View default padding and styling"
-          heading="Heading"
-          onDismiss={() => atom.reset({ isOpen: false })}
-          footer={
-            <Box color="gray">
-              <Heading size="sm">Footer</Heading>
+  <StateRecorder
+    fn={atom => (
+      <Box>
+        <Button
+          size="lg"
+          text="View padding"
+          onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
+        />
+        {atom.deref().isOpen ? (
+          <Modal
+            accessibilityCloseLabel="close"
+            accessibilityModalLabel="View default padding and styling"
+            heading="Heading"
+            onDismiss={() => atom.reset({ isOpen: false })}
+            footer={
+              <Box color="gray">
+                <Heading size="sm">Footer</Heading>
+              </Box>
+            }
+            size="md"
+          >
+            <Box color="gray" height={400}>
+              <Heading size="sm">Children</Heading>
             </Box>
-          }
-          size="md"
-        >
-          <Box color="gray" height={400}>
-            <Heading size="sm">Children</Heading>
-          </Box>
-        </Modal>
-      ) : null}
-    </Box>
-  )
+          </Modal>
+        ) : null}
+      </Box>
+    )}
+  />
 );
 
 const alertModal = (
@@ -237,28 +241,30 @@ card(
     right, forcing the user to take an explicit action. Second, there is no divider between the heading, children,
     and footer. Finally, the heading's are larger and are left-aligned rather than centered._
   `,
-  atom => (
-    <Box display="flex">
-      <Button
-        size="lg"
-        text="Block Chris"
-        onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
-      />
-      {atom.deref().isOpen && (
-        <Modal
-          accessibilityCloseLabel="close"
-          accessibilityModalLabel="Would you like to block Chris?"
-          heading="Block Chris?"
-          onDismiss={() => atom.reset({ isOpen: false })}
-          footer={alertFooter(() => atom.reset({ isOpen: false }))}
-          role="alertdialog"
-          size="sm"
-        >
-          {alertModal}
-        </Modal>
-      )}
-    </Box>
-  )
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex">
+        <Button
+          size="lg"
+          text="Block Chris"
+          onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
+        />
+        {atom.deref().isOpen && (
+          <Modal
+            accessibilityCloseLabel="close"
+            accessibilityModalLabel="Would you like to block Chris?"
+            heading="Block Chris?"
+            onDismiss={() => atom.reset({ isOpen: false })}
+            footer={alertFooter(() => atom.reset({ isOpen: false }))}
+            role="alertdialog"
+            size="sm"
+          >
+            {alertModal}
+          </Modal>
+        )}
+      </Box>
+    )}
+  />
 );
 
 const editBoard = (
@@ -414,27 +420,29 @@ card(
     </Modal>
     ~~~
   `,
-  atom => (
-    <Box display="flex">
-      <Button
-        size="lg"
-        text="Edit board"
-        onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
-      />
-      {atom.deref().isOpen && (
-        <Modal
-          accessibilityCloseLabel="close"
-          accessibilityModalLabel="Edit Julia's board"
-          heading="Edit your board"
-          onDismiss={() => atom.reset({ isOpen: false })}
-          footer={editBoardFooter(() => atom.reset({ isOpen: false }))}
-          size="md"
-        >
-          {editBoard}
-        </Modal>
-      )}
-    </Box>
-  )
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex">
+        <Button
+          size="lg"
+          text="Edit board"
+          onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
+        />
+        {atom.deref().isOpen && (
+          <Modal
+            accessibilityCloseLabel="close"
+            accessibilityModalLabel="Edit Julia's board"
+            heading="Edit your board"
+            onDismiss={() => atom.reset({ isOpen: false })}
+            footer={editBoardFooter(() => atom.reset({ isOpen: false }))}
+            size="md"
+          >
+            {editBoard}
+          </Modal>
+        )}
+      </Box>
+    )}
+  />
 );
 
 type State = {|
@@ -520,27 +528,29 @@ card(
     </Modal>
     ~~~
   `,
-  atom => (
-    <Box display="flex">
-      <Button
-        size="lg"
-        text="View images"
-        onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
-      />
-      {atom.deref().isOpen && (
-        <Modal
-          accessibilityCloseLabel="close"
-          accessibilityModalLabel="View random images"
-          heading="Images"
-          onDismiss={() => atom.reset({ isOpen: false })}
-          footer={viewImagesFooter(() => atom.reset({ isOpen: false }))}
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex">
+        <Button
           size="lg"
-        >
-          <ImageModalContents />
-        </Modal>
-      )}
-    </Box>
-  )
+          text="View images"
+          onClick={() => atom.reset({ isOpen: !atom.deref().isOpen })}
+        />
+        {atom.deref().isOpen && (
+          <Modal
+            accessibilityCloseLabel="close"
+            accessibilityModalLabel="View random images"
+            heading="Images"
+            onDismiss={() => atom.reset({ isOpen: false })}
+            footer={viewImagesFooter(() => atom.reset({ isOpen: false }))}
+            size="lg"
+          >
+            <ImageModalContents />
+          </Modal>
+        )}
+      </Box>
+    )}
+  />
 );
 
 card(

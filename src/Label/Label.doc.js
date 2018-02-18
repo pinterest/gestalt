@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Switch from '../Switch/Switch';
 import Text from '../Text/Text';
 import Label from './Label';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'Label',
@@ -49,18 +49,20 @@ card(
     </Box>
     ~~~
   `,
-  atom => (
-    <Box>
-      <Box paddingY={1}>
-        <Label htmlFor="switchExample">
-          <Text>Live example</Text>
-        </Label>
+  <StateRecorder
+    fn={atom => (
+      <Box>
+        <Box paddingY={1}>
+          <Label htmlFor="switchExample">
+            <Text>Live example</Text>
+          </Label>
+        </Box>
+        <Switch
+          onChange={() => atom.reset({ switched: !atom.deref().switched })}
+          id="switchExample"
+          switched={atom.deref().switched}
+        />
       </Box>
-      <Switch
-        onChange={() => atom.reset({ switched: !atom.deref().switched })}
-        id="switchExample"
-        switched={atom.deref().switched}
-      />
-    </Box>
-  )
+    )}
+  />
 );

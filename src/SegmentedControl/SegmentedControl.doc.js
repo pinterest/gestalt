@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Box from '../Box/Box';
 import SegmentedControl from './SegmentedControl';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'Segmented Control',
@@ -95,20 +95,22 @@ card(
     />
     ~~~
   `,
-  atom => {
-    const state = atom.deref();
-    return (
-      <SegmentedControl
-        items={['News', 'You', 'Messages']}
-        selectedItemIndex={0}
-        {...state}
-        onChange={({ activeIndex }) =>
-          atom.set(props => ({
-            ...props,
-            selectedItemIndex: activeIndex,
-          }))
-        }
-      />
-    );
-  }
+  <StateRecorder
+    fn={atom => {
+      const state = atom.deref();
+      return (
+        <SegmentedControl
+          items={['News', 'You', 'Messages']}
+          selectedItemIndex={0}
+          {...state}
+          onChange={({ activeIndex }) =>
+            atom.set(props => ({
+              ...props,
+              selectedItemIndex: activeIndex,
+            }))
+          }
+        />
+      );
+    }}
+  />
 );

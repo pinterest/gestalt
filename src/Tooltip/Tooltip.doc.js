@@ -6,7 +6,7 @@ import Box from '../Box/Box';
 import Heading from '../Heading/Heading';
 import Text from '../Text/Text';
 import IconButton from '../IconButton/IconButton';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'Tooltip',
@@ -73,141 +73,163 @@ card(
     xl: 375px
     ~~~
   `,
-  atom => (
-    <Box display="flex">
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">xs</Heading>
-        <TooltipEx
-          idealDirection="down"
-          isOpen={!!atom.deref().xs}
-          onDismiss={() => atom.reset({ xs: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().xs}
-              accessibilityHaspopup
-              icon="flag"
-              onClick={() => atom.reset({ xs: !atom.deref().xs })}
-              bgColor="lightGray"
-            />
-          }
-          size="xs"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading color="white" size="xs">
-              xs
-            </Heading>
-          </Box>
-        </TooltipEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">sm</Heading>
-        <TooltipEx
-          idealDirection="down"
-          isOpen={!!atom.deref().sm}
-          onDismiss={() => atom.reset({ sm: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().sm}
-              accessibilityHaspopup
-              icon="flag"
-              onClick={() => atom.reset({ sm: !atom.deref().sm })}
-              bgColor="lightGray"
-            />
-          }
-          size="sm"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading color="white" size="sm">
-              sm
-            </Heading>
-          </Box>
-        </TooltipEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">md</Heading>
-        <TooltipEx
-          idealDirection="down"
-          isOpen={!!atom.deref().md}
-          onDismiss={() => atom.reset({ md: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().md}
-              accessibilityHaspopup
-              icon="flag"
-              onClick={() => atom.reset({ md: !atom.deref().md })}
-              bgColor="lightGray"
-            />
-          }
-          size="md"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading color="white" size="md">
-              md
-            </Heading>
-          </Box>
-        </TooltipEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2} alignItems="center">
-        <Heading size="xs">lg</Heading>
-        <TooltipEx
-          idealDirection="down"
-          isOpen={!!atom.deref().lg}
-          onDismiss={() => atom.reset({ lg: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().lg}
-              accessibilityHaspopup
-              icon="flag"
-              onClick={() => atom.reset({ lg: !atom.deref().lg })}
-              bgColor="lightGray"
-            />
-          }
-          size="lg"
-        >
-          <Box display="flex" width="100%" justifyContent="center" padding={2}>
-            <Heading color="white" size="lg">
-              lg
-            </Heading>
-          </Box>
-        </TooltipEx>
-      </Box>
-      <Box display="flex" direction="column" padding={2}>
-        <Heading size="xs">xl</Heading>
-        <TooltipEx
-          idealDirection="down"
-          isOpen={!!atom.deref().xl}
-          onDismiss={() => atom.reset({ xl: false })}
-          anchor={
-            <IconButton
-              accessibilityLabel="More options"
-              accessibilityExpanded={!!atom.deref().xl}
-              accessibilityHaspopup
-              icon="flag"
-              onClick={() => atom.reset({ xl: !atom.deref().xl })}
-              bgColor="lightGray"
-            />
-          }
-          size="xl"
-        >
-          <Box
-            display="flex"
-            width="100%"
-            justifyContent="center"
-            padding={2}
-            alignItems="center"
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex">
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">xs</Heading>
+          <TooltipEx
+            idealDirection="down"
+            isOpen={!!atom.deref().xs}
+            onDismiss={() => atom.reset({ xs: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().xs}
+                accessibilityHaspopup
+                icon="flag"
+                onClick={() => atom.reset({ xs: !atom.deref().xs })}
+                bgColor="lightGray"
+              />
+            }
+            size="xs"
           >
-            <Heading color="white" size="xl">
-              xl
-            </Heading>
-          </Box>
-        </TooltipEx>
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading color="white" size="xs">
+                xs
+              </Heading>
+            </Box>
+          </TooltipEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">sm</Heading>
+          <TooltipEx
+            idealDirection="down"
+            isOpen={!!atom.deref().sm}
+            onDismiss={() => atom.reset({ sm: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().sm}
+                accessibilityHaspopup
+                icon="flag"
+                onClick={() => atom.reset({ sm: !atom.deref().sm })}
+                bgColor="lightGray"
+              />
+            }
+            size="sm"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading color="white" size="sm">
+                sm
+              </Heading>
+            </Box>
+          </TooltipEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">md</Heading>
+          <TooltipEx
+            idealDirection="down"
+            isOpen={!!atom.deref().md}
+            onDismiss={() => atom.reset({ md: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().md}
+                accessibilityHaspopup
+                icon="flag"
+                onClick={() => atom.reset({ md: !atom.deref().md })}
+                bgColor="lightGray"
+              />
+            }
+            size="md"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading color="white" size="md">
+                md
+              </Heading>
+            </Box>
+          </TooltipEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2} alignItems="center">
+          <Heading size="xs">lg</Heading>
+          <TooltipEx
+            idealDirection="down"
+            isOpen={!!atom.deref().lg}
+            onDismiss={() => atom.reset({ lg: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().lg}
+                accessibilityHaspopup
+                icon="flag"
+                onClick={() => atom.reset({ lg: !atom.deref().lg })}
+                bgColor="lightGray"
+              />
+            }
+            size="lg"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+            >
+              <Heading color="white" size="lg">
+                lg
+              </Heading>
+            </Box>
+          </TooltipEx>
+        </Box>
+        <Box display="flex" direction="column" padding={2}>
+          <Heading size="xs">xl</Heading>
+          <TooltipEx
+            idealDirection="down"
+            isOpen={!!atom.deref().xl}
+            onDismiss={() => atom.reset({ xl: false })}
+            anchor={
+              <IconButton
+                accessibilityLabel="More options"
+                accessibilityExpanded={!!atom.deref().xl}
+                accessibilityHaspopup
+                icon="flag"
+                onClick={() => atom.reset({ xl: !atom.deref().xl })}
+                bgColor="lightGray"
+              />
+            }
+            size="xl"
+          >
+            <Box
+              display="flex"
+              width="100%"
+              justifyContent="center"
+              padding={2}
+              alignItems="center"
+            >
+              <Heading color="white" size="xl">
+                xl
+              </Heading>
+            </Box>
+          </TooltipEx>
+        </Box>
       </Box>
-    </Box>
-  )
+    )}
+  />
 );
 
 card(
@@ -280,28 +302,30 @@ card(
     }
     ~~~
   `,
-  atom => (
-    <Box display="flex" direction="row">
-      <Box paddingY={2}>
-        <TooltipEx
-          anchor={
-            <IconButton
-              accessibilityLabel="Create a new board"
-              icon="add"
-              onClick={() => atom.reset({ value: !atom.deref().value })}
-            />
-          }
-          idealDirection="down"
-          isOpen={!!atom.deref().value}
-          onDismiss={() => atom.reset({ value: !atom.deref().value })}
-        >
-          <Text bold color="white">
-            Create a board to save Pins about Kitchen Design for later
-          </Text>
-        </TooltipEx>
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex" direction="row">
+        <Box paddingY={2}>
+          <TooltipEx
+            anchor={
+              <IconButton
+                accessibilityLabel="Create a new board"
+                icon="add"
+                onClick={() => atom.reset({ value: !atom.deref().value })}
+              />
+            }
+            idealDirection="down"
+            isOpen={!!atom.deref().value}
+            onDismiss={() => atom.reset({ value: !atom.deref().value })}
+          >
+            <Text bold color="white">
+              Create a board to save Pins about Kitchen Design for later
+            </Text>
+          </TooltipEx>
+        </Box>
       </Box>
-    </Box>
-  )
+    )}
+  />
 );
 
 type Props = {

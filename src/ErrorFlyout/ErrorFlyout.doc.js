@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Box from '../Box/Box';
 import Button from '../Button/Button';
 import ErrorFlyout from './ErrorFlyout';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
 
 ns(
   'ErrorFlyout',
@@ -71,56 +71,58 @@ card(
     md: 284px
     ~~~
   `,
-  atom => (
-    <Box display="flex" direction="row">
-      <Box padding={2}>
-        <ErrorFlyoutEx
-          anchor={
-            <Button
-              onClick={() => atom.reset({ open: !atom.deref().open })}
-              text="size='xs'"
-            />
-          }
-          idealDirection="down"
-          isOpen={!!atom.deref().open}
-          message="Oops! This item is out of stock."
-          onDismiss={() => atom.reset({ open: false })}
-          size="xs"
-        />
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex" direction="row">
+        <Box padding={2}>
+          <ErrorFlyoutEx
+            anchor={
+              <Button
+                onClick={() => atom.reset({ open: !atom.deref().open })}
+                text="size='xs'"
+              />
+            }
+            idealDirection="down"
+            isOpen={!!atom.deref().open}
+            message="Oops! This item is out of stock."
+            onDismiss={() => atom.reset({ open: false })}
+            size="xs"
+          />
+        </Box>
+        <Box padding={2}>
+          <ErrorFlyoutEx
+            anchor={
+              <Button
+                onClick={() => atom.reset({ opensm: !atom.deref().open })}
+                text="size='sm'"
+              />
+            }
+            idealDirection="down"
+            isOpen={!!atom.deref().opensm}
+            message="Oops! This item is out of stock."
+            onDismiss={() => atom.reset({ opensm: false })}
+            size="sm"
+          />
+        </Box>
+        <Box padding={2}>
+          <ErrorFlyoutEx
+            anchor={
+              <Button
+                onClick={() => atom.reset({ openmd: !atom.deref().open })}
+                text="size='md'"
+              />
+            }
+            idealDirection="down"
+            isOpen={!!atom.deref().openmd}
+            message="Oops! This item is out of stock."
+            onDismiss={() => atom.reset({ openmd: false })}
+            size="md"
+          />
+        </Box>
       </Box>
-      <Box padding={2}>
-        <ErrorFlyoutEx
-          anchor={
-            <Button
-              onClick={() => atom.reset({ opensm: !atom.deref().open })}
-              text="size='sm'"
-            />
-          }
-          idealDirection="down"
-          isOpen={!!atom.deref().opensm}
-          message="Oops! This item is out of stock."
-          onDismiss={() => atom.reset({ opensm: false })}
-          size="sm"
-        />
-      </Box>
-      <Box padding={2}>
-        <ErrorFlyoutEx
-          anchor={
-            <Button
-              onClick={() => atom.reset({ openmd: !atom.deref().open })}
-              text="size='md'"
-            />
-          }
-          idealDirection="down"
-          isOpen={!!atom.deref().openmd}
-          message="Oops! This item is out of stock."
-          onDismiss={() => atom.reset({ openmd: false })}
-          size="md"
-        />
-      </Box>
-    </Box>
-  ),
-  { initialState: { open: false, opensm: false, openmd: false } }
+    )}
+    initialState={{ open: false, opensm: false, openmd: false }}
+  />
 );
 
 card(
@@ -179,26 +181,28 @@ card(
     }
     ~~~
   `,
-  atom => (
-    <Box display="flex" direction="row">
-      <Box paddingY={2}>
-        <ErrorFlyoutEx
-          anchor={
-            <Button
-              onClick={() => atom.reset({ open: !atom.deref().open })}
-              text="Remove"
-            />
-          }
-          idealDirection="down"
-          isOpen={!!atom.deref().open}
-          message="Oops! This item is out of stock."
-          onDismiss={() => atom.reset({ open: false })}
-          size="sm"
-        />
+  <StateRecorder
+    fn={atom => (
+      <Box display="flex" direction="row">
+        <Box paddingY={2}>
+          <ErrorFlyoutEx
+            anchor={
+              <Button
+                onClick={() => atom.reset({ open: !atom.deref().open })}
+                text="Remove"
+              />
+            }
+            idealDirection="down"
+            isOpen={!!atom.deref().open}
+            message="Oops! This item is out of stock."
+            onDismiss={() => atom.reset({ open: false })}
+            size="sm"
+          />
+        </Box>
       </Box>
-    </Box>
-  ),
-  { initialState: { open: false } }
+    )}
+    initialState={{ open: false }}
+  />
 );
 
 type Props = {
