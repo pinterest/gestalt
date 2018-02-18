@@ -11,7 +11,7 @@ const webpack = require('webpack');
 const DEV_MODE = process.argv.includes('--dev');
 
 module.exports = {
-  entry: ['./.corkboard/index', 'webpack/hot/only-dev-server'],
+  entry: ['./.corkboard/src/index', 'webpack/hot/only-dev-server'],
   output: {
     path: path.join(__dirname, 'docs'),
     pathinfo: true,

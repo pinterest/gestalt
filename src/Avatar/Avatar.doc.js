@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Avatar from './Avatar';
 import Box from '../Box/Box';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/src/cards';
 
 ns(
   'Avatar',

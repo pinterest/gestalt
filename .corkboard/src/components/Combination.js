@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkerboard from './Checkerboard';
-import Box from '../src/Box/Box';
-import Text from '../src/Text/Text';
+import Box from '../../../src/Box/Box';
+import Text from '../../../src/Text/Text';
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = variationsByField => {

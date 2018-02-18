@@ -12,7 +12,7 @@ import {
   Example,
   PropTable,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../.corkboard/src/cards';
 
 ns(
   'RadioButton',

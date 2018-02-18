@@ -1,7 +1,7 @@
 import React from 'react';
-import Box from '../src/Box/Box';
-import Text from '../src/Text/Text';
-import Icon from '../src/Icon/Icon';
+import Box from '../../../src/Box/Box';
+import Text from '../../../src/Text/Text';
+import Icon from '../../../src/Icon/Icon';
 
 const Th = ({ children }) => (
   <th style={{ borderBottom: '2px solid #EFEFEF' }}>

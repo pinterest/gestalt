@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import Navigation from './Navigation';
-import Box from '../src/Box/Box';
-import Column from '../src/Column/Column';
-import Container from '../src/Container/Container';
+import Box from '../../../src/Box/Box';
+import Column from '../../../src/Column/Column';
+import Container from '../../../src/Container/Container';
 
 export default function App(props) {
   const { cards, children } = props;

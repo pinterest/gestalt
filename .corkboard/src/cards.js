@@ -1,11 +1,11 @@
-import React, { isValidElement } from 'react';
+import React from 'react';
 import { registerCard, ns as registerNamespace } from 'corkboard';
-import PageHeader from './PageHeader';
-import Card from './Card';
-import CombinationInternal from './Combination';
-import PropTableInternal from './PropTable';
-import ExampleInternal from './Example';
-import Markdown from './Markdown';
+import PageHeader from './components/PageHeader';
+import Card from './components/Card';
+import CombinationInternal from './components/Combination';
+import PropTableInternal from './components/PropTable';
+import ExampleInternal from './components/Example';
+import Markdown from './components/Markdown';
 
 export const ns = (name, description = '') => {
   registerNamespace(name);

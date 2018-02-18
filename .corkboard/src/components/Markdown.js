@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Text from '../src/Text/Text';
+import Text from '../../../src/Text/Text';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import '!style!css!./AtomDark.css';

@@ -2,7 +2,14 @@
 import * as React from 'react';
 import Switch from '../Switch/Switch';
 import Label from './Label';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import {
+  ns,
+  card,
+  md,
+  PropTable,
+  Example,
+  StateRecorder,
+} from '../../.corkboard/src/cards';
 
 ns(
   'Label',

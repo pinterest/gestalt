@@ -3,7 +3,7 @@ import * as React from 'react';
 import Column from './Column';
 import Box from '../Box/Box';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/src/cards';
 
 ns('Column', 'Gestalt supports a 12-column system.');
 

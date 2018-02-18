@@ -1,6 +1,6 @@
 import React, { isValidElement } from 'react';
-import Box from '../src/Box/Box';
-import Heading from '../src/Heading/Heading';
+import Box from '../../../src/Box/Box';
+import Heading from '../../../src/Heading/Heading';
 import StateRecorder from './StateRecorder';
 
 const parseArgs = args => {

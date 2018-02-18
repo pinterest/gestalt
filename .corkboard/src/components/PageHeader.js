@@ -1,9 +1,9 @@
 import React from 'react';
-import Box from '../src/Box/Box';
-import Column from '../src/Column/Column';
-import Text from '../src/Text/Text';
-import Heading from '../src/Heading/Heading';
-import Link from '../src/Link/Link';
+import Box from '../../../src/Box/Box';
+import Column from '../../../src/Column/Column';
+import Text from '../../../src/Text/Text';
+import Heading from '../../../src/Heading/Heading';
+import Link from '../../../src/Link/Link';
 import Markdown from './Markdown';
 
 const githubSourceUrl = component => {

@@ -2,7 +2,14 @@
 import React from 'react';
 import Button from '../Button/Button';
 import ErrorFlyout from './ErrorFlyout';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import {
+  ns,
+  card,
+  md,
+  PropTable,
+  Example,
+  StateRecorder,
+} from '../../.corkboard/src/cards';
 
 ns(
   'ErrorFlyout',

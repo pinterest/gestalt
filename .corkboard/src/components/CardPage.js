@@ -1,6 +1,6 @@
 import React from 'react';
-import Box from '../src/Box/Box';
-import Heading from '../src/Heading/Heading';
+import Box from '../../../src/Box/Box';
+import Heading from '../../../src/Heading/Heading';
 
 export default function CardPage(props) {
   const { cards: allCards, params: { ns } } = props;

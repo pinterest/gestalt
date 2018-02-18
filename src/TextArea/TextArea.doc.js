@@ -4,7 +4,7 @@ import * as React from 'react';
 import Box from '../Box/Box';
 import Label from '../Label/Label';
 import TextArea from './TextArea';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
 
 ns('TextArea', 'TextArea allows for multiline input.');
 

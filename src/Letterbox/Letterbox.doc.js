@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import Letterbox from './Letterbox';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable } from '../../.corkboard/src/cards';
 import Box from '../Box/Box';
 
 ns(

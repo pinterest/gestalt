@@ -9,7 +9,7 @@ import {
   PropTable,
   Example,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../.corkboard/src/cards';
 import Text from '../Text/Text';
 
 ns(

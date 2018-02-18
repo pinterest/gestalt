@@ -3,10 +3,13 @@ import * as React from 'react';
 import {
   ns,
   card,
+  md,
   PropTable,
   Example,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../.corkboard/src/cards';
+import Box from '../Box/Box';
+import Text from '../Text/Text';
 import Pog from './Pog';
 
 ns(

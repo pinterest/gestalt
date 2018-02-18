@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import {
   ns,
   card,
@@ -7,7 +7,7 @@ import {
   md,
   PropTable,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../.corkboard/src/cards';
 import Box from '../Box/Box';
 import IconButton from './IconButton';
 import Flyout from '../Flyout/Flyout';
