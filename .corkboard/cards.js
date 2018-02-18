@@ -1,6 +1,7 @@
 import React, { isValidElement } from 'react';
 import { registerCard, ns as registerNamespace } from 'corkboard';
 import Box from '../src/Box/Box';
+import Container from '../src/Container/Container';
 import Link from '../src/Link/Link';
 import Text from '../src/Text/Text';
 import Icon from '../src/Icon/Icon';
@@ -374,11 +375,12 @@ export const Checkerboard = ({ size = 8 }) => (
   </svg>
 );
 
-export const Example = ({ defaultCode, scope }) => (
+export const Example = ({ defaultCode, scope, stacked = false }) => (
   <LiveProvider
     code={defaultCode.trim()}
     scope={{
       Box,
+      Container,
       Link,
       Text,
       Icon,
@@ -393,12 +395,12 @@ export const Example = ({ defaultCode, scope }) => (
       <Box
         display="flex"
         direction="column"
-        mdDirection="row"
+        mdDirection={stacked ? 'column' : 'row'}
         alignItems="stretch"
         marginLeft={-2}
         marginRight={-2}
       >
-        <Box xs={{ column: 12 }} md={{ column: 6 }}>
+        <Box xs={{ column: 12 }} md={{ column: stacked ? 12 : 6 }}>
           <Box paddingX={2}>
             <Box paddingY={2}>
               <Text size="sm" color="gray">
@@ -411,7 +413,7 @@ export const Example = ({ defaultCode, scope }) => (
           </Box>
         </Box>
 
-        <Box xs={{ column: 12 }} md={{ column: 6 }}>
+        <Box xs={{ column: 12 }} md={{ column: stacked ? 12 : 6 }}>
           <Box
             paddingX={2}
             display="flex"

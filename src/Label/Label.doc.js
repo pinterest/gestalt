@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
-import Box from '../Box/Box';
 import Switch from '../Switch/Switch';
-import Text from '../Text/Text';
 import Label from './Label';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 
 ns(
   'Label',
@@ -30,27 +28,20 @@ card(
 );
 
 card(
-  'Example: Using with a form element',
+  'Example',
   md`
     Whenever you are using a [SelectList](#/SelectList), [Switch](#/Switch), [TextField](#/TextField) or [TextArea](#/TextArea) component, you should use a \`Label\`.
-
-    ~~~html
-    <Box>
-      <Box paddingY={1}>
-        <Label htmlFor="switchExample">
-          <Text>Live example</Text>
-        </Label>
-      </Box>
-      <Switch
-        onChange={() => {}}
-        id="switchExample"
-        switched={true}
-      />
-    </Box>
-    ~~~
   `,
-  <StateRecorder
-    fn={atom => (
+  <Example
+    defaultCode={`
+class LabelExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { switched: false };
+  }
+
+  render() {
+    return (
       <Box>
         <Box paddingY={1}>
           <Label htmlFor="switchExample">
@@ -58,11 +49,17 @@ card(
           </Label>
         </Box>
         <Switch
-          onChange={() => atom.reset({ switched: !atom.deref().switched })}
+          onChange={() => this.setState({ switched: !this.state.switched })}
           id="switchExample"
-          switched={atom.deref().switched}
+          switched={this.state.switched}
         />
       </Box>
-    )}
-  />
+    );
+  }
+}
+
+`}
+    scope={{ Label, Switch }}
+  />,
+  { stacked: true }
 );
