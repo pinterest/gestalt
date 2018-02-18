@@ -3,25 +3,33 @@ const postcss = require('postcss-import');
 const postcssUrl = require('postcss-url');
 const postcssCssNext = require('postcss-cssnext');
 const breakpoints = require('../src/breakpoints.json');
+const webpack = require('webpack');
 
 module.exports = {
   output: {
     path: './dist/',
     libraryTarget: 'commonjs2',
   },
-  plugins: [new ExtractTextPlugin('./css/bundle.css')],
   module: {
     loaders: [
       {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-      {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', [
-          'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]--[hash:base64:5]',
-          'postcss-loader',
-        ]),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                importLoaders: 2,
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+              },
+            },
+            {
+              loader: 'postcss-loader',
+            },
+          ],
+        }),
       },
       {
         test: /\.svg$/,
@@ -29,17 +37,23 @@ module.exports = {
       },
     ],
   },
-  postcss(webpack) {
-    return [
-      postcss({ addDependencyTo: webpack }),
-      postcssUrl(),
-      postcssCssNext({
-        features: {
-          customMedia: {
-            extensions: breakpoints,
-          },
-        },
-      }),
-    ];
-  },
+  plugins: [
+    new ExtractTextPlugin('./css/bundle.css'),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: __dirname,
+        postcss: wp => [
+          postcss({ addDependencyTo: wp }),
+          postcssUrl(),
+          postcssCssNext({
+            features: {
+              customMedia: {
+                extensions: breakpoints,
+              },
+            },
+          }),
+        ],
+      },
+    }),
+  ],
 };
