@@ -7,7 +7,7 @@ import {
   PropTable,
   Example,
   Combination,
-} from '../../.corkboard/src/cards';
+} from '../../docs/src/cards';
 import Box from '../Box/Box';
 import Text from '../Text/Text';
 import Pog from './Pog';

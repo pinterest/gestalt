@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 import Label from '../Label/Label';
 import TextField from './TextField';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns('TextField', 'TextField allows for text input.');
 

@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import Image from '../Image/Image';
 import Toast from './Toast';
 import Box from '../Box/Box';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'Toast',

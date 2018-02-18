@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Box from '../Box/Box';
 import Mask from './Mask';
-import { ns, card, md, PropTable } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable } from '../../docs/src/cards';
 
 ns(
   'Mask',

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Box from '../Box/Box';
 import SegmentedControl from './SegmentedControl';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'Segmented Control',

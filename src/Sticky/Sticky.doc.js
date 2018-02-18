@@ -3,7 +3,7 @@ import React from 'react';
 import Box from '../Box/Box';
 import Sticky from './Sticky';
 import Text from '../Text/Text';
-import { ns, card, md, Example, PropTable } from '../../.corkboard/src/cards';
+import { ns, card, md, Example, PropTable } from '../../docs/src/cards';
 
 ns(
   'Sticky',

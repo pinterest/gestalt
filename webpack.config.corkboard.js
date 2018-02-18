@@ -11,7 +11,7 @@ const webpack = require('webpack');
 const DEV_MODE = process.argv.includes('--dev');
 
 module.exports = {
-  entry: ['./.corkboard/src/index', 'webpack/hot/only-dev-server'],
+  entry: ['./docs/src/index', 'webpack/hot/only-dev-server'],
   output: {
     path: path.join(__dirname, 'docs'),
     pathinfo: true,
@@ -105,7 +105,7 @@ module.exports = {
         ],
         include: [
           path.join(__dirname, 'src'),
-          path.join(__dirname, '.corkboard'),
+          path.join(__dirname, 'docs'),
           path.dirname(require.resolve('corkboard')),
         ],
         exclude: /node_modules\/(?!(corkboard)\/).*/,

@@ -8,7 +8,7 @@ import {
   PropTable,
   Example,
   StateRecorder,
-} from '../../.corkboard/src/cards';
+} from '../../docs/src/cards';
 import Box from '../Box/Box';
 import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';

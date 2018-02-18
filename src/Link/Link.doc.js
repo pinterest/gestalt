@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Box from '../Box/Box';
 import Link from './Link';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 import Text from '../Text/Text';
 
 ns(

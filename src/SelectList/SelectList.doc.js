@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Label from '../Label/Label';
 import SelectList from './SelectList';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'SelectList',

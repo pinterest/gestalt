@@ -8,7 +8,7 @@ import Flyout from './Flyout';
 import IconButton from '../IconButton/IconButton';
 import Link from '../Link/Link';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'Flyout',

@@ -3,7 +3,7 @@ import * as React from 'react';
 import Box from '../Box/Box';
 import Text from '../Text/Text';
 import Divider from './Divider';
-import { ns, card, Example, md, PropTable } from '../../.corkboard/src/cards';
+import { ns, card, Example, md, PropTable } from '../../docs/src/cards';
 
 ns(
   'Divider',

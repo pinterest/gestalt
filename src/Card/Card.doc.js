@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import Card from './Card';
 import Link from '../Link/Link';
 import Text from '../Text/Text';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'Card',

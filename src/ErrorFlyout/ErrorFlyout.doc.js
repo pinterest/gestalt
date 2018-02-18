@@ -9,7 +9,7 @@ import {
   PropTable,
   Example,
   StateRecorder,
-} from '../../.corkboard/src/cards';
+} from '../../docs/src/cards';
 
 ns(
   'ErrorFlyout',

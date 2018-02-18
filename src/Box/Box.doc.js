@@ -11,7 +11,7 @@ import {
   PropTable,
   Example,
   Combination,
-} from '../../.corkboard/src/cards';
+} from '../../docs/src/cards';
 
 ns(
   'Box',

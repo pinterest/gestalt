@@ -13,7 +13,7 @@ import Switch from '../Switch/Switch';
 import Text from '../Text/Text';
 import TextArea from '../TextArea/TextArea';
 import TextField from '../TextField/TextField';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/src/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'Modal',
