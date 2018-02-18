@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import Heading from './Heading';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 import Box from '../Box/Box';
 
 ns(
@@ -55,152 +55,113 @@ card(
 );
 
 card(
-  'Sizes',
-  md`
-    Comes in a variety of sizes:
-
-    ~~~html
-    <Heading size="xs">
-      {'Heading extra small'}
-    </Heading>
-    <Heading size="sm">
-      {'Heading small'}
-    </Heading>
-    <Heading size="md">
-      {'Heading medium'}
-    </Heading>
-    <Heading size="lg">
-      {'Heading large'}
-    </Heading>
-    <Heading size="xl">
-      {'Heading extra large'}
-    </Heading>
-    ~~~
-
-    ~~~jsx
-    xs: 24px
-    sm: 36px
-    md: 48px
-    lg: 64px
-    xl: 96px
-    ~~~
-  `,
-  <Box>
-    <Heading size="xs">Heading extra small</Heading>{' '}
-    <span lang="ja">
-      <Heading size="xs">こんにちは</Heading>
-    </span>
-    <Heading size="sm">Heading small</Heading>{' '}
-    <span lang="ja">
-      <Heading size="sm">こんにちは</Heading>
-    </span>
-    <span>
-      <Heading size="md">Heading medium</Heading>
-    </span>{' '}
-    <span lang="ja">
-      <Heading size="md">こんにちは</Heading>
-    </span>
-    <Heading size="lg">Heading large</Heading>{' '}
-    <span lang="ja">
-      <Heading size="lg">こんにちは</Heading>
-    </span>
-    <Heading size="xl">Heading extra large</Heading>{' '}
-    <span lang="ja">
-      <Heading size="xl">こんにちは</Heading>
-    </span>
-  </Box>
+  <Example
+    defaultCode={`
+<Box>
+  <Heading size="xs">Heading extra small</Heading>
+  <span lang="ja">
+    <Heading size="xs">こんにちは</Heading>
+  </span>
+  <Heading size="sm">Heading small</Heading>
+  <span lang="ja">
+    <Heading size="sm">こんにちは</Heading>
+  </span>
+  <span>
+    <Heading size="md">Heading medium</Heading>
+  </span>{' '}
+  <span lang="ja">
+    <Heading size="md">こんにちは</Heading>
+  </span>
+  <Heading size="lg">Heading large</Heading>
+  <span lang="ja">
+    <Heading size="lg">こんにちは</Heading>
+  </span>
+  <Heading size="xl">Heading extra large</Heading>
+  <span lang="ja">
+    <Heading size="xl">こんにちは</Heading>
+  </span>
+</Box>
+  `}
+  />
 );
 
 card(
-  'Colors',
-  md`
-    And a variety of colors:
-
-    ~~~html
-    <Heading color="white">
-      {'White'}
-    </Heading>
-    <Heading>
-      {'Dark gray (default)'}
-    </Heading>
-    <Heading color="gray">
-      {'Gray'}
-    </Heading>
-    <Heading color="blue">
-      {'Blue'}
-    </Heading>
-    <Heading color="red">
-      {'Red'}
-    </Heading>
-    ~~~
-  `,
-  <Box>
-    <Box color="darkGray">
+  'Example: Colors',
+  <Example
+    defaultCode={`
+<Box>
+  <Box margin={-1}>
+    <Box color="gray" padding={1}>
       <Heading color="white" size="md">
-        {'White'}
+        White
       </Heading>
     </Box>
-    <Heading size="md">Dark gray (default)</Heading>
-    <Heading color="gray" size="md">
-      {'Gray'}
-    </Heading>
-    <Heading color="blue" size="md">
-      {'Blue'}
-    </Heading>
-    <Heading color="red" size="md">
-      {'Red'}
-    </Heading>
   </Box>
+
+  <Heading size="md">Dark gray (default)</Heading>
+  <Heading color="gray" size="md">
+    Gray
+  </Heading>
+  <Heading color="blue" size="md">
+    Blue
+  </Heading>
+  <Heading color="red" size="md">
+    Red
+  </Heading>
+</Box>
+`}
+  />
 );
 
 card(
-  'Overflow',
-  md`
-    ~~~jsx
-    <Heading>Default</Heading>
-    <Heading truncate>Truncated</Heading>
-    <Heading overflow="normal">Normal overflow</Heading>
-    ~~~
-  `,
-  <Box maxWidth="16em">
+  'Example: Overflow & truncation',
+  <Example
+    defaultCode={`
+<Box maxWidth={240} marginTop={-2} marginBottom={-2}>
+  <Box paddingY={2}>
     <Heading size="xs">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
-    <br />
+  </Box>
+
+  <Box paddingY={2}>
     <Heading size="xs" truncate>
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
+  </Box>
+
+  <Box paddingY={2}>
     <Heading size="xs" overflow="normal">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
   </Box>
+</Box>
+`}
+  />
 );
 
 card(
-  'Levels',
+  'Example: Levels',
   md`
     For accessibility purposes, we allow you to override the heading level.
 
     We should have one level 1 per page & levels should be appropriately nested. E.g. level 1 followed by level 2 & level 2 followed by level 2 or level 3.
-
-    ~~~html
-    <Heading size="sm" accessibilityLevel={2}>
-      {'Small heading level 2'}
-    </Heading>
-    <Heading size="xs" accessibilityLevel={3}>
-      {'Extra small heading level 3'}
-    </Heading>
-    ~~~
   `,
-  <Box>
-    <Heading size="sm" accessibilityLevel={2}>
-      {'Small heading level 2'}
-    </Heading>
-    <Heading size="xs" accessibilityLevel={3}>
-      {'Extra small heading level 3'}
-    </Heading>
-  </Box>
+
+  <Example
+    defaultCode={`
+<Box>
+  <Heading size="sm" accessibilityLevel={2}>
+    Small heading level 2
+  </Heading>
+  <Heading size="xs" accessibilityLevel={3}>
+    Extra small heading level 3
+  </Heading>
+</Box>
+`}
+  />,
+  { stacked: true }
 );

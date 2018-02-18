@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Switch from '../Switch/Switch';
 import Text from '../Text/Text';
 import Label from './Label';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 
 ns(
   'Label',
@@ -30,7 +30,7 @@ card(
 );
 
 card(
-  'Example',
+  'Example: Using with a form element',
   md`
     Whenever you are using a [SelectList](#/SelectList), [Switch](#/Switch), [TextField](#/TextField) or [TextArea](#/TextArea) component, you should use a \`Label\`.
 
