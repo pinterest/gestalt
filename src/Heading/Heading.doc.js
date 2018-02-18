@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react';
-import Heading from './Heading';
 import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
-import Box from '../Box/Box';
 
 ns(
   'Heading',

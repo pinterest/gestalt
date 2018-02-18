@@ -1,8 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import Box from '../Box/Box';
-import Text from './Text';
 import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 
 ns('Text', `The Text component should be used for all text on the page.`);

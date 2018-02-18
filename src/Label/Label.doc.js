@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Switch from '../Switch/Switch';
 import Text from '../Text/Text';
 import Label from './Label';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable } from '../../.corkboard/cards';
 
 ns(
   'Label',
