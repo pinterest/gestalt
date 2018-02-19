@@ -103,7 +103,7 @@ class CheckboxExample extends React.Component {
   }
 }
 `}
-    scope={{ Box, Checkbox, Label, Text }}
+    scope={{ Checkbox, Label, Text }}
   />,
   { stacked: true }
 );

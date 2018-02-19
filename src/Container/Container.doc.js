@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
-import Box from '../Box/Box';
 import Container from './Container';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 
 ns(
   'Container',
@@ -25,23 +24,19 @@ card(
   'Responsive content',
   md`
     On small screens, the container is the width of the screen. On large screens, it centers the content with a max-width of 800px.
-
-    ~~~html
-    <Box color="gray" padding={3}>
-      <Container>
-        <Box color="white" padding={3}>
-          Centered content
-        </Box>
-      </Container>
-    </Box>
-    ~~~
   `,
-  <Box color="gray" padding={3}>
-    <Container>
-      <Box color="white" padding={3}>
-        Centered content
-      </Box>
-    </Container>
-  </Box>,
+  <Example
+    defaultCode={`
+<Box color="gray" padding={3}>
+  <Container>
+    <Box color="white" padding={3}>
+      <Text>Centered content</Text>
+    </Box>
+  </Container>
+</Box>
+`}
+    scope={{ Container }}
+    stacked
+  />,
   { stacked: true }
 );

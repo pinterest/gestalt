@@ -1,10 +1,8 @@
 // @flow
-/* eslint-disable react/prop-types */
-import React, { Component } from 'react';
-import Box from '../Box/Box';
+import React from 'react';
 import Button from '../Button/Button';
 import ErrorFlyout from './ErrorFlyout';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 
 ns(
   'ErrorFlyout',
@@ -60,69 +58,55 @@ card(
 );
 
 card(
-  'Sizes',
+  'Example',
   md`
-    There are 3 sizes currently available for \`ErrorFlyout\`.
 
-    ~~~html
-    Widths:
-    xs: 185px
-    sm: 230px
-    md: 284px
-    ~~~
   `,
-  <StateRecorder
-    fn={atom => (
-      <Box display="flex" direction="row">
-        <Box padding={2}>
-          <ErrorFlyoutEx
-            anchor={
-              <Button
-                onClick={() => atom.reset({ open: !atom.deref().open })}
-                text="size='xs'"
-              />
-            }
+  <Example
+    defaultCode={`
+class ErrorFlyoutExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+    this.handleClick = this._handleClick.bind(this);
+    this.handleDismiss = this._handleDismiss.bind(this);
+  }
+
+  _handleClick() {
+    this.setState(() => ({ open: !this.state.open }));
+  }
+  _handleDismiss() {
+    this.setState(() => ({ open: false }));
+  }
+
+  render() {
+    return (
+      <Box>
+        <div
+          style={{ display: "inline-block" }}
+          ref={c => {
+            this.anchor = c;
+          }}
+        >
+          <Button onClick={this.handleClick} text="Remove" />
+        </div>
+        {this.state.open && (
+          <ErrorFlyout
+            anchor={this.anchor}
             idealDirection="down"
-            isOpen={!!atom.deref().open}
             message="Oops! This item is out of stock."
-            onDismiss={() => atom.reset({ open: false })}
-            size="xs"
-          />
-        </Box>
-        <Box padding={2}>
-          <ErrorFlyoutEx
-            anchor={
-              <Button
-                onClick={() => atom.reset({ opensm: !atom.deref().open })}
-                text="size='sm'"
-              />
-            }
-            idealDirection="down"
-            isOpen={!!atom.deref().opensm}
-            message="Oops! This item is out of stock."
-            onDismiss={() => atom.reset({ opensm: false })}
+            onDismiss={this.handleDismiss}
             size="sm"
           />
-        </Box>
-        <Box padding={2}>
-          <ErrorFlyoutEx
-            anchor={
-              <Button
-                onClick={() => atom.reset({ openmd: !atom.deref().open })}
-                text="size='md'"
-              />
-            }
-            idealDirection="down"
-            isOpen={!!atom.deref().openmd}
-            message="Oops! This item is out of stock."
-            onDismiss={() => atom.reset({ openmd: false })}
-            size="md"
-          />
-        </Box>
+        )}
       </Box>
-    )}
-    initialState={{ open: false, opensm: false, openmd: false }}
-  />
+    );
+  }
+}
+`}
+    scope={{ Button, ErrorFlyout }}
+  />,
+  { stacked: true }
 );
 
 card(
@@ -152,104 +136,3 @@ card(
     most space available within the viewport.
   `
 );
-
-card(
-  'Example',
-  md`
-    ~~~jsx
-    <div
-      className="inline-block"
-      ref={c => {
-        this.removeButton = c;
-      }}
-    >
-      <Button
-        onClick={() => this.setState({ isOpen: !this.state.isOpen })}
-        text="Remove"
-      />
-    </div>;
-    {
-      this.state.isOpen && (
-        <ErrorFlyout
-          anchor={this.removeButton}
-          idealDirection="down"
-          message="Oops! This item is out of stock."
-          onDismiss={() => this.setState({ isOpen: false })}
-          size="sm"
-        />
-      );
-    }
-    ~~~
-  `,
-  <StateRecorder
-    fn={atom => (
-      <Box display="flex" direction="row">
-        <Box paddingY={2}>
-          <ErrorFlyoutEx
-            anchor={
-              <Button
-                onClick={() => atom.reset({ open: !atom.deref().open })}
-                text="Remove"
-              />
-            }
-            idealDirection="down"
-            isOpen={!!atom.deref().open}
-            message="Oops! This item is out of stock."
-            onDismiss={() => atom.reset({ open: false })}
-            size="sm"
-          />
-        </Box>
-      </Box>
-    )}
-    initialState={{ open: false }}
-  />
-);
-
-type Props = {
-  anchor?: any,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  isOpen: boolean,
-  message: string,
-  onDismiss: () => void,
-  positionRelativeToAnchor?: boolean,
-  size?: 'xs' | 'sm' | 'md',
-};
-
-class ErrorFlyoutEx extends Component<Props> {
-  anchor: ?HTMLElement;
-
-  render() {
-    const {
-      anchor,
-      idealDirection,
-      isOpen,
-      message,
-      onDismiss,
-      positionRelativeToAnchor,
-      size,
-    } = this.props;
-
-    return (
-      <Box>
-        <div
-          style={{ display: 'inline-block' }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
-          {anchor}
-        </div>
-        {isOpen && (
-          <ErrorFlyout
-            anchor={this.anchor}
-            idealDirection={idealDirection}
-            message={message}
-            onDismiss={onDismiss}
-            positionRelativeToAnchor={positionRelativeToAnchor}
-            size={size}
-          />
-        )}
-      </Box>
-    );
-  }
-}
