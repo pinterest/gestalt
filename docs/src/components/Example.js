@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import Box from '../../../src/Box/Box';
 import Text from '../../../src/Text/Text';
@@ -8,10 +9,14 @@ import Checkbox from '../../../src/Checkbox/Checkbox';
 import Column from '../../../src/Column/Column';
 import Mask from '../../../src/Mask/Mask';
 import Heading from '../../../src/Heading/Heading';
-
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
-export default ({ defaultCode, scope }) => (
+type Props = {|
+  defaultCode: string,
+  scope: Object,
+|};
+
+export default ({ defaultCode, scope }: Props) => (
   <LiveProvider
     code={defaultCode.trim()}
     scope={{

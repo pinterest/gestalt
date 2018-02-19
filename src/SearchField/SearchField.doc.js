@@ -2,15 +2,7 @@
 
 import * as React from 'react';
 import SearchField from './SearchField';
-import {
-  ns,
-  md,
-  card,
-  PropTable,
-  Example,
-  StateRecorder,
-} from '../../docs/src/cards';
-import Box from '../Box/Box';
+import { ns, md, card, PropTable, Example } from '../../docs/src/cards';
 import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';
 

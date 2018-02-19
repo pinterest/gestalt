@@ -2,14 +2,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import ErrorFlyout from './ErrorFlyout';
-import {
-  ns,
-  card,
-  md,
-  PropTable,
-  Example,
-  StateRecorder,
-} from '../../docs/src/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'ErrorFlyout',

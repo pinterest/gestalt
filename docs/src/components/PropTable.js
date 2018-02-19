@@ -1,9 +1,23 @@
+// @flow
+import type { Node } from 'react';
 import React from 'react';
 import Box from '../../../src/Box/Box';
 import Text from '../../../src/Text/Text';
 import Icon from '../../../src/Icon/Icon';
 
-const Th = ({ children }) => (
+type Props = {|
+  props: Array<{|
+    defaultValue?: any,
+    description?: string,
+    name: string,
+    required?: boolean,
+    responsive?: boolean,
+    type: string,
+  |}>,
+  Component: { displayName: string, propTypes: any },
+|};
+
+const Th = ({ children }: {| children?: Node |}) => (
   <th style={{ borderBottom: '2px solid #EFEFEF' }}>
     <Box padding={2}>
       <Text bold size="sm" color="gray" overflow="normal">
@@ -13,7 +27,19 @@ const Th = ({ children }) => (
   </th>
 );
 
-const Td = ({ border = true, children, colspan, shrink = false, ...props }) => (
+const Td = ({
+  border = true,
+  children,
+  colspan = 1,
+  shrink = false,
+  color = 'darkGray',
+}: {
+  border?: boolean,
+  children?: Node,
+  colspan?: number,
+  shrink?: boolean,
+  color?: 'darkGray' | 'gray',
+}) => (
   <td
     style={{
       verticalAlign: 'top',
@@ -24,29 +50,29 @@ const Td = ({ border = true, children, colspan, shrink = false, ...props }) => (
     colSpan={colspan}
   >
     <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
-      <Text overflow="normal" __dangerouslyIncreaseLineHeight {...props}>
+      <Text overflow="normal" leading="tall" color={color}>
         {children}
       </Text>
     </Box>
   </td>
 );
 
-const upcase = ([first, ...rest]) => [first.toUpperCase(), ...rest].join('');
+const upcase = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
-export default ({ props, Component }) => {
-  const hasRequired = props.some(prop => prop.required);
-  const hasDescription = props.some(prop => prop.description);
+export default ({ props: properties, Component }: Props) => {
+  const hasRequired = properties.some(prop => prop.required);
 
   if (process.env.NODE_ENV === 'dev' && Component) {
     const { displayName, propTypes } = Component;
-    const missingProps = Object.keys(propTypes || []).reduce((acc, prop) => {
-      if (!props.find(p => p.name === prop)) {
+    const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
+      if (!properties.find(p => p.name === prop)) {
         return acc.concat(prop);
       }
       return acc;
     }, []);
     if (missingProps.length > 0) {
+      // eslint-disable-next-line no-console
       console.warn(
         `${displayName} is missing ${
           missingProps.length
@@ -73,9 +99,9 @@ export default ({ props, Component }) => {
           </tr>
         </thead>
         <tbody>
-          {props.length > 0 ? (
+          {properties.length > 0 ? (
             sortBy(
-              props,
+              properties,
               ({ required, name }) => `${required ? 'a' : 'b'}${name}`
             ).reduce(
               (

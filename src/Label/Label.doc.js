@@ -2,14 +2,7 @@
 import * as React from 'react';
 import Switch from '../Switch/Switch';
 import Label from './Label';
-import {
-  ns,
-  card,
-  md,
-  PropTable,
-  Example,
-  StateRecorder,
-} from '../../docs/src/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'Label',

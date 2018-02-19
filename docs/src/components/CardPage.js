@@ -1,8 +1,14 @@
+// @flow
 import React from 'react';
 import Box from '../../../src/Box/Box';
 import Heading from '../../../src/Heading/Heading';
 
-export default function CardPage(props) {
+type Props = {|
+  cards: *,
+  params: { ns: ?string },
+|};
+
+export default function CardPage(props: Props) {
   const { cards: allCards, params: { ns } } = props;
 
   if (Object.keys(allCards).length === 0 || !ns) {

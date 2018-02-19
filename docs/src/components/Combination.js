@@ -15,7 +15,7 @@ const combinations = variationsByField => {
 
   if (!fieldNames.length) return [{}];
 
-  const _combinations = ([fieldName, ...restFieldNames], acc) => {
+  const combine = ([fieldName, ...restFieldNames], acc) => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
@@ -32,10 +32,10 @@ const combinations = variationsByField => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return flatMap(vs, newAcc => _combinations(restFieldNames, newAcc));
+    return flatMap(vs, newAcc => combine(restFieldNames, newAcc));
   };
 
-  return _combinations(fieldNames, {});
+  return combine(fieldNames, {});
 };
 
 const toReactAttribute = (key, value) => {
@@ -49,7 +49,7 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default <T>({ children, ...props }: Props) => (
+export default ({ children, ...props }: Props) => (
   <Box display="flex" wrap>
     {combinations(props).map((combination, i) => (
       <Box

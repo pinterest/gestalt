@@ -12,23 +12,18 @@ type Props = {|
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
 // which originally got it from https://github.com/sindresorhus/strip-indent
 const stripIndent = (str: string): string => {
-  var match = str.match(/^[ \t]*(?=\S)/gm);
+  const match = str.match(/^[ \t]*(?=\S)/gm);
   if (!match) {
     return str;
   }
 
-  var indent = Math.min.apply(
-    Math,
-    match.map(function(x) {
-      return x.length;
-    })
-  );
+  const indent = Math.min(...match.map(x => x.length));
 
   if (indent === 0) {
     return str;
   }
 
-  var re = new RegExp('^[ \\t]{' + indent + '}', 'gm');
+  const re = new RegExp(`^[ \\t]{${indent}}`, 'gm');
   return str.replace(re, '');
 };
 
@@ -44,6 +39,7 @@ export default ({ text }: Props) => {
 
   return (
     <Text leading="tall">
+      {/* eslint-disable-next-line react/no-danger */}
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Text>
   );

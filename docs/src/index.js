@@ -6,7 +6,7 @@ import CardPage from './components/CardPage';
 import { render } from 'react-dom';
 import { getCards } from 'corkboard/init';
 
-const requireCard = require.context('../../src', true, /[\-\.]doc\.js$/);
+const requireCard = require.context('../../src', true, /\.doc\.js$/);
 const paths = requireCard.keys();
 paths.sort((a, b) => a.localeCompare(b));
 paths.forEach(requireCard);

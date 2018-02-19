@@ -1,7 +1,11 @@
+// @flow
 import React, { isValidElement } from 'react';
 import Box from '../../../src/Box/Box';
 import Heading from '../../../src/Heading/Heading';
-import StateRecorder from './StateRecorder';
+
+type Props = {|
+  args: Array<any>,
+|};
 
 const parseArgs = args => {
   let name;
@@ -37,17 +41,11 @@ const parseArgs = args => {
   };
 };
 
-export default ({ args }) => {
+export default ({ args }: Props) => {
   const {
     name,
     parts,
-    options: {
-      heading = true,
-      history = false,
-      initialState = {},
-      inspectData = false,
-      stacked = false,
-    },
+    options: { heading = true, stacked = false },
   } = parseArgs(args);
 
   return (
