@@ -25,7 +25,7 @@
     "flow": "flow",
     "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
     "lint": "npm run eslint && npm run stylelint",
-    "prettier": "prettier --write \"{codemods,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\"",
+    "prettier": "prettier --write \"{codemods,docs,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\"",
     "prepublish": "rollup -c rollup.config.js",
     "start": "webpack-dev-server --config docs/webpack.config.corkboard.js --progress --colors --open",
     "stylelint": "stylelint \"src/**/*.css\"",
