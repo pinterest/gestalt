@@ -4,15 +4,16 @@
  * @author Joe Gibson (@gibsjose)
  */
 
-p {
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
 pre,
 code {
-  font-family: "Roboto Mono", Monaco, Consolas, 'Courier New', Courier, monospace;
-  font-size: inherit;
+  font-family: PragmataPro, "Roboto Mono", Monaco, Consolas, 'Courier New', Courier, monospace !important;
+  font-size: initial !important;
+}
+
+.text-s,
+.text-m,
+.text-l {
+  line-height: 1.4 !important;
 }
 
 code.prism-code,

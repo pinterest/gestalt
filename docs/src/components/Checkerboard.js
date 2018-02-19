@@ -2,7 +2,7 @@
 import React from 'react';
 
 type Props = {|
-  size: number,
+  size?: number,
 |};
 
 export default ({ size = 8 }: Props) => (

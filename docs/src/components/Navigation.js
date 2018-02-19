@@ -25,7 +25,7 @@ export default function Navigation(props, context) {
       router.push(to);
     };
     return (
-      <Text bold leading="tall" color={isActive ? 'darkGray' : 'gray'}>
+      <Text bold leading="tall" color="darkGray" size="lg">
         <Link href={href} onClick={handleClick}>
           {ns}
         </Link>

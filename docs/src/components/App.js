@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Navigation from './Navigation';
 import Box from '../../../src/Box/Box';
 import Column from '../../../src/Column/Column';
-import Container from '../../../src/Container/Container';
 
 export default function App(props) {
   const { cards, children } = props;
@@ -14,9 +13,7 @@ export default function App(props) {
         </Box>
       </Column>
       <Column span={12} mdSpan={10}>
-        <Box padding={4}>
-          <Container>{children}</Container>
-        </Box>
+        <Box padding={4}>{children}</Box>
       </Column>
     </Box>
   );

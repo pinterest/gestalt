@@ -24,12 +24,7 @@ const Td = ({ border = true, children, colspan, shrink = false, ...props }) => (
     colSpan={colspan}
   >
     <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
-      <Text
-        size="sm"
-        overflow="normal"
-        __dangerouslyIncreaseLineHeight
-        {...props}
-      >
+      <Text overflow="normal" __dangerouslyIncreaseLineHeight {...props}>
         {children}
       </Text>
     </Box>
@@ -106,13 +101,13 @@ export default ({ props, Component }) => {
                     )}
                     <Td shrink border={!description}>
                       <Box>
-                        <Text overflow="normal" bold size="sm" leading="tall">
+                        <Text overflow="normal" bold leading="tall">
                           <code>{name}</code>
                         </Text>
                       </Box>
                       {responsive && (
                         <Box>
-                          <Text size="sm" leading="tall">
+                          <Text leading="tall">
                             <code>
                               sm{upcase(name)}, md{upcase(name)}, lg{upcase(
                                 name
@@ -143,10 +138,9 @@ export default ({ props, Component }) => {
                   acc.push(
                     <tr key={`${i}-description`}>
                       <Td colspan={hasRequired ? 2 : 1} />
-                      <Td overflow="normal" color="gray">
+                      <Td colspan={2} overflow="normal" color="gray">
                         {description}
                       </Td>
-                      <Td />
                     </tr>
                   );
                 }

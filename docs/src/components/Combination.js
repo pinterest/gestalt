@@ -1,7 +1,13 @@
+// @flow
+import type { Node } from 'react';
 import React from 'react';
 import Checkerboard from './Checkerboard';
 import Box from '../../../src/Box/Box';
 import Text from '../../../src/Text/Text';
+
+type Props = {
+  children: (Object, number) => Node,
+};
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = variationsByField => {
@@ -43,36 +49,33 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default ({ children, ...props }) => (
-  <Box display="flex" overflow="scrollX">
-    <table>
-      <tbody>
-        <tr>
-          {combinations(props).map((combination, i) => (
-            <td key={i}>
-              <Box padding={2}>
-                {Object.keys(combination).map(key => (
-                  <Text align="center" size="sm" key={`${i}-${key}`}>
-                    {toReactAttribute(key, combination[key])}
-                  </Text>
-                ))}
-              </Box>
-            </td>
+export default <T>({ children, ...props }: Props) => (
+  <Box display="flex" wrap>
+    {combinations(props).map((combination, i) => (
+      <Box
+        column={4}
+        mdColumn={3}
+        lgColumn={2}
+        key={i}
+        padding={4}
+        display="flex"
+        direction="column"
+        alignItems="center"
+      >
+        <Box marginBottom={2}>
+          {Object.keys(combination).map(key => (
+            <Text align="center" size="sm" key={`${i}-${key}`}>
+              {toReactAttribute(key, combination[key])}
+            </Text>
           ))}
-        </tr>
-        <tr style={{ verticalAlign: 'top' }}>
-          {combinations(props).map((combination, i) => (
-            <td key={i}>
-              <Box position="relative" padding={4}>
-                <Box position="absolute" top left bottom right>
-                  <Checkerboard />
-                </Box>
-                <Box position="relative">{children(combination, i)}</Box>
-              </Box>
-            </td>
-          ))}
-        </tr>
-      </tbody>
-    </table>
+        </Box>
+        <Box position="relative" padding={4}>
+          <Box position="absolute" top left bottom right>
+            <Checkerboard />
+          </Box>
+          <Box position="relative">{children(combination, i)}</Box>
+        </Box>
+      </Box>
+    ))}
   </Box>
 );
