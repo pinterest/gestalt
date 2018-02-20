@@ -9,7 +9,7 @@ import Icon from '../Icon/Icon';
 type Props = {|
   accessibilityLabel: string,
   id: string,
-  onBlur?: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
+  onBlur?: () => void,
   onChange: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
   onFocus?: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
   placeholder?: string,
