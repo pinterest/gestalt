@@ -24,6 +24,10 @@ card(
         required: true,
       },
       {
+        name: 'onBlur',
+        type: '({ value: string }) => void',
+      },
+      {
         name: 'onChange',
         type: '({ value: string }) => void',
         required: true,

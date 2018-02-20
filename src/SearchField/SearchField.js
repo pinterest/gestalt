@@ -10,6 +10,7 @@ type Props = {|
   accessibilityLabel: string,
   id: string,
   onChange: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
+  onBlur?: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
   onFocus?: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
   placeholder?: string,
   value?: string,
@@ -24,6 +25,7 @@ export default class SearchField extends React.Component<Props, State> {
   static propTypes = {
     accessibilityLabel: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
@@ -63,7 +65,19 @@ export default class SearchField extends React.Component<Props, State> {
       });
     }
   };
-  handleBlur = () => this.setState({ focused: false });
+  handleBlur = (syntheticEvent: SyntheticEvent<>) => {
+    this.setState({ focused: false });
+
+    if (
+      syntheticEvent.target instanceof HTMLInputElement &&
+      this.props.onBlur
+    ) {
+      this.props.onBlur({
+        value: syntheticEvent.target.value,
+        syntheticEvent,
+      });
+    }
+  };
 
   render() {
     const { accessibilityLabel, id, placeholder, value } = this.props;
