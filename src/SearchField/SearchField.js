@@ -9,9 +9,9 @@ import Icon from '../Icon/Icon';
 type Props = {|
   accessibilityLabel: string,
   id: string,
-  onBlur?: () => void,
-  onChange: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
-  onFocus?: ({ value: string, syntheticEvent: SyntheticEvent<> }) => void,
+  onBlur?: ({ value: string, event: SyntheticEvent<HtmlInputElement> }) => void,
+  onChange: ({ value: string, event: SyntheticEvent<HtmlInputElement> }) => void,
+  onFocus?: ({ event: SyntheticEvent<HtmlInputElement> }) => void,
   placeholder?: string,
   value?: string,
 |};
@@ -37,42 +37,37 @@ export default class SearchField extends React.Component<Props, State> {
     hovered: false,
   };
 
-  handleChange = (syntheticEvent: SyntheticEvent<>) => {
-    if (syntheticEvent.target instanceof HTMLInputElement) {
-      this.props.onChange({
-        value: syntheticEvent.target.value,
-        syntheticEvent,
-      });
-    }
+  handleChange = (event: SyntheticEvent<HtmlInputElement>) => {
+    this.props.onChange({
+      value: event.target.value,
+      syntheticEvent: event,
+    });
   };
 
-  handleClear = (syntheticEvent: SyntheticEvent<>) => {
-    this.props.onChange({ value: '', syntheticEvent });
+  handleClear = (event: SyntheticEvent<HtmlInputElement>) => {
+    this.props.onChange({
+      value: '',
+      syntheticEvent: event,
+    });
   };
 
   handleMouseEnter = () => this.setState({ hovered: true });
   handleMouseLeave = () => this.setState({ hovered: false });
-  handleFocus = (syntheticEvent: SyntheticEvent<>) => {
+  handleFocus = (event: SyntheticEvent<HtmlInputElement>) => {
     this.setState({ focused: true });
 
-    if (
-      syntheticEvent.target instanceof HTMLInputElement &&
-      this.props.onFocus
-    ) {
+    if (this.props.onFocus) {
       this.props.onFocus({
-        value: syntheticEvent.target.value,
-        syntheticEvent,
+        value: event.target.value,
+        syntheticEvent: event,
       });
     }
   };
-  handleBlur = () => {
+  handleBlur = (event: SyntheticEvent<HtmlInputElement>) => {
     this.setState({ focused: false });
 
-    if (
-      syntheticEvent.target instanceof HTMLInputElement &&
-      this.props.onBlur
-    ) {
-      this.props.onBlur();
+    if (this.props.onBlur) {
+      this.props.onBlur({ syntheticEvent: event });
     }
   };
 

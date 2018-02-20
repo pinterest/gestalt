@@ -25,16 +25,16 @@ card(
       },
       {
         name: 'onBlur',
-        type: '() => void',
+        type: '(event: SyntheticEvent<HtmlInputElement>) => void',
       },
       {
         name: 'onChange',
-        type: '({ value: string }) => void',
+        type: '({ value: string, event: SyntheticEvent<HtmlInputElement> }) => void',
         required: true,
       },
       {
         name: 'onFocus',
-        type: '({ value: string }) => void',
+        type: '({ value: string, event: SyntheticEvent<HtmlInputElement> }) => void',
       },
       {
         name: 'placeholder',
