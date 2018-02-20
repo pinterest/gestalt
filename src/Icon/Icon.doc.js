@@ -62,15 +62,6 @@ card(
 );
 
 card(
-  'Combinations',
-  <Combination icon={Object.keys(icons)}>
-    {props => (
-      <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
-    )}
-  </Combination>
-);
-
-card(
   'Example:',
   md`
     Icon with a label.
@@ -92,12 +83,19 @@ card(
 );
 
 card(
-  <Combination
-    icon={['pin', 'heart']}
-    size={[16, 24, 32]}
-    color={['gray', 'darkGray', 'red']}
-  >
-    {(props, i) => <Icon key={i} accessibilityLabel="" {...props} />}
-  </Combination>,
-  { heading: false }
+  'Icon Combinations',
+  <Combination icon={Object.keys(icons)}>
+    {props => (
+      <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
+    )}
+  </Combination>
+);
+
+card(
+  'Size & Color Combinations',
+  <Combination size={[16, 24, 32]} color={['gray', 'darkGray', 'red']}>
+    {(props, i) => (
+      <Icon key={i} icon="heart" accessibilityLabel="" {...props} />
+    )}
+  </Combination>
 );
