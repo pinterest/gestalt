@@ -25,7 +25,7 @@ card(
       },
       {
         name: 'onBlur',
-        type: '({ value: string }) => void',
+        type: '() => void',
       },
       {
         name: 'onChange',

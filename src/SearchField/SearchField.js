@@ -65,17 +65,14 @@ export default class SearchField extends React.Component<Props, State> {
       });
     }
   };
-  handleBlur = (syntheticEvent: SyntheticEvent<>) => {
+  handleBlur = () => {
     this.setState({ focused: false });
 
     if (
       syntheticEvent.target instanceof HTMLInputElement &&
       this.props.onBlur
     ) {
-      this.props.onBlur({
-        value: syntheticEvent.target.value,
-        syntheticEvent,
-      });
+      this.props.onBlur();
     }
   };
 
