@@ -1,8 +1,7 @@
 // @flow
-import React, { Component } from 'react';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import React from 'react';
+import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
 import Pulsar from './Pulsar';
-import Box from '../Box/Box';
 import Button from '../Button/Button';
 
 ns(
@@ -31,20 +30,26 @@ card(
   { heading: false }
 );
 
-type State = {
-  isPulsing: boolean,
-};
-
-class PulsarEx extends Component<{}, State> {
-  state: State = {
-    isPulsing: true,
-  };
+card(
+  'Example',
+  md`
+    Pulsars can be shown and hidden using the \`paused\` prop.
+  `,
+  <Example
+    defaultCode={`
+class PulsarExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPulsing: true
+    };
+  }
 
   render() {
     const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
     return (
-      <Box display="flex">
-        <Box>
+      <Box display="flex" direction="column">
+        <Box marginBottom={4}>
           <Button
             text={text}
             onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
@@ -57,15 +62,8 @@ class PulsarEx extends Component<{}, State> {
     );
   }
 }
-
-card(
-  'Usage',
-  md`
-    Pulsars can be shown and hidden using the \`paused\` prop.
-
-    ~~~jsx
-    <Pulsar paused={!this.state.isPulsing} />
-    ~~~
-  `,
-  <PulsarEx />
+`}
+    scope={{ Button, Pulsar }}
+  />,
+  { stacked: true }
 );
