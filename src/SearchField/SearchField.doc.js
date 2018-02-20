@@ -29,12 +29,18 @@ card(
       },
       {
         name: 'onChange',
-        type: '({ value: string, event: SyntheticEvent<HtmlInputElement> }) => void',
+        type: `({
+          value: string,
+          event: SyntheticEvent<HtmlInputElement>
+        }) => void`,
         required: true,
       },
       {
         name: 'onFocus',
-        type: '({ value: string, event: SyntheticEvent<HtmlInputElement> }) => void',
+        type: `({
+          value: string,
+          event: SyntheticEvent<HtmlInputElement>
+        }) => void`,
       },
       {
         name: 'placeholder',
