@@ -293,7 +293,7 @@ export default class MasonryExample extends React.Component {
             comp={this.renderItem}
             flexible={Boolean(this.props.flexible)}
             items={this.state.items}
-            measurementStore={this.props.externalCache ? store : null}
+            measurementStore={this.props.externalCache ? store : undefined}
             ref={ref => {
               this.gridRef = ref;
             }}
