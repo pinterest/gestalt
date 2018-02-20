@@ -9,12 +9,15 @@ import Icon from '../Icon/Icon';
 type Props = {|
   accessibilityLabel: string,
   id: string,
-  onBlur?: ({ event: SyntheticEvent<HtmlInputElement> }) => void,
+  onBlur?: ({ synethicEvent: SyntheticEvent<HtmlInputElement> }) => void,
   onChange: ({
     value: string,
-    event: SyntheticEvent<HtmlInputElement>,
+    synethicEvent: SyntheticEvent<HtmlInputElement>,
   }) => void,
-  onFocus?: ({ event: SyntheticEvent<HtmlInputElement> }) => void,
+  onFocus: ({
+    value: string,
+    synethicEvent: SyntheticEvent<HtmlInputElement>,
+  }) => void,
   placeholder?: string,
   value?: string,
 |};
