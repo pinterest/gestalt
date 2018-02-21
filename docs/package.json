@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "scripts": {
-    "build": "webpack --config webpack.config.corkboard.js --colors --progress --output-public-path '/gestalt' --output-path build",
+    "build": "webpack --config webpack.config.corkboard.js --colors --progress --output-path build",
     "start": "webpack-dev-server --config webpack.config.corkboard.js --progress --colors --open"
   },
   "dependencies": {
