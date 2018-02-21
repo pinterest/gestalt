@@ -1,22 +1,31 @@
+// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from '../src/Text/Text';
-import Box from '../src/Box/Box';
-import SelectList from '../src/SelectList/SelectList';
-import Link from '../src/Link/Link';
-import Icon from '../src/Icon/Icon';
-import Heading from '../src/Heading/Heading';
+import Text from '../../../src/Text/Text';
+import Box from '../../../src/Box/Box';
+import SelectList from '../../../src/SelectList/SelectList';
+import Link from '../../../src/Link/Link';
+import Icon from '../../../src/Icon/Icon';
+import Heading from '../../../src/Heading/Heading';
+
+type Props = {|
+  cards: *,
+|};
+
+type Context = {|
+  router: any,
+|};
 
 const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-export default function Navigation(props, context) {
+export default function Navigation(props: Props, context: Context) {
   const { router } = context;
   const { cards } = props;
   const links = Object.keys(cards).map(ns => {
     const to = `/${ns}`;
-    const isActive = router.isActive(to, true);
+    // const isActive = router.isActive(to, true);
     const href = router.createHref(to);
     const handleClick = ({ event }) => {
       if (event.defaultPrevented) return;
@@ -25,11 +34,11 @@ export default function Navigation(props, context) {
       router.push(to);
     };
     return (
-      <Link href={href} onClick={handleClick}>
-        <Text size="lg" bold leading="tall">
+      <Text bold leading="tall" color="darkGray" size="lg">
+        <Link href={href} onClick={handleClick}>
           {ns}
-        </Text>
-      </Link>
+        </Link>
+      </Text>
     );
   });
   const options = [{ label: '-', value: '#' }].concat(
@@ -68,9 +77,7 @@ export default function Navigation(props, context) {
             />
           </Box>
           <Box paddingX={1}>
-            <Heading size="xs">
-              Gestalt
-            </Heading>
+            <Heading size="xs">Gestalt</Heading>
           </Box>
         </Box>
         <Box role="list">

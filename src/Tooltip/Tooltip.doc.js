@@ -6,7 +6,7 @@ import Box from '../Box/Box';
 import Heading from '../Heading/Heading';
 import Text from '../Text/Text';
 import IconButton from '../IconButton/IconButton';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'Tooltip',

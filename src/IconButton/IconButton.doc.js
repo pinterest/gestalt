@@ -7,7 +7,7 @@ import {
   md,
   PropTable,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../docs/src/cards';
 import Box from '../Box/Box';
 import IconButton from './IconButton';
 import Flyout from '../Flyout/Flyout';

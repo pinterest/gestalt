@@ -6,7 +6,7 @@ import {
   PropTable,
   Example,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../docs/src/cards';
 import Pog from './Pog';
 
 ns(
