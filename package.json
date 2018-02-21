@@ -1,6 +1,6 @@
 {
   "private": true,
-  "workspaces": ["docs", "packages/*"],
+  "workspaces": ["docs", "packages/*", "test"],
   "dependencies": {
     "babel-jest": "^22.2.2",
     "babel-preset-es2015": "^6.24.1",
