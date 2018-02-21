@@ -51,6 +51,10 @@ const DefaultAvatar = ({ name }: { name: string }) => {
 };
 
 type AvatarProps = {|
+  name: string,
+  size?: 'sm' | 'md' | 'lg',
+  src?: string,
+  verified?: boolean,
   verifiedColor?:
     | 'blue'
     | 'darkGray'
@@ -69,10 +73,6 @@ type AvatarProps = {|
     | 'red'
     | 'watermelon'
     | 'white',
-  name: string,
-  size?: 'sm' | 'md' | 'lg',
-  src?: string,
-  verified?: boolean,
 |};
 
 const sizes = {
@@ -82,11 +82,11 @@ const sizes = {
 };
 
 export default function Avatar({
-  verifiedColor,
   name,
   size,
   src,
   verified,
+  verifiedColor,
 }: AvatarProps) {
   const width = size ? sizes[size] : '100%';
   const height = size ? sizes[size] : '';
@@ -155,6 +155,10 @@ export default function Avatar({
 }
 
 Avatar.propTypes = {
+  name: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  verified: PropTypes.bool,
   verifiedColor: PropTypes.oneOf([
     'blue',
     'darkGray',
@@ -174,8 +178,4 @@ Avatar.propTypes = {
     'watermelon',
     'white',
   ]),
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  verified: PropTypes.bool,
 };
