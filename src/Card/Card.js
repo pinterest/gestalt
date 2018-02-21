@@ -6,10 +6,11 @@ import classnames from 'classnames';
 import styles from './Card.css';
 
 type Props = {|
-  children?: any,
   active?: ?boolean,
-  onMouseEnter?: ({ event: SyntheticMouseEvent<> }) => void,
-  onMouseLeave?: ({ event: SyntheticMouseEvent<> }) => void,
+  children?: React.Node,
+  image?: React.Node,
+  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
 |};
 
 type State = {|
@@ -18,8 +19,9 @@ type State = {|
 
 export default class Card extends React.Component<Props, State> {
   static propTypes = {
-    children: PropTypes.node,
     active: PropTypes.bool,
+    children: PropTypes.node,
+    image: PropTypes.node,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
   };
@@ -28,7 +30,7 @@ export default class Card extends React.Component<Props, State> {
     hovered: false,
   };
 
-  handleMouseEnter = (event: SyntheticMouseEvent<>) => {
+  handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     const { onMouseEnter } = this.props;
     this.setState(
       { hovered: true },
@@ -36,7 +38,7 @@ export default class Card extends React.Component<Props, State> {
     );
   };
 
-  handleMouseLeave = (event: SyntheticMouseEvent<>) => {
+  handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     const { onMouseLeave } = this.props;
     this.setState(
       { hovered: false },
@@ -45,12 +47,12 @@ export default class Card extends React.Component<Props, State> {
   };
 
   render() {
-    const { children, active } = this.props;
+    const { active, children, image } = this.props;
     const { hovered } = this.state;
 
     const classes = classnames(styles.card, {
-      // If you're not a Javascript godess, == null checks for `null` or
-      // `undefined` and leaves out `false`.
+      // If, like @chrislloyd, you can't remember Javascript equality rules,
+      // == null checks for `null` or `undefined` and leaves out `false`.
       [styles.hover]: active || (active == null && hovered),
     });
 
@@ -60,8 +62,9 @@ export default class Card extends React.Component<Props, State> {
         onMouseLeave={this.handleMouseLeave}
         position="relative"
       >
-        {children}
         <div className={classes} />
+        {image && <Box marginBottom={1}>{image}</Box>}
+        <Box>{children}</Box>
       </Box>
     );
   }
