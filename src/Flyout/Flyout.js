@@ -9,7 +9,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
 export default class Flyout extends React.PureComponent<Props> {
@@ -52,5 +52,8 @@ Flyout.propTypes = {
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+  size: PropTypes.oneOfType(
+    PropTypes.number,
+    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']) // default: sm
+  ),
 };

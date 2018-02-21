@@ -47,7 +47,7 @@ type ControllerProps = {|
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
   shouldFocus?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
 type Window = {
