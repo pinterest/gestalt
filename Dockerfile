@@ -16,7 +16,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get install firefox-esr -yy -qq && \
     chmod a+x /etc/init.d/xvfb /usr/bin/xvfb-daemon-run
 
-ADD package.json yarn.lock /app/
+ADD ./**/package.json ./yarn.lock ./
 
 RUN yarn --pure-lockfile --ignore-scripts
 
