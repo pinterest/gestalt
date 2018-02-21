@@ -25,13 +25,13 @@ card(
       },
       {
         name: 'onBlur',
-        type: '(event: SyntheticEvent<HtmlInputElement>) => void',
+        type: '(event: SyntheticEvent<{ target: HTMLInputElement }>) => void',
       },
       {
         name: 'onChange',
         type: `({
           value: string,
-          event: SyntheticEvent<HtmlInputElement>
+          event: SyntheticEvent<{ target: HTMLInputElement }>
         }) => void`,
         required: true,
       },
@@ -39,7 +39,7 @@ card(
         name: 'onFocus',
         type: `({
           value: string,
-          event: SyntheticEvent<HtmlInputElement>
+          event: SyntheticEvent<{ target: HTMLInputElement }>
         }) => void`,
       },
       {
