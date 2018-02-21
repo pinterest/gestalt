@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Box from '../../../src/Box/Box';
+import Container from '../../../src/Container/Container';
 import Text from '../../../src/Text/Text';
 import Checkerboard from './Checkerboard';
 import Link from '../../../src/Link/Link';
@@ -14,13 +15,15 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 type Props = {|
   defaultCode: string,
   scope: Object,
+  stacked: boolean,
 |};
 
-export default ({ defaultCode, scope }: Props) => (
+export default ({ defaultCode, scope, stacked = false }: Props) => (
   <LiveProvider
     code={defaultCode.trim()}
     scope={{
       Box,
+      Container,
       Link,
       Text,
       Icon,
@@ -35,12 +38,12 @@ export default ({ defaultCode, scope }: Props) => (
       <Box
         display="flex"
         direction="column"
-        mdDirection="row"
+        mdDirection={stacked ? 'column' : 'row'}
         alignItems="stretch"
         marginLeft={-2}
         marginRight={-2}
       >
-        <Box xs={{ column: 12 }} md={{ column: 6 }}>
+        <Box column={12} mdColumn={stacked ? 12 : 6}>
           <Box paddingX={2}>
             <Box paddingY={2}>
               <Text size="sm" color="gray">
@@ -53,7 +56,7 @@ export default ({ defaultCode, scope }: Props) => (
           </Box>
         </Box>
 
-        <Box xs={{ column: 12 }} md={{ column: 6 }}>
+        <Box column={12} mdColumn={stacked ? 12 : 6}>
           <Box
             paddingX={2}
             display="flex"
@@ -79,7 +82,7 @@ export default ({ defaultCode, scope }: Props) => (
         </Box>
       </Box>
       <Box padding={2}>
-        <Text color="watermelon" __dangerouslyIncreaseLineHeight>
+        <Text color="watermelon" leading="tall">
           <LiveError />
         </Text>
       </Box>
