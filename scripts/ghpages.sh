@@ -13,7 +13,7 @@ set -x
 repo=${1:-https://github.com/pinterest/gestalt.git}
 
 git checkout -b tmp-deploy
-npm run build_docs
+yarn build_docs --output-public-path '/gestalt'
 git add -f docs/build
 git commit -m "Deployed to Github Pages"
 git push ${repo} :gh-pages

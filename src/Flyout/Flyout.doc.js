@@ -1,14 +1,9 @@
 // @flow
 /* eslint-disable react/prop-types */
-import React, { Component } from 'react';
-import Box from '../Box/Box';
+import React from 'react';
 import Button from '../Button/Button';
-import Heading from '../Heading/Heading';
 import Flyout from './Flyout';
-import IconButton from '../IconButton/IconButton';
-import Link from '../Link/Link';
-import Text from '../Text/Text';
-import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'Flyout',
@@ -58,161 +53,68 @@ card(
 );
 
 card(
-  'Sizes',
+  'Example',
   md`
-    There are 5 sizes currently available for \`Flyout\`.
 
-    ~~~html
-    Widths:
-    xs: 185px
-    sm: 230px
-    md: 284px
-    lg: 320px
-    xl: 375px
-    ~~~
   `,
-  <StateRecorder
-    fn={atom => (
-      <Box display="flex">
-        <Box display="flex" direction="column" padding={2} alignItems="center">
-          <Heading size="xs">xs</Heading>
-          <FlyoutEx
-            idealDirection="down"
-            isOpen={!!atom.deref().xs}
-            onDismiss={() => atom.reset({ xs: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="More options"
-                accessibilityExpanded={!!atom.deref().xs}
-                accessibilityHaspopup
-                icon="ellipsis"
-                onClick={() => atom.reset({ xs: !atom.deref().xs })}
-              />
-            }
-            size="xs"
-          >
-            <Box
-              display="flex"
-              width="100%"
-              justifyContent="center"
-              padding={2}
-            >
-              <Heading size="xs">xs</Heading>
-            </Box>
-          </FlyoutEx>
-        </Box>
-        <Box display="flex" direction="column" padding={2} alignItems="center">
-          <Heading size="xs">sm</Heading>
-          <FlyoutEx
-            idealDirection="down"
-            isOpen={!!atom.deref().sm}
-            onDismiss={() => atom.reset({ sm: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="More options"
-                accessibilityExpanded={!!atom.deref().sm}
-                accessibilityHaspopup
-                icon="ellipsis"
-                onClick={() => atom.reset({ sm: !atom.deref().sm })}
-              />
-            }
-            size="sm"
-          >
-            <Box
-              display="flex"
-              width="100%"
-              justifyContent="center"
-              padding={2}
-            >
-              <Heading size="sm">sm</Heading>
-            </Box>
-          </FlyoutEx>
-        </Box>
-        <Box display="flex" direction="column" padding={2} alignItems="center">
-          <Heading size="xs">md</Heading>
-          <FlyoutEx
-            idealDirection="down"
-            isOpen={!!atom.deref().md}
-            onDismiss={() => atom.reset({ md: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="More options"
-                accessibilityExpanded={!!atom.deref().md}
-                accessibilityHaspopup
-                icon="ellipsis"
-                onClick={() => atom.reset({ md: !atom.deref().md })}
-              />
-            }
+  <Example
+    defaultCode={`
+class FlyoutExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+    this.handleClick = this._handleClick.bind(this);
+    this.handleDismiss = this._handleDismiss.bind(this);
+  }
+
+  _handleClick() {
+    this.setState(() => ({ open: !this.state.open }));
+  }
+  _handleDismiss() {
+    this.setState(() => ({ open: false }));
+  }
+
+  render() {
+    return (
+      <Box>
+        <div
+          style={{ display: "inline-block" }}
+          ref={c => {
+            this.anchor = c;
+          }}
+        >
+          <Button
+            accessibilityExpanded={!!this.state.open}
+            accessibilityHaspopup
+            onClick={this.handleClick}
+            text="Help"
+          />
+        </div>
+        {this.state.open &&
+          <Flyout
+            anchor={this.anchor}
+            idealDirection="up"
+            message="Oops! This item is out of stock."
+            onDismiss={this.handleDismiss}
             size="md"
           >
-            <Box
-              display="flex"
-              width="100%"
-              justifyContent="center"
-              padding={2}
-            >
-              <Heading size="md">md</Heading>
+            <Box padding={3}>
+              <Text bold align="center">
+                Need help with something? Check out our Help Center.
+              </Text>
+              <Box paddingX={2} marginTop={3}>
+                <Button color="red" text="Visit the help center" />
+              </Box>
             </Box>
-          </FlyoutEx>
-        </Box>
-        <Box display="flex" direction="column" padding={2} alignItems="center">
-          <Heading size="xs">lg</Heading>
-          <FlyoutEx
-            idealDirection="down"
-            isOpen={!!atom.deref().lg}
-            onDismiss={() => atom.reset({ lg: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="More options"
-                accessibilityExpanded={!!atom.deref().lg}
-                accessibilityHaspopup
-                icon="ellipsis"
-                onClick={() => atom.reset({ lg: !atom.deref().lg })}
-              />
-            }
-            size="lg"
-          >
-            <Box
-              display="flex"
-              width="100%"
-              justifyContent="center"
-              padding={2}
-            >
-              <Heading size="lg">lg</Heading>
-            </Box>
-          </FlyoutEx>
-        </Box>
-        <Box display="flex" direction="column" padding={2}>
-          <Heading size="xs">xl</Heading>
-          <FlyoutEx
-            idealDirection="down"
-            isOpen={!!atom.deref().xl}
-            onDismiss={() => atom.reset({ xl: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="More options"
-                accessibilityExpanded={!!atom.deref().xl}
-                accessibilityHaspopup
-                icon="ellipsis"
-                onClick={() => atom.reset({ xl: !atom.deref().xl })}
-              />
-            }
-            size="xl"
-          >
-            <Box
-              display="flex"
-              width="100%"
-              justifyContent="center"
-              padding={2}
-              alignItems="center"
-            >
-              <Heading size="xl">xl</Heading>
-            </Box>
-          </FlyoutEx>
-        </Box>
+          </Flyout>}
       </Box>
-    )}
-  />
+    );
+  }
+}
+`}
+    scope={{ Button, Flyout }}
+  />,
+  { stacked: true }
 );
 
 card(
@@ -257,308 +159,37 @@ card(
   `
 );
 
-const moreFlyout = (
-  <Box role="list">
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Access business tools</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">See order history</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Find friends</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Make a widget</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Get help</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Logout</Link>
-      </Text>
-    </Box>
-  </Box>
-);
-
-const profileFlyout = (
-  <Box role="list">
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">View profile</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Get help</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text bold>
-        <Link href="http://pinterest.com">Logout</Link>
-      </Text>
-    </Box>
-  </Box>
-);
-
-const plusFlyout = (
-  <Box role="list">
-    <Box role="listitem" padding={2}>
-      <Text color="gray" bold>
-        <Link href="http://pinterest.com">
-          Get our browser button to save ideas even faster
-        </Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text color="gray" bold>
-        <Link href="http://pinterest.com">Upload a pin</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text color="gray" bold>
-        <Link href="http://pinterest.com">Save from a website</Link>
-      </Text>
-    </Box>
-    <Box role="listitem" padding={2}>
-      <Text color="gray" bold>
-        <Link href="http://pinterest.com">Report a bug</Link>
-      </Text>
-    </Box>
-  </Box>
-);
-
-const helpFlyout = (
-  <Box padding={2}>
-    <Text bold align="center" size="sm">
-      Need help with something? Check out our Help Center.
-    </Text>
-    <Box padding={2}>
-      <Button color="red" text="Visit the help center" />
-    </Box>
-  </Box>
-);
-
-card(
-  'Examples',
-  md`
-    Below are several sample code snippets with corresponding live Flyout examples on the right.
-
-    <b>#1</b>
-
-    ~~~jsx
-    { this.state.isOpen ?
-      <Flyout
-        anchor={this.moreOptionsButton}
-        idealDirection="down"
-        onDismiss={() => this.setState({ isOpen: false })}
-        }
-        size="xs"
-      >
-        {children}
-      </Flyout>
-    : null }
-    ~~~
-
-    <b>#2</b>
-
-    ~~~jsx
-    { this.state.isOpen ?
-      <Flyout
-        anchor={this.profileOptionsButton}
-        idealDirection="right"
-        onDismiss={() => this.setState({ isOpen: false })}
-        }
-      >
-        {children}
-      </Flyout>
-    : null }
-    ~~~
-
-    <b>#3</b>
-
-    ~~~jsx
-    {
-      this.state.isOpen ? (
-        <Flyout
-          anchor={this.addPinButton}
-          onDismiss={() => this.setState({ isOpen: false })}
-        >
-          {children}
-        </Flyout>
-      ) : null;
-    }
-    ~~~
-
-    <b>#4</b>
-
-    ~~~jsx
-    {
-      this.state.isOpen ? (
-        <Flyout
-          anchor={this.getHelpButton}
-          idealDirection="up"
-          onDismiss={() => this.setState({ isOpen: false })}
-        >
-          {children}
-        </Flyout>
-      ) : null;
-    }
-    ~~~
-  `,
-  <StateRecorder
-    fn={atom => (
-      <Box>
-        <Box alignItems="center" paddingY={2} display="flex" direction="row">
-          <Box paddingX={1}>
-            <Text bold inline>
-              #1
-            </Text>
-          </Box>
-          <FlyoutEx
-            idealDirection="down"
-            isOpen={!!atom.deref().more}
-            onDismiss={() => atom.reset({ more: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="More options"
-                accessibilityExpanded={!!atom.deref().more}
-                accessibilityHaspopup
-                icon="ellipsis"
-                onClick={() => atom.reset({ more: !atom.deref().more })}
-              />
-            }
-            size="xs"
-          >
-            {moreFlyout}
-          </FlyoutEx>
-        </Box>
-        <Box alignItems="center" paddingY={2} display="flex" direction="row">
-          <Box paddingX={1}>
-            <Text bold inline>
-              #2
-            </Text>
-          </Box>
-          <FlyoutEx
-            idealDirection="right"
-            isOpen={!!atom.deref().profile}
-            onDismiss={() => atom.reset({ profile: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="Profile options"
-                accessibilityExpanded={!!atom.deref().profile}
-                accessibilityHaspopup
-                icon="person"
-                onClick={() => atom.reset({ profile: !atom.deref().profile })}
-              />
-            }
-          >
-            {profileFlyout}
-          </FlyoutEx>
-        </Box>
-        <Box alignItems="center" paddingY={2} display="flex" direction="row">
-          <Box paddingX={1}>
-            <Text bold inline>
-              #3
-            </Text>
-          </Box>
-          <FlyoutEx
-            isOpen={!!atom.deref().add}
-            onDismiss={() => atom.reset({ add: false })}
-            anchor={
-              <IconButton
-                accessibilityLabel="Add pin"
-                accessibilityExpanded={!!atom.deref().add}
-                accessibilityHaspopup
-                icon="add"
-                onClick={() => atom.reset({ add: !atom.deref().add })}
-              />
-            }
-          >
-            {plusFlyout}
-          </FlyoutEx>
-        </Box>
-        <Box alignItems="center" paddingY={2} display="flex" direction="row">
-          <Box paddingX={1}>
-            <Text bold inline>
-              #4
-            </Text>
-          </Box>
-          <FlyoutEx
-            idealDirection="up"
-            isOpen={!!atom.deref().help}
-            onDismiss={() => atom.reset({ help: false })}
-            anchor={
-              <Button
-                accessibilityExpanded={!!atom.deref().help}
-                accessibilityHaspopup
-                onClick={() => atom.reset({ help: !atom.deref().help })}
-                text="Help"
-              />
-            }
-          >
-            {helpFlyout}
-          </FlyoutEx>
-        </Box>
-      </Box>
-    )}
-  />
-);
-
-type Props = {
-  anchor?: any,
-  children?: any,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  isOpen: boolean,
-  onDismiss: () => void,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-};
-
-class FlyoutEx extends Component<Props> {
-  anchor: ?HTMLElement;
-
-  render() {
-    const {
-      anchor,
-      children,
-      idealDirection,
-      isOpen,
-      onDismiss,
-      size,
-    } = this.props;
-
-    return (
-      <div>
-        <div
-          style={{ display: 'inline-block' }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
-          {anchor}
-        </div>
-        {isOpen && (
-          <Flyout
-            anchor={this.anchor}
-            idealDirection={idealDirection}
-            onDismiss={onDismiss}
-            size={size}
-          >
-            {children}
-          </Flyout>
-        )}
-      </div>
-    );
-  }
-}
+// const moreFlyout = (
+//   <Box role="list">
+//     <Box role="listitem" padding={2}>
+//       <Text bold>
+//         <Link href="http://pinterest.com">Access business tools</Link>
+//       </Text>
+//     </Box>
+//     <Box role="listitem" padding={2}>
+//       <Text bold>
+//         <Link href="http://pinterest.com">See order history</Link>
+//       </Text>
+//     </Box>
+//     <Box role="listitem" padding={2}>
+//       <Text bold>
+//         <Link href="http://pinterest.com">Find friends</Link>
+//       </Text>
+//     </Box>
+//     <Box role="listitem" padding={2}>
+//       <Text bold>
+//         <Link href="http://pinterest.com">Make a widget</Link>
+//       </Text>
+//     </Box>
+//     <Box role="listitem" padding={2}>
+//       <Text bold>
+//         <Link href="http://pinterest.com">Get help</Link>
+//       </Text>
+//     </Box>
+//     <Box role="listitem" padding={2}>
+//       <Text bold>
+//         <Link href="http://pinterest.com">Logout</Link>
+//       </Text>
+//     </Box>
+//   </Box>
+// );

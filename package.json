@@ -20,7 +20,7 @@
     "react-dom": "^15.4.1"
   },
   "scripts": {
-    "build_docs": "webpack --config docs/webpack.config.corkboard.js --colors --progress --output-public-path '/gestalt' --output-path docs/build",
+    "build_docs": "webpack --config docs/webpack.config.corkboard.js --colors --progress --output-path docs/build",
     "eslint": "eslint .",
     "flow": "flow",
     "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",

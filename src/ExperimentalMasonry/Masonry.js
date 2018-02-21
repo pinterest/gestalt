@@ -32,7 +32,7 @@ type Props<T> = {|
   flexible?: boolean,
   gutterWidth?: number,
   items: Array<T>,
-  measurementStore?: Cache<T, *>,
+  measurementStore: Cache<T, *>,
   minCols: number,
   layout?:
     | DefaultLayoutSymbol
@@ -103,6 +103,11 @@ export default class ExperimentalMasonry<T> extends React.Component<
     items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 
     /**
+     * Measurement Store
+     */
+    measurementStore: PropTypes.instanceOf(MeasurementStore),
+
+    /**
      * A callback which the grid calls when we need to load more items as the user scrolls.
      * The callback should update the state of the items, and pass those in as props
      * to this component.
@@ -134,6 +139,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
 
   static defaultProps = {
     columnWidth: 236,
+    measurementStore: new MeasurementStore(),
     minCols: 3,
     serverRender: false,
     layout: DefaultLayoutSymbol,
@@ -147,12 +153,9 @@ export default class ExperimentalMasonry<T> extends React.Component<
     this.containerHeight = 0;
     this.containerOffset = 0;
 
-    // measurement store
-    this.measurementStore = props.measurementStore || new MeasurementStore();
-
     this.state = {
       hasPendingMeasurements: props.items.some(
-        item => !!item && !this.measurementStore.has(item)
+        item => !!item && !props.measurementStore.has(item)
       ),
       isFetching: false,
       scrollTop: 0,
@@ -186,11 +189,11 @@ export default class ExperimentalMasonry<T> extends React.Component<
     this.setState({ scrollTop, width });
   }
 
-  componentWillReceiveProps({ items }: Props<T>) {
+  componentWillReceiveProps({ items, measurementStore }: Props<T>) {
     // whenever we're receiving new props, determine whether any items need to be measured
     // TODO - we should treat items as immutable
     const hasPendingMeasurements = items.some(
-      item => !this.measurementStore.has(item)
+      item => !measurementStore.has(item)
     );
     // Shallow compare all items, if any change reflow the grid.
     for (let i = 0; i < items.length; i += 1) {
@@ -234,17 +237,19 @@ export default class ExperimentalMasonry<T> extends React.Component<
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State) {
+    const { items, measurementStore } = this.props;
+
     clearTimeout(this.measureTimeout);
     this.measureTimeout = setTimeout(() => {
       this.measureContainer();
     });
 
     if (prevState.width != null && this.state.width !== prevState.width) {
-      this.measurementStore.reset();
+      measurementStore.reset();
     }
     // calculate whether we still have pending measurements
-    const hasPendingMeasurements = this.props.items.some(
-      item => !!item && !this.measurementStore.has(item)
+    const hasPendingMeasurements = items.some(
+      item => !!item && !measurementStore.has(item)
     );
     if (
       hasPendingMeasurements ||
@@ -284,7 +289,6 @@ export default class ExperimentalMasonry<T> extends React.Component<
   containerOffset: number;
   gridWrapper: ?HTMLElement;
   insertAnimationFrame: AnimationFrameID;
-  measurementStore: Cache<T, *>;
   measureTimeout: TimeoutID;
   resizeTimeout: TimeoutID;
   scrollContainer: ?ScrollContainer;
@@ -340,7 +344,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
    * number of columns we would display should change after a resize.
    */
   reflow() {
-    this.measurementStore.reset();
+    this.props.measurementStore.reset();
     this.measureContainer();
     this.forceUpdate();
   }
@@ -406,10 +410,11 @@ export default class ExperimentalMasonry<T> extends React.Component<
 
   render() {
     const {
-      columnWidth = 236,
+      columnWidth,
       comp: Component,
       flexible,
       gutterWidth: gutter,
+      measurementStore,
       items,
       minCols,
     } = this.props;
@@ -419,7 +424,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
     if (flexible && width !== null) {
       layout = fullWidthLayout({
         gutter,
-        cache: this.measurementStore,
+        cache: measurementStore,
         minCols,
         idealColumnWidth: columnWidth,
         width,
@@ -429,7 +434,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
       this.props.layout instanceof LegacyUniformRowLayout
     ) {
       layout = uniformRowLayout({
-        cache: this.measurementStore,
+        cache: measurementStore,
         columnWidth,
         gutter,
         minCols,
@@ -437,7 +442,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
       });
     } else {
       layout = defaultLayout({
-        cache: this.measurementStore,
+        cache: measurementStore,
         columnWidth,
         gutter,
         minCols,
@@ -470,7 +475,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
               ref={el => {
                 if (el && !flexible) {
                   // only measure flexible items on client
-                  this.measurementStore.set(item, el.clientHeight);
+                  measurementStore.set(item, el.clientHeight);
                 }
               }}
             >
@@ -485,17 +490,16 @@ export default class ExperimentalMasonry<T> extends React.Component<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsToRender = this.props.items.filter(
-        item => item && this.measurementStore.has(item)
+      const itemsToRender = items.filter(
+        item => item && measurementStore.has(item)
       );
-      const itemsToMeasure = this.props.items
-        .filter(item => item && !this.measurementStore.has(item))
+      const itemsToMeasure = items
+        .filter(item => item && !measurementStore.has(item))
         .slice(0, minCols);
 
       const positions = layout(itemsToRender);
       const measuringPositions = layout(itemsToMeasure);
       const height = Math.max(...positions.map(pos => pos.top + pos.height));
-
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
@@ -515,7 +519,7 @@ export default class ExperimentalMasonry<T> extends React.Component<
                   }}
                   ref={el => {
                     if (el) {
-                      this.measurementStore.set(data, el.clientHeight);
+                      measurementStore.set(data, el.clientHeight);
                     }
                   }}
                 >
