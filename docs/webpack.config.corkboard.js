@@ -1,17 +1,11 @@
-const postcssBrowserReporter = require('postcss-browser-reporter');
-const postcssCssNext = require('postcss-cssnext');
-const postcssImport = require('postcss-import');
-const postcssReporter = require('postcss-reporter');
-const postcssUrl = require('postcss-url');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const breakpoints = require('../src/breakpoints.json');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./docs/src/index', 'webpack/hot/only-dev-server'],
+  entry: ['./src/index', 'webpack/hot/only-dev-server'],
   output: {
-    path: path.join(__dirname, 'docs', 'build'),
+    path: path.join(__dirname, 'build'),
     pathinfo: true,
     filename: 'bundle.js',
     publicPath: '/',
@@ -44,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.join(__dirname, '.corkboard'),
+        include: path.join(__dirname, 'src'),
         use: [
           {
             loader: 'style-loader',
@@ -56,7 +50,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.join(__dirname, '..', 'src'),
+        include: path.join(__dirname, '..', 'packages', 'gestalt'),
         exclude: path.join(__dirname, '..', 'node_modules'),
         use: [
           {
@@ -101,7 +95,7 @@ module.exports = {
           },
         ],
         include: [
-          path.join(__dirname, '..', 'src'),
+          path.join(__dirname, '..', 'packages', 'gestalt'),
           path.join(__dirname, 'src'),
           path.dirname(require.resolve('corkboard')),
         ],
@@ -114,32 +108,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: __dirname,
-        postcss: wp => [
-          postcssImport({
-            addDependencyTo: wp,
-          }),
-          postcssUrl(),
-          postcssCssNext({
-            features: {
-              customMedia: {
-                extensions: breakpoints,
-              },
-            },
-          }),
-          postcssBrowserReporter(),
-          postcssReporter(),
-        ],
-      },
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './docs/public/index.html',
+      template: './public/index.html',
       title: 'Gestalt',
       inject: true,
-      favicon: './docs/public/favicon.png',
+      favicon: './public/favicon.png',
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined

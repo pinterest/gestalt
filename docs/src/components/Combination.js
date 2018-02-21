@@ -2,8 +2,7 @@
 import type { Node } from 'react';
 import React from 'react';
 import Checkerboard from './Checkerboard';
-import Box from '../../../src/Box/Box';
-import Text from '../../../src/Text/Text';
+import { Box, Text } from 'gestalt';
 
 type Props = {
   children: (Object, number) => Node,
@@ -49,33 +48,35 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default ({ children, ...props }: Props) => (
-  <Box display="flex" wrap>
-    {combinations(props).map((combination, i) => (
-      <Box
-        column={4}
-        mdColumn={3}
-        lgColumn={2}
-        key={i}
-        padding={4}
-        display="flex"
-        direction="column"
-        alignItems="center"
-      >
-        <Box marginBottom={2}>
-          {Object.keys(combination).map(key => (
-            <Text align="center" size="sm" key={`${i}-${key}`}>
-              {toReactAttribute(key, combination[key])}
-            </Text>
-          ))}
-        </Box>
-        <Box position="relative" padding={4}>
-          <Box position="absolute" top left bottom right>
-            <Checkerboard />
+export default function Combination({ children, ...props }: Props) {
+  return (
+    <Box display="flex" wrap>
+      {combinations(props).map((combination, i) => (
+        <Box
+          column={4}
+          mdColumn={3}
+          lgColumn={2}
+          key={i}
+          padding={4}
+          display="flex"
+          direction="column"
+          alignItems="center"
+        >
+          <Box marginBottom={2}>
+            {Object.keys(combination).map(key => (
+              <Text align="center" size="sm" key={`${i}-${key}`}>
+                {toReactAttribute(key, combination[key])}
+              </Text>
+            ))}
           </Box>
-          <Box position="relative">{children(combination, i)}</Box>
+          <Box position="relative" padding={4}>
+            <Box position="absolute" top left bottom right>
+              <Checkerboard />
+            </Box>
+            <Box position="relative">{children(combination, i)}</Box>
+          </Box>
         </Box>
-      </Box>
-    ))}
-  </Box>
-);
+      ))}
+    </Box>
+  );
+}

@@ -1,0 +1,47 @@
+{
+  "name": "gestalt-docs",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "homepage": "https://pinterest.github.io/gestalt",
+  "scripts": {
+    "build": "webpack --config webpack.config.corkboard.js --colors --progress --output-public-path '/gestalt' --output-path build",
+    "start": "webpack-dev-server --config webpack.config.corkboard.js --progress --colors --open"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "gestalt": "link:../packages/gesalt",
+    "corkboard": "0.3.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-webpack-loaders": "^0.5.0",
+    "babel-polyfill": "^6.23.0",
+    "css-loader": "^0.23.1",
+    "cssnano": "^3.10.0",
+    "ejs": "^2.5.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "flow-status-webpack-plugin": "^0.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "json-loader": "^0.5.4",
+    "open-browser-webpack-plugin": "0.0.2",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.3.0",
+    "react-live": "^1.7.1",
+    "react-test-renderer": "^15.3.2",
+    "style-loader": "^0.13.0",
+    "svg-path-loader": "^0.0.4",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "browserslist": [
+    "defaults",
+    "last 2 versions",
+    "iOS 8"
+  ]
+}

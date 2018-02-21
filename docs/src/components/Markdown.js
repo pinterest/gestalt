@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import Text from '../../../src/Text/Text';
+import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import '!style-loader!css-loader!./AtomDark.css';
@@ -27,7 +27,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default ({ text }: Props) => {
+export default function Markdown({ text }: Props) {
   const renderer = new Renderer();
 
   renderer.code = (code, language) => {
@@ -43,4 +43,4 @@ export default ({ text }: Props) => {
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Text>
   );
-};
+}
