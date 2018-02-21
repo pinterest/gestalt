@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import MasonryUniformRowLayout from './layout/uniformRow';
-import { ns, card, md, PropTable } from '../../.corkboard/cards';
+import { ns, card, md, PropTable } from '../../docs/src/cards';
 import Box from '../Box/Box';
 import Masonry from './Masonry';
 import Image from '../Image/Image';

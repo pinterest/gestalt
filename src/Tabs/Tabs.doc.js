@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import Tabs from './Tabs';
-import { ns, card, PropTable, StateRecorder } from '../../.corkboard/cards';
+import { ns, card, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns(
   'Tabs',

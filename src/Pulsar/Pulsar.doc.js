@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 import Pulsar from './Pulsar';
 import Button from '../Button/Button';
 
