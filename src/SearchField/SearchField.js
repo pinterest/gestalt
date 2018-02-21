@@ -9,14 +9,14 @@ import Icon from '../Icon/Icon';
 type Props = {|
   accessibilityLabel: string,
   id: string,
-  onBlur?: ({ syntheticEvent: SyntheticEvent<{ target: HTMLInputElement }> }) => void,
+  onBlur?: ({ syntheticEvent: SyntheticEvent<HTMLInputElement> }) => void,
   onChange: ({
     value: string,
-    syntheticEvent: SyntheticEvent<{ target: HTMLInputElement }>,
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
   onFocus: ({
     value: string,
-    syntheticEvent: SyntheticEvent<{ target: HTMLInputElement }>,
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
   placeholder?: string,
   value?: string,
@@ -43,14 +43,14 @@ export default class SearchField extends React.Component<Props, State> {
     hovered: false,
   };
 
-  handleChange = (event: SyntheticEvent<{ target: HTMLInputElement }>) => {
+  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.props.onChange({
-      value: event.target.value,
+      value: event.currentTarget.value,
       syntheticEvent: event,
     });
   };
 
-  handleClear = (event: SyntheticEvent<{ target: HTMLInputElement }>) => {
+  handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
     this.props.onChange({
       value: '',
       syntheticEvent: event,
@@ -59,17 +59,17 @@ export default class SearchField extends React.Component<Props, State> {
 
   handleMouseEnter = () => this.setState({ hovered: true });
   handleMouseLeave = () => this.setState({ hovered: false });
-  handleFocus = (event: SyntheticEvent<{ target: HTMLInputElement }>) => {
+  handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ focused: true });
 
     if (this.props.onFocus) {
       this.props.onFocus({
-        value: event.target.value,
+        value: event.currentTarget.value,
         syntheticEvent: event,
       });
     }
   };
-  handleBlur = (event: SyntheticEvent<{ target: HTMLInputElement }>) => {
+  handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ focused: false });
 
     if (this.props.onBlur) {
