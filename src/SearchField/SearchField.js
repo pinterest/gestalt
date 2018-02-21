@@ -9,14 +9,14 @@ import Icon from '../Icon/Icon';
 type Props = {|
   accessibilityLabel: string,
   id: string,
-  onBlur?: ({ syntheticEvent: SyntheticEvent<HtmlInputElement> }) => void,
+  onBlur?: ({ syntheticEvent: SyntheticEvent<HTMLInputElement> }) => void,
   onChange: ({
     value: string,
-    syntheticEvent: SyntheticEvent<HtmlInputElement>,
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
   onFocus: ({
     value: string,
-    syntheticEvent: SyntheticEvent<HtmlInputElement>,
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
   placeholder?: string,
   value?: string,
@@ -43,14 +43,14 @@ export default class SearchField extends React.Component<Props, State> {
     hovered: false,
   };
 
-  handleChange = (event: SyntheticEvent<HtmlInputElement>) => {
+  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.props.onChange({
       value: event.target.value,
       syntheticEvent: event,
     });
   };
 
-  handleClear = (event: SyntheticEvent<HtmlInputElement>) => {
+  handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
     this.props.onChange({
       value: '',
       syntheticEvent: event,
@@ -59,7 +59,7 @@ export default class SearchField extends React.Component<Props, State> {
 
   handleMouseEnter = () => this.setState({ hovered: true });
   handleMouseLeave = () => this.setState({ hovered: false });
-  handleFocus = (event: SyntheticEvent<HtmlInputElement>) => {
+  handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ focused: true });
 
     if (this.props.onFocus) {
@@ -69,7 +69,7 @@ export default class SearchField extends React.Component<Props, State> {
       });
     }
   };
-  handleBlur = (event: SyntheticEvent<HtmlInputElement>) => {
+  handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ focused: false });
 
     if (this.props.onBlur) {
