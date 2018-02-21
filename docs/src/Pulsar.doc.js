@@ -1,14 +1,7 @@
 // @flow
-<<<<<<< Updated upstream:src/Pulsar/Pulsar.doc.js
 import React from 'react';
-import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
-import Pulsar from './Pulsar';
-import Button from '../Button/Button';
-=======
-import React, { Component } from 'react';
-import { ns, card, md, PropTable } from './cards';
-import { Box, Button, Pulsar } from 'gestalt';
->>>>>>> Stashed changes:docs/src/Pulsar.doc.js
+import { Pulsar, Button } from 'gestalt';
+import { ns, card, md, PropTable, Example } from './cards';
 
 ns(
   'Pulsar',

@@ -1,19 +1,7 @@
 // @flow
 import * as React from 'react';
-<<<<<<< Updated upstream:src/Mask/Mask.doc.js
-import Mask from './Mask';
-import {
-  ns,
-  card,
-  md,
-  PropTable,
-  Example,
-  Combination,
-} from '../../docs/src/cards';
-=======
-import { Box, Mask } from 'gestalt';
-import { ns, card, md, PropTable } from './cards';
->>>>>>> Stashed changes:docs/src/Mask.doc.js
+import { Mask } from 'gestalt';
+import { ns, card, md, PropTable, Example, Combination } from './cards';
 
 ns(
   'Mask',
