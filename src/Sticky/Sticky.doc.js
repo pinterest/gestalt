@@ -18,7 +18,7 @@ card(
         type: 'number',
       },
       {
-        name: 'children',
+        name: 'children?',
         type: 'React.Node',
       },
       {
@@ -40,9 +40,6 @@ card(
       },
     ]}
   />,
-  md`
-    **Note**: if no threshold is passed to Sticky, it will behave the same as a relatively positioned element
-  `,
   { stacked: true }
 );
 
