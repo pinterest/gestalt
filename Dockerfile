@@ -18,6 +18,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 ADD ./**/package.json ./yarn.lock ./
 
+RUN ls -lah . packages/*/
+
 RUN yarn --pure-lockfile --ignore-scripts
 
 ADD . /app
