@@ -8,7 +8,7 @@ steps:
       queue: elastic-builders
   - wait
   - name: ":eslint:"
-    command: npm run eslint
+    command: yarn eslint
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -16,7 +16,7 @@ steps:
       docker-compose:
         run: app
   - name: ":stylelint:"
-    command: npm run stylelint
+    command: yarn stylelint
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -32,7 +32,7 @@ steps:
       docker-compose:
         run: app
   - name: ":jest: :chrome:"
-    command: npm test -- --env jsdom
+    command: yarn test --env jsdom
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -40,7 +40,7 @@ steps:
       docker-compose:
         run: app
   - name: ":jest: :node:"
-    command: npm test -- --env node
+    command: yarn test --env node
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -48,7 +48,7 @@ steps:
       docker-compose:
         run: app
   - name: ":ghost: %n"
-    command: npm run ghost
+    command: yarn ghost
     artifact_paths: 'screenshots/*'
     timeout_in_minutes: 30
     parallelism: 3
