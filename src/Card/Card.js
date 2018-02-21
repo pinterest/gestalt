@@ -62,9 +62,9 @@ export default class Card extends React.Component<Props, State> {
         onMouseLeave={this.handleMouseLeave}
         position="relative"
       >
-        <div className={classes} />
         {image && <Box marginBottom={1}>{image}</Box>}
         <Box>{children}</Box>
+        <div className={classes} />
       </Box>
     );
   }
