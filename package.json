@@ -20,14 +20,14 @@
     "react-dom": "^15.4.1"
   },
   "scripts": {
-    "build_docs": "webpack --config webpack.config.corkboard.js --colors --progress --optimize-minimize --output-public-path '/gestalt' --output-path docs",
+    "build_docs": "webpack --config docs/webpack.config.corkboard.js --colors --progress --output-path docs/build",
     "eslint": "eslint .",
     "flow": "flow",
     "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
     "lint": "npm run eslint && npm run stylelint",
-    "prettier": "prettier --write \"{codemods,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\"",
+    "prettier": "prettier --write \"{codemods,docs,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\"",
     "prepublish": "rollup -c rollup.config.js",
-    "start": "webpack-dev-server --config webpack.config.corkboard.js --progress --colors --open",
+    "start": "webpack-dev-server --config docs/webpack.config.corkboard.js --progress --colors --open",
     "stylelint": "stylelint \"src/**/*.css\"",
     "test:all": "npm run stylelint && npm run eslint && npm run flow && npm test && npm run ghost",
     "test": "jest",

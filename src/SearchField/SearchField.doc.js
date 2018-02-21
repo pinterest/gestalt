@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import SearchField from './SearchField';
-import { ns, md, card, PropTable, Example } from '../../.corkboard/cards';
+import { ns, md, card, PropTable, Example } from '../../docs/src/cards';
 import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';
 
