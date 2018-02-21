@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import layout from '../Layout.css';
 
 type Threshold =
@@ -13,7 +13,7 @@ type Threshold =
   | {| top: number, left: number, right: number, bottom: number |};
 
 type Props = {|
-  children: any,
+  children: React.Node,
   dangerouslySetZIndex?: number,
   ...Threshold,
 |};
