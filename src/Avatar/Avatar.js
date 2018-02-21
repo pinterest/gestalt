@@ -51,6 +51,7 @@ const DefaultAvatar = ({ name }: { name: string }) => {
 };
 
 type AvatarProps = {|
+  children?: any,
   name: string,
   size?: 'sm' | 'md' | 'lg',
   src?: string,
@@ -63,7 +64,13 @@ const sizes = {
   lg: 72,
 };
 
-export default function Avatar({ name, size, src, verified }: AvatarProps) {
+export default function Avatar({
+  children,
+  name,
+  size,
+  src,
+  verified,
+}: AvatarProps) {
   const width = size ? sizes[size] : '100%';
   const height = size ? sizes[size] : '';
   return (
@@ -92,6 +99,7 @@ export default function Avatar({ name, size, src, verified }: AvatarProps) {
       ) : (
         <DefaultAvatar name={name} />
       )}
+      {children}
       {verified && (
         <Box
           position="absolute"
@@ -131,6 +139,7 @@ export default function Avatar({ name, size, src, verified }: AvatarProps) {
 }
 
 Avatar.propTypes = {
+  children: PropTypes.node,
   name: PropTypes.string.isRequired,
   src: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
