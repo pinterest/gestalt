@@ -51,6 +51,24 @@ const DefaultAvatar = ({ name }: { name: string }) => {
 };
 
 type AvatarProps = {|
+  verifiedColor?:
+    | 'blue'
+    | 'darkGray'
+    | 'eggplant'
+    | 'gray'
+    | 'green'
+    | 'lightGray'
+    | 'maroon'
+    | 'midnight'
+    | 'navy'
+    | 'olive'
+    | 'orange'
+    | 'orchid'
+    | 'pine'
+    | 'purple'
+    | 'red'
+    | 'watermelon'
+    | 'white',
   name: string,
   size?: 'sm' | 'md' | 'lg',
   src?: string,
@@ -63,7 +81,13 @@ const sizes = {
   lg: 72,
 };
 
-export default function Avatar({ name, size, src, verified }: AvatarProps) {
+export default function Avatar({
+  verifiedColor,
+  name,
+  size,
+  src,
+  verified,
+}: AvatarProps) {
   const width = size ? sizes[size] : '100%';
   const height = size ? sizes[size] : '';
   return (
@@ -118,7 +142,7 @@ export default function Avatar({ name, size, src, verified }: AvatarProps) {
             }}
           >
             <Icon
-              color="red"
+              color={verifiedColor || 'red'}
               icon="check-circle"
               accessibilityLabel=""
               size="100%"
@@ -131,6 +155,25 @@ export default function Avatar({ name, size, src, verified }: AvatarProps) {
 }
 
 Avatar.propTypes = {
+  verifiedColor: PropTypes.oneOf([
+    'blue',
+    'darkGray',
+    'eggplant',
+    'gray',
+    'green',
+    'lightGray',
+    'maroon',
+    'midnight',
+    'navy',
+    'olive',
+    'orange',
+    'orchid',
+    'pine',
+    'purple',
+    'red',
+    'watermelon',
+    'white',
+  ]),
   name: PropTypes.string.isRequired,
   src: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
