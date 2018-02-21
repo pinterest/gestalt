@@ -3579,9 +3579,12 @@ generic-names@^1.0.2:
   dependencies:
     loader-utils "^0.2.16"
 
-"gestalt@link:packages/gesalt":
-  version "0.0.0"
-  uid ""
+gestalt@latest:
+  version "0.56.0"
+  resolved "https://registry.yarnpkg.com/gestalt/-/gestalt-0.56.0.tgz#d12eeef8a2896562c524434f95632f877fc0cac0"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
 
 get-caller-file@^1.0.1:
   version "1.0.2"
