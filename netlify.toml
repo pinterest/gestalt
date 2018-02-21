@@ -1,4 +1,3 @@
 [build]
-  base = "docs"
-  publish = "build"
-  command = "yarn build"
+  publish = "docs/build"
+  command = "yarn build_docs"
