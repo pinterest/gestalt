@@ -14,19 +14,22 @@ type Threshold =
 
 type Props = {|
   children: any,
+  dangerouslySetZIndex?: number,
   ...Threshold,
 |};
 
 export default function Sticky(props: Props) {
+  const { dangerouslySetZIndex = 1, children } = props;
   const style = {
     top: typeof props.top === 'number' ? props.top : undefined,
     left: typeof props.left === 'number' ? props.left : undefined,
     right: typeof props.right === 'number' ? props.right : undefined,
     bottom: typeof props.bottom === 'number' ? props.bottom : undefined,
+    zIndex: dangerouslySetZIndex,
   };
   return (
     <div className={layout.sticky} style={style}>
-      {props.children}
+      {children}
     </div>
   );
 }
