@@ -51,28 +51,11 @@ const DefaultAvatar = ({ name }: { name: string }) => {
 };
 
 type AvatarProps = {|
+  children?: any,
   name: string,
   size?: 'sm' | 'md' | 'lg',
   src?: string,
   verified?: boolean,
-  verifiedColor?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white',
 |};
 
 const sizes = {
@@ -82,11 +65,11 @@ const sizes = {
 };
 
 export default function Avatar({
+  children,
   name,
   size,
   src,
   verified,
-  verifiedColor,
 }: AvatarProps) {
   const width = size ? sizes[size] : '100%';
   const height = size ? sizes[size] : '';
@@ -116,6 +99,7 @@ export default function Avatar({
       ) : (
         <DefaultAvatar name={name} />
       )}
+      {children}
       {verified && (
         <Box
           position="absolute"
@@ -142,7 +126,7 @@ export default function Avatar({
             }}
           >
             <Icon
-              color={verifiedColor || 'red'}
+              color="red"
               icon="check-circle"
               accessibilityLabel=""
               size="100%"
@@ -155,27 +139,9 @@ export default function Avatar({
 }
 
 Avatar.propTypes = {
+  children: PropTypes.node,
   name: PropTypes.string.isRequired,
   src: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   verified: PropTypes.bool,
-  verifiedColor: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'eggplant',
-    'gray',
-    'green',
-    'lightGray',
-    'maroon',
-    'midnight',
-    'navy',
-    'olive',
-    'orange',
-    'orchid',
-    'pine',
-    'purple',
-    'red',
-    'watermelon',
-    'white',
-  ]),
 };
