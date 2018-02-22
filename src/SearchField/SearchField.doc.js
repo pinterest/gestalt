@@ -24,13 +24,23 @@ card(
         required: true,
       },
       {
+        name: 'onBlur',
+        type: '({ event: SyntheticEvent<HTMLInputElement> }) => void',
+      },
+      {
         name: 'onChange',
-        type: '({ value: string }) => void',
+        type: `({
+          value: string,
+          syntheticEvent: SyntheticEvent<HTMLInputElement>
+        }) => void`,
         required: true,
       },
       {
         name: 'onFocus',
-        type: '({ value: string }) => void',
+        type: `({
+          value: string,
+          syntheticEvent: SyntheticEvent<HTMLInputElement>
+        }) => void`,
       },
       {
         name: 'placeholder',
