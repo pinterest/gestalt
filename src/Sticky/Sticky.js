@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import layout from '../Layout.css';
 
 type Threshold =
@@ -26,6 +25,7 @@ export default function Sticky(props: Props) {
     left: typeof props.left === 'number' ? props.left : undefined,
     right: typeof props.right === 'number' ? props.right : undefined,
     bottom: typeof props.bottom === 'number' ? props.bottom : undefined,
+    // eslint-disable-next-line no-underscore-dangle
     zIndex: dangerouslySetZIndex.__zIndex,
   };
   return (
