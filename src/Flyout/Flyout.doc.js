@@ -3,7 +3,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Flyout from './Flyout';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'Flyout',

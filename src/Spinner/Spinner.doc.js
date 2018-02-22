@@ -4,7 +4,7 @@ import Box from '../Box/Box';
 import Button from '../Button/Button';
 import Text from '../Text/Text';
 import Spinner from './Spinner';
-import { ns, card, md, PropTable, StateRecorder } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, StateRecorder } from '../../docs/src/cards';
 
 ns('Spinner');
 
