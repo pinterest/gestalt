@@ -1,4 +1,3 @@
-const breakpoints = require('../src/breakpoints.json');
 const postcssImport = require('postcss-import');
 const postcssUrl = require('postcss-url');
 const postcssCssNext = require('postcss-cssnext');
@@ -51,13 +50,7 @@ module.exports = {
         postcss: wp => [
           postcssImport({ addDependencyTo: wp }),
           postcssUrl(),
-          postcssCssNext({
-            features: {
-              customMedia: {
-                extensions: breakpoints,
-              },
-            },
-          }),
+          postcssCssNext(),
         ],
       },
     }),

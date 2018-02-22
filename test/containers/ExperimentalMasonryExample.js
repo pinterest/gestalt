@@ -1,5 +1,5 @@
 import React from 'react';
-import Masonry from '../../src/ExperimentalMasonry/Masonry';
+import { ExperimentalMasonry as Masonry } from 'gestalt';
 import Item from './ExampleGridItem';
 import PropTypes from 'prop-types';
 

@@ -1,6 +1,10 @@
 {
   "private": true,
-  "workspaces": ["docs", "packages/*", "test"],
+  "workspaces": [
+    "docs",
+    "packages/*",
+    "test"
+  ],
   "dependencies": {
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.2.2",
@@ -24,22 +28,23 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.4.0",
+    "flow-bin": "0.65.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.3.0",
+    "prettier": "1.10.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-test-renderer": "^15.3.2",
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^18.0.0",
-    "stylelint-order": "^0.8.0",
-    "flow-bin": "0.65.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "prettier": "1.10.2"
+    "stylelint-order": "^0.8.0"
   },
   "scripts": {
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
     "test": "jest",
     "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
+    "prettier": "prettier --write \"{codemods,docs,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\""
   },
   "jest": {
     "moduleNameMapper": {
@@ -117,5 +122,8 @@
       ],
       "value-no-vendor-prefix": true
     }
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0"
   }
 }
