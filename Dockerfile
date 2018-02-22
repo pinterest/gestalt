@@ -20,11 +20,12 @@ RUN mkdir -p packages/gestalt
 
 COPY yarn.lock \
      package.json \
-     packages/gestalt/package.json \
      ./
+COPY packages/gestalt/package.json \
+     ./packages/gestalt/
 
 RUN ls -lah . packages/*
 
 RUN yarn --pure-lockfile --ignore-scripts
 
-COPY . /app
+COPY . ./
