@@ -16,9 +16,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get install firefox-esr -yy -qq && \
     chmod a+x /etc/init.d/xvfb /usr/bin/xvfb-daemon-run
 
+RUN mkdir -p packages/gestalt
+
 COPY yarn.lock \
      package.json \
-     packages/**/package.json \
+     packages/gestalt/package.json \
      .
 
 RUN ls -lah . packages/*
