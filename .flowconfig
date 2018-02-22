@@ -4,6 +4,8 @@
 [ignore]
 # Tracking https://github.com/facebook/flow/issues/4015
 <PROJECT_ROOT>/docs
+<PROJECT_ROOT>/test
+
 <PROJECT_ROOT>/node_modules/stylelint.*
 <PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/*
 
