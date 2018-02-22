@@ -24,8 +24,6 @@ COPY yarn.lock \
 COPY packages/gestalt/package.json \
      ./packages/gestalt/
 
-RUN ls -lah . packages/*
-
 RUN yarn --pure-lockfile --ignore-scripts
 
 COPY . ./
