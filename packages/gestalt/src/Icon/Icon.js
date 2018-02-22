@@ -58,6 +58,8 @@ export default function Icon(props: IconProps) {
   );
 }
 
+Icon.icons = Object.keys(icons);
+
 Icon.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
   color: PropTypes.oneOf([
@@ -79,7 +81,7 @@ Icon.propTypes = {
     'watermelon',
     'white',
   ]),
-  icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
+  icon: PropTypes.oneOf(Icon.icons).isRequired,
   inline: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

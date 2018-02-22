@@ -3,8 +3,6 @@ import * as React from 'react';
 import { Box, Icon, Text } from 'gestalt';
 import { ns, card, Example, md, PropTable, Combination } from './cards';
 
-const icons = {};
-
 ns(
   'Icon',
   `
@@ -76,7 +74,7 @@ card(
 
 card(
   'Icon Combinations',
-  <Combination icon={Object.keys(icons)}>
+  <Combination icon={Icon.icons}>
     {props => (
       <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
     )}
