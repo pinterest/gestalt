@@ -9,6 +9,7 @@ exports[`Sticky correctly sets thresholds 1`] = `
       "left": 2,
       "right": 3,
       "top": 4,
+      "zIndex": 1,
     }
   }
 >
@@ -25,6 +26,7 @@ exports[`Sticky renders 1`] = `
       "left": undefined,
       "right": undefined,
       "top": 1,
+      "zIndex": 1,
     }
   }
 >
