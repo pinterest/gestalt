@@ -3,7 +3,7 @@
 export DISPLAY=:99.0
 /etc/init.d/xvfb start
 
-cd test && npm start &
+cd test && yarn start &
 
 PID=$!                    # get the Parent Process ID
 PGID=$(ps opgid= "$PID")  # get the Process Group ID

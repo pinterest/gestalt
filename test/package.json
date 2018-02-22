@@ -38,7 +38,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "start": "npm run start:webpack-server | npm run start:node-server",
+    "start": "yarn start:webpack-server | yarn start:node-server",
     "start:webpack-server": "webpack-dev-server --hot --inline --progress --colors",
     "start:node-server": "BABEL_DISABLE_CACHE=1 NODE_ENV=testing babel-node server.js"
   }
