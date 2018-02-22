@@ -35,8 +35,8 @@ card(
       },
       {
         name: 'dangerouslySetZIndex',
-        type: 'number',
-        defaultValue: 1,
+        type: '{ __zIndex: number }',
+        defaultValue: '{ __zIndex: 1 }',
       },
     ]}
   />,
@@ -62,7 +62,7 @@ card(
       </Box>
     </Box>
     <Box>
-      <Sticky top={0} dangerouslySetZIndex={3}>
+      <Sticky top={0} dangerouslySetZIndex={{ __zIndex: 3 }}>
       <Box alignItems="center" color="lightGray" display="flex" height={40} position="relative" dangerouslySetInlineStyle={{ __style: { zIndex: 2 } }}>
           <Text>This should also stick</Text>
         </Box>

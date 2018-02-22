@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import layout from '../Layout.css';
 
 type Threshold =
@@ -14,18 +15,18 @@ type Threshold =
 
 type Props = {|
   children: React.Node,
-  dangerouslySetZIndex?: number,
+  dangerouslySetZIndex?: { __zIndex: number },
   ...Threshold,
 |};
 
 export default function Sticky(props: Props) {
-  const { dangerouslySetZIndex = 1, children } = props;
+  const { dangerouslySetZIndex = { __zIndex: 1 }, children } = props;
   const style = {
     top: typeof props.top === 'number' ? props.top : undefined,
     left: typeof props.left === 'number' ? props.left : undefined,
     right: typeof props.right === 'number' ? props.right : undefined,
     bottom: typeof props.bottom === 'number' ? props.bottom : undefined,
-    zIndex: dangerouslySetZIndex,
+    zIndex: dangerouslySetZIndex.__zIndex,
   };
   return (
     <div className={layout.sticky} style={style}>
