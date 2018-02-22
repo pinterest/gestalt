@@ -1,6 +1,6 @@
 version: '2'
 services:
-  app:
+  gestalt:
     build: .
     volumes:
       - "./screenshots:/app/screenshots"

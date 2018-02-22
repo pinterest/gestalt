@@ -21,7 +21,7 @@ RUN mkdir -p packages/gestalt
 COPY yarn.lock \
      package.json \
      packages/gestalt/package.json \
-     .
+     ./
 
 RUN ls -lah . packages/*
 
