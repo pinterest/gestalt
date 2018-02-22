@@ -2,7 +2,7 @@ steps:
   - name: ":docker: :package:"
     plugins:
       docker-compose:
-        build: app
+        build: gestalt
         image-repository: 053722134931.dkr.ecr.us-east-1.amazonaws.com/pinterest
     agents:
       queue: elastic-builders
@@ -14,7 +14,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":stylelint:"
     command: yarn stylelint
     timeout_in_minutes: 10
@@ -22,7 +22,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":flowtype:"
     command: yarn flow check
     timeout_in_minutes: 10
@@ -30,7 +30,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":jest: :chrome:"
     command: yarn test --env jsdom
     timeout_in_minutes: 10
@@ -38,7 +38,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":jest: :node:"
     command: yarn test --env node
     timeout_in_minutes: 10
@@ -46,7 +46,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":ghost: %n"
     command: yarn ghost
     artifact_paths: 'screenshots/*'
@@ -73,4 +73,4 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
