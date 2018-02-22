@@ -4,14 +4,15 @@
   "private": true,
   "main": "server.js",
   "dependencies": {
+    "babel-cli": "^6.18.0",
     "cssnano": "^3.10.0",
     "ejs": "^2.5.2",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "flow-status-webpack-plugin": "^0.1.5",
+    "gestalt": "latest",
     "ghost-axe": "^0.0.3",
     "ghostjs": "1.10.2",
-    "gestalt": "latest",
     "html-webpack-plugin": "^2.30.1",
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
@@ -32,10 +33,6 @@
     "svg-path-loader": "^0.0.4",
     "webpack-dev-server": "^2.11.1",
     "webpack": "^3.11.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
     "start": "yarn start:webpack-server | yarn start:node-server",
