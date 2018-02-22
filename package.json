@@ -2,7 +2,12 @@
   "private": true,
   "workspaces": ["docs", "packages/*", "test"],
   "dependencies": {
+    "babel-eslint": "^8.2.1",
     "babel-jest": "^22.2.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-webpack-loaders": "^0.5.0",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-react": "^6.24.1",
@@ -14,7 +19,6 @@
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-prettier": "^2.1.1",
     "eslint-import-resolver-webpack": "^0.8.1",
-    "eslint-loader": "^1.7.1",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
@@ -27,10 +31,12 @@
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0",
     "flow-bin": "0.65.0",
+    "react": "^15.4.1",
     "prettier": "1.10.2"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "eslint": "eslint ."
   },
   "jest": {
     "moduleNameMapper": {
