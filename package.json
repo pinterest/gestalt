@@ -36,9 +36,8 @@
     "prettier": "1.10.2"
   },
   "scripts": {
-    "test": "jest",
     "eslint": "eslint .",
-    "flow": "flow check"
+    "test": "jest"
   },
   "jest": {
     "moduleNameMapper": {
