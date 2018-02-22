@@ -1,30 +1,47 @@
+// @flow
 // @chrislloyd: This linter is disabled because initialState is polymorphic.
 /* eslint react/forbid-prop-types:0 */
+import type { Node } from 'react';
 import React, { Component } from 'react';
 
-const atom = initialState => {
-  let state = initialState;
+type Props<T> = {|
+  initialState: T,
+  fn: Function,
+|};
+
+type State<T> = {|
+  history: Array<T>,
+  idx: number,
+|};
+
+const atom = <T>(initialState: T) => {
+  let state: T = initialState;
   const listeners = [];
 
-  const transition = newState => {
+  const transition = (newState: T) => {
     state = newState;
     listeners.forEach(listener => listener(state));
   };
 
   return {
     deref: () => state,
-    reset: val => transition(val),
-    set: fn => transition(fn(state)),
-    listen: listener => listeners.push(listener),
+    reset: (val: T) => transition(val),
+    set: (fn: T => T) => transition(fn(state)),
+    listen: (listener: Function) => listeners.push(listener),
   };
 };
 
-function Icon(props) {
+function Icon(props: { icon: string, label: string }) {
   const { icon, label } = props;
   return <i className={['fa', `fa-${icon}`].join(' ')} title={label} />;
 }
 
-function Control(props) {
+function Control(props: {
+  pred: boolean,
+  color: string,
+  children?: Node,
+  onClick: Function,
+}) {
   const { pred, color, children, onClick } = props;
   const iconColor = pred ? color : 'silver';
   if (pred) {
@@ -43,26 +60,20 @@ function Control(props) {
   );
 }
 
-export default class StateRecorder extends Component {
+export default class StateRecorder<T> extends Component<Props<T>, State<T>> {
   static defaultProps = {
-    historyLimit: 100,
     initialState: {},
   };
 
-  constructor(props) {
+  constructor(props: Props<T>) {
     super(props);
-    this.handlePrevious = this.unboundHandlePrevious.bind(this);
-    this.handleNext = this.unboundHandleNext.bind(this);
-    this.handleReset = this.unboundHandleReset.bind(this);
-    this.handleRewind = this.unboundHandleRewind.bind(this);
-    this.handleFastForward = this.unboundHandleFastForward.bind(this);
     this.state = {
       history: [this.props.initialState],
       idx: 0,
     };
   }
 
-  transition(val) {
+  transition(val: T) {
     const history = this.state.history.slice(0, this.state.idx + 1);
     history.push(val);
 
@@ -72,35 +83,35 @@ export default class StateRecorder extends Component {
     });
   }
 
-  unboundHandlePrevious() {
+  handlePrevious = () => {
     this.setState({
       idx: this.state.idx - 1,
     });
-  }
+  };
 
-  unboundHandleNext() {
+  handleNext = () => {
     this.setState({
       idx: this.state.idx + 1,
     });
-  }
+  };
 
-  unboundHandleReset() {
+  handleReset = () => {
     this.setState({
       history: this.state.history.slice(0, this.state.idx + 1),
     });
-  }
+  };
 
-  unboundHandleRewind() {
+  handleRewind = () => {
     this.setState({
       idx: 0,
     });
-  }
+  };
 
-  unboundHandleFastForward() {
+  handleFastForward = () => {
     this.setState({
       idx: this.state.history.length - 1,
     });
-  }
+  };
 
   canGoBack() {
     return this.state.idx > 0;
@@ -153,19 +164,13 @@ export default class StateRecorder extends Component {
   }
 
   render() {
-    const { fn, showState, showHistory } = this.props;
+    const { fn } = this.props;
     const { history, idx } = this.state;
     const state = history[idx];
 
     const a = atom(state);
-    a.listen(newState => this.transition(newState));
+    a.listen((newState: T) => this.transition(newState));
 
-    return (
-      <div>
-        {fn(a)}
-        {showHistory ? this.renderHistoryControls() : null}
-        {/* showState ? <JsonData data={state} /> : null */}
-      </div>
-    );
+    return <div>{fn(a)}</div>;
   }
 }

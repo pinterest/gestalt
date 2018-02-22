@@ -1,5 +1,5 @@
 .buildkite
-.corkboard
+docs
 **/__tests__/**
 **/__docs__/**
 scripts
