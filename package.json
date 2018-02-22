@@ -37,7 +37,8 @@
   },
   "scripts": {
     "test": "jest",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "flow": "flow check"
   },
   "jest": {
     "moduleNameMapper": {
