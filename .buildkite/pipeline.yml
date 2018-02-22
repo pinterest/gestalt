@@ -8,7 +8,7 @@ steps:
       queue: elastic-builders
   - wait
   - name: ":eslint:"
-    command: yarn eslint
+    command: yarn lint:js
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -16,7 +16,7 @@ steps:
       docker-compose:
         run: gestalt
   - name: ":stylelint:"
-    command: yarn stylelint
+    command: yarn lint:css
     timeout_in_minutes: 10
     agents:
       queue: elastic
