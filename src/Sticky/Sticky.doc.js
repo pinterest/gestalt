@@ -18,7 +18,7 @@ card(
         type: 'number',
       },
       {
-        name: 'children?',
+        name: 'children',
         type: 'React.Node',
       },
       {
