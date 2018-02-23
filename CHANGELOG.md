@@ -9,6 +9,8 @@
 * GroupAvatar: Update sizes to be in line with other components (#30)
 ### Patch
 
+- Internal: Adds [Danger](http://danger.systems/js/) to pull requests.
+
 </details>
 
 ## [0.57.1] (Feb 22, 2018)

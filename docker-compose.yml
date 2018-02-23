@@ -5,5 +5,10 @@ services:
     volumes:
       - "./screenshots:/app/screenshots"
     environment:
-      BUILDKITE_PARALLEL_JOB_COUNT:
-      BUILDKITE_PARALLEL_JOB:
+      - BUILDKITE
+      - BUILDKITE_PARALLEL_JOB
+      - BUILDKITE_PARALLEL_JOB_COUNT
+      - BUILDKITE_PULL_REQUEST
+      - BUILDKITE_REPO
+      - CI
+      - DANGER_GITHUB_API_TOKEN
