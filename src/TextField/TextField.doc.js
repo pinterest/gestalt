@@ -197,3 +197,26 @@ card(
     )}
   />
 );
+
+card(
+  'Autofocus',
+  md`
+    \`TextField\` intentionally lacks support for autofocus. Generally speaking,
+    autofocus interrupts normal page flow for screen readers making it an
+    anti-pattern for accessibility.
+  `
+);
+
+card(
+  'onSubmit',
+  md`
+    \`TextField\` is commonly used as an input in forms along side submit buttons.
+    In these cases, users will expect the pressing Enter or Return with the input
+    focused to submit the form.
+
+    Out of the box, \`TextField\` doesn't expose an \`onSubmit\` handler or
+    individual key event handlers due to the complexities of handling these
+    properly. Instead, developers are encouraged to wrap the \`TextField\`
+    in a \`form\` and to attach an \`onSubmit\` handler to that \`form\`.
+  `
+);
