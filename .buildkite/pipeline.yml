@@ -61,7 +61,7 @@ steps:
       docker-compose:
         run: app
   - name: ":zap: danger"
-    command: yarn danger
+    command: yarn danger ci
     timeout_in_minutes: 10
     env:
       DANGER_GITHUB_API_TOKEN: $DANGER_GITHUB_API_TOKEN
