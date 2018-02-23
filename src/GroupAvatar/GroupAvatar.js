@@ -16,9 +16,9 @@ const AVATAR_SIZES = {
 };
 
 const DEFAULT_AVATAR_TEXT_SIZES = {
-  sm: 20,
-  md: 28,
-  lg: 52,
+  sm: 7,
+  md: 11,
+  lg: 21,
 };
 
 type Props = {|
@@ -82,7 +82,7 @@ const DefaultAvatar = (props: {
 }) => {
   const { height, name, textLayout } = props;
   const size = AVATAR_SIZES[props.size];
-  const fontSize = DEFAULT_AVATAR_TEXT_SIZES[props.size] / 2;
+  const fontSize = DEFAULT_AVATAR_TEXT_SIZES[props.size];
 
   const quarterPadding = Math.floor(
     (size / 2 - fontSize) / 2 * Math.sin(degToRad(45))
