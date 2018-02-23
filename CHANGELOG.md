@@ -8,7 +8,7 @@
 ### Minor
 ### Patch
 
-- Adds [Danger](http://danger.systems/js/) to pull requests.
+- Internal: Adds [Danger](http://danger.systems/js/) to pull requests.
 
 </details>
 
