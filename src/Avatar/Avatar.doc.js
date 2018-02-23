@@ -23,7 +23,7 @@ card(
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         description:
-          "Without passing in a size, the Avatar will fill to 100% of the width of its' parent container",
+          'sm: 24px, md: 40px, lg: 72px. If size is undefined, Avatar will fill 100% of the parent container width',
       },
       {
         name: 'src',
