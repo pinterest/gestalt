@@ -10,19 +10,15 @@ import Collection from '../Collection/Collection';
 const BORDER_WIDTH = 2;
 
 const AVATAR_SIZES = {
-  xs: 36,
-  sm: 60,
-  md: 108,
-  lg: 156,
-  xl: 198,
+  sm: 24,
+  md: 40,
+  lg: 72,
 };
 
 const DEFAULT_AVATAR_TEXT_SIZES = {
-  xs: 20,
-  sm: 32,
-  md: 56,
-  lg: 90,
-  xl: 106,
+  sm: 20,
+  md: 28,
+  lg: 52,
 };
 
 type Props = {|
@@ -30,7 +26,7 @@ type Props = {|
     name: string,
     src?: string,
   |}>,
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size: 'sm' | 'md' | 'lg',
 |};
 
 const avatarLayout = (n, size) => {
@@ -82,7 +78,7 @@ const DefaultAvatar = (props: {
   height: number,
   name: string,
   textLayout: 'center' | 'topLeft' | 'bottomLeft',
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size: 'sm' | 'md' | 'lg',
 }) => {
   const { height, name, textLayout } = props;
   const size = AVATAR_SIZES[props.size];
@@ -161,11 +157,14 @@ const DefaultAvatar = (props: {
 export default function GroupAvatar(props: Props) {
   const { collaborators, size } = props;
   const layout = avatarLayout(collaborators.length, AVATAR_SIZES[size]);
+  const avatarSize = AVATAR_SIZES[size];
   return (
     <Box
       color="white"
+      height={avatarSize}
       overflow="hidden"
       shape="circle"
+      width={avatarSize}
       dangerouslySetInlineStyle={{
         __style: {
           boxShadow: '0 0 0 2px #fff',
@@ -220,5 +219,5 @@ GroupAvatar.propTypes = {
       src: PropTypes.string,
     })
   ).isRequired,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
 };

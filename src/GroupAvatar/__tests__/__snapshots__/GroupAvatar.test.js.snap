@@ -6,6 +6,8 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
+      "height": 40,
+      "width": 40,
       "willChange": "transform",
     }
   }
@@ -14,8 +16,8 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
     className="relative"
     style={
       Object {
-        "height": 108,
-        "width": 108,
+        "height": 40,
+        "width": 40,
       }
     }
   >
@@ -23,10 +25,10 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 108,
+          "height": 40,
           "left": 0,
           "top": 0,
-          "width": 53,
+          "width": 19,
         }
       }
     >
@@ -34,8 +36,8 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 108,
-            "width": 53,
+            "height": 40,
+            "width": 19,
           }
         }
       >
@@ -59,10 +61,10 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 108,
-          "left": 55,
+          "height": 40,
+          "left": 21,
           "top": 0,
-          "width": 53,
+          "width": 19,
         }
       }
     >
@@ -70,8 +72,8 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 108,
-            "width": 53,
+            "height": 40,
+            "width": 19,
           }
         }
       >
@@ -101,6 +103,8 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
+      "height": 40,
+      "width": 40,
       "willChange": "transform",
     }
   }
@@ -109,8 +113,8 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
     className="relative"
     style={
       Object {
-        "height": 108,
-        "width": 109,
+        "height": 40,
+        "width": 41,
       }
     }
   >
@@ -118,10 +122,10 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 108,
+          "height": 40,
           "left": 0,
           "top": 0,
-          "width": 53,
+          "width": 19,
         }
       }
     >
@@ -129,8 +133,8 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 108,
-            "width": 53,
+            "height": 40,
+            "width": 19,
           }
         }
       >
@@ -154,10 +158,10 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 53,
-          "left": 55,
+          "height": 19,
+          "left": 21,
           "top": 0,
-          "width": 54,
+          "width": 20,
         }
       }
     >
@@ -165,8 +169,8 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 53,
-            "width": 54,
+            "height": 19,
+            "width": 20,
           }
         }
       >
@@ -190,10 +194,10 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 53,
-          "left": 55,
-          "top": 55,
-          "width": 54,
+          "height": 19,
+          "left": 21,
+          "top": 21,
+          "width": 20,
         }
       }
     >
@@ -201,8 +205,8 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 53,
-            "width": 54,
+            "height": 19,
+            "width": 20,
           }
         }
       >
@@ -232,6 +236,8 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
+      "height": 40,
+      "width": 40,
       "willChange": "transform",
     }
   }
@@ -240,8 +246,8 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
     className="relative"
     style={
       Object {
-        "height": 108,
-        "width": 109,
+        "height": 40,
+        "width": 41,
       }
     }
   >
@@ -249,10 +255,10 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 108,
+          "height": 40,
           "left": 0,
           "top": 0,
-          "width": 53,
+          "width": 19,
         }
       }
     >
@@ -260,8 +266,8 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 108,
-            "width": 53,
+            "height": 40,
+            "width": 19,
           }
         }
       >
@@ -285,10 +291,10 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 53,
-          "left": 55,
+          "height": 19,
+          "left": 21,
           "top": 0,
-          "width": 54,
+          "width": 20,
         }
       }
     >
@@ -296,8 +302,8 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 53,
-            "width": 54,
+            "height": 19,
+            "width": 20,
           }
         }
       >
@@ -321,10 +327,10 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 53,
-          "left": 55,
-          "top": 55,
-          "width": 54,
+          "height": 19,
+          "left": 21,
+          "top": 21,
+          "width": 20,
         }
       }
     >
@@ -332,8 +338,8 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
         className="box relative"
         style={
           Object {
-            "height": 53,
-            "width": 54,
+            "height": 19,
+            "width": 20,
           }
         }
       >
@@ -363,6 +369,8 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
+      "height": 40,
+      "width": 40,
       "willChange": "transform",
     }
   }
@@ -371,8 +379,8 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
     className="relative"
     style={
       Object {
-        "height": 108,
-        "width": 108,
+        "height": 40,
+        "width": 40,
       }
     }
   >
@@ -380,10 +388,10 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 108,
+          "height": 40,
           "left": 0,
           "top": 0,
-          "width": 108,
+          "width": 40,
         }
       }
     >
@@ -392,7 +400,7 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
         className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
         style={
           Object {
-            "height": 108,
+            "height": 40,
           }
         }
       >
@@ -403,8 +411,8 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
             className="box"
             style={
               Object {
-                "fontSize": 28,
-                "lineHeight": "28px",
+                "fontSize": 14,
+                "lineHeight": "14px",
               }
             }
           >
@@ -423,6 +431,8 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
+      "height": 40,
+      "width": 40,
       "willChange": "transform",
     }
   }
@@ -431,8 +441,8 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
     className="relative"
     style={
       Object {
-        "height": 108,
-        "width": 108,
+        "height": 40,
+        "width": 40,
       }
     }
   >
@@ -440,10 +450,10 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
       className="absolute"
       style={
         Object {
-          "height": 108,
+          "height": 40,
           "left": 0,
           "top": 0,
-          "width": 108,
+          "width": 40,
         }
       }
     >
@@ -452,7 +462,7 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
         className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
         style={
           Object {
-            "height": 108,
+            "height": 40,
           }
         }
       >
@@ -463,8 +473,8 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
             className="box"
             style={
               Object {
-                "fontSize": 28,
-                "lineHeight": "28px",
+                "fontSize": 14,
+                "lineHeight": "14px",
               }
             }
           >
