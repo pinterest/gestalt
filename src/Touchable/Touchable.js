@@ -41,14 +41,15 @@ const ENTER_CHAR_CODE = 13;
 
 export default class Touchable extends React.Component<Props> {
   handleKeyPress = (event: SyntheticMouseEvent<>) => {
+    const { onTouch } = this.props;
     // Check to see if space or enter were pressed
     if (
-      this.props.onTouch &&
+      onTouch &&
       (event.charCode === SPACE_CHAR_CODE || event.charCode === ENTER_CHAR_CODE)
     ) {
       // Prevent the default action to stop scrolling when space is pressed
       event.preventDefault();
-      this.props.onTouch({ event });
+      onTouch({ event });
     }
   };
 
@@ -56,7 +57,7 @@ export default class Touchable extends React.Component<Props> {
     const {
       children,
       fullWidth = true,
-      fullHeight = false,
+      fullHeight,
       mouseCursor = 'pointer',
       onMouseEnter,
       onMouseLeave,
