@@ -6,6 +6,7 @@
   </summary>
 
 ### Minor
+* GroupAvatar: Update sizes to be in line with other components (#30)
 ### Patch
 
 - Internal: Adds [Danger](http://danger.systems/js/) to pull requests.
