@@ -11,7 +11,7 @@ import {
   md,
   PropTable,
   Combination,
-} from '../../.corkboard/cards';
+} from '../../docs/src/cards';
 
 ns(
   'Icon',

@@ -3,7 +3,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Flyout from './Flyout';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'Flyout',
@@ -158,38 +158,3 @@ card(
     * \`aria-expanded\` informs the screenreader whether the flyout is currently open or closed.
   `
 );
-
-// const moreFlyout = (
-//   <Box role="list">
-//     <Box role="listitem" padding={2}>
-//       <Text bold>
-//         <Link href="http://pinterest.com">Access business tools</Link>
-//       </Text>
-//     </Box>
-//     <Box role="listitem" padding={2}>
-//       <Text bold>
-//         <Link href="http://pinterest.com">See order history</Link>
-//       </Text>
-//     </Box>
-//     <Box role="listitem" padding={2}>
-//       <Text bold>
-//         <Link href="http://pinterest.com">Find friends</Link>
-//       </Text>
-//     </Box>
-//     <Box role="listitem" padding={2}>
-//       <Text bold>
-//         <Link href="http://pinterest.com">Make a widget</Link>
-//       </Text>
-//     </Box>
-//     <Box role="listitem" padding={2}>
-//       <Text bold>
-//         <Link href="http://pinterest.com">Get help</Link>
-//       </Text>
-//     </Box>
-//     <Box role="listitem" padding={2}>
-//       <Text bold>
-//         <Link href="http://pinterest.com">Logout</Link>
-//       </Text>
-//     </Box>
-//   </Box>
-// );

@@ -162,8 +162,8 @@ Controller.propTypes = {
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
   shouldFocus: PropTypes.bool,
-  size: PropTypes.oneOfType(
+  size: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']) // default: sm
-  ),
+    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+  ]),
 };
