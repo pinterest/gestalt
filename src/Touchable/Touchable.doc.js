@@ -22,6 +22,11 @@ card(
         type: 'any',
       },
       {
+        name: 'fullHeight',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
         name: 'fullWidth',
         type: 'boolean',
         defaultValue: true,

@@ -27,6 +27,7 @@ type MouseCursor =
 
 type Props = {|
   children?: any,
+  fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,
   onMouseEnter?: ({ event: SyntheticMouseEvent<> }) => void,
@@ -47,9 +48,7 @@ export default class Touchable extends React.Component<Props> {
     ) {
       // Prevent the default action to stop scrolling when space is pressed
       event.preventDefault();
-      if (this.props.onTouch) {
-        this.props.onTouch({ event });
-      }
+      this.props.onTouch({ event });
     }
   };
 
@@ -57,6 +56,7 @@ export default class Touchable extends React.Component<Props> {
     const {
       children,
       fullWidth = true,
+      fullHeight = false,
       mouseCursor = 'pointer',
       onMouseEnter,
       onMouseLeave,
@@ -69,6 +69,7 @@ export default class Touchable extends React.Component<Props> {
       styles[mouseCursor],
       styles[shape],
       {
+        [styles.fullHeight]: fullHeight,
         [styles.fullWidth]: fullWidth,
       }
     );
@@ -91,6 +92,7 @@ export default class Touchable extends React.Component<Props> {
 
 Touchable.propTypes = {
   children: PropTypes.node,
+  fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
   mouseCursor: PropTypes.oneOf([
     'copy',
