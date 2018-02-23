@@ -49,6 +49,7 @@
     "corkboard": "0.3.3",
     "css-loader": "^0.23.1",
     "cssnano": "^3.10.0",
+    "danger": "^3.1.7",
     "ejs": "^2.5.2",
     "enzyme": "^2.3.0",
     "eslint": "^4.17.0",
