@@ -14,3 +14,9 @@ it('renders a Card with wash shown', () =>
   snapshot(<Card active>Chris Lloyd</Card>));
 it('renders a Card with wash hidden', () =>
   snapshot(<Card active={false}>Chris Lloyd</Card>));
+it('renders a Card with an image', () =>
+  snapshot(
+    <Card active={false} image="Avatar">
+      Chris Lloyd
+    </Card>
+  ));
