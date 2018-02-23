@@ -61,7 +61,7 @@ steps:
       docker-compose:
         run: app
   - name: ":zap: danger"
-    command: yarn danger ci
+    command: env && yarn danger ci
     timeout_in_minutes: 10
     env:
       - CI
