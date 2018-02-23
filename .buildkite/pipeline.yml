@@ -53,8 +53,8 @@ steps:
     timeout_in_minutes: 30
     parallelism: 3
     env:
-      BUILDKITE_PARALLEL_JOB_COUNT: $BUILDKITE_PARALLEL_JOB_COUNT
-      BUILDKITE_PARALLEL_JOB: BUILDKITE_PARALLEL_JOB
+      - BUILDKITE_PARALLEL_JOB
+      - BUILDKITE_PARALLEL_JOB_COUNT
     agents:
       queue: elastic
     plugins:
@@ -64,11 +64,11 @@ steps:
     command: yarn danger ci
     timeout_in_minutes: 10
     env:
-      CI: $CI
-      BUILDKITE: $BUILDKITE
-      BUILDKITE_REPO: $BUILDKITE_REPO
-      BUILDKITE_PULL_REQUEST: $BUILDKITE_PULL_REQUEST
-      DANGER_GITHUB_API_TOKEN: $DANGER_GITHUB_API_TOKEN
+      - BUILDKITE
+      - BUILDKITE_PULL_REQUEST
+      - BUILDKITE_REPO
+      - CI
+      - DANGER_GITHUB_API_TOKEN
     agents:
       queue: elastic
     plugins:
