@@ -6,6 +6,7 @@ import CombinationInternal from './components/Combination';
 import PropTableInternal from './components/PropTable';
 import ExampleInternal from './components/Example';
 import Markdown from './components/Markdown';
+import StateRecorderInternal from './components/StateRecorder';
 
 export const ns = (name, description = '') => {
   registerNamespace(name);
@@ -23,3 +24,4 @@ export const md = str => (
 export const PropTable = PropTableInternal;
 export const Example = ExampleInternal;
 export const Combination = CombinationInternal;
+export const StateRecorder = StateRecorderInternal;

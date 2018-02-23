@@ -52,8 +52,8 @@ Flyout.propTypes = {
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
-  size: PropTypes.oneOfType(
+  size: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']) // default: sm
-  ),
+    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+  ]),
 };

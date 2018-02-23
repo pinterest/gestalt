@@ -8,8 +8,6 @@ const path = require('path');
 const breakpoints = require('../src/breakpoints.json');
 const webpack = require('webpack');
 
-const DEV_MODE = process.argv.includes('--dev');
-
 module.exports = {
   entry: ['./docs/src/index', 'webpack/hot/only-dev-server'],
   output: {
@@ -143,10 +141,9 @@ module.exports = {
       inject: true,
       favicon: './docs/public/favicon.png',
     }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(DEV_MODE ? 'dev' : 'production'),
-      },
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      DEBUG: false,
     }),
   ],
 };
