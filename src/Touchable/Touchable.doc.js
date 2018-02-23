@@ -133,18 +133,22 @@ card(
   <Example
     defaultCode={`
 <Box color="white" display="flex" width={500} height={250}>
-  <Box column={6} height="100%" color="lightGray">
+  <Box column={6}>
     <Touchable fullHeight>
-      <Text align="center">
-        Full parent height
-      </Text>
+      <Box height="100%" color="lightGray">
+        <Text align="center">
+          Full parent height
+        </Text>
+      </Box>
     </Touchable>
   </Box>
-  <Box column={6} height="100%">
+  <Box column={6}>
     <Touchable>
-      <Text align="center">
-        Child height only
-      </Text>
+      <Box height="100%" color="lightGray">
+        <Text align="center">
+          Child height only
+        </Text>
+      </Box>
     </Touchable>
   </Box>
 </Box>
