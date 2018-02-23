@@ -60,3 +60,13 @@ steps:
     plugins:
       docker-compose:
         run: app
+  - name: ":zap: danger"
+    command: yarn danger
+    timeout_in_minutes: 10
+    env:
+      DANGER_GITHUB_API_TOKEN: $DANGER_GITHUB_API_TOKEN
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
