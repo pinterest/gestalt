@@ -3,7 +3,7 @@ import React from 'react';
 import Box from '../Box/Box';
 import Sticky from './Sticky';
 import Text from '../Text/Text';
-import { ns, card, md, Example, PropTable } from '../../.corkboard/cards';
+import { ns, card, Example, PropTable } from '../../docs/src/cards';
 
 ns(
   'Sticky',
@@ -19,7 +19,7 @@ card(
       },
       {
         name: 'children',
-        type: 'any',
+        type: 'React.Node',
       },
       {
         name: 'left',
@@ -33,11 +33,13 @@ card(
         name: 'top',
         type: 'number',
       },
+      {
+        name: 'dangerouslySetZIndex',
+        type: '{ __zIndex: number }',
+        defaultValue: '{ __zIndex: 1 }',
+      },
     ]}
   />,
-  md`
-    **Note**: if no threshold is passed to Sticky, it will behave the same as a relatively positioned element
-  `,
   { stacked: true }
 );
 
@@ -53,15 +55,15 @@ card(
           <Text>This should stick</Text>
         </Box>
       </Sticky>
-      <Box marginTop={10}>
+      <Box marginTop={10} position="relative">
         <Text>Scroll</Text>
         <Text>Keep scrolling</Text>
         <Text>Scroll more</Text>
       </Box>
     </Box>
     <Box>
-      <Sticky top={0}>
-      <Box alignItems="center" color="lightGray" display="flex" height={40}>
+      <Sticky top={0} dangerouslySetZIndex={{ __zIndex: 3 }}>
+      <Box alignItems="center" color="lightGray" display="flex" height={40} position="relative" dangerouslySetInlineStyle={{ __style: { zIndex: 2 } }}>
           <Text>This should also stick</Text>
         </Box>
       </Sticky>

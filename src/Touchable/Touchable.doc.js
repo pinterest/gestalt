@@ -7,7 +7,7 @@ import Link from '../Link/Link';
 import Mask from '../Mask/Mask';
 import Text from '../Text/Text';
 import Touchable from './Touchable';
-import { ns, card, md, PropTable, Example } from '../../.corkboard/cards';
+import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 
 ns(
   'Touchable',

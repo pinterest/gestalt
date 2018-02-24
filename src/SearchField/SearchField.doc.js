@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import SearchField from './SearchField';
-import { ns, md, card, PropTable, Example } from '../../.corkboard/cards';
+import { ns, md, card, PropTable, Example } from '../../docs/src/cards';
 import Icon from '../Icon/Icon';
 import IconButton from '../IconButton/IconButton';
 
@@ -24,13 +24,23 @@ card(
         required: true,
       },
       {
+        name: 'onBlur',
+        type: '({ event: SyntheticEvent<HTMLInputElement> }) => void',
+      },
+      {
         name: 'onChange',
-        type: '({ value: string }) => void',
+        type: `({
+          value: string,
+          syntheticEvent: SyntheticEvent<HTMLInputElement>
+        }) => void`,
         required: true,
       },
       {
         name: 'onFocus',
-        type: '({ value: string }) => void',
+        type: `({
+          value: string,
+          syntheticEvent: SyntheticEvent<HTMLInputElement>
+        }) => void`,
       },
       {
         name: 'placeholder',

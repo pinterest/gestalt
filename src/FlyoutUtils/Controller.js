@@ -12,7 +12,7 @@ type Props = {|
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
   shouldFocus?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -121,7 +121,7 @@ export default class Controller extends React.Component<Props, State> {
       return null;
     }
     const size = this.props.size ? this.props.size : 'sm';
-    const width = SIZE_WIDTH_MAP[size];
+    const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
     return (
       <Box>
         <div
@@ -162,5 +162,8 @@ Controller.propTypes = {
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
   shouldFocus: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+  ]),
 };
