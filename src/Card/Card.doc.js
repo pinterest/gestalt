@@ -12,7 +12,7 @@ import { ns, card, md, PropTable, Example } from '../../docs/src/cards';
 ns(
   'Card',
   `
-The Card component allows for a special animation on hover. It visually shows that items belong together.
+The Card component is meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
 `
 );
 
@@ -20,21 +20,25 @@ card(
   <PropTable
     props={[
       {
-        name: 'children',
-        type: 'any',
-      },
-      {
         name: 'active',
         type: '?boolean',
         defaultValue: false,
       },
       {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'image',
+        type: 'React.Node',
+      },
+      {
         name: 'onMouseEnter',
-        type: '({ event: SyntheticMouseEvent<> })',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
       },
       {
         name: 'onMouseLeave',
-        type: '({ event: SyntheticMouseEvent<> })',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
       },
     ]}
   />,
@@ -65,24 +69,21 @@ class CardExample extends React.Component {
     return (
       <Box maxWidth={236} padding={2} column={12}>
         <Card
+          image={
+            <Avatar
+              name="Ben Silbermann"
+              src="https://image.ibb.co/dzLoRv/Ben_Silberman.jpg"
+            />
+          }
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}>
-          <Text>
+          <Text align="center" bold size="xl">
             <Link href="https://pinterest.com">
-              <Mask shape="circle" wash={this.state.hovered}>
-                <Avatar
-                  name="Ben Silbermann"
-                  src="https://image.ibb.co/dzLoRv/Ben_Silberman.jpg"
-                />
-              </Mask>
               <Box paddingX={3} paddingY={2}>
-                <Text align="center" bold size="xl">
-                  {'Ben Silbermann'}
-                </Text>
+                  Ben Silbermann
               </Box>
             </Link>
           </Text>
-
           <Button
             accessibilityLabel="Follow Ben Silbermann - Pinterest CEO"
             color="red"
