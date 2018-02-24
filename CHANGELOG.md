@@ -6,7 +6,12 @@
   </summary>
 
 ### Minor
+* Card: Adds an extra "image" property to help separate content (#19)
+* GroupAvatar: Update sizes to be in line with other components (#30)
+
 ### Patch
+
+- Internal: Adds [Danger](http://danger.systems/js/) to pull requests.
 
 </details>
 

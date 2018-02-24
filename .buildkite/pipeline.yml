@@ -53,8 +53,22 @@ steps:
     timeout_in_minutes: 30
     parallelism: 3
     env:
-      BUILDKITE_PARALLEL_JOB_COUNT: $BUILDKITE_PARALLEL_JOB_COUNT
-      BUILDKITE_PARALLEL_JOB: $BUILDKITE_PARALLEL_JOB
+      - BUILDKITE_PARALLEL_JOB
+      - BUILDKITE_PARALLEL_JOB_COUNT
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: app
+  - name: ":zap: danger"
+    command: yarn danger ci
+    timeout_in_minutes: 10
+    env:
+      - BUILDKITE
+      - BUILDKITE_PULL_REQUEST
+      - BUILDKITE_REPO
+      - CI
+      - DANGER_GITHUB_API_TOKEN
     agents:
       queue: elastic
     plugins:
