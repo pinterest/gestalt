@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 
 export DISPLAY=:99.0
 /etc/init.d/xvfb start
