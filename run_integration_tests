@@ -5,10 +5,12 @@ set -e
 export DISPLAY=:99.0
 /etc/init.d/xvfb start
 
-cd test
-yarn webpack-dev-server --hot --inline --progress --colors &
-BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js &
-cd ..
+(
+  cd test && yarn webpack-dev-server --hot --inline --progress --colors &
+)
+(
+  cd test && BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js &
+)
 
 PID=$!                    # get the Parent Process ID
 PGID=$(ps opgid= "$PID")  # get the Process Group ID
