@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-set -x
-set -e
 
 export DISPLAY=:99.0
 if [ -f /etc/init.d/xvfb ]; then
