@@ -22,6 +22,10 @@ card(
         type: 'any',
       },
       {
+        name: 'fullHeight',
+        type: 'boolean',
+      },
+      {
         name: 'fullWidth',
         type: 'boolean',
         defaultValue: true,
@@ -116,6 +120,40 @@ class TouchableExample extends React.Component {
 }
 `}
     scope={{ Box, Image, Mask, Link, Text, Touchable }}
+  />,
+  { stacked: true }
+);
+
+card(
+  'Full width and full height',
+  md`
+    \`fullWidth\` and \`fullHeight\` are flags on \`Touchable\` controlling how it is sized relative to the parent container.
+    If one is set to \`true\`, the \`Touchable\` component will expand to the full size of its parent in that direction.
+  `,
+  <Example
+    defaultCode={`
+<Box color="white" display="flex" width={500} height={250}>
+  <Box column={6}>
+    <Touchable fullHeight>
+      <Box height="100%" color="lightGray">
+        <Text align="center">
+          Full parent height
+        </Text>
+      </Box>
+    </Touchable>
+  </Box>
+  <Box column={6}>
+    <Touchable>
+      <Box height="100%" color="lightGray">
+        <Text align="center">
+          Child height only
+        </Text>
+      </Box>
+    </Touchable>
+  </Box>
+</Box>
+`}
+    scope={{ Box, Text, Touchable }}
   />,
   { stacked: true }
 );
