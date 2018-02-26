@@ -22,6 +22,7 @@
 
 * GroupAvatar: Fix text sizes for 1 collaborator (#32)
 * Internal: Adds [Danger](http://danger.systems/js/) to pull requests. (#27)
+* TextField: Remove duplicate logic opening the error flyout (#34)
 * Internal: Re-exports flowtypes (#35)
 
 
