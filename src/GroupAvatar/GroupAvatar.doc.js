@@ -99,6 +99,20 @@ card(
 );
 
 card(
+  'Size Combinations: 1 Person (no pictures)',
+  <Combination size={['sm', 'md', 'lg']}>
+    {props => (
+      <GroupAvatar
+        collaborators={[ben].map(collab => ({
+          name: collab.name,
+        }))}
+        {...props}
+      />
+    )}
+  </Combination>
+);
+
+card(
   'Size Combinations: 3 People (no pictures)',
   <Combination size={['sm', 'md', 'lg']}>
     {props => (
