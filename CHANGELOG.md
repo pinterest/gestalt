@@ -12,7 +12,8 @@
 
 ### Patch
 
-- Internal: Adds [Danger](http://danger.systems/js/) to pull requests.
+* GroupAvatar: Fix text sizes for 1 collaborator (#32)
+* Internal: Adds [Danger](http://danger.systems/js/) to pull requests. (#27)
 
 </details>
 

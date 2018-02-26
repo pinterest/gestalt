@@ -79,10 +79,10 @@ const DefaultAvatar = (props: {
   name: string,
   textLayout: 'center' | 'topLeft' | 'bottomLeft',
   size: 'sm' | 'md' | 'lg',
+  fontSize: number,
 }) => {
-  const { height, name, textLayout } = props;
+  const { fontSize, height, name, textLayout } = props;
   const size = AVATAR_SIZES[props.size];
-  const fontSize = DEFAULT_AVATAR_TEXT_SIZES[props.size];
 
   const quarterPadding = Math.floor(
     (size / 2 - fontSize) / 2 * Math.sin(degToRad(45))
@@ -179,10 +179,15 @@ export default function GroupAvatar(props: Props) {
         Item={({ idx }) => {
           const { name, src } = collaborators[idx];
           const { width, height } = layout[idx];
+          const fontSize =
+            collaborators.length === 1
+              ? DEFAULT_AVATAR_TEXT_SIZES[props.size] * 2
+              : DEFAULT_AVATAR_TEXT_SIZES[props.size];
           if (!src) {
             return (
               <DefaultAvatar
                 name={name}
+                fontSize={fontSize}
                 textLayout={
                   collaborators.length >= 3
                     ? ['center', 'bottomLeft', 'topLeft'][idx]
