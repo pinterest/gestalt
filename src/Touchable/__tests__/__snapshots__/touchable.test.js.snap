@@ -42,6 +42,20 @@ exports[`Touchable sets correct shape 1`] = `
 </div>
 `;
 
+exports[`Touchable sets fullHeight correctly 1`] = `
+<div
+  className="touchable pointer square fullHeight fullWidth"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
 exports[`Touchable sets fullWidth correctly 1`] = `
 <div
   className="touchable pointer square"
