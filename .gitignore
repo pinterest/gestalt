@@ -1,6 +1,9 @@
 node_modules/
 coverage/
-dist/
 docs/build/
-npm-debug.log
+*.log
 stats.html
+
+dist/*
+# the flow export file as it's maintained by hand
+!dist/gestalt.js.flow
