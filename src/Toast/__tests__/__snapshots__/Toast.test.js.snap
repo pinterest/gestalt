@@ -17,7 +17,7 @@ exports[`Confirmation Toast 1`] = `
       className="box xsDirectionRow xsDisplayFlex"
     >
       <div
-        className="box justifyCenter xsDirectionColumn xsDisplayFlex"
+        className="box flexNone justifyCenter xsDirectionColumn xsDisplayFlex"
       >
         <div
           className="Mask rounded"

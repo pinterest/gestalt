@@ -9,6 +9,7 @@
 * Card: Adds an extra "image" property to help separate content (#19)
 * GroupAvatar: Update sizes to be in line with other components (#30)
 * Touchable: Adds support for `fullHeight` prop (#31)
+* Toast: Fix Safari 9 thumbnail/text overlap (#33)
 
 ### Patch
 
