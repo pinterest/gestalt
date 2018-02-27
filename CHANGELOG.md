@@ -6,6 +6,13 @@
   </summary>
 
 ### Minor
+
+### Patch
+
+</details>
+
+## [0.58.0] (Feb 26, 2018)
+### Minor
 * Card: Adds an extra "image" property to help separate content (#19)
 * GroupAvatar: Update sizes to be in line with other components (#30)
 * Touchable: Adds support for `fullHeight` prop (#31)
@@ -15,8 +22,8 @@
 
 * GroupAvatar: Fix text sizes for 1 collaborator (#32)
 * Internal: Adds [Danger](http://danger.systems/js/) to pull requests. (#27)
+* Internal: Re-exports flowtypes (#35)
 
-</details>
 
 ## [0.57.1] (Feb 22, 2018)
 ### Patch
