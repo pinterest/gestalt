@@ -48,7 +48,7 @@ steps:
       docker-compose:
         run: gestalt
   - name: ":ghost: %n"
-    command: yarn ghost
+    command: ./run_integration_tests
     artifact_paths: 'screenshots/*'
     timeout_in_minutes: 30
     parallelism: 3
