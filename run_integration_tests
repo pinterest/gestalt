@@ -22,7 +22,7 @@ done
 total_chunks=${BUILDKITE_PARALLEL_JOB_COUNT:=1}
 this_chunk=$((${BUILDKITE_PARALLEL_JOB:=0} + 1))
 
-NODE_ENV=integration yarn ghostjs $(find packages/gestalt -name '*.ghost.js' | xargs node ./scripts/chunk.js ${total_chunks} ${this_chunk})
+NODE_ENV=integration yarn ghostjs --browser firefox $(find packages/gestalt -name '*.ghost.js' | xargs node ./scripts/chunk.js ${total_chunks} ${this_chunk})
 STATUS=$?
 
 # Kill the process group and all children of that process group.

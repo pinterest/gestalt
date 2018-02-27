@@ -47,7 +47,7 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
-  - name: ":ghost: %n"
+  - name: ":ghost: integration %n"
     command: ./run_integration_tests
     artifact_paths: 'screenshots/*'
     timeout_in_minutes: 30

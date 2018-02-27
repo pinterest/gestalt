@@ -3608,9 +3608,9 @@ ghost-axe@^0.0.3:
   dependencies:
     axe-core "2.1.7"
 
-ghostjs@1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/ghostjs/-/ghostjs-1.10.2.tgz#46c3374a66e6833512cb67d7811ac981c9de804c"
+ghostjs@1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/ghostjs/-/ghostjs-1.13.1.tgz#cdcfd2a251cb33c2f88a568b8331b5a3ac62df23"
   dependencies:
     babel-cli "^6.18.0"
     babel-core "^6.21.0"
