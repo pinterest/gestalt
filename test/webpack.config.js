@@ -5,7 +5,6 @@ module.exports = {
   entry: ['./views/main.js'],
   resolve: {
     alias: {
-      gestalt: `${__dirname}/../node_modules/gestalt`,
       react: `${__dirname}/../node_modules/react`,
       'react-dom': `${__dirname}/../node_modules/react-dom`,
     },
@@ -29,11 +28,4 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: __dirname,
-      },
-    }),
-  ],
 };

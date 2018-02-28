@@ -21,12 +21,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ExtractTextPlugin('./css/bundle.css'),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        context: __dirname,
-      },
-    }),
-  ],
+  plugins: [new ExtractTextPlugin('./css/bundle.css')],
 };
