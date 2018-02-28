@@ -6,6 +6,10 @@ if [[ -f /etc/init.d/xvfb ]]; then
 fi
 
 (
+  cd packages/gestalt && yarn prepublish
+)
+
+(
   cd test && yarn webpack-dev-server --hot --inline --progress --colors
 ) & (
   cd test && BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js
