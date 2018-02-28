@@ -43,7 +43,7 @@ card(
       },
       {
         name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
+        type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
         description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
         defaultValue: 'sm',
       },

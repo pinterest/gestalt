@@ -9,6 +9,8 @@
 
 ### Patch
 
+* Flyout: Update the docs with correct flowtypes
+
 </details>
 
 ## [0.58.0] (Feb 26, 2018)
