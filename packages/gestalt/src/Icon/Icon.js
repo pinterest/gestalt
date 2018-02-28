@@ -31,6 +31,8 @@ type IconProps = {
   size?: number | string,
 };
 
+const IconNames = Object.keys(icons);
+
 export default function Icon(props: IconProps) {
   const { accessibilityLabel, color = 'gray', icon, inline, size = 16 } = props;
 
@@ -58,7 +60,7 @@ export default function Icon(props: IconProps) {
   );
 }
 
-Icon.icons = Object.keys(icons);
+Icon.icons = IconNames;
 
 Icon.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
@@ -81,7 +83,7 @@ Icon.propTypes = {
     'watermelon',
     'white',
   ]),
-  icon: PropTypes.oneOf(Icon.icons).isRequired,
+  icon: PropTypes.oneOf(IconNames).isRequired,
   inline: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

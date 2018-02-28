@@ -31,7 +31,7 @@ card(
       },
       {
         name: 'icon',
-        type: '$Keys<typeof paths>',
+        type: Icon.icons.map(name => `'${name}'`).join(' | '),
         required: true,
         description: `This allows us to type check for a valid icon name based on the keys from the list of icons shown below.`,
       },
