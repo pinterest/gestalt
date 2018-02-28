@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "0.56.0",
+  "version": "0.58.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "main": "dist/gestalt.js",
@@ -24,15 +24,21 @@
     "watch": "rollup -c rollup.config.js --watch"
   },
   "devDependencies": {
+    "caniuse-lite": "^1.0.30000810",
+    "cssnano": "^3.10.0",
+    "postcss": "^6.0.19",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-modules": "^1.1.0",
+    "rollup": "^0.56.0",
     "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-filesize": "^1.4.2",
+    "rollup-plugin-filesize": "^1.5.0",
     "rollup-plugin-json": "^2.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-progress": "^0.4.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-visualizer": "^0.3.1",
     "rollup-watch": "^4.3.1",
-    "rollup": "^0.56.0"
+    "xml2js": "^0.4.19"
   },
   "browserslist": [
     "defaults",

@@ -3,6 +3,7 @@ coverage/
 docs/build/
 *.log
 stats.html
+screenshots
 
 packages/gestalt/dist/*
 # the flow export file as it's maintained by hand
