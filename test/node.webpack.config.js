@@ -1,7 +1,4 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const postcss = require('postcss-import');
-const postcssUrl = require('postcss-url');
-const postcssCssNext = require('postcss-cssnext');
 const webpack = require('webpack');
 
 module.exports = {
@@ -18,21 +15,9 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 2,
-                localIdentName: '[name]__[local]--[hash:base64:5]',
-              },
-            },
-            {
-              loader: 'postcss-loader',
             },
           ],
         }),
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-path-loader',
       },
     ],
   },
@@ -41,11 +26,6 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       options: {
         context: __dirname,
-        postcss: wp => [
-          postcss({ addDependencyTo: wp }),
-          postcssUrl(),
-          postcssCssNext(),
-        ],
       },
     }),
   ],

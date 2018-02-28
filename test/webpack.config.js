@@ -1,6 +1,3 @@
-const postcssImport = require('postcss-import');
-const postcssUrl = require('postcss-url');
-const postcssCssNext = require('postcss-cssnext');
 const webpack = require('webpack');
 
 module.exports = {
@@ -22,14 +19,6 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 2,
-              localIdentName: '[name]__[local]--[hash:base64:5]',
-            },
-          },
-          {
-            loader: 'postcss-loader',
           },
         ],
       },
@@ -37,21 +26,12 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
       },
-      {
-        test: /\.svg$/,
-        loader: 'svg-path-loader',
-      },
     ],
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       options: {
         context: __dirname,
-        postcss: wp => [
-          postcssImport({ addDependencyTo: wp }),
-          postcssUrl(),
-          postcssCssNext(),
-        ],
       },
     }),
   ],
