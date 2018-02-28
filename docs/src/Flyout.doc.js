@@ -1,54 +1,7 @@
 // @flow
-import React, { Component } from 'react';
-import { Box, Button, Flyout, IconButton, Link, Text } from 'gestalt';
+import React from 'react';
+import { Button, Flyout } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
-
-type Props = {
-  anchor?: any,
-  children?: any,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  isOpen: boolean,
-  onDismiss: () => void,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-};
-
-class FlyoutEx extends Component<Props> {
-  anchor: ?HTMLElement;
-
-  render() {
-    const {
-      anchor,
-      children,
-      idealDirection,
-      isOpen,
-      onDismiss,
-      size,
-    } = this.props;
-
-    return (
-      <div>
-        <div
-          style={{ display: 'inline-block' }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
-          {anchor}
-        </div>
-        {isOpen && (
-          <Flyout
-            anchor={this.anchor}
-            idealDirection={idealDirection}
-            onDismiss={onDismiss}
-            size={size}
-          >
-            {children}
-          </Flyout>
-        )}
-      </div>
-    );
-  }
-}
 
 ns(
   'Flyout',
