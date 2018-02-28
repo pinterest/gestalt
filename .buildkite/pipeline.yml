@@ -59,7 +59,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":zap: danger"
     command: yarn danger ci
     timeout_in_minutes: 10
