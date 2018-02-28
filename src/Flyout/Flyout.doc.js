@@ -18,7 +18,7 @@ card(
         name: 'anchor',
         type: '?any',
         required: true,
-        description: 'Ref for the element that the ErrorFlyout will attach to',
+        description: 'Ref for the element that the Flyout will attach to',
       },
       {
         name: 'idealDirection',
@@ -39,7 +39,7 @@ card(
         type: 'boolean',
         defaultValue: true,
         description:
-          'Depicts if the ErrorFlyout shares a relative root with the anchor element',
+          'Depicts if the Flyout shares a relative root with the anchor element',
       },
       {
         name: 'size',
