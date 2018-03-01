@@ -82,10 +82,6 @@ export default class TextField extends React.Component<Props, State> {
         event,
         value: event.target.value,
       });
-
-      if (this.props.errorMessage) {
-        this.setState({ errorIsOpen: true });
-      }
     }
   };
 

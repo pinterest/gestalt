@@ -2,6 +2,10 @@
   composes: accessibilityOutline from '../Focus.css';
 }
 
+.fullHeight {
+  height: 100%;
+}
+
 .fullWidth {
   composes: xsCol12 from '../Column.css';
 }

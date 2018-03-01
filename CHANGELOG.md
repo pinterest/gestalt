@@ -6,14 +6,27 @@
   </summary>
 
 ### Minor
-* Card: Adds an extra "image" property to help separate content (#19)
-* GroupAvatar: Update sizes to be in line with other components (#30)
 
 ### Patch
 
-- Internal: Adds [Danger](http://danger.systems/js/) to pull requests.
+* Flyout: Update the docs with correct flowtypes (#37)
 
 </details>
+
+## [0.58.0] (Feb 26, 2018)
+### Minor
+* Card: Adds an extra "image" property to help separate content (#19)
+* GroupAvatar: Update sizes to be in line with other components (#30)
+* Touchable: Adds support for `fullHeight` prop (#31)
+* Toast: Fix Safari 9 thumbnail/text overlap (#33)
+
+### Patch
+
+* GroupAvatar: Fix text sizes for 1 collaborator (#32)
+* Internal: Adds [Danger](http://danger.systems/js/) to pull requests. (#27)
+* TextField: Remove duplicate logic opening the error flyout (#34)
+* Internal: Re-exports flowtypes (#35)
+
 
 ## [0.57.1] (Feb 22, 2018)
 ### Patch

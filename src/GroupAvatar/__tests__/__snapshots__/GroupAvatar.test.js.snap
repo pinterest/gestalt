@@ -411,8 +411,8 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
             className="box"
             style={
               Object {
-                "fontSize": 11,
-                "lineHeight": "11px",
+                "fontSize": 22,
+                "lineHeight": "22px",
               }
             }
           >
@@ -473,8 +473,8 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
             className="box"
             style={
               Object {
-                "fontSize": 11,
-                "lineHeight": "11px",
+                "fontSize": 22,
+                "lineHeight": "22px",
               }
             }
           >

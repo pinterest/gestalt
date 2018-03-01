@@ -20,7 +20,7 @@ export default function Toast(props: Props) {
   if (text instanceof Array && text.length > 1) {
     contents = (
       <Box xs={{ display: 'flex' }}>
-        <Box xs={{ display: 'flexColumn' }} justifyContent="center">
+        <Box xs={{ display: 'flexColumn' }} flex="none" justifyContent="center">
           {thumbnail ? (
             <Mask shape="rounded" height={48} width={48}>
               {thumbnail}

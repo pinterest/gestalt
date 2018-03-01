@@ -36,3 +36,12 @@ test('Touchable sets fullWidth correctly', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Touchable sets fullHeight correctly', () => {
+  const tree = create(
+    <Touchable onTouch={() => {}} fullHeight>
+      Touchable
+    </Touchable>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
