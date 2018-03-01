@@ -9,7 +9,7 @@
 
 ### Patch
 
-* Flyout: Update the docs with correct flowtypes
+* Flyout: Update the docs with correct flowtypes (#37)
 
 </details>
 
