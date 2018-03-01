@@ -8,6 +8,7 @@
 ### Minor
 
 ### Patch
+* Internal: split docs & integration tests into individual packages
 
 * Flyout: Update the docs with correct flowtypes (#37)
 
