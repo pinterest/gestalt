@@ -20,6 +20,7 @@
     "react-dom": "^15.4.1"
   },
   "scripts": {
+    "build": "rollup -c rollup.config.js",
     "prepublish": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   },
