@@ -1,9 +1,7 @@
 // @flow
 import type { Node } from 'react';
 import React from 'react';
-import Box from '../../../src/Box/Box';
-import Text from '../../../src/Text/Text';
-import Icon from '../../../src/Icon/Icon';
+import { Box, Text, Icon } from 'gestalt';
 
 type Props = {|
   props: Array<{|
@@ -60,7 +58,7 @@ const Td = ({
 const upcase = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
-export default ({ props: properties, Component }: Props) => {
+export default function PropTable({ props: properties, Component }: Props) {
   const hasRequired = properties.some(prop => prop.required);
 
   if (process.env.NODE_ENV === 'dev' && Component) {
@@ -185,4 +183,4 @@ export default ({ props: properties, Component }: Props) => {
       </table>
     </Box>
   );
-};
+}

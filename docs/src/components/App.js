@@ -2,8 +2,7 @@
 import type { Node } from 'react';
 import React from 'react';
 import Navigation from './Navigation';
-import Box from '../../../src/Box/Box';
-import Column from '../../../src/Column/Column';
+import { Box, Column } from 'gestalt';
 
 type Props = {|
   cards: *,

@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import Box from '../../../src/Box/Box';
-import Heading from '../../../src/Heading/Heading';
+import { Box, Heading } from 'gestalt';
 
 type Props = {|
   cards: *,

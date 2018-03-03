@@ -1,6 +1,0 @@
-.buildkite
-docs
-**/__tests__/**
-**/__docs__/**
-scripts
-test

@@ -1,6 +1,8 @@
-#!/usr/bin/env babel-node
+#!/usr/bin/env node
 
-const [, , totalChunks, thisChunk, ...files] = process.argv;
+const totalChunks = process.argv[2];
+const thisChunk = process.argv[3];
+const files = process.argv.slice(3);
 
 if (files.length < totalChunks) {
   process.stdout.write(files.join(' '));

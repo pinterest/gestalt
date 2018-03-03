@@ -1,12 +1,7 @@
 // @flow
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from '../../../src/Text/Text';
-import Box from '../../../src/Box/Box';
-import SelectList from '../../../src/SelectList/SelectList';
-import Link from '../../../src/Link/Link';
-import Icon from '../../../src/Icon/Icon';
-import Heading from '../../../src/Heading/Heading';
+import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
 
 type Props = {|
   cards: *,

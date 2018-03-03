@@ -1,7 +1,6 @@
 // @flow
 import React, { isValidElement } from 'react';
-import Box from '../../../src/Box/Box';
-import Heading from '../../../src/Heading/Heading';
+import { Box, Heading } from 'gestalt';
 
 type Props = {|
   args: Array<any>,
@@ -41,7 +40,7 @@ const parseArgs = args => {
   };
 };
 
-export default ({ args }: Props) => {
+export default function Card({ args }: Props) {
   const {
     name,
     parts,
@@ -65,4 +64,4 @@ export default ({ args }: Props) => {
       </Box>
     </Box>
   );
-};
+}

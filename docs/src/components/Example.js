@@ -1,15 +1,17 @@
 // @flow
 import React from 'react';
-import Box from '../../../src/Box/Box';
-import Container from '../../../src/Container/Container';
-import Text from '../../../src/Text/Text';
-import Checkerboard from './Checkerboard';
-import Link from '../../../src/Link/Link';
-import Icon from '../../../src/Icon/Icon';
-import Checkbox from '../../../src/Checkbox/Checkbox';
-import Column from '../../../src/Column/Column';
-import Mask from '../../../src/Mask/Mask';
-import Heading from '../../../src/Heading/Heading';
+import {
+  Box,
+  Container,
+  Text,
+  Checkerboard,
+  Link,
+  Icon,
+  Checkbox,
+  Column,
+  Mask,
+  Heading,
+} from 'gestalt';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 type Props = {|

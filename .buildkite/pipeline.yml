@@ -2,27 +2,27 @@ steps:
   - name: ":docker: :package:"
     plugins:
       docker-compose:
-        build: app
+        build: gestalt
         image-repository: 053722134931.dkr.ecr.us-east-1.amazonaws.com/pinterest
     agents:
       queue: elastic-builders
   - wait
   - name: ":eslint:"
-    command: npm run eslint
+    command: yarn lint:js
     timeout_in_minutes: 10
     agents:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":stylelint:"
-    command: npm run stylelint
+    command: yarn lint:css
     timeout_in_minutes: 10
     agents:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":flowtype:"
     command: yarn flow check
     timeout_in_minutes: 10
@@ -30,25 +30,25 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":jest: :chrome:"
-    command: npm test -- --env jsdom
+    command: yarn test --env jsdom
     timeout_in_minutes: 10
     agents:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":jest: :node:"
-    command: npm test -- --env node
+    command: yarn test --env node
     timeout_in_minutes: 10
     agents:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
-  - name: ":ghost: %n"
-    command: npm run ghost
+        run: gestalt
+  - name: ":ghost: integration %n"
+    command: ./run_integration_tests
     artifact_paths: 'screenshots/*'
     timeout_in_minutes: 30
     parallelism: 3
@@ -59,7 +59,7 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
   - name: ":zap: danger"
     command: yarn danger ci
     timeout_in_minutes: 10
@@ -73,4 +73,4 @@ steps:
       queue: elastic
     plugins:
       docker-compose:
-        run: app
+        run: gestalt
