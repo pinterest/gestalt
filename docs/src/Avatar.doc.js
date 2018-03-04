@@ -2,7 +2,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar, Box, Text } from 'gestalt';
-import { card, PropTable, Example } from './cards';
+import { registerCard as card } from 'corkboard/init';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 
 card(

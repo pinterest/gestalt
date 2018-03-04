@@ -1,7 +1,9 @@
 // @flow
 import React from 'react';
 import { Pulsar, Button } from 'gestalt';
-import { card, PropTable, Example } from './cards';
+import { registerCard as card } from 'corkboard/init';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 
 card(

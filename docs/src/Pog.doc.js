@@ -1,6 +1,9 @@
 // @flow
 import * as React from 'react';
-import { card, PropTable, Example, Combination } from './cards';
+import { registerCard as card } from 'corkboard/init';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import Combination from './components/Combination';
 import { Pog } from 'gestalt';
 import PageHeader from './components/PageHeader';
 

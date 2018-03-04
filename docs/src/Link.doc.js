@@ -1,7 +1,9 @@
 // @flow
 import * as React from 'react';
 import { Box, Link, Text } from 'gestalt';
-import { card, PropTable, Example } from './cards';
+import { registerCard as card } from 'corkboard/init';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 
 card(
