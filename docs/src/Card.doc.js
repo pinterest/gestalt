@@ -1,13 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Avatar, Box, Button, Card, Link, Text } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns(
-  'Card',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Card');
+
+card(
+  <PageHeader
+    name="Card"
+    description="
 The Card component is meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
-`
+"
+  />
 );
 
 card(

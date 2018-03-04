@@ -1,11 +1,18 @@
 // @flow
 import React from 'react';
-import { ns, card, Example, md, PropTable, Combination } from './cards';
+import { card, Example, md, PropTable, Combination } from './cards';
 import { Box, IconButton, Flyout, Text } from 'gestalt';
 
-ns(
-  'IconButton',
-  'The IconButton component allows you to define an action with a specific Icon.'
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('IconButton');
+
+card(
+  <PageHeader
+    name="IconButton"
+    description="The IconButton component allows you to define an action with a specific Icon."
+  />
 );
 
 card(

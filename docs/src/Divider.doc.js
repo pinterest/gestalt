@@ -1,11 +1,18 @@
 // @flow
 import * as React from 'react';
 import { Box, Text, Divider } from 'gestalt';
-import { ns, card, Example, md, PropTable } from './cards';
+import { card, Example, md, PropTable } from './cards';
 
-ns(
-  'Divider',
-  'If you have two things that need to be separated, put a `Divider` between them.'
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Divider');
+
+card(
+  <PageHeader
+    name="Divider"
+    description="If you have two things that need to be separated, put a `Divider` between them."
+  />
 );
 
 card(<PropTable props={[]} />, { heading: false });

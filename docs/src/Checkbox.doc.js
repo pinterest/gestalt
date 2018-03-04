@@ -1,11 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Box, Label, Text, Checkbox } from 'gestalt';
-import { ns, card, md, PropTable, Example, Combination } from './cards';
+import { card, md, PropTable, Example, Combination } from './cards';
 
-ns(
-  'Checkbox',
-  'We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles.'
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Checkbox');
+
+card(
+  <PageHeader
+    name="Checkbox"
+    description={
+      'We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles.'
+    }
+  />
 );
 
 card(

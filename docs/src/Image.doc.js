@@ -1,16 +1,23 @@
 // @flow
 import * as React from 'react';
 import { Image } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns(
-  'Image',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Image');
+
+card(
+  <PageHeader
+    name="Image"
+    description={`
 This component the workhorse of Pinterest. If you define Pinterest to be all
 about collecting ideas, then images is how we choose to represent those ideas.
 In response, we've added a few extra super-powers to the regular Image tag to
 make it even more awesome.
-`
+`}
+  />
 );
 
 card(

@@ -2,11 +2,18 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Box, Image, Link, Mask, Text, Touchable } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns(
-  'Touchable',
-  'Touchable allows for elements to be clickable / touched in an accessible way. We add cursor & focus styles, trigger the `onTouch` when hitting Space / Enter and correct aria roles.'
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Touchable');
+
+card(
+  <PageHeader
+    name="Touchable"
+    description="Touchable allows for elements to be clickable / touched in an accessible way. We add cursor & focus styles, trigger the `onTouch` when hitting Space / Enter and correct aria roles."
+  />
 );
 
 card(

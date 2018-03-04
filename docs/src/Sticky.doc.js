@@ -1,11 +1,18 @@
 // @flow
 import React from 'react';
 import { Box, Sticky, Text } from 'gestalt';
-import { ns, card, Example, PropTable } from './cards';
+import { card, Example, PropTable } from './cards';
 
-ns(
-  'Sticky',
-  'Sticky allows for an element to become fixed when it reaches a threshold (top, left, bottom, or right)'
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Sticky');
+
+card(
+  <PageHeader
+    name="Sticky"
+    description="Sticky allows for an element to become fixed when it reaches a threshold (top, left, bottom, or right)"
+  />
 );
 
 card(

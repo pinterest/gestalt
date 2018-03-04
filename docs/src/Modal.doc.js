@@ -15,11 +15,18 @@ import {
   TextArea,
   TextField,
 } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import { card, md, PropTable, StateRecorder } from './cards';
 
-ns(
-  'Modal',
-  `Modals are light temporary views that are general purpose containers that allow for a multitude of design choices.`
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Modal');
+
+card(
+  <PageHeader
+    name="Modal"
+    description="Modals are light temporary views that are general purpose containers that allow for a multitude of design choices."
+  />
 );
 
 card(

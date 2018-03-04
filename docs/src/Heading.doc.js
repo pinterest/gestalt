@@ -1,12 +1,19 @@
 // @flow
 import * as React from 'react';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns(
-  'Heading',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Heading');
+
+card(
+  <PageHeader
+    name="Heading"
+    description={`
 The \`Heading\` component allows you to show headings on the page & has a bigger line height than regular text.
-`
+`}
+  />
 );
 
 card(

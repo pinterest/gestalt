@@ -1,12 +1,19 @@
 // @flow
 import * as React from 'react';
 import { GroupAvatar, Box } from 'gestalt';
-import { ns, card, PropTable, Example, Combination } from './cards';
+import { card, PropTable, Example, Combination } from './cards';
 
-ns(
-  'GroupAvatar',
-  `You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
-applied to each collaborator image to ensure the component retains a circular appeareance`
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('GroupAvatar');
+
+card(
+  <PageHeader
+    name="GroupAvatar"
+    description={`You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
+applied to each collaborator image to ensure the component retains a circular appeareance`}
+  />
 );
 
 card(

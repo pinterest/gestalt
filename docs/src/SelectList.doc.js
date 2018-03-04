@@ -1,11 +1,18 @@
 // @flow
 import * as React from 'react';
 import { Box, Label, SelectList, Text } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import { card, md, PropTable, StateRecorder } from './cards';
 
-ns(
-  'SelectList',
-  `Use a \`SelectList\` when you have four or more items you want a user to choose from.`
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('SelectList');
+
+card(
+  <PageHeader
+    name="SelectList"
+    description={`Use a \`SelectList\` when you have four or more items you want a user to choose from.`}
+  />
 );
 
 card(

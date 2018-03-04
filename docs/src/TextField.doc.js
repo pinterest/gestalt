@@ -2,9 +2,16 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Label, TextField } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import { card, md, PropTable, StateRecorder } from './cards';
 
-ns('TextField', 'TextField allows for text input.');
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('TextField');
+
+card(
+  <PageHeader name="TextField" description="TextField allows for text input." />
+);
 
 card(
   <PropTable

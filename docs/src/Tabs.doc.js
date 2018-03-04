@@ -1,11 +1,18 @@
 // @flow
 import * as React from 'react';
 import { Tabs } from 'gestalt';
-import { ns, card, PropTable, StateRecorder } from './cards';
+import { card, PropTable, StateRecorder } from './cards';
 
-ns(
-  'Tabs',
-  `Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Tabs');
+
+card(
+  <PageHeader
+    name="Tabs"
+    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`}
+  />
 );
 
 card(

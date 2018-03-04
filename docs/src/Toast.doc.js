@@ -1,15 +1,22 @@
 // @flow
 import * as React from 'react';
 import { Button, Image, Toast, Box } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import { card, md, PropTable, StateRecorder } from './cards';
 
-ns(
-  'Toast',
-  `Toasts can educate people on the content of the screen, provide confirmation when people complete
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Toast');
+
+card(
+  <PageHeader
+    name="Toast"
+    description={`Toasts can educate people on the content of the screen, provide confirmation when people complete
 an action, or simply communicate a short message.
 
 <b><i>The Toast component is purely visual. In order to properly
-handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`
+handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`}
+  />
 );
 
 card(

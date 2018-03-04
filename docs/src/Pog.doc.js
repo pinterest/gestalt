@@ -1,15 +1,22 @@
 // @flow
 import * as React from 'react';
-import { ns, card, PropTable, Example, Combination } from './cards';
+import { card, PropTable, Example, Combination } from './cards';
 import { Pog } from 'gestalt';
 
-ns(
-  'Pog',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Pog');
+
+card(
+  <PageHeader
+    name="Pog"
+    description="
   A lower level functional component to show the active, hovered & focused states of an [IconButton](#/IconButton).
 
   This abstraction to allow for links that look like an IconButton.
-  `
+  "
+  />
 );
 
 card(

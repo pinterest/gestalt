@@ -2,16 +2,23 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { Tooltip, Box, Heading, Text, IconButton } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import { md, card, PropTable, StateRecorder } from './cards';
 
-ns(
-  'Tooltip',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Tooltip');
+
+card(
+  <PageHeader
+    name="Tooltip"
+    description="
 Tooltips educate people about a concept by drawing attention to a UI element, and encourage
 a specific next action. Tooltips teach people about the normal way to perform an action,
 without handholding. The default tooltip has two explicit buttons, one for the suggested
 action and one to dismiss. Tooltips can also simply show text.
-`
+"
+  />
 );
 
 card(

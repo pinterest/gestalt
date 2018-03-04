@@ -1,12 +1,19 @@
 // @flow
 import React from 'react';
 import { Button, ErrorFlyout } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns(
-  'ErrorFlyout',
-  `[TextField](#TextField) and [TextArea](#TextArea) already have errors built into them. This component
-is only for use with errors on other types of form fields.`
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('ErrorFlyout');
+
+card(
+  <PageHeader
+    name="ErrorFlyout"
+    description="[TextField](#TextField) and [TextArea](#TextArea) already have errors built into them. This component
+is only for use with errors on other types of form fields."
+  />
 );
 
 card(

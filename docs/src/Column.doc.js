@@ -1,9 +1,19 @@
 // @flow
 import * as React from 'react';
 import { Column, Box, Text } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns('Column', 'Gestalt supports a 12-column system.');
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Column');
+
+card(
+  <PageHeader
+    name="Column"
+    description="Gestalt supports a 12-column system."
+  />
+);
 
 card(
   <PropTable

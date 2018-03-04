@@ -1,11 +1,18 @@
 // @flow
 import * as React from 'react';
 import { Container } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns(
-  'Container',
-  'Containers are useful in responsively laying out content on different screens.'
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Container');
+
+card(
+  <PageHeader
+    name="Container"
+    description="Containers are useful in responsively laying out content on different screens."
+  />
 );
 
 card(

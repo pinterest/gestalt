@@ -1,14 +1,21 @@
 // @flow
 import * as React from 'react';
-import { ns, card, md, PropTable } from './cards';
+import { card, md, PropTable } from './cards';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
 
-ns(
-  'Masonry',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Masonry');
+
+card(
+  <PageHeader
+    name="Masonry"
+    description="
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
 It contains performance optimizations like virtualization and server rendering, as well as support for infinite scrolling.
-`
+"
+  />
 );
 
 card(

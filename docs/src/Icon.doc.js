@@ -1,13 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Box, Icon, Text } from 'gestalt';
-import { ns, card, Example, md, PropTable, Combination } from './cards';
+import { card, Example, md, PropTable, Combination } from './cards';
 
-ns(
-  'Icon',
-  `
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Icon');
+
+card(
+  <PageHeader
+    name="Icon"
+    description="
 Show icons with different colors & sizes in an accessible way.
-`
+"
+  />
 );
 
 card(

@@ -1,13 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Box, Text, Avatar, Button } from 'gestalt';
-import { ns, card, md, PropTable, Example, Combination } from './cards';
+import { card, md, PropTable, Example, Combination } from './cards';
 
-ns(
-  'Box',
-  `In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
 
-&mdash; Anon _(Winning Box Haiku, 2017)_`
+ns('Box');
+
+card(
+  <PageHeader
+    name="Box"
+    description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
+
+&mdash; Anon _(Winning Box Haiku, 2017)_`}
+  />
 );
 
 card(

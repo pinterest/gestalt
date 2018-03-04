@@ -1,8 +1,18 @@
 // @flow
 import * as React from 'react';
-import { ns, card, md, PropTable, Example } from './cards';
+import { card, md, PropTable, Example } from './cards';
 
-ns('Text', `The Text component should be used for all text on the page.`);
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('Text');
+
+card(
+  <PageHeader
+    name="Text"
+    description="The Text component should be used for all text on the page."
+  />
+);
 
 card(
   <PropTable

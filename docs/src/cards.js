@@ -1,5 +1,5 @@
 import React from 'react';
-import { registerCard, ns as registerNamespace } from 'corkboard';
+import { registerCard } from 'corkboard';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
 import CombinationInternal from './components/Combination';
@@ -9,7 +9,6 @@ import Markdown from './components/Markdown';
 import StateRecorderInternal from './components/StateRecorder';
 
 export const ns = (name, description = '') => {
-  registerNamespace(name);
   registerCard(<PageHeader name={name} description={description} />);
 };
 

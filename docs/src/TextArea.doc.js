@@ -1,9 +1,19 @@
 // @flow
 import * as React from 'react';
 import { Box, Label, TextArea } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import { card, md, PropTable, StateRecorder } from './cards';
 
-ns('TextArea', 'TextArea allows for multiline input.');
+import { ns } from 'corkboard';
+import PageHeader from './components/PageHeader';
+
+ns('TextArea');
+
+card(
+  <PageHeader
+    name="TextArea"
+    description="TextArea allows for multiline input."
+  />
+);
 
 card(
   <PropTable
