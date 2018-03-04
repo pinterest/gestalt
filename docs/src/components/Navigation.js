@@ -3,9 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
 
-type Props = {|
-  cards: *,
-|};
+type Props = {||};
 
 type Context = {|
   router: any,
@@ -15,10 +13,49 @@ const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
+const components = [
+  'Avatar',
+  'Box',
+  'Button',
+  'Card',
+  'Checkbox',
+  'Column',
+  'Container',
+  'Divider',
+  'ErrorFlyout',
+  'Flyout',
+  'Group Avatar',
+  'Heading',
+  'Icon',
+  'IconButton',
+  'Image',
+  'Label',
+  'Letterbox',
+  'Link',
+  'Mask',
+  'Masonry',
+  'Modal',
+  'Pog',
+  'Pulsar',
+  'RadioButton',
+  'SearchField',
+  'Segmented Control',
+  'SelectList',
+  'Spinner',
+  'Sticky',
+  'Switch',
+  'Tabs',
+  'Text',
+  'TextArea',
+  'TextField',
+  'Toast',
+  'Tooltip',
+  'Touchable',
+];
+
 export default function Navigation(props: Props, context: Context) {
   const { router } = context;
-  const { cards } = props;
-  const links = Object.keys(cards).map(ns => {
+  const links = components.map(ns => {
     const to = `/${ns}`;
     // const isActive = router.isActive(to, true);
     const href = router.createHref(to);
@@ -37,7 +74,7 @@ export default function Navigation(props: Props, context: Context) {
     );
   });
   const options = [{ label: '-', value: '#' }].concat(
-    Object.keys(cards).map(ns => ({
+    components.map(ns => ({
       label: ns,
       value: `/${ns}`,
     }))
