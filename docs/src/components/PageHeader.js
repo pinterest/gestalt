@@ -13,7 +13,7 @@ const githubSourceUrl = (component: string): string => {
   return `https://github.com/pinterest/gestalt/blob/master/src/${file}/${file}.js`;
 };
 
-export default function PageHeader({ name, description }: Props) {
+export default function PageHeader({ name, description = '' }: Props) {
   return (
     <Box display="flex" direction="row">
       <Column span={6}>
