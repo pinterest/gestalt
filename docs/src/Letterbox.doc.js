@@ -3,9 +3,9 @@ import * as React from 'react';
 import { Box, Letterbox } from 'gestalt';
 import { ns, card, md, PropTable } from './cards';
 
-ns(
-  'Letterbox',
-  `
+<PageHeader
+  name='Letterbox'
+  description={`
 Letterboxes are useful if you have some source media which is larger than
 the area you want to display it in. For instance, you might have a really
 tall image and want it to be displayed in a neatly cropped square. While the
@@ -13,8 +13,7 @@ ideal solution to this problem is to update the source image, this mightn't
 be always possible for either cost or performance reasons.
 
 Letterbox should be used in situations where you would have otherwise used the
-CSS property \`background-size: cover\`.`
-);
+CSS property \`background-size: cover\`.`} />;
 
 card(
   <PropTable

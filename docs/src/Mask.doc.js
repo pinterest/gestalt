@@ -3,12 +3,11 @@ import * as React from 'react';
 import { Mask } from 'gestalt';
 import { ns, card, md, PropTable, Example, Combination } from './cards';
 
-ns(
-  'Mask',
-  `If you have an item you need to fit into a shape, you can achieve this by
+<PageHeader
+  name='Mask'
+  description={`If you have an item you need to fit into a shape, you can achieve this by
   putting a \`Mask\` on it.
-  `
-);
+  `} />;
 
 card(
   <PropTable

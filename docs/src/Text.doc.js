@@ -2,7 +2,9 @@
 import * as React from 'react';
 import { ns, card, md, PropTable, Example } from './cards';
 
-ns('Text', `The Text component should be used for all text on the page.`);
+<PageHeader
+  name='Text'
+  description={`The Text component should be used for all text on the page.`} />;
 
 card(
   <PropTable

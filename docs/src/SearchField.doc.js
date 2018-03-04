@@ -4,7 +4,7 @@ import * as React from 'react';
 import { SearchField, Icon, IconButton } from 'gestalt';
 import { ns, md, card, PropTable, Example } from './cards';
 
-ns('SearchField');
+<PageHeader name='SearchField' />;
 
 card(
   <PropTable

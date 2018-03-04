@@ -3,11 +3,10 @@ import * as React from 'react';
 import { Box, Label, Switch, Text } from 'gestalt';
 import { ns, card, md, PropTable, Example, Combination } from './cards';
 
-ns(
-  'Switch',
-  `Use switches for single cell options that can be turned on and off only.
-If you have a cell with multiple options that can activated or not consider using check marks.`
-);
+<PageHeader
+  name='Switch'
+  description={`Use switches for single cell options that can be turned on and off only.
+If you have a cell with multiple options that can activated or not consider using check marks.`} />;
 
 card(
   <PropTable

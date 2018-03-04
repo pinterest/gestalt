@@ -17,10 +17,9 @@ import {
 } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-ns(
-  'Modal',
-  `Modals are light temporary views that are general purpose containers that allow for a multitude of design choices.`
-);
+<PageHeader
+  name='Modal'
+  description={`Modals are light temporary views that are general purpose containers that allow for a multitude of design choices.`} />;
 
 card(
   <PropTable

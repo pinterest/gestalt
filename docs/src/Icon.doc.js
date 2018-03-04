@@ -3,12 +3,11 @@ import * as React from 'react';
 import { Box, Icon, Text } from 'gestalt';
 import { ns, card, Example, md, PropTable, Combination } from './cards';
 
-ns(
-  'Icon',
-  `
+<PageHeader
+  name='Icon'
+  description={`
 Show icons with different colors & sizes in an accessible way.
-`
-);
+`} />;
 
 card(
   <PropTable

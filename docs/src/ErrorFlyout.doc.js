@@ -3,11 +3,10 @@ import React from 'react';
 import { Button, ErrorFlyout } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
 
-ns(
-  'ErrorFlyout',
-  `[TextField](#TextField) and [TextArea](#TextArea) already have errors built into them. This component
-is only for use with errors on other types of form fields.`
-);
+<PageHeader
+  name='ErrorFlyout'
+  description={`[TextField](#TextField) and [TextArea](#TextArea) already have errors built into them. This component
+is only for use with errors on other types of form fields.`} />;
 
 card(
   <PropTable

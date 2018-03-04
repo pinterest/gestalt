@@ -3,11 +3,10 @@ import React from 'react';
 import { Button, Flyout } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
 
-ns(
-  'Flyout',
-  `Flyouts are similar to modals, but they’re an alternative when we have less content to display
-or to make the interaction feel faster.`
-);
+<PageHeader
+  name='Flyout'
+  description={`Flyouts are similar to modals, but they’re an alternative when we have less content to display
+or to make the interaction feel faster.`} />;
 
 card(
   <PropTable

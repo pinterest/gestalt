@@ -3,10 +3,9 @@ import * as React from 'react';
 import { Box, Label, SelectList, Text } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-ns(
-  'SelectList',
-  `Use a \`SelectList\` when you have four or more items you want a user to choose from.`
-);
+<PageHeader
+  name='SelectList'
+  description={`Use a \`SelectList\` when you have four or more items you want a user to choose from.`} />;
 
 card(
   <PropTable

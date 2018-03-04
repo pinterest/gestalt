@@ -3,10 +3,9 @@ import * as React from 'react';
 import { Box, Text, Divider } from 'gestalt';
 import { ns, card, Example, md, PropTable } from './cards';
 
-ns(
-  'Divider',
-  'If you have two things that need to be separated, put a `Divider` between them.'
-);
+<PageHeader
+  name='Divider'
+  description={'If you have two things that need to be separated, put a `Divider` between them.'} />;
 
 card(<PropTable props={[]} />, { heading: false });
 
