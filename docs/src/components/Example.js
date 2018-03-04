@@ -4,7 +4,6 @@ import {
   Box,
   Container,
   Text,
-  Checkerboard,
   Link,
   Icon,
   Checkbox,
@@ -13,6 +12,7 @@ import {
   Heading,
 } from 'gestalt';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import Checkerboard from './Checkerboard';
 
 type Props = {|
   defaultCode: string,
