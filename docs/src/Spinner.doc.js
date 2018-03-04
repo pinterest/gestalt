@@ -1,10 +1,13 @@
 // @flow
 import * as React from 'react';
 import { Box, Button, Text, Spinner } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import StateRecorder from './components/StateRecorder';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(<PageHeader name="Spinner" />);
 
@@ -60,3 +63,5 @@ card(
     heading={false}
   />
 );
+
+export default () => <CardPage cards={cards} />;

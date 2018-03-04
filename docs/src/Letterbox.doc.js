@@ -1,9 +1,12 @@
 // @flow
 import * as React from 'react';
 import { Box, Letterbox } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -144,3 +147,5 @@ card(
     </Box>
   </Box>
 );
+
+export default () => <CardPage cards={cards} />;

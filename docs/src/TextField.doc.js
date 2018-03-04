@@ -2,11 +2,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Label, TextField } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import StateRecorder from './components/StateRecorder';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader name="TextField" description="TextField allows for text input." />
@@ -227,3 +230,5 @@ card(
     name="onSubmit"
   />
 );
+
+export default () => <CardPage cards={cards} />;

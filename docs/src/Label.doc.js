@@ -1,10 +1,13 @@
 // @flow
 import * as React from 'react';
 import { Switch, Label } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -66,3 +69,5 @@ render() {
     scope={{ Label, Switch }}
   />
 );
+
+export default () => <CardPage cards={cards} />;

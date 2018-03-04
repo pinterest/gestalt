@@ -1,11 +1,14 @@
 // @flow
 import * as React from 'react';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
 import { Pog } from 'gestalt';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -103,3 +106,5 @@ card(
     {props => <Pog icon="heart" {...props} />}
   </Combination>
 );
+
+export default () => <CardPage cards={cards} />;

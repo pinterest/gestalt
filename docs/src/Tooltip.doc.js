@@ -2,11 +2,14 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { Tooltip, Box, Heading, Text, IconButton } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import StateRecorder from './components/StateRecorder';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -381,3 +384,5 @@ class TooltipEx extends Component<Props> {
     );
   }
 }
+
+export default () => <CardPage cards={cards} />;

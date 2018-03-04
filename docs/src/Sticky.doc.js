@@ -1,10 +1,13 @@
 // @flow
 import React from 'react';
 import { Box, Sticky, Text } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -80,3 +83,5 @@ card(
     scope={{ Box, Sticky, Text }}
   />
 );
+
+export default () => <CardPage cards={cards} />;

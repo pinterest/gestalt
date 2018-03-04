@@ -1,9 +1,12 @@
 // @flow
 import * as React from 'react';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -242,3 +245,5 @@ card(
 </Box>`}
   />
 );
+
+export default () => <CardPage cards={cards} />;

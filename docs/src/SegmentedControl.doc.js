@@ -1,10 +1,13 @@
 // @flow
 import * as React from 'react';
 import { Box, SegmentedControl } from 'gestalt';
-import { registerCard as card } from 'corkboard/init';
 import PropTable from './components/PropTable';
 import StateRecorder from './components/StateRecorder';
 import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
+
+const cards = [];
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -118,3 +121,5 @@ card(
     }}
   />
 );
+
+export default () => <CardPage cards={cards} />;

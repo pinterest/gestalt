@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
+import routes from '../routes';
 
 type Props = {||};
 
@@ -13,45 +14,7 @@ const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-const components = [
-  'Avatar',
-  'Box',
-  'Button',
-  'Card',
-  'Checkbox',
-  'Column',
-  'Container',
-  'Divider',
-  'ErrorFlyout',
-  'Flyout',
-  'GroupAvatar',
-  'Heading',
-  'Icon',
-  'IconButton',
-  'Image',
-  'Label',
-  'Letterbox',
-  'Link',
-  'Mask',
-  'Masonry',
-  'Modal',
-  'Pog',
-  'Pulsar',
-  'RadioButton',
-  'SearchField',
-  'SegmentedControl',
-  'SelectList',
-  'Spinner',
-  'Sticky',
-  'Switch',
-  'Tabs',
-  'Text',
-  'TextArea',
-  'TextField',
-  'Toast',
-  'Tooltip',
-  'Touchable',
-];
+const components = Object.keys(routes);
 
 export default function Navigation(props: Props, context: Context) {
   const { router } = context;

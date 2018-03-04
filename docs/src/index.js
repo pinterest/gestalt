@@ -1,43 +1,24 @@
-import 'corkboard/init';
 import React from 'react';
-import { Router, hashHistory, Route, IndexRoute } from 'react-router';
-import App from './components/App';
-import CardPage from './components/CardPage';
+import { Router, hashHistory, Route } from 'react-router';
 import { render } from 'react-dom';
-import { getCards, registerNamespace } from 'corkboard/init';
+import App from './components/App';
+import routes from './routes';
 import '!style-loader!css-loader!gestalt/dist/gestalt.css';
-
-const requireCard = require.context('.', true, /\.doc\.js$/);
-const paths = requireCard.keys();
-paths.sort((a, b) => a.localeCompare(b));
-paths.forEach(path => {
-  registerNamespace(path);
-  requireCard(path);
-});
-
-const components = paths.map(path => path.match(/\.\/(.+)\.doc\.js$/)[1]);
-
-const connect = (state, Component) => props => (
-  <Component {...state} {...props} />
-);
-
-const cards = getCards();
-const ConnectedCardPage = connect({ cards }, CardPage);
-
-const routes = (
-  <Route component={App} path="/">
-    <IndexRoute component={ConnectedCardPage} />
-    {components.map(component => (
-      <Route
-        component={ConnectedCardPage}
-        path={`/${component}`}
-        key={component}
-      />
-    ))}
-  </Route>
-);
 
 const node = document.createElement('DIV');
 document.body.appendChild(node);
 
-render(<Router history={hashHistory}>{routes}</Router>, node);
+render(
+  <Router history={hashHistory}>
+    <Route component={App} path="/">
+      {Object.keys(routes).map(pathname => (
+        <Route
+          component={routes[pathname]}
+          path={`/${pathname}`}
+          key={pathname}
+        />
+      ))}
+    </Route>
+  </Router>,
+  node
+);
