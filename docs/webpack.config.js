@@ -16,7 +16,6 @@ module.exports = {
     // De-dupe module includes for fast development builds
     alias: {
       'classnames/bind': `${__dirname}/../node_modules/classnames/bind`,
-      corkboard: `${__dirname}/../node_modules/corkboard`,
       react: `${__dirname}/../node_modules/react`,
       'react-dom': `${__dirname}/../node_modules/react-dom`,
     },
@@ -68,7 +67,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: [path.dirname(require.resolve('corkboard'))],
         use: [
           {
             loader: 'css-loader',
@@ -97,9 +95,7 @@ module.exports = {
         include: [
           path.join(__dirname, '..', 'packages', 'gestalt'),
           path.join(__dirname, 'src'),
-          path.dirname(require.resolve('corkboard')),
         ],
-        exclude: /node_modules\/(?!(corkboard)\/).*/,
       },
       {
         test: /\.svg$/,
