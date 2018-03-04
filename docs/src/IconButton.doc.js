@@ -2,11 +2,7 @@
 import React from 'react';
 import { card, Example, md, PropTable, Combination } from './cards';
 import { Box, IconButton, Flyout, Text } from 'gestalt';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('IconButton');
 
 card(
   <PageHeader

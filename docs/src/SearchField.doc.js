@@ -3,11 +3,8 @@
 import * as React from 'react';
 import { SearchField, Icon, IconButton } from 'gestalt';
 import { md, card, PropTable, Example } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
 
-ns('SearchField');
 card(<PageHeader name="SearchField" />);
 
 card(

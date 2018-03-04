@@ -3,11 +3,7 @@
 import React, { Component } from 'react';
 import { Tooltip, Box, Heading, Text, IconButton } from 'gestalt';
 import { md, card, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Tooltip');
 
 card(
   <PageHeader

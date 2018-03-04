@@ -3,11 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Label, TextField } from 'gestalt';
 import { card, md, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('TextField');
 
 card(
   <PageHeader name="TextField" description="TextField allows for text input." />

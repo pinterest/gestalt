@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { GroupAvatar, Box } from 'gestalt';
 import { card, PropTable, Example, Combination } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('GroupAvatar');
 
 card(
   <PageHeader

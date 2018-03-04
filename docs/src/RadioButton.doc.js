@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { Box, Label, Text, RadioButton } from 'gestalt';
 import { card, md, Example, PropTable, Combination } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('RadioButton');
 
 card(
   <PageHeader

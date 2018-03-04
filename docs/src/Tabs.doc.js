@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { Tabs } from 'gestalt';
 import { card, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Tabs');
 
 card(
   <PageHeader

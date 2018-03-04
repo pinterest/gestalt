@@ -3,11 +3,7 @@
 import React from 'react';
 import { Box, Image, Link, Mask, Text, Touchable } from 'gestalt';
 import { card, md, PropTable, Example } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Touchable');
 
 card(
   <PageHeader

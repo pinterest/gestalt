@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { Box, SegmentedControl } from 'gestalt';
 import { card, md, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('SegmentedControl');
 
 card(
   <PageHeader

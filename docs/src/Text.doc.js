@@ -1,11 +1,7 @@
 // @flow
 import * as React from 'react';
 import { card, md, PropTable, Example } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Text');
 
 card(
   <PageHeader

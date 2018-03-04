@@ -4,13 +4,16 @@ import { Router, hashHistory, Route, IndexRoute } from 'react-router';
 import App from './components/App';
 import CardPage from './components/CardPage';
 import { render } from 'react-dom';
-import { getCards } from 'corkboard/init';
+import { getCards, registerNamespace } from 'corkboard/init';
 import '!style-loader!css-loader!gestalt/dist/gestalt.css';
 
 const requireCard = require.context('.', true, /\.doc\.js$/);
 const paths = requireCard.keys();
 paths.sort((a, b) => a.localeCompare(b));
-paths.forEach(requireCard);
+paths.forEach(path => {
+  registerNamespace(path);
+  requireCard(path);
+});
 
 const components = paths.map(path => path.match(/\.\/(.+)\.doc\.js$/)[1]);
 

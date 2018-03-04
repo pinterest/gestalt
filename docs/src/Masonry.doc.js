@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { card, md, PropTable } from './cards';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Masonry');
 
 card(
   <PageHeader

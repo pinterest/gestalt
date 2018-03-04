@@ -9,7 +9,7 @@ type Props = {|
 
 export default function CardPage(props: Props) {
   const { cards: allCards, location: { pathname } } = props;
-  const ns = pathname.match(/\/(.+)/)[1];
+  const ns = `./${pathname.match(/\/(.+)/)[1]}.doc.js`;
 
   if (Object.keys(allCards).length === 0) {
     return <div />;

@@ -16,11 +16,7 @@ import {
   TextField,
 } from 'gestalt';
 import { card, md, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Modal');
 
 card(
   <PageHeader

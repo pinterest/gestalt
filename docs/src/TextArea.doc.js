@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { Box, Label, TextArea } from 'gestalt';
 import { card, md, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('TextArea');
 
 card(
   <PageHeader

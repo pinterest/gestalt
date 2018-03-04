@@ -2,11 +2,8 @@
 import * as React from 'react';
 import { Box, Button, Text, Spinner } from 'gestalt';
 import { card, md, PropTable, StateRecorder } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
 
-ns('Spinner');
 card(<PageHeader name="Spinner" />);
 
 card(

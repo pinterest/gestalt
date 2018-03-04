@@ -2,11 +2,7 @@
 import * as React from 'react';
 import { Mask } from 'gestalt';
 import { card, md, PropTable, Example, Combination } from './cards';
-
-import { ns } from 'corkboard';
 import PageHeader from './components/PageHeader';
-
-ns('Mask');
 
 card(
   <PageHeader
