@@ -11,8 +11,11 @@
   "dependencies": {
     "corkboard": "0.3.3",
     "gestalt": ">0.0.0",
+    "highlight.js": "^9.12.0",
+    "marked": "^0.3.17",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "react-live": "^1.10.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -34,8 +37,8 @@
     "react-live": "^1.7.1",
     "style-loader": "^0.13.0",
     "svg-path-loader": "^0.0.4",
-    "webpack-dev-server": "^2.11.1",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   },
   "browserslist": [
     "defaults",
