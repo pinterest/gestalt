@@ -1,24 +1,12 @@
-import React from 'react';
 import { registerCard } from 'corkboard';
-import PageHeader from './components/PageHeader';
-import Card from './components/Card';
 import CombinationInternal from './components/Combination';
 import PropTableInternal from './components/PropTable';
 import ExampleInternal from './components/Example';
-import Markdown from './components/Markdown';
 import StateRecorderInternal from './components/StateRecorder';
 
-export const ns = (name, description = '') => {
-  registerCard(<PageHeader name={name} description={description} />);
+export const card = comp => {
+  registerCard(comp);
 };
-
-export const card = (...args) => {
-  registerCard(<Card args={args} />);
-};
-
-export const md = str => (
-  <Markdown text={typeof str === 'string' ? str : str.join('\n')} />
-);
 
 export const PropTable = PropTableInternal;
 export const Example = ExampleInternal;

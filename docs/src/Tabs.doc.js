@@ -31,13 +31,13 @@ card(
         required: true,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Demo',
   <StateRecorder
+    name="Demo"
     fn={atom => {
       const state = atom.deref();
       return (

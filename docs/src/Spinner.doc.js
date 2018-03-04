@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Box, Button, Text, Spinner } from 'gestalt';
-import { card, md, PropTable, StateRecorder } from './cards';
+import { card, PropTable, StateRecorder } from './cards';
 import PageHeader from './components/PageHeader';
 
 card(<PageHeader name="Spinner" />);
@@ -23,18 +23,18 @@ card(
         defaultValue: false,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Spinner',
-  md`
+  <StateRecorder
+    description={`
     Spinners indicate when a user has to wait for something else to occur. They delay showing for 300ms to improve perceived performance.
 
     The label on a spinner is for accessibility. You should pick labels that relate to the specific part of the product it's being used in ("Loading homefeed" for instance).
-  `,
-  <StateRecorder
+  `}
+    name="Spinner"
     fn={atom => (
       <Box>
         <Box paddingY={2}>
@@ -55,6 +55,6 @@ card(
       </Box>
     )}
     initialState={{ show: true }}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );

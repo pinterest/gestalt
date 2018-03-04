@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Pulsar, Button } from 'gestalt';
-import { card, md, PropTable, Example } from './cards';
+import { card, PropTable, Example } from './cards';
 import PageHeader from './components/PageHeader';
 
 card(
@@ -28,44 +28,43 @@ card(
         defaultValue: 96,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example',
-  md`
-    Pulsars can be shown and hidden using the \`paused\` prop.
-  `,
   <Example
+    description={`
+    Pulsars can be shown and hidden using the \`paused\` prop.
+  `}
+    name="Example"
     defaultCode={`
 class PulsarExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPulsing: true
-    };
-  }
+constructor(props) {
+  super(props);
+  this.state = {
+    isPulsing: true
+  };
+}
 
-  render() {
-    const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
-    return (
-      <Box display="flex" direction="column">
-        <Box marginBottom={4}>
-          <Button
-            text={text}
-            onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
-            inline
-            size="md"
-          />
-        </Box>
-        <Pulsar paused={!this.state.isPulsing} />
+render() {
+  const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
+  return (
+    <Box display="flex" direction="column">
+      <Box marginBottom={4}>
+        <Button
+          text={text}
+          onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
+          inline
+          size="md"
+        />
       </Box>
-    );
-  }
+      <Pulsar paused={!this.state.isPulsing} />
+    </Box>
+  );
+}
 }
 `}
     scope={{ Button, Pulsar }}
-  />,
-  { stacked: true }
+  />
 );

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Box, Letterbox } from 'gestalt';
-import { card, md, PropTable } from './cards';
+import { card, PropTable } from './cards';
 import PageHeader from './components/PageHeader';
 
 card(
@@ -46,13 +46,13 @@ card(
         description: 'Desired final width of element',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example',
-  md`
+  <Box
+    description={`
     ~~~html
     <Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
       <img
@@ -78,8 +78,8 @@ card(
       />
     </Letterbox>
     ~~~
-  `,
-  <Box
+  `}
+    name="Example"
     display="flex"
     direction="row"
     justifyContent="around"
@@ -141,6 +141,5 @@ card(
         />
       </Letterbox>
     </Box>
-  </Box>,
-  { stacked: true }
+  </Box>
 );

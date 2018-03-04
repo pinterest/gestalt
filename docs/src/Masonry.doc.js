@@ -1,8 +1,9 @@
 // @flow
 import * as React from 'react';
-import { card, md, PropTable } from './cards';
+import { card, PropTable } from './cards';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
 import PageHeader from './components/PageHeader';
+import Card from './components/Card';
 
 card(
   <PageHeader
@@ -91,8 +92,8 @@ card(
           'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 type ExampleMasonryProps = {|
@@ -257,8 +258,8 @@ class ExampleMasonry extends React.Component<
 }
 
 card(
-  'Fluid number of columns',
-  md`
+  <Card
+    description={`
     The number of columns in this grid changes responsively based on the width of the parent.
 
     ~~~jsx
@@ -269,53 +270,53 @@ card(
       minCols={1}
     />
     ~~~
-  `
+  `}
+    name="Fluid number of columns"
+  />
 );
 
 card(
-  'Flexible item width',
-  md`
+  <Box
+    description={`
     When the \`flexible\` property is set to true, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
     <Masonry flexible comp={Item} items={items} minCols={1} />
     ~~~
-  `,
-  <Box>
+  `}
+    name="Flexible item width"
+  >
     <ExampleMasonry flexible />
-  </Box>,
-  {}
+  </Box>
 );
 
 card(
-  'Non-flexible item width',
-  md`
+  <Box
+    description={`
     When the \`flexible\` property is ommitted, the item width will be fixed to \`columnWidth\`.
 
     ~~~jsx
     <Masonry comp={Item} items={items} minCols={1} />
     ~~~
-  `,
-  <Box>
+  `}
+    name="Non-flexible item width"
+  >
     <ExampleMasonry />
-  </Box>,
-  {},
-  { stretch: true }
+  </Box>
 );
 
 card(
-  'Uniform row heights',
-  md`
+  <Box
+    description={`
     Using the \`MasonryUniformRowLayout\` layout.
 
     ~~~jsx
     import { Masonry, MasonryUniformRowLayout } from 'gestalt';
     <Masonry comp={Item} items={items} layout={MasonryUniformRowLayout} />;
     ~~~
-  `,
-  <Box>
+  `}
+    name="Uniform row heights"
+  >
     <ExampleMasonry layout={MasonryUniformRowLayout} />
-  </Box>,
-  {},
-  { stretch: true }
+  </Box>
 );

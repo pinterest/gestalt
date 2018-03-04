@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Box, Icon, Text } from 'gestalt';
-import { card, Example, md, PropTable, Combination } from './cards';
+import { card, Example, PropTable, Combination } from './cards';
 import PageHeader from './components/PageHeader';
 
 card(
@@ -50,34 +50,32 @@ card(
         defaultValue: false,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example:',
-  md`
-    Icon with a label.
-  `,
   <Example
+    description="
+    Icon with a label.
+  "
+    name="Example:"
     defaultCode={`
 <Box alignItems="center" display="flex">
-  <Box marginRight={1} padding={1}>
-    <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
-  </Box>
-  <Text align="center" bold color="darkGray">
-    Pinterest
-  </Text>
+<Box marginRight={1} padding={1}>
+  <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
+</Box>
+<Text align="center" bold color="darkGray">
+  Pinterest
+</Text>
 </Box>
 `}
     scope={{ Box, Icon, Text }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Icon Combinations',
-  <Combination icon={Icon.icons}>
+  <Combination name="Icon Combinations" icon={Icon.icons}>
     {props => (
       <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
     )}
@@ -85,8 +83,11 @@ card(
 );
 
 card(
-  'Size & Color Combinations',
-  <Combination size={[16, 24, 32]} color={['gray', 'darkGray', 'red']}>
+  <Combination
+    name="Size & Color Combinations"
+    size={[16, 24, 32]}
+    color={['gray', 'darkGray', 'red']}
+  >
     {(props, i) => (
       <Icon key={i} icon="heart" accessibilityLabel="" {...props} />
     )}

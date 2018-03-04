@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { card, md, PropTable, Example } from './cards';
+import { card, PropTable, Example } from './cards';
 import PageHeader from './components/PageHeader';
 
 card(
@@ -60,191 +60,183 @@ card(
         defaultValue: false,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Alignment',
-  md`
-    You can apply the following to adjust the positioning of text within wrapper elements.
-  `,
   <Example
+    description="
+    You can apply the following to adjust the positioning of text within wrapper elements.
+  "
+    name="Alignment"
     defaultCode={`
 <Box maxWidth="8em">
-  <Text align="left">Left (default)</Text>
-  <Text align="right">Right</Text>
-  <Text align="center">Center</Text>
-  <Text align="justify">Justify</Text>
+<Text align="left">Left (default)</Text>
+<Text align="right">Right</Text>
+<Text align="center">Center</Text>
+<Text align="justify">Justify</Text>
 </Box>`}
-  />,
-  {
-    stacked: true,
-  }
+  />
 );
 
 card(
-  'Block vs inline',
-  md`
+  <Example
+    description={`
     The Text component allows you to specifiy whether you want \`block\` or \`inline\` text.
-  `,
-  <Example
+  `}
+    name="Block vs inline"
     defaultCode={`
 <Box>
-  <Box marginBottom={2}>
-    <Text>Some content in a default block element. (default)</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text inline>Inline text with the inline prop.</Text>
-    {' '}
-    <Text inline>More inline text.</Text>
-  </Box>
+<Box marginBottom={2}>
+  <Text>Some content in a default block element. (default)</Text>
+</Box>
+<Box marginBottom={2}>
+  <Text inline>Inline text with the inline prop.</Text>
+  {' '}
+  <Text inline>More inline text.</Text>
+</Box>
 </Box>`}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Colors',
-  md`
+  <Example
+    description="
     You can specify which color you want for your text.
-  `,
-  <Example
+  "
+    name="Colors"
     defaultCode={`
 <Box>
-  <Box color="darkGray" marginBottom={2}>
-    <Text color="white">White</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="gray">Gray</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="darkGray">Dark Gray (default)</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="blue">Blue</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="red">Red</Text>
-  </Box>
+<Box color="darkGray" marginBottom={2}>
+  <Text color="white">White</Text>
+</Box>
+<Box marginBottom={2}>
+  <Text color="gray">Gray</Text>
+</Box>
+<Box marginBottom={2}>
+  <Text color="darkGray">Dark Gray (default)</Text>
+</Box>
+<Box marginBottom={2}>
+  <Text color="blue">Blue</Text>
+</Box>
+<Box marginBottom={2}>
+  <Text color="red">Red</Text>
+</Box>
 </Box>`}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Overflow',
-  md`
-    Gestalt provides utility options to deal with text overflow.
-  `,
   <Example
+    description="
+    Gestalt provides utility options to deal with text overflow.
+  "
+    name="Overflow"
     defaultCode={`
 <Box maxWidth={240}>
-  <Box marginBottom={2}>
-    <Text overflow="normal" leading="tall">
-      <strong>normal:</strong>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    </Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text leading="tall">
-      <strong>breakWord:</strong>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
-    </Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text truncate leading="tall">
-      <strong>truncate:</strong>
-      This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
-    </Text>
-  </Box>
+<Box marginBottom={2}>
+  <Text overflow="normal" leading="tall">
+    <strong>normal:</strong>
+    This is a long and Supercalifragilisticexpialidocious sentence.
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+  </Text>
+</Box>
+<Box marginBottom={2}>
+  <Text leading="tall">
+    <strong>breakWord:</strong>
+    This is a long and Supercalifragilisticexpialidocious sentence.
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
+  </Text>
+</Box>
+<Box marginBottom={2}>
+  <Text truncate leading="tall">
+    <strong>truncate:</strong>
+    This is a long and Supercalifragilisticexpialidocious sentence.
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
+  </Text>
+</Box>
 </Box>`}
-  />,
-  { stacked: true }
+  />
 );
 card(
-  'Sizes',
-  md`
-    You can apply the following \`size\` options to define the size of the text.
-  `,
   <Example
+    description={`
+    You can apply the following \`size\` options to define the size of the text.
+  `}
+    name="Sizes"
     defaultCode={`
 <Box>
-  <Box marginBottom={2}>
+<Box marginBottom={2}>
+  <Text inline size="xs">
+    {'Extra small'}
+  </Text>{' '}
+  <span lang="ja">
     <Text inline size="xs">
-      {'Extra small'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="xs">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
-  <Box marginBottom={2}>
+      こんにちは
+    </Text>
+  </span>
+</Box>
+<Box marginBottom={2}>
+  <Text inline size="sm">
+    {'Small'}
+  </Text>{' '}
+  <span lang="ja">
     <Text inline size="sm">
-      {'Small'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="sm">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
-  <Box marginBottom={2}>
+      こんにちは
+    </Text>
+  </span>
+</Box>
+<Box marginBottom={2}>
+  <Text inline size="md">
+    {'Medium (default size)'}
+  </Text>{' '}
+  <span lang="ja">
     <Text inline size="md">
-      {'Medium (default size)'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="md">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
-  <Box marginBottom={2}>
+      こんにちは
+    </Text>
+  </span>
+</Box>
+<Box marginBottom={2}>
+  <Text inline size="lg">
+    {'Large'}
+  </Text>{' '}
+  <span lang="ja">
     <Text inline size="lg">
-      {'Large'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="lg">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
-  <Box marginBottom={2}>
+      こんにちは
+    </Text>
+  </span>
+</Box>
+<Box marginBottom={2}>
+  <Text inline size="xl">
+    {'Extra Large'}
+  </Text>{' '}
+  <span lang="ja">
     <Text inline size="xl">
-      {'Extra Large'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="xl">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
+      こんにちは
+    </Text>
+  </span>
+</Box>
 </Box>`}
-  />,
-  { stacked: true }
+  />
 );
 card(
-  'Styles',
-  md`
+  <Example
+    description="
     There are multiple styles such as bold and italic that we can
     attach to the Text component.
-  `,
-  <Example
+  "
+    name="Styles"
     defaultCode={`
 <Box>
-  <Box marginBottom={2}>
-    <Text bold>Bold</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text italic>Italic</Text>
-  </Box>
+<Box marginBottom={2}>
+  <Text bold>Bold</Text>
+</Box>
+<Box marginBottom={2}>
+  <Text italic>Italic</Text>
+</Box>
 </Box>`}
-  />,
-  { stacked: true }
+  />
 );

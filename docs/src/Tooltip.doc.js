@@ -2,8 +2,9 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { Tooltip, Box, Heading, Text, IconButton } from 'gestalt';
-import { md, card, PropTable, StateRecorder } from './cards';
+import { card, PropTable, StateRecorder } from './cards';
 import PageHeader from './components/PageHeader';
+import Card from './components/Card';
 
 card(
   <PageHeader
@@ -54,13 +55,13 @@ card(
         defaultValue: 'md',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Sizes',
-  md`
+  <StateRecorder
+    description={`
     There are 5 sizes currently available for \`Tooltip\`. Default size is \`md\`.
 
     ~~~html
@@ -71,8 +72,8 @@ card(
     lg: 320px
     xl: 375px
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Sizes"
     fn={atom => (
       <Box display="flex">
         <Box display="flex" direction="column" padding={2} alignItems="center">
@@ -232,8 +233,8 @@ card(
 );
 
 card(
-  'anchor',
-  md`
+  <Card
+    description={`
     The \`anchor\` ref you pass in should not include anything other than the trigger element itself. The Flyout
     calculates its' position based on the bounding box of the \`anchor\`. To achieve this, we recommend setting a
     ref directly on the component itself or adding \`display: inline-block\` to the parent container with the ref.
@@ -241,12 +242,14 @@ card(
     If you put the \`Tooltip\` in a portal or provider or it no longer shares
     a relative root with the \`anchor\`, you must set \`positionRelativeToAnchor=false\` in order for it to be
     positioned correctly relative to the body.
-  `
+  `}
+    name="anchor"
+  />
 );
 
 card(
-  'Ideal Direction Preference',
-  md`
+  <Card
+    description={`
     The \`Tooltip\` component gives you the ability to _influence_ the preferred direction that it
     opens. This may be a useful property to specify if you have a page with many potential Tooltips
     and you want the behavior to look uniform.
@@ -256,22 +259,26 @@ card(
     within the viewport in that specific direction and there is enough space in another direction. If no
     \`idealDirection\` is provided, the Tooltip will open in the direction where there is the
     most space available within the viewport.
-  `
+  `}
+    name="Ideal Direction Preference"
+  />
 );
 
 card(
-  'Accessibility',
-  md`
+  <Card
+    description={`
     We recommend passing in the following ARIA attributes to the anchor element:
 
     * \`aria.haspopup\` lets the screenreader know that there is a flyout linked to the tigger.
     * \`aria.expanded\` informs the screenreader whether the flyout is currently open or closed.
-  `
+  `}
+    name="Accessibility"
+  />
 );
 
 card(
-  'Example',
-  md`
+  <StateRecorder
+    description={`
     Click on the IconButton to see the Tooltip display.
 
     ~~~jsx
@@ -300,8 +307,8 @@ card(
       );
     }
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Example"
     fn={atom => (
       <Box display="flex" direction="row">
         <Box paddingY={2}>

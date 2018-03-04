@@ -15,8 +15,9 @@ import {
   TextArea,
   TextField,
 } from 'gestalt';
-import { card, md, PropTable, StateRecorder } from './cards';
+import { card, PropTable, StateRecorder } from './cards';
 import PageHeader from './components/PageHeader';
+import Card from './components/Card';
 
 card(
   <PageHeader
@@ -72,13 +73,13 @@ card(
         description: `sm: 414px, md: 544px, lg: 804px`,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Sizes',
-  md`
+  <StateRecorder
+    description={`
     There are 3 different widths available for a \`Modal\`. Click on each button
     to view a sample Modal of the specified size. All Modals have a max width of 100%.
 
@@ -88,8 +89,8 @@ card(
     md: 544px
     lg: 804px
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Sizes"
     fn={atom => (
       <Box display="flex">
         <Box padding={2}>
@@ -158,8 +159,8 @@ card(
 );
 
 card(
-  'Default padding & styling',
-  md`
+  <StateRecorder
+    description={`
     Some of the padding required to style your modal has already been provided for ease of use. The modal shown
     by clicking on the "View padding" button highlights what the default behavior is. The two divider's between
     the \`heading\`, \`children\`, and \`footer\` are included as well.
@@ -182,8 +183,8 @@ card(
       </Box>
     </Modal>
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Default padding & styling"
     fn={atom => (
       <Box>
         <Button
@@ -237,16 +238,16 @@ function alertFooter(onClose) {
 }
 
 card(
-  'Alert Dialogs',
-  md`
+  <StateRecorder
+    description={`
     The \`alertdialog\` role is used to notify the user of urgent information that demands the user's immediate attention.
     We need to specify this role separately from other dialog's for accessibility.
 
     _Note: There are 3 small visual differences from the other Modal's we've seen so far. First, there is no cancel button in the top
     right, forcing the user to take an explicit action. Second, there is no divider between the heading, children,
     and footer. Finally, the heading's are larger and are left-aligned rather than centered._
-  `,
-  <StateRecorder
+  `}
+    name="Alert Dialogs"
     fn={atom => (
       <Box display="flex">
         <Button
@@ -408,8 +409,8 @@ function editBoardFooter(onClose) {
 }
 
 card(
-  'Static Content Example',
-  md`
+  <StateRecorder
+    description={`
     Here is an example of the \`Modal\` component with static content.
 
     ~~~jsx
@@ -424,8 +425,8 @@ card(
       {children}
     </Modal>
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Static Content Example"
     fn={atom => (
       <Box display="flex">
         <Button
@@ -512,8 +513,8 @@ function viewImagesFooter(onClose) {
 }
 
 card(
-  'Dynamic Content Example',
-  md`
+  <StateRecorder
+    description={`
     Here is an example of the \`Modal\` component with dynamic children. You may want to display a \`Spinner\`
     while waiting for content to load. You can achieve this in a few ways. As shown in this example, the \`ImageModalContents\`
     component first renders a \`Spinner\` and then switches to the actual images once loaded. This results in
@@ -532,8 +533,8 @@ card(
       <ImageModalContents />
     </Modal>
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Dynamic Content Example"
     fn={atom => (
       <Box display="flex">
         <Button
@@ -559,8 +560,8 @@ card(
 );
 
 card(
-  'Accessibility Props',
-  md`
+  <Card
+    description={`
     We want to make sure every button on the page is unique when being read by screenreader.
 
     \`accessibilityCloseLabel\` allows us to specify text that is spoken for the close button<br>
@@ -578,5 +579,7 @@ card(
       {children}
     </Modal>
     ~~~
-  `
+  `}
+    name="Accessibility Props"
+  />
 );

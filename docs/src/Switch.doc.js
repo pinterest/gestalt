@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Box, Label, Switch, Text } from 'gestalt';
-import { card, md, PropTable, Example, Combination } from './cards';
+import { card, PropTable, Example, Combination } from './cards';
 import PageHeader from './components/PageHeader';
 
 card(
@@ -40,54 +40,56 @@ card(
         defaultValue: false,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example: Using a label',
-  md`
-    Whenever you are using a \`Switch\` component, you should use a [Label](#/Label) with it to make your component accessible.
-  `,
   <Example
+    description={`
+    Whenever you are using a \`Switch\` component, you should use a [Label](#/Label) with it to make your component accessible.
+  `}
+    name="Example: Using a label"
     defaultCode={`
 class SwitchExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { switched: false };
-    this.handleChange = this._handleChange.bind(this);
-  }
-  _handleChange() {
-    this.setState({ switched: !this.state.switched });
-  }
-  render() {
-    return (
-      <Box display="flex" direction="row" alignItems="center">
-        <Box paddingX={2} flex="grow">
-          <Label htmlFor="emailNotifications">
-            <Text>Airplane mode</Text>
-          </Label>
-        </Box>
-        <Switch
-          onChange={this.handleChange}
-          id="emailNotifications"
-          switched={this.state.switched}
-        />
-      </Box>
-    );
-  }
+constructor(props) {
+  super(props);
+  this.state = { switched: false };
+  this.handleChange = this._handleChange.bind(this);
 }
-  `}
+_handleChange() {
+  this.setState({ switched: !this.state.switched });
+}
+render() {
+  return (
+    <Box display="flex" direction="row" alignItems="center">
+      <Box paddingX={2} flex="grow">
+        <Label htmlFor="emailNotifications">
+          <Text>Airplane mode</Text>
+        </Label>
+      </Box>
+      <Switch
+        onChange={this.handleChange}
+        id="emailNotifications"
+        switched={this.state.switched}
+      />
+    </Box>
+  );
+}
+}
+`}
     scope={{ Box, Switch, Text, Label }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  <Combination disabled={[false, true]} switched={[false, true]}>
+  <Combination
+    disabled={[false, true]}
+    switched={[false, true]}
+    heading={false}
+  >
     {(props, i) => (
       <Switch id={`example-${i}`} onChange={() => {}} {...props} />
     )}
-  </Combination>,
-  { heading: false }
+  </Combination>
 );
