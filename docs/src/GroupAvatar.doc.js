@@ -4,7 +4,7 @@ import { GroupAvatar, Box } from 'gestalt';
 import { ns, card, PropTable, Example, Combination } from './cards';
 
 ns(
-  'Group Avatar',
+  'GroupAvatar',
   `You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
 applied to each collaborator image to ensure the component retains a circular appeareance`
 );

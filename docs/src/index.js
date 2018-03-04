@@ -12,19 +12,25 @@ const paths = requireCard.keys();
 paths.sort((a, b) => a.localeCompare(b));
 paths.forEach(requireCard);
 
+const components = paths.map(path => path.match(/\.\/(.+)\.doc\.js$/)[1]);
+
 const connect = (state, Component) => props => (
   <Component {...state} {...props} />
 );
 
 const cards = getCards();
-
-const ConnectedApp = connect({ cards }, App);
 const ConnectedCardPage = connect({ cards }, CardPage);
 
 const routes = (
-  <Route component={ConnectedApp} path="/">
+  <Route component={App} path="/">
     <IndexRoute component={ConnectedCardPage} />
-    <Route component={ConnectedCardPage} path="/:ns" />
+    {components.map(component => (
+      <Route
+        component={ConnectedCardPage}
+        path={`/${component}`}
+        key={component}
+      />
+    ))}
   </Route>
 );
 

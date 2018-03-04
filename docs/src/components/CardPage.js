@@ -4,13 +4,14 @@ import { Box, Heading } from 'gestalt';
 
 type Props = {|
   cards: *,
-  params: { ns: ?string },
+  location: { pathname: string },
 |};
 
 export default function CardPage(props: Props) {
-  const { cards: allCards, params: { ns } } = props;
+  const { cards: allCards, location: { pathname } } = props;
+  const ns = pathname.match(/\/(.+)/)[1];
 
-  if (Object.keys(allCards).length === 0 || !ns) {
+  if (Object.keys(allCards).length === 0) {
     return <div />;
   }
 

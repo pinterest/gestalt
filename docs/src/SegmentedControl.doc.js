@@ -4,7 +4,7 @@ import { Box, SegmentedControl } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
 ns(
-  'Segmented Control',
+  'SegmentedControl',
   `
 Segmented Controls may be used to group between multiple selections.
 The controls display the current state and related state.
