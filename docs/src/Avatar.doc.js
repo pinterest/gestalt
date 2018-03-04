@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { Avatar, Box, Text } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
 
-<PageHeader
-  name='Avatar'
-  description={'You can use an `Avatar` to represent a user. Every Avatar image has a subtle color wash.'} />;
+ns(
+  'Avatar',
+  'You can use an `Avatar` to represent a user. Every Avatar image has a subtle color wash.'
+);
 
 card(
   <PropTable

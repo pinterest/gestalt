@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Label, TextField } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-<PageHeader name='TextField' description={'TextField allows for text input.'} />;
+ns('TextField', 'TextField allows for text input.');
 
 card(
   <PropTable

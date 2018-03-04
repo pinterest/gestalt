@@ -3,12 +3,13 @@ import * as React from 'react';
 import { ns, card, md, PropTable } from './cards';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
 
-<PageHeader
-  name='Masonry'
-  description={`
+ns(
+  'Masonry',
+  `
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
 It contains performance optimizations like virtualization and server rendering, as well as support for infinite scrolling.
-`} />;
+`
+);
 
 card(
   <PropTable

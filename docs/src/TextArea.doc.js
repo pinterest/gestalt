@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Box, Label, TextArea } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-<PageHeader name='TextArea' description={'TextArea allows for multiline input.'} />;
+ns('TextArea', 'TextArea allows for multiline input.');
 
 card(
   <PropTable

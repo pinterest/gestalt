@@ -3,9 +3,10 @@ import * as React from 'react';
 import { Box, Label, Text, Checkbox } from 'gestalt';
 import { ns, card, md, PropTable, Example, Combination } from './cards';
 
-<PageHeader
-  name='Checkbox'
-  description={'We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles.'} />;
+ns(
+  'Checkbox',
+  'We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles.'
+);
 
 card(
   <PropTable

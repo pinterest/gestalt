@@ -3,15 +3,16 @@ import * as React from 'react';
 import { Box, SegmentedControl } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-<PageHeader
-  name='Segmented Control'
-  description={`
+ns(
+  'Segmented Control',
+  `
 Segmented Controls may be used to group between multiple selections.
 The controls display the current state and related state.
 
 Create layout to convey clear sense of information hierarchy.
 When control is engaged, information below the control should get updated.
-`} />;
+`
+);
 
 card(
   <PropTable

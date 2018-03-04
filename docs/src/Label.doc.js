@@ -3,9 +3,10 @@ import * as React from 'react';
 import { Switch, Label } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
 
-<PageHeader
-  name='Label'
-  description={'Use the Label component to connect a label with a form component in an accessible way.'} />;
+ns(
+  'Label',
+  'Use the Label component to connect a label with a form component in an accessible way.'
+);
 
 card(
   <PropTable

@@ -3,9 +3,10 @@ import React from 'react';
 import { Box, Sticky, Text } from 'gestalt';
 import { ns, card, Example, PropTable } from './cards';
 
-<PageHeader
-  name='Sticky'
-  description={'Sticky allows for an element to become fixed when it reaches a threshold (top, left, bottom, or right)'} />;
+ns(
+  'Sticky',
+  'Sticky allows for an element to become fixed when it reaches a threshold (top, left, bottom, or right)'
+);
 
 card(
   <PropTable

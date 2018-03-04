@@ -3,11 +3,12 @@ import * as React from 'react';
 import { Box, Label, Text, RadioButton } from 'gestalt';
 import { ns, card, md, Example, PropTable, Combination } from './cards';
 
-<PageHeader
-  name='RadioButton'
-  description={`Use radio buttons when you have a few options that a user can choose from. Never use
+ns(
+  'RadioButton',
+  `Use radio buttons when you have a few options that a user can choose from. Never use
 radio buttons if the user can select more than one option from a list.
-`} />;
+`
+);
 
 card(
   <PropTable

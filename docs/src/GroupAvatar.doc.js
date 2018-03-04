@@ -3,10 +3,11 @@ import * as React from 'react';
 import { GroupAvatar, Box } from 'gestalt';
 import { ns, card, PropTable, Example, Combination } from './cards';
 
-<PageHeader
-  name='Group Avatar'
-  description={`You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
-applied to each collaborator image to ensure the component retains a circular appeareance`} />;
+ns(
+  'Group Avatar',
+  `You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
+applied to each collaborator image to ensure the component retains a circular appeareance`
+);
 
 card(
   <PropTable

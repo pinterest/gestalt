@@ -3,9 +3,10 @@ import * as React from 'react';
 import { Container } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
 
-<PageHeader
-  name='Container'
-  description={'Containers are useful in responsively laying out content on different screens.'} />;
+ns(
+  'Container',
+  'Containers are useful in responsively laying out content on different screens.'
+);
 
 card(
   <PropTable

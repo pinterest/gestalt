@@ -3,9 +3,10 @@ import * as React from 'react';
 import { Box, Link, Text } from 'gestalt';
 import { ns, card, md, PropTable, Example } from './cards';
 
-<PageHeader
-  name='Link'
-  description={'The Link component allows you to show links on the page, open them in a new window and change the color.'} />;
+ns(
+  'Link',
+  'The Link component allows you to show links on the page, open them in a new window and change the color.'
+);
 card(
   <PropTable
     props={[

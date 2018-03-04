@@ -3,13 +3,14 @@ import * as React from 'react';
 import { Button, Image, Toast, Box } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-<PageHeader
-  name='Toast'
-  description={`Toasts can educate people on the content of the screen, provide confirmation when people complete
+ns(
+  'Toast',
+  `Toasts can educate people on the content of the screen, provide confirmation when people complete
 an action, or simply communicate a short message.
 
 <b><i>The Toast component is purely visual. In order to properly
-handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`} />;
+handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`
+);
 
 card(
   <PropTable

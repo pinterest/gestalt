@@ -3,9 +3,10 @@ import React from 'react';
 import { ns, card, Example, md, PropTable, Combination } from './cards';
 import { Box, IconButton, Flyout, Text } from 'gestalt';
 
-<PageHeader
-  name='IconButton'
-  description={'The IconButton component allows you to define an action with a specific Icon.'} />;
+ns(
+  'IconButton',
+  'The IconButton component allows you to define an action with a specific Icon.'
+);
 
 card(
   <PropTable

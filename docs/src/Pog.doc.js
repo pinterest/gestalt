@@ -3,13 +3,14 @@ import * as React from 'react';
 import { ns, card, PropTable, Example, Combination } from './cards';
 import { Pog } from 'gestalt';
 
-<PageHeader
-  name='Pog'
-  description={`
+ns(
+  'Pog',
+  `
   A lower level functional component to show the active, hovered & focused states of an [IconButton](#/IconButton).
 
   This abstraction to allow for links that look like an IconButton.
-  `} />;
+  `
+);
 
 card(
   <PropTable

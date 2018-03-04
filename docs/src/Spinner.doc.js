@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Box, Button, Text, Spinner } from 'gestalt';
 import { ns, card, md, PropTable, StateRecorder } from './cards';
 
-<PageHeader name='Spinner' />;
+ns('Spinner');
 
 card(
   <PropTable
