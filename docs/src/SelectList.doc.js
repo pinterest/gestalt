@@ -1,11 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Box, Label, SelectList, Text } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import PropTable from './components/PropTable';
+import StateRecorder from './components/StateRecorder';
+import PageHeader from './components/PageHeader';
+import Card from './components/Card';
+import CardPage from './components/CardPage';
 
-ns(
-  'SelectList',
-  `Use a \`SelectList\` when you have four or more items you want a user to choose from.`
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="SelectList"
+    description={`Use a \`SelectList\` when you have four or more items you want a user to choose from.`}
+  />
 );
 
 card(
@@ -55,13 +64,13 @@ card(
         description: 'Value that is selected.',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'FlowTypes',
-  md`
+  <Card
+    description={`
     ~~~jsx
     type Props = {
       errorMessage?: string,
@@ -81,7 +90,9 @@ card(
       value?: string,
     };
     ~~~
-  `
+  `}
+    name="FlowTypes"
+  />
 );
 
 const countryOptions = [
@@ -119,8 +130,8 @@ const cityOptions = [
 ];
 
 card(
-  'Example',
-  md`
+  <StateRecorder
+    description={`
     Make sure to attach a \`Label\` to every SelectList.
 
     ~~~jsx
@@ -140,8 +151,8 @@ card(
       />
     </Box>
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Example"
     fn={atom => (
       <Box>
         <Box paddingY={2}>
@@ -163,8 +174,8 @@ card(
 );
 
 card(
-  'Errors',
-  md`
+  <StateRecorder
+    description={`
     SelectList's can display their own error messages if you'd like them to.
     To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
     handle the rest.
@@ -187,8 +198,8 @@ card(
       />
     </Box>
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Errors"
     fn={atom => (
       <Box>
         <Box paddingY={2}>
@@ -211,8 +222,8 @@ card(
 );
 
 card(
-  'Disabled',
-  md`
+  <Box
+    description={`
     You can disabled a SelectList by setting the \`disabled\` attribute.
 
     ~~~jsx
@@ -233,8 +244,9 @@ card(
       />
     </Box>
     ~~~
-  `,
-  <Box>
+  `}
+    name="Disabled"
+  >
     <Box paddingY={2}>
       <Label htmlFor="disabled">
         <Text>Disabled</Text>
@@ -251,3 +263,5 @@ card(
     />
   </Box>
 );
+
+export default () => <CardPage cards={cards} />;

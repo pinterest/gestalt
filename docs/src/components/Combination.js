@@ -3,9 +3,14 @@ import type { Node } from 'react';
 import React from 'react';
 import Checkerboard from './Checkerboard';
 import { Box, Text } from 'gestalt';
+import Card from './Card';
 
 type Props = {
   children: (Object, number) => Node,
+  description?: string,
+  heading?: boolean,
+  name?: string,
+  stacked?: boolean,
 };
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
@@ -48,35 +53,49 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default function Combination({ children, ...props }: Props) {
+export default function Combination({
+  name = '',
+  description = '',
+  stacked = false,
+  heading = true,
+  children,
+  ...props
+}: Props) {
   return (
-    <Box display="flex" wrap>
-      {combinations(props).map((combination, i) => (
-        <Box
-          column={4}
-          mdColumn={3}
-          lgColumn={2}
-          key={i}
-          padding={4}
-          display="flex"
-          direction="column"
-          alignItems="center"
-        >
-          <Box marginBottom={2}>
-            {Object.keys(combination).map(key => (
-              <Text align="center" size="sm" key={`${i}-${key}`}>
-                {toReactAttribute(key, combination[key])}
-              </Text>
-            ))}
-          </Box>
-          <Box position="relative" padding={4}>
-            <Box position="absolute" top left bottom right>
-              <Checkerboard />
+    <Card
+      name={name}
+      description={description}
+      stacked={stacked}
+      heading={heading}
+    >
+      <Box display="flex" wrap>
+        {combinations(props).map((combination, i) => (
+          <Box
+            column={4}
+            mdColumn={3}
+            lgColumn={2}
+            key={i}
+            padding={4}
+            display="flex"
+            direction="column"
+            alignItems="center"
+          >
+            <Box marginBottom={2}>
+              {Object.keys(combination).map(key => (
+                <Text align="center" size="sm" key={`${i}-${key}`}>
+                  {toReactAttribute(key, combination[key])}
+                </Text>
+              ))}
             </Box>
-            <Box position="relative">{children(combination, i)}</Box>
+            <Box position="relative" padding={4}>
+              <Box position="absolute" top left bottom right>
+                <Checkerboard />
+              </Box>
+              <Box position="relative">{children(combination, i)}</Box>
+            </Box>
           </Box>
-        </Box>
-      ))}
-    </Box>
+        ))}
+      </Box>
+    </Card>
   );
 }

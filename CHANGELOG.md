@@ -8,9 +8,9 @@
 ### Minor
 
 ### Patch
-* Internal: split docs & integration tests into individual packages
-
+* Internal: Split docs & integration tests into individual packages (#22)
 * Flyout: Update the docs with correct flowtypes (#37)
+* Internal: Removes [corkboard](https://yarnpkg.com/en/package/corkboard) from the docs (#41)
 
 </details>
 

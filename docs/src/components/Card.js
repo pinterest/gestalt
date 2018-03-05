@@ -1,52 +1,23 @@
 // @flow
-import React, { isValidElement } from 'react';
+import * as React from 'react';
 import { Box, Heading } from 'gestalt';
+import Markdown from './Markdown';
 
 type Props = {|
-  args: Array<any>,
+  children?: React.Node,
+  description?: string,
+  heading?: boolean,
+  name: string,
+  stacked?: boolean,
 |};
 
-const parseArgs = args => {
-  let name;
-  let parts = [];
-  let options = {};
-  let i = 0;
-
-  if (typeof args[0] === 'string') {
-    [name] = args;
-    i += 1;
-  }
-
-  while (
-    i < args.length &&
-    (isValidElement(args[i]) || typeof args[i] !== 'object')
-  ) {
-    parts = [...parts, args[i]];
-    i += 1;
-  }
-
-  if (i < args.length) {
-    options = {
-      ...options,
-      ...args[i],
-    };
-    i += 1;
-  }
-
-  return {
-    name,
-    parts,
-    options,
-  };
-};
-
-export default function Card({ args }: Props) {
-  const {
-    name,
-    parts,
-    options: { heading = true, stacked = false },
-  } = parseArgs(args);
-
+export default function Card({
+  children,
+  description = '',
+  heading = true,
+  name,
+  stacked = false,
+}: Props) {
   return (
     <Box>
       {heading && <Heading size="xs">{name}</Heading>}
@@ -56,11 +27,10 @@ export default function Card({ args }: Props) {
         display="flex"
         direction={stacked ? 'column' : 'row'}
       >
-        {parts.map((part, i) => (
-          <Box paddingX={2} column={12} key={i}>
-            {part}
-          </Box>
-        ))}
+        <Box paddingX={2} column={12}>
+          <Markdown text={description} />
+          {children}
+        </Box>
       </Box>
     </Box>
   );

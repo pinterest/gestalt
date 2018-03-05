@@ -1,11 +1,19 @@
 // @flow
 import * as React from 'react';
 import { Tabs } from 'gestalt';
-import { ns, card, PropTable, StateRecorder } from './cards';
+import PropTable from './components/PropTable';
+import StateRecorder from './components/StateRecorder';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Tabs',
-  `Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Tabs"
+    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`}
+  />
 );
 
 card(
@@ -28,13 +36,13 @@ card(
         required: true,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Demo',
   <StateRecorder
+    name="Demo"
     fn={atom => {
       const state = atom.deref();
       return (
@@ -67,3 +75,5 @@ card(
     initialState={{ activeTabIndex: 0 }}
   />
 );
+
+export default () => <CardPage cards={cards} />;

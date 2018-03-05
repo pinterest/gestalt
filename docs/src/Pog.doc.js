@@ -1,15 +1,24 @@
 // @flow
 import * as React from 'react';
-import { ns, card, PropTable, Example, Combination } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import Combination from './components/Combination';
 import { Pog } from 'gestalt';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Pog',
-  `
-  A lower level functional component to show the active, hovered & focused states of an [IconButton](#/IconButton).
+const cards = [];
+const card = c => cards.push(c);
 
-  This abstraction to allow for links that look like an IconButton.
-  `
+card(
+  <PageHeader
+    name="Pog"
+    description="
+A lower level functional component to show the active, hovered & focused states of an [IconButton](#/IconButton).
+
+This abstraction to allow for links that look like an IconButton.
+"
+  />
 );
 
 card(
@@ -45,7 +54,7 @@ card(
         type: '$Keys<typeof icons>',
         required: true,
         description: `This allows us to type check for a valid icon name based on the keys from the list of icons in
-          gestalt-icon/icons/index.js.`,
+        gestalt-icon/icons/index.js.`,
       },
       {
         name: 'size',
@@ -54,27 +63,26 @@ card(
         defaultValue: 'md',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example',
   <Example
+    name="Example"
     defaultCode={`
 <Pog
-  icon="heart"
-  iconColor="red"
+icon="heart"
+iconColor="red"
 />
 `}
     scope={{ Pog }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'State Combinations',
   <Combination
+    name="State Combinations"
     hovered={[false, true]}
     focused={[false, true]}
     active={[false, true]}
@@ -84,18 +92,19 @@ card(
 );
 
 card(
-  'Size Combinations',
-  <Combination size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination name="Size Combinations" size={['xs', 'sm', 'md', 'lg', 'xl']}>
     {props => <Pog icon="heart" {...props} />}
   </Combination>
 );
 
 card(
-  'Color Combinations',
   <Combination
+    name="Color Combinations"
     iconColor={['blue', 'darkGray', 'gray', 'red']}
     bgColor={['transparent', 'white', 'lightGray']}
   >
     {props => <Pog icon="heart" {...props} />}
   </Combination>
 );
+
+export default () => <CardPage cards={cards} />;

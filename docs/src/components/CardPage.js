@@ -1,36 +1,19 @@
 // @flow
-import React from 'react';
-import { Box, Heading } from 'gestalt';
+import * as React from 'react';
+import { Box } from 'gestalt';
 
 type Props = {|
-  cards: *,
-  params: { ns: ?string },
+  cards: Array<React.Node>,
 |};
 
-export default function CardPage(props: Props) {
-  const { cards: allCards, params: { ns } } = props;
+const CardPage = ({ cards }: Props) => (
+  <Box>
+    {cards.map((card, i) => (
+      <Box marginBottom={4} id={`card-${i}`} key={i}>
+        {card}
+      </Box>
+    ))}
+  </Box>
+);
 
-  if (Object.keys(allCards).length === 0 || !ns) {
-    return <div />;
-  }
-
-  const cards = allCards[ns];
-  return cards ? (
-    <Box>
-      {cards.map((card, i) => (
-        <Box marginBottom={4} id={`card-${i}`} key={i}>
-          {card.fn()}
-        </Box>
-      ))}
-    </Box>
-  ) : (
-    <Box>
-      <Heading size="lg" color="maroon">
-        Oops!
-      </Heading>
-      <Heading size="md" color="red">
-        This page could not be found.
-      </Heading>
-    </Box>
-  );
-}
+export default CardPage;

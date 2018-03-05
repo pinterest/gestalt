@@ -1,13 +1,21 @@
 // @flow
 import React from 'react';
 import { Pulsar, Button } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Pulsar',
-  `Pulsars bring focus to a specific element on the screen and act like training wheels
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Pulsar"
+    description="Pulsars bring focus to a specific element on the screen and act like training wheels
 to guide People towards the normal way to perform that action. They are used in isolation
-or combination with other education components for more instructions.`
+or combination with other education components for more instructions."
+  />
 );
 
 card(
@@ -25,44 +33,45 @@ card(
         defaultValue: 96,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example',
-  md`
-    Pulsars can be shown and hidden using the \`paused\` prop.
-  `,
   <Example
+    description={`
+    Pulsars can be shown and hidden using the \`paused\` prop.
+  `}
+    name="Example"
     defaultCode={`
 class PulsarExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPulsing: true
-    };
-  }
+constructor(props) {
+  super(props);
+  this.state = {
+    isPulsing: true
+  };
+}
 
-  render() {
-    const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
-    return (
-      <Box display="flex" direction="column">
-        <Box marginBottom={4}>
-          <Button
-            text={text}
-            onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
-            inline
-            size="md"
-          />
-        </Box>
-        <Pulsar paused={!this.state.isPulsing} />
+render() {
+  const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
+  return (
+    <Box display="flex" direction="column">
+      <Box marginBottom={4}>
+        <Button
+          text={text}
+          onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
+          inline
+          size="md"
+        />
       </Box>
-    );
-  }
+      <Pulsar paused={!this.state.isPulsing} />
+    </Box>
+  );
+}
 }
 `}
     scope={{ Button, Pulsar }}
-  />,
-  { stacked: true }
+  />
 );
+
+export default () => <CardPage cards={cards} />;

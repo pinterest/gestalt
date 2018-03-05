@@ -1,12 +1,21 @@
 // @flow
 import * as React from 'react';
 import { GroupAvatar, Box } from 'gestalt';
-import { ns, card, PropTable, Example, Combination } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import Combination from './components/Combination';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Group Avatar',
-  `You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
-applied to each collaborator image to ensure the component retains a circular appeareance`
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="GroupAvatar"
+    description={`You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
+applied to each collaborator image to ensure the component retains a circular appeareance`}
+  />
 );
 
 card(
@@ -24,8 +33,8 @@ card(
         required: true,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 const ben = {
@@ -44,56 +53,54 @@ const evan = {
 };
 
 card(
-  'Example',
   <Example
+    name="Example"
     defaultCode={`
 <Box width={108}>
-  <GroupAvatar
-    collaborators={[
-      {
-        name: 'Evan S.',
-        src:
-          'https://archinect.imgix.net/uploads/q4/q4lvjve1b3pelocx.jpg?auto=compress%2Cformat',
-      },
-      {
-        name: 'Ben S.',
-        src:
-          'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iBzx2mf8iyl4/v1/-1x-1.jpg',
-      },
-    ]}
-    size="lg"
-  />
+<GroupAvatar
+  collaborators={[
+    {
+      name: 'Evan S.',
+      src:
+        'https://archinect.imgix.net/uploads/q4/q4lvjve1b3pelocx.jpg?auto=compress%2Cformat',
+    },
+    {
+      name: 'Ben S.',
+      src:
+        'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iBzx2mf8iyl4/v1/-1x-1.jpg',
+    },
+  ]}
+  size="lg"
+/>
 </Box>
 `}
     scope={{ Box, GroupAvatar }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Size Combinations: 1 Person',
-  <Combination size={['sm', 'md', 'lg']}>
+  <Combination name="Size Combinations: 1 Person" size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[ben]} {...props} />}
   </Combination>
 );
 
 card(
-  'Size Combinations: 2 People',
-  <Combination size={['sm', 'md', 'lg']}>
+  <Combination name="Size Combinations: 2 People" size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[ben, evan]} {...props} />}
   </Combination>
 );
 
 card(
-  'Size Combinations: 3 People',
-  <Combination size={['sm', 'md', 'lg']}>
+  <Combination name="Size Combinations: 3 People" size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[ben, evan, li]} {...props} />}
   </Combination>
 );
 
 card(
-  'Size Combinations: 1 Person (no pictures)',
-  <Combination size={['sm', 'md', 'lg']}>
+  <Combination
+    name="Size Combinations: 1 Person (no pictures)"
+    size={['sm', 'md', 'lg']}
+  >
     {props => (
       <GroupAvatar
         collaborators={[ben].map(collab => ({
@@ -106,8 +113,10 @@ card(
 );
 
 card(
-  'Size Combinations: 3 People (no pictures)',
-  <Combination size={['sm', 'md', 'lg']}>
+  <Combination
+    name="Size Combinations: 3 People (no pictures)"
+    size={['sm', 'md', 'lg']}
+  >
     {props => (
       <GroupAvatar
         collaborators={[ben, evan, li].map(collab => ({
@@ -118,3 +127,5 @@ card(
     )}
   </Combination>
 );
+
+export default () => <CardPage cards={cards} />;

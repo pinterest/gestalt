@@ -1,9 +1,21 @@
 // @flow
 import * as React from 'react';
 import { Box, Label, TextArea } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import PropTable from './components/PropTable';
+import StateRecorder from './components/StateRecorder';
+import PageHeader from './components/PageHeader';
+import Card from './components/Card';
+import CardPage from './components/CardPage';
 
-ns('TextArea', 'TextArea allows for multiline input.');
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="TextArea"
+    description="TextArea allows for multiline input."
+  />
+);
 
 card(
   <PropTable
@@ -60,13 +72,13 @@ card(
         type: 'string',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Options',
-  md`
+  <StateRecorder
+    description={`
     A \`TextArea\` will expand to fill the width of their parent container.
 
     ~~~jsx
@@ -75,8 +87,8 @@ card(
     </Box>
     <TextArea id="aboutme" placeholder="Write something about yourself..." />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Options"
     fn={atom => (
       <Box paddingX={2}>
         <Box paddingY={3}>
@@ -110,8 +122,8 @@ card(
 );
 
 card(
-  'Errors',
-  md`
+  <StateRecorder
+    description={`
     TextArea's can display their own error messages if you'd like them to.
     To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
     handle the rest.
@@ -119,8 +131,8 @@ card(
     ~~~jsx
     <TextArea errorMessage="This field can't be blank!" id="comment" />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Errors"
     fn={atom => (
       <Box paddingX={2}>
         <Box paddingY={3}>
@@ -140,16 +152,16 @@ card(
 );
 
 card(
-  'Rows',
-  md`
+  <StateRecorder
+    description={`
     TextArea's can resize their height to fit different line counts besides the default 3.
     To use non-default height, pass in \`rows\` to set the underlying value on the html element.
 
     ~~~jsx
     <TextArea id="rows" rows={5} />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Rows"
     fn={atom => (
       <Box paddingX={2}>
         <Box paddingY={3}>
@@ -169,17 +181,19 @@ card(
 );
 
 card(
-  'Autofocus',
-  md`
+  <Card
+    description={`
     \`TextArea\` intentionally lacks support for autofocus. Generally speaking,
     autofocus interrupts normal page flow for screen readers making it an
     anti-pattern for accessibility.
-  `
+  `}
+    name="Autofocus"
+  />
 );
 
 card(
-  'onSubmit',
-  md`
+  <Card
+    description={`
     \`TextArea\` is commonly used as an input in forms along side submit buttons.
     In these cases, users expect that pressing Enter or Return with the input
     focused will submit the form.
@@ -188,5 +202,9 @@ card(
     individual key event handlers due to the complexities of handling these
     properly. Instead, developers are encouraged to wrap the \`TextArea\`
     in a \`form\` and to attach an \`onSubmit\` handler to that \`form\`.
-  `
+  `}
+    name="onSubmit"
+  />
 );
+
+export default () => <CardPage cards={cards} />;

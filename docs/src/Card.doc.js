@@ -1,13 +1,21 @@
 // @flow
 import * as React from 'react';
 import { Avatar, Box, Button, Card, Link, Text } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Card',
-  `
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Card"
+    description="
 The Card component is meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
-`
+"
+  />
 );
 
 card(
@@ -35,61 +43,62 @@ card(
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example',
-  md`
-    Using \`Card\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-  `,
   <Example
+    description={`
+    Using \`Card\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
+  `}
+    name="Example"
     defaultCode={`
 class CardExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hovered: false };
-    this.handleMouseEnter = this._handleMouseEnter.bind(this);
-    this.handleMouseLeave = this._handleMouseLeave.bind(this);
-  }
-  _handleMouseEnter() {
-    this.setState(() => ({ hovered: true }));
-  }
-  _handleMouseLeave() {
-    this.setState(() => ({ hovered: false }));
-  }
-  render() {
-    return (
-      <Box maxWidth={236} padding={2} column={12}>
-        <Card
-          image={
-            <Avatar
-              name="Ben Silbermann"
-              src="https://image.ibb.co/dzLoRv/Ben_Silberman.jpg"
-            />
-          }
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}>
-          <Text align="center" bold size="xl">
-            <Link href="https://pinterest.com">
-              <Box paddingX={3} paddingY={2}>
-                  Ben Silbermann
-              </Box>
-            </Link>
-          </Text>
-          <Button
-            accessibilityLabel="Follow Ben Silbermann - Pinterest CEO"
-            color="red"
-            text="Follow"
+constructor(props) {
+  super(props);
+  this.state = { hovered: false };
+  this.handleMouseEnter = this._handleMouseEnter.bind(this);
+  this.handleMouseLeave = this._handleMouseLeave.bind(this);
+}
+_handleMouseEnter() {
+  this.setState(() => ({ hovered: true }));
+}
+_handleMouseLeave() {
+  this.setState(() => ({ hovered: false }));
+}
+render() {
+  return (
+    <Box maxWidth={236} padding={2} column={12}>
+      <Card
+        image={
+          <Avatar
+            name="Ben Silbermann"
+            src="https://image.ibb.co/dzLoRv/Ben_Silberman.jpg"
           />
-        </Card>
-      </Box>
-    );
-  }
+        }
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}>
+        <Text align="center" bold size="xl">
+          <Link href="https://pinterest.com">
+            <Box paddingX={3} paddingY={2}>
+                Ben Silbermann
+            </Box>
+          </Link>
+        </Text>
+        <Button
+          accessibilityLabel="Follow Ben Silbermann - Pinterest CEO"
+          color="red"
+          text="Follow"
+        />
+      </Card>
+    </Box>
+  );
+}
 }
 `}
     scope={{ Avatar, Box, Button, Card, Link, Text }}
-  />,
-  { stacked: true }
+  />
 );
+
+export default () => <CardPage cards={cards} />;

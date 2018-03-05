@@ -3,8 +3,13 @@
 /* eslint react/forbid-prop-types:0 */
 import type { Node } from 'react';
 import React, { Component } from 'react';
+import Card from './Card';
 
 type Props<T> = {|
+  name?: string,
+  description?: string,
+  stacked?: boolean,
+  heading?: boolean,
   initialState: T,
   fn: Function,
 |};
@@ -164,13 +169,28 @@ export default class StateRecorder<T> extends Component<Props<T>, State<T>> {
   }
 
   render() {
-    const { fn } = this.props;
+    const {
+      name = '',
+      description = '',
+      heading = true,
+      stacked = false,
+      fn,
+    } = this.props;
     const { history, idx } = this.state;
     const state = history[idx];
 
     const a = atom(state);
     a.listen((newState: T) => this.transition(newState));
 
-    return <div>{fn(a)}</div>;
+    return (
+      <Card
+        name={name}
+        description={description}
+        heading={heading}
+        stacked={stacked}
+      >
+        {fn(a)}
+      </Card>
+    );
   }
 }

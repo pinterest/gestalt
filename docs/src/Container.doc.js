@@ -1,11 +1,19 @@
 // @flow
 import * as React from 'react';
 import { Container } from 'gestalt';
-import { ns, card, md, PropTable, Example } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Container',
-  'Containers are useful in responsively laying out content on different screens.'
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Container"
+    description="Containers are useful in responsively laying out content on different screens."
+  />
 );
 
 card(
@@ -16,27 +24,28 @@ card(
         type: 'any',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Responsive content',
-  md`
-    On small screens, the container is the width of the screen. On large screens, it centers the content with a max-width of 800px.
-  `,
   <Example
+    description="
+    On small screens, the container is the width of the screen. On large screens, it centers the content with a max-width of 800px.
+  "
+    name="Responsive content"
     defaultCode={`
 <Box color="gray" padding={3}>
-  <Container>
-    <Box color="white" padding={3}>
-      <Text>Centered content</Text>
-    </Box>
-  </Container>
+<Container>
+  <Box color="white" padding={3}>
+    <Text>Centered content</Text>
+  </Box>
+</Container>
 </Box>
 `}
     scope={{ Container }}
     stacked
-  />,
-  { stacked: true }
+  />
 );
+
+export default () => <CardPage cards={cards} />;

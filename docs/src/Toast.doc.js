@@ -1,15 +1,23 @@
 // @flow
 import * as React from 'react';
 import { Button, Image, Toast, Box } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import PropTable from './components/PropTable';
+import StateRecorder from './components/StateRecorder';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Toast',
-  `Toasts can educate people on the content of the screen, provide confirmation when people complete
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Toast"
+    description={`Toasts can educate people on the content of the screen, provide confirmation when people complete
 an action, or simply communicate a short message.
 
 <b><i>The Toast component is purely visual. In order to properly
-handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`
+handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`}
+  />
 );
 
 card(
@@ -38,13 +46,13 @@ card(
           'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Confirmation Toasts',
-  md`
+  <StateRecorder
+    description={`
     You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
     always include a thumbnail and two lines of text.
 
@@ -59,8 +67,8 @@ card(
       }
     />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Confirmation Toasts"
     fn={atom => (
       <div>
         <Button
@@ -103,8 +111,8 @@ card(
 );
 
 card(
-  'Guide Toasts',
-  md`
+  <StateRecorder
+    description={`
     You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
     your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
     added. If you need a different Icon here, please contact the Gestalt team.
@@ -112,8 +120,8 @@ card(
     ~~~jsx
     <Toast text="Same great profile, just a new look. Learn more?" />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Guide Toasts"
     fn={atom => (
       <div>
         <Button
@@ -147,15 +155,15 @@ card(
 );
 
 card(
-  'Error Toasts',
-  md`
+  <StateRecorder
+    description={`
     You can use Toasts to indicate that something wrong occurred by setting the color to orange.
 
     ~~~jsx
     <Toast color="orange" text="Oops, we couldn't find that!" />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Error Toasts"
     fn={atom => (
       <div>
         <Button
@@ -184,3 +192,5 @@ card(
     )}
   />
 );
+
+export default () => <CardPage cards={cards} />;

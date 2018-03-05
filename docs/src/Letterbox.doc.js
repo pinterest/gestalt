@@ -1,11 +1,17 @@
 // @flow
 import * as React from 'react';
 import { Box, Letterbox } from 'gestalt';
-import { ns, card, md, PropTable } from './cards';
+import PropTable from './components/PropTable';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Letterbox',
-  `
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Letterbox"
+    description={`
 Letterboxes are useful if you have some source media which is larger than
 the area you want to display it in. For instance, you might have a really
 tall image and want it to be displayed in a neatly cropped square. While the
@@ -13,7 +19,8 @@ ideal solution to this problem is to update the source image, this mightn't
 be always possible for either cost or performance reasons.
 
 Letterbox should be used in situations where you would have otherwise used the
-CSS property \`background-size: cover\`.`
+CSS property \`background-size: cover\`.`}
+  />
 );
 
 card(
@@ -43,13 +50,13 @@ card(
         description: 'Desired final width of element',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example',
-  md`
+  <Box
+    description={`
     ~~~html
     <Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
       <img
@@ -75,8 +82,8 @@ card(
       />
     </Letterbox>
     ~~~
-  `,
-  <Box
+  `}
+    name="Example"
     display="flex"
     direction="row"
     justifyContent="around"
@@ -138,6 +145,7 @@ card(
         />
       </Letterbox>
     </Box>
-  </Box>,
-  { stacked: true }
+  </Box>
 );
+
+export default () => <CardPage cards={cards} />;

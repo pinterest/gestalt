@@ -1,17 +1,25 @@
 // @flow
 import * as React from 'react';
 import { Box, SegmentedControl } from 'gestalt';
-import { ns, card, md, PropTable, StateRecorder } from './cards';
+import PropTable from './components/PropTable';
+import StateRecorder from './components/StateRecorder';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns(
-  'Segmented Control',
-  `
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="SegmentedControl"
+    description="
 Segmented Controls may be used to group between multiple selections.
 The controls display the current state and related state.
 
 Create layout to convey clear sense of information hierarchy.
 When control is engaged, information below the control should get updated.
-`
+"
+  />
 );
 
 card(
@@ -34,13 +42,13 @@ card(
         description: 'Index of element in `items` that is selected.',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Sizes',
-  md`
+  <Box
+    description={`
     There are 2 different sizes for segmented controls. The default size is \`md\`.
 
     ~~~html
@@ -57,8 +65,9 @@ card(
       items={['Athos', 'Porthos', 'Aramis']}
     />
     ~~~
-  `,
-  <Box>
+  `}
+    name="Sizes"
+  >
     <Box padding={2}>
       <SegmentedControl
         onChange={() => {}}
@@ -78,8 +87,8 @@ card(
 );
 
 card(
-  'Example',
-  md`
+  <StateRecorder
+    description={`
     Segmented Controls are naive components, meaning you need to write up the behavior when you click on an item.
 
     If you'd like the tabs to control hiding or showing content that state should
@@ -92,8 +101,8 @@ card(
       onChange={() => {}}
     />
     ~~~
-  `,
-  <StateRecorder
+  `}
+    name="Example"
     fn={atom => {
       const state = atom.deref();
       return (
@@ -112,3 +121,5 @@ card(
     }}
   />
 );
+
+export default () => <CardPage cards={cards} />;

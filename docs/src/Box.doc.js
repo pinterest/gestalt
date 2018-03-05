@@ -1,13 +1,23 @@
 // @flow
 import * as React from 'react';
 import { Box, Text, Avatar, Button } from 'gestalt';
-import { ns, card, md, PropTable, Example, Combination } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import Combination from './components/Combination';
+import PageHeader from './components/PageHeader';
+import Card from './components/Card';
+import CardPage from './components/CardPage';
 
-ns(
-  'Box',
-  `In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
+const cards = [];
+const card = c => cards.push(c);
 
-&mdash; Anon _(Winning Box Haiku, 2017)_`
+card(
+  <PageHeader
+    name="Box"
+    description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
+
+&mdash; Anon _(Winning Box Haiku, 2017)_`}
+  />
 );
 
 card(
@@ -196,75 +206,73 @@ card(
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example: Media object',
-  md`
+  <Example
+    description={`
     The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
 
     Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginLeft\` here but in doing so you loose flexibility and have to change styling if you make changes to the structure.
-  `,
-  <Example
+  `}
+    name="Example: Media object"
     defaultCode={`
 <Box
-  alignItems="center"
-  direction="row"
-  display="flex"
-  marginLeft={-1}
-  marginRight={-1}>
-  <Box paddingX={1}>
-    <Avatar name="chrislloyd" size="md" />
-  </Box>
-  <Box paddingX={1}>
-    <Text bold>Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
-  </Box>
+alignItems="center"
+direction="row"
+display="flex"
+marginLeft={-1}
+marginRight={-1}>
+<Box paddingX={1}>
+  <Avatar name="chrislloyd" size="md" />
+</Box>
+<Box paddingX={1}>
+  <Text bold>Chris Lloyd</Text>
+  <Text>joined 2 years ago</Text>
+</Box>
 </Box>
 `}
     scope={{ Box, Avatar, Text }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Example: Double-sided media object',
-  md`
-    In this example we use the \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and seeing what happens.
-  `,
   <Example
+    description={`
+    In this example we use the \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and seeing what happens.
+  `}
+    name="Example: Double-sided media object"
     defaultCode={`
 <Box
-  alignItems="center"
-  direction="row"
-  display="flex"
-  marginLeft={-1}
-  marginRight={-1}>
-  <Box paddingX={1}>
-    <Avatar name="chrislloyd" size="md" />
-  </Box>
-  <Box paddingX={1}  flex="grow">
-    <Text bold>Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
-  </Box>
-  <Box paddingX={1}>
-    <Button text="Follow" size="sm" color="red" />
-  </Box>
+alignItems="center"
+direction="row"
+display="flex"
+marginLeft={-1}
+marginRight={-1}>
+<Box paddingX={1}>
+  <Avatar name="chrislloyd" size="md" />
+</Box>
+<Box paddingX={1}  flex="grow">
+  <Text bold>Chris Lloyd</Text>
+  <Text>joined 2 years ago</Text>
+</Box>
+<Box paddingX={1}>
+  <Button text="Follow" size="sm" color="red" />
+</Box>
 </Box>
 `}
     scope={{ Button, Box, Avatar, Text }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Layout',
-  md`
-    Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
-  `,
   <Combination
+    description={`
+    Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+  `}
+    name="Layout"
     // alignContent={['start', 'end', 'center', 'between', 'around', 'stretch']}
     justifyContent={['start', 'end', 'center', 'between', 'around']}
     alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
@@ -276,19 +284,20 @@ card(
         <Box margin={1} color="gray" height={32} width={8} />
       </Box>
     )}
-  </Combination>,
-  { stacked: true }
+  </Combination>
 );
 
 card(
-  'Blacklisted properties & refs',
-  md`
+  <Card
+    description={`
     Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. There are exceptions, however. \`onClick\`, \`className\` and \`style\` aren't passed to the child component. The former is for accessibility reasons, and the latter two are to ensure style encapsulation.
 
     In adddition, it can be intuitive to want to have access to a Box's \`ref\`. Again, we don't pass this down as it leaks the implementation of the Box to the caller.
 
     If you need to use these features, please use a \`<div>\` instead.
-  `
+  `}
+    name="Blacklisted properties & refs"
+  />
 );
 
 const PaddingSwatch = (props: *) => (
@@ -305,8 +314,8 @@ const PaddingSwatch = (props: *) => (
 );
 
 card(
-  'Padding',
-  md`
+  <Box
+    description={`
     Padding is applied in boints and is always symmetric. You should try to use padding before you use margins as they compose better and don't collapse.
 
     ~~~jsx
@@ -314,8 +323,8 @@ card(
     <Box paddingX={1} />
     <Box paddingY={1} />
     ~~~
-  `,
-  <Box
+  `}
+    name="Padding"
     display="flex"
     direction="row"
     justifyContent="between"
@@ -348,8 +357,8 @@ const MarginSwatch = (props: *) => (
 );
 
 card(
-  'Margins',
-  md`
+  <Box
+    description={`
     Margins are applied in boints and are asymmetric. Margins can be -6 to 6 boints. You can set margin to be auto in the left and right axis.
 
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
@@ -361,8 +370,9 @@ card(
     <Box marginLeft={1} />
     <Box marginRight={1} />
     ~~~
-  `,
-  <Box>
+  `}
+    name="Margins"
+  >
     <Box
       display="flex"
       direction="row"
@@ -393,35 +403,34 @@ card(
 );
 
 card(
-  'Example: Absolute positioning',
-  md`
-    Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
-  `,
   <Example
+    description={`
+    Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
+  `}
+    name="Example: Absolute positioning"
     defaultCode={`
 <Box position="relative" color="white" height={200}>
-  <Box position="absolute" top left padding={1}>
-    Top, left
-  </Box>
-  <Box position="absolute" top right padding={1}>
-    Top, right
-  </Box>
-  <Box position="absolute" bottom left padding={1}>
-    Bottom, left
-  </Box>
-  <Box position="absolute" bottom right padding={1}>
-    Bottom, right
-  </Box>
+<Box position="absolute" top left padding={1}>
+  Top, left
+</Box>
+<Box position="absolute" top right padding={1}>
+  Top, right
+</Box>
+<Box position="absolute" bottom left padding={1}>
+  Bottom, left
+</Box>
+<Box position="absolute" bottom right padding={1}>
+  Bottom, right
+</Box>
 </Box>
 `}
     scope={{ Box }}
-  />,
-  { stacked: true }
+  />
 );
 
 card(
-  'Colors',
   <Combination
+    name="Colors"
     color={[
       'red',
       'white',
@@ -449,8 +458,8 @@ card(
 );
 
 card(
-  'Shapes',
   <Combination
+    name="Shapes"
     shape={[
       'square',
       'rounded',
@@ -472,3 +481,5 @@ card(
     )}
   </Combination>
 );
+
+export default () => <CardPage cards={cards} />;

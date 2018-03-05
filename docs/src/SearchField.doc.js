@@ -2,9 +2,15 @@
 
 import * as React from 'react';
 import { SearchField, Icon, IconButton } from 'gestalt';
-import { ns, md, card, PropTable, Example } from './cards';
+import PropTable from './components/PropTable';
+import Example from './components/Example';
+import PageHeader from './components/PageHeader';
+import CardPage from './components/CardPage';
 
-ns('SearchField');
+const cards = [];
+const card = c => cards.push(c);
+
+card(<PageHeader name="SearchField" />);
 
 card(
   <PropTable
@@ -28,17 +34,17 @@ card(
       {
         name: 'onChange',
         type: `({
-          value: string,
-          syntheticEvent: SyntheticEvent<HTMLInputElement>
-        }) => void`,
+        value: string,
+        syntheticEvent: SyntheticEvent<HTMLInputElement>
+      }) => void`,
         required: true,
       },
       {
         name: 'onFocus',
         type: `({
-          value: string,
-          syntheticEvent: SyntheticEvent<HTMLInputElement>
-        }) => void`,
+        value: string,
+        syntheticEvent: SyntheticEvent<HTMLInputElement>
+      }) => void`,
       },
       {
         name: 'placeholder',
@@ -49,64 +55,65 @@ card(
         type: 'string',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 card(
-  'Example: Accessibility',
-  md`
+  <Example
+    description={`
     We want to make sure every button on the page is unique when being read by screenreader.
     \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open
     \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout)
     \`accessibilityLabel\` allows us to update the spoken text.
 
     Be sure to internationalize your \`accessibilityLabel\`.
-  `,
-  <Example
+  `}
+    name="Example: Accessibility"
     defaultCode={`
-    class SearchFieldExample extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = { value: '' };
-      }
-
-      render() {
-        return (
-          <Box color="white" shape="rounded" padding={3} display="flex" direction="row" alignItems="center">
-            <Box padding={3}>
-              <Icon
-                icon="pinterest"
-                color="red"
-                size={20}
-                accessibilityLabel="Pinterest"
-              />
-            </Box>
-            <Box flex="grow" paddingX={2}>
-              <SearchField
-                accessibilityLabel="Demo Search Field"
-                id="searchField"
-                onChange={({ value }) => this.setState({ value })}
-                placeholder="Search and explore"
-                value={this.state.value}
-              />
-            </Box>
-            <Box paddingX={2}>
-              <IconButton
-                accessibilityLabel="Notifications"
-                icon="speech-ellipsis"
-                size="md"
-              />
-            </Box>
-            <Box paddingX={2}>
-              <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-            </Box>
-          </Box>
-        );
-      }
+  class SearchFieldExample extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { value: '' };
     }
+
+    render() {
+      return (
+        <Box color="white" shape="rounded" padding={3} display="flex" direction="row" alignItems="center">
+          <Box padding={3}>
+            <Icon
+              icon="pinterest"
+              color="red"
+              size={20}
+              accessibilityLabel="Pinterest"
+            />
+          </Box>
+          <Box flex="grow" paddingX={2}>
+            <SearchField
+              accessibilityLabel="Demo Search Field"
+              id="searchField"
+              onChange={({ value }) => this.setState({ value })}
+              placeholder="Search and explore"
+              value={this.state.value}
+            />
+          </Box>
+          <Box paddingX={2}>
+            <IconButton
+              accessibilityLabel="Notifications"
+              icon="speech-ellipsis"
+              size="md"
+            />
+          </Box>
+          <Box paddingX={2}>
+            <IconButton accessibilityLabel="Profile" icon="person" size="md" />
+          </Box>
+        </Box>
+      );
+    }
+  }
 `}
     scope={{ Icon, IconButton, SearchField }}
-  />,
-  { stacked: true }
+  />
 );
+
+export default () => <CardPage cards={cards} />;

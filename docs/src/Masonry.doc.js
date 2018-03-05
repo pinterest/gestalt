@@ -1,14 +1,22 @@
 // @flow
 import * as React from 'react';
-import { ns, card, md, PropTable } from './cards';
+import PropTable from './components/PropTable';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
+import PageHeader from './components/PageHeader';
+import Card from './components/Card';
+import CardPage from './components/CardPage';
 
-ns(
-  'Masonry',
-  `
+const cards = [];
+const card = c => cards.push(c);
+
+card(
+  <PageHeader
+    name="Masonry"
+    description="
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
 It contains performance optimizations like virtualization and server rendering, as well as support for infinite scrolling.
-`
+"
+  />
 );
 
 card(
@@ -88,8 +96,8 @@ card(
           'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
       },
     ]}
-  />,
-  { heading: false }
+    heading={false}
+  />
 );
 
 type ExampleMasonryProps = {|
@@ -254,8 +262,8 @@ class ExampleMasonry extends React.Component<
 }
 
 card(
-  'Fluid number of columns',
-  md`
+  <Card
+    description={`
     The number of columns in this grid changes responsively based on the width of the parent.
 
     ~~~jsx
@@ -266,53 +274,55 @@ card(
       minCols={1}
     />
     ~~~
-  `
+  `}
+    name="Fluid number of columns"
+  />
 );
 
 card(
-  'Flexible item width',
-  md`
+  <Box
+    description={`
     When the \`flexible\` property is set to true, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
     <Masonry flexible comp={Item} items={items} minCols={1} />
     ~~~
-  `,
-  <Box>
+  `}
+    name="Flexible item width"
+  >
     <ExampleMasonry flexible />
-  </Box>,
-  {}
+  </Box>
 );
 
 card(
-  'Non-flexible item width',
-  md`
+  <Box
+    description={`
     When the \`flexible\` property is ommitted, the item width will be fixed to \`columnWidth\`.
 
     ~~~jsx
     <Masonry comp={Item} items={items} minCols={1} />
     ~~~
-  `,
-  <Box>
+  `}
+    name="Non-flexible item width"
+  >
     <ExampleMasonry />
-  </Box>,
-  {},
-  { stretch: true }
+  </Box>
 );
 
 card(
-  'Uniform row heights',
-  md`
+  <Box
+    description={`
     Using the \`MasonryUniformRowLayout\` layout.
 
     ~~~jsx
     import { Masonry, MasonryUniformRowLayout } from 'gestalt';
     <Masonry comp={Item} items={items} layout={MasonryUniformRowLayout} />;
     ~~~
-  `,
-  <Box>
+  `}
+    name="Uniform row heights"
+  >
     <ExampleMasonry layout={MasonryUniformRowLayout} />
-  </Box>,
-  {},
-  { stretch: true }
+  </Box>
 );
+
+export default () => <CardPage cards={cards} />;
