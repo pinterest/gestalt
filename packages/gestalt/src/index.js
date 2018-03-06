@@ -1,5 +1,4 @@
 // @flow
-import 'babel-polyfill';
 import Avatar from './Avatar/Avatar';
 import Box from './Box/Box';
 import Button from './Button/Button';
