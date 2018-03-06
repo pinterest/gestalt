@@ -1,0 +1,6 @@
+.wash {
+  composes: absolute from "../Layout.css";
+  composes: top0 left0 right0 bottom0 from "../Layout.css";
+  background: rgba(0, 0, 0, 0.03);
+  pointer-events: none;
+}

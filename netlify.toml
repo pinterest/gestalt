@@ -1,0 +1,3 @@
+[build]
+  publish = "docs/build"
+  command = "(cd packages/gestalt && yarn build) && cd docs && yarn build"

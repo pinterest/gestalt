@@ -1,0 +1,40 @@
+.textField {
+  composes: accessibilityOutline from "../Focus.css";
+  composes: borderBox from "../Layout.css";
+  composes: Text fontSize3 from "../Text/Text.css";
+  composes: leadingShort from "../Typography.css";
+  composes: xsCol12 from "../Column.css";
+  appearance: none;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  max-height: 40px;
+  padding: 10px 14px;
+}
+
+.textField::placeholder {
+  color: #b5b5b5;
+}
+
+.textField:focus {
+  background-color: #fff;
+}
+
+.normal {
+  border-color: #b5b5b5;
+}
+
+.errored {
+  border-color: #e3780c;
+}
+
+.enabled {
+  composes: darkGray from "../Colors.css";
+  composes: whiteBg from "../Colors.css";
+  cursor: text;
+}
+
+.disabled {
+  composes: gray from "../Colors.css";
+  composes: lightGrayBg from "../Colors.css";
+}

@@ -1,0 +1,151 @@
+/**
+ * atom-dark theme for `prism.js`
+ * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
+ * @author Joe Gibson (@gibsjose)
+ */
+
+pre,
+code {
+  font-family: PragmataPro, "Roboto Mono", Monaco, Consolas, "Courier New",
+    Courier, monospace !important;
+  font-size: initial !important;
+}
+
+.text-s,
+.text-m,
+.text-l {
+  line-height: 1.4 !important;
+}
+
+code.prism-code,
+pre.prism-code {
+  color: #c5c8c6;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre.prism-code {
+  padding: 16px;
+  overflow: auto;
+}
+
+:not(pre) > code.prism-code,
+pre.prism-code {
+  background: #1d1f21;
+}
+
+/* Inline code */
+:not(pre) > code.prism-code {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7c7c7c;
+}
+
+.token.punctuation {
+  color: #c5c8c6;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.keyword,
+.token.tag {
+  color: #96cbfe;
+}
+
+.token.class-name {
+  color: #ffffb6;
+  text-decoration: underline;
+}
+
+.token.boolean,
+.token.constant {
+  color: #99cc99;
+}
+
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+
+.token.number {
+  color: #ff73fd;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a8ff60;
+}
+
+.token.variable {
+  color: #c6c5fe;
+}
+
+.token.operator {
+  color: #ededed;
+}
+
+.token.entity {
+  color: #ffffb6;
+  /* text-decoration: underline; */
+}
+
+.token.url {
+  color: #96cbfe;
+}
+
+.language-css .token.string,
+.style .token.string {
+  color: #87c38a;
+}
+
+.token.atrule,
+.token.attr-value {
+  color: #f9ee98;
+}
+
+.token.function {
+  color: #dad085;
+}
+
+.token.regex {
+  color: #e9c062;
+}
+
+.token.important {
+  color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}

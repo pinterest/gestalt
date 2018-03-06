@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a Card with an image 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box marginBottom1"
+  >
+    Avatar
+  </div>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="card"
+  />
+</div>
+`;
+
+exports[`renders a Card with text 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="card"
+  />
+</div>
+`;
+
+exports[`renders a Card with wash hidden 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="card"
+  />
+</div>
+`;
+
+exports[`renders a Card with wash shown 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  >
+    Chris Lloyd
+  </div>
+  <div
+    className="card hover"
+  />
+</div>
+`;
+
+exports[`renders an empty Card 1`] = `
+<div
+  className="box relative"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="box"
+  />
+  <div
+    className="card"
+  />
+</div>
+`;

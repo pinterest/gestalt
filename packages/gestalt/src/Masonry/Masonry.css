@@ -1,0 +1,13 @@
+.Masonry {
+  composes: relative from "../Layout.css";
+  height: 100%;
+  margin: 0 auto;
+}
+
+.Masonry__Item {
+  composes: absolute from "../Layout.css";
+}
+
+.Masonry__Item__Mounted {
+  transition: transform 0.2s;
+}

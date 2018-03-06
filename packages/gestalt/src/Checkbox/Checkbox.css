@@ -1,0 +1,77 @@
+:root {
+  --red: #bd081c;
+  --size-sm: 16px;
+  --size-md: 24px;
+}
+
+.check {
+  composes: block from "../Layout.css";
+  composes: borderBox from "../Layout.css";
+  composes: flex from "../Layout.css";
+  composes: itemsCenter from "../Layout.css";
+  composes: justifyCenter from "../Layout.css";
+  border-style: solid;
+  border-width: 1px;
+}
+
+.checkEnabled {
+  composes: pointer from "../Cursor.css";
+}
+
+.checkDarkGray {
+  composes: darkGrayBg from "../Colors.css";
+  border-color: #555;
+}
+
+.checkGray {
+  composes: grayBg from "../Colors.css";
+  border-color: #b5b5b5;
+}
+
+.checkLightGray {
+  composes: lightGrayBg from "../Colors.css";
+  border-color: #b5b5b5;
+}
+
+.checkWhite {
+  composes: whiteBg from "../Colors.css";
+  border-color: #b5b5b5;
+}
+
+.checkFocused {
+  composes: accessibilityOutlineFocus from "../Focus.css";
+}
+
+.checkSm {
+  border-radius: 3px;
+  height: var(--size-sm);
+  width: var(--size-sm);
+}
+
+.checkMd {
+  border-radius: 4px;
+  height: var(--size-md);
+  width: var(--size-md);
+}
+
+.input {
+  composes: absolute from "../Layout.css";
+  composes: m0 from "../Whitespace.css";
+  appearance: none;
+  opacity: 0;
+  outline: 0;
+}
+
+.inputEnabled {
+  composes: pointer from "../Cursor.css";
+}
+
+.inputSm {
+  height: var(--size-sm);
+  width: var(--size-sm);
+}
+
+.inputMd {
+  height: var(--size-md);
+  width: var(--size-md);
+}

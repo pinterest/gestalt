@@ -1,0 +1,86 @@
+.innerCircle {
+  composes: absolute from "../Layout.css";
+  composes: circle from "../Borders.css";
+  composes: darkGrayBg from "../Colors.css";
+  animation-duration: 3s;
+  animation-iteration-count: inherit;
+  animation-name: InnerAnimation;
+  height: 100%;
+  width: 100%;
+}
+
+.outerCircle {
+  composes: absolute from "../Layout.css";
+  composes: circle from "../Borders.css";
+  composes: darkGrayBg from "../Colors.css";
+  animation-duration: 3s;
+  animation-iteration-count: inherit;
+  animation-name: OuterAnimation;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes InnerAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  18% {
+    opacity: 0.7;
+    transition-timing-function: linear;
+  }
+
+  45% {
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(0.45);
+    transition-timing-function: cubic-bezier(0.1, 0.55, 0.95, 0.5);
+  }
+
+  55% {
+    opacity: 0.7;
+    transform: scale(0.6);
+    transition-timing-function: linear;
+  }
+
+  80% {
+    opacity: 0;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes OuterAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  48% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  53% {
+    opacity: 0.6;
+    transition-timing-function: linear;
+  }
+
+  80% {
+    opacity: 0;
+    transform: scale(1.2);
+    transition-timing-function: linear;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}

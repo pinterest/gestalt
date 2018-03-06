@@ -1,0 +1,21 @@
+@keyframes spin {
+  from {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  composes: block from "../Layout.css";
+  animation-delay: 0.3s;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-timing-function: linear;
+  opacity: 0;
+}

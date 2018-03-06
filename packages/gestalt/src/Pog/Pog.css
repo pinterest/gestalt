@@ -1,0 +1,56 @@
+:root {
+  --lightGray: #efefef;
+}
+
+.pog {
+  composes: circle from "../Borders.css";
+  composes: flex from "../Layout.css";
+  composes: itemsCenter from "../Layout.css";
+  composes: justifyCenter from "../Layout.css";
+}
+
+.focused {
+  composes: accessibilityOutlineFocus from "../Focus.css";
+}
+
+.transparent {
+  composes: transparentBg from "../Colors.css";
+}
+
+.transparent.hovered,
+.transparent.focused,
+.white.hovered,
+.white.focused {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.transparent.active,
+.white.active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.white {
+  composes: whiteBg from "../Colors.css";
+}
+
+.white.hovered,
+.white.focused {
+  background-color: #f0f0f0;
+}
+
+.white.active {
+  background-color: #e5e5e5;
+}
+
+.lightGray {
+  composes: lightGrayBg from "../Colors.css";
+}
+
+.lightGray.hovered,
+.lightGray.focused {
+  background-color: color(var(--lightGray) blackness(+ 6%));
+}
+
+.lightGray.active {
+  background-color: color(var(--lightGray) blackness(+ 10%));
+}

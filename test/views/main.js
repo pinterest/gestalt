@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RenderConfig from '../utils/renderConfig';
+import 'gestalt/dist/gestalt.css';
 
 // Wait to mount until the test tells us to do so.
 function mount() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Masonry from '../../src/Masonry/Masonry';
+import { Masonry } from 'gestalt';
 import Item from './ExampleGridItem';
 import PropTypes from 'prop-types';
 
@@ -52,6 +52,20 @@ export default class MasonryExample extends React.Component {
       window.ERROR_COUNT += 1;
     });
 
+    window.addEventListener('resize', () => {
+      window.RESIZE_MEASUREMENT_DONE = false;
+      setTimeout(() => {
+        const checkIfMeasuring = () => {
+          if (!this.gridRef.state.hasPendingMeasurements) {
+            window.RESIZE_MEASUREMENT_DONE = true;
+          } else {
+            window.requestAnimationFrame(checkIfMeasuring);
+          }
+        };
+        window.requestAnimationFrame(checkIfMeasuring);
+      }, 500);
+    });
+
     // Trigger a re-render in case we need to render /w scrollContainer.
     setTimeout(() => {
       this.setState({
@@ -85,6 +99,7 @@ export default class MasonryExample extends React.Component {
       }
       window.TEST_FETCH_COUNTS = window.TEST_FETCH_COUNTS || 0;
       window.TEST_FETCH_COUNTS += 1;
+
       window.NEXT_FETCH = () => {
         window.NEXT_FETCH = null;
         resolve(items);
@@ -106,15 +121,6 @@ export default class MasonryExample extends React.Component {
     this.setState(prevState => ({
       hasScrollContainer: !prevState.hasScrollContainer,
     }));
-  };
-
-  handleInsertItem = e => {
-    e.preventDefault();
-    this.gridRef.insertItems(
-      [{ name: 'Inserted', height: 300, color: '#f00' }],
-      0 /* colIdx */,
-      0 /* itemIdx */
-    );
   };
 
   handlePushGridDown = e => {
@@ -248,47 +254,46 @@ export default class MasonryExample extends React.Component {
 
     let gridWrapper = (
       <div id="gridWrapper" className="gridCentered" {...gridStyleProps}>
-        <button id="insert-item" onClick={this.handleInsertItem}>
-          Insert 1 item into grid
-        </button>
-        <button id="shuffle-pins" onClick={this.handleShuffleItems}>
-          Shuffle items
-        </button>
-        <button id="toggle-mount" onClick={this.toggleMount}>
-          Toggle mount
-        </button>
-        <button id="insert-null-items" onClick={this.handleInsertNullItems}>
-          Insert null items
-        </button>
-        {this.props.externalCache && (
-          <button id="push-first-down" onClick={this.pushFirstItemDown}>
-            Push first item down
+        <div style={{ paddingTop: 8, paddingBottom: 8 }}>
+          <button id="shuffle-pins" onClick={this.handleShuffleItems}>
+            Shuffle items
           </button>
-        )}
-        <button id="push-grid-down" onClick={this.handlePushGridDown}>
-          Push grid down
-        </button>
-        <button id="update-grid-items" onClick={this.handleUpdateGridItems}>
-          Update grid items
-        </button>
-        {!this.props.flexible && (
-          <button id="expand-grid-items" onClick={this.handleExpandGridItems}>
-            Expand grid items
+          <button id="toggle-mount" onClick={this.toggleMount}>
+            Toggle mount
           </button>
-        )}
-        <button
-          id="toggle-scroll-container"
-          onClick={this.handleToggleScrollContainer}
-        >
-          Toggle scroll container
-        </button>
+          <button id="insert-null-items" onClick={this.handleInsertNullItems}>
+            Insert null items
+          </button>
+          {this.props.externalCache && (
+            <button id="push-first-down" onClick={this.pushFirstItemDown}>
+              Push first item down
+            </button>
+          )}
+          <button id="push-grid-down" onClick={this.handlePushGridDown}>
+            Push grid down
+          </button>
+          <button id="update-grid-items" onClick={this.handleUpdateGridItems}>
+            Update grid items
+          </button>
+          {!this.props.flexible && (
+            <button id="expand-grid-items" onClick={this.handleExpandGridItems}>
+              Expand grid items
+            </button>
+          )}
+          <button
+            id="toggle-scroll-container"
+            onClick={this.handleToggleScrollContainer}
+          >
+            Toggle scroll container
+          </button>
+        </div>
         <div id="top-sibling" />
         {this.state.mountGrid && (
           <Masonry
             comp={this.renderItem}
             flexible={Boolean(this.props.flexible)}
             items={this.state.items}
-            measurementStore={this.props.externalCache ? store : null}
+            measurementStore={this.props.externalCache ? store : undefined}
             ref={ref => {
               this.gridRef = ref;
             }}

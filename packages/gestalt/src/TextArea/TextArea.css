@@ -1,0 +1,40 @@
+.textArea {
+  composes: accessibilityOutline from "../Focus.css";
+  composes: borderBox from "../Layout.css";
+  composes: Text fontSize3 from "../Text/Text.css";
+  composes: leadingTall from "../Typography.css";
+  composes: xsCol12 from "../Column.css";
+  appearance: none;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px 14px;
+  resize: none;
+}
+
+.textArea:focus {
+  background-color: #fff;
+}
+
+.textArea::placeholder {
+  color: #b5b5b5;
+}
+
+.normal {
+  border-color: #b5b5b5;
+}
+
+.errored {
+  border-color: #e3780c;
+}
+
+.enabled {
+  composes: darkGray from "../Colors.css";
+  composes: whiteBg from "../Colors.css";
+  cursor: text;
+}
+
+.disabled {
+  composes: gray from "../Colors.css";
+  composes: lightGrayBg from "../Colors.css";
+}

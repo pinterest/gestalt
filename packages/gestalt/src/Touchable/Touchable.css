@@ -1,0 +1,75 @@
+.touchable {
+  composes: accessibilityOutline from "../Focus.css";
+}
+
+.fullHeight {
+  height: 100%;
+}
+
+.fullWidth {
+  composes: xsCol12 from "../Column.css";
+}
+
+.square {
+  composes: square from "../Borders.css";
+}
+
+.circle {
+  composes: circle from "../Borders.css";
+}
+
+.rounded {
+  composes: rounded from "../Borders.css";
+}
+
+.roundedTop {
+  composes: roundedTop from "../Borders.css";
+}
+
+.roundedRight {
+  composes: roundedRight from "../Borders.css";
+}
+
+.roundedBottom {
+  composes: roundedBottom from "../Borders.css";
+}
+
+.roundedLeft {
+  composes: roundedLeft from "../Borders.css";
+}
+
+.pill {
+  composes: pill from "../Borders.css";
+}
+
+.pointer {
+  composes: pointer from "../Cursor.css";
+}
+
+.zoomIn {
+  composes: zoomIn from "../Cursor.css";
+}
+
+.zoomOut {
+  composes: zoomOut from "../Cursor.css";
+}
+
+.copy {
+  composes: copy from "../Cursor.css";
+}
+
+.move {
+  composes: move from "../Cursor.css";
+}
+
+.noDrop {
+  composes: noDrop from "../Cursor.css";
+}
+
+.grab {
+  composes: grab from "../Cursor.css";
+}
+
+.grabbing {
+  composes: grabbing from "../Cursor.css";
+}

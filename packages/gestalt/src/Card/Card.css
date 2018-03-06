@@ -1,0 +1,22 @@
+.card {
+  composes: absolute from "../Layout.css";
+  composes: rounded from "../Borders.css";
+  composes: top0 right0 bottom0 left0 from "../Layout.css";
+  background: rgba(0, 0, 0, 0.064);
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+}
+
+.hover {
+  animation: animateIn 0.2s cubic-bezier(0.31, 1, 0.34, 1) forwards;
+}
+
+@keyframes animateIn {
+  to {
+    opacity: 1;
+    padding: 8px;
+    transform: translateY(-8px) translateX(-8px);
+  }
+}

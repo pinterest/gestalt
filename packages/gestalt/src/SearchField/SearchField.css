@@ -1,0 +1,42 @@
+.input {
+  composes: accessibilityOutline from "../Focus.css";
+  composes: border from "../Borders.css";
+  composes: borderBox from "../Layout.css";
+  composes: darkGray from "../Colors.css";
+  composes: Text fontSize3 from "../Text/Text.css";
+  composes: leadingShort fontWeightBold from "../Typography.css";
+  composes: lightGrayBg from "../Colors.css";
+  composes: xsCol12 from "../Column.css";
+  appearance: none;
+  border-radius: 4px;
+  padding: 10px calc(16px + (2 * 8px)) 10px calc(16px + (2 * 16px));
+}
+
+.input::-ms-clear {
+  display: none;
+}
+
+.input::placeholder {
+  color: #b5b5b5;
+}
+
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-results-button,
+.input::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+.input:focus {
+  background-color: #fff;
+}
+
+.clear {
+  composes: noBorder from "../Borders.css";
+  composes: pointer from "../Cursor.css";
+  composes: paddingX3 from "../Box/whitespace.css";
+  composes: paddingY3 from "../Box/whitespace.css";
+  composes: relative from "../Layout.css";
+  background-color: transparent;
+  outline: none;
+}

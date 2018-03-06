@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../src/Icon/Icon';
-import icons from '../../src/Icon/icons';
+import { Icon } from 'gestalt';
 
 function IconType({ iconName }) {
   return (
@@ -25,7 +24,7 @@ IconType.propTypes = {
 export default function IconA11Y() {
   return (
     <div>
-      {Object.keys(icons).map((iconName, idx) => (
+      {Icon.icons.map((iconName, idx) => (
         <IconType iconName={iconName} key={idx} />
       ))}
     </div>

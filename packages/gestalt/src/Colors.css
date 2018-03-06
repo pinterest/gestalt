@@ -1,0 +1,212 @@
+:root {
+  /* primary colors */
+  --red: #bd081c;
+  --white: #fff;
+  --lightGray: #efefef;
+  --gray: #b5b5b5;
+  --darkGray: #555;
+
+  /* secondary colors */
+  --green: #0fa573;
+  --pine: #0a6955;
+  --olive: #364a4c;
+  --blue: #0084ff;
+  --navy: #004b91;
+  --midnight: #133a5e;
+  --purple: #b469eb;
+  --orchid: #8046a5;
+  --eggplant: #5b2677;
+  --maroon: #6e0f3c;
+  --watermelon: #f13535;
+  --orange: #e3780c;
+}
+
+/** PRIMARY COLORS **/
+
+/* red */
+
+.red {
+  color: var(--red);
+}
+
+.redBg {
+  background-color: var(--red);
+}
+
+/* white */
+
+.white {
+  color: var(--white);
+}
+
+.whiteBg {
+  background-color: var(--white);
+}
+
+/* lightGray */
+
+.lightGray {
+  color: var(--lightGray);
+}
+
+.lightGrayBg {
+  background-color: var(--lightGray);
+}
+
+/* gray */
+
+.gray {
+  color: var(--gray);
+}
+
+.grayBg {
+  background-color: var(--gray);
+}
+
+/* darkGray */
+
+.darkGray {
+  color: var(--darkGray);
+}
+
+.darkGrayBg {
+  background-color: var(--darkGray);
+}
+
+/** SECONDARY COLORS **/
+
+/* green */
+
+.green {
+  color: var(--green);
+}
+
+.greenBg {
+  background-color: var(--green);
+}
+
+/* pine */
+
+.pine {
+  color: var(--pine);
+}
+
+.pineBg {
+  background-color: var(--pine);
+}
+
+/* olive */
+
+.olive {
+  color: var(--olive);
+}
+
+.oliveBg {
+  background-color: var(--olive);
+}
+
+/* blue */
+
+.blue {
+  color: var(--blue);
+}
+
+.blueBg {
+  background-color: var(--blue);
+}
+
+/* navy */
+
+.navy {
+  color: var(--navy);
+}
+
+.navyBg {
+  background-color: var(--navy);
+}
+
+/* midnight */
+
+.midnight {
+  color: var(--midnight);
+}
+
+.midnightBg {
+  background-color: var(--midnight);
+}
+
+/* purple */
+
+.purple {
+  color: var(--purple);
+}
+
+.purpleBg {
+  background-color: var(--purple);
+}
+
+/* orchid */
+
+.orchid {
+  color: var(--orchid);
+}
+
+.orchidBg {
+  background-color: var(--orchid);
+}
+
+/* eggplant */
+
+.eggplant {
+  color: var(--eggplant);
+}
+
+.eggplantBg {
+  background-color: var(--eggplant);
+}
+
+/* maroon */
+
+.maroon {
+  color: var(--maroon);
+}
+
+.maroonBg {
+  background-color: var(--maroon);
+}
+
+/* watermelon */
+
+.watermelon {
+  color: var(--watermelon);
+}
+
+.watermelonBg {
+  background-color: var(--watermelon);
+}
+
+/* orange */
+
+.orange {
+  color: var(--orange);
+}
+
+.orangeBg {
+  background-color: var(--orange);
+}
+
+/* transparent */
+
+.transparentBg {
+  background-color: transparent;
+}
+
+/* light wash */
+
+.lightWashBg {
+  background-color: color(var(--lightGray) blackness(+ 6%));
+}
+
+.darkWashBg {
+  background-color: color(var(--lightGray) blackness(+ 10%));
+}

@@ -1,0 +1,85 @@
+:root {
+  --height: 24px;
+  --width: 40px;
+  --border: 1px;
+}
+
+.switch {
+  composes: block from "../Layout.css";
+  composes: borderBox from "../Layout.css";
+  composes: relative from "../Layout.css";
+  border-radius: calc(var(--height) * 2);
+  border-style: solid;
+  border-width: var(--border);
+  height: var(--height);
+  transition: background-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975),
+    border-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975);
+  width: var(--width);
+}
+
+.focused {
+  composes: accessibilityOutlineFocus from "../Focus.css";
+}
+
+.switchDarkGray {
+  composes: darkGrayBg from "../Colors.css";
+  border-color: #555;
+}
+
+.switchGray {
+  composes: grayBg from "../Colors.css";
+  border-color: #b5b5b5;
+}
+
+.switchLightGray {
+  composes: lightGrayBg from "../Colors.css";
+  border-color: #b5b5b5;
+}
+
+.switchWhite {
+  composes: whiteBg from "../Colors.css";
+  border-color: #b5b5b5;
+}
+
+.slider {
+  composes: borderBox absolute from "../Layout.css";
+  composes: whiteBg from "../Colors.css";
+  composes: circle from "../Borders.css";
+  border-style: solid;
+  border-width: 1px;
+  height: var(--height);
+  margin: -1px;
+  transition: left 0.2s sease;
+  width: var(--height);
+}
+
+.sliderRight {
+  right: 0;
+}
+
+.sliderLeft {
+  left: 0;
+}
+
+.sliderDark {
+  border-color: #555;
+}
+
+.sliderLight {
+  border-color: #b5b5b5;
+}
+
+.checkbox {
+  composes: absolute from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+  composes: m0 from "../Whitespace.css";
+  composes: noBorder from "../Borders.css";
+  composes: p0 from "../Whitespace.css";
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+}
+
+.checkboxEnabled {
+  composes: pointer from "../Cursor.css";
+}

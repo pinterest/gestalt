@@ -1,0 +1,336 @@
+.box {
+  composes: accessibilityOutline from "../Focus.css";
+  composes: borderBox from "../Layout.css";
+}
+
+/* Display */
+
+.xsDisplayNone {
+  display: none;
+}
+
+.xsDisplayFlex {
+  display: flex;
+  flex-direction: row;
+}
+
+.xsDisplayBlock {
+  display: block;
+}
+
+.xsDisplayInlineBlock {
+  display: inline-block;
+}
+
+@media (--sm) {
+  .smDisplayNone {
+    display: none;
+  }
+
+  .smDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .smDisplayBlock {
+    display: block;
+  }
+
+  .smDisplayInlineBlock {
+    display: inline-block;
+  }
+}
+
+@media (--md) {
+  .mdDisplayNone {
+    display: none;
+  }
+
+  .mdDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mdDisplayBlock {
+    display: block;
+  }
+
+  .mdDisplayInlineBlock {
+    display: inline-block;
+  }
+}
+
+@media (--lg) {
+  .lgDisplayNone {
+    display: none;
+  }
+
+  .lgDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .lgDisplayBlock {
+    display: block;
+  }
+
+  .lgDisplayInlineBlock {
+    display: inline-block;
+  }
+}
+
+/* Direction */
+
+.xsDirectionRow {
+  flex-direction: row;
+}
+
+.xsDirectionColumn {
+  flex-direction: column;
+}
+
+@media (--sm) {
+  .smDirectionRow {
+    flex-direction: row;
+  }
+
+  .smDirectionColumn {
+    flex-direction: column;
+  }
+}
+
+@media (--md) {
+  .mdDirectionRow {
+    flex-direction: row;
+  }
+
+  .mdDirectionColumn {
+    flex-direction: column;
+  }
+}
+
+@media (--lg) {
+  .lgDirectionRow {
+    flex-direction: row;
+  }
+
+  .lgDirectionColumn {
+    flex-direction: column;
+  }
+}
+
+/* Column */
+
+.xsCol0 {
+  width: 0;
+}
+
+.xsCol1 {
+  composes: xsCol1 from "../Column.css";
+}
+
+.xsCol2 {
+  composes: xsCol2 from "../Column.css";
+}
+
+.xsCol3 {
+  composes: xsCol3 from "../Column.css";
+}
+
+.xsCol4 {
+  composes: xsCol4 from "../Column.css";
+}
+
+.xsCol5 {
+  composes: xsCol5 from "../Column.css";
+}
+
+.xsCol6 {
+  composes: xsCol6 from "../Column.css";
+}
+
+.xsCol7 {
+  composes: xsCol7 from "../Column.css";
+}
+
+.xsCol8 {
+  composes: xsCol8 from "../Column.css";
+}
+
+.xsCol9 {
+  composes: xsCol9 from "../Column.css";
+}
+
+.xsCol10 {
+  composes: xsCol10 from "../Column.css";
+}
+
+.xsCol11 {
+  composes: xsCol11 from "../Column.css";
+}
+
+.xsCol12 {
+  composes: xsCol12 from "../Column.css";
+}
+
+@media (--sm) {
+  .smCol0 {
+    width: 0;
+  }
+
+  .smCol1 {
+    composes: smCol1 from "../Column.css";
+  }
+
+  .smCol2 {
+    composes: smCol2 from "../Column.css";
+  }
+
+  .smCol3 {
+    composes: smCol3 from "../Column.css";
+  }
+
+  .smCol4 {
+    composes: smCol4 from "../Column.css";
+  }
+
+  .smCol5 {
+    composes: smCol5 from "../Column.css";
+  }
+
+  .smCol6 {
+    composes: smCol6 from "../Column.css";
+  }
+
+  .smCol7 {
+    composes: smCol7 from "../Column.css";
+  }
+
+  .smCol8 {
+    composes: smCol8 from "../Column.css";
+  }
+
+  .smCol9 {
+    composes: smCol9 from "../Column.css";
+  }
+
+  .smCol10 {
+    composes: smCol10 from "../Column.css";
+  }
+
+  .smCol11 {
+    composes: smCol11 from "../Column.css";
+  }
+
+  .smCol12 {
+    composes: smCol12 from "../Column.css";
+  }
+}
+
+@media (--md) {
+  .mdCol0 {
+    width: 0;
+  }
+
+  .mdCol1 {
+    composes: mdCol1 from "../Column.css";
+  }
+
+  .mdCol2 {
+    composes: mdCol2 from "../Column.css";
+  }
+
+  .mdCol3 {
+    composes: mdCol3 from "../Column.css";
+  }
+
+  .mdCol4 {
+    composes: mdCol4 from "../Column.css";
+  }
+
+  .mdCol5 {
+    composes: mdCol5 from "../Column.css";
+  }
+
+  .mdCol6 {
+    composes: mdCol6 from "../Column.css";
+  }
+
+  .mdCol7 {
+    composes: mdCol7 from "../Column.css";
+  }
+
+  .mdCol8 {
+    composes: mdCol8 from "../Column.css";
+  }
+
+  .mdCol9 {
+    composes: mdCol9 from "../Column.css";
+  }
+
+  .mdCol10 {
+    composes: mdCol10 from "../Column.css";
+  }
+
+  .mdCol11 {
+    composes: mdCol11 from "../Column.css";
+  }
+
+  .mdCol12 {
+    composes: mdCol12 from "../Column.css";
+  }
+}
+
+@media (--lg) {
+  .lgCol0 {
+    width: 0;
+  }
+
+  .lgCol1 {
+    composes: lgCol1 from "../Column.css";
+  }
+
+  .lgCol2 {
+    composes: lgCol2 from "../Column.css";
+  }
+
+  .lgCol3 {
+    composes: lgCol3 from "../Column.css";
+  }
+
+  .lgCol4 {
+    composes: lgCol4 from "../Column.css";
+  }
+
+  .lgCol5 {
+    composes: lgCol5 from "../Column.css";
+  }
+
+  .lgCol6 {
+    composes: lgCol6 from "../Column.css";
+  }
+
+  .lgCol7 {
+    composes: lgCol7 from "../Column.css";
+  }
+
+  .lgCol8 {
+    composes: lgCol8 from "../Column.css";
+  }
+
+  .lgCol9 {
+    composes: lgCol9 from "../Column.css";
+  }
+
+  .lgCol10 {
+    composes: lgCol10 from "../Column.css";
+  }
+
+  .lgCol11 {
+    composes: lgCol11 from "../Column.css";
+  }
+
+  .lgCol12 {
+    composes: lgCol12 from "../Column.css";
+  }
+}

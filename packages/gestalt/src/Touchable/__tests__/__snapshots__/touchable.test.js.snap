@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Touchable renders 1`] = `
+<div
+  className="touchable pointer square fullWidth"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
+exports[`Touchable sets correct mouse cursor 1`] = `
+<div
+  className="touchable zoomIn square fullWidth"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
+exports[`Touchable sets correct shape 1`] = `
+<div
+  className="touchable pointer circle fullWidth"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
+exports[`Touchable sets fullHeight correctly 1`] = `
+<div
+  className="touchable pointer square fullHeight fullWidth"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
+exports[`Touchable sets fullWidth correctly 1`] = `
+<div
+  className="touchable pointer square"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;

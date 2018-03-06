@@ -1,0 +1,113 @@
+:root {
+  --blue: #0084ff;
+  --darkGray: #555;
+  --red: #bd081c;
+  --lightGray: #efefef;
+  --white: #fff;
+}
+
+.button {
+  composes: borderBox from "../Layout.css";
+  border-radius: 4px;
+}
+
+.solid {
+  composes: noBorder from "../Borders.css";
+}
+
+.enabled {
+  composes: accessibilityOutline from "../Focus.css";
+  composes: pointer from "../Cursor.css";
+}
+
+.sm {
+  padding: 10px 14px;
+}
+
+.md {
+  padding: 11px 14px;
+}
+
+.lg {
+  padding: 14px;
+}
+
+.block {
+  composes: xsCol12 from "../Column.css";
+  composes: block from "../Layout.css";
+}
+
+.inline {
+  composes: inlineBlock from "../Layout.css";
+}
+
+.disabled {
+  composes: lightGrayBg from "../Colors.css";
+  cursor: default;
+}
+
+.gray {
+  composes: lightGrayBg from "../Colors.css";
+}
+
+.gray:hover,
+.gray:focus {
+  background-color: color(var(--lightGray) blackness(+ 6%));
+}
+
+.gray:active {
+  background-color: color(var(--lightGray) blackness(+ 10%));
+}
+
+.red {
+  composes: redBg from "../Colors.css";
+}
+
+.red:hover,
+.red:focus {
+  background-color: color(var(--red) blackness(+ 6%));
+}
+
+.red:active {
+  background-color: color(var(--red) blackness(+ 10%));
+}
+
+.blue {
+  composes: blueBg from "../Colors.css";
+}
+
+.blue:hover,
+.blue:focus {
+  background-color: color(var(--blue) blackness(+ 6%));
+}
+
+.blue:active {
+  background-color: color(var(--blue) blackness(+ 10%));
+}
+
+.transparent {
+  composes: transparentBg from "../Colors.css";
+  border: 1px solid #fff;
+}
+
+.transparent:hover,
+.transparent:focus {
+  background-color: color(var(--darkGray) blackness(+ 6%));
+}
+
+.transparent:active {
+  background-color: color(var(--darkGray) blackness(+ 10%));
+}
+
+.white {
+  composes: whiteBg from "../Colors.css";
+}
+
+.white:hover,
+.white:focus {
+  background-color: color(var(--white) blackness(+ 6%));
+}
+
+.white:active {
+  background-color: color(var(--white) blackness(+ 10%));
+}

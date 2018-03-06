@@ -1,0 +1,226 @@
+/* display */
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.table {
+  display: table;
+}
+
+/* overflow */
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.overflowScroll {
+  overflow: scroll;
+}
+
+.overflowScrollX {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.overflowScrollY {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.overflowAuto {
+  overflow: auto;
+}
+
+.fit {
+  max-width: 100%;
+}
+
+/* position */
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.sticky {
+  /*
+    IE11 Fallback: when sticky is not supported, fall back to relative positioning.
+    We do this so if there is a zIndex set on sticky, the stacking context will be correct
+  */
+  position: relative;
+  position: sticky;
+}
+
+.top0 {
+  top: 0;
+}
+
+.right0 {
+  right: 0;
+}
+
+.bottom0 {
+  bottom: 0;
+}
+
+.left0 {
+  left: 0;
+}
+
+/* box model */
+
+.borderBox {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+@media (--sm) {
+  .smFlex {
+    display: flex;
+  }
+}
+
+@media (--md) {
+  .mdFlex {
+    display: flex;
+  }
+}
+
+@media (--lg) {
+  .lgFlex {
+    display: flex;
+  }
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.itemsStart {
+  align-items: flex-start;
+}
+
+.itemsEnd {
+  align-items: flex-end;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.itemsBaseline {
+  align-items: baseline;
+}
+
+.itemsStretch {
+  align-items: stretch;
+}
+
+.selfStart {
+  align-self: flex-start;
+}
+
+.selfEnd {
+  align-self: flex-end;
+}
+
+.selfCenter {
+  align-self: center;
+}
+
+.selfBaseline {
+  align-self: baseline;
+}
+
+.selfStretch {
+  align-self: stretch;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.justifyAround {
+  justify-content: space-around;
+}
+
+.contentStart {
+  align-content: flex-start;
+}
+
+.contentEnd {
+  align-content: flex-end;
+}
+
+.contentCenter {
+  align-content: center;
+}
+
+.contentBetween {
+  align-content: space-between;
+}
+
+.contentAround {
+  align-content: space-around;
+}
+
+.contentStretch {
+  align-content: stretch;
+}
+
+/* Fix for Chrome 44 bug: https://code.google.com/p/chromium/issues/detail?id=506893 */
+
+.flexGrow {
+  flex: 1 1 auto;
+
+  /* 1 */
+  min-height: 0;
+  min-width: 0;
+}
+
+.flexNone {
+  flex: 0 0 auto;
+}
+
+.orderFirst {
+  order: -1;
+}
+
+.orderLast {
+  order: 99999;
+}

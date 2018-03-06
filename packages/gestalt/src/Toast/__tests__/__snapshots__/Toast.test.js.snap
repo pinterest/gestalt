@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Confirmation Toast 1`] = `
+<div
+  className="box marginBottom3 paddingX4"
+  style={
+    Object {
+      "maxWidth": 376,
+      "width": "100vw",
+    }
+  }
+>
+  <div
+    className="box darkGrayBg fit paddingX8 paddingY5 pill"
+  >
+    <div
+      className="box xsDirectionRow xsDisplayFlex"
+    >
+      <div
+        className="box flexNone justifyCenter xsDirectionColumn xsDisplayFlex"
+      >
+        <div
+          className="Mask rounded"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
+        >
+          <img
+            alt=""
+            src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+          />
+        </div>
+      </div>
+      <div
+        className="box justifyCenter xsDirectionColumn xsDisplayFlex"
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
+      >
+        <div
+          className="box"
+          style={
+            Object {
+              "fontWeight": "normal",
+            }
+          }
+        >
+          <div
+            className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal"
+          >
+            Saved to
+          </div>
+        </div>
+        <div
+          className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        >
+          Home decor
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Error Toast 1`] = `
+<div
+  className="box marginBottom3 paddingX4"
+  style={
+    Object {
+      "maxWidth": 376,
+      "width": "100vw",
+    }
+  }
+>
+  <div
+    className="box fit orangeBg paddingX8 paddingY5 pill"
+  >
+    <div
+      className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
+    >
+      <div
+        className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+      >
+        Oops, we couldn't find that!
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Guide Toast 1`] = `
+<div
+  className="box marginBottom3 paddingX4"
+  style={
+    Object {
+      "maxWidth": 376,
+      "width": "100vw",
+    }
+  }
+>
+  <div
+    className="box darkGrayBg fit paddingX8 paddingY5 pill"
+  >
+    <div
+      className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
+    >
+      <div
+        className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+      >
+        Same great profile, slightly new look. Learn more?
+      </div>
+    </div>
+  </div>
+</div>
+`;
