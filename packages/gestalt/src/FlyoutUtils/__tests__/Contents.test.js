@@ -1,7 +1,5 @@
 /* eslint-env jest */
-import React from 'react';
-import { shallow } from 'enzyme';
-import Contents, {
+import {
   getMainDir,
   getSubDir,
   calcEdgeShifts,
@@ -247,26 +245,6 @@ describe('Contents', () => {
       expect(flyout.x).toBeLessThan(BORDER_RADIUS);
       expect(caret.x).toEqual(caret.y);
       expect(caret.x).toEqual(BORDER_RADIUS);
-    });
-  });
-
-  describe('Regular version display checks', () => {
-    it('Renders caret in if screen is large enough to render normal Container', () => {
-      const triggerRect = centerTriggerRect();
-      const wrapper = shallow(
-        <Contents
-          accessibilityCloseLabel="close"
-          onClick={jest.fn()}
-          onDismiss={jest.fn()}
-          onKeyDown={jest.fn()}
-          onResize={jest.fn()}
-          triggerRect={triggerRect}
-          width={flyoutSize.width}
-        />
-      );
-      wrapper.instance().setState({ mainDir: 'left' });
-      expect(wrapper.find('IconButton').length).toEqual(0);
-      expect(wrapper.find('Caret').length).toEqual(1);
     });
   });
 });

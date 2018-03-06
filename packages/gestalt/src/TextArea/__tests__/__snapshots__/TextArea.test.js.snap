@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextField TextArea normal 1`] = `
+exports[`TextArea TextArea normal 1`] = `
 <span>
   <textarea
     aria-describedby={null}
@@ -19,9 +19,9 @@ exports[`TextField TextArea normal 1`] = `
 </span>
 `;
 
-exports[`TextField TextArea with error 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea></span>"`;
+exports[`TextArea TextArea with error 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea></span>"`;
 
-exports[`TextField TextArea with rows 1`] = `
+exports[`TextArea TextArea with rows 1`] = `
 <span>
   <textarea
     aria-describedby={null}
