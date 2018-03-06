@@ -3,14 +3,14 @@
 }
 
 .pog {
-  composes: circle from '../Borders.css';
-  composes: flex from '../Layout.css';
-  composes: itemsCenter from '../Layout.css';
-  composes: justifyCenter from '../Layout.css';
+  composes: circle from "../Borders.css";
+  composes: flex from "../Layout.css";
+  composes: itemsCenter from "../Layout.css";
+  composes: justifyCenter from "../Layout.css";
 }
 
 .focused {
-  composes: accessibilityOutlineFocus from '../Focus.css';
+  composes: accessibilityOutlineFocus from "../Focus.css";
 }
 
 .transparent {

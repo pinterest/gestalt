@@ -1,9 +1,9 @@
 .Masonry {
-  composes: relative from '../Layout.css';
+  composes: relative from "../Layout.css";
 }
 
 .Masonry__Item {
-  composes: absolute from '../Layout.css';
+  composes: absolute from "../Layout.css";
 }
 
 .Masonry__Item__Mounted {

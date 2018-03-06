@@ -1,9 +1,9 @@
 .textField {
-  composes: accessibilityOutline from '../Focus.css';
-  composes: borderBox from '../Layout.css';
-  composes: Text fontSize3 from '../Text/Text.css';
-  composes: leadingShort from '../Typography.css';
-  composes: xsCol12 from '../Column.css';
+  composes: accessibilityOutline from "../Focus.css";
+  composes: borderBox from "../Layout.css";
+  composes: Text fontSize3 from "../Text/Text.css";
+  composes: leadingShort from "../Typography.css";
+  composes: xsCol12 from "../Column.css";
   appearance: none;
   border-radius: 4px;
   border-style: solid;

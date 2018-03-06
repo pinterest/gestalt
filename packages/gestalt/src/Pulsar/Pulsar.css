@@ -1,7 +1,7 @@
 .innerCircle {
-  composes: absolute from '../Layout.css';
-  composes: circle from '../Borders.css';
-  composes: darkGrayBg from '../Colors.css';
+  composes: absolute from "../Layout.css";
+  composes: circle from "../Borders.css";
+  composes: darkGrayBg from "../Colors.css";
   animation-duration: 3s;
   animation-iteration-count: inherit;
   animation-name: InnerAnimation;
@@ -10,9 +10,9 @@
 }
 
 .outerCircle {
-  composes: absolute from '../Layout.css';
-  composes: circle from '../Borders.css';
-  composes: darkGrayBg from '../Colors.css';
+  composes: absolute from "../Layout.css";
+  composes: circle from "../Borders.css";
+  composes: darkGrayBg from "../Colors.css";
   animation-duration: 3s;
   animation-iteration-count: inherit;
   animation-name: OuterAnimation;

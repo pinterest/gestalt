@@ -12,14 +12,16 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "flowtype",
-    "jsx-a11y",
-    "prettier"
-  ],
+  "plugins": ["flowtype", "jsx-a11y", "prettier"],
   "rules": {
-    "jsx-a11y/label-has-for": ["error", { "components": ["label"], "allowChildren": true }],
-    "prettier/prettier": ["error", {"trailingComma": "es5", "singleQuote": true}],
+    "jsx-a11y/label-has-for": [
+      "error",
+      { "components": ["label"], "allowChildren": true }
+    ],
+    "prettier/prettier": [
+      "error",
+      { "trailingComma": "es5", "singleQuote": true }
+    ],
     "no-await-in-loop": 0,
     "no-return-await": 0,
     "react/jsx-filename-extension": 0,

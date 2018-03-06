@@ -5,5 +5,5 @@
 }
 
 .iconBlock {
-  composes: block from '../Layout.css';
+  composes: block from "../Layout.css";
 }

@@ -1,10 +1,10 @@
 .Tabs {
-  composes: flex from '../Layout.css';
+  composes: flex from "../Layout.css";
   user-select: none;
 }
 
 .tab {
-  composes: accessibilityOutline from '../Focus.css';
+  composes: accessibilityOutline from "../Focus.css";
   composes: flex flexColumn itemCenter from "../Layout.css";
   composes: noBorder pill from "../Borders.css";
   composes: m0 from "../Whitespace.css";

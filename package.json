@@ -35,6 +35,7 @@
     "react-dom": "^15.4.1",
     "react-test-renderer": "^15.3.2",
     "stylelint": "^8.0.0",
+    "stylelint-config-prettier": "^2.1.0",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0"
   },
@@ -43,7 +44,7 @@
     "lint:css": "stylelint \"packages/**/*.css\"",
     "test": "jest",
     "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
-    "prettier": "prettier --write \"{codemods,docs,scripts,src,test,__{tests,mocks}__}/!(node_modules)/**/*.js\""
+    "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
   },
   "jest": {
     "moduleNameMapper": {
@@ -53,7 +54,8 @@
   },
   "stylelint": {
     "extends": [
-      "stylelint-config-standard"
+      "stylelint-config-standard",
+      "stylelint-config-prettier"
     ],
     "plugins": [
       "stylelint-order"

@@ -1,3 +1,15 @@
-parser: flow
 singleQuote: true
 trailingComma: es5
+overrides:
+- files: "*.js"
+  parser: flow
+- files: "*.css"
+  options:
+    parser: css
+    singleQuote: false
+- files: "*.md"
+  options:
+    parser: markdown
+- files: ".babelrc,.eslintrc"
+  options:
+    parser: json

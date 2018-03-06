@@ -1,4 +1,5 @@
 # Gestalt
+
 [![Build status](https://badge.buildkite.com/2c6b6e9f79054095354cc061876e4885f4b9212e1dbebda270.svg?branch=master)](https://buildkite.com/pinterest/gestalt)
 [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt)
 
@@ -7,7 +8,6 @@ Gestalt is a set of React UI components that enforces Pinterest’s design langu
 [View the full docs](https://pinterest.github.io/gestalt)
 or
 [Check out the Gestalt playground](https://codesandbox.io/s/k5plvp9v8v)
-
 
 ## Usage
 
@@ -44,6 +44,7 @@ Start the docs server:
 yarn start
 open "http://localhost:8080"
 ```
+
 Visit [http://localhost:8080/](http://localhost:8080) and click on a component to view the docs.
 
 Using the Masonry playground:
