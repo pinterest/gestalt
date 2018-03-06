@@ -31,9 +31,7 @@
   },
   "scripts": {
     "start": "yarn start:webpack-server | yarn start:node-server",
-    "start:webpack-server":
-      "yarn webpack-dev-server --hot --inline --progress --colors",
-    "start:node-server":
-      "BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js"
+    "start:webpack-server": "yarn webpack-dev-server --hot --inline --progress --colors",
+    "start:node-server": "BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js"
   }
 }

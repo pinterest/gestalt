@@ -5,10 +5,8 @@
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "scripts": {
-    "build":
-      "webpack --config webpack.config.js --colors --progress --output-path build",
-    "start":
-      "webpack-dev-server --config webpack.config.js --progress --colors --open"
+    "build": "webpack --config webpack.config.js --colors --progress --output-path build",
+    "start": "webpack-dev-server --config webpack.config.js --progress --colors --open"
   },
   "dependencies": {
     "gestalt": ">0.0.0",
@@ -41,5 +39,9 @@
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
   },
-  "browserslist": ["defaults", "last 2 versions", "iOS 8"]
+  "browserslist": [
+    "defaults",
+    "last 2 versions",
+    "iOS 8"
+  ]
 }
