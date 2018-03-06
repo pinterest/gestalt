@@ -37,8 +37,8 @@ type Props<T> = {|
   layout?:
     | DefaultLayoutSymbol
     | UniformRowLayoutSymbol
-    | LegacyMasonryLayout<*>
-    | LegacyUniformRowLayout<*>,
+    | LegacyMasonryLayout
+    | LegacyUniformRowLayout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
   loadItems?:
