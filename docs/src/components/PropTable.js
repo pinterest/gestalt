@@ -80,7 +80,7 @@ export default function PropTable({ props: properties, Component }: Props) {
   }
 
   return (
-    <Box overflow="scrollX">
+    <Box overflow="auto">
       <table
         style={{
           width: '100%',

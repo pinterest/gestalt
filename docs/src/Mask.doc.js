@@ -72,7 +72,7 @@ card(
 <Mask shape="circle">
   <img
     alt="weakendclub.com"
-    src="https://s-media-cache-ak0.pinimg.com/564x/4f/cb/61/4fcb610ae43cddd68086c85eec9c413e.jpg"
+    src="https://i.pinimg.com/564x/4f/cb/61/4fcb610ae43cddd68086c85eec9c413e.jpg"
     style={{ maxWidth: '100%', display: 'block' }}
   />
 </Mask>
@@ -93,7 +93,7 @@ card(
 <Mask shape="rounded" wash>
   <img
     alt="subliming.tumblr.com"
-    src="https://s-media-cache-ak0.pinimg.com/564x/d0/c1/f6/d0c1f69316b4e61b3ccc7b1731f028b8.jpg"
+    src="https://i.pinimg.com/564x/d0/c1/f6/d0c1f69316b4e61b3ccc7b1731f028b8.jpg"
     style={{ maxWidth: '100%', display: 'block' }}
   />
 </Mask>

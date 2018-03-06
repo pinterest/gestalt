@@ -118,7 +118,7 @@ card(
   color="rgb(111, 91, 77)"
   naturalHeight={564}
   naturalWidth={564}
-  src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+  src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
 />
 </Column>
 `}
@@ -139,7 +139,7 @@ card(
   color="rgb(231, 186, 176)"
   naturalHeight={751}
   naturalWidth={564}
-  src="https://s-media-cache-ak0.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
+  src="https://i.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
 >
   <Box padding={3}>
     <Text color="white">
@@ -197,7 +197,7 @@ card(
         fit="contain"
         naturalHeight={1}
         naturalWidth={1}
-        src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+        src="https://i.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
       />
     </Box>
     <Box
@@ -213,7 +213,7 @@ card(
         fit="cover"
         naturalHeight={1}
         naturalWidth={1}
-        src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+        src="https://i.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
       />
     </Box>
   </Box>
@@ -234,7 +234,7 @@ card(
         fit="contain"
         naturalHeight={1}
         naturalWidth={1}
-        src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+        src="https://i.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
       />
     </Box>
     <Box
@@ -250,7 +250,7 @@ card(
         fit="cover"
         naturalHeight={1}
         naturalWidth={1}
-        src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+        src="https://i.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
       />
     </Box>
   </Box>
@@ -271,7 +271,7 @@ card(
         fit="contain"
         naturalHeight={1}
         naturalWidth={1}
-        src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+        src="https://i.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
       />
     </Box>
     <Box
@@ -287,7 +287,7 @@ card(
         fit="cover"
         naturalHeight={1}
         naturalWidth={1}
-        src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+        src="https://i.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
       />
     </Box>
   </Box>

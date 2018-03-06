@@ -73,7 +73,7 @@ AvatarEx.propTypes = {
 };
 
 const imageSrc =
-  'https://s-media-cache-ak0.pinimg.com/avatars/long_1468294555_444.jpg';
+  'https://i.pinimg.com/avatars/long_1468294555_444.jpg';
 
 card(
   <Example

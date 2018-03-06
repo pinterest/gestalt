@@ -11,7 +11,7 @@ test('Confirmation Toast', () => {
       thumbnail={
         <img
           alt=""
-          src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+          src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
         />
       }
     />
