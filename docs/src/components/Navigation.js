@@ -17,16 +17,14 @@ const isModifiedEvent = event =>
 const components = Object.keys(routes);
 
 export default function Navigation(props: Props, context: Context) {
-  const { router } = context;
+  const { router: { history } } = context;
   const links = components.map(ns => {
-    const to = `/${ns}`;
-    // const isActive = router.isActive(to, true);
-    const href = router.createHref(to);
+    const href = `/${ns}`;
     const handleClick = ({ event }) => {
       if (event.defaultPrevented) return;
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       event.preventDefault();
-      router.push(to);
+      history.push(href);
     };
     return (
       <Text bold leading="tall" color="darkGray" size="lg">
@@ -49,7 +47,7 @@ export default function Navigation(props: Props, context: Context) {
       <Box mdDisplay="none" flex="grow">
         <SelectList
           id="nav"
-          onChange={({ value }) => router.push(value)}
+          onChange={({ value }) => history.push(value)}
           options={options}
           value={(m && m[1]) || '#'}
         />

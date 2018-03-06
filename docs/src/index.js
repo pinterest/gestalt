@@ -1,21 +1,23 @@
 // @flow
 import React from 'react';
-import { Router, hashHistory, Route } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { render } from 'react-dom';
 import App from './components/App';
 import routes from './routes';
 import 'gestalt/dist/gestalt.css';
 
 render(
-  <Router history={hashHistory}>
-    <Route component={App} path="/">
-      {Object.keys(routes).map(pathname => (
-        <Route
-          component={routes[pathname]}
-          path={`/${pathname}`}
-          key={pathname}
-        />
-      ))}
+  <Router>
+    <Route path="/">
+      <App>
+        {Object.keys(routes).map(pathname => (
+          <Route
+            component={routes[pathname]}
+            path={`/${pathname}`}
+            key={pathname}
+          />
+        ))}
+      </App>
     </Route>
   </Router>,
   document.getElementById('root')
