@@ -1,5 +1,4 @@
 const selectors = {
-  addMoreButton: id => `#add-more-${id}`,
   afterGrid: '.afterGrid',
   gridItem: '[data-grid-item]',
   expandGridItems: '#expand-grid-items',
