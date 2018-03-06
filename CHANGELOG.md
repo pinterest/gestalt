@@ -18,6 +18,8 @@
 * Internal: Removes [corkboard](https://yarnpkg.com/en/package/corkboard) from the docs (#41)
 * Internal: User prettier for markdown and css (#45)
 * Internal: Add script to run watcher & docs build concurrently (#49)
+* Docs: Readme update to start docs server (#47)
+* Docs: fix github source link (#50)
 
 </details>
 

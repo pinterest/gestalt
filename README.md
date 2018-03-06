@@ -41,6 +41,7 @@ yarn watch
 Start the docs server:
 
 ```bash
+cd docs
 yarn start
 open "http://localhost:8080"
 ```
