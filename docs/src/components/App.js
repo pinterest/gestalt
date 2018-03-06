@@ -1,21 +1,23 @@
 // @flow
 import type { Node } from 'react';
 import React from 'react';
-import Navigation from './Navigation';
+import { withRouter } from 'react-router-dom';
 import { Box, Column } from 'gestalt';
+import Navigation from './Navigation';
 
 type Props = {|
-  cards: *,
   children?: Node,
 |};
 
+const NavigationWithRouter = withRouter(Navigation);
+
 export default function App(props: Props) {
-  const { cards, children } = props;
+  const { children } = props;
   return (
     <Box mdDisplay="flex" direction="row" minHeight="100vh">
       <Column span={12} mdSpan={2}>
         <Box padding={4}>
-          <Navigation cards={cards} />
+          <NavigationWithRouter />
         </Box>
       </Column>
       <Column span={12} mdSpan={10}>
