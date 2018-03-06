@@ -7,7 +7,7 @@
 }
 
 .button {
-  composes: borderBox from '../Layout.css';
+  composes: borderBox from "../Layout.css";
   border-radius: 4px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .enabled {
-  composes: accessibilityOutline from '../Focus.css';
+  composes: accessibilityOutline from "../Focus.css";
   composes: pointer from "../Cursor.css";
 }
 
@@ -33,12 +33,12 @@
 }
 
 .block {
-  composes: xsCol12 from '../Column.css';
-  composes: block from '../Layout.css';
+  composes: xsCol12 from "../Column.css";
+  composes: block from "../Layout.css";
 }
 
 .inline {
-  composes: inlineBlock from '../Layout.css';
+  composes: inlineBlock from "../Layout.css";
 }
 
 .disabled {

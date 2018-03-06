@@ -11,7 +11,7 @@
 }
 
 .icon {
-  composes: block from '../Layout.css';
+  composes: block from "../Layout.css";
   animation-delay: 0.3s;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;

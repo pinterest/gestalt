@@ -1,11 +1,11 @@
 .img {
-  composes: block from '../Layout.css';
-  composes: xsCol12 from '../Column.css';
-  composes: absolute from '../Layout.css';
+  composes: block from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+  composes: absolute from "../Layout.css";
 }
 
 .scaled-img {
-  composes: relative from '../Layout.css';
+  composes: relative from "../Layout.css";
   background-position: center center;
   background-repeat: no-repeat;
   height: 100%;
@@ -24,5 +24,7 @@
 
 @media (inverted-colors) {
   .img,
-  .scaled-img { filter: invert(100%); }
+  .scaled-img {
+    filter: invert(100%);
+  }
 }

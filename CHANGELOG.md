@@ -1,4 +1,5 @@
 ## [Unreleased]
+
 <details>
   <summary>
     Changes that have landed in master but are not yet released.
@@ -8,6 +9,7 @@
 ### Minor
 
 ### Patch
+
 * Internal: Split docs & integration tests into individual packages (#22)
 * Flyout: Update the docs with correct flowtypes (#37)
 * Internal: Removes [corkboard](https://yarnpkg.com/en/package/corkboard) from the docs (#41)
@@ -15,7 +17,9 @@
 </details>
 
 ## [0.58.0] (Feb 26, 2018)
+
 ### Minor
+
 * Card: Adds an extra "image" property to help separate content (#19)
 * GroupAvatar: Update sizes to be in line with other components (#30)
 * Touchable: Adds support for `fullHeight` prop (#31)
@@ -28,19 +32,23 @@
 * TextField: Remove duplicate logic opening the error flyout (#34)
 * Internal: Re-exports flowtypes (#35)
 
-
 ## [0.57.1] (Feb 22, 2018)
+
 ### Patch
+
 * Internal: Fix docs (StateRecorder) + run development mode locally + fix propType error #25
 
 ## [0.57.0] (Feb 22, 2018)
+
 ## Minor
+
 * Sticky: Add zIndex support (#21)
 * SearchField: Add custom `onBlur` prop / Rename syntheticEvent => event / Use stricter flowtype on event to remove if check (#17)
 * Flyout: Allow for custom width (#16)
 * ExperimentalMasonry: Reference measurementStore from props instead of instance (#14)
 
 ## Patch
+
 * Docs: Netlify: Live preview with every PR (#18)
 * Docs: Updates Heading, Image, Label & Text to use Example (#10)
 * Docs: Container / ErrorFlyout / IconButton / Label / Pog / SearchField: add live docs (#12)

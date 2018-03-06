@@ -1,5 +1,5 @@
 .link {
-  composes: noUnderline from '../Typography.css';
+  composes: noUnderline from "../Typography.css";
   color: inherit; /* Links should have the correct underline color */
   outline: none;
   text-decoration: none;
@@ -11,9 +11,9 @@
 }
 
 .accessibleFocusStyle {
-  composes: accessibilityOutline from '../Focus.css';
+  composes: accessibilityOutline from "../Focus.css";
 }
 
 .block {
-  composes: block from '../Layout.css';
+  composes: block from "../Layout.css";
 }

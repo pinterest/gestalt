@@ -1,12 +1,12 @@
 .container {
-  composes: absolute from '../Layout.css';
+  composes: absolute from "../Layout.css";
 }
 
 .contents {
-  composes: absolute from '../Layout.css';
-  composes: block from '../Layout.css';
-  composes: borderBox from '../Layout.css';
-  composes: rounded from '../Borders.css';
+  composes: absolute from "../Layout.css";
+  composes: block from "../Layout.css";
+  composes: borderBox from "../Layout.css";
+  composes: rounded from "../Borders.css";
   border: 1px solid currentColor;
 }
 
@@ -22,13 +22,13 @@
 }
 
 .innerContents {
-  composes: flex from '../Layout.css';
-  composes: overflowAuto from '../Layout.css';
-  composes: rounded from '../Borders.css';
+  composes: flex from "../Layout.css";
+  composes: overflowAuto from "../Layout.css";
+  composes: rounded from "../Borders.css";
 }
 
 .caret {
-  composes: absolute from '../Layout.css';
+  composes: absolute from "../Layout.css";
   fill: currentColor;
   height: 24px;
   pointer-events: none;
