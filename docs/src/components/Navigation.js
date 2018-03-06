@@ -1,13 +1,10 @@
 // @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
 import routes from '../routes';
 
-type Props = {||};
-
-type Context = {|
-  router: any,
+type Props = {|
+  history: *,
 |};
 
 const isLeftClickEvent = event => event.button === 0;
@@ -16,8 +13,8 @@ const isModifiedEvent = event =>
 
 const components = Object.keys(routes);
 
-export default function Navigation(props: Props, context: Context) {
-  const { router: { history } } = context;
+export default function Navigation(props: Props) {
+  const { history } = props;
   const links = components.map(ns => {
     const href = `/${ns}`;
     const handleClick = ({ event }) => {
@@ -84,7 +81,3 @@ export default function Navigation(props: Props, context: Context) {
     </Box>
   );
 }
-
-Navigation.contextTypes = {
-  router: PropTypes.any.isRequired,
-};
