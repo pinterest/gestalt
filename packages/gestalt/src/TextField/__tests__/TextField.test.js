@@ -3,6 +3,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import TextField from '../TextField';
+import ErrorFlyout from '../../ErrorFlyout/ErrorFlyout';
 
 describe('TextField', () => {
   it('Renders an ErrorFlyout if an error message is passed in', () => {
@@ -10,12 +11,13 @@ describe('TextField', () => {
       <TextField errorMessage="test" id="test" onChange={jest.fn()} />
     );
     wrapper.instance().setState({ errorIsOpen: true });
-    expect(wrapper.find('ErrorFlyout').length).toEqual(1);
+    wrapper.simulate('focus');
+    expect(wrapper.find(ErrorFlyout).length).toEqual(1);
   });
 
   it('Does not render an ErrorFlyout when errorMessage is null', () => {
     const wrapper = shallow(<TextField id="test" onChange={jest.fn()} />);
-    expect(wrapper.find('ErrorFlyout').length).toEqual(0);
+    expect(wrapper.find(ErrorFlyout).length).toEqual(0);
   });
 
   it('TextField normal', () => {
@@ -78,11 +80,11 @@ describe('TextField', () => {
         onBlur={jest.fn()}
       />
     );
-    expect(tree.find('ErrorFlyout').length).toEqual(0);
+    expect(tree.find(ErrorFlyout).length).toEqual(0);
     tree.setProps({
       errorMessage: 'error message',
     });
-    expect(tree.find('ErrorFlyout').length).toEqual(1);
+    expect(tree.find(ErrorFlyout).length).toEqual(1);
   });
 
   it('TextField with type number', () => {

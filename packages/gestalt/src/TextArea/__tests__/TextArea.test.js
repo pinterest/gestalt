@@ -1,18 +1,16 @@
 /* eslint-env jest */
-/* eslint import/imports-first: 0 */
-jest.unmock('../TextArea');
-
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import TextArea from '../TextArea';
 
-describe('TextField', () => {
+describe('TextArea', () => {
   it('Renders an ErrorFlyout if an error message is passed in', () => {
     const wrapper = shallow(
       <TextArea errorMessage="test" id="test" onChange={jest.fn()} />
     );
     wrapper.instance().setState({ errorIsOpen: true });
+    wrapper.simulate('focus');
     expect(wrapper.find('ErrorFlyout').length).toEqual(1);
   });
 

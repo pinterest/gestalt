@@ -1,6 +1,10 @@
 {
   "private": true,
-  "workspaces": ["docs", "packages/*", "test"],
+  "workspaces": [
+    "docs",
+    "packages/*",
+    "test"
+  ],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -15,7 +19,8 @@
     "babel-preset-stage-1": "^6.24.1",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
-    "enzyme": "^2.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme": "^3.3.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-prettier": "^2.1.1",
@@ -29,6 +34,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "prettier": "1.10.2",
+    "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-test-renderer": "^15.3.2",
     "react": "^15.4.1",
@@ -40,33 +46,41 @@
   "scripts": {
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
-    "start":
-      "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
+    "start": "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
     "test": "jest",
-    "ghost":
-      "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
+    "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
     "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js",
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
       "\\.(css)$": "identity-obj-proxy"
     }
   },
   "stylelint": {
-    "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
-    "plugins": ["stylelint-order"],
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-config-prettier"
+    ],
+    "plugins": [
+      "stylelint-order"
+    ],
     "rules": {
       "color-named": [
         "never",
         {
-          "ignoreProperties": ["composes"]
+          "ignoreProperties": [
+            "composes"
+          ]
         }
       ],
       "declaration-block-no-duplicate-properties": [
         true,
         {
-          "ignore": ["consecutive-duplicates"]
+          "ignore": [
+            "consecutive-duplicates"
+          ]
         }
       ],
       "declaration-no-important": true,
@@ -83,7 +97,9 @@
       "no-duplicate-selectors": true,
       "no-unknown-animations": true,
       "order/properties-order": [
-        ["composes"],
+        [
+          "composes"
+        ],
         {
           "unspecified": "bottomAlphabetical"
         }
@@ -91,20 +107,26 @@
       "property-no-unknown": [
         true,
         {
-          "ignoreProperties": ["composes"]
+          "ignoreProperties": [
+            "composes"
+          ]
         }
       ],
       "property-no-vendor-prefix": true,
       "rule-empty-line-before": [
         "always",
         {
-          "except": ["first-nested"]
+          "except": [
+            "first-nested"
+          ]
         }
       ],
       "selector-max-id": 0,
       "selector-no-vendor-prefix": true,
       "selector-pseudo-class-no-unknown": true,
-      "unit-blacklist": ["em"],
+      "unit-blacklist": [
+        "em"
+      ],
       "value-no-vendor-prefix": true
     }
   }
