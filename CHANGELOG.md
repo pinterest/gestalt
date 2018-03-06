@@ -17,6 +17,7 @@
 * Flyout: Update the docs with correct flowtypes (#37)
 * Internal: Removes [corkboard](https://yarnpkg.com/en/package/corkboard) from the docs (#41)
 * Internal: User prettier for markdown and css (#45)
+* Internal: Add script to run watcher & docs build concurrently (#48)
 
 </details>
 
