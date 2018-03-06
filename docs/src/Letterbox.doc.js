@@ -62,7 +62,7 @@ card(
       <img
         alt="tall"
         style={{ width: '100%', display: 'block' }}
-        src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+        src="https://i.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
       />
     </Letterbox>
 
@@ -70,7 +70,7 @@ card(
       <img
         alt="wide"
         style={{ width: '100%', display: 'block' }}
-        src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+        src="https://i.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
       />
     </Letterbox>
 
@@ -78,7 +78,7 @@ card(
       <img
         alt="square"
         style={{ width: '100%', display: 'block' }}
-        src="https://s-media-cache-ak0.pinimg.com/564x/26/1b/2b/261b2b5b30706a2d59232dec0a4f86c3.jpg"
+        src="https://i.pinimg.com/564x/26/1b/2b/261b2b5b30706a2d59232dec0a4f86c3.jpg"
       />
     </Letterbox>
     ~~~
@@ -97,7 +97,7 @@ card(
         <img
           alt="tall"
           style={{ width: '100%', display: 'block' }}
-          src="https://s-media-cache-ak0.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+          src="https://i.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
         />
       </Letterbox>
     </Box>
@@ -108,7 +108,7 @@ card(
         <img
           alt="wide"
           style={{ width: '100%', display: 'block' }}
-          src="https://s-media-cache-ak0.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+          src="https://i.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
         />
       </Letterbox>
     </Box>
@@ -119,7 +119,7 @@ card(
         <img
           alt="square"
           style={{ width: '100%', display: 'block' }}
-          src="https://s-media-cache-ak0.pinimg.com/564x/26/1b/2b/261b2b5b30706a2d59232dec0a4f86c3.jpg"
+          src="https://i.pinimg.com/564x/26/1b/2b/261b2b5b30706a2d59232dec0a4f86c3.jpg"
         />
       </Letterbox>
     </Box>
@@ -130,7 +130,7 @@ card(
         <img
           alt="square"
           style={{ width: '100%', display: 'block' }}
-          src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+          src="https://i.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
         />
       </Letterbox>
     </Box>
@@ -141,7 +141,7 @@ card(
         <img
           alt="square"
           style={{ width: '100%', display: 'block' }}
-          src="https://s-media-cache-ak0.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+          src="https://i.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
         />
       </Letterbox>
     </Box>
