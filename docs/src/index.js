@@ -1,14 +1,14 @@
 // @flow
 import React from 'react';
-import { Router, hashHistory, Route } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { render } from 'react-dom';
 import App from './components/App';
 import routes from './routes';
 import 'gestalt/dist/gestalt.css';
 
 render(
-  <Router history={hashHistory}>
-    <Route component={App} path="/">
+  <Router>
+    <App>
       {Object.keys(routes).map(pathname => (
         <Route
           component={routes[pathname]}
@@ -16,7 +16,7 @@ render(
           key={pathname}
         />
       ))}
-    </Route>
+    </App>
   </Router>,
   document.getElementById('root')
 );
