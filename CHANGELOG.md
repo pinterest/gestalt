@@ -11,6 +11,7 @@
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
+* SelectList: Adjust line height to result in 40px total height
 
 ### Patch
 
