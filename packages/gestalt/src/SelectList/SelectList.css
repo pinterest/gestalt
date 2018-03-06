@@ -11,8 +11,8 @@
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  line-height: 17px;
-  padding: 10px 35px 10px 14px; /* right padding prevents it from running into arrow */
+  height: 40px;
+  padding: 0 35px 0 14px; /* right padding prevents it from running into arrow */
 }
 
 .select::-ms-expand {
