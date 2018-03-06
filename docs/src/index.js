@@ -8,17 +8,15 @@ import 'gestalt/dist/gestalt.css';
 
 render(
   <Router>
-    <Route path="/">
-      <App>
-        {Object.keys(routes).map(pathname => (
-          <Route
-            component={routes[pathname]}
-            path={`/${pathname}`}
-            key={pathname}
-          />
-        ))}
-      </App>
-    </Route>
+    <App>
+      {Object.keys(routes).map(pathname => (
+        <Route
+          component={routes[pathname]}
+          path={`/${pathname}`}
+          key={pathname}
+        />
+      ))}
+    </App>
   </Router>,
   document.getElementById('root')
 );
