@@ -20,6 +20,7 @@
 * Internal: Add script to run watcher & docs build concurrently (#49)
 * Docs: Readme update to start docs server (#47)
 * Docs: fix github source link (#50)
+* Docs: Use [create-react-app](https://github.com/facebook/create-react-app) to build and run the docs (#42)
 
 </details>
 
