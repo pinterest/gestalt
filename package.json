@@ -1,25 +1,21 @@
 {
   "private": true,
-  "workspaces": [
-    "docs",
-    "packages/*",
-    "test"
-  ],
+  "workspaces": ["docs", "packages/*", "test"],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
-    "babel-jest": "^22.2.2",
+    "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-webpack-loaders": "0.9.0",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2015-loose": "^8.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
     "enzyme": "^2.3.0",
-    "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-prettier": "^2.1.1",
@@ -28,24 +24,27 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.4.0",
+    "eslint": "^4.17.0",
     "flow-bin": "0.65.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.3.0",
+    "jest": "^20.0.4",
     "prettier": "1.10.2",
-    "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-test-renderer": "^15.3.2",
-    "stylelint": "^8.0.0",
+    "react": "^15.4.1",
     "stylelint-config-prettier": "^2.1.0",
     "stylelint-config-standard": "^18.0.0",
-    "stylelint-order": "^0.8.0"
+    "stylelint-order": "^0.8.0",
+    "stylelint": "^8.0.0"
   },
   "scripts": {
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
-    "start": "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
+    "start":
+      "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
     "test": "jest",
-    "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
+    "ghost":
+      "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
     "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
   },
   "jest": {
@@ -55,28 +54,19 @@
     }
   },
   "stylelint": {
-    "extends": [
-      "stylelint-config-standard",
-      "stylelint-config-prettier"
-    ],
-    "plugins": [
-      "stylelint-order"
-    ],
+    "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+    "plugins": ["stylelint-order"],
     "rules": {
       "color-named": [
         "never",
         {
-          "ignoreProperties": [
-            "composes"
-          ]
+          "ignoreProperties": ["composes"]
         }
       ],
       "declaration-block-no-duplicate-properties": [
         true,
         {
-          "ignore": [
-            "consecutive-duplicates"
-          ]
+          "ignore": ["consecutive-duplicates"]
         }
       ],
       "declaration-no-important": true,
@@ -93,9 +83,7 @@
       "no-duplicate-selectors": true,
       "no-unknown-animations": true,
       "order/properties-order": [
-        [
-          "composes"
-        ],
+        ["composes"],
         {
           "unspecified": "bottomAlphabetical"
         }
@@ -103,26 +91,20 @@
       "property-no-unknown": [
         true,
         {
-          "ignoreProperties": [
-            "composes"
-          ]
+          "ignoreProperties": ["composes"]
         }
       ],
       "property-no-vendor-prefix": true,
       "rule-empty-line-before": [
         "always",
         {
-          "except": [
-            "first-nested"
-          ]
+          "except": ["first-nested"]
         }
       ],
       "selector-max-id": 0,
       "selector-no-vendor-prefix": true,
       "selector-pseudo-class-no-unknown": true,
-      "unit-blacklist": [
-        "em"
-      ],
+      "unit-blacklist": ["em"],
       "value-no-vendor-prefix": true
     }
   }

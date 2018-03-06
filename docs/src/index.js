@@ -1,12 +1,10 @@
+// @flow
 import React from 'react';
 import { Router, hashHistory, Route } from 'react-router';
 import { render } from 'react-dom';
 import App from './components/App';
 import routes from './routes';
-import '!style-loader!css-loader!gestalt/dist/gestalt.css';
-
-const node = document.createElement('DIV');
-document.body.appendChild(node);
+import 'gestalt/dist/gestalt.css';
 
 render(
   <Router history={hashHistory}>
@@ -20,5 +18,5 @@ render(
       ))}
     </Route>
   </Router>,
-  node
+  document.getElementById('root')
 );
