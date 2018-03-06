@@ -8,6 +8,9 @@
 
 ### Minor
 
+* Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
+  measuring etc. (#46)
+
 ### Patch
 
 * Internal: Split docs & integration tests into individual packages (#22)
