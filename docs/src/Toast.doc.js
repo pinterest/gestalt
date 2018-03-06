@@ -62,7 +62,7 @@ card(
       thumbnail={
         <Image
           alt="Saved to casa board"
-          src="https://s-media-cache-ak0.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
+          src="https://i.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
         />
       }
     />
@@ -99,7 +99,7 @@ card(
                   alt="Saved to home decor board"
                   naturalHeight={564}
                   naturalWidth={564}
-                  src="https://s-media-cache-ak0.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+                  src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
                 />
               }
             />

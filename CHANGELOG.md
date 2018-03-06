@@ -10,6 +10,7 @@
 
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
   measuring etc. (#46)
+* Sticky: Fallback to position relative in IE11 (#51)
 
 ### Patch
 
@@ -20,6 +21,7 @@
 * Internal: Add script to run watcher & docs build concurrently (#49)
 * Docs: Readme update to start docs server (#47)
 * Docs: fix github source link (#50)
+* Internal: IE11 fixes: fix images in docs / fix scrollbar always showing on proptable (#51)
 * Docs: Use [create-react-app](https://github.com/facebook/create-react-app) to build and run the docs (#42)
 
 </details>

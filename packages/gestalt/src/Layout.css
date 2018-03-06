@@ -59,6 +59,11 @@
 }
 
 .sticky {
+  /*
+    IE11 Fallback: when sticky is not supported, fall back to relative positioning.
+    We do this so if there is a zIndex set on sticky, the stacking context will be correct
+  */
+  position: relative;
   position: sticky;
 }
 
