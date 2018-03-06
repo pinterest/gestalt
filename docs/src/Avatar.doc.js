@@ -72,8 +72,7 @@ AvatarEx.propTypes = {
   src: PropTypes.string,
 };
 
-const imageSrc =
-  'https://i.pinimg.com/avatars/long_1468294555_444.jpg';
+const imageSrc = 'https://i.pinimg.com/avatars/long_1468294555_444.jpg';
 
 card(
   <Example
