@@ -21,7 +21,7 @@ type Props = {|
   onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
   options: Array<{
     label: string,
-    value: string,
+    value: $Subtype<string>,
   }>,
   placeholder?: string,
   value?: ?string,
