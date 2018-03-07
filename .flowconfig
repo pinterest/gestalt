@@ -4,7 +4,6 @@
 [ignore]
 # Tracking https://github.com/facebook/flow/issues/4015
 <PROJECT_ROOT>/docs
-<PROJECT_ROOT>/test
 
 <PROJECT_ROOT>/node_modules/stylelint.*
 <PROJECT_ROOT>/node_modules/eslint-plugin-jsx-a11y/*
@@ -12,6 +11,7 @@
 [options]
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment= \\(.\\|\n\\)*\\$FlowIssue
+suppress_comment= \\(.\\|\n\\)*\\$ExpectError
 esproposal.class_instance_fields=enable
 esproposal.class_static_fields=enable
 # necessary for webpack loader syntax.
