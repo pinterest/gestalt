@@ -12,6 +12,7 @@
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
 * Internal: Gestalt now is React 16.2.0 compatible (#53)
+* SelectList: Hardcode 40px height for consistency (#57)
 
 ### Patch
 
