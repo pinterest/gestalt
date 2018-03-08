@@ -1,16 +1,6 @@
 // @flow
 import React from 'react';
-import {
-  Box,
-  Container,
-  Text,
-  Link,
-  Icon,
-  Checkbox,
-  Column,
-  Mask,
-  Heading,
-} from 'gestalt';
+import * as gestalt from 'gestalt';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import Card from './Card';
 import Checkerboard from './Checkerboard';
@@ -24,6 +14,8 @@ type Props = {|
   stacked?: boolean,
 |};
 
+const { Box, Text } = gestalt;
+
 export default ({
   defaultCode,
   description = '',
@@ -35,15 +27,7 @@ export default ({
     <LiveProvider
       code={defaultCode.trim()}
       scope={{
-        Box,
-        Container,
-        Link,
-        Text,
-        Icon,
-        Checkbox,
-        Column,
-        Mask,
-        Heading,
+        ...gestalt,
         ...scope,
       }}
     >
