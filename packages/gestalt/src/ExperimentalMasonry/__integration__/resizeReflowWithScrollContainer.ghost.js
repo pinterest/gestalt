@@ -1,5 +1,5 @@
 /* global describe */
-/* global it */
+/* global xit */
 import assert from 'assert';
 import ghost from 'ghostjs';
 import countColumns from './lib/countColumns';
@@ -9,7 +9,7 @@ const PIN_SIZE = 235;
 const RESIZE_DEBOUNCE = 300;
 
 describe('ExerimentalMasonry > Resize /w scroll container', () => {
-  it('Reflows the grid after a resize', async () => {
+  xit('Reflows the grid after a resize', async () => {
     const GRID_WIDTH = 1000;
 
     // This test cares about page size, so close the previous instance to ensure

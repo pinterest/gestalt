@@ -65,6 +65,8 @@ const RESIZE_DEBOUNCE = 300;
 // The amount of extra buffer space for populating visible items.
 const VIRTUAL_BUFFER_FACTOR = 0.7;
 
+const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
+
 export default class Masonry<T> extends React.Component<Props<T>, State> {
   static createMeasurementStore() {
     return new MeasurementStore();
@@ -391,8 +393,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
           left: 0,
           transform: `translateX(${left}px) translateY(${top}px)`,
           WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
-          width: width >= Infinity ? undefined : width,
-          height: height >= Infinity ? undefined : height,
+          width: layoutNumberToCssDimension(width),
+          height: layoutNumberToCssDimension(height),
           ...(virtualize || isVisible
             ? {}
             : { display: 'none', transition: 'none' }),
@@ -469,7 +471,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
                 WebkitTransform: 'translateX(0px) translateY(0px)',
                 width: flexible
                   ? undefined
-                  : columnWidth >= Infinity ? undefined : columnWidth, // we can't set a width for server rendered flexible items
+                  : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
               }}
               ref={el => {
                 if (el && !flexible) {
