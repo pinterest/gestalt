@@ -11,6 +11,7 @@
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
+* SelectList: Hardcode 40px height for consistency (#57)
 
 ### Patch
 
@@ -23,6 +24,8 @@
 * Docs: fix github source link (#50)
 * Internal: IE11 fixes: fix images in docs / fix scrollbar always showing on proptable (#51)
 * Docs: Use [create-react-app](https://github.com/facebook/create-react-app) to build and run the docs (#42)
+* Docs: Add live docs for ToolTip (#63)
+* Docs: Add live docs to Tabs (#65)
 
 </details>
 

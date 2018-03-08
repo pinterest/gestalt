@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Tabs } from 'gestalt';
 import PropTable from './components/PropTable';
-import StateRecorder from './components/StateRecorder';
+import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
 
@@ -41,38 +41,49 @@ card(
 );
 
 card(
-  <StateRecorder
-    name="Demo"
-    fn={atom => {
-      const state = atom.deref();
-      return (
-        <Tabs
-          tabs={[
-            {
-              text: 'Boards',
-              href: '#',
-            },
-            {
-              text: 'Pins',
-              href: '#',
-            },
-            {
-              text: 'Done',
-              href: '#',
-            },
-          ]}
-          {...state}
-          onChange={({ activeTabIndex, event }) => {
-            event.preventDefault();
-            atom.set(props => ({
-              ...props,
-              activeTabIndex,
-            }));
-          }}
-        />
-      );
-    }}
-    initialState={{ activeTabIndex: 0 }}
+  <Example
+    name="Example"
+    defaultCode={`
+class TabExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeIndex: 0
+    };
+    this.handleChange = this._handleChange.bind(this);
+  }
+
+  _handleChange({ activeTabIndex, event }) {
+    event.preventDefault();
+    this.setState({
+      activeIndex: activeTabIndex
+    });
+  }
+  render() {
+    return (
+      <Tabs
+        tabs={[
+          {
+            text: "Boards",
+            href: "#"
+          },
+          {
+            text: "Pins",
+            href: "#"
+          },
+          {
+            text: "Topics",
+            href: "#"
+          }
+        ]}
+        activeTabIndex={this.state.activeIndex}
+        onChange={this.handleChange}
+      />
+    );
+  }
+}
+  `}
+    scope={{ Tabs }}
   />
 );
 
