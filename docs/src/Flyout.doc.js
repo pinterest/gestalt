@@ -67,56 +67,56 @@ card(
     name="Example"
     defaultCode={`
 class FlyoutExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = { open: false };
-  this.handleClick = this._handleClick.bind(this);
-  this.handleDismiss = this._handleDismiss.bind(this);
-}
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+    this.handleClick = this._handleClick.bind(this);
+    this.handleDismiss = this._handleDismiss.bind(this);
+  }
 
-_handleClick() {
-  this.setState(() => ({ open: !this.state.open }));
-}
-_handleDismiss() {
-  this.setState(() => ({ open: false }));
-}
+  _handleClick() {
+    this.setState(() => ({ open: !this.state.open }));
+  }
+  _handleDismiss() {
+    this.setState(() => ({ open: false }));
+  }
 
-render() {
-  return (
-    <Box>
-      <div
-        style={{ display: "inline-block" }}
-        ref={c => {
-          this.anchor = c;
-        }}
-      >
-        <Button
-          accessibilityExpanded={!!this.state.open}
-          accessibilityHaspopup
-          onClick={this.handleClick}
-          text="Help"
-        />
-      </div>
-      {this.state.open &&
-        <Flyout
-          anchor={this.anchor}
-          idealDirection="up"
-          message="Oops! This item is out of stock."
-          onDismiss={this.handleDismiss}
-          size="md"
+  render() {
+    return (
+      <Box>
+        <div
+          style={{ display: "inline-block" }}
+          ref={c => {
+            this.anchor = c;
+          }}
         >
-          <Box padding={3}>
-            <Text bold align="center">
-              Need help with something? Check out our Help Center.
-            </Text>
-            <Box paddingX={2} marginTop={3}>
-              <Button color="red" text="Visit the help center" />
+          <Button
+            accessibilityExpanded={!!this.state.open}
+            accessibilityHaspopup
+            onClick={this.handleClick}
+            text="Help"
+          />
+        </div>
+        {this.state.open &&
+          <Flyout
+            anchor={this.anchor}
+            idealDirection="up"
+            message="Oops! This item is out of stock."
+            onDismiss={this.handleDismiss}
+            size="md"
+          >
+            <Box padding={3}>
+              <Text bold align="center">
+                Need help with something? Check out our Help Center.
+              </Text>
+              <Box paddingX={2} marginTop={3}>
+                <Button color="red" text="Visit the help center" />
+              </Box>
             </Box>
-          </Box>
-        </Flyout>}
-    </Box>
-  );
-}
+          </Flyout>}
+      </Box>
+    );
+  }
 }
 `}
     scope={{ Button, Flyout }}

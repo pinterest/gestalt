@@ -24,6 +24,7 @@
 * Docs: fix github source link (#50)
 * Internal: IE11 fixes: fix images in docs / fix scrollbar always showing on proptable (#51)
 * Docs: Use [create-react-app](https://github.com/facebook/create-react-app) to build and run the docs (#42)
+* Docs: Add live docs for ToolTip (#63)
 
 </details>
 
