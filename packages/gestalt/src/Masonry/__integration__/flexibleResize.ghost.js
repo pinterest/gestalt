@@ -1,5 +1,5 @@
-/* global describe */
-/* global xit */
+/* global xdescribe */
+/* global it */
 import assert from 'assert';
 import ghost from 'ghostjs';
 import selectors from './lib/selectors';
@@ -24,8 +24,8 @@ const getItemColumnMap = async () => {
   return itemLeftMap;
 };
 
-describe('Masonry > Flexible resize', () => {
-  xit('Should resize item width and height on resize ', async () => {
+xdescribe('Masonry > Flexible resize', () => {
+  it('Should resize item width and height on resize ', async () => {
     ghost.close();
     await ghost.open('http://localhost:3000/FlexibleMasonry', {
       viewportSize: {
