@@ -30,7 +30,7 @@
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.4.0",
     "eslint": "^4.17.0",
-    "flow-bin": "0.65.0",
+    "flow-bin": "0.66.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "prettier": "1.10.2",
