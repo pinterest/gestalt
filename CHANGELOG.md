@@ -27,6 +27,7 @@
 * Docs: Add live docs for Tooltip (#63)
 * Docs: Add live docs to Tabs (#65)
 * Docs: Add live docs to Spinner (#66)
+* Docs: Add live docs to SelectList (#69)
 
 </details>
 
