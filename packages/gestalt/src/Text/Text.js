@@ -33,7 +33,7 @@ export default function Text({
 }: {|
   align?: 'left' | 'right' | 'center' | 'justify',
   bold?: boolean,
-  children?: any,
+  children?: React.Node,
   color?:
     | 'green'
     | 'pine'
