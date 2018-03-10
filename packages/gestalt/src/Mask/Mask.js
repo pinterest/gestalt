@@ -5,7 +5,7 @@ import cx from 'classnames';
 import styles from './Mask.css';
 
 type Props = {|
-  children?: any,
+  children?: React.Node,
   height?: number | string,
   shape?: 'circle' | 'rounded' | 'square',
   width?: number | string,

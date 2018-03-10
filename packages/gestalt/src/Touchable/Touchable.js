@@ -26,7 +26,7 @@ type MouseCursor =
   | 'zoomOut';
 
 type Props = {|
-  children?: any,
+  children?: React.Node,
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,

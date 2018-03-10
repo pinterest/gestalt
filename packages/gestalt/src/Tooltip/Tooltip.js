@@ -5,7 +5,7 @@ import Controller from '../FlyoutUtils/Controller';
 
 type Props = {|
   anchor: ?any,
-  children?: any,
+  children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,

@@ -28,6 +28,7 @@
 * Docs: Add live docs to Tabs (#65)
 * Docs: Add live docs to Spinner (#66)
 * Docs: Add live docs to SelectList (#69)
+* Flow: Update the Flow typing for `children` prop to be up to date with Flow version (#70)
 
 </details>
 

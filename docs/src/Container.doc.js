@@ -21,7 +21,7 @@ card(
     props={[
       {
         name: 'children',
-        type: 'any',
+        type: 'React.Node',
       },
     ]}
     heading={false}

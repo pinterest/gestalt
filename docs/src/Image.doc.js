@@ -27,7 +27,7 @@ card(
     props={[
       {
         name: 'children',
-        type: 'any',
+        type: 'React.Node',
       },
       {
         name: 'alt',

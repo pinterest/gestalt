@@ -15,7 +15,7 @@ import Mask from '../Mask/Mask';
 const aspectRatio = (width, height) => width / height;
 
 type PropType = {|
-  children?: any,
+  children?: React.Node,
   contentAspectRatio: number,
   height: number,
   width: number,
