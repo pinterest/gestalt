@@ -28,6 +28,7 @@
 * Docs: Add live docs to Tabs (#65)
 * Docs: Add live docs to Spinner (#66)
 * Flow: Update the Flow typing for `children` prop to be up to date with Flow version (#70)
+* Docs: Fix directly browsing to components (#72)
 
 </details>
 
