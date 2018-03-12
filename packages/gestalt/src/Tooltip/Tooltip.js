@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import Box from '../Box/Box';
+import PropTypes from 'prop-types';
 import Controller from '../FlyoutUtils/Controller';
 
 type Props = {|
@@ -41,3 +42,15 @@ export default function Tooltip(props: Props) {
     </Controller>
   );
 }
+
+Tooltip.propTypes = {
+  anchor: PropTypes.shape({
+    contains: PropTypes.func,
+    getBoundingClientRect: PropTypes.func,
+  }),
+  children: PropTypes.node,
+  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  onDismiss: PropTypes.func.isRequired,
+  positionRelativeToAnchor: PropTypes.bool,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+};
