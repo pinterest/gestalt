@@ -33,6 +33,11 @@ card(
         defaultValue: false,
       },
       {
+        name: 'nofollow',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
         name: 'onClick',
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },

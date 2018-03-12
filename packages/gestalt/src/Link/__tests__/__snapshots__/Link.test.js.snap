@@ -7,7 +7,7 @@ exports[`default 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel={null}
+  rel=""
   target={null}
 >
   Link
@@ -21,7 +21,7 @@ exports[`inline 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel={null}
+  rel=""
   target={null}
 >
   Link
@@ -35,7 +35,7 @@ exports[`regular 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel={null}
+  rel=""
   target={null}
 >
   Link
@@ -63,7 +63,7 @@ exports[`target null 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel={null}
+  rel=""
   target={null}
 >
   Link
@@ -77,8 +77,22 @@ exports[`target self 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel={null}
+  rel=""
   target="_self"
+>
+  Link
+</a>
+`;
+
+exports[`with nofollow 1`] = `
+<a
+  className="link accessibleFocusStyle block"
+  href="https://example.com"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  rel="nofollow"
+  target={null}
 >
   Link
 </a>
@@ -91,7 +105,7 @@ exports[`with onClick 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel={null}
+  rel=""
   target={null}
 >
   Link

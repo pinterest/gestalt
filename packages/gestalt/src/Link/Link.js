@@ -53,8 +53,15 @@ export default class Link extends React.Component<Props, State> {
   };
 
   render() {
-    const { children, inline = false, target = null, href } = this.props;
-    const rel = target === 'blank' ? 'noopener noreferrer' : null;
+    const { children, inline = false, nofollow = false, target = null, href } = this.props;
+    let relAttributes = [];
+    if (target === 'blank') {
+      relAttributes.push('noopener', 'noreferrer');
+    }
+    if (nofollow) {
+      relAttributes.push('nofollow');
+    }
+    const rel = relAttributes.join(' ');
     const linkTarget = target ? `_${target}` : null;
 
     return (

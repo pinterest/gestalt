@@ -44,3 +44,10 @@ it('with onClick', () =>
       Link
     </Link>
   ));
+
+it('with nofollow', () =>
+  snapshot(
+    <Link href="https://example.com" nofollow>
+      Link
+    </Link>
+  ));
