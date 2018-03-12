@@ -15,22 +15,7 @@ const SIZE_SCALE: { [size: ?string]: number } = {
   xl: 5,
 };
 
-export default function Text({
-  align = 'left',
-  bold = false,
-  children,
-  color = 'darkGray',
-  inline = false,
-  italic = false,
-  overflow = 'breakWord',
-  size = 'md',
-  smSize,
-  mdSize,
-  lgSize,
-  leading = 'short',
-  truncate = false,
-  __dangerouslyIncreaseLineHeight = false,
-}: {|
+type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   bold?: boolean,
   children?: React.Node,
@@ -62,7 +47,24 @@ export default function Text({
   truncate?: boolean,
   leading?: 'tall' | 'short',
   __dangerouslyIncreaseLineHeight?: boolean,
-|}) {
+|};
+
+export default function Text({
+  align = 'left',
+  bold = false,
+  children,
+  color = 'darkGray',
+  inline = false,
+  italic = false,
+  overflow = 'breakWord',
+  size = 'md',
+  smSize,
+  mdSize,
+  lgSize,
+  leading = 'short',
+  truncate = false,
+  __dangerouslyIncreaseLineHeight = false,
+}: Props) {
   const scale = SIZE_SCALE[size];
   const smScale = SIZE_SCALE[smSize];
   const mdScale = SIZE_SCALE[mdSize];
