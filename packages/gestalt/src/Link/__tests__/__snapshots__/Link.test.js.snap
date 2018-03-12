@@ -7,7 +7,7 @@ exports[`default 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel=""
+  rel={null}
   target={null}
 >
   Link
@@ -21,7 +21,7 @@ exports[`inline 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel=""
+  rel={null}
   target={null}
 >
   Link
@@ -35,7 +35,7 @@ exports[`regular 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel=""
+  rel={null}
   target={null}
 >
   Link
@@ -63,7 +63,7 @@ exports[`target null 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel=""
+  rel={null}
   target={null}
 >
   Link
@@ -77,7 +77,7 @@ exports[`target self 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel=""
+  rel={null}
   target="_self"
 >
   Link
@@ -105,7 +105,7 @@ exports[`with onClick 1`] = `
   onClick={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
-  rel=""
+  rel={null}
   target={null}
 >
   Link

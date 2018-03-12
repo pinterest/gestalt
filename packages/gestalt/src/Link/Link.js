@@ -8,6 +8,7 @@ type Props = {|
   children?: any,
   href: string,
   inline?: boolean,
+  nofollow?: boolean,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   target?: null | 'self' | 'blank',
 |};
@@ -59,7 +60,7 @@ export default class Link extends React.Component<Props, State> {
       inline = false,
       nofollow = false,
       target = null,
-      href
+      href,
     } = this.props;
     const relAttributes = [];
     if (target === 'blank') {
@@ -68,7 +69,7 @@ export default class Link extends React.Component<Props, State> {
     if (nofollow) {
       relAttributes.push('nofollow');
     }
-    const rel = relAttributes.join(' ');
+    const rel = relAttributes.join(' ') || null;
     const linkTarget = target ? `_${target}` : null;
 
     return (

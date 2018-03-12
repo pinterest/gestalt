@@ -12,6 +12,7 @@
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
 * SelectList: Hardcode 40px height for consistency (#57)
+* Link: Add `nollow` prop
 
 ### Patch
 
