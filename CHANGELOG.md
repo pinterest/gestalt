@@ -29,6 +29,7 @@
 * Docs: Add live docs to Spinner (#66)
 * Docs: Add live docs to SelectList (#69)
 * Flow: Update the Flow typing for `children` prop to be up to date with Flow version (#70)
+* ErrorFlyout / Toast / Tooltip: Add missing React proptyping to components (#73)
 
 </details>
 
