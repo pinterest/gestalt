@@ -4,6 +4,7 @@ import Box from '../Box/Box';
 import Mask from '../Mask/Mask';
 import Text from '../Text/Text';
 import Icon from '../Icon/Icon';
+import PropTypes from 'prop-types';
 
 type Props = {|
   color?: 'darkGray' | 'orange',
@@ -73,3 +74,13 @@ export default function Toast(props: Props) {
     </Box>
   );
 }
+
+Toast.propTypes = {
+  color: PropTypes.oneOf(['darkGray', 'orange']),
+  icon: PropTypes.oneOf(['arrow-circle-forward']), // leaving open to additional icons in the future
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]).isRequired,
+  thumbnail: PropTypes.element,
+};
