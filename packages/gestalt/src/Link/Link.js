@@ -23,6 +23,7 @@ export default class Link extends React.Component<Props, State> {
     children: PropTypes.node.isRequired,
     href: PropTypes.string.isRequired,
     inline: PropTypes.bool,
+    nofollow: PropTypes.bool,
     onClick: PropTypes.func,
     target: PropTypes.oneOf([null, 'self', 'blank']),
   };
@@ -53,8 +54,14 @@ export default class Link extends React.Component<Props, State> {
   };
 
   render() {
-    const { children, inline = false, nofollow = false, target = null, href } = this.props;
-    let relAttributes = [];
+    const {
+      children,
+      inline = false,
+      nofollow = false,
+      target = null,
+      href
+    } = this.props;
+    const relAttributes = [];
     if (target === 'blank') {
       relAttributes.push('noopener', 'noreferrer');
     }
