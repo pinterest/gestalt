@@ -5,7 +5,7 @@ import cx from 'classnames';
 import styles from './Link.css';
 
 type Props = {|
-  children?: any,
+  children?: React.Node,
   href: string,
   inline?: boolean,
   nofollow?: boolean,

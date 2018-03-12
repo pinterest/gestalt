@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Label.css';
 
 type Props = {|
-  children?: any,
+  children?: React.Node,
   htmlFor: string,
 |};
 
@@ -19,6 +19,6 @@ export default function Label(props: Props) {
 }
 
 Label.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   htmlFor: PropTypes.string.isRequired,
 };

@@ -6,7 +6,7 @@ import styles from './Icon.css';
 import icons from './icons';
 import colors from '../Colors.css';
 
-type IconProps = {
+type Props = {
   accessibilityLabel: string,
   color?:
     | 'blue'
@@ -33,7 +33,7 @@ type IconProps = {
 
 const IconNames = Object.keys(icons);
 
-export default function Icon(props: IconProps) {
+export default function Icon(props: Props) {
   const { accessibilityLabel, color = 'gray', icon, inline, size = 16 } = props;
 
   const cs = classnames(styles.icon, colors[color], {

@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Box, Label, SelectList, Text } from 'gestalt';
+import Example from './components/Example';
 import PropTable from './components/PropTable';
-import StateRecorder from './components/StateRecorder';
 import PageHeader from './components/PageHeader';
-import Card from './components/Card';
 import CardPage from './components/CardPage';
 
 const cards = [];
@@ -69,138 +67,41 @@ card(
 );
 
 card(
-  <Card
-    description={`
-    ~~~jsx
-    type Props = {
-      errorMessage?: string,
-      id: string,
-      idealErrorDirection?:
-        | 'up'
-        | 'right'
-        | 'down'
-        | 'left' /* default: right */,
-      name?: string,
-      onChange: (value: string) => void,
-      options: Array<{
-        label: string,
-        value: string,
-      }>,
-      placeholder?: string,
-      value?: string,
-    };
-    ~~~
-  `}
-    name="FlowTypes"
-  />
-);
-
-const countryOptions = [
-  {
-    value: 'aus',
-    label: 'Australia',
-  },
-  {
-    value: 'bel',
-    label: 'Belgium',
-  },
-  {
-    value: 'can',
-    label: 'Canada',
-  },
-  {
-    value: 'usa',
-    label: 'United States of America',
-  },
-];
-
-const cityOptions = [
-  {
-    value: 'bos',
-    label: 'Boston',
-  },
-  {
-    value: 'la',
-    label: 'Los Angeles',
-  },
-  {
-    value: 'sf',
-    label: 'San Francisco',
-  },
-];
-
-card(
-  <StateRecorder
-    description={`
-    Make sure to attach a \`Label\` to every SelectList.
-
-    ~~~jsx
-    <Box>
-      <Box paddingY={2}>
-        <Label htmlFor="country">
-          <Text>Country</Text>
-        </Label>
-      </Box>
-      <SelectList
-        id="country"
-        name="country"
-        onChange={({ value }) => this.setState({ value })}
-        options={countryOptions}
-        placeholder="Select country"
-        value={this.state.value}
-      />
-    </Box>
-    ~~~
-  `}
+  <Example
     name="Example"
-    fn={atom => (
-      <Box>
-        <Box paddingY={2}>
-          <Label htmlFor="country">
-            <Text>Country</Text>
-          </Label>
-        </Box>
-        <SelectList
-          id="country"
-          name="country"
-          onChange={({ value }) => atom.reset({ value })}
-          options={countryOptions}
-          placeholder="Select country"
-          value={atom.deref().value}
-        />
-      </Box>
-    )}
-  />
-);
+    description={`Make sure to attach a \`Label\` to every SelectList.`}
+    defaultCode={`
+class SelectListExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this._handleChange.bind(this);
+    this.state = {
+      city: 'la'
+    }
+  }
 
-card(
-  <StateRecorder
-    description={`
-    SelectList's can display their own error messages if you'd like them to.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
-    handle the rest.
+  _handleChange({ value }) {
+    this.setState({
+      city: value,
+    })
+  }
 
-    ~~~jsx
-    <Box>
-      <Box paddingY={2}>
-        <Label htmlFor="city">
-          <Text>City</Text>
-        </Label>
-      </Box>
-      <SelectList
-        id="city"
-        errorMessage="This field can't be blank!"
-        name="city"
-        onChange={({ value }) => this.setState({ value })}
-        options={cityOptions}
-        placeholder="Select city"
-        value={this.state.value}
-      />
-    </Box>
-    ~~~
-  `}
-    name="Errors"
-    fn={atom => (
+  render() {
+    const cityOptions = [
+      {
+        value: "bos",
+        label: "Boston"
+      },
+      {
+        value: "la",
+        label: "Los Angeles"
+      },
+      {
+        value: "sf",
+        label: "San Francisco"
+      }
+    ];
+    return (
       <Box>
         <Box paddingY={2}>
           <Label htmlFor="city">
@@ -209,59 +110,79 @@ card(
         </Box>
         <SelectList
           id="city"
-          errorMessage="This field can't be blank!"
           name="city"
-          onChange={({ value }) => atom.reset({ value })}
+          onChange={this.handleChange}
           options={cityOptions}
           placeholder="Select city"
-          value={atom.deref().value}
+          value={this.state.city}
         />
       </Box>
-    )}
+    );
+  }
+}
+    `}
   />
 );
 
 card(
-  <Box
-    description={`
-    You can disabled a SelectList by setting the \`disabled\` attribute.
+  <Example
+    name="Example: With Error Message"
+    description={`SelectList's can display their own error messages if you'd like them to.
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
+    handle the rest.`}
+    defaultCode={`
+class SelectListExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this._handleChange.bind(this);
+    this.state = {
+      city: 'la'
+    }
+  }
 
-    ~~~jsx
-    <Box>
-      <Box paddingY={2}>
-        <Label htmlFor="disabled">
-          <Text>Disabled</Text>
-        </Label>
+  _handleChange({ value }) {
+    this.setState({
+      city: value,
+    })
+  }
+
+  render() {
+    const cityOptions = [
+      {
+        value: "bos",
+        label: "Boston"
+      },
+      {
+        value: "la",
+        label: "Los Angeles"
+      },
+      {
+        value: "sf",
+        label: "San Francisco"
+      }
+    ];
+    return (
+      <Box>
+        <Box paddingY={2}>
+          <Label htmlFor="city">
+            <Text>City</Text>
+          </Label>
+        </Box>
+        <SelectList
+          id="city"
+          name="city"
+          errorMessage="This field can not be blank"
+          onChange={this.handleChange}
+          options={cityOptions}
+          placeholder="Select city"
+          value={this.state.city}
+        />
       </Box>
-      <SelectList
-        disabled
-        id="disabled"
-        name="disabled"
-        onChange={() => {}}
-        options={cityOptions}
-        placeholder="Select city"
-        value="Select city"
-      />
-    </Box>
-    ~~~
-  `}
-    name="Disabled"
-  >
-    <Box paddingY={2}>
-      <Label htmlFor="disabled">
-        <Text>Disabled</Text>
-      </Label>
-    </Box>
-    <SelectList
-      disabled
-      id="disabled"
-      name="disabled"
-      onChange={() => {}}
-      options={cityOptions}
-      placeholder="Select city"
-      value="Select city"
-    />
-  </Box>
+    );
+  }
+}
+    `}
+  />
 );
 
 export default () => <CardPage cards={cards} />;

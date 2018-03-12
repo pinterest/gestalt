@@ -27,8 +27,8 @@ const ESCAPE_KEY_CODE = 27;
 type Props = {|
   accessibilityCloseLabel: string,
   accessibilityModalLabel: string,
-  children?: any,
-  footer?: any,
+  children?: React.Node,
+  footer?: React.Node,
   heading: string,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',

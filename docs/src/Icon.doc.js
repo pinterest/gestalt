@@ -30,10 +30,6 @@ card(
           'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
       },
       {
-        name: 'children',
-        type: 'any',
-      },
-      {
         name: 'color',
         type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
         defaultValue: 'gray',

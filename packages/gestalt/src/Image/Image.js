@@ -8,7 +8,7 @@ const shouldScaleImage = fit => fit === 'cover' || fit === 'contain';
 
 type Props = {|
   alt: string,
-  children?: any,
+  children?: React.Node,
   color: string,
   fit: 'contain' | 'cover' | 'none',
   naturalHeight: number,
