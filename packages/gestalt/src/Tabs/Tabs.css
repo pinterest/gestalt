@@ -32,6 +32,5 @@
 }
 
 .tabIsActive {
-  composes: darkGray from "../Colors.css";
-  background-color: rgba(0, 0, 0, 0.06);
+  composes: lightGrayBg darkGray from "../Colors.css";
 }
