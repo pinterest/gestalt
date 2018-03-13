@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Box from '../Box/Box';
 import Controller from '../FlyoutUtils/Controller';
+import PropTypes from 'prop-types';
 import Text from '../Text/Text';
 
 type Props = {|
@@ -46,3 +47,15 @@ export default function ErrorFlyout(props: Props) {
     </Controller>
   );
 }
+
+ErrorFlyout.propTypes = {
+  anchor: PropTypes.shape({
+    contains: PropTypes.func,
+    getBoundingClientRect: PropTypes.func,
+  }),
+  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  message: PropTypes.string.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+  positionRelativeToAnchor: PropTypes.bool,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+};

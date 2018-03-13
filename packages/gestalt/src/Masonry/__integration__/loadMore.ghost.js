@@ -58,7 +58,7 @@ describe('Masonry > Scrolls', () => {
     await ghost.script(() => window.NEXT_FETCH());
 
     const newFetchCount = await ghost.script(() => window.TEST_FETCH_COUNTS);
-    assert.ok(newFetchCount >= initialFetchCount + 1);
+    assert.equal(newFetchCount, initialFetchCount + 1);
 
     await ghost.wait(async () => {
       gridItems = await ghost.findElements(selectors.gridItem);
