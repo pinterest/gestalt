@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.59.0 (March 13, 2018)
+
+### Minor
+
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
@@ -32,8 +40,6 @@
 * Flow: Update the Flow typing for `children` prop to be up to date with Flow version (#70)
 * ErrorFlyout / Toast / Tooltip: Add missing React proptyping to components (#73)
 * Flow: Upgrade flow-bin to version 0.66.0 (#74)
-
-</details>
 
 ## [0.58.0] (Feb 26, 2018)
 
