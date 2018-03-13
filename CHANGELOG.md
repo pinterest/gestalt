@@ -23,6 +23,7 @@
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
 * SelectList: Hardcode 40px height for consistency (#57)
+* Tabs: Update the background colors for both unselected and active tabs (#79)
 
 ### Patch
 
