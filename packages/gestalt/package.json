@@ -16,8 +16,8 @@
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
-    "react": "^15.4.1 || ^16.2.0",
-    "react-dom": "^15.4.1 || ^16.2.0"
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",

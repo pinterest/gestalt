@@ -11,3 +11,24 @@
 .Masonry__Item__Mounted {
   transition: transform 0.2s;
 }
+
+.Masonry__Item__Animated {
+  animation: itemFadeIn 0.33s forwards;
+}
+
+@keyframes itemFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+
+  39% {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
