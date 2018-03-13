@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 
 type Props = {|
-  children?: any,
+  children?: React.Node,
 |};
 
 export default function Container(props: Props) {

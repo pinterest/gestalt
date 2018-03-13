@@ -36,7 +36,7 @@ card(
     props={[
       {
         name: 'children',
-        type: 'any',
+        type: 'React.Node',
       },
       {
         name: 'accessibilityCloseLabel',
@@ -54,7 +54,7 @@ card(
       },
       {
         name: 'footer',
-        type: 'any',
+        type: 'React.Node',
       },
       {
         name: 'heading',
