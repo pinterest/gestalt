@@ -8,12 +8,16 @@
 
 ### Minor
 
-* Masonry: Revert promotion of ExperimentalMasonry to be Masonry.
-* Internal: Revert React 16 support
-
 ### Patch
 
 </details>
+
+## 0.60.0 (March 13, 2018)
+
+### Minor
+
+* Masonry: Revert promotion of ExperimentalMasonry to be Masonry.
+* Internal: Revert React 16 support
 
 ## 0.59.0 (March 13, 2018)
 
