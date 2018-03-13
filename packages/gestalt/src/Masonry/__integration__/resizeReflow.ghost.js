@@ -1,15 +1,14 @@
 /* global describe */
-/* global xit */
+/* global it */
 import assert from 'assert';
 import ghost from 'ghostjs';
 import countColumns from './lib/countColumns';
 import triggerResize from './lib/triggerResize';
 
 const PIN_SIZE = 235;
-const RESIZE_DEBOUNCE = 300;
 
 describe('Masonry > Resize', () => {
-  xit('Reflows the grid after a resize', async () => {
+  it('Reflows the grid after a resize', async () => {
     const GRID_WIDTH = 1000;
 
     // This test cares about page size, so close the previous instance to ensure
@@ -35,8 +34,8 @@ describe('Masonry > Resize', () => {
 
     await triggerResize(GRID_WIDTH - PIN_SIZE);
 
-    // Wait for the resize debounce to complete.
-    await ghost.wait(RESIZE_DEBOUNCE);
+    // Wait for the resize measurements to be finished
+    await ghost.wait(() => ghost.script(() => window.RESIZE_MEASUREMENT_DONE));
     assert.equal(
       await countColumns(),
       expectedColumns - 1,
