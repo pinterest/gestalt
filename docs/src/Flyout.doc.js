@@ -34,7 +34,7 @@ card(
       },
       {
         name: 'children',
-        type: 'any',
+        type: 'React.Node',
       },
       {
         name: 'onDismiss',

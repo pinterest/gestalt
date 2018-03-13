@@ -8,7 +8,7 @@ import typography from '../Typography.css';
 
 type Props = {|
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
-  children?: any,
+  children?: React.Node,
   color?:
     | 'blue'
     | 'darkGray'
