@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.59.0 (March 13, 2018)
+
+### Minor
+
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
@@ -23,8 +31,6 @@
 * Docs: fix github source link (#50)
 * Internal: IE11 fixes: fix images in docs / fix scrollbar always showing on proptable (#51)
 * Docs: Use [create-react-app](https://github.com/facebook/create-react-app) to build and run the docs (#42)
-
-</details>
 
 ## [0.58.0] (Feb 26, 2018)
 
