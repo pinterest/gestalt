@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Image: Don't show `alt` text when loading the image in FireFox. (#80)
+
 ### Patch
 
 </details>
