@@ -9,6 +9,7 @@
 ### Minor
 
 * Image: Don't show `alt` text when loading the image in FireFox. (#80)
+* Tabs: Update the background color to be transparent for unselected tabs (#79)
 
 ### Patch
 
@@ -29,7 +30,6 @@
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
 * SelectList: Hardcode 40px height for consistency (#57)
-* Tabs: Update the background color to be transparent for unselected tabs (#79)
 
 ### Patch
 
