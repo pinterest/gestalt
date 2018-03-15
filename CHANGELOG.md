@@ -19,6 +19,7 @@
 
 * Image: Don't show `alt` text when loading the image in FireFox. (#80)(#84)
 * Tabs: Update the background color to be transparent for unselected tabs (#79)
+* Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
 
 ### Patch
 

@@ -28,6 +28,28 @@ exports[`Heading small with id 1`] = `
 />
 `;
 
+exports[`Heading truncate adds a title when the children are text only 1`] = `
+<h3
+  className="Heading fontSize3 darkGray breakWord truncate"
+  id={null}
+  title="When we two parted - Lord Byron"
+>
+  When we two parted - Lord Byron
+</h3>
+`;
+
+exports[`Heading truncate does not add a title when the children are objects 1`] = `
+<h3
+  className="Heading fontSize3 darkGray breakWord truncate"
+  id={null}
+>
+  <div>
+    Breakup reading:
+  </div>
+  When we two parted - Lord Byron
+</h3>
+`;
+
 exports[`Heading xsmall with level 3 1`] = `
 <h3
   className="Heading fontSize1 darkGray breakWord"

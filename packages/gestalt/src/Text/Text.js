@@ -108,7 +108,17 @@ export default function Text({
     truncate && typography.truncate
   );
   const Tag = inline ? 'span' : 'div';
-  return <Tag className={cs}>{children}</Tag>;
+
+  return (
+    <Tag
+      className={cs}
+      {...(truncate && typeof children === 'string'
+        ? { title: children }
+        : null)}
+    >
+      {children}
+    </Tag>
+  );
 }
 
 Text.propTypes = {

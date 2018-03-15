@@ -80,7 +80,13 @@ export default function Heading(props: Props) {
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
   return React.createElement(
     `h${headingLevel}`,
-    { className: cs, id },
+    {
+      className: cs,
+      id,
+      ...(truncate && typeof children === 'string'
+        ? { title: children }
+        : null),
+    },
     children
   );
 }

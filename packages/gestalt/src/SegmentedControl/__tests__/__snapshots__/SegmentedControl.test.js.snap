@@ -13,6 +13,7 @@ exports[`SegmentedControl renders 1`] = `
   >
     <div
       className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+      title="News"
     >
       News
     </div>
@@ -25,6 +26,7 @@ exports[`SegmentedControl renders 1`] = `
   >
     <div
       className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+      title="You"
     >
       You
     </div>
@@ -37,6 +39,7 @@ exports[`SegmentedControl renders 1`] = `
   >
     <div
       className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+      title="Messages"
     >
       Messages
     </div>
