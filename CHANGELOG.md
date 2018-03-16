@@ -8,7 +8,7 @@
 
 ### Minor
 
-* Image: Don't show `alt` text when loading the image in FireFox. (#80)
+* Image: Don't show `alt` text when loading the image in FireFox. (#80)(#84)
 * Tabs: Update the background color to be transparent for unselected tabs (#79)
 
 ### Patch
