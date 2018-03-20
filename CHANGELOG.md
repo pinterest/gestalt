@@ -13,6 +13,7 @@
 
 ### Patch
 
+* Docs: Add live docs to Toast (#87)
 * Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
 
 </details>
