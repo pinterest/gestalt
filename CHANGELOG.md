@@ -15,6 +15,7 @@
 
 * Docs: Add live docs to Toast (#87)
 * Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
+* Docs: Add live docs to SegmentedControl (#90)
 
 </details>
 
