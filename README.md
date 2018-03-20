@@ -31,19 +31,10 @@ yarn
 yarn test
 ```
 
-Build and watch Gestalt:
+Build and watch Gestalt & run the docs server:
 
 ```bash
-cd packages/gestalt
-yarn watch
-```
-
-Start the docs server:
-
-```bash
-cd docs
 yarn start
-open "http://localhost:8080"
 ```
 
 Visit [http://localhost:8080/](http://localhost:8080) and click on a component to view the docs.
@@ -52,7 +43,7 @@ Using the Masonry playground:
 
 ```bash
 cd test && yarn start
-open "http://localhost:3000"
+open "http://localhost:3000/Masonry"
 ```
 
 Running Masonry's integration tests. This will leave lots of Firefox processes hanging around, so please be warned.

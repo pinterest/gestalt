@@ -19,6 +19,7 @@
 
 * Docs: Add live docs to Toast (#87)
 * Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
+* Docs: Run the docs locally on port `8080` + update the `README` with the latest commands (#89)
 
 ## 0.60.0 (March 13, 2018)
 
