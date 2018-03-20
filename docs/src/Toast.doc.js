@@ -10,7 +10,7 @@ const card = c => cards.push(c);
 
 card(
   <PageHeader
-    name='Toast'
+    name="Toast"
     description={`Toasts can educate people on the content of the screen, provide confirmation when people complete
 an action, or simply communicate a short message.
 
@@ -50,13 +50,11 @@ card(
 );
 
 card(
-      <Example
-      name='Confirmation Toasts'
-      description={`
-        You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
-        always include a thumbnail and two lines of text.
-      `}
-        defaultCode={`
+  <Example
+    name="Confirmation Toasts"
+    description="You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
+        always include a thumbnail and two lines of text."
+    defaultCode={`
 class ToastExample extends React.Component {
   constructor(props) {
     super(props);
@@ -107,17 +105,15 @@ class ToastExample extends React.Component {
     );
   }
 }`}
-      />
+  />
 );
 
 card(
   <Example
-    name='Guide Toasts'
-    description={`
-      You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
+    name="Guide Toasts"
+    description="You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
       your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
-      added. If you need a different Icon here, please contact the Gestalt team.
-    `}
+      added. If you need a different Icon here, please contact the Gestalt team."
     defaultCode={`
 class ToastExample extends React.Component {
   constructor(props) {
@@ -167,10 +163,10 @@ class ToastExample extends React.Component {
 
 card(
   <Example
-    description={`
+    description="
       You can use Toasts to indicate that something wrong occurred by setting the color to orange.
-    `}
-    name='Error Toasts'
+    "
+    name="Error Toasts"
     defaultCode={`
 class ToastExample extends React.Component {
   constructor(props) {
