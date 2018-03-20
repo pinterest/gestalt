@@ -10,7 +10,7 @@ const getAnimationCount = async () =>
 describe('Masonry > Limited inserted item animation', () => {
   it('Can insert items into the grid', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry');
+    await ghost.open('http://localhost:3001/Masonry');
 
     await ghost.script(() => {
       window.TEST_ANIMATION_COUNT = 0;

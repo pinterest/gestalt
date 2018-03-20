@@ -16,7 +16,7 @@ describe('ExerimentalMasonry > Resize /w scroll container', () => {
     // we open a new window with the correct dimensions.
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?scrollContainer=1',
+      'http://localhost:3001/ExperimentalMasonry?scrollContainer=1',
       {
         viewportSize: {
           width: GRID_WIDTH,

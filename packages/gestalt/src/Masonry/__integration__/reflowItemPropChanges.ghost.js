@@ -13,7 +13,7 @@ const masonryItemData = [
 describe('Masonry > Item prop changes', () => {
   it('Masonry will reflow when changing prop items.', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?finiteLength=1');
+    await ghost.open('http://localhost:3001/Masonry?finiteLength=1');
 
     const originalItems = await ghost.findElements(selectors.gridItem);
     assert.ok(originalItems.length > 0);

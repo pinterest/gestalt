@@ -26,7 +26,7 @@ const getItemColumnMap = async () => {
 describe('ExerimentalMasonry > Shuffle items', () => {
   it('Should reflow the grid when items are shuffled ', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/ExperimentalMasonry', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry', {
       viewportSize: {
         width: 800,
         height: 800,

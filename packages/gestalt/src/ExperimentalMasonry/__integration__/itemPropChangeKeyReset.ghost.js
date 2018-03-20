@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('ExerimentalMasonry > Item prop change', () => {
   it('Key generation when item object ref changes', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/ExperimentalMasonry');
+    await ghost.open('http://localhost:3001/ExperimentalMasonry');
 
     const firstCounterValue = await ghost.findElement(selectors.itemCounter(1));
     assert.equal(await firstCounterValue.text(), '0');

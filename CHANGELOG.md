@@ -6,6 +6,11 @@
     Click to see more.
   </summary>
 
+  ### Minor
+
+  ### Patch
+  * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+
 </details>
 
 ## 0.61.0 (March 20, 2018)
