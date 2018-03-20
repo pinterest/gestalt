@@ -201,7 +201,7 @@ class ToastExample extends React.Component {
         position='fixed'
       >
         {this.state.showErrorToast ? (
-          <Toast color='orange' text='Oops, we couldn't find that!' />
+          <Toast color='orange' text="Oops, we couldn't find that!" />
         ) : null}
       </Box>
       </div>
