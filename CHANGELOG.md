@@ -13,6 +13,7 @@
 
 ### Patch
 
+* Docs: Add live docs to Toast (#87)
 </details>
 
 ## 0.60.0 (March 13, 2018)
