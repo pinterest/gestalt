@@ -8,7 +8,7 @@ describe('ExerimentalMasonry > External cache', () => {
   it('should restore from position cache on remount', async () => {
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?externalCache=1',
+      'http://localhost:3001/ExperimentalMasonry?externalCache=1',
       {
         viewportSize: {
           width: 3000,
@@ -53,7 +53,7 @@ describe('ExerimentalMasonry > External cache', () => {
   it('should reset position cache if new items are passed in', async () => {
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?externalCache=1',
+      'http://localhost:3001/ExperimentalMasonry?externalCache=1',
       {
         viewportSize: {
           width: 3000,

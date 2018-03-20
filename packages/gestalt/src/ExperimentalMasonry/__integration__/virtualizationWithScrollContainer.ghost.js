@@ -10,7 +10,7 @@ describe('ExerimentalMasonry > virtualization /w scroll container', () => {
 
     const VIRTUALIZED_TOP = 800;
     await ghost.open(
-      `http://localhost:3000/ExperimentalMasonry?virtualize=1&scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`,
+      `http://localhost:3001/ExperimentalMasonry?virtualize=1&scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`,
       {
         viewportSize: {
           width: 800,

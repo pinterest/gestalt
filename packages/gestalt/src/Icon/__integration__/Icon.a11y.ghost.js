@@ -12,7 +12,7 @@ const initGhostAxe = async () => {
 describe('Icon > a11y', () => {
   before(initGhostAxe);
   it('Loads at least 5 icons on the test page', async () => {
-    await ghost.open('http://localhost:3000/A11y?component=icon');
+    await ghost.open('http://localhost:3001/A11y?component=icon');
 
     const svgIcons = await ghost.findElements('svg');
     assert.ok(svgIcons.length >= 5);

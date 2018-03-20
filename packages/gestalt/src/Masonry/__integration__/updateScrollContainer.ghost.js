@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('Masonry > Update scroll container', () => {
   it('Should handle updating the scroll container', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?virtualize=1', {
+    await ghost.open('http://localhost:3001/Masonry?virtualize=1', {
       viewportSize: {
         width: 800,
         height: 800,
