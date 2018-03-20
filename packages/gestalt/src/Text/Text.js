@@ -15,7 +15,7 @@ const SIZE_SCALE: { [size: ?string]: number } = {
   xl: 5,
 };
 
-type Props = {|
+type BaseProps = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   bold?: boolean,
   children?: React.Node,
@@ -44,10 +44,13 @@ type Props = {|
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   mdSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  truncate?: boolean,
   leading?: 'tall' | 'short',
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
+
+type RegularProps = BaseProps & { children?: React.Node };
+type TruncateProps = BaseProps & { truncate: boolean, children: string };
+type Props = RegularProps | TruncateProps;
 
 export default function Text({
   align = 'left',
