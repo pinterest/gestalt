@@ -12,8 +12,7 @@ exports[`SegmentedControl renders 1`] = `
     role="tab"
   >
     <div
-      className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
-      title="News"
+      className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       News
     </div>
@@ -25,8 +24,7 @@ exports[`SegmentedControl renders 1`] = `
     role="tab"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
-      title="You"
+      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       You
     </div>
@@ -38,8 +36,7 @@ exports[`SegmentedControl renders 1`] = `
     role="tab"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
-      title="Messages"
+      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       Messages
     </div>

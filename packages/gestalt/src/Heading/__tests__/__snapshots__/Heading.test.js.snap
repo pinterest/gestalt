@@ -42,6 +42,14 @@ exports[`Heading truncate does not add a title when the children are objects 1`]
 <h3
   className="Heading fontSize3 darkGray breakWord truncate"
   id={null}
+  title={
+    Array [
+      <div>
+        Breakup reading:
+    </div>,
+      "When we two parted - Lord Byron",
+    ]
+  }
 >
   <div>
     Breakup reading:

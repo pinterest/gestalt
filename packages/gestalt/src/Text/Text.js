@@ -48,8 +48,8 @@ type BaseProps = {|
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
 
-type RegularProps = BaseProps & { children?: React.Node };
-type TruncateProps = BaseProps & { truncate: boolean, children: string };
+type RegularProps = BaseProps & { truncate?: false };
+type TruncateProps = BaseProps & { truncate: true, children: string };
 type Props = RegularProps | TruncateProps;
 
 export default function Text({
@@ -113,18 +113,14 @@ export default function Text({
   const Tag = inline ? 'span' : 'div';
 
   return (
-    <Tag
-      className={cs}
-      {...(truncate && typeof children === 'string'
-        ? { title: children }
-        : null)}
-    >
+    <Tag className={cs} {...(truncate ? { title: children } : null)}>
       {children}
     </Tag>
   );
 }
 
 Text.propTypes = {
+  __dangerouslyIncreaseLineHeight: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   bold: PropTypes.bool,
   children: PropTypes.node,
@@ -149,6 +145,7 @@ Text.propTypes = {
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
+  leading: PropTypes.oneOf(['tall', 'short']),
   lgSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   overflow: PropTypes.oneOf(['normal', 'breakWord']),
