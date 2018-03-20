@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Button, Image, Toast, Box } from 'gestalt';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
@@ -82,7 +81,7 @@ class ToastExample extends React.Component {
         fit
         dangerouslySetInlineStyle={{
           __style: {
-            bottom: 68,
+            bottom: 50,
             left: '50%',
             transform: 'translateX(-50%)',
           },
@@ -144,7 +143,7 @@ class ToastExample extends React.Component {
         fit
         dangerouslySetInlineStyle={{
           __style: {
-            bottom: 68,
+            bottom: 150,
             left: '50%',
             transform: 'translateX(-50%)',
           },
@@ -197,7 +196,7 @@ class ToastExample extends React.Component {
         fit
         dangerouslySetInlineStyle={{
           __style: {
-            bottom: 68,
+            bottom: 250,
             left: '50%',
             transform: 'translateX(-50%)',
           },
