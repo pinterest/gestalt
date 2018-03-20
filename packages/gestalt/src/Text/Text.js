@@ -15,7 +15,7 @@ const SIZE_SCALE: { [size: ?string]: number } = {
   xl: 5,
 };
 
-type BaseProps = {|
+type Base = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   bold?: boolean,
   children?: React.Node,
@@ -48,9 +48,8 @@ type BaseProps = {|
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
 
-type RegularProps = BaseProps & { truncate?: false };
-type TruncateProps = BaseProps & { truncate: true, children: string };
-type Props = RegularProps | TruncateProps;
+type Props = Base &
+  ({ truncate: true, children?: string } | { truncate?: false });
 
 export default function Text({
   align = 'left',

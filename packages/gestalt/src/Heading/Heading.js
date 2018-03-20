@@ -6,7 +6,7 @@ import colors from '../Colors.css';
 import styles from './Heading.css';
 import typography from '../Typography.css';
 
-type BaseProps = {|
+type Base = {|
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
   children?: React.Node,
   color?:
@@ -35,9 +35,8 @@ type BaseProps = {|
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
-type RegularProps = BaseProps & { truncate?: false };
-type TruncateProps = BaseProps & { truncate: true, children: string };
-type Props = RegularProps | TruncateProps;
+type Props = Base &
+  ({ truncate: true, children?: string } | { truncate?: false });
 
 const defaultHeadingLevels = {
   xs: 5,
