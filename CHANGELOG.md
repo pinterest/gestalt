@@ -6,6 +6,10 @@
     Click to see more.
   </summary>
 
+</details>
+
+## 0.61.0 (March 20, 2018)
+
 ### Minor
 
 * Image: Don't show `alt` text when loading the image in FireFox. (#80)(#84)
@@ -15,8 +19,6 @@
 
 * Docs: Add live docs to Toast (#87)
 * Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
-
-</details>
 
 ## 0.60.0 (March 13, 2018)
 
