@@ -6,6 +6,11 @@
     Click to see more.
   </summary>
 
+  ### Minor
+
+  ### Patch
+  * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+
 </details>
 
 ## 0.61.0 (March 20, 2018)
@@ -19,7 +24,6 @@
 
 * Docs: Add live docs to Toast (#87)
 * Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
-* Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
 
 ## 0.60.0 (March 13, 2018)
 
