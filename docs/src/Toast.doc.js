@@ -2,9 +2,9 @@
 import * as React from 'react';
 import { Button, Image, Toast, Box } from 'gestalt';
 import PropTable from './components/PropTable';
-import StateRecorder from './components/StateRecorder';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
+import Example from './components/Example';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -51,47 +51,46 @@ card(
 );
 
 card(
-  <StateRecorder
-    description={`
-    You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
-    always include a thumbnail and two lines of text.
-
-    ~~~jsx
-    <Toast
-      text={['Saved to', 'Home decor']}
-      thumbnail={
-        <Image
-          alt="Saved to casa board"
-          src="https://i.pinimg.com/564x/19/f4/87/19f487a680f9fb1ecc8aa139b2afac7f.jpg"
-        />
-      }
-    />
-    ~~~
-  `}
-    name="Confirmation Toasts"
-    fn={atom => (
-      <div>
-        <Button
-          inline
-          text={
-            atom.deref().showToast ? 'Close toast' : 'Show confirmation toast'
-          }
-          onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
-          size="md"
-        />
-        {atom.deref().showToast ? (
-          <Box
-            fit
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: 68,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }}
-            paddingX={1}
-            position="fixed"
-          >
+      <Example
+      name="Confirmation Toasts"
+      description={`
+        You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
+        always include a thumbnail and two lines of text.
+      `}
+        defaultCode={`
+class ToastExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      showConfirmationToast: false,
+    };
+    this.handleConfirmationClick = this.handleConfirmationClick.bind(this);
+  }
+  handleConfirmationClick({ event }) {
+    this.setState(prevState => ({ showConfirmationToast: !prevState.showConfirmationToast }));
+  };
+  render() {
+    return (
+      <div> 
+      <Button
+        inline
+        text={ this.state.showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
+        onClick={this.handleConfirmationClick}
+        size="md"
+      />
+      <Box
+        fit
+        dangerouslySetInlineStyle={{
+          __style: {
+            bottom: 68,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          },
+        }}
+        paddingX={1}
+        position="fixed"
+      >
+        {this.state.showConfirmationToast ? (
             <Toast
               text={['Saved to', 'Home decor']}
               thumbnail={
@@ -103,93 +102,117 @@ card(
                 />
               }
             />
-          </Box>
         ) : null}
+      </Box>
       </div>
-    )}
-  />
+    );
+  }
+}`}
+      />
 );
 
 card(
-  <StateRecorder
-    description={`
-    You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
-    your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
-    added. If you need a different Icon here, please contact the Gestalt team.
-
-    ~~~jsx
-    <Toast text="Same great profile, just a new look. Learn more?" />
-    ~~~
-  `}
+  <Example
     name="Guide Toasts"
-    fn={atom => (
+    description={`
+      You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
+      your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
+      added. If you need a different Icon here, please contact the Gestalt team.
+    `}
+    defaultCode={`
+class ToastExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      showGuideToast: false
+    };
+    this.handleGuideClick = this.handleGuideClick.bind(this);
+  }
+  handleGuideClick({ event }) {
+    this.setState(prevState => ({ showGuideToast: !prevState.showGuideToast }));
+  };
+  render() {
+    return (
       <div>
-        <Button
-          inline
-          text={atom.deref().showToast ? 'Close toast' : 'Show guide toast'}
-          onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
-          size="md"
-        />
-        {atom.deref().showToast ? (
-          <Box
-            fit
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: 68,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }}
-            paddingX={1}
-            position="fixed"
-          >
-            <Toast
-              icon="arrow-circle-forward"
-              text="Same great profile, just a new look. Learn more?"
-            />
-          </Box>
+      <Button
+        inline
+        text={ this.state.showGuideToast ? 'Close toast' : 'Show guide toast' }
+        onClick={this.handleGuideClick}
+        size="md"
+      />
+      <Box
+        fit
+        dangerouslySetInlineStyle={{
+          __style: {
+            bottom: 68,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          },
+        }}
+        paddingX={1}
+        position="fixed"
+      >
+        {this.state.showGuideToast ? (
+          <Toast
+            icon="arrow-circle-forward"
+            text="Same great profile, just a new look. Learn more?"
+          />
         ) : null}
+      </Box>
       </div>
-    )}
+    );
+  }
+}`}
   />
 );
 
 card(
-  <StateRecorder
+  <Example
     description={`
-    You can use Toasts to indicate that something wrong occurred by setting the color to orange.
-
-    ~~~jsx
-    <Toast color="orange" text="Oops, we couldn't find that!" />
-    ~~~
-  `}
+      You can use Toasts to indicate that something wrong occurred by setting the color to orange.
+    `}
     name="Error Toasts"
-    fn={atom => (
+    defaultCode={`
+class ToastExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      showErrorToast: false
+    };
+    this.handleErrorClick = this.handleErrorClick.bind(this);
+  }
+  handleErrorClick({ event }) {
+    this.setState(prevState => ({ showErrorToast: !prevState.showErrorToast }));
+  };
+  render() {
+    return (
       <div>
-        <Button
-          inline
-          text={atom.deref().showToast ? 'Close toast' : 'Show error toast'}
-          onClick={() => atom.reset({ showToast: !atom.deref().showToast })}
-          size="md"
-        />
-        {atom.deref().showToast ? (
-          <Box
-            fit
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: 68,
-                left: '50%',
-                transform: 'translateX(-50%)',
-              },
-            }}
-            paddingX={1}
-            position="fixed"
-          >
-            <Toast color="orange" text="Oops, we couldn't find that!" />
-          </Box>
+      <Button
+        inline
+        text={ this.state.showErrorToast ? 'Close toast' : 'Show error toast' }
+        onClick={this.handleErrorClick}
+        size="md"
+      />
+      <Box
+        fit
+        dangerouslySetInlineStyle={{
+          __style: {
+            bottom: 68,
+            left: '50%',
+            transform: 'translateX(-50%)',
+          },
+        }}
+        paddingX={1}
+        position="fixed"
+      >
+        {this.state.showErrorToast ? (
+          <Toast color="orange" text="Oops, we couldn't find that!" />
         ) : null}
+      </Box>
       </div>
-    )}
+    );
+  }
+}`}
   />
 );
 
