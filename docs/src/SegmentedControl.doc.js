@@ -61,47 +61,30 @@ card(
     "
     name="Example"
     defaultCode={`
-    class ToastExample extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = { 
-          mediumIndex: 0,
-          largeIndex: 0,
-          items: ['News', 'You', 'Messages']
-        };
-        this.handleMediumChange = this.handleMediumChange.bind(this);
-        this.handleLargeChange = this.handleLargeChange.bind(this);
-      }
-      handleMediumChange({ activeIndex }) {
-        this.setState(prevState => ({ mediumIndex: activeIndex }));
-      };
-      handleLargeChange({ activeIndex }) {
-        this.setState(prevState => ({ largeIndex: activeIndex }));
-      };
-      render() {
-        return (
-          <div>
-            <Box marginBottom={2}>
-              <Text inline size="md">{'Medium (default size)'}</Text>
-            </Box>
-            <SegmentedControl
-              items={this.state.items}
-              selectedItemIndex={this.state.mediumIndex}
-              onChange={this.handleMediumChange}
-            />
-            <Box marginBottom={2}>
-              <Text inline size="md">{'Large'}</Text>
-            </Box>
-            <SegmentedControl
-              items={this.state.items}
-              size="lg"
-              selectedItemIndex={this.state.largeIndex}
-              onChange={this.handleLargeChange}
-            />
-          </div>
-        );
-      }
-    }
+class ToastExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      itemIndex: 0,
+      items: ['News', 'You', 'Messages']
+    };
+    this.handleItemChange = this.handleItemChange.bind(this);
+  }
+
+  handleItemChange({ activeIndex }) {
+    this.setState(prevState => ({ itemIndex: activeIndex }));
+  };
+  
+  render() {
+    return (
+      <SegmentedControl
+        items={this.state.items}
+        selectedItemIndex={this.state.itemIndex}
+        onChange={this.handleItemChange}
+      />
+    );
+  }
+}
     `}
   />
 );
