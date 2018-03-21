@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
+import { Link as RouterLink } from 'react-router-dom';
 import routes from '../routes';
 
 type Props = {|
@@ -16,18 +17,12 @@ const components = Object.keys(routes);
 export default function Navigation(props: Props) {
   const { history } = props;
   const links = components.map(ns => {
-    const href = `/${ns}`;
-    const handleClick = ({ event }) => {
-      if (event.defaultPrevented) return;
-      if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
-      event.preventDefault();
-      history.push(href);
-    };
+    const href = `${ns}`;
     return (
       <Text bold leading="tall" color="darkGray" size="lg">
-        <Link href={href} onClick={handleClick}>
-          {ns}
-        </Link>
+        <RouterLink to={href}>
+          <Link>{ns}</Link>
+        </RouterLink>
       </Text>
     );
   });
