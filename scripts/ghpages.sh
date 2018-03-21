@@ -16,8 +16,9 @@ git checkout -b tmp-deploy
 (cd docs && NODE_ENV=production yarn build --output-public-path '/gestalt')
 git add -f docs/build
 git commit -m "Deployed to Github Pages"
-git push ${repo} :gh-pages
-git subtree push --prefix docs/build ${repo} gh-pages
+git subtree split --prefix docs/build -b tmp-gh-pages
+git push -f ${repo} tmp-gh-pages:gh-pages
 git checkout master
 git reset --hard HEAD
 git branch -D tmp-deploy
+git branch -D tmp-gh-pages

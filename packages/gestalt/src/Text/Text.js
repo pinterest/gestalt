@@ -15,7 +15,7 @@ const SIZE_SCALE: { [size: ?string]: number } = {
   xl: 5,
 };
 
-type Props = {|
+type Base = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   bold?: boolean,
   children?: React.Node,
@@ -44,10 +44,12 @@ type Props = {|
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   mdSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  truncate?: boolean,
   leading?: 'tall' | 'short',
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
+
+type Props = Base &
+  ({ truncate: true, children?: string } | { truncate?: false });
 
 export default function Text({
   align = 'left',
@@ -108,10 +110,16 @@ export default function Text({
     truncate && typography.truncate
   );
   const Tag = inline ? 'span' : 'div';
-  return <Tag className={cs}>{children}</Tag>;
+
+  return (
+    <Tag className={cs} {...(truncate ? { title: children } : null)}>
+      {children}
+    </Tag>
+  );
 }
 
 Text.propTypes = {
+  __dangerouslyIncreaseLineHeight: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   bold: PropTypes.bool,
   children: PropTypes.node,
@@ -136,6 +144,7 @@ Text.propTypes = {
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
+  leading: PropTypes.oneOf(['tall', 'short']),
   lgSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   overflow: PropTypes.oneOf(['normal', 'breakWord']),

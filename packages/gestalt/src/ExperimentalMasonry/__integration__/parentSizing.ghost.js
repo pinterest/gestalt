@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('ExerimentalMasonry > Parent Sizing', () => {
   it('The grid starts from the left bounding box of the parent', async () => {
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?finiteLength=1&constrained=1'
+      'http://localhost:3001/ExperimentalMasonry?finiteLength=1&constrained=1'
     );
 
     // Assert that all items follow the indentation of the grid.

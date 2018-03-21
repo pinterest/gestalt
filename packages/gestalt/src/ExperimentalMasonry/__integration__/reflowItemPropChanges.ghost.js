@@ -14,7 +14,7 @@ describe('ExerimentalMasonry > Item prop changes', () => {
   it('Masonry will reflow when changing prop items.', async () => {
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?finiteLength=1'
+      'http://localhost:3001/ExperimentalMasonry?finiteLength=1'
     );
 
     const originalItems = await ghost.findElements(selectors.gridItem);

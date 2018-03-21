@@ -27,7 +27,7 @@ const getItemColumnMap = async () => {
 describe('ExerimentalMasonry > Flexible resize', () => {
   it('Should resize item width and height on resize ', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/ExperimentalFlexibleMasonry', {
+    await ghost.open('http://localhost:3001/ExperimentalFlexibleMasonry', {
       viewportSize: {
         width: 800,
         height: 800,

@@ -6,7 +6,7 @@ import selectors from './lib/selectors';
 
 describe.skip('ExerimentalMasonry > Cache invalidation', () => {
   it('Able to invalidate cache', async () => {
-    await ghost.open('http://localhost:3000/ExperimentalMasonry');
+    await ghost.open('http://localhost:3001/ExperimentalMasonry');
 
     const beforeReflowGridItems = await ghost.findElements(selectors.gridItem);
     const beforeReflowItemLeftMap = {};

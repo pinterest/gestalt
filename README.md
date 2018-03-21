@@ -31,28 +31,19 @@ yarn
 yarn test
 ```
 
-Build and watch Gestalt:
+Build and watch Gestalt & run the docs server:
 
 ```bash
-cd packages/gestalt
-yarn watch
-```
-
-Start the docs server:
-
-```bash
-cd docs
 yarn start
-open "http://localhost:8080"
 ```
 
-Visit [http://localhost:8080/](http://localhost:8080) and click on a component to view the docs.
+Visit [http://localhost:3000/](http://localhost:3000) and click on a component to view the docs.
 
 Using the Masonry playground:
 
 ```bash
 cd test && yarn start
-open "http://localhost:3000"
+open "http://localhost:3001/Masonry"
 ```
 
 Running Masonry's integration tests. This will leave lots of Firefox processes hanging around, so please be warned.
@@ -63,11 +54,14 @@ Running Masonry's integration tests. This will leave lots of Firefox processes h
 
 ## Releasing
 
+If you haven’t already, you’ll first need to [create an npm account](https://www.npmjs.com/signup). Once you've done that
+you can setup your username and email in Yarn using `yarn login`.
+
 The following outlines our release process:
 
-* Checkout a new branch.
-* Bump package version in `packages/gestalt/package.json` & update `CHANGELOG.md`.
-* Open a pull request with the new version and land that in master.
-* Once the version is bumped in master, checkout that commit locally.
-* Publish the tag, npm package, and docs with: `./scripts/publish.js`.
-* Draft a release from the tag and update the release notes from the `CHANGELOG` at https://github.com/pinterest/gestalt/releases.
+1. Checkout a new branch.
+2. Bump package version in `packages/gestalt/package.json` & update `CHANGELOG.md`.
+3. Open a pull request with the new version and land that in master.
+4. Once the version is bumped in master, checkout that commit locally.
+5. Run the release script from the root directory of the project `./scripts/publish.js` to publish the tag, npm package, and docs.
+6. Draft a new release from the tag at https://github.com/pinterest/gestalt/releases.

@@ -15,7 +15,7 @@ describe('ExerimentalMasonry > virtual bounds visibility /w scroll container', (
     // First load the page with javascript disabled to get the item position
     const VIRTUALIZED_TOP = 800;
     await ghost.open(
-      `http://localhost:3000/ExperimentalMasonry?scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`,
+      `http://localhost:3001/ExperimentalMasonry?scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`,
       {
         viewportSize: {
           width: 800,

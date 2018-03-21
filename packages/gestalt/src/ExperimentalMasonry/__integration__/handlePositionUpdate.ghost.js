@@ -11,7 +11,7 @@ describe('ExerimentalMasonry > handle offset update', () => {
     ghost.close();
 
     // First load the page with javascript disabled to get the item position
-    await ghost.open('http://localhost:3000/ExperimentalMasonry?virtualize=1', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry?virtualize=1', {
       viewportSize: {
         width: 800,
         height: 800,

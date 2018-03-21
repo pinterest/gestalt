@@ -6,7 +6,7 @@ import ghost from 'ghostjs';
 describe('Masonry > ScrollFetch onload', () => {
   it('Limits scrollFetch count', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?manualFetch=1', {
+    await ghost.open('http://localhost:3001/Masonry?manualFetch=1', {
       viewportSize: {
         width: 400,
         height: 400,
@@ -20,7 +20,7 @@ describe('Masonry > ScrollFetch onload', () => {
 
     // Fetches 1 time if the viewport is big enough
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry', {
+    await ghost.open('http://localhost:3001/Masonry', {
       viewportSize: {
         width: 2000,
         height: 1000,

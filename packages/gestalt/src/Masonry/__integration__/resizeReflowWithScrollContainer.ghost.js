@@ -15,7 +15,7 @@ describe('Masonry > Resize /w scroll container', () => {
     // This test cares about page size, so close the previous instance to ensure
     // we open a new window with the correct dimensions.
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?scrollContainer=1', {
+    await ghost.open('http://localhost:3001/Masonry?scrollContainer=1', {
       viewportSize: {
         width: GRID_WIDTH,
         height: 800,

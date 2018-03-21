@@ -6,7 +6,7 @@ import Text from '../Text/Text';
 import styles from './SegmentedControl.css';
 
 type Props = {|
-  items: Array<any>,
+  items: Array<string>,
   onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
   selectedItemIndex: number,
   size?: 'md' | 'lg',
@@ -36,7 +36,6 @@ export default function SegmentedControl(props: Props) {
               bold
               color={isSelected ? 'darkGray' : 'gray'}
               align="center"
-              truncate
               size={size}
             >
               {item}
