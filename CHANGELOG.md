@@ -7,9 +7,11 @@
   </summary>
 
   ### Minor
+  * Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
 
   ### Patch
   * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+  * Internal: Fix publish script to work for new Gestalt directory structure (#94)
 
 </details>
 
@@ -19,7 +21,6 @@
 
 * Image: Don't show `alt` text when loading the image in FireFox. (#80)(#84)
 * Tabs: Update the background color to be transparent for unselected tabs (#79)
-* Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
 
 ### Patch
 
