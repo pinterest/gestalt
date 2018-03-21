@@ -8,7 +8,7 @@ describe('Masonry > No scroll', () => {
   it('should do nothing on scroll', async () => {
     // First load the page with javascript disabled to get the item position
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?noScroll=1&virtualize=1', {
+    await ghost.open('http://localhost:3001/Masonry?noScroll=1&virtualize=1', {
       viewportSize: {
         width: 500,
         height: 500,

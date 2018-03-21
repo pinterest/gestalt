@@ -1,7 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Text> 1`] = `
+exports[`Text orange adds the orange color class 1`] = `
+<div
+  className="Text fontSize3 orange leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal"
+/>
+`;
+
+exports[`Text renders 1`] = `
 <div
   className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal"
 />
+`;
+
+exports[`Text truncate should add a title when the children are text only 1`] = `
+<div
+  className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal truncate"
+  title="Shall I compare thee to a summer's day - William Shakespeare"
+>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
+exports[`Text truncate should not add a title when the children are objects 1`] = `
+<div
+  className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal truncate"
+  title={
+    Array [
+      <div>
+        Summer reading:
+    </div>,
+      "Shall I compare thee to a summer's day - William Shakespeare",
+    ]
+  }
+>
+  <div>
+    Summer reading:
+  </div>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
 `;

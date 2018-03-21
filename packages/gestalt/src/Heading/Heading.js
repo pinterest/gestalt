@@ -6,7 +6,7 @@ import colors from '../Colors.css';
 import styles from './Heading.css';
 import typography from '../Typography.css';
 
-type Props = {|
+type Base = {|
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
   children?: React.Node,
   color?:
@@ -33,8 +33,10 @@ type Props = {|
   overflow?: 'normal' | 'breakWord',
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  truncate?: boolean,
 |};
+
+type Props = Base &
+  ({ truncate: true, children?: string } | { truncate?: false });
 
 const defaultHeadingLevels = {
   xs: 5,
@@ -80,7 +82,11 @@ export default function Heading(props: Props) {
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
   return React.createElement(
     `h${headingLevel}`,
-    { className: cs, id },
+    {
+      className: cs,
+      id,
+      ...(truncate ? { title: children } : null),
+    },
     children
   );
 }
@@ -108,6 +114,7 @@ Heading.propTypes = {
     'white',
   ]),
   id: PropTypes.string,
+  overflow: PropTypes.oneOf(['normal', 'breakWord']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   smSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),

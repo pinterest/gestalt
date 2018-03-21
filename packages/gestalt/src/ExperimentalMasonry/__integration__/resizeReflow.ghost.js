@@ -15,7 +15,7 @@ describe('ExerimentalMasonry > Resize', () => {
     // This test cares about page size, so close the previous instance to ensure
     // we open a new window with the correct dimensions.
     ghost.close();
-    await ghost.open('http://localhost:3000/ExperimentalMasonry', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry', {
       viewportSize: {
         width: GRID_WIDTH,
         height: 800,

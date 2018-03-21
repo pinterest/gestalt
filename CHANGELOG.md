@@ -6,17 +6,25 @@
     Click to see more.
   </summary>
 
+  ### Minor
+
+  ### Patch
+  * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+
+</details>
+
+## 0.61.0 (March 20, 2018)
+
 ### Minor
 
 * Image: Don't show `alt` text when loading the image in FireFox. (#80)(#84)
 * Tabs: Update the background color to be transparent for unselected tabs (#79)
+* Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
 
 ### Patch
 
 * Docs: Add live docs to Toast (#87)
 * Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
-
-</details>
 
 ## 0.60.0 (March 13, 2018)
 

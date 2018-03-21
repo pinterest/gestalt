@@ -8,7 +8,7 @@ describe('ExerimentalMasonry > Server Render Layout', () => {
   it('items rendered on the server maintain position after mounting', async () => {
     ghost.close();
     // First load the page with javascript disabled to get the item position
-    await ghost.open('http://localhost:3000/ExperimentalMasonry?deferMount=1', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry?deferMount=1', {
       viewportSize: {
         width: 1000,
         height: 1000,
@@ -52,7 +52,7 @@ describe('ExerimentalMasonry > Server Render Layout', () => {
     ghost.close();
     // First load the page with javascript disabled to get the item position
     await ghost.open(
-      'http://localhost:3000/ExperimentalFlexibleMasonry?deferMount=1&flexible=1',
+      'http://localhost:3001/ExperimentalFlexibleMasonry?deferMount=1&flexible=1',
       {
         viewportSize: {
           width: 1200,

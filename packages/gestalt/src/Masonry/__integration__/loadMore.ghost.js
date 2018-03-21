@@ -11,7 +11,7 @@ describe('Masonry > Scrolls', () => {
     // First load the page with javascript disabled to get the item position
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/Masonry?deferMount=1&manualFetch=1',
+      'http://localhost:3001/Masonry?deferMount=1&manualFetch=1',
       {
         viewportSize: {
           width: 3000,

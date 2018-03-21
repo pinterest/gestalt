@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('Masonry > External cache', () => {
   it('should restore from position cache on remount', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?externalCache=1', {
+    await ghost.open('http://localhost:3001/Masonry?externalCache=1', {
       viewportSize: {
         width: 3000,
         height: 2000,
@@ -49,7 +49,7 @@ describe('Masonry > External cache', () => {
   });
   it('should reset position cache if related items were inserted', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?externalCache=1', {
+    await ghost.open('http://localhost:3001/Masonry?externalCache=1', {
       viewportSize: {
         width: 3000,
         height: 2000,
@@ -98,7 +98,7 @@ describe('Masonry > External cache', () => {
   });
   it('should reset position cache if new items are passed in', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry?externalCache=1', {
+    await ghost.open('http://localhost:3001/Masonry?externalCache=1', {
       viewportSize: {
         width: 3000,
         height: 2000,

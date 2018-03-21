@@ -7,7 +7,7 @@ describe('ExerimentalMasonry > ScrollFetch onload', () => {
   it('Limits scrollFetch count', async () => {
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?manualFetch=1',
+      'http://localhost:3001/ExperimentalMasonry?manualFetch=1',
       {
         viewportSize: {
           width: 400,
@@ -23,7 +23,7 @@ describe('ExerimentalMasonry > ScrollFetch onload', () => {
 
     // Fetches 1 time if the viewport is big enough
     ghost.close();
-    await ghost.open('http://localhost:3000/ExperimentalMasonry', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry', {
       viewportSize: {
         width: 2000,
         height: 1000,

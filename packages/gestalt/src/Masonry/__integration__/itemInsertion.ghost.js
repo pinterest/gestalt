@@ -18,7 +18,7 @@ const getItemColumnMap = async () => {
 describe('Masonry > Insert items', () => {
   it('Can insert items into the grid', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry', {
+    await ghost.open('http://localhost:3001/Masonry', {
       viewportSize: {
         width: 3000,
         height: 2000,
