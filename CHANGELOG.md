@@ -10,6 +10,7 @@
 
   ### Patch
   * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+  * Internal: No downtime when releasing the docs (#97)
 
 </details>
 
