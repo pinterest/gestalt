@@ -9,6 +9,7 @@
   ### Minor
 
   ### Patch
+  * Internal: Fix publish script to work for new Gestalt directory structure (#94)
 
 </details>
 

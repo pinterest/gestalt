@@ -54,11 +54,14 @@ Running Masonry's integration tests. This will leave lots of Firefox processes h
 
 ## Releasing
 
+If you haven’t already, you’ll first need to [create an npm account](https://www.npmjs.com/signup). Once you've done that
+you can setup your username and email in Yarn using `yarn login`.
+
 The following outlines our release process:
 
-* Checkout a new branch.
-* Bump package version in `packages/gestalt/package.json` & update `CHANGELOG.md`.
-* Open a pull request with the new version and land that in master.
-* Once the version is bumped in master, checkout that commit locally.
-* Publish the tag, npm package, and docs with: `./scripts/publish.js`.
-* Draft a release from the tag and update the release notes from the `CHANGELOG` at https://github.com/pinterest/gestalt/releases.
+1. Checkout a new branch.
+2. Bump package version in `packages/gestalt/package.json` & update `CHANGELOG.md`.
+3. Open a pull request with the new version and land that in master.
+4. Once the version is bumped in master, checkout that commit locally.
+5. Run the release script from the root directory of the project `./scripts/publish.js` to publish the tag, npm package, and docs.
+6. Draft a new release from the tag at https://github.com/pinterest/gestalt/releases.
