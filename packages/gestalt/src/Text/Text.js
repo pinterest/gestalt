@@ -15,7 +15,7 @@ const SIZE_SCALE: { [size: ?string]: number } = {
   xl: 5,
 };
 
-type Base = {|
+type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   bold?: boolean,
   children?: React.Node,
@@ -45,11 +45,9 @@ type Base = {|
   mdSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   leading?: 'tall' | 'short',
+  truncate?: boolean,
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
-
-type Props = Base &
-  ({ truncate: true, children?: string } | { truncate?: false });
 
 export default function Text({
   align = 'left',
@@ -112,7 +110,12 @@ export default function Text({
   const Tag = inline ? 'span' : 'div';
 
   return (
-    <Tag className={cs} {...(truncate ? { title: children } : null)}>
+    <Tag
+      className={cs}
+      {...(truncate && typeof children === 'string'
+        ? { title: children }
+        : null)}
+    >
       {children}
     </Tag>
   );

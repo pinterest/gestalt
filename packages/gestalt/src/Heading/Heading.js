@@ -6,7 +6,7 @@ import colors from '../Colors.css';
 import styles from './Heading.css';
 import typography from '../Typography.css';
 
-type Base = {|
+type Props = {|
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
   children?: React.Node,
   color?:
@@ -33,10 +33,8 @@ type Base = {|
   overflow?: 'normal' | 'breakWord',
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  truncate?: boolean,
 |};
-
-type Props = Base &
-  ({ truncate: true, children?: string } | { truncate?: false });
 
 const defaultHeadingLevels = {
   xs: 5,
@@ -85,7 +83,9 @@ export default function Heading(props: Props) {
     {
       className: cs,
       id,
-      ...(truncate ? { title: children } : null),
+      ...(truncate && typeof children === 'string'
+        ? { title: children }
+        : null),
     },
     children
   );

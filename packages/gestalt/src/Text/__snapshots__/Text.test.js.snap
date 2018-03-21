@@ -24,14 +24,6 @@ exports[`Text truncate should add a title when the children are text only 1`] = 
 exports[`Text truncate should not add a title when the children are objects 1`] = `
 <div
   className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal truncate"
-  title={
-    Array [
-      <div>
-        Summer reading:
-    </div>,
-      "Shall I compare thee to a summer's day - William Shakespeare",
-    ]
-  }
 >
   <div>
     Summer reading:
