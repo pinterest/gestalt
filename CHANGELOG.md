@@ -7,13 +7,20 @@
   </summary>
 
   ### Minor
-  * Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
 
   ### Patch
-  * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
   * Internal: Fix publish script to work for new Gestalt directory structure (#94)
 
 </details>
+
+## 0.62.0 (March 21, 2018)
+
+### Minor
+* Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
+
+### Patch
+* Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+* Internal: No downtime when releasing the docs (#97)
 
 ## 0.61.0 (March 20, 2018)
 
