@@ -10,6 +10,7 @@
 
   ### Patch
   * Internal: Fix publish script to work for new Gestalt directory structure (#94)
+  * Heading / Text / SegmentedControl: Fix flow types when truncation is enabled (#98)
 
 </details>
 
