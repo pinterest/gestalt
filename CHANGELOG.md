@@ -15,15 +15,18 @@
 ## 0.62.1 (March 22, 2018)
 
 ### Patch
+
 * Internal: Fix publish script to work for new Gestalt directory structure (#94)
 * Heading / Text / SegmentedControl: Fix flow types when truncation is enabled (#98)
 
 ## 0.62.0 (March 21, 2018)
 
 ### Minor
+
 * Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
 
 ### Patch
+
 * Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
 * Internal: No downtime when releasing the docs (#97)
 
