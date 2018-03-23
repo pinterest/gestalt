@@ -506,7 +506,8 @@ export default class ExperimentalMasonry<T> extends React.Component<
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(item, i, positions[i])
             )}
-
+          </div>
+          <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {
               const position = measuringPositions[i];
               return (
