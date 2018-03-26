@@ -7,13 +7,20 @@
   </summary>
 
   ### Minor
-  * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
-  measuring etc. (#101)
-  * Internal: Gestalt now is React 16.2.0 compatible. (#101)
 
   ### Patch
 
 </details>
+
+## 0.63.0 (March 26, 2018)
+
+## [Unreleased]
+
+### Minor
+* Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
+measuring etc. (#101)
+* Internal: Gestalt now is React 16.2.0 compatible. (#101)
+
 
 ## 0.62.1 (March 22, 2018)
 
