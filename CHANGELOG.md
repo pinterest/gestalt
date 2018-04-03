@@ -7,16 +7,12 @@
   </summary>
 
   ### Minor
+  
+  * 4 new icons related to analytic stats (#105)
 
   ### Patch
 
 </details>
-
-## 0.63.1 (April 2, 2018)
-
-### Minor
-
-* 4 new icons related to analytic stats (#105)
 
 ## 0.63.0 (March 26, 2018)
 
