@@ -6,7 +6,10 @@
     Click to see more.
   </summary>
 
-  ### Minor
+### Minor
+
+* Fixes GroupAvatar when there are no collaborators (#112)
+* Fix flyout positioning during resize (#111)
 
   ### Patch
 
@@ -15,8 +18,9 @@
 ## 0.63.0 (March 26, 2018)
 
 ### Minor
+
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
-measuring etc. (#101)
+  measuring etc. (#101)
 * Internal: Gestalt now is React 16.2.0 compatible. (#101)
 
 ## 0.62.1 (March 22, 2018)

@@ -18,6 +18,11 @@ describe('DefaultAvatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renders 0 avatars', () => {
+    const tree = create(<GroupAvatar collaborators={[]} size="md" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders 2 avatars', () => {
     const tree = create(
       <GroupAvatar
