@@ -31,6 +31,7 @@ type Props = {|
 
 const avatarLayout = (n, size) => {
   switch (n) {
+    case 0:
     case 1:
       return [{ top: 0, left: 0, width: size, height: size }];
     case 2:
@@ -177,12 +178,25 @@ export default function GroupAvatar(props: Props) {
       <Collection
         layout={layout}
         Item={({ idx }) => {
-          const { name, src } = collaborators[idx];
-          const { width, height } = layout[idx];
           const fontSize =
-            collaborators.length === 1
+            collaborators.length <= 1
               ? DEFAULT_AVATAR_TEXT_SIZES[props.size] * 2
               : DEFAULT_AVATAR_TEXT_SIZES[props.size];
+
+          if (!collaborators[idx]) {
+            return (
+              <DefaultAvatar
+                name=" "
+                fontSize={fontSize}
+                textLayout="center"
+                height={layout[0].height}
+                size={size}
+              />
+            );
+          }
+
+          const { name, src } = collaborators[idx];
+          const { width, height } = layout[idx];
           if (!src) {
             return (
               <DefaultAvatar
