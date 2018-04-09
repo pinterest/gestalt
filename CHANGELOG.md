@@ -8,8 +8,9 @@
 
 ### Minor
 
-* Fixes GroupAvatar when there are no collaborators (#112)
-* Fix flyout positioning during resize (#111)
+* GroupAvatar: Fix when there are no collaborators (#112)
+* Flyout: Fix positioning during resize (#111)
+* Modal: Update heading size + fix docs (#114)
 
   ### Patch
 
