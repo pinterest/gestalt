@@ -6,10 +6,11 @@
     Click to see more.
   </summary>
 
-### Minor
-
-* Fixes GroupAvatar when there are no collaborators (#112)
-* Fix flyout positioning during resize (#111)
+  ### Minor
+  
+  * 4 new icons related to analytic stats (#105)
+  * Fixes GroupAvatar when there are no collaborators (#112)
+  * Fix flyout positioning during resize (#111)
 
   ### Patch
 

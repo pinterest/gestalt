@@ -2,11 +2,13 @@
 import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addPin from './add-pin.svg';
+import angledPin from './angled-pin.svg';
 import arrowBack from './arrow-back.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowDown from './arrow-down.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowUp from './arrow-up.svg';
+import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
 import camera from './camera.svg';
 import cancel from './cancel.svg';
@@ -21,6 +23,7 @@ import dash from './dash.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
+import eye from './eye.svg';
 import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
 import faceSad from './face-sad.svg';
@@ -33,6 +36,7 @@ import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
 import handle from './handle.svg';
+import handPointing from './hand-pointing.svg';
 import heart from './heart.svg';
 import heartBroken from './heart-broken.svg';
 import link from './link.svg';
@@ -66,11 +70,13 @@ export default {
   add,
   'add-circle': addCircle,
   'add-pin': addPin,
+  'angled-pin': angledPin,
   'arrow-back': arrowBack,
   'arrow-circle-forward': arrowCircleForward,
   'arrow-down': arrowDown,
   'arrow-forward': arrowForward,
   'arrow-up': arrowUp,
+  'arrow-up-right': arrowUpRight,
   bell,
   camera,
   cancel,
@@ -85,6 +91,7 @@ export default {
   edit,
   ellipsis,
   'ellipsis-circle-outline': ellipsisCircleOutline,
+  eye,
   facebook,
   'face-happy': faceHappy,
   'face-sad': faceSad,
@@ -95,6 +102,7 @@ export default {
   globe,
   'graph-bar': graphBar,
   handle,
+  'hand-pointing': handPointing,
   heart,
   'heart-broken': heartBroken,
   knoop,
