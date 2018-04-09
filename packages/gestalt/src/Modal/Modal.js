@@ -223,7 +223,7 @@ export default class Modal extends React.Component<Props, State> {
                 </Box>
               ) : (
                 <Box display="flex" padding={4}>
-                  <Heading size="lg" accessibilityLevel={1}>
+                  <Heading size="sm" accessibilityLevel={1}>
                     {heading}
                   </Heading>
                 </Box>

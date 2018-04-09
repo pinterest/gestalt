@@ -220,28 +220,6 @@ card(
   />
 );
 
-const alertModal = (
-  <Box padding={2}>
-    <Text>
-      You will not be able to follow each other or interact with each others
-      Pins.
-    </Text>
-  </Box>
-);
-
-function alertFooter(onClose) {
-  return (
-    <Box display="flex">
-      <Box paddingY={1}>
-        <Button size="lg" text="Cancel" onClick={onClose} />
-      </Box>
-      <Box paddingY={1}>
-        <Button size="lg" color="red" text="Block" onClick={onClose} />
-      </Box>
-    </Box>
-  );
-}
-
 card(
   <StateRecorder
     description={`
@@ -266,11 +244,39 @@ card(
             accessibilityModalLabel="Would you like to block Chris?"
             heading="Block Chris?"
             onDismiss={() => atom.reset({ isOpen: false })}
-            footer={alertFooter(() => atom.reset({ isOpen: false }))}
+            footer={
+              <Box
+                display="flex"
+                marginLeft={-1}
+                marginRight={-1}
+                justifyContent="end"
+              >
+                <Box padding={1}>
+                  <Button
+                    size="lg"
+                    text="Cancel"
+                    onClick={() => atom.reset({ isOpen: false })}
+                  />
+                </Box>
+                <Box padding={1}>
+                  <Button
+                    size="lg"
+                    color="red"
+                    text="Block"
+                    onClick={() => atom.reset({ isOpen: false })}
+                  />
+                </Box>
+              </Box>
+            }
             role="alertdialog"
             size="sm"
           >
-            {alertModal}
+            <Box paddingX={4} paddingY={2}>
+              <Text>
+                You will not be able to follow each other or interact with each
+                others Pins.
+              </Text>
+            </Box>
           </Modal>
         )}
       </Box>
@@ -281,7 +287,7 @@ card(
 const editBoard = (
   <Box display="flex" direction="row" position="relative">
     <Column xs={12}>
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="name">
             <Text align="left" bold>
@@ -294,7 +300,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="desc">
             <Text align="left" bold>
@@ -307,7 +313,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="category">
             <Text align="left" bold>
@@ -325,7 +331,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="cover">
             <Text align="left" bold>
@@ -338,7 +344,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="secret">
             <Text align="left" bold>
@@ -351,7 +357,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="collabs">
             <Text align="left" bold>
@@ -368,7 +374,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="notifications">
             <Text align="left" bold>
@@ -381,7 +387,7 @@ const editBoard = (
         </Column>
       </Box>
       <Divider />
-      <Box padding={2}>
+      <Box paddingY={2} paddingX={4}>
         <Column xs={4}>
           <Label htmlFor="collabs">
             <Text bold align="left">
@@ -399,16 +405,32 @@ const editBoard = (
 
 function editBoardFooter(onClose) {
   return (
-    <Box justifyContent="between" display="flex" direction="row">
-      <Column xs={6}>
-        <Button text="Delete Board" />
-      </Column>
-      <Column xs={6}>
-        <Box display="flex" direction="row" justifyContent="end">
-          <Button text="Cancel" onClick={onClose} />
-          <Button color="red" text="Save" />
+    <Box
+      justifyContent="between"
+      display="flex"
+      direction="row"
+      marginLeft={-1}
+      marginRight={-1}
+    >
+      <Box column={6} paddingX={1}>
+        <Button text="Delete Board" inline />
+      </Box>
+      <Box column={6} paddingX={1}>
+        <Box
+          display="flex"
+          direction="row"
+          justifyContent="end"
+          marginLeft={-1}
+          marginRight={-1}
+        >
+          <Box paddingX={1}>
+            <Button text="Cancel" inline onClick={onClose} />
+          </Box>
+          <Box paddingX={1}>
+            <Button color="red" inline text="Save" />
+          </Box>
         </Box>
-      </Column>
+      </Box>
     </Box>
   );
 }

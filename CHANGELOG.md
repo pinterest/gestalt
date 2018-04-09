@@ -6,13 +6,13 @@
     Click to see more.
   </summary>
 
-  ### Minor
-  
-  * 4 new icons related to analytic stats (#105)
-  * Fixes GroupAvatar when there are no collaborators (#112)
-  * Fix flyout positioning during resize (#111)
+### Minor
+* Icon: 4 new icons related to analytic stats (#105)
+* GroupAvatar: Fix when there are no collaborators (#112)
+* Flyout: Fix positioning during resize (#111)
+* Modal: Update heading size + fix docs (#114)
 
-  ### Patch
+### Patch
 
 </details>
 
