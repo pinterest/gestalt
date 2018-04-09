@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function Pulsar(props: Props) {
-  const { paused, size = 96 } = props;
+  const { paused, size = 136 } = props;
 
   return (
     <Box
@@ -26,8 +26,9 @@ export default function Pulsar(props: Props) {
       position="relative"
       width={size}
     >
-      <div className={styles.innerCircle} />
-      <div className={styles.outerCircle} />
+      <div className={styles.innerCircle}>
+        <div className={styles.outerCircle} />
+      </div>
     </Box>
   );
 }

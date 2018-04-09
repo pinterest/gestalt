@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Pulsar, Button } from 'gestalt';
+import { Pulsar, Button, Tooltip } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -30,7 +30,7 @@ card(
         name: 'size',
         type: `number`,
         description: `Use numbers for pixel sizes`,
-        defaultValue: 96,
+        defaultValue: 136,
       },
     ]}
     heading={false}
@@ -71,6 +71,73 @@ render() {
 }
 `}
     scope={{ Button, Pulsar }}
+  />
+);
+
+card(
+  <Example
+    description="
+
+  "
+    name="Example"
+    defaultCode={`
+class TooltipExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+    this.handleClick = this._handleClick.bind(this);
+    this.handleDismiss = this._handleDismiss.bind(this);
+  }
+
+  _handleClick() {
+    this.setState(() => ({ open: !this.state.open }));
+  }
+  _handleDismiss() {
+    this.setState(() => ({ open: false }));
+  }
+
+  render() {
+    return (
+      <Box marginTop={10}>
+        <div
+          style={{ display: "inline-block" }}
+          ref={c => {
+            this.anchor = c;
+          }}
+        >
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            pointerEvents: "none", }}>
+            <Touchable onTouch={({ event }) => this.handleClick(event)} shape="circle" fullWidth={false}>
+              <Pulsar paused={this.state.open} />
+            </Touchable>
+          </div>
+          <Button
+            accessibilityExpanded={!!this.state.open}
+            accessibilityHaspopup
+            onClick={this.handleClick}
+            text={this.state.open ? 'Hide Tooltip' : 'Show Tooltip'}
+          />
+        </div>
+        {this.state.open && (
+          <Tooltip
+            anchor={this.anchor}
+            idealDirection="down"
+            onDismiss={this.handleDismiss}
+          >
+            <Text bold color="white" size="md">
+              Create a board to save Pins about Kitchen Design for later
+            </Text>
+          </Tooltip>
+        )}
+      </Box>
+    );
+  }
+}
+`}
+    scope={{ Button, Tooltip, Pulsar }}
   />
 );
 
