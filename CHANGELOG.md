@@ -13,6 +13,7 @@
 * Modal: Update heading size + fix docs (#114)
 
 ### Patch
+* Docs: Add live docs to TextField / TextArea (#116)
 
 </details>
 
