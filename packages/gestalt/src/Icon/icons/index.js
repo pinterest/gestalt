@@ -5,6 +5,7 @@ import addPin from './add-pin.svg';
 import angledPin from './angled-pin.svg';
 import arrowBack from './arrow-back.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
+import arrowCircleDown from './arrow-circle-down.svg';
 import arrowDown from './arrow-down.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowUp from './arrow-up.svg';
@@ -72,6 +73,7 @@ export default {
   'add-pin': addPin,
   'angled-pin': angledPin,
   'arrow-back': arrowBack,
+  'arrow-circle-down': arrowCircleDown,
   'arrow-circle-forward': arrowCircleForward,
   'arrow-down': arrowDown,
   'arrow-forward': arrowForward,
