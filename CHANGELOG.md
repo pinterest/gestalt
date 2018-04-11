@@ -11,6 +11,7 @@
 * GroupAvatar: Fix when there are no collaborators (#112)
 * Flyout: Fix positioning during resize (#111)
 * Modal: Update heading size + fix docs (#114)
+* Icon: 1 icon (circle-arrow-down) for search (#119)
 
 ### Patch
 * Docs: Add live docs to TextField / TextArea (#116)
