@@ -2,7 +2,6 @@
   composes: noUnderline from "../Typography.css";
   color: inherit; /* Links should have the correct underline color */
   outline: none;
-  text-decoration: none;
 }
 
 .link:hover,
