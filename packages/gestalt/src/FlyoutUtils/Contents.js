@@ -39,17 +39,6 @@ type ClientRect = {
   width: number,
 };
 
-type ControllerProps = {|
-  anchor?: HTMLElement,
-  bgColor: 'darkGray' | 'white' | 'orange',
-  children?: any,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onDismiss: () => void,
-  positionRelativeToAnchor: boolean,
-  shouldFocus?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
-|};
-
 type Window = {
   height: number,
   width: number,
@@ -69,7 +58,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onClick: (event: Event) => void,
   onKeyDown: (event: { keyCode: number }) => void,
-  onResize: ControllerProps => void,
+  onResize: () => void,
   positionRelativeToAnchor?: boolean,
   relativeOffset: {
     x: number,

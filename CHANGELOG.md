@@ -6,17 +6,23 @@
     Click to see more.
   </summary>
 
-  ### Minor
+### Minor
+* Icon: 4 new icons related to analytic stats (#105)
+* GroupAvatar: Fix when there are no collaborators (#112)
+* Flyout: Fix positioning during resize (#111)
+* Modal: Update heading size + fix docs (#114)
 
-  ### Patch
+### Patch
+* Docs: Add live docs to TextField / TextArea (#116)
 
 </details>
 
 ## 0.63.0 (March 26, 2018)
 
 ### Minor
+
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
-measuring etc. (#101)
+  measuring etc. (#101)
 * Internal: Gestalt now is React 16.2.0 compatible. (#101)
 
 ## 0.62.1 (March 22, 2018)

@@ -1,5 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DefaultAvatar renders 0 avatars 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "boxShadow": "0 0 0 2px #fff",
+      "height": 40,
+      "width": 40,
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 40,
+          "left": 0,
+          "top": 0,
+          "width": 40,
+        }
+      }
+    >
+      <div
+        aria-label=" "
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": 40,
+          }
+        }
+      >
+        <div
+          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        >
+          <div
+            className="box"
+            style={
+              Object {
+                "fontSize": 22,
+                "lineHeight": "22px",
+              }
+            }
+          >
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`DefaultAvatar renders 2 avatars 1`] = `
 <div
   className="box circle overflowHidden whiteBg"
