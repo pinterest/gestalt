@@ -149,3 +149,8 @@ pre.prism-code {
 .token.entity {
   cursor: help;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
