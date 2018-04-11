@@ -14,6 +14,7 @@
 * Pulsar: New blue ring design, size change from 96 to 136px (#115)
 
 ### Patch
+* Docs: Add live docs to TextField / TextArea (#116)
 
 </details>
 
