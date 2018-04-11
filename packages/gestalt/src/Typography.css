@@ -86,12 +86,20 @@
 
 /* alignment */
 
-.alignLeft {
+html:not([dir="rtl"]) .alignLeft {
   text-align: left;
 }
 
-.alignRight {
+html[dir="rtl"] .alignLeft {
   text-align: right;
+}
+
+html:not([dir="rtl"]) .alignRight {
+  text-align: right;
+}
+
+html[dir="rtl"] .alignRight {
+  text-align: left;
 }
 
 .alignCenter {
