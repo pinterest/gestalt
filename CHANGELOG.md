@@ -5,6 +5,9 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+</details>
+
+## 0.64.0 (April 12, 2018)
 
 ### Minor
 * Icon: 4 new icons related to analytic stats (#105)
@@ -17,8 +20,6 @@
 ### Patch
 * Docs: Add live docs to TextField / TextArea (#116)
 * Internal: Fix navigation to allow opening in new tabs (#120)
-
-</details>
 
 ## 0.63.0 (March 26, 2018)
 
