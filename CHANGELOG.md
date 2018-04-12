@@ -15,6 +15,7 @@
 
 ### Patch
 * Docs: Add live docs to TextField / TextArea (#116)
+* Internal: Fix navigation to allow opening in new tabs (#120)
 
 </details>
 
