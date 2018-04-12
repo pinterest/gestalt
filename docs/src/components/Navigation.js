@@ -16,12 +16,12 @@ const components = Object.keys(routes);
 export default function Navigation(props: Props) {
   const { history } = props;
   const links = components.map(ns => {
-    const href = `/${ns}`;
+    const href = history.createHref({ pathname: `/${ns}` });
     const handleClick = ({ event }) => {
       if (event.defaultPrevented) return;
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       event.preventDefault();
-      history.push(href);
+      history.push(`/${ns}`);
     };
     return (
       <Text bold leading="tall" color="darkGray" size="lg">
