@@ -74,6 +74,18 @@ const classname = (namespace, className) =>
   namespace ? `.${namespace}${capitalize(className)}` : `.${className}`;
 
 const rules = (i, prefix) => [
+  ruleset(`html:not([dir="rtl"]) ${classname(prefix, `marginStart${i}`)}`, {
+    'margin-left': bt(i),
+  }),
+  ruleset(`html:not([dir="rtl"]) ${classname(prefix, `marginEnd${i}`)}`, {
+    'margin-right': bt(i),
+  }),
+  ruleset(`html[dir="rtl"] ${classname(prefix, `marginStart${i}`)}`, {
+    'margin-right': bt(i),
+  }),
+  ruleset(`html[dir="rtl"] ${classname(prefix, `marginEnd${i}`)}`, {
+    'margin-left': bt(i),
+  }),
   ruleset(classname(prefix, `marginTop${i}`), {
     'margin-top': bt(i),
   }),
