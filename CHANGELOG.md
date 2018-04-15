@@ -5,6 +5,12 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+  
+### Minor
+* Link: Remove duplicate CSS declaration (#118)
+
+### Patch
+
 </details>
 
 ## 0.64.0 (April 12, 2018)
