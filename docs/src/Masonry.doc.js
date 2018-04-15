@@ -31,10 +31,10 @@ card(
       },
       {
         name: 'comp',
-        type: '() => void',
+        type: 'React.ComponentType',
         required: true,
         description:
-          'A function or React component that renders the item you would like displayed in the grid.',
+          'A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: `data: T`, `itemIdx: number`, and `isMeasuring: boolean`.',
       },
       {
         name: 'flexible',
