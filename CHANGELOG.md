@@ -5,19 +5,26 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+  
+### Minor
+* Link: Remove duplicate CSS declaration (#118)
+
+### Patch
+
+</details>
+
+## 0.64.0 (April 12, 2018)
 
 ### Minor
 * Icon: 4 new icons related to analytic stats (#105)
 * GroupAvatar: Fix when there are no collaborators (#112)
 * Flyout: Fix positioning during resize (#111)
 * Modal: Update heading size + fix docs (#114)
-* Link: Remove duplicate CSS declaration (#118)
 * Icon: 1 icon (circle-arrow-down) for search (#119)
 
 ### Patch
 * Docs: Add live docs to TextField / TextArea (#116)
-
-</details>
+* Internal: Fix navigation to allow opening in new tabs (#120)
 
 ## 0.63.0 (March 26, 2018)
 
