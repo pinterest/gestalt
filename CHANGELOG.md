@@ -11,6 +11,7 @@
 * GroupAvatar: Fix when there are no collaborators (#112)
 * Flyout: Fix positioning during resize (#111)
 * Modal: Update heading size + fix docs (#114)
+* Link: Remove duplicate CSS declaration (#118)
 * Icon: 1 icon (circle-arrow-down) for search (#119)
 
 ### Patch
