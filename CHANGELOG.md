@@ -5,6 +5,9 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+</details>
+
+## 0.65.0 (April 16, 2018)
 
 ### Minor
 
@@ -15,9 +18,6 @@
 
 * Docs: Updated Masonry "comp" definition to be more descriptive
 * Docs: Added some header comments to internal components/utils
-  </details>
-
-</details>
 
 ## 0.64.0 (April 12, 2018)
 
