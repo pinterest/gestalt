@@ -9,11 +9,12 @@
 ### Minor
 
 * Link: Remove duplicate CSS declaration (#118)
-
+* Box: Added right to left language aware marginStart & marginEnd (#122)
 ### Patch
 
 * Docs: Updated Masonry "comp" definition to be more descriptive
 * Docs: Added some header comments to internal components/utils
+* Docs: Updated Box docs to include marginStart and marginEnd
   </details>
 
 </details>
