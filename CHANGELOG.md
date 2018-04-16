@@ -5,6 +5,11 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+  
+### Minor
+
+### Patch
+
 </details>
 
 ## 0.65.0 (April 16, 2018)
