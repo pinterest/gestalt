@@ -7,10 +7,13 @@
   </summary>
 
 ### Minor
+
 * Link: Remove duplicate CSS declaration (#118)
 
 ### Patch
+
 * Docs: Updated Masonry "comp" definition to be more descriptive
+* Docs: Added some header comments to internal components/utils
   </details>
 
 </details>
