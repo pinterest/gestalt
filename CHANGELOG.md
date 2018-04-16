@@ -7,9 +7,13 @@
   </summary>
 
 ### Minor
+* Link: Remove duplicate CSS declaration (#118)
 
+### Patch
 * Docs: Updated Masonry "comp" definition to be more descriptive
   </details>
+
+</details>
 
 ## 0.64.0 (April 12, 2018)
 
