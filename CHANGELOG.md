@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.65.0 (April 16, 2018)
+
+### Minor
+
 * Link: Remove duplicate CSS declaration (#118)
 * Pulsar: Fix default prop value for size to match new design (#126)
 
@@ -19,8 +27,6 @@
 * Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
 * Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
 * Masonry: Added a debounce method and moved over some Masonry methods to use it
-
-</details>
 
 ## 0.64.0 (April 12, 2018)
 
