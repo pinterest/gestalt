@@ -9,15 +9,15 @@
 ### Minor
 
 * Link: Remove duplicate CSS declaration (#118)
+* Pulsar: Fix default prop value for size to match new design (#126)
 
 ### Patch
 
 * Docs: Updated Masonry "comp" definition to be more descriptive
+* Internal: Added some header comments to internal components/utils
 * Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
 * Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
 * Masonry: Added a debounce method and moved over some Masonry methods to use it
-
-  </details>
 
 </details>
 

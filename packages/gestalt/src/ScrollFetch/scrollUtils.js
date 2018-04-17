@@ -1,3 +1,9 @@
+/**
+ * Measuring scroll positions, element heights, etc is different between
+ * different browsers and the window object vs other DOM nodes. These
+ * utils abstract away these differences.
+ */
+
 // @flow
 export function getElementHeight(element: HTMLElement): number {
   return element === window ? window.innerHeight : element.clientHeight;
