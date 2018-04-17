@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import debounce from '../debounce';
 import PropTypes from 'prop-types';
 import FetchItems from '../ScrollFetch/FetchItems';
 import styles from './Masonry.css';
@@ -238,10 +239,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
   componentDidUpdate(prevProps: Props<T>, prevState: State) {
     const { items, measurementStore } = this.props;
 
-    clearTimeout(this.measureTimeout);
-    this.measureTimeout = setTimeout(() => {
-      this.measureContainer();
-    });
+    this.measureContainerAsync();
 
     if (prevState.width != null && this.state.width !== prevState.width) {
       measurementStore.reset();
@@ -270,8 +268,12 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
     if (this.insertAnimationFrame) {
       cancelAnimationFrame(this.insertAnimationFrame);
     }
-    clearTimeout(this.measureTimeout);
-    clearTimeout(this.resizeTimeout);
+
+    // Make sure async methods are cancelled.
+    this.measureContainerAsync.clearTimeout();
+    this.handleResize.clearTimeout();
+    this.updateScrollPosition.clearTimeout();
+
     window.removeEventListener('resize', this.handleResize);
   }
 
@@ -289,22 +291,16 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
   gridWrapper: ?HTMLElement;
   insertAnimationFrame: AnimationFrameID;
   measureTimeout: TimeoutID;
-  resizeTimeout: TimeoutID;
   scrollContainer: ?ScrollContainer;
 
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
-  handleResize = () => {
-    if (this.resizeTimeout) {
-      clearTimeout(this.resizeTimeout);
+  handleResize = debounce(() => {
+    if (this.gridWrapper) {
+      this.setState({ width: this.gridWrapper.clientWidth });
     }
-    this.resizeTimeout = setTimeout(() => {
-      if (this.gridWrapper) {
-        this.setState({ width: this.gridWrapper.clientWidth });
-      }
-    }, RESIZE_DEBOUNCE);
-  };
+  }, RESIZE_DEBOUNCE);
 
   updateScrollPosition = throttle(() => {
     if (!this.scrollContainer) {
@@ -320,6 +316,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
       scrollTop: getScrollPos(scrollContainer),
     });
   });
+
+  measureContainerAsync = debounce(() => {
+    this.measureContainer();
+  }, 0);
 
   measureContainer() {
     if (this.scrollContainer != null) {

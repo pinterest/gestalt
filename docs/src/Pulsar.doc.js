@@ -107,8 +107,8 @@ class TooltipExample extends React.Component {
         >
           <div style={{
             position: "absolute",
-            top: "10px",
-            left: "10px",
+            top: 10,
+            left: 10,
             pointerEvents: "none", }}>
             <Touchable onTouch={({ event }) => this.handleClick(event)} shape="circle" fullWidth={false}>
               <Pulsar paused={this.state.open} />
