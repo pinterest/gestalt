@@ -15,7 +15,7 @@
 
 * Docs: Updated Masonry "comp" definition to be more descriptive
 * Docs: Added some header comments to internal components/utils
-  </details>
+* Docs: Updated Pulsar docs to use new default size
 
 </details>
 
