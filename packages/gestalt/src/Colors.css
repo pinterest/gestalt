@@ -19,6 +19,7 @@
   --maroon: #6e0f3c;
   --watermelon: #f13535;
   --orange: #e3780c;
+  --mediumGray: #898989;
 }
 
 /** PRIMARY COLORS **/
@@ -209,4 +210,14 @@
 
 .darkWashBg {
   background-color: color(var(--lightGray) blackness(+ 10%));
+}
+
+/* mediumGray */
+
+.mediumGray {
+  color: var(--mediumGray);
+}
+
+.mediumGrayBg {
+  background-color: var(--mediumGray);
 }
