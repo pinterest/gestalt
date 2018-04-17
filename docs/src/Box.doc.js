@@ -74,7 +74,7 @@ card(
       },
       {
         name: 'color',
-        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "watermelon" | "white"`,
+        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "watermelon" | "white" | "mediumGray"`,
         defaultValue: 'transparent',
       },
       { name: 'fit', type: 'boolean', defaultValue: false },
@@ -451,6 +451,7 @@ card(
       'transparent',
       'lightWash',
       'darkWash',
+      'mediumGray',
     ]}
   >
     {props => <Box width={60} height={60} shape="circle" {...props} />}

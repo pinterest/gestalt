@@ -26,7 +26,8 @@ type Props = {|
     | 'purple'
     | 'red'
     | 'watermelon'
-    | 'white',
+    | 'white'
+    | 'mediumGray',
   id?: string,
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   mdSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
@@ -112,6 +113,7 @@ Heading.propTypes = {
     'red',
     'watermelon',
     'white',
+    'mediumGray',
   ]),
   id: PropTypes.string,
   overflow: PropTypes.oneOf(['normal', 'breakWord']),

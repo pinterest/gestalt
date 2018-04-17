@@ -36,7 +36,8 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'red'
-    | 'white',
+    | 'white'
+    | 'mediumGray',
   inline?: boolean,
   italic?: boolean,
   overflow?: 'normal' | 'breakWord',
@@ -93,6 +94,7 @@ export default function Text({
     color === 'red' && colors.red,
     color === 'watermelon' && colors.watermelon,
     color === 'white' && colors.white,
+    color === 'mediumGray' && colors.mediumGray,
     leading === 'short' && typography.leadingShort,
     (leading === 'tall' || __dangerouslyIncreaseLineHeight) &&
       typography.leadingTall,
@@ -144,6 +146,7 @@ Text.propTypes = {
     'lightGray',
     'red',
     'white',
+    'mediumGray',
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
