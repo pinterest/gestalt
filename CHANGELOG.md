@@ -5,7 +5,7 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
-  
+
 ### Minor
 
 ### Patch
@@ -27,8 +27,6 @@
 * Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
 * Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
 * Masonry: Added a debounce method and moved over some Masonry methods to use it
-
-</details>
 
 ## 0.64.0 (April 12, 2018)
 
