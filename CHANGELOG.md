@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+* Switch: Disallow width shrinking in flex layouts
 
 </details>
 
