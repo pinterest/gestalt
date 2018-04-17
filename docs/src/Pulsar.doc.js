@@ -30,7 +30,7 @@ card(
         name: 'size',
         type: `number`,
         description: `Use numbers for pixel sizes`,
-        defaultValue: 136,
+        defaultValue: 120,
       },
     ]}
     heading={false}
@@ -107,8 +107,8 @@ class TooltipExample extends React.Component {
         >
           <div style={{
             position: "absolute",
-            top: 0,
-            left: 0,
+            top: 10,
+            left: 10,
             pointerEvents: "none", }}>
             <Touchable onTouch={({ event }) => this.handleClick(event)} shape="circle" fullWidth={false}>
               <Pulsar paused={this.state.open} />
