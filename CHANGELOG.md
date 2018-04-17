@@ -14,8 +14,10 @@
 ### Patch
 
 * Docs: Updated Masonry "comp" definition to be more descriptive
-* Docs: Added some header comments to internal components/utils
-  </details>
+* Internal: Added some header comments to internal components/utils
+* Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
+* Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
+* Masonry: Added a debounce method and moved over some Masonry methods to use it
 
 </details>
 
