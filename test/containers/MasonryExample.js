@@ -27,7 +27,6 @@ export default class MasonryExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      disableServerRender: false,
       expanded: false,
       hasScrollContainer: !!this.props.scrollContainer,
       items: props.initialPins,
@@ -168,7 +167,6 @@ export default class MasonryExample extends React.Component {
       }),
       () => {
         this.setState(prevState => ({
-          disableServerRender: true,
           mountGrid: !prevState.mountGrid,
         }));
       }
@@ -297,7 +295,6 @@ export default class MasonryExample extends React.Component {
             ref={ref => {
               this.gridRef = ref;
             }}
-            serverRender={!this.state.disableServerRender}
             virtualize={Boolean(this.props.virtualize)}
             {...dynamicGridProps}
           />
