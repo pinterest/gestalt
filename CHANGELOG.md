@@ -9,7 +9,9 @@
 ### Minor
 
 ### Patch
+
 * Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
 
 </details>
 
@@ -28,7 +30,6 @@
 * Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
 * Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
 * Masonry: Added a debounce method and moved over some Masonry methods to use it
-* Masonry: Removed the unused "serverRender" prop
 
 ## 0.64.0 (April 12, 2018)
 
