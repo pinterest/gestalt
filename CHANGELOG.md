@@ -10,6 +10,7 @@
 
 ### Patch
 * Switch: Disallow width shrinking in flex layouts
+* Touchable: Add a prop to render Touchable inline
 
 </details>
 

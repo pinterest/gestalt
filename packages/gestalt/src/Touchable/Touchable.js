@@ -29,6 +29,7 @@ type Props = {|
   children?: React.Node,
   fullHeight?: boolean,
   fullWidth?: boolean,
+  inline?: boolean,
   mouseCursor?: MouseCursor,
   onMouseEnter?: ({ event: SyntheticMouseEvent<> }) => void,
   onMouseLeave?: ({ event: SyntheticMouseEvent<> }) => void,
@@ -58,6 +59,7 @@ export default class Touchable extends React.Component<Props> {
       children,
       fullWidth = true,
       fullHeight,
+      inline,
       mouseCursor = 'pointer',
       onMouseEnter,
       onMouseLeave,
@@ -75,8 +77,10 @@ export default class Touchable extends React.Component<Props> {
       }
     );
 
+    const Tag = inline ? 'span' : 'div';
+
     return (
-      <div
+      <Tag
         className={classes}
         onClick={event => onTouch && onTouch({ event })}
         onMouseEnter={event => onMouseEnter && onMouseEnter({ event })}
@@ -86,7 +90,7 @@ export default class Touchable extends React.Component<Props> {
         tabIndex="0"
       >
         {children}
-      </div>
+      </Tag>
     );
   }
 }

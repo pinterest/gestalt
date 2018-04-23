@@ -45,3 +45,12 @@ test('Touchable sets fullHeight correctly', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Touchable renders span when inline', () => {
+  const tree = create(
+    <Touchable onTouch={() => {}} inline>
+      Touchable
+    </Touchable>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

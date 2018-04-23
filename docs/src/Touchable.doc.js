@@ -73,51 +73,77 @@ card(
 class TouchableExample extends React.Component {
 constructor(props) {
   super(props);
-  this.state = { clicks: 0 };
-  this.handleTouch = this._handleTouch.bind(this);
+  this.state = { imageClicks: 0, inlineClicks: 0 };
+  this.handleImageTouch = this._handleImageTouch.bind(this);
+  this.handleInlineTouch = this._handleInlineTouch.bind(this);
   this.handleLinkClick = this._handleLinkClick.bind(this);
 }
-_handleTouch() {
+_handleImageTouch() {
   this.setState({
-    clicks: this.state.clicks + 1,
+    imageClicks: this.state.imageClicks + 1,
   });
+};
+_handleInlineTouch() {
+  this.setState({ inlineClicks: this.state.inlineClicks + 1 });
 };
 _handleLinkClick({ event }) {
   event.stopPropagation();
 };
 render() {
   return (
-    <Box padding={2} width={150}>
-    <Touchable
-      mouseCursor="zoomIn"
-      onTouch={this.handleTouch}
-      shape="rounded"
-    >
-      <Mask shape="rounded">
-        <Image
-          alt="Antelope Canyon"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="https://68.media.tumblr.com/1121817a32bf070389aee567542f3dc7/tumblr_ocog9xxwdu1r9ublwo1_1280.jpg"
-        />
-      </Mask>
+    <Box>
+      <Box padding={2} width={150}>
+      <Touchable
+        mouseCursor="zoomIn"
+        onTouch={this.handleImageTouch}
+        shape="rounded"
+      >
+        <Mask shape="rounded">
+          <Image
+            alt="Antelope Canyon"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://68.media.tumblr.com/1121817a32bf070389aee567542f3dc7/tumblr_ocog9xxwdu1r9ublwo1_1280.jpg"
+          />
+        </Mask>
+        <Box paddingY={2}>
+          <Link
+            href="https://en.wikipedia.org/wiki/Antelope_Canyon"
+            onClick={this.handleLinkClick}
+          >
+            <Text align="center">Wiki Link</Text>
+          </Link>
+        </Box>
+      </Touchable>
       <Box paddingY={2}>
-        <Link
-          href="https://en.wikipedia.org/wiki/Antelope_Canyon"
-          onClick={this.handleLinkClick}
-        >
-          <Text align="center">Wiki Link</Text>
-        </Link>
+        <Text color="gray" align="center">
+          Clicked{' '}
+          {this.state.imageClicks}{' '}
+          {this.state.imageClicks === 1 ? 'time' : 'times'}
+        </Text>
       </Box>
-    </Touchable>
-    <Box paddingY={2}>
-      <Text color="gray" align="center">
-        Clicked{' '}
-        {this.state.clicks}{' '}
-        {this.state.clicks === 1 ? 'time' : 'times'}
-      </Text>
     </Box>
-  </Box>
+      <Box>
+        <Text inline>
+          {'This is an inline'}
+        </Text>
+        <Touchable
+          inline
+          onTouch={this.handleInlineTouch}>
+          <Text inline>
+            {' touchable'}
+          </Text>
+        </Touchable>
+      </Box>
+      <Box paddingY={2}>
+        <Text color="gray">
+          Clicked{' '}
+          {this.state.inlineClicks}{' '}
+          {this.state.inlineClicks === 1 ? 'time' : 'times'}
+        </Text>
+      </Box>
+    </Box>
+
   );
 }
 }

@@ -14,6 +14,20 @@ exports[`Touchable renders 1`] = `
 </div>
 `;
 
+exports[`Touchable renders span when inline 1`] = `
+<span
+  className="touchable pointer square fullWidth"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</span>
+`;
+
 exports[`Touchable sets correct mouse cursor 1`] = `
 <div
   className="touchable zoomIn square fullWidth"
