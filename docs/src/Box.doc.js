@@ -419,6 +419,32 @@ card(
   </Card>
 );
 
+const toggleRTL = () => {
+  document.documentElement.dir =
+    document.documentElement.dir === 'rtl' ? '' : 'rtl';
+};
+
+card(
+  <Card
+    description={`
+    Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
+    
+    \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
+
+    \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
+
+    You can toggle the page direction using the button below to see this behavior.
+    `}
+    name="Page Direction"
+  >
+    <Box maxWidth={200} marginBottom={2}>
+      <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
+      <MarginSwatch marginStart={1} />
+      <MarginSwatch marginEnd={1} />
+    </Box>
+  </Card>
+);
+
 card(
   <Example
     description={`
