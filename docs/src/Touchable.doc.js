@@ -130,7 +130,7 @@ render() {
         <Touchable
           inline
           onTouch={this.handleInlineTouch}>
-          <Text inline>
+          <Text inline bold>
             {' touchable'}
           </Text>
         </Touchable>
