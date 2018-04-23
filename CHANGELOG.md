@@ -10,6 +10,7 @@
 
 ### Patch
 * Switch: Disallow width shrinking in flex layouts
+* Docs: Add a link to the sandbox
 
 </details>
 
