@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function Pulsar(props: Props) {
-  const { paused, size = 136 } = props;
+  const { paused, size = 120 } = props;
 
   return (
     <Box

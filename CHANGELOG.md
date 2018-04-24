@@ -8,16 +8,30 @@
 
 ### Minor
 
+### Patch
+
+* Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
+
+</details>
+
+## 0.65.0 (April 16, 2018)
+
+### Minor
+
 * Link: Remove duplicate CSS declaration (#118)
 * Box: Added right to left language aware marginStart & marginEnd (#122)
+* Pulsar: Fix default prop value for size to match new design (#126)
+
 ### Patch
 
 * Docs: Updated Masonry "comp" definition to be more descriptive
-* Docs: Added some header comments to internal components/utils
+* Docs: Updated Pulsar docs to use new default size
 * Docs: Updated Box docs to include marginStart and marginEnd
-  </details>
-
-</details>
+* Internal: Added some header comments to internal components/utils
+* Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
+* Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
+* Masonry: Added a debounce method and moved over some Masonry methods to use it
 
 ## 0.64.0 (April 12, 2018)
 
