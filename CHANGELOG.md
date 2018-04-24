@@ -9,7 +9,9 @@
 ### Minor
 
 ### Patch
+
 * Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
 
 </details>
 
