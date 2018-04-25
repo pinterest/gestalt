@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Flyout: make IE11 compatible (#138)
 
 ### Patch
 
