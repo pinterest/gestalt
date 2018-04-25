@@ -379,8 +379,17 @@ export default class Contents extends React.Component<Props, State> {
     const windowSize = {
       height: window.innerHeight,
       width: window.innerWidth,
-      scrollY: positionRelativeToAnchor ? 0 : window.scrollY, // scroll not needed for relative elements
-      scrollX: positionRelativeToAnchor ? 0 : window.scrollX,
+      // scroll not needed for relative elements
+      scrollY: positionRelativeToAnchor
+        ? 0
+        : window.pageYOffset ||
+          (document.documentElement && document.documentElement.scrollTop) ||
+          0,
+      scrollX: positionRelativeToAnchor
+        ? 0
+        : window.pageXOffset ||
+          (document.documentElement && document.documentElement.scrollLeft) ||
+          0,
     };
 
     const flyoutSize = {
