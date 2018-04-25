@@ -376,20 +376,24 @@ export default class Contents extends React.Component<Props, State> {
       width,
     } = props;
 
+    // Scroll not needed for relative elements
+    // We can't use window.scrollX / window.scrollY since it's not supported by IE11
+    const scrollX = positionRelativeToAnchor
+      ? 0
+      : window.pageXOffset ||
+        (document.documentElement && document.documentElement.scrollLeft) ||
+        0;
+    const scrollY = positionRelativeToAnchor
+      ? 0
+      : window.pageYOffset ||
+        (document.documentElement && document.documentElement.scrollTop) ||
+        0;
+
     const windowSize = {
       height: window.innerHeight,
       width: window.innerWidth,
-      // scroll not needed for relative elements
-      scrollY: positionRelativeToAnchor
-        ? 0
-        : window.pageYOffset ||
-          (document.documentElement && document.documentElement.scrollTop) ||
-          0,
-      scrollX: positionRelativeToAnchor
-        ? 0
-        : window.pageXOffset ||
-          (document.documentElement && document.documentElement.scrollLeft) ||
-          0,
+      scrollX,
+      scrollY,
     };
 
     const flyoutSize = {
