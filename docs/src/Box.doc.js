@@ -441,6 +441,8 @@ card(
       <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
       <MarginSwatch marginStart={1} />
       <MarginSwatch marginEnd={1} />
+      <MarginSwatch marginStart={-1} />
+      <MarginSwatch marginEnd={-1} />
     </Box>
   </Card>
 );
