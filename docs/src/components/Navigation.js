@@ -16,12 +16,12 @@ const components = Object.keys(routes);
 export default function Navigation(props: Props) {
   const { history } = props;
   const links = components.map(ns => {
-    const href = `/${ns}`;
+    const href = history.createHref({ pathname: `/${ns}` });
     const handleClick = ({ event }) => {
       if (event.defaultPrevented) return;
       if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
       event.preventDefault();
-      history.push(href);
+      history.push(`/${ns}`);
     };
     return (
       <Text bold leading="tall" color="darkGray" size="lg">
@@ -69,6 +69,11 @@ export default function Navigation(props: Props) {
           <Box paddingX={1}>
             <Heading size="xs">Gestalt</Heading>
           </Box>
+        </Box>
+        <Box paddingY={2}>
+          <Link href="https://codesandbox.io/s/k5plvp9v8v" target="blank">
+            <Text>Try it in the sandbox</Text>
+          </Link>
         </Box>
         <Box role="list">
           {links.map((link, i) => (

@@ -7,15 +7,55 @@
   </summary>
 
 ### Minor
+* Flyout: make IE11 compatible (#138)
+
+### Patch
+* Box: Fixed negative margins for Box marginStart and marginEnd
+* Docs: Add a link to the sandbox
+
+</details>
+
+## 0.66.0 (April 24, 2018)
+
+### Minor
+* Box: Added right to left language aware marginStart & marginEnd (#122)
+
+### Patch
+* Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
+* Docs: Updated Box docs to include marginStart and marginEnd
+
+## 0.65.0 (April 16, 2018)
+
+### Minor
+
+* Link: Remove duplicate CSS declaration (#118)
+* Pulsar: Fix default prop value for size to match new design (#126)
+
+### Patch
+
+* Docs: Updated Masonry "comp" definition to be more descriptive
+* Docs: Updated Pulsar docs to use new default size
+* Internal: Added some header comments to internal components/utils
+* Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
+* Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
+* Masonry: Added a debounce method and moved over some Masonry methods to use it
+
+## 0.64.0 (April 12, 2018)
+
+### Minor
+
 * Icon: 4 new icons related to analytic stats (#105)
 * GroupAvatar: Fix when there are no collaborators (#112)
 * Flyout: Fix positioning during resize (#111)
 * Modal: Update heading size + fix docs (#114)
+* Pulsar: New blue ring design, size change from 96 to 136px (#115)
+* Icon: 1 icon (circle-arrow-down) for search (#119)
 
 ### Patch
-* Docs: Add live docs to TextField / TextArea (#116)
 
-</details>
+* Docs: Add live docs to TextField / TextArea (#116)
+* Internal: Fix navigation to allow opening in new tabs (#120)
 
 ## 0.63.0 (March 26, 2018)
 
