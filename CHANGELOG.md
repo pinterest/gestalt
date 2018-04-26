@@ -8,6 +8,7 @@
 
 ### Minor
 * Flyout: make IE11 compatible (#138)
+* Icon: Add new GIF icon (#143)
 
 ### Patch
 * Box: Fixed negative margins for Box marginStart and marginEnd
