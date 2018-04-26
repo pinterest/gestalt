@@ -70,6 +70,11 @@ export default function Navigation(props: Props) {
             <Heading size="xs">Gestalt</Heading>
           </Box>
         </Box>
+        <Box paddingY={2}>
+          <Link href="https://codesandbox.io/s/k5plvp9v8v" target="blank">
+            <Text>Try it in the sandbox</Text>
+          </Link>
+        </Box>
         <Box role="list">
           {links.map((link, i) => (
             <Box role="listitem" key={i}>

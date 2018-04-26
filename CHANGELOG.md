@@ -11,6 +11,9 @@
 
 ### Patch
 * Box: Fixed negative margins for Box marginStart and marginEnd
+* Docs: Add a link to the sandbox
+
+</details>
 
 ## 0.66.0 (April 24, 2018)
 
@@ -21,8 +24,6 @@
 * Switch: Disallow width shrinking in flex layouts
 * Masonry: Removed the unused "serverRender" prop
 * Docs: Updated Box docs to include marginStart and marginEnd
-
-</details>
 
 ## 0.65.0 (April 16, 2018)
 
