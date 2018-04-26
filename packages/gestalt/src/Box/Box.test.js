@@ -60,3 +60,7 @@ test('Box dangerouslySetInlineStyle', () => {
 test('Box has correct marginStart and marginEnd when marginStart equals 1 and marginEnd equals 2', () => {
   expect(create(<Box marginStart={1} marginEnd={2} />)).toMatchSnapshot();
 });
+
+test('Box has correct marginStart and marginEnd when marginStart and marginEnd are negative', () => {
+  expect(create(<Box marginStart={-1} marginEnd={-3} />)).toMatchSnapshot();
+});

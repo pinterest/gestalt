@@ -10,6 +10,7 @@
 * Flyout: make IE11 compatible (#138)
 
 ### Patch
+* Box: Fixed negative margins for Box marginStart and marginEnd
 * Docs: Add a link to the sandbox
 
 </details>
@@ -20,7 +21,6 @@
 * Box: Added right to left language aware marginStart & marginEnd (#122)
 
 ### Patch
-
 * Switch: Disallow width shrinking in flex layouts
 * Masonry: Removed the unused "serverRender" prop
 * Docs: Updated Box docs to include marginStart and marginEnd
