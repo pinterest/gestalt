@@ -32,6 +32,7 @@ import faceSmiley from './face-smiley.svg';
 import filter from './filter.svg';
 import flag from './flag.svg';
 import flashlight from './flashlight.svg';
+import gif from './gif.svg';
 import globe from './globe.svg';
 import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
@@ -101,6 +102,7 @@ export default {
   filter,
   flag,
   flashlight,
+  gif,
   globe,
   'graph-bar': graphBar,
   handle,
