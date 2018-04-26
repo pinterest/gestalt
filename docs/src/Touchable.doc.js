@@ -34,6 +34,10 @@ card(
         defaultValue: true,
       },
       {
+        name: 'inline',
+        type: 'boolean',
+      },
+      {
         name: 'mouseCursor',
         type: `"copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut"`,
         defaultValue: 'pointer',
@@ -162,7 +166,7 @@ card(
 card(
   <Example
     description="Render a touchable element inline."
-    name="Example"
+    name="Inline"
     defaultCode={`
 class TouchableExample extends React.Component {
 constructor(props) {
