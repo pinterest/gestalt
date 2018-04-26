@@ -10,6 +10,7 @@
 * Flyout: make IE11 compatible (#138)
 
 ### Patch
+* Docs: Add a link to the sandbox
 
 </details>
 
