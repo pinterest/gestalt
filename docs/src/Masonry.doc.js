@@ -74,10 +74,6 @@ card(
         type: '() => HTMLElement',
       },
       {
-        name: 'serverRender',
-        type: 'boolean',
-      },
-      {
         name: 'virtualize',
         type: 'boolean',
         defaultValue: false,

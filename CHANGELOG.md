@@ -7,12 +7,23 @@
   </summary>
 
 ### Minor
+* Flyout: make IE11 compatible (#138)
 
 ### Patch
-* Switch: Disallow width shrinking in flex layouts
 * Docs: Add a link to the sandbox
 
 </details>
+
+## 0.66.0 (April 24, 2018)
+
+### Minor
+* Box: Added right to left language aware marginStart & marginEnd (#122)
+
+### Patch
+
+* Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
+* Docs: Updated Box docs to include marginStart and marginEnd
 
 ## 0.65.0 (April 16, 2018)
 
