@@ -15,10 +15,13 @@
 ## 0.67.0 (April 25, 2018)
 
 ### Minor
+
 * Flyout: make IE11 compatible (#138)
 * Icon: Add new GIF icon (#143)
+* Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
 
 ### Patch
+
 * Box: Fixed negative margins for Box marginStart and marginEnd
 * Docs: Add a link to the sandbox
 
@@ -27,9 +30,11 @@
 ## 0.66.0 (April 24, 2018)
 
 ### Minor
+
 * Box: Added right to left language aware marginStart & marginEnd (#122)
 
 ### Patch
+
 * Switch: Disallow width shrinking in flex layouts
 * Masonry: Removed the unused "serverRender" prop
 * Docs: Updated Box docs to include marginStart and marginEnd

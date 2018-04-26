@@ -1,4 +1,6 @@
 // @flow
+/* eslint-disable no-underscore-dangle */
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -26,21 +28,36 @@ type Props = {
     | 'red'
     | 'watermelon'
     | 'white',
-  icon: $Keys<typeof icons>,
+  icon?: $Keys<typeof icons>,
   inline?: boolean,
   size?: number | string,
+  dangerouslySetSvgPath?: { __path: string },
 };
 
 const IconNames = Object.keys(icons);
 
 export default function Icon(props: Props) {
-  const { accessibilityLabel, color = 'gray', icon, inline, size = 16 } = props;
+  const {
+    accessibilityLabel,
+    color = 'gray',
+    icon,
+    inline,
+    size = 16,
+    dangerouslySetSvgPath,
+  } = props;
 
   const cs = classnames(styles.icon, colors[color], {
     [styles.iconBlock]: !inline,
   });
 
-  const path = icons[icon];
+  let path;
+  if (icon) {
+    path = icons[icon];
+  } else if (dangerouslySetSvgPath) {
+    path = dangerouslySetSvgPath.__path;
+  } else {
+    path = '';
+  }
 
   const ariaHidden = accessibilityLabel === '' ? true : null;
 
@@ -83,7 +100,10 @@ Icon.propTypes = {
     'watermelon',
     'white',
   ]),
-  icon: PropTypes.oneOf(IconNames).isRequired,
+  dangerouslySetSvgPath: PropTypes.shape({
+    __path: PropTypes.string,
+  }),
+  icon: PropTypes.oneOf(IconNames),
   inline: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
