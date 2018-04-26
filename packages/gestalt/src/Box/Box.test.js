@@ -61,6 +61,6 @@ test('Box has correct marginStart and marginEnd when marginStart equals 1 and ma
   expect(create(<Box marginStart={1} marginEnd={2} />)).toMatchSnapshot();
 });
 
-test('Box has correct marginStart and marginEnd when marginStar and marginEnd are negative', () => {
+test('Box has correct marginStart and marginEnd when marginStart and marginEnd are negative', () => {
   expect(create(<Box marginStart={-1} marginEnd={-3} />)).toMatchSnapshot();
 });
