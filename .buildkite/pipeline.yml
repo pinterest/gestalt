@@ -84,3 +84,17 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
+  - name: ":bundlesize"
+    command: yarn bundlesize
+    timeout_in_minutes: 10
+    env: 
+      BUNDLESIZE_GITHUB_TOKEN: "${BUNDLESIZE_GITHUB_TOKEN}"
+      CI_REPO_OWNER: "${BUILDKITE_ORGANIZATION_SLUG}"
+      CI_REPO_NAME: "gestalt"
+      CI_COMMIT_SHA: "${BUILDKITE_COMMIT}"
+      CI_COMMIT_MESSAGE: ${BUILDKITE_MESSAGE}
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: gestalt
