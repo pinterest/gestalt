@@ -85,7 +85,7 @@ steps:
       docker-compose:
         run: gestalt
   - name: ":bundlesize"
-    command: yarn bundlesize
+    command: yarn build && yarn bundlesize
     timeout_in_minutes: 10
     env: 
       BUNDLESIZE_GITHUB_TOKEN: "${BUNDLESIZE_GITHUB_TOKEN}"
