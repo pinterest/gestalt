@@ -7,11 +7,33 @@
   </summary>
 
 ### Minor
+* Button / SearchField / SegmentedControl / SelectList / Tabs / TextField: consistent sizing + improve Windows compatibility (#148)
+
+### Patch
+
+</details>
+
+## 0.67.0 (April 25, 2018)
+
+### Minor
+* Flyout: make IE11 compatible (#138)
+* Icon: Add new GIF icon (#143)
+
+### Patch
+* Box: Fixed negative margins for Box marginStart and marginEnd
+* Docs: Add a link to the sandbox
+
+</details>
+
+## 0.66.0 (April 24, 2018)
+
+### Minor
+* Box: Added right to left language aware marginStart & marginEnd (#122)
 
 ### Patch
 * Switch: Disallow width shrinking in flex layouts
-
-</details>
+* Masonry: Removed the unused "serverRender" prop
+* Docs: Updated Box docs to include marginStart and marginEnd
 
 ## 0.65.0 (April 16, 2018)
 

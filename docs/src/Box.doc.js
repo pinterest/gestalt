@@ -138,6 +138,18 @@ card(
         responsive: true,
       },
       {
+        name: 'marginStart',
+        type: `-12 .. 12`,
+        defaultValue: 0,
+        responsive: true,
+      },
+      {
+        name: 'marginEnd',
+        type: `-12 .. 12`,
+        defaultValue: 0,
+        responsive: true,
+      },
+      {
         name: 'column',
         type: `0 .. 12`,
         responsive: true,
@@ -215,7 +227,7 @@ card(
     description={`
     The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
 
-    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginLeft\` here but in doing so you loose flexibility and have to change styling if you make changes to the structure.
+    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you loose flexibility and have to change styling if you make changes to the structure.
   `}
     name="Example: Media object"
     defaultCode={`
@@ -223,8 +235,8 @@ card(
 alignItems="center"
 direction="row"
 display="flex"
-marginLeft={-1}
-marginRight={-1}>
+marginStart={-1}
+marginEnd={-1}>
 <Box paddingX={1}>
   <Avatar name="chrislloyd" size="md" />
 </Box>
@@ -249,8 +261,8 @@ card(
 alignItems="center"
 direction="row"
 display="flex"
-marginLeft={-1}
-marginRight={-1}>
+marginStart={-1}
+marginEnd={-1}>
 <Box paddingX={1}>
   <Avatar name="chrislloyd" size="md" />
 </Box>
@@ -314,7 +326,7 @@ const PaddingSwatch = (props: *) => (
 );
 
 card(
-  <Box
+  <Card
     description={`
     Padding is applied in boints and is always symmetric. You should try to use padding before you use margins as they compose better and don't collapse.
 
@@ -325,16 +337,19 @@ card(
     ~~~
   `}
     name="Padding"
-    display="flex"
-    direction="row"
-    justifyContent="between"
-    alignItems="center"
-    wrap
   >
-    <PaddingSwatch padding={1} label="1" />
-    <PaddingSwatch paddingX={1} label="X=1" />
-    <PaddingSwatch paddingY={1} label="Y=1" />
-  </Box>
+    <Box
+      display="flex"
+      direction="row"
+      justifyContent="between"
+      alignItems="center"
+      wrap
+    >
+      <PaddingSwatch padding={1} label="1" />
+      <PaddingSwatch paddingX={1} label="X=1" />
+      <PaddingSwatch paddingY={1} label="Y=1" />
+    </Box>
+  </Card>
 );
 
 const MarginSwatch = (props: *) => (
@@ -357,18 +372,20 @@ const MarginSwatch = (props: *) => (
 );
 
 card(
-  <Box
+  <Card
     description={`
     Margins are applied in boints and are asymmetric. Margins can be -6 to 6 boints. You can set margin to be auto in the left and right axis.
 
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
 
+    Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL language aware \`marginStart\` and \`marginEnd\`.
+
     ~~~jsx
     <Box margin={1} />
     <Box marginTop={1} />
     <Box marginBottom={1} />
-    <Box marginLeft={1} />
-    <Box marginRight={1} />
+    <Box marginStart={1} />
+    <Box marginEnd={1} />
     ~~~
   `}
     name="Margins"
@@ -383,8 +400,8 @@ card(
       <MarginSwatch margin={1} />
       <MarginSwatch marginTop={1} />
       <MarginSwatch marginBottom={1} />
-      <MarginSwatch marginLeft={1} />
-      <MarginSwatch marginRight={1} />
+      <MarginSwatch marginStart={1} />
+      <MarginSwatch marginEnd={1} />
     </Box>
     <Box
       display="flex"
@@ -396,10 +413,38 @@ card(
       <MarginSwatch margin={-1} />
       <MarginSwatch marginTop={-1} />
       <MarginSwatch marginBottom={-1} />
-      <MarginSwatch marginLeft={-1} />
-      <MarginSwatch marginRight={-1} />
+      <MarginSwatch marginStart={-1} />
+      <MarginSwatch marginEnd={-1} />
     </Box>
-  </Box>
+  </Card>
+);
+
+const toggleRTL = () => {
+  document.documentElement.dir =
+    document.documentElement.dir === 'rtl' ? '' : 'rtl';
+};
+
+card(
+  <Card
+    description={`
+    Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
+    
+    \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
+
+    \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
+
+    You can toggle the page direction using the button below to see this behavior.
+    `}
+    name="Page Direction"
+  >
+    <Box maxWidth={200} marginBottom={2}>
+      <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
+      <MarginSwatch marginStart={1} />
+      <MarginSwatch marginEnd={1} />
+      <MarginSwatch marginStart={-1} />
+      <MarginSwatch marginEnd={-1} />
+    </Box>
+  </Card>
 );
 
 card(

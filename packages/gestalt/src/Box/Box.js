@@ -148,6 +148,9 @@ type PropType = {
   justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around',
   left?: boolean,
 
+  marginStart?: Margin,
+  marginEnd?: Margin,
+
   margin?: Margin,
   marginTop?: Margin,
   marginRight?: Margin,
@@ -223,6 +226,8 @@ There's a little preamble here, but it culminates in a big object mapping the ac
 
 */
 
+const marginStart = bind(rangeWithoutZero('marginStart'), whitespace);
+const marginEnd = bind(rangeWithoutZero('marginEnd'), whitespace);
 const marginTop = bind(rangeWithoutZero('marginTop'), whitespace);
 const marginRight = bind(rangeWithoutZero('marginRight'), whitespace);
 const marginBottom = bind(rangeWithoutZero('marginBottom'), whitespace);
@@ -522,6 +527,8 @@ const propToFn = {
         return identity();
     }
   },
+  marginStart,
+  marginEnd,
   margin,
   marginTop,
   marginRight,
@@ -860,6 +867,9 @@ Box.propTypes = {
     'around',
   ]),
   left: PropTypes.bool,
+
+  marginStart: MarginPropType,
+  marginEnd: MarginPropType,
 
   margin: MarginPropType,
   marginTop: MarginPropType,

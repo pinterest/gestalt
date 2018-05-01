@@ -50,7 +50,6 @@ type Props<T> = {|
         }
       ) => void | boolean | {}),
   scrollContainer?: () => HTMLElement,
-  serverRender?: boolean,
   virtualize?: boolean,
 |};
 
@@ -126,12 +125,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
     scrollContainer: PropTypes.func,
 
     /**
-     * Whether or not this instance is server rendered.
-     * TODO: If true, generate and output CSS for the initial server render.
-     */
-    serverRender: PropTypes.bool,
-
-    /**
      * Whether or not to use actual virtualization
      */
     virtualize: PropTypes.bool,
@@ -141,7 +134,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
     columnWidth: 236,
     measurementStore: new MeasurementStore(),
     minCols: 3,
-    serverRender: false,
     layout: DefaultLayoutSymbol,
     loadItems: () => {},
     virtualize: false,
