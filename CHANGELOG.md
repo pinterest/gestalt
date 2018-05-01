@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
+
 ### Patch
 
 </details>
@@ -18,14 +20,11 @@
 
 * Flyout: make IE11 compatible (#138)
 * Icon: Add new GIF icon (#143)
-* Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
 
 ### Patch
 
 * Box: Fixed negative margins for Box marginStart and marginEnd
 * Docs: Add a link to the sandbox
-
-</details>
 
 ## 0.66.0 (April 24, 2018)
 

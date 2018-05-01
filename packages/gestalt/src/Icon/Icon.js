@@ -1,6 +1,4 @@
 // @flow
-/* eslint-disable no-underscore-dangle */
-
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -8,7 +6,7 @@ import styles from './Icon.css';
 import icons from './icons';
 import colors from '../Colors.css';
 
-type Props = {
+type IconProps = {
   accessibilityLabel: string,
   color?:
     | 'blue'
@@ -28,11 +26,21 @@ type Props = {
     | 'red'
     | 'watermelon'
     | 'white',
-  icon?: $Keys<typeof icons>,
   inline?: boolean,
   size?: number | string,
-  dangerouslySetSvgPath?: { __path: string },
 };
+
+type IconNoPath = {
+  icon: $Keys<typeof icons>,
+  dangerouslySetSvgPath?: null,
+};
+
+type PathNoIcon = {
+  icon?: null,
+  dangerouslySetSvgPath: { __path: string },
+};
+
+type Props = IconProps & (PathNoIcon | IconNoPath);
 
 const IconNames = Object.keys(icons);
 
@@ -54,6 +62,7 @@ export default function Icon(props: Props) {
   if (icon) {
     path = icons[icon];
   } else if (dangerouslySetSvgPath) {
+    /* eslint-disable-next-line no-underscore-dangle */
     path = dangerouslySetSvgPath.__path;
   } else {
     path = '';
