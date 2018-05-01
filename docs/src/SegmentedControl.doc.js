@@ -44,7 +44,7 @@ card(
         name: 'size',
         type: '"md" | "lg"',
         required: false,
-        description: 'Size of the Segemented control.',
+        description: 'md: 40px, lg: 48px',
         defaultValue: 'md',
       },
     ]}
@@ -64,7 +64,7 @@ card(
 class ToastExample extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       itemIndex: 0,
       items: ['News', 'You', 'Messages']
     };
@@ -74,7 +74,7 @@ class ToastExample extends React.Component {
   handleItemChange({ activeIndex }) {
     this.setState(prevState => ({ itemIndex: activeIndex }));
   };
-  
+
   render() {
     return (
       <SegmentedControl

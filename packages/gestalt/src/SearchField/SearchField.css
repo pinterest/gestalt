@@ -1,15 +1,15 @@
 .input {
   composes: accessibilityOutline from "../Focus.css";
   composes: border from "../Borders.css";
-  composes: borderBox from "../Layout.css";
+  composes: borderBox medium from "../Layout.css";
   composes: darkGray from "../Colors.css";
   composes: Text fontSize3 from "../Text/Text.css";
-  composes: leadingShort fontWeightBold from "../Typography.css";
+  composes: fontWeightBold from "../Typography.css";
   composes: lightGrayBg from "../Colors.css";
   composes: xsCol12 from "../Column.css";
   appearance: none;
   border-radius: 4px;
-  padding: 10px calc(16px + (2 * 8px)) 10px calc(16px + (2 * 16px));
+  padding: 8px calc(16px + (2 * 8px)) 8px calc(16px + (2 * 16px));
 }
 
 .input::-ms-clear {

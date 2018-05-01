@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Button / SearchField / SegmentedControl / SelectList / Tabs / TextField: consistent sizing + improve Windows compatibility (#148)
 
 * Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
 
