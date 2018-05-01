@@ -28,6 +28,11 @@ card(
         description: 'The video will start playing as soon as it is ready',
       },
       {
+        name: 'controls',
+        type: 'boolean',
+        description: 'Show the video player controls',
+      },
+      {
         name: 'loop',
         type: 'boolean',
         description: 'The video will start playing over again when finished',
@@ -66,7 +71,7 @@ card(
   `}
     name="Video"
     defaultCode={`
-<Video src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+<Video controls src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
 `}
     scope={{ Video }}
   />
