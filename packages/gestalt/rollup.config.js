@@ -174,7 +174,7 @@ export default {
     }),
     babel({
       babelrc: false,
-      presets: [['es2015', { modules: false }], 'stage-1', 'react'],
+      presets: [['env', { modules: false }], 'stage-1', 'react'],
       plugins: ['external-helpers'],
     }),
     visualizer(),
