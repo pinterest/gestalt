@@ -51,6 +51,11 @@ card(
         type: 'boolean',
         defaultValue: false,
       },
+      {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+      },
     ]}
     heading={false}
   />
