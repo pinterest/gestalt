@@ -5,6 +5,7 @@ import Box from '../Box/Box';
 import Icon from '../Icon/Icon';
 import Text from '../Text/Text';
 import Touchable from '../Touchable/Touchable';
+import VideoScrubber from './VideoScrubber';
 
 type Props = {|
   currentTime: number,
@@ -63,7 +64,9 @@ export default class VideoControls extends React.PureComponent<Props> {
             {timeToString(currentTime)}
           </Text>
         </Box>
-        <Box flex="grow" />
+        <Box padding={2} flex="grow">
+          <VideoScrubber currentTime={currentTime} duration={duration} />
+        </Box>
         <Box width={50} padding={2}>
           <Text color="white" align="right" size="xs">
             {timeToString(duration)}

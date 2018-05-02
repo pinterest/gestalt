@@ -43,6 +43,34 @@ card(
         description: 'Specifies if the audio for the video should be muted',
       },
       {
+        name: 'onDurationChange',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description:
+          'Sent when the metadata has loaded or changed, indicating a change in duration',
+      },
+      {
+        name: 'onPlay',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description:
+          'Sent when the media begins to play (either for the first time, after having been paused, or after ending and then restarting)',
+      },
+      {
+        name: 'onPause',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when playback is paused',
+      },
+      {
+        name: 'onTimeUpdate',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description:
+          "Sent when the time indicated by the element's currentTime attribute has changed",
+      },
+      {
+        name: 'onVolumeChange',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when the audio volume changes',
+      },
+      {
         name: 'poster',
         type: 'string',
         description: 'The image to show while the video is downloading',
@@ -67,11 +95,48 @@ card(
 card(
   <Example
     description={`
-    The source url you pass into \`Video\` will be used to download and play the video file.
+    The source url you pass into \`Video\` will be used to download and play the video file. While it is
+    downloading the metadata, you may show a thumbnail image by using the \`poster\` prop.
   `}
-    name="Video"
+    name="Video media basics"
     defaultCode={`
-<Video controls src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+<Video
+  poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+  src="http://media.w3.org/2010/05/bunny/movie.mp4"
+/>
+`}
+    scope={{ Video }}
+  />
+);
+
+card(
+  <Example
+    description={`
+    \`Video\` supports the native HTML video attributes such as \`autoPlay\`, \`loop\`, \`muted\`, and more.
+    Simply pass these through as props on the \`Video\` component.
+  `}
+    name="Native video attributes"
+    defaultCode={`
+<Video
+  autoPlay
+  loop
+  muted
+  src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+/>
+`}
+    scope={{ Video }}
+  />
+);
+
+card(
+  <Example
+    description={`
+    \`Video\` components can show a control bar to users in order to allow them access to certain features
+    such as play/pause, time stamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear.
+  `}
+    name="Video controls"
+    defaultCode={`
+<Video controls src="http://media.w3.org/2010/05/bunny/movie.mp4" />
 `}
     scope={{ Video }}
   />
