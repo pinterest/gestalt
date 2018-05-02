@@ -8,7 +8,7 @@ describe('ExerimentalMasonry > Render Height', () => {
   it('Items can be positioned under the grid', async () => {
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?finiteLength=1'
+      'http://localhost:3001/ExperimentalMasonry?finiteLength=1'
     );
 
     const gridItems = await ghost.findElements(selectors.gridItem);

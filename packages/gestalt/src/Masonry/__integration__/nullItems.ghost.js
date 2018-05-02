@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('Masonry > Null items', () => {
   it('Should not throw an error when null/undefined items are inserted', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry', {
+    await ghost.open('http://localhost:3001/Masonry', {
       viewportSize: {
         width: 3000,
         height: 2000,

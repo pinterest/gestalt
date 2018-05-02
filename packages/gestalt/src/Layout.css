@@ -83,6 +83,20 @@
   left: 0;
 }
 
+/* size */
+
+.small {
+  min-height: 36px;
+}
+
+.medium {
+  min-height: 40px;
+}
+
+.large {
+  min-height: 48px;
+}
+
 /* box model */
 
 .borderBox {

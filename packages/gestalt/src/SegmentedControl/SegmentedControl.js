@@ -6,7 +6,7 @@ import Text from '../Text/Text';
 import styles from './SegmentedControl.css';
 
 type Props = {|
-  items: Array<any>,
+  items: Array<string>,
   onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
   selectedItemIndex: number,
   size?: 'md' | 'lg',
@@ -15,12 +15,16 @@ type Props = {|
 export default function SegmentedControl(props: Props) {
   const { items, onChange, selectedItemIndex, size = 'md' } = props;
   return (
-    <div className={styles.SegmentedControl} role="tablist">
+    <div
+      className={classnames(styles.SegmentedControl, {
+        [styles.md]: size === 'md',
+        [styles.lg]: size === 'lg',
+      })}
+      role="tablist"
+    >
       {items.map((item, i) => {
         const isSelected = i === selectedItemIndex;
         const cs = classnames(styles.item, {
-          [styles.md]: size === 'md',
-          [styles.lg]: size === 'lg',
           [styles.itemIsNotSelected]: !isSelected,
           [styles.itemIsSelected]: isSelected,
         });
@@ -36,7 +40,6 @@ export default function SegmentedControl(props: Props) {
               bold
               color={isSelected ? 'darkGray' : 'gray'}
               align="center"
-              truncate
               size={size}
             >
               {item}

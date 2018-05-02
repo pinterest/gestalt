@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
-import { Box, SegmentedControl } from 'gestalt';
 import PropTable from './components/PropTable';
-import StateRecorder from './components/StateRecorder';
+import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
 
@@ -41,84 +40,52 @@ card(
         required: true,
         description: 'Index of element in `items` that is selected.',
       },
+      {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
     ]}
     heading={false}
   />
 );
 
 card(
-  <Box
-    description={`
-    There are 2 different sizes for segmented controls. The default size is \`md\`.
-
-    ~~~html
-    <SegmentedControl
-      selectedItemIndex={0}
-      items={['Athos', 'Porthos', 'Aramis']}
-    />
-    ~~~
-
-    ~~~html
-    <SegmentedControl
-      selectedItemIndex={0}
-      size="lg"
-      items={['Athos', 'Porthos', 'Aramis']}
-    />
-    ~~~
-  `}
-    name="Sizes"
-  >
-    <Box padding={2}>
-      <SegmentedControl
-        onChange={() => {}}
-        selectedItemIndex={0}
-        items={['Athos', 'Porthos', 'Aramis']}
-      />
-    </Box>
-    <Box padding={2}>
-      <SegmentedControl
-        onChange={() => {}}
-        selectedItemIndex={0}
-        size="lg"
-        items={['Athos', 'Porthos', 'Aramis']}
-      />
-    </Box>
-  </Box>
-);
-
-card(
-  <StateRecorder
-    description={`
-    Segmented Controls are naive components, meaning you need to write up the behavior when you click on an item.
+  <Example
+    description="Segmented Controls are naive components, meaning you need to write up the behavior when you click on an item.
 
     If you'd like the tabs to control hiding or showing content that state should
     live in a parent component.
-
-    ~~~js
-    <SegmentedControl
-      selectedItemIndex={0}
-      items={['News', 'You', 'Messages']}
-      onChange={() => {}}
-    />
-    ~~~
-  `}
+    "
     name="Example"
-    fn={atom => {
-      const state = atom.deref();
-      return (
-        <SegmentedControl
-          items={['News', 'You', 'Messages']}
-          selectedItemIndex={0}
-          {...state}
-          onChange={({ activeIndex }) =>
-            atom.set(props => ({
-              ...props,
-              selectedItemIndex: activeIndex,
-            }))
-          }
-        />
-      );
-    }}
+    defaultCode={`
+class ToastExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemIndex: 0,
+      items: ['News', 'You', 'Messages']
+    };
+    this.handleItemChange = this.handleItemChange.bind(this);
+  }
+
+  handleItemChange({ activeIndex }) {
+    this.setState(prevState => ({ itemIndex: activeIndex }));
+  };
+
+  render() {
+    return (
+      <SegmentedControl
+        items={this.state.items}
+        selectedItemIndex={this.state.itemIndex}
+        onChange={this.handleItemChange}
+      />
+    );
+  }
+}
+    `}
   />
 );
 

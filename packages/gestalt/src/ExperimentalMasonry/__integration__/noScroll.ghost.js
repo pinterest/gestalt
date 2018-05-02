@@ -9,7 +9,7 @@ describe('ExerimentalMasonry > No scroll', () => {
     // First load the page with javascript disabled to get the item position
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?noScroll=1&virtualize=1',
+      'http://localhost:3001/ExperimentalMasonry?noScroll=1&virtualize=1',
       {
         viewportSize: {
           width: 500,

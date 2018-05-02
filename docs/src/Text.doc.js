@@ -62,6 +62,8 @@ card(
       {
         name: 'truncate',
         type: 'boolean',
+        description:
+          'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
         defaultValue: false,
       },
     ]}
@@ -141,26 +143,26 @@ card(
     defaultCode={`
 <Box maxWidth={240}>
 <Box marginBottom={2}>
+  <Text bold>normal:</Text>
   <Text overflow="normal" leading="tall">
-    <strong>normal:</strong>
     This is a long and Supercalifragilisticexpialidocious sentence.
-    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
+    次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
   </Text>
 </Box>
 <Box marginBottom={2}>
+  <Text bold>breakWord:</Text>
   <Text leading="tall">
-    <strong>breakWord:</strong>
     This is a long and Supercalifragilisticexpialidocious sentence.
     次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
+    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
   </Text>
 </Box>
 <Box marginBottom={2}>
+  <Text bold>truncate:</Text>
   <Text truncate leading="tall">
-    <strong>truncate:</strong>
     This is a long and Supercalifragilisticexpialidocious sentence.
     次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ
+    ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
   </Text>
 </Box>
 </Box>`}

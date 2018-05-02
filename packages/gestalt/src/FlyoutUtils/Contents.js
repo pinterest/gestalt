@@ -39,17 +39,6 @@ type ClientRect = {
   width: number,
 };
 
-type ControllerProps = {|
-  anchor?: HTMLElement,
-  bgColor: 'darkGray' | 'white' | 'orange',
-  children?: any,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onDismiss: () => void,
-  positionRelativeToAnchor: boolean,
-  shouldFocus?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
-|};
-
 type Window = {
   height: number,
   width: number,
@@ -69,7 +58,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onClick: (event: Event) => void,
   onKeyDown: (event: { keyCode: number }) => void,
-  onResize: ControllerProps => void,
+  onResize: () => void,
   positionRelativeToAnchor?: boolean,
   relativeOffset: {
     x: number,
@@ -387,11 +376,24 @@ export default class Contents extends React.Component<Props, State> {
       width,
     } = props;
 
+    // Scroll not needed for relative elements
+    // We can't use window.scrollX / window.scrollY since it's not supported by IE11
+    const scrollX = positionRelativeToAnchor
+      ? 0
+      : window.pageXOffset ||
+        (document.documentElement && document.documentElement.scrollLeft) ||
+        0;
+    const scrollY = positionRelativeToAnchor
+      ? 0
+      : window.pageYOffset ||
+        (document.documentElement && document.documentElement.scrollTop) ||
+        0;
+
     const windowSize = {
       height: window.innerHeight,
       width: window.innerWidth,
-      scrollY: positionRelativeToAnchor ? 0 : window.scrollY, // scroll not needed for relative elements
-      scrollX: positionRelativeToAnchor ? 0 : window.scrollX,
+      scrollX,
+      scrollY,
     };
 
     const flyoutSize = {

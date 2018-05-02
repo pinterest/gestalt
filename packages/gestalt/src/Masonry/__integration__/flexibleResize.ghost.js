@@ -5,8 +5,6 @@ import ghost from 'ghostjs';
 import selectors from './lib/selectors';
 import triggerResize from './lib/triggerResize';
 
-const RESIZE_DEBOUNCE = 300;
-
 const getItemColumnMap = async () => {
   const gridItems = await ghost.findElements(selectors.gridItem);
   const itemLeftMap = {};
@@ -29,7 +27,7 @@ const getItemColumnMap = async () => {
 describe('Masonry > Flexible resize', () => {
   it('Should resize item width and height on resize ', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/FlexibleMasonry', {
+    await ghost.open('http://localhost:3001/FlexibleMasonry', {
       viewportSize: {
         width: 800,
         height: 800,
@@ -43,12 +41,11 @@ describe('Masonry > Flexible resize', () => {
     // check size of initial grid items
     const originalItemMap = await getItemColumnMap();
     const originalColumns = Object.keys(originalItemMap);
-
     // trigger slight resize.  enough to resize, but not reflow columns
     await triggerResize(820);
 
-    // Wait for the resize debounce to complete.
-    await ghost.wait(RESIZE_DEBOUNCE);
+    // Wait for the resize measurements to be finished
+    await ghost.wait(() => ghost.script(() => window.RESIZE_MEASUREMENT_DONE));
 
     const newItemMap = await getItemColumnMap();
     const newColumns = Object.keys(newItemMap);

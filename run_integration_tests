@@ -18,7 +18,7 @@ fi
 PID=$!                    # get the Parent Process ID
 PGID=$(ps opgid= "$PID")  # get the Process Group ID
 
-until $(curl --output /dev/null --silent --head --fail http://localhost:3000/__ping); do
+until $(curl --output /dev/null --silent --head --fail http://localhost:3001/__ping); do
     printf '.'
     sleep 5
 done
@@ -26,7 +26,7 @@ done
 total_chunks=${BUILDKITE_PARALLEL_JOB_COUNT:=1}
 this_chunk=$((${BUILDKITE_PARALLEL_JOB:=0} + 1))
 
-NODE_ENV=integration yarn ghostjs --browser firefox $(find packages/gestalt -name '*.ghost.js' | xargs node ./scripts/chunk.js ${total_chunks} ${this_chunk})
+NODE_ENV=production yarn ghostjs --browser firefox $(find packages/gestalt -name '*.ghost.js' | xargs node ./scripts/chunk.js ${total_chunks} ${this_chunk})
 STATUS=$?
 
 # Kill the process group and all children of that process group.

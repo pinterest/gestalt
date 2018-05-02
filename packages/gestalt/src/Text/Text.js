@@ -44,8 +44,8 @@ type Props = {|
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   mdSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  truncate?: boolean,
   leading?: 'tall' | 'short',
+  truncate?: boolean,
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
 
@@ -108,10 +108,21 @@ export default function Text({
     truncate && typography.truncate
   );
   const Tag = inline ? 'span' : 'div';
-  return <Tag className={cs}>{children}</Tag>;
+
+  return (
+    <Tag
+      className={cs}
+      {...(truncate && typeof children === 'string'
+        ? { title: children }
+        : null)}
+    >
+      {children}
+    </Tag>
+  );
 }
 
 Text.propTypes = {
+  __dangerouslyIncreaseLineHeight: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   bold: PropTypes.bool,
   children: PropTypes.node,
@@ -136,6 +147,7 @@ Text.propTypes = {
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
+  leading: PropTypes.oneOf(['tall', 'short']),
   lgSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   overflow: PropTypes.oneOf(['normal', 'breakWord']),

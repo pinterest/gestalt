@@ -6,7 +6,6 @@ import countColumns from './lib/countColumns';
 import triggerResize from './lib/triggerResize';
 
 const PIN_SIZE = 235;
-const RESIZE_DEBOUNCE = 300;
 
 describe('ExerimentalMasonry > Resize /w scroll container', () => {
   it('Reflows the grid after a resize', async () => {
@@ -16,7 +15,7 @@ describe('ExerimentalMasonry > Resize /w scroll container', () => {
     // we open a new window with the correct dimensions.
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/ExperimentalMasonry?scrollContainer=1',
+      'http://localhost:3001/ExperimentalMasonry?scrollContainer=1',
       {
         viewportSize: {
           width: GRID_WIDTH,
@@ -38,8 +37,8 @@ describe('ExerimentalMasonry > Resize /w scroll container', () => {
 
     await triggerResize(GRID_WIDTH - PIN_SIZE);
 
-    // Wait for the resize debounce to complete.
-    await ghost.wait(RESIZE_DEBOUNCE);
+    // Wait for the resize measurements to be finished
+    await ghost.wait(() => ghost.script(() => window.RESIZE_MEASUREMENT_DONE));
     assert.equal(
       await countColumns(),
       expectedColumns - 1,

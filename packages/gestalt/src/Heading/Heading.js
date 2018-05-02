@@ -80,7 +80,13 @@ export default function Heading(props: Props) {
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
   return React.createElement(
     `h${headingLevel}`,
-    { className: cs, id },
+    {
+      className: cs,
+      id,
+      ...(truncate && typeof children === 'string'
+        ? { title: children }
+        : null),
+    },
     children
   );
 }
@@ -108,6 +114,7 @@ Heading.propTypes = {
     'white',
   ]),
   id: PropTypes.string,
+  overflow: PropTypes.oneOf(['normal', 'breakWord']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   smSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),

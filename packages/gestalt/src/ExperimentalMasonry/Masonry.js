@@ -37,8 +37,8 @@ type Props<T> = {|
   layout?:
     | DefaultLayoutSymbol
     | UniformRowLayoutSymbol
-    | LegacyMasonryLayout<*>
-    | LegacyUniformRowLayout<*>,
+    | LegacyMasonryLayout
+    | LegacyUniformRowLayout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
   loadItems?:
@@ -49,7 +49,6 @@ type Props<T> = {|
         }
       ) => void | boolean | {}),
   scrollContainer?: () => HTMLElement,
-  serverRender?: boolean,
   virtualize?: boolean,
 |};
 
@@ -126,12 +125,6 @@ export default class ExperimentalMasonry<T> extends React.Component<
     scrollContainer: PropTypes.func,
 
     /**
-     * Whether or not this instance is server rendered.
-     * TODO: If true, generate and output CSS for the initial server render.
-     */
-    serverRender: PropTypes.bool,
-
-    /**
      * Whether or not to use actual virtualization
      */
     virtualize: PropTypes.bool,
@@ -141,7 +134,6 @@ export default class ExperimentalMasonry<T> extends React.Component<
     columnWidth: 236,
     measurementStore: new MeasurementStore(),
     minCols: 3,
-    serverRender: false,
     layout: DefaultLayoutSymbol,
     loadItems: () => {},
     virtualize: false,
@@ -506,7 +498,8 @@ export default class ExperimentalMasonry<T> extends React.Component<
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(item, i, positions[i])
             )}
-
+          </div>
+          <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {
               const position = measuringPositions[i];
               return (

@@ -2,41 +2,41 @@
 
 exports[`SegmentedControl renders 1`] = `
 <div
-  className="SegmentedControl"
+  className="SegmentedControl md"
   role="tablist"
 >
   <button
     aria-selected={true}
-    className="item md itemIsSelected"
+    className="item itemIsSelected"
     onClick={[Function]}
     role="tab"
   >
     <div
-      className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+      className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       News
     </div>
   </button>
   <button
     aria-selected={false}
-    className="item md itemIsNotSelected"
+    className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       You
     </div>
   </button>
   <button
     aria-selected={false}
-    className="item md itemIsNotSelected"
+    className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold truncate"
+      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       Messages
     </div>

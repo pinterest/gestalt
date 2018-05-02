@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('Masonry > Update during insertions', () => {
   it('Should not throw an error when Masonry is updated during insertions', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/Masonry');
+    await ghost.open('http://localhost:3001/Masonry');
 
     const initialErrors = await ghost.script(() => window.ERROR_COUNT);
     assert.equal(initialErrors, 0);

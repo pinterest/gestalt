@@ -86,9 +86,12 @@ export default class Controller extends React.Component<Props, State> {
     }
   };
 
+  handleResize = () => {
+    this.updateTriggerRect(this.props);
+  };
+
   updateTriggerRect = (props: Props) => {
     const { anchor, positionRelativeToAnchor } = props;
-
     let triggerBoundingRect;
     let relativeOffset;
     if (anchor) {
@@ -135,7 +138,7 @@ export default class Controller extends React.Component<Props, State> {
               idealDirection={idealDirection}
               onClick={this.handlePageClick}
               onKeyDown={this.handleKeyDown}
-              onResize={this.updateTriggerRect}
+              onResize={this.handleResize}
               positionRelativeToAnchor={positionRelativeToAnchor}
               relativeOffset={this.state.relativeOffset}
               shouldFocus={shouldFocus}

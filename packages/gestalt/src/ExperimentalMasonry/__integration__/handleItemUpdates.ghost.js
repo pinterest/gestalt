@@ -8,7 +8,7 @@ describe('ExerimentalMasonry > handle item updates', () => {
   it('should correctly update grid item heights', async () => {
     ghost.close();
 
-    await ghost.open('http://localhost:3000/ExperimentalMasonry?virtualize=1', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry?virtualize=1', {
       viewportSize: {
         width: 800,
         height: 800,

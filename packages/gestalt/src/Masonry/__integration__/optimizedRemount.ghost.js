@@ -8,7 +8,7 @@ describe('Masonry > External cache', () => {
   it('should only mount visible items on remount', async () => {
     ghost.close();
     await ghost.open(
-      'http://localhost:3000/Masonry?virtualize=1&externalCache=1',
+      'http://localhost:3001/Masonry?virtualize=1&externalCache=1',
       {
         viewportSize: {
           width: 800,

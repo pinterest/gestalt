@@ -7,13 +7,108 @@
   </summary>
 
 ### Minor
+* Button / SearchField / SegmentedControl / SelectList / Tabs / TextField: consistent sizing + improve Windows compatibility (#148)
+
+* Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
+
+### Patch
+
+</details>
+
+## 0.67.0 (April 25, 2018)
+
+### Minor
+
+* Flyout: make IE11 compatible (#138)
+* Icon: Add new GIF icon (#143)
+
+### Patch
+
+* Box: Fixed negative margins for Box marginStart and marginEnd
+* Docs: Add a link to the sandbox
+
+## 0.66.0 (April 24, 2018)
+
+### Minor
+
+* Box: Added right to left language aware marginStart & marginEnd (#122)
+
+### Patch
+
+* Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
+* Docs: Updated Box docs to include marginStart and marginEnd
+
+## 0.65.0 (April 16, 2018)
+
+### Minor
+
+* Link: Remove duplicate CSS declaration (#118)
+* Pulsar: Fix default prop value for size to match new design (#126)
+
+### Patch
+
+* Docs: Updated Masonry "comp" definition to be more descriptive
+* Docs: Updated Pulsar docs to use new default size
+* Internal: Added some header comments to internal components/utils
+* Internal: Fixed a subtle bug in throttle that would cause longer than intended delays
+* Masonry: Fixed a timing bug where Masonry's handleResize could be called after unmount
+* Masonry: Added a debounce method and moved over some Masonry methods to use it
+
+## 0.64.0 (April 12, 2018)
+
+### Minor
+
+* Icon: 4 new icons related to analytic stats (#105)
+* GroupAvatar: Fix when there are no collaborators (#112)
+* Flyout: Fix positioning during resize (#111)
+* Modal: Update heading size + fix docs (#114)
+* Pulsar: New blue ring design, size change from 96 to 136px (#115)
+* Icon: 1 icon (circle-arrow-down) for search (#119)
+
+### Patch
+
+* Docs: Add live docs to TextField / TextArea (#116)
+* Internal: Fix navigation to allow opening in new tabs (#120)
+
+## 0.63.0 (March 26, 2018)
+
+### Minor
+
+* Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
+  measuring etc. (#101)
+* Internal: Gestalt now is React 16.2.0 compatible. (#101)
+
+## 0.62.1 (March 22, 2018)
+
+### Patch
+
+* Internal: Fix publish script to work for new Gestalt directory structure (#94)
+* Heading / Text / SegmentedControl: Fix flow types when truncation is enabled (#98)
+
+## 0.62.0 (March 21, 2018)
+
+### Minor
+
+* Heading / Text / SegmentedControl: Add `title` when `truncate` is set (#82)
+
+### Patch
+
+* Docs: Masonry locally on port `3000` + update the `README` with the latest commands (#89)
+* Internal: No downtime when releasing the docs (#97)
+
+## 0.61.0 (March 20, 2018)
+
+### Minor
 
 * Image: Don't show `alt` text when loading the image in FireFox. (#80)(#84)
 * Tabs: Update the background color to be transparent for unselected tabs (#79)
 
 ### Patch
 
-</details>
+* Docs: Add live docs to Toast (#87)
+* Internal: Convert `BrowserRouter` to `HashRouter` - fixes directly going to a component (#88)
+* Docs: Add live docs to SegmentedControl (#90)
 
 ## 0.60.0 (March 13, 2018)
 
@@ -29,6 +124,7 @@
 * Masonry: Promotes ExperimentalMasonry to be Masonry. Complete re-write of
   measuring etc. (#46)
 * Sticky: Fallback to position relative in IE11 (#51)
+* Internal: Gestalt now is React 16.2.0 compatible (#53)
 * SelectList: Hardcode 40px height for consistency (#57)
 
 ### Patch

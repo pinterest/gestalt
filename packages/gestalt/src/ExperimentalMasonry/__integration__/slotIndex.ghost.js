@@ -7,7 +7,7 @@ import selectors from './lib/selectors';
 describe('ExerimentalMasonry > Slot Index', () => {
   it('Should start slot index at 0', async () => {
     ghost.close();
-    await ghost.open('http://localhost:3000/ExperimentalMasonry?deferMount=1', {
+    await ghost.open('http://localhost:3001/ExperimentalMasonry?deferMount=1', {
       viewportSize: {
         width: 800,
         height: 800,

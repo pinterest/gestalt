@@ -6,7 +6,7 @@ import styles from './Icon.css';
 import icons from './icons';
 import colors from '../Colors.css';
 
-type Props = {
+type IconProps = {
   accessibilityLabel: string,
   color?:
     | 'blue'
@@ -26,21 +26,47 @@ type Props = {
     | 'red'
     | 'watermelon'
     | 'white',
-  icon: $Keys<typeof icons>,
   inline?: boolean,
   size?: number | string,
 };
 
+type IconNoPath = {
+  icon: $Keys<typeof icons>,
+  dangerouslySetSvgPath?: null,
+};
+
+type PathNoIcon = {
+  icon?: null,
+  dangerouslySetSvgPath: { __path: string },
+};
+
+type Props = IconProps & (PathNoIcon | IconNoPath);
+
 const IconNames = Object.keys(icons);
 
 export default function Icon(props: Props) {
-  const { accessibilityLabel, color = 'gray', icon, inline, size = 16 } = props;
+  const {
+    accessibilityLabel,
+    color = 'gray',
+    icon,
+    inline,
+    size = 16,
+    dangerouslySetSvgPath,
+  } = props;
 
   const cs = classnames(styles.icon, colors[color], {
     [styles.iconBlock]: !inline,
   });
 
-  const path = icons[icon];
+  let path;
+  if (icon) {
+    path = icons[icon];
+  } else if (dangerouslySetSvgPath) {
+    /* eslint-disable-next-line no-underscore-dangle */
+    path = dangerouslySetSvgPath.__path;
+  } else {
+    path = '';
+  }
 
   const ariaHidden = accessibilityLabel === '' ? true : null;
 
@@ -83,7 +109,10 @@ Icon.propTypes = {
     'watermelon',
     'white',
   ]),
-  icon: PropTypes.oneOf(IconNames).isRequired,
+  dangerouslySetSvgPath: PropTypes.shape({
+    __path: PropTypes.string,
+  }),
+  icon: PropTypes.oneOf(IconNames),
   inline: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
