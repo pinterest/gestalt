@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video with callbacks 1`] = `
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <video
+    autoPlay={undefined}
+    loop={undefined}
+    muted={false}
+    onDurationChange={[Function]}
+    onPause={[Function]}
+    onPlaying={[Function]}
+    onTimeUpdate={[Function]}
+    onVolumeChange={[Function]}
+    poster={undefined}
+    preload="auto"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <source
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      type="video/mp4"
+    />
+  </video>
+</div>
+`;
+
+exports[`Video with media attributes 1`] = `
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <video
+    autoPlay={true}
+    loop={true}
+    muted={true}
+    onDurationChange={[Function]}
+    onPause={[Function]}
+    onPlaying={[Function]}
+    onTimeUpdate={[Function]}
+    onVolumeChange={[Function]}
+    poster={undefined}
+    preload="metadata"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <source
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      type="video/mp4"
+    />
+  </video>
+</div>
+`;
+
+exports[`Video with source 1`] = `
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <video
+    autoPlay={undefined}
+    loop={undefined}
+    muted={false}
+    onDurationChange={[Function]}
+    onPause={[Function]}
+    onPlaying={[Function]}
+    onTimeUpdate={[Function]}
+    onVolumeChange={[Function]}
+    poster={undefined}
+    preload="auto"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <source
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      type="video/mp4"
+    />
+  </video>
+</div>
+`;
