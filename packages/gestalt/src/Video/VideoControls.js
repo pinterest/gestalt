@@ -5,7 +5,7 @@ import Box from '../Box/Box';
 import Icon from '../Icon/Icon';
 import Text from '../Text/Text';
 import Touchable from '../Touchable/Touchable';
-import VideoScrubber from './VideoScrubber';
+import VideoPlayhead from './VideoPlayhead';
 import PropTypes from 'prop-types';
 
 type Props = {|
@@ -14,6 +14,7 @@ type Props = {|
   fullscreen: boolean,
   muted: boolean,
   paused: boolean,
+  seek: (time: number) => void,
   toggleFullscreen: () => void,
   toggleMute: () => void,
   togglePlay: () => void,
@@ -35,6 +36,7 @@ export default function VideoControls(props: Props) {
     fullscreen,
     paused,
     muted,
+    seek,
     toggleFullscreen,
     toggleMute,
     togglePlay,
@@ -66,7 +68,11 @@ export default function VideoControls(props: Props) {
         </Text>
       </Box>
       <Box padding={2} flex="grow">
-        <VideoScrubber currentTime={currentTime} duration={duration} />
+        <VideoPlayhead
+          currentTime={currentTime}
+          duration={duration}
+          seek={seek}
+        />
       </Box>
       <Box width={50} padding={2}>
         <Text color="white" align="right" size="xs">
@@ -103,6 +109,7 @@ VideoControls.propTypes = {
   fullscreen: PropTypes.bool.isRequired,
   muted: PropTypes.bool.isRequired,
   paused: PropTypes.bool.isRequired,
+  seek: PropTypes.func.isRequired,
   toggleFullscreen: PropTypes.func.isRequired,
   toggleMute: PropTypes.func.isRequired,
   togglePlay: PropTypes.func.isRequired,

@@ -49,6 +49,11 @@ card(
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
+        name: 'onFullScreenChange',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when the video full screen status changes',
+      },
+      {
         name: 'onPlay',
         type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description:

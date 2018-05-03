@@ -12,6 +12,7 @@ type Props = {|
   loop?: boolean,
   muted?: boolean,
   onDurationChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
+  onFullScreenChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onTimeUpdate?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
@@ -43,6 +44,8 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   componentDidMount() {
+    // Set up event listeners to catch backdoors in fullscreen
+    // changes such as using the ESC key to exit
     fullscreen.addEventListener(this.handleFullScreenChange);
   }
 
@@ -63,6 +66,13 @@ export default class Video extends React.PureComponent<Props, State> {
 
   player: ?HTMLDivElement;
   video: ?HTMLVideoElement;
+
+  // Seek the video to the desired time
+  seek = (time: number) => {
+    if (this.video) {
+      this.video.currentTime = time;
+    }
+  };
 
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
@@ -104,9 +114,14 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  // Sent when the browser is switched to/out-of fullscreen mode
-  handleFullScreenChange = () => {
+  // Sent when the video is switched to/out-of fullscreen mode
+  handleFullScreenChange = (event: *) => {
+    const { onFullScreenChange } = this.props;
     this.setState({ isFullscreen: !!fullscreen.isFullscreen() });
+
+    if (onFullScreenChange) {
+      onFullScreenChange({ event });
+    }
   };
 
   // Sent when the media begins to play (either for the first time,
@@ -153,11 +168,16 @@ export default class Video extends React.PureComponent<Props, State> {
   render() {
     const { autoPlay, controls, loop, poster, preload, src } = this.props;
     const { currentTime, duration, isFullscreen, muted, paused } = this.state;
+
     const paddingBottom =
+      // In full screen the padding bottom is 0 to fit the screen
       (isFullscreen && '0') ||
+      // If video data is present, use the correct aspect ratio
       (this.video &&
         `${this.video.videoHeight / this.video.videoWidth * 100}%`) ||
+      // If the video metadata is missing, default to a standard 16:9 ratio
       `${9 / 16 * 100}%`;
+
     return (
       <div
         ref={this.setPlayerRef}
@@ -189,6 +209,7 @@ export default class Video extends React.PureComponent<Props, State> {
             fullscreen={isFullscreen}
             muted={muted}
             paused={paused}
+            seek={this.seek}
             toggleFullscreen={this.toggleFullscreen}
             toggleMute={this.toggleMute}
             togglePlay={this.togglePlay}
@@ -205,6 +226,7 @@ Video.propTypes = {
   loop: PropTypes.bool,
   muted: PropTypes.bool,
   onDurationChange: PropTypes.func,
+  onFullScreenChange: PropTypes.func,
   onPlay: PropTypes.func,
   onPause: PropTypes.func,
   onTimeUpdate: PropTypes.func,
