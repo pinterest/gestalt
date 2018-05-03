@@ -6,6 +6,9 @@
     Click to see more.
   </summary>
 
+### Major
+* Video: Add new Video component to Gestalt (#150)
+
 ### Minor
 
 ### Patch
