@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Video } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -50,7 +49,7 @@ card(
       },
       {
         name: 'onFullScreenChange',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type: '({ event: Event }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
@@ -99,28 +98,27 @@ card(
 
 card(
   <Example
+    name="Video media basics"
     description={`
     The source url you pass into \`Video\` will be used to download and play the video file. While it is
     downloading the metadata, you may show a thumbnail image by using the \`poster\` prop.
   `}
-    name="Video media basics"
     defaultCode={`
 <Video
   poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
 `}
-    scope={{ Video }}
   />
 );
 
 card(
   <Example
+    name="Native video attributes"
     description={`
     \`Video\` supports the native HTML video attributes such as \`autoPlay\`, \`loop\`, \`muted\`, and more.
     Simply pass these through as props on the \`Video\` component.
   `}
-    name="Native video attributes"
     defaultCode={`
 <Video
   autoPlay
@@ -129,21 +127,92 @@ card(
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
 />
 `}
-    scope={{ Video }}
   />
 );
 
 card(
   <Example
+    name="Video controls"
     description={`
     \`Video\` components can show a control bar to users in order to allow them access to certain features
     such as play/pause, time stamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear.
   `}
-    name="Video controls"
     defaultCode={`
 <Video controls src="http://media.w3.org/2010/05/bunny/movie.mp4" />
 `}
-    scope={{ Video }}
+  />
+);
+
+card(
+  <Example
+    name="Video updates"
+    description={`
+    \`Video\` is robust enough to handle any updates to it such as changing the source or muting.`}
+    defaultCode={`
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChangeInput = this._handleChangeInput.bind(this);
+    this.handleToggleMute = this._handleToggleMute.bind(this);
+    this.handleSubmitInput = this._handleSubmitInput.bind(this);
+    this.state = {
+      input: "http://media.w3.org/2010/05/bunny/movie.mp4",
+      src: "http://media.w3.org/2010/05/bunny/movie.mp4",
+      muted: false
+    };
+  }
+
+  _handleChangeInput({ value }) {
+    this.setState({ input: value });
+  }
+
+  _handleToggleMute() {
+    this.setState({ muted: !this.state.muted });
+  }
+
+  _handleSubmitInput() {
+    this.setState({ src: this.state.input });
+  }
+
+  render() {
+    const { input, src, muted } = this.state;
+    return (
+      <Box>
+        <Box paddingY={2}>
+          <Box marginBottom={2}>
+            <Label htmlFor="video-source">
+              <Text>Video source URL</Text>
+            </Label>
+          </Box>
+          <Box display="flex" marginLeft={-1} marginRight={-1}>
+            <Box flex="grow" paddingX={1}>
+              <TextField
+                id="video-source"
+                onChange={this.handleChangeInput}
+                value={input}
+              />
+            </Box>
+            <Box paddingX={1}>
+              <Button
+                text="Submit"
+                color="red"
+                onClick={this.handleSubmitInput}
+              />
+            </Box>
+          </Box>
+        </Box>
+        <Box paddingY={2}>
+          <Button
+            text={muted ? "Unmute" : "Mute"}
+            onClick={this.handleToggleMute}
+          />
+        </Box>
+        <Video controls muted={muted} src={src} />
+      </Box>
+    );
+  }
+}
+`}
   />
 );
 

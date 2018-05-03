@@ -12,7 +12,7 @@ type Props = {|
   loop?: boolean,
   muted?: boolean,
   onDurationChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onFullScreenChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
+  onFullScreenChange?: ({ event: Event }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onTimeUpdate?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
@@ -43,15 +43,36 @@ export default class Video extends React.PureComponent<Props, State> {
     muted: this.props.muted || false,
   };
 
+  /**
+   * React lifecycle hooks pertinent to Video
+   */
+
   componentDidMount() {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     fullscreen.addEventListener(this.handleFullScreenChange);
   }
 
+  componentWillReceiveProps(nextProps: Props) {
+    if (this.props.src !== nextProps.src) {
+      this.setState({ paused: true });
+    }
+    this.setState({ muted: nextProps.muted });
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.src !== this.props.src) {
+      this.load();
+    }
+  }
+
   componentWillUnmount() {
     fullscreen.removeEventListener(this.handleFullScreenChange);
   }
+
+  /**
+   * DOM reference housekeeping that is needed for functionality
+   */
 
   // The player element encapsulates the actual video DOM
   // element as well as the controls to bring both fullscreen
@@ -66,6 +87,17 @@ export default class Video extends React.PureComponent<Props, State> {
 
   player: ?HTMLDivElement;
   video: ?HTMLVideoElement;
+
+  /**
+   * Functions that directly interact with the HTML video element
+   */
+
+  // Change the video source and re-load the video
+  load = () => {
+    if (this.video) {
+      this.video.load();
+    }
+  };
 
   // Seek the video to the desired time
   seek = (time: number) => {
@@ -103,6 +135,10 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  /**
+   * Handlers for various media events on the video
+   */
+
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
   handleDurationChange = (event: SyntheticEvent<HTMLVideoElement>) => {
@@ -115,7 +151,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullScreenChange = (event: *) => {
+  handleFullScreenChange = (event: Event) => {
     const { onFullScreenChange } = this.props;
     this.setState({ isFullscreen: !!fullscreen.isFullscreen() });
 
