@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Box from '../Box/Box';
+import PropTypes from 'prop-types';
 
 type Props = {|
   currentTime: number,
@@ -50,3 +51,8 @@ export default class VideoScrubber extends React.PureComponent<Props> {
     );
   }
 }
+
+VideoScrubber.propTypes = {
+  currentTime: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+};
