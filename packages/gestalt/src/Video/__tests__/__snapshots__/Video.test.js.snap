@@ -2,14 +2,17 @@
 
 exports[`Video with callbacks 1`] = `
 <div
+  className="player"
   style={
     Object {
-      "position": "relative",
+      "height": 0,
+      "paddingBottom": "56.25%",
     }
   }
 >
   <video
     autoPlay={undefined}
+    className="video"
     loop={undefined}
     muted={false}
     onDurationChange={[Function]}
@@ -19,11 +22,6 @@ exports[`Video with callbacks 1`] = `
     onVolumeChange={[Function]}
     poster={undefined}
     preload="auto"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <source
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -35,14 +33,17 @@ exports[`Video with callbacks 1`] = `
 
 exports[`Video with media attributes 1`] = `
 <div
+  className="player"
   style={
     Object {
-      "position": "relative",
+      "height": 0,
+      "paddingBottom": "56.25%",
     }
   }
 >
   <video
     autoPlay={true}
+    className="video"
     loop={true}
     muted={true}
     onDurationChange={[Function]}
@@ -52,11 +53,6 @@ exports[`Video with media attributes 1`] = `
     onVolumeChange={[Function]}
     poster={undefined}
     preload="metadata"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <source
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -68,14 +64,17 @@ exports[`Video with media attributes 1`] = `
 
 exports[`Video with source 1`] = `
 <div
+  className="player"
   style={
     Object {
-      "position": "relative",
+      "height": 0,
+      "paddingBottom": "56.25%",
     }
   }
 >
   <video
     autoPlay={undefined}
+    className="video"
     loop={undefined}
     muted={false}
     onDurationChange={[Function]}
@@ -85,11 +84,6 @@ exports[`Video with source 1`] = `
     onVolumeChange={[Function]}
     poster={undefined}
     preload="auto"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <source
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
