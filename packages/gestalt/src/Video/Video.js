@@ -4,6 +4,7 @@ import * as React from 'react';
 import * as fullscreen from './fullscreen';
 import VideoControls from './VideoControls';
 import PropTypes from 'prop-types';
+import styles from './Video.css';
 
 type Props = {|
   autoPlay?: boolean,
@@ -141,8 +142,17 @@ export default class Video extends React.PureComponent<Props, State> {
   render() {
     const { autoPlay, controls, loop, poster, preload, src } = this.props;
     const { currentTime, duration, isFullscreen, muted, paused } = this.state;
+    const paddingBottom =
+      (isFullscreen && '0') ||
+      (this.video &&
+        `${this.video.videoHeight / this.video.videoWidth * 100}%`) ||
+      '100%';
     return (
-      <div ref={this.setPlayerRef} style={{ position: 'relative' }}>
+      <div
+        ref={this.setPlayerRef}
+        className={styles.player}
+        style={{ paddingBottom, height: isFullscreen ? '100%' : 0 }}
+      >
         {/* eslint-disable jsx-a11y/media-has-caption */}
         <video
           autoPlay={autoPlay}
@@ -151,7 +161,7 @@ export default class Video extends React.PureComponent<Props, State> {
           poster={poster}
           preload={preload}
           ref={this.setVideoRef}
-          style={{ width: '100%' }}
+          className={styles.video}
           onDurationChange={this.handleDurationChange}
           onPlaying={this.handlePlay}
           onPause={this.handlePause}

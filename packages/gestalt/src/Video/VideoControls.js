@@ -44,6 +44,7 @@ export default class VideoControls extends React.PureComponent<Props> {
         position="absolute"
         bottom
         left
+        right
         width="100%"
         padding={2}
         display="flex"

@@ -1,0 +1,11 @@
+.video {
+  composes: block from "../Layout.css";
+  composes: absolute from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+  height: 100%;
+}
+
+.player {
+  composes: relative from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+}
