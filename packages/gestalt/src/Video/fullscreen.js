@@ -41,4 +41,27 @@ export const enabled = () =>
   // $FlowIssue - missing from Flow
   document.msFullscreenEnabled;
 
+// Normally document.fullscreen suffices here as a flag, but IE11 does not
+// have a vendor specific version so we must instead use the actual element
+export const isFullscreen = () =>
+  document.fullscreenElement ||
+  document.webkitFullscreenElement ||
+  document.mozFullScreenElement ||
+  // $FlowIssue - missing from Flow
+  document.msFullscreenElement;
+
+export const addEventListener = (handler: Function) => {
+  document.addEventListener('fullscreenchange', handler);
+  document.addEventListener('webkitfullscreenchange', handler);
+  document.addEventListener('mozfullscreenchange', handler);
+  document.addEventListener('MSFullscreenChange', handler);
+};
+
+export const removeEventListener = (handler: Function) => {
+  document.removeEventListener('fullscreenchange', handler);
+  document.removeEventListener('webkitfullscreenchange', handler);
+  document.removeEventListener('mozfullscreenchange', handler);
+  document.removeEventListener('MSFullscreenChange', handler);
+};
+
 export default undefined;

@@ -42,6 +42,14 @@ export default class Video extends React.PureComponent<Props, State> {
     muted: this.props.muted || false,
   };
 
+  componentDidMount() {
+    fullscreen.addEventListener(this.handleFullScreenChange);
+  }
+
+  componentWillUnmount() {
+    fullscreen.removeEventListener(this.handleFullScreenChange);
+  }
+
   // The player element encapsulates the actual video DOM
   // element as well as the controls to bring both fullscreen
   setPlayerRef = (ref: ?HTMLDivElement) => {
@@ -59,12 +67,10 @@ export default class Video extends React.PureComponent<Props, State> {
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
     if (fullscreen.enabled()) {
-      if (this.state.isFullscreen) {
+      if (fullscreen.isFullscreen()) {
         fullscreen.exit();
-        this.setState({ isFullscreen: false });
       } else if (this.player) {
         fullscreen.request(this.player);
-        this.setState({ isFullscreen: true });
       }
     }
   };
@@ -96,6 +102,11 @@ export default class Video extends React.PureComponent<Props, State> {
     if (onDurationChange) {
       onDurationChange({ event });
     }
+  };
+
+  // Sent when the browser is switched to/out-of fullscreen mode
+  handleFullScreenChange = () => {
+    this.setState({ isFullscreen: !!fullscreen.isFullscreen() });
   };
 
   // Sent when the media begins to play (either for the first time,
@@ -146,7 +157,7 @@ export default class Video extends React.PureComponent<Props, State> {
       (isFullscreen && '0') ||
       (this.video &&
         `${this.video.videoHeight / this.video.videoWidth * 100}%`) ||
-      '100%';
+      `${9 / 16 * 100}%`;
     return (
       <div
         ref={this.setPlayerRef}
