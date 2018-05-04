@@ -88,8 +88,11 @@ card(
       },
       {
         name: 'src',
-        type: 'string',
-        description: 'The URL of the video file to play',
+        type:
+          'string | Array<{| type: "video/m3u8" | "video/mp4" | "video/ogg, src: string |}>',
+        description: `The URL of the video file to play. This can also be supplied as a list of video types to respective
+          video source urls in fallback order for support on various browsers.`,
+        required: true,
       },
     ]}
     heading={false}
@@ -107,6 +110,32 @@ card(
 <Video
   poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
+/>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Video multiple sources"
+    description={`
+    Not all browsers support the same video encoding types. If you have multiple video file sources, you can pass
+    them as a list to \`Video\` in the order you want the HTML video tag to use as fallbacks.
+  `}
+    defaultCode={`
+<Video
+  autoPlay
+  muted
+  src={[
+    {
+      type: "video/mp4",
+      src: "https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
+    },
+    {
+      type: "video/ogg",
+      src: "https://archive.org/download/ElephantsDream/ed_hd.ogv"
+    },
+  ]}
 />
 `}
   />
@@ -138,7 +167,16 @@ card(
     such as play/pause, time stamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear.
   `}
     defaultCode={`
-<Video controls src="http://media.w3.org/2010/05/bunny/movie.mp4" />
+<Video
+  controls
+  accessibilityMaximizeLabel="Maximize"
+  accessibilityMinimizeLabel="Minimize"
+  accessibilityMuteLabel="Mute"
+  accessibilityPauseLabel="Pause"
+  accessibilityPlayLabel="Play"
+  accessibilityUnmuteLabel="Unmute"
+  src="http://media.w3.org/2010/05/bunny/movie.mp4"
+/>
 `}
   />
 );
@@ -207,7 +245,7 @@ class Example extends React.Component {
             onClick={this.handleToggleMute}
           />
         </Box>
-        <Video controls muted={muted} src={src} />
+        <Video muted={muted} src={src} />
       </Box>
     );
   }

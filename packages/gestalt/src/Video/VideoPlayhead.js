@@ -16,6 +16,12 @@ type State = {|
 |};
 
 export default class VideoPlayhead extends React.PureComponent<Props, State> {
+  static propTypes = {
+    currentTime: PropTypes.number.isRequired,
+    duration: PropTypes.number.isRequired,
+    seek: PropTypes.func.isRequired,
+  };
+
   state = {
     seeking: false,
   };
@@ -101,9 +107,3 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     );
   }
 }
-
-VideoPlayhead.propTypes = {
-  currentTime: PropTypes.number.isRequired,
-  duration: PropTypes.number.isRequired,
-  seek: PropTypes.func.isRequired,
-};

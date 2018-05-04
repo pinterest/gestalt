@@ -9,6 +9,12 @@ import VideoPlayhead from './VideoPlayhead';
 import PropTypes from 'prop-types';
 
 type Props = {|
+  accessibilityMaximizeLabel: string,
+  accessibilityMinimizeLabel: string,
+  accessibilityMuteLabel: string,
+  accessibilityPauseLabel: string,
+  accessibilityPlayLabel: string,
+  accessibilityUnmuteLabel: string,
   currentTime: number,
   duration: number,
   fullscreen: boolean,
@@ -31,6 +37,12 @@ const timeToString = (time?: number) => {
 
 export default function VideoControls(props: Props) {
   const {
+    accessibilityMaximizeLabel,
+    accessibilityMinimizeLabel,
+    accessibilityMuteLabel,
+    accessibilityPauseLabel,
+    accessibilityPlayLabel,
+    accessibilityUnmuteLabel,
     currentTime,
     duration,
     fullscreen,
@@ -47,7 +59,7 @@ export default function VideoControls(props: Props) {
       bottom
       left
       right
-      width="100%"
+      column={12}
       padding={2}
       display="flex"
       alignItems="center"
@@ -55,7 +67,9 @@ export default function VideoControls(props: Props) {
       <Box padding={2}>
         <Touchable onTouch={togglePlay} fullWidth={false}>
           <Icon
-            accessibilityLabel=""
+            accessibilityLabel={
+              paused ? accessibilityPlayLabel : accessibilityPauseLabel
+            }
             color="white"
             icon={paused ? 'play' : 'pause'}
             size={20}
@@ -82,7 +96,9 @@ export default function VideoControls(props: Props) {
       <Box padding={2}>
         <Touchable onTouch={toggleMute} fullWidth={false}>
           <Icon
-            accessibilityLabel=""
+            accessibilityLabel={
+              muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
+            }
             color="white"
             icon={muted ? 'mute' : 'sound'}
             size={20}
@@ -92,7 +108,11 @@ export default function VideoControls(props: Props) {
       <Box padding={2}>
         <Touchable onTouch={toggleFullscreen} fullWidth={false}>
           <Icon
-            accessibilityLabel=""
+            accessibilityLabel={
+              fullscreen
+                ? accessibilityMinimizeLabel
+                : accessibilityMaximizeLabel
+            }
             color="white"
             icon={fullscreen ? 'minimize' : 'maximize'}
             size={20}
@@ -104,6 +124,12 @@ export default function VideoControls(props: Props) {
 }
 
 VideoControls.propTypes = {
+  accessibilityMaximizeLabel: PropTypes.string.isRequired,
+  accessibilityMinimizeLabel: PropTypes.string.isRequired,
+  accessibilityMuteLabel: PropTypes.string.isRequired,
+  accessibilityPauseLabel: PropTypes.string.isRequired,
+  accessibilityPlayLabel: PropTypes.string.isRequired,
+  accessibilityUnmuteLabel: PropTypes.string.isRequired,
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   fullscreen: PropTypes.bool.isRequired,

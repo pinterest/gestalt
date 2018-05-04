@@ -1,12 +1,17 @@
 // @flow
 
 import * as React from 'react';
-import * as fullscreen from './fullscreen';
 import VideoControls from './VideoControls';
 import PropTypes from 'prop-types';
 import styles from './Video.css';
 
 type Props = {|
+  accessibilityMaximizeLabel?: string,
+  accessibilityMinimizeLabel?: string,
+  accessibilityMuteLabel?: string,
+  accessibilityPauseLabel?: string,
+  accessibilityPlayLabel?: string,
+  accessibilityUnmuteLabel?: string,
   autoPlay?: boolean,
   controls?: boolean,
   loop?: boolean,
@@ -19,18 +24,115 @@ type Props = {|
   onVolumeChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   poster?: string,
   preload: 'auto' | 'metadata' | 'none',
-  src?: string,
+  src:
+    | string
+    | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>,
 |};
 
 type State = {|
   currentTime: number,
   duration: number,
-  isFullscreen: boolean,
+  fullscreen: boolean,
   paused: boolean,
   muted: boolean,
 |};
 
+// For more information on fullscreen and vendor prefixes see
+// https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
+
+const requestFullScreen = (element: HTMLElement) => {
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.webkitRequestFullscreen) {
+    // $FlowIssue - missing from Flow
+    element.webkitRequestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    // $FlowIssue - missing from Flow
+    element.mozRequestFullScreen();
+  } else if (element.msRequestFullscreen) {
+    // $FlowIssue - missing from Flow
+    element.msRequestFullscreen();
+  }
+};
+
+const exitFullScreen = () => {
+  if (document.exitFullscreen) {
+    // $FlowIssue - missing from Flow
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    // $FlowIssue - missing from Flow
+    document.webkitExitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    // $FlowIssue - missing from Flow
+    document.mozCancelFullScreen();
+  } else if (document.msExitFullscreen) {
+    // $FlowIssue - missing from Flow
+    document.msExitFullscreen();
+  }
+};
+
+const fullScreenEnabled = () =>
+  document.fullscreenEnabled ||
+  document.webkitFullscreenEnabled ||
+  document.mozFullScreenEnabled ||
+  // $FlowIssue - missing from Flow
+  document.msFullscreenEnabled;
+
+// Normally document.fullscreen suffices here as a flag, but IE11 does not
+// have a vendor specific version so we must instead use the actual element
+const isFullscreen = () =>
+  document.fullscreenElement ||
+  document.webkitFullscreenElement ||
+  document.mozFullScreenElement ||
+  // $FlowIssue - missing from Flow
+  document.msFullscreenElement;
+
+const addFullScreenEventListener = (handler: Function) => {
+  document.addEventListener('fullscreenchange', handler);
+  document.addEventListener('webkitfullscreenchange', handler);
+  document.addEventListener('mozfullscreenchange', handler);
+  document.addEventListener('MSFullscreenChange', handler);
+};
+
+const removeFullScreenEventListener = (handler: Function) => {
+  document.removeEventListener('fullscreenchange', handler);
+  document.removeEventListener('webkitfullscreenchange', handler);
+  document.removeEventListener('mozfullscreenchange', handler);
+  document.removeEventListener('MSFullscreenChange', handler);
+};
+
 export default class Video extends React.PureComponent<Props, State> {
+  static propTypes = {
+    accessibilityMaximizeLabel: PropTypes.string,
+    accessibilityMinimizeLabel: PropTypes.string,
+    accessibilityMuteLabel: PropTypes.string,
+    accessibilityPauseLabel: PropTypes.string,
+    accessibilityPlayLabel: PropTypes.string,
+    accessibilityUnmuteLabel: PropTypes.string,
+    autoPlay: PropTypes.bool,
+    controls: PropTypes.bool,
+    loop: PropTypes.bool,
+    muted: PropTypes.bool,
+    onDurationChange: PropTypes.func,
+    onFullScreenChange: PropTypes.func,
+    onPlay: PropTypes.func,
+    onPause: PropTypes.func,
+    onTimeUpdate: PropTypes.func,
+    onVolumeChange: PropTypes.func,
+    poster: PropTypes.string,
+    preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
+    src: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(
+        PropTypes.shape({
+          type: PropTypes.oneOf(['video/m3u8', 'video/mp4', 'video/ogg'])
+            .isRequired,
+          src: PropTypes.string.isRequired,
+        })
+      ),
+    ]).isRequired,
+  };
+
   static defaultProps = {
     preload: 'auto',
   };
@@ -38,7 +140,7 @@ export default class Video extends React.PureComponent<Props, State> {
   state = {
     currentTime: 0,
     duration: 0,
-    isFullscreen: false,
+    fullscreen: false,
     paused: true,
     muted: this.props.muted || false,
   };
@@ -50,7 +152,7 @@ export default class Video extends React.PureComponent<Props, State> {
   componentDidMount() {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
-    fullscreen.addEventListener(this.handleFullScreenChange);
+    addFullScreenEventListener(this.handleFullScreenChange);
   }
 
   componentWillReceiveProps(nextProps: Props) {
@@ -67,7 +169,7 @@ export default class Video extends React.PureComponent<Props, State> {
   }
 
   componentWillUnmount() {
-    fullscreen.removeEventListener(this.handleFullScreenChange);
+    removeFullScreenEventListener(this.handleFullScreenChange);
   }
 
   /**
@@ -108,11 +210,11 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
-    if (fullscreen.enabled()) {
-      if (fullscreen.isFullscreen()) {
-        fullscreen.exit();
+    if (fullScreenEnabled()) {
+      if (isFullscreen()) {
+        exitFullScreen();
       } else if (this.player) {
-        fullscreen.request(this.player);
+        requestFullScreen(this.player);
       }
     }
   };
@@ -143,7 +245,8 @@ export default class Video extends React.PureComponent<Props, State> {
   // duration of the media
   handleDurationChange = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onDurationChange } = this.props;
-    this.setState({ duration: (this.video && this.video.duration) || 0 });
+    const duration = (this.video && this.video.duration) || 0;
+    this.setState({ duration });
 
     if (onDurationChange) {
       onDurationChange({ event });
@@ -153,7 +256,7 @@ export default class Video extends React.PureComponent<Props, State> {
   // Sent when the video is switched to/out-of fullscreen mode
   handleFullScreenChange = (event: Event) => {
     const { onFullScreenChange } = this.props;
-    this.setState({ isFullscreen: !!fullscreen.isFullscreen() });
+    this.setState({ fullscreen: !!isFullscreen() });
 
     if (onFullScreenChange) {
       onFullScreenChange({ event });
@@ -202,12 +305,25 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { autoPlay, controls, loop, poster, preload, src } = this.props;
-    const { currentTime, duration, isFullscreen, muted, paused } = this.state;
+    const {
+      accessibilityMaximizeLabel,
+      accessibilityMinimizeLabel,
+      accessibilityMuteLabel,
+      accessibilityPauseLabel,
+      accessibilityPlayLabel,
+      accessibilityUnmuteLabel,
+      autoPlay,
+      controls,
+      loop,
+      poster,
+      preload,
+      src,
+    } = this.props;
+    const { currentTime, duration, fullscreen, muted, paused } = this.state;
 
     const paddingBottom =
       // In full screen the padding bottom is 0 to fit the screen
-      (isFullscreen && '0') ||
+      (fullscreen && '0') ||
       // If video data is present, use the correct aspect ratio
       (this.video &&
         `${this.video.videoHeight / this.video.videoWidth * 100}%`) ||
@@ -218,7 +334,7 @@ export default class Video extends React.PureComponent<Props, State> {
       <div
         ref={this.setPlayerRef}
         className={styles.player}
-        style={{ paddingBottom, height: isFullscreen ? '100%' : 0 }}
+        style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
         {/* eslint-disable jsx-a11y/media-has-caption */}
         <video
@@ -227,6 +343,7 @@ export default class Video extends React.PureComponent<Props, State> {
           muted={muted}
           poster={poster}
           preload={preload}
+          src={typeof src === 'string' ? src : undefined}
           ref={this.setVideoRef}
           className={styles.video}
           onDurationChange={this.handleDurationChange}
@@ -235,14 +352,23 @@ export default class Video extends React.PureComponent<Props, State> {
           onTimeUpdate={this.handleTimeUpdate}
           onVolumeChange={this.handleVolumeChange}
         >
-          {src && <source src={src} type="video/mp4" />}
+          {Array.isArray(src) &&
+            src.map(source => (
+              <source key={source.src} src={source.src} type={source.type} />
+            ))}
         </video>
         {/* eslint-enable jsx-a11y/media-has-caption */}
         {controls && (
           <VideoControls
+            accessibilityMaximizeLabel={accessibilityMaximizeLabel}
+            accessibilityMinimizeLabel={accessibilityMinimizeLabel}
+            accessibilityMuteLabel={accessibilityMuteLabel}
+            accessibilityPauseLabel={accessibilityPauseLabel}
+            accessibilityPlayLabel={accessibilityPlayLabel}
+            accessibilityUnmuteLabel={accessibilityUnmuteLabel}
             currentTime={currentTime}
             duration={duration}
-            fullscreen={isFullscreen}
+            fullscreen={fullscreen}
             muted={muted}
             paused={paused}
             seek={this.seek}
@@ -255,19 +381,3 @@ export default class Video extends React.PureComponent<Props, State> {
     );
   }
 }
-
-Video.propTypes = {
-  autoPlay: PropTypes.bool,
-  controls: PropTypes.bool,
-  loop: PropTypes.bool,
-  muted: PropTypes.bool,
-  onDurationChange: PropTypes.func,
-  onFullScreenChange: PropTypes.func,
-  onPlay: PropTypes.func,
-  onPause: PropTypes.func,
-  onTimeUpdate: PropTypes.func,
-  onVolumeChange: PropTypes.func,
-  poster: PropTypes.string,
-  preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
-  src: PropTypes.string,
-};
