@@ -22,9 +22,51 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilityMaximizeLabel',
+        type: 'string',
+        description:
+          'Accessibility label for the fullscreen maximize button if controls are shown',
+      },
+      {
+        name: 'accessibilityMinimizeLabel',
+        type: 'string',
+        description:
+          'Accessibility label for the fullscreen minimize button if controls are shown',
+      },
+      {
+        name: 'accessibilityMuteLabel',
+        type: 'string',
+        description:
+          'Accessibility label for the mute button if controls are shown',
+      },
+      {
+        name: 'accessibilityPauseLabel',
+        type: 'string',
+        description:
+          'Accessibility label for the pause button if controls are shown',
+      },
+      {
+        name: 'accessibilityPlayLabel',
+        type: 'string',
+        description:
+          'Accessibility label for the play button if controls are shown',
+      },
+      {
+        name: 'accessibilityUnmuteLabel',
+        type: 'string',
+        description:
+          'Accessibility label for the unmute button if controls are shown',
+      },
+      {
         name: 'autoPlay',
         type: 'boolean',
         description: 'The video will start playing as soon as it is ready',
+      },
+      {
+        name: 'captions',
+        type: 'string',
+        description: 'The URL of the captions track for the video (.vtt file)',
+        required: true,
       },
       {
         name: 'controls',
@@ -108,6 +150,7 @@ card(
   `}
     defaultCode={`
 <Video
+  captions=""
   poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
@@ -126,6 +169,7 @@ card(
 <Video
   autoPlay
   muted
+  captions=""
   src={[
     {
       type: "video/mp4",
@@ -153,6 +197,7 @@ card(
   autoPlay
   loop
   muted
+  captions=""
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
 />
 `}
@@ -169,6 +214,7 @@ card(
     defaultCode={`
 <Video
   controls
+  captions=""
   accessibilityMaximizeLabel="Maximize"
   accessibilityMinimizeLabel="Minimize"
   accessibilityMuteLabel="Mute"
@@ -245,7 +291,7 @@ class Example extends React.Component {
             onClick={this.handleToggleMute}
           />
         </Box>
-        <Video muted={muted} src={src} />
+        <Video captions="" muted={muted} src={src} />
       </Box>
     );
   }

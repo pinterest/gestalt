@@ -13,6 +13,7 @@ type Props = {|
   accessibilityPlayLabel?: string,
   accessibilityUnmuteLabel?: string,
   autoPlay?: boolean,
+  captions: string,
   controls?: boolean,
   loop?: boolean,
   muted?: boolean,
@@ -110,6 +111,7 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityPlayLabel: PropTypes.string,
     accessibilityUnmuteLabel: PropTypes.string,
     autoPlay: PropTypes.bool,
+    captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
     muted: PropTypes.bool,
@@ -152,7 +154,9 @@ export default class Video extends React.PureComponent<Props, State> {
   componentDidMount() {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
-    addFullScreenEventListener(this.handleFullScreenChange);
+    if (document) {
+      addFullScreenEventListener(this.handleFullScreenChange);
+    }
   }
 
   componentWillReceiveProps(nextProps: Props) {
@@ -313,6 +317,7 @@ export default class Video extends React.PureComponent<Props, State> {
       accessibilityPlayLabel,
       accessibilityUnmuteLabel,
       autoPlay,
+      captions,
       controls,
       loop,
       poster,
@@ -336,7 +341,6 @@ export default class Video extends React.PureComponent<Props, State> {
         className={styles.player}
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
-        {/* eslint-disable jsx-a11y/media-has-caption */}
         <video
           autoPlay={autoPlay}
           loop={loop}
@@ -356,8 +360,8 @@ export default class Video extends React.PureComponent<Props, State> {
             src.map(source => (
               <source key={source.src} src={source.src} type={source.type} />
             ))}
+          <track kind="captions" src={captions} />
         </video>
-        {/* eslint-enable jsx-a11y/media-has-caption */}
         {controls && (
           <VideoControls
             accessibilityMaximizeLabel={accessibilityMaximizeLabel}
