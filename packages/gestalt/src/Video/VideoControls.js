@@ -26,7 +26,7 @@ type Props = {|
   togglePlay: () => void,
 |};
 
-const timeToString = (time?: number) => {
+export const timeToString = (time?: number) => {
   const rounded = Math.floor(time || 0);
   const minutes = Math.floor(rounded / 60);
   const seconds = rounded - minutes * 60;
