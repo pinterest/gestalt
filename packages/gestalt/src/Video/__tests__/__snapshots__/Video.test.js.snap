@@ -22,10 +22,11 @@ exports[`Video with callbacks 1`] = `
     onVolumeChange={[Function]}
     poster={undefined}
     preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <source
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      type="video/mp4"
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
     />
   </video>
 </div>
@@ -53,10 +54,51 @@ exports[`Video with media attributes 1`] = `
     onVolumeChange={[Function]}
     poster={undefined}
     preload="metadata"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+  >
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
+</div>
+`;
+
+exports[`Video with multiple sources 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "56.25%",
+    }
+  }
+>
+  <video
+    autoPlay={undefined}
+    className="video"
+    loop={undefined}
+    muted={false}
+    onDurationChange={[Function]}
+    onPause={[Function]}
+    onPlaying={[Function]}
+    onTimeUpdate={[Function]}
+    onVolumeChange={[Function]}
+    poster={undefined}
+    preload="auto"
+    src={undefined}
   >
     <source
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
       type="video/mp4"
+    />
+    <source
+      src="https://archive.org/download/ElephantsDream/ed_hd.ogv"
+      type="video/ogg"
+    />
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
     />
   </video>
 </div>
@@ -84,10 +126,11 @@ exports[`Video with source 1`] = `
     onVolumeChange={[Function]}
     poster={undefined}
     preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
-    <source
-      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      type="video/mp4"
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
     />
   </video>
 </div>
