@@ -85,13 +85,14 @@ card(
       },
       {
         name: 'onDurationChange',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
         name: 'onFullScreenChange',
-        type: '({ event: Event }) => void',
+        type: '({ event: Event, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
@@ -107,13 +108,15 @@ card(
       },
       {
         name: 'onTimeUpdate',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, currentTime: number }) => void',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
       {
         name: 'onVolumeChange',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, muted: boolean }) => void',
         description: 'Sent when the audio volume changes',
       },
       {

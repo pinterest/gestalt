@@ -17,12 +17,21 @@ type Props = {|
   controls?: boolean,
   loop?: boolean,
   muted?: boolean,
-  onDurationChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onFullScreenChange?: ({ event: Event }) => void,
+  onDurationChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    duration: number,
+  }) => void,
+  onFullScreenChange?: ({ event: Event, fullscreen: boolean }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onTimeUpdate?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onVolumeChange?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
+  onTimeUpdate?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    currentTime: number,
+  }) => void,
+  onVolumeChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    muted: boolean,
+  }) => void,
   poster?: string,
   preload: 'auto' | 'metadata' | 'none',
   src:
@@ -253,17 +262,18 @@ export default class Video extends React.PureComponent<Props, State> {
     this.setState({ duration });
 
     if (onDurationChange) {
-      onDurationChange({ event });
+      onDurationChange({ event, duration });
     }
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
   handleFullScreenChange = (event: Event) => {
     const { onFullScreenChange } = this.props;
-    this.setState({ fullscreen: !!isFullscreen() });
+    const fullscreen = !!isFullscreen();
+    this.setState({ fullscreen });
 
     if (onFullScreenChange) {
-      onFullScreenChange({ event });
+      onFullScreenChange({ event, fullscreen });
     }
   };
 
@@ -291,20 +301,22 @@ export default class Video extends React.PureComponent<Props, State> {
   // The time indicated by the element's currentTime attribute has changed
   handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onTimeUpdate } = this.props;
-    this.setState({ currentTime: (this.video && this.video.currentTime) || 0 });
+    const currentTime = (this.video && this.video.currentTime) || 0;
+    this.setState({ currentTime });
 
     if (onTimeUpdate) {
-      onTimeUpdate({ event });
+      onTimeUpdate({ event, currentTime });
     }
   };
 
   // Sent when the audio volume changes
   handleVolumeChange = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onVolumeChange } = this.props;
-    this.setState({ muted: (this.video && this.video.muted) || false });
+    const muted = (this.video && this.video.muted) || false;
+    this.setState({ muted });
 
     if (onVolumeChange) {
-      onVolumeChange({ event });
+      onVolumeChange({ event, muted });
     }
   };
 
