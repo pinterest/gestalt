@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react';
 import { Mask } from 'gestalt';
+import stock7 from './images/stock7.jpg';
+import stock8 from './images/stock8.jpg';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
@@ -72,7 +74,7 @@ card(
 <Mask shape="circle">
   <img
     alt="weakendclub.com"
-    src="https://i.pinimg.com/564x/4f/cb/61/4fcb610ae43cddd68086c85eec9c413e.jpg"
+    src="${stock7}"
     style={{ maxWidth: '100%', display: 'block' }}
   />
 </Mask>
@@ -93,7 +95,7 @@ card(
 <Mask shape="rounded" wash>
   <img
     alt="subliming.tumblr.com"
-    src="https://i.pinimg.com/564x/d0/c1/f6/d0c1f69316b4e61b3ccc7b1731f028b8.jpg"
+    src="${stock8}"
     style={{ maxWidth: '100%', display: 'block' }}
   />
 </Mask>

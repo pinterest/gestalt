@@ -1,6 +1,10 @@
 // @flow
 import * as React from 'react';
 import { Box, Letterbox } from 'gestalt';
+import stock3 from './images/stock3.jpg';
+import stock4 from './images/stock4.jpg';
+import stock5 from './images/stock5.jpg';
+import stock6 from './images/stock6.jpg';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
@@ -62,7 +66,7 @@ card(
       <img
         alt="tall"
         style={{ width: '100%', display: 'block' }}
-        src="https://i.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+        src="${stock5}"
       />
     </Letterbox>
 
@@ -70,7 +74,7 @@ card(
       <img
         alt="wide"
         style={{ width: '100%', display: 'block' }}
-        src="https://i.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+        src="${stock4}"
       />
     </Letterbox>
 
@@ -78,7 +82,7 @@ card(
       <img
         alt="square"
         style={{ width: '100%', display: 'block' }}
-        src="https://i.pinimg.com/564x/26/1b/2b/261b2b5b30706a2d59232dec0a4f86c3.jpg"
+        src="${stock6}"
       />
     </Letterbox>
     ~~~
@@ -97,7 +101,7 @@ card(
         <img
           alt="tall"
           style={{ width: '100%', display: 'block' }}
-          src="https://i.pinimg.com/564x/a9/dd/08/a9dd080b383ba4f336b5e4705cacdfba.jpg"
+          src={stock5}
         />
       </Letterbox>
     </Box>
@@ -108,7 +112,7 @@ card(
         <img
           alt="wide"
           style={{ width: '100%', display: 'block' }}
-          src="https://i.pinimg.com/564x/47/b8/ec/47b8ec3948ef1f8eba0b0fe1dde28622.jpg"
+          src={stock4}
         />
       </Letterbox>
     </Box>
@@ -119,7 +123,7 @@ card(
         <img
           alt="square"
           style={{ width: '100%', display: 'block' }}
-          src="https://i.pinimg.com/564x/26/1b/2b/261b2b5b30706a2d59232dec0a4f86c3.jpg"
+          src={stock6}
         />
       </Letterbox>
     </Box>
@@ -130,7 +134,7 @@ card(
         <img
           alt="square"
           style={{ width: '100%', display: 'block' }}
-          src="https://i.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+          src={stock3}
         />
       </Letterbox>
     </Box>
@@ -141,7 +145,7 @@ card(
         <img
           alt="square"
           style={{ width: '100%', display: 'block' }}
-          src="https://i.pinimg.com/564x/10/7d/99/107d993c7818ed41bc0afc27ab2a2f15.jpg"
+          src={stock3}
         />
       </Letterbox>
     </Box>
