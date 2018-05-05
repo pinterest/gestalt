@@ -10,6 +10,8 @@
 
 ### Patch
 
+* Internal: update `yarn.lock` (#152)
+
 </details>
 
 ## 0.68.0 (May 3, 2018)
