@@ -91,7 +91,7 @@ card(
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
-        name: 'onFullScreenChange',
+        name: 'onFullscreenChange',
         type: '({ event: Event, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },

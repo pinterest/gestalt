@@ -70,12 +70,16 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
         height={16}
       >
         <div
-          role="presentation"
-          ref={this.setPlayheadRef}
+          aria-valuemax={duration}
+          aria-valuemin="0"
+          aria-valuenow={currentTime}
           className={styles.playhead}
           onMouseDown={this.handleMouseDown}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
+          ref={this.setPlayheadRef}
+          role="progressbar"
+          tabIndex="-1"
         >
           <Box
             left

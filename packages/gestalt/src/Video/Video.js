@@ -21,7 +21,7 @@ type Props = {|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   }) => void,
-  onFullScreenChange?: ({ event: Event, fullscreen: boolean }) => void,
+  onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onTimeUpdate?: ({
@@ -50,7 +50,7 @@ type State = {|
 // For more information on fullscreen and vendor prefixes see
 // https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
 
-const requestFullScreen = (element: HTMLElement) => {
+const requestFullscreen = (element: HTMLElement) => {
   if (element.requestFullscreen) {
     element.requestFullscreen();
   } else if (element.webkitRequestFullscreen) {
@@ -65,7 +65,7 @@ const requestFullScreen = (element: HTMLElement) => {
   }
 };
 
-const exitFullScreen = () => {
+const exitFullscreen = () => {
   if (document.exitFullscreen) {
     // $FlowIssue - missing from Flow
     document.exitFullscreen();
@@ -81,7 +81,7 @@ const exitFullScreen = () => {
   }
 };
 
-const fullScreenEnabled = () =>
+const fullscreenEnabled = () =>
   document.fullscreenEnabled ||
   document.webkitFullscreenEnabled ||
   document.mozFullScreenEnabled ||
@@ -97,14 +97,14 @@ const isFullscreen = () =>
   // $FlowIssue - missing from Flow
   document.msFullscreenElement;
 
-const addFullScreenEventListener = (handler: Function) => {
+const addFullscreenEventListener = (handler: Function) => {
   document.addEventListener('fullscreenchange', handler);
   document.addEventListener('webkitfullscreenchange', handler);
   document.addEventListener('mozfullscreenchange', handler);
   document.addEventListener('MSFullscreenChange', handler);
 };
 
-const removeFullScreenEventListener = (handler: Function) => {
+const removeFullscreenEventListener = (handler: Function) => {
   document.removeEventListener('fullscreenchange', handler);
   document.removeEventListener('webkitfullscreenchange', handler);
   document.removeEventListener('mozfullscreenchange', handler);
@@ -125,7 +125,7 @@ export default class Video extends React.PureComponent<Props, State> {
     loop: PropTypes.bool,
     muted: PropTypes.bool,
     onDurationChange: PropTypes.func,
-    onFullScreenChange: PropTypes.func,
+    onFullscreenChange: PropTypes.func,
     onPlay: PropTypes.func,
     onPause: PropTypes.func,
     onTimeUpdate: PropTypes.func,
@@ -164,7 +164,7 @@ export default class Video extends React.PureComponent<Props, State> {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (document) {
-      addFullScreenEventListener(this.handleFullScreenChange);
+      addFullscreenEventListener(this.handleFullscreenChange);
     }
   }
 
@@ -182,7 +182,7 @@ export default class Video extends React.PureComponent<Props, State> {
   }
 
   componentWillUnmount() {
-    removeFullScreenEventListener(this.handleFullScreenChange);
+    removeFullscreenEventListener(this.handleFullscreenChange);
   }
 
   /**
@@ -223,11 +223,11 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
-    if (fullScreenEnabled()) {
+    if (fullscreenEnabled()) {
       if (isFullscreen()) {
-        exitFullScreen();
+        exitFullscreen();
       } else if (this.player) {
-        requestFullScreen(this.player);
+        requestFullscreen(this.player);
       }
     }
   };
@@ -267,13 +267,13 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullScreenChange = (event: Event) => {
-    const { onFullScreenChange } = this.props;
+  handleFullscreenChange = (event: Event) => {
+    const { onFullscreenChange } = this.props;
     const fullscreen = !!isFullscreen();
     this.setState({ fullscreen });
 
-    if (onFullScreenChange) {
-      onFullScreenChange({ event, fullscreen });
+    if (onFullscreenChange) {
+      onFullscreenChange({ event, fullscreen });
     }
   };
 
