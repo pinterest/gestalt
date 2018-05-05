@@ -1,6 +1,8 @@
 // @flow
 import type { Cache } from './Cache';
 
+type Position = { top: number, left: number, width: number, height: number };
+
 const mindex = arr => {
   let idx = 0;
   for (let i = 0; i < arr.length; i += 1) {
@@ -25,7 +27,7 @@ export default <T>({
   width?: ?number,
 |}) => {
   if (width == null) {
-    return (items: Array<*>) =>
+    return (items: Array<mixed>): Array<Position> =>
       items.map(() => ({
         top: Infinity,
         left: Infinity,

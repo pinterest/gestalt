@@ -1,6 +1,8 @@
 // @flow
 import type { Cache } from './Cache';
 
+type Position = { top: number, left: number, width: number, height: number };
+
 const offscreen = (width, height = Infinity) => ({
   top: -9999,
   left: -9999,
@@ -20,7 +22,7 @@ export default <T>({
   gutter?: number,
   width?: ?number,
   minCols?: number,
-|}) => (items: Array<T>) => {
+|}) => (items: Array<T>): Array<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }
