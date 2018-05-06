@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+* Flow: Upgrade flow-bin to version 0.71.0 (#155)
 
 </details>
 
