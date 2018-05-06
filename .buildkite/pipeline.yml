@@ -8,7 +8,7 @@ steps:
       queue: elastic-builders
   - wait
   - name: ":eslint:"
-    command: yarn lint:js
+    command: yarn lint:js --coverage
     timeout_in_minutes: 10
     agents:
       queue: elastic

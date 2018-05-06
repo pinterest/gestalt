@@ -1,6 +1,8 @@
 // @flow
-import { danger, warn } from 'danger';
+import { danger, warn, schedule } from 'danger';
 import yarn from 'danger-plugin-yarn';
+import { istanbulCoverage } from 'danger-plugin-istanbul-coverage';
+import spellcheck from 'danger-plugin-spellcheck';
 
 if (!danger.git.modified_files.includes('CHANGELOG.md')) {
   warn(
@@ -9,3 +11,12 @@ if (!danger.git.modified_files.includes('CHANGELOG.md')) {
 }
 
 yarn();
+
+schedule(
+  istanbulCoverage({
+    entrySortMethod: 'uncovered-lines',
+    reportFileSet: 'createdOrModified',
+  })
+);
+
+// schedule(spellcheck());
