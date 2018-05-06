@@ -10,7 +10,8 @@
 
 ### Patch
 
-* Docs: include images in repo
+* Internal: update `yarn.lock` (#152)
+* Docs: include images in repo (#151)
 
 </details>
 
