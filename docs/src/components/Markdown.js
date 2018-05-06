@@ -4,9 +4,11 @@ import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import './AtomDark.css';
+import './Markdown.css';
 
 type Props = {|
   text: string,
+  size?: 'md' | 'lg',
 |};
 
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
@@ -27,7 +29,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ text }: Props) {
+export default function Markdown({ text, size = 'md' }: Props) {
   const renderer = new Renderer();
 
   renderer.code = (code, language) => {
@@ -38,9 +40,9 @@ export default function Markdown({ text }: Props) {
   const html = marked(stripIndent(text), { renderer });
 
   return (
-    <Text leading="tall">
+    <Text leading="tall" size={size}>
       {/* eslint-disable-next-line react/no-danger */}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="Markdown" dangerouslySetInnerHTML={{ __html: html }} />
     </Text>
   );
 }

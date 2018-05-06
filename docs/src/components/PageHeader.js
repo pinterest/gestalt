@@ -8,34 +8,24 @@ type Props = {|
   description: string,
 |};
 
-const githubSourceUrl = (component: string): string => {
-  const file = component.replace(/\s+/g, '');
-  return `https://github.com/pinterest/gestalt/blob/master/packages/gestalt/src/${file}/${file}.js`;
-};
+const gestaltPath = component =>
+  `/packages/gestalt/src/${component}/${component}.js`;
 
-export default function PageHeader({ name, description = '' }: Props) {
+const githubUrl = component =>
+  `https://github.com/pinterest/gestalt/blob/master/${gestaltPath(component)}`;
+
+export default function ComponentHeader({ name, description = '' }: Props) {
   return (
-    <Box display="flex" direction="row">
-      <Column span={6}>
-        <Box
-          display="flex"
-          direction="row"
-          alignItems="center"
-          marginBottom={4}
-        >
-          <Box>
-            <Heading size="md">{name}</Heading>
-            <Text size="sm">
-              <Link href={githubSourceUrl(name)} target="blank">
-                View source on GitHub
-              </Link>
-            </Text>
-          </Box>
-        </Box>
-      </Column>
-      <Column span={6}>
-        <Markdown text={description} />
-      </Column>
+    <Box marginBottom={6}>
+      <Box marginBottom={4}>
+        <Heading size="md">{name}</Heading>
+        <Text leading="tall" color="gray">
+          <Link href={githubUrl(name)} inline>
+            Source
+          </Link>
+        </Text>
+      </Box>
+      <Markdown text={description} size="lg" />
     </Box>
   );
 }
