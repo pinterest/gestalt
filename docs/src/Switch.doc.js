@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { Switch } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
