@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-import { Text, Box, SelectList, Link } from 'gestalt';
+import { Text, Box, Link } from 'gestalt';
+import NavLink from './NavLink';
 import routes from '../routes';
 
 type Props = {|
@@ -13,47 +14,50 @@ const isModifiedEvent = event =>
 
 const components = Object.keys(routes);
 
-export default function Navigation(props: Props) {
-  const { history } = props;
-  const links = components.map(ns => {
-    const href = history.createHref({ pathname: `/${ns}` });
-    const handleClick = ({ event }) => {
-      if (event.defaultPrevented) return;
-      if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
-      event.preventDefault();
-      history.push(`/${ns}`);
-    };
-    return (
-      <Text bold leading="tall" color="darkGray" size="lg">
-        <Link href={href} onClick={handleClick}>
-          {ns}
-        </Link>
-      </Text>
-    );
-  });
-  const options = [{ label: '-', value: '#' }].concat(
-    components.map(ns => ({
-      label: ns,
-      value: `/${ns}`,
-    }))
-  );
-  const m = window.location.hash.match(/#(\/[\w]+)/);
-
+export default function Navigation({ history }: Props) {
   return (
     <Box>
-      <Box mdDisplay="none" flex="grow">
-        <SelectList
-          id="nav"
-          onChange={({ value }) => history.push(value)}
-          options={options}
-          value={(m && m[1]) || '#'}
-        />
+      <Box
+        display="flex"
+        smDisplay="none"
+        overflow="scrollX"
+        paddingX={4}
+        paddingY={2}
+      >
+        <Box
+          display="flex"
+          role="list"
+          direction="row"
+          marginStart={-2}
+          marginEnd={-2}
+        >
+          {components.map((component, i) => (
+            <Box role="listitem" key={i} flex="none">
+              <NavLink to={`/${component}`}>
+                <Box padding={2}>{component}</Box>
+              </NavLink>
+            </Box>
+          ))}
+        </Box>
       </Box>
-      <Box display="none" mdDisplay="flex" direction="column" flex="grow">
-        <Box role="list">
-          {links.map((link, i) => (
-            <Box role="listitem" key={i}>
-              {link}
+      <Box
+        display="none"
+        smDisplay="flex"
+        direction="column"
+        flex="grow"
+        role="list"
+        padding={4}
+        mdPadding={6}
+        lgPadding={8}
+      >
+        <Box marginStart={-2} marginEnd={-2}>
+          {components.map((component, i) => (
+            <Box role="listitem" key={i} flex="none">
+              <NavLink to={`/${component}`}>
+                <Box paddingY={1} paddingX={2}>
+                  {component}
+                </Box>
+              </NavLink>
             </Box>
           ))}
         </Box>

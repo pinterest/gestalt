@@ -2,7 +2,7 @@
 import type { Node } from 'react';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Box, Column } from 'gestalt';
+import { Box, Column, Divider } from 'gestalt';
 import Header from './Header';
 import Navigation from './Navigation';
 
@@ -18,13 +18,12 @@ export default function App(props: Props) {
     <Box minHeight="100vh">
       <Header />
 
-      <Box mdDisplay="flex" direction="row">
-        <Column span={12} mdSpan={2}>
-          <Box padding={4} mdPadding={6} lgPadding={8}>
-            <NavigationWithRouter />
-          </Box>
+      <Box smDisplay="flex" direction="row">
+        <Column span={12} smSpan={2}>
+          <NavigationWithRouter />
         </Column>
-        <Column span={12} mdSpan={8}>
+        <Divider />
+        <Column span={12} smSpan={8}>
           <Box padding={4} mdPadding={6} lgPadding={8}>
             {children}
           </Box>
