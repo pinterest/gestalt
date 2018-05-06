@@ -19,7 +19,7 @@ export default function Navigation({ history }: Props) {
     <Box>
       <Box
         display="flex"
-        smDisplay="none"
+        mdDisplay="none"
         overflow="scrollX"
         paddingX={4}
         paddingY={2}
@@ -42,8 +42,8 @@ export default function Navigation({ history }: Props) {
       </Box>
       <Box
         display="none"
-        smDisplay="flex"
         direction="column"
+        mdDisplay="flex"
         padding={4}
         mdPadding={6}
         lgPadding={8}

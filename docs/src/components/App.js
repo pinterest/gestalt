@@ -18,12 +18,12 @@ export default function App(props: Props) {
     <Box minHeight="100vh">
       <Header />
 
-      <Box smDisplay="flex" direction="row">
-        <Column span={12} smSpan={2}>
+      <Box mdDisplay="flex" direction="row">
+        <Column span={12} mdSpan={2}>
           <NavigationWithRouter />
         </Column>
         <Divider />
-        <Column span={12} smSpan={8}>
+        <Column span={12} mdSpan={8}>
           <Box padding={4} mdPadding={6} lgPadding={8}>
             {children}
           </Box>
