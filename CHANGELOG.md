@@ -11,6 +11,9 @@
 ### Patch
 * Flow: Upgrade flow-bin to version 0.71.0 (#155)
 
+* Internal: update `yarn.lock` (#152)
+* Docs: include images in repo (#151)
+
 </details>
 
 ## 0.68.0 (May 3, 2018)
@@ -18,7 +21,6 @@
 ### Minor
 
 * Button / SearchField / SegmentedControl / SelectList / Tabs / TextField: consistent sizing + improve Windows compatibility (#148)
-
 * Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
 
 ## 0.67.0 (April 25, 2018)
