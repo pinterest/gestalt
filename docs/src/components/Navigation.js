@@ -44,15 +44,13 @@ export default function Navigation({ history }: Props) {
         display="none"
         smDisplay="flex"
         direction="column"
-        flex="grow"
-        role="list"
         padding={4}
         mdPadding={6}
         lgPadding={8}
       >
-        <Box marginStart={-2} marginEnd={-2}>
+        <Box marginStart={-2} marginEnd={-2} role="list">
           {components.map((component, i) => (
-            <Box role="listitem" key={i} flex="none">
+            <Box role="listitem" key={i}>
               <NavLink to={`/${component}`}>
                 <Box paddingY={1} paddingX={2}>
                   {component}
