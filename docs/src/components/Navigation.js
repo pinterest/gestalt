@@ -1,20 +1,12 @@
 // @flow
 import React from 'react';
-import { Text, Box, Link } from 'gestalt';
+import { Box } from 'gestalt';
 import NavLink from './NavLink';
 import routes from '../routes';
 
-type Props = {|
-  history: *,
-|};
-
-const isLeftClickEvent = event => event.button === 0;
-const isModifiedEvent = event =>
-  !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-
 const components = Object.keys(routes);
 
-export default function Navigation({ history }: Props) {
+export default function Navigation() {
   return (
     <Box>
       <Box
