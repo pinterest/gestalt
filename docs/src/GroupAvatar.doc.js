@@ -73,7 +73,6 @@ card(
 />
 </Box>
 `}
-    scope={{ Box, GroupAvatar }}
   />
 );
 

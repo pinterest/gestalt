@@ -10,12 +10,19 @@ type Props = {|
   description: string,
   name: string,
   scope: Object,
+  direction?: 'row' | 'column',
 |};
 
-const { Box, Text } = gestalt;
+const { Box, Text, Column } = gestalt;
 
-export default ({ defaultCode, description = '', name, scope }: Props) => (
-  <Card name={name} description={description} stacked>
+export default ({
+  defaultCode,
+  description = '',
+  name,
+  scope,
+  direction = 'column',
+}: Props) => (
+  <Card name={name} description={description} stacked={direction === 'column'}>
     <LiveProvider
       code={defaultCode.trim()}
       scope={{
@@ -23,38 +30,47 @@ export default ({ defaultCode, description = '', name, scope }: Props) => (
         ...scope,
       }}
     >
-      <Box marginLeft={-2} marginRight={-2}>
-        <Box
-          paddingX={2}
-          display="flex"
-          direction="column"
-          alignItems="stretch"
-          height="100%"
-        >
-          <Box paddingY={2}>
-            <Text size="sm" color="gray">
-              Preview
-            </Text>
-          </Box>
-
-          <Box flex="grow" position="relative">
-            <Box position="absolute" top bottom left right>
-              <Checkerboard />
+      <Box
+        display="flex"
+        direction={direction}
+        marginLeft={-2}
+        marginRight={-2}
+      >
+        <Column span={direction === 'column' ? 12 : 6}>
+          <Box
+            paddingX={2}
+            display="flex"
+            direction="column"
+            alignItems="stretch"
+            height="100%"
+          >
+            <Box paddingY={2}>
+              <Text size="sm" color="gray">
+                Preview
+              </Text>
             </Box>
-            <Box position="relative" padding={4}>
-              <LivePreview />
+
+            <Box flex="grow" position="relative">
+              <Box position="absolute" top bottom left right>
+                <Checkerboard />
+              </Box>
+              <Box position="relative" padding={4}>
+                <LivePreview />
+              </Box>
             </Box>
           </Box>
-        </Box>
+        </Column>
 
-        <Box paddingX={2}>
-          <Box paddingY={2}>
-            <Text size="sm" color="gray">
-              Editor
-            </Text>
+        <Column span={direction === 'column' ? 12 : 6}>
+          <Box paddingX={2}>
+            <Box paddingY={2}>
+              <Text size="sm" color="gray">
+                Editor
+              </Text>
+            </Box>
+            <LiveEditor />
           </Box>
-          <LiveEditor />
-        </Box>
+        </Column>
       </Box>
 
       <Box padding={2}>

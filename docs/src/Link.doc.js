@@ -70,7 +70,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Link, Text }}
   />
 );
 
@@ -89,7 +88,6 @@ card(
 </Box>
 </Link>
 `}
-    scope={{ Box, Link, Text }}
   />
 );
 
@@ -130,7 +128,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Link, Text }}
   />
 );
 

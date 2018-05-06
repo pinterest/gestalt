@@ -90,7 +90,6 @@ card(
     defaultCode={`
 <Button text="Medium Sized Button" />
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -112,7 +111,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -145,7 +143,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -166,7 +163,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -189,7 +185,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 

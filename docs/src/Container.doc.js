@@ -43,7 +43,6 @@ card(
 </Container>
 </Box>
 `}
-    scope={{ Container }}
   />
 );
 

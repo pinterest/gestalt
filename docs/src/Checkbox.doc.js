@@ -104,7 +104,6 @@ render() {
 }
 }
 `}
-    scope={{ Checkbox, Label, Text }}
   />
 );
 
@@ -152,7 +151,6 @@ render() {
 }
 }
 `}
-    scope={{ Box, Checkbox, Label, Text }}
   />
 );
 

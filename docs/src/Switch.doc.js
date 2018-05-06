@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Box, Label, Switch, Text } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
@@ -84,7 +83,6 @@ render() {
 }
 }
 `}
-    scope={{ Box, Switch, Text, Label }}
   />
 );
 

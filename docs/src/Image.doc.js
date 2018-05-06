@@ -127,7 +127,6 @@ card(
 />
 </Column>
 `}
-    scope={{ Image }}
   />
 );
 
@@ -154,7 +153,6 @@ card(
 </Image>
 </Box>
 `}
-    scope={{ Image }}
   />
 );
 
@@ -299,7 +297,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Image }}
   />
 );
 

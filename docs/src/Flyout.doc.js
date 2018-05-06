@@ -119,7 +119,7 @@ class FlyoutExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Flyout }}
+    direction="row"
   />
 );
 

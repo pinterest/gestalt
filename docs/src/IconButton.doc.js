@@ -83,7 +83,6 @@ iconColor="red"
 onClick={() => { console.log('❤️')}}
 />
 `}
-    scope={{ Box, IconButton, Text }}
   />
 );
 
@@ -134,7 +133,6 @@ card(
     }
   }
 `}
-    scope={{ IconButton, Flyout }}
   />
 );
 

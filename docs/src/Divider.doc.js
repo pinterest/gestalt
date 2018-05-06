@@ -35,7 +35,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Divider, Text }}
   />
 );
 

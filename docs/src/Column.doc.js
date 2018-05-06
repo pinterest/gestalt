@@ -104,7 +104,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Column, Content }}
   />
 );
 
@@ -135,7 +134,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Column, Content }}
   />
 );
 
@@ -163,7 +161,6 @@ card(
 </Column>
 </Box>
 `}
-    scope={{ Box, Column, Text }}
   />
 );
 
@@ -205,7 +202,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Column, Text }}
   />
 );
 

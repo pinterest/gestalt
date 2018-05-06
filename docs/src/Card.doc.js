@@ -98,7 +98,6 @@ render() {
 }
 }
 `}
-    scope={{ Avatar, Box, Button, Card, Link, Text }}
   />
 );
 

@@ -112,7 +112,6 @@ render() {
 }
 }
 `}
-    scope={{ Button, ErrorFlyout }}
   />
 );
 
