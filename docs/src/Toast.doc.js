@@ -4,6 +4,7 @@ import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
 import Example from './components/Example';
+import stock1 from './images/stock1.jpg';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -58,7 +59,7 @@ card(
 class ToastExample extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       showConfirmationToast: false,
     };
     this.handleConfirmationClick = this.handleConfirmationClick.bind(this);
@@ -68,7 +69,7 @@ class ToastExample extends React.Component {
   };
   render() {
     return (
-      <div> 
+      <div>
       <Button
         inline
         text={ this.state.showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
@@ -95,7 +96,7 @@ class ToastExample extends React.Component {
                   alt='Saved to home decor board'
                   naturalHeight={564}
                   naturalWidth={564}
-                  src='https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg'
+                  src='${stock1}'
                 />
               }
             />
@@ -118,7 +119,7 @@ card(
 class ToastExample extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       showGuideToast: false
     };
     this.handleGuideClick = this.handleGuideClick.bind(this);
@@ -171,7 +172,7 @@ card(
 class ToastExample extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       showErrorToast: false
     };
     this.handleErrorClick = this.handleErrorClick.bind(this);
