@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import App from './components/App';
 import routes from './routes';
 import 'gestalt/dist/gestalt.css';
+import './reset.css';
 
 render(
   <HashRouter>

@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
+import { Text, Box, SelectList, Link } from 'gestalt';
 import routes from '../routes';
 
 type Props = {|
@@ -50,31 +50,6 @@ export default function Navigation(props: Props) {
         />
       </Box>
       <Box display="none" mdDisplay="flex" direction="column" flex="grow">
-        <Box
-          marginBottom={4}
-          display="flex"
-          direction="row"
-          alignItems="center"
-          marginLeft={-1}
-          marginRight={-1}
-        >
-          <Box paddingX={1}>
-            <Icon
-              icon="pinterest"
-              color="red"
-              size={24}
-              accessibilityLabel="Pinterest Logo"
-            />
-          </Box>
-          <Box paddingX={1}>
-            <Heading size="xs">Gestalt</Heading>
-          </Box>
-        </Box>
-        <Box paddingY={2}>
-          <Link href="https://codesandbox.io/s/k5plvp9v8v" target="blank">
-            <Text>Try it in the sandbox</Text>
-          </Link>
-        </Box>
         <Box role="list">
           {links.map((link, i) => (
             <Box role="listitem" key={i}>
