@@ -44,7 +44,6 @@ card(
 </Box>
 `}
     scope={{ Container }}
-    stacked
   />
 );
 
