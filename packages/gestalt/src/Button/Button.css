@@ -21,15 +21,18 @@
 }
 
 .sm {
-  padding: 10px 14px;
+  composes: small from "../Layout.css";
+  padding: 8px 14px;
 }
 
 .md {
-  padding: 11px 14px;
+  composes: medium from "../Layout.css";
+  padding: 10px 14px;
 }
 
 .lg {
-  padding: 14px;
+  composes: large from "../Layout.css";
+  padding: 12px 14px;
 }
 
 .block {
