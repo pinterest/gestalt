@@ -60,6 +60,16 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
+  - name: ":hammer_and_wrench: build"
+    command: yarn build
+    artifact_paths: 'dist/stats.json'
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: gestalt
+  - wait
   - name: ":zap: danger"
     command: yarn danger ci
     timeout_in_minutes: 10
