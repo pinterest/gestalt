@@ -47,6 +47,7 @@ type Props = {|
     event: SyntheticEvent<HTMLVideoElement>,
     muted: boolean,
   }) => void,
+  playsInline?: boolean,
   poster?: string,
   preload: 'auto' | 'metadata' | 'none',
   src:
@@ -159,6 +160,7 @@ export default class Video extends React.PureComponent<Props, State> {
     onPause: PropTypes.func,
     onTimeUpdate: PropTypes.func,
     onVolumeChange: PropTypes.func,
+    playsInline: PropTypes.bool,
     poster: PropTypes.string,
     preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
     src: PropTypes.oneOfType([
@@ -350,7 +352,15 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { autoPlay, captions, loop, poster, preload, src } = this.props;
+    const {
+      autoPlay,
+      captions,
+      loop,
+      playsInline,
+      poster,
+      preload,
+      src,
+    } = this.props;
     const { currentTime, duration, fullscreen, muted, paused } = this.state;
 
     const paddingBottom =
@@ -372,6 +382,7 @@ export default class Video extends React.PureComponent<Props, State> {
           autoPlay={autoPlay}
           loop={loop}
           muted={muted}
+          playsinline={playsInline}
           poster={poster}
           preload={preload}
           src={typeof src === 'string' ? src : undefined}

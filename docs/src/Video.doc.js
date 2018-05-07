@@ -120,6 +120,12 @@ card(
         description: 'Sent when the audio volume changes',
       },
       {
+        name: 'playsInline',
+        type: 'boolean',
+        description:
+          'Indicates that the video is to be played "inline" where supported',
+      },
+      {
         name: 'poster',
         type: 'string',
         description: 'The image to show while the video is downloading',
