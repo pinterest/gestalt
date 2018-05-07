@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Avatar, Box, Button, Card, Link, Text } from 'gestalt';
+import james from './avatars/james.jpg';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -73,8 +73,8 @@ render() {
       <Card
         image={
           <Avatar
-            name="Ben Silbermann"
-            src="https://image.ibb.co/dzLoRv/Ben_Silberman.jpg"
+            name="James Jones"
+            src="${james}"
           />
         }
         onMouseEnter={this.handleMouseEnter}
@@ -82,12 +82,12 @@ render() {
         <Text align="center" bold size="xl">
           <Link href="https://pinterest.com">
             <Box paddingX={3} paddingY={2}>
-                Ben Silbermann
+              James Jones
             </Box>
           </Link>
         </Text>
         <Button
-          accessibilityLabel="Follow Ben Silbermann - Pinterest CEO"
+          accessibilityLabel="Follow James Jones"
           color="red"
           text="Follow"
         />
@@ -97,7 +97,6 @@ render() {
 }
 }
 `}
-    scope={{ Avatar, Box, Button, Card, Link, Text }}
   />
 );
 

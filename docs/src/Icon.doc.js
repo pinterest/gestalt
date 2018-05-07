@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Icon, Text } from 'gestalt';
+import { Icon } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
@@ -51,6 +51,11 @@ card(
         type: 'boolean',
         defaultValue: false,
       },
+      {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+      },
     ]}
     heading={false}
   />
@@ -72,7 +77,6 @@ card(
 </Text>
 </Box>
 `}
-    scope={{ Box, Icon, Text }}
   />
 );
 

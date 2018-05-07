@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Label, Text, RadioButton } from 'gestalt';
+import { RadioButton } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
@@ -83,7 +83,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, RadioButton, Label, Text }}
   />
 );
 
@@ -155,7 +154,6 @@ render() {
 }
 }
 `}
-    scope={{ Box, RadioButton, Label, Text }}
   />
 );
 

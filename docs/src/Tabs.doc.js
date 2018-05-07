@@ -43,6 +43,7 @@ card(
 card(
   <Example
     name="Example"
+    direction="row"
     defaultCode={`
 class TabExample extends React.Component {
   constructor(props) {
@@ -83,7 +84,6 @@ class TabExample extends React.Component {
   }
 }
   `}
-    scope={{ Tabs }}
   />
 );
 

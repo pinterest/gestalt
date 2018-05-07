@@ -1,7 +1,10 @@
 // @flow
 import * as React from 'react';
-import { GroupAvatar, Box } from 'gestalt';
+import { GroupAvatar } from 'gestalt';
 import PropTable from './components/PropTable';
+import james from './avatars/james.jpg';
+import keerthi from './avatars/keerthi.jpg';
+import shanice from './avatars/shanice.jpg';
 import Example from './components/Example';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
@@ -37,19 +40,17 @@ card(
   />
 );
 
-const ben = {
-  name: 'Ben S.',
-  src:
-    'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iBzx2mf8iyl4/v1/-1x-1.jpg',
+const user1 = {
+  name: 'Keerthi',
+  src: keerthi,
 };
-const li = {
-  name: 'Li Fan',
-  src: 'https://tctechcrunch2011.files.wordpress.com/2016/09/lifan-photo.png',
+const user2 = {
+  name: 'Shanice',
+  src: shanice,
 };
-const evan = {
-  name: 'Evan S.',
-  src:
-    'https://archinect.imgix.net/uploads/q4/q4lvjve1b3pelocx.jpg?auto=compress%2Cformat',
+const user3 = {
+  name: 'James',
+  src: james,
 };
 
 card(
@@ -60,39 +61,36 @@ card(
 <GroupAvatar
   collaborators={[
     {
-      name: 'Evan S.',
-      src:
-        'https://archinect.imgix.net/uploads/q4/q4lvjve1b3pelocx.jpg?auto=compress%2Cformat',
+      name: 'Keerthi',
+      src: '${keerthi}',
     },
     {
-      name: 'Ben S.',
-      src:
-        'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iBzx2mf8iyl4/v1/-1x-1.jpg',
+      name: 'Shanice',
+      src: '${shanice}',
     },
   ]}
   size="lg"
 />
 </Box>
 `}
-    scope={{ Box, GroupAvatar }}
   />
 );
 
 card(
   <Combination name="Size Combinations: 1 Person" size={['sm', 'md', 'lg']}>
-    {props => <GroupAvatar collaborators={[ben]} {...props} />}
+    {props => <GroupAvatar collaborators={[user1]} {...props} />}
   </Combination>
 );
 
 card(
   <Combination name="Size Combinations: 2 People" size={['sm', 'md', 'lg']}>
-    {props => <GroupAvatar collaborators={[ben, evan]} {...props} />}
+    {props => <GroupAvatar collaborators={[user1, user3]} {...props} />}
   </Combination>
 );
 
 card(
   <Combination name="Size Combinations: 3 People" size={['sm', 'md', 'lg']}>
-    {props => <GroupAvatar collaborators={[ben, evan, li]} {...props} />}
+    {props => <GroupAvatar collaborators={[user1, user3, user2]} {...props} />}
   </Combination>
 );
 
@@ -103,7 +101,7 @@ card(
   >
     {props => (
       <GroupAvatar
-        collaborators={[ben].map(collab => ({
+        collaborators={[user1].map(collab => ({
           name: collab.name,
         }))}
         {...props}
@@ -119,7 +117,7 @@ card(
   >
     {props => (
       <GroupAvatar
-        collaborators={[ben, evan, li].map(collab => ({
+        collaborators={[user1, user3, user2].map(collab => ({
           name: collab.name,
         }))}
         {...props}

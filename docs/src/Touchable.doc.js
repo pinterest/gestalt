@@ -1,11 +1,11 @@
 // @flow
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Box, Image, Link, Mask, Text, Touchable } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
+import stock14 from './images/stock14.jpg';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -48,7 +48,8 @@ card(
       },
       {
         name: 'onTouch',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type:
+          '({ event: SyntheticEvent<> | SyntheticKeyboardEvent<> }) => void',
         required: true,
       },
       {
@@ -98,7 +99,7 @@ render() {
           alt="Antelope Canyon"
           naturalHeight={1}
           naturalWidth={1}
-          src="https://68.media.tumblr.com/1121817a32bf070389aee567542f3dc7/tumblr_ocog9xxwdu1r9ublwo1_1280.jpg"
+          src="${stock14}"
         />
       </Mask>
       <Box paddingY={2}>
@@ -122,7 +123,6 @@ render() {
 }
 }
 `}
-    scope={{ Box, Image, Mask, Link, Text, Touchable }}
   />
 );
 
@@ -155,7 +155,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Text, Touchable }}
   />
 );
 

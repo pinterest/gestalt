@@ -31,10 +31,10 @@ export default function Column(props: ColumnProps) {
     props.sm && styles[`smCol${props.sm}`],
     props.md && styles[`mdCol${props.md}`],
     props.lg && styles[`lgCol${props.lg}`],
-    props.span && styles[`xsCol${props.span}`],
-    props.smSpan && styles[`smCol${props.smSpan}`],
-    props.mdSpan && styles[`mdCol${props.mdSpan}`],
-    props.lgSpan && styles[`lgCol${props.lgSpan}`]
+    props.span != null && styles[`xsCol${props.span}`],
+    props.smSpan != null && styles[`smCol${props.smSpan}`],
+    props.mdSpan != null && styles[`mdCol${props.mdSpan}`],
+    props.lgSpan != null && styles[`lgCol${props.lgSpan}`]
   );
   return <div className={cs}>{children}</div>;
 }
