@@ -14,6 +14,7 @@
 * Internal: update `yarn.lock` (#152)
 * Docs: include images in repo (#151)
 * Docs: updated design (#154)
+* Internal: Add JSDOM support for Jest tests (#159)
 
 </details>
 
