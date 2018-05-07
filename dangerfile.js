@@ -26,8 +26,7 @@ const getBuildNumber = async (sha: string) => {
   return responseJson[0].id;
 };
 
-// const baseCommit = danger.github.pr.base.sha;
-const baseCommit = '4e633a80312863c8bbd6859b54e27913702d6328';
+const baseCommit = danger.github.pr.base.sha;
 // const currentCommit = danger.github.pr.head.sha;
 // Yen - fetching via API because i didn't see a way to get the build number for a commit via buildkite-agent
 console.log(`Fetching stats for base commit: ${baseCommit}`);
