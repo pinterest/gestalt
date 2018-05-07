@@ -32,7 +32,7 @@ type Props = {|
   mouseCursor?: MouseCursor,
   onMouseEnter?: ({ event: SyntheticMouseEvent<> }) => void,
   onMouseLeave?: ({ event: SyntheticMouseEvent<> }) => void,
-  onTouch?: ({ event: SyntheticMouseEvent<> }) => void,
+  onTouch?: ({ event: SyntheticEvent<> | SyntheticKeyboardEvent<> }) => void,
   shape?: Shape,
 |};
 
@@ -40,7 +40,7 @@ const SPACE_CHAR_CODE = 32;
 const ENTER_CHAR_CODE = 13;
 
 export default class Touchable extends React.Component<Props> {
-  handleKeyPress = (event: SyntheticMouseEvent<>) => {
+  handleKeyPress = (event: SyntheticKeyboardEvent<>) => {
     const { onTouch } = this.props;
     // Check to see if space or enter were pressed
     if (
