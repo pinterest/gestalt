@@ -69,48 +69,61 @@ type State = {|
 const requestFullscreen = (element: HTMLElement) => {
   if (element.requestFullscreen) {
     element.requestFullscreen();
+    // $FlowIssue - vendor prefix missing from Flow
   } else if (element.webkitRequestFullscreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     element.webkitRequestFullscreen();
+    // $FlowIssue - vendor prefix missing from Flow
   } else if (element.mozRequestFullScreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     element.mozRequestFullScreen();
+    // $FlowIssue - vendor prefix missing from Flow
   } else if (element.msRequestFullscreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     element.msRequestFullscreen();
   }
 };
 
 const exitFullscreen = () => {
+  // $FlowIssue - vendor prefix missing from Flow
   if (document.exitFullscreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     document.exitFullscreen();
+    // $FlowIssue - vendor prefix missing from Flow
   } else if (document.webkitExitFullscreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     document.webkitExitFullscreen();
+    // $FlowIssue - vendor prefix missing from Flow
   } else if (document.mozCancelFullScreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     document.mozCancelFullScreen();
+    // $FlowIssue - vendor prefix missing from Flow
   } else if (document.msExitFullscreen) {
-    // $FlowIssue - missing from Flow
+    // $FlowIssue - vendor prefix missing from Flow
     document.msExitFullscreen();
   }
 };
 
 const fullscreenEnabled = () =>
+  // $FlowIssue - vendor prefix missing from Flow
   document.fullscreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
   document.webkitFullscreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
   document.mozFullScreenEnabled ||
-  // $FlowIssue - missing from Flow
+  // $FlowIssue - vendor prefix missing from Flow
   document.msFullscreenEnabled;
 
 // Normally document.fullscreen suffices here as a flag, but IE11 does not
 // have a vendor specific version so we must instead use the actual element
 const isFullscreen = () =>
+  // $FlowIssue - vendor prefix missing from Flow
   document.fullscreenElement ||
+  // $FlowIssue - vendor prefix missing from Flow
   document.webkitFullscreenElement ||
+  // $FlowIssue - vendor prefix missing from Flow
   document.mozFullScreenElement ||
-  // $FlowIssue - missing from Flow
+  // $FlowIssue - vendor prefix missing from Flow
   document.msFullscreenElement;
 
 const addFullscreenEventListener = (handler: Function) => {
