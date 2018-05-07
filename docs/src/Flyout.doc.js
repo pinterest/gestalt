@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Button, Flyout } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';

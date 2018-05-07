@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Text, Avatar, Button } from 'gestalt';
+import { Box, Button } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';

@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Box, Link, Text } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';

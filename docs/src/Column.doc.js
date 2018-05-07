@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Column, Box, Text } from 'gestalt';
+import { Box, Text } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -69,6 +69,7 @@ const Content = ({
 card(
   <Example
     name="Example: Basic columns"
+    scope={{ Content }}
     defaultCode={`
 
 <Box marginTop={-2} marginBottom={-2}>
@@ -113,6 +114,7 @@ card(
     Column supports setting a span at our 4 responsive breakpoints: xs, sm, lg. Each sets the span of the column from that breakpoint and up. If you don't want your column to be responsive, only set the \`xs\` prop.
   `}
     name="Example: Responsive columns"
+    scope={{ Content }}
     defaultCode={`
 <Box>
 <Box display="flex" direction="row" wrap paddingY={2}>

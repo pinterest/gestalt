@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Image } from 'gestalt';
 import stock1 from './images/stock1.jpg';
 import stock2 from './images/stock2.jpg';
 import stock3 from './images/stock3.jpg';

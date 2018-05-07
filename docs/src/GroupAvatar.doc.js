@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { GroupAvatar, Box } from 'gestalt';
+import { GroupAvatar } from 'gestalt';
 import PropTable from './components/PropTable';
 import james from './avatars/james.jpg';
 import keerthi from './avatars/keerthi.jpg';
