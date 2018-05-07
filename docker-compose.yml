@@ -4,6 +4,7 @@ services:
     build: .
     volumes:
       - "./screenshots:/app/screenshots"
+      - "./dist:/app/packages/gestalt/dist"
     environment:
       - BUILDKITE
       - BUILDKITE_PARALLEL_JOB
@@ -12,3 +13,4 @@ services:
       - BUILDKITE_REPO
       - CI
       - DANGER_GITHUB_API_TOKEN
+      

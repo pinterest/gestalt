@@ -11,8 +11,8 @@
 * Video: Add new Video component to Gestalt (#150)
 
 ### Patch
+* Internal: Generate stats file during build (#160)
 * Flow: Upgrade flow-bin to version 0.71.0 (#155)
-
 * Internal: update `yarn.lock` (#152)
 * Docs: include images in repo (#151)
 * Docs: updated design (#154)

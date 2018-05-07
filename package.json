@@ -30,7 +30,9 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.4.0",
+    "filesize": "^3.6.1",
     "flow-bin": "0.71.0",
+    "gzip-size": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
     "prettier": "1.10.2",
@@ -41,6 +43,7 @@
     "stylelint-order": "^0.8.0"
   },
   "scripts": {
+    "build": "cd packages/gestalt && yarn build",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
     "start": "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
