@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import { SearchField, Icon, IconButton } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -112,7 +111,6 @@ card(
     }
   }
 `}
-    scope={{ Icon, IconButton, SearchField }}
   />
 );
 

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Label, Text, Checkbox } from 'gestalt';
+import { Checkbox } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
@@ -104,7 +104,6 @@ render() {
 }
 }
 `}
-    scope={{ Checkbox, Label, Text }}
   />
 );
 
@@ -152,7 +151,6 @@ render() {
 }
 }
 `}
-    scope={{ Box, Checkbox, Label, Text }}
   />
 );
 

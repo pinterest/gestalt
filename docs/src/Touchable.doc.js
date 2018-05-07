@@ -1,7 +1,6 @@
 // @flow
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Box, Image, Link, Mask, Text, Touchable } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -124,7 +123,6 @@ render() {
 }
 }
 `}
-    scope={{ Box, Image, Mask, Link, Text, Touchable }}
   />
 );
 
@@ -157,7 +155,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Text, Touchable }}
   />
 );
 

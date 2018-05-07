@@ -87,7 +87,6 @@ src="${keerthi}"
 name="Keerthi"
 />
 `}
-    scope={{ Avatar }}
   />
 );
 
@@ -114,7 +113,6 @@ card(
 </Box>
 </Box>
   `}
-    scope={{ Box, Avatar }}
   />
 );
 
@@ -131,7 +129,6 @@ name="Keerthi"
 size="lg"
 />
   `}
-    scope={{ Avatar }}
   />
 );
 
@@ -149,7 +146,6 @@ src="${shanice}"
 verified
 />
   `}
-    scope={{ Box, Avatar }}
   />
 );
 

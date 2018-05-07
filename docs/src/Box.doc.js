@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Text, Avatar, Button } from 'gestalt';
+import { Box, Button } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
@@ -246,7 +246,6 @@ marginEnd={-1}>
 </Box>
 </Box>
 `}
-    scope={{ Box, Avatar, Text }}
   />
 );
 
@@ -275,7 +274,6 @@ marginEnd={-1}>
 </Box>
 </Box>
 `}
-    scope={{ Button, Box, Avatar, Text }}
   />
 );
 
@@ -428,7 +426,7 @@ card(
   <Card
     description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
-    
+
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
 
     \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
@@ -469,7 +467,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box }}
   />
 );
 
