@@ -48,7 +48,8 @@ card(
       },
       {
         name: 'onTouch',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type:
+          '({ event: SyntheticEvent<> | SyntheticKeyboardEvent<> }) => void',
         required: true,
       },
       {

@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+* Flow: Upgrade flow-bin to version 0.71.0 (#155)
 
 * Internal: update `yarn.lock` (#152)
 * Docs: include images in repo (#151)
