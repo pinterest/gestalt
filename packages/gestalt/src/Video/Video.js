@@ -179,7 +179,7 @@ export default class Video extends React.PureComponent<Props, State> {
   componentDidMount() {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
-    if (document) {
+    if (typeof document !== 'undefined') {
       addFullscreenEventListener(this.handleFullscreenChange);
     }
   }
