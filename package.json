@@ -18,6 +18,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
+    "enzyme-adapter-react-16": "^1.0.5",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "eslint": "^4.17.0",

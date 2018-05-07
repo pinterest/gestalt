@@ -79,6 +79,7 @@ steps:
       - BUILDKITE_REPO
       - CI
       - DANGER_GITHUB_API_TOKEN
+      - BUILDKITE_API_TOKEN
     agents:
       queue: elastic
     plugins:
