@@ -16,7 +16,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
-    "bundlesize": "^0.15.3",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
     "enzyme": "^3.3.0",
@@ -35,6 +34,7 @@
     "gzip-size": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
+    "node-fetch": "^2.1.2",
     "prettier": "1.10.2",
     "react-test-renderer": "^16.2.0",
     "stylelint": "^8.0.0",
@@ -129,15 +129,5 @@
       ],
       "value-no-vendor-prefix": true
     }
-  },
-  "bundlesize": [
-    {
-      "path": "./packages/gestalt/dist/gestalt.css",
-      "maxSize": "10 kB"
-    },
-    {
-      "path": "./packages/gestalt/dist/gestalt*.min.js",
-      "maxSize": "40 kB"
-    }
-  ]
+  }
 }
