@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import SearchContent from './SearchContent';
 import { Box } from 'gestalt';
 
 type Props = {|
@@ -7,13 +8,13 @@ type Props = {|
 |};
 
 const CardPage = ({ cards }: Props) => (
-  <Box>
+  <SearchContent>
     {cards.map((card, i) => (
       <Box marginBottom={4} id={`card-${i}`} key={i}>
         {card}
       </Box>
     ))}
-  </Box>
+  </SearchContent>
 );
 
 export default CardPage;
