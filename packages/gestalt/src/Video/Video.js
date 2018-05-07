@@ -5,16 +5,31 @@ import VideoControls from './VideoControls';
 import PropTypes from 'prop-types';
 import styles from './Video.css';
 
-type Props = {|
+type VideoWithControls = {|
+  accessibilityMaximizeLabel: string,
+  accessibilityMinimizeLabel: string,
+  accessibilityMuteLabel: string,
+  accessibilityPauseLabel: string,
+  accessibilityPlayLabel: string,
+  accessibilityUnmuteLabel: string,
+  controls: boolean,
+|};
+
+type VideoNoControls = {|
   accessibilityMaximizeLabel?: string,
   accessibilityMinimizeLabel?: string,
   accessibilityMuteLabel?: string,
   accessibilityPauseLabel?: string,
   accessibilityPlayLabel?: string,
   accessibilityUnmuteLabel?: string,
+  controls?: null,
+|};
+
+type Controls = VideoWithControls | VideoNoControls;
+
+type Props = {|
   autoPlay?: boolean,
   captions: string,
-  controls?: boolean,
   loop?: boolean,
   muted?: boolean,
   onDurationChange?: ({
@@ -37,6 +52,7 @@ type Props = {|
   src:
     | string
     | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>,
+  ...Controls,
 |};
 
 type State = {|
@@ -321,21 +337,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const {
-      accessibilityMaximizeLabel,
-      accessibilityMinimizeLabel,
-      accessibilityMuteLabel,
-      accessibilityPauseLabel,
-      accessibilityPlayLabel,
-      accessibilityUnmuteLabel,
-      autoPlay,
-      captions,
-      controls,
-      loop,
-      poster,
-      preload,
-      src,
-    } = this.props;
+    const { autoPlay, captions, loop, poster, preload, src } = this.props;
     const { currentTime, duration, fullscreen, muted, paused } = this.state;
 
     const paddingBottom =
@@ -374,14 +376,15 @@ export default class Video extends React.PureComponent<Props, State> {
             ))}
           <track kind="captions" src={captions} />
         </video>
-        {controls && (
+        {/* Need to use full path for these props so Flow can infer correct subtype */}
+        {this.props.controls && (
           <VideoControls
-            accessibilityMaximizeLabel={accessibilityMaximizeLabel}
-            accessibilityMinimizeLabel={accessibilityMinimizeLabel}
-            accessibilityMuteLabel={accessibilityMuteLabel}
-            accessibilityPauseLabel={accessibilityPauseLabel}
-            accessibilityPlayLabel={accessibilityPlayLabel}
-            accessibilityUnmuteLabel={accessibilityUnmuteLabel}
+            accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
+            accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
+            accessibilityMuteLabel={this.props.accessibilityMuteLabel}
+            accessibilityPauseLabel={this.props.accessibilityPauseLabel}
+            accessibilityPlayLabel={this.props.accessibilityPlayLabel}
+            accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
             currentTime={currentTime}
             duration={duration}
             fullscreen={fullscreen}

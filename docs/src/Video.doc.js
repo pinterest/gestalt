@@ -294,7 +294,18 @@ class Example extends React.Component {
             onClick={this.handleToggleMute}
           />
         </Box>
-        <Video captions="" muted={muted} src={src} />
+        <Video
+          accessibilityMaximizeLabel="Maximize"
+          accessibilityMinimizeLabel="Minimize"
+          accessibilityMuteLabel="Mute"
+          accessibilityPauseLabel="Pause"
+          accessibilityPlayLabel="Play"
+          accessibilityUnmuteLabel="Unmute"
+          captions=""
+          controls
+          muted={muted}
+          src={src}
+        />
       </Box>
     );
   }

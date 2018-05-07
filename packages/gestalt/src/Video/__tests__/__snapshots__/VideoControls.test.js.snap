@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Video controls show correct icons 1`] = `
+exports[`VideoControls Video controls show correct icons 1`] = `
 <div
   className="absolute bottom0 box itemsCenter left0 paddingX2 paddingY2 right0 xsCol12 xsDisplayFlex"
 >
