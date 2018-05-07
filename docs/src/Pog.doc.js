@@ -76,7 +76,6 @@ icon="heart"
 iconColor="red"
 />
 `}
-    scope={{ Pog }}
   />
 );
 

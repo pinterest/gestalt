@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Icon, Text } from 'gestalt';
+import { Icon } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
@@ -77,7 +77,6 @@ card(
 </Text>
 </Box>
 `}
-    scope={{ Box, Icon, Text }}
   />
 );
 

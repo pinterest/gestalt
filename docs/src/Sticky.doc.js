@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Box, Sticky, Text } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
@@ -80,7 +79,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Sticky, Text }}
   />
 );
 

@@ -59,7 +59,6 @@ card(
 <div style={{ backgroundColor: '#0fa573', width: 70, height: 70 }} />
 </Mask>
 `}
-    scope={{ Mask }}
   />
 );
 
@@ -80,7 +79,6 @@ card(
 </Mask>
 </Box>
 `}
-    scope={{ Mask }}
   />
 );
 
@@ -101,7 +99,6 @@ card(
 </Mask>
 </Box>
 `}
-    scope={{ Mask }}
   />
 );
 

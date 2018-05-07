@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Container } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -43,8 +42,6 @@ card(
 </Container>
 </Box>
 `}
-    scope={{ Container }}
-    stacked
   />
 );
 

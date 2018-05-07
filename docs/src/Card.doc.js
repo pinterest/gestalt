@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Avatar, Box, Button, Card, Link, Text } from 'gestalt';
 import james from './avatars/james.jpg';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
@@ -98,7 +97,6 @@ render() {
 }
 }
 `}
-    scope={{ Avatar, Box, Button, Card, Link, Text }}
   />
 );
 

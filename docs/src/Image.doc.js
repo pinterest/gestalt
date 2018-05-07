@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Image } from 'gestalt';
 import stock1 from './images/stock1.jpg';
 import stock2 from './images/stock2.jpg';
 import stock3 from './images/stock3.jpg';
@@ -127,7 +126,6 @@ card(
 />
 </Column>
 `}
-    scope={{ Image }}
   />
 );
 
@@ -154,7 +152,6 @@ card(
 </Image>
 </Box>
 `}
-    scope={{ Image }}
   />
 );
 
@@ -299,7 +296,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Image }}
   />
 );
 
