@@ -202,7 +202,6 @@ export default {
       presets: [['env', { modules: false }], 'stage-1', 'react'],
       plugins: ['external-helpers'],
     }),
-    minify(),
     visualizer(),
     filesize(),
     stats,
