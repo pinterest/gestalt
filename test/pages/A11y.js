@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react';
+import A11YCheck from '../containers/A11YCheck';
 import Container from '../components/Container';
-import renderConfig from '../utils/renderConfig';
 
-export default () => <Container {...renderConfig.A11y} />;
+export default function A11y() {
+  return <Container Component={A11YCheck} />;
+}
