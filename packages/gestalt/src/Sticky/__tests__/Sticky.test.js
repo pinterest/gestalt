@@ -16,3 +16,12 @@ test('Sticky correctly sets thresholds', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Sticky correctly sets thresholds', () => {
+  const tree = create(
+    <Sticky bottom="50%" left="25%" right="25%" top="50%">
+      Sticky
+    </Sticky>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
