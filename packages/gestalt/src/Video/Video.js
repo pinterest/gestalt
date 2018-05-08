@@ -308,8 +308,7 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  // Sent when the media begins to play (either for the first time,
-  // after having been paused, or after ending and then restarting).
+  // Sent when playback of the media starts after having been paused.
   handlePlay = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onPlay } = this.props;
     this.setState({ paused: false });
@@ -389,7 +388,7 @@ export default class Video extends React.PureComponent<Props, State> {
           ref={this.setVideoRef}
           className={styles.video}
           onDurationChange={this.handleDurationChange}
-          onPlaying={this.handlePlay}
+          onPlay={this.handlePlay}
           onPause={this.handlePause}
           onTimeUpdate={this.handleTimeUpdate}
           onVolumeChange={this.handleVolumeChange}

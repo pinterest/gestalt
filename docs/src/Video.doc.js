@@ -99,7 +99,7 @@ card(
         name: 'onPlay',
         type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description:
-          'Sent when the media begins to play (either for the first time, after having been paused, or after ending and then restarting)',
+          'Sent when playback of the media starts after having been paused',
       },
       {
         name: 'onPause',
