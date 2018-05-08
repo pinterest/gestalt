@@ -4,6 +4,8 @@
   <summary>
     Changes that have landed in master but are not yet released.
     Click to see more.
+
+    Gestalt background: https://en.wikipedia.org/wiki/Gestalt_psychology
   </summary>
 
 ### Minor
