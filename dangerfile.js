@@ -3,6 +3,7 @@ import { danger, markdown, warn } from 'danger';
 import { execSync } from 'child_process';
 import { readFileSync } from 'fs';
 import fetch from 'node-fetch';
+import filesize from 'filesize';
 
 if (!danger.git.modified_files.includes('CHANGELOG.md')) {
   warn(
@@ -50,7 +51,7 @@ const generateOutput = (
 
   const headers = [
     'Filename',
-    'Filesize Diff',
+    'Size Diff',
     'Gzip Diff',
     'Prev Size',
     'Current Size',
@@ -62,16 +63,16 @@ const generateOutput = (
       result.filename,
       outputSizeDiff(result.sizeDiff),
       outputSizeDiff(result.gzipDiff),
-      result.previousStats.size,
-      results.currentStats.size,
-      results.previousStats.gzipSize,
-      results.currentStats.gzipSize,
+      filesize(result.previousStats.size),
+      filesize(result.currentStats.size),
+      filesize(result.previousStats.gzipSize),
+      filesize(result.currentStats.gzipSize),
     ].join(' | ')
   );
   markdown(`
-    ${headers.join(' | ')}\n
-    ${headers.map(() => ' --- ').join(' | ')}\n
-    ${rows.join('\n')}
+${headers.join(' | ')}
+${headers.map(() => '---').join(' | ')} |
+${rows.join('\n')}
   `);
 };
 
