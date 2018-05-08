@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const pages = [
   'MasonryExample',
-  'ExperimentalMasonryExample',
-  'FlexibleMasonry',
+  'FlexibleMasonryExample',
+  'ExperimentalMasonry',
   'ExperimentalFlexibleMasonry',
   'A11y',
 ];
