@@ -1,18 +1,32 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import 'gestalt/dist/gestalt.css';
 import { withRouter } from 'next/router';
 
-class Container extends React.Component {
+type Props<T> = {|
+  Component: React.Component<T>,
+  props: T,
+  styles: string,
+  router: {
+    query: string,
+  },
+|};
+
+type State = {|
+  mounted: boolean,
+|};
+
+class Container<T> extends React.Component<Props<T>, State> {
   static defaultProps = {
     props: {},
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      mounted: !this.props.props.hasOwnProperty('deferMount'),
-    };
-  }
+  state = {
+    mounted: !Object.prototype.hasOwnProperty.call(
+      this.props.router.query,
+      'deferMount'
+    ),
+  };
 
   componentDidMount() {
     window.addEventListener('trigger-mount', this.handleMount);
@@ -26,6 +40,7 @@ class Container extends React.Component {
 
   render() {
     const { Component, styles, router } = this.props;
+    const { mounted } = this.state;
     const props = {
       ...this.props.props,
       ...router.query,
@@ -37,8 +52,9 @@ class Container extends React.Component {
             margin: 0;
           }
         `}</style>
+        {/* eslint-disable-next-line react/no-danger */}
         <style dangerouslySetInnerHTML={{ __html: styles }} />
-        <Component {...props} />
+        {mounted && <Component {...props} />}
       </div>
     );
   }
