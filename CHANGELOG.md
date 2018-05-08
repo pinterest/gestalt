@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+* Internal: Add bundle size impact reporting (#146)
 
 </details>
 
