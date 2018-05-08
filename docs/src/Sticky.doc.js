@@ -20,7 +20,7 @@ card(
     props={[
       {
         name: 'bottom',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'children',
@@ -28,15 +28,15 @@ card(
       },
       {
         name: 'left',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'right',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'top',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'dangerouslySetZIndex',

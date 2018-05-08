@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Sticky: Expand threshold options to take string values (#166)
 
 ### Patch
 * Internal: Add bundle size impact reporting (#146)
