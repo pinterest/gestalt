@@ -12,9 +12,7 @@ fi
 )
 
 (
-  cd test && yarn webpack-dev-server --hot --inline --progress --colors
-) & (
-  cd test && BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js
+  cd test && yarn start
 ) &
 
 PID=$! # get the Parent Process ID
