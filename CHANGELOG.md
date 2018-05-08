@@ -11,6 +11,7 @@
 * Video: Add new Video component to Gestalt (#150)
 
 ### Patch
+* Masonry: Don't pass Infinity as style value (#163)
 * Internal: Generate stats file during build (#160)
 * Flow: Upgrade flow-bin to version 0.71.0 (#155)
 * Internal: update `yarn.lock` (#152)
