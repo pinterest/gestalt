@@ -3,8 +3,8 @@ import * as React from 'react';
 import Link from 'next/link';
 
 const pages = [
-  'MasonryExample',
-  'FlexibleMasonryExample',
+  'Masonry',
+  'FlexibleMasonry',
   'ExperimentalMasonry',
   'ExperimentalFlexibleMasonry',
   'A11y',
