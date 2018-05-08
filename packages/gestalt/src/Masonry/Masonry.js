@@ -509,7 +509,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
-                    ...position,
+                    top: layoutNumberToCssDimension(position.top),
+                    left: layoutNumberToCssDimension(position.left),
+                    width: layoutNumberToCssDimension(position.width),
+                    height: layoutNumberToCssDimension(position.height),
                   }}
                   ref={el => {
                     if (el) {
