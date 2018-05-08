@@ -28,7 +28,7 @@ const getBuildNumber = async (sha: string) => {
 const outputSizeDiff = (size: { percentage: number, raw: number }) => {
   const emoji =
     size.raw < 0 ? ':small_red_triangle_down:' : ':small_red_triangle:';
-  return `${emoji} ${size.percentage * 100}%`;
+  return `${emoji} ${Math.abs(size.percentage * 100).toFixed(1)}%`;
 };
 
 const baseCommit = danger.github.pr.base.sha;
@@ -65,11 +65,11 @@ getBuildNumber(baseCommit)
           resultArr.push({
             filename,
             gzipDiff: {
-              percentage: Math.abs(gzipDiff) / previousStats.gzipSize,
+              percentage: gzipDiff / previousStats.gzipSize,
               raw: gzipDiff,
             },
             sizeDiff: {
-              percentage: Math.abs(sizeDiff) / previousStats.size,
+              percentage: sizeDiff / previousStats.size,
               raw: sizeDiff,
             },
           });
@@ -79,9 +79,9 @@ getBuildNumber(baseCommit)
 
       results.forEach(result => {
         markdown(
-          `${result.filename}: size ${outputSizeDiff(
+          `${result.filename}: **size** ${outputSizeDiff(
             result.sizeDiff
-          )} | gzip ${outputSizeDiff(result.gzipDiff)}`
+          )}, **gzip** ${outputSizeDiff(result.gzipDiff)}`
         );
       });
     } catch (e) {
