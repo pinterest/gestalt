@@ -31,6 +31,50 @@ const outputSizeDiff = (size: { percentage: number, raw: number }) => {
   return `${emoji} ${Math.abs(size.percentage * 100).toFixed(1)}%`;
 };
 
+const generateOutput = (
+  results: Array<{
+    currentStats: { gzipSize: number, size: number },
+    filename: string,
+    gzipDiff: { percentage: number, raw: number },
+    previousStats: { gzipSize: number, size: number },
+    sizeDiff: { percentage: number, raw: number },
+  }>
+) => {
+  if (!results.length) {
+    return;
+  }
+  if (results.find(result => result.sizeDiff.raw > 0)) {
+    // warn if bundle size increases
+    warn('Bundle size increase');
+  }
+
+  const headers = [
+    'Filename',
+    'Filesize Diff',
+    'Gzip Diff',
+    'Prev Size',
+    'Current Size',
+    'Prev Gzip',
+    'Current Gzip',
+  ];
+  const rows = results.map(result =>
+    [
+      result.filename,
+      outputSizeDiff(result.sizeDiff),
+      outputSizeDiff(result.gzipDiff),
+      result.previousStats.size,
+      results.currentStats.size,
+      results.previousStats.gzipSize,
+      results.currentStats.gzipSize,
+    ].join(' | ')
+  );
+  markdown(`
+    ${headers.join(' | ')}\n
+    ${headers.map(() => ' --- ').join(' | ')}\n
+    ${rows.join('\n')}
+  `);
+};
+
 const baseCommit = danger.github.pr.base.sha;
 // const currentCommit = danger.github.pr.head.sha;
 // Yen - fetching via API because i didn't see a way to get the build number for a commit via buildkite-agent
@@ -55,40 +99,35 @@ getBuildNumber(baseCommit)
       const previous = JSON.parse(
         readFileSync('./tmp/previous/dist/stats.json', 'utf-8')
       );
-      const results = Object.keys(current).reduce((resultArr, filename) => {
+      return Object.keys(current).reduce((results, filename) => {
         const previousStats = previous[filename];
         const currentStats = current[filename];
 
         if (previousStats && previousStats.size !== currentStats.size) {
           const sizeDiff = currentStats.size - previousStats.size;
           const gzipDiff = currentStats.gzipSize - previousStats.gzipSize;
-          resultArr.push({
+          results.push({
+            currentStats,
             filename,
             gzipDiff: {
               percentage: gzipDiff / previousStats.gzipSize,
               raw: gzipDiff,
             },
+            previousStats,
             sizeDiff: {
               percentage: sizeDiff / previousStats.size,
               raw: sizeDiff,
             },
           });
         }
-        return resultArr;
+        return results;
       }, []);
-
-      results.forEach(result => {
-        markdown(
-          `${result.filename}: **size** ${outputSizeDiff(
-            result.sizeDiff
-          )}, **gzip** ${outputSizeDiff(result.gzipDiff)}`
-        );
-      });
     } catch (e) {
       // rethrow for catch
       throw e;
     }
   })
+  .then(generateOutput)
   .catch(e => {
     console.error(`Error performing bundle size comparison: ${e.toString()}`);
   });
