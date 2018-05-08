@@ -9,14 +9,18 @@
 ### Minor
 
 ### Patch
+
+</details>
+
+## 0.68.1 (May 8, 2018)
+
+### Patch
 * Masonry: Don't pass Infinity as style value (#163)
 * Internal: Generate stats file during build (#160)
 * Flow: Upgrade flow-bin to version 0.71.0 (#155)
 * Internal: update `yarn.lock` (#152)
 * Docs: include images in repo (#151)
 * Docs: updated design (#154)
-
-</details>
 
 ## 0.68.0 (May 3, 2018)
 
