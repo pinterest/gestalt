@@ -2,15 +2,19 @@ version: '2'
 services:
   gestalt:
     build: .
+    tmpfs: /tmp
     volumes:
+      - "/usr/bin/buildkite-agent:/usr/bin/buildkite-agent"
       - "./screenshots:/app/screenshots"
       - "./dist:/app/packages/gestalt/dist"
     environment:
       - BUILDKITE
+      - BUILDKITE_AGENT_ACCESS_TOKEN
+      - BUILDKITE_BUILD_ID
       - BUILDKITE_PARALLEL_JOB
       - BUILDKITE_PARALLEL_JOB_COUNT
       - BUILDKITE_PULL_REQUEST
       - BUILDKITE_REPO
       - CI
       - DANGER_GITHUB_API_TOKEN
-      
+      - BUILDKITE_API_TOKEN
