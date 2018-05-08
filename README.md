@@ -43,7 +43,7 @@ Using the Masonry playground:
 
 ```bash
 cd test && yarn start
-open "http://localhost:3001/Masonry"
+open "http://localhost:3000/Masonry"
 ```
 
 Running Masonry's integration tests. This will leave lots of Firefox processes hanging around, so please be warned.

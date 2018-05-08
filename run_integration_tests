@@ -18,7 +18,7 @@ fi
 PID=$! # get the Parent Process ID
 PGID=$(ps opgid= "$PID") # get the Process Group ID
 
-until $(curl --output /dev/null --silent --head --fail http://localhost:3001/__ping); do
+until $(curl --output /dev/null --silent --head --fail http://localhost:3000); do
     printf '.'
     sleep 5
 done
