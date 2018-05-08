@@ -41,8 +41,6 @@ import TextField from './TextField/TextField';
 import Toast from './Toast/Toast';
 import Tooltip from './Tooltip/Tooltip';
 import Touchable from './Touchable/Touchable';
-// eslint-disable-next-line no-unused-vars
-import * as moment from 'moment';
 
 export {
   Avatar,
