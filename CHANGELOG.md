@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+* Internal: Add bundle size impact reporting (#146)
 * Internal: Generate stats file during build (#160)
 * Flow: Upgrade flow-bin to version 0.71.0 (#155)
 * Internal: update `yarn.lock` (#152)
