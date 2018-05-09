@@ -29,12 +29,13 @@ type Controls = VideoWithControls | VideoNoControls;
 
 type Props = {|
   captions: string,
+  fullscreen: boolean,
   loop?: boolean,
   onDurationChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   }) => void,
-  onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
+  onFullscreenChange?: ({ fullscreen: boolean }) => void,
   onPlay?: () => void,
   onPause?: () => void,
   onTimeUpdate?: ({
@@ -56,7 +57,6 @@ type Props = {|
 type State = {|
   currentTime: number,
   duration: number,
-  fullscreen: boolean,
 |};
 
 // For more information on fullscreen and vendor prefixes see
@@ -100,16 +100,6 @@ const exitFullscreen = () => {
   }
 };
 
-const fullscreenEnabled = () =>
-  // $FlowIssue - vendor prefix missing from Flow
-  document.fullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.webkitFullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.mozFullScreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.msFullscreenEnabled;
-
 // Normally document.fullscreen suffices here as a flag, but IE11 does not
 // have a vendor specific version so we must instead use the actual element
 const isFullscreen = () =>
@@ -121,6 +111,16 @@ const isFullscreen = () =>
   document.mozFullScreenElement ||
   // $FlowIssue - vendor prefix missing from Flow
   document.msFullscreenElement;
+
+const fullscreenEnabled = () =>
+  // $FlowIssue - vendor prefix missing from Flow
+  document.fullscreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
+  document.webkitFullscreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
+  document.mozFullScreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
+  document.msFullscreenEnabled;
 
 const addFullscreenEventListener = (handler: Function) => {
   document.addEventListener('fullscreenchange', handler);
@@ -146,6 +146,7 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityUnmuteLabel: PropTypes.string,
     captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
+    fullscreen: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onFullscreenChange: PropTypes.func,
@@ -171,6 +172,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   static defaultProps = {
+    fullscreen: false,
     playing: false,
     preload: 'auto',
     volume: 1,
@@ -179,7 +181,6 @@ export default class Video extends React.PureComponent<Props, State> {
   state = {
     currentTime: 0,
     duration: 0,
-    fullscreen: false,
   };
 
   /**
@@ -190,7 +191,12 @@ export default class Video extends React.PureComponent<Props, State> {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
-      addFullscreenEventListener(this.handleFullscreenChange);
+      addFullscreenEventListener(this.handleFullscreenEscape);
+    }
+    // If the video was mounted with fullscreen set to true,
+    // we maximize the video here
+    if (this.props.fullscreen) {
+      this.maximize();
     }
   }
 
@@ -208,10 +214,17 @@ export default class Video extends React.PureComponent<Props, State> {
         this.pause();
       }
     }
+    if (prevProps.fullscreen !== this.props.fullscreen) {
+      if (this.props.fullscreen) {
+        this.maximize();
+      } else {
+        this.minimize();
+      }
+    }
   }
 
   componentWillUnmount() {
-    removeFullscreenEventListener(this.handleFullscreenChange);
+    removeFullscreenEventListener(this.handleFullscreenEscape);
   }
 
   /**
@@ -247,10 +260,17 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  // Seek the video to the desired time
-  seek = (time: number) => {
-    if (this.video) {
-      this.video.currentTime = time;
+  // Maximize the video to fullscreen
+  maximize = () => {
+    if (fullscreenEnabled() && this.player) {
+      requestFullscreen(this.player);
+    }
+  };
+
+  // Minimize the video out of fullscreen
+  minimize = () => {
+    if (fullscreenEnabled()) {
+      exitFullscreen();
     }
   };
 
@@ -268,19 +288,15 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  video: ?HTMLVideoElement;
-  player: ?HTMLDivElement;
-
-  // Enter/exit fullscreen video player mode
-  toggleFullscreen = () => {
-    if (fullscreenEnabled()) {
-      if (isFullscreen()) {
-        exitFullscreen();
-      } else if (this.player) {
-        requestFullscreen(this.player);
-      }
+  // Seek the video to the desired time
+  seek = (time: number) => {
+    if (this.video) {
+      this.video.currentTime = time;
     }
   };
+
+  video: ?HTMLVideoElement;
+  player: ?HTMLDivElement;
 
   /**
    * Handlers for various media events on the video
@@ -308,13 +324,23 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullscreenChange = (event: Event) => {
+  handleFullscreenChange = () => {
     const { onFullscreenChange } = this.props;
-    const fullscreen = !!isFullscreen();
-    this.setState({ fullscreen });
+    const fullscreen = !isFullscreen();
 
     if (onFullscreenChange) {
-      onFullscreenChange({ event, fullscreen });
+      onFullscreenChange({ fullscreen });
+    }
+  };
+
+  // Sent when the document detects a fullscreen change. Web standards
+  // do not allow the ESC key minimize event to be prevented so we handle it
+  handleFullscreenEscape = () => {
+    const { onFullscreenChange } = this.props;
+    const fullscreen = isFullscreen();
+
+    if (onFullscreenChange) {
+      onFullscreenChange({ fullscreen });
     }
   };
 
@@ -361,6 +387,7 @@ export default class Video extends React.PureComponent<Props, State> {
     const {
       captions,
       loop,
+      fullscreen,
       playing,
       playsInline,
       poster,
@@ -368,7 +395,7 @@ export default class Video extends React.PureComponent<Props, State> {
       src,
       volume,
     } = this.props;
-    const { currentTime, duration, fullscreen } = this.state;
+    const { currentTime, duration } = this.state;
 
     const paddingBottom =
       // In full screen the padding bottom is 0 to fit the screen
@@ -418,10 +445,10 @@ export default class Video extends React.PureComponent<Props, State> {
             fullscreen={fullscreen}
             onPlay={this.handlePlay}
             onPause={this.handlePause}
+            onFullscreenChange={this.handleFullscreenChange}
             onVolumeChange={this.handleVolumeChange}
             playing={playing}
             seek={this.seek}
-            toggleFullscreen={this.toggleFullscreen}
             volume={volume}
           />
         )}

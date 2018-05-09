@@ -69,6 +69,12 @@ card(
         description: 'Show the video player controls',
       },
       {
+        name: 'fullscreen',
+        type: 'boolean',
+        description: 'Indicates that the video is to be played fullscreen',
+        defaultValue: false,
+      },
+      {
         name: 'loop',
         type: 'boolean',
         description: 'The video will start playing over again when finished',
@@ -82,7 +88,7 @@ card(
       },
       {
         name: 'onFullscreenChange',
-        type: '({ event: Event, fullscreen: boolean }) => void',
+        type: '({ fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
@@ -247,6 +253,7 @@ card(
 class Example extends React.Component {
   constructor(props) {
     super(props);
+    this.handleFullscreenChange = this._handleFullscreenChange.bind(this);
     this.handleChangeInput = this._handleChangeInput.bind(this);
     this.handlePause = this._handlePause.bind(this);
     this.handlePlay = this._handlePlay.bind(this);
@@ -254,11 +261,16 @@ class Example extends React.Component {
     this.handleToggleMute = this._handleToggleMute.bind(this);
     this.handleVolumeChange = this._handleVolumeChange.bind(this);
     this.state = {
+      fullscreen: true,
       input: "http://media.w3.org/2010/05/bunny/movie.mp4",
       playing: false,
       src: "http://media.w3.org/2010/05/bunny/movie.mp4",
       volume: 1,
     };
+  }
+
+  _handleFullscreenChange({ fullscreen }) {
+    this.setState({ fullscreen });
   }
 
   _handleChangeInput({ value }) {
@@ -286,7 +298,7 @@ class Example extends React.Component {
   }
 
   render() {
-    const { input, playing, src, volume } = this.state;
+    const { fullscreen, input, playing, src, volume } = this.state;
     return (
       <Box>
         <Box paddingY={2}>
@@ -327,8 +339,10 @@ class Example extends React.Component {
           accessibilityUnmuteLabel="Unmute"
           captions=""
           controls
+          fullscreen={fullscreen}
           onPlay={this.handlePlay}
           onPause={this.handlePause}
+          onFullscreenChange={this.handleFullscreenChange}
           onVolumeChange={this.handleVolumeChange}
           playing={playing}
           src={src}

@@ -15,12 +15,12 @@ test('VideoControls for single digit seconds', () => {
       currentTime={5}
       duration={5}
       fullscreen={false}
+      onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
-      toggleFullscreen={() => {}}
       volume={0}
     />
   ).toJSON();
@@ -39,12 +39,12 @@ test('VideoControls for double digit seconds', () => {
       currentTime={15}
       duration={15}
       fullscreen={false}
+      onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
-      toggleFullscreen={() => {}}
       volume={0}
     />
   ).toJSON();
@@ -63,12 +63,12 @@ test('VideoControls for single digit minutes', () => {
       currentTime={65}
       duration={65}
       fullscreen={false}
+      onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
-      toggleFullscreen={() => {}}
       volume={0}
     />
   ).toJSON();
@@ -87,12 +87,12 @@ test('VideoControls for double digit minutes', () => {
       currentTime={905}
       duration={905}
       fullscreen={false}
+      onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
-      toggleFullscreen={() => {}}
       volume={0}
     />
   ).toJSON();
@@ -111,12 +111,12 @@ test('VideoControls rounds for partial seconds', () => {
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
-      toggleFullscreen={() => {}}
       volume={0}
     />
   ).toJSON();
