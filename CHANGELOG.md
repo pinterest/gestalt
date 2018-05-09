@@ -8,6 +8,7 @@
 
 ### Minor
 * Sticky: Expand threshold options to take string values (#166)
+* Avatar: Fall back to default letter if image does not load (#156)
 
 ### Patch
 * Internal: Add bundle size impact reporting (#146)
