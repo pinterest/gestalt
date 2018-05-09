@@ -44,13 +44,13 @@ export default function Header() {
 
       <Box marginStart={-2} marginEnd={-2} display="flex" direction="row">
         <Text color="white" size="lg">
-          <Link href="https://codesandbox.io/s/k5plvp9v8v" target="_blank">
+          <Link href="https://codesandbox.io/s/k5plvp9v8v" target="blank">
             <Box padding={2}>Playground</Box>
           </Link>
         </Text>
 
         <Text color="white" size="lg">
-          <Link href="https://github.com/pinterest/gestalt" target="_blank">
+          <Link href="https://github.com/pinterest/gestalt" target="blank">
             <Box padding={2}>GitHub</Box>
           </Link>
         </Text>
