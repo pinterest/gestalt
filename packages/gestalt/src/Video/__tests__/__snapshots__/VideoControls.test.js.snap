@@ -139,7 +139,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Mute"
+        aria-label="Unmute"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -147,7 +147,7 @@ exports[`VideoControls for double digit minutes 1`] = `
         width={20}
       >
         <title>
-          Mute
+          Unmute
         </title>
         <path
           d="test-file-stub"
@@ -327,7 +327,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Mute"
+        aria-label="Unmute"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -335,7 +335,7 @@ exports[`VideoControls for double digit seconds 1`] = `
         width={20}
       >
         <title>
-          Mute
+          Unmute
         </title>
         <path
           d="test-file-stub"
@@ -515,7 +515,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Mute"
+        aria-label="Unmute"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -523,7 +523,7 @@ exports[`VideoControls for single digit minutes 1`] = `
         width={20}
       >
         <title>
-          Mute
+          Unmute
         </title>
         <path
           d="test-file-stub"
@@ -703,7 +703,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Mute"
+        aria-label="Unmute"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -711,7 +711,7 @@ exports[`VideoControls for single digit seconds 1`] = `
         width={20}
       >
         <title>
-          Mute
+          Unmute
         </title>
         <path
           d="test-file-stub"
@@ -891,7 +891,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Mute"
+        aria-label="Unmute"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -899,7 +899,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         width={20}
       >
         <title>
-          Mute
+          Unmute
         </title>
         <path
           d="test-file-stub"

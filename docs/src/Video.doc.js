@@ -79,11 +79,6 @@ card(
         description: 'The video will start playing over again when finished',
       },
       {
-        name: 'muted',
-        type: 'boolean',
-        description: 'Specifies if the audio for the video should be muted',
-      },
-      {
         name: 'onDurationChange',
         type:
           '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
@@ -115,8 +110,7 @@ card(
       },
       {
         name: 'onVolumeChange',
-        type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, muted: boolean }) => void',
+        type: '({ volume: number }) => void',
         description: 'Sent when the audio volume changes',
       },
       {
@@ -144,6 +138,13 @@ card(
         description: `The URL of the video file to play. This can also be supplied as a list of video types to respective
           video source urls in fallback order for support on various browsers.`,
         required: true,
+      },
+      {
+        name: 'volume',
+        type: 'number',
+        description:
+          'Specifies the volume of the video audio: 0 for muted, 1 for max',
+        defaultValue: 1,
       },
     ]}
     heading={false}
@@ -177,7 +178,7 @@ card(
     defaultCode={`
 <Video
   autoPlay
-  muted
+  volume={0}
   captions=""
   src={[
     {
@@ -205,7 +206,7 @@ card(
 <Video
   autoPlay
   loop
-  muted
+  volume={0}
   captions=""
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
 />
@@ -248,10 +249,11 @@ class Example extends React.Component {
     this.handleChangeInput = this._handleChangeInput.bind(this);
     this.handleToggleMute = this._handleToggleMute.bind(this);
     this.handleSubmitInput = this._handleSubmitInput.bind(this);
+    this.handleVolumeChange = this._handleVolumeChange.bind(this);
     this.state = {
       input: "http://media.w3.org/2010/05/bunny/movie.mp4",
       src: "http://media.w3.org/2010/05/bunny/movie.mp4",
-      muted: false
+      volume: 1,
     };
   }
 
@@ -260,7 +262,11 @@ class Example extends React.Component {
   }
 
   _handleToggleMute() {
-    this.setState({ muted: !this.state.muted });
+    this.setState({ volume: this.state.volume === 0 ? 1 : 0 });
+  }
+
+  _handleVolumeChange({ volume }) {
+    this.setState({ volume });
   }
 
   _handleSubmitInput() {
@@ -268,7 +274,7 @@ class Example extends React.Component {
   }
 
   render() {
-    const { input, src, muted } = this.state;
+    const { input, src, volume } = this.state;
     return (
       <Box>
         <Box paddingY={2}>
@@ -296,7 +302,7 @@ class Example extends React.Component {
         </Box>
         <Box paddingY={2}>
           <Button
-            text={muted ? "Unmute" : "Mute"}
+            text={volume === 0 ? "Unmute" : "Mute"}
             onClick={this.handleToggleMute}
           />
         </Box>
@@ -309,8 +315,9 @@ class Example extends React.Component {
           accessibilityUnmuteLabel="Unmute"
           captions=""
           controls
-          muted={muted}
+          volume={volume}
           src={src}
+          onVolumeChange={this.handleVolumeChange}
         />
       </Box>
     );

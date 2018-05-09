@@ -18,12 +18,12 @@ type Props = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
-  muted: boolean,
+  onVolumeChange: () => void,
   paused: boolean,
   seek: (time: number) => void,
   toggleFullscreen: () => void,
-  toggleMute: () => void,
   togglePlay: () => void,
+  volume: number,
 |};
 
 const timeToString = (time?: number) => {
@@ -46,13 +46,14 @@ export default function VideoControls(props: Props) {
     currentTime,
     duration,
     fullscreen,
+    onVolumeChange,
     paused,
-    muted,
     seek,
     toggleFullscreen,
-    toggleMute,
     togglePlay,
+    volume,
   } = props;
+  const muted = volume === 0;
   return (
     <Box
       position="absolute"
@@ -94,7 +95,7 @@ export default function VideoControls(props: Props) {
         </Text>
       </Box>
       <Box padding={2}>
-        <Touchable onTouch={toggleMute} fullWidth={false}>
+        <Touchable onTouch={onVolumeChange} fullWidth={false}>
           <Icon
             accessibilityLabel={
               muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
@@ -133,10 +134,10 @@ VideoControls.propTypes = {
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   fullscreen: PropTypes.bool.isRequired,
-  muted: PropTypes.bool.isRequired,
+  onVolumeChange: PropTypes.func.isRequired,
   paused: PropTypes.bool.isRequired,
   seek: PropTypes.func.isRequired,
   toggleFullscreen: PropTypes.func.isRequired,
-  toggleMute: PropTypes.func.isRequired,
   togglePlay: PropTypes.func.isRequired,
+  volume: PropTypes.number.isRequired,
 };

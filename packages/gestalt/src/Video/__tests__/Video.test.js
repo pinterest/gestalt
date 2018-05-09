@@ -38,7 +38,7 @@ test('Video with media attributes', () => {
       autoPlay
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       loop
-      muted
+      volume={0}
       preload="metadata"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     />

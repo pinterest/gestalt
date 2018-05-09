@@ -31,7 +31,6 @@ type Props = {|
   autoPlay?: boolean,
   captions: string,
   loop?: boolean,
-  muted?: boolean,
   onDurationChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
@@ -43,16 +42,14 @@ type Props = {|
     event: SyntheticEvent<HTMLVideoElement>,
     currentTime: number,
   }) => void,
-  onVolumeChange?: ({
-    event: SyntheticEvent<HTMLVideoElement>,
-    muted: boolean,
-  }) => void,
+  onVolumeChange?: ({ volume: number }) => void,
   playsInline?: boolean,
   poster?: string,
   preload: 'auto' | 'metadata' | 'none',
   src:
     | string
     | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>,
+  volume: number,
   ...Controls,
 |};
 
@@ -61,7 +58,6 @@ type State = {|
   duration: number,
   fullscreen: boolean,
   paused: boolean,
-  muted: boolean,
 |};
 
 // For more information on fullscreen and vendor prefixes see
@@ -153,7 +149,6 @@ export default class Video extends React.PureComponent<Props, State> {
     captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
-    muted: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onFullscreenChange: PropTypes.func,
     onPlay: PropTypes.func,
@@ -173,10 +168,12 @@ export default class Video extends React.PureComponent<Props, State> {
         })
       ),
     ]).isRequired,
+    volume: PropTypes.number,
   };
 
   static defaultProps = {
     preload: 'auto',
+    volume: 1,
   };
 
   state = {
@@ -184,7 +181,6 @@ export default class Video extends React.PureComponent<Props, State> {
     duration: 0,
     fullscreen: false,
     paused: true,
-    muted: this.props.muted || false,
   };
 
   /**
@@ -203,12 +199,14 @@ export default class Video extends React.PureComponent<Props, State> {
     if (this.props.src !== nextProps.src) {
       this.setState({ paused: true });
     }
-    this.setState({ muted: nextProps.muted });
   }
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.src !== this.props.src) {
       this.load();
+    }
+    if (prevProps.volume !== this.props.volume) {
+      this.setVolume(this.props.volume);
     }
   }
 
@@ -231,12 +229,16 @@ export default class Video extends React.PureComponent<Props, State> {
     this.video = ref;
   };
 
-  player: ?HTMLDivElement;
-  video: ?HTMLVideoElement;
-
   /**
    * Functions that directly interact with the HTML video element
    */
+
+  // Set the video to the desired volume: 0 (muted) -> 1 (max)
+  setVolume = (volume: number) => {
+    if (this.video) {
+      this.video.volume = volume;
+    }
+  };
 
   // Change the video source and re-load the video
   load = () => {
@@ -252,6 +254,9 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  video: ?HTMLVideoElement;
+  player: ?HTMLDivElement;
+
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
     if (fullscreenEnabled()) {
@@ -260,13 +265,6 @@ export default class Video extends React.PureComponent<Props, State> {
       } else if (this.player) {
         requestFullscreen(this.player);
       }
-    }
-  };
-
-  // Mute/unmute the video
-  toggleMute = () => {
-    if (this.video) {
-      this.video.muted = !this.video.muted;
     }
   };
 
@@ -340,13 +338,12 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the audio volume changes
-  handleVolumeChange = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleVolumeChange = () => {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
-    this.setState({ muted });
 
     if (onVolumeChange) {
-      onVolumeChange({ event, muted });
+      onVolumeChange({ volume: muted ? 1 : 0 });
     }
   };
 
@@ -359,8 +356,9 @@ export default class Video extends React.PureComponent<Props, State> {
       poster,
       preload,
       src,
+      volume,
     } = this.props;
-    const { currentTime, duration, fullscreen, muted, paused } = this.state;
+    const { currentTime, duration, fullscreen, paused } = this.state;
 
     const paddingBottom =
       // In full screen the padding bottom is 0 to fit the screen
@@ -380,8 +378,8 @@ export default class Video extends React.PureComponent<Props, State> {
         <video
           autoPlay={autoPlay}
           loop={loop}
-          muted={muted}
-          playsinline={playsInline}
+          muted={volume === 0}
+          playsInline={playsInline}
           poster={poster}
           preload={preload}
           src={typeof src === 'string' ? src : undefined}
@@ -391,7 +389,6 @@ export default class Video extends React.PureComponent<Props, State> {
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onTimeUpdate={this.handleTimeUpdate}
-          onVolumeChange={this.handleVolumeChange}
         >
           {Array.isArray(src) &&
             src.map(source => (
@@ -411,12 +408,12 @@ export default class Video extends React.PureComponent<Props, State> {
             currentTime={currentTime}
             duration={duration}
             fullscreen={fullscreen}
-            muted={muted}
+            onVolumeChange={this.handleVolumeChange}
             paused={paused}
             seek={this.seek}
             toggleFullscreen={this.toggleFullscreen}
-            toggleMute={this.toggleMute}
             togglePlay={this.togglePlay}
+            volume={volume}
           />
         )}
       </div>
