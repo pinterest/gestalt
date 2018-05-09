@@ -50,6 +50,10 @@ const DefaultAvatar = ({ name }: { name: string }) => {
   );
 };
 
+type State = {
+  isImageLoaded: boolean
+};
+
 type AvatarProps = {|
   name: string,
   size?: 'sm' | 'md' | 'lg',
@@ -63,76 +67,87 @@ const sizes = {
   lg: 72,
 };
 
-export default function Avatar({ name, size, src, verified }: AvatarProps) {
-  const width = size ? sizes[size] : '100%';
-  const height = size ? sizes[size] : '';
-  return (
-    <Box
-      color="white"
-      dangerouslySetInlineStyle={{
-        __style: {
-          boxShadow: '0 0 0 2px #fff',
-        },
-      }}
-      width={width}
-      height={height}
-      position="relative"
-      shape="circle"
-    >
-      {src ? (
-        <Mask shape="circle" wash>
-          <Image
-            alt={name}
-            color="#EFEFEF"
-            naturalHeight={1}
-            naturalWidth={1}
-            src={src}
-          />
-        </Mask>
-      ) : (
-        <DefaultAvatar name={name} />
-      )}
-      {verified && (
-        <Box
-          position="absolute"
-          width="20%"
-          height="20%"
-          minWidth={8}
-          minHeight={8}
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: '4%',
-              right: '4%',
-            },
-          }}
-        >
+export default class Avatar extends React.PureComponent<AvatarProps, State> {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    src: PropTypes.string,
+    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    verified: PropTypes.bool,
+  };
+
+  state: State = {
+    isImageLoaded: true
+  };
+
+  handleImageError = () => this.setState({ isImageLoaded: false })
+
+  render() {
+    const { name, size, src, verified } = this.props;
+    const { isImageLoaded } = this.state;
+    const width = size ? sizes[size] : '100%';
+    const height = size ? sizes[size] : '';
+    return (
+      <Box
+        color="white"
+        dangerouslySetInlineStyle={{
+          __style: {
+            boxShadow: '0 0 0 2px #fff',
+          },
+        }}
+        width={width}
+        height={height}
+        position="relative"
+        shape="circle"
+      >
+        {(src && isImageLoaded) ? (
+          <Mask shape="circle" wash>
+            <Image
+              alt={name}
+              color="#EFEFEF"
+              naturalHeight={1}
+              naturalWidth={1}
+              src={src}
+              onError={this.handleImageError}
+            />
+          </Mask>
+        ) : (
+          <DefaultAvatar name={name} />
+        )}
+        {verified && (
           <Box
-            color="white"
-            width="100%"
-            height="100%"
-            shape="circle"
+            position="absolute"
+            width="20%"
+            height="20%"
+            minWidth={8}
+            minHeight={8}
             dangerouslySetInlineStyle={{
               __style: {
-                boxShadow: '0 0 0 2px #fff',
+                bottom: '4%',
+                right: '4%',
               },
             }}
           >
-            <Icon
-              color="red"
-              icon="check-circle"
-              accessibilityLabel=""
-              size="100%"
-            />
+            <Box
+              color="white"
+              width="100%"
+              height="100%"
+              shape="circle"
+              dangerouslySetInlineStyle={{
+                __style: {
+                  boxShadow: '0 0 0 2px #fff',
+                },
+              }}
+            >
+              <Icon
+                color="red"
+                icon="check-circle"
+                accessibilityLabel=""
+                size="100%"
+              />
+            </Box>
           </Box>
-        </Box>
-      )}
-    </Box>
-  );
+        )}
+      </Box>
+    );
+  }
 }
-
-Avatar.propTypes = {
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  verified: PropTypes.bool,
-};
