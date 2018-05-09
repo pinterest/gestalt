@@ -11,6 +11,7 @@
 
 ### Patch
 * Internal: Add bundle size impact reporting (#146)
+* Pulsar: Updated styles to use border box so pulsar doesn't extend out of container div (#169)
 
 </details>
 
