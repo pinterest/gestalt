@@ -35,7 +35,6 @@ test('Video with multiple sources', () => {
 test('Video with media attributes', () => {
   const tree = create(
     <Video
-      autoPlay
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       loop
       volume={0}

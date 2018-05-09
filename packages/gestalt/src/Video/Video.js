@@ -28,7 +28,6 @@ type VideoNoControls = {|
 type Controls = VideoWithControls | VideoNoControls;
 
 type Props = {|
-  autoPlay?: boolean,
   captions: string,
   loop?: boolean,
   onDurationChange?: ({
@@ -36,13 +35,14 @@ type Props = {|
     duration: number,
   }) => void,
   onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
-  onPlay?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onPause?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
+  onPlay?: () => void,
+  onPause?: () => void,
   onTimeUpdate?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     currentTime: number,
   }) => void,
   onVolumeChange?: ({ volume: number }) => void,
+  playing: boolean,
   playsInline?: boolean,
   poster?: string,
   preload: 'auto' | 'metadata' | 'none',
@@ -57,7 +57,6 @@ type State = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
-  paused: boolean,
 |};
 
 // For more information on fullscreen and vendor prefixes see
@@ -145,7 +144,6 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityPauseLabel: PropTypes.string,
     accessibilityPlayLabel: PropTypes.string,
     accessibilityUnmuteLabel: PropTypes.string,
-    autoPlay: PropTypes.bool,
     captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
@@ -155,6 +153,7 @@ export default class Video extends React.PureComponent<Props, State> {
     onPause: PropTypes.func,
     onTimeUpdate: PropTypes.func,
     onVolumeChange: PropTypes.func,
+    playing: PropTypes.bool,
     playsInline: PropTypes.bool,
     poster: PropTypes.string,
     preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
@@ -172,6 +171,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   static defaultProps = {
+    playing: false,
     preload: 'auto',
     volume: 1,
   };
@@ -180,7 +180,6 @@ export default class Video extends React.PureComponent<Props, State> {
     currentTime: 0,
     duration: 0,
     fullscreen: false,
-    paused: true,
   };
 
   /**
@@ -195,18 +194,19 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (this.props.src !== nextProps.src) {
-      this.setState({ paused: true });
-    }
-  }
-
   componentDidUpdate(prevProps: Props) {
     if (prevProps.src !== this.props.src) {
       this.load();
     }
     if (prevProps.volume !== this.props.volume) {
       this.setVolume(this.props.volume);
+    }
+    if (prevProps.playing !== this.props.playing) {
+      if (this.props.playing) {
+        this.play();
+      } else {
+        this.pause();
+      }
     }
   }
 
@@ -254,6 +254,20 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  // Pause the video
+  pause = () => {
+    if (this.video) {
+      this.video.pause();
+    }
+  };
+
+  // Play the video
+  play = () => {
+    if (this.video) {
+      this.video.play();
+    }
+  };
+
   video: ?HTMLVideoElement;
   player: ?HTMLDivElement;
 
@@ -268,20 +282,18 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  // Play/pause the video
-  togglePlay = () => {
-    if (this.video) {
-      if (this.video.paused) {
-        this.video.play();
-      } else {
-        this.video.pause();
-      }
-    }
-  };
-
   /**
    * Handlers for various media events on the video
    */
+
+  // Sent when enough data is available that the media can be played
+  handleCanPlay = () => {
+    // Simulate an autoplay effect if the component was mounted with
+    // playing set to true
+    if (this.props.playing) {
+      this.play();
+    }
+  };
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
@@ -307,22 +319,20 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when playback of the media starts after having been paused.
-  handlePlay = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handlePlay = () => {
     const { onPlay } = this.props;
-    this.setState({ paused: false });
 
     if (onPlay) {
-      onPlay({ event });
+      onPlay();
     }
   };
 
   // Sent when playback is paused.
-  handlePause = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handlePause = () => {
     const { onPause } = this.props;
-    this.setState({ paused: true });
 
     if (onPause) {
-      onPause({ event });
+      onPause();
     }
   };
 
@@ -349,16 +359,16 @@ export default class Video extends React.PureComponent<Props, State> {
 
   render() {
     const {
-      autoPlay,
       captions,
       loop,
+      playing,
       playsInline,
       poster,
       preload,
       src,
       volume,
     } = this.props;
-    const { currentTime, duration, fullscreen, paused } = this.state;
+    const { currentTime, duration, fullscreen } = this.state;
 
     const paddingBottom =
       // In full screen the padding bottom is 0 to fit the screen
@@ -376,7 +386,6 @@ export default class Video extends React.PureComponent<Props, State> {
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
         <video
-          autoPlay={autoPlay}
           loop={loop}
           muted={volume === 0}
           playsInline={playsInline}
@@ -385,9 +394,8 @@ export default class Video extends React.PureComponent<Props, State> {
           src={typeof src === 'string' ? src : undefined}
           ref={this.setVideoRef}
           className={styles.video}
+          onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
-          onPlay={this.handlePlay}
-          onPause={this.handlePause}
           onTimeUpdate={this.handleTimeUpdate}
         >
           {Array.isArray(src) &&
@@ -408,11 +416,12 @@ export default class Video extends React.PureComponent<Props, State> {
             currentTime={currentTime}
             duration={duration}
             fullscreen={fullscreen}
+            onPlay={this.handlePlay}
+            onPause={this.handlePause}
             onVolumeChange={this.handleVolumeChange}
-            paused={paused}
+            playing={playing}
             seek={this.seek}
             toggleFullscreen={this.toggleFullscreen}
-            togglePlay={this.togglePlay}
             volume={volume}
           />
         )}

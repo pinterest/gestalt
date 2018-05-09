@@ -18,7 +18,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Pause"
+        aria-label="Play"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -26,7 +26,7 @@ exports[`VideoControls for double digit minutes 1`] = `
         width={20}
       >
         <title>
-          Pause
+          Play
         </title>
         <path
           d="test-file-stub"
@@ -206,7 +206,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Pause"
+        aria-label="Play"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -214,7 +214,7 @@ exports[`VideoControls for double digit seconds 1`] = `
         width={20}
       >
         <title>
-          Pause
+          Play
         </title>
         <path
           d="test-file-stub"
@@ -394,7 +394,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Pause"
+        aria-label="Play"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -402,7 +402,7 @@ exports[`VideoControls for single digit minutes 1`] = `
         width={20}
       >
         <title>
-          Pause
+          Play
         </title>
         <path
           d="test-file-stub"
@@ -582,7 +582,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Pause"
+        aria-label="Play"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -590,7 +590,7 @@ exports[`VideoControls for single digit seconds 1`] = `
         width={20}
       >
         <title>
-          Pause
+          Play
         </title>
         <path
           d="test-file-stub"
@@ -770,7 +770,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Pause"
+        aria-label="Play"
         className="icon white iconBlock"
         height={20}
         role="img"
@@ -778,7 +778,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         width={20}
       >
         <title>
-          Pause
+          Play
         </title>
         <path
           d="test-file-stub"

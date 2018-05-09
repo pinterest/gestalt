@@ -18,11 +18,12 @@ type Props = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
+  onPause: () => void,
+  onPlay: () => void,
   onVolumeChange: () => void,
-  paused: boolean,
+  playing: boolean,
   seek: (time: number) => void,
   toggleFullscreen: () => void,
-  togglePlay: () => void,
   volume: number,
 |};
 
@@ -46,11 +47,12 @@ export default function VideoControls(props: Props) {
     currentTime,
     duration,
     fullscreen,
+    onPause,
+    onPlay,
     onVolumeChange,
-    paused,
+    playing,
     seek,
     toggleFullscreen,
-    togglePlay,
     volume,
   } = props;
   const muted = volume === 0;
@@ -66,13 +68,13 @@ export default function VideoControls(props: Props) {
       alignItems="center"
     >
       <Box padding={2}>
-        <Touchable onTouch={togglePlay} fullWidth={false}>
+        <Touchable onTouch={playing ? onPause : onPlay} fullWidth={false}>
           <Icon
             accessibilityLabel={
-              paused ? accessibilityPlayLabel : accessibilityPauseLabel
+              playing ? accessibilityPauseLabel : accessibilityPlayLabel
             }
             color="white"
-            icon={paused ? 'play' : 'pause'}
+            icon={playing ? 'pause' : 'play'}
             size={20}
           />
         </Touchable>
@@ -134,10 +136,11 @@ VideoControls.propTypes = {
   currentTime: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
   fullscreen: PropTypes.bool.isRequired,
+  onPause: PropTypes.func.isRequired,
+  onPlay: PropTypes.func.isRequired,
   onVolumeChange: PropTypes.func.isRequired,
-  paused: PropTypes.bool.isRequired,
+  playing: PropTypes.bool.isRequired,
   seek: PropTypes.func.isRequired,
   toggleFullscreen: PropTypes.func.isRequired,
-  togglePlay: PropTypes.func.isRequired,
   volume: PropTypes.number.isRequired,
 };

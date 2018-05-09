@@ -58,11 +58,6 @@ card(
           'Accessibility label for the unmute button if controls are shown',
       },
       {
-        name: 'autoPlay',
-        type: 'boolean',
-        description: 'The video will start playing as soon as it is ready',
-      },
-      {
         name: 'captions',
         type: 'string',
         description: 'The URL of the captions track for the video (.vtt file)',
@@ -92,13 +87,13 @@ card(
       },
       {
         name: 'onPlay',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type: '() => void',
         description:
           'Sent when playback of the media starts after having been paused',
       },
       {
         name: 'onPause',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type: '() => void',
         description: 'Sent when playback is paused',
       },
       {
@@ -112,6 +107,12 @@ card(
         name: 'onVolumeChange',
         type: '({ volume: number }) => void',
         description: 'Sent when the audio volume changes',
+      },
+      {
+        name: 'playing',
+        type: 'boolean',
+        description: 'Specifies whether the video should play or not',
+        defaultValue: false,
       },
       {
         name: 'playsInline',
@@ -177,9 +178,9 @@ card(
   `}
     defaultCode={`
 <Video
-  autoPlay
-  volume={0}
   captions=""
+  playing
+  volume={0}
   src={[
     {
       type: "video/mp4",
@@ -204,11 +205,11 @@ card(
   `}
     defaultCode={`
 <Video
-  autoPlay
-  loop
-  volume={0}
   captions=""
+  loop
+  playing
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+  volume={0}
 />
 `}
   />
@@ -223,14 +224,14 @@ card(
   `}
     defaultCode={`
 <Video
-  controls
-  captions=""
   accessibilityMaximizeLabel="Maximize"
   accessibilityMinimizeLabel="Minimize"
   accessibilityMuteLabel="Mute"
   accessibilityPauseLabel="Pause"
   accessibilityPlayLabel="Play"
   accessibilityUnmuteLabel="Unmute"
+  captions=""
+  controls
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
 `}
@@ -315,9 +316,9 @@ class Example extends React.Component {
           accessibilityUnmuteLabel="Unmute"
           captions=""
           controls
-          volume={volume}
-          src={src}
           onVolumeChange={this.handleVolumeChange}
+          src={src}
+          volume={volume}
         />
       </Box>
     );

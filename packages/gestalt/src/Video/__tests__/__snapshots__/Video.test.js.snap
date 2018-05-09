@@ -11,13 +11,10 @@ exports[`Video with callbacks 1`] = `
   }
 >
   <video
-    autoPlay={undefined}
     className="video"
     loop={undefined}
     muted={false}
     onDurationChange={[Function]}
-    onPause={[Function]}
-    onPlay={[Function]}
     onTimeUpdate={[Function]}
     playsInline={undefined}
     poster={undefined}
@@ -43,13 +40,10 @@ exports[`Video with media attributes 1`] = `
   }
 >
   <video
-    autoPlay={true}
     className="video"
     loop={true}
     muted={true}
     onDurationChange={[Function]}
-    onPause={[Function]}
-    onPlay={[Function]}
     onTimeUpdate={[Function]}
     playsInline={undefined}
     poster={undefined}
@@ -75,13 +69,10 @@ exports[`Video with multiple sources 1`] = `
   }
 >
   <video
-    autoPlay={undefined}
     className="video"
     loop={undefined}
     muted={false}
     onDurationChange={[Function]}
-    onPause={[Function]}
-    onPlay={[Function]}
     onTimeUpdate={[Function]}
     playsInline={undefined}
     poster={undefined}
@@ -115,13 +106,10 @@ exports[`Video with source 1`] = `
   }
 >
   <video
-    autoPlay={undefined}
     className="video"
     loop={undefined}
     muted={false}
     onDurationChange={[Function]}
-    onPause={[Function]}
-    onPlay={[Function]}
     onTimeUpdate={[Function]}
     playsInline={undefined}
     poster={undefined}
