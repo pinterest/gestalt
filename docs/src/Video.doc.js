@@ -248,11 +248,14 @@ class Example extends React.Component {
   constructor(props) {
     super(props);
     this.handleChangeInput = this._handleChangeInput.bind(this);
-    this.handleToggleMute = this._handleToggleMute.bind(this);
+    this.handlePause = this._handlePause.bind(this);
+    this.handlePlay = this._handlePlay.bind(this);
     this.handleSubmitInput = this._handleSubmitInput.bind(this);
+    this.handleToggleMute = this._handleToggleMute.bind(this);
     this.handleVolumeChange = this._handleVolumeChange.bind(this);
     this.state = {
       input: "http://media.w3.org/2010/05/bunny/movie.mp4",
+      playing: false,
       src: "http://media.w3.org/2010/05/bunny/movie.mp4",
       volume: 1,
     };
@@ -274,8 +277,16 @@ class Example extends React.Component {
     this.setState({ src: this.state.input });
   }
 
+  _handlePlay() {
+    this.setState({ playing: true });
+  }
+
+  _handlePause() {
+    this.setState({ playing: false });
+  }
+
   render() {
-    const { input, src, volume } = this.state;
+    const { input, playing, src, volume } = this.state;
     return (
       <Box>
         <Box paddingY={2}>
@@ -316,7 +327,10 @@ class Example extends React.Component {
           accessibilityUnmuteLabel="Unmute"
           captions=""
           controls
+          onPlay={this.handlePlay}
+          onPause={this.handlePause}
           onVolumeChange={this.handleVolumeChange}
+          playing={playing}
           src={src}
           volume={volume}
         />
