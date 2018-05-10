@@ -7,11 +7,14 @@
   </summary>
 
 ### Minor
+
 * Sticky: Expand threshold options to take string values (#166)
+* Avatar: Fall back to default letter if image does not load (#156)
 
 * Video: Add new Video component to Gestalt (#150)
 
 ### Patch
+
 * Internal: Add bundle size impact reporting (#146)
 * Docs: Fix home link (#170)
 
@@ -20,6 +23,7 @@
 ## 0.68.1 (May 8, 2018)
 
 ### Patch
+
 * Masonry: Don't pass Infinity as style value (#163)
 * Internal: Generate stats file during build (#160)
 * Flow: Upgrade flow-bin to version 0.71.0 (#155)
