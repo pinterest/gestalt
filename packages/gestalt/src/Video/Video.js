@@ -29,7 +29,6 @@ type Controls = VideoWithControls | VideoNoControls;
 
 type Props = {|
   captions: string,
-  fullscreen: boolean,
   loop?: boolean,
   onDurationChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
@@ -57,6 +56,7 @@ type Props = {|
 type State = {|
   currentTime: number,
   duration: number,
+  fullscreen: boolean,
 |};
 
 // For more information on fullscreen and vendor prefixes see
@@ -146,7 +146,6 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityUnmuteLabel: PropTypes.string,
     captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
-    fullscreen: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onFullscreenChange: PropTypes.func,
@@ -172,7 +171,6 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   static defaultProps = {
-    fullscreen: false,
     playing: false,
     preload: 'auto',
     volume: 1,
@@ -181,6 +179,7 @@ export default class Video extends React.PureComponent<Props, State> {
   state = {
     currentTime: 0,
     duration: 0,
+    fullscreen: false,
   };
 
   /**
@@ -191,22 +190,20 @@ export default class Video extends React.PureComponent<Props, State> {
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
-      addFullscreenEventListener(this.handleFullscreenEscape);
-    }
-    // If the video was mounted with fullscreen set to true,
-    // we maximize the video here
-    if (this.props.fullscreen) {
-      this.maximize();
+      addFullscreenEventListener(this.handleFullscreenChange);
     }
   }
 
   componentDidUpdate(prevProps: Props) {
+    // If the video source changed, reload the video
     if (prevProps.src !== this.props.src) {
       this.load();
     }
+    // If the volume changed, set the new volume
     if (prevProps.volume !== this.props.volume) {
       this.setVolume(this.props.volume);
     }
+    // If the playback changed, play or pause the video
     if (prevProps.playing !== this.props.playing) {
       if (this.props.playing) {
         this.play();
@@ -214,17 +211,10 @@ export default class Video extends React.PureComponent<Props, State> {
         this.pause();
       }
     }
-    if (prevProps.fullscreen !== this.props.fullscreen) {
-      if (this.props.fullscreen) {
-        this.maximize();
-      } else {
-        this.minimize();
-      }
-    }
   }
 
   componentWillUnmount() {
-    removeFullscreenEventListener(this.handleFullscreenEscape);
+    removeFullscreenEventListener(this.handleFullscreenChange);
   }
 
   /**
@@ -260,20 +250,6 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  // Maximize the video to fullscreen
-  maximize = () => {
-    if (fullscreenEnabled() && this.player) {
-      requestFullscreen(this.player);
-    }
-  };
-
-  // Minimize the video out of fullscreen
-  minimize = () => {
-    if (fullscreenEnabled()) {
-      exitFullscreen();
-    }
-  };
-
   // Pause the video
   pause = () => {
     if (this.video) {
@@ -292,6 +268,17 @@ export default class Video extends React.PureComponent<Props, State> {
   seek = (time: number) => {
     if (this.video) {
       this.video.currentTime = time;
+    }
+  };
+
+  // Enter/exit fullscreen video player mode
+  toggleFullscreen = () => {
+    if (fullscreenEnabled()) {
+      if (isFullscreen()) {
+        exitFullscreen();
+      } else if (this.player) {
+        requestFullscreen(this.player);
+      }
     }
   };
 
@@ -326,18 +313,8 @@ export default class Video extends React.PureComponent<Props, State> {
   // Sent when the video is switched to/out-of fullscreen mode
   handleFullscreenChange = () => {
     const { onFullscreenChange } = this.props;
-    const fullscreen = !isFullscreen();
-
-    if (onFullscreenChange) {
-      onFullscreenChange({ fullscreen });
-    }
-  };
-
-  // Sent when the document detects a fullscreen change. Web standards
-  // do not allow the ESC key minimize event to be prevented so we handle it
-  handleFullscreenEscape = () => {
-    const { onFullscreenChange } = this.props;
-    const fullscreen = isFullscreen();
+    const fullscreen = !!isFullscreen();
+    this.setState({ fullscreen });
 
     if (onFullscreenChange) {
       onFullscreenChange({ fullscreen });
@@ -387,7 +364,6 @@ export default class Video extends React.PureComponent<Props, State> {
     const {
       captions,
       loop,
-      fullscreen,
       playing,
       playsInline,
       poster,
@@ -395,7 +371,7 @@ export default class Video extends React.PureComponent<Props, State> {
       src,
       volume,
     } = this.props;
-    const { currentTime, duration } = this.state;
+    const { currentTime, duration, fullscreen } = this.state;
 
     const paddingBottom =
       // In full screen the padding bottom is 0 to fit the screen
@@ -445,7 +421,7 @@ export default class Video extends React.PureComponent<Props, State> {
             fullscreen={fullscreen}
             onPlay={this.handlePlay}
             onPause={this.handlePause}
-            onFullscreenChange={this.handleFullscreenChange}
+            onFullscreenChange={this.toggleFullscreen}
             onVolumeChange={this.handleVolumeChange}
             playing={playing}
             seek={this.seek}
