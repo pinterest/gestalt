@@ -113,16 +113,6 @@ const isFullscreen = () =>
   // $FlowIssue - vendor prefix missing from Flow
   document.msFullscreenElement;
 
-const fullscreenEnabled = () =>
-  // $FlowIssue - vendor prefix missing from Flow
-  document.fullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.webkitFullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.mozFullScreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.msFullscreenEnabled;
-
 const addFullscreenEventListener = (handler: Function) => {
   document.addEventListener('fullscreenchange', handler);
   document.addEventListener('webkitfullscreenchange', handler);
@@ -276,12 +266,10 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
-    if (fullscreenEnabled()) {
-      if (isFullscreen()) {
-        exitFullscreen();
-      } else if (this.player) {
-        requestFullscreen(this.player);
-      }
+    if (isFullscreen()) {
+      exitFullscreen();
+    } else if (this.player) {
+      requestFullscreen(this.player);
     }
   };
 

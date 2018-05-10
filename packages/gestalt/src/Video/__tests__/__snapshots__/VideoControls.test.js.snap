@@ -155,36 +155,6 @@ exports[`VideoControls for double digit minutes 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    className="box paddingX2 paddingY2"
-  >
-    <div
-      className="touchable pointer square"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
-      tabIndex="0"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="Maximize"
-        className="icon white iconBlock"
-        height={20}
-        role="img"
-        viewBox="0 0 24 24"
-        width={20}
-      >
-        <title>
-          Maximize
-        </title>
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-  </div>
 </div>
 `;
 
@@ -336,36 +306,6 @@ exports[`VideoControls for double digit seconds 1`] = `
       >
         <title>
           Unmute
-        </title>
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-  </div>
-  <div
-    className="box paddingX2 paddingY2"
-  >
-    <div
-      className="touchable pointer square"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
-      tabIndex="0"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="Maximize"
-        className="icon white iconBlock"
-        height={20}
-        role="img"
-        viewBox="0 0 24 24"
-        width={20}
-      >
-        <title>
-          Maximize
         </title>
         <path
           d="test-file-stub"
@@ -531,36 +471,6 @@ exports[`VideoControls for single digit minutes 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    className="box paddingX2 paddingY2"
-  >
-    <div
-      className="touchable pointer square"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
-      tabIndex="0"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="Maximize"
-        className="icon white iconBlock"
-        height={20}
-        role="img"
-        viewBox="0 0 24 24"
-        width={20}
-      >
-        <title>
-          Maximize
-        </title>
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-  </div>
 </div>
 `;
 
@@ -719,36 +629,6 @@ exports[`VideoControls for single digit seconds 1`] = `
       </svg>
     </div>
   </div>
-  <div
-    className="box paddingX2 paddingY2"
-  >
-    <div
-      className="touchable pointer square"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
-      tabIndex="0"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="Maximize"
-        className="icon white iconBlock"
-        height={20}
-        role="img"
-        viewBox="0 0 24 24"
-        width={20}
-      >
-        <title>
-          Maximize
-        </title>
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-  </div>
 </div>
 `;
 
@@ -900,36 +780,6 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       >
         <title>
           Unmute
-        </title>
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-  </div>
-  <div
-    className="box paddingX2 paddingY2"
-  >
-    <div
-      className="touchable pointer square"
-      onClick={[Function]}
-      onKeyPress={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="button"
-      tabIndex="0"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="Maximize"
-        className="icon white iconBlock"
-        height={20}
-        role="img"
-        viewBox="0 0 24 24"
-        width={20}
-      >
-        <title>
-          Maximize
         </title>
         <path
           d="test-file-stub"
