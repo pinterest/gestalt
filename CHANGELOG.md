@@ -5,6 +5,9 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+</details>
+
+## 0.69.0 (May 10, 2018)
 
 ### Minor
 
@@ -18,8 +21,6 @@
 * Internal: Add bundle size impact reporting (#146)
 * Pulsar: Updated styles to use border box so pulsar doesn't extend out of container div (#169)
 * Docs: Fix home link (#170)
-
-</details>
 
 ## 0.68.1 (May 8, 2018)
 
