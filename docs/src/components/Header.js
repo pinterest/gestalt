@@ -17,6 +17,7 @@ export default function Header() {
     >
       <Box marginStart={-2} marginEnd={-2}>
         <Text size="lg" bold color="white">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link to="/">
             <Box padding={2}>
               <Box
