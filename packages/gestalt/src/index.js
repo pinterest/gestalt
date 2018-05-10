@@ -41,6 +41,7 @@ import TextField from './TextField/TextField';
 import Toast from './Toast/Toast';
 import Tooltip from './Tooltip/Tooltip';
 import Touchable from './Touchable/Touchable';
+import Video from './Video/Video';
 
 export {
   Avatar,
@@ -85,4 +86,5 @@ export {
   Toast,
   Tooltip,
   Touchable,
+  Video,
 };

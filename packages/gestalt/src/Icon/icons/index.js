@@ -44,8 +44,11 @@ import heartBroken from './heart-broken.svg';
 import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
+import maximize from './maximize.svg';
 import menu from './menu.svg';
+import minimize from './minimize.svg';
 import move from './move.svg';
+import mute from './mute.svg';
 import pause from './pause.svg';
 import people from './people.svg';
 import person from './person.svg';
@@ -114,8 +117,11 @@ export default {
   link,
   location,
   lock,
+  maximize,
   menu,
+  minimize,
   move,
+  mute,
   pause,
   people,
   person,

@@ -9,6 +9,8 @@
 ### Minor
 * Sticky: Expand threshold options to take string values (#166)
 
+* Video: Add new Video component to Gestalt (#150)
+
 ### Patch
 * Internal: Add bundle size impact reporting (#146)
 
