@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video with callbacks 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "56.25%",
+    }
+  }
+>
+  <video
+    className="video"
+    loop={undefined}
+    muted={false}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onTimeUpdate={[Function]}
+    playsInline={undefined}
+    poster={undefined}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+  >
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
+</div>
+`;
+
+exports[`Video with media attributes 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "56.25%",
+    }
+  }
+>
+  <video
+    className="video"
+    loop={true}
+    muted={true}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onTimeUpdate={[Function]}
+    playsInline={undefined}
+    poster={undefined}
+    preload="metadata"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+  >
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
+</div>
+`;
+
+exports[`Video with multiple sources 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "56.25%",
+    }
+  }
+>
+  <video
+    className="video"
+    loop={undefined}
+    muted={false}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onTimeUpdate={[Function]}
+    playsInline={undefined}
+    poster={undefined}
+    preload="auto"
+    src={undefined}
+  >
+    <source
+      src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
+      type="video/mp4"
+    />
+    <source
+      src="https://archive.org/download/ElephantsDream/ed_hd.ogv"
+      type="video/ogg"
+    />
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
+</div>
+`;
+
+exports[`Video with source 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "56.25%",
+    }
+  }
+>
+  <video
+    className="video"
+    loop={undefined}
+    muted={false}
+    onCanPlay={[Function]}
+    onDurationChange={[Function]}
+    onTimeUpdate={[Function]}
+    playsInline={undefined}
+    poster={undefined}
+    preload="auto"
+    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+  >
+    <track
+      kind="captions"
+      src="https://media.w3.org/2010/05/sintel/captions.vtt"
+    />
+  </video>
+</div>
+`;
