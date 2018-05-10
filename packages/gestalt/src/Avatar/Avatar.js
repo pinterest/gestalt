@@ -50,9 +50,7 @@ const DefaultAvatar = ({ name }: { name: string }) => {
   );
 };
 
-type State = {
-  isImageLoaded: boolean
-};
+type State = {| isImageLoaded: boolean |};
 
 type AvatarProps = {|
   name: string,
@@ -75,11 +73,11 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
     verified: PropTypes.bool,
   };
 
-  state: State = {
-    isImageLoaded: true
+  state = {
+    isImageLoaded: true,
   };
 
-  handleImageError = () => this.setState({ isImageLoaded: false })
+  handleImageError = () => this.setState({ isImageLoaded: false });
 
   render() {
     const { name, size, src, verified } = this.props;
@@ -99,7 +97,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
         position="relative"
         shape="circle"
       >
-        {(src && isImageLoaded) ? (
+        {src && isImageLoaded ? (
           <Mask shape="circle" wash>
             <Image
               alt={name}
