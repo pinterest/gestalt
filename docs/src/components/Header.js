@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
-import { Box, Text, Link, Icon } from 'gestalt';
+import { Box, Text, Icon, Link as GestaltLink } from 'gestalt';
+import Link from './Link';
 
 export default function Header() {
   return (
@@ -16,7 +17,8 @@ export default function Header() {
     >
       <Box marginStart={-2} marginEnd={-2}>
         <Text size="lg" bold color="white">
-          <Link href="/">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link to="/">
             <Box padding={2}>
               <Box
                 display="flex"
@@ -44,15 +46,21 @@ export default function Header() {
 
       <Box marginStart={-2} marginEnd={-2} display="flex" direction="row">
         <Text color="white" size="lg">
-          <Link href="https://codesandbox.io/s/k5plvp9v8v" target="_blank">
+          <GestaltLink
+            href="https://codesandbox.io/s/k5plvp9v8v"
+            target="blank"
+          >
             <Box padding={2}>Playground</Box>
-          </Link>
+          </GestaltLink>
         </Text>
 
         <Text color="white" size="lg">
-          <Link href="https://github.com/pinterest/gestalt" target="_blank">
+          <GestaltLink
+            href="https://github.com/pinterest/gestalt"
+            target="blank"
+          >
             <Box padding={2}>GitHub</Box>
-          </Link>
+          </GestaltLink>
         </Text>
       </Box>
     </Box>
