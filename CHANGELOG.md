@@ -5,6 +5,13 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+
+### Minor
+* Avatar / GroupAvatar: make outline configurable(#173)
+
+### Patch
+
+
 </details>
 
 ## 0.69.0 (May 10, 2018)
@@ -15,6 +22,7 @@
 * Avatar: Fall back to default letter if image does not load (#156)
 * Video: Add new Video component to Gestalt (#150)
 * Video: Add `aspectRatio` prop to Video and hide fullscreen on unsupported browsers (#171)
+
 
 ### Patch
 

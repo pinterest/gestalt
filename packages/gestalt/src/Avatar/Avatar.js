@@ -54,6 +54,7 @@ type State = {| isImageLoaded: boolean |};
 
 type AvatarProps = {|
   name: string,
+  outline?: boolean,
   size?: 'sm' | 'md' | 'lg',
   src?: string,
   verified?: boolean,
@@ -68,6 +69,7 @@ const sizes = {
 export default class Avatar extends React.PureComponent<AvatarProps, State> {
   static propTypes = {
     name: PropTypes.string.isRequired,
+    outline: PropTypes.bool,
     src: PropTypes.string,
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
     verified: PropTypes.bool,
@@ -80,18 +82,22 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
   handleImageError = () => this.setState({ isImageLoaded: false });
 
   render() {
-    const { name, size, src, verified } = this.props;
+    const { name, outline, size, src, verified } = this.props;
     const { isImageLoaded } = this.state;
     const width = size ? sizes[size] : '100%';
     const height = size ? sizes[size] : '';
     return (
       <Box
         color="white"
-        dangerouslySetInlineStyle={{
-          __style: {
-            boxShadow: '0 0 0 2px #fff',
-          },
-        }}
+        {...(outline
+          ? {
+              dangerouslySetInlineStyle: {
+                __style: {
+                  boxShadow: '0 0 0 2px #fff',
+                },
+              },
+            }
+          : {})}
         width={width}
         height={height}
         position="relative"

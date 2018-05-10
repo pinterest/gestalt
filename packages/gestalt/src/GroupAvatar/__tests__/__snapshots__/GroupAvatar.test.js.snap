@@ -5,7 +5,6 @@ exports[`DefaultAvatar renders 0 avatars 1`] = `
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -67,7 +66,6 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -164,7 +162,6 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -297,7 +294,6 @@ exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -430,7 +426,6 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -492,7 +487,6 @@ exports[`DefaultAvatar renders single-byte character initials 1`] = `
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",

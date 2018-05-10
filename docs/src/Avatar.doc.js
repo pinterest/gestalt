@@ -28,6 +28,12 @@ card(
         required: true,
       },
       {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: 'Adds a white border around Avatar',
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         description:

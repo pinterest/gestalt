@@ -5,7 +5,6 @@ exports[`Avatar renders multibyte names 1`] = `
   className="box circle relative whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": "",
       "width": "100%",
     }
