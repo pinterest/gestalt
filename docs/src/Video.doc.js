@@ -117,8 +117,10 @@ card(
       {
         name: 'playsInline',
         type: 'boolean',
-        description:
-          'Indicates that the video is to be played "inline" where supported',
+        description: `Serves as a hint to the user agent that the video should to be displayed "inline" in
+          the document by default, constrained to the element's playback area, instead of being displayed
+          fullscreen or in an independent resizable window. This attribute is mainly relevant to
+          iOS Safari browsers`,
       },
       {
         name: 'poster',
