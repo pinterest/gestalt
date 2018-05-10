@@ -58,6 +58,13 @@ card(
           'Accessibility label for the unmute button if controls are shown',
       },
       {
+        name: 'aspectRatio',
+        type: 'number',
+        description: `Proportional relationship between width and height of the video, calculated as width / height.
+           Used to size the placeholder until the video is loaded. Default is equivalent to 16:9`,
+        defaultValue: 16 / 9,
+      },
+      {
         name: 'captions',
         type: 'string',
         description: 'The URL of the captions track for the video (.vtt file)',

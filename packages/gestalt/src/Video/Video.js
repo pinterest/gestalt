@@ -28,6 +28,7 @@ type VideoNoControls = {|
 type Controls = VideoWithControls | VideoNoControls;
 
 type Props = {|
+  aspectRatio: number,
   captions: string,
   loop?: boolean,
   onDurationChange?: ({
@@ -112,16 +113,6 @@ const isFullscreen = () =>
   // $FlowIssue - vendor prefix missing from Flow
   document.msFullscreenElement;
 
-const fullscreenEnabled = () =>
-  // $FlowIssue - vendor prefix missing from Flow
-  document.fullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.webkitFullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.mozFullScreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
-  document.msFullscreenEnabled;
-
 const addFullscreenEventListener = (handler: Function) => {
   document.addEventListener('fullscreenchange', handler);
   document.addEventListener('webkitfullscreenchange', handler);
@@ -144,6 +135,7 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityPauseLabel: PropTypes.string,
     accessibilityPlayLabel: PropTypes.string,
     accessibilityUnmuteLabel: PropTypes.string,
+    aspectRatio: PropTypes.number,
     captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
@@ -171,6 +163,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   static defaultProps = {
+    aspectRatio: 16 / 9,
     playing: false,
     preload: 'auto',
     volume: 1,
@@ -273,12 +266,10 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Enter/exit fullscreen video player mode
   toggleFullscreen = () => {
-    if (fullscreenEnabled()) {
-      if (isFullscreen()) {
-        exitFullscreen();
-      } else if (this.player) {
-        requestFullscreen(this.player);
-      }
+    if (isFullscreen()) {
+      exitFullscreen();
+    } else if (this.player) {
+      requestFullscreen(this.player);
     }
   };
 
@@ -362,6 +353,7 @@ export default class Video extends React.PureComponent<Props, State> {
 
   render() {
     const {
+      aspectRatio,
       captions,
       loop,
       playing,
@@ -379,8 +371,8 @@ export default class Video extends React.PureComponent<Props, State> {
       // If video data is present, use the correct aspect ratio
       (this.video &&
         `${this.video.videoHeight / this.video.videoWidth * 100}%`) ||
-      // If the video metadata is missing, default to a standard 16:9 ratio
-      `${9 / 16 * 100}%`;
+      // If the video metadata is missing, default to the aspect ratio
+      `${1 / aspectRatio * 100}%`;
 
     return (
       <div

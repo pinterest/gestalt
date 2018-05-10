@@ -10,8 +10,8 @@
 
 * Sticky: Expand threshold options to take string values (#166)
 * Avatar: Fall back to default letter if image does not load (#156)
-
 * Video: Add new Video component to Gestalt (#150)
+* Video: Add `aspectRatio` prop to Video and hide fullscreen on unsupported browsers (#171)
 
 ### Patch
 

@@ -27,6 +27,16 @@ type Props = {|
   volume: number,
 |};
 
+const fullscreenEnabled = () =>
+  // $FlowIssue - vendor prefix missing from Flow
+  document.fullscreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
+  document.webkitFullscreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
+  document.mozFullScreenEnabled ||
+  // $FlowIssue - vendor prefix missing from Flow
+  document.msFullscreenEnabled;
+
 const timeToString = (time?: number) => {
   const rounded = Math.floor(time || 0);
   const minutes = Math.floor(rounded / 60);
@@ -56,6 +66,8 @@ export default function VideoControls(props: Props) {
     volume,
   } = props;
   const muted = volume === 0;
+  const showFullscreenButton =
+    typeof document !== 'undefined' && !!fullscreenEnabled();
   return (
     <Box
       position="absolute"
@@ -108,20 +120,22 @@ export default function VideoControls(props: Props) {
           />
         </Touchable>
       </Box>
-      <Box padding={2}>
-        <Touchable onTouch={onFullscreenChange} fullWidth={false}>
-          <Icon
-            accessibilityLabel={
-              fullscreen
-                ? accessibilityMinimizeLabel
-                : accessibilityMaximizeLabel
-            }
-            color="white"
-            icon={fullscreen ? 'minimize' : 'maximize'}
-            size={20}
-          />
-        </Touchable>
-      </Box>
+      {showFullscreenButton && (
+        <Box padding={2}>
+          <Touchable onTouch={onFullscreenChange} fullWidth={false}>
+            <Icon
+              accessibilityLabel={
+                fullscreen
+                  ? accessibilityMinimizeLabel
+                  : accessibilityMaximizeLabel
+              }
+              color="white"
+              icon={fullscreen ? 'minimize' : 'maximize'}
+              size={20}
+            />
+          </Touchable>
+        </Box>
+      )}
     </Box>
   );
 }
