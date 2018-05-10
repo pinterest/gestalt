@@ -13,6 +13,7 @@
 
 ### Patch
 * Internal: Add bundle size impact reporting (#146)
+* Docs: Fix home link (#170)
 
 </details>
 
