@@ -43,7 +43,7 @@ export default function Sticky(props: Props) {
 
 Sticky.propTypes = {
   children: PropTypes.node,
-  dangerouslySetZIndex: PropTypes.exact({
+  dangerouslySetZIndex: PropTypes.shape({
     __zIndex: PropTypes.number,
   }),
   top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

@@ -495,10 +495,10 @@ Contents.propTypes = {
   onClick: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
   onResize: PropTypes.func.isRequired,
-  relativeOffset: PropTypes.exact({ x: PropTypes.number, y: PropTypes.number }),
+  relativeOffset: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number }),
   positionRelativeToAnchor: PropTypes.bool,
   shouldFocus: PropTypes.bool,
-  triggerRect: PropTypes.exact({
+  triggerRect: PropTypes.shape({
     bottom: PropTypes.number,
     height: PropTypes.number,
     left: PropTypes.number,

@@ -744,32 +744,32 @@ const PaddingPropType = PropTypes.oneOf([
 
 Box.propTypes = {
   children: PropTypes.node,
-  dangerouslySetInlineStyle: PropTypes.exact({
+  dangerouslySetInlineStyle: PropTypes.shape({
     __style: PropTypes.object,
   }),
 
-  xs: PropTypes.exact({
+  xs: PropTypes.shape({
     display: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
     ]),
     column: PropTypes.number,
   }),
-  sm: PropTypes.exact({
+  sm: PropTypes.shape({
     display: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
     ]),
     column: PropTypes.number,
   }),
-  md: PropTypes.exact({
+  md: PropTypes.shape({
     display: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
     ]),
     column: PropTypes.number,
   }),
-  lg: PropTypes.exact({
+  lg: PropTypes.shape({
     display: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
