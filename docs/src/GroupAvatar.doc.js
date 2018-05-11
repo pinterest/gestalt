@@ -33,7 +33,7 @@ card(
         name: 'outline',
         type: 'boolean',
         defaultValue: false,
-        description: 'Adds a white border around GroupAvatar',
+        description: `Adds a white border around GroupAvatar so it's visible when displayed on other images`,
       },
       {
         name: 'size',

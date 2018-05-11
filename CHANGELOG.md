@@ -23,7 +23,6 @@
 * Video: Add new Video component to Gestalt (#150)
 * Video: Add `aspectRatio` prop to Video and hide fullscreen on unsupported browsers (#171)
 
-
 ### Patch
 
 * Internal: Add bundle size impact reporting (#146)
