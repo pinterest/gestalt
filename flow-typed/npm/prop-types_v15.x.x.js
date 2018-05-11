@@ -24,6 +24,7 @@ declare module 'prop-types' {
   declare var oneOf: React$PropType$OneOf;
   declare var oneOfType: React$PropType$OneOfType;
   declare var shape: React$PropType$Shape;
+  declare var exact: React$PropType$Shape; /* TODO */
 
   declare function checkPropTypes<V>(
     propTypes: $Subtype<{[_: $Keys<V>]: $npm$propTypes$ReactPropsCheckType}>,

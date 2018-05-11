@@ -26,7 +26,7 @@ export default class Tabs extends React.Component<Props, State> {
   static propTypes = {
     activeTabIndex: PropTypes.number.isRequired,
     tabs: PropTypes.arrayOf(
-      PropTypes.shape({
+      PropTypes.exact({
         text: PropTypes.node,
         href: PropTypes.string,
       })

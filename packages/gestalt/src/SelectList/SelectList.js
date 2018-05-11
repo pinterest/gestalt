@@ -36,7 +36,7 @@ export default class SelectList extends React.Component<Props, State> {
     name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(
-      PropTypes.shape({
+      PropTypes.exact({
         label: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
       })

@@ -62,7 +62,7 @@ export default class Collection extends React.PureComponent<Props, void> {
     // eslint-disable-next-line react/forbid-prop-types
     Item: PropTypes.any,
     layout: PropTypes.arrayOf(
-      PropTypes.shape({
+      PropTypes.exact({
         top: PropTypes.number.isRequired,
         left: PropTypes.number.isRequired,
         width: PropTypes.number.isRequired,
