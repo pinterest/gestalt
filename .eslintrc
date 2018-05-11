@@ -36,13 +36,5 @@
     "import/no-named-as-default-member": 0,
     "import/no-unresolved": 0,
     "import/no-webpack-loader-syntax": 0
-  },
-  "overrides": [
-    {
-      "files": [ "flow-typed/**/*.js" ],
-      "rules": {
-        "flowtype/no-types-missing-file-annotation": 0
-      }
-    }
-  ]
+  }
 }
