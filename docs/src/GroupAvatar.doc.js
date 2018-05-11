@@ -30,6 +30,12 @@ card(
         required: true,
       },
       {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Adds a white border around GroupAvatar so it's visible when displayed on other images`,
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         description: 'sm: 24px, md: 40px, lg: 72px',
