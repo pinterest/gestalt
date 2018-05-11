@@ -5,6 +5,11 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+
+### Minor
+
+* Internal: Add flow-typed files for third party packages (#174)
+
 </details>
 
 ## 0.69.0 (May 10, 2018)
