@@ -21,26 +21,16 @@ class Container<T> extends React.Component<Props<T>, State> {
     props: {},
   };
 
-  state = {
-    mounted: !Object.prototype.hasOwnProperty.call(
-      this.props.router.query,
-      'deferMount'
-    ),
-  };
-
   componentDidMount() {
-    window.addEventListener('trigger-mount', this.handleMount);
+    document.body.setAttribute('data-test-react-mounted', true);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('trigger-mount', this.handleMount);
+    document.body.removeAttribute('data-test-react-mounted');
   }
-
-  handleMount = () => this.setState({ mounted: true });
 
   render() {
     const { Component, styles, router } = this.props;
-    const { mounted } = this.state;
     const props = {
       ...this.props.props,
       ...router.query,
@@ -52,9 +42,10 @@ class Container<T> extends React.Component<Props<T>, State> {
             margin: 0;
           }
         `}</style>
-        {/* eslint-disable-next-line react/no-danger */}
-        <style dangerouslySetInnerHTML={{ __html: styles }} />
-        {mounted && <Component {...props} />}
+        <style jsx global>
+          {styles}
+        </style>
+        <Component {...props} />
       </div>
     );
   }
