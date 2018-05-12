@@ -26,6 +26,7 @@ type Props = {|
     name: string,
     src?: string,
   |}>,
+  outline?: boolean,
   size: 'sm' | 'md' | 'lg',
 |};
 
@@ -156,7 +157,7 @@ const DefaultAvatar = (props: {
 };
 
 export default function GroupAvatar(props: Props) {
-  const { collaborators, size } = props;
+  const { collaborators, outline, size } = props;
   const layout = avatarLayout(collaborators.length, AVATAR_SIZES[size]);
   const avatarSize = AVATAR_SIZES[size];
   return (
@@ -168,7 +169,7 @@ export default function GroupAvatar(props: Props) {
       width={avatarSize}
       dangerouslySetInlineStyle={{
         __style: {
-          boxShadow: '0 0 0 2px #fff',
+          ...(outline ? { boxShadow: '0 0 0 2px #fff' } : {}),
           // willChange: transform fixes a strange behavior where the border of the children
           // are not properly trimmed even though overflow: hidden is set
           willChange: 'transform',
@@ -238,5 +239,6 @@ GroupAvatar.propTypes = {
       src: PropTypes.string,
     })
   ).isRequired,
+  outline: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
 };

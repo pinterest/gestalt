@@ -7,8 +7,11 @@
   </summary>
 
 ### Minor
-
+* Avatar / GroupAvatar: make outline configurable(#173)
 * Internal: Add flow-typed files for third party packages (#174)
+
+### Patch
+
 
 </details>
 

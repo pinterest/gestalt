@@ -3,7 +3,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import GroupAvatar from '../GroupAvatar';
 
-describe('DefaultAvatar', () => {
+describe('GroupAvatar', () => {
   it('renders multi-byte character initials', () => {
     const tree = create(
       <GroupAvatar collaborators={[{ name: '💩 astral' }]} size="md" />
@@ -59,6 +59,20 @@ describe('DefaultAvatar', () => {
           { name: 'Jane Smith', src: 'foo.png' },
           { name: 'Jane Smith', src: 'foo.png' },
         ]}
+        size="md"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders an outline', () => {
+    const tree = create(
+      <GroupAvatar
+        collaborators={[
+          { name: 'Jane Smith', src: 'foo.png' },
+          { name: 'Jane Smith', src: 'foo.png' },
+        ]}
+        outline
         size="md"
       />
     ).toJSON();
