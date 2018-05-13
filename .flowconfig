@@ -16,3 +16,6 @@ esproposal.class_instance_fields=enable
 esproposal.class_static_fields=enable
 # necessary for webpack loader syntax.
 module.name_mapper='^.*\.css$' -> '<PROJECT_ROOT>/flow/stubs/CSSModuleStub.js'
+
+[libs]
+<PROJECT_ROOT>/flow-typed
