@@ -492,7 +492,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
 
       const positions = layout(itemsToRender);
       const measuringPositions = layout(itemsToMeasure);
-      const height = Math.max(...positions.map(pos => pos.top + pos.height));
+      // Math.max() === -Infinity when there are no positions
+      const height = positions.length
+        ? Math.max(...positions.map(pos => pos.top + pos.height))
+        : 0;
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
