@@ -61,7 +61,7 @@ describe('TextField', () => {
   it('TextField with autocomplete', () => {
     const tree = shallow(
       <TextField
-        autocomplete="on"
+        autoComplete="on"
         id="email"
         onChange={jest.fn()}
         onFocus={jest.fn()}
