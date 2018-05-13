@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import uniformRowLayout from './uniformRowLayout';
 
 const stubCache = (measurements = {}) => ({

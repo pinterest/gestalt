@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 /* eslint import/imports-first: 0 */
 jest.unmock('../Controller');
 

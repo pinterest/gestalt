@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import fullWidthLayout from './fullWidthLayout';
 
 const stubCache = (measurements = {}) => ({

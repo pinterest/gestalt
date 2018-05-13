@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Toast from '../Toast';

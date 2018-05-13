@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import defaultLayout from './defaultLayout';
 
 const stubCache = (measurements = {}) => ({
