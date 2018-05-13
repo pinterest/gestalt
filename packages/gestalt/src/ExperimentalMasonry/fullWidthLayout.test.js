@@ -1,20 +1,14 @@
 // @flow
 import fullWidthLayout from './fullWidthLayout';
+import MeasurementStore from './MeasurementStore';
 
-const stubCache = (measurements = {}) => ({
-  get(item) {
-    return measurements[item];
-  },
-  has(item) {
-    return !!measurements[item];
-  },
-  set(item, value) {
-    measurements[item] = value;
-  },
-  reset() {
-    measurements = {};
-  },
-});
+const stubCache = (measurements: Object = {}) => {
+  const measurementStore = new MeasurementStore();
+  Object.keys(measurements).map(key =>
+    measurementStore.set(key, measurements[key])
+  );
+  return measurementStore;
+};
 
 test('empty', () => {
   const layout = fullWidthLayout({
