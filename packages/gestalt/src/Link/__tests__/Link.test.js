@@ -40,7 +40,7 @@ it('target blank', () =>
 
 it('with onClick', () =>
   snapshot(
-    <Link href="https://example.com" onClick={() => 'hey'}>
+    <Link href="https://example.com" onClick={() => {}}>
       Link
     </Link>
   ));

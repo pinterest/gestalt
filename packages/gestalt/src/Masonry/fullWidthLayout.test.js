@@ -5,6 +5,15 @@ const stubCache = (measurements = {}) => ({
   get(item) {
     return measurements[item];
   },
+  has(item) {
+    return !!measurements[item];
+  },
+  set(item, value) {
+    measurements[item] = value;
+  },
+  reset() {
+    measurements = {};
+  },
 });
 
 test('empty', () => {

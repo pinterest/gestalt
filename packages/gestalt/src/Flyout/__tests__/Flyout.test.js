@@ -8,7 +8,6 @@ describe('Display checks', () => {
     const wrapper = shallow(
       <Flyout
         anchor={<button onClick={() => null}> test </button>}
-        accessibilityCloseLabel="close"
         idealDirection="down"
         onDismiss={jest.fn()}
         size="sm"

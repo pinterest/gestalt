@@ -22,8 +22,3 @@ test('Icon uses the dangerouslySetSvgPath prop when icon path is not specified',
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-test('Icon renders blank when neither icon nor dangerouslySetSvgPath are passed to it', () => {
-  const tree = create(<Icon accessibilityLabel="Line" />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
