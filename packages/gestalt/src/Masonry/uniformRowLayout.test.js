@@ -1,13 +1,23 @@
 // @flow
 import uniformRowLayout from './uniformRowLayout';
-import MeasurementStore from './MeasurementStore';
 
 const stubCache = (measurements: Object = {}) => {
-  const measurementStore = new MeasurementStore();
-  Object.keys(measurements).map(key =>
-    measurementStore.set(key, measurements[key])
-  );
-  return measurementStore;
+  let cache = measurements;
+
+  return {
+    get(item) {
+      return cache[item];
+    },
+    has(item) {
+      return !!cache[item];
+    },
+    set(item, value) {
+      cache[item] = value;
+    },
+    reset() {
+      cache = {};
+    },
+  };
 };
 
 test('empty', () => {
