@@ -1,6 +1,7 @@
 {
   "extends": [
     "airbnb",
+    "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:flowtype/recommended",
     "prettier",
@@ -9,10 +10,11 @@
   ],
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest/globals": true
   },
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "jsx-a11y", "prettier"],
+  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier"],
   "rules": {
     "jsx-a11y/label-has-for": [
       "error",

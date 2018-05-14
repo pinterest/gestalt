@@ -38,25 +38,6 @@ exports[`Icon renders 1`] = `
 </svg>
 `;
 
-exports[`Icon renders blank when neither icon nor dangerouslySetSvgPath are passed to it 1`] = `
-<svg
-  aria-hidden={null}
-  aria-label="Line"
-  className="icon gray iconBlock"
-  height={16}
-  role="img"
-  viewBox="0 0 24 24"
-  width={16}
->
-  <title>
-    Line
-  </title>
-  <path
-    d=""
-  />
-</svg>
-`;
-
 exports[`Icon uses the dangerouslySetSvgPath prop when icon path is not specified 1`] = `
 <svg
   aria-hidden={null}

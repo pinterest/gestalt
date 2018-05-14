@@ -9,6 +9,7 @@
 ### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
 * Internal: Add flow-typed files for third party packages (#174)
+* Internal: Add eslint plugin for Jest and add Flow to all test files (#176)
 
 ### Patch
 

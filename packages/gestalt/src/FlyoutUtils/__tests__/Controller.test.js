@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 /* eslint import/imports-first: 0 */
 jest.unmock('../Controller');
 
@@ -10,8 +10,13 @@ import Contents from '../Contents';
 describe('Flyout', () => {
   it('does not render Contents when anchor is null', () => {
     const wrapper = shallow(
-      <Controller anchor={null} bgColor="white" onDismiss={() => null} />
+      <Controller
+        anchor={null}
+        positionRelativeToAnchor
+        bgColor="white"
+        onDismiss={() => {}}
+      />
     );
-    expect(wrapper.find(Contents).length).toEqual(0);
+    expect(wrapper.find(Contents)).toHaveLength(0);
   });
 });

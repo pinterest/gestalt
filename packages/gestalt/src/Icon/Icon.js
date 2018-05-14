@@ -6,7 +6,19 @@ import styles from './Icon.css';
 import icons from './icons';
 import colors from '../Colors.css';
 
-type IconProps = {
+type IconNoPath = {|
+  icon: $Keys<typeof icons>,
+  dangerouslySetSvgPath?: null,
+|};
+
+type PathNoIcon = {|
+  icon?: null,
+  dangerouslySetSvgPath: { __path: string },
+|};
+
+type Path = PathNoIcon | IconNoPath;
+
+type Props = {|
   accessibilityLabel: string,
   color?:
     | 'blue'
@@ -28,19 +40,8 @@ type IconProps = {
     | 'white',
   inline?: boolean,
   size?: number | string,
-};
-
-type IconNoPath = {
-  icon: $Keys<typeof icons>,
-  dangerouslySetSvgPath?: null,
-};
-
-type PathNoIcon = {
-  icon?: null,
-  dangerouslySetSvgPath: { __path: string },
-};
-
-type Props = IconProps & (PathNoIcon | IconNoPath);
+  ...Path,
+|};
 
 const IconNames = Object.keys(icons);
 
@@ -64,8 +65,6 @@ export default function Icon(props: Props) {
   } else if (dangerouslySetSvgPath) {
     /* eslint-disable-next-line no-underscore-dangle */
     path = dangerouslySetSvgPath.__path;
-  } else {
-    path = '';
   }
 
   const ariaHidden = accessibilityLabel === '' ? true : null;
