@@ -9,6 +9,7 @@
 ### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
 * Internal: Add flow-typed files for third party packages (#174)
+* Video: Better existing callbacks, new playback rate prop, and new loading callback (#174)
 
 ### Patch
 
