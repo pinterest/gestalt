@@ -387,9 +387,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
           WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
-          ...(virtualize || isVisible
-            ? {}
-            : { display: 'none', transition: 'none' }),
         }}
       >
         <Component data={itemData} itemIdx={idx} isMeasuring={false} />
