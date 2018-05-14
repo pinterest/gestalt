@@ -119,6 +119,12 @@ card(
         description: 'Sent when the audio volume changes',
       },
       {
+        name: 'playbackRate',
+        type: 'number',
+        description: 'Specifies the playback rate of the video: 1 for normal',
+        defaultValue: 1,
+      },
+      {
         name: 'playing',
         type: 'boolean',
         description: 'Specifies whether the video should play or not',
@@ -254,7 +260,7 @@ card(
   <Example
     name="Video updates"
     description={`
-    \`Video\` is robust enough to handle any updates to it such as changing the source or muting.`}
+    \`Video\` is robust enough to handle any updates to it such as changing the source, volume, or speed.`}
     defaultCode={`
 class Example extends React.Component {
   constructor(props) {
@@ -262,11 +268,14 @@ class Example extends React.Component {
     this.handleChangeInput = this._handleChangeInput.bind(this);
     this.handlePause = this._handlePause.bind(this);
     this.handlePlay = this._handlePlay.bind(this);
+    this.handlePlaybackIncrease = this._handlePlaybackIncrease.bind(this);
+    this.handlePlaybackDecrease = this._handlePlaybackDecrease.bind(this);
     this.handleSubmitInput = this._handleSubmitInput.bind(this);
     this.handleToggleMute = this._handleToggleMute.bind(this);
     this.handleVolumeChange = this._handleVolumeChange.bind(this);
     this.state = {
       input: "http://media.w3.org/2010/05/bunny/movie.mp4",
+      playbackRate: 1,
       playing: false,
       src: "http://media.w3.org/2010/05/bunny/movie.mp4",
       volume: 1,
@@ -297,8 +306,16 @@ class Example extends React.Component {
     this.setState({ playing: false });
   }
 
+  _handlePlaybackIncrease() {
+    this.setState(prevState => ({ playbackRate: prevState.playbackRate * 2 }));
+  }
+
+  _handlePlaybackDecrease() {
+    this.setState(prevState => ({ playbackRate: prevState.playbackRate / 2 }));
+  }
+
   render() {
-    const { input, playing, src, volume } = this.state;
+    const { input, playbackRate, playing, src, volume } = this.state;
     return (
       <Box>
         <Box paddingY={2}>
@@ -330,6 +347,20 @@ class Example extends React.Component {
             onClick={this.handleToggleMute}
           />
         </Box>
+        <Box display="flex" paddingY={2} marginLeft={-1} marginRight={-1}>
+          <Box paddingX={1} column={6}>
+            <Button
+              text="Playback x0.5"
+              onClick={this.handlePlaybackDecrease}
+            />
+          </Box>
+          <Box paddingX={1} column={6}>
+            <Button
+              text="Playback x2"
+              onClick={this.handlePlaybackIncrease}
+            />
+          </Box>
+        </Box>
         <Video
           accessibilityMaximizeLabel="Maximize"
           accessibilityMinimizeLabel="Minimize"
@@ -342,6 +373,7 @@ class Example extends React.Component {
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onVolumeChange={this.handleVolumeChange}
+          playbackRate={playbackRate}
           playing={playing}
           src={src}
           volume={volume}

@@ -38,6 +38,7 @@ type Props = {|
   onPause?: () => void,
   onTimeChange?: ({ time: number }) => void,
   onVolumeChange?: ({ volume: number }) => void,
+  playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
   poster?: string,
@@ -141,6 +142,7 @@ export default class Video extends React.PureComponent<Props, State> {
     onPause: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
+    playbackRate: PropTypes.number,
     playing: PropTypes.bool,
     playsInline: PropTypes.bool,
     poster: PropTypes.string,
@@ -160,6 +162,7 @@ export default class Video extends React.PureComponent<Props, State> {
 
   static defaultProps = {
     aspectRatio: 16 / 9,
+    playbackRate: 1,
     playing: false,
     preload: 'auto',
     volume: 1,
@@ -191,6 +194,10 @@ export default class Video extends React.PureComponent<Props, State> {
     // If the volume changed, set the new volume
     if (prevProps.volume !== this.props.volume) {
       this.setVolume(this.props.volume);
+    }
+    // If the playback rate changed, set the new rate
+    if (prevProps.playbackRate !== this.props.playbackRate) {
+      this.setPlaybackRate(this.props.playbackRate);
     }
     // If the playback changed, play or pause the video
     if (prevProps.playing !== this.props.playing) {
@@ -255,6 +262,13 @@ export default class Video extends React.PureComponent<Props, State> {
    * Functions that directly interact with the HTML video element
    */
 
+  // Set the video to the desired playback rate: 1 (normal)
+  setPlaybackRate = (playbackRate: number) => {
+    if (this.video) {
+      this.video.playbackRate = playbackRate;
+    }
+  };
+
   // Set the video to the desired volume: 0 (muted) -> 1 (max)
   setVolume = (volume: number) => {
     if (this.video) {
@@ -308,11 +322,14 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Sent when enough data is available that the media can be played
   handleCanPlay = () => {
+    const { playbackRate, playing } = this.props;
     // Simulate an autoplay effect if the component was mounted with
     // playing set to true
-    if (this.props.playing) {
+    if (playing) {
       this.play();
     }
+    // Set the initial playback rate when video is raedy to play
+    this.setPlaybackRate(playbackRate);
   };
 
   // The metadata has loaded or changed, indicating a change in
