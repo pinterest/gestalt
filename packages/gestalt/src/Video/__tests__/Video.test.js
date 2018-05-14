@@ -51,9 +51,10 @@ test('Video with callbacks', () => {
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onDurationChange={() => {}}
       onFullscreenChange={() => {}}
+      onLoadedChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
-      onTimeUpdate={() => {}}
+      onTimeChange={() => {}}
       onVolumeChange={() => {}}
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     />

@@ -31,17 +31,12 @@ type Props = {|
   aspectRatio: number,
   captions: string,
   loop?: boolean,
-  onDurationChange?: ({
-    event: SyntheticEvent<HTMLVideoElement>,
-    duration: number,
-  }) => void,
+  onDurationChange?: ({ duration: number }) => void,
   onFullscreenChange?: ({ fullscreen: boolean }) => void,
+  onLoadedChange?: ({ loaded: number }) => void,
   onPlay?: () => void,
   onPause?: () => void,
-  onTimeUpdate?: ({
-    event: SyntheticEvent<HTMLVideoElement>,
-    currentTime: number,
-  }) => void,
+  onTimeChange?: ({ time: number }) => void,
   onVolumeChange?: ({ volume: number }) => void,
   playing: boolean,
   playsInline?: boolean,
@@ -141,9 +136,10 @@ export default class Video extends React.PureComponent<Props, State> {
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onFullscreenChange: PropTypes.func,
+    onLoadedChange: PropTypes.func,
     onPlay: PropTypes.func,
     onPause: PropTypes.func,
-    onTimeUpdate: PropTypes.func,
+    onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
     playing: PropTypes.bool,
     playsInline: PropTypes.bool,
@@ -208,6 +204,36 @@ export default class Video extends React.PureComponent<Props, State> {
 
   componentWillUnmount() {
     removeFullscreenEventListener(this.handleFullscreenChange);
+  }
+
+  /**
+   * Getters that pull from the HTML video element
+   */
+
+  // Get the current time of the video
+  get currentTime(): number {
+    return this.video ? this.video.currentTime : 0;
+  }
+
+  // Get the duration fo the video
+  get duration(): number {
+    return this.video ? this.video.duration : 0;
+  }
+
+  // Get the number of seconds loaded of the video
+  get loaded(): number {
+    if (this.video) {
+      const { buffered } = this.video;
+      if (buffered && buffered.length > 0) {
+        return buffered.end(buffered.length - 1);
+      }
+    }
+    return 0;
+  }
+
+  // Get the mute state of the video
+  get muted(): boolean {
+    return this.video ? this.video.muted : false;
   }
 
   /**
@@ -291,13 +317,12 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
-  handleDurationChange = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleDurationChange = () => {
     const { onDurationChange } = this.props;
-    const duration = (this.video && this.video.duration) || 0;
-    this.setState({ duration });
+    this.setState({ duration: this.duration });
 
     if (onDurationChange) {
-      onDurationChange({ event, duration });
+      onDurationChange({ duration: this.duration });
     }
   };
 
@@ -330,24 +355,31 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  // The time indicated by the element's currentTime attribute has changed
-  handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
-    const { onTimeUpdate } = this.props;
-    const currentTime = (this.video && this.video.currentTime) || 0;
-    this.setState({ currentTime });
+  // Sent periodically to inform interested parties of progress downloading the media
+  handleProgress = () => {
+    const { onLoadedChange } = this.props;
 
-    if (onTimeUpdate) {
-      onTimeUpdate({ event, currentTime });
+    if (onLoadedChange) {
+      onLoadedChange({ loaded: this.loaded });
+    }
+  };
+
+  // The time indicated by the element's currentTime attribute has changed
+  handleTimeUpdate = () => {
+    const { onTimeChange } = this.props;
+    this.setState({ currentTime: this.currentTime });
+
+    if (onTimeChange) {
+      onTimeChange({ time: this.currentTime });
     }
   };
 
   // Sent when the audio volume changes
   handleVolumeChange = () => {
     const { onVolumeChange } = this.props;
-    const muted = (this.video && this.video.muted) || false;
 
     if (onVolumeChange) {
-      onVolumeChange({ volume: muted ? 1 : 0 });
+      onVolumeChange({ volume: this.muted ? 1 : 0 });
     }
   };
 
@@ -392,6 +424,7 @@ export default class Video extends React.PureComponent<Props, State> {
           onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
           onTimeUpdate={this.handleTimeUpdate}
+          onProgress={this.handleProgress}
         >
           {Array.isArray(src) &&
             src.map(source => (

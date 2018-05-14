@@ -82,8 +82,7 @@ card(
       },
       {
         name: 'onDurationChange',
-        type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
+        type: '({ duration: number }) => void',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
@@ -91,6 +90,11 @@ card(
         name: 'onFullscreenChange',
         type: '({ fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
+      },
+      {
+        name: 'onLoadedChange',
+        type: '({ loaded: number }) => void',
+        description: 'Sent when progress happens on downloading the media',
       },
       {
         name: 'onPlay',
@@ -104,9 +108,8 @@ card(
         description: 'Sent when playback is paused',
       },
       {
-        name: 'onTimeUpdate',
-        type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, currentTime: number }) => void',
+        name: 'onTimeChange',
+        type: '({ time: number }) => void',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
