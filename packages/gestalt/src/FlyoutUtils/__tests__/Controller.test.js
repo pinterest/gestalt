@@ -1,11 +1,10 @@
 // @flow
-/* eslint import/imports-first: 0 */
-jest.unmock('../Controller');
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import Controller from '../Controller';
 import Contents from '../Contents';
+
+jest.unmock('../Controller');
 
 describe('Flyout', () => {
   it('does not render Contents when anchor is null', () => {

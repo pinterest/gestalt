@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
+import { IconButton } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
-import { IconButton } from 'gestalt';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
 

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import debounce from '../debounce';
 import PropTypes from 'prop-types';
+import debounce from '../debounce';
 import FetchItems from '../ScrollFetch/FetchItems';
 import styles from './Masonry.css';
 import ScrollContainer from '../ScrollFetch/ScrollContainer';

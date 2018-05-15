@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import layout from '../Layout.css';
 import PropTypes from 'prop-types';
+import layout from '../Layout.css';
 
 type Threshold =
   | {| top: number | string |}
