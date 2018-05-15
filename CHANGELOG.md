@@ -8,6 +8,7 @@
 
 ### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
+* ExperimentalMasonry: remove component (#183)
 * Internal: Add flow-typed files for third party packages (#174)
 * Internal: Remove unused linter suppressions (#180)
 * Internal: Add eslint-plugin-jest with recommended settings (#181)
