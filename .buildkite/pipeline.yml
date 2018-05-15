@@ -49,6 +49,8 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
+    env:
+      - CODECOV_TOKEN
   - name: ":jest: :node:"
     command: yarn test --env node
     timeout_in_minutes: 10
@@ -75,11 +77,11 @@ steps:
     timeout_in_minutes: 10
     env:
       - BUILDKITE
+      - BUILDKITE_API_TOKEN
       - BUILDKITE_PULL_REQUEST
       - BUILDKITE_REPO
       - CI
       - DANGER_GITHUB_API_TOKEN
-      - BUILDKITE_API_TOKEN
     agents:
       queue: elastic
     plugins:
