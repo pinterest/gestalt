@@ -9,6 +9,7 @@
 ### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
 * Internal: Add flow-typed files for third party packages (#174)
+* Internal: Remove unused linter suppressions (#180)
 
 ### Patch
 
