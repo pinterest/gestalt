@@ -1,11 +1,24 @@
-/* eslint-env jest */
+// @flow
 import defaultLayout from './defaultLayout';
 
-const stubCache = (measurements = {}) => ({
-  get(item) {
-    return measurements[item];
-  },
-});
+const stubCache = (measurements: Object = {}) => {
+  let cache = measurements;
+
+  return {
+    get(item) {
+      return cache[item];
+    },
+    has(item) {
+      return !!cache[item];
+    },
+    set(item, value) {
+      cache[item] = value;
+    },
+    reset() {
+      cache = {};
+    },
+  };
+};
 
 test('empty', () => {
   const layout = defaultLayout({

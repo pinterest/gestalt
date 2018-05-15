@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable react/no-unused-prop-types */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import styles from './IconButton.css';

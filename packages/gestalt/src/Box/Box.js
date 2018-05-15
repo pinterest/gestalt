@@ -1,6 +1,4 @@
 // @flow
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable no-underscore-dangle */
 
 /*
 
@@ -611,6 +609,7 @@ const propToFn = {
   width: width => fromInlineStyle({ width }),
   wrap: toggle(layout.flexWrap),
   dangerouslySetInlineStyle: value =>
+    /* eslint-disable-next-line no-underscore-dangle */
     value && value.__style ? fromInlineStyle(value.__style) : identity(),
 };
 

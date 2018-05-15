@@ -1,6 +1,7 @@
 {
   "extends": [
     "airbnb",
+    "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:flowtype/recommended",
     "prettier",
@@ -12,7 +13,7 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "jsx-a11y", "prettier"],
+  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier"],
   "rules": {
     "jsx-a11y/label-has-for": [
       "error",
@@ -36,5 +37,13 @@
     "import/no-named-as-default-member": 0,
     "import/no-unresolved": 0,
     "import/no-webpack-loader-syntax": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": [ "**/*.test.js" ],
+      "env": {
+        "jest": true,
+      }
+    }
+  ]
 }

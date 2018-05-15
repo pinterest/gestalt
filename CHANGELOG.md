@@ -8,8 +8,12 @@
 
 ### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
+* ExperimentalMasonry: remove component (#183)
 * Internal: Add flow-typed files for third party packages (#174)
-* Video: Better existing callbacks, new playback rate prop, and new loading callback (#174)
+* Internal: Remove unused linter suppressions (#180)
+* Internal: Add eslint-plugin-jest with recommended settings (#181)
+* Internal: Add Flow type checking to Jest test files (#184)
+* Video: Better existing callbacks, new playback rate prop, new loading callback (#174)
 
 ### Patch
 
