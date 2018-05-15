@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
@@ -61,7 +61,7 @@ describe('TextField', () => {
   it('TextField with autocomplete', () => {
     const tree = shallow(
       <TextField
-        autocomplete="on"
+        autoComplete="on"
         id="email"
         onChange={jest.fn()}
         onFocus={jest.fn()}

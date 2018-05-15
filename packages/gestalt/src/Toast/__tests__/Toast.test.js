@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Toast from '../Toast';
@@ -6,7 +6,6 @@ import Toast from '../Toast';
 test('Confirmation Toast', () => {
   const tree = create(
     <Toast
-      href="https://www.pinterest.com/pinterest/home-decor/"
       text={['Saved to', 'Home decor']}
       thumbnail={
         <img
@@ -21,10 +20,7 @@ test('Confirmation Toast', () => {
 
 test('Guide Toast', () => {
   const tree = create(
-    <Toast
-      href="http://www.pinterest.com"
-      text="Same great profile, slightly new look. Learn more?"
-    />
+    <Toast text="Same great profile, slightly new look. Learn more?" />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Link from '../Link';
@@ -40,7 +40,7 @@ it('target blank', () =>
 
 it('with onClick', () =>
   snapshot(
-    <Link href="https://example.com" onClick={() => 'hey'}>
+    <Link href="https://example.com" onClick={() => {}}>
       Link
     </Link>
   ));

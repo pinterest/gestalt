@@ -5,7 +5,7 @@ import Box from '../Box/Box';
 import Contents from './Contents';
 
 type Props = {|
-  anchor?: HTMLElement,
+  anchor: ?HTMLElement,
   bgColor: 'darkGray' | 'white' | 'orange',
   children?: any,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
