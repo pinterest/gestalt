@@ -11,7 +11,6 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jest/globals": true,
   },
   "parser": "babel-eslint",
   "plugins": ["flowtype", "jest", "jsx-a11y", "prettier"],
@@ -38,5 +37,13 @@
     "import/no-named-as-default-member": 0,
     "import/no-unresolved": 0,
     "import/no-webpack-loader-syntax": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": [ "**/*.test.js" ],
+      "env": {
+        "jest": true,
+      }
+    }
+  ]
 }
