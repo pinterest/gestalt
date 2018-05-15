@@ -12,6 +12,6 @@ describe('Flyout', () => {
     const wrapper = shallow(
       <Controller anchor={null} bgColor="white" onDismiss={() => null} />
     );
-    expect(wrapper.find(Contents).length).toEqual(0);
+    expect(wrapper.find(Contents)).toHaveLength(0);
   });
 });

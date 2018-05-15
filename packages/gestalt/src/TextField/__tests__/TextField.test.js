@@ -12,12 +12,12 @@ describe('TextField', () => {
     );
     wrapper.instance().setState({ errorIsOpen: true });
     wrapper.simulate('focus');
-    expect(wrapper.find(ErrorFlyout).length).toEqual(1);
+    expect(wrapper.find(ErrorFlyout)).toHaveLength(1);
   });
 
   it('Does not render an ErrorFlyout when errorMessage is null', () => {
     const wrapper = shallow(<TextField id="test" onChange={jest.fn()} />);
-    expect(wrapper.find(ErrorFlyout).length).toEqual(0);
+    expect(wrapper.find(ErrorFlyout)).toHaveLength(0);
   });
 
   it('TextField normal', () => {
@@ -80,11 +80,11 @@ describe('TextField', () => {
         onBlur={jest.fn()}
       />
     );
-    expect(tree.find(ErrorFlyout).length).toEqual(0);
+    expect(tree.find(ErrorFlyout)).toHaveLength(0);
     tree.setProps({
       errorMessage: 'error message',
     });
-    expect(tree.find(ErrorFlyout).length).toEqual(1);
+    expect(tree.find(ErrorFlyout)).toHaveLength(1);
   });
 
   it('TextField with type number', () => {

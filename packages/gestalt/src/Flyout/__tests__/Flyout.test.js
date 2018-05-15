@@ -15,6 +15,6 @@ describe('Display checks', () => {
       />
     );
     wrapper.instance();
-    expect(wrapper.find('Controller').length).toEqual(1);
+    expect(wrapper.find('Controller')).toHaveLength(1);
   });
 });

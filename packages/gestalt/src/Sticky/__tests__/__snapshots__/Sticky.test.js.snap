@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sticky correctly sets thresholds 1`] = `
+exports[`Sticky correctly sets thresholds for number values 1`] = `
 <div
   className="sticky"
   style={
@@ -17,7 +17,7 @@ exports[`Sticky correctly sets thresholds 1`] = `
 </div>
 `;
 
-exports[`Sticky correctly sets thresholds 2`] = `
+exports[`Sticky correctly sets thresholds for string values 1`] = `
 <div
   className="sticky"
   style={
