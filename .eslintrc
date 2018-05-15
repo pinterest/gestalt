@@ -10,7 +10,7 @@
   ],
   "env": {
     "browser": true,
-    "es6": true,
+    "es6": true
   },
   "parser": "babel-eslint",
   "plugins": ["flowtype", "jest", "jsx-a11y", "prettier"],
