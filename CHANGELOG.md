@@ -9,7 +9,8 @@
 ### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
 * Internal: Add flow-typed files for third party packages (#174)
-* Internal: Add eslint-plugin-jest and use recommended settings (#181)
+* Internal: Remove unused linter suppressions (#180)
+* Internal: Add eslint-plugin-jest with recommended settings (#181)
 
 ### Patch
 
