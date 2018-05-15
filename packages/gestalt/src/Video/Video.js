@@ -31,18 +31,14 @@ type Props = {|
   aspectRatio: number,
   captions: string,
   loop?: boolean,
-  onDurationChange?: ({
-    event: SyntheticEvent<HTMLVideoElement>,
-    duration: number,
-  }) => void,
+  onDurationChange?: ({ duration: number }) => void,
   onFullscreenChange?: ({ fullscreen: boolean }) => void,
+  onLoadedChange?: ({ loaded: number }) => void,
   onPlay?: () => void,
   onPause?: () => void,
-  onTimeUpdate?: ({
-    event: SyntheticEvent<HTMLVideoElement>,
-    currentTime: number,
-  }) => void,
+  onTimeChange?: ({ time: number }) => void,
   onVolumeChange?: ({ volume: number }) => void,
+  playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
   poster?: string,
@@ -141,10 +137,12 @@ export default class Video extends React.PureComponent<Props, State> {
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onFullscreenChange: PropTypes.func,
+    onLoadedChange: PropTypes.func,
     onPlay: PropTypes.func,
     onPause: PropTypes.func,
-    onTimeUpdate: PropTypes.func,
+    onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
+    playbackRate: PropTypes.number,
     playing: PropTypes.bool,
     playsInline: PropTypes.bool,
     poster: PropTypes.string,
@@ -164,6 +162,7 @@ export default class Video extends React.PureComponent<Props, State> {
 
   static defaultProps = {
     aspectRatio: 16 / 9,
+    playbackRate: 1,
     playing: false,
     preload: 'auto',
     volume: 1,
@@ -195,6 +194,10 @@ export default class Video extends React.PureComponent<Props, State> {
     // If the volume changed, set the new volume
     if (prevProps.volume !== this.props.volume) {
       this.setVolume(this.props.volume);
+    }
+    // If the playback rate changed, set the new rate
+    if (prevProps.playbackRate !== this.props.playbackRate) {
+      this.setPlaybackRate(this.props.playbackRate);
     }
     // If the playback changed, play or pause the video
     if (prevProps.playing !== this.props.playing) {
@@ -228,6 +231,13 @@ export default class Video extends React.PureComponent<Props, State> {
   /**
    * Functions that directly interact with the HTML video element
    */
+
+  // Set the video to the desired playback rate: 1 (normal)
+  setPlaybackRate = (playbackRate: number) => {
+    if (this.video) {
+      this.video.playbackRate = playbackRate;
+    }
+  };
 
   // Set the video to the desired volume: 0 (muted) -> 1 (max)
   setVolume = (volume: number) => {
@@ -282,22 +292,25 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Sent when enough data is available that the media can be played
   handleCanPlay = () => {
+    const { playbackRate, playing } = this.props;
     // Simulate an autoplay effect if the component was mounted with
     // playing set to true
-    if (this.props.playing) {
+    if (playing) {
       this.play();
     }
+    // Set the initial playback rate when video is raedy to play
+    this.setPlaybackRate(playbackRate);
   };
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
-  handleDurationChange = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleDurationChange = () => {
     const { onDurationChange } = this.props;
     const duration = (this.video && this.video.duration) || 0;
     this.setState({ duration });
 
     if (onDurationChange) {
-      onDurationChange({ event, duration });
+      onDurationChange({ duration });
     }
   };
 
@@ -330,14 +343,26 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  // Sent periodically to inform interested parties of progress downloading the media
+  handleProgress = () => {
+    const { onLoadedChange } = this.props;
+    const { buffered } = this.video || {};
+    const loaded =
+      buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
+
+    if (onLoadedChange) {
+      onLoadedChange({ loaded });
+    }
+  };
+
   // The time indicated by the element's currentTime attribute has changed
-  handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
-    const { onTimeUpdate } = this.props;
+  handleTimeUpdate = () => {
+    const { onTimeChange } = this.props;
     const currentTime = (this.video && this.video.currentTime) || 0;
     this.setState({ currentTime });
 
-    if (onTimeUpdate) {
-      onTimeUpdate({ event, currentTime });
+    if (onTimeChange) {
+      onTimeChange({ time: currentTime });
     }
   };
 
@@ -392,6 +417,7 @@ export default class Video extends React.PureComponent<Props, State> {
           onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
           onTimeUpdate={this.handleTimeUpdate}
+          onProgress={this.handleProgress}
         >
           {Array.isArray(src) &&
             src.map(source => (

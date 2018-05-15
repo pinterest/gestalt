@@ -13,6 +13,7 @@
 * Internal: Remove unused linter suppressions (#180)
 * Internal: Add eslint-plugin-jest with recommended settings (#181)
 * Internal: Add Flow type checking to Jest test files (#184)
+* Video: Better existing callbacks, new playback rate prop, new loading callback (#174)
 
 ### Patch
 
