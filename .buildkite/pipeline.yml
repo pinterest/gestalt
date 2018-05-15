@@ -42,7 +42,7 @@ steps:
       docker-compose:
         run: gestalt
   - name: ":jest: :chrome:"
-    command: yarn test --env jsdom
+    command: yarn test --env jsdom && yarn codecov
     timeout_in_minutes: 10
     agents:
       queue: elastic
