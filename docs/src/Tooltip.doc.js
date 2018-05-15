@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
