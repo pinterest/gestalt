@@ -214,36 +214,6 @@ export default class Video extends React.PureComponent<Props, State> {
   }
 
   /**
-   * Getters that pull from the HTML video element
-   */
-
-  // Get the current time of the video
-  get currentTime(): number {
-    return this.video ? this.video.currentTime : 0;
-  }
-
-  // Get the duration fo the video
-  get duration(): number {
-    return this.video ? this.video.duration : 0;
-  }
-
-  // Get the number of seconds loaded of the video
-  get loaded(): number {
-    if (this.video) {
-      const { buffered } = this.video;
-      if (buffered && buffered.length > 0) {
-        return buffered.end(buffered.length - 1);
-      }
-    }
-    return 0;
-  }
-
-  // Get the mute state of the video
-  get muted(): boolean {
-    return this.video ? this.video.muted : false;
-  }
-
-  /**
    * DOM reference housekeeping that is needed for functionality
    */
 
@@ -336,10 +306,11 @@ export default class Video extends React.PureComponent<Props, State> {
   // duration of the media
   handleDurationChange = () => {
     const { onDurationChange } = this.props;
-    this.setState({ duration: this.duration });
+    const duration = (this.video && this.video.duration) || 0;
+    this.setState({ duration });
 
     if (onDurationChange) {
-      onDurationChange({ duration: this.duration });
+      onDurationChange({ duration });
     }
   };
 
@@ -375,28 +346,33 @@ export default class Video extends React.PureComponent<Props, State> {
   // Sent periodically to inform interested parties of progress downloading the media
   handleProgress = () => {
     const { onLoadedChange } = this.props;
+    const { buffered } = this.video || {};
+    const loaded =
+      buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
 
     if (onLoadedChange) {
-      onLoadedChange({ loaded: this.loaded });
+      onLoadedChange({ loaded });
     }
   };
 
   // The time indicated by the element's currentTime attribute has changed
   handleTimeUpdate = () => {
     const { onTimeChange } = this.props;
-    this.setState({ currentTime: this.currentTime });
+    const currentTime = (this.video && this.video.currentTime) || 0;
+    this.setState({ currentTime });
 
     if (onTimeChange) {
-      onTimeChange({ time: this.currentTime });
+      onTimeChange({ time: currentTime });
     }
   };
 
   // Sent when the audio volume changes
   handleVolumeChange = () => {
     const { onVolumeChange } = this.props;
+    const muted = (this.video && this.video.muted) || false;
 
     if (onVolumeChange) {
-      onVolumeChange({ volume: this.muted ? 1 : 0 });
+      onVolumeChange({ volume: muted ? 1 : 0 });
     }
   };
 

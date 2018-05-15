@@ -121,7 +121,8 @@ card(
       {
         name: 'playbackRate',
         type: 'number',
-        description: 'Specifies the playback rate of the video: 1 for normal',
+        description:
+          'Specifies the speed at which the video plays: 1 for normal',
         defaultValue: 1,
       },
       {
