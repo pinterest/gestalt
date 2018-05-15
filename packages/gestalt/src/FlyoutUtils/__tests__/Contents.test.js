@@ -1,4 +1,4 @@
-/* eslint-env jest */
+// @flow
 import {
   getMainDir,
   getSubDir,

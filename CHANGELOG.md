@@ -12,6 +12,7 @@
 * Internal: Add flow-typed files for third party packages (#174)
 * Internal: Remove unused linter suppressions (#180)
 * Internal: Add eslint-plugin-jest with recommended settings (#181)
+* Internal: Add Flow type checking to Jest test files (#184)
 
 ### Patch
 
