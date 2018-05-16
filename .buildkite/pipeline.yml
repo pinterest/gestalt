@@ -41,8 +41,8 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
-  - name: ":jest:"
-    command: ./scripts/test.sh
+  - name: ":jest: Test"
+    command: ./.buildkite/steps/test.sh
     timeout_in_minutes: 10
     agents:
       queue: elastic
