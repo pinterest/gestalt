@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import debounce from '../debounce';
 import PropTypes from 'prop-types';
+import debounce from '../debounce';
 import FetchItems from '../ScrollFetch/FetchItems';
 import styles from './Masonry.css';
 import ScrollContainer from '../ScrollFetch/ScrollContainer';
@@ -387,9 +387,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
           WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
-          ...(virtualize || isVisible
-            ? {}
-            : { display: 'none', transition: 'none' }),
         }}
       >
         <Component data={itemData} itemIdx={idx} isMeasuring={false} />

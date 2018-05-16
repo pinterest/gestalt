@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 import Controller from '../FlyoutUtils/Controller';
-import PropTypes from 'prop-types';
 import Text from '../Text/Text';
 
 type Props = {|

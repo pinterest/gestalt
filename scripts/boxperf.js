@@ -8,9 +8,9 @@ Usage:
     $ babel-node ./boxperf.js
 
 */
+import Benchmark from 'benchmark';
 import { Box as PublishedBox } from 'gestalt';
 import { Box as DevelopmentBox } from '../dist/gestalt.es.js';
-import Benchmark from 'benchmark';
 
 const emptyProps = {};
 const lotsOfProps = {

@@ -1,12 +1,12 @@
 // @flow
 
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 import Icon from '../Icon/Icon';
 import Text from '../Text/Text';
 import Touchable from '../Touchable/Touchable';
 import VideoPlayhead from './VideoPlayhead';
-import PropTypes from 'prop-types';
 
 type Props = {|
   accessibilityMaximizeLabel: string,

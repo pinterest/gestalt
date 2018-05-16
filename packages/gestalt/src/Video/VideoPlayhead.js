@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import Box from '../Box/Box';
 import PropTypes from 'prop-types';
+import Box from '../Box/Box';
 import styles from './Video.css';
 
 type Props = {|

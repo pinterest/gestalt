@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
+import { Pog } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
-import { Pog } from 'gestalt';
 import PageHeader from './components/PageHeader';
 import CardPage from './components/CardPage';
 

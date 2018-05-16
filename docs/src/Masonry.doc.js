@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import PropTable from './components/PropTable';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
+import PropTable from './components/PropTable';
 import stock9 from './images/stock9.jpg';
 import stock10 from './images/stock10.jpg';
 import stock11 from './images/stock11.jpg';
