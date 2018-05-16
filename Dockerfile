@@ -16,6 +16,12 @@ COPY packages/gestalt/package.json ./packages/gestalt/
 COPY docs/package.json ./docs/
 COPY test/package.json ./test/
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update -yy -qq && \
+    apt-get install xvfb -yy -qq && \
+    chmod a+x /etc/init.d/xvfb /usr/bin/xvfb-daemon-run
+
 RUN  apt-get update \
      && apt-get install -yq libgconf-2-4 \
      && apt-get install -y wget --no-install-recommends \
@@ -24,10 +30,7 @@ RUN  apt-get update \
      && apt-get update \
      && apt-get install -y google-chrome-unstable --no-install-recommends \
      && rm -rf /var/lib/apt/lists/* \
-     && npm i puppeteer@1.4.0 \
-     && apt-get install xvfb firefox-esr -yy -qq \
-     && chmod a+x /etc/init.d/xvfb /usr/bin/xvfb-daemon-run
-
+     && npm i puppeteer@1.4.0
 
 RUN yarn install --pure-lockfile --ignore-scripts
 
