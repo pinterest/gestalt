@@ -1,6 +1,7 @@
 module.exports = {
   launch: {
     headless: true,
+    executablePath: 'google-chrome-unstable',
     args: [
       // Required for Docker version of Puppeteer
       '--no-sandbox',
