@@ -7,6 +7,14 @@
   </summary>
 
 ### Minor
+
+### Patch
+
+</details>
+
+## 0.70.0 (May 15, 2018)
+
+### Minor
 * Avatar / GroupAvatar: make outline configurable(#173)
 * Masonry: Update non-virtualized Masonry to render all items regardless of the window
 * ExperimentalMasonry: remove component (#183)
@@ -16,11 +24,6 @@
 * Internal: Add Flow type checking to Jest test files (#184)
 * Video: Better existing callbacks, new playback rate prop, new loading callback (#174)
 * Internal: Turn the [import/first](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md) rule back on (#186)
-
-### Patch
-
-
-</details>
 
 ## 0.69.0 (May 10, 2018)
 
