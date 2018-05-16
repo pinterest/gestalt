@@ -3,10 +3,7 @@
 import ghost from 'ghostjs';
 import selectors from './lib/selectors';
 
-const getFirstItemDisplay = async () => {
-  const gridItems = await ghost.findElements(selectors.gridItem);
-  return await gridItems[0].script(element => element.style.display);
-};
+const getFirstItem = async () => await ghost.findElements(selectors.gridItem);
 
 describe('Masonry > virtual bounds visibility /w scroll container', () => {
   it('Calculates correct virtual bounds when masonry is offset', async () => {
@@ -34,7 +31,7 @@ describe('Masonry > virtual bounds visibility /w scroll container', () => {
         },
         [selectors.scrollContainer]
       );
-      return (await getFirstItemDisplay()) === 'none';
+      return (await getFirstItem()) === null;
     });
 
     await ghost.script(
@@ -44,6 +41,6 @@ describe('Masonry > virtual bounds visibility /w scroll container', () => {
       },
       [VIRTUALIZED_TOP, selectors.scrollContainer]
     );
-    await ghost.wait(async () => (await getFirstItemDisplay()) !== 'none');
+    await ghost.wait(async () => (await getFirstItem()) !== null);
   });
 });
