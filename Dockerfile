@@ -6,8 +6,15 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ENV DISPLAY :99
 
-COPY test/xvfb_init /etc/init.d/xvfb
-COPY test/xvfb_daemon_run /usr/bin/xvfb-daemon-run
+# COPY test/xvfb_init /etc/init.d/xvfb
+# COPY test/xvfb_daemon_run /usr/bin/xvfb-daemon-run
+
+COPY yarn.lock package.json ./
+
+RUN mkdir -p docs test packages/gestalt
+COPY packages/gestalt/package.json ./packages/gestalt/
+COPY docs/package.json ./docs/
+COPY test/package.json ./test/
 
 RUN  apt-get update \
      # See https://crbug.com/795759
@@ -22,13 +29,6 @@ RUN  apt-get update \
      && rm -rf /var/lib/apt/lists/* \
      # Finally, install Puppeteer under /node_modules so it's available system-wide
      && npm i puppeteer@1.4.0
-
-COPY yarn.lock package.json ./
-
-RUN mkdir -p docs test packages/gestalt
-COPY packages/gestalt/package.json ./packages/gestalt/
-COPY docs/package.json ./docs/
-COPY test/package.json ./test/
 
 RUN yarn install --pure-lockfile --ignore-scripts
 
