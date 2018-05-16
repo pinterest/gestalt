@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import VideoControls from './VideoControls';
 import PropTypes from 'prop-types';
+import VideoControls from './VideoControls';
 import styles from './Video.css';
 
 type VideoWithControls = {|

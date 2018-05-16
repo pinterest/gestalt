@@ -15,6 +15,7 @@
 * Internal: Add eslint-plugin-jest with recommended settings (#181)
 * Internal: Add Flow type checking to Jest test files (#184)
 * Video: Better existing callbacks, new playback rate prop, new loading callback (#174)
+* Internal: Turn the [import/first](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md) rule back on (#186)
 
 ### Patch
 
