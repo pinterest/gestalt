@@ -1,6 +1,7 @@
 import assert from 'assert';
-
 import selectors from './lib/selectors';
+
+jest.setTimeout(10000);
 
 describe('Masonry > Server Render Layout', () => {
   it('items rendered on the server maintain position after mounting', async () => {

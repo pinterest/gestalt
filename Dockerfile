@@ -6,8 +6,8 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ENV DISPLAY :99
 
-# COPY test/xvfb_init /etc/init.d/xvfb
-# COPY test/xvfb_daemon_run /usr/bin/xvfb-daemon-run
+COPY test/xvfb_init /etc/init.d/xvfb
+COPY test/xvfb_daemon_run /usr/bin/xvfb-daemon-run
 
 COPY yarn.lock package.json ./
 

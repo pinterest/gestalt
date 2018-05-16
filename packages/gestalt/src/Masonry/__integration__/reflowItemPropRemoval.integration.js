@@ -1,5 +1,4 @@
 import assert from 'assert';
-
 import selectors from './lib/selectors';
 
 const masonryItemData = [
@@ -26,7 +25,7 @@ describe('Masonry > Item prop removal', () => {
       );
     }, masonryItemData);
 
-    page.waitFor(100);
+    page.waitFor(200);
     const newItems = await page.$$(selectors.gridItem);
     assert.ok(newItems.length === 3);
   });

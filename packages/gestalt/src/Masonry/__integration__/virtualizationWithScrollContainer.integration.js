@@ -1,5 +1,4 @@
 import assert from 'assert';
-
 import selectors from './lib/selectors';
 
 describe('Masonry > virtualization /w scroll container', () => {
