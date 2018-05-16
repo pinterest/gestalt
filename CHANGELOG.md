@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+* Internal: Add code coverage to PRs (#185)
 
 </details>
 
