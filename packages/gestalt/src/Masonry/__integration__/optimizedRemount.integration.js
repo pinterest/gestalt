@@ -48,5 +48,4 @@ describe('Masonry > External cache', () => {
     const updatedCount = await page.evaluate(() => window.ITEM_MOUNT_COUNT);
     assert.ok(updatedCount <= initialMountCount);
   });
-
 });

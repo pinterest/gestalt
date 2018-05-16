@@ -9,12 +9,11 @@ ENV DISPLAY :99
 COPY test/xvfb_init /etc/init.d/xvfb
 COPY test/xvfb_daemon_run /usr/bin/xvfb-daemon-run
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update -yy -qq && \
-    apt-get install yarn -yy -qq && \
-    apt-get install xvfb firefox-esr -yy -qq && \
-    chmod a+x /etc/init.d/xvfb /usr/bin/xvfb-daemon-run
+RUN apt-get update && apt-get install -y curl xvfb chromium
+
+ADD xvfb-chromium /usr/bin/xvfb-chromium
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/chromium-browser
 
 COPY yarn.lock package.json ./
 

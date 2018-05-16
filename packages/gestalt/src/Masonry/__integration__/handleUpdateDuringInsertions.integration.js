@@ -18,5 +18,4 @@ describe('Masonry > Update during insertions', () => {
     const afterErrors = await page.evaluate(() => window.ERROR_COUNT);
     assert.equal(afterErrors, 0);
   });
-
 });

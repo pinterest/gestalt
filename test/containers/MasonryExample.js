@@ -97,7 +97,6 @@ export default class MasonryExample extends React.Component {
       }
       window.TEST_FETCH_COUNTS = window.TEST_FETCH_COUNTS || 0;
       window.TEST_FETCH_COUNTS += 1;
-      console.log('testtt')
       window.NEXT_FETCH = () => {
         window.NEXT_FETCH = null;
         resolve(items);
@@ -196,7 +195,6 @@ export default class MasonryExample extends React.Component {
   };
 
   loadItems = meta => {
-    console.log('getItems')
     this.getItems(meta, this.props.collage).then(newItems => {
       this.setState({
         items: this.state.items.concat(newItems),

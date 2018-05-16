@@ -1,6 +1,5 @@
+/* global page */
 import assert from 'assert';
-
-jest.setTimeout(100000);
 
 describe('Icon > a11y', () => {
   beforeAll(async () => {
@@ -15,14 +14,15 @@ describe('Icon > a11y', () => {
 
   it('Does not have any a11y issues', async () => {
     await page.addScriptTag({ path: require.resolve('axe-core') });
-    const results = await page.evaluate(() => {
-      return new Promise(resolve => {
-        axe.run((err, axeResults) => {
-          if (err) throw err;
-          resolve(axeResults);
-        });
-      });
-    });
+    const results = await page.evaluate(
+      () =>
+        new Promise(resolve => {
+          window.axe.run((err, axeResults) => {
+            if (err) throw err;
+            resolve(axeResults);
+          });
+        })
+    );
 
     const beautifyErrors = `
         A11Y Violations:
