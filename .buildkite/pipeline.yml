@@ -56,7 +56,7 @@ steps:
       - BUILDKITE_COMMIT
       - BUILDKITE_PROJECT_SLUG
       - CODECOV_TOKEN
-  - name: ":ghost: integration %n"
+  - name: ":ghost: Integration Tests"
     command: yarn run test:integration
     artifact_paths: 'screenshots/*'
     timeout_in_minutes: 30

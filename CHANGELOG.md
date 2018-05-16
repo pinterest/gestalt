@@ -10,6 +10,7 @@
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
+* Internal: Internal: Convert ghostjs to puppeteer (#182)
 * Internal: Update Jest and use multi-project runner (#158)
 
 </details>
