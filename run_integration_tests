@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set -euo pipefail
 
 export DISPLAY=:99.0
 if [[ -f /etc/init.d/xvfb ]]; then
@@ -29,5 +29,8 @@ JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" jest --config scripts/je
 
 # Kill the process group and all children of that process group.
 kill -- -$PGID &> /dev/null
+
+echo "status"
+echo $STATUS
 
 exit $STATUS
