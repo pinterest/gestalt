@@ -16,7 +16,7 @@ const RenderConfig = {
   Masonry: {
     Component: MasonryExample,
     styles: classicGridServerStyles,
-    props: { initialPins: masonryPins },
+    props: { initialPins: masonryPins, virtualize: true },
   },
 };
 
