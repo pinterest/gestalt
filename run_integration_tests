@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -x
+
 export DISPLAY=:99.0
 if [[ -f /etc/init.d/xvfb ]]; then
   /etc/init.d/xvfb start
@@ -15,8 +17,8 @@ fi
   cd test && BABEL_DISABLE_CACHE=1 NODE_ENV=testing yarn babel-node server.js
 ) &
 
-PID=$!                    # get the Parent Process ID
-PGID=$(ps opgid= "$PID")  # get the Process Group ID
+PID=$! # get the Parent Process ID
+PGID=$(ps opgid= "$PID") # get the Process Group ID
 
 until $(curl --output /dev/null --silent --head --fail http://localhost:3001/__ping); do
     printf '.'

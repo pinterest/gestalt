@@ -1,5 +1,5 @@
 {
-  "name": "integration",
+  "name": "puppeteer",
   "preset": "jest-puppeteer",
   "rootDir": "../",
   "testMatch": ["<rootDir>**/__integration__/**/*.integration.js"]
