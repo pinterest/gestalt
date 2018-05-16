@@ -50,9 +50,11 @@ steps:
       docker-compose:
         run: gestalt
     env:
-      - BUILDKITE_COMMIT
       - BUILDKITE_BRANCH
-      - BUILDKITE_BUILD_ID
+      - BUILDKITE_BUILD_NUMBER
+      - BUILDKITE_BUILD_URL
+      - BUILDKITE_COMMIT
+      - BUILDKITE_PROJECT_SLUG
       - CODECOV_TOKEN
   - name: ":ghost: integration %n"
     command: ./run_integration_tests
