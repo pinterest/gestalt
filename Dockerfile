@@ -24,7 +24,10 @@ RUN  apt-get update \
      && apt-get update \
      && apt-get install -y google-chrome-unstable --no-install-recommends \
      && rm -rf /var/lib/apt/lists/* \
-     && npm i puppeteer@1.4.0
+     && npm i puppeteer@1.4.0 \
+     && apt-get install xvfb firefox-esr -yy -qq \
+     && chmod a+x /etc/init.d/xvfb /usr/bin/xvfb-daemon-run
+
 
 RUN yarn install --pure-lockfile --ignore-scripts
 
