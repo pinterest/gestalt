@@ -5,6 +5,9 @@
     "packages/*",
     "test"
   ],
+  "resolutions": {
+    "jest": "^22.4.3"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -20,7 +23,6 @@
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-15": "^1.0.5",
     "enzyme-adapter-react-16": "^1.0.5",
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -55,13 +57,26 @@
     "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
   },
   "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js",
-    "moduleNameMapper": {
-      "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
-      "\\.(css)$": "identity-obj-proxy"
-    }
+    "projects": [
+      {
+        "displayName": "node",
+        "testEnvironment": "node",
+        "moduleNameMapper": {
+          "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
+          "\\.(css)$": "identity-obj-proxy"
+        },
+        "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
+      },
+      {
+        "displayName": "jsdom",
+        "testEnvironment": "jsdom",
+        "moduleNameMapper": {
+          "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
+          "\\.(css)$": "identity-obj-proxy"
+        },
+        "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
+      }
+    ]
   },
   "stylelint": {
     "extends": [

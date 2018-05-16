@@ -1,3 +1,12 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -euo pipefail
 
-yarn test --env jsdom && yarn test --env node && yarn codecov
+echo "+++ :jest: Running Jest"
+yarn test --coverage
+
+echo "👌 Looks good to me!"
+
+echo "--- :codecov: Sending coverage report"
+yarn codecov
+
+echo "📑 Done!"
