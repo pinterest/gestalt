@@ -16,11 +16,12 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "codecov": "^3.0.2",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
-    "enzyme-adapter-react-16": "^1.0.5",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme-adapter-react-16": "^1.0.5",
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-postcss": "^2.0.2",
@@ -54,6 +55,8 @@
     "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
   },
   "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js",
     "moduleNameMapper": {
       "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
