@@ -6,7 +6,7 @@ import { Icon } from 'gestalt';
 function IconType({ iconName }) {
   return (
     <div>
-      <h5>{iconName}</h5>
+      <h2>{iconName}</h2>
       <Icon
         icon={iconName}
         accessibilityLabel={iconName.replace(/-/g, ' ')}
