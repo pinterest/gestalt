@@ -3,7 +3,6 @@ import * as React from 'react';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -185,4 +184,4 @@ class SelectListExample extends React.Component {
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

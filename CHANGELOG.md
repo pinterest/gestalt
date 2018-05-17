@@ -11,7 +11,10 @@
 ### Patch
 * Internal: Add code coverage to PRs (#185)
 * Internal: Update Jest and use multi-project runner (#158)
+* Internal: Fix import path for boxperf script (#188)
+* Internal: Turn on eslint-plugin-import rules already being followed (#189)
 * Docs: Add live docs to Letterbox (#190)
+* Docs: Move CardPage rendering into the Route render prop (#191)
 
 </details>
 

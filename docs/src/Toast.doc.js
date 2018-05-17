@@ -2,7 +2,6 @@
 import * as React from 'react';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 import Example from './components/Example';
 import stock1 from './images/stock1.jpg';
 
@@ -212,4 +211,4 @@ class ToastExample extends React.Component {
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;
