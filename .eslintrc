@@ -4,6 +4,7 @@
     "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:flowtype/recommended",
+    "plugin:react/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react"
@@ -13,7 +14,7 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier"],
+  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier", "react"],
   "rules": {
     "jsx-a11y/label-has-for": [
       "error",
