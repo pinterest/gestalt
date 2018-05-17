@@ -10,7 +10,7 @@ Usage:
 */
 import Benchmark from 'benchmark';
 import { Box as PublishedBox } from 'gestalt';
-import { Box as DevelopmentBox } from '../dist/gestalt.es.js';
+import { Box as DevelopmentBox } from '../packages/gestalt/dist/gestalt.es';
 
 const emptyProps = {};
 const lotsOfProps = {
