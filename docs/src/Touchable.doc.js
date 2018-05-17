@@ -3,7 +3,6 @@ import React from 'react';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 import stock14 from './images/stock14.jpg';
 
 const cards = [];
@@ -157,4 +156,4 @@ card(
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

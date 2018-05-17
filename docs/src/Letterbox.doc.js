@@ -7,7 +7,6 @@ import stock5 from './images/stock5.jpg';
 import stock6 from './images/stock6.jpg';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -152,4 +151,4 @@ card(
   </Box>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;
