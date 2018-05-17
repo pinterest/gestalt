@@ -11,6 +11,7 @@
 ### Patch
 * Internal: Add code coverage to PRs (#185)
 * Internal: Update Jest and use multi-project runner (#158)
+* Internal: Fix import path for boxperf script (#188)
 
 </details>
 
