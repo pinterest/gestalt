@@ -9,7 +9,6 @@
 ### Minor
 
 ### Patch
-* Docs: Add live docs to Letterbox (#190)
 * Internal: Add code coverage to PRs (#185)
 * Internal: Update Jest and use multi-project runner (#158)
 * Internal: Fix import path for boxperf script (#188)
