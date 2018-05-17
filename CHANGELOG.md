@@ -15,6 +15,7 @@
 * Internal: Turn on eslint-plugin-import rules already being followed (#189)
 * Docs: Add live docs to Letterbox (#190)
 * Docs: Move CardPage rendering into the Route render prop (#191)
+* Internal: Turn on all react recommended linters (#192)
 
 </details>
 
