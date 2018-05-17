@@ -11,6 +11,7 @@
 ### Patch
 * Internal: Add code coverage to PRs (#185)
 * Internal: Update Jest and use multi-project runner (#158)
+* Docs: Add live docs to Letterbox (#190)
 
 </details>
 
