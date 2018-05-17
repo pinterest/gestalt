@@ -9,6 +9,7 @@
 ### Minor
 
 * Drop support for React 15 and bump React 16 version (#168)
+* Colors: Update blue color (#193)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
