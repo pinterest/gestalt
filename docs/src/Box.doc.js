@@ -6,7 +6,6 @@ import Example from './components/Example';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -524,4 +523,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

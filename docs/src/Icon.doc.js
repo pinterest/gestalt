@@ -5,7 +5,6 @@ import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -100,4 +99,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;
