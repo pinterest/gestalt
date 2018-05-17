@@ -1,13 +1,12 @@
 // @flow
 import * as React from 'react';
-import { Box, Letterbox } from 'gestalt';
 import stock3 from './images/stock3.jpg';
 import stock4 from './images/stock4.jpg';
 import stock5 from './images/stock5.jpg';
 import stock6 from './images/stock6.jpg';
+import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -59,97 +58,83 @@ card(
 );
 
 card(
-  <Box
-    description={`
-    ~~~html
-    <Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
-      <img
-        alt="tall"
-        style={{ width: '100%', display: 'block' }}
-        src="${stock5}"
-      />
-    </Letterbox>
-
-    <Letterbox width={200} height={200} contentAspectRatio={564 / 517}>
-      <img
-        alt="wide"
-        style={{ width: '100%', display: 'block' }}
-        src="${stock4}"
-      />
-    </Letterbox>
-
-    <Letterbox width={200} height={200} contentAspectRatio={200 / 200}>
-      <img
-        alt="square"
-        style={{ width: '100%', display: 'block' }}
-        src="${stock6}"
-      />
-    </Letterbox>
-    ~~~
-  `}
-    name="Example"
-    display="flex"
-    direction="row"
-    justifyContent="around"
-    marginLeft={-2}
-    marginRight={-2}
-    wrap
-  >
-    <Box paddingX={2}>
-      <h4>Tall content (564:806)</h4>
-      <Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
-        <img
-          alt="tall"
-          style={{ width: '100%', display: 'block' }}
-          src={stock5}
-        />
-      </Letterbox>
-    </Box>
-
-    <Box paddingX={2}>
-      <h4>Wide content (564:517)</h4>
-      <Letterbox width={200} height={200} contentAspectRatio={564 / 517}>
-        <img
-          alt="wide"
-          style={{ width: '100%', display: 'block' }}
-          src={stock4}
-        />
-      </Letterbox>
-    </Box>
-
-    <Box paddingX={2}>
-      <h4>Square content (1:1)</h4>
-      <Letterbox width={200} height={200} contentAspectRatio={1}>
-        <img
-          alt="square"
-          style={{ width: '100%', display: 'block' }}
-          src={stock6}
-        />
-      </Letterbox>
-    </Box>
-
-    <Box paddingX={2}>
-      <h4>Square content (1:1) in a vertical frame</h4>
-      <Letterbox width={200} height={300} contentAspectRatio={1}>
-        <img
-          alt="square"
-          style={{ width: '100%', display: 'block' }}
-          src={stock3}
-        />
-      </Letterbox>
-    </Box>
-
-    <Box paddingX={2}>
-      <h4>Square content (1:1) in a horizontal frame</h4>
-      <Letterbox width={300} height={200} contentAspectRatio={1}>
-        <img
-          alt="square"
-          style={{ width: '100%', display: 'block' }}
-          src={stock3}
-        />
-      </Letterbox>
-    </Box>
-  </Box>
+  <Example
+    name="Tall content (564:806)"
+    defaultCode={`
+<Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
+  <Image
+    alt="tall"
+    src="${stock5}"
+    naturalWidth={564}
+    naturalHeight={806}
+  />
+</Letterbox>
+`}
+  />
 );
 
-export default () => <CardPage cards={cards} />;
+card(
+  <Example
+    name="Wide content (564:517)"
+    defaultCode={`
+<Letterbox width={200} height={200} contentAspectRatio={564 / 517}>
+  <Image
+    alt="wide"
+    src="${stock4}"
+    naturalWidth={564}
+    naturalHeight={517}
+  />
+</Letterbox>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Square content (1:1)"
+    defaultCode={`
+<Letterbox width={200} height={200} contentAspectRatio={1}>
+  <Image
+    alt="square"
+    src="${stock6}"
+    naturalWidth={1}
+    naturalHeight={1}
+  />
+</Letterbox>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Square content (1:1) in a vertical frame"
+    defaultCode={`
+<Letterbox width={200} height={300} contentAspectRatio={1}>
+  <Image
+    alt="square"
+    src="${stock3}"
+    naturalWidth={1}
+    naturalHeight={1}
+  />
+</Letterbox>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Square content (1:1) in a horizontal frame"
+    defaultCode={`
+<Letterbox width={300} height={200} contentAspectRatio={1}>
+  <Image
+    alt="square"
+    src="${stock3}"
+    naturalWidth={1}
+    naturalHeight={1}
+  />
+</Letterbox>
+`}
+  />
+);
+
+export default cards;

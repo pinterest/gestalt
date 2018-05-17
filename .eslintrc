@@ -4,6 +4,7 @@
     "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:flowtype/recommended",
+    "plugin:react/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react"
@@ -13,7 +14,7 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier"],
+  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier", "react"],
   "rules": {
     "jsx-a11y/label-has-for": [
       "error",
@@ -29,13 +30,8 @@
     "react/no-array-index-key": 0,
     "react/require-default-props": 0,
     "import/extensions": 0,
-    "import/no-absolute-path": 0,
-    "import/no-duplicates": 0,
     "import/no-extraneous-dependencies": 0,
-    "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
     "import/no-unresolved": 0,
-    "import/no-webpack-loader-syntax": 0
   },
   "overrides": [
     {
