@@ -1,19 +1,14 @@
-import ghost from 'ghostjs';
 import selectors from './selectors';
 
-const countColumns = async () => {
+const countColumns = async page => {
   const itemLeftMap = {};
-  const gridItems = await ghost.findElements(selectors.gridItem);
+  const gridItems = await page.$$(selectors.gridItem);
 
   for (let i = 0; i < gridItems.length; i += 1) {
-    const isVisible = await gridItems[i].isVisible();
-    if (isVisible) {
-      const itemRect = await gridItems[i].rect();
-      itemLeftMap[itemRect.left] = itemLeftMap[itemRect.left] || [];
-      itemLeftMap[itemRect.left].push(itemRect);
-    }
+    const itemRect = await gridItems[i].boundingBox();
+    itemLeftMap[itemRect.x] = itemLeftMap[itemRect.x] || [];
+    itemLeftMap[itemRect.x].push(itemRect);
   }
-
   return Object.keys(itemLeftMap).length;
 };
 

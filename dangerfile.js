@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 import { danger, markdown, warn } from 'danger';
 import { execSync } from 'child_process';
 import { readFileSync } from 'fs';

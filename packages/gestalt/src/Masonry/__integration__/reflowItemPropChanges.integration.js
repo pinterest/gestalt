@@ -1,7 +1,4 @@
-/* global describe */
-/* global it */
 import assert from 'assert';
-import ghost from 'ghostjs';
 import selectors from './lib/selectors';
 
 const masonryItemData = [
@@ -12,30 +9,27 @@ const masonryItemData = [
 
 describe('Masonry > Item prop changes', () => {
   it('Masonry will reflow when changing prop items.', async () => {
-    ghost.close();
-    await ghost.open('http://localhost:3001/Masonry?finiteLength=1');
+    await page.goto('http://localhost:3001/Masonry?finiteLength=1');
 
-    const originalItems = await ghost.findElements(selectors.gridItem);
+    const originalItems = await page.$$(selectors.gridItem);
     assert.ok(originalItems.length > 0);
 
-    await ghost.script(
-      proxiedItemData => {
-        window.dispatchEvent(
-          new CustomEvent('set-masonry-items', {
-            detail: {
-              items: proxiedItemData,
-            },
-          })
-        );
-      },
-      [masonryItemData]
-    );
+    await page.evaluate(proxiedItemData => {
+      window.dispatchEvent(
+        new CustomEvent('set-masonry-items', {
+          detail: {
+            items: proxiedItemData,
+          },
+        })
+      );
+    }, masonryItemData);
 
-    const newItems = await ghost.findElements(selectors.gridItem);
+    page.waitFor(200);
+    const newItems = await page.$$(selectors.gridItem);
     assert.ok(newItems.length > 0);
 
     for (let i = 0; i < newItems.length; i += 1) {
-      const { height: renderedheight } = await newItems[i].rect();
+      const { height: renderedheight } = await newItems[i].boundingBox();
       const expectedHeight = masonryItemData[i].height + 2 /* border size */;
       assert.equal(
         renderedheight,
@@ -46,7 +40,7 @@ describe('Masonry > Item prop changes', () => {
   });
 
   it('removes all items', async () => {
-    await ghost.script(() => {
+    await page.evaluate(() => {
       window.dispatchEvent(
         new CustomEvent('set-masonry-items', {
           detail: {
@@ -56,9 +50,8 @@ describe('Masonry > Item prop changes', () => {
       );
     });
 
-    await ghost.wait(async () => {
-      const newItems = await ghost.findElements(selectors.gridItem);
-      return !newItems || newItems.length === 0;
-    });
+    page.waitFor(200);
+    const newItems = await page.$$(selectors.gridItem);
+    assert.ok(!newItems || newItems.length === 0);
   });
 });
