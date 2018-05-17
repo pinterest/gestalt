@@ -1,79 +1,53 @@
 // @flow
 import React from 'react';
-import { Text, Box, SelectList, Link, Icon, Heading } from 'gestalt';
+import { Box } from 'gestalt';
+import NavLink from './NavLink';
 import routes from '../routes';
-
-type Props = {|
-  history: *,
-|};
-
-const isLeftClickEvent = event => event.button === 0;
-const isModifiedEvent = event =>
-  !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
 const components = Object.keys(routes);
 
-export default function Navigation(props: Props) {
-  const { history } = props;
-  const links = components.map(ns => {
-    const href = history.createHref({ pathname: `/${ns}` });
-    const handleClick = ({ event }) => {
-      if (event.defaultPrevented) return;
-      if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
-      event.preventDefault();
-      history.push(`/${ns}`);
-    };
-    return (
-      <Text bold leading="tall" color="darkGray" size="lg">
-        <Link href={href} onClick={handleClick}>
-          {ns}
-        </Link>
-      </Text>
-    );
-  });
-  const options = [{ label: '-', value: '#' }].concat(
-    components.map(ns => ({
-      label: ns,
-      value: `/${ns}`,
-    }))
-  );
-  const m = window.location.hash.match(/#(\/[\w]+)/);
-
+export default function Navigation() {
   return (
     <Box>
-      <Box mdDisplay="none" flex="grow">
-        <SelectList
-          id="nav"
-          onChange={({ value }) => history.push(value)}
-          options={options}
-          value={(m && m[1]) || '#'}
-        />
-      </Box>
-      <Box display="none" mdDisplay="flex" direction="column" flex="grow">
+      <Box
+        display="flex"
+        mdDisplay="none"
+        overflow="scrollX"
+        paddingX={4}
+        paddingY={2}
+      >
         <Box
-          marginBottom={4}
           display="flex"
+          role="list"
           direction="row"
-          alignItems="center"
-          marginLeft={-1}
-          marginRight={-1}
+          marginStart={-2}
+          marginEnd={-2}
         >
-          <Box paddingX={1}>
-            <Icon
-              icon="pinterest"
-              color="red"
-              size={24}
-              accessibilityLabel="Pinterest Logo"
-            />
-          </Box>
-          <Box paddingX={1}>
-            <Heading size="xs">Gestalt</Heading>
-          </Box>
+          {components.map((component, i) => (
+            <Box role="listitem" key={i} flex="none">
+              <NavLink to={`/${component}`}>
+                <Box padding={2}>{component}</Box>
+              </NavLink>
+            </Box>
+          ))}
         </Box>
-        <Box role="list">
-          {links.map((link, i) => (
+      </Box>
+      <Box
+        display="none"
+        direction="column"
+        mdDisplay="flex"
+        padding={4}
+        mdPadding={6}
+        lgPadding={8}
+      >
+        <Box marginStart={-2} marginEnd={-2} role="list">
+          {components.map((component, i) => (
             <Box role="listitem" key={i}>
-              {link}
+              <NavLink to={`/${component}`}>
+                <Box paddingY={1} paddingX={2}>
+                  {component}
+                </Box>
+              </NavLink>
             </Box>
           ))}
         </Box>

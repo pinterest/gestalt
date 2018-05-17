@@ -5,11 +5,12 @@
 
 .tab {
   composes: accessibilityOutline from "../Focus.css";
-  composes: flex flexColumn itemCenter from "../Layout.css";
+  composes: borderBox medium from "../Layout.css";
+  composes: flex flexColumn itemCenter justifyCenter from "../Layout.css";
   composes: noBorder pill from "../Borders.css";
   composes: m0 from "../Whitespace.css";
   composes: pointer from "../Cursor.css";
-  padding: 11px 16px;
+  padding: 8px 16px;
   text-decoration: none;
 }
 

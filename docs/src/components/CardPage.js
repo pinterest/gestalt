@@ -1,19 +1,20 @@
 // @flow
 import * as React from 'react';
 import { Box } from 'gestalt';
+import SearchContent from './SearchContent';
 
 type Props = {|
   cards: Array<React.Node>,
 |};
 
 const CardPage = ({ cards }: Props) => (
-  <Box>
+  <SearchContent>
     {cards.map((card, i) => (
       <Box marginBottom={4} id={`card-${i}`} key={i}>
         {card}
       </Box>
     ))}
-  </Box>
+  </SearchContent>
 );
 
 export default CardPage;

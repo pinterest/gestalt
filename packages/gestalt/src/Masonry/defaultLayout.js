@@ -1,6 +1,8 @@
 // @flow
 import type { Cache } from './Cache';
 
+type Position = { top: number, left: number, width: number, height: number };
+
 const mindex = arr => {
   let idx = 0;
   for (let i = 0; i < arr.length; i += 1) {
@@ -30,7 +32,7 @@ export default <T>({
   cache: Cache<T, number>,
   minCols?: number,
   width?: ?number,
-|}) => (items: Array<*>) => {
+|}) => (items: Array<*>): Array<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }

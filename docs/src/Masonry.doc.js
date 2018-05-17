@@ -1,7 +1,12 @@
 // @flow
 import * as React from 'react';
-import PropTable from './components/PropTable';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
+import PropTable from './components/PropTable';
+import stock9 from './images/stock9.jpg';
+import stock10 from './images/stock10.jpg';
+import stock11 from './images/stock11.jpg';
+import stock12 from './images/stock12.jpg';
+import stock13 from './images/stock13.jpg';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
 import CardPage from './components/CardPage';
@@ -74,10 +79,6 @@ card(
         type: '() => HTMLElement',
       },
       {
-        name: 'serverRender',
-        type: 'boolean',
-      },
-      {
         name: 'virtualize',
         type: 'boolean',
         defaultValue: false,
@@ -120,32 +121,28 @@ const pins = [
   {
     color: '#2b3938',
     height: 316,
-    src:
-      'https://i.pinimg.com/474x/48/bc/00/48bc00b140d2f52267438f1c6ee0fa95.jpg',
+    src: stock9,
     width: 474,
     name: 'the Hang Son Doong cave in Vietnam',
   },
   {
     color: '#8e7439',
     height: 1081,
-    src:
-      'https://i.pinimg.com/474x/7d/15/e1/7d15e1bf0bab2dcec9cda4e84826d872.jpg',
+    src: stock10,
     width: 474,
     name: 'La Gran Muralla, Pekín, China',
   },
   {
     color: '#698157',
     height: 711,
-    src:
-      'https://i.pinimg.com/474x/4e/59/b2/4e59b2a5ae60b09e80dab06f78a9dfbb.jpg',
+    src: stock11,
     width: 474,
     name: 'Plitvice Lakes National Park, Croatia',
   },
   {
     color: '#4e5d50',
     height: 632,
-    src:
-      'https://i.pinimg.com/474x/fc/f1/e3/fcf1e3dd56eb17a3a5fddda9d41f210f.jpg',
+    src: stock12,
     width: 474,
     name:
       'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
@@ -153,8 +150,7 @@ const pins = [
   {
     color: '#6d6368',
     height: 710,
-    src:
-      'https://i.pinimg.com/474x/66/2c/8b/662c8bcaded0e84ef6dc0d49b661806d.jpg',
+    src: stock13,
     width: 474,
     name: 'Border of China and Vietnam',
   },

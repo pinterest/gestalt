@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Box from '../Box/Box';
 import Mask from '../Mask/Mask';
 import Text from '../Text/Text';
 import Icon from '../Icon/Icon';
-import PropTypes from 'prop-types';
 
 type Props = {|
   color?: 'darkGray' | 'orange',

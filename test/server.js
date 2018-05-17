@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import RenderConfig from './utils/renderConfig';
 import { readFileSync } from 'fs';
+import RenderConfig from './utils/renderConfig';
 
 const express = require('express');
 

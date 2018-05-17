@@ -1,7 +1,5 @@
 // @flow
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { Button, Tooltip } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -66,10 +64,8 @@ card(
 
 card(
   <Example
-    description="
-
-  "
     name="Example"
+    direction="row"
     defaultCode={`
 class TooltipExample extends React.Component {
   constructor(props) {
@@ -118,7 +114,6 @@ class TooltipExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Tooltip }}
   />
 );
 

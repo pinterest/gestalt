@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from '../Box/Box';
 import classnames from 'classnames';
+import Box from '../Box/Box';
 import ErrorFlyout from '../ErrorFlyout/ErrorFlyout';
 import Icon from '../Icon/Icon';
 import styles from './SelectList.css';

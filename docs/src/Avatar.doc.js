@@ -2,6 +2,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar, Box, Text } from 'gestalt';
+import keerthi from './avatars/keerthi.jpg';
+import shanice from './avatars/shanice.jpg';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
@@ -24,6 +26,12 @@ card(
         name: 'name',
         type: 'string',
         required: true,
+      },
+      {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Adds a white border around Avatar so it's visible when displayed on other images`,
       },
       {
         name: 'size',
@@ -53,7 +61,7 @@ type AvatarExProps = {
 };
 
 function AvatarEx(props: AvatarExProps) {
-  const name = 'Long';
+  const name = 'Keerthi';
   const { size, src } = props;
   return (
     <Box padding={1}>
@@ -72,8 +80,6 @@ AvatarEx.propTypes = {
   src: PropTypes.string,
 };
 
-const imageSrc = 'https://i.pinimg.com/avatars/long_1468294555_444.jpg';
-
 card(
   <Example
     description={`
@@ -83,11 +89,10 @@ card(
     defaultCode={`
 <Avatar
 size="md"
-src="${imageSrc}"
-name="Long"
+src="${keerthi}"
+name="Keerthi"
 />
 `}
-    scope={{ Avatar }}
   />
 );
 
@@ -110,11 +115,10 @@ card(
   <Avatar name="Julia" />
 </Box>
 <Box column={4}>
-  <Avatar name="Long" src="${imageSrc}" />
+  <Avatar name="Keerthi" src="${keerthi}" />
 </Box>
 </Box>
   `}
-    scope={{ Box, Avatar }}
   />
 );
 
@@ -127,16 +131,12 @@ card(
     name="Without an image"
     defaultCode={`
 <Avatar
-name="Long"
+name="Keerthi"
 size="lg"
 />
   `}
-    scope={{ Avatar }}
   />
 );
-
-const joeyImage =
-  'https://i.pinimg.com/avatars/joeyzingarelli_1497376443_280.jpg';
 
 card(
   <Example
@@ -146,13 +146,12 @@ card(
     name="Verified"
     defaultCode={`
 <Avatar
-name="Joey"
+name="Shanice"
 size="lg"
-src="${joeyImage}"
+src="${shanice}"
 verified
 />
   `}
-    scope={{ Box, Avatar }}
   />
 );
 

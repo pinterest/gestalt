@@ -1,10 +1,19 @@
 .SegmentedControl {
+  composes: borderBox from "../Layout.css";
   composes: lightGrayBg from "../Colors.css";
   composes: flex from "../Layout.css";
   composes: justifyBetween from "../Layout.css";
   border-radius: 4px;
   padding: 2px;
   user-select: none;
+}
+
+.md {
+  composes: medium from "../Layout.css";
+}
+
+.lg {
+  composes: large from "../Layout.css";
 }
 
 .item {
@@ -16,14 +25,7 @@
   border-radius: 3px;
   flex-basis: 0;
   flex-shrink: 1;
-}
-
-.md {
-  padding: 9px 14px;
-}
-
-.lg {
-  padding: 12px 14px;
+  padding: 4px 14px;
 }
 
 .item:focus {

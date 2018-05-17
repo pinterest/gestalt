@@ -12,6 +12,7 @@ import visualizer from 'rollup-plugin-visualizer';
 import { readFileSync, writeFileSync } from 'fs';
 import { extname, relative } from 'path';
 import { parseString } from 'xml2js';
+import gzip from 'gzip-size';
 
 const breakpoints = require('./src/breakpoints.json');
 
@@ -46,6 +47,27 @@ const svgPath = () => ({
     );
   },
 });
+
+const statsPlugin = () => {
+  const statsMap = {};
+  const updateStats = (code, name) => {
+    const fileName = name.replace('dist/', '');
+    statsMap[fileName] = {
+      fileName,
+      size: Buffer.byteLength(code),
+      gzipSize: gzip.sync(code),
+    };
+    writeFileSync('dist/stats.json', JSON.stringify(statsMap, null, 2));
+  };
+
+  return {
+    name: 'stats',
+    ongenerate(bundle, obj) {
+      updateStats(obj.code, bundle.file);
+    },
+    updateStats,
+  };
+};
 
 const cssModules = (options = {}) => {
   const cssExportMap = {};
@@ -111,6 +133,7 @@ const cssModules = (options = {}) => {
     ongenerate() {
       cssnano.process(css).then(result => {
         writeFileSync(options.output, result.css);
+        options.stats.updateStats(result.css, options.output);
       });
     },
   };
@@ -118,6 +141,7 @@ const cssModules = (options = {}) => {
 
 // ---
 
+const stats = statsPlugin();
 export default {
   input: 'src/index.js',
   output: [
@@ -161,6 +185,7 @@ export default {
     progress(),
     cssModules({
       output: 'dist/gestalt.css',
+      stats,
     }),
     nodeResolve(),
     replace({
@@ -174,10 +199,11 @@ export default {
     }),
     babel({
       babelrc: false,
-      presets: [['es2015', { modules: false }], 'stage-1', 'react'],
+      presets: [['env', { modules: false }], 'stage-1', 'react'],
       plugins: ['external-helpers'],
     }),
     visualizer(),
     filesize(),
+    stats,
   ],
 };

@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { Box, Sticky, Text } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
@@ -21,7 +20,7 @@ card(
     props={[
       {
         name: 'bottom',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'children',
@@ -29,15 +28,15 @@ card(
       },
       {
         name: 'left',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'right',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'top',
-        type: 'number',
+        type: 'number | string',
       },
       {
         name: 'dangerouslySetZIndex',
@@ -80,7 +79,6 @@ card(
 </Box>
 </Box>
 `}
-    scope={{ Box, Sticky, Text }}
   />
 );
 

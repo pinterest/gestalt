@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultAvatar renders 0 avatars 1`] = `
+exports[`GroupAvatar renders 0 avatars 1`] = `
 <div
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -62,7 +61,235 @@ exports[`DefaultAvatar renders 0 avatars 1`] = `
 </div>
 `;
 
-exports[`DefaultAvatar renders 2 avatars 1`] = `
+exports[`GroupAvatar renders 2 avatars 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 40,
+          "left": 0,
+          "top": 0,
+          "width": 19,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 40,
+            "width": 19,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 40,
+          "left": 21,
+          "top": 0,
+          "width": 19,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 40,
+            "width": 19,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`GroupAvatar renders 3 avatars 1`] = `
+<div
+  className="box circle overflowHidden whiteBg"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="relative"
+    style={
+      Object {
+        "height": 40,
+        "width": 41,
+      }
+    }
+  >
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 40,
+          "left": 0,
+          "top": 0,
+          "width": 19,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 40,
+            "width": 19,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 19,
+          "left": 21,
+          "top": 0,
+          "width": 20,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 19,
+            "width": 20,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+    <div
+      className="absolute"
+      style={
+        Object {
+          "height": 19,
+          "left": 21,
+          "top": 21,
+          "width": 20,
+        }
+      }
+    >
+      <div
+        className="box relative"
+        style={
+          Object {
+            "height": 19,
+            "width": 20,
+          }
+        }
+      >
+        <div
+          aria-label="Jane Smith"
+          className="cover"
+          role="img"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "backgroundImage": "url('foo.png')",
+            }
+          }
+        />
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`GroupAvatar renders an outline 1`] = `
 <div
   className="box circle overflowHidden whiteBg"
   style={
@@ -159,12 +386,11 @@ exports[`DefaultAvatar renders 2 avatars 1`] = `
 </div>
 `;
 
-exports[`DefaultAvatar renders 3 avatars 1`] = `
+exports[`GroupAvatar renders more than 3 AVATAR_SIZES 1`] = `
 <div
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -292,145 +518,11 @@ exports[`DefaultAvatar renders 3 avatars 1`] = `
 </div>
 `;
 
-exports[`DefaultAvatar renders more than 3 AVATAR_SIZES 1`] = `
+exports[`GroupAvatar renders multi-byte character initials 1`] = `
 <div
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
-      "height": 40,
-      "width": 40,
-      "willChange": "transform",
-    }
-  }
->
-  <div
-    className="relative"
-    style={
-      Object {
-        "height": 40,
-        "width": 41,
-      }
-    }
-  >
-    <div
-      className="absolute"
-      style={
-        Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 19,
-        }
-      }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
-    <div
-      className="absolute"
-      style={
-        Object {
-          "height": 19,
-          "left": 21,
-          "top": 0,
-          "width": 20,
-        }
-      }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 19,
-            "width": 20,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
-    <div
-      className="absolute"
-      style={
-        Object {
-          "height": 19,
-          "left": 21,
-          "top": 21,
-          "width": 20,
-        }
-      }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 19,
-            "width": 20,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`DefaultAvatar renders multi-byte character initials 1`] = `
-<div
-  className="box circle overflowHidden whiteBg"
-  style={
-    Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",
@@ -487,12 +579,11 @@ exports[`DefaultAvatar renders multi-byte character initials 1`] = `
 </div>
 `;
 
-exports[`DefaultAvatar renders single-byte character initials 1`] = `
+exports[`GroupAvatar renders single-byte character initials 1`] = `
 <div
   className="box circle overflowHidden whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
       "height": 40,
       "width": 40,
       "willChange": "transform",

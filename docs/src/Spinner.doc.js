@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Button, Spinner } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
@@ -73,7 +72,6 @@ class SpinnerExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Spinner }}
   />
 );
 

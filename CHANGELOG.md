@@ -9,10 +9,81 @@
 ### Minor
 
 ### Patch
-* Switch: Disallow width shrinking in flex layouts
 * Touchable: Add a prop to render Touchable inline
+* Internal: Add code coverage to PRs (#185)
+* Internal: Update Jest and use multi-project runner (#158)
 
 </details>
+
+## 0.70.0 (May 15, 2018)
+
+### Minor
+* Avatar / GroupAvatar: make outline configurable(#173)
+* Masonry: Update non-virtualized Masonry to render all items regardless of the window
+* ExperimentalMasonry: remove component (#183)
+* Internal: Add flow-typed files for third party packages (#174)
+* Internal: Remove unused linter suppressions (#180)
+* Internal: Add eslint-plugin-jest with recommended settings (#181)
+* Internal: Add Flow type checking to Jest test files (#184)
+* Video: Better existing callbacks, new playback rate prop, new loading callback (#174)
+* Internal: Turn the [import/first](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md) rule back on (#186)
+
+## 0.69.0 (May 10, 2018)
+
+### Minor
+
+* Sticky: Expand threshold options to take string values (#166)
+* Avatar: Fall back to default letter if image does not load (#156)
+* Video: Add new Video component to Gestalt (#150)
+* Video: Add `aspectRatio` prop to Video and hide fullscreen on unsupported browsers (#171)
+
+### Patch
+
+* Internal: Add bundle size impact reporting (#146)
+* Pulsar: Updated styles to use border box so pulsar doesn't extend out of container div (#169)
+* Docs: Fix home link (#170)
+
+## 0.68.1 (May 8, 2018)
+
+### Patch
+
+* Masonry: Don't pass Infinity as style value (#163)
+* Internal: Generate stats file during build (#160)
+* Flow: Upgrade flow-bin to version 0.71.0 (#155)
+* Internal: update `yarn.lock` (#152)
+* Docs: include images in repo (#151)
+* Docs: updated design (#154)
+
+## 0.68.0 (May 3, 2018)
+
+### Minor
+
+* Button / SearchField / SegmentedControl / SelectList / Tabs / TextField: consistent sizing + improve Windows compatibility (#148)
+* Icon: Add new prop to Icon -- dangerouslySetSvgPath (#142)
+
+## 0.67.0 (April 25, 2018)
+
+### Minor
+
+* Flyout: make IE11 compatible (#138)
+* Icon: Add new GIF icon (#143)
+
+### Patch
+
+* Box: Fixed negative margins for Box marginStart and marginEnd
+* Docs: Add a link to the sandbox
+
+## 0.66.0 (April 24, 2018)
+
+### Minor
+
+* Box: Added right to left language aware marginStart & marginEnd (#122)
+
+### Patch
+
+* Switch: Disallow width shrinking in flex layouts
+* Masonry: Removed the unused "serverRender" prop
+* Docs: Updated Box docs to include marginStart and marginEnd
 
 ## 0.65.0 (April 16, 2018)
 
