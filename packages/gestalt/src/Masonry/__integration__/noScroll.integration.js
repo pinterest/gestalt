@@ -8,7 +8,7 @@ describe('ExerimentalMasonry > No scroll', () => {
       width: 500,
       height: 500,
     });
-    await page.goto('http://localhost:3001/Masonry?noScroll=1&virtualize=1');
+    await page.goto('http://localhost:3000/Masonry?noScroll=1&virtualize=1');
 
     const serverItems = await page.$$(selectors.gridItem);
 

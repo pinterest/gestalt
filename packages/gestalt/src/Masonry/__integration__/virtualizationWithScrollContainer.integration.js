@@ -9,7 +9,7 @@ describe('Masonry > virtualization /w scroll container', () => {
       height: 800,
     });
     await page.goto(
-      `http://localhost:3001/Masonry?virtualize=1&scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`
+      `http://localhost:3000/Masonry?virtualize=1&scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`
     );
 
     // should not render anything initially

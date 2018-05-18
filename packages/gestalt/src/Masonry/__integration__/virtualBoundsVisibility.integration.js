@@ -15,7 +15,7 @@ describe('Masonry > virtual bounds visibility', () => {
       height: 800,
     });
     await page.goto(
-      `http://localhost:3001/Masonry?offsetTop=${VIRTUALIZED_TOP}`
+      `http://localhost:3000/Masonry?offsetTop=${VIRTUALIZED_TOP}`
     );
 
     // Server rendered items are always display: block initially to reduce startup thrashing

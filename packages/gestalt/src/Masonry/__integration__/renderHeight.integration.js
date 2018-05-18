@@ -3,7 +3,7 @@ import selectors from './lib/selectors';
 
 describe('Masonry > Render Height', () => {
   it('Items can be positioned under the grid', async () => {
-    await page.goto('http://localhost:3001/Masonry?finiteLength=1');
+    await page.goto('http://localhost:3000/Masonry?finiteLength=1');
 
     const gridItems = await page.$$(selectors.gridItem);
     assert.ok(gridItems.length > 0);

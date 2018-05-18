@@ -9,7 +9,7 @@ const masonryItemData = [
 
 describe('Masonry > Item prop changes', () => {
   it('Masonry will reflow when changing prop items.', async () => {
-    await page.goto('http://localhost:3001/Masonry?finiteLength=1');
+    await page.goto('http://localhost:3000/Masonry?finiteLength=1');
 
     const originalItems = await page.$$(selectors.gridItem);
     assert.ok(originalItems.length > 0);

@@ -11,7 +11,7 @@ describe('Masonry > Server Render Layout', () => {
       width: 1000,
       height: 1000,
     });
-    await page.goto('http://localhost:3001/Masonry?deferMount=1');
+    await page.goto('http://localhost:3000/Masonry?deferMount=1');
 
     const serverItems = await page.$$(selectors.staticItem);
 
@@ -61,7 +61,7 @@ describe('Masonry > Server Render Layout', () => {
       height: 1000,
     });
     await page.goto(
-      'http://localhost:3001/FlexibleMasonry?deferMount=1&flexible=1'
+      'http://localhost:3000/FlexibleMasonry?deferMount=1&flexible=1'
     );
 
     const serverItems = await page.$$(selectors.staticItem);

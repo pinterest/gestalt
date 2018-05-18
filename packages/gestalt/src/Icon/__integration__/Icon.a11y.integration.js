@@ -6,7 +6,7 @@ describe('Icon > a11y', () => {
     await page.addScriptTag({ path: require.resolve('axe-core') });
   });
   it('Loads at least 5 icons on the test page', async () => {
-    await page.goto('http://localhost:3001/A11y?component=icon');
+    await page.goto('http://localhost:3000/A11y?component=icon');
 
     const svgIcons = await page.$$('svg');
     assert.ok(svgIcons.length >= 5);

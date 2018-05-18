@@ -12,7 +12,7 @@ describe('Masonry > virtual bounds visibility /w scroll container', () => {
       height: 800,
     });
     await page.goto(
-      `http://localhost:3001/Masonry?scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`
+      `http://localhost:3000/Masonry?scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`
     );
 
     // Server rendered items are always display: block initially to reduce startup thrashing

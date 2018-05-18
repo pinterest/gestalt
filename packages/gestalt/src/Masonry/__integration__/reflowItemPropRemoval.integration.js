@@ -9,7 +9,7 @@ const masonryItemData = [
 
 describe('Masonry > Item prop removal', () => {
   it('Masonry will update when items are removed.', async () => {
-    await page.goto('http://localhost:3001/Masonry?finiteLength=1');
+    await page.goto('http://localhost:3000/Masonry?finiteLength=1');
 
     const originalItems = await page.$$(selectors.gridItem);
     assert.ok(originalItems.length > 0);

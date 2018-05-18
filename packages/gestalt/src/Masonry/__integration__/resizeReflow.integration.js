@@ -16,7 +16,7 @@ describe('Masonry > Resize', () => {
       width: GRID_WIDTH,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto('http://localhost:3000/Masonry');
 
     // Wait for the grid to be hydrated.
     // TODO: Break this out into a utility /w wait() instead.

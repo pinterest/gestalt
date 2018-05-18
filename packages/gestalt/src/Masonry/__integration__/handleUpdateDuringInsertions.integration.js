@@ -8,7 +8,7 @@ describe('Masonry > Update during insertions', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto('http://localhost:3000/Masonry');
 =======
     ghost.close();
     await ghost.open('http://localhost:3000/Masonry');

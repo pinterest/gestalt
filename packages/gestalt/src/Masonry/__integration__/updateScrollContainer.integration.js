@@ -7,7 +7,7 @@ describe('Masonry > Update scroll container', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry?virtualize=1');
+    await page.goto('http://localhost:3000/Masonry?virtualize=1');
 
     // scroll container should be set to window initially
     let gridItems = await page.$$(selectors.gridItem);

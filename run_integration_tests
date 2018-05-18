@@ -7,9 +7,8 @@ if [[ -f /etc/init.d/xvfb ]]; then
   /etc/init.d/xvfb start
 fi
 
-(
-  cd test && yarn start
-) &
+# Start the server
+( cd test && yarn start ) &
 
 PID=$! # get the Parent Process ID
 PGID=$(ps opgid= "$PID") # get the Process Group ID

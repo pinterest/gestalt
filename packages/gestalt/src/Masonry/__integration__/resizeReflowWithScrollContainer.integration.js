@@ -16,7 +16,7 @@ describe('Masonry > Resize /w scroll container', () => {
       width: GRID_WIDTH,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry?scrollContainer=1');
+    await page.goto('http://localhost:3000/Masonry?scrollContainer=1');
 
     // Wait for the grid to be hydrated.
     // TODO: Break this out into a utility /w wait() instead.

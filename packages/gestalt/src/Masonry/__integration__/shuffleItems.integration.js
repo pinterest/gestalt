@@ -23,7 +23,7 @@ describe('Masonry > Shuffle items', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto('http://localhost:3000/Masonry');
 
     const originalItemMap = await getItemColumnMap();
 

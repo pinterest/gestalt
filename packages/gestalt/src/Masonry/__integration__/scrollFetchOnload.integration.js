@@ -6,7 +6,7 @@ describe('Masonry > ScrollFetch onload', () => {
       width: 400,
       height: 400,
     });
-    await page.goto('http://localhost:3001/Masonry?manualFetch=1');
+    await page.goto('http://localhost:3000/Masonry?manualFetch=1');
 
     const initialFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
@@ -18,7 +18,7 @@ describe('Masonry > ScrollFetch onload', () => {
       width: 2000,
       height: 1000,
     });
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto('http://localhost:3000/Masonry');
     const largerFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
     );

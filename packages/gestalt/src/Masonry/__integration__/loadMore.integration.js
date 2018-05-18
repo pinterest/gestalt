@@ -10,7 +10,7 @@ describe('Masonry > Scrolls', () => {
       width: 3000,
       height: 2000,
     });
-    await page.goto('http://localhost:3001/Masonry?deferMount=1&manualFetch=1');
+    await page.goto('http://localhost:3000/Masonry?deferMount=1&manualFetch=1');
 
     const serverItems = await page.$$(selectors.staticItem);
 

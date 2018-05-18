@@ -7,7 +7,7 @@ describe('Masonry > Null items', () => {
       width: 3000,
       height: 2000,
     });
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto('http://localhost:3000/Masonry');
 
     const initialErrors = await page.evaluate(() => window.ERROR_COUNT);
     assert.equal(initialErrors, 0);

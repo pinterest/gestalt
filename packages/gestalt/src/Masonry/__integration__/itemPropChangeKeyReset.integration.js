@@ -3,7 +3,7 @@ import selectors from './lib/selectors';
 
 describe('Masonry > Item prop change', () => {
   it('Key generation when item object ref changes', async () => {
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto('http://localhost:3000/Masonry');
 
     const firstCounterValueStart = await page.$(selectors.itemCounter(1));
 

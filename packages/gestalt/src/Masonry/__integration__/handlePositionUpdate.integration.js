@@ -11,7 +11,7 @@ describe('Masonry > handle offset update', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry?virtualize=1');
+    await page.goto('http://localhost:3000/Masonry?virtualize=1');
 
     const pushTrigger = await page.$(selectors.pushGridDown);
     await pushTrigger.click();

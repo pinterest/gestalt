@@ -8,7 +8,7 @@ describe('Masonry > External cache', () => {
       height: 800,
     });
     await page.goto(
-      'http://localhost:3001/Masonry?virtualize=1&externalCache=1'
+      'http://localhost:3000/Masonry?virtualize=1&externalCache=1'
     );
 
     const initialMountCount = await page.evaluate(

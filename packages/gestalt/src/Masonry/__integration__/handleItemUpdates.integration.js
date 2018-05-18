@@ -7,7 +7,7 @@ describe('Masonry > handle item updates', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry?virtualize=1');
+    await page.goto('http://localhost:3000/Masonry?virtualize=1');
 
     // get initial size of first element
     const gridItems = await page.$$(selectors.gridItem);

@@ -7,7 +7,7 @@ describe('Masonry > Slot Index', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry?deferMount=1');
+    await page.goto('http://localhost:3000/Masonry?deferMount=1');
 
     // first item should have a slot index of 0 and increase from there
     // server render pass
