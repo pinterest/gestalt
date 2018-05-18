@@ -2,13 +2,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-const pages = [
-  'Masonry',
-  'FlexibleMasonry',
-  'ExperimentalMasonry',
-  'ExperimentalFlexibleMasonry',
-  'A11y',
-];
+const pages = ['Masonry', 'FlexibleMasonry', 'A11y'];
 
 export default function IndexPage() {
   return (
