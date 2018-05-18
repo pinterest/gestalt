@@ -35,10 +35,14 @@
   },
   "overrides": [
     {
-      "files": [ "**/*.test.js" ],
+      "files": ["**/*.test.js", "**/*.integration.js"],
       "env": {
         "jest": true,
-      }
+      },
+      "globals": {
+        "page": true,
+        "browser": true,
+      },
     }
   ]
 }

@@ -20,6 +20,8 @@
 * Docs: Add live docs to Letterbox (#190)
 * Docs: Move CardPage rendering into the Route render prop (#191)
 * Internal: Turn on all react recommended linters (#192)
+* Internal: Merge jest-pupeteer eslint file into main one (#193)
+* Docs: Rewrite Column doc to remove scope prop from Example (#196)
 
 </details>
 
