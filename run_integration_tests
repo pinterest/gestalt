@@ -8,10 +8,6 @@ if [[ -f /etc/init.d/xvfb ]]; then
 fi
 
 (
-  cd packages/gestalt && yarn prepublish
-)
-
-(
   cd test && yarn start
 ) &
 
