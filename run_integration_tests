@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
 export DISPLAY=:99.0
 if [[ -f /etc/init.d/xvfb ]]; then
   /etc/init.d/xvfb start
 fi
+
+yarn build
 
 # Start the server
 ( cd test && yarn start ) &
