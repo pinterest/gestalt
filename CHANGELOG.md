@@ -9,6 +9,7 @@
 ### Minor
 
 * Drop support for React 15 and bump React 16 version (#168)
+* Internal: Refactor Modal docs to kill StateRecorder (#199)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
