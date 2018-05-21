@@ -158,7 +158,7 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityPauseLabel: PropTypes.string,
     accessibilityPlayLabel: PropTypes.string,
     accessibilityUnmuteLabel: PropTypes.string,
-    aspectRatio: PropTypes.number,
+    aspectRatio: PropTypes.number.isRequired,
     captions: PropTypes.string.isRequired,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
@@ -188,7 +188,6 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   static defaultProps = {
-    aspectRatio: 16 / 9,
     playbackRate: 1,
     playing: false,
     preload: 'auto',
@@ -417,14 +416,7 @@ export default class Video extends React.PureComponent<Props, State> {
     } = this.props;
     const { currentTime, duration, fullscreen } = this.state;
 
-    const paddingBottom =
-      // In full screen the padding bottom is 0 to fit the screen
-      (fullscreen && '0') ||
-      // If video data is present, use the correct aspect ratio
-      (this.video &&
-        `${this.video.videoHeight / this.video.videoWidth * 100}%`) ||
-      // If the video metadata is missing, default to the aspect ratio
-      `${1 / aspectRatio * 100}%`;
+    const paddingBottom = (fullscreen && '0') || `${1 / aspectRatio * 100}%`;
 
     return (
       <div
