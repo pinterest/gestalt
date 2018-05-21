@@ -6,7 +6,7 @@ exports[`Video with callbacks 1`] = `
   style={
     Object {
       "height": 0,
-      "paddingBottom": "56.25%",
+      "paddingBottom": "100%",
     }
   }
 >
@@ -37,7 +37,7 @@ exports[`Video with media attributes 1`] = `
   style={
     Object {
       "height": 0,
-      "paddingBottom": "56.25%",
+      "paddingBottom": "100%",
     }
   }
 >
@@ -68,7 +68,7 @@ exports[`Video with multiple sources 1`] = `
   style={
     Object {
       "height": 0,
-      "paddingBottom": "56.25%",
+      "paddingBottom": "100%",
     }
   }
 >
@@ -107,7 +107,7 @@ exports[`Video with source 1`] = `
   style={
     Object {
       "height": 0,
-      "paddingBottom": "56.25%",
+      "paddingBottom": "100%",
     }
   }
 >
