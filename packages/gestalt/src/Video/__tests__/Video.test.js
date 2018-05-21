@@ -6,6 +6,7 @@ import Video from '../Video';
 test('Video with source', () => {
   const tree = create(
     <Video
+      aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
     />
@@ -16,6 +17,7 @@ test('Video with source', () => {
 test('Video with multiple sources', () => {
   const tree = create(
     <Video
+      aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src={[
         {
@@ -35,6 +37,7 @@ test('Video with multiple sources', () => {
 test('Video with media attributes', () => {
   const tree = create(
     <Video
+      aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       loop
       volume={0}
@@ -48,6 +51,7 @@ test('Video with media attributes', () => {
 test('Video with callbacks', () => {
   const tree = create(
     <Video
+      aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onDurationChange={() => {}}
       onFullscreenChange={() => {}}
