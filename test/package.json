@@ -13,7 +13,9 @@
     "react-dom": "^16.2.0"
   },
   "scripts": {
-    "start": "next"
+    "build": "next build",
+    "dev": "next",
+    "start": "next start"
   },
   "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.22.0"
