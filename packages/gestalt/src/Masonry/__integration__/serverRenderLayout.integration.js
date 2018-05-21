@@ -11,47 +11,34 @@ describe('Masonry > Server Render Layout', () => {
       width: 1000,
       height: 1000,
     });
+    await page.setJavaScriptEnabled(false);
     await page.goto('http://localhost:3000/Masonry?deferMount=1');
 
     const serverItems = await page.$$(selectors.staticItem);
 
     // Hard-coded value for initial pins in server.js
-    assert.equal(serverItems.length, 20);
+    expect(serverItems).toHaveLength(20);
 
     const serverItem1Rect = await serverItems[0].boundingBox();
     const serverItem2Rect = await serverItems[1].boundingBox();
-    const serverItem1Text = await (await serverItems[0].getProperty(
-      'textContent'
-    )).jsonValue();
-    const serverItem2Text = await (await serverItems[1].getProperty(
-      'textContent'
-    )).jsonValue();
 
-    assert(serverItem1Rect.x >= 0);
-    assert(serverItem2Rect.x >= serverItem1Rect.x + serverItem1Rect.width);
+    expect(serverItem1Rect.x).toBeGreaterThanOrEqual(0);
+    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(
+      serverItem1Rect.x + serverItem1Rect.width
+    );
 
-    await page.evaluate(() => {
-      window.dispatchEvent(new CustomEvent('trigger-mount'));
-    });
+    await page.setJavaScriptEnabled(true);
+    await page.reload();
 
     const gridItems = await page.$$(selectors.gridItem);
-    assert.ok(gridItems.length > 2);
+    expect(gridItems.length).toBeGreaterThan(2);
 
     const gridItem1Rect = await gridItems[0].boundingBox();
-    const gridItem2Rect = await gridItems[1].boundingBox();
-    const gridItem1Text = await (await serverItems[0].getProperty(
-      'textContent'
-    )).jsonValue();
-    const gridItem2Text = await (await serverItems[1].getProperty(
-      'textContent'
-    )).jsonValue();
 
-    assert.equal(gridItem1Rect.x, serverItem1Rect.x);
-    // key shouldn't change.  slotIdx shouldn't change
-    assert.equal(gridItem1Text, serverItem1Text);
-    assert.equal(gridItem2Text, serverItem2Text);
+    expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
+
     // Simple placement assertion for now because we position masonry with transforms.
-    assert.ok(gridItem2Rect.x > 0);
+    expect(gridItem1Rect.x).toBeGreaterThan(0);
   });
 
   it('[flexible] items rendered on the server start with columnWidth', async () => {
@@ -60,6 +47,7 @@ describe('Masonry > Server Render Layout', () => {
       width: 1200,
       height: 1000,
     });
+    await page.setJavaScriptEnabled(false);
     await page.goto(
       'http://localhost:3000/FlexibleMasonry?deferMount=1&flexible=1'
     );
@@ -68,12 +56,13 @@ describe('Masonry > Server Render Layout', () => {
     const serverItem1Rect = await serverItems[0].boundingBox();
     const serverItem2Rect = await serverItems[1].boundingBox();
 
-    assert(serverItem1Rect.x >= 0);
-    assert(serverItem2Rect.x >= serverItem1Rect.x + serverItem1Rect.width);
+    expect(serverItem1Rect.x).toBeGreaterThanOrEqual(0);
+    expect(serverItem2Rect.x).toBeGreaterThanOrEqual(
+      serverItem1Rect.x + serverItem1Rect.width
+    );
 
-    await page.evaluate(() => {
-      window.dispatchEvent(new CustomEvent('trigger-mount'));
-    });
+    await page.setJavaScriptEnabled(false);
+    await page.reload();
 
     const gridItems = await page.$$(selectors.gridItem);
 
@@ -82,5 +71,9 @@ describe('Masonry > Server Render Layout', () => {
     assert.equal(gridItem1Rect.x, serverItem1Rect.x);
     assert.equal(gridItem1Rect.width, serverItem1Rect.width);
     assert.equal(gridItem2Rect.width, serverItem2Rect.width);
+
+    expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
+    expect(gridItem1Rect.width).toEqual(serverItem1Rect.width);
+    expect(gridItem2Rect.width).toEqual(serverItem2Rect.width);
   });
 });
