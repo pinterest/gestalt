@@ -178,6 +178,7 @@ card(
   `}
     defaultCode={`
 <Video
+  aspectRatio={853 / 480}
   captions=""
   poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
@@ -195,6 +196,7 @@ card(
   `}
     defaultCode={`
 <Video
+  aspectRatio={426 / 240}
   captions=""
   playing
   volume={0}
@@ -222,6 +224,7 @@ card(
   `}
     defaultCode={`
 <Video
+  aspectRatio={1920 / 1080}
   captions=""
   loop
   playing
@@ -247,6 +250,7 @@ card(
   accessibilityPauseLabel="Pause"
   accessibilityPlayLabel="Play"
   accessibilityUnmuteLabel="Unmute"
+  aspectRatio={853 / 480}
   captions=""
   controls
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
@@ -367,6 +371,7 @@ class Example extends React.Component {
           accessibilityPauseLabel="Pause"
           accessibilityPlayLabel="Play"
           accessibilityUnmuteLabel="Unmute"
+          aspectRatio={853 / 480}
           captions=""
           controls
           onPlay={this.handlePlay}
