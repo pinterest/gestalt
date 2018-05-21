@@ -1,4 +1,3 @@
-import assert from 'assert';
 import selectors from './lib/selectors';
 
 describe('Masonry > External cache', () => {
@@ -33,7 +32,7 @@ describe('Masonry > External cache', () => {
 
     // mount count should be increased
     let updatedMountCount = await page.evaluate(() => window.ITEM_MOUNT_COUNT);
-    assert.ok(updatedMountCount > initialMountCount);
+    expect(updatedMountCount).toBeGreaterThan(initialMountCount);
 
     // unmount/remount the grid
     const toggleMountTrigger = await page.$(selectors.toggleMount);
@@ -41,11 +40,11 @@ describe('Masonry > External cache', () => {
 
     // wait for grid to be unmounted
     updatedMountCount = await page.evaluate(() => window.ITEM_MOUNT_COUNT);
-    assert.equal(updatedMountCount, 0);
+    expect(updatedMountCount).toEqual(0);
     await toggleMountTrigger.click();
 
     // wait for grid to be remounted
     const updatedCount = await page.evaluate(() => window.ITEM_MOUNT_COUNT);
-    assert.ok(updatedCount <= initialMountCount);
+    expect(updatedCount).toBeLessThanOrEqual(initialMountCount);
   });
 });

@@ -7,7 +7,8 @@ describe('Masonry > Slot Index', () => {
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3000/Masonry?deferMount=1');
+    await page.setJavaScriptEnabled(false);
+    await page.goto('http://localhost:3000/Masonry');
 
     // first item should have a slot index of 0 and increase from there
     // server render pass
@@ -19,9 +20,8 @@ describe('Masonry > Slot Index', () => {
       assert.ok(text.includes(`Slot Index: ${i}`));
     }
 
-    await page.evaluate(() => {
-      window.dispatchEvent(new CustomEvent('trigger-mount'));
-    });
+    await page.setJavaScriptEnabled(true);
+    await page.reload();
 
     // client hydration pass
     gridItems = await page.$$(selectors.gridItem);

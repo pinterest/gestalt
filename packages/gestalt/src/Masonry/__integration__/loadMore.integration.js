@@ -9,7 +9,7 @@ describe('Masonry > Scrolls', () => {
       width: 3000,
       height: 2000,
     });
-    await page.goto('http://localhost:3000/Masonry?deferMount=1&manualFetch=1');
+    await page.goto('http://localhost:3000/Masonry?manualFetch=1');
 
     // Hard-coded value for initial pins in server.js
     const initialServerItemCount = 20;

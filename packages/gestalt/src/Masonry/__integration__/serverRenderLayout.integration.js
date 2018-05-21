@@ -1,4 +1,3 @@
-import assert from 'assert';
 import selectors from './lib/selectors';
 
 jest.setTimeout(10000);
@@ -12,7 +11,7 @@ describe('Masonry > Server Render Layout', () => {
       height: 1000,
     });
     await page.setJavaScriptEnabled(false);
-    await page.goto('http://localhost:3000/Masonry?deferMount=1');
+    await page.goto('http://localhost:3000/Masonry');
 
     const serverItems = await page.$$(selectors.staticItem);
 
@@ -48,9 +47,7 @@ describe('Masonry > Server Render Layout', () => {
       height: 1000,
     });
     await page.setJavaScriptEnabled(false);
-    await page.goto(
-      'http://localhost:3000/FlexibleMasonry?deferMount=1&flexible=1'
-    );
+    await page.goto('http://localhost:3000/FlexibleMasonry?flexible=1');
 
     const serverItems = await page.$$(selectors.staticItem);
     const serverItem1Rect = await serverItems[0].boundingBox();
@@ -68,9 +65,9 @@ describe('Masonry > Server Render Layout', () => {
 
     const gridItem1Rect = await gridItems[0].boundingBox();
     const gridItem2Rect = await gridItems[1].boundingBox();
-    assert.equal(gridItem1Rect.x, serverItem1Rect.x);
-    assert.equal(gridItem1Rect.width, serverItem1Rect.width);
-    assert.equal(gridItem2Rect.width, serverItem2Rect.width);
+    expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
+    expect(gridItem1Rect.width).toEqual(serverItem1Rect.width);
+    expect(gridItem2Rect.width).toEqual(serverItem2Rect.width);
 
     expect(gridItem1Rect.x).toEqual(serverItem1Rect.x);
     expect(gridItem1Rect.width).toEqual(serverItem1Rect.width);
