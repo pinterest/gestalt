@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable no-console */
 import { danger, markdown, warn } from 'danger';
 import { execSync } from 'child_process';
 import { readFileSync } from 'fs';
@@ -77,6 +76,7 @@ ${rows.join('\n')}
   `);
 };
 
+/* eslint-disable no-console */
 const baseCommit = danger.github.pr.base.sha;
 // const currentCommit = danger.github.pr.head.sha;
 // Yen - fetching via API because i didn't see a way to get the build number for a commit via buildkite-agent
@@ -133,3 +133,4 @@ getBuildNumber(baseCommit)
   .catch(e => {
     console.error(`Error performing bundle size comparison: ${e.toString()}`);
   });
+/* eslint-enable no-console */
