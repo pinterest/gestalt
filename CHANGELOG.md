@@ -9,6 +9,7 @@
 ### Minor
 * Drop support for React 15 and bump React 16 version (#168)
 * Video: Fix background color for fullscreen video playback (#198)
+* Internal: Add eslint-plugin-eslint-comments with recommended settings (#200)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
