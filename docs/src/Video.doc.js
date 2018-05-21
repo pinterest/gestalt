@@ -59,9 +59,8 @@ card(
       {
         name: 'aspectRatio',
         type: 'number',
-        description: `Proportional relationship between width and height of the video, calculated as width / height.
-           Used to size the placeholder until the video is loaded. Default is equivalent to 16:9`,
-        defaultValue: 16 / 9,
+        description: `Proportional relationship between width and height of the video, calculated as width / height.`,
+        required: true,
       },
       {
         name: 'captions',
