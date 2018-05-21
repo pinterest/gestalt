@@ -9,7 +9,6 @@ type Props = {|
   defaultCode: string,
   description: string,
   name: string,
-  scope: Object,
   direction?: 'row' | 'column',
 |};
 
@@ -19,7 +18,6 @@ function Example({
   defaultCode,
   description = '',
   name,
-  scope,
   direction = 'column',
 }: Props) {
   return (
@@ -28,13 +26,7 @@ function Example({
       description={description}
       stacked={direction === 'column'}
     >
-      <LiveProvider
-        code={defaultCode.trim()}
-        scope={{
-          ...gestalt,
-          ...scope,
-        }}
-      >
+      <LiveProvider code={defaultCode.trim()} scope={gestalt}>
         <Box
           display="flex"
           direction={direction}

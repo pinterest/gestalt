@@ -7,8 +7,11 @@
   </summary>
 
 ### Minor
-
 * Drop support for React 15 and bump React 16 version (#168)
+* Colors: Update blue color (#193)
+* Video: Fix background color for fullscreen video playback (#198)
+* Internal: Refactor Modal docs to kill StateRecorder (#199)
+* Internal: Add eslint-plugin-eslint-comments with recommended settings (#200)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
@@ -19,6 +22,8 @@
 * Docs: Add live docs to Letterbox (#190)
 * Docs: Move CardPage rendering into the Route render prop (#191)
 * Internal: Turn on all react recommended linters (#192)
+* Internal: Merge jest-pupeteer eslint file into main one (#193)
+* Docs: Rewrite Column doc to remove scope prop from Example (#196)
 
 </details>
 

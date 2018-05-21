@@ -30,6 +30,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-prettier": "^2.1.1",
+    "eslint-plugin-eslint-comments": "^2.0.2",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jest": "^21.15.1",

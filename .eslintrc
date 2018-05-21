@@ -1,9 +1,10 @@
 {
   "extends": [
     "airbnb",
+    "plugin:eslint-comments/recommended",
+    "plugin:flowtype/recommended",
     "plugin:jest/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "prettier",
     "prettier/flowtype",
@@ -14,7 +15,14 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "jest", "jsx-a11y", "prettier", "react"],
+  "plugins": [
+    "eslint-comments",
+    "flowtype",
+    "jest",
+    "jsx-a11y",
+    "prettier",
+    "react"
+  ],
   "rules": {
     "jsx-a11y/label-has-for": [
       "error",
@@ -35,10 +43,14 @@
   },
   "overrides": [
     {
-      "files": [ "**/*.test.js" ],
+      "files": ["**/*.test.js", "**/*.integration.js"],
       "env": {
         "jest": true,
-      }
+      },
+      "globals": {
+        "page": true,
+        "browser": true,
+      },
     }
   ]
 }
