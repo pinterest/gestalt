@@ -7,8 +7,8 @@
   </summary>
 
 ### Minor
-
 * Drop support for React 15 and bump React 16 version (#168)
+* Video: Fix background color for fullscreen video playback (#198)
 * Internal: Refactor Modal docs to kill StateRecorder (#199)
 
 ### Patch
