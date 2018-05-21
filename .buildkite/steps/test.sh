@@ -10,7 +10,7 @@ yarn build
 (cd test && yarn build)
 
 echo "+++ :jest: Running Integration Jest"
-yarn concurrently --kill-others --names "SERVER,JEST" \
+yarn concurrently --kill-others --names "SERVER,JEST" --success last \
   "(cd test && yarn start)" \
   "./run_integration_tests.sh"
 echo "👌 Looks good to me!"
