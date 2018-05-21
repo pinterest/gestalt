@@ -1,4 +1,3 @@
-import assert from 'assert';
 import selectors from './lib/selectors';
 
 const getFirstItem = async () => await page.$(selectors.gridItem);
@@ -15,15 +14,6 @@ describe('Masonry > virtual bounds visibility /w scroll container', () => {
       `http://localhost:3000/Masonry?scrollContainer=1&offsetTop=${VIRTUALIZED_TOP}`
     );
 
-    // Server rendered items are always display: block initially to reduce startup thrashing
-    // because we don't have DOM measurements yet. Scroll down a bit to trigger virtualization.
-    await page.evaluate(selector => {
-      const container = document.querySelector(selector);
-      container.scrollTop += 1;
-    }, selectors.scrollContainer);
-    await page.waitFor(100);
-    assert.ok((await getFirstItem()) === null);
-
     await page.evaluate(
       (scrollToY, selector) => {
         const container = document.querySelector(selector);
@@ -33,6 +23,6 @@ describe('Masonry > virtual bounds visibility /w scroll container', () => {
       selectors.scrollContainer
     );
     await page.waitFor(100);
-    assert.ok((await getFirstItem()) !== null);
+    expect(await getFirstItem()).not.toBeNull();
   });
 });
