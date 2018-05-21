@@ -43,6 +43,7 @@ steps:
         run: gestalt
   - name: ":jest: Test"
     command: ./.buildkite/steps/test.sh
+    artifact_paths: 'screenshots/*'
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -56,15 +57,6 @@ steps:
       - BUILDKITE_COMMIT
       - BUILDKITE_PROJECT_SLUG
       - CODECOV_TOKEN
-  - name: ":jest: Test Integration"
-    command: ./.buildkite/steps/test_integration.sh
-    artifact_paths: 'screenshots/*'
-    timeout_in_minutes: 30
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
   - name: ":zap: danger"
     command: yarn danger ci
     timeout_in_minutes: 10
