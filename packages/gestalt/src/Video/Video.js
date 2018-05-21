@@ -27,6 +27,10 @@ type VideoNoControls = {|
 
 type Controls = VideoWithControls | VideoNoControls;
 
+type Source =
+  | string
+  | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
+
 type Props = {|
   aspectRatio: number,
   captions: string,
@@ -43,9 +47,7 @@ type Props = {|
   playsInline?: boolean,
   poster?: string,
   preload: 'auto' | 'metadata' | 'none',
-  src:
-    | string
-    | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>,
+  src: Source,
   volume: number,
   ...Controls,
 |};
@@ -123,6 +125,31 @@ const removeFullscreenEventListener = (handler: Function) => {
   document.removeEventListener('MSFullscreenChange', handler);
 };
 
+const isNewSource = (oldSource: Source, newSource: Source): boolean => {
+  if (typeof oldSource !== typeof newSource) {
+    // If the source type changed from string to Array
+    // or vice versa, we have a new source
+    return true;
+  } else if (Array.isArray(newSource)) {
+    if (oldSource.length !== newSource.length) {
+      // If the sources are both an Array, and the lengths
+      // do not match we evaluate as a new source
+      return true;
+    }
+    // If the sources are both an Array and the same length,
+    // verify every element stayed the same
+    return newSource.some(
+      (source, index) =>
+        !Array.isArray(oldSource) ||
+        source.type !== oldSource[index].type ||
+        source.src !== oldSource[index].src
+    );
+  }
+  // If the sources are both a string, simply compare
+  // the new with the old
+  return newSource !== oldSource;
+};
+
 export default class Video extends React.PureComponent<Props, State> {
   static propTypes = {
     accessibilityMaximizeLabel: PropTypes.string,
@@ -188,7 +215,7 @@ export default class Video extends React.PureComponent<Props, State> {
 
   componentDidUpdate(prevProps: Props) {
     // If the video source changed, reload the video
-    if (prevProps.src !== this.props.src) {
+    if (isNewSource(prevProps.src, this.props.src)) {
       this.load();
     }
     // If the volume changed, set the new volume
