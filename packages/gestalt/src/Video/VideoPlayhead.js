@@ -40,6 +40,8 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     }
   };
 
+  stopClick = (event: SyntheticEvent<>) => event.stopPropagation();
+
   handleMouseDown = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     this.setState({ seeking: true });
     this.seek(event.clientX);
@@ -74,6 +76,8 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
           aria-valuemin="0"
           aria-valuenow={currentTime}
           className={styles.playhead}
+          onClick={this.stopClick}
+          onKeyPress={this.stopClick}
           onMouseDown={this.handleMouseDown}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}

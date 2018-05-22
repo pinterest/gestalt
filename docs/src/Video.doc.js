@@ -80,40 +80,40 @@ card(
       },
       {
         name: 'onDurationChange',
-        type: '({ duration: number }) => void',
+        type: '({ event: SyntheticEvent<>, duration: number }) => void',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
         name: 'onFullscreenChange',
-        type: '({ fullscreen: boolean }) => void',
+        type: '({ event: SyntheticEvent<>, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
         name: 'onLoadedChange',
-        type: '({ loaded: number }) => void',
+        type: '({ event: SyntheticEvent<>, loaded: number }) => void',
         description: 'Sent when progress happens on downloading the media',
       },
       {
         name: 'onPlay',
-        type: '() => void',
+        type: '({ event: SyntheticEvent<> }) => void',
         description:
           'Sent when playback of the media starts after having been paused',
       },
       {
         name: 'onPause',
-        type: '() => void',
+        type: '({ event: SyntheticEvent<> }) => void',
         description: 'Sent when playback is paused',
       },
       {
         name: 'onTimeChange',
-        type: '({ time: number }) => void',
+        type: '({ event: SyntheticEvent<>, time: number }) => void',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
       {
         name: 'onVolumeChange',
-        type: '({ volume: number }) => void',
+        type: '({ event: SyntheticEvent<>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
       },
       {

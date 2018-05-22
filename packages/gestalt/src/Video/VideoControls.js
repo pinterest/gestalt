@@ -19,9 +19,9 @@ type Props = {|
   duration: number,
   fullscreen: boolean,
   onFullscreenChange: () => void,
-  onPause: () => void,
-  onPlay: () => void,
-  onVolumeChange: () => void,
+  onPause: (event: SyntheticEvent<>) => void,
+  onPlay: (event: SyntheticEvent<>) => void,
+  onVolumeChange: (event: SyntheticEvent<>) => void,
   playing: boolean,
   seek: (time: number) => void,
   volume: number,
@@ -46,115 +46,137 @@ const timeToString = (time?: number) => {
   return `${minutesStr}:${secondsStr}`;
 };
 
-export default function VideoControls(props: Props) {
-  const {
-    accessibilityMaximizeLabel,
-    accessibilityMinimizeLabel,
-    accessibilityMuteLabel,
-    accessibilityPauseLabel,
-    accessibilityPlayLabel,
-    accessibilityUnmuteLabel,
-    currentTime,
-    duration,
-    fullscreen,
-    onFullscreenChange,
-    onPause,
-    onPlay,
-    onVolumeChange,
-    playing,
-    seek,
-    volume,
-  } = props;
-  const muted = volume === 0;
-  const showFullscreenButton =
-    typeof document !== 'undefined' && !!fullscreenEnabled();
-  return (
-    <Box
-      position="absolute"
-      bottom
-      left
-      right
-      column={12}
-      padding={2}
-      display="flex"
-      alignItems="center"
-    >
-      <Box padding={2}>
-        <Touchable onTouch={playing ? onPause : onPlay} fullWidth={false}>
-          <Icon
-            accessibilityLabel={
-              playing ? accessibilityPauseLabel : accessibilityPlayLabel
-            }
-            color="white"
-            icon={playing ? 'pause' : 'play'}
-            size={20}
-          />
-        </Touchable>
-      </Box>
-      <Box width={50} padding={2}>
-        <Text color="white" align="right" size="xs">
-          {timeToString(currentTime)}
-        </Text>
-      </Box>
-      <Box padding={2} flex="grow">
-        <VideoPlayhead
-          currentTime={currentTime}
-          duration={duration}
-          seek={seek}
-        />
-      </Box>
-      <Box width={50} padding={2}>
-        <Text color="white" align="right" size="xs">
-          {timeToString(duration)}
-        </Text>
-      </Box>
-      <Box padding={2}>
-        <Touchable onTouch={onVolumeChange} fullWidth={false}>
-          <Icon
-            accessibilityLabel={
-              muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
-            }
-            color="white"
-            icon={muted ? 'mute' : 'sound'}
-            size={20}
-          />
-        </Touchable>
-      </Box>
-      {showFullscreenButton && (
+class VideoControls extends React.Component<Props> {
+  static propTypes = {
+    accessibilityMaximizeLabel: PropTypes.string.isRequired,
+    accessibilityMinimizeLabel: PropTypes.string.isRequired,
+    accessibilityMuteLabel: PropTypes.string.isRequired,
+    accessibilityPauseLabel: PropTypes.string.isRequired,
+    accessibilityPlayLabel: PropTypes.string.isRequired,
+    accessibilityUnmuteLabel: PropTypes.string.isRequired,
+    currentTime: PropTypes.number.isRequired,
+    duration: PropTypes.number.isRequired,
+    fullscreen: PropTypes.bool.isRequired,
+    onFullscreenChange: PropTypes.func.isRequired,
+    onPause: PropTypes.func.isRequired,
+    onPlay: PropTypes.func.isRequired,
+    onVolumeChange: PropTypes.func.isRequired,
+    playing: PropTypes.bool.isRequired,
+    seek: PropTypes.func.isRequired,
+    volume: PropTypes.number.isRequired,
+  };
+
+  handleFullscreenChange = ({ event }: { event: SyntheticEvent<> }) => {
+    const { onFullscreenChange } = this.props;
+    event.stopPropagation();
+    onFullscreenChange();
+  };
+
+  handlePlayingChange = ({ event }: { event: SyntheticEvent<> }) => {
+    const { playing, onPause, onPlay } = this.props;
+    if (playing) {
+      onPause(event);
+    } else {
+      onPlay(event);
+    }
+  };
+
+  /* eslint-disable react/no-unused-prop-types */
+  handleVolumeChange = ({ event }: { event: SyntheticEvent<> }) => {
+    const { onVolumeChange } = this.props;
+    onVolumeChange(event);
+  };
+  /* eslint-enable react/no-unused-prop-types */
+
+  render() {
+    const {
+      accessibilityMaximizeLabel,
+      accessibilityMinimizeLabel,
+      accessibilityMuteLabel,
+      accessibilityPauseLabel,
+      accessibilityPlayLabel,
+      accessibilityUnmuteLabel,
+      currentTime,
+      duration,
+      fullscreen,
+      playing,
+      seek,
+      volume,
+    } = this.props;
+    const muted = volume === 0;
+    const showFullscreenButton =
+      typeof document !== 'undefined' && !!fullscreenEnabled();
+    return (
+      <Box
+        position="absolute"
+        bottom
+        left
+        right
+        column={12}
+        padding={2}
+        display="flex"
+        alignItems="center"
+      >
         <Box padding={2}>
-          <Touchable onTouch={onFullscreenChange} fullWidth={false}>
+          <Touchable onTouch={this.handlePlayingChange} fullWidth={false}>
             <Icon
               accessibilityLabel={
-                fullscreen
-                  ? accessibilityMinimizeLabel
-                  : accessibilityMaximizeLabel
+                playing ? accessibilityPauseLabel : accessibilityPlayLabel
               }
               color="white"
-              icon={fullscreen ? 'minimize' : 'maximize'}
+              icon={playing ? 'pause' : 'play'}
               size={20}
             />
           </Touchable>
         </Box>
-      )}
-    </Box>
-  );
+        <Box width={50} padding={2}>
+          <Text color="white" align="right" size="xs">
+            {timeToString(currentTime)}
+          </Text>
+        </Box>
+        <Box padding={2} flex="grow">
+          <VideoPlayhead
+            currentTime={currentTime}
+            duration={duration}
+            seek={seek}
+          />
+        </Box>
+        <Box width={50} padding={2}>
+          <Text color="white" align="right" size="xs">
+            {timeToString(duration)}
+          </Text>
+        </Box>
+        <Box padding={2}>
+          <Touchable onTouch={this.handleVolumeChange} fullWidth={false}>
+            <Icon
+              accessibilityLabel={
+                muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
+              }
+              color="white"
+              icon={muted ? 'mute' : 'sound'}
+              size={20}
+            />
+          </Touchable>
+        </Box>
+        {showFullscreenButton && (
+          <Box padding={2}>
+            <Touchable onTouch={this.handleFullscreenChange} fullWidth={false}>
+              <Icon
+                accessibilityLabel={
+                  fullscreen
+                    ? accessibilityMinimizeLabel
+                    : accessibilityMaximizeLabel
+                }
+                color="white"
+                icon={fullscreen ? 'minimize' : 'maximize'}
+                size={20}
+              />
+            </Touchable>
+          </Box>
+        )}
+      </Box>
+    );
+  }
 }
 
-VideoControls.propTypes = {
-  accessibilityMaximizeLabel: PropTypes.string.isRequired,
-  accessibilityMinimizeLabel: PropTypes.string.isRequired,
-  accessibilityMuteLabel: PropTypes.string.isRequired,
-  accessibilityPauseLabel: PropTypes.string.isRequired,
-  accessibilityPlayLabel: PropTypes.string.isRequired,
-  accessibilityUnmuteLabel: PropTypes.string.isRequired,
-  currentTime: PropTypes.number.isRequired,
-  duration: PropTypes.number.isRequired,
-  fullscreen: PropTypes.bool.isRequired,
-  onFullscreenChange: PropTypes.func.isRequired,
-  onPause: PropTypes.func.isRequired,
-  onPlay: PropTypes.func.isRequired,
-  onVolumeChange: PropTypes.func.isRequired,
-  playing: PropTypes.bool.isRequired,
-  seek: PropTypes.func.isRequired,
-  volume: PropTypes.number.isRequired,
-};
+export default VideoControls;
