@@ -35,13 +35,28 @@ type Props = {|
   aspectRatio: number,
   captions: string,
   loop?: boolean,
-  onDurationChange?: ({ duration: number }) => void,
-  onFullscreenChange?: ({ fullscreen: boolean }) => void,
-  onLoadedChange?: ({ loaded: number }) => void,
-  onPlay?: () => void,
-  onPause?: () => void,
-  onTimeChange?: ({ time: number }) => void,
-  onVolumeChange?: ({ volume: number }) => void,
+  onDurationChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    duration: number,
+  }) => void,
+  onFullscreenChange?: ({
+    event: SyntheticEvent<HTMLDivElement>,
+    fullscreen: boolean,
+  }) => void,
+  onLoadedChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    loaded: number,
+  }) => void,
+  onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onTimeChange?: ({
+    event: SyntheticEvent<HTMLVideoElement>,
+    time: number,
+  }) => void,
+  onVolumeChange?: ({
+    event: SyntheticEvent<HTMLDivElement>,
+    volume: number,
+  }) => void,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -330,75 +345,75 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
-  handleDurationChange = () => {
+  handleDurationChange = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onDurationChange } = this.props;
     const duration = (this.video && this.video.duration) || 0;
     this.setState({ duration });
 
     if (onDurationChange) {
-      onDurationChange({ duration });
+      onDurationChange({ event, duration });
     }
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullscreenChange = () => {
+  handleFullscreenChange = (event: SyntheticEvent<HTMLDivElement>) => {
     const { onFullscreenChange } = this.props;
     const fullscreen = !!isFullscreen();
     this.setState({ fullscreen });
 
     if (onFullscreenChange) {
-      onFullscreenChange({ fullscreen });
+      onFullscreenChange({ event, fullscreen });
     }
   };
 
   // Sent when playback of the media starts after having been paused.
-  handlePlay = () => {
+  handlePlay = (event: SyntheticEvent<HTMLDivElement>) => {
     const { onPlay } = this.props;
 
     if (onPlay) {
-      onPlay();
+      onPlay({ event });
     }
   };
 
   // Sent when playback is paused.
-  handlePause = () => {
+  handlePause = (event: SyntheticEvent<HTMLDivElement>) => {
     const { onPause } = this.props;
 
     if (onPause) {
-      onPause();
+      onPause({ event });
     }
   };
 
   // Sent periodically to inform interested parties of progress downloading the media
-  handleProgress = () => {
+  handleProgress = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onLoadedChange } = this.props;
     const { buffered } = this.video || {};
     const loaded =
       buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
 
     if (onLoadedChange) {
-      onLoadedChange({ loaded });
+      onLoadedChange({ event, loaded });
     }
   };
 
   // The time indicated by the element's currentTime attribute has changed
-  handleTimeUpdate = () => {
+  handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onTimeChange } = this.props;
     const currentTime = (this.video && this.video.currentTime) || 0;
     this.setState({ currentTime });
 
     if (onTimeChange) {
-      onTimeChange({ time: currentTime });
+      onTimeChange({ event, time: currentTime });
     }
   };
 
   // Sent when the audio volume changes
-  handleVolumeChange = () => {
+  handleVolumeChange = (event: SyntheticEvent<HTMLDivElement>) => {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
 
     if (onVolumeChange) {
-      onVolumeChange({ volume: muted ? 1 : 0 });
+      onVolumeChange({ event, volume: muted ? 1 : 0 });
     }
   };
 
