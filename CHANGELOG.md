@@ -25,6 +25,7 @@
 * Internal: Turn on all react recommended linters (#192)
 * Internal: Merge jest-pupeteer eslint file into main one (#193)
 * Docs: Rewrite Column doc to remove scope prop from Example (#196)
+* Video: Fix broken equality check for Video `src` prop (#202)
 
 </details>
 
