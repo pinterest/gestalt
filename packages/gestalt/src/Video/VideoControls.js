@@ -69,7 +69,9 @@ class VideoControls extends React.Component<Props> {
   handleFullscreenChange = ({
     event,
   }: {
-    event: SyntheticEvent<HTMLDivElement>,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => {
     const { onFullscreenChange } = this.props;
     event.stopPropagation();
@@ -79,7 +81,9 @@ class VideoControls extends React.Component<Props> {
   handlePlayingChange = ({
     event,
   }: {
-    event: SyntheticEvent<HTMLDivElement>,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => {
     const { playing, onPause, onPlay } = this.props;
     if (playing) {
@@ -93,7 +97,9 @@ class VideoControls extends React.Component<Props> {
     event,
   }: {
     /* eslint-disable react/no-unused-prop-types */
-    event: SyntheticEvent<HTMLDivElement>,
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
     /* eslint-enable react/no-unused-prop-types */
   }) => {
     const { onVolumeChange } = this.props;
