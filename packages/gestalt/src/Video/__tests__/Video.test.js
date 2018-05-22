@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import Video from '../Video';
 
 test('Video with source', () => {
@@ -64,4 +65,115 @@ test('Video with callbacks', () => {
     />
   ).toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+describe('Video loading', () => {
+  it('Loads when string src changes to new string src', () => {
+    const wrapper = shallow(
+      <Video
+        aspectRatio={1}
+        captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      />
+    );
+    const spy = jest.spyOn(wrapper.instance(), 'load');
+    wrapper.setProps({ src: 'http://media.w3.org/2010/05/bunny/movie.mp4' });
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('Does not load when string src does not change', () => {
+    const wrapper = shallow(
+      <Video
+        aspectRatio={1}
+        captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      />
+    );
+    const spy = jest.spyOn(wrapper.instance(), 'load');
+    wrapper.setProps({ volume: 0 });
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it('Loads when string src changes to new array src', () => {
+    const wrapper = shallow(
+      <Video
+        aspectRatio={1}
+        captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      />
+    );
+    const spy = jest.spyOn(wrapper.instance(), 'load');
+    wrapper.setProps({
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+        },
+      ],
+    });
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('Loads when array src changes to new string src', () => {
+    const wrapper = shallow(
+      <Video
+        aspectRatio={1}
+        captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+        src={[
+          {
+            type: 'video/mp4',
+            src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+          },
+        ]}
+      />
+    );
+    const spy = jest.spyOn(wrapper.instance(), 'load');
+    wrapper.setProps({
+      src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+    });
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('Does not load when array src does not change', () => {
+    const wrapper = shallow(
+      <Video
+        aspectRatio={1}
+        captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+        src={[
+          {
+            type: 'video/mp4',
+            src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+          },
+        ]}
+      />
+    );
+    const spy = jest.spyOn(wrapper.instance(), 'load');
+    wrapper.setProps({ volume: 0 });
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it('Loads when array src changes to new array src', () => {
+    const wrapper = shallow(
+      <Video
+        aspectRatio={1}
+        captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+        src={[
+          {
+            type: 'video/mp4',
+            src: 'https://media.w3.org/2010/05/sintel/trailer_hd.mp4',
+          },
+        ]}
+      />
+    );
+    const spy = jest.spyOn(wrapper.instance(), 'load');
+    wrapper.setProps({
+      src: [
+        {
+          type: 'video/mp4',
+          src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
+        },
+      ],
+    });
+    expect(spy).toHaveBeenCalled();
+  });
 });
