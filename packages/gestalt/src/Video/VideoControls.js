@@ -19,9 +19,9 @@ type Props = {|
   duration: number,
   fullscreen: boolean,
   onFullscreenChange: () => void,
-  onPause: (event: SyntheticEvent<>) => void,
-  onPlay: (event: SyntheticEvent<>) => void,
-  onVolumeChange: (event: SyntheticEvent<>) => void,
+  onPause: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onPlay: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onVolumeChange: (event: SyntheticEvent<HTMLDivElement>) => void,
   playing: boolean,
   seek: (time: number) => void,
   volume: number,
@@ -66,13 +66,21 @@ class VideoControls extends React.Component<Props> {
     volume: PropTypes.number.isRequired,
   };
 
-  handleFullscreenChange = ({ event }: { event: SyntheticEvent<> }) => {
+  handleFullscreenChange = ({
+    event,
+  }: {
+    event: SyntheticEvent<HTMLDivElement>,
+  }) => {
     const { onFullscreenChange } = this.props;
     event.stopPropagation();
     onFullscreenChange();
   };
 
-  handlePlayingChange = ({ event }: { event: SyntheticEvent<> }) => {
+  handlePlayingChange = ({
+    event,
+  }: {
+    event: SyntheticEvent<HTMLDivElement>,
+  }) => {
     const { playing, onPause, onPlay } = this.props;
     if (playing) {
       onPause(event);
@@ -81,12 +89,16 @@ class VideoControls extends React.Component<Props> {
     }
   };
 
-  /* eslint-disable react/no-unused-prop-types */
-  handleVolumeChange = ({ event }: { event: SyntheticEvent<> }) => {
+  handleVolumeChange = ({
+    event,
+  }: {
+    /* eslint-disable react/no-unused-prop-types */
+    event: SyntheticEvent<HTMLDivElement>,
+    /* eslint-enable react/no-unused-prop-types */
+  }) => {
     const { onVolumeChange } = this.props;
     onVolumeChange(event);
   };
-  /* eslint-enable react/no-unused-prop-types */
 
   render() {
     const {

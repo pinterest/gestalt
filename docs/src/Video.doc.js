@@ -80,40 +80,45 @@ card(
       },
       {
         name: 'onDurationChange',
-        type: '({ event: SyntheticEvent<>, duration: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
         name: 'onFullscreenChange',
-        type: '({ event: SyntheticEvent<>, fullscreen: boolean }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLDivElement>, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
         name: 'onLoadedChange',
-        type: '({ event: SyntheticEvent<>, loaded: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => void',
         description: 'Sent when progress happens on downloading the media',
       },
       {
         name: 'onPlay',
-        type: '({ event: SyntheticEvent<> }) => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description:
           'Sent when playback of the media starts after having been paused',
       },
       {
         name: 'onPause',
-        type: '({ event: SyntheticEvent<> }) => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description: 'Sent when playback is paused',
       },
       {
         name: 'onTimeChange',
-        type: '({ event: SyntheticEvent<>, time: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
       {
         name: 'onVolumeChange',
-        type: '({ event: SyntheticEvent<>, volume: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
       },
       {
