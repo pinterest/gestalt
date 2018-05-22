@@ -14,6 +14,7 @@
 * Internal: Add eslint-plugin-eslint-comments with recommended settings (#200)
 * Video: Makes `aspectRatio` a required prop for `Video` (#201)
 * Video: Pass events through to callback functions (#203)
+* Touchable: Add event targets to Flow typing for callbacks (#204)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
