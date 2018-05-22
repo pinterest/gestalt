@@ -13,6 +13,7 @@
 * Internal: Refactor Modal docs to kill StateRecorder (#199)
 * Internal: Add eslint-plugin-eslint-comments with recommended settings (#200)
 * Video: Makes `aspectRatio` a required prop for `Video` (#201)
+* Touchable: Add event targets to Flow typing for callbacks (#204)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
