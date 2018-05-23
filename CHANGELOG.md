@@ -29,6 +29,7 @@
 * Internal: Merge jest-pupeteer eslint file into main one (#193)
 * Docs: Rewrite Column doc to remove scope prop from Example (#196)
 * Video: Fix broken equality check for Video `src` prop (#202)
+* Internal: Move stylelint config to separate file (#206)
 
 </details>
 
