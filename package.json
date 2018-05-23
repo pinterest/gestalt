@@ -72,6 +72,7 @@
           "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
           "\\.(css)$": "identity-obj-proxy"
         },
+        "testPathIgnorePatterns": ["jsdom.test.js"],
         "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
       },
       {
