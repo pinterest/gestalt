@@ -55,6 +55,7 @@ test('Video with callbacks', () => {
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onDurationChange={() => {}}
+      onEnded={() => {}}
       onFullscreenChange={() => {}}
       onLoadedChange={() => {}}
       onPause={() => {}}

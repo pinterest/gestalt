@@ -86,6 +86,11 @@ card(
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
+        name: 'onEnded',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when playback of the video completes',
+      },
+      {
         name: 'onFullscreenChange',
         type:
           '({ event: SyntheticEvent<HTMLDivElement>, fullscreen: boolean }) => void',

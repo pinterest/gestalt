@@ -39,6 +39,7 @@ type Props = {|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   }) => void,
+  onEnded?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onFullscreenChange?: ({
     event: SyntheticEvent<HTMLDivElement>,
     fullscreen: boolean,
@@ -178,6 +179,7 @@ export default class Video extends React.PureComponent<Props, State> {
     controls: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
+    onEnded: PropTypes.func,
     onFullscreenChange: PropTypes.func,
     onLoadedChange: PropTypes.func,
     onPlay: PropTypes.func,
@@ -355,6 +357,15 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  // Sent when playback completes.
+  handleEnded = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const { onEnded } = this.props;
+
+    if (onEnded) {
+      onEnded({ event });
+    }
+  };
+
   // Sent when the video is switched to/out-of fullscreen mode
   handleFullscreenChange = (event: SyntheticEvent<HTMLDivElement>) => {
     const { onFullscreenChange } = this.props;
@@ -450,6 +461,7 @@ export default class Video extends React.PureComponent<Props, State> {
           className={styles.video}
           onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
+          onEnded={this.handleEnded}
           onTimeUpdate={this.handleTimeUpdate}
           onProgress={this.handleProgress}
         >
