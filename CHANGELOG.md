@@ -7,6 +7,14 @@
   </summary>
 
 ### Minor
+
+### Patch
+
+</details>
+
+## 0.71.0 (May 23, 2018)
+
+### Minor
 * Drop support for React 15 and bump React 16 version (#168)
 * Colors: Update blue color (#193)
 * Video: Fix background color for fullscreen video playback (#198)
@@ -30,8 +38,6 @@
 * Docs: Rewrite Column doc to remove scope prop from Example (#196)
 * Video: Fix broken equality check for Video `src` prop (#202)
 * Internal: Move stylelint config to separate file (#206)
-
-</details>
 
 ## 0.70.0 (May 15, 2018)
 
