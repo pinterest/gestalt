@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Video: Added new `onSeek` callback prop to `Video` component (#209)
 
 ### Patch
 
