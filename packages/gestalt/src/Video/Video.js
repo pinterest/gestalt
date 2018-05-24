@@ -50,6 +50,7 @@ type Props = {|
   }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onTimeChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     time: number,
@@ -184,6 +185,7 @@ export default class Video extends React.PureComponent<Props, State> {
     onLoadedChange: PropTypes.func,
     onPlay: PropTypes.func,
     onPause: PropTypes.func,
+    onSeek: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
     playbackRate: PropTypes.number,
@@ -407,6 +409,15 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  // Sent when a seek operation completes.
+  handleSeek = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const { onSeek } = this.props;
+
+    if (onSeek) {
+      onSeek({ event });
+    }
+  };
+
   // The time indicated by the element's currentTime attribute has changed
   handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onTimeChange } = this.props;
@@ -462,6 +473,7 @@ export default class Video extends React.PureComponent<Props, State> {
           onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
           onEnded={this.handleEnded}
+          onSeeked={this.handleSeek}
           onTimeUpdate={this.handleTimeUpdate}
           onProgress={this.handleProgress}
         >
