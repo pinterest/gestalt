@@ -114,6 +114,11 @@ card(
         description: 'Sent when playback is paused',
       },
       {
+        name: 'onReady',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when video is loaded and ready to play.',
+      },
+      {
         name: 'onTimeChange',
         type:
           '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',

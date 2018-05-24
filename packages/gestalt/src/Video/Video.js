@@ -50,6 +50,7 @@ type Props = {|
   }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onTimeChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     time: number,
@@ -184,6 +185,7 @@ export default class Video extends React.PureComponent<Props, State> {
     onLoadedChange: PropTypes.func,
     onPlay: PropTypes.func,
     onPause: PropTypes.func,
+    onReady: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
     playbackRate: PropTypes.number,
@@ -334,8 +336,8 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   // Sent when enough data is available that the media can be played
-  handleCanPlay = () => {
-    const { playbackRate, playing } = this.props;
+  handleCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const { onReady, playbackRate, playing } = this.props;
     // Simulate an autoplay effect if the component was mounted with
     // playing set to true
     if (playing) {
@@ -343,6 +345,10 @@ export default class Video extends React.PureComponent<Props, State> {
     }
     // Set the initial playback rate when video is raedy to play
     this.setPlaybackRate(playbackRate);
+
+    if (onReady) {
+      onReady({ event });
+    }
   };
 
   // The metadata has loaded or changed, indicating a change in
