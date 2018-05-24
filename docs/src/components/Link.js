@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Link as GestaltLink } from 'gestalt';
 import { createLocation } from 'history';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 type Props = {|
   history: *,
