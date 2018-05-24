@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Video: Added new `onReady` callback prop to `Video` component (#210)
 
 ### Patch
 
