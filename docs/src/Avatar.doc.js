@@ -1,7 +1,5 @@
 // @flow
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Avatar, Box, Text } from 'gestalt';
 import keerthi from './avatars/keerthi.jpg';
 import shanice from './avatars/shanice.jpg';
 import PropTable from './components/PropTable';
@@ -51,33 +49,6 @@ card(
     heading={false}
   />
 );
-
-const sizes = ['sm', 'md', 'lg'];
-
-type AvatarExProps = {
-  size: 'sm' | 'md' | 'lg',
-  src: string,
-};
-
-function AvatarEx(props: AvatarExProps) {
-  const name = 'Keerthi';
-  const { size, src } = props;
-  return (
-    <Box padding={1}>
-      <Box marginBottom={1}>
-        <Text bold align="center">
-          {size}
-        </Text>
-      </Box>
-      <Avatar name={name} size={size} src={src} />
-    </Box>
-  );
-}
-
-AvatarEx.propTypes = {
-  size: PropTypes.oneOf(sizes),
-  src: PropTypes.string,
-};
 
 card(
   <Example
