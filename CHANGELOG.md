@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Internal: Fix react router dependencies (#212)
 
 ### Patch
 
