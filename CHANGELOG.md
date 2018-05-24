@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Internal: Remove dead example code from docs (#211)
 
 ### Patch
 
