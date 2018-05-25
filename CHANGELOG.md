@@ -8,6 +8,8 @@
 
 ### Minor
 * Video: Added new `onSeek` callback prop to `Video` component (#209)
+* Internal: Remove dead example code from docs (#211)
+* Internal: Fix react router dependencies (#212)
 
 ### Patch
 

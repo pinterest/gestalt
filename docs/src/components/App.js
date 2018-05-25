@@ -1,16 +1,12 @@
 // @flow
-import type { Node } from 'react';
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import * as React from 'react';
 import { Box, Column, Divider } from 'gestalt';
 import Header from './Header';
 import Navigation from './Navigation';
 
 type Props = {|
-  children?: Node,
+  children?: React.Node,
 |};
-
-const NavigationWithRouter = withRouter(Navigation);
 
 export default function App(props: Props) {
   const { children } = props;
@@ -20,7 +16,7 @@ export default function App(props: Props) {
 
       <Box mdDisplay="flex" direction="row">
         <Column span={12} mdSpan={2}>
-          <NavigationWithRouter />
+          <Navigation />
         </Column>
         <Divider />
         <Column span={12} mdSpan={8}>
