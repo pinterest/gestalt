@@ -56,7 +56,6 @@ card(
         defaultValue: 'square',
       },
     ]}
-    heading={false}
   />
 );
 

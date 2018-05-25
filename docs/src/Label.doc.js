@@ -28,7 +28,6 @@ card(
         description: 'Id of the element this label is describing',
       },
     ]}
-    heading={false}
   />
 );
 

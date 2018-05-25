@@ -86,7 +86,6 @@ card(
           'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
       },
     ]}
-    heading={false}
   />
 );
 

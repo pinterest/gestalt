@@ -7,7 +7,7 @@ import Checkerboard from './Checkerboard';
 
 type Props = {|
   defaultCode: string,
-  description: string,
+  description?: string,
   name: string,
   direction?: 'row' | 'column',
 |};
@@ -16,7 +16,7 @@ const { Box, Text, Column } = gestalt;
 
 function Example({
   defaultCode,
-  description = '',
+  description,
   name,
   direction = 'column',
 }: Props) {

@@ -175,7 +175,6 @@ card(
         defaultValue: 1,
       },
     ]}
-    heading={false}
   />
 );
 

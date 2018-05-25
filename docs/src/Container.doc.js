@@ -22,7 +22,6 @@ card(
         type: 'React.Node',
       },
     ]}
-    heading={false}
   />
 );
 
