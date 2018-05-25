@@ -10,6 +10,7 @@
 * Internal: Remove dead example code from docs (#211)
 * Internal: Fix react router dependencies (#212)
 * Internal: Fix package.json dependency locations (#213)
+* Flow: Fix Flow errors in the `docs/` directory (#214)
 
 ### Patch
 

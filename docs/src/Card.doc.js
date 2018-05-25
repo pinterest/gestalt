@@ -42,7 +42,6 @@ card(
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
       },
     ]}
-    heading={false}
   />
 );
 

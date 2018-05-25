@@ -62,7 +62,6 @@ card(
         description: `sm: 414px, md: 544px, lg: 804px`,
       },
     ]}
-    heading={false}
   />
 );
 

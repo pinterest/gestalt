@@ -56,7 +56,6 @@ card(
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
     ]}
-    heading={false}
   />
 );
 

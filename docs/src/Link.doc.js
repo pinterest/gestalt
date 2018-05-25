@@ -40,7 +40,6 @@ card(
         defaultValue: 'null',
       },
     ]}
-    heading={false}
   />
 );
 
