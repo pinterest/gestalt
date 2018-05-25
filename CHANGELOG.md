@@ -9,6 +9,7 @@
 ### Minor
 * Internal: Remove dead example code from docs (#211)
 * Internal: Fix react router dependencies (#212)
+* Flow: Fix Flow errors in the `docs/` directory (#214)
 
 ### Patch
 
