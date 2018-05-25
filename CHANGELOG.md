@@ -8,6 +8,8 @@
 
 ### Minor
 * Video: Added new `onReady` callback prop to `Video` component (#210)
+* Internal: Remove dead example code from docs (#211)
+* Internal: Fix react router dependencies (#212)
 
 ### Patch
 
