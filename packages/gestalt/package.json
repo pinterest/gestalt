@@ -25,6 +25,7 @@
     "watch": "rollup -c rollup.config.js --watch"
   },
   "devDependencies": {
+    "caniuse-lite": "^1.0.30000810",
     "cssnano": "^3.10.0",
     "gzip-size": "^4.1.0",
     "postcss": "^6.0.19",
