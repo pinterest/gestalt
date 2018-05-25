@@ -1,6 +1,11 @@
 [version]
 0.71.0
 
+[ignore]
+# Tracking https://github.com/facebook/flow/issues/4015
+<PROJECT_ROOT>/docs
+<PROJECT_ROOT>/test
+
 [options]
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment= \\(.\\|\n\\)*\\$FlowIssue
