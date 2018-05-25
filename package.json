@@ -41,7 +41,6 @@
     "eslint": "^4.17.0",
     "filesize": "^3.6.1",
     "flow-bin": "0.71.0",
-    "gzip-size": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-puppeteer": "^3.0.1",
     "jest": "^22.4.3",
