@@ -1,6 +1,5 @@
 // @flow
-import type { Node } from 'react';
-import React from 'react';
+import * as React from 'react';
 import { Box, Text, Icon } from 'gestalt';
 
 type Props = {|
@@ -12,10 +11,10 @@ type Props = {|
     responsive?: boolean,
     type: string,
   |}>,
-  Component: { displayName: string, propTypes: any },
+  Component?: React.ComponentType<any>,
 |};
 
-const Th = ({ children }: {| children?: Node |}) => (
+const Th = ({ children }: {| children?: React.Node |}) => (
   <th style={{ borderBottom: '2px solid #EFEFEF' }}>
     <Box padding={2}>
       <Text bold size="sm" color="gray" overflow="normal">
@@ -33,7 +32,7 @@ const Td = ({
   color = 'darkGray',
 }: {
   border?: boolean,
-  children?: Node,
+  children?: React.Node,
   colspan?: number,
   shrink?: boolean,
   color?: 'darkGray' | 'gray',
@@ -61,7 +60,7 @@ const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 export default function PropTable({ props: properties, Component }: Props) {
   const hasRequired = properties.some(prop => prop.required);
 
-  if (process.env.NODE_ENV === 'dev' && Component) {
+  if (process.env.NODE_ENV === 'development' && Component) {
     const { displayName, propTypes } = Component;
     const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
       if (!properties.find(p => p.name === prop)) {
@@ -72,7 +71,7 @@ export default function PropTable({ props: properties, Component }: Props) {
     if (missingProps.length > 0) {
       // eslint-disable-next-line no-console
       console.warn(
-        `${displayName} is missing ${
+        `${displayName || ''} is missing ${
           missingProps.length
         } PropTable definitions ${missingProps.join(', ')}`
       );
