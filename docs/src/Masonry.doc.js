@@ -96,7 +96,6 @@ card(
           'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -207,6 +206,7 @@ class ExampleMasonry extends React.Component<
       overflowY: 'scroll',
       width: `${this.state.width}px`,
     };
+    const { scrollContainer } = this;
     return (
       <div>
         <input
@@ -224,7 +224,7 @@ class ExampleMasonry extends React.Component<
           }}
           style={containerStyle}
         >
-          {this.scrollContainer && (
+          {scrollContainer && (
             <Masonry
               columnWidth={170}
               comp={({ data }) => (
@@ -247,7 +247,7 @@ class ExampleMasonry extends React.Component<
               ref={ref => {
                 this.grid = ref;
               }}
-              scrollContainer={() => this.scrollContainer}
+              scrollContainer={() => scrollContainer}
             />
           )}
         </div>

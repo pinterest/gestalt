@@ -59,7 +59,6 @@ card(
         defaultValue: 'sm',
       },
     ]}
-    heading={false}
   />
 );
 

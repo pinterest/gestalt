@@ -46,7 +46,6 @@ card(
         defaultValue: false,
       },
     ]}
-    heading={false}
   />
 );
 

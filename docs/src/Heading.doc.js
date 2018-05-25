@@ -47,7 +47,7 @@ card(
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 24px, sm: 36px, md: 48px, lg: 64px, xl: 96px`,
         responsive: true,
-        default: 'md',
+        defaultValue: 'md',
       },
       {
         name: 'truncate',
@@ -55,12 +55,12 @@ card(
         defaultValue: false,
       },
     ]}
-    heading={false}
   />
 );
 
 card(
   <Example
+    name="Example: Sizes"
     defaultCode={`
 <Box>
 <Heading size="xs">Heading extra small</Heading>

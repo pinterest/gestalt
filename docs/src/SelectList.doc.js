@@ -61,7 +61,6 @@ card(
         description: 'Value that is selected.',
       },
     ]}
-    heading={false}
   />
 );
 

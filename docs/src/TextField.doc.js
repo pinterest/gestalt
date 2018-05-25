@@ -70,7 +70,6 @@ card(
         type: 'string',
       },
     ]}
-    heading={false}
   />
 );
 

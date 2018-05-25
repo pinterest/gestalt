@@ -45,7 +45,6 @@ card(
           'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
       },
     ]}
-    heading={false}
   />
 );
 

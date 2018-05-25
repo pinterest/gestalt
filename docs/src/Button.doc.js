@@ -79,7 +79,6 @@ card(
         defaultValue: 'button',
       },
     ]}
-    heading={false}
   />
 );
 

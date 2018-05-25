@@ -41,7 +41,6 @@ card(
         required: true,
       },
     ]}
-    heading={false}
   />
 );
 
