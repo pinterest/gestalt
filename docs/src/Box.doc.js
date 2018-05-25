@@ -416,8 +416,10 @@ card(
 );
 
 const toggleRTL = () => {
-  document.documentElement.dir =
-    document.documentElement.dir === 'rtl' ? '' : 'rtl';
+  if (document.documentElement) {
+    const isRTL = document.documentElement.dir === 'rtl';
+    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+  }
 };
 
 card(

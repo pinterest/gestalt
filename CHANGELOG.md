@@ -11,6 +11,7 @@
 * Internal: Fix react router dependencies (#212)
 * Internal: Fix package.json dependency locations (#213)
 * Flow: Fix Flow errors in the `docs/` directory (#214)
+* Flow: Fix remaining errors in the `docs/` directory and enable Flow (#215)
 
 ### Patch
 
