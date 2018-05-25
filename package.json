@@ -23,6 +23,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "benchmark": "^2.1.4",
     "codecov": "^3.0.2",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
