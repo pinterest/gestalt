@@ -22,10 +22,10 @@ export default class Layer extends React.Component<Props> {
     }
   }
 
-  el: HTMLElement;
+  el: HTMLDivElement;
 
   render() {
     const { children } = this.props;
-    return createPortal(<div>{children}</div>, this.el);
+    return createPortal(children, this.el);
   }
 }
