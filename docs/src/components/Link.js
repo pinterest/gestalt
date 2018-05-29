@@ -5,11 +5,11 @@ import { createLocation } from 'history';
 import { withRouter } from 'react-router-dom';
 
 type Props = {|
+  children?: React.Node,
   history: *,
-  location: *,
   onClick: Function,
   replace: boolean,
-  target?: string,
+  target?: null | 'self' | 'blank',
   to: string | Object,
 |};
 
@@ -43,13 +43,17 @@ class Link extends React.Component<Props> {
   };
 
   render() {
-    const { replace, to, history, ...props } = this.props;
+    const { children, to, history, target } = this.props;
     const href = history.createHref(
       typeof to === 'string'
         ? createLocation(to, null, null, history.location)
         : to
     );
-    return <GestaltLink {...props} onClick={this.handleClick} href={href} />;
+    return (
+      <GestaltLink target={target} onClick={this.handleClick} href={href}>
+        {children}
+      </GestaltLink>
+    );
   }
 }
 

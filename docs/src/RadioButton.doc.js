@@ -57,7 +57,6 @@ card(
         defaultValue: 'md',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -72,14 +71,14 @@ card(
     name="Example: Accessibility"
     defaultCode={`
 <Box alignItems="center" display="flex" direction="row">
-<RadioButton id="usa" checked onChange={() => {}} value="usa" />
-<Box flex="grow">
-  <Label htmlFor="usa">
-    <Box paddingX={2}>
-      <Text bold>U.S.A.</Text>
-    </Box>
-  </Label>
-</Box>
+  <RadioButton id="usa" checked onChange={() => {}} value="usa" />
+  <Box flex="grow">
+    <Label htmlFor="usa">
+      <Box paddingX={2}>
+        <Text bold>U.S.A.</Text>
+      </Box>
+    </Label>
+  </Box>
 </Box>
 `}
   />
@@ -93,64 +92,64 @@ card(
     name="Example: Group"
     defaultCode={`
 class RadioButtonExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = { gender: undefined };
-}
-render() {
-  return (
-    <Box role="list" display="flex" direction="column">
-      <Box alignItems="center" paddingY={1} display="flex" direction="row">
-        <RadioButton
-          checked={this.state.gender === 'male'}
-          id="genderMale"
-          name="gender"
-          onChange={() => this.setState({ gender: 'male' })}
-          value="male"
-        />
-        <Box flex="grow">
-          <Label htmlFor="genderMale">
-            <Box paddingX={2}>
-              <Text>Male</Text>
-            </Box>
-          </Label>
+  constructor(props) {
+    super(props);
+    this.state = { gender: undefined };
+  }
+  render() {
+    return (
+      <Box role="list" display="flex" direction="column">
+        <Box alignItems="center" paddingY={1} display="flex" direction="row">
+          <RadioButton
+            checked={this.state.gender === 'male'}
+            id="genderMale"
+            name="gender"
+            onChange={() => this.setState({ gender: 'male' })}
+            value="male"
+          />
+          <Box flex="grow">
+            <Label htmlFor="genderMale">
+              <Box paddingX={2}>
+                <Text>Male</Text>
+              </Box>
+            </Label>
+          </Box>
+        </Box>
+        <Box alignItems="center" paddingY={1} display="flex" direction="row">
+          <RadioButton
+            checked={this.state.gender === 'female'}
+            id="genderFemale"
+            name="gender"
+            onChange={() => this.setState({ gender: 'female' })}
+            value="female"
+          />
+          <Box flex="grow">
+            <Label htmlFor="genderFemale">
+              <Box paddingX={2}>
+                <Text>Female</Text>
+              </Box>
+            </Label>
+          </Box>
+        </Box>
+        <Box alignItems="center" paddingY={1} display="flex" direction="row">
+          <RadioButton
+            checked={this.state.gender === 'other'}
+            id="genderOther"
+            name="gender"
+            onChange={() => this.setState({ gender: 'other' })}
+            value="other"
+          />
+          <Box flex="grow">
+            <Label htmlFor="genderOther">
+              <Box paddingX={2}>
+                <Text>Other</Text>
+              </Box>
+            </Label>
+          </Box>
         </Box>
       </Box>
-      <Box alignItems="center" paddingY={1} display="flex" direction="row">
-        <RadioButton
-          checked={this.state.gender === 'female'}
-          id="genderFemale"
-          name="gender"
-          onChange={() => this.setState({ gender: 'female' })}
-          value="female"
-        />
-        <Box flex="grow">
-          <Label htmlFor="genderFemale">
-            <Box paddingX={2}>
-              <Text>Female</Text>
-            </Box>
-          </Label>
-        </Box>
-      </Box>
-      <Box alignItems="center" paddingY={1} display="flex" direction="row">
-        <RadioButton
-          checked={this.state.gender === 'other'}
-          id="genderOther"
-          name="gender"
-          onChange={() => this.setState({ gender: 'other' })}
-          value="other"
-        />
-        <Box flex="grow">
-          <Label htmlFor="genderOther">
-            <Box paddingX={2}>
-              <Text>Other</Text>
-            </Box>
-          </Label>
-        </Box>
-      </Box>
-    </Box>
-  );
-}
+    );
+  }
 }
 `}
   />

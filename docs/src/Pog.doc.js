@@ -62,7 +62,6 @@ card(
         defaultValue: 'md',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -71,8 +70,8 @@ card(
     name="Example"
     defaultCode={`
 <Pog
-icon="heart"
-iconColor="red"
+  icon="heart"
+  iconColor="red"
 />
 `}
   />

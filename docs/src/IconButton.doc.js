@@ -66,7 +66,6 @@ card(
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -75,11 +74,11 @@ card(
     name="Example"
     defaultCode={`
 <IconButton
-accessibilityLabel="Love"
-bgColor="white"
-icon="heart"
-iconColor="red"
-onClick={() => { console.log('❤️')}}
+  accessibilityLabel="Love"
+  bgColor="white"
+  icon="heart"
+  iconColor="red"
+  onClick={() => { console.log('❤️')}}
 />
 `}
   />

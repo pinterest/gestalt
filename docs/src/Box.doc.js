@@ -217,7 +217,6 @@ card(
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -231,18 +230,19 @@ card(
     name="Example: Media object"
     defaultCode={`
 <Box
-alignItems="center"
-direction="row"
-display="flex"
-marginStart={-1}
-marginEnd={-1}>
-<Box paddingX={1}>
-  <Avatar name="chrislloyd" size="md" />
-</Box>
-<Box paddingX={1}>
-  <Text bold>Chris Lloyd</Text>
-  <Text>joined 2 years ago</Text>
-</Box>
+  alignItems="center"
+  direction="row"
+  display="flex"
+  marginStart={-1}
+  marginEnd={-1}
+>
+  <Box paddingX={1}>
+    <Avatar name="chrislloyd" size="md" />
+  </Box>
+  <Box paddingX={1}>
+    <Text bold>Chris Lloyd</Text>
+    <Text>joined 2 years ago</Text>
+  </Box>
 </Box>
 `}
   />
@@ -256,21 +256,22 @@ card(
     name="Example: Double-sided media object"
     defaultCode={`
 <Box
-alignItems="center"
-direction="row"
-display="flex"
-marginStart={-1}
-marginEnd={-1}>
-<Box paddingX={1}>
-  <Avatar name="chrislloyd" size="md" />
-</Box>
-<Box paddingX={1}  flex="grow">
-  <Text bold>Chris Lloyd</Text>
-  <Text>joined 2 years ago</Text>
-</Box>
-<Box paddingX={1}>
-  <Button text="Follow" size="sm" color="red" />
-</Box>
+  alignItems="center"
+  direction="row"
+  display="flex"
+  marginStart={-1}
+  marginEnd={-1}
+>
+  <Box paddingX={1}>
+    <Avatar name="chrislloyd" size="md" />
+  </Box>
+  <Box paddingX={1}  flex="grow">
+    <Text bold>Chris Lloyd</Text>
+    <Text>joined 2 years ago</Text>
+  </Box>
+  <Box paddingX={1}>
+    <Button text="Follow" size="sm" color="red" />
+  </Box>
 </Box>
 `}
   />
@@ -417,8 +418,10 @@ card(
 );
 
 const toggleRTL = () => {
-  document.documentElement.dir =
-    document.documentElement.dir === 'rtl' ? '' : 'rtl';
+  if (document.documentElement) {
+    const isRTL = document.documentElement.dir === 'rtl';
+    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+  }
 };
 
 card(
@@ -452,18 +455,18 @@ card(
     name="Example: Absolute positioning"
     defaultCode={`
 <Box position="relative" color="white" height={200}>
-<Box position="absolute" top left padding={1}>
-  Top, left
-</Box>
-<Box position="absolute" top right padding={1}>
-  Top, right
-</Box>
-<Box position="absolute" bottom left padding={1}>
-  Bottom, left
-</Box>
-<Box position="absolute" bottom right padding={1}>
-  Bottom, right
-</Box>
+  <Box position="absolute" top left padding={1}>
+    Top, left
+  </Box>
+  <Box position="absolute" top right padding={1}>
+    Top, right
+  </Box>
+  <Box position="absolute" bottom left padding={1}>
+    Bottom, left
+  </Box>
+  <Box position="absolute" bottom right padding={1}>
+    Bottom, right
+  </Box>
 </Box>
 `}
   />

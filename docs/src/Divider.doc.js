@@ -14,7 +14,7 @@ card(
   />
 );
 
-card(<PropTable props={[]} heading={false} />);
+card(<PropTable props={[]} />);
 
 card(
   <Example
@@ -24,13 +24,13 @@ card(
     name="Example"
     defaultCode={`
 <Box color="white">
-<Box padding={2}>
-  <Text>Some content</Text>
-</Box>
-<Divider />
-<Box padding={2}>
-  <Text>Other content</Text>
-</Box>
+  <Box padding={2}>
+    <Text>Some content</Text>
+  </Box>
+  <Divider />
+  <Box padding={2}>
+    <Text>Other content</Text>
+  </Box>
 </Box>
 `}
   />
