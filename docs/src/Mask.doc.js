@@ -54,7 +54,7 @@ card(
     name="Example"
     defaultCode={`
 <Mask height={70} shape="circle" width={70}>
-<div style={{ backgroundColor: '#0fa573', width: 70, height: 70 }} />
+  <div style={{ backgroundColor: '#0fa573', width: 70, height: 70 }} />
 </Mask>
 `}
   />
@@ -68,13 +68,13 @@ card(
     name="Example: Masking other content"
     defaultCode={`
 <Box maxWidth={300}>
-<Mask shape="circle">
-  <img
-    alt="weakendclub.com"
-    src="${stock7}"
-    style={{ maxWidth: '100%', display: 'block' }}
-  />
-</Mask>
+  <Mask shape="circle">
+    <img
+      alt="weakendclub.com"
+      src="${stock7}"
+      style={{ maxWidth: '100%', display: 'block' }}
+    />
+  </Mask>
 </Box>
 `}
   />
@@ -88,13 +88,13 @@ card(
     name="Example: Adding a wash"
     defaultCode={`
 <Box maxWidth={300}>
-<Mask shape="rounded" wash>
-  <img
-    alt="subliming.tumblr.com"
-    src="${stock8}"
-    style={{ maxWidth: '100%', display: 'block' }}
-  />
-</Mask>
+  <Mask shape="rounded" wash>
+    <img
+      alt="subliming.tumblr.com"
+      src="${stock8}"
+      style={{ maxWidth: '100%', display: 'block' }}
+    />
+  </Mask>
 </Box>
 `}
   />
