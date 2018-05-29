@@ -217,7 +217,6 @@ card(
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -417,8 +416,10 @@ card(
 );
 
 const toggleRTL = () => {
-  document.documentElement.dir =
-    document.documentElement.dir === 'rtl' ? '' : 'rtl';
+  if (document.documentElement) {
+    const isRTL = document.documentElement.dir === 'rtl';
+    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+  }
 };
 
 card(

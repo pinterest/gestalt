@@ -14,7 +14,7 @@ card(
   />
 );
 
-card(<PropTable props={[]} heading={false} />);
+card(<PropTable props={[]} />);
 
 card(
   <Example

@@ -31,7 +31,6 @@ card(
         defaultValue: 120,
       },
     ]}
-    heading={false}
   />
 );
 

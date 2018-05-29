@@ -60,7 +60,6 @@ a checkbox and it's indeterminism are independent.`,
         description: `"sm" is 16px & "md" is 24px`,
       },
     ]}
-    heading={false}
   />
 );
 

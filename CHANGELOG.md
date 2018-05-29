@@ -7,12 +7,28 @@
   </summary>
 
 ### Minor
+* Internal: Remove dead example code from docs (#211)
+* Internal: Fix react router dependencies (#212)
+* Internal: Fix package.json dependency locations (#213)
+* Flow: Fix Flow errors in the `docs/` directory (#214)
+* Flow: Fix remaining errors in the `docs/` directory and enable Flow (#215)
+
+### Patch
+
+</details>
+
+## 0.71.0 (May 23, 2018)
+
+### Minor
 * Drop support for React 15 and bump React 16 version (#168)
 * Colors: Update blue color (#193)
 * Video: Fix background color for fullscreen video playback (#198)
 * Internal: Refactor Modal docs to kill StateRecorder (#199)
 * Internal: Add eslint-plugin-eslint-comments with recommended settings (#200)
 * Video: Makes `aspectRatio` a required prop for `Video` (#201)
+* Video: Pass events through to callback functions (#203)
+* Touchable: Add event targets to Flow typing for callbacks (#204)
+* Video: Add new `onEnded` prop for media end event (#207)
 
 ### Patch
 * Internal: Add code coverage to PRs (#185)
@@ -26,8 +42,7 @@
 * Internal: Merge jest-pupeteer eslint file into main one (#193)
 * Docs: Rewrite Column doc to remove scope prop from Example (#196)
 * Video: Fix broken equality check for Video `src` prop (#202)
-
-</details>
+* Internal: Move stylelint config to separate file (#206)
 
 ## 0.70.0 (May 15, 2018)
 

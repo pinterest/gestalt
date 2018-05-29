@@ -80,40 +80,50 @@ card(
       },
       {
         name: 'onDurationChange',
-        type: '({ duration: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
+        name: 'onEnded',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when playback of the video completes',
+      },
+      {
         name: 'onFullscreenChange',
-        type: '({ fullscreen: boolean }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLDivElement>, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
         name: 'onLoadedChange',
-        type: '({ loaded: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => void',
         description: 'Sent when progress happens on downloading the media',
       },
       {
         name: 'onPlay',
-        type: '() => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description:
           'Sent when playback of the media starts after having been paused',
       },
       {
         name: 'onPause',
-        type: '() => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description: 'Sent when playback is paused',
       },
       {
         name: 'onTimeChange',
-        type: '({ time: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
       {
         name: 'onVolumeChange',
-        type: '({ volume: number }) => void',
+        type:
+          '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
       },
       {
@@ -165,7 +175,6 @@ card(
         defaultValue: 1,
       },
     ]}
-    heading={false}
   />
 );
 

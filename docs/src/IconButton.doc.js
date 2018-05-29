@@ -66,7 +66,6 @@ card(
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },
     ]}
-    heading={false}
   />
 );
 

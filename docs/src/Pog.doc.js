@@ -62,7 +62,6 @@ card(
         defaultValue: 'md',
       },
     ]}
-    heading={false}
   />
 );
 

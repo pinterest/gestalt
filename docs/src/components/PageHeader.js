@@ -5,7 +5,7 @@ import Markdown from './Markdown';
 
 type Props = {|
   name: string,
-  description: string,
+  description?: string,
 |};
 
 const gestaltPath = component =>
@@ -25,7 +25,7 @@ export default function ComponentHeader({ name, description = '' }: Props) {
           </Link>
         </Text>
       </Box>
-      <Markdown text={description} size="lg" />
+      {description && <Markdown text={description} size="lg" />}
     </Box>
   );
 }
