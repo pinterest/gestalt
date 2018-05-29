@@ -22,7 +22,7 @@ import Mask from './Mask/Mask';
 import Masonry from './Masonry/Masonry';
 import MasonryDefaultLayout from './Masonry/layout/masonry';
 import MasonryUniformRowLayout from './Masonry/layout/uniformRow';
-import Modal from './Modal/Modal';
+import Modal from './Modal';
 import Pog from './Pog/Pog';
 import Pulsar from './Pulsar/Pulsar';
 import RadioButton from './RadioButton/RadioButton';

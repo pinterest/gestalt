@@ -2,16 +2,16 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from '../Box/Box';
-import Divider from '../Divider/Divider';
-import Heading from '../Heading/Heading';
-import IconButton from '../IconButton/IconButton';
+import Box from './Box/Box';
+import Divider from './Divider/Divider';
+import Heading from './Heading/Heading';
+import IconButton from './IconButton/IconButton';
 
 import styles from './Modal.css';
-import borders from '../Borders.css';
-import colors from '../Colors.css';
-import column from '../Column.css';
-import layout from '../Layout.css';
+import borders from './Borders.css';
+import colors from './Colors.css';
+import column from './Column.css';
+import layout from './Layout.css';
 
 const SIZE_WIDTH_MAP = {
   sm: 414,
@@ -154,7 +154,8 @@ export default class Modal extends React.Component<Props> {
           <Box
             maxHeight="90vh"
             position="relative"
-            xs={{ display: 'flexColumn' }}
+            display="flex"
+            direction="column"
           >
             <Box fit>
               {role === 'dialog' ? (
