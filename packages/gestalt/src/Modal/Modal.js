@@ -35,24 +35,12 @@ type Props = {|
   size?: 'sm' | 'md' | 'lg',
 |};
 
-type State = {
-  breakpoint: 'xs' | 'sm' | 'md' | 'lg',
-  windowHeight: ?number,
-};
-
-export default class Modal extends React.Component<Props, State> {
-  state: State = {
-    breakpoint: 'xs',
-    windowHeight: undefined,
-  };
-
+export default class Modal extends React.Component<Props> {
   componentDidMount() {
     document.addEventListener('click', this.handlePageClick);
     window.addEventListener('keydown', this.handleKeyDown);
-    window.addEventListener('resize', this.updateBreakpoint);
     document.addEventListener('focus', this.restrictFocus, true);
     this.priorFocus = document.activeElement;
-    this.updateBreakpoint();
     if (document.body) {
       document.body.style.overflow = 'hidden'; // Prevents background scrolling
     }
@@ -67,7 +55,6 @@ export default class Modal extends React.Component<Props, State> {
   componentWillUnmount() {
     document.removeEventListener('click', this.handlePageClick);
     window.removeEventListener('keydown', this.handleKeyDown);
-    window.removeEventListener('resize', this.updateBreakpoint);
     document.removeEventListener('focus', this.restrictFocus, true);
 
     if (document.body) {
@@ -78,16 +65,6 @@ export default class Modal extends React.Component<Props, State> {
       this.priorFocus.focus();
     }
   }
-
-  getCurrentBreakpoint = () => {
-    let size = 'xs';
-    Object.keys(breakpoints).forEach(point => {
-      if (window.matchMedia(breakpoints[point]).matches) {
-        size = point;
-      }
-    });
-    return size;
-  };
 
   handleClose = () => {
     this.props.onDismiss();
@@ -108,16 +85,6 @@ export default class Modal extends React.Component<Props, State> {
   handleKeyDown = (event: { keyCode: number }) => {
     if (event.keyCode === ESCAPE_KEY_CODE) {
       this.handleClose();
-    }
-  };
-
-  updateBreakpoint = () => {
-    const size = this.getCurrentBreakpoint();
-    if (
-      size !== this.state.breakpoint ||
-      window.innerHeight !== this.state.windowHeight
-    ) {
-      this.setState({ breakpoint: size, windowHeight: window.innerHeight });
     }
   };
 
@@ -147,38 +114,31 @@ export default class Modal extends React.Component<Props, State> {
     } = this.props;
     const width = SIZE_WIDTH_MAP[size];
 
-    const container = [
+    const containerClasses = classnames(
       layout.fixed,
       layout.borderBox,
       layout.flex,
       layout.justifyCenter,
       layout.left0,
       layout.top0,
-    ];
-    const containerClasses =
-      this.state.breakpoint === 'xs'
-        ? classnames(container, layout.itemsEnd, layout.bottom0, column.xsCol12)
-        : classnames(
-            container,
-            layout.itemsCenter,
-            column.xsCol12,
-            styles.container
-          );
+      layout.itemsCenter,
+      column.xsCol12,
+      styles.container
+    );
 
-    const wrapper = [layout.fit, layout.relative];
-    const wrapperClasses =
-      this.state.breakpoint === 'xs'
-        ? classnames(wrapper, colors.whiteBg, whitespace.m0, layout.selfEnd)
-        : classnames(wrapper, colors.whiteBg, borders.rounded, styles.wrapper);
+    const wrapperClasses = classnames(
+      layout.fit,
+      layout.relative,
+      colors.whiteBg,
+      borders.rounded,
+      styles.wrapper
+    );
 
-    const overlay = [
+    const overlayClasses = classnames(
       layout.absolute,
       layout.left0,
       layout.top0,
       cursor.zoomOut,
-    ];
-    const overlayClasses = classnames(
-      overlay,
       styles.overlay,
       colors.darkGrayBg,
       column.xsCol12
