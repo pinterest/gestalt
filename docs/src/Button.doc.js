@@ -101,12 +101,12 @@ card(
     name="Widths"
     defaultCode={`
 <Box margin={-2}>
-<Box padding={2}>
-  <Button text="inline button" inline />
-</Box>
-<Box padding={2}>
-  <Button text="default full width button" />
-</Box>
+  <Box padding={2}>
+    <Button text="inline button" inline />
+  </Box>
+  <Box padding={2}>
+    <Button text="default full width button" />
+  </Box>
 </Box>
 `}
   />
@@ -120,25 +120,20 @@ card(
     name="Colors: Dark Backgrounds"
     defaultCode={`
 <Box color="darkGray" maxWidth={320} shape="rounded" padding={4}>
-<Box marginBottom={4}>
-  <Text color="white">
-    Explore today’s trending ideas, curated finds, and personalized
-    picks.
-  </Text>
-</Box>
-<Box
-  display="flex"
-  direction="row"
-  marginLeft={-2}
-  marginRight={-2}
->
-  <Box display="flex" direction="row" column={6} paddingX={2}>
-    <Button color="transparent" text="Later" />
+  <Box marginBottom={4}>
+    <Text color="white">
+      Explore today’s trending ideas, curated finds, and personalized
+      picks.
+    </Text>
   </Box>
-  <Box column={6} paddingX={2}>
-    <Button color="white" text="Learn more" />
+  <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
+    <Box display="flex" direction="row" column={6} paddingX={2}>
+      <Button color="transparent" text="Later" />
+    </Box>
+    <Box column={6} paddingX={2}>
+      <Button color="white" text="Learn more" />
+    </Box>
   </Box>
-</Box>
 </Box>
 `}
   />
@@ -153,12 +148,12 @@ card(
     name="Types"
     defaultCode={`
 <Box margin={-2}>
-<Box padding={2}>
-  <Button onClick={() => {}} text="Clear" type="button" />
-</Box>
-<Box padding={2}>
-  <Button color="red" text="Submit" type="submit" />
-</Box>
+  <Box padding={2}>
+    <Button onClick={() => {}} text="Clear" type="button" />
+  </Box>
+  <Box padding={2}>
+    <Button color="red" text="Submit" type="submit" />
+  </Box>
 </Box>
 `}
   />
@@ -175,12 +170,12 @@ card(
     name="Accessibility Label"
     defaultCode={`
 <Box margin={-2}>
-<Box padding={2}>
-  <Button accessibilityLabel="Add James" text="Add" />
-</Box>
-<Box padding={2}>
-  <Button accessibilityLabel="Add Irene" text="Add" />
-</Box>
+  <Box padding={2}>
+    <Button accessibilityLabel="Add James" text="Add" />
+  </Box>
+  <Box padding={2}>
+    <Button accessibilityLabel="Add Irene" text="Add" />
+  </Box>
 </Box>
 `}
   />
