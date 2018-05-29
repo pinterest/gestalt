@@ -9,12 +9,9 @@ import IconButton from '../IconButton/IconButton';
 
 import styles from './Modal.css';
 import borders from '../Borders.css';
-import breakpoints from '../breakpoints.json';
 import colors from '../Colors.css';
 import column from '../Column.css';
-import cursor from '../Cursor.css';
 import layout from '../Layout.css';
-import whitespace from '../Whitespace.css';
 
 const SIZE_WIDTH_MAP = {
   sm: 414,
@@ -34,6 +31,8 @@ type Props = {|
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg',
 |};
+
+const Backdrop = () => <div className={styles.Backdrop} />;
 
 export default class Modal extends React.Component<Props> {
   componentDidMount() {
@@ -134,16 +133,6 @@ export default class Modal extends React.Component<Props> {
       styles.wrapper
     );
 
-    const overlayClasses = classnames(
-      layout.absolute,
-      layout.left0,
-      layout.top0,
-      cursor.zoomOut,
-      styles.overlay,
-      colors.darkGrayBg,
-      column.xsCol12
-    );
-
     return (
       <div
         aria-label={accessibilityModalLabel}
@@ -153,7 +142,7 @@ export default class Modal extends React.Component<Props> {
         }}
         role={role}
       >
-        <div className={overlayClasses} />
+        <Backdrop />
         <div
           className={wrapperClasses}
           ref={c => {
