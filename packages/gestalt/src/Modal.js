@@ -14,14 +14,6 @@ import colors from './Colors.css';
 import column from './Column.css';
 import layout from './Layout.css';
 
-const SIZE_WIDTH_MAP = {
-  sm: 414,
-  md: 544,
-  lg: 804,
-};
-
-const ESCAPE_KEY_CODE = 27;
-
 type Props = {|
   accessibilityCloseLabel: string,
   accessibilityModalLabel: string,
@@ -33,9 +25,28 @@ type Props = {|
   size?: 'sm' | 'md' | 'lg',
 |};
 
+const SIZE_WIDTH_MAP = {
+  sm: 414,
+  md: 544,
+  lg: 804,
+};
+
+const ESCAPE_KEY_CODE = 27;
+
 const Backdrop = () => <div className={styles.Backdrop} />;
 
 export default class Modal extends React.Component<Props> {
+  static propTypes = {
+    children: PropTypes.node,
+    accessibilityCloseLabel: PropTypes.string.isRequired,
+    footer: PropTypes.node,
+    heading: PropTypes.string.isRequired,
+    accessibilityModalLabel: PropTypes.string.isRequired,
+    onDismiss: PropTypes.func,
+    role: PropTypes.oneOf(['alertdialog', 'dialog']),
+    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  };
+
   componentDidMount() {
     document.addEventListener('click', this.handlePageClick);
     window.addEventListener('keydown', this.handleKeyDown);
@@ -202,14 +213,3 @@ export default class Modal extends React.Component<Props> {
     );
   }
 }
-
-Modal.propTypes = {
-  children: PropTypes.node,
-  accessibilityCloseLabel: PropTypes.string.isRequired,
-  footer: PropTypes.node,
-  heading: PropTypes.string.isRequired,
-  accessibilityModalLabel: PropTypes.string.isRequired,
-  onDismiss: PropTypes.func,
-  role: PropTypes.oneOf(['alertdialog', 'dialog']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-};
