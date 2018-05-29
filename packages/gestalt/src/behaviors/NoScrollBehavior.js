@@ -7,15 +7,15 @@ type Props = {|
 
 export default class NoScrollBehavior extends React.Component<Props> {
   componentDidMount() {
-    if (document && document.body) {
-      this.prevOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
+    if (typeof window !== 'undefined' && window.document) {
+      this.prevOverflow = window.document.body.style.overflow;
+      window.document.body.style.overflow = 'hidden';
     }
   }
 
   componentWillUnmount() {
-    if (this.prevOverflow && document && document.body) {
-      document.body.style.overflow = this.prevOverflow;
+    if (this.prevOverflow) {
+      window.document.body.style.overflow = this.prevOverflow;
     }
   }
 
