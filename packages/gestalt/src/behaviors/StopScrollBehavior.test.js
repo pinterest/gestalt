@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import NoScrollBehavior from './NoScrollBehavior';
+import StopScrollBehavior from './StopScrollBehavior';
 
-test('NoScrollBehavior renders', () => {
+test('StopScrollBehavior renders', () => {
   const tree = create(
-    <NoScrollBehavior>Hello world</NoScrollBehavior>
+    <StopScrollBehavior>Hello world</StopScrollBehavior>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
