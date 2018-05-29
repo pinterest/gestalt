@@ -51,7 +51,6 @@ class TabExample extends React.Component {
     };
     this.handleChange = this._handleChange.bind(this);
   }
-
   _handleChange({ activeTabIndex, event }) {
     event.preventDefault();
     this.setState({
