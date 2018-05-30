@@ -8,6 +8,8 @@
 
 ### Minor
 
+### Patch
+
 </details>
 
 ## 0.72.0 (May 30, 2018)
