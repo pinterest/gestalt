@@ -16,6 +16,7 @@
 * Flow: Fix remaining errors in the `docs/` directory and enable Flow (#215)
 * Docs: Fix indentation on gestalt docs code examples (#219)
 * Docs: Fix broken Link component in docs app (#220)
+* SelectList: Makes SelectList React Async compatible (#221)
 
 ### Patch
 
