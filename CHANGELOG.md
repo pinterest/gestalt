@@ -18,6 +18,7 @@
 * Docs: Fix broken Link component in docs app (#220)
 * SelectList: Makes SelectList React Async compatible (#221)
 * TextArea: Makes TextArea React Async compatible (#222)
+* TextField: Makes TextField React Async compatible (#223)
 
 ### Patch
 
