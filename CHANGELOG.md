@@ -17,6 +17,7 @@
 * Docs: Fix indentation on gestalt docs code examples (#219)
 * Docs: Fix broken Link component in docs app (#220)
 * SelectList: Makes SelectList React Async compatible (#221)
+* TextArea: Makes TextArea React Async compatible (#222)
 
 ### Patch
 
