@@ -119,6 +119,11 @@ card(
         description: 'Sent when video is loaded and ready to play.',
       },
       {
+        name: 'onSeek',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when a seek operation completes from the playhead',
+      },
+      {
         name: 'onTimeChange',
         type:
           '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
@@ -180,7 +185,6 @@ card(
         defaultValue: 1,
       },
     ]}
-    heading={false}
   />
 );
 

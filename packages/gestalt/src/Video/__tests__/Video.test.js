@@ -61,6 +61,7 @@ test('Video with callbacks', () => {
       onPause={() => {}}
       onPlay={() => {}}
       onReady={() => {}}
+      onSeek={() => {}}
       onTimeChange={() => {}}
       onVolumeChange={() => {}}
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"

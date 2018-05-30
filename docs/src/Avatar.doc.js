@@ -46,7 +46,6 @@ card(
         defaultValue: false,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -58,9 +57,9 @@ card(
     name="Fixed Sizes"
     defaultCode={`
 <Avatar
-size="md"
-src="${keerthi}"
-name="Keerthi"
+  size="md"
+  src="${keerthi}"
+  name="Keerthi"
 />
 `}
   />
@@ -78,15 +77,15 @@ card(
     name="Container Based Sizes"
     defaultCode={`
 <Box display="flex" direction="row">
-<Box width={40}>
-  <Avatar name="Julia" />
-</Box>
-<Box column={2}>
-  <Avatar name="Julia" />
-</Box>
-<Box column={4}>
-  <Avatar name="Keerthi" src="${keerthi}" />
-</Box>
+  <Box width={40}>
+    <Avatar name="Julia" />
+  </Box>
+  <Box column={2}>
+    <Avatar name="Julia" />
+  </Box>
+  <Box column={4}>
+    <Avatar name="Keerthi" src="${keerthi}" />
+  </Box>
 </Box>
   `}
   />
@@ -101,8 +100,8 @@ card(
     name="Without an image"
     defaultCode={`
 <Avatar
-name="Keerthi"
-size="lg"
+  name="Keerthi"
+  size="lg"
 />
   `}
   />
@@ -116,10 +115,10 @@ card(
     name="Verified"
     defaultCode={`
 <Avatar
-name="Shanice"
-size="lg"
-src="${shanice}"
-verified
+  name="Shanice"
+  size="lg"
+  src="${shanice}"
+  verified
 />
   `}
   />

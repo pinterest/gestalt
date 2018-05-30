@@ -56,24 +56,21 @@ card(
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
     ]}
-    heading={false}
   />
 );
 
 card(
   <Example
-    description="
-    Icon with a label.
-  "
+    description="Icon with a label."
     name="Example:"
     defaultCode={`
 <Box alignItems="center" display="flex">
-<Box marginRight={1} padding={1}>
-  <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
-</Box>
-<Text align="center" bold color="darkGray">
-  Pinterest
-</Text>
+  <Box marginRight={1} padding={1}>
+    <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
+  </Box>
+  <Text align="center" bold color="darkGray">
+    Pinterest
+  </Text>
 </Box>
 `}
   />

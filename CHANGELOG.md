@@ -7,9 +7,15 @@
   </summary>
 
 ### Minor
+* Video: Added new `onSeek` callback prop to `Video` component (#209)
 * Video: Added new `onReady` callback prop to `Video` component (#210)
 * Internal: Remove dead example code from docs (#211)
 * Internal: Fix react router dependencies (#212)
+* Internal: Fix package.json dependency locations (#213)
+* Flow: Fix Flow errors in the `docs/` directory (#214)
+* Flow: Fix remaining errors in the `docs/` directory and enable Flow (#215)
+* Docs: Fix indentation on gestalt docs code examples (#219)
+* Docs: Fix broken Link component in docs app (#220)
 
 ### Patch
 

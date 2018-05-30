@@ -70,7 +70,6 @@ card(
         type: 'string',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -90,11 +89,8 @@ class Example extends React.Component {
     };
   }
   _handleChange({ value }) {
-    this.setState({
-      value
-    });
+    this.setState({ value });
   }
-
   render() {
     return (
       <Box>
@@ -131,11 +127,8 @@ class Example extends React.Component {
     };
   }
   _handleChange({ value }) {
-    this.setState({
-      value
-    });
+    this.setState({ value });
   }
-
   render() {
     return (
       <Box>
@@ -175,11 +168,8 @@ class Example extends React.Component {
     };
   }
   _handleChange({ value }) {
-    this.setState({
-      value
-    });
+    this.setState({ value });
   }
-
   render() {
     return (
       <Box>

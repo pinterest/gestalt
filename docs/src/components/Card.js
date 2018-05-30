@@ -13,7 +13,7 @@ type Props = {|
 
 export default function Card({
   children,
-  description = '',
+  description,
   heading = true,
   name,
   stacked = false,
@@ -28,7 +28,7 @@ export default function Card({
         direction={stacked ? 'column' : 'row'}
       >
         <Box paddingX={2} column={12}>
-          <Markdown text={description} />
+          {description && <Markdown text={description} />}
           {children}
         </Box>
       </Box>

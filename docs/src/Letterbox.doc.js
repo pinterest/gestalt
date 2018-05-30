@@ -53,7 +53,6 @@ card(
         description: 'Desired final width of element',
       },
     ]}
-    heading={false}
   />
 );
 
