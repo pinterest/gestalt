@@ -7,7 +7,8 @@ import Divider from './Divider/Divider';
 import Heading from './Heading/Heading';
 import IconButton from './IconButton/IconButton';
 import StopScrollBehavior from './behaviors/StopScrollBehavior';
-import CaptureFocusBehavior from './behaviors/CaptureFocusBehavior';
+import TrapFocusBehavior from './behaviors/TrapFocusBehavior';
+import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
 
 import styles from './Modal.css';
 import borders from './Borders.css';
@@ -34,7 +35,12 @@ const SIZE_WIDTH_MAP = {
 
 const ESCAPE_KEY_CODE = 27;
 
-const Backdrop = () => <div className={styles.Backdrop} />;
+const Backdrop = ({ children }: { children?: React.Node }) => (
+  <React.Fragment>
+    <div className={styles.Backdrop} />
+    {children}
+  </React.Fragment>
+);
 
 export default class Modal extends React.Component<Props> {
   static propTypes = {
@@ -49,57 +55,26 @@ export default class Modal extends React.Component<Props> {
   };
 
   componentDidMount() {
-    document.addEventListener('click', this.handlePageClick);
-    window.addEventListener('keydown', this.handleKeyDown);
-    document.addEventListener('focus', this.restrictFocus, true);
-    if (this.modal && this.modal.focus) {
-      // Checking this.modal.focus to address a bug in IE11
-      // Though the modal exists, this.modal.focus may be null
-      // See http://www.mkyong.com/javascript/focus-is-not-working-in-ie-solution/
-      this.modal.focus();
-    }
+    window.addEventListener('keyup', this.handleKeyUp);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handlePageClick);
-    window.removeEventListener('keydown', this.handleKeyDown);
-    document.removeEventListener('focus', this.restrictFocus, true);
+    window.removeEventListener('keyup', this.handleKeyUp);
   }
 
-  handleClose = () => {
+  handleOutsideClick = () => {
     this.props.onDismiss();
   };
 
-  handlePageClick = (event: Event) => {
-    if (
-      event.target instanceof Node &&
-      this.container &&
-      this.container.contains(event.target) &&
-      this.modal &&
-      !this.modal.contains(event.target)
-    ) {
-      this.handleClose();
-    }
+  handleCloseClick = () => {
+    this.props.onDismiss();
   };
 
-  handleKeyDown = (event: { keyCode: number }) => {
+  handleKeyUp = (event: { keyCode: number }) => {
     if (event.keyCode === ESCAPE_KEY_CODE) {
-      this.handleClose();
+      this.props.onDismiss();
     }
   };
-
-  restrictFocus = (event: Event) => {
-    if (
-      event.target instanceof Node &&
-      this.modal &&
-      !this.modal.contains(event.target)
-    ) {
-      this.modal.focus();
-    }
-  };
-
-  container: ?HTMLElement;
-  modal: ?HTMLElement;
 
   render() {
     const {
@@ -135,77 +110,70 @@ export default class Modal extends React.Component<Props> {
 
     return (
       <StopScrollBehavior>
-        <CaptureFocusBehavior>
+        <TrapFocusBehavior>
           <div
             aria-label={accessibilityModalLabel}
             className={containerClasses}
-            ref={c => {
-              this.container = c;
-            }}
             role={role}
           >
-            <Backdrop />
-            <div
-              className={wrapperClasses}
-              ref={c => {
-                this.modal = c;
-              }}
-              tabIndex={-1}
-              style={{ width }}
-            >
-              <Box
-                maxHeight="90vh"
-                position="relative"
-                display="flex"
-                direction="column"
-              >
-                <Box fit>
-                  {role === 'dialog' ? (
-                    <Box
-                      dangerouslySetInlineStyle={{
-                        __style: { paddingLeft: 50, paddingRight: 50 },
-                      }}
-                      display="flex"
-                      justifyContent="center"
-                      paddingY={5}
-                    >
-                      <Heading size="xs" accessibilityLevel={1}>
-                        {heading}
-                      </Heading>
-                    </Box>
-                  ) : (
-                    <Box display="flex" padding={4}>
-                      <Heading size="sm" accessibilityLevel={1}>
-                        {heading}
-                      </Heading>
-                    </Box>
-                  )}
-                  {role === 'dialog' && (
-                    <Box padding={2} position="absolute" top right>
-                      <IconButton
-                        accessibilityLabel={accessibilityCloseLabel}
-                        icon="cancel"
-                        onClick={this.handleClose}
-                      />
-                    </Box>
-                  )}
-                  {role === 'dialog' && <Divider />}
-                </Box>
-                <Box flex="grow" overflow="auto" position="relative">
-                  {children}
-                </Box>
-                <Box fit>
-                  {footer && (
-                    <Box>
+            <Backdrop>
+              <OutsideEventBehavior onClick={this.handleOutsideClick}>
+                <div className={wrapperClasses} tabIndex={-1} style={{ width }}>
+                  <Box
+                    maxHeight="90vh"
+                    position="relative"
+                    display="flex"
+                    direction="column"
+                  >
+                    <Box fit>
+                      {role === 'dialog' ? (
+                        <Box
+                          dangerouslySetInlineStyle={{
+                            __style: { paddingLeft: 50, paddingRight: 50 },
+                          }}
+                          display="flex"
+                          justifyContent="center"
+                          paddingY={5}
+                        >
+                          <Heading size="xs" accessibilityLevel={1}>
+                            {heading}
+                          </Heading>
+                        </Box>
+                      ) : (
+                        <Box display="flex" padding={4}>
+                          <Heading size="sm" accessibilityLevel={1}>
+                            {heading}
+                          </Heading>
+                        </Box>
+                      )}
+                      {role === 'dialog' && (
+                        <Box padding={2} position="absolute" top right>
+                          <IconButton
+                            accessibilityLabel={accessibilityCloseLabel}
+                            icon="cancel"
+                            onClick={this.handleCloseClick}
+                          />
+                        </Box>
+                      )}
                       {role === 'dialog' && <Divider />}
-                      <Box padding={4}>{footer}</Box>
                     </Box>
-                  )}
-                </Box>
-              </Box>
-            </div>
+                    <Box flex="grow" overflow="auto" position="relative">
+                      {children}
+                    </Box>
+                    <Box fit>
+                      {footer && (
+                        <Box>
+                          {role === 'dialog' && <Divider />}
+                          <Box padding={4}>{footer}</Box>
+                        </Box>
+                      )}
+                    </Box>
+                  </Box>
+                </div>
+              </OutsideEventBehavior>
+            </Backdrop>
           </div>
-        </CaptureFocusBehavior>
+        </TrapFocusBehavior>
       </StopScrollBehavior>
     );
   }
