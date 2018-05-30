@@ -19,6 +19,7 @@
 * SelectList: Makes SelectList React Async compatible (#221)
 * TextArea: Makes TextArea React Async compatible (#222)
 * TextField: Makes TextField React Async compatible (#223)
+* ScrollContainer: Makes ScrollContainer React Async compatible (#224)
 
 ### Patch
 
