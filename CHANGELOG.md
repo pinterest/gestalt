@@ -20,6 +20,7 @@
 * TextArea: Makes TextArea React Async compatible (#222)
 * TextField: Makes TextField React Async compatible (#223)
 * ScrollContainer: Makes ScrollContainer React Async compatible (#224)
+* Link: Cleanup href and children prop typing (#226)
 
 ### Patch
 
