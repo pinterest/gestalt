@@ -60,6 +60,7 @@ test('Video with callbacks', () => {
       onLoadedChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onReady={() => {}}
       onSeek={() => {}}
       onTimeChange={() => {}}
       onVolumeChange={() => {}}
