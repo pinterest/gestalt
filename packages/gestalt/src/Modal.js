@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import Box from './Box/Box';
 import Divider from './Divider/Divider';
 import Heading from './Heading/Heading';
@@ -9,12 +8,7 @@ import IconButton from './IconButton/IconButton';
 import StopScrollBehavior from './behaviors/StopScrollBehavior';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
-
 import styles from './Modal.css';
-import borders from './Borders.css';
-import colors from './Colors.css';
-import column from './Column.css';
-import layout from './Layout.css';
 
 type Props = {|
   accessibilityCloseLabel: string,

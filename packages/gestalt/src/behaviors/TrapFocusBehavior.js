@@ -53,8 +53,10 @@ export default class TrapFocusBehavior extends React.Component<Props> {
   };
 
   handleFocus = (event: FocusEvent) => {
-    const { target } = event;
-    if (!this.el || this.el.contains((target: Node))) {
+    if (
+      !this.el ||
+      (event.target instanceof Node && this.el.contains(event.target))
+    ) {
       return;
     }
 

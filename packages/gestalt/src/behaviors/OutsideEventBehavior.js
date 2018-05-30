@@ -19,7 +19,11 @@ export default class OutsideEventBehavior extends React.Component<Props> {
   handleClickEvent = (event: MouseEvent) => {
     // eslint-disable-next-line react/no-find-dom-node
     const el = findDOMNode(this);
-    if (!this.props.onClick || !el || el.contains(event.target)) {
+    if (
+      !this.props.onClick ||
+      !el ||
+      (event.target instanceof Node && el.contains(event.target))
+    ) {
       return;
     }
     this.props.onClick(event);
