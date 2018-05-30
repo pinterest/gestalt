@@ -8,10 +8,16 @@
 }
 
 .container {
+  composes: fixed borderBox flex justifyCenter left0 top0 itemsCenter from './Layout.css';
+  composes: xsCol12 from './Column.css';
   height: 100%;
 }
 
 .wrapper {
-  max-height: 90%;
+  composes: relative overflowHidden flex from './Layout.css';
+  composes: whiteBg from './Colors.css';
+  composes: rounded from './Borders.css';
+  composes: marginLeft4 marginRight4 from './Box/whitespace.css';
+  max-height: calc(100vh - 32px);
   outline: none;
 }

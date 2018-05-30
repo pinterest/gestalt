@@ -88,39 +88,19 @@ export default class Modal extends React.Component<Props> {
     } = this.props;
     const width = SIZE_WIDTH_MAP[size];
 
-    const containerClasses = classnames(
-      layout.fixed,
-      layout.borderBox,
-      layout.flex,
-      layout.justifyCenter,
-      layout.left0,
-      layout.top0,
-      layout.itemsCenter,
-      column.xsCol12,
-      styles.container
-    );
-
-    const wrapperClasses = classnames(
-      layout.fit,
-      layout.relative,
-      colors.whiteBg,
-      borders.rounded,
-      styles.wrapper
-    );
-
     return (
       <StopScrollBehavior>
         <TrapFocusBehavior>
           <div
             aria-label={accessibilityModalLabel}
-            className={containerClasses}
+            className={styles.container}
             role={role}
           >
             <Backdrop>
               <OutsideEventBehavior onClick={this.handleOutsideClick}>
-                <div className={wrapperClasses} tabIndex={-1} style={{ width }}>
+                <div className={styles.wrapper} tabIndex={-1} style={{ width }}>
                   <Box
-                    maxHeight="90vh"
+                    flex="grow"
                     position="relative"
                     display="flex"
                     direction="column"
