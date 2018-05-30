@@ -11,6 +11,7 @@ exports[`Video with callbacks 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     loop={undefined}
     muted={false}
@@ -44,6 +45,7 @@ exports[`Video with media attributes 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     loop={true}
     muted={true}
@@ -77,6 +79,7 @@ exports[`Video with multiple sources 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     loop={undefined}
     muted={false}
@@ -118,6 +121,7 @@ exports[`Video with source 1`] = `
   }
 >
   <video
+    autoPlay={false}
     className="video"
     loop={undefined}
     muted={false}
