@@ -20,6 +20,7 @@
 * TextArea: Makes TextArea React Async compatible (#222)
 * TextField: Makes TextField React Async compatible (#223)
 * ScrollContainer: Makes ScrollContainer React Async compatible (#224)
+* Video: Fix Video playback on SSR if playing is true on first mount (#225)
 
 ### Patch
 

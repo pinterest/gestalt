@@ -468,6 +468,7 @@ export default class Video extends React.PureComponent<Props, State> {
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
         <video
+          autoPlay={playing}
           loop={loop}
           muted={volume === 0}
           playsInline={playsInline}
