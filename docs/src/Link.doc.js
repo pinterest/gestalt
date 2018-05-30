@@ -20,6 +20,7 @@ card(
       {
         name: 'children',
         type: 'React.Node',
+        required: true,
       },
       {
         name: 'href',

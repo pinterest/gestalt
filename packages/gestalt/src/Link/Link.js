@@ -21,7 +21,7 @@ const TAB_KEY_CODE = 9;
 export default class Link extends React.Component<Props, State> {
   static propTypes = {
     children: PropTypes.node.isRequired,
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     inline: PropTypes.bool,
     onClick: PropTypes.func,
     target: PropTypes.oneOf([null, 'self', 'blank']),
