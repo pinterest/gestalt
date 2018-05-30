@@ -1,12 +1,11 @@
 // @flow
-import type { Node } from 'react';
-import React from 'react';
-import Checkerboard from './Checkerboard';
+import * as React from 'react';
 import { Box, Text } from 'gestalt';
+import Checkerboard from './Checkerboard';
 import Card from './Card';
 
 type Props = {
-  children: (Object, number) => Node,
+  children: (Object, number) => React.Node,
   description?: string,
   heading?: boolean,
   name?: string,

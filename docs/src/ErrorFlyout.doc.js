@@ -1,11 +1,9 @@
 // @flow
 import React from 'react';
-import { Button, ErrorFlyout } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -61,7 +59,6 @@ card(
         defaultValue: 'sm',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -73,46 +70,43 @@ card(
     name="Example"
     defaultCode={`
 class ErrorFlyoutExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = { open: false };
-  this.handleClick = this._handleClick.bind(this);
-  this.handleDismiss = this._handleDismiss.bind(this);
-}
-
-_handleClick() {
-  this.setState(() => ({ open: !this.state.open }));
-}
-_handleDismiss() {
-  this.setState(() => ({ open: false }));
-}
-
-render() {
-  return (
-    <Box>
-      <div
-        style={{ display: "inline-block" }}
-        ref={c => {
-          this.anchor = c;
-        }}
-      >
-        <Button onClick={this.handleClick} text="Remove" />
-      </div>
-      {this.state.open && (
-        <ErrorFlyout
-          anchor={this.anchor}
-          idealDirection="down"
-          message="Oops! This item is out of stock."
-          onDismiss={this.handleDismiss}
-          size="sm"
-        />
-      )}
-    </Box>
-  );
-}
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+    this.handleClick = this._handleClick.bind(this);
+    this.handleDismiss = this._handleDismiss.bind(this);
+  }
+  _handleClick() {
+    this.setState(() => ({ open: !this.state.open }));
+  }
+  _handleDismiss() {
+    this.setState(() => ({ open: false }));
+  }
+  render() {
+    return (
+      <Box>
+        <div
+          style={{ display: "inline-block" }}
+          ref={c => {
+            this.anchor = c;
+          }}
+        >
+          <Button onClick={this.handleClick} text="Remove" />
+        </div>
+        {this.state.open && (
+          <ErrorFlyout
+            anchor={this.anchor}
+            idealDirection="down"
+            message="Oops! This item is out of stock."
+            onDismiss={this.handleDismiss}
+            size="sm"
+          />
+        )}
+      </Box>
+    );
+  }
 }
 `}
-    scope={{ Button, ErrorFlyout }}
   />
 );
 
@@ -148,4 +142,4 @@ card(
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

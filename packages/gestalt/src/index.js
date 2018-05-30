@@ -9,7 +9,6 @@ import Column from './Column/Column';
 import Container from './Container/Container';
 import Divider from './Divider/Divider';
 import ErrorFlyout from './ErrorFlyout/ErrorFlyout';
-import ExperimentalMasonry from './ExperimentalMasonry/Masonry';
 import Flyout from './Flyout/Flyout';
 import GroupAvatar from './GroupAvatar/GroupAvatar';
 import Heading from './Heading/Heading';
@@ -41,6 +40,7 @@ import TextField from './TextField/TextField';
 import Toast from './Toast/Toast';
 import Tooltip from './Tooltip/Tooltip';
 import Touchable from './Touchable/Touchable';
+import Video from './Video/Video';
 
 export {
   Avatar,
@@ -53,7 +53,6 @@ export {
   Container,
   Divider,
   ErrorFlyout,
-  ExperimentalMasonry,
   Flyout,
   GroupAvatar,
   Heading,
@@ -85,4 +84,5 @@ export {
   Toast,
   Tooltip,
   Touchable,
+  Video,
 };

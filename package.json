@@ -5,6 +5,13 @@
     "packages/*",
     "test"
   ],
+  "resolutions": {
+    "jest": "^22.4.3"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -16,115 +23,67 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "benchmark": "^2.1.4",
+    "codecov": "^3.0.2",
     "concurrently": "^3.5.1",
     "danger": "^3.1.7",
-    "enzyme-adapter-react-16": "^1.0.5",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-prettier": "^2.1.1",
+    "eslint-plugin-eslint-comments": "^2.0.2",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.1.1",
     "eslint-plugin-react": "^7.4.0",
-    "flow-bin": "0.66.0",
+    "filesize": "^3.6.1",
+    "flow-bin": "0.71.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^20.0.4",
+    "jest": "^22.4.3",
+    "jest-puppeteer": "^3.0.1",
+    "node-fetch": "^2.1.2",
     "prettier": "1.10.2",
-    "react-test-renderer": "^16.2.0",
+    "puppeteer": "^1.4.0",
+    "react-test-renderer": "^16.3.2",
+    "shelljs": "^0.7.7",
     "stylelint": "^8.0.0",
     "stylelint-config-prettier": "^2.1.0",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-order": "^0.8.0"
   },
   "scripts": {
+    "build": "cd packages/gestalt && yarn build",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
     "start": "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
     "test": "jest",
-    "ghost": "BUILDKITE_PARALLEL_JOB_COUNT=${BUILDKITE_PARALLEL_JOB_COUNT} BUILDKITE_PARALLEL_JOB=${BUILDKITE_PARALLEL_JOB} ./run_integration_tests",
+    "test:integration": "./run_integration_tests",
     "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js",
-    "moduleNameMapper": {
-      "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
-      "\\.(css)$": "identity-obj-proxy"
-    }
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-config-standard",
-      "stylelint-config-prettier"
-    ],
-    "plugins": [
-      "stylelint-order"
-    ],
-    "rules": {
-      "color-named": [
-        "never",
-        {
-          "ignoreProperties": [
-            "composes"
-          ]
-        }
-      ],
-      "declaration-block-no-duplicate-properties": [
-        true,
-        {
-          "ignore": [
-            "consecutive-duplicates"
-          ]
-        }
-      ],
-      "declaration-no-important": true,
-      "function-url-quotes": "always",
-      "indentation": 2,
-      "max-nesting-depth": 0,
-      "media-feature-name-no-unknown": [
-        true,
-        {
-          "ignoreMediaFeatureNames": "inverted-colors"
-        }
-      ],
-      "no-descending-specificity": true,
-      "no-duplicate-selectors": true,
-      "no-unknown-animations": true,
-      "order/properties-order": [
-        [
-          "composes"
-        ],
-        {
-          "unspecified": "bottomAlphabetical"
-        }
-      ],
-      "property-no-unknown": [
-        true,
-        {
-          "ignoreProperties": [
-            "composes"
-          ]
-        }
-      ],
-      "property-no-vendor-prefix": true,
-      "rule-empty-line-before": [
-        "always",
-        {
-          "except": [
-            "first-nested"
-          ]
-        }
-      ],
-      "selector-max-id": 0,
-      "selector-no-vendor-prefix": true,
-      "selector-pseudo-class-no-unknown": true,
-      "unit-blacklist": [
-        "em"
-      ],
-      "value-no-vendor-prefix": true
-    }
+    "projects": [
+      {
+        "displayName": "node",
+        "testEnvironment": "node",
+        "moduleNameMapper": {
+          "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
+          "\\.(css)$": "identity-obj-proxy"
+        },
+        "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
+      },
+      {
+        "displayName": "jsdom",
+        "testEnvironment": "jsdom",
+        "moduleNameMapper": {
+          "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
+          "\\.(css)$": "identity-obj-proxy"
+        },
+        "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
+      }
+    ]
   }
 }

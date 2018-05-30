@@ -1,11 +1,10 @@
 // @flow
 import * as React from 'react';
+import { Pog } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
-import { Pog } from 'gestalt';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -63,7 +62,6 @@ card(
         defaultValue: 'md',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -72,11 +70,10 @@ card(
     name="Example"
     defaultCode={`
 <Pog
-icon="heart"
-iconColor="red"
+  icon="heart"
+  iconColor="red"
 />
 `}
-    scope={{ Pog }}
   />
 );
 
@@ -107,4 +104,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

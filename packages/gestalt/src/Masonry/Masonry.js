@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import debounce from '../debounce';
 import PropTypes from 'prop-types';
+import debounce from '../debounce';
 import FetchItems from '../ScrollFetch/FetchItems';
 import styles from './Masonry.css';
 import ScrollContainer from '../ScrollFetch/ScrollContainer';
@@ -387,9 +387,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
           WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
-          ...(virtualize || isVisible
-            ? {}
-            : { display: 'none', transition: 'none' }),
         }}
       >
         <Component data={itemData} itemIdx={idx} isMeasuring={false} />
@@ -492,7 +489,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
 
       const positions = layout(itemsToRender);
       const measuringPositions = layout(itemsToMeasure);
-      const height = Math.max(...positions.map(pos => pos.top + pos.height));
+      // Math.max() === -Infinity when there are no positions
+      const height = positions.length
+        ? Math.max(...positions.map(pos => pos.top + pos.height))
+        : 0;
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
@@ -509,7 +509,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
-                    ...position,
+                    top: layoutNumberToCssDimension(position.top),
+                    left: layoutNumberToCssDimension(position.left),
+                    width: layoutNumberToCssDimension(position.width),
+                    height: layoutNumberToCssDimension(position.height),
                   }}
                   ref={el => {
                     if (el) {

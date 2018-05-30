@@ -1,11 +1,10 @@
 // @flow
 import React from 'react';
+import { IconButton } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
-import { Box, IconButton, Flyout, Text } from 'gestalt';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -67,7 +66,6 @@ card(
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -76,14 +74,13 @@ card(
     name="Example"
     defaultCode={`
 <IconButton
-accessibilityLabel="Love"
-bgColor="white"
-icon="heart"
-iconColor="red"
-onClick={() => { console.log('❤️')}}
+  accessibilityLabel="Love"
+  bgColor="white"
+  icon="heart"
+  iconColor="red"
+  onClick={() => { console.log('❤️')}}
 />
 `}
-    scope={{ Box, IconButton, Text }}
   />
 );
 
@@ -134,7 +131,6 @@ card(
     }
   }
 `}
-    scope={{ IconButton, Flyout }}
   />
 );
 
@@ -162,4 +158,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

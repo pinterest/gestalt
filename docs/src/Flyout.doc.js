@@ -1,11 +1,9 @@
 // @flow
 import React from 'react';
-import { Button, Flyout } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -55,15 +53,11 @@ card(
         defaultValue: 'sm',
       },
     ]}
-    heading={false}
   />
 );
 
 card(
   <Example
-    description="
-
-  "
     name="Example"
     defaultCode={`
 class FlyoutExample extends React.Component {
@@ -73,14 +67,12 @@ class FlyoutExample extends React.Component {
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
   }
-
   _handleClick() {
     this.setState(() => ({ open: !this.state.open }));
   }
   _handleDismiss() {
     this.setState(() => ({ open: false }));
   }
-
   render() {
     return (
       <Box>
@@ -119,7 +111,7 @@ class FlyoutExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Flyout }}
+    direction="row"
   />
 );
 
@@ -171,4 +163,4 @@ card(
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Masonry } from 'gestalt';
-import Item from './ExampleGridItem';
 import PropTypes from 'prop-types';
+import Item from './ExampleGridItem';
 
 const store = Masonry.createMeasurementStore();
 
@@ -76,7 +76,6 @@ export default class MasonryExample extends React.Component {
     // set flag once masonry mounts - used for remount regression testing
     window.MASONRY_DID_MOUNT = true;
   }
-
   getItems = ({ name = 'Item', from = 0 }, collage) => {
     let until = from + 20;
 
@@ -98,7 +97,6 @@ export default class MasonryExample extends React.Component {
       }
       window.TEST_FETCH_COUNTS = window.TEST_FETCH_COUNTS || 0;
       window.TEST_FETCH_COUNTS += 1;
-
       window.NEXT_FETCH = () => {
         window.NEXT_FETCH = null;
         resolve(items);

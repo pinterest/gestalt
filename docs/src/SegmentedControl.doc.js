@@ -3,7 +3,6 @@ import * as React from 'react';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -48,7 +47,6 @@ card(
         defaultValue: 'md',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -89,4 +87,4 @@ class ToastExample extends React.Component {
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

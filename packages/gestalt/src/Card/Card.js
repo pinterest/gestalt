@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from '../Box/Box';
 import classnames from 'classnames';
+import Box from '../Box/Box';
 import styles from './Card.css';
 
 type Props = {|

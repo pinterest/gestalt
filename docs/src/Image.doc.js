@@ -1,6 +1,5 @@
 // @flow
 import * as React from 'react';
-import { Image } from 'gestalt';
 import stock1 from './images/stock1.jpg';
 import stock2 from './images/stock2.jpg';
 import stock3 from './images/stock3.jpg';
@@ -10,7 +9,6 @@ import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -88,7 +86,6 @@ card(
           'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -118,16 +115,15 @@ card(
     name="Placeholders"
     defaultCode={`
 <Column span={6}>
-<Image
-  alt="example.com"
-  color="rgb(111, 91, 77)"
-  naturalHeight={564}
-  naturalWidth={564}
-  src="${stock1}"
-/>
+  <Image
+    alt="example.com"
+    color="rgb(111, 91, 77)"
+    naturalHeight={564}
+    naturalWidth={564}
+    src="${stock1}"
+  />
 </Column>
 `}
-    scope={{ Image }}
   />
 );
 
@@ -139,22 +135,21 @@ card(
     name="Overlay"
     defaultCode={`
 <Box column={6} paddingX={2}>
-<Image
-  alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-  color="rgb(231, 186, 176)"
-  naturalHeight={751}
-  naturalWidth={564}
-  src="${stock2}"
->
-  <Box padding={3}>
-    <Text color="white">
-      Tropic greens: The taste of Petrol and Porcelain
-    </Text>
-  </Box>
-</Image>
+  <Image
+    alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
+    color="rgb(231, 186, 176)"
+    naturalHeight={751}
+    naturalWidth={564}
+    src="${stock2}"
+  >
+    <Box padding={3}>
+      <Text color="white">
+        Tropic greens: The taste of Petrol and Porcelain
+      </Text>
+    </Box>
+  </Image>
 </Box>
 `}
-    scope={{ Image }}
   />
 );
 
@@ -186,121 +181,120 @@ card(
     name="Fit"
     defaultCode={`
 <Box display="flex" direction="row" wrap>
-<Box>
-  <h3>Tall content: cover vs contain</h3>
-  <Box display="flex" direction="row" justifyContent="around">
-    <Box
-      color="darkGray"
-      height={200}
-      width={200}
-      marginLeft={4}
-      marginRight={4}
-    >
-      <Image
-        alt="tall"
-        color="#000"
-        fit="contain"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="${stock3}"
-      />
-    </Box>
-    <Box
-      color="darkGray"
-      height={200}
-      width={200}
-      marginLeft={4}
-      marginRight={4}
-    >
-      <Image
-        alt="tall"
-        color="#000"
-        fit="cover"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="${stock3}"
-      />
-    </Box>
-  </Box>
-</Box>
-<Box>
-  <h3>Wide content: cover vs contain</h3>
-  <Box display="flex" direction="row" justifyContent="around">
-    <Box
-      color="darkGray"
-      height={200}
-      width={200}
-      marginLeft={4}
-      marginRight={4}
-    >
-      <Image
-        alt="tall"
-        color="#000"
-        fit="contain"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="${stock4}"
-      />
-    </Box>
-    <Box
-      color="darkGray"
-      height={200}
-      width={200}
-      marginLeft={4}
-      marginRight={4}
-    >
-      <Image
-        alt="tall"
-        color="#000"
-        fit="cover"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="${stock4}"
-      />
+  <Box>
+    <h3>Tall content: cover vs contain</h3>
+    <Box display="flex" direction="row" justifyContent="around">
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="contain"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="${stock3}"
+        />
+      </Box>
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="cover"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="${stock3}"
+        />
+      </Box>
     </Box>
   </Box>
-</Box>
-<Box>
-  <h3>Square content: cover vs contain</h3>
-  <Box display="flex" direction="row" justifyContent="around">
-    <Box
-      color="darkGray"
-      height={200}
-      width={200}
-      marginLeft={4}
-      marginRight={4}
-    >
-      <Image
-        alt="tall"
-        color="#000"
-        fit="contain"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="${stock5}"
-      />
-    </Box>
-    <Box
-      color="darkGray"
-      height={200}
-      width={200}
-      marginLeft={4}
-      marginRight={4}
-    >
-      <Image
-        alt="tall"
-        color="#000"
-        fit="cover"
-        naturalHeight={1}
-        naturalWidth={1}
-        src="${stock5}"
-      />
+  <Box>
+    <h3>Wide content: cover vs contain</h3>
+    <Box display="flex" direction="row" justifyContent="around">
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="contain"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="${stock4}"
+        />
+      </Box>
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="cover"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="${stock4}"
+        />
+      </Box>
     </Box>
   </Box>
-</Box>
+  <Box>
+    <h3>Square content: cover vs contain</h3>
+    <Box display="flex" direction="row" justifyContent="around">
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="contain"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="${stock5}"
+        />
+      </Box>
+      <Box
+        color="darkGray"
+        height={200}
+        width={200}
+        marginLeft={4}
+        marginRight={4}
+      >
+        <Image
+          alt="tall"
+          color="#000"
+          fit="cover"
+          naturalHeight={1}
+          naturalWidth={1}
+          src="${stock5}"
+        />
+      </Box>
+    </Box>
+  </Box>
 </Box>
 `}
-    scope={{ Image }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

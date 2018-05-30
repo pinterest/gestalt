@@ -1,0 +1,20 @@
+.video {
+  composes: block from "../Layout.css";
+  composes: absolute from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+  height: 100%;
+}
+
+.player {
+  composes: relative from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+  background-color: #000;
+}
+
+.playhead {
+  composes: flex from "../Layout.css";
+  composes: itemsCenter from "../Layout.css";
+  composes: xsCol12 from "../Column.css";
+  composes: pointer from "../Cursor.css";
+  height: 100%;
+}

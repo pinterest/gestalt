@@ -1,12 +1,9 @@
 // @flow
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { Button, Tooltip } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -60,16 +57,13 @@ card(
         defaultValue: 'md',
       },
     ]}
-    heading={false}
   />
 );
 
 card(
   <Example
-    description="
-
-  "
     name="Example"
+    direction="row"
     defaultCode={`
 class TooltipExample extends React.Component {
   constructor(props) {
@@ -78,14 +72,12 @@ class TooltipExample extends React.Component {
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
   }
-
   _handleClick() {
     this.setState(() => ({ open: !this.state.open }));
   }
   _handleDismiss() {
     this.setState(() => ({ open: false }));
   }
-
   render() {
     return (
       <Box>
@@ -118,7 +110,6 @@ class TooltipExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Tooltip }}
   />
 );
 
@@ -166,4 +157,4 @@ card(
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

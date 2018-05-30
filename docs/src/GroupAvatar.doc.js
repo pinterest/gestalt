@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { GroupAvatar, Box } from 'gestalt';
+import { GroupAvatar } from 'gestalt';
 import PropTable from './components/PropTable';
 import james from './avatars/james.jpg';
 import keerthi from './avatars/keerthi.jpg';
@@ -8,7 +8,6 @@ import shanice from './avatars/shanice.jpg';
 import Example from './components/Example';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -30,13 +29,18 @@ card(
         required: true,
       },
       {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Adds a white border around GroupAvatar so it's visible when displayed on other images`,
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         description: 'sm: 24px, md: 40px, lg: 72px',
         required: true,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -58,22 +62,21 @@ card(
     name="Example"
     defaultCode={`
 <Box width={108}>
-<GroupAvatar
-  collaborators={[
-    {
-      name: 'Keerthi',
-      src: '${keerthi}',
-    },
-    {
-      name: 'Shanice',
-      src: '${shanice}',
-    },
-  ]}
-  size="lg"
-/>
+  <GroupAvatar
+    collaborators={[
+      {
+        name: 'Keerthi',
+        src: '${keerthi}',
+      },
+      {
+        name: 'Shanice',
+        src: '${shanice}',
+      },
+    ]}
+    size="lg"
+  />
 </Box>
 `}
-    scope={{ Box, GroupAvatar }}
   />
 );
 
@@ -127,4 +130,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

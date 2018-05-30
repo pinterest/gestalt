@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Box, Link, Text } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -43,7 +41,6 @@ card(
         defaultValue: 'null',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -55,23 +52,22 @@ card(
     name="Example"
     defaultCode={`
 <Box>
-<Link href="https://pinterest.com">
-  <Box padding={2}>
-    <Text bold>Pinterest.com</Text>
+  <Link href="https://pinterest.com">
+    <Box padding={2}>
+      <Text bold>Pinterest.com</Text>
+    </Box>
+  </Link>
+  <Box color="darkGray">
+    <Text color="white" bold>
+      <Link href="https://pinterest.com">
+        <Box padding={2}>
+          Pinterest.com
+        </Box>
+      </Link>
+    </Text>
   </Box>
-</Link>
-<Box color="darkGray">
-  <Text color="white" bold>
-    <Link href="https://pinterest.com">
-      <Box padding={2}>
-        Pinterest.com
-      </Box>
-    </Link>
-  </Text>
-</Box>
 </Box>
 `}
-    scope={{ Box, Link, Text }}
   />
 );
 
@@ -83,14 +79,13 @@ card(
     name="Example: optional href"
     defaultCode={`
 <Link>
-<Box padding={2}>
-  <a href="https://pinterest.com" style={{ textDecoration: 'none' }}>
-    <Text bold>Pinterest.com</Text>
-  </a>
-</Box>
+  <Box padding={2}>
+    <a href="https://pinterest.com" style={{ textDecoration: 'none' }}>
+      <Text bold>Pinterest.com</Text>
+    </a>
+  </Box>
 </Link>
 `}
-    scope={{ Box, Link, Text }}
   />
 );
 
@@ -102,37 +97,36 @@ card(
     name="Accessibility"
     defaultCode={`
 <Box>
-<Heading size="sm">
-  Bad ❌
-</Heading>
-<Text>
-  For more information,{' '}
-  <Text inline bold>
-    <Link inline href="https://pinterest.com">
-      click here
-    </Link>
-  </Text>.
-</Text>
-<Box paddingY={4}>
   <Heading size="sm">
-    Good ✅
+    Bad ❌
   </Heading>
   <Text>
-    Visit
-    {' '}
+    For more information,{' '}
     <Text inline bold>
       <Link inline href="https://pinterest.com">
-        Pinterest.com
+        click here
       </Link>
-    </Text>
-    {' '}
-    for more information.
+    </Text>.
   </Text>
-</Box>
+  <Box paddingY={4}>
+    <Heading size="sm">
+      Good ✅
+    </Heading>
+    <Text>
+      Visit
+      {' '}
+      <Text inline bold>
+        <Link inline href="https://pinterest.com">
+          Pinterest.com
+        </Link>
+      </Text>
+      {' '}
+      for more information.
+    </Text>
+  </Box>
 </Box>
 `}
-    scope={{ Box, Link, Text }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

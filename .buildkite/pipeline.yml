@@ -7,6 +7,16 @@ steps:
     agents:
       queue: elastic-builders
   - wait
+  - name: ":hammer_and_wrench: build"
+    command: yarn build
+    artifact_paths: 'dist/stats.json'
+    timeout_in_minutes: 10
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: gestalt
+  - wait
   - name: ":eslint:"
     command: yarn lint:js
     timeout_in_minutes: 10
@@ -31,30 +41,25 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
-  - name: ":jest: :chrome:"
-    command: yarn test --env jsdom
+  - name: ":jest: Test"
+    command: ./.buildkite/steps/test.sh
     timeout_in_minutes: 10
     agents:
       queue: elastic
     plugins:
       docker-compose:
         run: gestalt
-  - name: ":jest: :node:"
-    command: yarn test --env node
-    timeout_in_minutes: 10
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
-  - name: ":ghost: integration %n"
+    env:
+      - BUILDKITE_BRANCH
+      - BUILDKITE_BUILD_NUMBER
+      - BUILDKITE_BUILD_URL
+      - BUILDKITE_COMMIT
+      - BUILDKITE_PROJECT_SLUG
+      - CODECOV_TOKEN
+  - name: ":jest: Integration Tests"
     command: ./run_integration_tests
     artifact_paths: 'screenshots/*'
     timeout_in_minutes: 30
-    parallelism: 3
-    env:
-      - BUILDKITE_PARALLEL_JOB
-      - BUILDKITE_PARALLEL_JOB_COUNT
     agents:
       queue: elastic
     plugins:
@@ -65,6 +70,7 @@ steps:
     timeout_in_minutes: 10
     env:
       - BUILDKITE
+      - BUILDKITE_API_TOKEN
       - BUILDKITE_PULL_REQUEST
       - BUILDKITE_REPO
       - CI

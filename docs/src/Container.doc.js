@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Container } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -24,7 +22,6 @@ card(
         type: 'React.Node',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -36,16 +33,14 @@ card(
     name="Responsive content"
     defaultCode={`
 <Box color="gray" padding={3}>
-<Container>
-  <Box color="white" padding={3}>
-    <Text>Centered content</Text>
-  </Box>
-</Container>
+  <Container>
+    <Box color="white" padding={3}>
+      <Text>Centered content</Text>
+    </Box>
+  </Container>
 </Box>
 `}
-    scope={{ Container }}
-    stacked
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

@@ -1,11 +1,8 @@
 // @flow
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { Box, Image, Link, Mask, Text, Touchable } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 import stock14 from './images/stock14.jpg';
 
 const cards = [];
@@ -41,15 +38,16 @@ card(
       },
       {
         name: 'onMouseEnter',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
       },
       {
         name: 'onMouseLeave',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
       },
       {
         name: 'onTouch',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> }) => void',
         required: true,
       },
       {
@@ -58,7 +56,6 @@ card(
         defaultValue: 'square',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -72,58 +69,57 @@ card(
     name="Example"
     defaultCode={`
 class TouchableExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = { clicks: 0 };
-  this.handleTouch = this._handleTouch.bind(this);
-  this.handleLinkClick = this._handleLinkClick.bind(this);
-}
-_handleTouch() {
-  this.setState({
-    clicks: this.state.clicks + 1,
-  });
-};
-_handleLinkClick({ event }) {
-  event.stopPropagation();
-};
-render() {
-  return (
-    <Box padding={2} width={150}>
-    <Touchable
-      mouseCursor="zoomIn"
-      onTouch={this.handleTouch}
-      shape="rounded"
-    >
-      <Mask shape="rounded">
-        <Image
-          alt="Antelope Canyon"
-          naturalHeight={1}
-          naturalWidth={1}
-          src="${stock14}"
-        />
-      </Mask>
-      <Box paddingY={2}>
-        <Link
-          href="https://en.wikipedia.org/wiki/Antelope_Canyon"
-          onClick={this.handleLinkClick}
+  constructor(props) {
+    super(props);
+    this.state = { clicks: 0 };
+    this.handleTouch = this._handleTouch.bind(this);
+    this.handleLinkClick = this._handleLinkClick.bind(this);
+  }
+  _handleTouch() {
+    this.setState({
+      clicks: this.state.clicks + 1,
+    });
+  };
+  _handleLinkClick({ event }) {
+    event.stopPropagation();
+  };
+  render() {
+    return (
+      <Box padding={2} width={150}>
+        <Touchable
+          mouseCursor="zoomIn"
+          onTouch={this.handleTouch}
+          shape="rounded"
         >
-          <Text align="center">Wiki Link</Text>
-        </Link>
+          <Mask shape="rounded">
+            <Image
+              alt="Antelope Canyon"
+              naturalHeight={1}
+              naturalWidth={1}
+              src="${stock14}"
+            />
+          </Mask>
+          <Box paddingY={2}>
+            <Link
+              href="https://en.wikipedia.org/wiki/Antelope_Canyon"
+              onClick={this.handleLinkClick}
+            >
+              <Text align="center">Wiki Link</Text>
+            </Link>
+          </Box>
+        </Touchable>
+        <Box paddingY={2}>
+          <Text color="gray" align="center">
+            Clicked{' '}
+            {this.state.clicks}{' '}
+            {this.state.clicks === 1 ? 'time' : 'times'}
+          </Text>
+        </Box>
       </Box>
-    </Touchable>
-    <Box paddingY={2}>
-      <Text color="gray" align="center">
-        Clicked{' '}
-        {this.state.clicks}{' '}
-        {this.state.clicks === 1 ? 'time' : 'times'}
-      </Text>
-    </Box>
-  </Box>
-  );
-}
+    );
+  }
 }
 `}
-    scope={{ Box, Image, Mask, Link, Text, Touchable }}
   />
 );
 
@@ -136,28 +132,27 @@ card(
     name="Full width and full height"
     defaultCode={`
 <Box color="white" display="flex" width={500} height={250}>
-<Box column={6}>
-  <Touchable fullHeight>
-    <Box height="100%" color="lightGray">
-      <Text align="center">
-        Full parent height
-      </Text>
-    </Box>
-  </Touchable>
-</Box>
-<Box column={6}>
-  <Touchable>
-    <Box height="100%" color="lightGray">
-      <Text align="center">
-        Child height only
-      </Text>
-    </Box>
-  </Touchable>
-</Box>
+  <Box column={6}>
+    <Touchable fullHeight>
+      <Box height="100%" color="lightGray">
+        <Text align="center">
+          Full parent height
+        </Text>
+      </Box>
+    </Touchable>
+  </Box>
+  <Box column={6}>
+    <Touchable>
+      <Box height="100%" color="lightGray">
+        <Text align="center">
+          Child height only
+        </Text>
+      </Box>
+    </Touchable>
+  </Box>
 </Box>
 `}
-    scope={{ Box, Text, Touchable }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

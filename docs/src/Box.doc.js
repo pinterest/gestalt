@@ -1,12 +1,11 @@
 // @flow
 import * as React from 'react';
-import { Box, Text, Avatar, Button } from 'gestalt';
+import { Box, Button } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -218,7 +217,6 @@ card(
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -232,21 +230,21 @@ card(
     name="Example: Media object"
     defaultCode={`
 <Box
-alignItems="center"
-direction="row"
-display="flex"
-marginStart={-1}
-marginEnd={-1}>
-<Box paddingX={1}>
-  <Avatar name="chrislloyd" size="md" />
-</Box>
-<Box paddingX={1}>
-  <Text bold>Chris Lloyd</Text>
-  <Text>joined 2 years ago</Text>
-</Box>
+  alignItems="center"
+  direction="row"
+  display="flex"
+  marginStart={-1}
+  marginEnd={-1}
+>
+  <Box paddingX={1}>
+    <Avatar name="chrislloyd" size="md" />
+  </Box>
+  <Box paddingX={1}>
+    <Text bold>Chris Lloyd</Text>
+    <Text>joined 2 years ago</Text>
+  </Box>
 </Box>
 `}
-    scope={{ Box, Avatar, Text }}
   />
 );
 
@@ -258,24 +256,24 @@ card(
     name="Example: Double-sided media object"
     defaultCode={`
 <Box
-alignItems="center"
-direction="row"
-display="flex"
-marginStart={-1}
-marginEnd={-1}>
-<Box paddingX={1}>
-  <Avatar name="chrislloyd" size="md" />
-</Box>
-<Box paddingX={1}  flex="grow">
-  <Text bold>Chris Lloyd</Text>
-  <Text>joined 2 years ago</Text>
-</Box>
-<Box paddingX={1}>
-  <Button text="Follow" size="sm" color="red" />
-</Box>
+  alignItems="center"
+  direction="row"
+  display="flex"
+  marginStart={-1}
+  marginEnd={-1}
+>
+  <Box paddingX={1}>
+    <Avatar name="chrislloyd" size="md" />
+  </Box>
+  <Box paddingX={1}  flex="grow">
+    <Text bold>Chris Lloyd</Text>
+    <Text>joined 2 years ago</Text>
+  </Box>
+  <Box paddingX={1}>
+    <Button text="Follow" size="sm" color="red" />
+  </Box>
 </Box>
 `}
-    scope={{ Button, Box, Avatar, Text }}
   />
 );
 
@@ -420,15 +418,17 @@ card(
 );
 
 const toggleRTL = () => {
-  document.documentElement.dir =
-    document.documentElement.dir === 'rtl' ? '' : 'rtl';
+  if (document.documentElement) {
+    const isRTL = document.documentElement.dir === 'rtl';
+    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+  }
 };
 
 card(
   <Card
     description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
-    
+
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
 
     \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
@@ -455,21 +455,20 @@ card(
     name="Example: Absolute positioning"
     defaultCode={`
 <Box position="relative" color="white" height={200}>
-<Box position="absolute" top left padding={1}>
-  Top, left
-</Box>
-<Box position="absolute" top right padding={1}>
-  Top, right
-</Box>
-<Box position="absolute" bottom left padding={1}>
-  Bottom, left
-</Box>
-<Box position="absolute" bottom right padding={1}>
-  Bottom, right
-</Box>
+  <Box position="absolute" top left padding={1}>
+    Top, left
+  </Box>
+  <Box position="absolute" top right padding={1}>
+    Top, right
+  </Box>
+  <Box position="absolute" bottom left padding={1}>
+    Bottom, left
+  </Box>
+  <Box position="absolute" bottom right padding={1}>
+    Bottom, right
+  </Box>
 </Box>
 `}
-    scope={{ Box }}
   />
 );
 
@@ -527,4 +526,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

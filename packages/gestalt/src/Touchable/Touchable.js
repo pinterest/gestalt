@@ -1,5 +1,4 @@
 // @flow
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -30,9 +29,13 @@ type Props = {|
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,
-  onMouseEnter?: ({ event: SyntheticMouseEvent<> }) => void,
-  onMouseLeave?: ({ event: SyntheticMouseEvent<> }) => void,
-  onTouch?: ({ event: SyntheticMouseEvent<> }) => void,
+  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onTouch?: ({
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  }) => void,
   shape?: Shape,
 |};
 
@@ -40,7 +43,7 @@ const SPACE_CHAR_CODE = 32;
 const ENTER_CHAR_CODE = 13;
 
 export default class Touchable extends React.Component<Props> {
-  handleKeyPress = (event: SyntheticMouseEvent<>) => {
+  handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
     const { onTouch } = this.props;
     // Check to see if space or enter were pressed
     if (

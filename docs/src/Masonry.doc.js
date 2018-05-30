@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
-import PropTable from './components/PropTable';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
+import PropTable from './components/PropTable';
 import stock9 from './images/stock9.jpg';
 import stock10 from './images/stock10.jpg';
 import stock11 from './images/stock11.jpg';
@@ -9,7 +9,6 @@ import stock12 from './images/stock12.jpg';
 import stock13 from './images/stock13.jpg';
 import PageHeader from './components/PageHeader';
 import Card from './components/Card';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -97,7 +96,6 @@ card(
           'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -208,6 +206,7 @@ class ExampleMasonry extends React.Component<
       overflowY: 'scroll',
       width: `${this.state.width}px`,
     };
+    const { scrollContainer } = this;
     return (
       <div>
         <input
@@ -225,7 +224,7 @@ class ExampleMasonry extends React.Component<
           }}
           style={containerStyle}
         >
-          {this.scrollContainer && (
+          {scrollContainer && (
             <Masonry
               columnWidth={170}
               comp={({ data }) => (
@@ -248,7 +247,7 @@ class ExampleMasonry extends React.Component<
               ref={ref => {
                 this.grid = ref;
               }}
-              scrollContainer={() => this.scrollContainer}
+              scrollContainer={() => scrollContainer}
             />
           )}
         </div>
@@ -321,4 +320,4 @@ card(
   </Box>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

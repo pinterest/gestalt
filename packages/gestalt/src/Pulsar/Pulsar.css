@@ -1,8 +1,9 @@
 .innerCircle {
+  composes: borderBox from "../Layout.css";
   animation-duration: 2.5s;
   animation-iteration-count: inherit;
   animation-name: PulseAnimation;
-  border: 8px solid #0084ff;
+  border: 8px solid #4a90e2;
   border-radius: 50%;
   height: 100%;
   opacity: 1;

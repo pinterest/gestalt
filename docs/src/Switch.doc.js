@@ -1,11 +1,10 @@
 // @flow
 import * as React from 'react';
-import { Box, Label, Switch, Text } from 'gestalt';
+import { Switch } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -46,7 +45,6 @@ card(
         defaultValue: false,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -58,33 +56,32 @@ card(
     name="Example: Using a label"
     defaultCode={`
 class SwitchExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = { switched: false };
-  this.handleChange = this._handleChange.bind(this);
-}
-_handleChange() {
-  this.setState({ switched: !this.state.switched });
-}
-render() {
-  return (
-    <Box display="flex" direction="row" alignItems="center">
-      <Box paddingX={2} flex="grow">
-        <Label htmlFor="emailNotifications">
-          <Text>Airplane mode</Text>
-        </Label>
+  constructor(props) {
+    super(props);
+    this.state = { switched: false };
+    this.handleChange = this._handleChange.bind(this);
+  }
+  _handleChange() {
+    this.setState({ switched: !this.state.switched });
+  }
+  render() {
+    return (
+      <Box display="flex" direction="row" alignItems="center">
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="emailNotifications">
+            <Text>Airplane mode</Text>
+          </Label>
+        </Box>
+        <Switch
+          onChange={this.handleChange}
+          id="emailNotifications"
+          switched={this.state.switched}
+        />
       </Box>
-      <Switch
-        onChange={this.handleChange}
-        id="emailNotifications"
-        switched={this.state.switched}
-      />
-    </Box>
-  );
-}
+    );
+  }
 }
 `}
-    scope={{ Box, Switch, Text, Label }}
   />
 );
 
@@ -100,4 +97,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

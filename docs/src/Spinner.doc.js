@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Button, Spinner } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -28,7 +26,6 @@ card(
         defaultValue: false,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -73,8 +70,7 @@ class SpinnerExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Spinner }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

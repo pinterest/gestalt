@@ -1,11 +1,9 @@
 // @flow
 import * as React from 'react';
-import { Avatar, Box, Button, Card, Link, Text } from 'gestalt';
 import james from './avatars/james.jpg';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -44,7 +42,6 @@ card(
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -56,50 +53,49 @@ card(
     name="Example"
     defaultCode={`
 class CardExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = { hovered: false };
-  this.handleMouseEnter = this._handleMouseEnter.bind(this);
-  this.handleMouseLeave = this._handleMouseLeave.bind(this);
-}
-_handleMouseEnter() {
-  this.setState(() => ({ hovered: true }));
-}
-_handleMouseLeave() {
-  this.setState(() => ({ hovered: false }));
-}
-render() {
-  return (
-    <Box maxWidth={236} padding={2} column={12}>
-      <Card
-        image={
-          <Avatar
-            name="James Jones"
-            src="${james}"
+  constructor(props) {
+    super(props);
+    this.state = { hovered: false };
+    this.handleMouseEnter = this._handleMouseEnter.bind(this);
+    this.handleMouseLeave = this._handleMouseLeave.bind(this);
+  }
+  _handleMouseEnter() {
+    this.setState(() => ({ hovered: true }));
+  }
+  _handleMouseLeave() {
+    this.setState(() => ({ hovered: false }));
+  }
+  render() {
+    return (
+      <Box maxWidth={236} padding={2} column={12}>
+        <Card
+          image={
+            <Avatar
+              name="James Jones"
+              src="${james}"
+            />
+          }
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}>
+          <Text align="center" bold size="xl">
+            <Link href="https://pinterest.com">
+              <Box paddingX={3} paddingY={2}>
+                James Jones
+              </Box>
+            </Link>
+          </Text>
+          <Button
+            accessibilityLabel="Follow James Jones"
+            color="red"
+            text="Follow"
           />
-        }
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}>
-        <Text align="center" bold size="xl">
-          <Link href="https://pinterest.com">
-            <Box paddingX={3} paddingY={2}>
-              James Jones
-            </Box>
-          </Link>
-        </Text>
-        <Button
-          accessibilityLabel="Follow James Jones"
-          color="red"
-          text="Follow"
-        />
-      </Card>
-    </Box>
-  );
-}
+        </Card>
+      </Box>
+    );
+  }
 }
 `}
-    scope={{ Avatar, Box, Button, Card, Link, Text }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

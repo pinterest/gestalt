@@ -1,8 +1,11 @@
 {
   "extends": [
     "airbnb",
-    "plugin:jsx-a11y/recommended",
+    "plugin:eslint-comments/recommended",
     "plugin:flowtype/recommended",
+    "plugin:jest/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react"
@@ -12,7 +15,14 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": ["flowtype", "jsx-a11y", "prettier"],
+  "plugins": [
+    "eslint-comments",
+    "flowtype",
+    "jest",
+    "jsx-a11y",
+    "prettier",
+    "react"
+  ],
   "rules": {
     "jsx-a11y/label-has-for": [
       "error",
@@ -28,13 +38,19 @@
     "react/no-array-index-key": 0,
     "react/require-default-props": 0,
     "import/extensions": 0,
-    "import/first": 0,
-    "import/no-absolute-path": 0,
-    "import/no-duplicates": 0,
     "import/no-extraneous-dependencies": 0,
-    "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
     "import/no-unresolved": 0,
-    "import/no-webpack-loader-syntax": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.js", "**/*.integration.js"],
+      "env": {
+        "jest": true,
+      },
+      "globals": {
+        "page": true,
+        "browser": true,
+      },
+    }
+  ]
 }

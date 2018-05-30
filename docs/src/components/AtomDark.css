@@ -58,7 +58,8 @@ pre.prism-code {
 }
 
 .token.punctuation {
-  color: #c5c8c6;
+  color: rgba(197, 200, 198, 0.7);
+  opacity: 1 !important;
 }
 
 .namespace {

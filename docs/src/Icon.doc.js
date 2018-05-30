@@ -1,11 +1,10 @@
 // @flow
 import * as React from 'react';
-import { Box, Icon, Text } from 'gestalt';
+import { Icon } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -57,27 +56,23 @@ card(
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
     ]}
-    heading={false}
   />
 );
 
 card(
   <Example
-    description="
-    Icon with a label.
-  "
+    description="Icon with a label."
     name="Example:"
     defaultCode={`
 <Box alignItems="center" display="flex">
-<Box marginRight={1} padding={1}>
-  <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
-</Box>
-<Text align="center" bold color="darkGray">
-  Pinterest
-</Text>
+  <Box marginRight={1} padding={1}>
+    <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
+  </Box>
+  <Text align="center" bold color="darkGray">
+    Pinterest
+  </Text>
 </Box>
 `}
-    scope={{ Box, Icon, Text }}
   />
 );
 
@@ -101,4 +96,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

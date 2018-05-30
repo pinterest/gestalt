@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
-import { Box, Text, Divider } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -16,7 +14,7 @@ card(
   />
 );
 
-card(<PropTable props={[]} heading={false} />);
+card(<PropTable props={[]} />);
 
 card(
   <Example
@@ -26,17 +24,16 @@ card(
     name="Example"
     defaultCode={`
 <Box color="white">
-<Box padding={2}>
-  <Text>Some content</Text>
-</Box>
-<Divider />
-<Box padding={2}>
-  <Text>Other content</Text>
-</Box>
+  <Box padding={2}>
+    <Text>Some content</Text>
+  </Box>
+  <Divider />
+  <Box padding={2}>
+    <Text>Other content</Text>
+  </Box>
 </Box>
 `}
-    scope={{ Box, Divider, Text }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

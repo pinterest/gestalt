@@ -1,11 +1,10 @@
 // @flow
 import * as React from 'react';
-import { Box, Button, Text } from 'gestalt';
+import { Button } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import Combination from './components/Combination';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -80,7 +79,6 @@ card(
         defaultValue: 'button',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -90,7 +88,6 @@ card(
     defaultCode={`
 <Button text="Medium Sized Button" />
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -104,15 +101,14 @@ card(
     name="Widths"
     defaultCode={`
 <Box margin={-2}>
-<Box padding={2}>
-  <Button text="inline button" inline />
-</Box>
-<Box padding={2}>
-  <Button text="default full width button" />
-</Box>
+  <Box padding={2}>
+    <Button text="inline button" inline />
+  </Box>
+  <Box padding={2}>
+    <Button text="default full width button" />
+  </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -124,28 +120,22 @@ card(
     name="Colors: Dark Backgrounds"
     defaultCode={`
 <Box color="darkGray" maxWidth={320} shape="rounded" padding={4}>
-<Box marginBottom={4}>
-  <Text color="white">
-    Explore today’s trending ideas, curated finds, and personalized
-    picks.
-  </Text>
-</Box>
-<Box
-  display="flex"
-  direction="row"
-  marginLeft={-2}
-  marginRight={-2}
->
-  <Box display="flex" direction="row" column={6} paddingX={2}>
-    <Button color="transparent" text="Later" />
+  <Box marginBottom={4}>
+    <Text color="white">
+      Explore today’s trending ideas, curated finds, and personalized
+      picks.
+    </Text>
   </Box>
-  <Box column={6} paddingX={2}>
-    <Button color="white" text="Learn more" />
+  <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
+    <Box display="flex" direction="row" column={6} paddingX={2}>
+      <Button color="transparent" text="Later" />
+    </Box>
+    <Box column={6} paddingX={2}>
+      <Button color="white" text="Learn more" />
+    </Box>
   </Box>
-</Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -158,15 +148,14 @@ card(
     name="Types"
     defaultCode={`
 <Box margin={-2}>
-<Box padding={2}>
-  <Button onClick={() => {}} text="Clear" type="button" />
-</Box>
-<Box padding={2}>
-  <Button color="red" text="Submit" type="submit" />
-</Box>
+  <Box padding={2}>
+    <Button onClick={() => {}} text="Clear" type="button" />
+  </Box>
+  <Box padding={2}>
+    <Button color="red" text="Submit" type="submit" />
+  </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -181,15 +170,14 @@ card(
     name="Accessibility Label"
     defaultCode={`
 <Box margin={-2}>
-<Box padding={2}>
-  <Button accessibilityLabel="Add James" text="Add" />
-</Box>
-<Box padding={2}>
-  <Button accessibilityLabel="Add Irene" text="Add" />
-</Box>
+  <Box padding={2}>
+    <Button accessibilityLabel="Add James" text="Add" />
+  </Box>
+  <Box padding={2}>
+    <Button accessibilityLabel="Add Irene" text="Add" />
+  </Box>
 </Box>
 `}
-    scope={{ Box, Button, Text }}
   />
 );
 
@@ -211,4 +199,4 @@ card(
   </Combination>
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

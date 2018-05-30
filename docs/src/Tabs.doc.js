@@ -4,7 +4,6 @@ import { Tabs } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -36,13 +35,13 @@ card(
         required: true,
       },
     ]}
-    heading={false}
   />
 );
 
 card(
   <Example
     name="Example"
+    direction="row"
     defaultCode={`
 class TabExample extends React.Component {
   constructor(props) {
@@ -52,7 +51,6 @@ class TabExample extends React.Component {
     };
     this.handleChange = this._handleChange.bind(this);
   }
-
   _handleChange({ activeTabIndex, event }) {
     event.preventDefault();
     this.setState({
@@ -83,8 +81,7 @@ class TabExample extends React.Component {
   }
 }
   `}
-    scope={{ Tabs }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

@@ -7,53 +7,33 @@ import Checkerboard from './Checkerboard';
 
 type Props = {|
   defaultCode: string,
-  description: string,
+  description?: string,
   name: string,
-  scope: Object,
-  stacked: boolean,
-  stacked?: boolean,
+  direction?: 'row' | 'column',
 |};
 
-const { Box, Text } = gestalt;
+const { Box, Text, Column } = gestalt;
 
-export default ({
+function Example({
   defaultCode,
-  description = '',
+  description,
   name,
-  scope,
-  stacked = false,
-}: Props) => (
-  <Card name={name} description={description} stacked={stacked}>
-    <LiveProvider
-      code={defaultCode.trim()}
-      scope={{
-        ...gestalt,
-        ...scope,
-      }}
+  direction = 'column',
+}: Props) {
+  return (
+    <Card
+      name={name}
+      description={description}
+      stacked={direction === 'column'}
     >
-      <Box>
+      <LiveProvider code={defaultCode.trim()} scope={gestalt}>
         <Box
           display="flex"
-          direction="column"
-          mdDirection={stacked ? 'column' : 'row'}
-          alignItems="stretch"
+          direction={direction}
           marginLeft={-2}
           marginRight={-2}
         >
-          <Box column={12} mdColumn={stacked ? 12 : 6}>
-            <Box paddingX={2}>
-              <Box paddingY={2}>
-                <Text size="sm" color="gray">
-                  Editor
-                </Text>
-              </Box>
-              <Text>
-                <LiveEditor />
-              </Text>
-            </Box>
-          </Box>
-
-          <Box column={12} mdColumn={stacked ? 12 : 6}>
+          <Column span={direction === 'column' ? 12 : 6}>
             <Box
               paddingX={2}
               display="flex"
@@ -76,14 +56,28 @@ export default ({
                 </Box>
               </Box>
             </Box>
-          </Box>
+          </Column>
+
+          <Column span={direction === 'column' ? 12 : 6}>
+            <Box paddingX={2}>
+              <Box paddingY={2}>
+                <Text size="sm" color="gray">
+                  Editor
+                </Text>
+              </Box>
+              <LiveEditor />
+            </Box>
+          </Column>
         </Box>
+
         <Box padding={2}>
           <Text color="watermelon" leading="tall">
             <LiveError />
           </Text>
         </Box>
-      </Box>
-    </LiveProvider>
-  </Card>
-);
+      </LiveProvider>
+    </Card>
+  );
+}
+
+export default Example;

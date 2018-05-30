@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "0.68.0",
+  "version": "0.71.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "main": "dist/gestalt.js",
@@ -16,8 +16,8 @@
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
-    "react": "^15.4.1 || ^16.2.0",
-    "react-dom": "^15.4.1 || ^16.2.0"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "caniuse-lite": "^1.0.30000810",
     "cssnano": "^3.10.0",
+    "gzip-size": "^4.1.0",
     "postcss": "^6.0.19",
     "postcss-cssnext": "^3.1.0",
     "postcss-modules": "^1.1.0",

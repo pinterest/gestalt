@@ -1,10 +1,8 @@
 // @flow
 import React from 'react';
-import { Pulsar, Button, Tooltip } from 'gestalt';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -33,7 +31,6 @@ card(
         defaultValue: 120,
       },
     ]}
-    heading={false}
   />
 );
 
@@ -45,32 +42,31 @@ card(
     name="Example"
     defaultCode={`
 class PulsarExample extends React.Component {
-constructor(props) {
-  super(props);
-  this.state = {
-    isPulsing: true
-  };
-}
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPulsing: true
+    };
+  }
 
-render() {
-  const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
-  return (
-    <Box display="flex" direction="column">
-      <Box marginBottom={4}>
-        <Button
-          text={text}
-          onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
-          inline
-          size="md"
-        />
+  render() {
+    const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
+    return (
+      <Box display="flex" direction="column">
+        <Box marginBottom={4}>
+          <Button
+            text={text}
+            onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
+            inline
+            size="md"
+          />
+        </Box>
+        <Pulsar paused={!this.state.isPulsing} />
       </Box>
-      <Pulsar paused={!this.state.isPulsing} />
-    </Box>
-  );
-}
+    );
+  }
 }
 `}
-    scope={{ Button, Pulsar }}
   />
 );
 
@@ -137,8 +133,7 @@ class TooltipExample extends React.Component {
   }
 }
 `}
-    scope={{ Button, Tooltip, Pulsar }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

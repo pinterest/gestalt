@@ -1,13 +1,10 @@
 // @flow
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Avatar, Box, Text } from 'gestalt';
 import keerthi from './avatars/keerthi.jpg';
 import shanice from './avatars/shanice.jpg';
 import PropTable from './components/PropTable';
 import Example from './components/Example';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -28,6 +25,12 @@ card(
         required: true,
       },
       {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Adds a white border around Avatar so it's visible when displayed on other images`,
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         description:
@@ -43,36 +46,8 @@ card(
         defaultValue: false,
       },
     ]}
-    heading={false}
   />
 );
-
-const sizes = ['sm', 'md', 'lg'];
-
-type AvatarExProps = {
-  size: 'sm' | 'md' | 'lg',
-  src: string,
-};
-
-function AvatarEx(props: AvatarExProps) {
-  const name = 'Keerthi';
-  const { size, src } = props;
-  return (
-    <Box padding={1}>
-      <Box marginBottom={1}>
-        <Text bold align="center">
-          {size}
-        </Text>
-      </Box>
-      <Avatar name={name} size={size} src={src} />
-    </Box>
-  );
-}
-
-AvatarEx.propTypes = {
-  size: PropTypes.oneOf(sizes),
-  src: PropTypes.string,
-};
 
 card(
   <Example
@@ -82,12 +57,11 @@ card(
     name="Fixed Sizes"
     defaultCode={`
 <Avatar
-size="md"
-src="${keerthi}"
-name="Keerthi"
+  size="md"
+  src="${keerthi}"
+  name="Keerthi"
 />
 `}
-    scope={{ Avatar }}
   />
 );
 
@@ -103,18 +77,17 @@ card(
     name="Container Based Sizes"
     defaultCode={`
 <Box display="flex" direction="row">
-<Box width={40}>
-  <Avatar name="Julia" />
-</Box>
-<Box column={2}>
-  <Avatar name="Julia" />
-</Box>
-<Box column={4}>
-  <Avatar name="Keerthi" src="${keerthi}" />
-</Box>
+  <Box width={40}>
+    <Avatar name="Julia" />
+  </Box>
+  <Box column={2}>
+    <Avatar name="Julia" />
+  </Box>
+  <Box column={4}>
+    <Avatar name="Keerthi" src="${keerthi}" />
+  </Box>
 </Box>
   `}
-    scope={{ Box, Avatar }}
   />
 );
 
@@ -127,11 +100,10 @@ card(
     name="Without an image"
     defaultCode={`
 <Avatar
-name="Keerthi"
-size="lg"
+  name="Keerthi"
+  size="lg"
 />
   `}
-    scope={{ Avatar }}
   />
 );
 
@@ -143,14 +115,13 @@ card(
     name="Verified"
     defaultCode={`
 <Avatar
-name="Shanice"
-size="lg"
-src="${shanice}"
-verified
+  name="Shanice"
+  size="lg"
+  src="${shanice}"
+  verified
 />
   `}
-    scope={{ Box, Avatar }}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;

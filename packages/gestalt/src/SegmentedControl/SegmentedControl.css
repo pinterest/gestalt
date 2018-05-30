@@ -1,5 +1,5 @@
 .SegmentedControl {
-  composes: borderBox from '../Layout.css';
+  composes: borderBox from "../Layout.css";
   composes: lightGrayBg from "../Colors.css";
   composes: flex from "../Layout.css";
   composes: justifyBetween from "../Layout.css";

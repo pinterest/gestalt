@@ -2,7 +2,6 @@
 import * as React from 'react';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
-import CardPage from './components/CardPage';
 import Example from './components/Example';
 import stock1 from './images/stock1.jpg';
 
@@ -46,7 +45,6 @@ card(
           'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -69,40 +67,40 @@ class ToastExample extends React.Component {
   };
   render() {
     return (
-      <div>
-      <Button
-        inline
-        text={ this.state.showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
-        onClick={this.handleConfirmationClick}
-        size='md'
-      />
-      <Box
-        fit
-        dangerouslySetInlineStyle={{
-          __style: {
-            bottom: 50,
-            left: '50%',
-            transform: 'translateX(-50%)',
-          },
-        }}
-        paddingX={1}
-        position='fixed'
-      >
-        {this.state.showConfirmationToast ? (
-            <Toast
-              text={['Saved to', 'Home decor']}
-              thumbnail={
-                <Image
-                  alt='Saved to home decor board'
-                  naturalHeight={564}
-                  naturalWidth={564}
-                  src='${stock1}'
-                />
-              }
-            />
-        ) : null}
+      <Box>
+        <Button
+          inline
+          text={ this.state.showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
+          onClick={this.handleConfirmationClick}
+          size='md'
+        />
+        <Box
+          fit
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: 50,
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          paddingX={1}
+          position='fixed'
+        >
+          {this.state.showConfirmationToast ? (
+              <Toast
+                text={['Saved to', 'Home decor']}
+                thumbnail={
+                  <Image
+                    alt='Saved to home decor board'
+                    naturalHeight={564}
+                    naturalWidth={564}
+                    src='${stock1}'
+                  />
+                }
+              />
+          ) : null}
+        </Box>
       </Box>
-      </div>
     );
   }
 }`}
@@ -129,33 +127,33 @@ class ToastExample extends React.Component {
   };
   render() {
     return (
-      <div>
-      <Button
-        inline
-        text={ this.state.showGuideToast ? 'Close toast' : 'Show guide toast' }
-        onClick={this.handleGuideClick}
-        size='md'
-      />
-      <Box
-        fit
-        dangerouslySetInlineStyle={{
-          __style: {
-            bottom: 150,
-            left: '50%',
-            transform: 'translateX(-50%)',
-          },
-        }}
-        paddingX={1}
-        position='fixed'
-      >
-        {this.state.showGuideToast ? (
-          <Toast
-            icon='arrow-circle-forward'
-            text='Same great profile, just a new look. Learn more?'
-          />
-        ) : null}
+      <Box>
+        <Button
+          inline
+          text={ this.state.showGuideToast ? 'Close toast' : 'Show guide toast' }
+          onClick={this.handleGuideClick}
+          size='md'
+        />
+        <Box
+          fit
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: 150,
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          paddingX={1}
+          position='fixed'
+        >
+          {this.state.showGuideToast ? (
+            <Toast
+              icon='arrow-circle-forward'
+              text='Same great profile, just a new look. Learn more?'
+            />
+          ) : null}
+        </Box>
       </Box>
-      </div>
     );
   }
 }`}
@@ -182,34 +180,34 @@ class ToastExample extends React.Component {
   };
   render() {
     return (
-      <div>
-      <Button
-        inline
-        text={ this.state.showErrorToast ? 'Close toast' : 'Show error toast' }
-        onClick={this.handleErrorClick}
-        size='md'
-      />
-      <Box
-        fit
-        dangerouslySetInlineStyle={{
-          __style: {
-            bottom: 250,
-            left: '50%',
-            transform: 'translateX(-50%)',
-          },
-        }}
-        paddingX={1}
-        position='fixed'
-      >
-        {this.state.showErrorToast ? (
-          <Toast color='orange' text="Oops, we couldn't find that!" />
-        ) : null}
+      <Box>
+        <Button
+          inline
+          text={ this.state.showErrorToast ? 'Close toast' : 'Show error toast' }
+          onClick={this.handleErrorClick}
+          size='md'
+        />
+        <Box
+          fit
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: 250,
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          paddingX={1}
+          position='fixed'
+        >
+          {this.state.showErrorToast ? (
+            <Toast color='orange' text="Oops, we couldn't find that!" />
+          ) : null}
+        </Box>
       </Box>
-      </div>
     );
   }
 }`}
   />
 );
 
-export default () => <CardPage cards={cards} />;
+export default cards;
