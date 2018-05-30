@@ -7,6 +7,14 @@
   </summary>
 
 ### Minor
+
+### Patch
+
+</details>
+
+## 0.72.0 (May 30, 2018)
+
+### Minor
 * Video: Added new `onSeek` callback prop to `Video` component (#209)
 * Video: Added new `onReady` callback prop to `Video` component (#210)
 * Internal: Remove dead example code from docs (#211)
@@ -21,10 +29,6 @@
 * TextField: Makes TextField React Async compatible (#223)
 * ScrollContainer: Makes ScrollContainer React Async compatible (#224)
 * Video: Fix Video playback on SSR if playing is true on first mount (#225)
-
-### Patch
-
-</details>
 
 ## 0.71.0 (May 23, 2018)
 
