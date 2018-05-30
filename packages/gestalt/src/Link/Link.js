@@ -6,9 +6,9 @@ import styles from './Link.css';
 
 type Props = {|
   children?: React.Node,
-  href: string,
+  href?: string,
   inline?: boolean,
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> }) => void,
   target?: null | 'self' | 'blank',
 |};
 
@@ -20,18 +20,23 @@ const TAB_KEY_CODE = 9;
 
 export default class Link extends React.Component<Props, State> {
   static propTypes = {
-    children: PropTypes.node.isRequired,
-    href: PropTypes.string.isRequired,
+    children: PropTypes.node,
+    href: PropTypes.string,
     inline: PropTypes.bool,
     onClick: PropTypes.func,
     target: PropTypes.oneOf([null, 'self', 'blank']),
   };
 
-  state: State = {
+  static defaultProps = {
+    inline: false,
+    target: null,
+  };
+
+  state = {
     enableFocusStyles: true,
   };
 
-  handleClick = (event: SyntheticMouseEvent<>) => {
+  handleClick = (event: SyntheticMouseEvent<HTMLAnchorElement>) => {
     const { href, onClick } = this.props;
     if (onClick && href) {
       onClick({ event });
@@ -45,7 +50,7 @@ export default class Link extends React.Component<Props, State> {
     }
   };
 
-  handleKeyUp = (event: SyntheticKeyboardEvent<>) => {
+  handleKeyUp = (event: SyntheticKeyboardEvent<HTMLAnchorElement>) => {
     const { href, target } = this.props;
     if (target === 'blank' && event.keyCode === TAB_KEY_CODE && href) {
       this.setState({ enableFocusStyles: true });
@@ -53,7 +58,7 @@ export default class Link extends React.Component<Props, State> {
   };
 
   render() {
-    const { children, inline = false, target = null, href } = this.props;
+    const { children, inline, target, href } = this.props;
     const rel = target === 'blank' ? 'noopener noreferrer' : null;
     const linkTarget = target ? `_${target}` : null;
 

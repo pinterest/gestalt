@@ -32,11 +32,11 @@ card(
       },
       {
         name: 'onClick',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type: '({ event: SyntheticMouseEvent<HTMLAnchorElement> }) => void',
       },
       {
         name: 'target',
-        type: `"null" | "self" | "blank"`,
+        type: `null | "self" | "blank"`,
         defaultValue: 'null',
       },
     ]}
