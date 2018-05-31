@@ -53,9 +53,10 @@ type Props<T> = {|
   virtualize?: boolean,
 |};
 
-type State = {|
+type State<T> = {|
   hasPendingMeasurements: boolean,
   isFetching: boolean,
+  items: Array<T>,
   scrollTop: number,
   width: ?number,
 |};
@@ -67,7 +68,7 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
-export default class Masonry<T> extends React.Component<Props<T>, State> {
+export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   static createMeasurementStore() {
     return new MeasurementStore();
   }
@@ -139,6 +140,60 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
     virtualize: false,
   };
 
+  static getDerivedStateFromProps(props: Props<T>, state: State<T>) {
+    const { items, measurementStore } = props;
+    // whenever we're receiving new props, determine whether any items need to be measured
+    // TODO - we should treat items as immutable
+    const hasPendingMeasurements = items.some(
+      item => !measurementStore.has(item)
+    );
+
+    // Shallow compare all items, if any change reflow the grid.
+    for (let i = 0; i < items.length; i += 1) {
+      // We've reached the end of our current props and everything matches.
+      // If we hit this case it means we need to insert new items.
+      if (state.items[i] === undefined) {
+        return {
+          hasPendingMeasurements,
+          items,
+          isFetching: false,
+        };
+      }
+
+      // Reset grid items when:
+      if (
+        // An item object ref does not match.
+        items[i] !== state.items[i] ||
+        // Or less items than we currently have are passed in.
+        items.length < state.items.length
+      ) {
+        return {
+          hasPendingMeasurements,
+          items,
+          isFetching: false,
+        };
+      }
+    }
+
+    // Reset items if new items array is empty.
+    if (items.length === 0 && state.items.length > 0) {
+      return {
+        hasPendingMeasurements,
+        items,
+        isFetching: false,
+      };
+    } else if (hasPendingMeasurements !== state.hasPendingMeasurements) {
+      // make sure we always update hasPendingMeasurements
+      return {
+        hasPendingMeasurements,
+        items,
+      };
+    }
+
+    // Return null to indicate no change to state.
+    return null;
+  }
+
   constructor(props: Props<T>) {
     super(props);
 
@@ -150,12 +205,12 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
         item => !!item && !props.measurementStore.has(item)
       ),
       isFetching: false,
+      // eslint-disable-next-line react/no-unused-state
+      items: props.items,
       scrollTop: 0,
       width: undefined,
     };
   }
-
-  state: State;
 
   /**
    * Adds hooks after the component mounts.
@@ -181,54 +236,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State> {
     this.setState({ scrollTop, width });
   }
 
-  componentWillReceiveProps({ items, measurementStore }: Props<T>) {
-    // whenever we're receiving new props, determine whether any items need to be measured
-    // TODO - we should treat items as immutable
-    const hasPendingMeasurements = items.some(
-      item => !measurementStore.has(item)
-    );
-    // Shallow compare all items, if any change reflow the grid.
-    for (let i = 0; i < items.length; i += 1) {
-      // We've reached the end of our current props and everything matches.
-      // If we hit this case it means we need to insert new items.
-      if (this.props.items[i] === undefined) {
-        this.setState({
-          hasPendingMeasurements,
-          isFetching: false,
-        });
-        return;
-      }
-
-      // Reset grid items when:
-      if (
-        // An item object ref does not match.
-        items[i] !== this.props.items[i] ||
-        // Or less items than we currently have are passed in.
-        items.length < this.props.items.length
-      ) {
-        this.setState({
-          hasPendingMeasurements,
-          isFetching: false,
-        });
-        return;
-      }
-    }
-
-    // Reset items if new items array is empty.
-    if (items.length === 0 && this.props.items.length > 0) {
-      this.setState({
-        hasPendingMeasurements,
-        isFetching: false,
-      });
-    } else if (hasPendingMeasurements !== this.state.hasPendingMeasurements) {
-      // make sure we always update hasPendingMeasurements
-      this.setState({
-        hasPendingMeasurements,
-      });
-    }
-  }
-
-  componentDidUpdate(prevProps: Props<T>, prevState: State) {
+  componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
     const { items, measurementStore } = this.props;
 
     this.measureContainerAsync();
