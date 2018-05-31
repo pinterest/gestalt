@@ -427,7 +427,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       });
     } else if (
       this.props.layout === UniformRowLayoutSymbol ||
-      this.props.layout instanceof LegacyUniformRowLayout
+      this.props.layout === LegacyUniformRowLayout
     ) {
       layout = uniformRowLayout({
         cache: measurementStore,
