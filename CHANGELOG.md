@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Masonry: Makes Masonry React Async compatible (#227)
 
 ### Patch
 
