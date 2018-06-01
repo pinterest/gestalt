@@ -41,5 +41,17 @@ exports[`SegmentedControl renders 1`] = `
       Messages
     </div>
   </button>
+  <button
+    aria-selected={false}
+    className="item itemIsNotSelected"
+    onClick={[Function]}
+    role="tab"
+  >
+    <div
+      className="box justifyCenter xsDisplayFlex"
+    >
+      <div />
+    </div>
+  </button>
 </div>
 `;
