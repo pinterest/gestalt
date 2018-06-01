@@ -47,7 +47,9 @@ export default function SegmentedControl(props: Props) {
                 {item}
               </Text>
             ) : (
-              <Box display="flex" justifyContent="center">{item}</Box>
+              <Box display="flex" justifyContent="center">
+                {item}
+              </Box>
             )}
           </button>
         );
