@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import SegmentedControl from '../SegmentedControl';
 import Icon from '../../Icon/Icon';
 import Text from '../../Text/Text';
-import { shallow } from 'enzyme';
 
 test('SegmentedControl renders', () => {
   const tree = create(
@@ -24,8 +24,8 @@ test('SegmentedControl renders component items', () => {
         'News',
         'You',
         'Messages',
-        <Icon accessibilityLabel="" icon="pin" color="red" />,
-        <Icon accessibilityLabel="" icon="pin" color="red" />,
+        <Icon key="icon1" accessibilityLabel="" icon="pin" color="red" />,
+        <Icon key="icon2" accessibilityLabel="" icon="pin" color="red" />,
       ]}
       selectedItemIndex={0}
       onChange={() => {}}

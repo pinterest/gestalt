@@ -6,7 +6,7 @@ import Text from '../Text/Text';
 import styles from './SegmentedControl.css';
 
 type Props = {|
-  items: Array<string | React.Node>,
+  items: Array<React.Node>,
   onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
   selectedItemIndex: number,
   size?: 'md' | 'lg',
