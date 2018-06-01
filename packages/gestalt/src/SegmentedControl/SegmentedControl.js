@@ -2,11 +2,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Box from '../Box/Box';
 import Text from '../Text/Text';
 import styles from './SegmentedControl.css';
 
 type Props = {|
-  items: Array<string>,
+  items: Array<React.Node>,
   onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
   selectedItemIndex: number,
   size?: 'md' | 'lg',
@@ -36,14 +37,20 @@ export default function SegmentedControl(props: Props) {
             onClick={e => onChange({ event: e, activeIndex: i })}
             role="tab"
           >
-            <Text
-              bold
-              color={isSelected ? 'darkGray' : 'gray'}
-              align="center"
-              size={size}
-            >
-              {item}
-            </Text>
+            {typeof item === 'string' ? (
+              <Text
+                bold
+                color={isSelected ? 'darkGray' : 'gray'}
+                align="center"
+                size={size}
+              >
+                {item}
+              </Text>
+            ) : (
+              <Box display="flex" justifyContent="center">
+                {item}
+              </Box>
+            )}
           </button>
         );
       })}
