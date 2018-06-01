@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label renders 1`] = `
+<label
+  className="label"
+  htmlFor="email"
+>
+  Email
+</label>
+`;

@@ -98,3 +98,273 @@ exports[`Avatar renders multi-byte character initials 1`] = `
   </div>
 </div>
 `;
+
+exports[`Avatar renders the correct size - lg 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": 72,
+      "width": 72,
+    }
+  }
+>
+  <div
+    className="Mask circle"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "paddingBottom": "100%",
+        }
+      }
+    >
+      <img
+        alt="Strava"
+        className="img"
+        onError={[Function]}
+        onLoad={[Function]}
+        sizes={undefined}
+        src="http://pinterest.com/img/strave.png"
+        srcSet={undefined}
+      />
+    </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - md 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="Mask circle"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "paddingBottom": "100%",
+        }
+      }
+    >
+      <img
+        alt="Strava"
+        className="img"
+        onError={[Function]}
+        onLoad={[Function]}
+        sizes={undefined}
+        src="http://pinterest.com/img/strave.png"
+        srcSet={undefined}
+      />
+    </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - sm 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": 24,
+      "width": 24,
+    }
+  }
+>
+  <div
+    className="Mask circle"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "paddingBottom": "100%",
+        }
+      }
+    >
+      <img
+        alt="Strava"
+        className="img"
+        onError={[Function]}
+        onLoad={[Function]}
+        sizes={undefined}
+        src="http://pinterest.com/img/strave.png"
+        srcSet={undefined}
+      />
+    </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct src 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": "",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Mask circle"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "paddingBottom": "100%",
+        }
+      }
+    >
+      <img
+        alt="Strava"
+        className="img"
+        onError={[Function]}
+        onLoad={[Function]}
+        sizes={undefined}
+        src="http://pinterest.com/img/strave.png"
+        srcSet={undefined}
+      />
+    </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the verified icon 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": "",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box circle grayBg relative"
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "paddingBottom": "100%",
+        }
+      }
+    />
+    <div
+      className="absolute bottom0 box left0 right0 top0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          Jammy
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
+        >
+          J
+        </text>
+      </svg>
+    </div>
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "bottom": "4%",
+        "height": "20%",
+        "minHeight": 8,
+        "minWidth": 8,
+        "right": "4%",
+        "width": "20%",
+      }
+    }
+  >
+    <div
+      className="box circle whiteBg"
+      style={
+        Object {
+          "boxShadow": "0 0 0 2px #fff",
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon red iconBlock"
+        height="100%"
+        role="img"
+        viewBox="0 0 24 24"
+        width="100%"
+      >
+        <title>
+          
+        </title>
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

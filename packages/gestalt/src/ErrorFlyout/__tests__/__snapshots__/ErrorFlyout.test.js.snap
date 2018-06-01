@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorFlyout does not render when the anchor is null 1`] = `null`;
+
+exports[`ErrorFlyout renders 1`] = `
+<div
+  className="box"
+>
+  <div />
+</div>
+`;
