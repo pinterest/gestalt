@@ -77,13 +77,11 @@ class ToastExample extends React.Component {
       'News',
       'You',
       'Messages',
-      <Box display="flex" justifyContent="center">
-        <Icon
-          icon="pin"
-          accessibilityLabel="Pin"
-          color={this.state.itemIndex === 3 ? 'darkGray' : 'gray'}
-        />
-      </Box>,
+      <Icon
+        icon="pin"
+        accessibilityLabel="Pin"
+        color={this.state.itemIndex === 3 ? 'darkGray' : 'gray'}
+      />,
     ];
 
     return (

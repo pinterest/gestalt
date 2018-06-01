@@ -2,6 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Box from '../Box/Box';
 import Text from '../Text/Text';
 import styles from './SegmentedControl.css';
 
@@ -46,7 +47,7 @@ export default function SegmentedControl(props: Props) {
                 {item}
               </Text>
             ) : (
-              <div>{item}</div>
+              <Box display="flex" justifyContent="center">{item}</Box>
             )}
           </button>
         );
