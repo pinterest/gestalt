@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pulsar is hidden when paused 1`] = `
+<div
+  className="box relative xsDisplayNone"
+  style={
+    Object {
+      "animationIterationCount": 0,
+      "boxShadow": "none",
+      "height": 135,
+      "outline": "none",
+      "width": 135,
+    }
+  }
+>
+  <div
+    className="innerCircle"
+  >
+    <div
+      className="outerCircle"
+    />
+  </div>
+</div>
+`;
+
+exports[`Pulsar renders 1`] = `
+<div
+  className="box relative xsDisplayBlock"
+  style={
+    Object {
+      "animationIterationCount": "infinite",
+      "boxShadow": "none",
+      "height": 135,
+      "outline": "none",
+      "width": 135,
+    }
+  }
+>
+  <div
+    className="innerCircle"
+  >
+    <div
+      className="outerCircle"
+    />
+  </div>
+</div>
+`;

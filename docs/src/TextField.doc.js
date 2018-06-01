@@ -1,7 +1,5 @@
 // @flow
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Box, Label, TextField } from 'gestalt';
 import Example from './components/Example';
 import PropTable from './components/PropTable';
 import PageHeader from './components/PageHeader';
@@ -72,43 +70,8 @@ card(
         type: 'string',
       },
     ]}
-    heading={false}
   />
 );
-
-const TextFieldExample = (props: {
-  disabled?: boolean,
-  id: string,
-  type: *,
-  placeholder?: string,
-  label: string,
-  state?: Object,
-  type?: *,
-  value?: string,
-}) => (
-  <Box paddingY={2}>
-    <Box marginBottom={2}>
-      <Label htmlFor={props.id}>{props.label}</Label>
-    </Box>
-    <TextField
-      disabled={props.disabled}
-      id={props.id}
-      onChange={() => {}}
-      placeholder={props.placeholder || ''}
-      value={props.state ? props.state[props.id] : props.value}
-      type={props.type}
-    />
-  </Box>
-);
-
-TextFieldExample.propTypes = {
-  disabled: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  state: PropTypes.shape({}),
-  type: PropTypes.string,
-};
 
 card(
   <Example
@@ -126,11 +89,8 @@ class Example extends React.Component {
     };
   }
   _handleChange({ value }) {
-    this.setState({
-      value
-    });
+    this.setState({ value });
   }
-
   render() {
     return (
       <Box>
@@ -167,11 +127,8 @@ class Example extends React.Component {
     };
   }
   _handleChange({ value }) {
-    this.setState({
-      value
-    });
+    this.setState({ value });
   }
-
   render() {
     return (
       <Box>
@@ -211,11 +168,8 @@ class Example extends React.Component {
     };
   }
   _handleChange({ value }) {
-    this.setState({
-      value
-    });
+    this.setState({ value });
   }
-
   render() {
     return (
       <Box>

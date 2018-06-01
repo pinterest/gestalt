@@ -22,7 +22,6 @@ card(
         type: 'React.Node',
       },
     ]}
-    heading={false}
   />
 );
 
@@ -34,11 +33,11 @@ card(
     name="Responsive content"
     defaultCode={`
 <Box color="gray" padding={3}>
-<Container>
-  <Box color="white" padding={3}>
-    <Text>Centered content</Text>
-  </Box>
-</Container>
+  <Container>
+    <Box color="white" padding={3}>
+      <Text>Centered content</Text>
+    </Box>
+  </Container>
 </Box>
 `}
   />

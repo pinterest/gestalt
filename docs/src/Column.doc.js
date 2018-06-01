@@ -29,7 +29,6 @@ card(
         responsive: true,
       },
     ]}
-    heading={false}
   />
 );
 

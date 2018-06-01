@@ -10,6 +10,7 @@ import styles from './SelectList.css';
 type State = {
   focused: boolean,
   errorIsOpen: boolean,
+  errorMessage?: string,
 };
 
 type Props = {|
@@ -51,16 +52,21 @@ export default class SelectList extends React.Component<Props, State> {
     options: [],
   };
 
-  state: State = {
+  static getDerivedStateFromProps(props: Props, state: State) {
+    if (props.errorMessage !== state.errorMessage) {
+      return {
+        errorIsOpen: !!props.errorMessage,
+        errorMessage: props.errorMessage,
+      };
+    }
+
+    return null;
+  }
+
+  state = {
     focused: false,
     errorIsOpen: false,
   };
-
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.errorMessage !== this.props.errorMessage) {
-      this.setState({ errorIsOpen: !!nextProps.errorMessage });
-    }
-  }
 
   select: ?HTMLSelectElement;
 

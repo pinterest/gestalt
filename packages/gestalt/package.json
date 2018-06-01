@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "0.70.0",
+  "version": "0.72.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "main": "dist/gestalt.js",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "caniuse-lite": "^1.0.30000810",
     "cssnano": "^3.10.0",
+    "gzip-size": "^4.1.0",
     "postcss": "^6.0.19",
     "postcss-cssnext": "^3.1.0",
     "postcss-modules": "^1.1.0",

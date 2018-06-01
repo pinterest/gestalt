@@ -86,6 +86,11 @@ card(
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
+        name: 'onEnded',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when playback of the video completes',
+      },
+      {
         name: 'onFullscreenChange',
         type:
           '({ event: SyntheticEvent<HTMLDivElement>, fullscreen: boolean }) => void',
@@ -107,6 +112,16 @@ card(
         name: 'onPause',
         type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description: 'Sent when playback is paused',
+      },
+      {
+        name: 'onReady',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when video is loaded and ready to play.',
+      },
+      {
+        name: 'onSeek',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when a seek operation completes from the playhead',
       },
       {
         name: 'onTimeChange',
@@ -170,7 +185,6 @@ card(
         defaultValue: 1,
       },
     ]}
-    heading={false}
   />
 );
 
