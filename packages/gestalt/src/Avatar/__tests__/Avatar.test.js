@@ -25,22 +25,42 @@ describe('Avatar', () => {
   });
 
   it('renders the correct src', () => {
-    const tree = create(<Avatar name="Strava" src="http://pinterest.com/img/strave.png" />).toJSON();
+    const tree = create(
+      <Avatar name="Strava" src="http://pinterest.com/img/strave.png" />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders the correct size - sm', () => {
-    const tree = create(<Avatar name="Strava" src="http://pinterest.com/img/strave.png" size="sm" />).toJSON();
+    const tree = create(
+      <Avatar
+        name="Strava"
+        src="http://pinterest.com/img/strave.png"
+        size="sm"
+      />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders the correct size - md', () => {
-    const tree = create(<Avatar name="Strava" src="http://pinterest.com/img/strave.png" size="md" />).toJSON();
+    const tree = create(
+      <Avatar
+        name="Strava"
+        src="http://pinterest.com/img/strave.png"
+        size="md"
+      />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders the correct size - lg', () => {
-    const tree = create(<Avatar name="Strava" src="http://pinterest.com/img/strave.png" size="lg" />).toJSON();
+    const tree = create(
+      <Avatar
+        name="Strava"
+        src="http://pinterest.com/img/strave.png"
+        size="lg"
+      />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
