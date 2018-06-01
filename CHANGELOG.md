@@ -11,6 +11,7 @@
 * SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 
 ### Patch
+* Internal: add better basic test coverage (#231)
 
 </details>
 
