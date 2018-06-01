@@ -9,6 +9,7 @@ import styles from './TextArea.css';
 type State = {
   focused: boolean,
   errorIsOpen: boolean,
+  errorMessage?: string,
 };
 
 type Props = {|
@@ -46,16 +47,21 @@ export default class TextArea extends React.Component<Props, State> {
     rows: 3,
   };
 
-  state: State = {
+  static getDerivedStateFromProps(props: Props, state: State) {
+    if (props.errorMessage !== state.errorMessage) {
+      return {
+        errorIsOpen: !!props.errorMessage,
+        errorMessage: props.errorMessage,
+      };
+    }
+
+    return null;
+  }
+
+  state = {
     focused: false,
     errorIsOpen: false,
   };
-
-  componentWillReceiveProps(nextProps: Props) {
-    if (nextProps.errorMessage !== this.props.errorMessage) {
-      this.setState({ errorIsOpen: !!nextProps.errorMessage });
-    }
-  }
 
   textarea: ?HTMLElement;
 

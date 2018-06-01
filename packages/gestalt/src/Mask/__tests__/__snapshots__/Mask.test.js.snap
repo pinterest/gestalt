@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mask has the correct width 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": undefined,
+      "width": 400,
+    }
+  }
+>
+  <img
+    alt="Painting"
+    src="https://pinterest.com/img/painting.png"
+  />
+</div>
+`;
+
+exports[`Mask renders 1`] = `
+<div
+  className="Mask square"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <img
+    alt="Painting"
+    src="https://pinterest.com/img/painting.png"
+  />
+</div>
+`;

@@ -7,6 +7,18 @@
   </summary>
 
 ### Minor
+* Masonry: Makes Masonry React Async compatible (#227)
+* SegmentedControl: Change flow type of `items` to `React.Node` (#230)
+
+### Patch
+* Internal: add better basic test coverage (#231)
+* Modal: Refactor internals and remove responsive behavior (#218)
+
+</details>
+
+## 0.72.0 (May 30, 2018)
+
+### Minor
 * Video: Added new `onSeek` callback prop to `Video` component (#209)
 * Video: Added new `onReady` callback prop to `Video` component (#210)
 * Internal: Remove dead example code from docs (#211)
@@ -17,11 +29,10 @@
 * Docs: Fix indentation on gestalt docs code examples (#219)
 * Docs: Fix broken Link component in docs app (#220)
 * SelectList: Makes SelectList React Async compatible (#221)
-* Modal: Refactor internals and remove responsive behavior (#218)
-
-### Patch
-
-</details>
+* TextArea: Makes TextArea React Async compatible (#222)
+* TextField: Makes TextField React Async compatible (#223)
+* ScrollContainer: Makes ScrollContainer React Async compatible (#224)
+* Video: Fix Video playback on SSR if playing is true on first mount (#225)
 
 ## 0.71.0 (May 23, 2018)
 
