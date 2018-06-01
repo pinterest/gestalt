@@ -6,7 +6,7 @@ import SegmentedControl from '../SegmentedControl';
 test('SegmentedControl renders', () => {
   const tree = create(
     <SegmentedControl
-      items={['News', 'You', 'Messages']}
+      items={['News', 'You', 'Messages', <div key="dummy" />]}
       selectedItemIndex={0}
       onChange={() => {}}
     />

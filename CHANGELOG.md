@@ -8,6 +8,7 @@
 
 ### Minor
 * Masonry: Makes Masonry React Async compatible (#227)
+* SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 
 ### Patch
 
