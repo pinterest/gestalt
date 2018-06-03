@@ -13,7 +13,6 @@ exports[`Video with callbacks 1`] = `
   <video
     autoPlay={false}
     className="video"
-    loop={undefined}
     muted={false}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
@@ -21,8 +20,6 @@ exports[`Video with callbacks 1`] = `
     onProgress={[Function]}
     onSeeked={[Function]}
     onTimeUpdate={[Function]}
-    playsInline={undefined}
-    poster={undefined}
     preload="auto"
     src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
@@ -55,8 +52,6 @@ exports[`Video with media attributes 1`] = `
     onProgress={[Function]}
     onSeeked={[Function]}
     onTimeUpdate={[Function]}
-    playsInline={undefined}
-    poster={undefined}
     preload="metadata"
     src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >
@@ -81,7 +76,6 @@ exports[`Video with multiple sources 1`] = `
   <video
     autoPlay={false}
     className="video"
-    loop={undefined}
     muted={false}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
@@ -89,10 +83,7 @@ exports[`Video with multiple sources 1`] = `
     onProgress={[Function]}
     onSeeked={[Function]}
     onTimeUpdate={[Function]}
-    playsInline={undefined}
-    poster={undefined}
     preload="auto"
-    src={undefined}
   >
     <source
       src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4"
@@ -123,7 +114,6 @@ exports[`Video with source 1`] = `
   <video
     autoPlay={false}
     className="video"
-    loop={undefined}
     muted={false}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
@@ -131,8 +121,6 @@ exports[`Video with source 1`] = `
     onProgress={[Function]}
     onSeeked={[Function]}
     onTimeUpdate={[Function]}
-    playsInline={undefined}
-    poster={undefined}
     preload="auto"
     src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
   >

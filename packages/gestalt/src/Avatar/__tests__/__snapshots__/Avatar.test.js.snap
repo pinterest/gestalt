@@ -132,9 +132,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
         className="img"
         onError={[Function]}
         onLoad={[Function]}
-        sizes={undefined}
         src="http://pinterest.com/img/strave.png"
-        srcSet={undefined}
       />
     </div>
     <div
@@ -177,9 +175,7 @@ exports[`Avatar renders the correct size - md 1`] = `
         className="img"
         onError={[Function]}
         onLoad={[Function]}
-        sizes={undefined}
         src="http://pinterest.com/img/strave.png"
-        srcSet={undefined}
       />
     </div>
     <div
@@ -222,9 +218,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
         className="img"
         onError={[Function]}
         onLoad={[Function]}
-        sizes={undefined}
         src="http://pinterest.com/img/strave.png"
-        srcSet={undefined}
       />
     </div>
     <div
@@ -267,9 +261,7 @@ exports[`Avatar renders the correct src 1`] = `
         className="img"
         onError={[Function]}
         onLoad={[Function]}
-        sizes={undefined}
         src="http://pinterest.com/img/strave.png"
-        srcSet={undefined}
       />
     </div>
     <div
