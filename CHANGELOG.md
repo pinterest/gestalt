@@ -14,6 +14,7 @@
 ### Patch
 * Internal: add better basic test coverage (#231)
 * Internal: update to jsdom only tests (#232)
+* Internal: Upgrade to Jest 23 (#233)
 
 </details>
 

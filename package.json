@@ -6,7 +6,7 @@
     "test"
   ],
   "resolutions": {
-    "jest": "^22.4.3"
+    "jest": "^23.1.0"
   },
   "dependencies": {
     "react": "^16.3.2",
@@ -43,7 +43,7 @@
     "filesize": "^3.6.1",
     "flow-bin": "0.71.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.3",
+    "jest": "^23.1.0",
     "jest-puppeteer": "^3.0.1",
     "node-fetch": "^2.1.2",
     "prettier": "1.10.2",
@@ -73,7 +73,9 @@
           "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
           "\\.(css)$": "identity-obj-proxy"
         },
-        "testPathIgnorePatterns": ["jsdom.test.js"],
+        "testPathIgnorePatterns": [
+          "jsdom.test.js"
+        ],
         "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
       },
       {
