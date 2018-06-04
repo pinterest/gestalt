@@ -17,6 +17,7 @@
 * Internal: Upgrade to Jest 23 (#233)
 * Internal: Upgrade to Stylelint 9.2.1 (#235)
 * Avatar/GroupAvatar: Add additional tests for 100% coverage (#236)
+* Button/Icon: Add additional tests for 100% coverage (#237)
 
 </details>
 
