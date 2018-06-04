@@ -16,6 +16,7 @@
 * Internal: update to jsdom only tests (#232)
 * Internal: Upgrade to Jest 23 (#233)
 * Internal: Upgrade to Stylelint 9.2.1 (#235)
+* Avatar/GroupAvatar: Add additional tests for 100% coverage (#236)
 
 </details>
 
