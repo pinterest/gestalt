@@ -1,0 +1,23 @@
+.Backdrop {
+  composes: absolute left0 top0 right0 bottom0 from './Layout.css';
+  composes: zoomOut from './Cursor.css';
+  composes: darkGrayBg from './Colors.css';
+  height: 100%;
+  opacity: 0.9;
+  overflow-y: scroll;
+}
+
+.container {
+  composes: fixed borderBox flex justifyCenter left0 top0 itemsCenter from './Layout.css';
+  composes: xsCol12 from './Column.css';
+  height: 100%;
+}
+
+.wrapper {
+  composes: relative overflowHidden flex from './Layout.css';
+  composes: whiteBg from './Colors.css';
+  composes: rounded from './Borders.css';
+  composes: marginLeft4 marginRight4 from './Box/whitespace.css';
+  max-height: calc(100vh - 32px);
+  outline: none;
+}

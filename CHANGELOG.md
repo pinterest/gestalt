@@ -13,6 +13,7 @@
 
 ### Patch
 * Internal: add better basic test coverage (#231)
+* Modal: Refactor internals and remove responsive behavior (#218)
 * Internal: update to jsdom only tests (#232)
 * Internal: Upgrade to Jest 23 (#233)
 * Internal: Upgrade to Stylelint 9.2.1 (#235)
