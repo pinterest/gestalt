@@ -103,6 +103,10 @@
   box-sizing: border-box;
 }
 
+.contentBox {
+  box-sizing: content-box;
+}
+
 .flex {
   display: flex;
 }
