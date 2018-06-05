@@ -22,6 +22,7 @@
 * Button/Icon: Add additional tests for 100% coverage (#237)
 * Flyout/SegmentedControl: Add additional tests for 100% coverage (#238)
 * Touchable: Add additional tests for 100% coverage (#239)
+* Internal: Add Codecov badge to README (#241)
 
 </details>
 
