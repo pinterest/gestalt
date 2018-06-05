@@ -226,10 +226,20 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   componentDidMount() {
+    const { playbackRate, playing, volume } = this.props;
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
       addFullscreenEventListener(this.handleFullscreenChange);
+    }
+    // Set the initial volume
+    this.setVolume(volume);
+    // Set the initial playback rate
+    this.setPlaybackRate(playbackRate);
+    // Simulate an autoplay effect if the component was mounted with
+    // playing set to true
+    if (playing) {
+      this.play();
     }
   }
 
@@ -339,14 +349,7 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Sent when enough data is available that the media can be played
   handleCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
-    const { onReady, playbackRate, playing } = this.props;
-    // Simulate an autoplay effect if the component was mounted with
-    // playing set to true
-    if (playing) {
-      this.play();
-    }
-    // Set the initial playback rate when video is raedy to play
-    this.setPlaybackRate(playbackRate);
+    const { onReady } = this.props;
 
     if (onReady) {
       onReady({ event });
