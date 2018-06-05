@@ -9,3 +9,11 @@ exports[`Flyout renders 1`] = `
   <div />
 </div>
 `;
+
+exports[`Flyout renders as error 1`] = `
+<div
+  className="box"
+>
+  <div />
+</div>
+`;

@@ -47,6 +47,13 @@ card(
           'Depicts if the Flyout shares a relative root with the anchor element',
       },
       {
+        name: 'role',
+        type: `"alertdialog" | "dialog"`,
+        defaultValue: 'dialog',
+        description:
+          'The render style for this Flyout: alertdialog changes the colors to match other errors',
+      },
+      {
         name: 'size',
         type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
         description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
@@ -93,7 +100,6 @@ class FlyoutExample extends React.Component {
           <Flyout
             anchor={this.anchor}
             idealDirection="up"
-            message="Oops! This item is out of stock."
             onDismiss={this.handleDismiss}
             size="md"
           >
@@ -111,7 +117,59 @@ class FlyoutExample extends React.Component {
   }
 }
 `}
-    direction="row"
+  />
+);
+
+card(
+  <Example
+    name="Example: ErrorFlyout"
+    description={`Flyout can also take on additional roles. Like [TextField](#TextField) and [TextArea](#TextArea), this component
+can be used to highlight errors on other types of form fields by setting the \`role\` to \`alertdialog.\``}
+    defaultCode={`
+class ErrorFlyoutExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+    this.handleClick = this._handleClick.bind(this);
+    this.handleDismiss = this._handleDismiss.bind(this);
+  }
+  _handleClick() {
+    this.setState(() => ({ open: !this.state.open }));
+  }
+  _handleDismiss() {
+    this.setState(() => ({ open: false }));
+  }
+  render() {
+    return (
+      <Box>
+        <div
+          style={{ display: "inline-block" }}
+          ref={c => {
+            this.anchor = c;
+          }}
+        >
+          <Button onClick={this.handleClick} text="Remove" />
+        </div>
+        {this.state.open &&
+          <Flyout
+            anchor={this.anchor}
+            idealDirection="up"
+            onDismiss={this.handleDismiss}
+            role="alertdialog"
+            size="md"
+          >
+            <Box padding={3}>
+              <Text bold color="white">
+                Oops! This item is out of stock.
+              </Text>
+            </Box>
+          </Flyout>
+        }
+      </Box>
+    );
+  }
+}
+`}
   />
 );
 
