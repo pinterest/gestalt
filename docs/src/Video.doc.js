@@ -114,6 +114,16 @@ card(
         description: 'Sent when playback is paused',
       },
       {
+        name: 'onReady',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when video is loaded and ready to play.',
+      },
+      {
+        name: 'onSeek',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when a seek operation completes from the playhead',
+      },
+      {
         name: 'onTimeChange',
         type:
           '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',

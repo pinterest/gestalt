@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton renders 1`] = `
+<button
+  aria-label="Pinterest"
+  className="button"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  type="button"
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <div
+      className="box circle"
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon gray iconBlock"
+        height={20}
+        role="img"
+        viewBox="0 0 24 24"
+        width={20}
+      >
+        <title>
+          
+        </title>
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+  </div>
+</button>
+`;

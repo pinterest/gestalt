@@ -62,19 +62,19 @@ card(
     name="Example"
     defaultCode={`
 <Box width={108}>
-<GroupAvatar
-  collaborators={[
-    {
-      name: 'Keerthi',
-      src: '${keerthi}',
-    },
-    {
-      name: 'Shanice',
-      src: '${shanice}',
-    },
-  ]}
-  size="lg"
-/>
+  <GroupAvatar
+    collaborators={[
+      {
+        name: 'Keerthi',
+        src: '${keerthi}',
+      },
+      {
+        name: 'Shanice',
+        src: '${shanice}',
+      },
+    ]}
+    size="lg"
+  />
 </Box>
 `}
   />

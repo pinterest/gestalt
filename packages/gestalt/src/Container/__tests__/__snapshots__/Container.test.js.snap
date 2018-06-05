@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container renders 1`] = `
+<div
+  className="box justifyCenter xsDisplayFlex"
+>
+  <div
+    className="box"
+    style={
+      Object {
+        "maxWidth": 800,
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;

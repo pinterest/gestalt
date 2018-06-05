@@ -50,6 +50,8 @@ type Props = {|
   }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
+  onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onTimeChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     time: number,
@@ -184,6 +186,8 @@ export default class Video extends React.PureComponent<Props, State> {
     onLoadedChange: PropTypes.func,
     onPlay: PropTypes.func,
     onPause: PropTypes.func,
+    onReady: PropTypes.func,
+    onSeek: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
     playbackRate: PropTypes.number,
@@ -334,8 +338,8 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   // Sent when enough data is available that the media can be played
-  handleCanPlay = () => {
-    const { playbackRate, playing } = this.props;
+  handleCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const { onReady, playbackRate, playing } = this.props;
     // Simulate an autoplay effect if the component was mounted with
     // playing set to true
     if (playing) {
@@ -343,6 +347,10 @@ export default class Video extends React.PureComponent<Props, State> {
     }
     // Set the initial playback rate when video is raedy to play
     this.setPlaybackRate(playbackRate);
+
+    if (onReady) {
+      onReady({ event });
+    }
   };
 
   // The metadata has loaded or changed, indicating a change in
@@ -407,6 +415,15 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  // Sent when a seek operation completes.
+  handleSeek = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const { onSeek } = this.props;
+
+    if (onSeek) {
+      onSeek({ event });
+    }
+  };
+
   // The time indicated by the element's currentTime attribute has changed
   handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
     const { onTimeChange } = this.props;
@@ -451,6 +468,7 @@ export default class Video extends React.PureComponent<Props, State> {
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
         <video
+          autoPlay={playing}
           loop={loop}
           muted={volume === 0}
           playsInline={playsInline}
@@ -462,6 +480,7 @@ export default class Video extends React.PureComponent<Props, State> {
           onCanPlay={this.handleCanPlay}
           onDurationChange={this.handleDurationChange}
           onEnded={this.handleEnded}
+          onSeeked={this.handleSeek}
           onTimeUpdate={this.handleTimeUpdate}
           onProgress={this.handleProgress}
         >

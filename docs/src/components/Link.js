@@ -5,6 +5,7 @@ import { createLocation } from 'history';
 import { withRouter } from 'react-router-dom';
 
 type Props = {|
+  children?: React.Node,
   history: *,
   onClick: Function,
   replace: boolean,
@@ -42,14 +43,16 @@ class Link extends React.Component<Props> {
   };
 
   render() {
-    const { to, history, target } = this.props;
+    const { children, to, history, target } = this.props;
     const href = history.createHref(
       typeof to === 'string'
         ? createLocation(to, null, null, history.location)
         : to
     );
     return (
-      <GestaltLink target={target} onClick={this.handleClick} href={href} />
+      <GestaltLink target={target} onClick={this.handleClick} href={href}>
+        {children}
+      </GestaltLink>
     );
   }
 }

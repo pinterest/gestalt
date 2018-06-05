@@ -58,9 +58,6 @@ card(
 
 card(
   <Example
-    description="
-
-  "
     name="Example"
     defaultCode={`
 class FlyoutExample extends React.Component {
@@ -70,14 +67,12 @@ class FlyoutExample extends React.Component {
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
   }
-
   _handleClick() {
     this.setState(() => ({ open: !this.state.open }));
   }
   _handleDismiss() {
     this.setState(() => ({ open: false }));
   }
-
   render() {
     return (
       <Box>

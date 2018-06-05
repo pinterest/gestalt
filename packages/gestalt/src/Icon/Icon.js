@@ -58,15 +58,11 @@ export default function Icon(props: Props) {
     [styles.iconBlock]: !inline,
   });
 
-  let path;
-  if (icon) {
-    path = icons[icon];
-  } else if (dangerouslySetSvgPath) {
+  const path =
+    (icon && icons[icon]) ||
     /* eslint-disable-next-line no-underscore-dangle */
-    path = dangerouslySetSvgPath.__path;
-  } else {
-    path = '';
-  }
+    (dangerouslySetSvgPath && dangerouslySetSvgPath.__path) ||
+    undefined;
 
   const ariaHidden = accessibilityLabel === '' ? true : null;
 

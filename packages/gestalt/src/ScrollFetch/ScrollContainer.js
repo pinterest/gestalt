@@ -38,18 +38,16 @@ export default class ScrollContainer extends React.Component<Props> {
 
   componentDidMount() {
     const scrollContainer = getScrollContainer(this.props.scrollContainer);
-    if (!scrollContainer) {
-      return;
+    if (scrollContainer) {
+      this.updateScrollContainer(scrollContainer);
     }
-    this.updateScrollContainer(scrollContainer);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    const nextScrollContainer = getScrollContainer(nextProps.scrollContainer);
-    if (!nextScrollContainer || nextScrollContainer === this.scrollContainer) {
-      return;
+  componentDidUpdate() {
+    const nextScrollContainer = getScrollContainer(this.props.scrollContainer);
+    if (nextScrollContainer && nextScrollContainer !== this.scrollContainer) {
+      this.updateScrollContainer(nextScrollContainer);
     }
-    this.updateScrollContainer(nextScrollContainer);
   }
 
   componentWillUnmount() {

@@ -25,7 +25,7 @@ card(
     props={[
       {
         name: 'items',
-        type: 'Array<any>',
+        type: 'Array<React.Node>',
         required: true,
       },
       {
@@ -64,7 +64,6 @@ class ToastExample extends React.Component {
     super(props);
     this.state = {
       itemIndex: 0,
-      items: ['News', 'You', 'Messages']
     };
     this.handleItemChange = this.handleItemChange.bind(this);
   }
@@ -74,9 +73,20 @@ class ToastExample extends React.Component {
   };
 
   render() {
+    const items = [
+      'News',
+      'You',
+      'Messages',
+      <Icon
+        icon="pin"
+        accessibilityLabel="Pin"
+        color={this.state.itemIndex === 3 ? 'darkGray' : 'gray'}
+      />,
+    ];
+
     return (
       <SegmentedControl
-        items={this.state.items}
+        items={items}
         selectedItemIndex={this.state.itemIndex}
         onChange={this.handleItemChange}
       />
