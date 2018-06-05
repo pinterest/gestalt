@@ -24,7 +24,7 @@ type Props = {|
   onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
   onFocus?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
   placeholder?: string,
-  type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
+  type?: 'date' | 'email' | 'number' | 'password' | 'tel' | 'text' | 'url',
   value?: string,
 |};
 
@@ -51,6 +51,7 @@ export default class TextField extends React.Component<Props, State> {
       'email',
       'number',
       'password',
+      'tel',
       'text',
       'url',
     ]),
