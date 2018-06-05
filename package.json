@@ -6,7 +6,7 @@
     "test"
   ],
   "resolutions": {
-    "jest": "^22.4.3"
+    "jest": "^23.1.0"
   },
   "dependencies": {
     "react": "^16.3.2",
@@ -43,17 +43,17 @@
     "filesize": "^3.6.1",
     "flow-bin": "0.71.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.4.3",
+    "jest": "^23.1.0",
     "jest-puppeteer": "^3.0.1",
     "node-fetch": "^2.1.2",
     "prettier": "1.10.2",
     "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.3.2",
     "shelljs": "^0.7.7",
-    "stylelint": "^8.0.0",
-    "stylelint-config-prettier": "^2.1.0",
-    "stylelint-config-standard": "^18.0.0",
-    "stylelint-order": "^0.8.0"
+    "stylelint": "^9.2.1",
+    "stylelint-config-prettier": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1"
   },
   "scripts": {
     "build": "cd packages/gestalt && yarn build",
@@ -73,6 +73,9 @@
           "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
           "\\.(css)$": "identity-obj-proxy"
         },
+        "testPathIgnorePatterns": [
+          "jsdom.test.js"
+        ],
         "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
       },
       {

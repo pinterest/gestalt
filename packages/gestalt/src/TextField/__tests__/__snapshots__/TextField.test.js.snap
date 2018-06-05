@@ -5,18 +5,13 @@ exports[`TextField TextField normal 1`] = `
   <input
     aria-describedby={null}
     aria-invalid="false"
-    autoComplete={undefined}
     className="textField enabled normal"
     disabled={false}
     id="test"
-    name={undefined}
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
-    pattern={undefined}
-    placeholder={undefined}
     type="text"
-    value={undefined}
   />
 </span>
 `;

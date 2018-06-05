@@ -11,19 +11,43 @@ describe('GroupAvatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders single-byte character initials', () => {
+  it('renders single-byte character initials for 1 person', () => {
     const tree = create(
       <GroupAvatar collaborators={[{ name: 'Jane Smith' }]} size="md" />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders 0 avatars', () => {
+  it('renders single-byte character initials for 3 people', () => {
+    const tree = create(
+      <GroupAvatar
+        collaborators={[
+          { name: 'Jane Smith' },
+          { name: 'Jane Smith' },
+          { name: 'Jane Smith' },
+        ]}
+        size="md"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders avatars for 0 people', () => {
     const tree = create(<GroupAvatar collaborators={[]} size="md" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders 2 avatars', () => {
+  it('renders avatars for 1 person', () => {
+    const tree = create(
+      <GroupAvatar
+        collaborators={[{ name: 'Jane Smith', src: 'foo.png' }]}
+        size="md"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders avatars for 2 people', () => {
     const tree = create(
       <GroupAvatar
         collaborators={[
@@ -36,7 +60,7 @@ describe('GroupAvatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders 3 avatars', () => {
+  it('renders avatars for 3 people', () => {
     const tree = create(
       <GroupAvatar
         collaborators={[
@@ -50,7 +74,7 @@ describe('GroupAvatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders more than 3 AVATAR_SIZES', () => {
+  it('renders avatars for more than 3 AVATAR_SIZES', () => {
     const tree = create(
       <GroupAvatar
         collaborators={[
