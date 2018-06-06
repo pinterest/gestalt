@@ -110,7 +110,7 @@ const DefaultAvatar = (props: {|
           typography.fontWeightBold,
         ].join(' ')}
       >
-        {[...name][0].toUpperCase()}
+        {name ? [...name][0].toUpperCase() : ''}
       </text>
     </svg>
   );
@@ -190,37 +190,39 @@ export default function GroupAvatar(props: Props) {
       }}
     >
       <Box dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }} />
-      {zip(positions, collaborators).map(([position, collaborator], idx) => {
-        const { width, height, top, left, textLayout } = position;
-        const { name, src } = collaborator;
-        return (
-          <Box
-            key={idx}
-            position="absolute"
-            width={width}
-            height={height}
-            dangerouslySetInlineStyle={{ __style: { top, left } }}
-          >
-            {src ? (
-              <Image
-                alt={name}
-                color="#EFEFEF"
-                src={src}
-                naturalWidth={1}
-                naturalHeight={1}
-                fit="cover"
-              />
-            ) : (
-              <DefaultAvatar
-                name={name}
-                textLayout={textLayout}
-                size={height}
-              />
-            )}
-            <div className={styles.wash} />
-          </Box>
-        );
-      })}
+      {zip(positions, collaborators).map(
+        ([position, collaborator = { name: '', src: undefined }], idx) => {
+          const { width, height, top, left, textLayout } = position;
+          const { name, src } = collaborator;
+          return (
+            <Box
+              key={idx}
+              position="absolute"
+              width={width}
+              height={height}
+              dangerouslySetInlineStyle={{ __style: { top, left } }}
+            >
+              {src ? (
+                <Image
+                  alt={name}
+                  color="#EFEFEF"
+                  src={src}
+                  naturalWidth={1}
+                  naturalHeight={1}
+                  fit="cover"
+                />
+              ) : (
+                <DefaultAvatar
+                  name={name}
+                  textLayout={textLayout}
+                  size={height}
+                />
+              )}
+              <div className={styles.wash} />
+            </Box>
+          );
+        }
+      )}
     </Box>
   );
 }
