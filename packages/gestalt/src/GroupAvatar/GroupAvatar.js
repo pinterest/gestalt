@@ -3,9 +3,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styles from './GroupAvatar.css';
 import Box from '../Box/Box';
-import Text from '../Text/Text';
 import Image from '../Image/Image';
-import Collection from '../Collection/Collection';
+import typography from '../Typography.css';
+
+function zip(a, b) {
+  return a.map((item, idx) => [item, b[idx]]);
+}
 
 const BORDER_WIDTH = 2;
 
@@ -15,39 +18,37 @@ const AVATAR_SIZES = {
   lg: 72,
 };
 
-const DEFAULT_AVATAR_TEXT_SIZES = {
-  sm: 7,
-  md: 11,
-  lg: 21,
-};
-
 type Props = {|
   collaborators: Array<{|
     name: string,
     src?: string,
   |}>,
   outline?: boolean,
-  size: 'sm' | 'md' | 'lg',
+  size?: 'sm' | 'md' | 'lg',
 |};
 
 const avatarLayout = (n, size) => {
   switch (n) {
     case 0:
     case 1:
-      return [{ top: 0, left: 0, width: size, height: size }];
+      return [
+        { top: 0, left: 0, width: size, height: size, textLayout: 'center' },
+      ];
     case 2:
       return [
         {
           top: 0,
           left: 0,
-          width: size / 2 - BORDER_WIDTH / 2,
+          width: `calc(50% - ${BORDER_WIDTH / 2}px)`,
           height: size,
+          textLayout: 'center',
         },
         {
           top: 0,
-          left: size / 2 + BORDER_WIDTH / 2,
-          width: size / 2 - BORDER_WIDTH / 2,
+          left: `calc(50% + ${BORDER_WIDTH / 2}px)`,
+          width: `calc(50% - ${BORDER_WIDTH / 2}px)`,
           height: size,
+          textLayout: 'center',
         },
       ];
     default:
@@ -55,20 +56,23 @@ const avatarLayout = (n, size) => {
         {
           top: 0,
           left: 0,
-          width: size / 2 - BORDER_WIDTH / 2,
+          width: `calc(50% - ${BORDER_WIDTH / 2}px)`,
           height: size,
+          textLayout: 'center',
         },
         {
           top: 0,
-          left: size / 2 + BORDER_WIDTH / 2,
-          width: size / 2,
-          height: size / 2 - BORDER_WIDTH / 2,
+          left: `calc(50% + ${BORDER_WIDTH / 2}px)`,
+          width: 'calc(50%)',
+          height: `calc(50% - ${BORDER_WIDTH / 2}px)`,
+          textLayout: 'topLeft',
         },
         {
-          top: size / 2 + BORDER_WIDTH / 2,
-          left: size / 2 + BORDER_WIDTH / 2,
-          width: size / 2,
-          height: size / 2 - BORDER_WIDTH / 2,
+          top: `calc(50% + ${BORDER_WIDTH / 2}px)`,
+          left: `calc(50% + ${BORDER_WIDTH / 2}px)`,
+          width: 'calc(50%)',
+          height: `calc(50% - ${BORDER_WIDTH / 2}px)`,
+          textLayout: 'bottomLeft',
         },
       ];
   }
@@ -76,47 +80,53 @@ const avatarLayout = (n, size) => {
 
 const degToRad = deg => deg * (Math.PI / 180);
 
-const DefaultAvatar = (props: {
-  height: number,
+const DefaultAvatar = (props: {|
+  size: string | number,
   name: string,
   textLayout: 'center' | 'topLeft' | 'bottomLeft',
-  size: 'sm' | 'md' | 'lg',
-  fontSize: number,
-}) => {
-  const { fontSize, height, name, textLayout } = props;
-  const size = AVATAR_SIZES[props.size];
+|}) => {
+  const { size, name, textLayout } = props;
 
-  const quarterPadding = Math.floor(
-    (size / 2 - fontSize) / 2 * Math.sin(degToRad(45))
-  );
+  const quarterPadding = `calc(${Math.sin(degToRad(45))} * (${size}) / 2)`;
 
   const initial = (
-    <Text bold color="white">
-      <Box
-        dangerouslySetInlineStyle={{
-          __style: {
-            fontSize,
-            lineHeight: `${fontSize}px`,
-          },
-        }}
+    <svg
+      width="100%"
+      viewBox="-50 -50 100 100"
+      version="1.1"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>{name}</title>
+      <text
+        fontSize="50px"
+        fill="#fff"
+        dominantBaseline="central"
+        textAnchor="middle"
+        className={[
+          typography.antialiased,
+          typography.sansSerif,
+          typography.leadingSmall,
+          typography.fontWeightBold,
+        ].join(' ')}
       >
         {[...name][0].toUpperCase()}
-      </Box>
-    </Text>
+      </text>
+    </svg>
   );
-
   switch (textLayout) {
     case 'bottomLeft':
       return (
         <Box
           aria-label={name}
           color="gray"
-          height={height}
+          height="100%"
           display="flex"
           alignItems="end"
           dangerouslySetInlineStyle={{
             __style: {
-              padding: quarterPadding,
+              paddingBottom: quarterPadding,
+              paddingRight: quarterPadding,
             },
           }}
         >
@@ -128,12 +138,13 @@ const DefaultAvatar = (props: {
         <Box
           aria-label={name}
           color="gray"
-          height={height}
+          height="100%"
           display="flex"
           alignItems="start"
           dangerouslySetInlineStyle={{
             __style: {
-              padding: quarterPadding,
+              paddingTop: quarterPadding,
+              paddingRight: quarterPadding,
             },
           }}
         >
@@ -145,7 +156,7 @@ const DefaultAvatar = (props: {
         <Box
           aria-label={name}
           color="gray"
-          height={height}
+          height="100%"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -158,15 +169,17 @@ const DefaultAvatar = (props: {
 
 export default function GroupAvatar(props: Props) {
   const { collaborators, outline, size } = props;
-  const layout = avatarLayout(collaborators.length, AVATAR_SIZES[size]);
-  const avatarSize = AVATAR_SIZES[size];
+  const avatarWidth = size ? AVATAR_SIZES[size] : '100%';
+  const avatarHeight = size ? AVATAR_SIZES[size] : '';
+  const positions = avatarLayout(collaborators.length, avatarWidth);
   return (
     <Box
       color="white"
-      height={avatarSize}
       overflow="hidden"
       shape="circle"
-      width={avatarSize}
+      width={avatarWidth}
+      height={avatarHeight}
+      position="relative"
       dangerouslySetInlineStyle={{
         __style: {
           ...(outline ? { boxShadow: '0 0 0 2px #fff' } : {}),
@@ -176,45 +189,19 @@ export default function GroupAvatar(props: Props) {
         },
       }}
     >
-      <Collection
-        layout={layout}
-        Item={({ idx }) => {
-          const fontSize =
-            collaborators.length <= 1
-              ? DEFAULT_AVATAR_TEXT_SIZES[props.size] * 2
-              : DEFAULT_AVATAR_TEXT_SIZES[props.size];
-
-          if (!collaborators[idx]) {
-            return (
-              <DefaultAvatar
-                name=" "
-                fontSize={fontSize}
-                textLayout="center"
-                height={layout[0].height}
-                size={size}
-              />
-            );
-          }
-
-          const { name, src } = collaborators[idx];
-          const { width, height } = layout[idx];
-          if (!src) {
-            return (
-              <DefaultAvatar
-                name={name}
-                fontSize={fontSize}
-                textLayout={
-                  collaborators.length >= 3
-                    ? ['center', 'bottomLeft', 'topLeft'][idx]
-                    : 'center'
-                }
-                height={height}
-                size={size}
-              />
-            );
-          }
-          return (
-            <Box position="relative" width={width} height={height}>
+      <Box dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }} />
+      {zip(positions, collaborators).map(([position, collaborator], idx) => {
+        const { width, height, top, left, textLayout } = position;
+        const { name, src } = collaborator;
+        return (
+          <Box
+            key={idx}
+            position="absolute"
+            width={width}
+            height={height}
+            dangerouslySetInlineStyle={{ __style: { top, left } }}
+          >
+            {src ? (
               <Image
                 alt={name}
                 color="#EFEFEF"
@@ -223,11 +210,17 @@ export default function GroupAvatar(props: Props) {
                 naturalHeight={1}
                 fit="cover"
               />
-              <div className={styles.wash} />
-            </Box>
-          );
-        }}
-      />
+            ) : (
+              <DefaultAvatar
+                name={name}
+                textLayout={textLayout}
+                size={height}
+              />
+            )}
+            <div className={styles.wash} />
+          </Box>
+        );
+      })}
     </Box>
   );
 }
@@ -240,5 +233,5 @@ GroupAvatar.propTypes = {
     })
   ).isRequired,
   outline: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']).isRequired,
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
 };
