@@ -133,13 +133,13 @@ card(
 card(
   <Example
     description={`
-    GroupAvatars that are not given a \`size\` prop will be expand to fit to the width of their
+    GroupAvatars that are not given a \`size\` prop will expand to fit to the width of their
     parent container. A common use case is to achieve column-based sizing.
 
     Resize the browser to see these GroupAvatar change to match the width of the \`Column\` they
     have been placed in.
   `}
-    name="Container Based Sizes"
+    name="Container-based Sizes"
     defaultCode={`
 <Box display="flex" direction="row">
   <Box column={2} padding={2}>
