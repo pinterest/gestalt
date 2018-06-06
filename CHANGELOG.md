@@ -6,11 +6,15 @@
     Click to see more.
   </summary>
 
+### Major
+* GroupAvatar: `size` prop is now optional. (#244)
+
 ### Minor
 * Masonry: Makes Masonry React Async compatible (#227)
 * SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 * Video: Add jsdom browser specific tests (#205)
 * Card: Make Card explicitely use box-sizing: content-box (#243)
+* GroupAvatar: Text sizes have shrunk to be consistent with Avatar. (#244)
 
 ### Patch
 * Internal: add better basic test coverage (#231)
