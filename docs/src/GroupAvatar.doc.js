@@ -81,32 +81,6 @@ card(
 );
 
 card(
-  <Example
-    description={`
-    GroupAvatars that are not given a \`size\` prop will be expand to fit to the width of their
-    parent container. A common use case is to achieve column-based sizing.
-
-    Resize the browser to see these GroupAvatar change to match the width of the \`Column\` they
-    have been placed in.
-  `}
-    name="Container Based Sizes"
-    defaultCode={`
-<Box display="flex" direction="row">
-  <Box column={2} padding={2}>
-    <GroupAvatar collaborators={[{ name: 'Julia' }]} />
-  </Box>
-  <Box column={2} padding={2}>
-    <GroupAvatar collaborators={[{ name: 'James', src: "${james}" }, { name: 'Julia' }]} />
-  </Box>
-  <Box column={3} padding={2}>
-    <GroupAvatar collaborators={[{ name: 'Keerthi', src: "${keerthi}" }, { name: 'Shanice', src: "${shanice}" }, { name: 'Julia' }]} />
-  </Box>
-</Box>
-  `}
-  />
-);
-
-card(
   <Combination name="Size Combinations: 1 Person" size={['sm', 'md', 'lg']}>
     {props => <GroupAvatar collaborators={[user1]} {...props} />}
   </Combination>
@@ -154,6 +128,32 @@ card(
       />
     )}
   </Combination>
+);
+
+card(
+  <Example
+    description={`
+    GroupAvatars that are not given a \`size\` prop will be expand to fit to the width of their
+    parent container. A common use case is to achieve column-based sizing.
+
+    Resize the browser to see these GroupAvatar change to match the width of the \`Column\` they
+    have been placed in.
+  `}
+    name="Container Based Sizes"
+    defaultCode={`
+<Box display="flex" direction="row">
+  <Box column={2} padding={2}>
+    <GroupAvatar collaborators={[{ name: 'Julia' }]} />
+  </Box>
+  <Box column={2} padding={2}>
+    <GroupAvatar collaborators={[{ name: 'James', src: "${james}" }, { name: 'Julia' }]} />
+  </Box>
+  <Box column={3} padding={2}>
+    <GroupAvatar collaborators={[{ name: 'Keerthi', src: "${keerthi}" }, { name: 'Shanice', src: "${shanice}" }, { name: 'Julia' }]} />
+  </Box>
+</Box>
+  `}
+  />
 );
 
 export default cards;
