@@ -11,7 +11,10 @@ test('Flyout renders', () => {
       idealDirection="down"
       onDismiss={jest.fn()}
       size="sm"
-    />
+    />,
+    {
+      createNodeMock: () => true,
+    }
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -26,7 +29,10 @@ test('Flyout renders as error', () => {
       onDismiss={jest.fn()}
       role="alertdialog"
       size="sm"
-    />
+    />,
+    {
+      createNodeMock: () => true,
+    }
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

@@ -9,7 +9,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
-  role?: 'alertdialog' | 'dialog',
+  color?: 'orange' | 'white',
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
@@ -20,7 +20,7 @@ export default function Flyout(props: Props) {
     idealDirection,
     onDismiss,
     positionRelativeToAnchor = true,
-    role,
+    color = 'white',
     size,
   } = props;
 
@@ -28,27 +28,20 @@ export default function Flyout(props: Props) {
     return null;
   }
 
-  const bgColor = role === 'alertdialog' ? 'orange' : 'white';
-
   return (
     <Controller
       anchor={anchor}
-      bgColor={bgColor}
+      bgColor={color}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
-      shouldFocus={role === 'dialog'}
+      shouldFocus={color === 'white'}
       size={size}
     >
       {children}
     </Controller>
   );
 }
-
-Flyout.defaultProps = {
-  role: 'dialog',
-  positionRelativeToAnchor: true,
-};
 
 Flyout.propTypes = {
   anchor: PropTypes.shape({
@@ -59,7 +52,7 @@ Flyout.propTypes = {
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
-  role: PropTypes.oneOf(['alertdialog', 'dialog']),
+  color: PropTypes.oneOf(['white', 'orange']),
   size: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm

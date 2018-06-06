@@ -47,11 +47,11 @@ card(
           'Depicts if the Flyout shares a relative root with the anchor element',
       },
       {
-        name: 'role',
-        type: `"alertdialog" | "dialog"`,
-        defaultValue: 'dialog',
+        name: 'color',
+        type: `"white" | "orange"`,
+        defaultValue: 'white',
         description:
-          'The render style for this Flyout: alertdialog changes the colors to match other errors',
+          'The background color of the Flyout: orange matches other baked-in error flyouts',
       },
       {
         name: 'size',
@@ -124,7 +124,7 @@ card(
   <Example
     name="Example: ErrorFlyout"
     description={`Flyout can also take on additional roles. Like [TextField](#TextField) and [TextArea](#TextArea), this component
-can be used to highlight errors on other types of form fields by setting the \`role\` to \`alertdialog.\``}
+can be used to highlight errors on other types of form fields by setting the \`color\` to \`orange.\``}
     defaultCode={`
 class ErrorFlyoutExample extends React.Component {
   constructor(props) {
@@ -155,7 +155,7 @@ class ErrorFlyoutExample extends React.Component {
             anchor={this.anchor}
             idealDirection="up"
             onDismiss={this.handleDismiss}
-            role="alertdialog"
+            color="orange"
             size="md"
           >
             <Box padding={3}>
