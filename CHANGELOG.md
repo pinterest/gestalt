@@ -10,6 +10,7 @@
 * Masonry: Makes Masonry React Async compatible (#227)
 * SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 * Video: Add jsdom browser specific tests (#205)
+* Card: Make Card explicitely use box-sizing: content-box (#243)
 
 ### Patch
 * Internal: add better basic test coverage (#231)
