@@ -27,7 +27,7 @@ test('Flyout renders as error', () => {
       anchor={element}
       idealDirection="down"
       onDismiss={jest.fn()}
-      role="alertdialog"
+      color="orange"
       size="sm"
     />,
     {
