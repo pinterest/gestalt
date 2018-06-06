@@ -232,12 +232,13 @@ export default class Video extends React.PureComponent<Props, State> {
     if (typeof document !== 'undefined') {
       addFullscreenEventListener(this.handleFullscreenChange);
     }
+    // Load the video to hydrate the DOM after a server render
+    this.load();
     // Set the initial volume
     this.setVolume(volume);
     // Set the initial playback rate
     this.setPlaybackRate(playbackRate);
-    // Simulate an autoplay effect if the component was mounted with
-    // playing set to true
+    // Simulate an autoplay effect if the component
     if (playing) {
       this.play();
     }
