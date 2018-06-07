@@ -10,15 +10,20 @@
 * Masonry: Makes Masonry React Async compatible (#227)
 * SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 * Video: Add jsdom browser specific tests (#205)
+* Card: Make Card explicitely use box-sizing: content-box (#243)
+* Video: Move initial video setup calls to componentDidMount (#245)
 
 ### Patch
 * Internal: add better basic test coverage (#231)
+* Modal: Refactor internals and remove responsive behavior (#218)
 * Internal: update to jsdom only tests (#232)
 * Internal: Upgrade to Jest 23 (#233)
 * Internal: Upgrade to Stylelint 9.2.1 (#235)
 * Avatar/GroupAvatar: Add additional tests for 100% coverage (#236)
 * Button/Icon: Add additional tests for 100% coverage (#237)
 * Flyout/SegmentedControl: Add additional tests for 100% coverage (#238)
+* Touchable: Add additional tests for 100% coverage (#239)
+* Internal: Add Codecov badge to README (#241)
 
 </details>
 

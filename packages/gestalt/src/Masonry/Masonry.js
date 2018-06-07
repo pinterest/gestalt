@@ -510,10 +510,14 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {
+              // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
+              // we normalize the index here relative to the item list as a whole so that itemIdx is correct
+              // and so that React doesnt reuse the measurement nodes
+              const measurementIndex = itemsToRender.length + i;
               const position = measuringPositions[i];
               return (
                 <div
-                  key={`measuring-${i}`}
+                  key={`measuring-${measurementIndex}`}
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
@@ -528,7 +532,11 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
                     }
                   }}
                 >
-                  <Component data={data} itemIdx={i} isMeasuring />
+                  <Component
+                    data={data}
+                    itemIdx={measurementIndex}
+                    isMeasuring
+                  />
                 </div>
               );
             })}
