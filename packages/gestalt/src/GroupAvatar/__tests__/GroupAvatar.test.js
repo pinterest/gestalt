@@ -102,4 +102,16 @@ describe('GroupAvatar', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('renders with container-based sizing', () => {
+    const tree = create(
+      <GroupAvatar
+        collaborators={[
+          { name: 'Jane Smith', src: 'foo.png' },
+          { name: 'Jane Smith', src: 'foo.png' },
+        ]}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
