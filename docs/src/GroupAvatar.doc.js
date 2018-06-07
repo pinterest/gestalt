@@ -37,8 +37,8 @@ card(
       {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
-        description: 'sm: 24px, md: 40px, lg: 72px',
-        required: true,
+        description:
+          'sm: 24px, md: 40px, lg: 72px. If size is undefined, Avatar will fill 100% of the parent container width',
       },
     ]}
   />
@@ -128,6 +128,32 @@ card(
       />
     )}
   </Combination>
+);
+
+card(
+  <Example
+    description={`
+    GroupAvatars that are not given a \`size\` prop will expand to fit to the width of their
+    parent container. A common use case is to achieve column-based sizing.
+
+    Resize the browser to see these GroupAvatar change to match the width of the \`Column\` they
+    have been placed in.
+  `}
+    name="Container-based Sizes"
+    defaultCode={`
+<Box display="flex" direction="row">
+  <Box column={2} padding={2}>
+    <GroupAvatar collaborators={[{ name: 'Julia' }]} />
+  </Box>
+  <Box column={2} padding={2}>
+    <GroupAvatar collaborators={[{ name: 'James', src: "${james}" }, { name: 'Julia' }]} />
+  </Box>
+  <Box column={3} padding={2}>
+    <GroupAvatar collaborators={[{ name: 'Keerthi', src: "${keerthi}" }, { name: 'Shanice', src: "${shanice}" }, { name: 'Julia' }]} />
+  </Box>
+</Box>
+  `}
+  />
 );
 
 export default cards;

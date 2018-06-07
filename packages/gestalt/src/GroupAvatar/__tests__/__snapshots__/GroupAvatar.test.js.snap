@@ -2,7 +2,7 @@
 
 exports[`GroupAvatar renders an outline 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
@@ -13,93 +13,71 @@ exports[`GroupAvatar renders an outline 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
-        "width": 40,
+        "left": 0,
+        "top": 0,
+        "width": "calc(50% - 1px)",
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 19,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
     <div
-      className="absolute"
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": 40,
+        "left": "calc(50% + 1px)",
+        "top": 0,
+        "width": "calc(50% - 1px)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 21,
-          "top": 0,
-          "width": 19,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders avatars for 0 people 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -109,58 +87,64 @@ exports[`GroupAvatar renders avatars for 0 people 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
+        "left": 0,
+        "top": 0,
         "width": 40,
       }
     }
   >
     <div
-      className="absolute"
+      aria-label=""
+      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 40,
+          "height": "100%",
         }
       }
     >
-      <div
-        aria-label=" "
-        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
-        style={
-          Object {
-            "height": 40,
-          }
-        }
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        <title>
+          
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
         >
-          <div
-            className="box"
-            style={
-              Object {
-                "fontSize": 22,
-                "lineHeight": "22px",
-              }
-            }
-          >
-             
-          </div>
-        </div>
-      </div>
+          
+        </text>
+      </svg>
     </div>
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders avatars for 1 person 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -170,57 +154,45 @@ exports[`GroupAvatar renders avatars for 1 person 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
+        "left": 0,
+        "top": 0,
         "width": 40,
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 40,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 40,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders avatars for 2 people 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -230,93 +202,71 @@ exports[`GroupAvatar renders avatars for 2 people 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
-        "width": 40,
+        "left": 0,
+        "top": 0,
+        "width": "calc(50% - 1px)",
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 19,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
     <div
-      className="absolute"
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": 40,
+        "left": "calc(50% + 1px)",
+        "top": 0,
+        "width": "calc(50% - 1px)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 21,
-          "top": 0,
-          "width": 19,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders avatars for 3 people 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -326,129 +276,97 @@ exports[`GroupAvatar renders avatars for 3 people 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
-        "width": 41,
+        "left": 0,
+        "top": 0,
+        "width": "calc(50% - 1px)",
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 19,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
     <div
-      className="absolute"
-      style={
-        Object {
-          "height": 19,
-          "left": 21,
-          "top": 0,
-          "width": 20,
-        }
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "calc(50% - 1px)",
+        "left": "calc(50% + 1px)",
+        "top": 0,
+        "width": "calc(50%)",
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 19,
-            "width": 20,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    }
+  >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 19,
-          "left": 21,
-          "top": 21,
-          "width": 20,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 19,
-            "width": 20,
-          }
+    />
+    <div
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "calc(50% - 1px)",
+        "left": "calc(50% + 1px)",
+        "top": "calc(50% + 1px)",
+        "width": "calc(50%)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+      }
+    />
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -458,129 +376,97 @@ exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
-        "width": 41,
+        "left": 0,
+        "top": 0,
+        "width": "calc(50% - 1px)",
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 19,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 40,
-            "width": 19,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    />
     <div
-      className="absolute"
-      style={
-        Object {
-          "height": 19,
-          "left": 21,
-          "top": 0,
-          "width": 20,
-        }
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "calc(50% - 1px)",
+        "left": "calc(50% + 1px)",
+        "top": 0,
+        "width": "calc(50%)",
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 19,
-            "width": 20,
-          }
-        }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+    }
+  >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
       style={
         Object {
-          "height": 19,
-          "left": 21,
-          "top": 21,
-          "width": 20,
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
       }
-    >
-      <div
-        className="box relative"
-        style={
-          Object {
-            "height": 19,
-            "width": 20,
-          }
+    />
+    <div
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "calc(50% - 1px)",
+        "left": "calc(50% + 1px)",
+        "top": "calc(50% + 1px)",
+        "width": "calc(50%)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
         }
-      >
-        <div
-          aria-label="Jane Smith"
-          className="cover"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#EFEFEF",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-        <div
-          className="wash"
-        />
-      </div>
-    </div>
+      }
+    />
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders multi-byte character initials 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -590,58 +476,64 @@ exports[`GroupAvatar renders multi-byte character initials 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
+        "left": 0,
+        "top": 0,
         "width": 40,
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="💩 astral"
+      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 40,
+          "height": "100%",
         }
       }
     >
-      <div
-        aria-label="💩 astral"
-        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
-        style={
-          Object {
-            "height": 40,
-          }
-        }
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        <title>
+          💩 astral
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
         >
-          <div
-            className="box"
-            style={
-              Object {
-                "fontSize": 22,
-                "lineHeight": "22px",
-              }
-            }
-          >
-            💩
-          </div>
-        </div>
-      </div>
+          💩
+        </text>
+      </svg>
     </div>
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders single-byte character initials for 1 person 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -651,58 +543,64 @@ exports[`GroupAvatar renders single-byte character initials for 1 person 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
+        "left": 0,
+        "top": 0,
         "width": 40,
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 40,
+          "height": "100%",
         }
       }
     >
-      <div
-        aria-label="Jane Smith"
-        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
-        style={
-          Object {
-            "height": 40,
-          }
-        }
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        <title>
+          Jane Smith
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
         >
-          <div
-            className="box"
-            style={
-              Object {
-                "fontSize": 22,
-                "lineHeight": "22px",
-              }
-            }
-          >
-            J
-          </div>
-        </div>
-      </div>
+          J
+        </text>
+      </svg>
     </div>
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
 
 exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
 <div
-  className="box circle overflowHidden whiteBg"
+  className="box circle overflowHidden relative whiteBg"
   style={
     Object {
       "height": 40,
@@ -712,127 +610,225 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
   }
 >
   <div
-    className="relative"
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
     style={
       Object {
         "height": 40,
-        "width": 41,
+        "left": 0,
+        "top": 0,
+        "width": "calc(50% - 1px)",
       }
     }
   >
     <div
-      className="absolute"
+      aria-label="Jane Smith"
+      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
       style={
         Object {
-          "height": 40,
-          "left": 0,
-          "top": 0,
-          "width": 19,
+          "height": "100%",
         }
       }
     >
-      <div
-        aria-label="Jane Smith"
-        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
-        style={
-          Object {
-            "height": 40,
-          }
-        }
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        <title>
+          Jane Smith
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
         >
-          <div
-            className="box"
-            style={
-              Object {
-                "fontSize": 11,
-                "lineHeight": "11px",
-              }
-            }
-          >
-            J
-          </div>
-        </div>
-      </div>
+          J
+        </text>
+      </svg>
     </div>
     <div
-      className="absolute"
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "calc(50% - 1px)",
+        "left": "calc(50% + 1px)",
+        "top": 0,
+        "width": "calc(50%)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="box grayBg itemsStart xsDisplayFlex"
       style={
         Object {
-          "height": 19,
-          "left": 21,
-          "top": 0,
-          "width": 20,
+          "height": "100%",
+          "paddingRight": "calc(0.7071067811865475 * (calc(50% - 1px)) / 2)",
+          "paddingTop": "calc(0.7071067811865475 * (calc(50% - 1px)) / 2)",
         }
       }
     >
-      <div
-        aria-label="Jane Smith"
-        className="box grayBg itemsEnd xsDisplayFlex"
-        style={
-          Object {
-            "height": 19,
-            "padding": 3,
-          }
-        }
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        <title>
+          Jane Smith
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
         >
-          <div
-            className="box"
-            style={
-              Object {
-                "fontSize": 11,
-                "lineHeight": "11px",
-              }
-            }
-          >
-            J
-          </div>
-        </div>
-      </div>
+          J
+        </text>
+      </svg>
     </div>
     <div
-      className="absolute"
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "calc(50% - 1px)",
+        "left": "calc(50% + 1px)",
+        "top": "calc(50% + 1px)",
+        "width": "calc(50%)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="box grayBg itemsEnd xsDisplayFlex"
       style={
         Object {
-          "height": 19,
-          "left": 21,
-          "top": 21,
-          "width": 20,
+          "height": "100%",
+          "paddingBottom": "calc(0.7071067811865475 * (calc(50% - 1px)) / 2)",
+          "paddingRight": "calc(0.7071067811865475 * (calc(50% - 1px)) / 2)",
         }
       }
     >
-      <div
-        aria-label="Jane Smith"
-        className="box grayBg itemsStart xsDisplayFlex"
-        style={
-          Object {
-            "height": 19,
-            "padding": 3,
-          }
-        }
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div
-          className="Text fontSize3 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        <title>
+          Jane Smith
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
         >
-          <div
-            className="box"
-            style={
-              Object {
-                "fontSize": 11,
-                "lineHeight": "11px",
-              }
-            }
-          >
-            J
-          </div>
-        </div>
-      </div>
+          J
+        </text>
+      </svg>
     </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`GroupAvatar renders with container-based sizing 1`] = `
+<div
+  className="box circle overflowHidden relative whiteBg"
+  style={
+    Object {
+      "height": "",
+      "width": "100%",
+      "willChange": "transform",
+    }
+  }
+>
+  <div
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "100%",
+        "left": 0,
+        "top": 0,
+        "width": "calc(50% - 1px)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
+        }
+      }
+    />
+    <div
+      className="wash"
+    />
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "100%",
+        "left": "calc(50% + 1px)",
+        "top": 0,
+        "width": "calc(50% - 1px)",
+      }
+    }
+  >
+    <div
+      aria-label="Jane Smith"
+      className="cover"
+      role="img"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "backgroundImage": "url('foo.png')",
+        }
+      }
+    />
+    <div
+      className="wash"
+    />
   </div>
 </div>
 `;
