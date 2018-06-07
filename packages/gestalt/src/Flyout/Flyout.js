@@ -5,42 +5,42 @@ import Controller from '../FlyoutUtils/Controller';
 
 type Props = {|
   anchor: ?any,
-  children?: any,
+  children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
+  color?: 'orange' | 'white',
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
-export default class Flyout extends React.PureComponent<Props> {
-  render() {
-    const {
-      anchor,
-      children,
-      idealDirection,
-      positionRelativeToAnchor = true,
-      onDismiss,
-      size,
-    } = this.props;
+export default function Flyout(props: Props) {
+  const {
+    anchor,
+    children,
+    idealDirection,
+    onDismiss,
+    positionRelativeToAnchor = true,
+    color = 'white',
+    size,
+  } = props;
 
-    if (!anchor) {
-      return null;
-    }
-
-    return (
-      <Controller
-        anchor={anchor}
-        bgColor="white"
-        idealDirection={idealDirection}
-        onDismiss={onDismiss}
-        positionRelativeToAnchor={positionRelativeToAnchor}
-        shouldFocus
-        size={size}
-      >
-        {children}
-      </Controller>
-    );
+  if (!anchor) {
+    return null;
   }
+
+  return (
+    <Controller
+      anchor={anchor}
+      bgColor={color}
+      idealDirection={idealDirection}
+      onDismiss={onDismiss}
+      positionRelativeToAnchor={positionRelativeToAnchor}
+      shouldFocus={color === 'white'}
+      size={size}
+    >
+      {children}
+    </Controller>
+  );
 }
 
 Flyout.propTypes = {
@@ -52,6 +52,7 @@ Flyout.propTypes = {
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
+  color: PropTypes.oneOf(['white', 'orange']),
   size: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm

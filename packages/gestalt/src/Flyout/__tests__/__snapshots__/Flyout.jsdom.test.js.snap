@@ -6,6 +6,106 @@ exports[`Flyout renders 1`] = `
 <div
   className="box"
 >
-  <div />
+  <div>
+    <div
+      className="container"
+      style={
+        Object {
+          "left": -20,
+          "stroke": "#efefef",
+          "top": NaN,
+          "visibility": "visible",
+        }
+      }
+    >
+      <div
+        className="whiteBg lightGray dimensions contents"
+        tabIndex={-1}
+      >
+        <div
+          className="dimensions innerContents"
+          style={
+            Object {
+              "width": 230,
+            }
+          }
+        />
+        <div
+          className="white caret"
+          style={
+            Object {
+              "bottom": null,
+              "left": 8,
+              "right": null,
+              "top": null,
+            }
+          }
+        >
+          <svg
+            height="24"
+            width="24"
+          >
+            <path
+              d="M0 0 L12 12 L24 0"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Flyout renders as error 1`] = `
+<div
+  className="box"
+>
+  <div>
+    <div
+      className="container"
+      style={
+        Object {
+          "left": -20,
+          "stroke": null,
+          "top": NaN,
+          "visibility": "visible",
+        }
+      }
+    >
+      <div
+        className="orangeBg orange dimensions contents"
+        tabIndex={-1}
+      >
+        <div
+          className="dimensions innerContents"
+          style={
+            Object {
+              "width": 230,
+            }
+          }
+        />
+        <div
+          className="orange caret"
+          style={
+            Object {
+              "bottom": null,
+              "left": 8,
+              "right": null,
+              "top": null,
+            }
+          }
+        >
+          <svg
+            height="24"
+            width="24"
+          >
+            <path
+              d="M0 0 L12 12 L24 0"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

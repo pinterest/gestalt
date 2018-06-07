@@ -11,7 +11,28 @@ test('Flyout renders', () => {
       idealDirection="down"
       onDismiss={jest.fn()}
       size="sm"
-    />
+    />,
+    {
+      createNodeMock: () => true,
+    }
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Flyout renders as error', () => {
+  const element = document.createElement('div');
+  const component = create(
+    <Flyout
+      anchor={element}
+      idealDirection="down"
+      onDismiss={jest.fn()}
+      color="orange"
+      size="sm"
+    />,
+    {
+      createNodeMock: () => true,
+    }
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
