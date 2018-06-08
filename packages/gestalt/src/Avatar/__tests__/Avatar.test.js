@@ -14,6 +14,11 @@ describe('Avatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renders with an empty name', () => {
+    const tree = create(<Avatar name="" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders an outline', () => {
     const tree = create(<Avatar name="Jenny" outline />).toJSON();
     expect(tree).toMatchSnapshot();

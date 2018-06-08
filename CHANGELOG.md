@@ -30,6 +30,7 @@
 * Internal: Upgrade to Jest 23 (#233)
 * Internal: Upgrade to Stylelint 9.2.1 (#235)
 * Avatar/GroupAvatar: Add additional tests for 100% coverage (#236)
+* Avatar: fix error when name is falsey (#248)
 * Button/Icon: Add additional tests for 100% coverage (#237)
 * Flyout/SegmentedControl: Add additional tests for 100% coverage (#238)
 * Touchable: Add additional tests for 100% coverage (#239)

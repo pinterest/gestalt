@@ -20,32 +20,34 @@ const Square = (props: *) => (
 );
 
 const DefaultAvatar = ({ name }: { name: string }) => {
-  const firstInitial = [...name][0].toUpperCase();
+  const firstInitial = name ? [...name][0].toUpperCase() : '';
   return (
     <Square color="gray" shape="circle">
-      <svg
-        width="100%"
-        viewBox="-50 -50 100 100"
-        version="1.1"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>{name}</title>
-        <text
-          fontSize="50px"
-          fill="#fff"
-          dominantBaseline="central"
-          textAnchor="middle"
-          className={[
-            typography.antialiased,
-            typography.sansSerif,
-            typography.leadingSmall,
-            typography.fontWeightBold,
-          ].join(' ')}
+      {firstInitial && (
+        <svg
+          width="100%"
+          viewBox="-50 -50 100 100"
+          version="1.1"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {firstInitial}
-        </text>
-      </svg>
+          <title>{name}</title>
+          <text
+            fontSize="50px"
+            fill="#fff"
+            dominantBaseline="central"
+            textAnchor="middle"
+            className={[
+              typography.antialiased,
+              typography.sansSerif,
+              typography.leadingSmall,
+              typography.fontWeightBold,
+            ].join(' ')}
+          >
+            {firstInitial}
+          </text>
+        </svg>
+      )}
     </Square>
   );
 };
