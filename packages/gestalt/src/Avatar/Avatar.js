@@ -20,7 +20,7 @@ const Square = (props: *) => (
 );
 
 const DefaultAvatar = ({ name }: { name: string }) => {
-  const firstInitial = [...name][0].toUpperCase();
+  const firstInitial = name ? [...name][0].toUpperCase() : '';
   return (
     <Square color="gray" shape="circle">
       <svg
