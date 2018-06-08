@@ -360,3 +360,52 @@ exports[`Avatar renders the verified icon 1`] = `
   </div>
 </div>
 `;
+
+exports[`Avatar renders with an empty name 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": "",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box circle grayBg relative"
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "paddingBottom": "100%",
+        }
+      }
+    />
+    <div
+      className="absolute bottom0 box left0 right0 top0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        version="1.1"
+        viewBox="-50 -50 100 100"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          
+        </title>
+        <text
+          className="antialiased sansSerif leadingSmall fontWeightBold"
+          dominantBaseline="central"
+          fill="#fff"
+          fontSize="50px"
+          textAnchor="middle"
+        >
+          
+        </text>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
