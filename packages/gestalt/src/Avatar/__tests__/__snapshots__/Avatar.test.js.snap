@@ -360,3 +360,33 @@ exports[`Avatar renders the verified icon 1`] = `
   </div>
 </div>
 `;
+
+exports[`Avatar renders with an empty name 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": "",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box circle grayBg relative"
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "paddingBottom": "100%",
+        }
+      }
+    />
+    <div
+      className="absolute bottom0 box left0 right0 top0"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
