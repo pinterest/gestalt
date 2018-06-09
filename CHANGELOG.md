@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* ErrorFlyout: Deprecate component and remove from Gestalt (#251)
 
 ### Patch
 
