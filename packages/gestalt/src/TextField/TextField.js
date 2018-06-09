@@ -3,7 +3,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ErrorFlyout from '../ErrorFlyout/ErrorFlyout';
+import Flyout from '../Flyout/Flyout';
+import Box from '../Box/Box';
+import Text from '../Text/Text';
 import styles from './TextField.css';
 
 type State = {
@@ -164,14 +166,19 @@ export default class TextField extends React.Component<Props, State> {
         />
         {errorMessage &&
           this.state.errorIsOpen && (
-            <ErrorFlyout
+            <Flyout
               anchor={this.textfield}
-              id={`${id}-gestalt-error`}
+              color="orange"
               idealDirection={idealErrorDirection}
-              message={errorMessage}
               onDismiss={() => this.setState({ errorIsOpen: false })}
               size="sm"
-            />
+            >
+              <Box padding={3}>
+                <Text bold color="white">
+                  <span id={`${id}-gestalt-error`}>{errorMessage}</span>
+                </Text>
+              </Box>
+            </Flyout>
           )}
       </span>
     );

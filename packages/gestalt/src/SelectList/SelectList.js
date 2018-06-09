@@ -3,7 +3,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from '../Box/Box';
-import ErrorFlyout from '../ErrorFlyout/ErrorFlyout';
+import Flyout from '../Flyout/Flyout';
+import Text from '../Text/Text';
 import Icon from '../Icon/Icon';
 import styles from './SelectList.css';
 
@@ -170,14 +171,19 @@ export default class SelectList extends React.Component<Props, State> {
         </select>
         {errorMessage &&
           this.state.errorIsOpen && (
-            <ErrorFlyout
+            <Flyout
               anchor={this.select}
-              id={`${id}-gestalt-error`}
+              color="orange"
               idealDirection={idealErrorDirection}
-              message={errorMessage}
               onDismiss={() => this.setState({ errorIsOpen: false })}
               size="sm"
-            />
+            >
+              <Box padding={3}>
+                <Text bold color="white">
+                  <span id={`${id}-gestalt-error`}>{errorMessage}</span>
+                </Text>
+              </Box>
+            </Flyout>
           )}
       </Box>
     );

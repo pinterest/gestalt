@@ -5,18 +5,18 @@ import { shallow } from 'enzyme';
 import TextArea from '../TextArea';
 
 describe('TextArea', () => {
-  it('Renders an ErrorFlyout if an error message is passed in', () => {
+  it('Renders a Flyout if an error message is passed in', () => {
     const wrapper = shallow(
       <TextArea errorMessage="test" id="test" onChange={jest.fn()} />
     );
     wrapper.instance().setState({ errorIsOpen: true });
     wrapper.simulate('focus');
-    expect(wrapper.find('ErrorFlyout')).toHaveLength(1);
+    expect(wrapper.find('Flyout')).toHaveLength(1);
   });
 
-  it('Does not render an ErrorFlyout when errorMessage is null', () => {
+  it('Does not render a Flyout when errorMessage is null', () => {
     const wrapper = shallow(<TextArea id="test" onChange={jest.fn()} />);
-    expect(wrapper.find('ErrorFlyout')).toHaveLength(0);
+    expect(wrapper.find('Flyout')).toHaveLength(0);
   });
 
   it('TextArea normal', () => {
@@ -60,10 +60,10 @@ describe('TextArea', () => {
         onBlur={jest.fn()}
       />
     );
-    expect(tree.find('ErrorFlyout')).toHaveLength(0);
+    expect(tree.find('Flyout')).toHaveLength(0);
     tree.setProps({
       errorMessage: 'error message',
     });
-    expect(tree.find('ErrorFlyout')).toHaveLength(1);
+    expect(tree.find('Flyout')).toHaveLength(1);
   });
 });

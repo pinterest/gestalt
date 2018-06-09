@@ -36,7 +36,7 @@ card(
       {
         name: 'idealErrorDirection',
         type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the ErrorFlyout to open',
+        description: 'Preferred direction for the error Flyout to open',
         defaultValue: 'right',
       },
       {
