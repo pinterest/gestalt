@@ -51,6 +51,14 @@
         "page": true,
         "browser": true,
       },
+    },
+    {
+      "files": ["danger/*.js"],
+      "globals": {
+        "danger": true,
+        "markdown": true,
+        "warn": true
+      }
     }
   ]
 }
