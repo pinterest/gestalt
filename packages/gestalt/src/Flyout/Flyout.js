@@ -35,7 +35,7 @@ export default function Flyout(props: Props) {
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
-      shouldFocus={color === 'white'}
+      shouldFocus={color !== 'orange'}
       size={size}
     >
       {children}
