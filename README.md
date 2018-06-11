@@ -10,6 +10,9 @@ Gestalt is a set of React UI components that enforces Pinterest’s design langu
 or
 [Check out the Gestalt playground](https://codesandbox.io/s/k5plvp9v8v)
 
+## Install
+`npm i gestalt --save` or `yarn add gestalt`
+
 ## Usage
 
 Gestalt exports each component as ES6 modules and a single, precompiled CSS file:

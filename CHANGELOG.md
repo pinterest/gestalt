@@ -6,8 +6,13 @@
     Click to see more.
   </summary>
 
-### Major
-* GroupAvatar: `size` prop is now optional. (#244)
+### Minor
+
+### Patch
+
+</details>
+
+## 0.73.0 (Jun 8, 2018)
 
 ### Minor
 * Masonry: Makes Masonry React Async compatible (#227)
@@ -16,7 +21,7 @@
 * Flyout: Merge ErrorFlyout abilities into Flyout (#242)
 * Flyout: Support blue Flyouts (#249)
 * Card: Make Card explicitely use box-sizing: content-box (#243)
-* GroupAvatar: Text sizes have shrunk to be consistent with Avatar. (#244)
+* GroupAvatar: Text sizes are consistent with Avatar and `size` prop is now optional. (#244)
 * Video: Move initial video setup calls to componentDidMount (#245)
 
 ### Patch
@@ -31,8 +36,6 @@
 * Flyout/SegmentedControl: Add additional tests for 100% coverage (#238)
 * Touchable: Add additional tests for 100% coverage (#239)
 * Internal: Add Codecov badge to README (#241)
-
-</details>
 
 ## 0.72.0 (May 30, 2018)
 
