@@ -38,6 +38,24 @@ test('Flyout renders as error', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Flyout renders as blue', () => {
+  const element = document.createElement('div');
+  const component = create(
+    <Flyout
+      anchor={element}
+      idealDirection="down"
+      onDismiss={jest.fn()}
+      color="blue"
+      size="sm"
+    />,
+    {
+      createNodeMock: () => true,
+    }
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Flyout does not render when the anchor is null', () => {
   const tree = create(<Flyout anchor={null} onDismiss={() => {}} />).toJSON();
   expect(tree).toMatchSnapshot();

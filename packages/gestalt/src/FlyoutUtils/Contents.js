@@ -53,7 +53,7 @@ type Shift = { x: number, y: number };
 type EdgeShift = { caret: Shift, flyout: Shift };
 
 type Props = {|
-  bgColor: 'darkGray' | 'white' | 'orange',
+  bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
   children?: any,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onClick: (event: Event) => void,
@@ -489,7 +489,7 @@ export default class Contents extends React.Component<Props, State> {
 
 /* eslint react/no-unused-prop-types: 0 */
 Contents.propTypes = {
-  bgColor: PropTypes.oneOf(['darkGray', 'white', 'orange']),
+  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'white']),
   children: PropTypes.node,
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onClick: PropTypes.func.isRequired,
