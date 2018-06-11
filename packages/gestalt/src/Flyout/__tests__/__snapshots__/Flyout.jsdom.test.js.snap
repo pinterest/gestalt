@@ -56,6 +56,60 @@ exports[`Flyout renders 1`] = `
 </div>
 `;
 
+exports[`Flyout renders as blue 1`] = `
+<div
+  className="box"
+>
+  <div>
+    <div
+      className="container"
+      style={
+        Object {
+          "left": -20,
+          "stroke": null,
+          "top": NaN,
+          "visibility": "visible",
+        }
+      }
+    >
+      <div
+        className="blueBg blue dimensions contents"
+        tabIndex={-1}
+      >
+        <div
+          className="dimensions innerContents"
+          style={
+            Object {
+              "width": 230,
+            }
+          }
+        />
+        <div
+          className="blue caret"
+          style={
+            Object {
+              "bottom": null,
+              "left": 8,
+              "right": null,
+              "top": null,
+            }
+          }
+        >
+          <svg
+            height="24"
+            width="24"
+          >
+            <path
+              d="M0 0 L12 12 L24 0"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Flyout renders as error 1`] = `
 <div
   className="box"

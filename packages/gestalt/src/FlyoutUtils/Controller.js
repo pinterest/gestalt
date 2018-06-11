@@ -6,7 +6,7 @@ import Contents from './Contents';
 
 type Props = {|
   anchor: ?HTMLElement,
-  bgColor: 'darkGray' | 'white' | 'orange',
+  bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
   children?: any,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -159,7 +159,7 @@ Controller.propTypes = {
     contains: PropTypes.func,
     getBoundingClientRect: PropTypes.func,
   }),
-  bgColor: PropTypes.oneOf(['darkGray', 'white', 'orange']),
+  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'white']),
   children: PropTypes.node,
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
