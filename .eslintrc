@@ -53,7 +53,7 @@
       },
     },
     {
-      "files": ["danger/*.js"],
+      "files": ["scripts/danger/*.js"],
       "globals": {
         "danger": true,
         "markdown": true,
