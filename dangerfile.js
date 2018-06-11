@@ -1,8 +1,8 @@
 // @flow
 
-import bundlesize from './danger/bundlesize';
-import changelog from './danger/changelog';
-import lockfile from './danger/lockfile';
+import bundlesize from './scripts/danger/bundlesize';
+import changelog from './scripts/danger/changelog';
+import lockfile from './scripts/danger/lockfile';
 
 // Add a CHANGELOG entry for app changes
 changelog();
