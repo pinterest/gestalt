@@ -19,6 +19,7 @@
 * SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 * Video: Add jsdom browser specific tests (#205)
 * Flyout: Merge ErrorFlyout abilities into Flyout (#242)
+* Flyout: Support blue Flyouts (#249)
 * Card: Make Card explicitely use box-sizing: content-box (#243)
 * GroupAvatar: Text sizes are consistent with Avatar and `size` prop is now optional. (#244)
 * Video: Move initial video setup calls to componentDidMount (#245)

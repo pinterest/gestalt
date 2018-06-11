@@ -9,7 +9,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
-  color?: 'orange' | 'white',
+  color?: 'blue' | 'orange' | 'white',
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
@@ -35,7 +35,7 @@ export default function Flyout(props: Props) {
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
-      shouldFocus={color === 'white'}
+      shouldFocus={color !== 'orange'}
       size={size}
     >
       {children}
@@ -52,7 +52,7 @@ Flyout.propTypes = {
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
-  color: PropTypes.oneOf(['white', 'orange']),
+  color: PropTypes.oneOf(['blue', 'orange', 'white']),
   size: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm

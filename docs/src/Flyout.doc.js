@@ -48,7 +48,7 @@ card(
       },
       {
         name: 'color',
-        type: `"white" | "orange"`,
+        type: `"blue" | "orange" | "white"`,
         defaultValue: 'white',
         description:
           'The background color of the Flyout: orange matches other baked-in error flyouts',
