@@ -9,11 +9,15 @@ type Props = {|
 
 export default class OutsideEventBehavior extends React.Component<Props> {
   componentDidMount() {
-    document.addEventListener('click', this.handleClickEvent);
+    document.addEventListener('click', this.handleClickEvent, {
+      capture: true,
+    });
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleClickEvent);
+    document.removeEventListener('click', this.handleClickEvent, {
+      capture: true,
+    });
   }
 
   handleClickEvent = (event: MouseEvent) => {
