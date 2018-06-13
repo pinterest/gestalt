@@ -27,12 +27,12 @@ card(
         name: 'anchor',
         type: '?any',
         required: true,
-        description: 'Ref for the element that the ErrorFlyout will attach to',
+        description: 'Ref for the element that the Tooltip will attach to',
       },
       {
         name: 'idealDirection',
         type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the Flyout to open',
+        description: 'Preferred direction for the Tooltip to open',
       },
       {
         name: 'children',

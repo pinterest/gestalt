@@ -3,7 +3,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ErrorFlyout from '../ErrorFlyout/ErrorFlyout';
+import Flyout from '../Flyout/Flyout';
+import Box from '../Box/Box';
+import Text from '../Text/Text';
 import styles from './TextArea.css';
 
 type State = {
@@ -142,14 +144,19 @@ export default class TextArea extends React.Component<Props, State> {
           value={value}
         />
         {errorMessage && this.state.errorIsOpen ? (
-          <ErrorFlyout
+          <Flyout
             anchor={this.textarea}
-            id={`${id}-gestalt-error`}
+            color="orange"
             idealDirection={idealErrorDirection}
-            message={errorMessage}
             onDismiss={() => this.setState({ errorIsOpen: false })}
             size="sm"
-          />
+          >
+            <Box padding={3}>
+              <Text bold color="white">
+                <span id={`${id}-gestalt-error`}>{errorMessage}</span>
+              </Text>
+            </Box>
+          </Flyout>
         ) : null}
       </span>
     );

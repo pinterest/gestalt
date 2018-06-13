@@ -8,6 +8,8 @@
 
 ### Minor
 
+* ErrorFlyout: Deprecate component and remove from Gestalt (#251)
+
 ### Patch
 
 * Danger: Separate danger rules out into separate files (#253)
