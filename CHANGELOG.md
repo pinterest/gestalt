@@ -11,20 +11,25 @@
 
 ### Patch
 
+* Modal: Fix issue with outside click error bubbling (#254)
+
 </details>
 
 ## 0.73.0 (Jun 8, 2018)
 
 ### Minor
+
 * Masonry: Makes Masonry React Async compatible (#227)
 * SegmentedControl: Change flow type of `items` to `React.Node` (#230)
 * Video: Add jsdom browser specific tests (#205)
 * Flyout: Merge ErrorFlyout abilities into Flyout (#242)
+* Flyout: Support blue Flyouts (#249)
 * Card: Make Card explicitely use box-sizing: content-box (#243)
 * GroupAvatar: Text sizes are consistent with Avatar and `size` prop is now optional. (#244)
 * Video: Move initial video setup calls to componentDidMount (#245)
 
 ### Patch
+
 * Internal: add better basic test coverage (#231)
 * Modal: Refactor internals and remove responsive behavior (#218)
 * Internal: update to jsdom only tests (#232)
@@ -40,6 +45,7 @@
 ## 0.72.0 (May 30, 2018)
 
 ### Minor
+
 * Video: Added new `onSeek` callback prop to `Video` component (#209)
 * Video: Added new `onReady` callback prop to `Video` component (#210)
 * Internal: Remove dead example code from docs (#211)
@@ -58,6 +64,7 @@
 ## 0.71.0 (May 23, 2018)
 
 ### Minor
+
 * Drop support for React 15 and bump React 16 version (#168)
 * Colors: Update blue color (#193)
 * Video: Fix background color for fullscreen video playback (#198)
@@ -69,6 +76,7 @@
 * Video: Add new `onEnded` prop for media end event (#207)
 
 ### Patch
+
 * Internal: Add code coverage to PRs (#185)
 * Internal: Internal: Convert ghostjs to puppeteer (#182)
 * Internal: Update Jest and use multi-project runner (#158)
@@ -85,6 +93,7 @@
 ## 0.70.0 (May 15, 2018)
 
 ### Minor
+
 * Avatar / GroupAvatar: make outline configurable(#173)
 * Masonry: Update non-virtualized Masonry to render all items regardless of the window
 * ExperimentalMasonry: remove component (#183)
