@@ -8,14 +8,20 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.74.0 (Jun 13, 2018)
+
+### Minor
+
 * ErrorFlyout: Deprecate component and remove from Gestalt (#251)
 
 ### Patch
 
 * Danger: Separate danger rules out into separate files (#253)
 * Modal: Fix issue with outside click error bubbling (#254)
-
-</details>
 
 ## 0.73.0 (Jun 8, 2018)
 
