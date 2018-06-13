@@ -10,6 +10,7 @@
 
 ### Patch
 
+* Danger: Separate danger rules out into separate files (#253)
 * Modal: Fix issue with outside click error bubbling (#254)
 
 </details>
