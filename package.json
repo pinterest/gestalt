@@ -93,7 +93,7 @@
     ]
   },
   "lint-staged": {
-    "*.js": ["eslint", "jest -o"],
+    "*.js": ["eslint", "jest --findRelatedTests"],
     "*.css": ["stylelint"]
   }
 }
