@@ -42,9 +42,11 @@
     "eslint-plugin-react": "^7.4.0",
     "filesize": "^3.6.1",
     "flow-bin": "0.71.0",
+    "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
     "jest-puppeteer": "^3.0.1",
+    "lint-staged": "^7.2.0",
     "node-fetch": "^2.1.2",
     "prettier": "1.10.2",
     "puppeteer": "^1.4.0",
@@ -62,7 +64,8 @@
     "start": "concurrently \"cd docs && yarn start\" \"cd packages/gestalt && yarn watch\"",
     "test": "jest",
     "test:integration": "./run_integration_tests",
-    "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\""
+    "format": "prettier --write \"{.babelrc,.eslintrc,**/*.{js,css,md}}\"",
+    "precommit": "lint-staged"
   },
   "jest": {
     "projects": [
@@ -88,5 +91,9 @@
         "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
       }
     ]
+  },
+  "lint-staged": {
+    "*.js": ["eslint", "jest --findRelatedTests"],
+    "*.css": ["stylelint"]
   }
 }

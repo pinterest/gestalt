@@ -10,6 +10,8 @@
 
 ### Patch
 
+* Internal: Set up pre-commit hooks for linting and testing (#258)
+
 </details>
 
 ## 0.74.0 (Jun 13, 2018)
