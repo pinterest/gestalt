@@ -182,7 +182,7 @@ card(
     defaultCode={`
 <Box display="flex" direction="row" wrap>
   <Box>
-    <h3>Tall content: cover vs contain</h3>
+    <h3>Square content: contain vs cover</h3>
     <Box display="flex" direction="row" justifyContent="around">
       <Box
         color="darkGray"
@@ -192,7 +192,7 @@ card(
         marginRight={4}
       >
         <Image
-          alt="tall"
+          alt="square"
           color="#000"
           fit="contain"
           naturalHeight={1}
@@ -208,7 +208,7 @@ card(
         marginRight={4}
       >
         <Image
-          alt="tall"
+          alt="square"
           color="#000"
           fit="cover"
           naturalHeight={1}
@@ -219,7 +219,7 @@ card(
     </Box>
   </Box>
   <Box>
-    <h3>Wide content: cover vs contain</h3>
+    <h3>Wide content: contain vs cover</h3>
     <Box display="flex" direction="row" justifyContent="around">
       <Box
         color="darkGray"
@@ -229,7 +229,7 @@ card(
         marginRight={4}
       >
         <Image
-          alt="tall"
+          alt="wide"
           color="#000"
           fit="contain"
           naturalHeight={1}
@@ -245,7 +245,7 @@ card(
         marginRight={4}
       >
         <Image
-          alt="tall"
+          alt="wide"
           color="#000"
           fit="cover"
           naturalHeight={1}
@@ -256,7 +256,7 @@ card(
     </Box>
   </Box>
   <Box>
-    <h3>Square content: cover vs contain</h3>
+    <h3>Tall content: contain vs cover</h3>
     <Box display="flex" direction="row" justifyContent="around">
       <Box
         color="darkGray"
