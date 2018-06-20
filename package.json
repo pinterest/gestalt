@@ -52,7 +52,7 @@
     "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.3.2",
     "shelljs": "^0.7.7",
-    "stylelint": "^9.2.1",
+    "stylelint": "^9.3.0",
     "stylelint-config-prettier": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^0.8.1"
@@ -93,7 +93,12 @@
     ]
   },
   "lint-staged": {
-    "*.js": ["eslint", "jest --findRelatedTests"],
-    "*.css": ["stylelint"]
+    "*.js": [
+      "eslint",
+      "jest --findRelatedTests"
+    ],
+    "*.css": [
+      "stylelint"
+    ]
   }
 }
