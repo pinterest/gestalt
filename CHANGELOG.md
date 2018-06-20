@@ -11,6 +11,7 @@
 ### Patch
 
 * Internal: Set up pre-commit hooks for linting and testing (#258)
+* Internal: Fix peer dependency issues with stylint and jest-pupeteer (#260)
 
 </details>
 
