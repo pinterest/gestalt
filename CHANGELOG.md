@@ -10,6 +10,7 @@
 
 ### Patch
 
+* Docs: Fix "fit" labels in Image docs example (#259)
 * Internal: Set up pre-commit hooks for linting and testing (#258)
 
 </details>
