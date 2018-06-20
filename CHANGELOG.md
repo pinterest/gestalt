@@ -12,6 +12,7 @@
 
 * Docs: Fix "fit" labels in Image docs example (#259)
 * Internal: Set up pre-commit hooks for linting and testing (#258)
+* Internal: Fix peer dependency issues with stylint and jest-pupeteer (#260)
 
 </details>
 
