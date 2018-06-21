@@ -62,7 +62,7 @@ card(
       },
       {
         name: 'type',
-        type: `"date" | "email" | "number" | "password" | "text" | "url"`,
+        type: `"date" | "email" | "number" | "password" | "tel" | "text" | "url"`,
         defaultValue: 'text',
       },
       {
