@@ -56,7 +56,6 @@ type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
   children?: any,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onClick: (event: Event) => void,
   onKeyDown: (event: { keyCode: number }) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
@@ -348,7 +347,6 @@ export default class Contents extends React.Component<Props, State> {
         this.flyout.focus();
       }
     });
-    document.addEventListener('click', this.props.onClick, true);
     window.addEventListener('resize', this.props.onResize);
     window.addEventListener('keydown', this.props.onKeyDown);
   }
@@ -358,7 +356,6 @@ export default class Contents extends React.Component<Props, State> {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.props.onClick, true);
     window.removeEventListener('resize', this.props.onResize);
     window.removeEventListener('keydown', this.props.onKeyDown);
   }
@@ -492,7 +489,6 @@ Contents.propTypes = {
   bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'white']),
   children: PropTypes.node,
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onClick: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
   onResize: PropTypes.func.isRequired,
   relativeOffset: PropTypes.exact({ x: PropTypes.number, y: PropTypes.number }),

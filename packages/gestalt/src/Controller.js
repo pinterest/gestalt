@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box.js';
 import Contents from './Contents.js';
+import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 
 type Props = {|
   anchor: ?HTMLElement,
@@ -66,8 +66,6 @@ export default class Controller extends React.Component<Props, State> {
     this.updateTriggerRect(nextProps);
   }
 
-  contents: ?HTMLElement;
-
   handleKeyDown = (event: { keyCode: number }) => {
     if (event.keyCode === ESCAPE_KEY_CODE) {
       this.props.onDismiss();
@@ -78,9 +76,7 @@ export default class Controller extends React.Component<Props, State> {
     if (
       event.target instanceof Node &&
       this.props.anchor &&
-      !this.props.anchor.contains(event.target) &&
-      this.contents &&
-      !this.contents.contains(event.target)
+      !this.props.anchor.contains(event.target)
     ) {
       this.props.onDismiss();
     }
@@ -126,30 +122,21 @@ export default class Controller extends React.Component<Props, State> {
     const size = this.props.size ? this.props.size : 'sm';
     const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
     return (
-      <Box>
-        <div
-          ref={c => {
-            this.contents = c;
-          }}
+      <OutsideEventBehavior onClick={this.handlePageClick}>
+        <Contents
+          bgColor={bgColor}
+          idealDirection={idealDirection}
+          onKeyDown={this.handleKeyDown}
+          onResize={this.handleResize}
+          positionRelativeToAnchor={positionRelativeToAnchor}
+          relativeOffset={this.state.relativeOffset}
+          shouldFocus={shouldFocus}
+          triggerRect={this.state.triggerBoundingRect}
+          width={width}
         >
-          {this.contents ? (
-            <Contents
-              bgColor={bgColor}
-              idealDirection={idealDirection}
-              onClick={this.handlePageClick}
-              onKeyDown={this.handleKeyDown}
-              onResize={this.handleResize}
-              positionRelativeToAnchor={positionRelativeToAnchor}
-              relativeOffset={this.state.relativeOffset}
-              shouldFocus={shouldFocus}
-              triggerRect={this.state.triggerBoundingRect}
-              width={width}
-            >
-              {children}
-            </Contents>
-          ) : null}
-        </div>
-      </Box>
+          {children}
+        </Contents>
+      </OutsideEventBehavior>
     );
   }
 }
