@@ -19,10 +19,8 @@ import Letterbox from './Letterbox';
 import Link from './Link';
 import Mask from './Mask';
 import Masonry from './Masonry';
-import {
-  DefaultLayoutSymbol as MasonryDefaultLayout,
-  UniformRowLayoutSymbol as MasonryUniformRowLayout,
-} from './legacyLayoutSymbols';
+import MasonryDefaultLayout from './layouts/MasonryLayout';
+import MasonryUniformRowLayout from './layouts/UniformRowLayout';
 import Modal from './Modal';
 import Pog from './Pog';
 import Pulsar from './Pulsar';

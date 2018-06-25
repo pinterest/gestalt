@@ -20,8 +20,8 @@ import {
 import defaultLayout from './defaultLayout';
 import uniformRowLayout from './uniformRowLayout';
 import fullWidthLayout from './fullWidthLayout';
-import LegacyMasonryLayout from './layout/masonry';
-import LegacyUniformRowLayout from './layout/uniformRow';
+import LegacyMasonryLayout from './layouts/MasonryLayout';
+import LegacyUniformRowLayout from './layouts/UniformRowLayout';
 
 type Props<T> = {|
   columnWidth?: number,
