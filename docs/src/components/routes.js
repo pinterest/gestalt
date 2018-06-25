@@ -1,6 +1,6 @@
 const routes = {};
 
-const requireCard = require.context('.', true, /\.doc\.js$/);
+const requireCard = require.context('..', true, /\.doc\.js$/);
 const paths = requireCard.keys();
 paths.sort((a, b) => a.localeCompare(b));
 paths.forEach(path => {
