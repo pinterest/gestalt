@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import 'gestalt/dist/gestalt.css';
 import App from './components/App';
 import CardPage from './components/CardPage';
-import routes from './routes';
+import routes from './components/routes';
 import './reset.css';
 
 const container = document.getElementById('root');

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Box } from 'gestalt';
 import NavLink from './NavLink';
-import routes from '../routes';
+import routes from './routes';
 
 const components = Object.keys(routes);
 
