@@ -6,6 +6,12 @@ exports[`Box allows zero values for whitespace 1`] = `
 />
 `;
 
+exports[`Box correctly sets visually hidden 1`] = `
+<div
+  className="box xsDisplayVisuallyHidden"
+/>
+`;
+
 exports[`Box dangerouslySetInlineStyle 1`] = `
 <div
   className="box"
