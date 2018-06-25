@@ -4,53 +4,47 @@ exports[`Flyout does not render when the anchor is null 1`] = `null`;
 
 exports[`Flyout renders 1`] = `
 <div
-  className="box"
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": "#efefef",
+      "top": NaN,
+      "visibility": "visible",
+    }
+  }
 >
-  <div>
+  <div
+    className="whiteBg lightGray dimensions contents"
+    tabIndex={-1}
+  >
     <div
-      className="container"
+      className="dimensions innerContents"
       style={
         Object {
-          "left": -20,
-          "stroke": "#efefef",
-          "top": NaN,
-          "visibility": "visible",
+          "width": 230,
+        }
+      }
+    />
+    <div
+      className="white caret"
+      style={
+        Object {
+          "bottom": null,
+          "left": 8,
+          "right": null,
+          "top": null,
         }
       }
     >
-      <div
-        className="whiteBg lightGray dimensions contents"
-        tabIndex={-1}
+      <svg
+        height="24"
+        width="24"
       >
-        <div
-          className="dimensions innerContents"
-          style={
-            Object {
-              "width": 230,
-            }
-          }
+        <path
+          d="M0 0 L12 12 L24 0"
         />
-        <div
-          className="white caret"
-          style={
-            Object {
-              "bottom": null,
-              "left": 8,
-              "right": null,
-              "top": null,
-            }
-          }
-        >
-          <svg
-            height="24"
-            width="24"
-          >
-            <path
-              d="M0 0 L12 12 L24 0"
-            />
-          </svg>
-        </div>
-      </div>
+      </svg>
     </div>
   </div>
 </div>
@@ -58,53 +52,47 @@ exports[`Flyout renders 1`] = `
 
 exports[`Flyout renders as blue 1`] = `
 <div
-  className="box"
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": null,
+      "top": NaN,
+      "visibility": "visible",
+    }
+  }
 >
-  <div>
+  <div
+    className="blueBg blue dimensions contents"
+    tabIndex={-1}
+  >
     <div
-      className="container"
+      className="dimensions innerContents"
       style={
         Object {
-          "left": -20,
-          "stroke": null,
-          "top": NaN,
-          "visibility": "visible",
+          "width": 230,
+        }
+      }
+    />
+    <div
+      className="blue caret"
+      style={
+        Object {
+          "bottom": null,
+          "left": 8,
+          "right": null,
+          "top": null,
         }
       }
     >
-      <div
-        className="blueBg blue dimensions contents"
-        tabIndex={-1}
+      <svg
+        height="24"
+        width="24"
       >
-        <div
-          className="dimensions innerContents"
-          style={
-            Object {
-              "width": 230,
-            }
-          }
+        <path
+          d="M0 0 L12 12 L24 0"
         />
-        <div
-          className="blue caret"
-          style={
-            Object {
-              "bottom": null,
-              "left": 8,
-              "right": null,
-              "top": null,
-            }
-          }
-        >
-          <svg
-            height="24"
-            width="24"
-          >
-            <path
-              d="M0 0 L12 12 L24 0"
-            />
-          </svg>
-        </div>
-      </div>
+      </svg>
     </div>
   </div>
 </div>
@@ -112,53 +100,47 @@ exports[`Flyout renders as blue 1`] = `
 
 exports[`Flyout renders as error 1`] = `
 <div
-  className="box"
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": null,
+      "top": NaN,
+      "visibility": "visible",
+    }
+  }
 >
-  <div>
+  <div
+    className="orangeBg orange dimensions contents"
+    tabIndex={-1}
+  >
     <div
-      className="container"
+      className="dimensions innerContents"
       style={
         Object {
-          "left": -20,
-          "stroke": null,
-          "top": NaN,
-          "visibility": "visible",
+          "width": 230,
+        }
+      }
+    />
+    <div
+      className="orange caret"
+      style={
+        Object {
+          "bottom": null,
+          "left": 8,
+          "right": null,
+          "top": null,
         }
       }
     >
-      <div
-        className="orangeBg orange dimensions contents"
-        tabIndex={-1}
+      <svg
+        height="24"
+        width="24"
       >
-        <div
-          className="dimensions innerContents"
-          style={
-            Object {
-              "width": 230,
-            }
-          }
+        <path
+          d="M0 0 L12 12 L24 0"
         />
-        <div
-          className="orange caret"
-          style={
-            Object {
-              "bottom": null,
-              "left": 8,
-              "right": null,
-              "top": null,
-            }
-          }
-        >
-          <svg
-            height="24"
-            width="24"
-          >
-            <path
-              d="M0 0 L12 12 L24 0"
-            />
-          </svg>
-        </div>
-      </div>
+      </svg>
     </div>
   </div>
 </div>
