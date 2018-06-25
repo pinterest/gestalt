@@ -1,7 +1,7 @@
 .textField {
   composes: accessibilityOutline from "./Focus.css";
   composes: borderBox medium from "./Layout.css";
-  composes: Text fontSize3 from "../Text/Text.css";
+  composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
   appearance: none;
   border-radius: 4px;

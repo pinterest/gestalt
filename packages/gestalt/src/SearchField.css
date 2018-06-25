@@ -3,7 +3,7 @@
   composes: border from "./Borders.css";
   composes: borderBox medium from "./Layout.css";
   composes: darkGray from "./Colors.css";
-  composes: Text fontSize3 from "../Text/Text.css";
+  composes: Text fontSize3 from "./Text.css";
   composes: fontWeightBold from "./Typography.css";
   composes: lightGrayBg from "./Colors.css";
   composes: xsCol12 from "./Column.css";
@@ -34,8 +34,8 @@
 .clear {
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
-  composes: paddingX3 from "../Box/whitespace.css";
-  composes: paddingY3 from "../Box/whitespace.css";
+  composes: paddingX3 from "./boxWhitespace.css";
+  composes: paddingY3 from "./boxWhitespace.css";
   composes: relative from "./Layout.css";
   background-color: transparent;
   outline: none;
