@@ -46,6 +46,7 @@
       }
     ],
     "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
     "import/no-relative-parent-imports": "error",
   },
   "overrides": [
