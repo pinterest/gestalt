@@ -5,10 +5,10 @@ import stock2 from './images/stock2.jpg';
 import stock3 from './images/stock3.jpg';
 import stock4 from './images/stock4.jpg';
 import stock5 from './images/stock5.jpg';
-import PropTable from './components/PropTable';
-import Example from './components/Example';
-import PageHeader from './components/PageHeader';
-import Card from './components/Card';
+import PropTable from './components/PropTable.js';
+import Example from './components/Example.js';
+import PageHeader from './components/PageHeader.js';
+import Card from './components/Card.js';
 
 const cards = [];
 const card = c => cards.push(c);

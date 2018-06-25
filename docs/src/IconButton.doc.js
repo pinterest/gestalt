@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import { IconButton } from 'gestalt';
-import Example from './components/Example';
-import PropTable from './components/PropTable';
-import Combination from './components/Combination';
-import PageHeader from './components/PageHeader';
+import Example from './components/Example.js';
+import PropTable from './components/PropTable.js';
+import Combination from './components/Combination.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards = [];
 const card = c => cards.push(c);

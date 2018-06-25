@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'gestalt/dist/gestalt.css';
-import RenderConfig from '../utils/renderConfig';
+// eslint-disable-next-line import/no-relative-parent-imports
+import RenderConfig from '../renderConfig.js';
 
 // Wait to mount until the test tells us to do so.
 function mount() {

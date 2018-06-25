@@ -2,8 +2,8 @@
 import React from 'react';
 import * as gestalt from 'gestalt';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import Card from './Card';
-import Checkerboard from './Checkerboard';
+import Card from './Card.js';
+import Checkerboard from './Checkerboard.js';
 
 type Props = {|
   defaultCode: string,

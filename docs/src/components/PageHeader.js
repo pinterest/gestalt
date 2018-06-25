@@ -1,18 +1,20 @@
 // @flow
 import React from 'react';
 import { Box, Text, Heading, Link } from 'gestalt';
-import Markdown from './Markdown';
+import Markdown from './Markdown.js';
 
 type Props = {|
   name: string,
   description?: string,
 |};
 
-const gestaltPath = component =>
-  `/packages/gestalt/src/${component}/${component}.js`;
+const gestaltPath = component => `packages/gestalt/src/${component}.js`;
 
 const githubUrl = component =>
-  `https://github.com/pinterest/gestalt/blob/master/${gestaltPath(component)}`;
+  [
+    'https://github.com/pinterest/gestalt/blob/master',
+    gestaltPath(component),
+  ].join('/');
 
 export default function ComponentHeader({ name, description = '' }: Props) {
   return (

@@ -21,7 +21,8 @@
     "jest",
     "jsx-a11y",
     "prettier",
-    "react"
+    "react",
+    "import",
   ],
   "rules": {
     "jsx-a11y/label-has-for": [
@@ -32,14 +33,21 @@
       "error",
       { "trailingComma": "es5", "singleQuote": true }
     ],
-    "no-await-in-loop": 0,
-    "no-return-await": 0,
-    "react/jsx-filename-extension": 0,
-    "react/no-array-index-key": 0,
-    "react/require-default-props": 0,
-    "import/extensions": 0,
-    "import/no-extraneous-dependencies": 0,
-    "import/no-unresolved": 0,
+    "no-await-in-loop": "off",
+    "no-return-await": "off",
+    "react/jsx-filename-extension": "off",
+    "react/no-array-index-key": "off",
+    "react/require-default-props": "off",
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "ignorePackages": true
+      }
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "import/no-relative-parent-imports": "error",
   },
   "overrides": [
     {

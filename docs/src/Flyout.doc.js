@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import PropTable from './components/PropTable';
-import Example from './components/Example';
-import PageHeader from './components/PageHeader';
-import Card from './components/Card';
+import PropTable from './components/PropTable.js';
+import Example from './components/Example.js';
+import PageHeader from './components/PageHeader.js';
+import Card from './components/Card.js';
 
 const cards = [];
 const card = c => cards.push(c);

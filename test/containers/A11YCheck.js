@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconA11Y from './Icon.a11y';
+import IconA11Y from './Icon.a11y.js';
 
 export default function A11YCheck(props) {
   const { component } = props;

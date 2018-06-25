@@ -4,9 +4,9 @@ import stock3 from './images/stock3.jpg';
 import stock4 from './images/stock4.jpg';
 import stock5 from './images/stock5.jpg';
 import stock6 from './images/stock6.jpg';
-import Example from './components/Example';
-import PropTable from './components/PropTable';
-import PageHeader from './components/PageHeader';
+import Example from './components/Example.js';
+import PropTable from './components/PropTable.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards = [];
 const card = c => cards.push(c);

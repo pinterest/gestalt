@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { Box } from 'gestalt';
-import NavLink from './NavLink';
-import routes from '../routes';
+import NavLink from './NavLink.js';
+import routes from './routes.js';
 
 const components = Object.keys(routes);
 

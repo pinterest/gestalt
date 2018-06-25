@@ -1,7 +1,7 @@
 import React from 'react';
 import { Masonry } from 'gestalt';
 import PropTypes from 'prop-types';
-import Item from './ExampleGridItem';
+import Item from './ExampleGridItem.js';
 
 const store = Masonry.createMeasurementStore();
 

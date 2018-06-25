@@ -2,3 +2,4 @@ node_modules
 docs/build
 packages/gestalt/dist
 flow-typed
+coverage

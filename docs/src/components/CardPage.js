@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Box } from 'gestalt';
-import SearchContent from './SearchContent';
+import SearchContent from './SearchContent.js';
 
 type Props = {|
   cards: Array<React.Node>,

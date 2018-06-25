@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
 import { Tabs } from 'gestalt';
-import PropTable from './components/PropTable';
-import Example from './components/Example';
-import PageHeader from './components/PageHeader';
+import PropTable from './components/PropTable.js';
+import Example from './components/Example.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards = [];
 const card = c => cards.push(c);
