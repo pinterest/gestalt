@@ -21,7 +21,8 @@
     "jest",
     "jsx-a11y",
     "prettier",
-    "react"
+    "react",
+    "import",
   ],
   "rules": {
     "jsx-a11y/label-has-for": [
@@ -39,7 +40,8 @@
     "react/require-default-props": 0,
     "import/extensions": 0,
     "import/no-extraneous-dependencies": 0,
-    "import/no-unresolved": 0,
+    "import/no-unresolved": 1,
+    "import/no-relative-parent-imports": 1,
   },
   "overrides": [
     {
