@@ -8,10 +8,13 @@ type Props = {|
   description?: string,
 |};
 
-const gestaltPath = component => `/packages/gestalt/src/${component}.js`;
+const gestaltPath = component => `packages/gestalt/src/${component}.js`;
 
 const githubUrl = component =>
-  `https://github.com/pinterest/gestalt/blob/master/${gestaltPath(component)}`;
+  [
+    'https://github.com/pinterest/gestalt/blob/master',
+    gestaltPath(component),
+  ].join('/');
 
 export default function ComponentHeader({ name, description = '' }: Props) {
   return (
