@@ -50,7 +50,7 @@ Box's type definition is exhaustive. With the exception of `dangerouslySetInline
 
 type NatBoint = 1 | 2 | 3 | 4 | 5 | 6;
 type IntBoint = -6 | -5 | -4 | -3 | -2 | -1 | NatBoint;
-type Display = 'none' | 'flex' | 'block' | 'inlineBlock';
+type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
 type Direction = 'row' | 'column';
 type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type ResponsiveProps = {
@@ -296,6 +296,8 @@ const display = value => {
       return fromClassName('DisplayFlex', 'DirectionColumn');
     case 'inlineBlock':
       return fromClassName('DisplayInlineBlock');
+    case 'visuallyHidden':
+      return fromClassName('DisplayVisuallyHidden');
     case false:
       return fromClassName('DisplayNone');
     default:
@@ -380,6 +382,7 @@ const propToFn = {
     flex: styles.xsDisplayFlex,
     block: styles.xsDisplayBlock,
     inlineBlock: styles.xsDisplayInlineBlock,
+    visuallyHidden: styles.xsDisplayVisuallyHidden,
   }),
   column: bind(range('xsCol'), styles),
   direction: mapping({
@@ -392,6 +395,7 @@ const propToFn = {
     flex: styles.smDisplayFlex,
     block: styles.smDisplayBlock,
     inlineBlock: styles.smDisplayInlineBlock,
+    visuallyHidden: styles.smDisplayVisuallyHidden,
   }),
   smColumn: bind(range('smCol'), styles),
   smDirection: mapping({
@@ -404,6 +408,7 @@ const propToFn = {
     flex: styles.mdDisplayFlex,
     block: styles.mdDisplayBlock,
     inlineBlock: styles.mdDisplayInlineBlock,
+    visuallyHidden: styles.mdDisplayVisuallyHidden,
   }),
   mdColumn: bind(range('mdCol'), styles),
   mdDirection: mapping({
@@ -416,6 +421,7 @@ const propToFn = {
     flex: styles.lgDisplayFlex,
     block: styles.lgDisplayBlock,
     inlineBlock: styles.lgDisplayInlineBlock,
+    visuallyHidden: styles.lgDisplayVisuallyHidden,
   }),
   lgColumn: bind(range('lgCol'), styles),
   lgDirection: mapping({
@@ -792,19 +798,43 @@ Box.propTypes = {
     }),
   ]),
 
-  display: PropTypes.oneOf(['none', 'flex', 'block', 'inlineBlock']),
+  display: PropTypes.oneOf([
+    'none',
+    'flex',
+    'block',
+    'inlineBlock',
+    'visuallyHidden',
+  ]),
   direction: PropTypes.oneOf(['row', 'column']),
   column: ColumnPropType,
 
-  smDisplay: PropTypes.oneOf(['none', 'flex', 'block', 'inlineBlock']),
+  smDisplay: PropTypes.oneOf([
+    'none',
+    'flex',
+    'block',
+    'inlineBlock',
+    'visuallyHidden',
+  ]),
   smDirection: PropTypes.oneOf(['row', 'column']),
   smColumn: ColumnPropType,
 
-  mdDisplay: PropTypes.oneOf(['none', 'flex', 'block', 'inlineBlock']),
+  mdDisplay: PropTypes.oneOf([
+    'none',
+    'flex',
+    'block',
+    'inlineBlock',
+    'visuallyHidden',
+  ]),
   mdDirection: PropTypes.oneOf(['row', 'column']),
   mdColumn: ColumnPropType,
 
-  lgDisplay: PropTypes.oneOf(['none', 'flex', 'block', 'inlineBlock']),
+  lgDisplay: PropTypes.oneOf([
+    'none',
+    'flex',
+    'block',
+    'inlineBlock',
+    'visuallyHidden',
+  ]),
   lgDirection: PropTypes.oneOf(['row', 'column']),
   lgColumn: ColumnPropType,
 

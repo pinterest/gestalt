@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Box: Add `visuallyHidden` as a display option (#262)
+
 ### Patch
 
 * Docs: Fix "fit" labels in Image docs example (#259)
