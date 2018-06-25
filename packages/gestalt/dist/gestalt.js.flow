@@ -1,2 +1,2 @@
 // @flow
-export * from './src.js';
+export * from '../src/index.js';
