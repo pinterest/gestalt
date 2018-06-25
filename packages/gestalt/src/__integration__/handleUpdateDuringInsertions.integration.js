@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('Masonry > Update during insertions', () => {
   it('Should not throw an error when Masonry is updated during insertions', async () => {

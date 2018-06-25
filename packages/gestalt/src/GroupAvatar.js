@@ -2,8 +2,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import styles from './GroupAvatar.css';
-import Box from './Box';
-import Image from './Image';
+import Box from './Box.js';
+import Image from './Image.js';
 import typography from './Typography.css';
 
 function zip(a, b) {

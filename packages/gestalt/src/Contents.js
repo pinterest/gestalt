@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Caret from './Caret';
+import Caret from './Caret.js';
 import styles from './Contents.css';
 import colors from './Colors.css';
 

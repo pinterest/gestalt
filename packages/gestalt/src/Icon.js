@@ -3,7 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Icon.css';
-import icons from './icons';
+import icons from './icons/index.js';
 import colors from './Colors.css';
 
 type IconProps = {

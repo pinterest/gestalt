@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import countColumns from './lib/countColumns';
-import triggerResize from './lib/triggerResize';
+import countColumns from './lib/countColumns.js';
+import triggerResize from './lib/triggerResize.js';
 
 const PIN_SIZE = 235;
 

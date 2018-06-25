@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Box, Text, Icon, Link as GestaltLink } from 'gestalt';
-import Link from './Link';
+import Link from './Link.js';
 
 export default function Header() {
   return (

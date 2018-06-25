@@ -11,7 +11,7 @@ Usage:
 import Benchmark from 'benchmark';
 import { Box as PublishedBox } from 'gestalt';
 // eslint-disable-next-line import/no-relative-parent-imports
-import { Box as DevelopmentBox } from '../packages/gestalt/dist/gestalt.es';
+import { Box as DevelopmentBox } from '../packages/gestalt/dist/gestalt.es.js';
 
 const emptyProps = {};
 const lotsOfProps = {

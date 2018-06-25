@@ -3,9 +3,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Flyout from './Flyout';
-import Box from './Box';
-import Text from './Text';
+import Flyout from './Flyout.js';
+import Box from './Box.js';
+import Text from './Text.js';
 import styles from './TextField.css';
 
 type State = {

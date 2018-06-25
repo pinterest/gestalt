@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import GroupAvatar from './GroupAvatar';
+import GroupAvatar from './GroupAvatar.js';
 
 describe('GroupAvatar', () => {
   it('renders multi-byte character initials', () => {

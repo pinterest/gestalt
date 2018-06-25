@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Column from './Column';
+import Column from './Column.js';
 
 test('Column deprecated span', () => {
   const component = renderer.create(<Column xs={1}>Hello world</Column>);

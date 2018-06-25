@@ -2,9 +2,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from './Box';
-import Icon from './Icon';
-import icons from './icons';
+import Box from './Box.js';
+import Icon from './Icon.js';
+import icons from './icons/index.js';
 import styles from './Pog.css';
 
 const SIZE_NAME_TO_PIXEL = {

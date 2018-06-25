@@ -2,10 +2,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from './Box';
-import Flyout from './Flyout';
-import Text from './Text';
-import Icon from './Icon';
+import Box from './Box.js';
+import Flyout from './Flyout.js';
+import Text from './Text.js';
+import Icon from './Icon.js';
 import styles from './SelectList.css';
 
 type State = {

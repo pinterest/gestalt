@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Link from './Link';
+import Link from './Link.js';
 
 const snapshot = component => {
   const tree = renderer.create(component).toJSON();

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Tabs from './Tabs';
+import Tabs from './Tabs.js';
 
 test('Tabs renders', () => {
   const tree = create(

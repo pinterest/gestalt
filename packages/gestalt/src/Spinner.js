@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box';
-import Icon from './Icon';
+import Box from './Box.js';
+import Icon from './Icon.js';
 import styles from './Spinner.css';
 
 const SIZE = 40;

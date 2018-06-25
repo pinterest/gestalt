@@ -6,7 +6,7 @@ import {
   identity,
   mapClassName,
   toProps,
-} from './style';
+} from './style.js';
 
 test('identity', () => {
   expect(identity()).toEqual({ className: new Set(), inlineStyle: {} });

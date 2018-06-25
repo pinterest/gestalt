@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Text from './Text';
+import Text from './Text.js';
 import styles from './Tabs.css';
 
 type Props = {|

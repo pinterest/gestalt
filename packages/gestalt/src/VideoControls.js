@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box';
-import Icon from './Icon';
-import Text from './Text';
-import Touchable from './Touchable';
-import VideoPlayhead from './VideoPlayhead';
+import Box from './Box.js';
+import Icon from './Icon.js';
+import Text from './Text.js';
+import Touchable from './Touchable.js';
+import VideoPlayhead from './VideoPlayhead.js';
 
 type Props = {|
   accessibilityMaximizeLabel: string,

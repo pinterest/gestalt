@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('Masonry > Item prop change', () => {
   it('Key generation when item object ref changes', async () => {

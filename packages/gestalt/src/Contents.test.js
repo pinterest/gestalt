@@ -7,7 +7,7 @@ import {
   adjustOffsets,
   CARET_HEIGHT,
   BORDER_RADIUS,
-} from './Contents';
+} from './Contents.js';
 
 const windowSize = {
   height: 900,

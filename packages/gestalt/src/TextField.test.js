@@ -2,8 +2,8 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import TextField from './TextField';
-import Flyout from './Flyout';
+import TextField from './TextField.js';
+import Flyout from './Flyout.js';
 
 describe('TextField', () => {
   it('Renders a Flyout if an error message is passed in', () => {

@@ -1,27 +1,27 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import debounce from './debounce';
-import FetchItems from './FetchItems';
+import debounce from './debounce.js';
+import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
-import ScrollContainer from './ScrollContainer';
-import throttle from './throttle';
-import type { Cache } from './Cache';
-import MeasurementStore from './MeasurementStore';
+import ScrollContainer from './ScrollContainer.js';
+import throttle from './throttle.js';
+import type { Cache } from './Cache.js';
+import MeasurementStore from './MeasurementStore.js';
 import {
   getElementHeight,
   getRelativeScrollTop,
   getScrollPos,
-} from './scrollUtils';
+} from './scrollUtils.js';
 import {
   DefaultLayoutSymbol,
   UniformRowLayoutSymbol,
-} from './legacyLayoutSymbols';
-import defaultLayout from './defaultLayout';
-import uniformRowLayout from './uniformRowLayout';
-import fullWidthLayout from './fullWidthLayout';
-import LegacyMasonryLayout from './layouts/MasonryLayout';
-import LegacyUniformRowLayout from './layouts/UniformRowLayout';
+} from './legacyLayoutSymbols.js';
+import defaultLayout from './defaultLayout.js';
+import uniformRowLayout from './uniformRowLayout.js';
+import fullWidthLayout from './fullWidthLayout.js';
+import LegacyMasonryLayout from './layouts/MasonryLayout.js';
+import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
 type Props<T> = {|
   columnWidth?: number,

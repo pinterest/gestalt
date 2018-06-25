@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 const masonryItemData = [
   { name: 'fake1', height: 100, color: '#f00' },

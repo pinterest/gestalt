@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import { Box, Column, Divider } from 'gestalt';
-import Header from './Header';
-import Navigation from './Navigation';
+import Header from './Header.js';
+import Navigation from './Navigation.js';
 
 type Props = {|
   children?: React.Node,

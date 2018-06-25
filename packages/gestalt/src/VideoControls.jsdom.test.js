@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { mount } from 'enzyme';
-import VideoControls from './VideoControls';
+import VideoControls from './VideoControls.js';
 
 test('VideoControls handles play events', () => {
   const mockOnPlay = jest.fn();

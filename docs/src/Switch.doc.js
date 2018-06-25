@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
 import { Switch } from 'gestalt';
-import PropTable from './components/PropTable';
-import Example from './components/Example';
-import Combination from './components/Combination';
-import PageHeader from './components/PageHeader';
+import PropTable from './components/PropTable.js';
+import Example from './components/Example.js';
+import Combination from './components/Combination.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards = [];
 const card = c => cards.push(c);

@@ -3,7 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Button.css';
-import Text from './Text';
+import Text from './Text.js';
 
 type Props = {|
   accessibilityExpanded?: boolean,

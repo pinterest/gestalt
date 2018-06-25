@@ -2,8 +2,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import styles from './IconButton.css';
-import icons from './icons';
-import Pog from './Pog';
+import icons from './icons/index.js';
+import Pog from './Pog.js';
 
 type Props = {|
   accessibilityExpanded?: boolean,

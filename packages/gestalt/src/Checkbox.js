@@ -3,8 +3,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Checkbox.css';
-import Box from './Box';
-import Icon from './Icon';
+import Box from './Box.js';
+import Icon from './Icon.js';
 
 type Props = {|
   checked?: boolean,

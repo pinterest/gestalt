@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Touchable from './Touchable';
+import Touchable from './Touchable.js';
 
 test('Touchable renders', () => {
   const tree = create(

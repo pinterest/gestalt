@@ -1,4 +1,4 @@
-import { concat, fromClassName, identity, mapClassName } from './style';
+import { concat, fromClassName, identity, mapClassName } from './style.js';
 
 /*
 

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Text from './Text';
+import Text from './Text.js';
 
 test('Text renders', () => {
   const tree = create(<Text />).toJSON();

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('Masonry > Render Height', () => {
   it('Items can be positioned under the grid', async () => {

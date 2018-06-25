@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import VideoControls from './VideoControls';
+import VideoControls from './VideoControls.js';
 import styles from './Video.css';
 
 type VideoWithControls = {|

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Toast from './Toast';
+import Toast from './Toast.js';
 
 test('Confirmation Toast', () => {
   const tree = create(

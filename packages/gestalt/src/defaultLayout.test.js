@@ -1,5 +1,5 @@
 // @flow
-import defaultLayout from './defaultLayout';
+import defaultLayout from './defaultLayout.js';
 
 const stubCache = (measurements: Object = {}) => {
   let cache = measurements;

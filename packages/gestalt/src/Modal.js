@@ -1,13 +1,13 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box';
-import Divider from './Divider';
-import Heading from './Heading';
-import IconButton from './IconButton';
-import StopScrollBehavior from './behaviors/StopScrollBehavior';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior';
-import OutsideEventBehavior from './behaviors/OutsideEventBehavior';
+import Box from './Box.js';
+import Divider from './Divider.js';
+import Heading from './Heading.js';
+import IconButton from './IconButton.js';
+import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
+import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 import styles from './Modal.css';
 
 type Props = {|

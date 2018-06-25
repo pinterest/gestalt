@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Letterbox from './Letterbox';
+import Letterbox from './Letterbox.js';
 
 test('Letterbox crops tall content', () => {
   const component = renderer.create(

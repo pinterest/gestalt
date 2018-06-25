@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Heading from './Heading';
+import Heading from './Heading.js';
 
 test('Heading small', () => {
   const tree = create(<Heading size="sm" />).toJSON();

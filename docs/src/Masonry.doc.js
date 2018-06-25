@@ -1,14 +1,14 @@
 // @flow
 import * as React from 'react';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
-import PropTable from './components/PropTable';
+import PropTable from './components/PropTable.js';
 import stock9 from './images/stock9.jpg';
 import stock10 from './images/stock10.jpg';
 import stock11 from './images/stock11.jpg';
 import stock12 from './images/stock12.jpg';
 import stock13 from './images/stock13.jpg';
-import PageHeader from './components/PageHeader';
-import Card from './components/Card';
+import PageHeader from './components/PageHeader.js';
+import Card from './components/Card.js';
 
 const cards = [];
 const card = c => cards.push(c);

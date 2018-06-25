@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('Masonry > Slot Index', () => {
   it('Should start slot index at 0', async () => {

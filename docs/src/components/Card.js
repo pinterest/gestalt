@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Box, Heading } from 'gestalt';
-import Markdown from './Markdown';
+import Markdown from './Markdown.js';
 
 type Props = {|
   children?: React.Node,

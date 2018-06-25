@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import RadioButton from './RadioButton';
+import RadioButton from './RadioButton.js';
 
 test('RadioButton', () => {
   const tree = create(

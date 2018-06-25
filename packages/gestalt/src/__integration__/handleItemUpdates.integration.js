@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('Masonry > handle item updates', () => {
   it('should correctly update grid item heights', async () => {

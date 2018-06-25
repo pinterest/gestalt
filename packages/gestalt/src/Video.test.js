@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Video from './Video';
+import Video from './Video.js';
 
 test('Video with source', () => {
   const tree = create(

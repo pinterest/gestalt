@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { mount } from 'enzyme';
-import Avatar from './Avatar';
+import Avatar from './Avatar.js';
 
 test('Avatar handles Image error', () => {
   const wrapper = mount(<Avatar name="Name" src="example.com" />);

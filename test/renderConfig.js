@@ -1,8 +1,8 @@
-import A11YCheck from './containers/A11YCheck';
-import MasonryExample from './containers/MasonryExample';
-import classicGridServerStyles from './containers/classicGridServerStyles';
-import flexibleGridServerStyles from './containers/flexibleGridServerStyles';
-import masonryPins from './utils/pins';
+import A11YCheck from './containers/A11YCheck.js';
+import MasonryExample from './containers/MasonryExample.js';
+import classicGridServerStyles from './containers/classicGridServerStyles.js';
+import flexibleGridServerStyles from './containers/flexibleGridServerStyles.js';
+import masonryPins from './utils/pins.js';
 
 const RenderConfig = {
   A11y: {

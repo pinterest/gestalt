@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box';
+import Box from './Box.js';
 import styles from './Image.css';
 
 const shouldScaleImage = fit => fit === 'cover' || fit === 'contain';

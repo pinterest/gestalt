@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Collection from './Collection';
+import Collection from './Collection.js';
 
 test('Collection with default viewport', () => {
   const tree = create(

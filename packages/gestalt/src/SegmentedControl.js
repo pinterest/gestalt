@@ -2,8 +2,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from './Box';
-import Text from './Text';
+import Box from './Box.js';
+import Text from './Text.js';
 import styles from './SegmentedControl.css';
 
 type Props = {|

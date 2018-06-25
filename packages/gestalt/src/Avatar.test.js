@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Avatar from './Avatar';
+import Avatar from './Avatar.js';
 
 describe('Avatar', () => {
   it('renders multi-byte character initials', () => {

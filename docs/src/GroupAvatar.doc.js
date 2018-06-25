@@ -1,13 +1,13 @@
 // @flow
 import * as React from 'react';
 import { GroupAvatar } from 'gestalt';
-import PropTable from './components/PropTable';
+import PropTable from './components/PropTable.js';
 import james from './avatars/james.jpg';
 import keerthi from './avatars/keerthi.jpg';
 import shanice from './avatars/shanice.jpg';
-import Example from './components/Example';
-import Combination from './components/Combination';
-import PageHeader from './components/PageHeader';
+import Example from './components/Example.js';
+import Combination from './components/Combination.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards = [];
 const card = c => cards.push(c);

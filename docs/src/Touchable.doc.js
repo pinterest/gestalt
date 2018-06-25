@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import PropTable from './components/PropTable';
-import Example from './components/Example';
-import PageHeader from './components/PageHeader';
+import PropTable from './components/PropTable.js';
+import Example from './components/Example.js';
+import PageHeader from './components/PageHeader.js';
 import stock14 from './images/stock14.jpg';
 
 const cards = [];

@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box';
-import Icon from './Icon';
-import Image from './Image';
-import Mask from './Mask';
+import Box from './Box.js';
+import Icon from './Icon.js';
+import Image from './Image.js';
+import Mask from './Mask.js';
 import typography from './Typography.css';
 
 const Square = (props: *) => (

@@ -30,7 +30,7 @@ import {
   identity,
   mapClassName,
   toProps,
-} from './style';
+} from './style.js';
 import {
   union,
   bind,
@@ -38,7 +38,7 @@ import {
   toggle,
   mapping,
   rangeWithoutZero,
-} from './transforms';
+} from './transforms.js';
 
 /*
 

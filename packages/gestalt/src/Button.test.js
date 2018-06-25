@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Button from './Button';
+import Button from './Button.js';
 
 test('<Button color="transparent" />', () => {
   const tree = create(

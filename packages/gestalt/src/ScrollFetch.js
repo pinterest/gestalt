@@ -1,10 +1,14 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import FetchItems from './FetchItems';
-import ScrollContainer from './ScrollContainer';
-import { getElementHeight, getScrollHeight, getScrollPos } from './scrollUtils';
-import throttle from './throttle';
+import FetchItems from './FetchItems.js';
+import ScrollContainer from './ScrollContainer.js';
+import {
+  getElementHeight,
+  getScrollHeight,
+  getScrollPos,
+} from './scrollUtils.js';
+import throttle from './throttle.js';
 
 type Props = {
   container?: HTMLElement,

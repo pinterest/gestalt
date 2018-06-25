@@ -1,4 +1,4 @@
-import selectors from './selectors';
+import selectors from './selectors.js';
 
 const countColumns = async page => {
   const itemLeftMap = {};

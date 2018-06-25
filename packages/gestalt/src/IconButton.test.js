@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import IconButton from './IconButton';
+import IconButton from './IconButton.js';
 
 test('IconButton renders', () => {
   const component = renderer.create(

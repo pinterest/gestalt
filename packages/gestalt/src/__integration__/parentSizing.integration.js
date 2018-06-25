@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('Masonry > Parent Sizing', () => {
   it('The grid starts from the left bounding box of the parent', async () => {

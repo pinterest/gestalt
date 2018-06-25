@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Card from './Card';
+import Card from './Card.js';
 
 const snapshot = component => {
   const tree = renderer.create(component).toJSON();

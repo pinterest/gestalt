@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Controller from './Controller';
+import Controller from './Controller.js';
 
 type Props = {|
   anchor: ?any,

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Box, Text, Heading, Link } from 'gestalt';
-import Markdown from './Markdown';
+import Markdown from './Markdown.js';
 
 type Props = {|
   name: string,

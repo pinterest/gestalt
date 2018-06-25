@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import { Box, Text } from 'gestalt';
-import Checkerboard from './Checkerboard';
-import Card from './Card';
+import Checkerboard from './Checkerboard.js';
+import Card from './Card.js';
 
 type Props = {
   children: (Object, number) => React.Node,

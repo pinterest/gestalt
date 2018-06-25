@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Pulsar from './Pulsar';
+import Pulsar from './Pulsar.js';
 
 test('Pulsar renders', () => {
   const component = renderer.create(<Pulsar />);

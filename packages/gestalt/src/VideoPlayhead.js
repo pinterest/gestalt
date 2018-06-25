@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box';
+import Box from './Box.js';
 import styles from './Video.css';
 
 type Props = {|

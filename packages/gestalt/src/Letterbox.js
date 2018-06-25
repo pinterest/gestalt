@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Mask from './Mask';
+import Mask from './Mask.js';
 
 /*
   Much of the math and understanding about this component comes from @vjeaux's

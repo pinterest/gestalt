@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import SegmentedControl from './SegmentedControl';
+import SegmentedControl from './SegmentedControl.js';
 
 test('SegmentedControl renders', () => {
   const tree = create(

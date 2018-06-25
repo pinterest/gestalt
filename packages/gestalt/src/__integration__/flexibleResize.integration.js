@@ -1,6 +1,6 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
-import triggerResize from './lib/triggerResize';
+import selectors from './lib/selectors.js';
+import triggerResize from './lib/triggerResize.js';
 
 jest.setTimeout(10000);
 

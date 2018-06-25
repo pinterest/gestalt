@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Flyout from './Flyout';
+import Flyout from './Flyout.js';
 
 test('Flyout renders', () => {
   const element = document.createElement('div');

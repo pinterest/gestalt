@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import TextArea from './TextArea';
+import TextArea from './TextArea.js';
 
 describe('TextArea', () => {
   it('Renders a Flyout if an error message is passed in', () => {

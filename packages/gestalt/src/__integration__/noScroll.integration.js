@@ -1,5 +1,5 @@
 import assert from 'assert';
-import selectors from './lib/selectors';
+import selectors from './lib/selectors.js';
 
 describe('ExerimentalMasonry > No scroll', () => {
   it('should do nothing on scroll', async () => {

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Switch from './Switch';
+import Switch from './Switch.js';
 
 test('Switch', () => {
   const tree = create(<Switch id="test" onChange={() => {}} />).toJSON();
