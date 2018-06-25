@@ -33,7 +33,7 @@ card(
       },
       {
         name: 'display',
-        type: `"none" | "flex" | "block" | "inlineBlock"`,
+        type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
         defaultValue: 'block',
         responsive: true,
       },
@@ -278,6 +278,21 @@ card(
 );
 
 card(
+  <Example
+    description={`
+    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still being read by screenreaders.
+  `}
+    name="Example: Visually Hidden"
+    defaultCode={`
+<>
+  <Text>Enable your screenreader to hear the following text:</Text>
+  <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
+</>
+`}
+  />
+);
+
+card(
   <Combination
     description={`
     Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
@@ -288,7 +303,7 @@ card(
     alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
   >
     {props => (
-      <Box xs={{ display: 'flex' }} width={96} {...props}>
+      <Box display="flex" width={96} {...props}>
         <Box margin={1} color="gray" height={8} width={8} />
         <Box margin={1} color="gray" height={16} width={8} />
         <Box margin={1} color="gray" height={32} width={8} />

@@ -57,6 +57,10 @@ test('Box dangerouslySetInlineStyle', () => {
   ).toMatchSnapshot();
 });
 
+test('Box correctly sets visually hidden', () => {
+  expect(create(<Box display="visuallyHidden" />)).toMatchSnapshot();
+});
+
 test('Box has correct marginStart and marginEnd when marginStart equals 1 and marginEnd equals 2', () => {
   expect(create(<Box marginStart={1} marginEnd={2} />)).toMatchSnapshot();
 });

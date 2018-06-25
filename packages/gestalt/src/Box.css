@@ -22,6 +22,17 @@
   display: inline-block;
 }
 
+.xsDisplayVisuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 @media (--sm) {
   .smDisplayNone {
     display: none;
@@ -38,6 +49,17 @@
 
   .smDisplayInlineBlock {
     display: inline-block;
+  }
+
+  .smDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 }
 
@@ -58,6 +80,17 @@
   .mdDisplayInlineBlock {
     display: inline-block;
   }
+
+  .mdDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 }
 
 @media (--lg) {
@@ -76,6 +109,17 @@
 
   .lgDisplayInlineBlock {
     display: inline-block;
+  }
+
+  .lgDisplayVisuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 }
 
