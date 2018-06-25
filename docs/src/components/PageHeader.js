@@ -8,8 +8,7 @@ type Props = {|
   description?: string,
 |};
 
-const gestaltPath = component =>
-  `/packages/gestalt/src/${component}/${component}.js`;
+const gestaltPath = component => `/packages/gestalt/src/${component}.js`;
 
 const githubUrl = component =>
   `https://github.com/pinterest/gestalt/blob/master/${gestaltPath(component)}`;
