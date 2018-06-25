@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sticky correctly sets thresholds for number values 1`] = `
+<div
+  className="sticky"
+  style={
+    Object {
+      "bottom": 1,
+      "left": 2,
+      "right": 3,
+      "top": 4,
+      "zIndex": 1,
+    }
+  }
+>
+  Sticky
+</div>
+`;
+
+exports[`Sticky correctly sets thresholds for string values 1`] = `
+<div
+  className="sticky"
+  style={
+    Object {
+      "bottom": "50%",
+      "left": "25%",
+      "right": "25%",
+      "top": "50%",
+      "zIndex": 1,
+    }
+  }
+>
+  Sticky
+</div>
+`;
+
+exports[`Sticky renders 1`] = `
+<div
+  className="sticky"
+  style={
+    Object {
+      "bottom": undefined,
+      "left": undefined,
+      "right": undefined,
+      "top": 1,
+      "zIndex": 1,
+    }
+  }
+>
+  Sticky
+</div>
+`;

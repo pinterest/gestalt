@@ -1,0 +1,9 @@
+.icon {
+  fill: currentColor;
+  stroke-width: 0;
+  vertical-align: middle;
+}
+
+.iconBlock {
+  composes: block from "./Layout.css";
+}

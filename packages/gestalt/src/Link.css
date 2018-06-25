@@ -1,0 +1,18 @@
+.link {
+  composes: noUnderline from "./Typography.css";
+  color: inherit; /* Links should have the correct underline color */
+  outline: none;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
+.accessibleFocusStyle {
+  composes: accessibilityOutline from "./Focus.css";
+}
+
+.block {
+  composes: block from "./Layout.css";
+}

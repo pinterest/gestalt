@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box/Box';
-import Divider from './Divider/Divider';
-import Heading from './Heading/Heading';
-import IconButton from './IconButton/IconButton';
+import Box from './Box';
+import Divider from './Divider';
+import Heading from './Heading';
+import IconButton from './IconButton';
 import StopScrollBehavior from './behaviors/StopScrollBehavior';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior';

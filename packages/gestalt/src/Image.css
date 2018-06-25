@@ -1,0 +1,39 @@
+.img {
+  composes: block from "./Layout.css";
+  composes: xsCol12 from "./Column.css";
+  composes: absolute from "./Layout.css";
+}
+
+/*
+    Disables alt text showing when loading an image in firefox
+    https://stackoverflow.com/questions/12667926
+*/
+
+.img[alt] {
+  color: transparent;
+}
+
+.scaled-img {
+  composes: relative from "./Layout.css";
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.contain {
+  composes: scaled-img;
+  background-size: contain;
+}
+
+.cover {
+  composes: scaled-img;
+  background-size: cover;
+}
+
+@media (inverted-colors) {
+  .img,
+  .scaled-img {
+    filter: invert(100%);
+  }
+}
