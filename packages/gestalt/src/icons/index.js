@@ -34,6 +34,7 @@ import flag from './flag.svg';
 import flashlight from './flashlight.svg';
 import gif from './gif.svg';
 import globe from './globe.svg';
+import globeChecked from './globe-checked.svg';
 import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
@@ -107,6 +108,7 @@ export default {
   flashlight,
   gif,
   globe,
+  'globe-checked': globeChecked,
   'graph-bar': graphBar,
   handle,
   'hand-pointing': handPointing,
