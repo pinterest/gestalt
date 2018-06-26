@@ -9,7 +9,7 @@
 ### Minor
 
 * Box: Add `visuallyHidden` as a display option (#262)
-* Icon: Add one new icon (globe-checked) for claimed website (#263)
+* Icon: Add one new icon (globe-checked) for claimed website (#264)
 
 ### Patch
 
