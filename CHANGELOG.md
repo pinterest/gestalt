@@ -6,6 +6,10 @@
     Click to see more.
   </summary>
 
+</details>
+
+## 0.75.0 (Jun 27, 2018)
+
 ### Minor
 
 * Box: Add `visuallyHidden` as a display option (#262)
@@ -16,8 +20,6 @@
 * Internal: Set up pre-commit hooks for linting and testing (#258)
 * Internal: Fix peer dependency issues with stylint and jest-pupeteer (#260)
 * Internal: Add eslint-import/no-relative-parent-imports rule (#261)
-
-</details>
 
 ## 0.74.0 (Jun 13, 2018)
 
