@@ -6,6 +6,10 @@
     Click to see more.
   </summary>
 
+### Minor
+
+### Patch
+
 </details>
 
 ## 0.75.0 (Jun 27, 2018)
