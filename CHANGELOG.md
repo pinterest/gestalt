@@ -10,6 +10,8 @@
 
 ### Patch
 
+* Internal: Fix release script for gh-pages (#266)
+
 </details>
 
 ## 0.75.0 (Jun 27, 2018)
