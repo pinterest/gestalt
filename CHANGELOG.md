@@ -11,6 +11,7 @@
 ### Patch
 
 * Internal: Fix release script for gh-pages (#266)
+* Flow: Bump Flow to version 0.75.0 in gestalt (#268)
 
 </details>
 
