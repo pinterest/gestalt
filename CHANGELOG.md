@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Icon: reduce filesize of each icon with 40% + add new icons
 
 ### Patch
 
