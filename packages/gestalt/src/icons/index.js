@@ -24,6 +24,7 @@ import dash from './dash.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
+import envelope from './envelope.svg';
 import eye from './eye.svg';
 import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
@@ -35,6 +36,7 @@ import flashlight from './flashlight.svg';
 import gif from './gif.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
+import googlePlus from './google-plus.svg';
 import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
@@ -71,6 +73,10 @@ import sound from './sound.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import tag from './tag.svg';
+import twitter from './twitter.svg';
+import viewTypeDefault from './view-type-default.svg';
+import viewTypeDense from './view-type-dense.svg';
+import viewTypeList from './view-type-list.svg';
 
 export default {
   add,
@@ -98,6 +104,7 @@ export default {
   edit,
   ellipsis,
   'ellipsis-circle-outline': ellipsisCircleOutline,
+  envelope,
   eye,
   facebook,
   'face-happy': faceHappy,
@@ -109,6 +116,7 @@ export default {
   gif,
   globe,
   'globe-checked': globeChecked,
+  'google-plus': googlePlus,
   'graph-bar': graphBar,
   handle,
   'hand-pointing': handPointing,
@@ -145,4 +153,8 @@ export default {
   speech,
   'speech-ellipsis': speechEllipsis,
   tag,
+  twitter,
+  'view-type-default': viewTypeDefault,
+  'view-type-dense': viewTypeDense,
+  'view-type-list': viewTypeList,
 };
