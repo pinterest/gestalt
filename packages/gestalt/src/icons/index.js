@@ -24,7 +24,7 @@ import dash from './dash.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
-import envelop from './envelop.svg';
+import envelope from './envelope.svg';
 import eye from './eye.svg';
 import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
@@ -104,7 +104,7 @@ export default {
   edit,
   ellipsis,
   'ellipsis-circle-outline': ellipsisCircleOutline,
-  envelop,
+  envelope,
   eye,
   facebook,
   'face-happy': faceHappy,
