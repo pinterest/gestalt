@@ -36,6 +36,7 @@ import flashlight from './flashlight.svg';
 import gif from './gif.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
+import gmail from './gmail.svg';
 import googlePlus from './google-plus.svg';
 import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
@@ -116,6 +117,7 @@ export default {
   gif,
   globe,
   'globe-checked': globeChecked,
+  gmail,
   'google-plus': googlePlus,
   'graph-bar': graphBar,
   handle,
