@@ -7,10 +7,11 @@ import styles from './Pulsar.css';
 type Props = {
   paused?: boolean,
   size?: number,
+  newAnimation?: boolean,
 };
 
 export default function Pulsar(props: Props) {
-  const { paused, size = 135 } = props;
+  const { paused, size = 135, newAnimation = false } = props;
 
   return (
     <Box
@@ -26,7 +27,9 @@ export default function Pulsar(props: Props) {
       position="relative"
       width={size}
     >
-      <div className={styles.innerCircle}>
+      <div
+        className={newAnimation ? styles.newInnerCircle : styles.innerCircle}
+      >
         <div className={styles.outerCircle} />
       </div>
     </Box>
