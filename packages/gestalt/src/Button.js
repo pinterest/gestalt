@@ -25,13 +25,13 @@ export default function Button(props: Props) {
     accessibilityHaspopup,
     accessibilityLabel,
     color = 'gray',
-    disabled = false,
-    inline = false,
+    disabled,
+    inline,
     name,
     onClick,
-    size = 'md',
+    size,
     text,
-    type = 'button',
+    type,
   } = props;
 
   const textColor = {
@@ -54,6 +54,7 @@ export default function Button(props: Props) {
     [styles.block]: !inline,
   });
 
+  /* eslint-disable react/button-has-type */
   return (
     <button
       aria-expanded={accessibilityExpanded}
@@ -76,7 +77,16 @@ export default function Button(props: Props) {
       </Text>
     </button>
   );
+  /* eslint-enable react/button-has-type */
 }
+
+Button.defaultProps = {
+  color: 'gray',
+  disabled: false,
+  inline: false,
+  size: 'md',
+  type: 'button',
+};
 
 Button.propTypes = {
   accessibilityExpanded: PropTypes.bool,
