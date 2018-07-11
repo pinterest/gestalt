@@ -10,6 +10,7 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsSelected"
     onClick={[Function]}
     role="tab"
+    type="button"
   >
     <div
       className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
@@ -22,6 +23,7 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    type="button"
   >
     <div
       className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
@@ -34,6 +36,7 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    type="button"
   >
     <div
       className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
@@ -46,6 +49,7 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    type="button"
   >
     <div
       className="box justifyCenter xsDisplayFlex"

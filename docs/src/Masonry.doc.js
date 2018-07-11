@@ -184,11 +184,6 @@ class ExampleMasonry extends React.Component<
     });
   }
 
-  // ref on a component gets the mounted instance of the component
-  // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
-  grid: ?Masonry<*>;
-  scrollContainer: ?HTMLElement;
-
   // eslint-disable-next-line react/no-unused-prop-types
   updateWidth = ({ target }: { target: HTMLInputElement }) => {
     this.setState({ width: Number(target.value) }, () => {
@@ -197,6 +192,12 @@ class ExampleMasonry extends React.Component<
       }
     });
   };
+
+  // ref on a component gets the mounted instance of the component
+  // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
+  grid: ?Masonry<*>;
+
+  scrollContainer: ?HTMLElement;
 
   render() {
     const containerStyle = {

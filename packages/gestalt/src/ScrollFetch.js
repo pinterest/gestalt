@@ -25,9 +25,16 @@ type State = {
 };
 
 export default class ScrollFetch extends React.PureComponent<Props, State> {
+  /**
+   * Fetches additional items if needed.
+   */
+  updatePosition = throttle(() => {
+    this.setState(this.getScrollState());
+  });
+
   static defaultProps: {};
 
-  state: State = {
+  state = {
     containerHeight: 0,
     scrollHeight: 0,
     scrollTop: 0,
@@ -82,13 +89,6 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
   }
 
   scrollBuffer: number;
-
-  /**
-   * Fetches additional items if needed.
-   */
-  updatePosition = throttle(() => {
-    this.setState(this.getScrollState());
-  });
 
   render() {
     const { containerHeight, scrollHeight, scrollTop } = this.state;

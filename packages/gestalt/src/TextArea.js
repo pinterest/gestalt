@@ -49,6 +49,11 @@ export default class TextArea extends React.Component<Props, State> {
     rows: 3,
   };
 
+  state = {
+    focused: false,
+    errorIsOpen: false,
+  };
+
   static getDerivedStateFromProps(props: Props, state: State) {
     if (props.errorMessage !== state.errorMessage) {
       return {
@@ -59,13 +64,6 @@ export default class TextArea extends React.Component<Props, State> {
 
     return null;
   }
-
-  state = {
-    focused: false,
-    errorIsOpen: false,
-  };
-
-  textarea: ?HTMLElement;
 
   handleChange = (event: SyntheticInputEvent<>) => {
     if (event.target instanceof HTMLTextAreaElement) {
@@ -103,6 +101,8 @@ export default class TextArea extends React.Component<Props, State> {
       });
     }
   };
+
+  textarea: ?HTMLElement;
 
   render() {
     const {

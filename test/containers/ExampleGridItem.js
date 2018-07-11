@@ -12,9 +12,9 @@ export default class Item extends Component {
   }
 
   incrementStateCounter = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    });
+    this.setState(prevState => ({
+      counter: prevState.counter + 1,
+    }));
   };
 
   render() {
@@ -48,6 +48,7 @@ export default class Item extends Component {
             <button
               id={`add-more-${itemIdx}`}
               onClick={() => fetchMore().then(addRelatedItems)}
+              type="button"
             >
               Insert items
             </button>
@@ -56,6 +57,7 @@ export default class Item extends Component {
           <button
             id={`increment-counter-${itemIdx}`}
             onClick={this.incrementStateCounter}
+            type="button"
           >
             Increment counter:
           </button>

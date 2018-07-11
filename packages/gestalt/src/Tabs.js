@@ -45,9 +45,11 @@ export default class Tabs extends React.Component<Props, State> {
   };
 
   handleTabFocus = (i: number) => this.setState({ focusedTabIndex: i });
+
   handleTabBlur = () => this.setState({ focusedTabIndex: undefined });
 
   handleTabMouseEnter = (i: number) => this.setState({ hoveredTabIndex: i });
+
   handleTabMouseLeave = () => this.setState({ hoveredTabIndex: undefined });
 
   render() {

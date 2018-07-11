@@ -54,6 +54,7 @@ export default function Button(props: Props) {
     [styles.block]: !inline,
   });
 
+  /* eslint-disable react/button-has-type */
   return (
     <button
       aria-expanded={accessibilityExpanded}
@@ -76,6 +77,7 @@ export default function Button(props: Props) {
       </Text>
     </button>
   );
+  /* eslint-enable react/button-has-type */
 }
 
 Button.propTypes = {

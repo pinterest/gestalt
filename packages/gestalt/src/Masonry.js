@@ -73,6 +73,34 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     return new MeasurementStore();
   }
 
+  /**
+   * Delays resize handling in case the scroll container is still being resized.
+   */
+  handleResize = debounce(() => {
+    if (this.gridWrapper) {
+      this.setState({ width: this.gridWrapper.clientWidth });
+    }
+  }, RESIZE_DEBOUNCE);
+
+  updateScrollPosition = throttle(() => {
+    if (!this.scrollContainer) {
+      return;
+    }
+    const scrollContainer = this.scrollContainer.getScrollContainerRef();
+
+    if (!scrollContainer) {
+      return;
+    }
+
+    this.setState({
+      scrollTop: getScrollPos(scrollContainer),
+    });
+  });
+
+  measureContainerAsync = debounce(() => {
+    this.measureContainer();
+  }, 0);
+
   static propTypes = {
     /**
      * The preferred/target item width. If `flexible` is set, the item width will
@@ -108,6 +136,16 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     measurementStore: PropTypes.instanceOf(MeasurementStore),
 
     /**
+     * Layout system to use for items
+     */
+    layout: PropTypes.oneOfType([
+      PropTypes.instanceOf(LegacyMasonryLayout),
+      PropTypes.instanceOf(LegacyUniformRowLayout),
+      PropTypes.instanceOf(DefaultLayoutSymbol),
+      PropTypes.instanceOf(UniformRowLayoutSymbol),
+    ]),
+
+    /**
      * A callback which the grid calls when we need to load more items as the user scrolls.
      * The callback should update the state of the items, and pass those in as props
      * to this component.
@@ -140,60 +178,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     virtualize: false,
   };
 
-  static getDerivedStateFromProps(props: Props<T>, state: State<T>) {
-    const { items, measurementStore } = props;
-    // whenever we're receiving new props, determine whether any items need to be measured
-    // TODO - we should treat items as immutable
-    const hasPendingMeasurements = items.some(
-      item => !measurementStore.has(item)
-    );
-
-    // Shallow compare all items, if any change reflow the grid.
-    for (let i = 0; i < items.length; i += 1) {
-      // We've reached the end of our current props and everything matches.
-      // If we hit this case it means we need to insert new items.
-      if (state.items[i] === undefined) {
-        return {
-          hasPendingMeasurements,
-          items,
-          isFetching: false,
-        };
-      }
-
-      // Reset grid items when:
-      if (
-        // An item object ref does not match.
-        items[i] !== state.items[i] ||
-        // Or less items than we currently have are passed in.
-        items.length < state.items.length
-      ) {
-        return {
-          hasPendingMeasurements,
-          items,
-          isFetching: false,
-        };
-      }
-    }
-
-    // Reset items if new items array is empty.
-    if (items.length === 0 && state.items.length > 0) {
-      return {
-        hasPendingMeasurements,
-        items,
-        isFetching: false,
-      };
-    } else if (hasPendingMeasurements !== state.hasPendingMeasurements) {
-      // make sure we always update hasPendingMeasurements
-      return {
-        hasPendingMeasurements,
-        items,
-      };
-    }
-
-    // Return null to indicate no change to state.
-    return null;
-  }
-
   constructor(props: Props<T>) {
     super(props);
 
@@ -218,10 +202,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
 
-    const width = this.gridWrapper
-      ? this.gridWrapper.clientWidth
-      : this.state.width;
-
     this.measureContainer();
 
     let { scrollTop } = this.state;
@@ -232,8 +212,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       }
     }
 
-    // eslint-disable-next-line react/no-did-mount-set-state
-    this.setState({ scrollTop, width });
+    this.setState(prevState => ({
+      scrollTop,
+      width: this.gridWrapper ? this.gridWrapper.clientWidth : prevState.width,
+    }));
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
@@ -277,6 +259,61 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     window.removeEventListener('resize', this.handleResize);
   }
 
+  static getDerivedStateFromProps(props: Props<T>, state: State<T>) {
+    const { items, measurementStore } = props;
+    // whenever we're receiving new props, determine whether any items need to be measured
+    // TODO - we should treat items as immutable
+    const hasPendingMeasurements = items.some(
+      item => !measurementStore.has(item)
+    );
+
+    // Shallow compare all items, if any change reflow the grid.
+    for (let i = 0; i < items.length; i += 1) {
+      // We've reached the end of our current props and everything matches.
+      // If we hit this case it means we need to insert new items.
+      if (state.items[i] === undefined) {
+        return {
+          hasPendingMeasurements,
+          items,
+          isFetching: false,
+        };
+      }
+
+      // Reset grid items when:
+      if (
+        // An item object ref does not match.
+        items[i] !== state.items[i] ||
+        // Or less items than we currently have are passed in.
+        items.length < state.items.length
+      ) {
+        return {
+          hasPendingMeasurements,
+          items,
+          isFetching: false,
+        };
+      }
+    }
+
+    // Reset items if new items array is empty.
+    if (items.length === 0 && state.items.length > 0) {
+      return {
+        hasPendingMeasurements,
+        items,
+        isFetching: false,
+      };
+    }
+    if (hasPendingMeasurements !== state.hasPendingMeasurements) {
+      // make sure we always update hasPendingMeasurements
+      return {
+        hasPendingMeasurements,
+        items,
+      };
+    }
+
+    // Return null to indicate no change to state.
+    return null;
+  }
+
   setGridWrapperRef = (ref: ?HTMLElement) => {
     this.gridWrapper = ref;
   };
@@ -285,41 +322,29 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.scrollContainer = ref;
   };
 
-  props: Props<*>;
+  fetchMore = () => {
+    const { loadItems } = this.props;
+    if (loadItems && typeof loadItems === 'function') {
+      this.setState(
+        {
+          isFetching: true,
+        },
+        () => loadItems({ from: this.props.items.length })
+      );
+    }
+  };
+
   containerHeight: number;
+
   containerOffset: number;
+
   gridWrapper: ?HTMLElement;
+
   insertAnimationFrame: AnimationFrameID;
+
   measureTimeout: TimeoutID;
+
   scrollContainer: ?ScrollContainer;
-
-  /**
-   * Delays resize handling in case the scroll container is still being resized.
-   */
-  handleResize = debounce(() => {
-    if (this.gridWrapper) {
-      this.setState({ width: this.gridWrapper.clientWidth });
-    }
-  }, RESIZE_DEBOUNCE);
-
-  updateScrollPosition = throttle(() => {
-    if (!this.scrollContainer) {
-      return;
-    }
-    const scrollContainer = this.scrollContainer.getScrollContainerRef();
-
-    if (!scrollContainer) {
-      return;
-    }
-
-    this.setState({
-      scrollTop: getScrollPos(scrollContainer),
-    });
-  });
-
-  measureContainerAsync = debounce(() => {
-    this.measureContainer();
-  }, 0);
 
   measureContainer() {
     if (this.scrollContainer != null) {
@@ -347,18 +372,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.measureContainer();
     this.forceUpdate();
   }
-
-  fetchMore = () => {
-    const { loadItems } = this.props;
-    if (loadItems && typeof loadItems === 'function') {
-      this.setState(
-        {
-          isFetching: true,
-        },
-        () => loadItems({ from: this.props.items.length })
-      );
-    }
-  };
 
   renderMasonryComponent = (itemData: T, idx: number, position: *) => {
     const { comp: Component, virtualize } = this.props;
@@ -495,6 +508,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         .filter(item => item && !measurementStore.has(item))
         .slice(0, minCols);
 
+      // $FlowIssue: despite the polymorphic typing of item to T, Flow is having trouble
       const positions = layout(itemsToRender);
       const measuringPositions = layout(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions

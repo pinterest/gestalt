@@ -14,6 +14,7 @@
 * Icon: Fix `envelope` icon + add `gmail` (#270)
 * Internal: Fix release script for gh-pages (#266)
 * Flow: Bump Flow to version 0.75.0 in gestalt (#268)
+* Internal: Bump all eslint plugin packages in prep for eslint5 (#273)
 
 </details>
 

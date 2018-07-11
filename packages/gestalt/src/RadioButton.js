@@ -48,6 +48,7 @@ export default class RadioButton extends React.Component<Props, State> {
   };
 
   handleBlur = () => this.setState({ focused: false });
+
   handleFocus = () => {
     this.setState({ focused: true });
   };
