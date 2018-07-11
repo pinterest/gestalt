@@ -22,7 +22,7 @@ export default <T>({
   gutter?: number,
   width?: ?number,
   minCols?: number,
-|}) => (items: Array<T>): Array<Position> => {
+|}) => (items: Array<*>): Array<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }
