@@ -53,6 +53,11 @@ export default class SelectList extends React.Component<Props, State> {
     options: [],
   };
 
+  state = {
+    focused: false,
+    errorIsOpen: false,
+  };
+
   static getDerivedStateFromProps(props: Props, state: State) {
     if (props.errorMessage !== state.errorMessage) {
       return {
@@ -63,13 +68,6 @@ export default class SelectList extends React.Component<Props, State> {
 
     return null;
   }
-
-  state = {
-    focused: false,
-    errorIsOpen: false,
-  };
-
-  select: ?HTMLSelectElement;
 
   handleOnChange = (event: SyntheticInputEvent<>) => {
     if (
@@ -95,6 +93,8 @@ export default class SelectList extends React.Component<Props, State> {
       this.setState({ errorIsOpen: true });
     }
   };
+
+  select: ?HTMLSelectElement;
 
   render() {
     const {

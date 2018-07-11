@@ -24,6 +24,8 @@ const getRandomNumberGenerator = seed => {
 };
 
 export default class MasonryExample extends React.Component {
+  randomNumberSeed = 0;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -76,6 +78,7 @@ export default class MasonryExample extends React.Component {
     // set flag once masonry mounts - used for remount regression testing
     window.MASONRY_DID_MOUNT = true;
   }
+
   getItems = ({ name = 'Item', from = 0 }, collage) => {
     let until = from + 20;
 
@@ -110,8 +113,6 @@ export default class MasonryExample extends React.Component {
   getScrollContainerRef = ref => {
     this.scrollContainer = ref;
   };
-
-  randomNumberSeed = 0;
 
   handleToggleScrollContainer = e => {
     e.preventDefault();
@@ -196,9 +197,9 @@ export default class MasonryExample extends React.Component {
 
   loadItems = meta => {
     this.getItems(meta, this.props.collage).then(newItems => {
-      this.setState({
-        items: this.state.items.concat(newItems),
-      });
+      this.setState(prevState => ({
+        items: prevState.items.concat(newItems),
+      }));
     });
   };
 
@@ -251,34 +252,59 @@ export default class MasonryExample extends React.Component {
     let gridWrapper = (
       <div id="gridWrapper" className="gridCentered" {...gridStyleProps}>
         <div style={{ paddingTop: 8, paddingBottom: 8 }}>
-          <button id="shuffle-pins" onClick={this.handleShuffleItems}>
+          <button
+            id="shuffle-pins"
+            onClick={this.handleShuffleItems}
+            type="submit"
+          >
             Shuffle items
           </button>
-          <button id="toggle-mount" onClick={this.toggleMount}>
+          <button id="toggle-mount" onClick={this.toggleMount} type="submit">
             Toggle mount
           </button>
-          <button id="insert-null-items" onClick={this.handleInsertNullItems}>
+          <button
+            id="insert-null-items"
+            onClick={this.handleInsertNullItems}
+            type="submit"
+          >
             Insert null items
           </button>
           {this.props.externalCache && (
-            <button id="push-first-down" onClick={this.pushFirstItemDown}>
+            <button
+              id="push-first-down"
+              onClick={this.pushFirstItemDown}
+              type="submit"
+            >
               Push first item down
             </button>
           )}
-          <button id="push-grid-down" onClick={this.handlePushGridDown}>
+          <button
+            id="push-grid-down"
+            onClick={this.handlePushGridDown}
+            type="submit"
+          >
             Push grid down
           </button>
-          <button id="update-grid-items" onClick={this.handleUpdateGridItems}>
+          <button
+            id="update-grid-items"
+            onClick={this.handleUpdateGridItems}
+            type="submit"
+          >
             Update grid items
           </button>
           {!this.props.flexible && (
-            <button id="expand-grid-items" onClick={this.handleExpandGridItems}>
+            <button
+              id="expand-grid-items"
+              onClick={this.handleExpandGridItems}
+              type="submit"
+            >
               Expand grid items
             </button>
           )}
           <button
             id="toggle-scroll-container"
             onClick={this.handleToggleScrollContainer}
+            type="submit"
           >
             Toggle scroll container
           </button>

@@ -58,7 +58,9 @@ export default class SearchField extends React.Component<Props, State> {
   };
 
   handleMouseEnter = () => this.setState({ hovered: true });
+
   handleMouseLeave = () => this.setState({ hovered: false });
+
   handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ focused: true });
 
@@ -69,6 +71,7 @@ export default class SearchField extends React.Component<Props, State> {
       });
     }
   };
+
   handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ focused: false });
 

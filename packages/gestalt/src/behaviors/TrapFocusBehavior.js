@@ -73,6 +73,7 @@ export default class TrapFocusBehavior extends React.Component<Props> {
   }
 
   el: ?HTMLDivElement;
+
   previouslyFocusedEl: ?HTMLElement;
 
   render() {

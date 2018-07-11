@@ -58,6 +58,10 @@ export default class ScrollContainer extends React.Component<Props> {
 
   getScrollContainerRef = () => this.scrollContainer;
 
+  handleScroll = (event: Event) => {
+    this.props.onScroll(event);
+  };
+
   updateScrollContainer(scrollContainer: HTMLElement) {
     if (this.scrollContainer) {
       // cleanup existing scroll container if it exists
@@ -66,10 +70,6 @@ export default class ScrollContainer extends React.Component<Props> {
     this.scrollContainer = scrollContainer;
     this.scrollContainer.addEventListener('scroll', this.handleScroll);
   }
-
-  handleScroll = (event: Event) => {
-    this.props.onScroll(event);
-  };
 
   scrollContainer: ?HTMLElement;
 

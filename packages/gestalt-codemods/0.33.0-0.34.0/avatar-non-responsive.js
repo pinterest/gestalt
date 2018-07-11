@@ -56,7 +56,8 @@ export default function transformer(file, api) {
             if (convertSizes[value]) {
               attribute.value.value = convertSizes[value];
               return attribute;
-            } else if (invalidSizes.includes(value)) {
+            }
+            if (invalidSizes.includes(value)) {
               throw new Error(
                 `
                 ${file.path}

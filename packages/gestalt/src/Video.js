@@ -148,7 +148,8 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
     // If the source type changed from string to Array
     // or vice versa, we have a new source
     return true;
-  } else if (Array.isArray(newSource)) {
+  }
+  if (Array.isArray(newSource)) {
     if (oldSource.length !== newSource.length) {
       // If the sources are both an Array, and the lengths
       // do not match we evaluate as a new source
@@ -341,9 +342,6 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  video: ?HTMLVideoElement;
-  player: ?HTMLDivElement;
-
   /**
    * Handlers for various media events on the video
    */
@@ -448,6 +446,10 @@ export default class Video extends React.PureComponent<Props, State> {
       onVolumeChange({ event, volume: muted ? 1 : 0 });
     }
   };
+
+  video: ?HTMLVideoElement;
+
+  player: ?HTMLDivElement;
 
   render() {
     const {

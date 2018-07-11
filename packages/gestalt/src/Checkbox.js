@@ -38,7 +38,7 @@ export default class Checkbox extends React.Component<Props, State> {
     size: 'md',
   };
 
-  state: State = {
+  state = {
     focused: false,
   };
 
@@ -60,15 +60,16 @@ export default class Checkbox extends React.Component<Props, State> {
     }
   }
 
-  input: ?HTMLInputElement;
-
   handleChange = (event: SyntheticInputEvent<>) => {
     const { checked } = event.target;
     this.props.onChange({ event, checked });
   };
 
   handleBlur = () => this.setState({ focused: false });
+
   handleFocus = () => this.setState({ focused: true });
+
+  input: ?HTMLInputElement;
 
   render() {
     const { checked, disabled, id, indeterminate, name, size } = this.props;

@@ -11,11 +11,13 @@ export default class Layer extends React.Component<Props> {
     super(props);
     this.el = document.createElement('div');
   }
+
   componentDidMount() {
     if (document.body) {
       document.body.appendChild(this.el);
     }
   }
+
   componentWillUnmount() {
     if (document.body) {
       document.body.removeChild(this.el);

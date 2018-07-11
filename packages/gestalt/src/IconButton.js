@@ -41,21 +41,26 @@ export default class IconButton extends React.Component<Props, State> {
   };
 
   handleBlur = () => this.setState({ focused: false });
+
   handleFocus = () => {
     this.setState({ focused: true });
   };
+
   handleMouseDown = () => {
     this.setState({ active: true });
   };
+
   handleMouseEnter = () => {
     this.setState({ hovered: true });
   };
+
   handleMouseLeave = () => {
     this.setState({
       active: false,
       hovered: false,
     });
   };
+
   handleMouseUp = () => {
     this.setState({ active: false });
   };

@@ -13,7 +13,8 @@ export function getWindowScrollPos() {
   if (window.scrollY !== undefined) {
     // Modern browser
     return window.scrollY;
-  } else if (
+  }
+  if (
     document.documentElement &&
     document.documentElement.scrollTop !== undefined
   ) {

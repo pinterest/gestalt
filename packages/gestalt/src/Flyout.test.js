@@ -6,7 +6,11 @@ import Flyout from './Flyout.js';
 it('Flyout renders', () => {
   const wrapper = shallow(
     <Flyout
-      anchor={<button onClick={() => null}> test </button>}
+      anchor={
+        <button onClick={() => null} type="submit">
+          test
+        </button>
+      }
       idealDirection="down"
       onDismiss={jest.fn()}
       size="sm"

@@ -66,6 +66,11 @@ export default class TextField extends React.Component<Props, State> {
     type: 'text',
   };
 
+  state = {
+    focused: false,
+    errorIsOpen: false,
+  };
+
   static getDerivedStateFromProps(props: Props, state: State) {
     if (props.errorMessage !== state.errorMessage) {
       return {
@@ -76,13 +81,6 @@ export default class TextField extends React.Component<Props, State> {
 
     return null;
   }
-
-  state = {
-    focused: false,
-    errorIsOpen: false,
-  };
-
-  textfield: ?HTMLElement;
 
   handleChange = (event: SyntheticInputEvent<>) => {
     if (event.target instanceof HTMLInputElement) {
@@ -116,6 +114,8 @@ export default class TextField extends React.Component<Props, State> {
       });
     }
   };
+
+  textfield: ?HTMLElement;
 
   render() {
     const {
