@@ -3,56 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
-import Image from './Image.js';
-import Mask from './Mask.js';
-import typography from './Typography.css';
-
-const Square = (props: *) => (
-  <Box {...props} position="relative">
-    <Box
-      dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }}
-      position="relative"
-    />
-    <Box position="absolute" top left bottom right>
-      {props.children}
-    </Box>
-  </Box>
-);
-
-const DefaultAvatar = ({ name }: { name: string }) => {
-  const firstInitial = name ? [...name][0].toUpperCase() : '';
-  return (
-    <Square color="gray" shape="circle">
-      {firstInitial && (
-        <svg
-          width="100%"
-          viewBox="-50 -50 100 100"
-          version="1.1"
-          preserveAspectRatio="xMidYMid meet"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>{name}</title>
-          <text
-            fontSize="50px"
-            fill="#fff"
-            dominantBaseline="central"
-            textAnchor="middle"
-            className={[
-              typography.antialiased,
-              typography.sansSerif,
-              typography.leadingSmall,
-              typography.fontWeightBold,
-            ].join(' ')}
-          >
-            {firstInitial}
-          </text>
-        </svg>
-      )}
-    </Square>
-  );
-};
-
-type State = {| isImageLoaded: boolean |};
+import GroupAvatar from './GroupAvatar.js';
 
 type AvatarProps = {|
   name: string,
@@ -68,7 +19,7 @@ const sizes = {
   lg: 72,
 };
 
-export default class Avatar extends React.PureComponent<AvatarProps, State> {
+export default class Avatar extends React.PureComponent<AvatarProps> {
   static propTypes = {
     name: PropTypes.string.isRequired,
     outline: PropTypes.bool,
@@ -77,15 +28,8 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
     verified: PropTypes.bool,
   };
 
-  state = {
-    isImageLoaded: true,
-  };
-
-  handleImageError = () => this.setState({ isImageLoaded: false });
-
   render() {
     const { name, outline, size, src, verified } = this.props;
-    const { isImageLoaded } = this.state;
     const width = size ? sizes[size] : '100%';
     const height = size ? sizes[size] : '';
     return (
@@ -105,20 +49,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
         position="relative"
         shape="circle"
       >
-        {src && isImageLoaded ? (
-          <Mask shape="circle" wash>
-            <Image
-              alt={name}
-              color="#EFEFEF"
-              naturalHeight={1}
-              naturalWidth={1}
-              src={src}
-              onError={this.handleImageError}
-            />
-          </Mask>
-        ) : (
-          <DefaultAvatar name={name} />
-        )}
+        <GroupAvatar collaborators={[{ name, src }]} />
         {verified && (
           <Box
             position="absolute"

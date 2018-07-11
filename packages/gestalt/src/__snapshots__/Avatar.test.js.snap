@@ -12,10 +12,17 @@ exports[`Avatar renders an outline 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle overflowHidden relative whiteBg"
+    style={
+      Object {
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
+      }
+    }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
           "paddingBottom": "100%",
@@ -23,28 +30,49 @@ exports[`Avatar renders an outline 1`] = `
       }
     />
     <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <svg
-        preserveAspectRatio="xMidYMid meet"
-        version="1.1"
-        viewBox="-50 -50 100 100"
-        width="100%"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        aria-label="Jenny"
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
       >
-        <title>
-          Jenny
-        </title>
-        <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
-          textAnchor="middle"
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          J
-        </text>
-      </svg>
+          <title>
+            Jenny
+          </title>
+          <text
+            className="antialiased sansSerif leadingSmall fontWeightBold"
+            dominantBaseline="central"
+            fill="#fff"
+            fontSize="50px"
+            textAnchor="middle"
+          >
+            J
+          </text>
+        </svg>
+      </div>
+      <div
+        className="wash"
+      />
     </div>
   </div>
 </div>
@@ -61,10 +89,17 @@ exports[`Avatar renders multi-byte character initials 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle overflowHidden relative whiteBg"
+    style={
+      Object {
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
+      }
+    }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
           "paddingBottom": "100%",
@@ -72,28 +107,49 @@ exports[`Avatar renders multi-byte character initials 1`] = `
       }
     />
     <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <svg
-        preserveAspectRatio="xMidYMid meet"
-        version="1.1"
-        viewBox="-50 -50 100 100"
-        width="100%"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        aria-label="💩 astral"
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
       >
-        <title>
-          💩 astral
-        </title>
-        <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
-          textAnchor="middle"
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          💩
-        </text>
-      </svg>
+          <title>
+            💩 astral
+          </title>
+          <text
+            className="antialiased sansSerif leadingSmall fontWeightBold"
+            dominantBaseline="central"
+            fill="#fff"
+            fontSize="50px"
+            textAnchor="middle"
+          >
+            💩
+          </text>
+        </svg>
+      </div>
+      <div
+        className="wash"
+      />
     </div>
   </div>
 </div>
@@ -110,34 +166,49 @@ exports[`Avatar renders the correct size - lg 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="box circle overflowHidden relative whiteBg"
     style={
       Object {
-        "height": undefined,
-        "width": undefined,
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
       }
     }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
           "paddingBottom": "100%",
         }
       }
+    />
+    <div
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <img
-        alt="Strava"
-        className="img"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
+      <div
+        aria-label="Strava"
+        className="cover"
+        role="img"
+        style={
+          Object {
+            "backgroundColor": "#EFEFEF",
+            "backgroundImage": "url('http://pinterest.com/img/strave.png')",
+          }
+        }
+      />
+      <div
+        className="wash"
       />
     </div>
-    <div
-      className="wash"
-    />
   </div>
 </div>
 `;
@@ -153,34 +224,49 @@ exports[`Avatar renders the correct size - md 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="box circle overflowHidden relative whiteBg"
     style={
       Object {
-        "height": undefined,
-        "width": undefined,
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
       }
     }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
           "paddingBottom": "100%",
         }
       }
+    />
+    <div
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <img
-        alt="Strava"
-        className="img"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
+      <div
+        aria-label="Strava"
+        className="cover"
+        role="img"
+        style={
+          Object {
+            "backgroundColor": "#EFEFEF",
+            "backgroundImage": "url('http://pinterest.com/img/strave.png')",
+          }
+        }
+      />
+      <div
+        className="wash"
       />
     </div>
-    <div
-      className="wash"
-    />
   </div>
 </div>
 `;
@@ -196,34 +282,49 @@ exports[`Avatar renders the correct size - sm 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="box circle overflowHidden relative whiteBg"
     style={
       Object {
-        "height": undefined,
-        "width": undefined,
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
       }
     }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
           "paddingBottom": "100%",
         }
       }
+    />
+    <div
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <img
-        alt="Strava"
-        className="img"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
+      <div
+        aria-label="Strava"
+        className="cover"
+        role="img"
+        style={
+          Object {
+            "backgroundColor": "#EFEFEF",
+            "backgroundImage": "url('http://pinterest.com/img/strave.png')",
+          }
+        }
+      />
+      <div
+        className="wash"
       />
     </div>
-    <div
-      className="wash"
-    />
   </div>
 </div>
 `;
@@ -239,34 +340,49 @@ exports[`Avatar renders the correct src 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="box circle overflowHidden relative whiteBg"
     style={
       Object {
-        "height": undefined,
-        "width": undefined,
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
       }
     }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
           "paddingBottom": "100%",
         }
       }
+    />
+    <div
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <img
-        alt="Strava"
-        className="img"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
+      <div
+        aria-label="Strava"
+        className="cover"
+        role="img"
+        style={
+          Object {
+            "backgroundColor": "#EFEFEF",
+            "backgroundImage": "url('http://pinterest.com/img/strave.png')",
+          }
+        }
+      />
+      <div
+        className="wash"
       />
     </div>
-    <div
-      className="wash"
-    />
   </div>
 </div>
 `;
@@ -282,10 +398,17 @@ exports[`Avatar renders the verified icon 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle overflowHidden relative whiteBg"
+    style={
+      Object {
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
+      }
+    }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
           "paddingBottom": "100%",
@@ -293,28 +416,49 @@ exports[`Avatar renders the verified icon 1`] = `
       }
     />
     <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      <svg
-        preserveAspectRatio="xMidYMid meet"
-        version="1.1"
-        viewBox="-50 -50 100 100"
-        width="100%"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        aria-label="Jammy"
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
       >
-        <title>
-          Jammy
-        </title>
-        <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
-          textAnchor="middle"
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          J
-        </text>
-      </svg>
+          <title>
+            Jammy
+          </title>
+          <text
+            className="antialiased sansSerif leadingSmall fontWeightBold"
+            dominantBaseline="central"
+            fill="#fff"
+            fontSize="50px"
+            textAnchor="middle"
+          >
+            J
+          </text>
+        </svg>
+      </div>
+      <div
+        className="wash"
+      />
     </div>
   </div>
   <div
@@ -372,10 +516,17 @@ exports[`Avatar renders with an empty name 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle overflowHidden relative whiteBg"
+    style={
+      Object {
+        "height": "",
+        "width": "100%",
+        "willChange": "transform",
+      }
+    }
   >
     <div
-      className="box relative"
+      className="box"
       style={
         Object {
           "paddingBottom": "100%",
@@ -383,9 +534,49 @@ exports[`Avatar renders with an empty name 1`] = `
       }
     />
     <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute box"
+      style={
+        Object {
+          "height": "100%",
+          "left": 0,
+          "top": 0,
+          "width": "100%",
+        }
+      }
     >
-      
+      <div
+        aria-label=""
+        className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      >
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          version="1.1"
+          viewBox="-50 -50 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            
+          </title>
+          <text
+            className="antialiased sansSerif leadingSmall fontWeightBold"
+            dominantBaseline="central"
+            fill="#fff"
+            fontSize="50px"
+            textAnchor="middle"
+          >
+            
+          </text>
+        </svg>
+      </div>
+      <div
+        className="wash"
+      />
     </div>
   </div>
 </div>
