@@ -57,7 +57,7 @@ export default class Item extends Component {
           <button
             id={`increment-counter-${itemIdx}`}
             onClick={this.incrementStateCounter}
-            type="submit"
+            type="button"
           >
             Increment counter:
           </button>

@@ -7,7 +7,7 @@ it('Flyout renders', () => {
   const wrapper = shallow(
     <Flyout
       anchor={
-        <button onClick={() => null} type="submit">
+        <button onClick={() => null} type="button">
           test
         </button>
       }

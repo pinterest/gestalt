@@ -36,7 +36,7 @@ export default function SegmentedControl(props: Props) {
             key={i}
             onClick={e => onChange({ event: e, activeIndex: i })}
             role="tab"
-            type="submit"
+            type="button"
           >
             {typeof item === 'string' ? (
               <Text
