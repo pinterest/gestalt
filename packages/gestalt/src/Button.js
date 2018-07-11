@@ -25,13 +25,13 @@ export default function Button(props: Props) {
     accessibilityHaspopup,
     accessibilityLabel,
     color = 'gray',
-    disabled,
-    inline,
+    disabled = false,
+    inline = false,
     name,
     onClick,
-    size,
+    size = 'md',
     text,
-    type,
+    type = 'button',
   } = props;
 
   const textColor = {
@@ -79,14 +79,6 @@ export default function Button(props: Props) {
   );
   /* eslint-enable react/button-has-type */
 }
-
-Button.defaultProps = {
-  color: 'gray',
-  disabled: false,
-  inline: false,
-  size: 'md',
-  type: 'button',
-};
 
 Button.propTypes = {
   accessibilityExpanded: PropTypes.bool,
