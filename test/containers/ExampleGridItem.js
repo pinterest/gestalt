@@ -48,7 +48,7 @@ export default class Item extends Component {
             <button
               id={`add-more-${itemIdx}`}
               onClick={() => fetchMore().then(addRelatedItems)}
-              type="submit"
+              type="button"
             >
               Insert items
             </button>
