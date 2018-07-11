@@ -27,7 +27,7 @@ export default <T>({
   width?: ?number,
 |}) => {
   if (width == null) {
-    return (items: Array<*>): Array<Position> =>
+    return (items: Array<mixed>): Array<Position> =>
       items.map(() => ({
         top: Infinity,
         left: Infinity,
@@ -46,7 +46,7 @@ export default <T>({
   );
   const columnWidth = Math.floor(width / columnCount);
 
-  return (items: Array<*>) => {
+  return (items: Array<T>) => {
     // the total height of each column
     const heights = new Array(columnCount).fill(0);
 
