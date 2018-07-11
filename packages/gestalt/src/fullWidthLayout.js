@@ -27,7 +27,7 @@ export default <T>({
   width?: ?number,
 |}) => {
   if (width == null) {
-    return (items: Array<mixed>): Array<Position> =>
+    return (items: Array<T>): Array<Position> =>
       items.map(() => ({
         top: Infinity,
         left: Infinity,
