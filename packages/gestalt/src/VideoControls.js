@@ -7,6 +7,7 @@ import Icon from './Icon.js';
 import Text from './Text.js';
 import Touchable from './Touchable.js';
 import VideoPlayhead from './VideoPlayhead.js';
+import styles from './Video.css';
 
 type Props = {|
   accessibilityMaximizeLabel: string,
@@ -125,16 +126,7 @@ class VideoControls extends React.Component<Props> {
     const showFullscreenButton =
       typeof document !== 'undefined' && !!fullscreenEnabled();
     return (
-      <Box
-        position="absolute"
-        bottom
-        left
-        right
-        column={12}
-        padding={2}
-        display="flex"
-        alignItems="center"
-      >
+      <div className={styles.controls}>
         <Box padding={2}>
           <Touchable onTouch={this.handlePlayingChange} fullWidth={false}>
             <Icon
@@ -192,7 +184,7 @@ class VideoControls extends React.Component<Props> {
             </Touchable>
           </Box>
         )}
-      </Box>
+      </div>
     );
   }
 }

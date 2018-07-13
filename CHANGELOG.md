@@ -8,6 +8,7 @@
 
 ### Minor
 * Icon: reduce filesize of each icon with 40% + add new icons (#269)
+* Video: Add a gradient overlay on the control bar (#27)
 
 ### Patch
 
