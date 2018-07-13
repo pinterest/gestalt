@@ -17,11 +17,11 @@
 }
 
 .textArea::placeholder {
-  color: #aeaeae;
+  color: #8e8e8e;
 }
 
 .normal {
-  border-color: #aeaeae;
+  border-color: #8e8e8e;
 }
 
 .errored {

@@ -11,7 +11,7 @@
 }
 
 .textField::placeholder {
-  color: #aeaeae;
+  color: #8e8e8e;
 }
 
 .textField:focus {
@@ -19,7 +19,7 @@
 }
 
 .normal {
-  border-color: #aeaeae;
+  border-color: #8e8e8e;
 }
 
 .errored {
