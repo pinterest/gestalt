@@ -29,7 +29,7 @@
 
 .tabIsNotActive:focus,
 .tabIsNotActive:hover {
-  color: #555;
+  color: #333;
 }
 
 .tabIsActive {

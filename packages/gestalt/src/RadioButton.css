@@ -10,7 +10,7 @@
   composes: flex from "./Layout.css";
   composes: itemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
-  border: 1px solid #b5b5b5;
+  border: 1px solid #aeaeae;
 }
 
 .RadioButtonSm {
