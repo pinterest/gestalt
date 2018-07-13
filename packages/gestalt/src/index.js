@@ -15,6 +15,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Label from './Label.js';
+import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
 import Link from './Link.js';
 import Mask from './Mask.js';
@@ -58,6 +59,7 @@ export {
   IconButton,
   Image,
   Label,
+  Layer,
   Letterbox,
   Link,
   Mask,
