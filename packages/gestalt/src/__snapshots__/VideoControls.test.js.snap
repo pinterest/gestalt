@@ -2,7 +2,7 @@
 
 exports[`VideoControls for double digit minutes 1`] = `
 <div
-  className="absolute bottom0 box itemsCenter left0 paddingX2 paddingY2 right0 xsCol12 xsDisplayFlex"
+  className="controls"
 >
   <div
     className="box paddingX2 paddingY2"
@@ -162,7 +162,7 @@ exports[`VideoControls for double digit minutes 1`] = `
 
 exports[`VideoControls for double digit seconds 1`] = `
 <div
-  className="absolute bottom0 box itemsCenter left0 paddingX2 paddingY2 right0 xsCol12 xsDisplayFlex"
+  className="controls"
 >
   <div
     className="box paddingX2 paddingY2"
@@ -322,7 +322,7 @@ exports[`VideoControls for double digit seconds 1`] = `
 
 exports[`VideoControls for single digit minutes 1`] = `
 <div
-  className="absolute bottom0 box itemsCenter left0 paddingX2 paddingY2 right0 xsCol12 xsDisplayFlex"
+  className="controls"
 >
   <div
     className="box paddingX2 paddingY2"
@@ -482,7 +482,7 @@ exports[`VideoControls for single digit minutes 1`] = `
 
 exports[`VideoControls for single digit seconds 1`] = `
 <div
-  className="absolute bottom0 box itemsCenter left0 paddingX2 paddingY2 right0 xsCol12 xsDisplayFlex"
+  className="controls"
 >
   <div
     className="box paddingX2 paddingY2"
@@ -642,7 +642,7 @@ exports[`VideoControls for single digit seconds 1`] = `
 
 exports[`VideoControls rounds for partial seconds 1`] = `
 <div
-  className="absolute bottom0 box itemsCenter left0 paddingX2 paddingY2 right0 xsCol12 xsDisplayFlex"
+  className="controls"
 >
   <div
     className="box paddingX2 paddingY2"
