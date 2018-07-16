@@ -18,3 +18,15 @@
   composes: pointer from "./Cursor.css";
   height: 100%;
 }
+
+.controls {
+  composes: absolute from "./Layout.css";
+  composes: flex from "./Layout.css";
+  composes: itemsCenter from "./Layout.css";
+  composes: bottom0 from "./Layout.css";
+  composes: left0 from "./Layout.css";
+  composes: right0 from "./Layout.css";
+  composes: paddingX2 from "./boxWhitespace.css";
+  composes: paddingY2 from "./boxWhitespace.css";
+  background-image: linear-gradient(to bottom, rgba(181, 181, 181, 0), rgba(0, 0, 0, .2) 33%, rgba(0, 0, 0, .5) 66%, rgba(0, 0, 0, .7));
+}

@@ -9,6 +9,7 @@
 ### Minor
 * Icon: reduce filesize of each icon with 40% + add new icons (#269)
 * Colors: Darken gray and darkGray so they're AA accessible at smaller sizes (#276)
+* Video: Add a gradient overlay on the control bar (#27)
 
 ### Patch
 
