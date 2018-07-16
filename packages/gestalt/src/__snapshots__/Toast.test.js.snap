@@ -14,7 +14,7 @@ exports[`Confirmation Toast 1`] = `
     className="box darkGrayBg fit paddingX8 paddingY5 pill"
   >
     <div
-      className="box xsDirectionRow xsDisplayFlex"
+      className="box xsDisplayFlex"
     >
       <div
         className="box flexNone justifyCenter xsDirectionColumn xsDisplayFlex"
@@ -81,7 +81,7 @@ exports[`Error Toast 1`] = `
     className="box fit orangeBg paddingX8 paddingY5 pill"
   >
     <div
-      className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
+      className="box itemsCenter justifyBetween xsDisplayFlex"
     >
       <div
         className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
@@ -107,7 +107,7 @@ exports[`Guide Toast 1`] = `
     className="box darkGrayBg fit paddingX8 paddingY5 pill"
   >
     <div
-      className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
+      className="box itemsCenter justifyBetween xsDisplayFlex"
     >
       <div
         className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"

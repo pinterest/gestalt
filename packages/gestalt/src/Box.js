@@ -302,7 +302,7 @@ const display = value => {
       return fromClassName('DisplayNone');
     default:
       /* flex */
-      return fromClassName('DisplayFlex', 'DirectionRow');
+      return fromClassName('DisplayFlex');
   }
 };
 const column = range('Col');
