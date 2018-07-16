@@ -45,6 +45,21 @@ describe('TextField', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('TextField with hasError', () => {
+    const wrapper = shallow(
+      <TextField
+        hasError
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+      />
+    );
+
+    expect(wrapper.find(Flyout)).toHaveLength(0);
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
   it('TextField with name', () => {
     const tree = shallow(
       <TextField

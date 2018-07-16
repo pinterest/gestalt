@@ -17,6 +17,7 @@ type State = {
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
+  hasError?: boolean,
   id: string,
   idealErrorDirection?: 'up' | 'right' | 'down' | 'left' /* default: right */,
   name?: string,
@@ -32,6 +33,7 @@ export default class TextArea extends React.Component<Props, State> {
   static propTypes = {
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
+    hasError: PropTypes.bool,
     id: PropTypes.string.isRequired,
     idealErrorDirection: PropTypes.string,
     name: PropTypes.string,
@@ -45,6 +47,7 @@ export default class TextArea extends React.Component<Props, State> {
 
   static defaultProps = {
     disabled: false,
+    hasError: false,
     idealErrorDirection: 'right',
     rows: 3,
   };
@@ -108,6 +111,7 @@ export default class TextArea extends React.Component<Props, State> {
     const {
       disabled,
       errorMessage,
+      hasError,
       id,
       idealErrorDirection,
       name,
@@ -119,7 +123,7 @@ export default class TextArea extends React.Component<Props, State> {
     const classes = classnames(
       styles.textArea,
       disabled ? styles.disabled : styles.enabled,
-      errorMessage ? styles.errored : styles.normal
+      hasError || errorMessage ? styles.errored : styles.normal
     );
 
     return (
@@ -128,7 +132,7 @@ export default class TextArea extends React.Component<Props, State> {
           aria-describedby={
             errorMessage && this.state.focused ? `${id}-gestalt-error` : null
           }
-          aria-invalid={errorMessage ? 'true' : 'false'}
+          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           className={classes}
           disabled={disabled}
           id={id}
