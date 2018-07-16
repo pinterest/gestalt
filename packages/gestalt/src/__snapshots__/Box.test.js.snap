@@ -47,6 +47,12 @@ exports[`Box has correct classes when display is flex 1`] = `
 />
 `;
 
+exports[`Box has correct default display flex class 1`] = `
+<div
+  className="box"
+/>
+`;
+
 exports[`Box has correct marginStart and marginEnd when marginStart and marginEnd are negative 1`] = `
 <div
   className="box marginEndN3 marginStartN1"

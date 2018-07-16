@@ -290,8 +290,8 @@ These functions are legacy. I'd like to get rid of most of this file's dependenc
 const prefix = (pre: string) => mapClassName(name => `${pre}${name}`);
 const display = value => {
   switch (value) {
-    case 'flex':
-      return fromClassName('DisplayFlex', 'DirectionRow');
+    case 'block':
+      return fromClassName('DisplayBlock');
     case 'flexColumn':
       return fromClassName('DisplayFlex', 'DirectionColumn');
     case 'inlineBlock':
@@ -301,8 +301,8 @@ const display = value => {
     case false:
       return fromClassName('DisplayNone');
     default:
-      /* block */
-      return fromClassName('DisplayBlock');
+      /* flex */
+      return fromClassName('DisplayFlex', 'DirectionRow');
   }
 };
 const column = range('Col');

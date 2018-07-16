@@ -34,7 +34,7 @@ card(
       {
         name: 'display',
         type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
-        defaultValue: 'block',
+        defaultValue: 'flex',
         responsive: true,
       },
       {
