@@ -20,22 +20,22 @@
 
 .checkDarkGray {
   composes: darkGrayBg from "./Colors.css";
-  border-color: #555;
+  border-color: #333;
 }
 
 .checkGray {
   composes: grayBg from "./Colors.css";
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .checkLightGray {
   composes: lightGrayBg from "./Colors.css";
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .checkWhite {
   composes: whiteBg from "./Colors.css";
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .checkFocused {

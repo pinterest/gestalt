@@ -24,22 +24,22 @@
 
 .switchDarkGray {
   composes: darkGrayBg from "./Colors.css";
-  border-color: #555;
+  border-color: #333;
 }
 
 .switchGray {
   composes: grayBg from "./Colors.css";
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .switchLightGray {
   composes: lightGrayBg from "./Colors.css";
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .switchWhite {
   composes: whiteBg from "./Colors.css";
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .slider {
@@ -63,11 +63,11 @@
 }
 
 .sliderDark {
-  border-color: #555;
+  border-color: #333;
 }
 
 .sliderLight {
-  border-color: #b5b5b5;
+  border-color: #8e8e8e;
 }
 
 .checkbox {
