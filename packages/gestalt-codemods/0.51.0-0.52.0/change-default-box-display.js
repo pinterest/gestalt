@@ -2,7 +2,12 @@
  * Converts
  *  <Box display="flex" />
  * to
- *  <Box />
+ *  <Box direction="row" />
+ *
+ * Converts
+ *  <Box display="flex" direction="column" />
+ * to
+ *  <Box direction="column" />
  *
  * Converts
  *  <Box />
@@ -38,20 +43,32 @@ export default function transformer(file, api) {
       }
 
       const attrs = node.openingElement.attributes;
-      const index = attrs.findIndex(attr => attr.name.name === 'display');
 
-      if (index === -1) {
-        // Add display block if missing
+      const indexDisplay = attrs.findIndex(
+        attr => attr.name.name === 'display'
+      );
+      const indexDirection = attrs.findIndex(
+        attr => attr.name.name === 'direction'
+      );
+
+      if (indexDisplay === -1) {
+        // Add display=block if display tag is missing
         attrs.push(
           j.jsxAttribute(j.jsxIdentifier('display'), j.literal('block'))
         );
       } else if (
-        attrs[index] &&
-        attrs[index].value &&
-        attrs[index].value.value === 'flex'
+        attrs[indexDisplay] &&
+        attrs[indexDisplay].value &&
+        attrs[indexDisplay].value.value === 'flex'
       ) {
-        // Remove display flex if present
-        attrs.splice(index, 1);
+        // Remove display tag if display=flex is present
+        // Add direction=row if direction tag is missing
+        attrs.splice(indexDisplay, 1);
+        if (indexDirection === -1) {
+          attrs.push(
+            j.jsxAttribute(j.jsxIdentifier('direction'), j.literal('row'))
+          );
+        }
       }
 
       j(path).replaceWith(node);
