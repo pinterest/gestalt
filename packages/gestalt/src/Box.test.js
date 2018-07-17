@@ -20,8 +20,33 @@ test('Box has correct *-hide classes when display is false', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Box has correct classes when display is block', () => {
+  const tree = create(<Box display="block" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Box has correct classes when display is flexColumn', () => {
+  const tree = create(<Box display="block" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Box has correct classes when display is inlineBlock', () => {
+  const tree = create(<Box display="block" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Box has correct classes when display is visuallyHidden', () => {
+  const tree = create(<Box display="block" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Box has correct classes when display is none', () => {
+  const tree = create(<Box display="none" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Box has correct classes when display is flex', () => {
-  const tree = create(<Box />).toJSON();
+  const tree = create(<Box display="flex" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

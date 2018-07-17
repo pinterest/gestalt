@@ -41,9 +41,39 @@ exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] 
 />
 `;
 
+exports[`Box has correct classes when display is block 1`] = `
+<div
+  className="box xsDisplayBlock"
+/>
+`;
+
 exports[`Box has correct classes when display is flex 1`] = `
 <div
-  className="box"
+  className="box xsDisplayFlex"
+/>
+`;
+
+exports[`Box has correct classes when display is flexColumn 1`] = `
+<div
+  className="box xsDisplayBlock"
+/>
+`;
+
+exports[`Box has correct classes when display is inlineBlock 1`] = `
+<div
+  className="box xsDisplayBlock"
+/>
+`;
+
+exports[`Box has correct classes when display is none 1`] = `
+<div
+  className="box xsDisplayNone"
+/>
+`;
+
+exports[`Box has correct classes when display is visuallyHidden 1`] = `
+<div
+  className="box xsDisplayBlock"
 />
 `;
 
