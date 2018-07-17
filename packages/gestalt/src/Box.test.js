@@ -8,11 +8,6 @@ test('Box renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Box has correct default display flex class', () => {
-  const tree = create(<Box />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 test('Box has correct *-hide classes when display is false', () => {
   const tree = create(
     <Box display="none" smDisplay="none" mdDisplay="none" lgDisplay="none" />
