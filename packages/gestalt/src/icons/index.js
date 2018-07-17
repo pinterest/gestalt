@@ -49,6 +49,7 @@ import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
 import maximize from './maximize.svg';
+import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
 import move from './move.svg';
@@ -130,6 +131,7 @@ export default {
   location,
   lock,
   maximize,
+  megaphone,
   menu,
   minimize,
   move,
