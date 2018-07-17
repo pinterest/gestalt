@@ -131,7 +131,7 @@ export default {
   location,
   lock,
   maximize,
-  meagphone,
+  megaphone,
   menu,
   minimize,
   move,
