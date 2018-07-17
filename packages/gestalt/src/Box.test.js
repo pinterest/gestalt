@@ -21,17 +21,17 @@ test('Box has correct classes when display is block', () => {
 });
 
 test('Box has correct classes when display is flexColumn', () => {
-  const tree = create(<Box display="block" />).toJSON();
+  const tree = create(<Box display="flexColumn" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Box has correct classes when display is inlineBlock', () => {
-  const tree = create(<Box display="block" />).toJSON();
+  const tree = create(<Box display="inlineBlock" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Box has correct classes when display is visuallyHidden', () => {
-  const tree = create(<Box display="block" />).toJSON();
+  const tree = create(<Box display="visuallyHidden" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

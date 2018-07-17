@@ -55,13 +55,13 @@ exports[`Box has correct classes when display is flex 1`] = `
 
 exports[`Box has correct classes when display is flexColumn 1`] = `
 <div
-  className="box xsDisplayBlock"
+  className="box"
 />
 `;
 
 exports[`Box has correct classes when display is inlineBlock 1`] = `
 <div
-  className="box xsDisplayBlock"
+  className="box xsDisplayInlineBlock"
 />
 `;
 
@@ -73,7 +73,7 @@ exports[`Box has correct classes when display is none 1`] = `
 
 exports[`Box has correct classes when display is visuallyHidden 1`] = `
 <div
-  className="box xsDisplayBlock"
+  className="box xsDisplayVisuallyHidden"
 />
 `;
 
