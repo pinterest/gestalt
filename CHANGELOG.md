@@ -5,6 +5,10 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+
+  ### Minor
+
+  ### Patch
 </details>
 
 ## 0.76.0 (July 17, 2018)
