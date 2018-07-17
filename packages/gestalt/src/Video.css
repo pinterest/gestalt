@@ -28,5 +28,11 @@
   composes: right0 from "./Layout.css";
   composes: paddingX2 from "./boxWhitespace.css";
   composes: paddingY2 from "./boxWhitespace.css";
-  background-image: linear-gradient(to bottom, rgba(181, 181, 181, 0), rgba(0, 0, 0, .2) 33%, rgba(0, 0, 0, .5) 66%, rgba(0, 0, 0, .7));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(181, 181, 181, 0),
+    rgba(0, 0, 0, 0.2) 33%,
+    rgba(0, 0, 0, 0.5) 66%,
+    rgba(0, 0, 0, 0.7)
+  );
 }

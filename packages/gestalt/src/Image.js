@@ -112,7 +112,7 @@ export default class Image extends React.PureComponent<Props> {
         dangerouslySetInlineStyle={{
           __style: {
             backgroundColor: color,
-            paddingBottom: `${naturalHeight / naturalWidth * 100}%`,
+            paddingBottom: `${(naturalHeight / naturalWidth) * 100}%`,
           },
         }}
       >

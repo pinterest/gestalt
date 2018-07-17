@@ -22,7 +22,7 @@
     "jsx-a11y",
     "prettier",
     "react",
-    "import",
+    "import"
   ],
   "rules": {
     "jsx-a11y/label-has-for": [
@@ -48,18 +48,18 @@
     ],
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
-    "import/no-relative-parent-imports": "error",
+    "import/no-relative-parent-imports": "error"
   },
   "overrides": [
     {
       "files": ["**/*.test.js", "**/*.integration.js"],
       "env": {
-        "jest": true,
+        "jest": true
       },
       "globals": {
         "page": true,
-        "browser": true,
-      },
+        "browser": true
+      }
     },
     {
       "files": ["scripts/danger/*.js"],
