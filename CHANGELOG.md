@@ -12,6 +12,7 @@
 * Video: Add a gradient overlay on the control bar (#27)
 * Layer: Layer component is now exported for use and has documentation
 * TextArea: Add a hasError prop (#280)
+* Icon: Add new `megaphone` icon (#281)
 
 ### Patch
 
