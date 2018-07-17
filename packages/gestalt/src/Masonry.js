@@ -141,8 +141,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     layout: PropTypes.oneOfType([
       PropTypes.instanceOf(LegacyMasonryLayout),
       PropTypes.instanceOf(LegacyUniformRowLayout),
-      PropTypes.instanceOf(DefaultLayoutSymbol),
-      PropTypes.instanceOf(UniformRowLayoutSymbol),
+      PropTypes.symbol,
     ]),
 
     /**
