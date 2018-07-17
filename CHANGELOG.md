@@ -10,9 +10,13 @@
 
 ### Patch
 
-* Masonry: Fix React prop typing for `layout` (#284)
-
 </details>
+
+## 0.76.1 (July 17, 2018)
+
+### Patch
+
+* Masonry: Fix React prop typing for `layout` (#284)
 
 ## 0.76.0 (July 17, 2018)
 
