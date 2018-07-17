@@ -2,7 +2,8 @@
 
 [![Build status](https://badge.buildkite.com/2c6b6e9f79054095354cc061876e4885f4b9212e1dbebda270.svg?branch=master)](https://buildkite.com/pinterest/gestalt)
 [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt)
-[![Coverage status](https://codecov.io/gh/pinterest/gestalt/branch/master/graph/badge.svg)](https://codecov.io/github/pinterest/gestalt) [![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/gestalt.svg)](https://greenkeeper.io/)
+[![Coverage status](https://codecov.io/gh/pinterest/gestalt/branch/master/graph/badge.svg)](https://codecov.io/github/pinterest/gestalt)
+[![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/gestalt.svg)](https://greenkeeper.io/)
 
 Gestalt is a set of React UI components that enforces Pinterest’s design language. We use it to streamline communication between designers and developers by enforcing a bunch of fundamental UI components. This common set of components helps raise the bar for UX & accessibility across Pinterest.
 

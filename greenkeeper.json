@@ -2,10 +2,14 @@
   "groups": {
     "default": {
       "packages": [
-        "docs/package.json",
         "package.json",
+        "docs/package.json",
         "packages/gestalt/package.json"
       ]
     }
-  }
+  },
+  "ignore": [
+    "flow-bin",
+    "eslint"
+  ]
 }
