@@ -8,7 +8,7 @@ import Icon from './Icon.js';
 
 type Props = {|
   color?: 'darkGray' | 'orange',
-  icon?: 'arrow-circle-forward', // leaving open to additional icons in the future
+  icon?: ?'arrow-circle-forward', // leaving open to additional icons in the future
   text: string | Array<string>,
   thumbnail?: React.Element<any>,
 |};
