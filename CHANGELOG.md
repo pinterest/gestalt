@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Toast: Make icon prop nullable (#286)
 
 ### Patch
 
