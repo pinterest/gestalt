@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Checkbox: Add error prop and styling (#285)
 
 * Internal: Bump flow version to 0.77.0 (#289)
 * Internal: Add flow typed definitions for node-fetch and filesize (#290)

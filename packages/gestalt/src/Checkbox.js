@@ -9,6 +9,7 @@ import Icon from './Icon.js';
 type Props = {|
   checked?: boolean,
   disabled?: boolean,
+  error?: boolean,
   id: string,
   indeterminate?: boolean,
   name?: string,
@@ -24,6 +25,7 @@ export default class Checkbox extends React.Component<Props, State> {
   static propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    error: PropTypes.bool,
     id: PropTypes.string.isRequired,
     indeterminate: PropTypes.bool,
     name: PropTypes.string,
@@ -72,7 +74,23 @@ export default class Checkbox extends React.Component<Props, State> {
   input: ?HTMLInputElement;
 
   render() {
-    const { checked, disabled, id, indeterminate, name, size } = this.props;
+    const {
+      checked,
+      disabled,
+      error,
+      id,
+      indeterminate,
+      name,
+      size,
+    } = this.props;
+
+    let borderStyle = styles.border;
+    if (!disabled && (checked || indeterminate)) {
+      borderStyle = styles.borderDark;
+    } else if (error) {
+      borderStyle = styles.borderError;
+    }
+
     return (
       <Box position="relative">
         <input
@@ -96,6 +114,7 @@ export default class Checkbox extends React.Component<Props, State> {
         />
         <div
           className={classnames(
+            borderStyle,
             styles.check,
             // eslint-disable-next-line no-nested-ternary
             disabled

@@ -15,7 +15,7 @@ exports[`Checkbox 1`] = `
     type="checkbox"
   />
   <div
-    className="check checkWhite checkEnabled checkMd"
+    className="border check checkWhite checkEnabled checkMd"
   />
 </div>
 `;
@@ -35,7 +35,7 @@ exports[`Checkbox checked 1`] = `
     type="checkbox"
   />
   <div
-    className="check checkDarkGray checkEnabled checkMd"
+    className="borderDark check checkDarkGray checkEnabled checkMd"
   >
     <svg
       aria-hidden={true}
@@ -72,7 +72,7 @@ exports[`Checkbox disabled & checked 1`] = `
     type="checkbox"
   />
   <div
-    className="check checkGray checkSm"
+    className="border check checkGray checkSm"
   >
     <svg
       aria-hidden={true}
@@ -109,7 +109,7 @@ exports[`Checkbox disabled 1`] = `
     type="checkbox"
   />
   <div
-    className="check checkLightGray checkSm"
+    className="border check checkLightGray checkSm"
   />
 </div>
 `;
@@ -129,7 +129,7 @@ exports[`Checkbox indeterminate 1`] = `
     type="checkbox"
   />
   <div
-    className="check checkDarkGray checkEnabled checkMd"
+    className="borderDark check checkDarkGray checkEnabled checkMd"
   >
     <svg
       aria-hidden={true}
@@ -166,7 +166,27 @@ exports[`Checkbox small 1`] = `
     type="checkbox"
   />
   <div
-    className="check checkWhite checkEnabled checkSm"
+    className="border check checkWhite checkEnabled checkSm"
+  />
+</div>
+`;
+
+exports[`Checkbox with error 1`] = `
+<div
+  className="box relative"
+>
+  <input
+    checked={false}
+    className="input inputEnabled inputSm"
+    disabled={false}
+    id="id"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+  />
+  <div
+    className="borderError check checkWhite checkEnabled checkSm"
   />
 </div>
 `;

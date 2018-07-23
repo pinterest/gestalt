@@ -42,3 +42,10 @@ test('Checkbox disabled & checked', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Checkbox with error', () => {
+  const tree = create(
+    <Checkbox error size="sm" id="id" onChange={() => {}} />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

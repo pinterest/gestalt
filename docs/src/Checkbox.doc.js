@@ -145,6 +145,33 @@ class CheckboxExample extends React.Component {
 );
 
 card(
+  <Example
+    name="Example: Error state"
+    defaultCode={`
+class CheckboxExample extends React.Component {
+  render() {
+    return (
+      <Box alignItems="center" direction="row" display="flex">
+        <Checkbox
+          error
+          id="error"
+          name="error"
+          onChange={() => {}}
+        />
+        <Label htmlFor="error">
+          <Box paddingX={2}>
+            <Text>This checkbox has an error</Text>
+          </Box>
+        </Label>
+      </Box>
+    );
+  }
+}
+`}
+  />
+);
+
+card(
   <Combination
     checked={[false, true]}
     disabled={[false, true]}
