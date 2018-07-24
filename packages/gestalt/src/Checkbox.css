@@ -30,22 +30,6 @@
   composes: pointer from "./Cursor.css";
 }
 
-.checkDarkGray {
-  composes: darkGrayBg from "./Colors.css";
-}
-
-.checkGray {
-  composes: grayBg from "./Colors.css";
-}
-
-.checkLightGray {
-  composes: lightGrayBg from "./Colors.css";
-}
-
-.checkWhite {
-  composes: whiteBg from "./Colors.css";
-}
-
 .checkFocused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
