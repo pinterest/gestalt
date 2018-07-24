@@ -153,7 +153,7 @@ class CheckboxExample extends React.Component {
     return (
       <Box alignItems="center" direction="row" display="flex">
         <Checkbox
-          error
+          hasError
           id="error"
           name="error"
           onChange={() => {}}
