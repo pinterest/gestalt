@@ -21,7 +21,7 @@ card(
     props={[
       {
         name: 'anchor',
-        type: '?any',
+        type: '?HTMLElement',
         required: true,
         description: 'Ref for the element that the Flyout will attach to',
       },

@@ -17,7 +17,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 type Props = {|
-  children?: any,
+  children?: React.Node,
   onScroll: (event: Event) => void,
   scrollContainer: ?HTMLElement | (() => ?HTMLElement),
 |};
@@ -30,7 +30,7 @@ function getScrollContainer(scrollContainer) {
 
 export default class ScrollContainer extends React.Component<Props> {
   static propTypes = {
-    children: PropTypes.element.isRequired,
+    children: PropTypes.node.isRequired,
     onScroll: PropTypes.func.isRequired,
     scrollContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
       .isRequired,

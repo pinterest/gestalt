@@ -5,7 +5,7 @@ import Box from './Box.js';
 import Controller from './Controller.js';
 
 type Props = {|
-  anchor: ?any,
+  anchor: ?HTMLElement,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,

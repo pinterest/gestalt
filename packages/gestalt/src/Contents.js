@@ -54,7 +54,7 @@ type EdgeShift = { caret: Shift, flyout: Shift };
 
 type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
-  children?: any,
+  children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onKeyDown: (event: { keyCode: number }) => void,
   onResize: () => void,
