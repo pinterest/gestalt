@@ -86,7 +86,7 @@ type Margin =
 type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type PropType = {
   children?: React.Node,
-  dangerouslySetInlineStyle?: { __style: { [key: string]: any } },
+  dangerouslySetInlineStyle?: { __style: { [key: string]: string | number } },
 
   xs?: ResponsiveProps,
   sm?: ResponsiveProps,

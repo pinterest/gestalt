@@ -23,6 +23,12 @@ import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
 import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
+type Layout =
+  | typeof DefaultLayoutSymbol
+  | typeof UniformRowLayoutSymbol
+  | LegacyMasonryLayout
+  | LegacyUniformRowLayout;
+
 type Props<T> = {|
   columnWidth?: number,
   comp: React.ComponentType<{
@@ -35,11 +41,7 @@ type Props<T> = {|
   items: Array<T>,
   measurementStore: Cache<T, *>,
   minCols: number,
-  layout?:
-    | DefaultLayoutSymbol
-    | UniformRowLayoutSymbol
-    | LegacyMasonryLayout
-    | LegacyUniformRowLayout,
+  layout?: Layout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
   loadItems?:

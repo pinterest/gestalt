@@ -1,3 +1,4 @@
+// @flow
 import { concat, fromClassName, identity, mapClassName } from './style.js';
 
 /*

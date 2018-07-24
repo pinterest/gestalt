@@ -92,8 +92,7 @@ card(
       },
       {
         name: 'onFullscreenChange',
-        type:
-          '({ event: SyntheticEvent<HTMLDivElement>, fullscreen: boolean }) => void',
+        type: '({ event: Event, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
       },
       {
