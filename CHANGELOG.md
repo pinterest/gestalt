@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Internal: Add flow typed definitions for node-fetch and filesize (#290)
+
 ### Patch
 
 </details>
