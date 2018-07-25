@@ -32,12 +32,14 @@ import {
   toProps,
 } from './style.js';
 import {
+  // flowlint untyped-import:off
   union,
   bind,
   range,
   toggle,
   mapping,
   rangeWithoutZero,
+  // flowlint untyped-import:error
 } from './transforms.js';
 
 /*

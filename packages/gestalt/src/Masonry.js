@@ -509,7 +509,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         .filter(item => item && !measurementStore.has(item))
         .slice(0, minCols);
 
-      // $FlowIssue: despite the polymorphic typing of item to T, Flow is having trouble
       const positions = layout(itemsToRender);
       const measuringPositions = layout(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
