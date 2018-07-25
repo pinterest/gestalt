@@ -32,6 +32,11 @@ card(
         defaultValue: false,
       },
       {
+        name: 'hasError',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
         name: 'id',
         type: 'string',
         required: true,
