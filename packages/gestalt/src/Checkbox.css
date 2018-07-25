@@ -4,6 +4,18 @@
   --size-md: 24px;
 }
 
+.border {
+  border-color: #8e8e8e;
+}
+
+.borderError {
+  border-color: #e3780c;
+}
+
+.borderDark {
+  border-color: #333;
+}
+
 .check {
   composes: block from "./Layout.css";
   composes: borderBox from "./Layout.css";
@@ -16,26 +28,6 @@
 
 .checkEnabled {
   composes: pointer from "./Cursor.css";
-}
-
-.checkDarkGray {
-  composes: darkGrayBg from "./Colors.css";
-  border-color: #333;
-}
-
-.checkGray {
-  composes: grayBg from "./Colors.css";
-  border-color: #8e8e8e;
-}
-
-.checkLightGray {
-  composes: lightGrayBg from "./Colors.css";
-  border-color: #8e8e8e;
-}
-
-.checkWhite {
-  composes: whiteBg from "./Colors.css";
-  border-color: #8e8e8e;
 }
 
 .checkFocused {
