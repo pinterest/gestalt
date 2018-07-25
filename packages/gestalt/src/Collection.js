@@ -45,7 +45,6 @@ import layoutStyles from './Layout.css';
 
 type Props = {|
   Item: ({ idx: number }) => React.Node,
-  itemPadding?: number,
   layout: Array<{|
     top: number,
     left: number,
