@@ -45,6 +45,7 @@ import layoutStyles from './Layout.css';
 
 type Props = {|
   Item: ({ idx: number }) => React.Node,
+  itemPadding?: number,
   layout: Array<{|
     top: number,
     left: number,
@@ -61,6 +62,7 @@ export default class Collection extends React.PureComponent<Props, void> {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     Item: PropTypes.any,
+    itemPadding: PropTypes.number,
     layout: PropTypes.arrayOf(
       PropTypes.exact({
         top: PropTypes.number.isRequired,
@@ -82,11 +84,19 @@ export default class Collection extends React.PureComponent<Props, void> {
   };
 
   render() {
-    const { Item, layout, viewportTop = 0, viewportLeft = 0 } = this.props;
+    const {
+      Item,
+      itemPadding = 0,
+      layout,
+      viewportTop = 0,
+      viewportLeft = 0,
+    } = this.props;
 
     // Calculate the full dimensions of the item layer
-    const width = Math.max(...layout.map(item => item.left + item.width));
-    const height = Math.max(...layout.map(item => item.top + item.height));
+    const width =
+      Math.max(...layout.map(item => item.left + item.width)) + itemPadding;
+    const height =
+      Math.max(...layout.map(item => item.top + item.height)) + itemPadding;
 
     // Default the viewport to being the full width of the content layer
     const { viewportWidth = width, viewportHeight = height } = this.props;
