@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Internal: Bump flow version to 0.77.0 (#289)
+
 ### Patch
 
 </details>
