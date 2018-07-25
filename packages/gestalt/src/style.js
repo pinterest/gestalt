@@ -16,7 +16,7 @@ order in which you do so doesn't really matter.
 
 */
 
-type InlineStyle = { [key: string]: string | number };
+type InlineStyle = { [key: string]: string | number | void };
 
 // TODO: This type should be opaque, however the Babel parser doesn't support
 //       the opaque syntax yet.
