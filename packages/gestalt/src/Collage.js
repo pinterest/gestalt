@@ -1,29 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box.js';
 import Collection from './Collection.js';
-import Mask from './Mask.js';
-import Image from './Image.js';
-
-// This function was inspired by the answer given here:
-//
-//     https://stackoverflow.com/a/8831937
-//
-// It's just meant to produce a stable number for a given string.
-const fasthash = (str: string) => {
-  let hash = 0;
-  if (str.length === 0) {
-    return hash;
-  }
-  for (let i = 0; i < str.length; i += 1) {
-    // eslint-disable-next-line no-bitwise
-    hash = (hash << 5) - hash + str.charCodeAt(i);
-    // eslint-disable-next-line no-bitwise
-    hash &= hash;
-  }
-  return Math.abs(hash);
-};
 
 /*
 
@@ -66,72 +44,45 @@ const columnLayout = (numOfColumns: number) => {
   }
 };
 
-const paddingAll = ({ value: padding, type }, positions) => {
-  const originOffset = type === 'around' ? padding : 0;
-  const sizeOffset = -2 * padding;
-  return positions.map(({ top, left, width, height }) => ({
-    top: top + originOffset,
-    left: left + originOffset,
-    width: width + sizeOffset,
-    height: height + sizeOffset,
+const paddingAll = (gutter, positions) =>
+  positions.map(({ top, left, width, height }) => ({
+    top,
+    left,
+    width: width - gutter,
+    height: height - gutter,
   }));
-};
 
 const mindex = arr =>
   arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
 
-type CollageSpace = {|
-  type: 'around' | 'between',
-  value: number,
-|};
-
-type ImageType = {
-  color?: string,
-  naturalWidth: number,
-  naturalHeight: number,
-  src: string,
-};
-
-const ImagePropType = PropTypes.exact({
-  color: PropTypes.string,
-  naturalWidth: PropTypes.number.isRequired,
-  naturalHeight: PropTypes.number.isRequired,
-  src: PropTypes.string.isRequired,
-});
-
 function getCollageLayout({
-  hasCoverImage,
-  height,
-  images,
-  numCols,
-  space,
-  width,
+  gutter,
+  cover,
+  columns: numCols,
+  height: h,
+  width: w,
+  layoutKey,
 }: {
-  hasCoverImage: boolean,
+  gutter: number,
+  cover: boolean,
+  columns: number,
   height: number,
-  images: Array<ImageType>,
-  numCols: number,
-  space?: CollageSpace,
   width: number,
+  layoutKey: number,
 }) {
   let positions = [];
+  const width = w + gutter;
+  const height = h + gutter;
 
   // If there's a cover image, we'll add that later. It should be a little
   // less than half the width of the collage. We do this now (and not later
   // when we add the cover image) because of `columnLayout`'s constraints
   // needing the exact number of columns that are displayed.
-  const gridCols = hasCoverImage ? Math.floor(numCols / 2) : numCols;
-  const items = images
-    .slice(0, 2 * gridCols)
-    .map(thumb => ({ ...thumb, isCover: false }));
+  const gridCols = cover ? Math.floor(numCols / 2) : numCols;
 
   // Selects the layout that we're going to use for the grid
   const columns = columnLayout(gridCols);
-  const key = items
-    .map(item => item.src || '')
-    .sort()
-    .join('');
-  const layoutIdx = fasthash(key) % columns.length;
+  const layoutIdx = layoutKey % columns.length;
   const layout = columns[layoutIdx];
 
   // This does a really simple version of our masonry layout. Why replicate
@@ -161,9 +112,8 @@ function getCollageLayout({
 
   // If we have a cover image, figure out how big it is, then move all the
   // existing columns over.
-  if (hasCoverImage) {
+  if (cover) {
     const coverImageWidth = Math.ceil(numCols / 2) * (width / numCols);
-    items.unshift({ isCover: true });
     positions = positions.map(position => ({
       ...position,
       left: coverImageWidth + position.left,
@@ -174,97 +124,65 @@ function getCollageLayout({
   // This adds the space between any items that we have. It's nice to do
   // this as a separate pass after everything else, because the math earlier
   // becomes easier and it's less brittle to change.
-  if (space) {
-    positions = paddingAll(space, positions);
+  if (gutter) {
+    positions = paddingAll(gutter, positions);
   }
 
-  return { items, positions };
+  return positions;
 }
 
 type Props = {|
+  columns: number,
+  cover?: boolean,
+  gutter?: number,
   height: number,
-  imageAlt?: string,
-  images: Array<ImageType>,
-  imagesAreRounded?: boolean,
-  numCols: number,
-  renderCoverImage?: ({| width: number, height: number |}) => React.Node,
-  space?: CollageSpace,
+  layoutKey?: number,
+  renderImage: ({|
+    width: number,
+    height: number,
+    index: number,
+  |}) => React.Node,
   width: number,
 |};
 
 export default function Collage(props: Props) {
   const {
+    columns,
+    cover,
+    gutter,
     height,
-    imageAlt,
-    images,
-    imagesAreRounded,
-    numCols,
-    renderCoverImage,
-    space,
+    layoutKey,
+    renderImage,
     width,
   } = props;
-  const sizeOffset = space && space.type === 'between' ? space.value * 2 : 0;
-  const { items, positions } = getCollageLayout({
-    width: width + sizeOffset,
-    height: height + sizeOffset,
-    numCols,
-    space,
-    images,
-    hasCoverImage: !!renderCoverImage,
+  const positions = getCollageLayout({
+    columns,
+    cover: !!cover,
+    width,
+    height,
+    gutter: gutter || 0,
+    layoutKey: layoutKey || 0,
   });
-  const imageShape = imagesAreRounded ? 'rounded' : 'square';
   return (
     <Collection
-      Item={({ idx }) => {
-        const item = items[idx];
-        const position = positions[idx];
-        const { width: itemWidth, height: itemHeight } = position;
-        if (!item) {
-          return (
-            <Box
-              color="lightGray"
-              height={itemHeight}
-              shape={imageShape}
-              width={itemWidth}
-            />
-          );
-        }
-        if (item.isCover && renderCoverImage) {
-          return (
-            <Mask height={itemHeight} shape={imageShape}>
-              {renderCoverImage({ width: itemWidth, height: itemHeight })}
-            </Mask>
-          );
-        }
-        return (
-          <Mask wash height={itemHeight} shape={imageShape}>
-            <Image
-              alt={imageAlt || ''}
-              color={item.color || '#EFEFEF'}
-              fit="cover"
-              naturalHeight={item.naturalHeight || 1}
-              naturalWidth={item.naturalWidth || 1}
-              src={item.src || ''}
-            />
-          </Mask>
-        );
-      }}
-      itemPadding={(space && space.value) || 0}
+      Item={({ idx: index }) =>
+        renderImage({
+          index,
+          width: positions[index].width,
+          height: positions[index].height,
+        })
+      }
       layout={positions}
     />
   );
 }
 
 Collage.propTypes = {
+  columns: PropTypes.number.isRequired,
+  cover: PropTypes.bool,
+  gutter: PropTypes.number,
   height: PropTypes.number.isRequired,
-  imageAlt: PropTypes.string,
-  images: PropTypes.arrayOf(ImagePropType),
-  imagesAreRounded: PropTypes.bool,
-  numCols: PropTypes.number.isRequired,
-  renderCoverImage: PropTypes.func,
-  space: PropTypes.exact({
-    type: PropTypes.oneOf(['around', 'between']).isRequired,
-    value: PropTypes.number.isRequired,
-  }),
+  layoutKey: PropTypes.number,
+  renderImage: PropTypes.func.isRequired,
   width: PropTypes.number.isRequired,
 };

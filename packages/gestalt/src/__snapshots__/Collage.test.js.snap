@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Collage /> should match the snapshot for 0 images 1`] = `
+exports[`<Collage /> should match the snapshot 1`] = `
 <div
   className="relative"
   style={
@@ -14,90 +14,94 @@ exports[`<Collage /> should match the snapshot for 0 images 1`] = `
     className="absolute"
     style={
       Object {
-        "height": 150,
+        "height": 149.5,
         "left": 0,
         "top": 0,
-        "width": 150,
+        "width": 149,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 150,
-          "width": 150,
+          "height": 149.5,
+          "width": 149,
         }
       }
-    />
+    >
+      0
+    </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
+        "height": 99,
+        "left": 151,
         "top": 0,
-        "width": 150,
+        "width": 149,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 100,
-          "width": 150,
+          "height": 99,
+          "width": 149,
         }
       }
-    />
+    >
+      1
+    </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
-        "top": 100,
-        "width": 150,
+        "height": 99,
+        "left": 151,
+        "top": 101,
+        "width": 149,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 100,
-          "width": 150,
+          "height": 99,
+          "width": 149,
         }
       }
-    />
+    >
+      2
+    </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 50,
+        "height": 48.5,
         "left": 0,
-        "top": 150,
-        "width": 150,
+        "top": 151.5,
+        "width": 149,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 50,
-          "width": 150,
+          "height": 48.5,
+          "width": 149,
         }
       }
-    />
+    >
+      3
+    </div>
   </div>
 </div>
 `;
 
-exports[`<Collage /> should match the snapshot for 1 image 1`] = `
+exports[`<Collage /> should match the snapshot for 4 columns 1`] = `
 <div
   className="relative"
   style={
@@ -111,105 +115,182 @@ exports[`<Collage /> should match the snapshot for 1 image 1`] = `
     className="absolute"
     style={
       Object {
-        "height": 100,
+        "height": 99,
         "left": 0,
         "top": 0,
-        "width": 150,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
-          "height": 100,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      0
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 50,
-        "left": 150,
+        "height": 149.5,
+        "left": 75.5,
         "top": 0,
-        "width": 150,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 50,
-          "width": 150,
+          "height": 149.5,
+          "width": 73.5,
         }
       }
-    />
+    >
+      1
+    </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 150,
-        "left": 150,
-        "top": 50,
-        "width": 150,
+        "height": 99,
+        "left": 151,
+        "top": 0,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 150,
-          "width": 150,
+          "height": 99,
+          "width": 73.5,
         }
       }
-    />
+    >
+      2
+    </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
+        "height": 99,
+        "left": 226.5,
+        "top": 0,
+        "width": 73.5,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 73.5,
+        }
+      }
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
         "left": 0,
-        "top": 100,
-        "width": 150,
+        "top": 101,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 100,
-          "width": 150,
+          "height": 99,
+          "width": 73.5,
         }
       }
-    />
+    >
+      4
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
+        "left": 151,
+        "top": 101,
+        "width": 73.5,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 73.5,
+        }
+      }
+    >
+      5
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
+        "left": 226.5,
+        "top": 101,
+        "width": 73.5,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 73.5,
+        }
+      }
+    >
+      6
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 48.5,
+        "left": 75.5,
+        "top": 151.5,
+        "width": 73.5,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 48.5,
+          "width": 73.5,
+        }
+      }
+    >
+      7
+    </div>
   </div>
 </div>
 `;
 
-exports[`<Collage /> should match the snapshot for 2 images 1`] = `
+exports[`<Collage /> should match the snapshot for 4 columns with a custom layout key 1`] = `
 <div
   className="relative"
   style={
@@ -223,415 +304,176 @@ exports[`<Collage /> should match the snapshot for 2 images 1`] = `
     className="absolute"
     style={
       Object {
-        "height": 150,
+        "height": 99,
         "left": 0,
         "top": 0,
-        "width": 150,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
-          "height": 150,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      0
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
+        "height": 48.5,
+        "left": 75.5,
         "top": 0,
-        "width": 150,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
-          "height": 100,
-          "width": undefined,
+          "height": 48.5,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      1
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
-        "top": 100,
-        "width": 150,
+        "height": 99,
+        "left": 151,
+        "top": 0,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 100,
-          "width": 150,
+          "height": 99,
+          "width": 73.5,
         }
       }
-    />
+    >
+      2
+    </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 50,
+        "height": 99,
+        "left": 226.5,
+        "top": 0,
+        "width": 73.5,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 73.5,
+        }
+      }
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 149.5,
+        "left": 75.5,
+        "top": 50.5,
+        "width": 73.5,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 149.5,
+          "width": 73.5,
+        }
+      }
+    >
+      4
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
         "left": 0,
-        "top": 150,
-        "width": 150,
+        "top": 101,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="box lightGrayBg"
       style={
         Object {
-          "height": 50,
-          "width": 150,
-        }
-      }
-    />
-  </div>
-</div>
-`;
-
-exports[`<Collage /> should match the snapshot for 100 images and 4 columns 1`] = `
-<div
-  className="relative"
-  style={
-    Object {
-      "height": 200,
-      "width": 300,
-    }
-  }
->
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 100,
-        "left": 0,
-        "top": 0,
-        "width": 75,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 100,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      5
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 150,
-        "left": 75,
-        "top": 0,
-        "width": 75,
+        "height": 99,
+        "left": 151,
+        "top": 101,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
-          "height": 150,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      6
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
-        "top": 0,
-        "width": 75,
+        "height": 99,
+        "left": 226.5,
+        "top": 101,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
-          "height": 100,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 50,
-        "left": 225,
-        "top": 0,
-        "width": 75,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 50,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 150,
-        "left": 225,
-        "top": 50,
-        "width": 75,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 150,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 100,
-        "left": 0,
-        "top": 100,
-        "width": 75,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 100,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 100,
-        "left": 150,
-        "top": 100,
-        "width": 75,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 100,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 50,
-        "left": 75,
-        "top": 150,
-        "width": 75,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 50,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      7
     </div>
   </div>
 </div>
@@ -654,727 +496,107 @@ exports[`<Collage /> should match the snapshot when cover image is used 1`] = `
         "height": 200,
         "left": 0,
         "top": 0,
-        "width": 150,
+        "width": 149,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
           "height": 200,
-          "width": undefined,
+          "width": 149,
         }
       }
     >
-      <div
-        style={
-          Object {
-            "height": 200,
-            "width": 150,
-          }
-        }
-      />
+      0
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 150,
-        "left": 150,
+        "height": 149.5,
+        "left": 151,
         "top": 0,
-        "width": 150,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask square"
       style={
         Object {
-          "height": 150,
-          "width": undefined,
+          "height": 149.5,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      1
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 50,
-        "left": 150,
-        "top": 150,
-        "width": 150,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 50,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Collage /> should match the snapshot when imagesAreRounded is true 1`] = `
-<div
-  className="relative"
-  style={
-    Object {
-      "height": 200,
-      "width": 300,
-    }
-  }
->
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 150,
-        "left": 0,
+        "height": 99,
+        "left": 226.5,
         "top": 0,
-        "width": 150,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask rounded"
       style={
         Object {
-          "height": 150,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      2
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
-        "top": 0,
-        "width": 150,
+        "height": 99,
+        "left": 226.5,
+        "top": 101,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask rounded"
       style={
         Object {
-          "height": 100,
-          "width": undefined,
+          "height": 99,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      3
     </div>
   </div>
   <div
     className="absolute"
     style={
       Object {
-        "height": 100,
-        "left": 150,
-        "top": 100,
-        "width": 150,
+        "height": 48.5,
+        "left": 151,
+        "top": 151.5,
+        "width": 73.5,
       }
     }
   >
     <div
-      className="Mask rounded"
       style={
         Object {
-          "height": 100,
-          "width": undefined,
+          "height": 48.5,
+          "width": 73.5,
         }
       }
     >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 50,
-        "left": 0,
-        "top": 150,
-        "width": 150,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 50,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Collage /> should match the snapshot when one of the images has width=0 and height=0 1`] = `
-<div
-  className="relative"
-  style={
-    Object {
-      "height": 200,
-      "width": 300,
-    }
-  }
->
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 150,
-        "left": 0,
-        "top": 0,
-        "width": 150,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 150,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 100,
-        "left": 150,
-        "top": 0,
-        "width": 150,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 100,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 100,
-        "left": 150,
-        "top": 100,
-        "width": 150,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 100,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 50,
-        "left": 0,
-        "top": 150,
-        "width": 150,
-      }
-    }
-  >
-    <div
-      className="Mask square"
-      style={
-        Object {
-          "height": 50,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Collage /> should match the snapshot when spacing (around) 1`] = `
-<div
-  className="relative"
-  style={
-    Object {
-      "height": 200,
-      "width": 300,
-    }
-  }
->
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 146,
-        "left": 2,
-        "top": 2,
-        "width": 146,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 146,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 96,
-        "left": 152,
-        "top": 2,
-        "width": 146,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 96,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 96,
-        "left": 152,
-        "top": 102,
-        "width": 146,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 96,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 46,
-        "left": 2,
-        "top": 152,
-        "width": 146,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 46,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Collage /> should match the snapshot when spacing (between) 1`] = `
-<div
-  className="relative"
-  style={
-    Object {
-      "height": 202,
-      "width": 302,
-    }
-  }
->
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 149,
-        "left": 0,
-        "top": 0,
-        "width": 148,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 149,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 98,
-        "left": 152,
-        "top": 0,
-        "width": 148,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 98,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 98,
-        "left": 152,
-        "top": 102,
-        "width": 148,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 98,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 47,
-        "left": 0,
-        "top": 153,
-        "width": 148,
-      }
-    }
-  >
-    <div
-      className="Mask rounded"
-      style={
-        Object {
-          "height": 47,
-          "width": undefined,
-        }
-      }
-    >
-      <div
-        aria-label="collage"
-        className="cover"
-        role="img"
-        style={
-          Object {
-            "backgroundColor": "#FCDB9B",
-            "backgroundImage": "url('foo.png')",
-          }
-        }
-      />
-      <div
-        className="wash"
-      />
+      4
     </div>
   </div>
 </div>

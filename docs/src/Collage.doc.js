@@ -26,49 +26,46 @@ card(
   <PropTable
     props={[
       {
+        name: 'columns',
+        type: 'number',
+        description: 'Number of columns',
+        required: true,
+      },
+      {
+        name: 'cover',
+        type: 'boolean',
+        description: `Whether or not the first image is a cover image`,
+        defaultValue: false,
+      },
+      {
+        name: 'gutter',
+        type: 'number',
+        description: 'The amount of vertical & horizontal space between images',
+        defaultValue: 0,
+      },
+      {
         name: 'height',
         type: 'number',
         description: 'Height of the collage',
         required: true,
       },
       {
-        name: 'imageAlt',
-        type: 'string',
-        description: 'Accessibility label for every image',
-      },
-      {
-        name: 'images',
-        type:
-          'Array<{| color?: string, naturalHeight: number, naturalWidth: number, src: string |}>',
-        description: 'Images to show in the collage',
-        required: true,
-      },
-      {
-        name: 'imagesAreRounded',
-        type: 'boolean',
-        description: 'Use rounded corner for every image',
-      },
-      {
-        name: 'numCols',
+        name: 'layoutKey',
         type: 'number',
-        description: 'Number of columns',
+        description: 'Key for the collage layout.',
+        defaultValue: 0,
+      },
+      {
+        name: 'renderImage',
+        type:
+          '({ width: number, height: number, index: number }) => React.Node',
+        description: 'Render prop for the collage images',
         required: true,
-      },
-      {
-        name: 'renderCoverImage',
-        type: '({ width: number, height: number }) => React.Node',
-        description: `Render prop for rendering the first image (a.k.a cover image).`,
-      },
-      {
-        name: 'space',
-        type: '{| type: "around" | "between", value: number |}',
-        description:
-          'The type of spacing (similar to flexbox space-around and space-between) and the amount of vertical & horizontal padding around/between images',
       },
       {
         name: 'width',
         type: 'number',
-        description: 'The URL of the captions track for the video (.vtt file)',
+        description: 'Width of the collage',
         required: true,
       },
     ]}
@@ -80,47 +77,62 @@ card(
     name="Basic example"
     defaultCode={`
 <Collage
+  columns={3}
   height={300}
-  images={[
-    {
-      color: 'rgb(111, 91, 77)',
-      naturalHeight: 751,
-      naturalWidth: 564,
-      src: '${stock1}',
-    },
-    {
-      color: 'rgb(231, 186, 176)',
-      naturalHeight: 200,
-      naturalWidth: 98,
-      src: '${stock2}',
-    },
-    {
-      color: '#000',
-      naturalHeight: 300,
-      naturalWidth: 200,
-      src: '${stock3}',
-    },
-    {
-      color: '#000',
-      naturalHeight: 517,
-      naturalWidth: 564,
-      src: '${stock4}',
-    },
-    {
-      color: '#000',
-      naturalHeight: 806,
-      naturalWidth: 564,
-      src: '${stock5}',
-    },
-    {
-      color: '#000',
-      naturalHeight: 200,
-      naturalWidth: 200,
-      src: '${stock6}',
-    },
-  ]}
-  numCols={3}
   width={300}
+  renderImage={({ index, width, height }) => {
+    const images = [
+      {
+        color: 'rgb(111, 91, 77)',
+        naturalHeight: 751,
+        naturalWidth: 564,
+        src: '${stock1}',
+      },
+      {
+        color: 'rgb(231, 186, 176)',
+        naturalHeight: 200,
+        naturalWidth: 98,
+        src: '${stock2}',
+      },
+      {
+        color: '#000',
+        naturalHeight: 300,
+        naturalWidth: 200,
+        src: '${stock3}',
+      },
+      {
+        color: '#000',
+        naturalHeight: 517,
+        naturalWidth: 564,
+        src: '${stock4}',
+      },
+      {
+        color: '#000',
+        naturalHeight: 806,
+        naturalWidth: 564,
+        src: '${stock5}',
+      },
+      {
+        color: '#000',
+        naturalHeight: 200,
+        naturalWidth: 200,
+        src: '${stock6}',
+      },
+    ];
+    const image = images[index];
+    return (
+      <Mask wash width={width} height={height}>
+        <Image
+          alt="collage image"
+          color={image.color || '#EFEFEF'}
+          fit="cover"
+          naturalHeight={image.naturalHeight}
+          naturalWidth={image.naturalWidth}
+          src={image.src}
+        />
+      </Mask>
+    );
+  }}
 />
 `}
   />
@@ -128,21 +140,20 @@ card(
 
 card(
   <Example
-    name="Space"
-    description="
-    You can add space between images.
-    There are two types of spacing: space around and space between,
-    which are similar to flexbox's space-around and space-between respectively.
-"
+    name="Layout key"
+    description="Use a non-zero layout key for a different layout. For example, you can deterministically randomize layouts by passing `layoutKey` a hash of the collage content."
     defaultCode={`
-<Box display="flex" direction="row" wrap>
-  {['around', 'between'].map((type) => (
-    <Box key={type} paddingX={4}>
-      <h3>Space type = {type}</h3>
-      <Box color="gray" width={300} height={300}>
-        <Collage
-          height={300}
-          images={[
+<Box display="flex" wrap>
+  {[0, 1, 2, 3].map((layoutKey) => (
+    <Box key={layoutKey} padding={2}>
+      <Box><Text>layoutKey = {layoutKey}</Text></Box>
+      <Collage
+        columns={3}
+        height={150}
+        width={150}
+        layoutKey={layoutKey}
+        renderImage={({ index, width, height }) => {
+          const images = [
             {
               color: 'rgb(111, 91, 77)',
               naturalHeight: 751,
@@ -179,12 +190,22 @@ card(
               naturalWidth: 200,
               src: '${stock6}',
             },
-          ]}
-          numCols={3}
-          space={{ type, value: 8 }}
-          width={300}
-        />
-      </Box>
+          ];
+          const image = images[index];
+          return (
+            <Mask wash width={width} height={height}>
+              <Image
+                alt="collage image"
+                color={image.color || '#EFEFEF'}
+                fit="cover"
+                naturalHeight={image.naturalHeight}
+                naturalWidth={image.naturalWidth}
+                src={image.src}
+              />
+            </Mask>
+          );
+        }}
+      />
     </Box>
   ))}
 </Box>
@@ -194,41 +215,67 @@ card(
 
 card(
   <Example
-    name="Cover image and rounded corners"
+    name="Gutter"
     defaultCode={`
 <Box color="gray" width={300} height={300}>
   <Collage
+    columns={3}
+    gutter={8}
     height={300}
-    images={[
-      {
-        color: 'rgb(111, 91, 77)',
-        naturalHeight: 751,
-        naturalWidth: 564,
-        src: '${stock1}',
-      },
-      {
-        color: 'rgb(231, 186, 176)',
-        naturalHeight: 200,
-        naturalWidth: 98,
-        src: '${stock2}',
-      },
-    ]}
-    imagesAreRounded
-    numCols={3}
-    renderCoverImage={({ width, height }) => (
-      <Mask width={width} height={height} shape="rounded">
-        <Image
-          alt="cover image"
-          src="${stock5}"
-          color="#000"
-          naturalHeight={806}
-          naturalWidth={564}
-          fit="cover"
-        />
-      </Mask>
-    )}
-    space={{ type: 'around', value: 8 }}
     width={300}
+    renderImage={({ index, width, height }) => {
+      const images = [
+        {
+          color: 'rgb(111, 91, 77)',
+          naturalHeight: 751,
+          naturalWidth: 564,
+          src: '${stock1}',
+        },
+        {
+          color: 'rgb(231, 186, 176)',
+          naturalHeight: 200,
+          naturalWidth: 98,
+          src: '${stock2}',
+        },
+        {
+          color: '#000',
+          naturalHeight: 300,
+          naturalWidth: 200,
+          src: '${stock3}',
+        },
+        {
+          color: '#000',
+          naturalHeight: 517,
+          naturalWidth: 564,
+          src: '${stock4}',
+        },
+        {
+          color: '#000',
+          naturalHeight: 806,
+          naturalWidth: 564,
+          src: '${stock5}',
+        },
+        {
+          color: '#000',
+          naturalHeight: 200,
+          naturalWidth: 200,
+          src: '${stock6}',
+        },
+      ];
+      const image = images[index];
+      return (
+        <Mask wash width={width} height={height}>
+          <Image
+            alt="collage image"
+            color={image.color || '#EFEFEF'}
+            fit="cover"
+            naturalHeight={image.naturalHeight}
+            naturalWidth={image.naturalWidth}
+            src={image.src}
+          />
+        </Mask>
+      );
+    }}
   />
 </Box>
 `}
@@ -237,29 +284,49 @@ card(
 
 card(
   <Example
-    name="Placeholders"
-    description="Placeholders are used when there are not enough images."
+    name="Cover image"
     defaultCode={`
 <Box color="gray" width={300} height={300}>
   <Collage
+    columns={3}
+    cover
     height={300}
-    images={[
-      {
-        color: 'rgb(111, 91, 77)',
-        naturalHeight: 751,
+    gutter={8}
+    renderImage={({ index, width, height }) => {
+      const coverImage = {
+        color: '#000',
+        naturalHeight: 806,
         naturalWidth: 564,
-        src: '${stock1}',
-      },
-      {
-        color: 'rgb(231, 186, 176)',
-        naturalHeight: 200,
-        naturalWidth: 98,
-        src: '${stock2}',
-      },
-    ]}
-    imagesAreRounded
-    numCols={3}
-    space={{ type: 'around', value: 8 }}
+        src: '${stock5}',
+      };
+      const nonCoverImages = [
+        {
+          color: 'rgb(111, 91, 77)',
+          naturalHeight: 751,
+          naturalWidth: 564,
+          src: '${stock1}',
+        },
+        {
+          color: 'rgb(231, 186, 176)',
+          naturalHeight: 200,
+          naturalWidth: 98,
+          src: '${stock2}',
+        },
+      ];
+      const image = index === 0 ? coverImage : nonCoverImages[index - 1];
+      return (
+        <Mask width={width} height={height}>
+          <Image
+            alt="cover image"
+            src={image.src}
+            color={image.color}
+            naturalHeight={image.naturalHeight}
+            naturalWidth={image.naturalWidth}
+            fit="cover"
+          />
+        </Mask>
+      );
+    }}
     width={300}
   />
 </Box>
