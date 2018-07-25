@@ -14,7 +14,7 @@ type Props = {
   container?: HTMLElement,
   isAtEnd?: boolean,
   isFetching: boolean,
-  fetchMore?: Function,
+  fetchMore?: () => void,
   renderHeight?: () => number,
 };
 

@@ -40,10 +40,7 @@ type Props = {|
     duration: number,
   }) => void,
   onEnded?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onFullscreenChange?: ({
-    event: SyntheticEvent<HTMLDivElement>,
-    fullscreen: boolean,
-  }) => void,
+  onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
   onLoadedChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
     loaded: number,
@@ -129,18 +126,18 @@ const isFullscreen = () =>
   // $FlowIssue - vendor prefix missing from Flow
   document.msFullscreenElement;
 
-const addFullscreenEventListener = (handler: Function) => {
-  document.addEventListener('fullscreenchange', handler);
-  document.addEventListener('webkitfullscreenchange', handler);
-  document.addEventListener('mozfullscreenchange', handler);
-  document.addEventListener('MSFullscreenChange', handler);
+const addFullscreenEventListener = (listener: EventListener) => {
+  document.addEventListener('fullscreenchange', listener);
+  document.addEventListener('webkitfullscreenchange', listener);
+  document.addEventListener('mozfullscreenchange', listener);
+  document.addEventListener('MSFullscreenChange', listener);
 };
 
-const removeFullscreenEventListener = (handler: Function) => {
-  document.removeEventListener('fullscreenchange', handler);
-  document.removeEventListener('webkitfullscreenchange', handler);
-  document.removeEventListener('mozfullscreenchange', handler);
-  document.removeEventListener('MSFullscreenChange', handler);
+const removeFullscreenEventListener = (listener: EventListener) => {
+  document.removeEventListener('fullscreenchange', listener);
+  document.removeEventListener('webkitfullscreenchange', listener);
+  document.removeEventListener('mozfullscreenchange', listener);
+  document.removeEventListener('MSFullscreenChange', listener);
 };
 
 const isNewSource = (oldSource: Source, newSource: Source): boolean => {
@@ -377,7 +374,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullscreenChange = (event: SyntheticEvent<HTMLDivElement>) => {
+  handleFullscreenChange = (event: Event) => {
     const { onFullscreenChange } = this.props;
     const fullscreen = !!isFullscreen();
     this.setState({ fullscreen });

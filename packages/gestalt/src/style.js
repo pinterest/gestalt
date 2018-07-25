@@ -16,11 +16,13 @@ order in which you do so doesn't really matter.
 
 */
 
+type InlineStyle = { [key: string]: string | number | void };
+
 // TODO: This type should be opaque, however the Babel parser doesn't support
 //       the opaque syntax yet.
 type Style = {|
   className: Set<string>,
-  inlineStyle: { [key: string]: any },
+  inlineStyle: InlineStyle,
 |};
 
 export const identity = (): Style => ({
@@ -33,9 +35,7 @@ export const fromClassName = (...classNames: Array<string>): Style => ({
   inlineStyle: {},
 });
 
-export const fromInlineStyle = (inlineStyle: {
-  [key: string]: any,
-}): Style => ({
+export const fromInlineStyle = (inlineStyle: InlineStyle): Style => ({
   className: new Set(),
   inlineStyle,
 });
@@ -63,7 +63,7 @@ export const mapClassName = (fn: (x: string) => string) => ({
 export const toProps = ({
   className,
   inlineStyle,
-}: Style): { className: string, style: { [key: string]: any } } => {
+}: Style): { className: string, style: InlineStyle } => {
   const props = {};
 
   if (className.size > 0) {

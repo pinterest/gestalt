@@ -5,10 +5,13 @@
  */
 
 // @flow
-export default function throttle(fn: () => void, threshhold: number = 100) {
+export default function throttle(
+  fn: (...args: *) => void,
+  threshhold: number = 100
+) {
   let last: number;
   let deferTimer: TimeoutID;
-  const throttled = (...args: any) => {
+  const throttled = (...args: *) => {
     const now = Date.now();
     if (last && now - last < threshhold) {
       clearTimeout(deferTimer);

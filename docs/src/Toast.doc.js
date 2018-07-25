@@ -35,7 +35,7 @@ card(
       },
       {
         name: 'thumbnail',
-        type: 'React$Element<any>',
+        type: 'React.Node',
         description: 'Image should fit nicely into a square',
       },
       {

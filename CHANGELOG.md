@@ -7,10 +7,11 @@
   </summary>
 
 ### Minor
-* Checkbox: Add error prop and styling (#287)
 
+* Checkbox: Add error prop and styling (#287)
 * Internal: Bump flow version to 0.77.0 (#289)
 * Internal: Add flow typed definitions for node-fetch and filesize (#290)
+* Internal: Turn on all non-sketchy flow lint rules as errors (#292)
 
 ### Patch
 

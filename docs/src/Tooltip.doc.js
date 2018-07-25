@@ -25,7 +25,7 @@ card(
     props={[
       {
         name: 'anchor',
-        type: '?any',
+        type: '?HTMLElement',
         required: true,
         description: 'Ref for the element that the Tooltip will attach to',
       },

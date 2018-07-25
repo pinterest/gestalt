@@ -23,6 +23,12 @@ import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
 import LegacyUniformRowLayout from './layouts/UniformRowLayout.js';
 
+type Layout =
+  | typeof DefaultLayoutSymbol
+  | typeof UniformRowLayoutSymbol
+  | LegacyMasonryLayout
+  | LegacyUniformRowLayout;
+
 type Props<T> = {|
   columnWidth?: number,
   comp: React.ComponentType<{
@@ -35,11 +41,7 @@ type Props<T> = {|
   items: Array<T>,
   measurementStore: Cache<T, *>,
   minCols: number,
-  layout?:
-    | DefaultLayoutSymbol
-    | UniformRowLayoutSymbol
-    | LegacyMasonryLayout
-    | LegacyUniformRowLayout,
+  layout?: Layout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
   loadItems?:
@@ -507,7 +509,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         .filter(item => item && !measurementStore.has(item))
         .slice(0, minCols);
 
-      // $FlowIssue: despite the polymorphic typing of item to T, Flow is having trouble
       const positions = layout(itemsToRender);
       const measuringPositions = layout(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
