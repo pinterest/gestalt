@@ -668,26 +668,13 @@ exports[`<Collage /> should match the snapshot when cover image is used 1`] = `
       }
     >
       <div
-        className="_0 _29 _2w"
         style={
           Object {
             "height": 200,
             "width": 150,
           }
         }
-      >
-        <div
-          aria-label="cover image"
-          className="_s5 _s4 _2l"
-          role="img"
-          style={
-            Object {
-              "backgroundColor": "#000",
-              "backgroundImage": "url('foo.png')",
-            }
-          }
-        />
-      </div>
+      />
     </div>
   </div>
   <div

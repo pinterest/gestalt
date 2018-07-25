@@ -1,7 +1,6 @@
 // // @flow
 import * as React from 'react';
 import { create } from 'react-test-renderer';
-import { Box, Image } from 'gestalt';
 import Collage from './Collage.js';
 
 describe('<Collage />', () => {
@@ -104,16 +103,7 @@ describe('<Collage />', () => {
           {...collageProps}
           images={images}
           renderCoverImage={({ width, height }) => (
-            <Box width={width} height={height}>
-              <Image
-                alt="cover image"
-                color="#000"
-                fit="contain"
-                naturalHeight={1}
-                naturalWidth={1}
-                src={image.src}
-              />
-            </Box>
+            <div style={{ width, height }} />
           )}
         />
       ).toJSON()
