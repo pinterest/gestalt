@@ -3,6 +3,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Collection from './Collection.js';
 
+type Column = 2 | 3 | 4;
+
 /*
 
 This function just implements the design constraints for asymetrical columns in
@@ -18,7 +20,7 @@ for n > 4.
 const UP = [0.75, 0.25];
 const DOWN = [0.25, 0.75];
 const MID = [0.5, 0.5];
-const columnLayout = (numOfColumns: number) => {
+const columnLayout = (numOfColumns: 1 | Column) => {
   switch (numOfColumns) {
     case 1:
       return [[MID], [UP], [DOWN]];
@@ -55,6 +57,9 @@ const paddingAll = (gutter, positions) =>
 const mindex = arr =>
   arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
 
+const columnsForCollageWithCover = (numOfColumns: Column) =>
+  numOfColumns === 4 ? 2 : 1;
+
 function getCollageLayout({
   gutter,
   cover,
@@ -65,7 +70,7 @@ function getCollageLayout({
 }: {
   gutter: number,
   cover: boolean,
-  columns: number,
+  columns: Column,
   height: number,
   width: number,
   layoutKey: number,
@@ -78,7 +83,7 @@ function getCollageLayout({
   // less than half the width of the collage. We do this now (and not later
   // when we add the cover image) because of `columnLayout`'s constraints
   // needing the exact number of columns that are displayed.
-  const gridCols = cover ? Math.floor(numCols / 2) : numCols;
+  const gridCols = cover ? columnsForCollageWithCover(numCols) : numCols;
 
   // Selects the layout that we're going to use for the grid
   const columns = columnLayout(gridCols);
@@ -132,7 +137,7 @@ function getCollageLayout({
 }
 
 type Props = {|
-  columns: number,
+  columns: Column,
   cover?: boolean,
   gutter?: number,
   height: number,
@@ -178,7 +183,7 @@ export default function Collage(props: Props) {
 }
 
 Collage.propTypes = {
-  columns: PropTypes.number.isRequired,
+  columns: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
   cover: PropTypes.bool,
   gutter: PropTypes.number,
   height: PropTypes.number.isRequired,

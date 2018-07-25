@@ -26,6 +26,12 @@ describe('<Collage />', () => {
     expect(create(<Collage {...collageProps} />).toJSON()).toMatchSnapshot();
   });
 
+  it('should match the snapshot for 3 columns', () => {
+    expect(
+      create(<Collage {...collageProps} columns={3} />).toJSON()
+    ).toMatchSnapshot();
+  });
+
   it('should match the snapshot for 4 columns', () => {
     expect(
       create(<Collage {...collageProps} columns={4} />).toJSON()
@@ -40,7 +46,7 @@ describe('<Collage />', () => {
 
   it('should match the snapshot when cover image is used', () => {
     expect(
-      create(<Collage {...collageProps} columns={4} cover />).toJSON()
+      create(<Collage {...collageProps} cover />).toJSON()
     ).toMatchSnapshot();
   });
 });

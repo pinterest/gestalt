@@ -28,13 +28,13 @@ card(
       {
         name: 'columns',
         type: 'number',
-        description: 'Number of columns',
+        description: 'Number of columns (2 ~ 4)',
         required: true,
       },
       {
         name: 'cover',
         type: 'boolean',
-        description: `Whether or not the first image is a cover image`,
+        description: 'Whether or not the first image is a cover image',
         defaultValue: false,
       },
       {
@@ -52,7 +52,10 @@ card(
       {
         name: 'layoutKey',
         type: 'number',
-        description: 'Key for the collage layout.',
+        description: `
+        Depending on the number of columns of the collage, there may be multiple layouts available.
+        If there are N layouts available, (layoutKey % N) will determine which layout is used.
+        `,
         defaultValue: 0,
       },
       {
@@ -140,18 +143,17 @@ card(
 
 card(
   <Example
-    name="Layout key"
-    description="Use a non-zero layout key for a different layout. For example, you can deterministically randomize layouts by passing `layoutKey` a hash of the collage content."
+    name="Different columns"
+    description="2 ~ 4 columns"
     defaultCode={`
 <Box display="flex" wrap>
-  {[0, 1, 2, 3].map((layoutKey) => (
-    <Box key={layoutKey} padding={2}>
-      <Box><Text>layoutKey = {layoutKey}</Text></Box>
+  {[2, 3, 4].map((columns) => (
+    <Box key={columns} padding={2}>
+      <Box><Text>columns = {columns}</Text></Box>
       <Collage
-        columns={3}
+        columns={columns}
         height={150}
         width={150}
-        layoutKey={layoutKey}
         renderImage={({ index, width, height }) => {
           const images = [
             {
@@ -194,14 +196,22 @@ card(
           const image = images[index];
           return (
             <Mask wash width={width} height={height}>
-              <Image
-                alt="collage image"
-                color={image.color || '#EFEFEF'}
-                fit="cover"
-                naturalHeight={image.naturalHeight}
-                naturalWidth={image.naturalWidth}
-                src={image.src}
-              />
+              {image ? (
+                <Image
+                  alt="collage image"
+                  color={image.color || '#EFEFEF'}
+                  fit="cover"
+                  naturalHeight={image.naturalHeight}
+                  naturalWidth={image.naturalWidth}
+                  src={image.src}
+                />
+              ) : (
+                <Box
+                  color="lightGray"
+                  height={height}
+                  width={width}
+                />
+              )}
             </Mask>
           );
         }}
@@ -329,6 +339,168 @@ card(
     }}
     width={300}
   />
+</Box>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Different columns with cover image"
+    description="2 ~ 4 columns with cover image"
+    defaultCode={`
+<Box display="flex" wrap>
+  {[2, 3, 4].map((columns) => (
+    <Box key={columns} padding={2}>
+      <Box><Text>columns = {columns}</Text></Box>
+      <Collage
+        columns={columns}
+        cover
+        height={150}
+        width={150}
+        renderImage={({ index, width, height }) => {
+          const images = [
+            {
+              color: 'rgb(111, 91, 77)',
+              naturalHeight: 751,
+              naturalWidth: 564,
+              src: '${stock1}',
+            },
+            {
+              color: 'rgb(231, 186, 176)',
+              naturalHeight: 200,
+              naturalWidth: 98,
+              src: '${stock2}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 300,
+              naturalWidth: 200,
+              src: '${stock3}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 517,
+              naturalWidth: 564,
+              src: '${stock4}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 806,
+              naturalWidth: 564,
+              src: '${stock5}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 200,
+              naturalWidth: 200,
+              src: '${stock6}',
+            },
+          ];
+          const image = images[index];
+          return (
+            <Mask wash width={width} height={height}>
+              {image ? (
+                <Image
+                  alt="collage image"
+                  color={image.color || '#EFEFEF'}
+                  fit="cover"
+                  naturalHeight={image.naturalHeight}
+                  naturalWidth={image.naturalWidth}
+                  src={image.src}
+                />
+              ) : (
+                <Box
+                  color="lightGray"
+                  height={height}
+                  width={width}
+                />
+              )}
+            </Mask>
+          );
+        }}
+      />
+    </Box>
+  ))}
+</Box>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Layout key"
+    description="
+      You can pick a layout using the layout key (layout key is 0 by default).
+      Depending on the number of columns of the collage, there may be multiple layouts available.
+      If there are N layouts available, (layoutKey % N) will determine which layout is used.
+      "
+    defaultCode={`
+<Box display="flex" wrap>
+  {[0, 1, 2, 3].map((layoutKey) => (
+    <Box key={layoutKey} padding={2}>
+      <Box><Text>layoutKey = {layoutKey}</Text></Box>
+      <Collage
+        columns={3}
+        height={150}
+        width={150}
+        layoutKey={layoutKey}
+        renderImage={({ index, width, height }) => {
+          const images = [
+            {
+              color: 'rgb(111, 91, 77)',
+              naturalHeight: 751,
+              naturalWidth: 564,
+              src: '${stock1}',
+            },
+            {
+              color: 'rgb(231, 186, 176)',
+              naturalHeight: 200,
+              naturalWidth: 98,
+              src: '${stock2}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 300,
+              naturalWidth: 200,
+              src: '${stock3}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 517,
+              naturalWidth: 564,
+              src: '${stock4}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 806,
+              naturalWidth: 564,
+              src: '${stock5}',
+            },
+            {
+              color: '#000',
+              naturalHeight: 200,
+              naturalWidth: 200,
+              src: '${stock6}',
+            },
+          ];
+          const image = images[index];
+          return (
+            <Mask wash width={width} height={height}>
+              <Image
+                alt="collage image"
+                color={image.color || '#EFEFEF'}
+                fit="cover"
+                naturalHeight={image.naturalHeight}
+                naturalWidth={image.naturalWidth}
+                src={image.src}
+              />
+            </Mask>
+          );
+        }}
+      />
+    </Box>
+  ))}
 </Box>
 `}
   />

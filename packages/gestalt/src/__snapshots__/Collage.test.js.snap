@@ -101,6 +101,151 @@ exports[`<Collage /> should match the snapshot 1`] = `
 </div>
 `;
 
+exports[`<Collage /> should match the snapshot for 3 columns 1`] = `
+<div
+  className="relative"
+  style={
+    Object {
+      "height": 200,
+      "width": 300,
+    }
+  }
+>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
+        "left": 0,
+        "top": 0,
+        "width": 98.66666666666667,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 98.66666666666667,
+        }
+      }
+    >
+      0
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 149.5,
+        "left": 100.66666666666667,
+        "top": 0,
+        "width": 98.66666666666667,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 149.5,
+          "width": 98.66666666666667,
+        }
+      }
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
+        "left": 201.33333333333334,
+        "top": 0,
+        "width": 98.66666666666667,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 98.66666666666667,
+        }
+      }
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
+        "left": 0,
+        "top": 101,
+        "width": 98.66666666666667,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 98.66666666666667,
+        }
+      }
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 99,
+        "left": 201.33333333333334,
+        "top": 101,
+        "width": 98.66666666666667,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 99,
+          "width": 98.66666666666667,
+        }
+      }
+    >
+      4
+    </div>
+  </div>
+  <div
+    className="absolute"
+    style={
+      Object {
+        "height": 48.5,
+        "left": 100.66666666666667,
+        "top": 151.5,
+        "width": 98.66666666666667,
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "height": 48.5,
+          "width": 98.66666666666667,
+        }
+      }
+    >
+      5
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Collage /> should match the snapshot for 4 columns 1`] = `
 <div
   className="relative"
@@ -515,18 +660,18 @@ exports[`<Collage /> should match the snapshot when cover image is used 1`] = `
     className="absolute"
     style={
       Object {
-        "height": 149.5,
+        "height": 99,
         "left": 151,
         "top": 0,
-        "width": 73.5,
+        "width": 149,
       }
     }
   >
     <div
       style={
         Object {
-          "height": 149.5,
-          "width": 73.5,
+          "height": 99,
+          "width": 149,
         }
       }
     >
@@ -538,9 +683,9 @@ exports[`<Collage /> should match the snapshot when cover image is used 1`] = `
     style={
       Object {
         "height": 99,
-        "left": 226.5,
-        "top": 0,
-        "width": 73.5,
+        "left": 151,
+        "top": 101,
+        "width": 149,
       }
     }
   >
@@ -548,55 +693,11 @@ exports[`<Collage /> should match the snapshot when cover image is used 1`] = `
       style={
         Object {
           "height": 99,
-          "width": 73.5,
+          "width": 149,
         }
       }
     >
       2
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 99,
-        "left": 226.5,
-        "top": 101,
-        "width": 73.5,
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "height": 99,
-          "width": 73.5,
-        }
-      }
-    >
-      3
-    </div>
-  </div>
-  <div
-    className="absolute"
-    style={
-      Object {
-        "height": 48.5,
-        "left": 151,
-        "top": 151.5,
-        "width": 73.5,
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "height": 48.5,
-          "width": 73.5,
-        }
-      }
-    >
-      4
     </div>
   </div>
 </div>
