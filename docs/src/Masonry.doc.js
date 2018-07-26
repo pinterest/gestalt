@@ -83,6 +83,18 @@ card(
         defaultValue: false,
       },
       {
+        name: 'virtualBoundsTop',
+        type: 'number',
+        description:
+          'The relative amount in pixel to extend the virtualized viewport top value.',
+      },
+      {
+        name: 'virtualBoundsBottom',
+        type: 'number',
+        description:
+          'The relative amount in pixel to extend the virtualized viewport bottom value.',
+      },
+      {
         name: 'measurementStore',
         type: 'typeof MeasurementStore',
         description:
