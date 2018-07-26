@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Toast: Make icon prop nullable (#286)
 
 * Checkbox: Add error prop and styling (#287)
 * Masonry: Add configurable virtual bounds (#294)
