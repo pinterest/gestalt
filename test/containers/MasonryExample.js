@@ -242,6 +242,14 @@ export default class MasonryExample extends React.Component {
       dynamicGridProps.loadItems = this.loadItems;
     }
 
+    if (this.props.virtualBoundsTop) {
+      dynamicGridProps.virtualBoundsTop = this.virtualBoundsTop;
+    }
+
+    if (this.props.virtualBoundsBottom) {
+      dynamicGridProps.virtualBoundsBottom = this.virtualBoundsBottom;
+    }
+
     if (this.state.hasScrollContainer) {
       dynamicGridProps.scrollContainer = () =>
         document.querySelector('[data-scroll-container]');
@@ -375,4 +383,8 @@ MasonryExample.propTypes = {
   scrollContainer: PropTypes.string,
   // If we should virtualize the grid
   virtualize: PropTypes.bool,
+  // The relative amount in pixel to extend the virtualized viewport top value.
+  virtualBoundsTop: PropTypes.string,
+  // The relative amount in pixel to extend the virtualized viewport bottom value.
+  virtualBoundsBottom: PropTypes.string,
 };
