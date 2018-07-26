@@ -127,7 +127,7 @@ card(
       <Mask wash width={width} height={height}>
         <Image
           alt="collage image"
-          color={image.color || '#EFEFEF'}
+          color={image.color}
           fit="cover"
           naturalHeight={image.naturalHeight}
           naturalWidth={image.naturalWidth}
@@ -199,7 +199,7 @@ card(
               {image ? (
                 <Image
                   alt="collage image"
-                  color={image.color || '#EFEFEF'}
+                  color={image.color}
                   fit="cover"
                   naturalHeight={image.naturalHeight}
                   naturalWidth={image.naturalWidth}
@@ -277,7 +277,7 @@ card(
         <Mask wash width={width} height={height}>
           <Image
             alt="collage image"
-            color={image.color || '#EFEFEF'}
+            color={image.color}
             fit="cover"
             naturalHeight={image.naturalHeight}
             naturalWidth={image.naturalWidth}
@@ -403,7 +403,7 @@ card(
               {image ? (
                 <Image
                   alt="collage image"
-                  color={image.color || '#EFEFEF'}
+                  color={image.color}
                   fit="cover"
                   naturalHeight={image.naturalHeight}
                   naturalWidth={image.naturalWidth}
@@ -489,7 +489,7 @@ card(
             <Mask wash width={width} height={height}>
               <Image
                 alt="collage image"
-                color={image.color || '#EFEFEF'}
+                color={image.color}
                 fit="cover"
                 naturalHeight={image.naturalHeight}
                 naturalWidth={image.naturalWidth}

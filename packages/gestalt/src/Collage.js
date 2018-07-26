@@ -183,7 +183,7 @@ export default function Collage(props: Props) {
 }
 
 Collage.propTypes = {
-  columns: PropTypes.oneOf([1, 2, 3, 4]).isRequired,
+  columns: PropTypes.oneOf([2, 3, 4]).isRequired,
   cover: PropTypes.bool,
   gutter: PropTypes.number,
   height: PropTypes.number.isRequired,
