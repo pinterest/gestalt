@@ -52,6 +52,8 @@ type Props<T> = {|
         }
       ) => void | boolean | {}),
   scrollContainer?: () => HTMLElement,
+  virtualBoundsTop?: number,
+  virtualBoundsBottom?: number,
   virtualize?: boolean,
 |};
 
@@ -375,16 +377,24 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   }
 
   renderMasonryComponent = (itemData: T, idx: number, position: *) => {
-    const { comp: Component, virtualize } = this.props;
+    const {
+      comp: Component,
+      virtualize,
+      virtualBoundsTop,
+      virtualBoundsBottom,
+    } = this.props;
     const { top, left, width, height } = position;
 
     let isVisible;
     if (this.props.scrollContainer) {
       const virtualBuffer = this.containerHeight * VIRTUAL_BUFFER_FACTOR;
       const offsetScrollPos = this.state.scrollTop - this.containerOffset;
-      const viewportTop = offsetScrollPos - virtualBuffer;
-      const viewportBottom =
-        offsetScrollPos + this.containerHeight + virtualBuffer;
+      const viewportTop = virtualBoundsTop
+        ? offsetScrollPos - virtualBoundsTop
+        : offsetScrollPos - virtualBuffer;
+      const viewportBottom = virtualBoundsBottom
+        ? offsetScrollPos + this.containerHeight + virtualBoundsBottom
+        : offsetScrollPos + this.containerHeight + virtualBuffer;
 
       isVisible = !(
         position.top + position.height < viewportTop ||
