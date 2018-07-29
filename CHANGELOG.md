@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Collage: Add new Collage component to Gestalt (#291)
+
 ### Patch
 
 </details>
