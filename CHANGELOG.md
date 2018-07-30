@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Internal: Add flow types to `Box` transform functors (#299)
+
 ### Patch
 
 </details>
