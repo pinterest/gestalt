@@ -1,3 +1,5 @@
+// @flow
+
 import { concat, fromClassName, identity, mapClassName } from './style.js';
 
 /*
@@ -28,14 +30,14 @@ export const mapping = map => val =>
 //
 //     <Box padding={1} />
 //
-export const range = scale => n =>
+export const range = (scale: string) => (n: number) =>
   fromClassName(`${scale}${n < 0 ? `N${Math.abs(n)}` : n}`);
 
 // Like `range`, maps a range of integers to a range of classnames, excluding
 // zero values.
 //
 //     <Box padding={0} />
-export const rangeWithoutZero = scale => n =>
+export const rangeWithoutZero = (scale: string) => (n: number) =>
   n === 0 ? identity() : range(scale)(n);
 
 // Binds a string classname to the value in an object. Useful when interacting
