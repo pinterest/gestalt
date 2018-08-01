@@ -8,6 +8,8 @@
 
 ### Minor
 
+* Internal: Turn on sketchy-number flow lint rules as an error (#293)
+
 ### Patch
 
 </details>
