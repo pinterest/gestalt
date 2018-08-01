@@ -8,15 +8,22 @@
 
 ### Minor
 
-* Checkbox: Add error prop and styling (#287)
-* Internal: Bump flow version to 0.77.0 (#289)
-* Internal: Add flow typed definitions for node-fetch and filesize (#290)
-* Internal: Turn on all non-sketchy flow lint rules as errors (#292)
 * Internal: Turn on sketchy-number flow lint rules as an error (#293)
 
 ### Patch
 
 </details>
+
+## 0.77.0 (July 30, 2018)
+
+### Minor
+
+* Checkbox: Add error prop and styling (#287)
+* Internal: Bump flow version to 0.77.0 (#289)
+* Internal: Add flow typed definitions for node-fetch and filesize (#290)
+* Collage: Add new Collage component to Gestalt (#291)
+* Internal: Turn on all non-sketchy flow lint rules as errors (#292)
+* Masonry: Add configurable virtual bounds (#294)
 
 ## 0.76.1 (July 17, 2018)
 

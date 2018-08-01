@@ -4,6 +4,7 @@ import Box from './Box.js';
 import Button from './Button.js';
 import Card from './Card.js';
 import Checkbox from './Checkbox.js';
+import Collage from './Collage.js';
 import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
@@ -48,6 +49,7 @@ export {
   Button,
   Card,
   Checkbox,
+  Collage,
   Collection,
   Column,
   Container,
