@@ -206,7 +206,7 @@ card(
         defaultValue: 'static',
       },
       {
-        name: 'shape',
+        name: 'corners',
         type: `"square" | "rounded" | "pill" | "circle" | "roundedTop" | "roundedBottom" | "roundedLeft" | "roundedRight"`,
         defaultValue: 'square',
       },
@@ -512,14 +512,14 @@ card(
       'darkWash',
     ]}
   >
-    {props => <Box width={60} height={60} shape="circle" {...props} />}
+    {props => <Box width={60} height={60} corners="circle" {...props} />}
   </Combination>
 );
 
 card(
   <Combination
-    name="Shapes"
-    shape={[
+    name="Corners"
+    corners={[
       'square',
       'rounded',
       'pill',
@@ -533,7 +533,7 @@ card(
     {props => (
       <Box
         color="gray"
-        width={props.shape === 'pill' ? 120 : 60}
+        width={props.corners === 'pill' ? 120 : 60}
         height={60}
         {...props}
       />

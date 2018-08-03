@@ -106,7 +106,7 @@ class TooltipExample extends React.Component {
             top: 10,
             left: 10,
             pointerEvents: "none", }}>
-            <Touchable onTouch={({ event }) => this.handleClick(event)} shape="circle" fullWidth={false}>
+            <Touchable onTouch={({ event }) => this.handleClick(event)} corners="circle" fullWidth={false}>
               <Pulsar paused={this.state.open} />
             </Touchable>
           </div>

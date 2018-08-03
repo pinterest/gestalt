@@ -7,15 +7,15 @@ import styles from './Mask.css';
 type Props = {|
   children?: React.Node,
   height?: number | string,
-  shape?: 'circle' | 'rounded' | 'square',
+  corners?: 'circle' | 'rounded' | 'square',
   width?: number | string,
   wash?: boolean,
 |};
 
 export default function Mask(props: Props) {
-  const { children, shape = 'square', width, height, wash = false } = props;
+  const { children, corners = 'square', width, height, wash = false } = props;
   return (
-    <div className={cx(styles.Mask, styles[shape])} style={{ width, height }}>
+    <div className={cx(styles.Mask, styles[corners])} style={{ width, height }}>
       {children}
       {wash && <div className={styles.wash} />}
     </div>
@@ -25,7 +25,7 @@ export default function Mask(props: Props) {
 Mask.propTypes = {
   children: PropTypes.node,
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  shape: PropTypes.oneOf(['circle', 'rounded', 'square']),
+  corners: PropTypes.oneOf(['circle', 'rounded', 'square']),
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   wash: PropTypes.bool,
 };

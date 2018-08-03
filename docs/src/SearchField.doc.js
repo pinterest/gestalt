@@ -76,7 +76,7 @@ card(
 
     render() {
       return (
-        <Box color="white" shape="rounded" padding={3} display="flex" direction="row" alignItems="center">
+        <Box color="white" corners="rounded" padding={3} display="flex" direction="row" alignItems="center">
           <Box padding={3}>
             <Icon
               icon="pinterest"

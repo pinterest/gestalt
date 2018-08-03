@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 
-type Shape =
+type Corners =
   | 'square'
   | 'rounded'
   | 'pill'
@@ -36,7 +36,7 @@ type Props = {|
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => void,
-  shape?: Shape,
+  corners?: Corners,
 |};
 
 const SPACE_CHAR_CODE = 32;
@@ -65,13 +65,13 @@ export default class Touchable extends React.Component<Props> {
       onMouseEnter,
       onMouseLeave,
       onTouch,
-      shape = 'square',
+      corners = 'square',
     } = this.props;
 
     const classes = classnames(
       styles.touchable,
       styles[mouseCursor],
-      styles[shape],
+      styles[corners],
       {
         [styles.fullHeight]: fullHeight,
         [styles.fullWidth]: fullWidth,
@@ -111,7 +111,7 @@ Touchable.propTypes = {
   onTouch: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  shape: PropTypes.oneOf([
+  corners: PropTypes.oneOf([
     'square',
     'rounded',
     'pill',

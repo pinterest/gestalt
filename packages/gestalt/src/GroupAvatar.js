@@ -176,7 +176,7 @@ export default function GroupAvatar(props: Props) {
     <Box
       color="white"
       overflow="hidden"
-      shape="circle"
+      corners="circle"
       width={avatarWidth}
       height={avatarHeight}
       position="relative"

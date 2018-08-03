@@ -23,7 +23,7 @@ export default function Toast(props: Props) {
       <Box xs={{ display: 'flex' }}>
         <Box xs={{ display: 'flexColumn' }} flex="none" justifyContent="center">
           {thumbnail ? (
-            <Mask shape="rounded" height={48} width={48}>
+            <Mask corners="rounded" height={48} width={48}>
               {thumbnail}
             </Mask>
           ) : null}
@@ -68,7 +68,7 @@ export default function Toast(props: Props) {
 
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={376} width="100vw">
-      <Box color={color} fit paddingX={8} paddingY={5} shape="pill">
+      <Box color={color} fit paddingX={8} paddingY={5} corners="pill">
         {contents}
       </Box>
     </Box>

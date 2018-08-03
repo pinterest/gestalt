@@ -36,7 +36,7 @@ card(
         type: `number | string`,
       },
       {
-        name: 'shape',
+        name: 'corners',
         type: `"circle" | "rounded" | "square"`,
         defaultValue: 'square',
       },
@@ -53,7 +53,7 @@ card(
   <Example
     name="Example"
     defaultCode={`
-<Mask height={70} shape="circle" width={70}>
+<Mask height={70} corners="circle" width={70}>
   <div style={{ backgroundColor: '#0fa573', width: 70, height: 70 }} />
 </Mask>
 `}
@@ -68,7 +68,7 @@ card(
     name="Example: Masking other content"
     defaultCode={`
 <Box maxWidth={300}>
-  <Mask shape="circle">
+  <Mask corners="circle">
     <img
       alt="weakendclub.com"
       src="${stock7}"
@@ -88,7 +88,7 @@ card(
     name="Example: Adding a wash"
     defaultCode={`
 <Box maxWidth={300}>
-  <Mask shape="rounded" wash>
+  <Mask corners="rounded" wash>
     <img
       alt="subliming.tumblr.com"
       src="${stock8}"
@@ -102,8 +102,8 @@ card(
 
 card(
   <Combination
-    name="Shape Combinations"
-    shape={['circle', 'rounded', 'square']}
+    name="Corners Combinations"
+    corners={['circle', 'rounded', 'square']}
   >
     {props => (
       <Mask height={70} width={70} {...props}>

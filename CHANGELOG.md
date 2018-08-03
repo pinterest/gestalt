@@ -9,6 +9,8 @@
 ### Minor
 
 * Internal: Turn on sketchy-number flow lint rules as an error (#293)
+* Rename prop 'shape' for components Box, Mask and Touchable (#301)
+* Update the documentation of Box, Mask and Touchable components (#301)
 
 ### Patch
 

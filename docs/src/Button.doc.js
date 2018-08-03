@@ -119,7 +119,7 @@ card(
   `}
     name="Colors: Dark Backgrounds"
     defaultCode={`
-<Box color="darkGray" maxWidth={320} shape="rounded" padding={4}>
+<Box color="darkGray" maxWidth={320} corners="rounded" padding={4}>
   <Box marginBottom={4}>
     <Text color="white">
       Explore today’s trending ideas, curated finds, and personalized

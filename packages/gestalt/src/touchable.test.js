@@ -22,7 +22,7 @@ test('Touchable sets correct mouse cursor', () => {
 
 test('Touchable sets correct shape', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} shape="circle">
+    <Touchable onTouch={() => {}} corners="circle">
       Touchable
     </Touchable>
   ).toJSON();
