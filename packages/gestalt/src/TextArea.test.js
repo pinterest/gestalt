@@ -6,6 +6,10 @@ import TextArea from './TextArea.js';
 import Flyout from './Flyout.js';
 
 describe('TextArea', () => {
+  beforeAll(() => {
+    // Mock this out for the instanceof checks in event handlers
+    global.HTMLTextAreaElement = Object;
+  });
   it('Renders a Flyout if an error message is passed in', () => {
     const wrapper = shallow(
       <TextArea errorMessage="test" id="test" onChange={jest.fn()} />
@@ -80,5 +84,57 @@ describe('TextArea', () => {
       errorMessage: 'error message',
     });
     expect(tree.find(Flyout)).toHaveLength(1);
+  });
+
+  it('handles blur events', () => {
+    const mockBlur = jest.fn();
+    const tree = shallow(
+      <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} />
+    );
+    tree.find('textarea').simulate('blur', { target: { value: 'fake value' } });
+    expect(mockBlur).toHaveBeenCalledWith({
+      event: { target: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
+
+  it('handles change events', () => {
+    const mockChange = jest.fn();
+    const tree = shallow(<TextArea id="test" onChange={mockChange} />);
+    tree
+      .find('textarea')
+      .simulate('change', { target: { value: 'fake value' } });
+    expect(mockChange).toHaveBeenCalledWith({
+      event: { target: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
+
+  it('handles focus events', () => {
+    const mockFocus = jest.fn();
+    const tree = shallow(
+      <TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} />
+    );
+    tree
+      .find('textarea')
+      .simulate('focus', { target: { value: 'fake value' } });
+    expect(mockFocus).toHaveBeenCalledWith({
+      event: { target: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
+
+  it('handles key down events', () => {
+    const mockKeyDown = jest.fn();
+    const tree = shallow(
+      <TextArea id="test" onChange={jest.fn()} onKeyDown={mockKeyDown} />
+    );
+    tree
+      .find('textarea')
+      .simulate('keyDown', { target: { value: 'fake value' } });
+    expect(mockKeyDown).toHaveBeenCalledWith({
+      event: { target: { value: 'fake value' } },
+      value: 'fake value',
+    });
   });
 });

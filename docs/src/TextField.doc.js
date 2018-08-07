@@ -57,6 +57,10 @@ card(
         type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
       },
       {
+        name: 'onKeyDown',
+        type: '({ event: SyntheticKeyboardEvent<>, value: string }) => void',
+      },
+      {
         name: 'placeholder',
         type: 'string',
       },

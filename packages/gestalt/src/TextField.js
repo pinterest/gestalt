@@ -25,6 +25,7 @@ type Props = {|
   onBlur?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
   onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
   onFocus?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
+  onKeyDown?: ({ event: SyntheticKeyboardEvent<>, value: string }) => void,
   placeholder?: string,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   value?: string,
@@ -47,6 +48,7 @@ export default class TextField extends React.Component<Props, State> {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
     type: PropTypes.oneOf([
       'date',
@@ -115,6 +117,15 @@ export default class TextField extends React.Component<Props, State> {
     }
   };
 
+  handleKeyDown = (event: SyntheticKeyboardEvent<>) => {
+    if (event.target instanceof HTMLInputElement && this.props.onKeyDown) {
+      this.props.onKeyDown({
+        event,
+        value: event.target.value,
+      });
+    }
+  };
+
   textfield: ?HTMLElement;
 
   render() {
@@ -156,6 +167,7 @@ export default class TextField extends React.Component<Props, State> {
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
           pattern={pattern}
           placeholder={placeholder}
           ref={c => {

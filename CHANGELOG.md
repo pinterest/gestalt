@@ -9,6 +9,8 @@
 ### Minor
 
 * Internal: Turn on sketchy-number flow lint rules as an error (#293)
+* TextArea: Add an onKeyDown prop
+* TextField: Add an onKeyDown prop
 
 ### Patch
 

@@ -24,6 +24,7 @@ type Props = {|
   onBlur?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
   onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
   onFocus?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
+  onKeyDown?: ({ event: SyntheticKeyboardEvent<>, value: string }) => void,
   placeholder?: string,
   rows?: number /* default: 3 */,
   value?: string,
@@ -40,6 +41,7 @@ export default class TextArea extends React.Component<Props, State> {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
     rows: PropTypes.number,
     value: PropTypes.string,
@@ -105,6 +107,15 @@ export default class TextArea extends React.Component<Props, State> {
     }
   };
 
+  handleKeyDown = (event: SyntheticKeyboardEvent<>) => {
+    if (event.target instanceof HTMLTextAreaElement && this.props.onKeyDown) {
+      this.props.onKeyDown({
+        event,
+        value: event.target.value,
+      });
+    }
+  };
+
   textarea: ?HTMLElement;
 
   render() {
@@ -140,6 +151,7 @@ export default class TextArea extends React.Component<Props, State> {
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
           placeholder={placeholder}
           ref={c => {
             this.textarea = c;
