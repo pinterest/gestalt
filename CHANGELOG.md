@@ -9,6 +9,7 @@
 ### Minor
 
 * Internal: Turn on sketchy-number flow lint rules as an error (#293)
+* SearchField: Added darker placeholder color for WGAP AA compliance (#304)
 
 ### Patch
 
