@@ -6,10 +6,6 @@ import TextArea from './TextArea.js';
 import Flyout from './Flyout.js';
 
 describe('TextArea', () => {
-  beforeAll(() => {
-    // Mock this out for the instanceof checks in event handlers
-    global.HTMLTextAreaElement = Object;
-  });
   it('Renders a Flyout if an error message is passed in', () => {
     const wrapper = shallow(
       <TextArea errorMessage="test" id="test" onChange={jest.fn()} />
@@ -91,9 +87,11 @@ describe('TextArea', () => {
     const tree = shallow(
       <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} />
     );
-    tree.find('textarea').simulate('blur', { target: { value: 'fake value' } });
+    tree
+      .find('textarea')
+      .simulate('blur', { currentTarget: { value: 'fake value' } });
     expect(mockBlur).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
@@ -103,9 +101,9 @@ describe('TextArea', () => {
     const tree = shallow(<TextArea id="test" onChange={mockChange} />);
     tree
       .find('textarea')
-      .simulate('change', { target: { value: 'fake value' } });
+      .simulate('change', { currentTarget: { value: 'fake value' } });
     expect(mockChange).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
@@ -117,9 +115,9 @@ describe('TextArea', () => {
     );
     tree
       .find('textarea')
-      .simulate('focus', { target: { value: 'fake value' } });
+      .simulate('focus', { currentTarget: { value: 'fake value' } });
     expect(mockFocus).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
@@ -131,9 +129,9 @@ describe('TextArea', () => {
     );
     tree
       .find('textarea')
-      .simulate('keyDown', { target: { value: 'fake value' } });
+      .simulate('keyDown', { currentTarget: { value: 'fake value' } });
     expect(mockKeyDown).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });

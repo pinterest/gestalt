@@ -6,10 +6,6 @@ import TextField from './TextField.js';
 import Flyout from './Flyout.js';
 
 describe('TextField', () => {
-  beforeAll(() => {
-    // Mock this out for the instanceof checks in event handlers
-    global.HTMLInputElement = Object;
-  });
   it('Renders a Flyout if an error message is passed in', () => {
     const wrapper = shallow(
       <TextField errorMessage="test" id="test" onChange={jest.fn()} />
@@ -124,9 +120,11 @@ describe('TextField', () => {
     const tree = shallow(
       <TextField id="test" onBlur={mockBlur} onChange={jest.fn()} />
     );
-    tree.find('input').simulate('blur', { target: { value: 'fake value' } });
+    tree
+      .find('input')
+      .simulate('blur', { currentTarget: { value: 'fake value' } });
     expect(mockBlur).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
@@ -134,9 +132,11 @@ describe('TextField', () => {
   it('handles change events', () => {
     const mockChange = jest.fn();
     const tree = shallow(<TextField id="test" onChange={mockChange} />);
-    tree.find('input').simulate('change', { target: { value: 'fake value' } });
+    tree
+      .find('input')
+      .simulate('change', { currentTarget: { value: 'fake value' } });
     expect(mockChange).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
@@ -146,9 +146,11 @@ describe('TextField', () => {
     const tree = shallow(
       <TextField id="test" onChange={jest.fn()} onFocus={mockFocus} />
     );
-    tree.find('input').simulate('focus', { target: { value: 'fake value' } });
+    tree
+      .find('input')
+      .simulate('focus', { currentTarget: { value: 'fake value' } });
     expect(mockFocus).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
@@ -158,9 +160,11 @@ describe('TextField', () => {
     const tree = shallow(
       <TextField id="test" onChange={jest.fn()} onKeyDown={mockKeyDown} />
     );
-    tree.find('input').simulate('keyDown', { target: { value: 'fake value' } });
+    tree
+      .find('input')
+      .simulate('keyDown', { currentTarget: { value: 'fake value' } });
     expect(mockKeyDown).toHaveBeenCalledWith({
-      event: { target: { value: 'fake value' } },
+      event: { currentTarget: { value: 'fake value' } },
       value: 'fake value',
     });
   });
