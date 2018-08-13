@@ -2,7 +2,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import debounce from './debounce.js';
-import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
@@ -29,7 +28,14 @@ type Layout =
   | LegacyMasonryLayout
   | LegacyUniformRowLayout;
 
-type Props<T> = {|
+export type Layer = {
+  top: number,
+  left: number,
+  width: number,
+  height: number,
+};
+
+export type Props<T> = {|
   columnWidth?: number,
   comp: React.ComponentType<{
     data: T,
@@ -41,6 +47,10 @@ type Props<T> = {|
   items: Array<T>,
   measurementStore: Cache<T, *>,
   minCols: number,
+  // Content layer and Viewport layer is as defined in Collection.
+  onLayerUpdate?: (contentLayer: Layer, viewportLayer: Layer) => void,
+  onPendingMeasurements?: () => void,
+  onNoPendingMeasurements?: () => void,
   layout?: Layout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
@@ -59,7 +69,6 @@ type Props<T> = {|
 
 type State<T> = {|
   hasPendingMeasurements: boolean,
-  isFetching: boolean,
   items: Array<T>,
   scrollTop: number,
   width: ?number,
@@ -72,6 +81,13 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
+/**
+ * TODO this should be renamed to MasronyBeta or something else so it is clear
+ * that this is not the exported Masonry.
+ *
+ * The goal is to eventually not have any scroll fetching concerns in this component.
+ * The name is kept for now to have an easier time seeing the diffs.
+ */
 export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   static createMeasurementStore() {
     return new MeasurementStore();
@@ -96,9 +112,12 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return;
     }
 
+    const scrollTop = getScrollPos(scrollContainer);
     this.setState({
-      scrollTop: getScrollPos(scrollContainer),
+      scrollTop,
     });
+
+    this.handleOnLayerUpdate();
   });
 
   measureContainerAsync = debounce(() => {
@@ -191,7 +210,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       hasPendingMeasurements: props.items.some(
         item => !!item && !props.measurementStore.has(item)
       ),
-      isFetching: false,
       // eslint-disable-next-line react/no-unused-state
       items: props.items,
       scrollTop: 0,
@@ -219,6 +237,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       scrollTop,
       width: this.gridWrapper ? this.gridWrapper.clientWidth : prevState.width,
     }));
+
+    this.handleOnLayerUpdate();
+    this.handleOnPendingMeasurements();
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
@@ -233,6 +254,14 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     const hasPendingMeasurements = items.some(
       item => !!item && !measurementStore.has(item)
     );
+
+    if (hasPendingMeasurements && !prevState.hasPendingMeasurements) {
+      this.handleOnPendingMeasurements();
+    } else if (!hasPendingMeasurements && prevState.hasPendingMeasurements) {
+      this.handleOnNoPendingMeasurements();
+    }
+    this.handleOnLayerUpdate();
+
     if (
       hasPendingMeasurements ||
       hasPendingMeasurements !== this.state.hasPendingMeasurements ||
@@ -278,7 +307,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         return {
           hasPendingMeasurements,
           items,
-          isFetching: false,
         };
       }
 
@@ -292,7 +320,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         return {
           hasPendingMeasurements,
           items,
-          isFetching: false,
         };
       }
     }
@@ -302,7 +329,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return {
         hasPendingMeasurements,
         items,
-        isFetching: false,
       };
     }
     if (hasPendingMeasurements !== state.hasPendingMeasurements) {
@@ -325,17 +351,36 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.scrollContainer = ref;
   };
 
-  fetchMore = () => {
-    const { loadItems } = this.props;
-    if (loadItems && typeof loadItems === 'function') {
-      this.setState(
-        {
-          isFetching: true,
-        },
-        () => loadItems({ from: this.props.items.length })
-      );
+  handleOnLayerUpdate = () => {
+    if (
+      typeof this.props.onLayerUpdate === 'function' &&
+      this.contentLayer &&
+      this.containerHeight
+    ) {
+      const viewportLayer = {
+        top: this.state.scrollTop,
+        left: 0,
+        height: this.containerHeight,
+        width: this.state.width ? this.state.width : 0,
+      };
+
+      this.props.onLayerUpdate(this.contentLayer, viewportLayer);
     }
   };
+
+  handleOnPendingMeasurements = () => {
+    if (this.props.onPendingMeasurements) {
+      this.props.onPendingMeasurements();
+    }
+  };
+
+  handleOnNoPendingMeasurements = () => {
+    if (this.props.onNoPendingMeasurements) {
+      this.props.onNoPendingMeasurements();
+    }
+  };
+
+  contentLayer: Layer;
 
   containerHeight: number;
 
@@ -373,6 +418,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   reflow() {
     this.props.measurementStore.reset();
     this.measureContainer();
+    this.handleOnLayerUpdate();
     this.forceUpdate();
   }
 
@@ -525,6 +571,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       const height = positions.length
         ? Math.max(...positions.map(pos => pos.top + pos.height))
         : 0;
+      this.contentLayer = { top: this.containerOffset, left: 0, height, width };
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
@@ -565,18 +612,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
               );
             })}
           </div>
-
-          {this.scrollContainer && (
-            <FetchItems
-              containerHeight={this.containerHeight}
-              fetchMore={this.fetchMore}
-              isFetching={
-                this.state.isFetching || this.state.hasPendingMeasurements
-              }
-              scrollHeight={height}
-              scrollTop={this.state.scrollTop}
-            />
-          )}
         </div>
       );
     }

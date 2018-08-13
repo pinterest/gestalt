@@ -57,7 +57,7 @@ export default class MasonryExample extends React.Component {
       window.RESIZE_MEASUREMENT_DONE = false;
       setTimeout(() => {
         const checkIfMeasuring = () => {
-          if (!this.gridRef.state.hasPendingMeasurements) {
+          if (!this.gridRef.hasPendingMeasurements) {
             window.RESIZE_MEASUREMENT_DONE = true;
           } else {
             window.requestAnimationFrame(checkIfMeasuring);
