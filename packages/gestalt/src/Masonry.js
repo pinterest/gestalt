@@ -49,8 +49,7 @@ export type Props<T> = {|
   minCols: number,
   // Content layer and Viewport layer is as defined in Collection.
   onLayerUpdate?: (contentLayer: Layer, viewportLayer: Layer) => void,
-  onPendingMeasurements?: () => void,
-  onNoPendingMeasurements?: () => void,
+  onPendingMeasurementsUpdate?: (hasPendingMeasurements: boolean) => void,
   layout?: Layout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
@@ -89,10 +88,6 @@ const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
  * The name is kept for now to have an easier time seeing the diffs.
  */
 export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
-  static createMeasurementStore() {
-    return new MeasurementStore();
-  }
-
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
@@ -112,9 +107,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return;
     }
 
-    const scrollTop = getScrollPos(scrollContainer);
     this.setState({
-      scrollTop,
+      scrollTop: getScrollPos(scrollContainer),
     });
 
     this.handleOnLayerUpdate();
@@ -239,7 +233,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     }));
 
     this.handleOnLayerUpdate();
-    this.handleOnPendingMeasurements();
+    this.handleOnPendingMeasurementsUpdate(true);
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
@@ -256,9 +250,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     );
 
     if (hasPendingMeasurements && !prevState.hasPendingMeasurements) {
-      this.handleOnPendingMeasurements();
+      this.handleOnPendingMeasurementsUpdate(true);
     } else if (!hasPendingMeasurements && prevState.hasPendingMeasurements) {
-      this.handleOnNoPendingMeasurements();
+      this.handleOnPendingMeasurementsUpdate(false);
     }
     this.handleOnLayerUpdate();
 
@@ -369,14 +363,14 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   };
 
   handleOnPendingMeasurements = () => {
-    if (this.props.onPendingMeasurements) {
-      this.props.onPendingMeasurements();
+    if (this.props.onPendingMeasurementsUpdate) {
+      this.props.onPendingMeasurementsUpdate(true);
     }
   };
 
-  handleOnNoPendingMeasurements = () => {
-    if (this.props.onNoPendingMeasurements) {
-      this.props.onNoPendingMeasurements();
+  handleOnPendingMeasurementsUpdate = (hasPendingMeasurements: boolean) => {
+    if (this.props.onPendingMeasurementsUpdate) {
+      this.props.onPendingMeasurementsUpdate(hasPendingMeasurements);
     }
   };
 

@@ -94,15 +94,9 @@ export default class MasonryInfinite<T> extends React.Component<
     }
   };
 
-  handlePendingMeasurements = () => {
-    if (!this.state.hasPendingMeasurements) {
-      this.setState({ hasPendingMeasurements: true });
-    }
-  };
-
-  handleNoPendingMeasurements = () => {
-    if (this.state.hasPendingMeasurements) {
-      this.setState({ hasPendingMeasurements: false });
+  handlePendingMeasurementsUpdate = (hasPendingMeasurements: boolean) => {
+    if (this.state.hasPendingMeasurements !== hasPendingMeasurements) {
+      this.setState({ hasPendingMeasurements });
     }
   };
 
@@ -130,8 +124,7 @@ export default class MasonryInfinite<T> extends React.Component<
         <Masonry
           {...this.props}
           onLayerUpdate={this.onLayerUpdate}
-          onPendingMeasurements={this.handlePendingMeasurements}
-          onNoPendingMeasurements={this.handleNoPendingMeasurements}
+          onPendingMeasurementsUpdate={this.handlePendingMeasurementsUpdate}
           ref={this.gridRef}
         />
       </React.Fragment>
