@@ -13,10 +13,6 @@ type State<T> = {|
   scrollHeight: number,
 |};
 
-const hasNewItem = (i, items) => items[i] === undefined;
-const hasDifferentItem = (i, itemsA, itemsB) => itemsA[i] !== itemsB[i];
-const hasLessItems = (itemsA, itemsB) => itemsA.length < itemsB.length;
-
 /**
  * This MasonryInfinite is backward compatible and serves to help with migrating
  * to a Masrony that doesn't have the scrol fetch concerns
@@ -66,16 +62,12 @@ export default class MasonryInfinite<T> extends React.Component<
   static getDerivedStateFromProps(props: Props<T>, state: State<T>) {
     const { items } = props;
 
-    // Shallow compare all items, if any change reflow the grid.
-    // checks below are comparable to Masonry.getDerivedStateFromProps
-    for (let i = 0; i < items.length; i += 1) {
-      if (
-        hasNewItem(i, state.items) ||
-        hasDifferentItem(i, items, state.items) ||
-        hasLessItems(items, state.items)
-      ) {
-        return { isFetching: false };
-      }
+    // assume immutable items
+    if (props.items !== state.items) {
+      return {
+        items,
+        isFetching: false,
+      };
     }
 
     // Return null to indicate no change to state.
