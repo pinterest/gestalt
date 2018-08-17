@@ -34,6 +34,7 @@ export type Layer = {
   width: number,
   height: number,
 };
+type Position = Layer;
 
 export type Props<T> = {|
   columnWidth?: number,
@@ -68,7 +69,12 @@ export type Props<T> = {|
 
 type State<T> = {|
   hasPendingMeasurements: boolean,
+  height: number,
   items: Array<T>,
+  itemsToMeasure: Array<T>,
+  itemsToRender: Array<T>,
+  measuringPositions: Array<Position>,
+  renderPositions: Array<Position>,
   scrollTop: number,
   width: ?number,
 |};
@@ -204,8 +210,13 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       hasPendingMeasurements: props.items.some(
         item => !!item && !props.measurementStore.has(item)
       ),
+      height: 0,
+      itemsToRender: [],
+      itemsToMeasure: [],
       // eslint-disable-next-line react/no-unused-state
       items: props.items,
+      measuringPositions: [],
+      renderPositions: [],
       scrollTop: 0,
       width: undefined,
     };
@@ -262,9 +273,15 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       prevState.width == null
     ) {
       this.insertAnimationFrame = requestAnimationFrame(() => {
+        const renderLayout = this.calculateRenderLayout();
         this.setState({
           hasPendingMeasurements,
+          ...renderLayout,
         });
+      });
+    } else if (hasPendingMeasurements || prevState.items !== items) {
+      this.insertAnimationFrame = requestAnimationFrame(() => {
+        this.setState({ ...this.calculateRenderLayout() });
       });
     }
   }
@@ -345,20 +362,99 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.scrollContainer = ref;
   };
 
+  getLayout = () => {
+    const {
+      columnWidth,
+      flexible,
+      gutterWidth: gutter,
+      measurementStore,
+      minCols,
+    } = this.props;
+    const { width } = this.state;
+
+    let layout;
+    if (flexible && width !== null) {
+      layout = fullWidthLayout({
+        gutter,
+        cache: measurementStore,
+        minCols,
+        idealColumnWidth: columnWidth,
+        width,
+      });
+    } else if (
+      this.props.layout === UniformRowLayoutSymbol ||
+      this.props.layout instanceof LegacyUniformRowLayout
+    ) {
+      layout = uniformRowLayout({
+        cache: measurementStore,
+        columnWidth,
+        gutter,
+        minCols,
+        width,
+      });
+    } else {
+      layout = defaultLayout({
+        cache: measurementStore,
+        columnWidth,
+        gutter,
+        minCols,
+        width,
+      });
+    }
+
+    return layout;
+  };
+
+  calculateRenderLayout = () => {
+    const { measurementStore, minCols } = this.props;
+    const { items } = this.state;
+
+    // Full layout is possible
+    const itemsToRender = items.filter(
+      item => item && measurementStore.has(item)
+    );
+
+    const layout = this.getLayout();
+    const renderPositions = layout(itemsToRender);
+    // Math.max() === -Infinity when there are no renderPositions
+    const height = renderPositions.length
+      ? Math.max(...renderPositions.map(pos => pos.top + pos.height))
+      : 0;
+
+    const itemsToMeasure = items
+      .filter(item => item && !measurementStore.has(item))
+      .slice(0, minCols);
+    const measuringPositions = layout(itemsToMeasure);
+
+    return {
+      height,
+      itemsToRender,
+      itemsToMeasure,
+      measuringPositions,
+      renderPositions,
+    };
+  };
+
   handleOnLayerUpdate = () => {
+    const { height, width } = this.state;
     if (
       typeof this.props.onLayerUpdate === 'function' &&
-      this.contentLayer &&
       this.containerHeight
     ) {
       const viewportLayer = {
         top: this.state.scrollTop,
         left: 0,
         height: this.containerHeight,
-        width: this.state.width ? this.state.width : 0,
+        width: width || 0,
+      };
+      const contentLayer = {
+        top: this.containerOffset,
+        left: 0,
+        height,
+        width: width || 0,
       };
 
-      this.props.onLayerUpdate(this.contentLayer, viewportLayer);
+      this.props.onLayerUpdate(contentLayer, viewportLayer);
     }
   };
 
@@ -473,42 +569,18 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       columnWidth,
       comp: Component,
       flexible,
-      gutterWidth: gutter,
       measurementStore,
       items,
-      minCols,
     } = this.props;
-    const { hasPendingMeasurements, width } = this.state;
-
-    let layout;
-    if (flexible && width !== null) {
-      layout = fullWidthLayout({
-        gutter,
-        cache: measurementStore,
-        minCols,
-        idealColumnWidth: columnWidth,
-        width,
-      });
-    } else if (
-      this.props.layout === UniformRowLayoutSymbol ||
-      this.props.layout instanceof LegacyUniformRowLayout
-    ) {
-      layout = uniformRowLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-      });
-    } else {
-      layout = defaultLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-      });
-    }
+    const {
+      hasPendingMeasurements,
+      height,
+      itemsToMeasure,
+      itemsToRender,
+      measuringPositions,
+      renderPositions,
+      width,
+    } = this.state;
 
     let gridBody;
     if (width == null && hasPendingMeasurements) {
@@ -551,26 +623,12 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       // div to collect the width for layout
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
-      // Full layout is possible
-      const itemsToRender = items.filter(
-        item => item && measurementStore.has(item)
-      );
-      const itemsToMeasure = items
-        .filter(item => item && !measurementStore.has(item))
-        .slice(0, minCols);
-
-      const positions = layout(itemsToRender);
-      const measuringPositions = layout(itemsToMeasure);
-      // Math.max() === -Infinity when there are no positions
-      const height = positions.length
-        ? Math.max(...positions.map(pos => pos.top + pos.height))
-        : 0;
-      this.contentLayer = { top: this.containerOffset, left: 0, height, width };
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
             {itemsToRender.map((item, i) =>
-              this.renderMasonryComponent(item, i, positions[i])
+              // $FlowFixMe this is the right definition, it an Array<T>
+              this.renderMasonryComponent(item, i, renderPositions[i])
             )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
