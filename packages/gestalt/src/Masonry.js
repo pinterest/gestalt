@@ -16,7 +16,7 @@ import {
   DefaultLayoutSymbol,
   UniformRowLayoutSymbol,
 } from './legacyLayoutSymbols.js';
-import defaultLayout from './defaultLayout.js';
+import defaultLayout, { type Position } from './defaultLayout.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
@@ -28,13 +28,12 @@ type Layout =
   | LegacyMasonryLayout
   | LegacyUniformRowLayout;
 
-export type Layer = {
+export type Layer = {|
   top: number,
   left: number,
   width: number,
   height: number,
-};
-type Position = Layer;
+|};
 
 export type Props<T> = {|
   columnWidth?: number,
@@ -243,8 +242,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       width: this.gridWrapper ? this.gridWrapper.clientWidth : prevState.width,
     }));
 
-    this.handleOnLayerUpdate();
-    this.handleOnPendingMeasurementsUpdate(true);
+    // need to make sure parent component has the correct pending measurement value
+    this.handleOnPendingMeasurementsUpdate(this.state.hasPendingMeasurements);
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
@@ -307,7 +306,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     // whenever we're receiving new props, determine whether any items need to be measured
     // TODO - we should treat items as immutable
     const hasPendingMeasurements = items.some(
-      item => !measurementStore.has(item)
+      item => item && !measurementStore.has(item)
     );
 
     // Shallow compare all items, if any change reflow the grid.
@@ -455,12 +454,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       };
 
       this.props.onLayerUpdate(contentLayer, viewportLayer);
-    }
-  };
-
-  handleOnPendingMeasurements = () => {
-    if (this.props.onPendingMeasurementsUpdate) {
-      this.props.onPendingMeasurementsUpdate(true);
     }
   };
 
