@@ -11,6 +11,7 @@ exports[`TextArea TextArea normal 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
+    onKeyDown={[Function]}
     rows={3}
   />
 </span>
@@ -31,6 +32,7 @@ exports[`TextArea TextArea with rows 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
+    onKeyDown={[Function]}
     rows={5}
   />
 </span>
