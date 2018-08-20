@@ -9,6 +9,7 @@
 ### Minor
 
 * Internal: Turn on sketchy-number flow lint rules as an error (#293)
+* Icon: Fix cog icon rotation (#308)
 
 ### Patch
 
