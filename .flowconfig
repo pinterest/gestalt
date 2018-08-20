@@ -16,6 +16,7 @@ module.name_mapper='^.*\.css$' -> '<PROJECT_ROOT>/flow/stubs/CSSModuleStub.js'
 <PROJECT_ROOT>/flow-typed
 
 [lints]
+sketchy-number=error
 untyped-type-import=error
 untyped-import=error
 unclear-type=error
