@@ -22,7 +22,7 @@ type Functor = (n: number) => Style;
 //
 //     <Box top />
 //
-export const toggle = (...classNames: Array<string>) => (val: mixed) =>
+export const toggle = (...classNames: Array<string>) => (val?: boolean) =>
   val ? fromClassName(...classNames) : identity();
 
 // Maps string values to classes
