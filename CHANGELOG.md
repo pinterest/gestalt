@@ -8,7 +8,9 @@
 
 ### Minor
 
+* Internal: Turn on sketchy-number flow lint rules as an error (#293)
 * Internal: Add flow types to `Box` transform functors (#299)
+* Icon: Fix cog icon rotation (#308)
 
 ### Patch
 

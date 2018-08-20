@@ -26,7 +26,11 @@ type ColumnProps =
 export default function Column(props: ColumnProps) {
   const { children } = props;
   const cs = classnames(
-    (props.xs || props.sm || props.md || props.lg) && styles.deprecatedColumn,
+    (props.xs !== undefined ||
+      props.sm !== undefined ||
+      props.md !== undefined ||
+      props.lg !== undefined) &&
+      styles.deprecatedColumn,
     props.xs && styles[`xsCol${props.xs}`],
     props.sm && styles[`smCol${props.sm}`],
     props.md && styles[`mdCol${props.md}`],

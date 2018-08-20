@@ -9,11 +9,11 @@ export default function throttle(
   fn: (...args: *) => void,
   threshhold: number = 100
 ) {
-  let last: number;
-  let deferTimer: TimeoutID;
+  let last: number | void;
+  let deferTimer: TimeoutID | void;
   const throttled = (...args: *) => {
     const now = Date.now();
-    if (last && now - last < threshhold) {
+    if (last !== undefined && now - last < threshhold) {
       clearTimeout(deferTimer);
       deferTimer = setTimeout(() => {
         last = now;
