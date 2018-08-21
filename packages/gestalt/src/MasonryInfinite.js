@@ -2,7 +2,7 @@
 import * as React from 'react';
 import FetchItems from './FetchItems.js';
 import MeasurementStore from './MeasurementStore.js';
-import Masonry, { type Props } from './Masonry.js';
+import Masonry, { type Props, type MeasurementState } from './Masonry.js';
 import { type Position } from './defaultLayout.js';
 
 type State<T> = {|
@@ -87,9 +87,14 @@ export default class MasonryInfinite<T> extends React.Component<
     }
   };
 
-  handlePendingMeasurementsUpdate = (hasPendingMeasurements: boolean) => {
+  handleOnAutoMeasuringUpdate = (state: MeasurementState) => {
+    const hasPendingMeasurements = state === 'measuring';
     if (this.state.hasPendingMeasurements !== hasPendingMeasurements) {
       this.setState({ hasPendingMeasurements });
+    }
+
+    if (typeof this.props.onAutoMeasuringUpdate === 'function') {
+      this.props.onAutoMeasuringUpdate(state);
     }
   };
 
@@ -117,7 +122,7 @@ export default class MasonryInfinite<T> extends React.Component<
         <Masonry
           {...this.props}
           onVirtualizationWindowUpdate={this.onVirtualizationWindowUpdate}
-          onPendingMeasurementsUpdate={this.handlePendingMeasurementsUpdate}
+          onAutoMeasuringUpdate={this.handleOnAutoMeasuringUpdate}
           ref={this.gridRef}
         />
       </React.Fragment>

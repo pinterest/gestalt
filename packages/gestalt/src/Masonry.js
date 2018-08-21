@@ -28,6 +28,8 @@ type Layout =
   | LegacyMasonryLayout
   | LegacyUniformRowLayout;
 
+export type MeasurementState = 'idle' | 'measuring';
+
 export type Props<T> = {|
   columnWidth?: number,
   comp: React.ComponentType<{
@@ -45,7 +47,7 @@ export type Props<T> = {|
     content: Position,
     viewport: Position
   ) => void,
-  onPendingMeasurementsUpdate?: (hasPendingMeasurements: boolean) => void,
+  onAutoMeasuringUpdate?: (state: MeasurementState) => void,
   layout?: Layout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
@@ -310,7 +312,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     }));
 
     // need to make sure parent component has the correct pending measurement value
-    this.handleOnPendingMeasurementsUpdate(this.state.hasPendingMeasurements);
+    this.handleOnAutoMeasuringUpdate(
+      this.state.hasPendingMeasurements ? 'measuring' : 'idle'
+    );
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
@@ -327,9 +331,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     );
 
     if (hasPendingMeasurements && !prevState.hasPendingMeasurements) {
-      this.handleOnPendingMeasurementsUpdate(true);
+      this.handleOnAutoMeasuringUpdate('measuring');
     } else if (!hasPendingMeasurements && prevState.hasPendingMeasurements) {
-      this.handleOnPendingMeasurementsUpdate(false);
+      this.handleOnAutoMeasuringUpdate('idle');
     }
     this.handleVirtualizationWindowUpdate();
 
@@ -452,9 +456,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     }
   };
 
-  handleOnPendingMeasurementsUpdate = (hasPendingMeasurements: boolean) => {
-    if (this.props.onPendingMeasurementsUpdate) {
-      this.props.onPendingMeasurementsUpdate(hasPendingMeasurements);
+  handleOnAutoMeasuringUpdate = (state: MeasurementState) => {
+    if (this.props.onAutoMeasuringUpdate) {
+      this.props.onAutoMeasuringUpdate(state);
     }
   };
 
