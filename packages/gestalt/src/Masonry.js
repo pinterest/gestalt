@@ -28,13 +28,6 @@ type Layout =
   | LegacyMasonryLayout
   | LegacyUniformRowLayout;
 
-export type Layer = {|
-  top: number,
-  left: number,
-  width: number,
-  height: number,
-|};
-
 export type Props<T> = {|
   columnWidth?: number,
   comp: React.ComponentType<{
@@ -48,7 +41,10 @@ export type Props<T> = {|
   measurementStore: Cache<T, *>,
   minCols: number,
   // Content layer and Viewport layer is as defined in Collection.
-  onLayerUpdate?: (contentLayer: Layer, viewportLayer: Layer) => void,
+  onVirtualizationWindowUpdate?: (
+    content: Position,
+    viewport: Position
+  ) => void,
   onPendingMeasurementsUpdate?: (hasPendingMeasurements: boolean) => void,
   layout?: Layout,
   // Support legacy loadItems usage.
@@ -85,6 +81,77 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
+function layoutClass<T>(
+  {
+    columnWidth,
+    flexible,
+    gutterWidth: gutter,
+    layout,
+    measurementStore,
+    minCols,
+  }: Props<T>,
+  { width }: State<T>
+) {
+  if (flexible && width !== null) {
+    return fullWidthLayout({
+      gutter,
+      cache: measurementStore,
+      minCols,
+      idealColumnWidth: columnWidth,
+      width,
+    });
+  }
+  if (
+    layout === UniformRowLayoutSymbol ||
+    layout instanceof LegacyUniformRowLayout
+  ) {
+    return uniformRowLayout({
+      cache: measurementStore,
+      columnWidth,
+      gutter,
+      minCols,
+      width,
+    });
+  }
+  return defaultLayout({
+    cache: measurementStore,
+    columnWidth,
+    gutter,
+    minCols,
+    width,
+  });
+}
+
+function statesForRendering<T>(props: Props<T>, state: State<T>) {
+  const { measurementStore, minCols } = props;
+  const { items } = state;
+
+  // Full layout is possible
+  const itemsToRender = items.filter(
+    item => item && measurementStore.has(item)
+  );
+
+  const layout = layoutClass(props, state);
+  const renderPositions = layout(itemsToRender);
+  // Math.max() === -Infinity when there are no renderPositions
+  const height = renderPositions.length
+    ? Math.max(...renderPositions.map(pos => pos.top + pos.height))
+    : 0;
+
+  const itemsToMeasure = items
+    .filter(item => item && !measurementStore.has(item))
+    .slice(0, minCols);
+  const measuringPositions = layout(itemsToMeasure);
+
+  return {
+    height,
+    itemsToRender,
+    itemsToMeasure,
+    measuringPositions,
+    renderPositions,
+  };
+}
+
 /**
  * TODO this should be renamed to MasronyBeta or something else so it is clear
  * that this is not the exported Masonry.
@@ -116,7 +183,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       scrollTop: getScrollPos(scrollContainer),
     });
 
-    this.handleOnLayerUpdate();
+    this.handleVirtualizationWindowUpdate();
   });
 
   measureContainerAsync = debounce(() => {
@@ -264,7 +331,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     } else if (!hasPendingMeasurements && prevState.hasPendingMeasurements) {
       this.handleOnPendingMeasurementsUpdate(false);
     }
-    this.handleOnLayerUpdate();
+    this.handleVirtualizationWindowUpdate();
 
     if (
       hasPendingMeasurements ||
@@ -272,15 +339,16 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       prevState.width == null
     ) {
       this.insertAnimationFrame = requestAnimationFrame(() => {
-        const renderLayout = this.calculateRenderLayout();
+        const renderingStates = statesForRendering(this.props, this.state);
         this.setState({
           hasPendingMeasurements,
-          ...renderLayout,
+          ...renderingStates,
         });
       });
     } else if (hasPendingMeasurements || prevState.items !== items) {
       this.insertAnimationFrame = requestAnimationFrame(() => {
-        this.setState({ ...this.calculateRenderLayout() });
+        const renderingStates = statesForRendering(this.props, this.state);
+        this.setState({ ...renderingStates });
       });
     }
   }
@@ -361,99 +429,26 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.scrollContainer = ref;
   };
 
-  getLayout = () => {
-    const {
-      columnWidth,
-      flexible,
-      gutterWidth: gutter,
-      measurementStore,
-      minCols,
-    } = this.props;
-    const { width } = this.state;
-
-    let layout;
-    if (flexible && width !== null) {
-      layout = fullWidthLayout({
-        gutter,
-        cache: measurementStore,
-        minCols,
-        idealColumnWidth: columnWidth,
-        width,
-      });
-    } else if (
-      this.props.layout === UniformRowLayoutSymbol ||
-      this.props.layout instanceof LegacyUniformRowLayout
-    ) {
-      layout = uniformRowLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-      });
-    } else {
-      layout = defaultLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-      });
-    }
-
-    return layout;
-  };
-
-  calculateRenderLayout = () => {
-    const { measurementStore, minCols } = this.props;
-    const { items } = this.state;
-
-    // Full layout is possible
-    const itemsToRender = items.filter(
-      item => item && measurementStore.has(item)
-    );
-
-    const layout = this.getLayout();
-    const renderPositions = layout(itemsToRender);
-    // Math.max() === -Infinity when there are no renderPositions
-    const height = renderPositions.length
-      ? Math.max(...renderPositions.map(pos => pos.top + pos.height))
-      : 0;
-
-    const itemsToMeasure = items
-      .filter(item => item && !measurementStore.has(item))
-      .slice(0, minCols);
-    const measuringPositions = layout(itemsToMeasure);
-
-    return {
-      height,
-      itemsToRender,
-      itemsToMeasure,
-      measuringPositions,
-      renderPositions,
-    };
-  };
-
-  handleOnLayerUpdate = () => {
+  handleVirtualizationWindowUpdate = () => {
     const { height, width } = this.state;
     if (
-      typeof this.props.onLayerUpdate === 'function' &&
+      typeof this.props.onVirtualizationWindowUpdate === 'function' &&
       this.containerHeight
     ) {
-      const viewportLayer = {
+      const viewport = {
         top: this.state.scrollTop,
         left: 0,
         height: this.containerHeight,
         width: width || 0,
       };
-      const contentLayer = {
+      const content = {
         top: this.containerOffset,
         left: 0,
         height,
         width: width || 0,
       };
 
-      this.props.onLayerUpdate(contentLayer, viewportLayer);
+      this.props.onVirtualizationWindowUpdate(content, viewport);
     }
   };
 
@@ -462,8 +457,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       this.props.onPendingMeasurementsUpdate(hasPendingMeasurements);
     }
   };
-
-  contentLayer: Layer;
 
   containerHeight: number;
 
@@ -501,7 +494,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   reflow() {
     this.props.measurementStore.reset();
     this.measureContainer();
-    this.handleOnLayerUpdate();
+    this.handleVirtualizationWindowUpdate();
     this.forceUpdate();
   }
 

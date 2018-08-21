@@ -2,7 +2,8 @@
 import * as React from 'react';
 import FetchItems from './FetchItems.js';
 import MeasurementStore from './MeasurementStore.js';
-import Masonry, { type Props, type Layer } from './Masonry.js';
+import Masonry, { type Props } from './Masonry.js';
+import { type Position } from './defaultLayout.js';
 
 type State<T> = {|
   containerHeight: number,
@@ -44,17 +45,17 @@ export default class MasonryInfinite<T> extends React.Component<
   /**
    * Content layer and Viewport layer is as defined in Collection.
    */
-  onLayerUpdate = (contentLayer: Layer, viewportLayer: Layer) => {
+  onVirtualizationWindowUpdate = (content: Position, viewport: Position) => {
     const { containerHeight, scrollTop, scrollHeight } = this.state;
     if (
-      viewportLayer.height !== containerHeight ||
-      viewportLayer.top !== scrollTop ||
-      contentLayer.height !== scrollHeight
+      viewport.height !== containerHeight ||
+      viewport.top !== scrollTop ||
+      content.height !== scrollHeight
     ) {
       this.setState({
-        containerHeight: viewportLayer.height,
-        scrollTop: viewportLayer.top,
-        scrollHeight: contentLayer.height,
+        containerHeight: viewport.height,
+        scrollTop: viewport.top,
+        scrollHeight: content.height,
       });
     }
   };
@@ -115,7 +116,7 @@ export default class MasonryInfinite<T> extends React.Component<
         />
         <Masonry
           {...this.props}
-          onLayerUpdate={this.onLayerUpdate}
+          onVirtualizationWindowUpdate={this.onVirtualizationWindowUpdate}
           onPendingMeasurementsUpdate={this.handlePendingMeasurementsUpdate}
           ref={this.gridRef}
         />
