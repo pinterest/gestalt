@@ -38,8 +38,6 @@ export default class MasonryInfinite<T> extends React.Component<
       scrollTop: 0,
       scrollHeight: 0,
     };
-
-    this.gridRef = React.createRef();
   }
 
   /**
@@ -75,6 +73,12 @@ export default class MasonryInfinite<T> extends React.Component<
     return null;
   }
 
+  setRef = (ref: React.ElementRef<*>) => {
+    if (ref) {
+      this.gridRef = ref;
+    }
+  };
+
   fetchMore = () => {
     const { loadItems } = this.props;
     if (loadItems && typeof loadItems === 'function') {
@@ -99,13 +103,12 @@ export default class MasonryInfinite<T> extends React.Component<
   };
 
   reflow = () => {
-    if (this.gridRef.current) {
-      this.gridRef.current.reflow();
+    if (this.gridRef) {
+      this.gridRef.reflow();
     }
   };
 
-  // $FlowFixMe - this is the right definition
-  gridRef: React.ElementRef<typeof Masonry<T>>;
+  gridRef: Masonry<T>;
 
   render() {
     return this.props.scrollContainer ? (
@@ -123,11 +126,11 @@ export default class MasonryInfinite<T> extends React.Component<
           {...this.props}
           onVirtualizationWindowUpdate={this.onVirtualizationWindowUpdate}
           onAutoMeasuringUpdate={this.handleOnAutoMeasuringUpdate}
-          ref={this.gridRef}
+          ref={this.setRef}
         />
       </React.Fragment>
     ) : (
-      <Masonry {...this.props} ref={this.gridRef} />
+      <Masonry {...this.props} ref={this.setRef} />
     );
   }
 }
