@@ -45,16 +45,24 @@ card(
       },
       {
         name: 'onBlur',
-        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
       },
       {
         name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        type:
+          '({ event: SyntheticInputEvent<HTMLInputElement>, value: string }) => void',
         required: true,
       },
       {
         name: 'onFocus',
-        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
+      },
+      {
+        name: 'onKeyDown',
+        type:
+          '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
       },
       {
         name: 'placeholder',

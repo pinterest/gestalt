@@ -11,6 +11,7 @@ exports[`TextField TextField normal 1`] = `
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
+    onKeyDown={[Function]}
     type="text"
   />
 </span>
