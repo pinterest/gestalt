@@ -12,6 +12,12 @@
 
 </details>
 
+## 0.79.0 (August 22, 2018)
+
+### Minor
+
+* Masonry: MasonryInfinite for infinite fetching (#307)
+
 ## 0.78.0 (August 20, 2018)
 
 ### Minor
