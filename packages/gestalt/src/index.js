@@ -20,6 +20,7 @@ import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
 import Link from './Link.js';
 import Mask from './Mask.js';
+import MasonryInfinite from './MasonryInfinite.js';
 import Masonry from './Masonry.js';
 import MasonryDefaultLayout from './layouts/MasonryLayout.js';
 import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
@@ -65,7 +66,8 @@ export {
   Letterbox,
   Link,
   Mask,
-  Masonry,
+  MasonryInfinite as Masonry,
+  Masonry as MasonryBeta,
   MasonryDefaultLayout,
   MasonryUniformRowLayout,
   Modal,

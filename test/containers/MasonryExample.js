@@ -24,6 +24,8 @@ const getRandomNumberGenerator = seed => {
 };
 
 export default class MasonryExample extends React.Component {
+  autoMeasurementState = 'measuring'; // MeasurementState
+
   randomNumberSeed = 0;
 
   constructor(props) {
@@ -57,7 +59,7 @@ export default class MasonryExample extends React.Component {
       window.RESIZE_MEASUREMENT_DONE = false;
       setTimeout(() => {
         const checkIfMeasuring = () => {
-          if (!this.gridRef.state.hasPendingMeasurements) {
+          if (this.autoMeasurementState === 'idle') {
             window.RESIZE_MEASUREMENT_DONE = true;
           } else {
             window.requestAnimationFrame(checkIfMeasuring);
@@ -112,6 +114,10 @@ export default class MasonryExample extends React.Component {
 
   getScrollContainerRef = ref => {
     this.scrollContainer = ref;
+  };
+
+  handleAutoMeasuringUpdate = state => {
+    this.autoMeasurementState = state;
   };
 
   handleToggleScrollContainer = e => {
@@ -324,6 +330,7 @@ export default class MasonryExample extends React.Component {
             flexible={Boolean(this.props.flexible)}
             items={this.state.items}
             measurementStore={this.props.externalCache ? store : undefined}
+            onAutoMeasuringUpdate={this.handleAutoMeasuringUpdate}
             ref={ref => {
               this.gridRef = ref;
             }}

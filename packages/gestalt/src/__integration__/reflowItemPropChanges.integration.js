@@ -24,7 +24,7 @@ describe('Masonry > Item prop changes', () => {
       );
     }, masonryItemData);
 
-    page.waitFor(200);
+    await page.waitFor(200);
     const newItems = await page.$$(selectors.gridItem);
     assert.ok(newItems.length > 0);
 
@@ -50,7 +50,7 @@ describe('Masonry > Item prop changes', () => {
       );
     });
 
-    page.waitFor(200);
+    await page.waitFor(200);
     const newItems = await page.$$(selectors.gridItem);
     assert.ok(!newItems || newItems.length === 0);
   });
