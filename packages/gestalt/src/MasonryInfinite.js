@@ -26,6 +26,8 @@ export default class MasonryInfinite<T> extends React.Component<
     return new MeasurementStore();
   }
 
+  static defaultProps = Masonry.defaultProps;
+
   constructor(props: Props<T>) {
     super(props);
 
@@ -105,6 +107,12 @@ export default class MasonryInfinite<T> extends React.Component<
   reflow = () => {
     if (this.gridRef) {
       this.gridRef.reflow();
+    }
+  };
+
+  handleResize = () => {
+    if (this.gridRef) {
+      this.gridRef.handleResize();
     }
   };
 
