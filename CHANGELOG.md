@@ -12,6 +12,12 @@
 
 </details>
 
+## 0.79.1 (August 24, 2018)
+
+### Patch
+
+* Masonry: Add missing defaultProps and handleResize (#313)
+
 ## 0.79.0 (August 22, 2018)
 
 ### Minor
