@@ -20,7 +20,7 @@ type InlineStyle = { [key: string]: string | number | void };
 
 // TODO: This type should be opaque, however the Babel parser doesn't support
 //       the opaque syntax yet.
-type Style = {|
+export type Style = {|
   className: Set<string>,
   inlineStyle: InlineStyle,
 |};

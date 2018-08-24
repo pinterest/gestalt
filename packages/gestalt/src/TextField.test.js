@@ -114,4 +114,58 @@ describe('TextField', () => {
     ).html();
     expect(tree).toMatchSnapshot();
   });
+
+  it('handles blur events', () => {
+    const mockBlur = jest.fn();
+    const tree = shallow(
+      <TextField id="test" onBlur={mockBlur} onChange={jest.fn()} />
+    );
+    tree
+      .find('input')
+      .simulate('blur', { currentTarget: { value: 'fake value' } });
+    expect(mockBlur).toHaveBeenCalledWith({
+      event: { currentTarget: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
+
+  it('handles change events', () => {
+    const mockChange = jest.fn();
+    const tree = shallow(<TextField id="test" onChange={mockChange} />);
+    tree
+      .find('input')
+      .simulate('change', { currentTarget: { value: 'fake value' } });
+    expect(mockChange).toHaveBeenCalledWith({
+      event: { currentTarget: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
+
+  it('handles focus events', () => {
+    const mockFocus = jest.fn();
+    const tree = shallow(
+      <TextField id="test" onChange={jest.fn()} onFocus={mockFocus} />
+    );
+    tree
+      .find('input')
+      .simulate('focus', { currentTarget: { value: 'fake value' } });
+    expect(mockFocus).toHaveBeenCalledWith({
+      event: { currentTarget: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
+
+  it('handles key down events', () => {
+    const mockKeyDown = jest.fn();
+    const tree = shallow(
+      <TextField id="test" onChange={jest.fn()} onKeyDown={mockKeyDown} />
+    );
+    tree
+      .find('input')
+      .simulate('keyDown', { currentTarget: { value: 'fake value' } });
+    expect(mockKeyDown).toHaveBeenCalledWith({
+      event: { currentTarget: { value: 'fake value' } },
+      value: 'fake value',
+    });
+  });
 });
