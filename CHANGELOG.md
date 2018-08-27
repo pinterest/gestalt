@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+* Button: Fix transparent button on blue background (#316)
 
 ### Patch
 
