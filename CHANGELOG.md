@@ -11,6 +11,8 @@
 
 ### Patch
 
+* Modal: set content width to 100% to prevent overflow bug in IE (#315)
+
 </details>
 
 ## 0.79.1 (August 24, 2018)
