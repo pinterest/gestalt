@@ -7,11 +7,10 @@ describe('Masonry > ScrollFetch onload', () => {
       height: 400,
     });
     await page.goto('http://localhost:3001/Masonry?manualFetch=1');
-
     const initialFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
     );
-    assert.equal(initialFetchCount, 1);
+    assert.equal(initialFetchCount, null);
 
     // Fetches 1 time if the viewport is big enough
     await page.setViewport({
