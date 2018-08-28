@@ -8,6 +8,7 @@
 
 ### Minor
 * Button: Fix transparent button on blue background (#316)
+* Icon: Add camera roll icon (#317)
 
 ### Patch
 
