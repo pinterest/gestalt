@@ -95,11 +95,11 @@
 
 .transparent:hover,
 .transparent:focus {
-  background-color: color(var(--darkGray) blackness(+ 6%));
+  background-color: rgba(0, 0, 0, .06);
 }
 
 .transparent:active {
-  background-color: color(var(--darkGray) blackness(+ 10%));
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .white {

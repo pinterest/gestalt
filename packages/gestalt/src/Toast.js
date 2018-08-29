@@ -10,7 +10,7 @@ type Props = {|
   color?: 'darkGray' | 'orange',
   icon?: 'arrow-circle-forward', // leaving open to additional icons in the future
   text: string | Array<string>,
-  thumbnail?: React.Element<any>,
+  thumbnail?: React.Node,
 |};
 
 export default function Toast(props: Props) {
@@ -82,5 +82,5 @@ Toast.propTypes = {
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),
   ]).isRequired,
-  thumbnail: PropTypes.element,
+  thumbnail: PropTypes.node,
 };

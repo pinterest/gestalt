@@ -2,6 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import colors from './Colors.css';
 import styles from './Checkbox.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -9,6 +10,7 @@ import Icon from './Icon.js';
 type Props = {|
   checked?: boolean,
   disabled?: boolean,
+  hasError?: boolean,
   id: string,
   indeterminate?: boolean,
   name?: string,
@@ -24,6 +26,7 @@ export default class Checkbox extends React.Component<Props, State> {
   static propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
+    hasError: PropTypes.bool,
     id: PropTypes.string.isRequired,
     indeterminate: PropTypes.bool,
     name: PropTypes.string,
@@ -34,6 +37,7 @@ export default class Checkbox extends React.Component<Props, State> {
   static defaultProps = {
     checked: false,
     disabled: false,
+    hasError: false,
     indeterminate: false,
     size: 'md',
   };
@@ -72,7 +76,23 @@ export default class Checkbox extends React.Component<Props, State> {
   input: ?HTMLInputElement;
 
   render() {
-    const { checked, disabled, id, indeterminate, name, size } = this.props;
+    const {
+      checked,
+      disabled,
+      hasError,
+      id,
+      indeterminate,
+      name,
+      size,
+    } = this.props;
+
+    let borderStyle = styles.border;
+    if (!disabled && (checked || indeterminate)) {
+      borderStyle = styles.borderDark;
+    } else if (hasError) {
+      borderStyle = styles.borderError;
+    }
+
     return (
       <Box position="relative">
         <input
@@ -96,15 +116,12 @@ export default class Checkbox extends React.Component<Props, State> {
         />
         <div
           className={classnames(
+            borderStyle,
             styles.check,
             // eslint-disable-next-line no-nested-ternary
             disabled
-              ? checked || indeterminate
-                ? styles.checkGray
-                : styles.checkLightGray
-              : checked || indeterminate
-                ? styles.checkDarkGray
-                : styles.checkWhite,
+              ? checked || indeterminate ? colors.grayBg : colors.lightGrayBg
+              : checked || indeterminate ? colors.darkGrayBg : colors.whiteBg,
             {
               [styles.checkEnabled]: !disabled,
               [styles.checkFocused]: this.state.focused,

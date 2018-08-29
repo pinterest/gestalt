@@ -4,6 +4,7 @@ import Box from './Box.js';
 import Button from './Button.js';
 import Card from './Card.js';
 import Checkbox from './Checkbox.js';
+import Collage from './Collage.js';
 import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
@@ -19,6 +20,7 @@ import Layer from './Layer.js';
 import Letterbox from './Letterbox.js';
 import Link from './Link.js';
 import Mask from './Mask.js';
+import MasonryInfinite from './MasonryInfinite.js';
 import Masonry from './Masonry.js';
 import MasonryDefaultLayout from './layouts/MasonryLayout.js';
 import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
@@ -48,6 +50,7 @@ export {
   Button,
   Card,
   Checkbox,
+  Collage,
   Collection,
   Column,
   Container,
@@ -63,7 +66,8 @@ export {
   Letterbox,
   Link,
   Mask,
-  Masonry,
+  MasonryInfinite as Masonry,
+  Masonry as MasonryBeta,
   MasonryDefaultLayout,
   MasonryUniformRowLayout,
   Modal,

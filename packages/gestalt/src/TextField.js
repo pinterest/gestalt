@@ -22,9 +22,22 @@ type Props = {|
   id: string,
   idealErrorDirection?: 'up' | 'right' | 'down' | 'left' /* default: right */,
   name?: string,
-  onBlur?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
-  onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
-  onFocus?: ({ event: SyntheticFocusEvent<>, value: string }) => void,
+  onBlur?: ({
+    event: SyntheticFocusEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
+  onChange: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
+  onFocus?: ({
+    event: SyntheticFocusEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
+  onKeyDown?: ({
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
   placeholder?: string,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   value?: string,
@@ -47,6 +60,7 @@ export default class TextField extends React.Component<Props, State> {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
+    onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
     type: PropTypes.oneOf([
       'date',
@@ -82,35 +96,42 @@ export default class TextField extends React.Component<Props, State> {
     return null;
   }
 
-  handleChange = (event: SyntheticInputEvent<>) => {
-    if (event.target instanceof HTMLInputElement) {
-      this.props.onChange({
-        event,
-        value: event.target.value,
-      });
-    }
+  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    this.props.onChange({
+      event,
+      value: event.currentTarget.value,
+    });
   };
 
-  handleBlur = (event: SyntheticFocusEvent<>) => {
+  handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     if (this.props.errorMessage) {
       this.setState({ errorIsOpen: false });
     }
-    if (event.target instanceof HTMLInputElement && this.props.onBlur) {
+    if (this.props.onBlur) {
       this.props.onBlur({
         event,
-        value: event.target.value,
+        value: event.currentTarget.value,
       });
     }
   };
 
-  handleFocus = (event: SyntheticFocusEvent<>) => {
+  handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     if (this.props.errorMessage) {
       this.setState({ errorIsOpen: true });
     }
-    if (event.target instanceof HTMLInputElement && this.props.onFocus) {
+    if (this.props.onFocus) {
       this.props.onFocus({
         event,
-        value: event.target.value,
+        value: event.currentTarget.value,
+      });
+    }
+  };
+
+  handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    if (this.props.onKeyDown) {
+      this.props.onKeyDown({
+        event,
+        value: event.currentTarget.value,
       });
     }
   };
@@ -156,6 +177,7 @@ export default class TextField extends React.Component<Props, State> {
           onBlur={this.handleBlur}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
+          onKeyDown={this.handleKeyDown}
           pattern={pattern}
           placeholder={placeholder}
           ref={c => {

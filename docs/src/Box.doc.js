@@ -25,7 +25,7 @@ card(
     props={[
       {
         name: 'dangerouslySetInlineStyle',
-        type: '{ __style: { [key: string]: any } }',
+        type: '{ __style: { [key: string]: string | number | void } }',
       },
       {
         name: 'children',

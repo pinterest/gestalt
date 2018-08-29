@@ -7,7 +7,7 @@ import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 type Props = {|
   anchor: ?HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
-  children?: any,
+  children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,

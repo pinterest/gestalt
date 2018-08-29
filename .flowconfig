@@ -1,5 +1,5 @@
 [version]
-0.75.0
+0.77.0
 
 [ignore]
 # Tracking https://github.com/facebook/flow/issues/4015
@@ -14,3 +14,11 @@ module.name_mapper='^.*\.css$' -> '<PROJECT_ROOT>/flow/stubs/CSSModuleStub.js'
 
 [libs]
 <PROJECT_ROOT>/flow-typed
+
+[lints]
+sketchy-number=error
+untyped-type-import=error
+untyped-import=error
+unclear-type=error
+unsafe-getters-setters=error
+nonstrict-import=error

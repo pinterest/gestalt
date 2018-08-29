@@ -18,7 +18,7 @@ type Props = {
   containerHeight: number,
   isAtEnd?: boolean,
   isFetching: boolean,
-  fetchMore?: Function,
+  fetchMore?: () => void,
   scrollHeight: number,
   scrollTop: number,
 };

@@ -8,7 +8,7 @@ import styles from './Tabs.css';
 type Props = {|
   activeTabIndex: number,
   tabs: Array<{|
-    text: any,
+    text: React.Node,
     href: string,
   |}>,
   onChange: ({

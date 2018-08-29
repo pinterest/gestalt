@@ -98,6 +98,7 @@ export default class Modal extends React.Component<Props> {
                     position="relative"
                     display="flex"
                     direction="column"
+                    column={12}
                   >
                     <Box fit>
                       {role === 'dialog' ? (

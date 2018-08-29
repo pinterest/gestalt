@@ -1,7 +1,7 @@
 // @flow
 import defaultLayout from './defaultLayout.js';
 
-const stubCache = (measurements: Object = {}) => {
+const stubCache = (measurements?: { [item: string]: number } = {}) => {
   let cache = measurements;
 
   return {

@@ -5,10 +5,13 @@
  */
 
 // @flow
-export default function debounce(fn: () => void, threshhold: number = 100) {
+export default function debounce(
+  fn: (...args: *) => void,
+  threshhold: number = 100
+) {
   let deferTimer: TimeoutID | null = null;
 
-  const debounced = (...args: any) => {
+  const debounced = (...args: *) => {
     if (deferTimer) {
       clearTimeout(deferTimer);
     }

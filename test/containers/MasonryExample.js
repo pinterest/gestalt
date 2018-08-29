@@ -24,6 +24,8 @@ const getRandomNumberGenerator = seed => {
 };
 
 export default class MasonryExample extends React.Component {
+  autoMeasurementState = 'measuring'; // MeasurementState
+
   randomNumberSeed = 0;
 
   constructor(props) {
@@ -57,7 +59,7 @@ export default class MasonryExample extends React.Component {
       window.RESIZE_MEASUREMENT_DONE = false;
       setTimeout(() => {
         const checkIfMeasuring = () => {
-          if (!this.gridRef.state.hasPendingMeasurements) {
+          if (this.autoMeasurementState === 'idle') {
             window.RESIZE_MEASUREMENT_DONE = true;
           } else {
             window.requestAnimationFrame(checkIfMeasuring);
@@ -112,6 +114,10 @@ export default class MasonryExample extends React.Component {
 
   getScrollContainerRef = ref => {
     this.scrollContainer = ref;
+  };
+
+  handleAutoMeasuringUpdate = state => {
+    this.autoMeasurementState = state;
   };
 
   handleToggleScrollContainer = e => {
@@ -242,6 +248,14 @@ export default class MasonryExample extends React.Component {
       dynamicGridProps.loadItems = this.loadItems;
     }
 
+    if (this.props.virtualBoundsTop) {
+      dynamicGridProps.virtualBoundsTop = this.virtualBoundsTop;
+    }
+
+    if (this.props.virtualBoundsBottom) {
+      dynamicGridProps.virtualBoundsBottom = this.virtualBoundsBottom;
+    }
+
     if (this.state.hasScrollContainer) {
       dynamicGridProps.scrollContainer = () =>
         document.querySelector('[data-scroll-container]');
@@ -316,6 +330,7 @@ export default class MasonryExample extends React.Component {
             flexible={Boolean(this.props.flexible)}
             items={this.state.items}
             measurementStore={this.props.externalCache ? store : undefined}
+            onAutoMeasuringUpdate={this.handleAutoMeasuringUpdate}
             ref={ref => {
               this.gridRef = ref;
             }}
@@ -375,4 +390,8 @@ MasonryExample.propTypes = {
   scrollContainer: PropTypes.string,
   // If we should virtualize the grid
   virtualize: PropTypes.bool,
+  // The relative amount in pixel to extend the virtualized viewport top value.
+  virtualBoundsTop: PropTypes.string,
+  // The relative amount in pixel to extend the virtualized viewport bottom value.
+  virtualBoundsBottom: PropTypes.string,
 };

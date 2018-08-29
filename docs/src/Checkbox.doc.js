@@ -32,6 +32,11 @@ card(
         defaultValue: false,
       },
       {
+        name: 'hasError',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
         name: 'id',
         type: 'string',
         required: true,
@@ -136,6 +141,33 @@ class CheckboxExample extends React.Component {
         <Box paddingY={1}>
           <CheckboxWithLabel label="Carrier pidgeon" id="pidgeon" />
         </Box>
+      </Box>
+    );
+  }
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Example: Error state"
+    defaultCode={`
+class CheckboxExample extends React.Component {
+  render() {
+    return (
+      <Box alignItems="center" direction="row" display="flex">
+        <Checkbox
+          hasError
+          id="error"
+          name="error"
+          onChange={() => {}}
+        />
+        <Label htmlFor="error">
+          <Box paddingX={2}>
+            <Text>This checkbox has an error</Text>
+          </Box>
+        </Label>
       </Box>
     );
   }

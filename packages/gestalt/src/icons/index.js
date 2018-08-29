@@ -12,6 +12,7 @@ import arrowUp from './arrow-up.svg';
 import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
 import camera from './camera.svg';
+import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
@@ -49,6 +50,7 @@ import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
 import maximize from './maximize.svg';
+import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
 import move from './move.svg';
@@ -93,6 +95,7 @@ export default {
   'arrow-up-right': arrowUpRight,
   bell,
   camera,
+  'camera-roll': cameraRoll,
   cancel,
   check,
   'check-circle': checkCircle,
@@ -130,6 +133,7 @@ export default {
   location,
   lock,
   maximize,
+  megaphone,
   menu,
   minimize,
   move,

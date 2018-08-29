@@ -7,7 +7,6 @@ describe('Masonry > ScrollFetch onload', () => {
       height: 400,
     });
     await page.goto('http://localhost:3001/Masonry?manualFetch=1');
-
     const initialFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
     );
@@ -22,6 +21,6 @@ describe('Masonry > ScrollFetch onload', () => {
     const largerFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
     );
-    assert.ok(largerFetchCount >= 1);
+    assert.ok(largerFetchCount >= 2);
   });
 });
