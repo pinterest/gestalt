@@ -8,12 +8,12 @@
 
 ### Minor
 
-* Button: Fix transparent button on blue background (#316)
-* Icon: Add camera roll icon (#317)
+- Button: Fix transparent button on blue background (#316)
+- Icon: Add camera roll icon (#317)
 
 ### Patch
 
-* Modal: set content width to 100% to prevent overflow bug in IE (#315)
+- Modal: set content width to 100% to prevent overflow bug in IE (#315)
 
 </details>
 
@@ -21,51 +21,51 @@
 
 ### Patch
 
-* Masonry: Add missing defaultProps and handleResize (#313)
+- Masonry: Add missing defaultProps and handleResize (#313)
 
 ## 0.79.0 (August 22, 2018)
 
 ### Minor
 
-* Masonry: MasonryInfinite for infinite fetching (#307)
+- Masonry: MasonryInfinite for infinite fetching (#307)
 
 ## 0.78.0 (August 20, 2018)
 
 ### Minor
 
-* Internal: Turn on sketchy-number flow lint rules as an error (#293)
-* TextArea: Add an onKeyDown prop (#303)
-* TextField: Add an onKeyDown prop (#303)
-* Internal: Add flow types to `Box` transform functors (#299)
-* Icon: Fix cog icon rotation (#308)
+- Internal: Turn on sketchy-number flow lint rules as an error (#293)
+- TextArea: Add an onKeyDown prop (#303)
+- TextField: Add an onKeyDown prop (#303)
+- Internal: Add flow types to `Box` transform functors (#299)
+- Icon: Fix cog icon rotation (#308)
 
 ## 0.77.0 (July 30, 2018)
 
 ### Minor
 
-* Checkbox: Add error prop and styling (#287)
-* Internal: Bump flow version to 0.77.0 (#289)
-* Internal: Add flow typed definitions for node-fetch and filesize (#290)
-* Collage: Add new Collage component to Gestalt (#291)
-* Internal: Turn on all non-sketchy flow lint rules as errors (#292)
-* Masonry: Add configurable virtual bounds (#294)
+- Checkbox: Add error prop and styling (#287)
+- Internal: Bump flow version to 0.77.0 (#289)
+- Internal: Add flow typed definitions for node-fetch and filesize (#290)
+- Collage: Add new Collage component to Gestalt (#291)
+- Internal: Turn on all non-sketchy flow lint rules as errors (#292)
+- Masonry: Add configurable virtual bounds (#294)
 
 ## 0.76.1 (July 17, 2018)
 
 ### Patch
 
-* Masonry: Fix React prop typing for `layout` (#284)
+- Masonry: Fix React prop typing for `layout` (#284)
 
 ## 0.76.0 (July 17, 2018)
 
 ### Minor
 
-* Icon: reduce filesize of each icon with 40% + add new icons (#269)
-* Colors: Darken gray and darkGray so they're AA accessible at smaller sizes (#276)
-* Video: Add a gradient overlay on the control bar (#27)
-* Layer: Layer component is now exported for use and has documentation
-* TextArea: Add a hasError prop (#280)
-* Icon: Add new `megaphone` icon (#281)
+- Icon: reduce filesize of each icon with 40% + add new icons (#269)
+- Colors: Darken gray and darkGray so they're AA accessible at smaller sizes (#276)
+- Video: Add a gradient overlay on the control bar (#27)
+- Layer: Layer component is now exported for use and has documentation
+- TextArea: Add a hasError prop (#280)
+- Icon: Add new `megaphone` icon (#281)
 
 ### Patch
 

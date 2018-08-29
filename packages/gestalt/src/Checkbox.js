@@ -120,8 +120,12 @@ export default class Checkbox extends React.Component<Props, State> {
             styles.check,
             // eslint-disable-next-line no-nested-ternary
             disabled
-              ? checked || indeterminate ? colors.grayBg : colors.lightGrayBg
-              : checked || indeterminate ? colors.darkGrayBg : colors.whiteBg,
+              ? checked || indeterminate
+                ? colors.grayBg
+                : colors.lightGrayBg
+              : checked || indeterminate
+                ? colors.darkGrayBg
+                : colors.whiteBg,
             {
               [styles.checkEnabled]: !disabled,
               [styles.checkFocused]: this.state.focused,
