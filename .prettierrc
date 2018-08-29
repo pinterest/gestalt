@@ -11,5 +11,4 @@ overrides:
   options:
     parser: markdown
 - files: ".babelrc,.eslintrc"
-  options:
-    parser: json
+  parser: json

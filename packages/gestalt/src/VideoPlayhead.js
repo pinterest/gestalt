@@ -63,7 +63,7 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
 
   render() {
     const { currentTime, duration } = this.props;
-    const width = `${Math.floor(currentTime * 10000 / duration) / 100}%`;
+    const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
     return (
       <Box
         position="relative"

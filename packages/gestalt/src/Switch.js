@@ -58,8 +58,12 @@ export default class Switch extends React.Component<Props, State> {
       },
       // eslint-disable-next-line no-nested-ternary
       disabled
-        ? switched ? styles.switchGray : styles.switchLightGray
-        : switched ? styles.switchDarkGray : styles.switchWhite
+        ? switched
+          ? styles.switchGray
+          : styles.switchLightGray
+        : switched
+          ? styles.switchDarkGray
+          : styles.switchWhite
     );
 
     const sliderStyles = classnames(

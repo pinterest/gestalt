@@ -462,7 +462,7 @@ export default class Video extends React.PureComponent<Props, State> {
     } = this.props;
     const { currentTime, duration, fullscreen } = this.state;
 
-    const paddingBottom = (fullscreen && '0') || `${1 / aspectRatio * 100}%`;
+    const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
 
     return (
       <div

@@ -1,0 +1,14 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "docs/package.json",
+        "packages/gestalt/package.json"
+      ]
+    }
+  },
+  "ignore": [
+    "flow-bin",
+  ]
+}
