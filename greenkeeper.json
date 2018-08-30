@@ -9,6 +9,6 @@
     }
   },
   "ignore": [
-    "flow-bin",
+    "flow-bin"
   ]
 }
