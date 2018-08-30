@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
@@ -25,7 +25,7 @@
     "babel-preset-stage-1": "^6.24.1",
     "benchmark": "^2.1.4",
     "codecov": "^3.0.2",
-    "concurrently": "^3.5.1",
+    "concurrently": "^4.0.1",
     "danger": "^3.1.7",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -47,14 +47,14 @@
     "jest-puppeteer": "^3.2.1",
     "lint-staged": "^7.2.0",
     "node-fetch": "^2.1.2",
-    "prettier": "1.13.7",
+    "prettier": "1.14.2",
     "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.3.2",
     "shelljs": "^0.8.2",
     "stylelint": "^9.3.0",
-    "stylelint-config-prettier": "^3.2.0",
+    "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^0.8.1"
+    "stylelint-order": "^1.0.0"
   },
   "scripts": {
     "build": "cd packages/gestalt && yarn build",
