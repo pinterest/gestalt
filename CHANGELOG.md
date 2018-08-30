@@ -10,6 +10,7 @@
 
 - Button: Fix transparent button on blue background (#316)
 - Icon: Add camera roll icon (#317)
+- Video: Make a11y label props required in Video component (#321)
 
 ### Patch
 

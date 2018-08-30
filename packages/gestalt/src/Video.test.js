@@ -4,9 +4,19 @@ import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Video from './Video.js';
 
+const A11Y_LABELS = Object.freeze({
+  accessibilityMaximizeLabel: 'Maximize',
+  accessibilityMinimizeLabel: 'Minimize',
+  accessibilityMuteLabel: 'Mute',
+  accessibilityPauseLabel: 'Pause',
+  accessibilityPlayLabel: 'Play',
+  accessibilityUnmuteLabel: 'Unmute',
+});
+
 test('Video with source', () => {
   const tree = create(
     <Video
+      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -18,6 +28,7 @@ test('Video with source', () => {
 test('Video with multiple sources', () => {
   const tree = create(
     <Video
+      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src={[
@@ -38,6 +49,7 @@ test('Video with multiple sources', () => {
 test('Video with media attributes', () => {
   const tree = create(
     <Video
+      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       loop
@@ -52,6 +64,7 @@ test('Video with media attributes', () => {
 test('Video with callbacks', () => {
   const tree = create(
     <Video
+      {...A11Y_LABELS}
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       onDurationChange={() => {}}
@@ -74,6 +87,7 @@ describe('Video loading', () => {
   it('Does not load when string src does not change', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -87,6 +101,7 @@ describe('Video loading', () => {
   it('Does not load when array src does not change', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src={[
@@ -105,6 +120,7 @@ describe('Video loading', () => {
   it('Loads when string src changes to new string src', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -118,6 +134,7 @@ describe('Video loading', () => {
   it('Loads when string src changes to new array src', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -138,6 +155,7 @@ describe('Video loading', () => {
   it('Loads when array src changes to new string src', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src={[
@@ -158,6 +176,7 @@ describe('Video loading', () => {
   it('Loads when array src changes to new array src', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src={[
@@ -183,6 +202,7 @@ describe('Video loading', () => {
   it('Loads when array src changes to new length array src', () => {
     const wrapper = shallow(
       <Video
+        {...A11Y_LABELS}
         aspectRatio={1}
         captions="https://media.w3.org/2010/05/sintel/captions.vtt"
         src={[

@@ -5,35 +5,20 @@ import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import styles from './Video.css';
 
-type VideoWithControls = {|
+type Source =
+  | string
+  | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
+
+type Props = {|
   accessibilityMaximizeLabel: string,
   accessibilityMinimizeLabel: string,
   accessibilityMuteLabel: string,
   accessibilityPauseLabel: string,
   accessibilityPlayLabel: string,
   accessibilityUnmuteLabel: string,
-  controls: boolean,
-|};
-
-type VideoNoControls = {|
-  accessibilityMaximizeLabel?: string,
-  accessibilityMinimizeLabel?: string,
-  accessibilityMuteLabel?: string,
-  accessibilityPauseLabel?: string,
-  accessibilityPlayLabel?: string,
-  accessibilityUnmuteLabel?: string,
-  controls?: null,
-|};
-
-type Controls = VideoWithControls | VideoNoControls;
-
-type Source =
-  | string
-  | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
-
-type Props = {|
   aspectRatio: number,
   captions: string,
+  controls?: boolean,
   loop?: boolean,
   onDurationChange?: ({
     event: SyntheticEvent<HTMLVideoElement>,
@@ -64,7 +49,6 @@ type Props = {|
   preload: 'auto' | 'metadata' | 'none',
   src: Source,
   volume: number,
-  ...Controls,
 |};
 
 type State = {|
