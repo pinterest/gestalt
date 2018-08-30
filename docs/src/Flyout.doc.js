@@ -54,6 +54,12 @@ card(
           'The background color of the Flyout: orange matches other baked-in error flyouts',
       },
       {
+        name: 'shouldFocus',
+        type: 'boolean',
+        defaultValue: true,
+        description: 'Focus on the flyout when opened',
+      },
+      {
         name: 'size',
         type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
         description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
@@ -156,6 +162,7 @@ class ErrorFlyoutExample extends React.Component {
             idealDirection="up"
             onDismiss={this.handleDismiss}
             color="orange"
+            shouldFocus={false}
             size="md"
           >
             <Box padding={3}>
