@@ -18,7 +18,7 @@ steps:
         run: gestalt
   - wait
   - name: ":yarn:"
-    command: yarn greenkeeper:update
+    command: yarn greenkeeper-lockfile-update
     timeout_in_minutes: 10
     env:
       - GH_TOKEN
@@ -27,6 +27,7 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
+  - wait
   - name: ":eslint:"
     command: yarn lint:js
     timeout_in_minutes: 10
@@ -90,8 +91,9 @@ steps:
     plugins:
       docker-compose:
         run: gestalt
+  - wait
   - name: ":github:"
-    command: yarn greenkeeper:upload
+    command: yarn greenkeeper-lockfile-upload
     timeout_in_minutes: 10
     env:
       - GH_TOKEN
