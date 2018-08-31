@@ -17,6 +17,17 @@ steps:
       docker-compose:
         run: gestalt
   - wait
+  - name: ":yarn:"
+    command: yarn greenkeeper-lockfile-update
+    timeout_in_minutes: 10
+    env:
+      - GH_TOKEN
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: gestalt
+  - wait
   - name: ":eslint:"
     command: yarn lint:js
     timeout_in_minutes: 10
@@ -75,6 +86,17 @@ steps:
       - BUILDKITE_REPO
       - CI
       - DANGER_GITHUB_API_TOKEN
+    agents:
+      queue: elastic
+    plugins:
+      docker-compose:
+        run: gestalt
+  - wait
+  - name: ":github:"
+    command: yarn greenkeeper-lockfile-upload
+    timeout_in_minutes: 10
+    env:
+      - GH_TOKEN
     agents:
       queue: elastic
     plugins:
