@@ -4043,7 +4043,7 @@ fast-diff@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
-fast-glob@^2.0.2:
+fast-glob@^2.0.2, fast-glob@^2.2.0:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.2.tgz#71723338ac9b4e0e2fff1d6748a2a13d5ed352bf"
   dependencies:
@@ -4616,6 +4616,20 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6,
 "graceful-readlink@>= 1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
+
+greenkeeper-lockfile@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/greenkeeper-lockfile/-/greenkeeper-lockfile-2.5.0.tgz#e9bdc3b4004d7cbb948878c7205825f2d243ebde"
+  dependencies:
+    fast-glob "^2.2.0"
+    greenkeeper-monorepo-definitions "^1.0.0"
+    lodash "^4.17.10"
+    require-relative "^0.8.7"
+    semver "^5.3.0"
+
+greenkeeper-monorepo-definitions@^1.0.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/greenkeeper-monorepo-definitions/-/greenkeeper-monorepo-definitions-1.5.0.tgz#363f92c0e8705011a3a8e76b4435b5a537d5affb"
 
 growl@1.9.2:
   version "1.9.2"
@@ -9323,7 +9337,7 @@ require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
-require-relative@0.8.7:
+require-relative@0.8.7, require-relative@^0.8.7:
   version "0.8.7"
   resolved "https://registry.yarnpkg.com/require-relative/-/require-relative-0.8.7.tgz#7999539fc9e047a37928fa196f8e1563dabd36de"
 
