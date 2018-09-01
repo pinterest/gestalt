@@ -129,7 +129,6 @@ function statesForRendering<T>(props: Props<T>, state: State<T>) {
   const { items } = state;
 
   // Full layout is possible
-  // $FlowFixMe https://github.com/facebook/flow/issues/6151
   const itemsToRender = items.filter(
     item => item && measurementStore.has(item)
   );
@@ -141,7 +140,6 @@ function statesForRendering<T>(props: Props<T>, state: State<T>) {
     ? Math.max(...renderPositions.map(pos => pos.top + pos.height))
     : 0;
 
-  // $FlowFixMe https://github.com/facebook/flow/issues/6151
   const itemsToMeasure = items
     .filter(item => item && !measurementStore.has(item))
     .slice(0, minCols);
@@ -383,12 +381,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       item => item && !measurementStore.has(item)
     );
 
-    const newState: State<T> = {
-      ...state,
-      hasPendingMeasurements,
-      items,
-    };
-
     // Shallow compare all items, if any change reflow the grid.
     for (let i = 0; i < items.length; i += 1) {
       // We've reached the end of our current props and everything matches.
@@ -397,7 +389,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         return {
           hasPendingMeasurements,
           items,
-          ...statesForRendering(props, newState),
         };
       }
 
@@ -411,7 +402,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         return {
           hasPendingMeasurements,
           items,
-          ...statesForRendering(props, newState),
         };
       }
     }
@@ -421,7 +411,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return {
         hasPendingMeasurements,
         items,
-        ...statesForRendering(props, newState),
       };
     }
     if (hasPendingMeasurements !== state.hasPendingMeasurements) {
@@ -429,7 +418,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return {
         hasPendingMeasurements,
         items,
-        ...statesForRendering(props, newState),
       };
     }
 
@@ -583,6 +571,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       renderPositions,
       width,
     } = this.state;
+
     let gridBody;
     if (width == null && hasPendingMeasurements) {
       // When hyrdating from a server render, we don't have the width of the grid
