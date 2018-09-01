@@ -11,7 +11,7 @@ describe('Masonry > ScrollFetch onload', () => {
     const initialFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
     );
-    assert.equal(initialFetchCount, 1);
+    assert.equal(initialFetchCount, null);
 
     // Fetches 1 time if the viewport is big enough
     await page.setViewport({
@@ -22,6 +22,6 @@ describe('Masonry > ScrollFetch onload', () => {
     const largerFetchCount = await page.evaluate(
       () => window.TEST_FETCH_COUNTS
     );
-    assert.ok(largerFetchCount >= 2);
+    assert.ok(largerFetchCount >= 1);
   });
 });

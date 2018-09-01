@@ -1,8 +1,6 @@
 import assert from 'assert';
 import selectors from './lib/selectors.js';
 
-jest.setTimeout(10000);
-
 describe('Masonry > Null items', () => {
   it('Should not throw an error when null/undefined items are inserted', async () => {
     await page.setViewport({
