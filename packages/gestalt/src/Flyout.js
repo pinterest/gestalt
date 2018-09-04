@@ -10,6 +10,7 @@ type Props = {|
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
   color?: 'blue' | 'orange' | 'white',
+  shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
@@ -21,6 +22,7 @@ export default function Flyout(props: Props) {
     onDismiss,
     positionRelativeToAnchor = true,
     color = 'white',
+    shouldFocus = true,
     size,
   } = props;
 
@@ -35,7 +37,7 @@ export default function Flyout(props: Props) {
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
-      shouldFocus={color !== 'orange'}
+      shouldFocus={shouldFocus}
       size={size}
     >
       {children}
