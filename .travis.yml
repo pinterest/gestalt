@@ -5,7 +5,7 @@ language: node_js
 node_js:
   - lts/carbon
 addons:
-  chrome: unstable
+  chrome: stable
 before_install:
   - yarn global add greenkeeper-lockfile@2
   - yarn global add codecov
