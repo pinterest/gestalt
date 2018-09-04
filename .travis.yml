@@ -7,6 +7,10 @@ before_install:
 before_script:
   - greenkeeper-lockfile-update
   - yarn danger ci
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
 after_script:
   - greenkeeper-lockfile-upload
   - codecov
