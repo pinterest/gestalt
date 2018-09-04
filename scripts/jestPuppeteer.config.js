@@ -1,10 +1,8 @@
 module.exports = {
   launch: {
     headless: true,
-    ...(process.env.BUILDKITE_REPO
-      ? { executablePath: 'google-chrome-unstable' }
-      : {}),
-    args: process.env.BUILDKITE_REPO
+    ...(process.env.CI ? { executablePath: 'google-chrome-unstable' } : {}),
+    args: process.env.CI
       ? [
           // Required for Docker version of Puppeteer
           '--no-sandbox',

@@ -16,7 +16,7 @@ PID=$! # get the Parent Process ID
 PGID=$(ps opgid= "$PID") # get the Process Group ID
 
 until $(curl --output /dev/null --silent --head --fail http://localhost:3001/__ping); do
-    printf '.'
+    echo "Waiting for server to start..."
     sleep 5
 done
 
