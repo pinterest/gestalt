@@ -1,17 +1,17 @@
 os:
   - linux
+dist: trusty
 language: node_js
 node_js:
   - lts/carbon
+addons:
+  chrome: unstable
 before_install:
   - yarn global add greenkeeper-lockfile@2
   - yarn global add codecov
 before_script:
   - greenkeeper-lockfile-update
   - yarn danger ci
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
 
 after_script:
   - greenkeeper-lockfile-upload
