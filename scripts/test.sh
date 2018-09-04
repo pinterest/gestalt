@@ -1,14 +1,26 @@
 #!/usr/bin/env bash
 set -e
 
-echo "+++ :eslint: Running eslint"
+function fold_start {
+  echo -en "travis_fold:start:$1\\r"
+}
+
+function fold_end {
+  echo -en "travis_fold:end:$1\\r"
+}
+
+fold_start "eslint"
 yarn eslint .
+fold_end "eslint"
 
-echo "+++ :stylelint: Running stylelint"
+fold_start "stylelint"
 yarn stylelint "packages/**/*.css"
+fold_end "stylelint"
 
-echo "+++ :jest: Running jest"
+fold_start "jest"
 yarn jest
+fold_end "jest"
 
-echo "+++ :eslint: Running integration tests"
+fold_start "integration_tests"
 ./run_integration_tests
+fold_end "integration_tests"
