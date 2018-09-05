@@ -31,7 +31,7 @@
     "postcss": "^7.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-modules": "^1.1.0",
-    "rollup": "^0.62.0",
+    "rollup": "^0.65.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-filesize": "^2.0.0",
     "rollup-plugin-json": "^3.0.0",
