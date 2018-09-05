@@ -17,6 +17,7 @@
 ### Patch
 
 - Modal: set content width to 100% to prevent overflow bug in IE (#315)
+- Modal: change Box width from using column to width property (#338)
 
 </details>
 
