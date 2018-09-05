@@ -25,7 +25,7 @@ describe('Masonry > Item prop removal', () => {
       );
     }, masonryItemData);
 
-    page.waitFor(200);
+    await page.waitFor(200);
     const newItems = await page.$$(selectors.gridItem);
     assert.ok(newItems.length === 3);
   });
@@ -40,7 +40,7 @@ describe('Masonry > Item prop removal', () => {
         })
       );
     });
-    page.waitFor(200);
+    await page.waitFor(200);
     const newItems = await page.$$(selectors.gridItem);
     assert.equal(newItems.length, 2);
   });
