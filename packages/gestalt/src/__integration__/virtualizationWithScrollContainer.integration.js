@@ -51,8 +51,7 @@ describe('Masonry > virtualization /w scroll container', () => {
       VIRTUALIZED_TOP,
       selectors.scrollContainer
     );
-
-    await page.waitFor(100);
+    // await page.waitFor(100);
     const afterGridItems = await page.$$(selectors.gridItem);
     assert.ok(afterGridItems.length > 0);
   });

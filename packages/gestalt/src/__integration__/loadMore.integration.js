@@ -1,8 +1,6 @@
 import assert from 'assert';
 import selectors from './lib/selectors.js';
 
-jest.setTimeout(10000);
-
 const PIN_INSERTION_TIME = 500;
 
 describe('Masonry > Scrolls', () => {

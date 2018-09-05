@@ -75,7 +75,6 @@ describe('Masonry > Server Render Layout', () => {
       window.dispatchEvent(new CustomEvent('trigger-mount'));
     });
 
-    await page.waitFor(100);
     const gridItems = await page.$$(selectors.gridItem);
 
     const gridItem1Rect = await gridItems[0].boundingBox();
