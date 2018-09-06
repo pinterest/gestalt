@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.79.2 (September 5, 2018)
+
+### Minor
+
 - Button: Fix transparent button on blue background (#316)
 - Flyout: Add new prop `shouldFocus` to override focus on open behavior. *Has codemod* (#325)
 - Icon: Add camera roll icon (#317)
@@ -19,8 +27,6 @@
 
 - Modal: set content width to 100% to prevent overflow bug in IE (#315)
 - Modal: change Box width from using column to width property (#338)
-
-</details>
 
 ## 0.79.1 (August 24, 2018)
 
