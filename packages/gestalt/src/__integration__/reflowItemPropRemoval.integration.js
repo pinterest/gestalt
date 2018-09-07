@@ -8,8 +8,11 @@ const masonryItemData = [
 ];
 
 describe('Masonry > Item prop removal', () => {
-  it('Masonry will update when items are removed.', async () => {
-    await page.goto('http://localhost:3001/Masonry?finiteLength=1');
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry?finiteLength=1'],
+    ['MasonryInfinite', 'http://localhost:3001/MasonryInfinite?finiteLength=1'],
+  ])('Masonry will update when items are removed. - %s', async (name, url) => {
+    await page.goto(url);
 
     const originalItems = await page.$$(selectors.gridItem);
     assert.ok(originalItems.length > 0);

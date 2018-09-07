@@ -2,12 +2,15 @@ import assert from 'assert';
 import selectors from './lib/selectors.js';
 
 describe('Masonry > Update scroll container', () => {
-  it('Should handle updating the scroll container', async () => {
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry?virtualize=1'],
+    ['MasonryInfinite', 'http://localhost:3001/MasonryInfinite?virtualize=1'],
+  ])('Should handle updating the scroll container - %s', async (name, url) => {
     await page.setViewport({
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry?virtualize=1');
+    await page.goto(url);
 
     // scroll container should be set to window initially
     let gridItems = await page.$$(selectors.gridItem);

@@ -2,14 +2,18 @@ import assert from 'assert';
 import selectors from './lib/selectors.js';
 
 describe('Masonry > External cache', () => {
-  it('should only mount visible items on remount', async () => {
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry?virtualize=1&externalCache=1'],
+    [
+      'MasonryInfinite',
+      'http://localhost:3001/MasonryInfinite?virtualize=1&externalCache=1',
+    ],
+  ])('should only mount visible items on remount - %s', async (name, url) => {
     await page.setViewport({
       width: 800,
       height: 800,
     });
-    await page.goto(
-      'http://localhost:3001/Masonry?virtualize=1&externalCache=1'
-    );
+    await page.goto(url);
 
     const initialMountCount = await page.evaluate(
       () => window.ITEM_MOUNT_COUNT
