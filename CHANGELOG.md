@@ -12,6 +12,13 @@
 
 </details>
 
+## 0.80.0 (September 7, 2018)
+
+### Minor
+
+- Internal: Update flow-typed def for jest to match jest version (#346)
+- Masonry: new MasonryInfiniteBeta and MasonryBeta (#329)
+
 ## 0.79.2 (September 5, 2018)
 
 ### Minor

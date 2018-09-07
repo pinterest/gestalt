@@ -2,8 +2,11 @@ import assert from 'assert';
 import selectors from './lib/selectors.js';
 
 describe('Masonry > Render Height', () => {
-  it('Items can be positioned under the grid', async () => {
-    await page.goto('http://localhost:3001/Masonry?finiteLength=1');
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry?finiteLength=1'],
+    ['MasonryInfinite', 'http://localhost:3001/MasonryInfinite?finiteLength=1'],
+  ])('Items can be positioned under the grid - %s', async (name, url) => {
+    await page.goto(url);
 
     const gridItems = await page.$$(selectors.gridItem);
     assert.ok(gridItems.length > 0);

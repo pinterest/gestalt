@@ -2,7 +2,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import debounce from './debounce.js';
-import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
@@ -17,7 +16,7 @@ import {
   DefaultLayoutSymbol,
   UniformRowLayoutSymbol,
 } from './legacyLayoutSymbols.js';
-import defaultLayout from './defaultLayout.js';
+import defaultLayout, { type Position } from './defaultLayout.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
 import LegacyMasonryLayout from './layouts/MasonryLayout.js';
@@ -29,7 +28,9 @@ type Layout =
   | LegacyMasonryLayout
   | LegacyUniformRowLayout;
 
-type Props<T> = {|
+export type MeasurementState = 'idle' | 'measuring';
+
+export type Props<T> = {|
   columnWidth?: number,
   comp: React.ComponentType<{
     data: T,
@@ -41,6 +42,12 @@ type Props<T> = {|
   items: Array<T>,
   measurementStore: Cache<T, *>,
   minCols: number,
+  // Content layer and Viewport layer is as defined in Collection.
+  onVirtualizationWindowUpdate?: (
+    content: Position,
+    viewport: Position
+  ) => void,
+  onAutoMeasuringUpdate?: (state: MeasurementState) => void,
   layout?: Layout,
   // Support legacy loadItems usage.
   // TODO: Simplify non falsey flowtype.
@@ -59,8 +66,12 @@ type Props<T> = {|
 
 type State<T> = {|
   hasPendingMeasurements: boolean,
-  isFetching: boolean,
+  height: number,
   items: Array<T>,
+  itemsToMeasure: Array<T>,
+  itemsToRender: Array<T>,
+  measuringPositions: Array<Position>,
+  renderPositions: Array<Position>,
   scrollTop: number,
   width: ?number,
 |};
@@ -72,16 +83,90 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
-/**
- * NOTE: This is to be replaced by MasonryInfiniteBeta when it is ready
- * NOTE: Please do not modify this or make sure changes in here are also
- *       replicated in MasonryBeta.
- */
-export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
-  static createMeasurementStore() {
-    return new MeasurementStore();
+function layoutClass<T>(
+  {
+    columnWidth,
+    flexible,
+    gutterWidth: gutter,
+    layout,
+    measurementStore,
+    minCols,
+  }: Props<T>,
+  { width }: State<T>
+) {
+  if (flexible && width !== null) {
+    return fullWidthLayout({
+      gutter,
+      cache: measurementStore,
+      minCols,
+      idealColumnWidth: columnWidth,
+      width,
+    });
   }
+  if (
+    layout === UniformRowLayoutSymbol ||
+    layout instanceof LegacyUniformRowLayout
+  ) {
+    return uniformRowLayout({
+      cache: measurementStore,
+      columnWidth,
+      gutter,
+      minCols,
+      width,
+    });
+  }
+  return defaultLayout({
+    cache: measurementStore,
+    columnWidth,
+    gutter,
+    minCols,
+    width,
+  });
+}
 
+function statesForRendering<T>(props: Props<T>, state: State<T>) {
+  const { measurementStore, minCols } = props;
+  const { items } = state;
+
+  // Full layout is possible
+  // $FlowIssue https://github.com/facebook/flow/issues/6151
+  const itemsToRender = items.filter(
+    item => item && measurementStore.has(item)
+  );
+
+  const layout = layoutClass(props, state);
+  const renderPositions = layout(itemsToRender);
+  // Math.max() === -Infinity when there are no renderPositions
+  const height = renderPositions.length
+    ? Math.max(...renderPositions.map(pos => pos.top + pos.height))
+    : 0;
+
+  // $FlowIssue https://github.com/facebook/flow/issues/6151
+  const itemsToMeasure = items
+    .filter(item => item && !measurementStore.has(item))
+    .slice(0, minCols);
+  const measuringPositions = layout(itemsToMeasure);
+
+  return {
+    height,
+    itemsToRender,
+    itemsToMeasure,
+    measuringPositions,
+    renderPositions,
+  };
+}
+
+/**
+ * The will be the new MasonryBeta that will not have any fetching concerns.
+ *
+ * For now, it differs with Masonry only by not having any fetching logic.
+ *
+ * It is in beta until it can be battle tested.
+ */
+export default class MasonryBeta<T> extends React.Component<
+  Props<T>,
+  State<T>
+> {
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
@@ -104,6 +189,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.setState({
       scrollTop: getScrollPos(scrollContainer),
     });
+
+    this.handleVirtualizationWindowUpdate();
   });
 
   measureContainerAsync = debounce(() => {
@@ -196,9 +283,13 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       hasPendingMeasurements: props.items.some(
         item => !!item && !props.measurementStore.has(item)
       ),
-      isFetching: false,
+      height: 0,
+      itemsToRender: [],
+      itemsToMeasure: [],
       // eslint-disable-next-line react/no-unused-state
       items: props.items,
+      measuringPositions: [],
+      renderPositions: [],
       scrollTop: 0,
       width: undefined,
     };
@@ -220,10 +311,22 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       }
     }
 
-    this.setState(prevState => ({
-      scrollTop,
-      width: this.gridWrapper ? this.gridWrapper.clientWidth : prevState.width,
-    }));
+    this.setState(prevState => {
+      const width = this.gridWrapper
+        ? this.gridWrapper.clientWidth
+        : prevState.width;
+      const stateWithWidth = { ...this.state, width };
+      return {
+        scrollTop,
+        width,
+        ...statesForRendering(this.props, stateWithWidth),
+      };
+    });
+
+    // need to make sure parent component has the correct pending measurement value
+    this.handleOnAutoMeasuringUpdate(
+      this.state.hasPendingMeasurements ? 'measuring' : 'idle'
+    );
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
@@ -238,15 +341,30 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     const hasPendingMeasurements = items.some(
       item => !!item && !measurementStore.has(item)
     );
+
+    if (hasPendingMeasurements && !prevState.hasPendingMeasurements) {
+      this.handleOnAutoMeasuringUpdate('measuring');
+    } else if (!hasPendingMeasurements && prevState.hasPendingMeasurements) {
+      this.handleOnAutoMeasuringUpdate('idle');
+    }
+    this.handleVirtualizationWindowUpdate();
+
     if (
       hasPendingMeasurements ||
       hasPendingMeasurements !== this.state.hasPendingMeasurements ||
       prevState.width == null
     ) {
       this.insertAnimationFrame = requestAnimationFrame(() => {
+        const renderingStates = statesForRendering(this.props, this.state);
         this.setState({
           hasPendingMeasurements,
+          ...renderingStates,
         });
+      });
+    } else if (hasPendingMeasurements || prevState.items !== items) {
+      this.insertAnimationFrame = requestAnimationFrame(() => {
+        const renderingStates = statesForRendering(this.props, this.state);
+        this.setState({ ...renderingStates });
       });
     }
   }
@@ -272,8 +390,14 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     // whenever we're receiving new props, determine whether any items need to be measured
     // TODO - we should treat items as immutable
     const hasPendingMeasurements = items.some(
-      item => !measurementStore.has(item)
+      item => item && !measurementStore.has(item)
     );
+
+    const newState: State<T> = {
+      ...state,
+      hasPendingMeasurements,
+      items,
+    };
 
     // Shallow compare all items, if any change reflow the grid.
     for (let i = 0; i < items.length; i += 1) {
@@ -283,7 +407,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         return {
           hasPendingMeasurements,
           items,
-          isFetching: false,
+          ...statesForRendering(props, newState),
         };
       }
 
@@ -297,7 +421,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         return {
           hasPendingMeasurements,
           items,
-          isFetching: false,
+          ...statesForRendering(props, newState),
         };
       }
     }
@@ -307,7 +431,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return {
         hasPendingMeasurements,
         items,
-        isFetching: false,
+        ...statesForRendering(props, newState),
       };
     }
     if (hasPendingMeasurements !== state.hasPendingMeasurements) {
@@ -315,6 +439,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       return {
         hasPendingMeasurements,
         items,
+        ...statesForRendering(props, newState),
       };
     }
 
@@ -330,15 +455,32 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.scrollContainer = ref;
   };
 
-  fetchMore = () => {
-    const { loadItems } = this.props;
-    if (loadItems && typeof loadItems === 'function') {
-      this.setState(
-        {
-          isFetching: true,
-        },
-        () => loadItems({ from: this.props.items.length })
-      );
+  handleVirtualizationWindowUpdate = () => {
+    const { height, width } = this.state;
+    if (
+      typeof this.props.onVirtualizationWindowUpdate === 'function' &&
+      this.containerHeight
+    ) {
+      const viewport = {
+        top: this.state.scrollTop,
+        left: 0,
+        height: this.containerHeight,
+        width: width || 0,
+      };
+      const content = {
+        top: this.containerOffset,
+        left: 0,
+        height,
+        width: width || 0,
+      };
+
+      this.props.onVirtualizationWindowUpdate(content, viewport);
+    }
+  };
+
+  handleOnAutoMeasuringUpdate = (state: MeasurementState) => {
+    if (this.props.onAutoMeasuringUpdate) {
+      this.props.onAutoMeasuringUpdate(state);
     }
   };
 
@@ -378,6 +520,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   reflow() {
     this.props.measurementStore.reset();
     this.measureContainer();
+    this.handleVirtualizationWindowUpdate();
     this.forceUpdate();
   }
 
@@ -438,43 +581,18 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       columnWidth,
       comp: Component,
       flexible,
-      gutterWidth: gutter,
       measurementStore,
       items,
-      minCols,
     } = this.props;
-    const { hasPendingMeasurements, width } = this.state;
-
-    let layout;
-    if (flexible && width !== null) {
-      layout = fullWidthLayout({
-        gutter,
-        cache: measurementStore,
-        minCols,
-        idealColumnWidth: columnWidth,
-        width,
-      });
-    } else if (
-      this.props.layout === UniformRowLayoutSymbol ||
-      this.props.layout instanceof LegacyUniformRowLayout
-    ) {
-      layout = uniformRowLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-      });
-    } else {
-      layout = defaultLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-      });
-    }
-
+    const {
+      hasPendingMeasurements,
+      height,
+      itemsToMeasure,
+      itemsToRender,
+      measuringPositions,
+      renderPositions,
+      width,
+    } = this.state;
     let gridBody;
     if (width == null && hasPendingMeasurements) {
       // When hyrdating from a server render, we don't have the width of the grid
@@ -516,25 +634,12 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       // div to collect the width for layout
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
-      // Full layout is possible
-      const itemsToRender = items.filter(
-        item => item && measurementStore.has(item)
-      );
-      const itemsToMeasure = items
-        .filter(item => item && !measurementStore.has(item))
-        .slice(0, minCols);
-
-      const positions = layout(itemsToRender);
-      const measuringPositions = layout(itemsToMeasure);
-      // Math.max() === -Infinity when there are no positions
-      const height = positions.length
-        ? Math.max(...positions.map(pos => pos.top + pos.height))
-        : 0;
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
             {itemsToRender.map((item, i) =>
-              this.renderMasonryComponent(item, i, positions[i])
+              // $FlowFixMe this is the right definition, it an Array<T>
+              this.renderMasonryComponent(item, i, renderPositions[i])
             )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
@@ -570,18 +675,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
               );
             })}
           </div>
-
-          {this.scrollContainer && (
-            <FetchItems
-              containerHeight={this.containerHeight}
-              fetchMore={this.fetchMore}
-              isFetching={
-                this.state.isFetching || this.state.hasPendingMeasurements
-              }
-              scrollHeight={height}
-              scrollTop={this.state.scrollTop}
-            />
-          )}
         </div>
       );
     }
