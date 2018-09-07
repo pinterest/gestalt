@@ -1,5 +1,6 @@
 import A11YCheck from './containers/A11YCheck.js';
 import MasonryExample from './containers/MasonryExample.js';
+import MasonryInfiniteExample from './containers/MasonryInfiniteExample.js';
 import classicGridServerStyles from './containers/classicGridServerStyles.js';
 import flexibleGridServerStyles from './containers/flexibleGridServerStyles.js';
 import masonryPins from './utils/pins.js';
@@ -15,6 +16,16 @@ const RenderConfig = {
   },
   Masonry: {
     Component: MasonryExample,
+    styles: classicGridServerStyles,
+    props: { initialPins: masonryPins, virtualize: true },
+  },
+  FlexibleMasonryInfinite: {
+    Component: MasonryInfiniteExample,
+    styles: flexibleGridServerStyles,
+    props: { flexible: true, initialPins: masonryPins },
+  },
+  MasonryInfinite: {
+    Component: MasonryInfiniteExample,
     styles: classicGridServerStyles,
     props: { initialPins: masonryPins, virtualize: true },
   },

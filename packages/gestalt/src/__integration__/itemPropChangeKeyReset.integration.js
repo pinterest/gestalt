@@ -2,8 +2,11 @@ import assert from 'assert';
 import selectors from './lib/selectors.js';
 
 describe('Masonry > Item prop change', () => {
-  it('Key generation when item object ref changes', async () => {
-    await page.goto('http://localhost:3001/Masonry');
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry'],
+    ['MasonryInfinite', 'http://localhost:3001/MasonryInfinite'],
+  ])('Key generation when item object ref changes - %s', async (name, url) => {
+    await page.goto(url);
 
     const firstCounterValueStart = await page.$(selectors.itemCounter(1));
 
