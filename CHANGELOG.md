@@ -8,19 +8,33 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.80.0 (September 7, 2018)
+
+### Minor
+
+- Internal: Update flow-typed def for jest to match jest version (#346)
+- Masonry: new MasonryInfiniteBeta and MasonryBeta (#329)
+
+## 0.79.2 (September 5, 2018)
+
+### Minor
+
 - Button: Fix transparent button on blue background (#316)
 - Flyout: Add new prop `shouldFocus` to override focus on open behavior. *Has codemod* (#325)
 - Icon: Add camera roll icon (#317)
 - Video: Make a11y label props required in Video component (#321)
 - Internal: Add in greenkeeper-lockfile for auto updates (#327)
+- Icon: Add download svg (#341)
 - Masonry: Remove mention of server rendering (#342)
 
 ### Patch
 
 - Modal: set content width to 100% to prevent overflow bug in IE (#315)
 - Modal: change Box width from using column to width property (#338)
-
-</details>
 
 ## 0.79.1 (August 24, 2018)
 
