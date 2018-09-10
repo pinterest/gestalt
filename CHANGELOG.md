@@ -29,6 +29,7 @@
 - Video: Make a11y label props required in Video component (#321)
 - Internal: Add in greenkeeper-lockfile for auto updates (#327)
 - Icon: Add download svg (#341)
+- Masonry: Remove mention of server rendering (#342)
 
 ### Patch
 
