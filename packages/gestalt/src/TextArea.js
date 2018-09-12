@@ -175,6 +175,7 @@ export default class TextArea extends React.Component<Props, State> {
             color="orange"
             idealDirection={idealErrorDirection}
             onDismiss={() => this.setState({ errorIsOpen: false })}
+            shouldFocus={false}
             size="sm"
           >
             <Box padding={3}>
