@@ -8,7 +8,7 @@
 
 ### Minor
 
-- TextField / TextArea: Fix issue with flyout when `errorMessage` is set (#350)
+- TextField / TextArea / SelectList: Fix issue with flyout when `errorMessage` is set (#350)
 - Icon: Add download svg (#341)
 - Masonry: Remove mention of server rendering (#342)
 
