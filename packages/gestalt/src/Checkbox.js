@@ -15,7 +15,7 @@ type Props = {|
   indeterminate?: boolean,
   name?: string,
   onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
-  onClick: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
+  onClick?: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
   size?: 'sm' | 'md',
 |};
 
@@ -32,7 +32,7 @@ export default class Checkbox extends React.Component<Props, State> {
     indeterminate: PropTypes.bool,
     name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     size: PropTypes.oneOf(['sm', 'md']),
   };
 
@@ -72,8 +72,11 @@ export default class Checkbox extends React.Component<Props, State> {
   };
 
   handleClick = (event: SyntheticInputEvent<>) => {
-    const { checked } = event.target;
-    this.props.onClick({ event, checked });
+    const { onClick } = this.props;
+    if (onClick) {
+      const { checked } = event.target;
+      onClick({ event, checked });
+    }
   };
 
   handleBlur = () => this.setState({ focused: false });
