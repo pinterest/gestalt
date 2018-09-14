@@ -12,6 +12,14 @@
 
 </details>
 
+## 0.81.0 (September 11, 2018)
+
+### Minor
+
+- TextField / TextArea / SelectList: Fix issue with flyout when `errorMessage` is set (#350)
+- Icon: Add download svg (#341)
+- Masonry: Remove mention of server rendering (#342)
+
 ## 0.80.0 (September 7, 2018)
 
 ### Minor
