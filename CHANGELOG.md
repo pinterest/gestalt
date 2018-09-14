@@ -8,6 +8,29 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.81.0 (September 11, 2018)
+
+### Minor
+
+- TextField / TextArea / SelectList: Fix issue with flyout when `errorMessage` is set (#350)
+- Icon: Add download svg (#341)
+- Masonry: Remove mention of server rendering (#342)
+
+## 0.80.0 (September 7, 2018)
+
+### Minor
+
+- Internal: Update flow-typed def for jest to match jest version (#346)
+- Masonry: new MasonryInfiniteBeta and MasonryBeta (#329)
+
+## 0.79.2 (September 5, 2018)
+
+### Minor
+
 - Button: Fix transparent button on blue background (#316)
 - Flyout: Add new prop `shouldFocus` to override focus on open behavior. *Has codemod* (#325)
 - Icon: Add camera roll icon (#317)
@@ -19,8 +42,6 @@
 
 - Modal: set content width to 100% to prevent overflow bug in IE (#315)
 - Modal: change Box width from using column to width property (#338)
-
-</details>
 
 ## 0.79.1 (August 24, 2018)
 

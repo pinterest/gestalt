@@ -22,6 +22,7 @@ import clock from './clock.svg';
 import cog from './cog.svg';
 import compass from './compass.svg';
 import dash from './dash.svg';
+import download from './download.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
@@ -105,6 +106,7 @@ export default {
   cog,
   compass,
   dash,
+  download,
   edit,
   ellipsis,
   'ellipsis-circle-outline': ellipsisCircleOutline,
