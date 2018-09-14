@@ -15,11 +15,7 @@ type Props = {|
   indeterminate?: boolean,
   name?: string,
   onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
-<<<<<<< HEAD
   onClick?: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
-=======
-  onClick: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
->>>>>>> Checkbox: Add optional onClick prop
   size?: 'sm' | 'md',
 |};
 
@@ -36,11 +32,7 @@ export default class Checkbox extends React.Component<Props, State> {
     indeterminate: PropTypes.bool,
     name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-<<<<<<< HEAD
     onClick: PropTypes.func,
-=======
-    onClick: PropTypes.func.isRequired,
->>>>>>> Checkbox: Add optional onClick prop
     size: PropTypes.oneOf(['sm', 'md']),
   };
 
