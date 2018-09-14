@@ -6,7 +6,10 @@ import triggerResize from './lib/triggerResize.js';
 const PIN_SIZE = 235;
 
 describe('Masonry > Resize', () => {
-  it('Reflows the grid after a resize', async () => {
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry'],
+    ['MasonryInfinite', 'http://localhost:3001/MasonryInfinite'],
+  ])('Reflows the grid after a resize - %s', async (name, url) => {
     const GRID_WIDTH = 1000;
 
     // This test cares about page size, so close the previous instance to ensure
@@ -16,7 +19,7 @@ describe('Masonry > Resize', () => {
       width: GRID_WIDTH,
       height: 800,
     });
-    await page.goto('http://localhost:3001/Masonry');
+    await page.goto(url);
 
     // Wait for the grid to be hydrated.
     // TODO: Break this out into a utility /w wait() instead.

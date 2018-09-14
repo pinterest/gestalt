@@ -2,13 +2,19 @@ import assert from 'assert';
 import selectors from './lib/selectors.js';
 
 describe('ExerimentalMasonry > No scroll', () => {
-  it('should do nothing on scroll', async () => {
+  it.each([
+    ['Masonry', 'http://localhost:3001/Masonry?noScroll=1&virtualize=1'],
+    [
+      'MasonryInfinite',
+      'http://localhost:3001/MasonryInfinite?noScroll=1&virtualize=1',
+    ],
+  ])('should do nothing on scroll - %s', async (name, url) => {
     // First load the page with javascript disabled to get the item position
     await page.setViewport({
       width: 500,
       height: 500,
     });
-    await page.goto('http://localhost:3001/Masonry?noScroll=1&virtualize=1');
+    await page.goto(url);
 
     const serverItems = await page.$$(selectors.gridItem);
 

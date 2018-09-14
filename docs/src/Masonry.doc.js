@@ -18,7 +18,7 @@ card(
     name="Masonry"
     description="
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
-It contains performance optimizations like virtualization and server rendering, as well as support for infinite scrolling.
+It contains performance optimizations like virtualization and support for infinite scrolling.
 "
   />
 );
