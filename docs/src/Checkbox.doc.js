@@ -59,6 +59,10 @@ a checkbox and it's indeterminism are independent.`,
         required: true,
       },
       {
+        name: 'onClick',
+        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
+      },
+      {
         name: 'size',
         type: `"sm" | "md"`,
         defaultValue: 'md',
