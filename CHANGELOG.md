@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tabs: Add optional wrap prop (#361)
+
 ### Patch
 
 </details>
