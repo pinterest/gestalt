@@ -60,7 +60,7 @@ card(
       },
       {
         name: 'onClick',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type: '({ event: SyntheticMouseEvent<> }) => mixed',
       },
       {
         name: 'size',

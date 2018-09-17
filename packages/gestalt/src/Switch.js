@@ -8,7 +8,7 @@ type Props = {|
   disabled?: boolean,
   id: string,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, value: boolean }) => void,
+  onChange: ({ event: SyntheticInputEvent<>, value: boolean }) => mixed,
   switched?: boolean,
 |};
 

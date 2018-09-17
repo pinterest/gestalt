@@ -45,23 +45,23 @@ card(
       {
         name: 'onBlur',
         type:
-          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
+          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => mixed',
       },
       {
         name: 'onChange',
         type:
-          '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
+          '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => mixed',
         required: true,
       },
       {
         name: 'onFocus',
         type:
-          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
+          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => mixed',
       },
       {
         name: 'onKeyDown',
         type:
-          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
+          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => mixed',
       },
       {
         name: 'placeholder',

@@ -38,16 +38,16 @@ card(
       },
       {
         name: 'onMouseEnter',
-        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => mixed',
       },
       {
         name: 'onMouseLeave',
-        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => mixed',
       },
       {
         name: 'onTouch',
         type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> }) => mixed',
         required: true,
       },
       {

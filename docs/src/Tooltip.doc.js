@@ -40,7 +40,7 @@ card(
       },
       {
         name: 'onDismiss',
-        type: '() => void',
+        type: '() => mixed',
         required: true,
       },
       {

@@ -43,14 +43,13 @@ type Props<T> = {|
   minCols: number,
   layout?: Layout,
   // Support legacy loadItems usage.
-  // TODO: Simplify non falsey flowtype.
   loadItems?:
     | false
     | ((
         ?{
           from: number,
         }
-      ) => void | boolean | {}),
+      ) => mixed),
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,

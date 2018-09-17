@@ -36,7 +36,7 @@ card(
       },
       {
         name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: boolean }) => void',
+        type: '({ event: SyntheticInputEvent<>, value: boolean }) => mixed',
         required: true,
       },
       {

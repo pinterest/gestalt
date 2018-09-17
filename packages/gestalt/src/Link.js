@@ -8,7 +8,7 @@ type Props = {|
   children?: React.Node,
   href: string,
   inline?: boolean,
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({ event: SyntheticMouseEvent<> }) => mixed,
   target?: null | 'self' | 'blank',
 |};
 

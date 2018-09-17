@@ -29,13 +29,13 @@ type Props = {|
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,
-  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => mixed,
+  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => mixed,
   onTouch?: ({
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => void,
+  }) => mixed,
   shape?: Shape,
 |};
 

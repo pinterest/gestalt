@@ -25,19 +25,19 @@ type Props = {|
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   onChange: ({
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   onFocus?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   placeholder?: string,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   value?: string,
