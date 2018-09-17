@@ -15,6 +15,7 @@ type Props = {|
     event: SyntheticMouseEvent<>,
     activeTabIndex: number,
   }) => void,
+  wrap?: boolean,
 |};
 
 type State = {|
@@ -32,6 +33,7 @@ export default class Tabs extends React.Component<Props, State> {
       })
     ).isRequired,
     onChange: PropTypes.func.isRequired,
+    wrap: PropTypes.bool,
   };
 
   state: State = {
@@ -53,10 +55,16 @@ export default class Tabs extends React.Component<Props, State> {
   handleTabMouseLeave = () => this.setState({ hoveredTabIndex: undefined });
 
   render() {
-    const { tabs, activeTabIndex } = this.props;
+    const { tabs, activeTabIndex, wrap } = this.props;
     const { focusedTabIndex, hoveredTabIndex } = this.state;
     return (
-      <div className={styles.Tabs} role="tablist">
+      <div
+        className={classnames(
+          styles.Tabs,
+          wrap !== undefined && styles.TabsWrap
+        )}
+        role="tablist"
+      >
         {tabs.map(({ text, href }, i) => {
           const isActive = i === activeTabIndex;
           const isHovered = i === hoveredTabIndex;
