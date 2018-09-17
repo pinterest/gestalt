@@ -14,7 +14,7 @@ type Props = {|
   id: string,
   indeterminate?: boolean,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
+  onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => mixed,
   size?: 'sm' | 'md',
 |};
 

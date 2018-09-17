@@ -13,7 +13,7 @@ type Props = {|
   disabled?: boolean,
   inline?: boolean,
   name?: string,
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({ event: SyntheticMouseEvent<> }) => mixed,
   size?: 'sm' | 'md' | 'lg',
   text: string,
   type?: 'submit' | 'button',

@@ -7,7 +7,7 @@ type Props = {|
   anchor: ?HTMLElement,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onDismiss: () => void,
+  onDismiss: () => mixed,
   positionRelativeToAnchor?: boolean,
   color?: 'blue' | 'orange' | 'white',
   shouldFocus?: boolean,

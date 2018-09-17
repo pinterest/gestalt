@@ -14,7 +14,7 @@ type Props = {|
   onChange: ({
     event: SyntheticMouseEvent<>,
     activeTabIndex: number,
-  }) => void,
+  }) => mixed,
 |};
 
 type State = {|

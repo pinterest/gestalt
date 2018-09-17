@@ -24,19 +24,19 @@ type Props = {|
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   onChange: ({
     event: SyntheticInputEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   onFocus?: ({
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   onKeyDown?: ({
     event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
+  }) => mixed,
   placeholder?: string,
   rows?: number /* default: 3 */,
   value?: string,

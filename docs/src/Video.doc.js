@@ -81,58 +81,58 @@ card(
       {
         name: 'onDurationChange',
         type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
+          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => mixed',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
       {
         name: 'onEnded',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => mixed',
         description: 'Sent when playback of the video completes',
       },
       {
         name: 'onFullscreenChange',
-        type: '({ event: Event, fullscreen: boolean }) => void',
+        type: '({ event: Event, fullscreen: boolean }) => mixed',
         description: 'Sent when the video full screen status changes',
       },
       {
         name: 'onLoadedChange',
         type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => void',
+          '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => mixed',
         description: 'Sent when progress happens on downloading the media',
       },
       {
         name: 'onPlay',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement> }) => mixed',
         description:
           'Sent when playback of the media starts after having been paused',
       },
       {
         name: 'onPause',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement> }) => mixed',
         description: 'Sent when playback is paused',
       },
       {
         name: 'onReady',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => mixed',
         description: 'Sent when video is loaded and ready to play.',
       },
       {
         name: 'onSeek',
-        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => mixed',
         description: 'Sent when a seek operation completes from the playhead',
       },
       {
         name: 'onTimeChange',
         type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
+          '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => mixed',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
       {
         name: 'onVolumeChange',
         type:
-          '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
+          '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => mixed',
         description: 'Sent when the audio volume changes',
       },
       {

@@ -12,7 +12,7 @@ type Props = {|
   onChange: ({
     event: SyntheticInputEvent<>,
     checked: boolean,
-  }) => void,
+  }) => mixed,
   value: string,
   size?: 'sm' | 'md',
 |};
