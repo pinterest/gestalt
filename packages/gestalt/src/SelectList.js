@@ -20,7 +20,7 @@ type Props = {|
   id: string,
   idealErrorDirection?: 'up' | 'right' | 'down' | 'left' /* default: right */,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
+  onChange: ({ event: SyntheticInputEvent<>, value: string }) => mixed,
   options: Array<{
     label: string,
     value: string,

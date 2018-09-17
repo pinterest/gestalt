@@ -69,7 +69,7 @@ card(
       },
       {
         name: 'loadItems',
-        type: '() => void',
+        type: '() => mixed',
         description:
           'A callback when the user scrolls and you need to load more items into the grid.',
       },

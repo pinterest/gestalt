@@ -31,7 +31,7 @@ card(
       },
       {
         name: 'onChange',
-        type: `({ event: SyntheticMouseEvent<>, activeTabIndex: number }) => void`,
+        type: `({ event: SyntheticMouseEvent<>, activeTabIndex: number }) => mixed`,
         required: true,
       },
     ]}

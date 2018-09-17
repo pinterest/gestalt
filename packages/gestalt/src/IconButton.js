@@ -12,7 +12,7 @@ type Props = {|
   bgColor?: 'transparent' | 'lightGray' | 'white',
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({ event: SyntheticMouseEvent<> }) => mixed,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 

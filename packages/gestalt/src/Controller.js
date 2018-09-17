@@ -9,7 +9,7 @@ type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onDismiss: () => void,
+  onDismiss: () => mixed,
   positionRelativeToAnchor: boolean,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,

@@ -27,14 +27,14 @@ card(
       },
       {
         name: 'onBlur',
-        type: '({ event: SyntheticEvent<HTMLInputElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLInputElement> }) => mixed',
       },
       {
         name: 'onChange',
         type: `({
         value: string,
         syntheticEvent: SyntheticEvent<HTMLInputElement>
-      }) => void`,
+      }) => mixed`,
         required: true,
       },
       {
@@ -42,7 +42,7 @@ card(
         type: `({
         value: string,
         syntheticEvent: SyntheticEvent<HTMLInputElement>
-      }) => void`,
+      }) => mixed`,
       },
       {
         name: 'placeholder',

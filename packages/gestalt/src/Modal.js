@@ -16,7 +16,7 @@ type Props = {|
   children?: React.Node,
   footer?: React.Node,
   heading: string,
-  onDismiss: () => void,
+  onDismiss: () => mixed,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg',
 |};

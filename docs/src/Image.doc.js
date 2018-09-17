@@ -62,11 +62,11 @@ card(
       },
       {
         name: 'onError',
-        type: '() => void',
+        type: '() => mixed',
       },
       {
         name: 'onLoad',
-        type: '() => void',
+        type: '() => mixed',
       },
       {
         name: 'sizes',

@@ -55,7 +55,7 @@ a checkbox and it's indeterminism are independent.`,
       },
       {
         name: 'onChange',
-        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
+        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => mixed`,
         required: true,
       },
       {

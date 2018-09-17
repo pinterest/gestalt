@@ -43,7 +43,7 @@ card(
       },
       {
         name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
+        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => mixed',
         required: true,
       },
       {
