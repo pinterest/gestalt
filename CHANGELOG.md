@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Checkbox: Add optional onClick prop (#355)
+
 ### Patch
 
 </details>
