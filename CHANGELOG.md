@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Change event prop callbacks to mixed (#360)
+
 ### Patch
 
 </details>
