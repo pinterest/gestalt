@@ -8,6 +8,7 @@
 
 ### Minor
 - Icon: Add compose icon (#358)
+- SearchField: Add `autoComplete` prop for parity with `TextField`
 ### Patch
 
 </details>
