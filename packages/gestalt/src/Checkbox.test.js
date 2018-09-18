@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
+import { shallow } from 'enzyme';
 import Checkbox from './Checkbox.js';
 
 test('Checkbox', () => {
@@ -48,4 +49,11 @@ test('Checkbox with error', () => {
     <Checkbox hasError size="sm" id="id" onChange={() => {}} />
   ).toJSON();
   expect(tree).toMatchSnapshot();
+});
+
+test('Checkbox handles click', () => {
+  const mockOnClick = jest.fn();
+  const wrapper = shallow(<Checkbox size="sm" id="id" onClick={mockOnClick} />);
+  wrapper.find('input').simulate('click', { currentTarget: { checked: true } });
+  expect(mockOnClick).toBeCalled();
 });
