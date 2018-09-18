@@ -21,6 +21,7 @@ import clear from './clear.svg';
 import clock from './clock.svg';
 import cog from './cog.svg';
 import compass from './compass.svg';
+import compose from './compose.svg';
 import dash from './dash.svg';
 import download from './download.svg';
 import edit from './edit.svg';
@@ -105,6 +106,7 @@ export default {
   clock,
   cog,
   compass,
+  compose,
   dash,
   download,
   edit,

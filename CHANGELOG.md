@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add compose icon (#358)
+- SearchField: Add `autoComplete` prop for parity with `TextField` (#363)
 - Checkbox: Add optional onClick prop (#364)
 
 ### Patch
