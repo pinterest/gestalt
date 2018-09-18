@@ -60,7 +60,7 @@ export default class Tabs extends React.Component<Props, State> {
     const { focusedTabIndex, hoveredTabIndex } = this.state;
     return (
       <div
-        className={classnames(styles.Tabs, wrap === true && layout.flexWrap)}
+        className={classnames(styles.Tabs, wrap && layout.flexWrap)}
         role="tablist"
       >
         {tabs.map(({ text, href }, i) => {
