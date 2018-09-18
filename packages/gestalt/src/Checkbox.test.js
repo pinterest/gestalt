@@ -53,7 +53,9 @@ test('Checkbox with error', () => {
 
 test('Checkbox handles click', () => {
   const mockOnClick = jest.fn();
-  const wrapper = shallow(<Checkbox size="sm" id="id" onClick={mockOnClick} />);
+  const wrapper = shallow(
+    <Checkbox size="sm" id="id" onChange={() => {}} onClick={mockOnClick} />
+  );
   wrapper.find('input').simulate('click', { currentTarget: { checked: true } });
   expect(mockOnClick).toHaveBeenCalledWith({
     event: { currentTarget: { checked: true } },
