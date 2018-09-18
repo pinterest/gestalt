@@ -1,18 +1,6 @@
 {
   "name": "gestalt",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   "version": "0.81.0",
-=======
-  "version": "0.79.2",
->>>>>>> Release 0.79.2 (#343)
-=======
-  "version": "0.80.0",
->>>>>>> Bump to 0.80.0 (#347)
-=======
-  "version": "0.81.0",
->>>>>>> Bump version: 0.81.0 (#351)
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "main": "dist/gestalt.js",
