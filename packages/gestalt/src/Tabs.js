@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Text from './Text.js';
 import styles from './Tabs.css';
+import layout from './Layout.css';
 
 type Props = {|
   activeTabIndex: number,
@@ -59,10 +60,7 @@ export default class Tabs extends React.Component<Props, State> {
     const { focusedTabIndex, hoveredTabIndex } = this.state;
     return (
       <div
-        className={classnames(
-          styles.Tabs,
-          wrap !== undefined && styles.TabsWrap
-        )}
+        className={classnames(styles.Tabs, wrap === true && layout.flexWrap)}
         role="tablist"
       >
         {tabs.map(({ text, href }, i) => {

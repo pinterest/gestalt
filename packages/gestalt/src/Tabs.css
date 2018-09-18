@@ -3,10 +3,6 @@
   user-select: none;
 }
 
-.TabsWrap {
-  composes: flexWrap from "./Layout.css";
-}
-
 .tab {
   composes: accessibilityOutline from "./Focus.css";
   composes: borderBox medium from "./Layout.css";
