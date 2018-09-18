@@ -11,6 +11,7 @@ exports[`Checkbox 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
@@ -31,6 +32,7 @@ exports[`Checkbox checked 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
@@ -68,6 +70,7 @@ exports[`Checkbox disabled & checked 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
@@ -105,6 +108,7 @@ exports[`Checkbox disabled 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
@@ -125,6 +129,7 @@ exports[`Checkbox indeterminate 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
@@ -162,6 +167,7 @@ exports[`Checkbox small 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
@@ -182,6 +188,7 @@ exports[`Checkbox with error 1`] = `
     id="id"
     onBlur={[Function]}
     onChange={[Function]}
+    onClick={[Function]}
     onFocus={[Function]}
     type="checkbox"
   />
