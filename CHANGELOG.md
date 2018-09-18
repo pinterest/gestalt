@@ -7,7 +7,7 @@
   </summary>
 
 ### Minor
-- Icon: Add compose icon (#352)
+- Icon: Add compose icon (#358)
 ### Patch
 
 </details>
