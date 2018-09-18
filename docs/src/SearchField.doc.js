@@ -21,6 +21,10 @@ card(
           'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
       },
       {
+        name: 'autoComplete',
+        type: `"on" | "off" | "username" | "name"`,
+      },
+      {
         name: 'id',
         type: 'string',
         required: true,

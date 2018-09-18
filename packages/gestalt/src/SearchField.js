@@ -8,6 +8,7 @@ import Icon from './Icon.js';
 
 type Props = {|
   accessibilityLabel: string,
+  autoComplete?: 'on' | 'off' | 'username' | 'name',
   id: string,
   onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
   onChange: ({
@@ -30,6 +31,7 @@ type State = {|
 export default class SearchField extends React.Component<Props, State> {
   static propTypes = {
     accessibilityLabel: PropTypes.string.isRequired,
+    autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
     id: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
@@ -81,7 +83,13 @@ export default class SearchField extends React.Component<Props, State> {
   };
 
   render() {
-    const { accessibilityLabel, id, placeholder, value } = this.props;
+    const {
+      accessibilityLabel,
+      autoComplete,
+      id,
+      placeholder,
+      value,
+    } = this.props;
 
     // This mirrors the built in browser behavior. If there's a value, show the
     // clear button if you're hovering or if you've focused on the field
@@ -116,6 +124,7 @@ export default class SearchField extends React.Component<Props, State> {
         </Box>
         <input
           aria-label={accessibilityLabel}
+          autoComplete={autoComplete}
           className={styles.input}
           id={id}
           onChange={this.handleChange}
