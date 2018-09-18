@@ -22,7 +22,7 @@ card(
       },
       {
         name: 'autoComplete',
-        type: `"current-password" | "on" | "off" | "username"`,
+        type: `"on" | "off" | "username" | "name"`,
       },
       {
         name: 'id',

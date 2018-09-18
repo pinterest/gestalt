@@ -8,7 +8,7 @@ import Icon from './Icon.js';
 
 type Props = {|
   accessibilityLabel: string,
-  autoComplete?: 'current-password' | 'on' | 'off' | 'username',
+  autoComplete?: 'on' | 'off' | 'username' | 'name',
   id: string,
   onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
   onChange: ({
@@ -31,12 +31,7 @@ type State = {|
 export default class SearchField extends React.Component<Props, State> {
   static propTypes = {
     accessibilityLabel: PropTypes.string.isRequired,
-    autoComplete: PropTypes.oneOf([
-      'current-password',
-      'on',
-      'off',
-      'username',
-    ]),
+    autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
     id: PropTypes.string.isRequired,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
