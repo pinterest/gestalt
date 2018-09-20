@@ -12,6 +12,7 @@
 - SearchField: Add `autoComplete` prop for parity with `TextField` (#363)
 - Tabs: Add optional wrap prop (#361)
 - Checkbox: Add optional onClick prop (#364)
+- Tabs: Use text and href together for key instead of index (#368)
 
 ### Patch
 
