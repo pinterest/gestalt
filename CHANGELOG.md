@@ -8,7 +8,14 @@
 
 ### Minor
 
+- Icon: Add compose icon (#358)
+- SearchField: Add `autoComplete` prop for parity with `TextField` (#363)
+- Tabs: Add optional wrap prop (#361)
+- Checkbox: Add optional onClick prop (#364)
+
 ### Patch
+
+- Internal: publish `README.md` (#367)
 
 </details>
 

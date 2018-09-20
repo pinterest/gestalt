@@ -3,6 +3,7 @@
   "version": "0.81.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
+  "description": "A set of React UI components which enforce Pinterest’s design language",
   "main": "dist/gestalt.js",
   "jsnext:main": "dist/gestalt.es.js",
   "module": "dist/gestalt.es.js",
@@ -21,6 +22,8 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "postpack": "rm README.md",
+    "prepack": "cp ../../README.md .",
     "prepublish": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   },
