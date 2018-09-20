@@ -15,6 +15,8 @@
 
 ### Patch
 
+- Internal: publish `README.md` (#367)
+
 </details>
 
 ## 0.81.0 (September 11, 2018)
