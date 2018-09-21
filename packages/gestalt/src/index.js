@@ -45,6 +45,12 @@ import Tooltip from './Tooltip.js';
 import Touchable from './Touchable.js';
 import Video from './Video.js';
 
+// Importing react-virtualized here, not because I need it, but because I need
+// help resolving a failure on build.
+//
+// eslint-disable-next-line no-unused-vars,import/order
+import * as rv from 'react-virtualized';
+
 export {
   Avatar,
   Box,
