@@ -180,6 +180,7 @@ export default {
     'classnames/bind',
     'classnames',
     'react-dom',
+    'react-virtualized',
   ],
   plugins: [
     progress(),
@@ -200,6 +201,7 @@ export default {
     babel({
       babelrc: false,
       presets: [['env', { modules: false }], 'stage-1', 'react'],
+      exclude: 'node_modules/**',
       plugins: ['external-helpers'],
     }),
     visualizer(),
