@@ -570,7 +570,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
               );
             })}
           </div>
-          WASSUP
+
           {this.scrollContainer && (
             <FetchItems
               containerHeight={this.containerHeight}
