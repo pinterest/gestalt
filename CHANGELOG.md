@@ -12,6 +12,7 @@
 - SearchField: Add `autoComplete` prop for parity with `TextField` (#363)
 - Tabs: Add optional wrap prop (#361)
 - Checkbox: Add optional onClick prop (#364)
+- Flow: Bump to version `0.81.0` (#376)
 
 ### Patch
 
