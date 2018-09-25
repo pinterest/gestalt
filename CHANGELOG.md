@@ -17,7 +17,7 @@
 ### Patch
 
 - Internal: publish `README.md` (#367)
-- Internal: add `GH_TOKEN` to docker-compose file for greenkeeper (#377)
+- Internal: add `GH_TOKEN` to docker-compose file for greenkeeper (#378)
 
 </details>
 
