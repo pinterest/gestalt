@@ -24,3 +24,4 @@ services:
       - CI
       - CODECOV_TOKEN
       - DANGER_GITHUB_API_TOKEN
+      - GH_TOKEN
