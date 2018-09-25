@@ -13,6 +13,7 @@
 - Tabs: Add optional wrap prop (#361)
 - Checkbox: Add optional onClick prop (#364)
 - Flow: Bump to version `0.81.0` (#376)
+- Link: Update docs to make href required and update children proptype #380
 
 ### Patch
 
