@@ -18,12 +18,13 @@ card(
   <PropTable
     props={[
       {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
         name: 'href',
         type: 'string',
+        required: true,
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
       },
       {
         name: 'inline',
