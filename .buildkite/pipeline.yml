@@ -22,6 +22,8 @@ steps:
     timeout_in_minutes: 10
     env:
       - GH_TOKEN
+      - GK_LOCK_COMMIT_EMAIL
+      - GK_LOCK_COMMIT_NAME
     agents:
       queue: elastic
     plugins:
@@ -97,6 +99,8 @@ steps:
     timeout_in_minutes: 10
     env:
       - GH_TOKEN
+      - GK_LOCK_COMMIT_EMAIL
+      - GK_LOCK_COMMIT_NAME
     agents:
       queue: elastic
     plugins:
