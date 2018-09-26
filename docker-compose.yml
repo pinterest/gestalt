@@ -24,3 +24,6 @@ services:
       - CI
       - CODECOV_TOKEN
       - DANGER_GITHUB_API_TOKEN
+      - GH_TOKEN
+      - GK_LOCK_COMMIT_EMAIL
+      - GK_LOCK_COMMIT_NAME
