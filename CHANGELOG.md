@@ -18,6 +18,7 @@
 
 - Internal: publish `README.md` (#367)
 - Internal: add `GH_TOKEN` to docker-compose file for greenkeeper (#378)
+- Internal: add greenkeeper env variables to docker-compose and buildkite files (#381)
 
 </details>
 
