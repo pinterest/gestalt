@@ -42,7 +42,7 @@
     "filesize": "^3.6.1",
     "flow-bin": "0.81.0",
     "greenkeeper-lockfile": "^2.5.0",
-    "husky": "^0.14.3",
+    "husky": "^1.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
     "jest-puppeteer": "^3.2.1",
