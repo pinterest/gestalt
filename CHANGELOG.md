@@ -13,6 +13,7 @@
 - Tabs: Add optional wrap prop (#361)
 - Checkbox: Add optional onClick prop (#364)
 - Flow: Bump to version `0.81.0` (#376)
+- Tabs: Use href for key instead of index (#368)
 
 ### Patch
 

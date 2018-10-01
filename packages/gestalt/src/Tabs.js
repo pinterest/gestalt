@@ -76,7 +76,7 @@ export default class Tabs extends React.Component<Props, State> {
               aria-selected={isActive}
               className={cs}
               href={href}
-              key={i}
+              key={href}
               onClick={(e: SyntheticMouseEvent<>) => this.handleTabClick(i, e)}
               onFocus={() => this.handleTabFocus(i)}
               onBlur={this.handleTabBlur}
