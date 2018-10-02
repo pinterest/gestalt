@@ -21,7 +21,7 @@
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
-    "react-scripts": "1.1.4"
+    "react-scripts": "2.0.3"
   },
   "browserslist": [
     "defaults",
