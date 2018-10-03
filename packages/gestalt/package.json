@@ -41,7 +41,7 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-progress": "^0.4.0",
     "rollup-plugin-replace": "^2.0.0",
-    "rollup-plugin-visualizer": "^0.8.0",
+    "rollup-plugin-visualizer": "^0.9.1",
     "rollup-watch": "^4.3.1",
     "xml2js": "^0.4.19"
   },
