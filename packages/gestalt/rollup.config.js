@@ -200,6 +200,7 @@ export default {
     babel({
       babelrc: false,
       presets: [['env', { modules: false }], 'stage-1', 'react'],
+      exclude: 'node_modules/**',
       plugins: ['external-helpers'],
     }),
     visualizer(),
