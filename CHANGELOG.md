@@ -14,6 +14,7 @@
 - Checkbox: Add optional onClick prop (#364)
 - Flow: Bump to version `0.81.0` (#376)
 - Tabs: Use href for key instead of index (#368)
+- Pulsar: Updated animation that hides ring, allowing full visibility of content underneath (#394)
 
 ### Patch
 
