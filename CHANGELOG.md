@@ -5,6 +5,9 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+</details>
+
+## 0.82.0 (October 12, 2018)
 
 ### Minor
 
@@ -22,8 +25,6 @@
 - Internal: publish `README.md` (#367)
 - Internal: add `GH_TOKEN` to docker-compose file for greenkeeper (#378)
 - Internal: add greenkeeper env variables to docker-compose and buildkite files (#381)
-
-</details>
 
 ## 0.81.0 (September 11, 2018)
 
