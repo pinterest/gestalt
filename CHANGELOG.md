@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.82.0 (October 12, 2018)
+
+### Minor
+
 - Icon: Add compose icon (#358)
 - SearchField: Add `autoComplete` prop for parity with `TextField` (#363)
 - Tabs: Add optional wrap prop (#361)
@@ -22,8 +30,6 @@
 - Internal: publish `README.md` (#367)
 - Internal: add `GH_TOKEN` to docker-compose file for greenkeeper (#378)
 - Internal: add greenkeeper env variables to docker-compose and buildkite files (#381)
-
-</details>
 
 ## 0.81.0 (September 11, 2018)
 
