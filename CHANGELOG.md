@@ -5,6 +5,11 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+
+### Minor
+
+### Patch
+
 </details>
 
 ## 0.82.0 (October 12, 2018)
