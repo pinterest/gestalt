@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Bump all eslint and stylelint packages (#400)
+
 ### Patch
 
 </details>
