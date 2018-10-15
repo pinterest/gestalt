@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Bump all eslint and stylelint packages (#400)
+
 ### Patch
 
 </details>
@@ -51,7 +53,7 @@
 ### Minor
 
 - Button: Fix transparent button on blue background (#316)
-- Flyout: Add new prop `shouldFocus` to override focus on open behavior. *Has codemod* (#325)
+- Flyout: Add new prop `shouldFocus` to override focus on open behavior. _Has codemod_ (#325)
 - Icon: Add camera roll icon (#317)
 - Video: Make a11y label props required in Video component (#321)
 - Internal: Add in greenkeeper-lockfile for auto updates (#327)
