@@ -9,6 +9,7 @@
 ### Minor
 
 - Internal: Bump all eslint and stylelint packages (#400)
+- Icon: add new icons for text alignment
 
 ### Patch
 
