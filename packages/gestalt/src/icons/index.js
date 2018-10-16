@@ -78,6 +78,9 @@ import sound from './sound.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import tag from './tag.svg';
+import textAlignCenter from './text-align-center.svg';
+import textAlignLeft from './text-align-left.svg';
+import textAlignRight from './text-align-right.svg';
 import twitter from './twitter.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
@@ -163,6 +166,9 @@ export default {
   speech,
   'speech-ellipsis': speechEllipsis,
   tag,
+  'text-align-left': textAlignLeft,
+  'text-align-center': textAlignCenter,
+  'text-align-right': textAlignRight,
   twitter,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
