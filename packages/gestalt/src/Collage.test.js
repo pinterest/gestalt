@@ -6,12 +6,12 @@ import Collage from './Collage.js';
 type CollageImageProps = {
   width: number,
   height: number,
-  index: number,
+  idx: number,
 };
 
 describe('<Collage />', () => {
-  function CollageImage({ width, height, index }: CollageImageProps) {
-    return <div style={{ width, height }}>{index}</div>;
+  function CollageImage({ width, height, idx }: CollageImageProps) {
+    return <div style={{ width, height }}>{idx}</div>;
   }
 
   const collageProps = {
@@ -19,7 +19,7 @@ describe('<Collage />', () => {
     gutter: 2,
     height: 200,
     width: 300,
-    renderImage: CollageImage,
+    Item: CollageImage,
   };
 
   it('should match the snapshot', () => {

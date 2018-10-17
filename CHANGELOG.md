@@ -10,6 +10,7 @@
 
 - Internal: Bump all eslint and stylelint packages (#400)
 - Icon: add new icons for text alignment
+- Collage: Use `Item` prop instead of `renderImage` (#402)
 
 ### Patch
 

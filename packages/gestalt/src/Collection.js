@@ -44,7 +44,11 @@ import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
 type Props = {|
-  Item: ({ index: number, width: number, height: number }) => React.Node,
+  Item: React.ComponentType<{|
+    idx: number,
+    width: number,
+    height: number,
+  |}>,
   layout: Array<{|
     top: number,
     left: number,
@@ -59,8 +63,7 @@ type Props = {|
 
 export default class Collection extends React.PureComponent<Props, void> {
   static propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    Item: PropTypes.any,
+    Item: PropTypes.any, // eslint-disable-line react/forbid-prop-types
     layout: PropTypes.arrayOf(
       PropTypes.exact({
         top: PropTypes.number.isRequired,
@@ -93,23 +96,23 @@ export default class Collection extends React.PureComponent<Props, void> {
 
     // Calculates which items from the item layer to render in the viewport
     // layer.
-    const items = layout.reduce((acc, position, index) => {
+    const items = layout.reduce((acc, position, idx) => {
       if (
         position.top + position.height > viewportTop &&
         position.top < viewportHeight + viewportTop &&
         position.left < viewportWidth + viewportLeft &&
         position.left + position.width > viewportLeft
       ) {
-        acc.push({ index, ...position });
+        acc.push({ idx, ...position });
       }
       return acc;
     }, []);
 
     return (
       <div className={layoutStyles.relative} style={{ width, height }}>
-        {items.map(({ index, ...style }) => (
-          <div key={index} className={layoutStyles.absolute} style={style}>
-            <Item index={index} width={style.width} height={style.height} />
+        {items.map(({ idx, ...style }) => (
+          <div key={idx} className={layoutStyles.absolute} style={style}>
+            <Item idx={idx} width={style.width} height={style.height} />
           </div>
         ))}
       </div>

@@ -141,8 +141,15 @@ type Props = {|
   cover?: boolean,
   gutter?: number,
   height: number,
+  Item?: React.ComponentType<{|
+    // TODO: make `Item` required when we deprecate `renderImage`
+    width: number,
+    height: number,
+    idx: number,
+  |}>,
   layoutKey?: number,
-  renderImage: ({|
+  renderImage?: ({|
+    // TODO: deprecate `renderImage` in favor of `Item`
     width: number,
     height: number,
     index: number,
@@ -155,13 +162,16 @@ export default function Collage({
   cover,
   gutter,
   height,
+  Item,
   layoutKey,
-  renderImage,
+  renderImage, // TODO: deprecate in favor of `Item`
   width,
 }: Props) {
   return (
     <Collection
-      Item={renderImage}
+      Item={
+        Item || (({ idx: index, ...rest }) => renderImage({ index, ...rest }))
+      }
       layout={getCollageLayout({
         columns,
         cover: !!cover,
@@ -179,7 +189,8 @@ Collage.propTypes = {
   cover: PropTypes.bool,
   gutter: PropTypes.number,
   height: PropTypes.number.isRequired,
+  Item: PropTypes.func,
   layoutKey: PropTypes.number,
-  renderImage: PropTypes.func.isRequired,
+  renderImage: PropTypes.func,
   width: PropTypes.number.isRequired,
 };

@@ -50,6 +50,15 @@ card(
         required: true,
       },
       {
+        name: 'Item',
+        type: 'React.ComponentType',
+        description: `
+        A React component (or functional component) that renders the item displayed in the collage.
+        This component is passed props: \`width : number\`, \`height: number\`, \`idx: number\`
+        `,
+        required: true,
+      },
+      {
         name: 'layoutKey',
         type: 'number',
         description: `
@@ -57,13 +66,6 @@ card(
         If there are N layouts available, (layoutKey % N) will determine which layout is used.
         `,
         defaultValue: 0,
-      },
-      {
-        name: 'renderImage',
-        type:
-          '({ width: number, height: number, index: number }) => React.Node',
-        description: 'Render prop for the collage images',
-        required: true,
       },
       {
         name: 'width',
@@ -83,7 +85,7 @@ card(
   columns={3}
   height={300}
   width={300}
-  renderImage={({ index, width, height }) => {
+  Item={({ idx, width, height }) => {
     const images = [
       {
         color: 'rgb(111, 91, 77)',
@@ -122,7 +124,7 @@ card(
         src: '${stock6}',
       },
     ];
-    const image = images[index];
+    const image = images[idx];
     return (
       <Mask wash width={width} height={height}>
         <Image
@@ -154,7 +156,7 @@ card(
         columns={columns}
         height={150}
         width={150}
-        renderImage={({ index, width, height }) => {
+        Item={({ idx, width, height }) => {
           const images = [
             {
               color: 'rgb(111, 91, 77)',
@@ -193,7 +195,7 @@ card(
               src: '${stock6}',
             },
           ];
-          const image = images[index];
+          const image = images[idx];
           return (
             <Mask wash width={width} height={height}>
               {image ? (
@@ -233,7 +235,7 @@ card(
     gutter={8}
     height={300}
     width={300}
-    renderImage={({ index, width, height }) => {
+    Item={({ idx, width, height }) => {
       const images = [
         {
           color: 'rgb(111, 91, 77)',
@@ -272,7 +274,7 @@ card(
           src: '${stock6}',
         },
       ];
-      const image = images[index];
+      const image = images[idx];
       return (
         <Mask wash width={width} height={height}>
           <Image
@@ -302,7 +304,7 @@ card(
     cover
     height={300}
     gutter={8}
-    renderImage={({ index, width, height }) => {
+    Item={({ idx, width, height }) => {
       const coverImage = {
         color: '#000',
         naturalHeight: 806,
@@ -323,7 +325,7 @@ card(
           src: '${stock2}',
         },
       ];
-      const image = index === 0 ? coverImage : nonCoverImages[index - 1];
+      const image = idx === 0 ? coverImage : nonCoverImages[idx - 1];
       return (
         <Mask width={width} height={height}>
           <Image
@@ -358,7 +360,7 @@ card(
         cover
         height={150}
         width={150}
-        renderImage={({ index, width, height }) => {
+        Item={({ idx, width, height }) => {
           const images = [
             {
               color: 'rgb(111, 91, 77)',
@@ -397,7 +399,7 @@ card(
               src: '${stock6}',
             },
           ];
-          const image = images[index];
+          const image = images[idx];
           return (
             <Mask wash width={width} height={height}>
               {image ? (
@@ -445,7 +447,7 @@ card(
         height={150}
         width={150}
         layoutKey={layoutKey}
-        renderImage={({ index, width, height }) => {
+        Item={({ idx, width, height }) => {
           const images = [
             {
               color: 'rgb(111, 91, 77)',
@@ -484,7 +486,7 @@ card(
               src: '${stock6}',
             },
           ];
-          const image = images[index];
+          const image = images[idx];
           return (
             <Mask wash width={width} height={height}>
               <Image
