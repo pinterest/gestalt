@@ -150,34 +150,26 @@ type Props = {|
   width: number,
 |};
 
-export default function Collage(props: Props) {
-  const {
-    columns,
-    cover,
-    gutter,
-    height,
-    layoutKey,
-    renderImage,
-    width,
-  } = props;
-  const positions = getCollageLayout({
-    columns,
-    cover: !!cover,
-    width,
-    height,
-    gutter: gutter || 0,
-    layoutKey: layoutKey || 0,
-  });
+export default function Collage({
+  columns,
+  cover,
+  gutter,
+  height,
+  layoutKey,
+  renderImage,
+  width,
+}: Props) {
   return (
     <Collection
-      Item={({ idx: index }) =>
-        renderImage({
-          index,
-          width: positions[index].width,
-          height: positions[index].height,
-        })
-      }
-      layout={positions}
+      Item={renderImage}
+      layout={getCollageLayout({
+        columns,
+        cover: !!cover,
+        width,
+        height,
+        gutter: gutter || 0,
+        layoutKey: layoutKey || 0,
+      })}
     />
   );
 }

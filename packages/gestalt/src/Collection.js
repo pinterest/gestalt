@@ -44,7 +44,7 @@ import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
 type Props = {|
-  Item: ({ idx: number }) => React.Node,
+  Item: ({ index: number, width: number, height: number }) => React.Node,
   layout: Array<{|
     top: number,
     left: number,
@@ -93,23 +93,23 @@ export default class Collection extends React.PureComponent<Props, void> {
 
     // Calculates which items from the item layer to render in the viewport
     // layer.
-    const items = layout.reduce((acc, position, idx) => {
+    const items = layout.reduce((acc, position, index) => {
       if (
         position.top + position.height > viewportTop &&
         position.top < viewportHeight + viewportTop &&
         position.left < viewportWidth + viewportLeft &&
         position.left + position.width > viewportLeft
       ) {
-        acc.push({ idx, ...position });
+        acc.push({ index, ...position });
       }
       return acc;
     }, []);
 
     return (
       <div className={layoutStyles.relative} style={{ width, height }}>
-        {items.map(({ idx, ...style }) => (
-          <div key={idx} className={layoutStyles.absolute} style={style}>
-            <Item idx={idx} />
+        {items.map(({ index, ...style }) => (
+          <div key={index} className={layoutStyles.absolute} style={style}>
+            <Item index={index} width={style.width} height={style.height} />
           </div>
         ))}
       </div>

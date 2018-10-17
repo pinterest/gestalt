@@ -6,7 +6,7 @@ import Collection from './Collection.js';
 test('Collection with default viewport', () => {
   const tree = create(
     <Collection
-      Item={({ idx }) => <div>{idx}</div>}
+      Item={({ index }) => <div>{index}</div>}
       layout={[
         { top: 0, left: 0, width: 100, height: 100 },
         { top: 100, left: 100, width: 100, height: 100 },
@@ -19,7 +19,7 @@ test('Collection with default viewport', () => {
 test('Collection with limited viewport', () => {
   const tree = create(
     <Collection
-      Item={({ idx }) => <div>{idx}</div>}
+      Item={({ index }) => <div>{index}</div>}
       layout={[
         { top: 0, left: 0, width: 100, height: 100 },
         { top: 100, left: 100, width: 100, height: 100 },
@@ -36,7 +36,7 @@ test('Collection with limited viewport', () => {
 test('Collection with limited viewport and a few items', () => {
   const tree = create(
     <Collection
-      Item={({ idx }) => <div>{idx}</div>}
+      Item={({ index }) => <div>{index}</div>}
       layout={[
         { top: 0, left: 0, width: 100, height: 100 },
         { top: 0, left: 100, width: 100, height: 100 },
