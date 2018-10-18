@@ -10,6 +10,7 @@
 
 - Internal: Bump all eslint and stylelint packages (#400)
 - Icon: add new icons for text alignment
+- Tooltip: Merge abilities into Flyout for future deprecation (#403)
 
 ### Patch
 
