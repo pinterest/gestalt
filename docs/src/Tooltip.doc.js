@@ -1,9 +1,7 @@
 // @flow
 import React from 'react';
-import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
-import Card from './components/Card.js';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -12,60 +10,22 @@ card(
   <PageHeader
     name="Tooltip"
     description="
-Tooltips educate people about a concept by drawing attention to a UI element, and encourage
-a specific next action. Tooltips teach people about the normal way to perform an action,
-without handholding. The default tooltip has two explicit buttons, one for the suggested
-action and one to dismiss. Tooltips can also simply show text.
+WARNING: Tooltip will be deprecated in a future release of Gestalt. To properly migrate your use
+of this component, follow the example below.
 "
   />
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'anchor',
-        type: '?HTMLElement',
-        required: true,
-        description: 'Ref for the element that the Tooltip will attach to',
-      },
-      {
-        name: 'idealDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the Tooltip to open',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
-        required: true,
-      },
-      {
-        name: 'positionRelativeToAnchor',
-        type: 'boolean',
-        defaultValue: true,
-        description:
-          'Depicts if the Tooltip shares a relative root with the anchor element',
-      },
-      {
-        name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
-        defaultValue: 'md',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
-    name="Example"
+    name="Migrating from Tooltip to Flyout"
+    description={`
+      To migrate from a Tooltip to a Flyout, simply set the background color to \`darkGray\`,
+      set \`shouldFocus\` to \`false\`, and add the \`padding\` wrapper to your children. The rest
+      will remain the same.`}
     direction="row"
     defaultCode={`
-class TooltipExample extends React.Component {
+class TooltipMigrationExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: false };
@@ -88,72 +48,30 @@ class TooltipExample extends React.Component {
           }}
         >
           <Button
-            accessibilityExpanded={!!this.state.open}
-            accessibilityHaspopup
             onClick={this.handleClick}
-            text={this.state.open ? 'Hide Tooltip' : 'Show Tooltip'}
+            text={this.state.open ? 'Hide Flyout' : 'Show Flyout'}
           />
         </div>
         {this.state.open && (
-          <Tooltip
+          <Flyout
             anchor={this.anchor}
-            idealDirection="down"
+            color="darkGray"
             onDismiss={this.handleDismiss}
+            shouldFocus={false}
+            size="md"
           >
-            <Text bold color="white" size="md">
-              Create a board to save Pins about Kitchen Design for later
-            </Text>
-          </Tooltip>
+            <Box column={12} padding={3}>
+              <Text bold color="white" size="md">
+                Create a board to save Pins about Kitchen Design for later
+              </Text>
+            </Box>
+          </Flyout>
         )}
       </Box>
     );
   }
 }
 `}
-  />
-);
-
-card(
-  <Card
-    description={`
-    We recommend passing in the following ARIA attributes to the anchor element:
-
-    * \`aria.haspopup\` lets the screenreader know that there is a flyout linked to the tigger.
-    * \`aria.expanded\` informs the screenreader whether the flyout is currently open or closed.
-  `}
-    name="Accessibility"
-  />
-);
-
-card(
-  <Card
-    description={`
-    The \`anchor\` ref you pass in should not include anything other than the trigger element itself. The Flyout
-    calculates its' position based on the bounding box of the \`anchor\`. To achieve this, we recommend setting a
-    ref directly on the component itself or adding \`display: inline-block\` to the parent container with the ref.
-
-    If you put the \`Tooltip\` in a portal or provider or it no longer shares
-    a relative root with the \`anchor\`, you must set \`positionRelativeToAnchor=false\` in order for it to be
-    positioned correctly relative to the body.
-  `}
-    name="Anchor"
-  />
-);
-
-card(
-  <Card
-    description={`
-    The \`Tooltip\` component gives you the ability to _influence_ the preferred direction that it
-    opens. This may be a useful property to specify if you have a page with many potential Tooltips
-    and you want the behavior to look uniform.
-
-    If an \`idealDirection\` is provided, the Tooltip will attempt to open in the direction specified.
-    It is important to note that the direction you specifiy can be over-ruled if there is not enough space
-    within the viewport in that specific direction and there is enough space in another direction. If no
-    \`idealDirection\` is provided, the Tooltip will open in the direction where there is the
-    most space available within the viewport.
-  `}
-    name="Ideal Direction Preference"
   />
 );
 
