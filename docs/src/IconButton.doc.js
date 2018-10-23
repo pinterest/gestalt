@@ -40,7 +40,7 @@ card(
       },
       {
         name: 'bgColor',
-        type: '"transparent" | "lightGray" | "white"',
+        type: '"transparent" | "gray" | "lightGray" | "white"',
         defaultValue: 'transparent',
       },
       {
@@ -152,7 +152,7 @@ card(
 card(
   <Combination
     name="Background Color Combinations"
-    bgColor={['transparent', 'white', 'lightGray']}
+    bgColor={['transparent', 'white', 'lightGray', 'gray']}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
   </Combination>

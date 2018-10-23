@@ -17,7 +17,7 @@ const SIZE_NAME_TO_PIXEL = {
 
 type Props = {|
   active?: boolean,
-  bgColor?: 'transparent' | 'lightGray' | 'white',
+  bgColor?: 'transparent' | 'gray' | 'lightGray' | 'white',
   focused?: boolean,
   hovered?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
@@ -27,6 +27,7 @@ type Props = {|
 
 const defaultIconButtonIconColors = {
   transparent: 'gray',
+  gray: 'white',
   lightGray: 'gray',
   white: 'gray',
 };
@@ -77,7 +78,7 @@ export default function Pog(props: Props) {
 
 Pog.propTypes = {
   active: PropTypes.bool,
-  bgColor: PropTypes.oneOf(['transparent', 'lightGray', 'white']),
+  bgColor: PropTypes.oneOf(['transparent', 'gray', 'lightGray', 'white']),
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
