@@ -14,7 +14,9 @@
   ],
   "dependencies": {
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "peerDependencies": {
     "react": "^16.6.0",
