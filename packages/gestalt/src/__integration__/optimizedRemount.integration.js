@@ -50,6 +50,6 @@ describe('Masonry > External cache', () => {
 
     // wait for grid to be remounted
     const updatedCount = await page.evaluate(() => window.ITEM_MOUNT_COUNT);
-    assert.ok(updatedCount <= initialMountCount);
+    expect(updatedCount).toBeLessThanOrEqual(initialMountCount);
   });
 });
