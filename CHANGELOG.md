@@ -8,15 +8,19 @@
 
 ### Minor
 
-- Internal: Bump version of React and related packages (#406)
-- Internal: Bump all eslint and stylelint packages (#400)
-- Icon: add new icons for text alignment
-- Tooltip: Merge abilities into Flyout for future deprecation (#403)
-- IconButton: Add new bgColor option "gray" (#405)
-
 ### Patch
 
 </details>
+
+## 0.83.0 (October 25, 2018)
+
+### Minor
+
+- Internal: Bump version of React and related packages (#406)
+- Internal: Bump all eslint and stylelint packages (#400)
+- Icon: add new icons for text alignment (#401)
+- Tooltip: Merge abilities into Flyout for future deprecation (#403)
+- IconButton: Add new bgColor option "gray" (#405)
 
 ## 0.82.0 (October 12, 2018)
 
