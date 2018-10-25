@@ -1,5 +1,6 @@
 :root {
   --lightGray: #efefef;
+  --gray: #8e8e8e;
 }
 
 .pog {
@@ -53,4 +54,17 @@
 
 .lightGray.active {
   background-color: color(var(--lightGray) blackness(+ 10%));
+}
+
+.gray {
+  composes: grayBg from "./Colors.css";
+}
+
+.gray.hovered,
+.gray.focused {
+  background-color: color(var(--gray) blackness(+ 6%));
+}
+
+.gray.active {
+  background-color: color(var(--gray) blackness(+ 10%));
 }
