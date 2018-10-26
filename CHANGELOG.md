@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Internal: Fixed a test that started flaking out with React 16.6 (#410)
+
 </details>
 
 ## 0.83.0 (October 25, 2018)
