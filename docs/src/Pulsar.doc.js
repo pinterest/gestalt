@@ -77,7 +77,7 @@ card(
   "
     name="Example"
     defaultCode={`
-class TooltipExample extends React.Component {
+class FlyoutExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: false };
@@ -114,19 +114,23 @@ class TooltipExample extends React.Component {
             accessibilityExpanded={!!this.state.open}
             accessibilityHaspopup
             onClick={this.handleClick}
-            text={this.state.open ? 'Hide Tooltip' : 'Show Tooltip'}
+            text={this.state.open ? 'Hide Flyout' : 'Show Flyout'}
           />
         </div>
         {this.state.open && (
-          <Tooltip
+          <Flyout
             anchor={this.anchor}
+            color="darkGray"
             idealDirection="down"
             onDismiss={this.handleDismiss}
+            shouldFocus={false}
           >
-            <Text bold color="white" size="md">
-              Create a board to save Pins about Kitchen Design for later
-            </Text>
-          </Tooltip>
+            <Box column={12} padding={3}>
+              <Text bold color="white" size="md">
+                Create a board to save Pins about Kitchen Design for later
+              </Text>
+            </Box>
+          </Flyout>
         )}
       </Box>
     );

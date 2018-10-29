@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tooltip: Deprecate component and remove from exports (#412)
+
 ### Patch
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
