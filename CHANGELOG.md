@@ -8,6 +8,8 @@
 
 ### Minor
 
+- IconButton: Add new `disabled` prop and stylings to `IconButton` component (#413)
+
 ### Patch
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
