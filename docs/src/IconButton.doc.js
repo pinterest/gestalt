@@ -44,6 +44,10 @@ card(
         defaultValue: 'transparent',
       },
       {
+        name: 'disabled',
+        type: 'boolean',
+      },
+      {
         name: 'iconColor',
         type: `"blue" | "darkGray" | "gray" | "red" | "white"`,
         defaultValue: 'gray',
@@ -76,6 +80,23 @@ card(
 <IconButton
   accessibilityLabel="Love"
   bgColor="white"
+  icon="heart"
+  iconColor="red"
+  onClick={() => { console.log('❤️')}}
+/>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Disabled"
+    description={`Just like any button component, \`IconButton\` can render in a disabled state`}
+    defaultCode={`
+<IconButton
+  accessibilityLabel="Love"
+  bgColor="white"
+  disabled={true}
   icon="heart"
   iconColor="red"
   onClick={() => { console.log('❤️')}}
