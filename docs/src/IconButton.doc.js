@@ -96,7 +96,7 @@ card(
 <IconButton
   accessibilityLabel="Love"
   bgColor="white"
-  disabled={true}
+  disabled
   icon="heart"
   iconColor="red"
   onClick={() => { console.log('❤️')}}
