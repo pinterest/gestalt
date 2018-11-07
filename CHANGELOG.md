@@ -11,7 +11,7 @@
 ### Patch
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
-- Docs: Updated some Masonry props descriptions (#414)
+- Docs: Updated some Masonry props descriptions (#417)
 
 </details>
 
