@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
+
 ### Patch
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
