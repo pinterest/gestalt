@@ -46,7 +46,7 @@ fold_end "puppeteer"
 
 echo "👌 Looks good to me!"
 
-if [ "${BUILDKITE_PULL_REQUEST:-"true"}" = "false" || "${TRAVIS_PULL_REQUEST:-"true"}" = "false" ]; then
+if [[ "${BUILDKITE_PULL_REQUEST:-"true"}" = "false" || "${TRAVIS_PULL_REQUEST:-"true"}" = "false" ]]; then
   fold_start "codecov"
   codecov
   fold_end "codecov"
