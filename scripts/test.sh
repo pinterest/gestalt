@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 function fold_start {
-  echo -en "travis_fold:start:$1\\r"
+  if [ -z "$BUILDKITE" ]; then
+    echo "--- $1"
+  else
+    echo -en "travis_fold:start:$1\\r"
+  fi
 }
 
 function fold_end {
-  echo -en "travis_fold:end:$1\\r"
+  if [ -z "$BUILDKITE" ]; then
+    if [[ $? -ne 0 ]]; then
+      echo "^^^ +++"
+    fi
+  else
+    echo -en "travis_fold:end:$1\\r"
+  fi
 }
 
 fold_start "build"
