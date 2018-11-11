@@ -34,10 +34,12 @@ JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" \
   yarn jest --config scripts/jestIntegration.config.json
 fold_end "puppeteer"
 
+echo "👌 Looks good to me!"
+
 if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
   fold_start "codecov"
   codecov
   fold_end "codecov"
 fi
 
-echo ":tada:"
+echo "📑 Done!"

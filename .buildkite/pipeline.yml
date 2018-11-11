@@ -31,7 +31,7 @@ steps:
         run: gestalt
   - wait
   - name: ":jest: Test"
-    command: ./.buildkite/steps/test.sh
+    command: ./scripts/test.sh
     timeout_in_minutes: 10
     agents:
       queue: elastic
