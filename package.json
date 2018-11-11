@@ -48,7 +48,7 @@
     "jest-puppeteer": "^3.2.1",
     "lint-staged": "^8.0.4",
     "node-fetch": "^2.1.2",
-    "prettier": "1.15.2",
+    "prettier": "1.13.7",
     "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.6.0",
     "shelljs": "^0.8.2",
