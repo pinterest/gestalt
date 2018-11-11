@@ -18,7 +18,7 @@ card(
     name="Masonry"
     description="
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
-It contains performance optimizations like virtualization and server rendering, as well as support for infinite scrolling.
+It contains performance optimizations like virtualization and support for infinite scrolling.
 "
   />
 );
@@ -52,7 +52,7 @@ card(
         type: `number`,
         defaultValue: 'null',
         description:
-          'The amount of vertical & horizontal space between each item.',
+          'The amount of vertical and horizontal space between each item, specified in pixels.',
       },
       {
         name: 'items',
@@ -71,34 +71,38 @@ card(
         name: 'loadItems',
         type: '() => void',
         description:
-          'A callback when the user scrolls and you need to load more items into the grid.',
+          'A callback when the user scrolls and you need to load more items into the grid. Note that `scrollContainer` must be specified.',
       },
       {
         name: 'scrollContainer',
         type: '() => HTMLElement',
+        description:
+          'A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.',
       },
       {
         name: 'virtualize',
         type: 'boolean',
+        description:
+          'Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user’s viewport and scroll position. Note that `scrollContainer` must be specified when virtualizing.',
         defaultValue: false,
       },
       {
         name: 'virtualBoundsTop',
         type: 'number',
         description:
-          'The relative amount in pixel to extend the virtualized viewport top value.',
+          'If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.',
       },
       {
         name: 'virtualBoundsBottom',
         type: 'number',
         description:
-          'The relative amount in pixel to extend the virtualized viewport bottom value.',
+          'If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.',
       },
       {
         name: 'measurementStore',
         type: 'typeof MeasurementStore',
         description:
-          'Used by Masonry to cache item measurements.  Measurements are stored via object references through a `WeakMap`',
+          'Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.',
       },
       {
         name: 'layout',

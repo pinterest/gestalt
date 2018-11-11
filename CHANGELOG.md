@@ -8,7 +8,65 @@
 
 ### Minor
 
+- Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
+
+### Patch
+
+- Internal: Fixed a test that started flaking out with React 16.6 (#410)
+- Docs: Updated some Masonry props descriptions (#417)
+
+</details>
+
+## 0.83.0 (October 25, 2018)
+
+### Minor
+
+- Internal: Bump version of React and related packages (#406)
+- Internal: Bump all eslint and stylelint packages (#400)
+- Icon: add new icons for text alignment
+- Tooltip: Merge abilities into Flyout for future deprecation (#403)
+- IconButton: Add new bgColor option "gray" (#405)
+
+## 0.82.0 (October 12, 2018)
+
+### Minor
+
+- Icon: Add compose icon (#358)
+- SearchField: Add `autoComplete` prop for parity with `TextField` (#363)
+- Tabs: Add optional wrap prop (#361)
+- Checkbox: Add optional onClick prop (#364)
+- Flow: Bump to version `0.81.0` (#376)
+- Tabs: Use href for key instead of index (#368)
+- Pulsar: Updated animation that hides ring, allowing full visibility of content underneath (#394)
+
+### Patch
+
+- Internal: Exclude node_modules from babelification (#382)
+- Internal: publish `README.md` (#367)
+- Internal: add `GH_TOKEN` to docker-compose file for greenkeeper (#378)
+- Internal: add greenkeeper env variables to docker-compose and buildkite files (#381)
+
+## 0.81.0 (September 11, 2018)
+
+### Minor
+
+- TextField / TextArea / SelectList: Fix issue with flyout when `errorMessage` is set (#350)
+- Icon: Add download svg (#341)
+- Masonry: Remove mention of server rendering (#342)
+
+## 0.80.0 (September 7, 2018)
+
+### Minor
+
+- Internal: Update flow-typed def for jest to match jest version (#346)
+- Masonry: new MasonryInfiniteBeta and MasonryBeta (#329)
+
+## 0.79.2 (September 5, 2018)
+
+### Minor
+
 - Button: Fix transparent button on blue background (#316)
+- Flyout: Add new prop `shouldFocus` to override focus on open behavior. _Has codemod_ (#325)
 - Icon: Add camera roll icon (#317)
 - Video: Make a11y label props required in Video component (#321)
 - Internal: Add in greenkeeper-lockfile for auto updates (#327)
@@ -16,8 +74,7 @@
 ### Patch
 
 - Modal: set content width to 100% to prevent overflow bug in IE (#315)
-
-</details>
+- Modal: change Box width from using column to width property (#338)
 
 ## 0.79.1 (August 24, 2018)
 

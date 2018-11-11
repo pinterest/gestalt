@@ -21,12 +21,18 @@ const getItemColumnMap = async () => {
 };
 
 describe('Masonry > Flexible resize', () => {
-  it('Should resize item width and height on resize ', async () => {
+  it.each([
+    ['FlexibleMasonry', 'http://localhost:3001/FlexibleMasonry'],
+    [
+      'FlexibleMasonryInfinite',
+      'http://localhost:3001/FlexibleMasonryInfinite',
+    ],
+  ])('Should resize item width and height on resize %s', async (name, url) => {
     await page.setViewport({
       width: 800,
       height: 800,
     });
-    await page.goto('http://localhost:3001/FlexibleMasonry');
+    await page.goto(url);
 
     // Wait for the grid to be hydrated.
     // TODO: Break this out into a utility /w wait() instead.

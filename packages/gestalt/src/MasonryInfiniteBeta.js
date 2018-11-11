@@ -2,7 +2,7 @@
 import * as React from 'react';
 import FetchItems from './FetchItems.js';
 import MeasurementStore from './MeasurementStore.js';
-import Masonry, { type Props, type MeasurementState } from './Masonry.js';
+import Masonry, { type Props, type MeasurementState } from './MasonryBeta.js';
 import { type Position } from './defaultLayout.js';
 
 type State<T> = {|
@@ -15,10 +15,14 @@ type State<T> = {|
 |};
 
 /**
- * This MasonryInfinite is backward compatible and serves to help with migrating
- * to a Masrony that doesn't have the scrol fetch concerns
+ * This MasonryInfiniteBeta is backward compatible with Masonry and
+ * serves to help with migrating to a Masrony that doesn't have
+ * the scrol fetch concerns.
+ *
+ * It is in beta so that it can be battle tested.
+ *
  */
-export default class MasonryInfinite<T> extends React.Component<
+export default class MasonryInfiniteBeta<T> extends React.Component<
   Props<T>,
   State<T>
 > {

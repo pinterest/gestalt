@@ -1,6 +1,6 @@
 .innerCircle {
   composes: borderBox from "./Layout.css";
-  animation-duration: 2.5s;
+  animation-duration: 5s;
   animation-iteration-count: inherit;
   animation-name: PulseAnimation;
   border: 8px solid #4a90e2;
@@ -12,7 +12,7 @@
 
 .innerCircle:focus,
 .innerCircle:hover {
-  opacity: 0.2;
+  border-color: #dce9fa;
 }
 
 .outerCircle {
@@ -35,15 +35,32 @@
 }
 
 @keyframes PulseAnimation {
-  from {
+  0% {
+    opacity: 0;
     transform: scale(0.8);
   }
 
-  50% {
+  20% {
+    opacity: 1;
     transform: scale(1);
   }
 
-  to {
+  40% {
+    opacity: 1;
     transform: scale(0.8);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  80% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
   }
 }
