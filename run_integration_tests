@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
-
-(
-  cd packages/gestalt && yarn prepublish
-)
 
 (
   cd test && yarn webpack-dev-server --hot --inline --progress --colors
@@ -20,7 +15,7 @@ until $(curl --output /dev/null --silent --head --fail http://localhost:3001/__p
     sleep 5
 done
 
-JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" jest --config scripts/jestIntegration.config.json
+JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" yarn jest --config scripts/jestIntegration.config.json
 STATUS=$?
 
 # Kill the process group and all children of that process group.

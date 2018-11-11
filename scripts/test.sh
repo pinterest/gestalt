@@ -9,6 +9,10 @@ function fold_end {
   echo -en "travis_fold:end:$1\\r"
 }
 
+fold_start "build"
+(cd packages/gestalt && yarn prepublish)
+fold_end "build"
+
 fold_start "eslint"
 yarn eslint .
 fold_end "eslint"
@@ -30,3 +34,5 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
   codecov
   fold_end "codecov"
 fi
+
+echo ":tada:"
