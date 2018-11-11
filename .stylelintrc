@@ -3,6 +3,9 @@
     "stylelint-config-standard",
     "stylelint-config-prettier"
   ],
+  "ignoreFiles": [
+    "packages/*/dist/**/*.css"
+  ],
   "plugins": [
     "stylelint-order"
   ],
