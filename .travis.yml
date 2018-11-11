@@ -6,7 +6,6 @@ sudo: required
 language: node_js
 node_js:
   - lts/carbon
-  - lts/dubnium
 
 addons:
   chrome: stable
