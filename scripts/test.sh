@@ -25,4 +25,8 @@ fold_start "integration_tests"
 ./run_integration_tests
 fold_end "integration_tests"
 
-exit 0
+if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+  fold_start "codecov"
+  codecov
+  fold_end "codecov"
+fi
