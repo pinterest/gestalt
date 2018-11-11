@@ -26,4 +26,6 @@ STATUS=$?
 # Kill the process group and all children of that process group.
 kill -- -$PGID &> /dev/null
 
+echo "Exiting with status:" $STATUS
+
 exit $STATUS
