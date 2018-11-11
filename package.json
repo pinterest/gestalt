@@ -26,7 +26,7 @@
     "benchmark": "^2.1.4",
     "codecov": "^3.0.2",
     "concurrently": "^4.0.1",
-    "danger": "^6.0.7",
+    "danger": "^3.1.7",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.7.0",

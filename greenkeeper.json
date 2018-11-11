@@ -12,6 +12,7 @@
     "flow-bin",
     "prettier",
     "rollup-plugin-babel",
-    "react-scripts"
+    "react-scripts",
+    "danger"
   ]
 }
