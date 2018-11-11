@@ -26,7 +26,8 @@ yarn jest
 fold_end "jest"
 
 fold_start "puppeteer"
-./run_integration_tests
+JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" \
+  yarn jest --config scripts/jestIntegration.config.json
 fold_end "puppeteer"
 
 if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
