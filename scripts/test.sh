@@ -22,8 +22,12 @@ yarn stylelint "packages/**/*.css"
 fold_end "stylelint"
 
 fold_start "jest"
-yarn jest
+yarn jest --coverage
 fold_end "jest"
+
+fold_start "flow"
+yarn yarn flow check
+fold_end "flow"
 
 fold_start "puppeteer"
 JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" \
