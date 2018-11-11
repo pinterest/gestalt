@@ -1,18 +1,18 @@
 os:
   - linux
 dist: trusty
+sudo: required
+
 language: node_js
 node_js:
   - lts/carbon
+  - lts/dubnium
+
 addons:
   chrome: stable
 before_install:
-  - yarn global add greenkeeper-lockfile@2
   - yarn global add codecov
 before_script:
-  - greenkeeper-lockfile-update
   - yarn danger ci
-
 after_script:
-  - greenkeeper-lockfile-upload
   - codecov
