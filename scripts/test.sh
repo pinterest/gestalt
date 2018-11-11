@@ -26,7 +26,7 @@ yarn jest --coverage
 fold_end "jest"
 
 fold_start "flow"
-yarn yarn flow check
+yarn flow check
 fold_end "flow"
 
 fold_start "puppeteer"
