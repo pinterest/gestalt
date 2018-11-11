@@ -2,7 +2,7 @@
 set -euo pipefail
 
 function fold_start {
-  if [ -z "$BUILDKITE" ]; then
+  if [[ -z BUILDKITE ]]; then
     echo "--- $1"
   else
     echo -en "travis_fold:start:$1\\r"
@@ -10,7 +10,7 @@ function fold_start {
 }
 
 function fold_end {
-  if [ -z "$BUILDKITE" ]; then
+  if [[ -z BUILDKITE ]]; then
     if [[ $? -ne 0 ]]; then
       echo "^^^ +++"
     fi
