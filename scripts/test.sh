@@ -25,9 +25,9 @@ fold_start "jest"
 yarn jest
 fold_end "jest"
 
-fold_start "integration_tests"
+fold_start "puppeteer"
 ./run_integration_tests
-fold_end "integration_tests"
+fold_end "puppeteer"
 
 if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
   fold_start "codecov"
