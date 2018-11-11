@@ -24,3 +24,5 @@ fold_end "jest"
 fold_start "integration_tests"
 ./run_integration_tests
 fold_end "integration_tests"
+
+exit 0
