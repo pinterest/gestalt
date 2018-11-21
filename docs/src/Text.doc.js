@@ -42,6 +42,11 @@ card(
         defaultValue: false,
       },
       {
+        name: 'leading',
+        type: `"short" | "tall"`,
+        description: `short: line-height 1.2, tall: line-height 1.5, default: browser determines line-height based on language`,
+      },
+      {
         name: 'italic',
         type: 'boolean',
         defaultValue: false,
