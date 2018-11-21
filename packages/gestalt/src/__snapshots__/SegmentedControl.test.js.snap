@@ -13,7 +13,7 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize3 darkGray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
+      className="Text fontSize3 darkGray alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       News
     </div>
@@ -26,7 +26,7 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
+      className="Text fontSize3 gray alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       You
     </div>
@@ -39,7 +39,7 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignCenter breakWord fontStyleNormal fontWeightBold"
+      className="Text fontSize3 gray alignCenter breakWord fontStyleNormal fontWeightBold"
     >
       Messages
     </div>

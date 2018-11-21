@@ -17,7 +17,7 @@ exports[`Tabs renders 1`] = `
     role="tab"
   >
     <div
-      className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+      className="Text fontSize3 darkGray alignLeft breakWord fontStyleNormal fontWeightBold"
     >
       News
     </div>
@@ -34,7 +34,7 @@ exports[`Tabs renders 1`] = `
     role="tab"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+      className="Text fontSize3 gray alignLeft breakWord fontStyleNormal fontWeightBold"
     >
       You
     </div>
@@ -51,7 +51,7 @@ exports[`Tabs renders 1`] = `
     role="tab"
   >
     <div
-      className="Text fontSize3 gray leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+      className="Text fontSize3 gray alignLeft breakWord fontStyleNormal fontWeightBold"
     >
       Messages
     </div>

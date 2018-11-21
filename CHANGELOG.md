@@ -9,6 +9,7 @@
 ### Minor
 
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
+- Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
 
 ### Patch
 
