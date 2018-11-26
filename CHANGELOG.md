@@ -9,6 +9,7 @@
 ### Minor
 
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
+- Avatar: Add property to use pinterest icon for verified (#421)
 
 ### Patch
 
