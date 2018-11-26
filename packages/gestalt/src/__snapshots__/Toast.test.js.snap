@@ -51,13 +51,13 @@ exports[`Confirmation Toast 1`] = `
           }
         >
           <div
-            className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightNormal"
+            className="Text fontSize4 white alignLeft breakWord fontStyleNormal fontWeightNormal"
           >
             Saved to
           </div>
         </div>
         <div
-          className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+          className="Text fontSize4 white alignLeft breakWord fontStyleNormal fontWeightBold"
         >
           Home decor
         </div>
@@ -84,7 +84,7 @@ exports[`Error Toast 1`] = `
       className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
     >
       <div
-        className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        className="Text fontSize4 white alignLeft breakWord fontStyleNormal fontWeightBold"
       >
         Oops, we couldn't find that!
       </div>
@@ -110,7 +110,7 @@ exports[`Guide Toast 1`] = `
       className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
     >
       <div
-        className="Text fontSize4 white leadingShort alignLeft breakWord fontStyleNormal fontWeightBold"
+        className="Text fontSize4 white alignLeft breakWord fontStyleNormal fontWeightBold"
       >
         Same great profile, slightly new look. Learn more?
       </div>

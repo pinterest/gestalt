@@ -13,6 +13,16 @@ test('Text orange adds the orange color class', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Text leading short adds the leadingShort class', () => {
+  const tree = create(<Text leading="short" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Text leading tall adds the leadingTall class', () => {
+  const tree = create(<Text leading="tall" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Text truncate should add a title when the children are text only', () => {
   const tree = create(
     <Text truncate>

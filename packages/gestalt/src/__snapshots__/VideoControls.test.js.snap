@@ -43,7 +43,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       15:05
     </div>
@@ -122,7 +122,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       15:05
     </div>
@@ -203,7 +203,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       00:15
     </div>
@@ -282,7 +282,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       00:15
     </div>
@@ -363,7 +363,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       01:05
     </div>
@@ -442,7 +442,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       01:05
     </div>
@@ -523,7 +523,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       00:05
     </div>
@@ -602,7 +602,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       00:05
     </div>
@@ -683,7 +683,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       01:07
     </div>
@@ -762,7 +762,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     }
   >
     <div
-      className="Text fontSize1 white leadingShort alignRight breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize1 white alignRight breakWord fontStyleNormal fontWeightNormal"
     >
       01:07
     </div>
