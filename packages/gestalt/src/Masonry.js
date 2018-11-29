@@ -51,6 +51,7 @@ type Props<T> = {|
           from: number,
         }
       ) => void | boolean | {}),
+  onFinishedRendering?: () => void,
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
@@ -227,7 +228,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
-    const { items, measurementStore } = this.props;
+    const { items, measurementStore, onFinishedRendering } = this.props;
 
     this.measureContainerAsync();
 
@@ -248,6 +249,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
           hasPendingMeasurements,
         });
       });
+    } else if (onFinishedRendering) {
+      onFinishedRendering();
     }
   }
 

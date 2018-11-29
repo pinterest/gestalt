@@ -9,6 +9,7 @@
 ### Minor
 
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
+- Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
 
 ### Patch
 
