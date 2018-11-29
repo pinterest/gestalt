@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.84.0 (November 29, 2018)
+
+### Minor
+
 - Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
 - Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
@@ -16,8 +24,6 @@
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
 - Docs: Updated some Masonry props descriptions (#417)
-
-</details>
 
 ## 0.83.0 (October 25, 2018)
 
