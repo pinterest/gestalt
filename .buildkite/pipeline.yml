@@ -7,55 +7,8 @@ steps:
     agents:
       queue: elastic-builders
   - wait
-  - name: ":hammer_and_wrench: build"
-    command: yarn build
-    artifact_paths: 'dist/stats.json'
-    timeout_in_minutes: 10
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
-  - wait
-  - name: ":yarn:"
-    command: yarn greenkeeper-lockfile-update
-    timeout_in_minutes: 10
-    env:
-      - GH_TOKEN
-      - GK_LOCK_COMMIT_EMAIL
-      - GK_LOCK_COMMIT_NAME
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
-  - wait
-  - name: ":eslint:"
-    command: yarn lint:js
-    timeout_in_minutes: 10
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
-  - name: ":stylelint:"
-    command: yarn lint:css
-    timeout_in_minutes: 10
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
-  - name: ":flowtype:"
-    command: yarn flow check
-    timeout_in_minutes: 10
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
   - name: ":jest: Test"
-    command: ./.buildkite/steps/test.sh
+    command: ./scripts/test.sh
     timeout_in_minutes: 10
     agents:
       queue: elastic
@@ -69,15 +22,6 @@ steps:
       - BUILDKITE_COMMIT
       - BUILDKITE_PROJECT_SLUG
       - CODECOV_TOKEN
-  - name: ":jest: Integration Tests"
-    command: ./run_integration_tests
-    artifact_paths: 'screenshots/*'
-    timeout_in_minutes: 30
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
   - name: ":zap: danger"
     command: yarn danger ci
     timeout_in_minutes: 10
@@ -88,19 +32,6 @@ steps:
       - BUILDKITE_REPO
       - CI
       - DANGER_GITHUB_API_TOKEN
-    agents:
-      queue: elastic
-    plugins:
-      docker-compose:
-        run: gestalt
-  - wait
-  - name: ":github:"
-    command: yarn greenkeeper-lockfile-upload
-    timeout_in_minutes: 10
-    env:
-      - GH_TOKEN
-      - GK_LOCK_COMMIT_EMAIL
-      - GK_LOCK_COMMIT_NAME
     agents:
       queue: elastic
     plugins:
