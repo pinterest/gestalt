@@ -6,6 +6,12 @@
     Click to see more.
   </summary>
 
+(no new changes)
+
+</details>
+
+## 0.84.0 (November 29, 2018)
+
 ### Minor
 
 - Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
@@ -16,8 +22,6 @@
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
 - Docs: Updated some Masonry props descriptions (#417)
-
-</details>
 
 ## 0.83.0 (October 25, 2018)
 
