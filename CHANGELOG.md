@@ -6,7 +6,9 @@
     Click to see more.
   </summary>
 
-(no new changes)
+### Minor
+
+### Patch
 
 </details>
 
