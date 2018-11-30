@@ -81,7 +81,7 @@ import smileyOutline from './smiley-outline.svg';
 import sound from './sound.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
-import switchAccount from './switch.svg';
+import switchAccount from './switchAccount.svg';
 import tag from './tag.svg';
 import terms from './terms.svg';
 import textAlignCenter from './text-align-center.svg';
