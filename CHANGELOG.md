@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: adding new icons (#425)
+
 ### Patch
 
 </details>

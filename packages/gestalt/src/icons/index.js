@@ -3,6 +3,7 @@ import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addPin from './add-pin.svg';
 import angledPin from './angled-pin.svg';
+import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowCircleDown from './arrow-circle-down.svg';
@@ -44,10 +45,12 @@ import googlePlus from './google-plus.svg';
 import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
+import logout from './logout.svg';
 import handle from './handle.svg';
 import handPointing from './hand-pointing.svg';
 import heart from './heart.svg';
 import heartBroken from './heart-broken.svg';
+import impressum from './impressum.svg';
 import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
@@ -69,6 +72,7 @@ import questionMark from './question-mark.svg';
 import remove from './remove.svg';
 import report from './report.svg';
 import search from './search.svg';
+import security from './security.svg';
 import send from './send.svg';
 import share from './share.svg';
 import shoppingBag from './shopping-bag.svg';
@@ -77,7 +81,9 @@ import smileyOutline from './smiley-outline.svg';
 import sound from './sound.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
+import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
+import terms from './terms.svg';
 import textAlignCenter from './text-align-center.svg';
 import textAlignLeft from './text-align-left.svg';
 import textAlignRight from './text-align-right.svg';
@@ -91,6 +97,7 @@ export default {
   'add-circle': addCircle,
   'add-pin': addPin,
   'angled-pin': angledPin,
+  apps,
   'arrow-back': arrowBack,
   'arrow-circle-down': arrowCircleDown,
   'arrow-circle-forward': arrowCircleForward,
@@ -134,11 +141,13 @@ export default {
   'hand-pointing': handPointing,
   heart,
   'heart-broken': heartBroken,
+  impressum,
   knoop,
   lightbulb,
   link,
   location,
   lock,
+  logout,
   maximize,
   megaphone,
   menu,
@@ -157,6 +166,7 @@ export default {
   remove,
   report,
   search,
+  security,
   'shopping-bag': shoppingBag,
   smiley,
   'smiley-outline': smileyOutline,
@@ -165,7 +175,9 @@ export default {
   sound,
   speech,
   'speech-ellipsis': speechEllipsis,
+  'switch-account': switchAccount,
   tag,
+  terms,
   'text-align-left': textAlignLeft,
   'text-align-center': textAlignCenter,
   'text-align-right': textAlignRight,
