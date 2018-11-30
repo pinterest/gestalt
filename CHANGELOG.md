@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: adding new icons (#425)
+
 ### Patch
 
 </details>
@@ -19,7 +21,7 @@
 - Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
 - Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
-- Icon: adding new icons (#425)
+
 ### Patch
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
