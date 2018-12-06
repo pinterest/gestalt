@@ -229,6 +229,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
     const { items, measurementStore, onFinishedRendering } = this.props;
+    const { isFetching } = this.state;
 
     this.measureContainerAsync();
 
@@ -249,7 +250,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
           hasPendingMeasurements,
         });
       });
-    } else if (onFinishedRendering) {
+    } else if (onFinishedRendering && !isFetching) {
       onFinishedRendering();
     }
   }

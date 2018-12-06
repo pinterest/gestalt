@@ -111,6 +111,12 @@ card(
         description:
           'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
       },
+      {
+        name: 'onFinishedRendering',
+        type: '() => void',
+        description:
+          'onFinishedRendering is a callback function that will be called when Masonry is finished with all measurements, fetches, and renders. This is useful because sometimes Masonry will re-render many times asyncronously as it measures and lays out items in batches and it can otherwise be difficult to tell when its finished without inspecting its internal state. Note that this method may be called immediately before `loadItems` is called which would cause further measurement/fetching.',
+      },
     ]}
   />
 );

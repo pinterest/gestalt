@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Icon: adding new icons (#425)
+- Masonry: onFinishedRendering is only called when fetching has finished (#426)
 
 ### Patch
 
