@@ -8,6 +8,10 @@
 
 ### Minor
 
+- Icon: adding a new icon for canonical pins
+
+### Minor
+
 - Icon: adding new icons (#425)
 
 ### Patch
