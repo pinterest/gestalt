@@ -1,6 +1,5 @@
 # Gestalt
 
-[![Build status](https://badge.buildkite.com/2c6b6e9f79054095354cc061876e4885f4b9212e1dbebda270.svg?branch=master)](https://buildkite.com/pinterest/gestalt)
 [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt)
 [![Coverage status](https://codecov.io/gh/pinterest/gestalt/branch/master/graph/badge.svg)](https://codecov.io/github/pinterest/gestalt)
 [![Greenkeeper badge](https://badges.greenkeeper.io/pinterest/gestalt.svg)](https://greenkeeper.io/)
