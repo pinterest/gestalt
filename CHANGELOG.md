@@ -21,6 +21,7 @@
 - Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
 - Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
+- Color: Change Pinterest Red from BD081C to E60023 (#429)
 
 ### Patch
 
