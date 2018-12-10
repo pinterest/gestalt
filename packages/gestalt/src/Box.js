@@ -639,47 +639,52 @@ const omit = (keys, obj) =>
     };
   }, {});
 
-export default function Box({ children, ...props }: PropType) {
-  // Flow can't reason about the constant nature of Object.keys so we can't use
-  // a functional (reduce) style here.
+// $FlowIssue https://github.com/facebook/flow/issues/6103
+const Box = React.forwardRef(
+  ({ children, ...props }: PropType, ref: React.ElementRef<*>) => {
+    // Flow can't reason about the constant nature of Object.keys so we can't use
+    // a functional (reduce) style here.
 
-  // Box is a "pass-through" component, meaning that if you pass properties to
-  // it that it doesn't know about (`aria-label` for instance) it passes
-  // directly back to the underlying `<div/>`. That's generally useful, but
-  // we'd also like to strip out a few naughty properties that break style
-  // encapsulation (className, style) or accessibility (onClick).
-  let blacklist = ['onClick', 'className', 'style'];
+    // Box is a "pass-through" component, meaning that if you pass properties to
+    // it that it doesn't know about (`aria-label` for instance) it passes
+    // directly back to the underlying `<div/>`. That's generally useful, but
+    // we'd also like to strip out a few naughty properties that break style
+    // encapsulation (className, style) or accessibility (onClick).
+    let blacklist = ['onClick', 'className', 'style'];
 
-  // All Box's are box-sized by default, so we start off building up the styles
-  // to be applied with a Box base class.
-  let s = fromClassName(styles.box);
+    // All Box's are box-sized by default, so we start off building up the styles
+    // to be applied with a Box base class.
+    let s = fromClassName(styles.box);
 
-  // This loops through each property and if it exists in the previously
-  // defined transform map, concatentes the resulting styles to the base
-  // styles. If there's a match, we also don't pass through that property. This
-  // means Box's runtime is only dependent on the number of properties passed
-  // to it (which is typically small) instead of the total number of possible
-  // properties (~30 or so). While it may ~feel~ like Box is innefficient, its
-  // biggest performance impact is on startup time because there's so much code
-  // here.
+    // This loops through each property and if it exists in the previously
+    // defined transform map, concatentes the resulting styles to the base
+    // styles. If there's a match, we also don't pass through that property. This
+    // means Box's runtime is only dependent on the number of properties passed
+    // to it (which is typically small) instead of the total number of possible
+    // properties (~30 or so). While it may ~feel~ like Box is innefficient, its
+    // biggest performance impact is on startup time because there's so much code
+    // here.
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const prop in props) {
-    if (Object.prototype.hasOwnProperty.call(propToFn, prop)) {
-      const fn = propToFn[prop];
-      const value = props[prop];
-      blacklist = blacklist.concat(prop);
-      s = concat([s, fn(value)]);
+    // eslint-disable-next-line no-restricted-syntax
+    for (const prop in props) {
+      if (Object.prototype.hasOwnProperty.call(propToFn, prop)) {
+        const fn = propToFn[prop];
+        const value = props[prop];
+        blacklist = blacklist.concat(prop);
+        s = concat([s, fn(value)]);
+      }
     }
-  }
 
-  // And... magic!
-  return (
-    <div {...omit(blacklist, props)} {...toProps(s)}>
-      {children}
-    </div>
-  );
-}
+    // And... magic!
+    return (
+      <div {...omit(blacklist, props)} {...toProps(s)} ref={ref}>
+        {children}
+      </div>
+    );
+  }
+);
+
+export default Box;
 
 /*
 

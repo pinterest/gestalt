@@ -83,6 +83,7 @@ class TooltipExample extends React.Component {
     this.state = { open: false };
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
+    this.anchorRef = React.createRef();
   }
 
   _handleClick() {
@@ -95,12 +96,7 @@ class TooltipExample extends React.Component {
   render() {
     return (
       <Box marginTop={10}>
-        <div
-          style={{ display: "inline-block" }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
+        <Box display="inlineBlock" ref={this.anchorRef}>
           <div style={{
             position: "absolute",
             top: 10,
@@ -116,10 +112,10 @@ class TooltipExample extends React.Component {
             onClick={this.handleClick}
             text={this.state.open ? 'Hide Tooltip' : 'Show Tooltip'}
           />
-        </div>
+        </Box>
         {this.state.open && (
           <Tooltip
-            anchor={this.anchor}
+            anchor={this.anchorRef.current}
             idealDirection="down"
             onDismiss={this.handleDismiss}
           >

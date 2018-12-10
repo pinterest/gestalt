@@ -31,6 +31,7 @@ class TooltipMigrationExample extends React.Component {
     this.state = { open: false };
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
+    this.anchorRef = React.createRef();
   }
   _handleClick() {
     this.setState(() => ({ open: !this.state.open }));
@@ -41,20 +42,15 @@ class TooltipMigrationExample extends React.Component {
   render() {
     return (
       <Box>
-        <div
-          style={{ display: "inline-block" }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
+        <Box display="inlineBlock" ref={this.anchorRef}>
           <Button
             onClick={this.handleClick}
             text={this.state.open ? 'Hide Flyout' : 'Show Flyout'}
           />
-        </div>
+        </Box>
         {this.state.open && (
           <Flyout
-            anchor={this.anchor}
+            anchor={this.anchorRef.current}
             color="darkGray"
             onDismiss={this.handleDismiss}
             shouldFocus={false}
