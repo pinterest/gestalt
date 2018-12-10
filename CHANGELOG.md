@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Box: Add ref forwarding (#431)
+
 ### Patch
 
 </details>

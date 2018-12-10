@@ -79,6 +79,7 @@ class FlyoutExample extends React.Component {
     this.state = { open: false };
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
+    this.anchorRef = React.createRef();
   }
   _handleClick() {
     this.setState(() => ({ open: !this.state.open }));
@@ -89,22 +90,17 @@ class FlyoutExample extends React.Component {
   render() {
     return (
       <Box>
-        <div
-          style={{ display: "inline-block" }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
+        <Box display="inlineBlock" ref={this.anchorRef}>
           <Button
             accessibilityExpanded={!!this.state.open}
             accessibilityHaspopup
             onClick={this.handleClick}
             text="Help"
           />
-        </div>
+        </Box>
         {this.state.open &&
           <Flyout
-            anchor={this.anchor}
+            anchor={this.anchorRef.current}
             idealDirection="up"
             onDismiss={this.handleDismiss}
             size="md"
@@ -138,6 +134,7 @@ class ErrorFlyoutExample extends React.Component {
     this.state = { open: false };
     this.handleClick = this._handleClick.bind(this);
     this.handleDismiss = this._handleDismiss.bind(this);
+    this.anchorRef = React.createRef();
   }
   _handleClick() {
     this.setState(() => ({ open: !this.state.open }));
@@ -148,17 +145,12 @@ class ErrorFlyoutExample extends React.Component {
   render() {
     return (
       <Box>
-        <div
-          style={{ display: "inline-block" }}
-          ref={c => {
-            this.anchor = c;
-          }}
-        >
+        <Box display="inlineBlock" ref={this.anchorRef}>
           <Button onClick={this.handleClick} text="Remove" />
-        </div>
+        </Box>
         {this.state.open &&
           <Flyout
-            anchor={this.anchor}
+            anchor={this.anchorRef.current}
             idealDirection="up"
             onDismiss={this.handleDismiss}
             color="orange"
