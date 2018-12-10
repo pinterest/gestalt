@@ -8,11 +8,16 @@
 
 ### Minor
 
-- Icon: adding new icons (#425)
-
 ### Patch
 
 </details>
+
+## 0.85.0 (December 10, 2018)
+
+### Minor
+
+- Icon: adding new icons (#425)
+- Color: Change Pinterest Red from BD081C to E60023 (#429)
 
 ## 0.84.0 (November 29, 2018)
 
@@ -21,7 +26,6 @@
 - Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
 - Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
-- Color: Change Pinterest Red from BD081C to E60023 (#429)
 
 ### Patch
 
