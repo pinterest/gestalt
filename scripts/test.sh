@@ -2,21 +2,11 @@
 set -euo pipefail
 
 function fold_start {
-  if [[ -z BUILDKITE ]]; then
-    echo "--- $1"
-  else
-    echo -en "travis_fold:start:$1\\r"
-  fi
+  echo -en "travis_fold:start:$1\\r"
 }
 
 function fold_end {
-  if [[ -z BUILDKITE ]]; then
-    if [[ $? -ne 0 ]]; then
-      echo "^^^ +++"
-    fi
-  else
-    echo -en "travis_fold:end:$1\\r"
-  fi
+  echo -en "travis_fold:end:$1\\r"
 }
 
 fold_start "build"
@@ -46,7 +36,7 @@ fold_end "puppeteer"
 
 echo "👌 Looks good to me!"
 
-if [[ "${BUILDKITE_PULL_REQUEST:-"true"}" = "false" || "${TRAVIS_PULL_REQUEST:-"true"}" = "false" ]]; then
+if [[ "${TRAVIS_PULL_REQUEST:-"true"}" = "false" ]]; then
   fold_start "codecov"
   codecov
   fold_end "codecov"
