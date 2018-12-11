@@ -14,6 +14,3 @@ addons:
 
 before_install:
   - yarn global add codecov
-
-before_script:
-  - yarn danger ci
