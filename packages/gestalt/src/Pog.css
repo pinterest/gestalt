@@ -49,11 +49,11 @@
 
 .lightGray.hovered,
 .lightGray.focused {
-  background-color: color(var(--lightGray) blackness(+ 6%));
+  background-color: #e2e2e2;
 }
 
 .lightGray.active {
-  background-color: color(var(--lightGray) blackness(+ 10%));
+  background-color: #dadada;
 }
 
 .gray {
@@ -62,9 +62,9 @@
 
 .gray.hovered,
 .gray.focused {
-  background-color: color(var(--gray) blackness(+ 6%));
+  background-color: #878787;
 }
 
 .gray.active {
-  background-color: color(var(--gray) blackness(+ 10%));
+  background-color: #828282;
 }
