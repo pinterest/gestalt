@@ -12,6 +12,8 @@
 
 ### Patch
 
+- Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
+
 </details>
 
 ## 0.85.0 (December 10, 2018)
