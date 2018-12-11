@@ -55,11 +55,11 @@
 
 .gray:hover,
 .gray:focus {
-  background-color: color(var(--lightGray) blackness(+ 6%));
+  background-color: #e2e2e2;
 }
 
 .gray:active {
-  background-color: color(var(--lightGray) blackness(+ 10%));
+  background-color: #dadada;
 }
 
 .red {
@@ -68,11 +68,11 @@
 
 .red:hover,
 .red:focus {
-  background-color: color(var(--red) blackness(+ 6%));
+  background-color: #ad081b;
 }
 
 .red:active {
-  background-color: color(var(--red) blackness(+ 10%));
+  background-color: #a3081a;
 }
 
 .blue {
@@ -81,11 +81,11 @@
 
 .blue:hover,
 .blue:focus {
-  background-color: color(var(--blue) blackness(+ 6%));
+  background-color: #4a8ad4;
 }
 
 .blue:active {
-  background-color: color(var(--blue) blackness(+ 10%));
+  background-color: #4a85c9;
 }
 
 .transparent {
@@ -108,9 +108,9 @@
 
 .white:hover,
 .white:focus {
-  background-color: color(var(--white) blackness(+ 6%));
+  background-color: #f1f1f1;
 }
 
 .white:active {
-  background-color: color(var(--white) blackness(+ 10%));
+  background-color: #e8e8e8;
 }
