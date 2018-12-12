@@ -15,6 +15,7 @@ import bell from './bell.svg';
 import camera from './camera.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
+import canonicalPin from './canonical-pin.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import circleOutline from './circle-outline.svg';
@@ -109,6 +110,7 @@ export default {
   camera,
   'camera-roll': cameraRoll,
   cancel,
+  'canonical-pin': canonicalPin,
   check,
   'check-circle': checkCircle,
   'circle-outline': circleOutline,
