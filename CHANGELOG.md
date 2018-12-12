@@ -14,6 +14,7 @@
 ### Patch
 
 - Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
+- Docs: Update `Link` docs to indicate `href` is required (#437)
 
 </details>
 
