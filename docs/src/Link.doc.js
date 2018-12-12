@@ -24,6 +24,7 @@ card(
       {
         name: 'href',
         type: 'string',
+        required: true,
       },
       {
         name: 'inline',
@@ -66,24 +67,6 @@ card(
     </Text>
   </Box>
 </Box>
-`}
-  />
-);
-
-card(
-  <Example
-    description={`
-    \`href\` is optional on \`Link\` so you can use a custom \`Link\` (e.g. for \`react-router\` support).
-  `}
-    name="Example: optional href"
-    defaultCode={`
-<Link>
-  <Box padding={2}>
-    <a href="https://pinterest.com" style={{ textDecoration: 'none' }}>
-      <Text bold>Pinterest.com</Text>
-    </a>
-  </Box>
-</Link>
 `}
   />
 );
