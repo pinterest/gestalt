@@ -100,17 +100,13 @@ card(
     constructor(props) {
       super(props);
       this.state = { isOpen: false };
+      this.anchorRef = React.createRef();
     }
 
     render() {
       return (
         <Box>
-          <div
-            style={{ display: 'inline-block' }}
-            ref={c => {
-              this.anchor = c;
-            }}
-          >
+          <Box display="inlineBlock" ref={this.anchorRef}>
             <IconButton
               accessibilityLabel="see more"
               accessibilityHaspopup
@@ -118,9 +114,9 @@ card(
               icon="ellipsis"
               onClick={() => this.setState({ isOpen: !this.state.isOpen })}
             />
-          </div>
+          </Box>
           {this.state.isOpen && (
-            <Flyout anchor={this.anchor} onDismiss={() => undefined} idealDirection="right">
+            <Flyout anchor={this.anchorRef.current} onDismiss={() => undefined} idealDirection="right">
               <Box padding={2}>
                 <Text>I am a popup.</Text>
               </Box>

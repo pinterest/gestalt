@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "0.84.0",
+  "version": "0.85.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "description": "A set of React UI components which enforce Pinterest’s design language",
@@ -32,8 +32,8 @@
     "cssnano": "^4.0.2",
     "gzip-size": "^5.0.0",
     "postcss": "^7.0.0",
-    "postcss-cssnext": "^3.1.0",
     "postcss-modules": "^1.1.0",
+    "postcss-preset-env": "^6.4.0",
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-filesize": "^2.0.0",

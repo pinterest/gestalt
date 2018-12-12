@@ -13,10 +13,20 @@
 ### Minor
 
 - Icon: adding new icons (#425)
+- Box: Add ref forwarding (#431)
 
 ### Patch
 
+- Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
+
 </details>
+
+## 0.85.0 (December 10, 2018)
+
+### Minor
+
+- Icon: adding new icons (#425)
+- Color: Change Pinterest Red from BD081C to E60023 (#429)
 
 ## 0.84.0 (November 29, 2018)
 
