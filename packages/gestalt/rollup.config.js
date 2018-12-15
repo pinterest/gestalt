@@ -6,7 +6,6 @@ import nodeResolve from 'rollup-plugin-node-resolve';
 import postcss from 'postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssModules from 'postcss-modules';
-import progress from 'rollup-plugin-progress';
 import replace from 'rollup-plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
 import { readFileSync, writeFileSync } from 'fs';
@@ -184,7 +183,6 @@ export default {
     'react-dom',
   ],
   plugins: [
-    progress(),
     cssModules({
       output: 'dist/gestalt.css',
       stats,
