@@ -204,9 +204,9 @@
 /* light wash */
 
 .lightWashBg {
-  background-color: color(var(--lightGray) blackness(+ 6%));
+  background-color: #e2e2e2;
 }
 
 .darkWashBg {
-  background-color: color(var(--lightGray) blackness(+ 10%));
+  background-color: #dadada;
 }

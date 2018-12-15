@@ -8,10 +8,15 @@
 
 ### Minor
 
+- Icon: adding canonical pin icon.
 - Box: Add ref forwarding (#431)
-- Internal: Removes integration tests
+- Masonry: Removed onFinishedRendering prop because better test alternatives could be used (#435)
+- Internal: Removes integration tests (#439)
 
 ### Patch
+
+- Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
+- Docs: Update `Link` docs to indicate `href` is required (#437)
 
 </details>
 
