@@ -9,6 +9,7 @@
 ### Minor
 
 - Box: Add ref forwarding (#431)
+- Internal: Removes integration tests
 
 ### Patch
 

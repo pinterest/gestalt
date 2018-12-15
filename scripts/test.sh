@@ -29,11 +29,6 @@ fold_start "flow"
 yarn flow check
 fold_end "flow"
 
-fold_start "puppeteer"
-JEST_PUPPETEER_CONFIG="scripts/jestPuppeteer.config.js" \
-  yarn jest --config scripts/jestIntegration.config.json
-fold_end "puppeteer"
-
 echo "👌 Looks good to me!"
 
 if [[ "${TRAVIS_PULL_REQUEST:-"true"}" = "false" ]]; then
