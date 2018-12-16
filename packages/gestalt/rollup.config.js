@@ -32,16 +32,7 @@ const svgPath = () => ({
 
         const path = result.svg.path[0].$.d;
         const code = `export default '${path}';`;
-        const ast = {
-          type: 'Program',
-          sourceType: 'module',
-          start: 0,
-          end: null,
-          body: [],
-        };
-
-        // Export as JS
-        return resolve({ ast, code, map: { mappings: '' } });
+        return resolve({ code });
       })
     );
   },
@@ -121,13 +112,9 @@ const cssModules = (options = {}) => {
         // Append CSS to output
         css += result.css;
 
-        // We can't yet export consts because some selector names aren't
-        // valid js variable names (anything with a hyphen "foo-bar").
-        const js = `
-          export default ${JSON.stringify(cssExportMap[result.opts.from])};
-          `;
-        const map = { mappings: '' };
-        return { code: js, map };
+        return `export default ${JSON.stringify(
+          cssExportMap[result.opts.from]
+        )};`;
       });
     },
 
@@ -187,21 +174,19 @@ export default {
       output: 'dist/gestalt.css',
       stats,
     }),
+    svgPath(),
     nodeResolve(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(
         process.env.NODE_ENV || 'development'
       ),
     }),
-    svgPath(),
     json({
       preferConst: true,
     }),
     babel({
-      babelrc: false,
-      presets: [['env', { modules: false }], 'stage-1', 'react'],
       exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
+      externalHelpers: true,
     }),
     visualizer(),
     filesize(),

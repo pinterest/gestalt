@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "modules": "auto" }],
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ],
+  "plugins": [
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "@babel/plugin-external-helpers"
+  ]
+}

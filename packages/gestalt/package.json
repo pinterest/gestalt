@@ -28,6 +28,8 @@
     "watch": "rollup -c rollup.config.js --watch"
   },
   "devDependencies": {
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
     "caniuse-lite": "^1.0.30000810",
     "cssnano": "^4.0.2",
     "gzip-size": "^5.0.0",
@@ -35,7 +37,7 @@
     "postcss-modules": "^1.1.0",
     "postcss-preset-env": "^6.4.0",
     "rollup": "^0.67.4",
-    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-babel": "^4.1.0",
     "rollup-plugin-filesize": "^2.0.0",
     "rollup-plugin-json": "^3.0.0",
     "rollup-plugin-node-resolve": "^3.0.0",
