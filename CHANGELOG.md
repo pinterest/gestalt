@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Icon: adding new icons for editing. (#440)
 - Icon: adding canonical pin icon.
 - Box: Add ref forwarding (#431)
 - Masonry: Removed onFinishedRendering prop because better test alternatives could be used (#435)
@@ -18,12 +19,6 @@
 - Docs: Update `Link` docs to indicate `href` is required (#437)
 
 </details>
-
-## 0.86.0 (December 17, 2018)
-
-### Minor
-
-- Icon: adding new icons for editing. (#440)
 
 ## 0.85.0 (December 10, 2018)
 
