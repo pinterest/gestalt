@@ -73,7 +73,7 @@ import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
 import marginsLarge from './margins-large.svg';
-import marginsMedium from './margins-Medium.svg';
+import marginsMedium from './margins-medium.svg';
 import marginsSmall from './margins-small.svg';
 import maximize from './maximize.svg';
 import megaphone from './megaphone.svg';
