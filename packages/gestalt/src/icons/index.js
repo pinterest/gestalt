@@ -2,6 +2,15 @@
 import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addPin from './add-pin.svg';
+import alignBottomCenter from './align-bottom-center.svg';
+import alignBottomLeft from './align-bottom-left.svg';
+import alignBottomRight from './align-bottom-right.svg';
+import alignBottom from './align-bottom.svg';
+import alignMiddle from './align-middle.svg';
+import alignTopCenter from './align-top-center.svg';
+import alignTopLeft from './align-top-left.svg';
+import alignTopRight from './align-top-right.svg';
+import alignTop from './align-top.svg';
 import angledPin from './angled-pin.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
@@ -22,8 +31,10 @@ import circleOutline from './circle-outline.svg';
 import clear from './clear.svg';
 import clock from './clock.svg';
 import cog from './cog.svg';
+import colorPicker from './color-picker.svg';
 import compass from './compass.svg';
 import compose from './compose.svg';
+import crop from './crop.svg';
 import dash from './dash.svg';
 import download from './download.svg';
 import edit from './edit.svg';
@@ -36,8 +47,12 @@ import faceHappy from './face-happy.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
 import filter from './filter.svg';
+import fillOpaque from './fill-opaque.svg';
+import fillTransparent from './fill-transparent.svg';
 import flag from './flag.svg';
 import flashlight from './flashlight.svg';
+import flipHorizontal from './flip-horizontal.svg';
+import flipVertical from './flip-vertical.svg';
 import gif from './gif.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
@@ -47,6 +62,8 @@ import graphBar from './graph-bar.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
 import logout from './logout.svg';
+import logoLarge from './logo-large.svg';
+import logoSmall from './logo-small.svg';
 import handle from './handle.svg';
 import handPointing from './hand-pointing.svg';
 import heart from './heart.svg';
@@ -55,12 +72,16 @@ import impressum from './impressum.svg';
 import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
+import marginsLarge from './margins-large.svg';
+import marginsMedium from './margins-Medium.svg';
+import marginsSmall from './margins-small.svg';
 import maximize from './maximize.svg';
 import megaphone from './megaphone.svg';
 import menu from './menu.svg';
 import minimize from './minimize.svg';
 import move from './move.svg';
 import mute from './mute.svg';
+import overlayText from './overlay-text.svg';
 import pause from './pause.svg';
 import people from './people.svg';
 import person from './person.svg';
@@ -72,6 +93,7 @@ import play from './play.svg';
 import questionMark from './question-mark.svg';
 import remove from './remove.svg';
 import report from './report.svg';
+import rotate from './rotate.svg';
 import search from './search.svg';
 import security from './security.svg';
 import send from './send.svg';
@@ -82,12 +104,17 @@ import smileyOutline from './smiley-outline.svg';
 import sound from './sound.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
+import star from './star.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
 import terms from './terms.svg';
 import textAlignCenter from './text-align-center.svg';
 import textAlignLeft from './text-align-left.svg';
 import textAlignRight from './text-align-right.svg';
+import textExtraSmall from './text-extra-small.svg';
+import textLarge from './text-large.svg';
+import textMedium from './text-medium.svg';
+import textSmall from './text-small.svg';
 import twitter from './twitter.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
@@ -97,6 +124,15 @@ export default {
   add,
   'add-circle': addCircle,
   'add-pin': addPin,
+  'align-bottom-center': alignBottomCenter,
+  'align-bottom-left': alignBottomLeft,
+  'align-bottom-right': alignBottomRight,
+  'align-bottom': alignBottom,
+  'align-middle': alignMiddle,
+  'align-top-center': alignTopCenter,
+  'align-top-left': alignTopLeft,
+  'align-top-right': alignTopRight,
+  'align-top': alignTop,
   'angled-pin': angledPin,
   apps,
   'arrow-back': arrowBack,
@@ -111,6 +147,7 @@ export default {
   'camera-roll': cameraRoll,
   cancel,
   'canonical-pin': canonicalPin,
+  'color-picker': colorPicker,
   check,
   'check-circle': checkCircle,
   'circle-outline': circleOutline,
@@ -119,6 +156,7 @@ export default {
   cog,
   compass,
   compose,
+  crop,
   dash,
   download,
   edit,
@@ -130,9 +168,13 @@ export default {
   'face-happy': faceHappy,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
+  'fill-opaque': fillOpaque,
+  'fill-transparent': fillTransparent,
   filter,
   flag,
   flashlight,
+  flipHorizontal,
+  flipVertical,
   gif,
   globe,
   'globe-checked': globeChecked,
@@ -149,13 +191,19 @@ export default {
   link,
   location,
   lock,
+  'logo-large': logoLarge,
+  'logo-small': logoSmall,
   logout,
+  'margins-large': marginsLarge,
+  'margins-medium': marginsMedium,
+  'margins-small': marginsSmall,
   maximize,
   megaphone,
   menu,
   minimize,
   move,
   mute,
+  'overlay-text': overlayText,
   pause,
   people,
   person,
@@ -167,6 +215,7 @@ export default {
   'question-mark': questionMark,
   remove,
   report,
+  rotate,
   search,
   security,
   'shopping-bag': shoppingBag,
@@ -177,12 +226,17 @@ export default {
   sound,
   speech,
   'speech-ellipsis': speechEllipsis,
+  star,
   'switch-account': switchAccount,
   tag,
   terms,
   'text-align-left': textAlignLeft,
   'text-align-center': textAlignCenter,
   'text-align-right': textAlignRight,
+  'text-extra-small': textExtraSmall,
+  'text-large': textLarge,
+  'text-medium': textMedium,
+  'text-small': textSmall,
   twitter,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
