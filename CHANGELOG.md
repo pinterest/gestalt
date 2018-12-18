@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Icon: adding new icons for editing. (#440)
 - Icon: adding canonical pin icon.
 - Box: Add ref forwarding (#431)
 - Masonry: Removed onFinishedRendering prop because better test alternatives could be used (#435)
