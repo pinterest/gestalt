@@ -12,6 +12,7 @@
 - Icon: adding canonical pin icon.
 - Box: Add ref forwarding (#431)
 - Masonry: Removed onFinishedRendering prop because better test alternatives could be used (#435)
+- Internal: Removes integration tests (#439)
 
 ### Patch
 

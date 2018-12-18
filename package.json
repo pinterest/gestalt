@@ -2,8 +2,7 @@
   "private": true,
   "workspaces": [
     "docs",
-    "packages/*",
-    "test"
+    "packages/*"
   ],
   "resolutions": {
     "jest": "^23.1.0"
@@ -14,12 +13,10 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "9.0.0",
     "babel-jest": "^23.4.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-plugin-webpack-loaders": "0.9.0",
-    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
@@ -29,7 +26,7 @@
     "danger": "6.1.12",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.6.0",
-    "eslint": "^5.7.0",
+    "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-eslint-comments": "^3.0.1",
@@ -41,15 +38,11 @@
     "eslint-plugin-react": "^7.11.1",
     "filesize": "^3.6.1",
     "flow-bin": "0.81.0",
-    "greenkeeper-lockfile": "^2.5.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
-    "jest-puppeteer": "^3.2.1",
     "lint-staged": "^7.2.0",
-    "node-fetch": "^2.1.2",
     "prettier": "1.13.7",
-    "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.6.0",
     "shelljs": "^0.8.2",
     "stylelint": "^9.6.0",
