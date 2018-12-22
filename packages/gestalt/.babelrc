@@ -5,7 +5,7 @@
     "@babel/preset-flow"
   ],
   "plugins": [
-    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    ["@babel/plugin-proposal-class-properties"],
     "@babel/plugin-external-helpers"
   ]
 }
