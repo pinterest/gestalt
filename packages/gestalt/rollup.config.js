@@ -4,9 +4,8 @@ import filesize from 'rollup-plugin-filesize';
 import json from 'rollup-plugin-json';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import postcss from 'postcss';
-import postcssCssnext from 'postcss-cssnext';
+import postcssPresetEnv from 'postcss-preset-env';
 import postcssModules from 'postcss-modules';
-import progress from 'rollup-plugin-progress';
 import replace from 'rollup-plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
 import { readFileSync, writeFileSync } from 'fs';
@@ -75,18 +74,20 @@ const cssModules = (options = {}) => {
   let css = '';
 
   const plugins = [
-    postcssCssnext({
+    postcssPresetEnv({
+      preserve: false,
       features: {
-        customMedia: {
-          extensions: breakpoints,
+        'custom-media-queries': {
+          importFrom: [{ customMedia: breakpoints }],
         },
       },
     }),
     postcssModules({
       scopeBehavior: 'local',
-      generateScopedName(name, filename) {
+      generateScopedName: (name, filename) => {
         const dir = relative(__dirname, filename);
         const hash = `${dir}:${name}`;
+
         if (!Object.prototype.hasOwnProperty.call(scopeNames, hash)) {
           // base 36 encode the unique scope name
           const i = Object.keys(scopeNames).length;
@@ -95,7 +96,7 @@ const cssModules = (options = {}) => {
 
         return scopeNames[hash];
       },
-      getJSON(path, exportTokens) {
+      getJSON: (path, exportTokens) => {
         cssExportMap[path] = exportTokens;
       },
     }),
@@ -105,7 +106,7 @@ const cssModules = (options = {}) => {
 
   return {
     name: 'cssModules',
-    transform(code, id) {
+    transform: (code, id) => {
       if (extname(id) !== '.css') {
         return null;
       }
@@ -130,7 +131,7 @@ const cssModules = (options = {}) => {
       });
     },
 
-    ongenerate() {
+    ongenerate: () => {
       cssnano.process(css).then(result => {
         writeFileSync(options.output, result.css);
         options.stats.updateStats(result.css, options.output);
@@ -182,7 +183,6 @@ export default {
     'react-dom',
   ],
   plugins: [
-    progress(),
     cssModules({
       output: 'dist/gestalt.css',
       stats,

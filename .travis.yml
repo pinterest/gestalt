@@ -1,0 +1,17 @@
+os:
+  - linux
+dist: trusty
+sudo: required
+
+language: node_js
+node_js:
+  - lts/carbon
+  - lts/dubnium
+
+cache: yarn
+
+addons:
+  chrome: stable
+
+before_install:
+  - yarn global add codecov

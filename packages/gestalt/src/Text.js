@@ -61,7 +61,7 @@ export default function Text({
   smSize,
   mdSize,
   lgSize,
-  leading = 'short',
+  leading,
   truncate = false,
   __dangerouslyIncreaseLineHeight = false,
 }: Props) {

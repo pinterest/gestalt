@@ -8,13 +8,39 @@
 
 ### Minor
 
-- Tooltip: Deprecate component and remove from exports (#412)
+- Icon: adding new icons for editing. (#440)
+- Icon: adding canonical pin icon.
+- Box: Add ref forwarding (#431)
+- Masonry: Removed onFinishedRendering prop because better test alternatives could be used (#435)
+- Internal: Removes integration tests (#439)
+- Tooltip: Deprecate component and remove from exports (includes codemod) (#412)
+
+### Patch
+
+- Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
+- Docs: Update `Link` docs to indicate `href` is required (#437)
+
+</details>
+
+## 0.85.0 (December 10, 2018)
+
+### Minor
+
+- Icon: adding new icons (#425)
+- Color: Change Pinterest Red from BD081C to E60023 (#429)
+
+## 0.84.0 (November 29, 2018)
+
+### Minor
+
+- Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
+- Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
+- Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
 
 ### Patch
 
 - Internal: Fixed a test that started flaking out with React 16.6 (#410)
-
-</details>
+- Docs: Updated some Masonry props descriptions (#417)
 
 ## 0.83.0 (October 25, 2018)
 

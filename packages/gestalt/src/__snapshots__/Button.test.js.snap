@@ -8,7 +8,7 @@ exports[`<Button color="transparent" /> 1`] = `
   type="button"
 >
   <div
-    className="Text fontSize3 white leadingShort alignCenter fontStyleNormal fontWeightBold"
+    className="Text fontSize3 white alignCenter fontStyleNormal fontWeightBold"
   >
     Hello World
   </div>
