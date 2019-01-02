@@ -6,7 +6,7 @@
  *   </Tooltip>
  * to
  *  import { Box, Flyout } from "gestalt";
- *  <Flyout {...props} color="darkGray" shouldFocus={false}>
+ *  <Flyout {...props} color="darkGray" shouldFocus={false} size="md">
  *    <Box column={12} padding={3}>
  *      {children}
  *    </Box>
@@ -61,6 +61,10 @@ export default function transformer(file, api) {
 
     const { attributes } = node.openingElement;
 
+    const hasSizeAttribute = attributes.some(
+      attribute => attribute.name.name === 'size'
+    );
+
     // Inject the old props with new props to mimic the Tooltip
     const attributesWithTooltipProps = [
       ...attributes,
@@ -69,7 +73,9 @@ export default function transformer(file, api) {
         j.jsxExpressionContainer(j.literal(false))
       ),
       j.jsxAttribute(j.jsxIdentifier('color'), j.stringLiteral('darkGray')),
-    ];
+      !hasSizeAttribute &&
+        j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('md')),
+    ].filter(Boolean);
 
     // Sort all the props alphabetically
     attributesWithTooltipProps.sort((a, b) =>
