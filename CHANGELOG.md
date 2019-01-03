@@ -8,8 +8,16 @@
 
 ### Minor
 
-- Icon: adding new icons for editing. (#440)
-- Icon: adding canonical pin icon.
+### Patch
+
+</details>
+
+## 0.86.0 (January 3, 2019)
+
+### Minor
+
+- Icon: adding new icons for editing (#440)
+- Icon: adding canonical pin icon (#438)
 - Box: Add ref forwarding (#431)
 - Masonry: Removed onFinishedRendering prop because better test alternatives could be used (#435)
 - Internal: Removes integration tests (#439)
@@ -19,8 +27,6 @@
 
 - Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
 - Docs: Update `Link` docs to indicate `href` is required (#437)
-
-</details>
 
 ## 0.85.0 (December 10, 2018)
 
