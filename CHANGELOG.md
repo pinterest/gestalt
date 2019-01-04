@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Box: add displayName to Box to maintain current naming (#446)
+
 </details>
 
 ## 0.86.0 (January 3, 2019)

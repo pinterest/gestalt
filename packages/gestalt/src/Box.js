@@ -684,6 +684,10 @@ const Box = React.forwardRef(
   }
 );
 
+//  NOTE: This is needed in order to override the ForwardRef display name that is
+//  used in dev tools and in snapshot testing.
+Box.displayName = 'Box';
+
 export default Box;
 
 /*
