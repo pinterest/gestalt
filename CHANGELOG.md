@@ -10,9 +10,13 @@
 
 ### Patch
 
-- Box: add displayName to Box to maintain current naming (#446)
-
 </details>
+
+## 0.86.1 (January 3, 2019)
+
+### Patch
+
+- Box: add displayName to Box to maintain current naming in snapshots (#446)
 
 ## 0.86.0 (January 3, 2019)
 
