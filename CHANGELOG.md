@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Box: update docs to mention new `ref` functionality (#449)
+
 ### Patch
 
 </details>
