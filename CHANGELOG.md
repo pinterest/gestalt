@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Box: update docs to mention new `ref` functionality (#449)
+- Box: update docs to mention new `ref` functionality (#450)
 
 ### Patch
 
