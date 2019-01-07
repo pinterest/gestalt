@@ -317,9 +317,9 @@ card(
     description={`
     As of Gestalt v0.86.0, \`Box\` supports React's new [\`forwardRef\`](https://reactjs.org/docs/forwarding-refs.html) functionality.
     This allows you to set a \`ref\` on the actual \`<Box />\` component and it will be passed down to the underlying \`<div>\` element.
-    The \`ref\` can through any of the supported React methods and accessing it will yield the \`<div>\` that \`Box\` implements.
+    The \`ref\` can be set through any of the supported React methods and accessing it will yield the \`<div>\` that \`Box\` implements.
   `}
-    name="Ref"
+    name="Refs"
   />
 );
 
