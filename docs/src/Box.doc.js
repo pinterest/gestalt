@@ -315,13 +315,22 @@ card(
 card(
   <Card
     description={`
-    Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. There are exceptions, however. \`onClick\`, \`className\` and \`style\` aren't passed to the child component. The former is for accessibility reasons, and the latter two are to ensure style encapsulation.
+    As of Gestalt v0.86.0, \`Box\` supports React's new [\`forwardRef\`](https://reactjs.org/docs/forwarding-refs.html) functionality.
+    This allows you to set a \`ref\` on the actual \`<Box />\` component and it will be passed down to the underlying \`<div>\` element.
+    The \`ref\` can be set through any of the supported React methods and accessing it will yield the \`<div>\` that \`Box\` implements.
+  `}
+    name="Refs"
+  />
+);
 
-    In adddition, it can be intuitive to want to have access to a Box's \`ref\`. Again, we don't pass this down as it leaks the implementation of the Box to the caller.
+card(
+  <Card
+    description={`
+    Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. There are exceptions, however. \`onClick\`, \`className\` and \`style\` aren't passed to the child component. The former is for accessibility reasons, and the latter two are to ensure style encapsulation.
 
     If you need to use these features, please use a \`<div>\` instead.
   `}
-    name="Blacklisted properties & refs"
+    name="Blacklisted properties"
   />
 );
 

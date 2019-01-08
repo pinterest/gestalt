@@ -9,6 +9,7 @@
 ### Minor
 
 - Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
+- Box: update docs to mention new `ref` functionality (#450)
 
 ### Patch
 
