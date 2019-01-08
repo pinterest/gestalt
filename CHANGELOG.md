@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Box: update docs to mention new `ref` functionality (#450)
 
 ### Patch
@@ -33,7 +34,7 @@
 
 ### Patch
 
-- Internal: Migrated `postcss-cssnext` to `postcss-stage-env` and removed `color()` function (#432)
+- Internal: Migrated `postcss-cssnext` to `postcss-preset-env` and removed `color()` function (#432)
 - Docs: Update `Link` docs to indicate `href` is required (#437)
 
 ## 0.85.0 (December 10, 2018)
