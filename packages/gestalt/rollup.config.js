@@ -4,7 +4,7 @@ import filesize from 'rollup-plugin-filesize';
 import json from 'rollup-plugin-json';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import postcss from 'postcss';
-import postcssPresetEnv from 'postcss-preset-env';
+import postcssCssnext from 'postcss-cssnext';
 import postcssModules from 'postcss-modules';
 import replace from 'rollup-plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
@@ -74,11 +74,10 @@ const cssModules = (options = {}) => {
   let css = '';
 
   const plugins = [
-    postcssPresetEnv({
-      preserve: false,
+    postcssCssnext({
       features: {
-        'custom-media-queries': {
-          importFrom: [{ customMedia: breakpoints }],
+        customMedia: {
+          extensions: breakpoints,
         },
       },
     }),
