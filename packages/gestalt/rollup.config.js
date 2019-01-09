@@ -13,6 +13,10 @@ import { extname, relative } from 'path';
 import { parseString } from 'xml2js';
 import gzip from 'gzip-size';
 
+import classnameBuilder from './lib/classnameBuilder.js';
+
+classnameBuilder.loadClassnamesCache();
+
 const breakpoints = require('./src/breakpoints.json');
 
 const svgPath = () => ({
@@ -88,9 +92,7 @@ const cssModules = (options = {}) => {
         const hash = `${dir}:${name}`;
 
         if (!Object.prototype.hasOwnProperty.call(scopeNames, hash)) {
-          // base 36 encode the unique scope name
-          const i = Object.keys(scopeNames).length;
-          scopeNames[hash] = `_${i.toString(36)}`;
+          scopeNames[hash] = `_${classnameBuilder.getMinifiedClassname(hash)}`;
         }
 
         return scopeNames[hash];
