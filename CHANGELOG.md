@@ -8,8 +8,9 @@
 
 ### Minor
 
-- Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Box: update docs to mention new `ref` functionality (#450)
+- Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
+- Internal: Updated rollup build tools to use stable/predictable minified CSS classnames via a disk cache (#455)
 - Layer: Warn instead of erroring when server-rendering (#454)
 
 ### Patch
