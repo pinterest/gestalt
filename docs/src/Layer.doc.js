@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -22,6 +23,16 @@ card(
         type: 'React.Node',
       },
     ]}
+  />
+);
+
+card(
+  <Card
+    description="
+    Because creating a portal in Layer depends on DOM manipulation, if document is not present
+    such as in a server rendering environment the children will not be rendered.
+  "
+    name="Server Rendering"
   />
 );
 
