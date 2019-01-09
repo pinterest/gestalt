@@ -9,17 +9,24 @@ type Props = {|
 export default class Layer extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-    this.el = document.createElement('div');
+    if (typeof document !== 'undefined' && document.createElement) {
+      this.el = document.createElement('div');
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Using Layer without document present. Children will be rendered directly.'
+      );
+    }
   }
 
   componentDidMount() {
-    if (document.body) {
+    if (typeof document !== 'undefined' && document.body) {
       document.body.appendChild(this.el);
     }
   }
 
   componentWillUnmount() {
-    if (document.body) {
+    if (typeof document !== 'undefined' && document.body) {
       document.body.removeChild(this.el);
     }
   }
@@ -28,6 +35,9 @@ export default class Layer extends React.Component<Props> {
 
   render() {
     const { children } = this.props;
-    return createPortal(children, this.el);
+    if (typeof document !== 'undefined' && this.el) {
+      return createPortal(children, this.el);
+    }
+    return children;
   }
 }
