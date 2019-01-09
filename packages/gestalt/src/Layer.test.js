@@ -10,11 +10,11 @@ jest.mock('react-dom', () => ({
 
 describe('Layer in server render', () => {
   if (typeof document === 'undefined') {
-    it('does not use createPortal', () => {
+    it('does not use createPortal or render content', () => {
       const wrapper = shallow(<Layer>content</Layer>);
       expect(wrapper.instance().el).toBeUndefined();
       expect(createPortal).not.toHaveBeenCalled();
-      expect(wrapper.text()).toBe('content');
+      expect(wrapper.text()).toBe('');
     });
   }
 });

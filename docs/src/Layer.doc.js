@@ -30,8 +30,7 @@ card(
   <Card
     description="
     Because creating a portal in Layer depends on DOM manipulation, if document is not present
-    such as in a server rendering environment, the children will be rendered directly. In this
-    case overlays may not work as expected.
+    such as in a server rendering environment the children will not be rendered.
   "
     name="Server Rendering"
   />
