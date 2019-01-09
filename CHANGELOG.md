@@ -9,6 +9,7 @@
 ### Minor
 
 - Box: update docs to mention new `ref` functionality (#450)
+- IconButton: add `title` for hover text, using existing `accessibilityLabel` (453)
 
 ### Patch
 
