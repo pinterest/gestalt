@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- IconButton, Pog, Icon: pass IconButton's `accessibilityLabel` down through Pog to Icon, where it is used as the `svg`s `title` for hover text (456)
 
 </details>
 
