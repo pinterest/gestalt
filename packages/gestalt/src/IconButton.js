@@ -103,6 +103,7 @@ export default class IconButton extends React.Component<Props, State> {
           iconColor={iconColor}
           icon={icon}
           size={size}
+          title={accessibilityLabel}
         />
       </button>
     );

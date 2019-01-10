@@ -10,9 +10,7 @@ exports[`Icon has correct aria-hidden property applied when accessibilityLabel i
   viewBox="0 0 24 24"
   width={16}
 >
-  <title>
-    
-  </title>
+  <title />
   <path
     d="test-file-stub"
   />

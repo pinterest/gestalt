@@ -28,6 +28,7 @@ type IconProps = {
     | 'white',
   inline?: boolean,
   size?: number | string,
+  title?: string,
 };
 
 type IconNoPath = {
@@ -48,10 +49,11 @@ export default function Icon(props: Props) {
   const {
     accessibilityLabel,
     color = 'gray',
+    dangerouslySetSvgPath,
     icon,
     inline,
     size = 16,
-    dangerouslySetSvgPath,
+    title,
   } = props;
 
   const cs = classnames(styles.icon, colors[color], {
@@ -76,7 +78,7 @@ export default function Icon(props: Props) {
       aria-label={accessibilityLabel}
       role="img"
     >
-      <title>{accessibilityLabel}</title>
+      <title>{accessibilityLabel || title}</title>
       <path d={path} />
     </svg>
   );
