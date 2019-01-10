@@ -12,12 +12,14 @@
 
 </details>
 
-## 0.86.2 (January 8, 2019)
+## 0.86.2 (January 9, 2019)
 
 ### Patch
 
-- Box: update docs to mention new `ref` functionality (#450)
 - Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
+- Box: update docs to mention new `ref` functionality (#450)
+- IconButton: add `title` for hover text, using existing `accessibilityLabel` (453)
+- Layer: Warn instead of erroring when server-rendering (#454)
 
 ## 0.86.1 (January 3, 2019)
 

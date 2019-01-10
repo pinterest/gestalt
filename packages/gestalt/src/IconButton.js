@@ -92,6 +92,7 @@ export default class IconButton extends React.Component<Props, State> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onMouseUp={this.handleMouseUp}
+        title={accessibilityLabel}
         type="button"
       >
         <Pog
