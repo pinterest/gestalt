@@ -15,8 +15,6 @@ import gzip from 'gzip-size';
 
 import classnameBuilder from './lib/classnameBuilder.js';
 
-classnameBuilder.loadClassnamesCache();
-
 const breakpoints = require('./src/breakpoints.json');
 
 const svgPath = () => ({
