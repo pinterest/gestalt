@@ -11,6 +11,7 @@ exports[`IconButton renders 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
+  title="Pinterest"
   type="button"
 >
   <div
