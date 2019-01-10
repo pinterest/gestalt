@@ -90,7 +90,7 @@ const cssModules = (options = {}) => {
         const hash = `${dir}:${name}`;
 
         if (!Object.prototype.hasOwnProperty.call(scopeNames, hash)) {
-          scopeNames[hash] = `_${classnameBuilder.getMinifiedClassname(hash)}`;
+          scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
         }
 
         return scopeNames[hash];
