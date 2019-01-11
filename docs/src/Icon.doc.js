@@ -60,7 +60,6 @@ card(
         type: 'string',
         description:
           'Used for hover text in place of accessibilityLabel if provided. Always localize the label.',
-        defaultValue: 'accessibilityLabel',
       },
     ]}
   />
