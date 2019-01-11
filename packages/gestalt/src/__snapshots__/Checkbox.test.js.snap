@@ -48,7 +48,9 @@ exports[`Checkbox checked 1`] = `
       viewBox="0 0 24 24"
       width={12}
     >
-      <title />
+      <title>
+        
+      </title>
       <path
         d="test-file-stub"
       />
@@ -84,7 +86,9 @@ exports[`Checkbox disabled & checked 1`] = `
       viewBox="0 0 24 24"
       width={8}
     >
-      <title />
+      <title>
+        
+      </title>
       <path
         d="test-file-stub"
       />
@@ -141,7 +145,9 @@ exports[`Checkbox indeterminate 1`] = `
       viewBox="0 0 24 24"
       width={12}
     >
-      <title />
+      <title>
+        
+      </title>
       <path
         d="test-file-stub"
       />

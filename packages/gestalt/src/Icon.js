@@ -78,7 +78,7 @@ export default function Icon(props: Props) {
       aria-label={accessibilityLabel}
       role="img"
     >
-      <title>{accessibilityLabel || title}</title>
+      <title>{title || accessibilityLabel}</title>
       <path d={path} />
     </svg>
   );
@@ -113,4 +113,5 @@ Icon.propTypes = {
   icon: PropTypes.oneOf(IconNames),
   inline: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  title: PropTypes.string,
 };
