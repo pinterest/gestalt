@@ -63,10 +63,6 @@
   background-color: var(--gray);
 }
 
-.grayBorder {
-  border-color: var(--gray);
-}
-
 /* darkGray */
 
 .darkGray {
