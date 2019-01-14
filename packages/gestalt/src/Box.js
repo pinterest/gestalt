@@ -140,6 +140,7 @@ type PropType = {
     | 'purple'
     | 'red'
     | 'transparent'
+    | 'transparentDarkGray'
     | 'watermelon'
     | 'white',
   fit?: boolean,
@@ -475,6 +476,7 @@ const propToFn = {
     watermelon: colors.watermelonBg,
     lightWash: colors.lightWashBg,
     darkWash: colors.darkWashBg,
+    transparentDarkGray: colors.transparentDarkGrayBg,
     // default: transparent
   }),
   fit: toggle(layout.fit),
@@ -892,6 +894,7 @@ Box.propTypes = {
     'purple',
     'red',
     'transparent',
+    'transparentDarkGray',
     'watermelon',
     'white',
   ]),
