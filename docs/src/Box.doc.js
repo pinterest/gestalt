@@ -512,6 +512,7 @@ card(
       'navy',
       'midnight',
       'purple',
+      'orchid',
       'eggplant',
       'maroon',
       'watermelon',
