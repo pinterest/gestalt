@@ -37,7 +37,7 @@
 - IconButton: add `title` for hover text, using existing `accessibilityLabel` (#453)
 - Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Layer: Warn instead of erroring when server-rendering (#454)
-- Avatar: Add property to use pinterest icon for verified (#455)
+- Avatar: Add property to use pinterest icon for verified (#460)
 
 ## 0.86.1 (January 3, 2019)
 
