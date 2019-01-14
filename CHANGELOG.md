@@ -37,6 +37,7 @@
 - IconButton: add `title` for hover text, using existing `accessibilityLabel` (#453)
 - Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Layer: Warn instead of erroring when server-rendering (#454)
+- Avatar: Add property to use pinterest icon for verified (#455)
 
 ## 0.86.1 (January 3, 2019)
 
@@ -74,7 +75,6 @@
 - Masonry: Add a onFinishedRendering prop which allows for better testing (#423)
 - Tabs: (Update to #368) Use composite of index and href for tab keys (#419)
 - Text: Default value for leading is now undefined to allow browser to determine line-height based on language (#421)
-- Avatar: Add property to use pinterest icon for verified (#422)
 
 ### Patch
 

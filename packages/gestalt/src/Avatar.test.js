@@ -68,4 +68,30 @@ describe('Avatar', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('renders the Pinterest P on verified', () => {
+    const tree = create(
+      <Avatar
+        name="Strava"
+        src="http://pinterest.com/img/strave.png"
+        size="md"
+        verified
+        icon="pinterest"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders the checkmark on verified default', () => {
+    const tree = create(
+      <Avatar
+        name="Strava"
+        src="http://pinterest.com/img/strave.png"
+        size="md"
+        icon="nothing"
+        verified
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
