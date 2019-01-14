@@ -60,7 +60,7 @@ type AvatarProps = {|
   size?: 'sm' | 'md' | 'lg',
   src?: string,
   verified?: boolean,
-  icon?: string,
+  icon?: 'check-circle' | 'pinterest',
 |};
 
 const sizes = {

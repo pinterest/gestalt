@@ -88,7 +88,6 @@ describe('Avatar', () => {
         name="Strava"
         src="http://pinterest.com/img/strave.png"
         size="md"
-        icon="nothing"
         verified
       />
     ).toJSON();
