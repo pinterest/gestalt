@@ -19,6 +19,9 @@
   --maroon: #6e0f3c;
   --watermelon: #f13535;
   --orange: #e3780c;
+
+  /* transparent colors */
+  --transparentDarkGray: rgba(51, 51, 51, 0.8);
 }
 
 /** PRIMARY COLORS **/
@@ -199,6 +202,14 @@
 
 .transparentBg {
   background-color: transparent;
+}
+
+.transparentDarkGray {
+  color: var(--transparentDarkGray);
+}
+
+.transparentDarkGrayBg {
+  background-color: var(--transparentDarkGray);
 }
 
 /* light wash */
