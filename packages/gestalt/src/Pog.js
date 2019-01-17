@@ -28,6 +28,7 @@ type Props = {|
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
+  title?: string,
 |};
 
 const defaultIconButtonIconColors = {
@@ -47,6 +48,7 @@ export default function Pog(props: Props) {
     iconColor = defaultIconButtonIconColors[bgColor],
     icon,
     size = 'md',
+    title = '',
   } = props;
 
   const iconSize = SIZE_NAME_TO_PIXEL[size] / 2;
@@ -72,10 +74,11 @@ export default function Pog(props: Props) {
           https://davidwalsh.name/accessibility-tip-empty-alt-attributes
         */}
         <Icon
+          accessibilityLabel=""
           color={iconColor}
           icon={icon}
           size={iconSize}
-          accessibilityLabel=""
+          title={title}
         />
       </Box>
     </div>
