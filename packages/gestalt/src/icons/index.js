@@ -115,6 +115,7 @@ import textExtraSmall from './text-extra-small.svg';
 import textLarge from './text-large.svg';
 import textMedium from './text-medium.svg';
 import textSmall from './text-small.svg';
+import trashcan from './trashcan.svg';
 import twitter from './twitter.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
@@ -237,6 +238,7 @@ export default {
   'text-large': textLarge,
   'text-medium': textMedium,
   'text-small': textSmall,
+  trashcan,
   twitter,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
