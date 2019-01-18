@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: add new trashcan icon (#462)
+
 ### Patch
 
 </details>
