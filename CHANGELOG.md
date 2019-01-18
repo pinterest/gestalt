@@ -9,6 +9,7 @@
 ### Minor
 
 - Icon: add new trashcan icon (#462)
+- Icon: rename icon name trashcan to trash-can (#463)
 
 ### Patch
 
