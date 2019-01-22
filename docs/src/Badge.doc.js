@@ -12,7 +12,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Badge"
-    description={`The \`Badge\` component helps to bring focus to an element.
+    description={`The \`Badge\` component helps to annotate text.
 `}
   />
 );

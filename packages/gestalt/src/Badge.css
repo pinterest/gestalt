@@ -5,7 +5,6 @@
   composes: inlineBlock from "./Layout.css";
   border: 1px solid #8e8e8e;
   border-radius: 4px;
-  margin-left: 4px;
   padding: 4px;
   vertical-align: middle;
   white-space: nowrap;
