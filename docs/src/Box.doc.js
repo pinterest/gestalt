@@ -73,7 +73,7 @@ card(
       },
       {
         name: 'color',
-        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "watermelon" | "white"`,
+        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
         defaultValue: 'transparent',
       },
       { name: 'fit', type: 'boolean', defaultValue: false },
@@ -518,6 +518,7 @@ card(
       'watermelon',
       'orange',
       'transparent',
+      'transparentDarkGray',
       'lightWash',
       'darkWash',
     ]}
