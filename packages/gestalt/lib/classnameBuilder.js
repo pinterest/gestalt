@@ -33,7 +33,7 @@ class ClassnameBuilder {
     do {
       hash = ClassnameBuilder.minify(classname, incrementor);
       incrementor += 1;
-    } while (this.hashes[hash] /* || '0123456789-'.includes(hash[0]) */);
+    } while (this.hashes[hash] || '0123456789-'.includes(hash[0]));
 
     this.hashes[hash] = classname;
     this.classnameCache[classname] = hash;
