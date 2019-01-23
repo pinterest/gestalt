@@ -92,6 +92,7 @@ import pinterest from './pinterest.svg';
 import play from './play.svg';
 import questionMark from './question-mark.svg';
 import remove from './remove.svg';
+import reorderImages from './reorder-images.svg';
 import report from './report.svg';
 import rotate from './rotate.svg';
 import search from './search.svg';
@@ -215,6 +216,7 @@ export default {
   play,
   'question-mark': questionMark,
   remove,
+  'reorder-images': reorderImages,
   report,
   rotate,
   search,
