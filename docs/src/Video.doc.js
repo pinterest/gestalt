@@ -72,7 +72,7 @@ card(
         name: 'children',
         type: 'React.Node',
         description: `This \`children\` prop is not same as children inside the native html \`video\` element.
-          It will add overlays on top of the html video element like overlays, while under controls if they are shown.`,
+          Instead it serves to add overlays on top of the html video element, while still being under the video controls.`,
       },
       {
         name: 'controls',
