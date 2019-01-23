@@ -10,6 +10,7 @@
 
 - Icon: add new trashcan icon (#462)
 - Icon: rename icon name trashcan to trash-can (#463)
+- Internal: Updated rollup build tools to use stable/predictable minified CSS classnames (#455)
 
 ### Patch
 
@@ -30,9 +31,10 @@
 
 ### Patch
 
-- Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Box: update docs to mention new `ref` functionality (#450)
+- IconButton: add `title` for hover text, using existing `accessibilityLabel` (453)
 - IconButton: add `title` for hover text, using existing `accessibilityLabel` (#453)
+- Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Layer: Warn instead of erroring when server-rendering (#454)
 
 ## 0.86.1 (January 3, 2019)
