@@ -13,18 +13,19 @@ import md5 from 'blueimp-md5';
 class ClassnameBuilder {
   constructor() {
     // Map of classnames to their minified versions.
-    this.classnameCache = {};
+    this.classnameCache = new Map();
 
     // The inverse of classnameCache. Used to detect hash collisions.
-    this.hashes = {};
+    this.hashes = new Map();
   }
 
   // Minify a classname and return the hash. If there was a collision with
   // another value, add a modifier. The new value will be added to the cache and
   // saved out to disk.
   getMinifiedClassname(classname) {
-    if (this.classnameCache[classname]) {
-      return this.classnameCache[classname];
+    const existingCacheEntry = this.classnameCache.get(classname);
+    if (existingCacheEntry) {
+      return existingCacheEntry;
     }
 
     let hash;
@@ -33,10 +34,10 @@ class ClassnameBuilder {
     do {
       hash = ClassnameBuilder.minify(classname, incrementor);
       incrementor += 1;
-    } while (this.hashes[hash] || '0123456789-'.includes(hash[0]));
+    } while (this.hashes.has(hash) || '0123456789-'.includes(hash[0]));
 
-    this.hashes[hash] = classname;
-    this.classnameCache[classname] = hash;
+    this.hashes.set(hash, classname);
+    this.classnameCache.set(classname, hash);
 
     return hash;
   }
