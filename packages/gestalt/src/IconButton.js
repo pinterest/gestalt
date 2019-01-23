@@ -9,7 +9,12 @@ type Props = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel: string,
-  bgColor?: 'transparent' | 'gray' | 'lightGray' | 'white',
+  bgColor?:
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'white',
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
@@ -27,7 +32,13 @@ export default class IconButton extends React.Component<Props, State> {
     accessibilityExpanded: PropTypes.bool,
     accessibilityHaspopup: PropTypes.bool,
     accessibilityLabel: PropTypes.string.isRequired,
-    bgColor: PropTypes.oneOf(['transparent', 'gray', 'lightGray', 'white']),
+    bgColor: PropTypes.oneOf([
+      'transparent',
+      'transparentDarkGray',
+      'gray',
+      'lightGray',
+      'white',
+    ]),
     icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
     onClick: PropTypes.func,
@@ -103,6 +114,7 @@ export default class IconButton extends React.Component<Props, State> {
           iconColor={iconColor}
           icon={icon}
           size={size}
+          title={accessibilityLabel}
         />
       </button>
     );

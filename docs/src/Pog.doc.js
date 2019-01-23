@@ -30,7 +30,7 @@ card(
       },
       {
         name: 'bgColor',
-        type: `"transparent" | "gray" | "lightGray" | "white"`,
+        type: `"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white"`,
         defaultValue: 'transparent',
       },
       {
@@ -98,7 +98,13 @@ card(
   <Combination
     name="Color Combinations"
     iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
-    bgColor={['transparent', 'white', 'lightGray', 'gray']}
+    bgColor={[
+      'transparent',
+      'transparentDarkGray',
+      'white',
+      'lightGray',
+      'gray',
+    ]}
   >
     {props => <Pog icon="heart" {...props} />}
   </Combination>

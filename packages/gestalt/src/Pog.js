@@ -17,12 +17,18 @@ const SIZE_NAME_TO_PIXEL = {
 
 type Props = {|
   active?: boolean,
-  bgColor?: 'transparent' | 'gray' | 'lightGray' | 'white',
+  bgColor?:
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'white',
   focused?: boolean,
   hovered?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
+  title?: string,
 |};
 
 const defaultIconButtonIconColors = {
@@ -30,6 +36,7 @@ const defaultIconButtonIconColors = {
   gray: 'white',
   lightGray: 'gray',
   white: 'gray',
+  transparentDarkGray: 'white',
 };
 
 export default function Pog(props: Props) {
@@ -41,6 +48,7 @@ export default function Pog(props: Props) {
     iconColor = defaultIconButtonIconColors[bgColor],
     icon,
     size = 'md',
+    title = '',
   } = props;
 
   const iconSize = SIZE_NAME_TO_PIXEL[size] / 2;
@@ -66,10 +74,11 @@ export default function Pog(props: Props) {
           https://davidwalsh.name/accessibility-tip-empty-alt-attributes
         */}
         <Icon
+          accessibilityLabel=""
           color={iconColor}
           icon={icon}
           size={iconSize}
-          accessibilityLabel=""
+          title={title}
         />
       </Box>
     </div>
@@ -78,7 +87,13 @@ export default function Pog(props: Props) {
 
 Pog.propTypes = {
   active: PropTypes.bool,
-  bgColor: PropTypes.oneOf(['transparent', 'gray', 'lightGray', 'white']),
+  bgColor: PropTypes.oneOf([
+    'transparent',
+    'transparentDarkGray',
+    'gray',
+    'lightGray',
+    'white',
+  ]),
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),

@@ -8,11 +8,24 @@
 
 ### Minor
 
+- Icon: add new trashcan icon (#462)
+- Icon: rename icon name trashcan to trash-can (#463)
 - Internal: Updated rollup build tools to use stable/predictable minified CSS classnames (#455)
 
 ### Patch
 
 </details>
+
+## 0.87.0 (January 17, 2019)
+
+### Minor
+
+- IconButton, Pog, Icon: pass IconButton's `accessibilityLabel` down through Pog to Icon, where it is used as the `svg`s `title` for hover text (#456)
+- Box, IconButton, Pog: Add transparentDarkGray color option (#457)
+
+### Patch
+
+- Box: Add orchid to color examples (#458)
 
 ## 0.86.2 (January 9, 2019)
 
@@ -20,6 +33,7 @@
 
 - Box: update docs to mention new `ref` functionality (#450)
 - IconButton: add `title` for hover text, using existing `accessibilityLabel` (453)
+- IconButton: add `title` for hover text, using existing `accessibilityLabel` (#453)
 - Internal: Reverts upgrade to `postcss-preset-env` due to a bug in how it interacts with CSS modules (#451)
 - Layer: Warn instead of erroring when server-rendering (#454)
 
