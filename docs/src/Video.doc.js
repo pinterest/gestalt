@@ -71,6 +71,8 @@ card(
       {
         name: 'children',
         type: 'React.Node',
+        description: `This \`children\` prop is not same as children inside the native html \`video\` element.
+          It will add overlays on top of the html video element like overlays, while under controls if they are shown.`,
       },
       {
         name: 'controls',
@@ -285,7 +287,8 @@ card(
   <Example
     name="Video with children"
     description={`
-    \`Video\` components can show the components in this \`chilren\` prop on top of the video, while below the controls.
+    \`Video\` component can show components in the \`chilren\` prop on top of the html video element, while under the controls.
+    The children of \`Video\` is not same as the children of html \`video\` element, acutally it's "outside" the html \`video\` element.
   `}
     defaultCode={`
 <Video
@@ -301,7 +304,7 @@ card(
   playing
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 >
-  <Box position="absolute" top bottom left right
+  <Box width="100%" height="100%"
     display="flex"
     justifyContent="center"
     alignItems="center"
