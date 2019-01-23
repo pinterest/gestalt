@@ -83,6 +83,20 @@ test('Video with callbacks', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Video with overlay', () => {
+  const tree = create(
+    <Video
+      {...A11Y_LABELS}
+      aspectRatio={1}
+      captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      controls
+      overlay
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 describe('Video loading', () => {
   it('Does not load when string src does not change', () => {
     const wrapper = shallow(

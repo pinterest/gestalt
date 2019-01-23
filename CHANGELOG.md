@@ -11,6 +11,7 @@
 - Icon: add new trashcan icon (#462)
 - Icon: rename icon name trashcan to trash-can (#463)
 - Internal: Updated rollup build tools to use stable/predictable minified CSS classnames (#455)
+- Video: add children prop (#464)
 
 ### Patch
 

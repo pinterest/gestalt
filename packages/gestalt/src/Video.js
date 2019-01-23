@@ -42,6 +42,8 @@ type Props = {|
     event: SyntheticEvent<HTMLDivElement>,
     volume: number,
   }) => void,
+  overlay?: boolean,
+  overlayColor?: string,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -172,6 +174,8 @@ export default class Video extends React.PureComponent<Props, State> {
     onSeek: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
+    overlay: PropTypes.bool,
+    overlayColor: PropTypes.string,
     playbackRate: PropTypes.number,
     playing: PropTypes.bool,
     playsInline: PropTypes.bool,
@@ -437,6 +441,8 @@ export default class Video extends React.PureComponent<Props, State> {
       aspectRatio,
       captions,
       loop,
+      overlay,
+      overlayColor,
       playing,
       playsInline,
       poster,
@@ -477,6 +483,12 @@ export default class Video extends React.PureComponent<Props, State> {
             ))}
           <track kind="captions" src={captions} />
         </video>
+        {overlay && (
+          <div
+            className={styles.overlay}
+            style={overlayColor ? { backgroundColor: overlayColor } : {}}
+          />
+        )}
         {/* Need to use full path for these props so Flow can infer correct subtype */}
         {this.props.controls && (
           <VideoControls

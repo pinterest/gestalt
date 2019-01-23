@@ -136,6 +136,18 @@ card(
         description: 'Sent when the audio volume changes',
       },
       {
+        name: 'overlay',
+        type: 'boolean',
+        description:
+          'Add an overlay above the video, it will below controls if they are shown',
+      },
+      {
+        name: 'overlayColor',
+        type: 'string',
+        description: 'Color of the overlay if it is shown',
+        defaultValue: 'rgba(0, 0, 0, 0.3)',
+      },
+      {
         name: 'playbackRate',
         type: 'number',
         description:
