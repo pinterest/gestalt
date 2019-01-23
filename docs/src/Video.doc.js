@@ -69,6 +69,10 @@ card(
         required: true,
       },
       {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
         name: 'controls',
         type: 'boolean',
         description: 'Show the video player controls',
@@ -134,18 +138,6 @@ card(
         type:
           '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
-      },
-      {
-        name: 'overlay',
-        type: 'boolean',
-        description:
-          'Add an overlay above the video, it will below controls if they are shown',
-      },
-      {
-        name: 'overlayColor',
-        type: 'string',
-        description: 'Color of the overlay if it is shown',
-        defaultValue: 'rgba(0, 0, 0, 0.3)',
       },
       {
         name: 'playbackRate',
@@ -285,6 +277,42 @@ card(
   controls
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
+`}
+  />
+);
+
+card(
+  <Example
+    name="Video with children"
+    description={`
+    \`Video\` components can show the components in this \`chilren\` prop on top of the video, while below the controls.
+  `}
+    defaultCode={`
+<Video
+  accessibilityMaximizeLabel="Maximize"
+  accessibilityMinimizeLabel="Minimize"
+  accessibilityMuteLabel="Mute"
+  accessibilityPauseLabel="Pause"
+  accessibilityPlayLabel="Play"
+  accessibilityUnmuteLabel="Unmute"
+  aspectRatio={853 / 480}
+  captions=""
+  controls
+  playing
+  src="http://media.w3.org/2010/05/bunny/movie.mp4"
+>
+  <Box position="absolute" top bottom left right
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    dangerouslySetInlineStyle={{__style:{backgroundColor:'rgba(0, 0, 0, 0.3)'}}}>
+      <IconButton
+        accessibilityLabel="Love"
+        bgColor="white"
+        icon="trash-can"
+        size="lg" />
+  </Box>
+</Video>
 `}
   />
 );

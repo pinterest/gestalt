@@ -36,12 +36,3 @@
     rgba(0, 0, 0, 0.7)
   );
 }
-
-.overlay {
-  composes: absolute from "./Layout.css";
-  composes: top0 from "./Layout.css";
-  composes: bottom0 from "./Layout.css";
-  composes: left0 from "./Layout.css";
-  composes: right0 from "./Layout.css";
-  background-color: rgba(0, 0, 0, 0.3);
-}

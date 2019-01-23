@@ -4,6 +4,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import styles from './Video.css';
+import Box from './Box.js';
 
 type Source =
   | string
@@ -18,6 +19,7 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
+  children?: React.Node,
   controls?: boolean,
   loop?: boolean,
   onDurationChange?: ({
@@ -42,8 +44,6 @@ type Props = {|
     event: SyntheticEvent<HTMLDivElement>,
     volume: number,
   }) => void,
-  overlay?: boolean,
-  overlayColor?: string,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -162,6 +162,7 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityUnmuteLabel: PropTypes.string,
     aspectRatio: PropTypes.number.isRequired,
     captions: PropTypes.string.isRequired,
+    children: PropTypes.node,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
@@ -174,8 +175,6 @@ export default class Video extends React.PureComponent<Props, State> {
     onSeek: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
-    overlay: PropTypes.bool,
-    overlayColor: PropTypes.string,
     playbackRate: PropTypes.number,
     playing: PropTypes.bool,
     playsInline: PropTypes.bool,
@@ -440,9 +439,8 @@ export default class Video extends React.PureComponent<Props, State> {
     const {
       aspectRatio,
       captions,
+      children,
       loop,
-      overlay,
-      overlayColor,
       playing,
       playsInline,
       poster,
@@ -483,11 +481,10 @@ export default class Video extends React.PureComponent<Props, State> {
             ))}
           <track kind="captions" src={captions} />
         </video>
-        {overlay && (
-          <div
-            className={styles.overlay}
-            style={overlayColor ? { backgroundColor: overlayColor } : {}}
-          />
+        {children && (
+          <Box position="absolute" top left bottom right overflow="hidden">
+            {children}
+          </Box>
         )}
         {/* Need to use full path for these props so Flow can infer correct subtype */}
         {this.props.controls && (

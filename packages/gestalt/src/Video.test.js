@@ -83,7 +83,7 @@ test('Video with callbacks', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Video with overlay', () => {
+test('Video with children', () => {
   const tree = create(
     <Video
       {...A11Y_LABELS}
@@ -91,8 +91,9 @@ test('Video with overlay', () => {
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       controls
-      overlay
-    />
+    >
+      <div>overlay</div>
+    </Video>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
