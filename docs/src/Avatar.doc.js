@@ -45,6 +45,11 @@ card(
         type: 'boolean',
         defaultValue: false,
       },
+      {
+        name: 'icon',
+        type: '"check-circle" | "pinterest"',
+        defaultValue: false,
+      },
     ]}
   />
 );
@@ -124,4 +129,22 @@ card(
   />
 );
 
+card(
+  <Example
+    description={`
+    We can also changed \`verified\` icon to the Pinterest logo by setting the
+    \`icon\` prop to \`pinterest\`.
+  `}
+    name="Verified"
+    defaultCode={`
+<Avatar
+  name="Shanice"
+  size="lg"
+  src="${shanice}"
+  verified
+  icon="pinterest"
+/>
+  `}
+  />
+);
 export default cards;
