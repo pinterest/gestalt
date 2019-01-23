@@ -85,11 +85,17 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
   handleImageError = () => this.setState({ isImageLoaded: false });
 
   render() {
-    const { name, outline, size, src, verified, icon } = this.props;
+    const {
+      name,
+      outline,
+      size,
+      src,
+      verified,
+      icon = 'check-circle',
+    } = this.props;
     const { isImageLoaded } = this.state;
     const width = size ? sizes[size] : '100%';
     const height = size ? sizes[size] : '';
-    const verifiedIcon = icon && icon === 'pinterest' ? icon : 'check-circle';
 
     return (
       <Box
@@ -147,12 +153,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
                 },
               }}
             >
-              <Icon
-                color="red"
-                icon={verifiedIcon}
-                accessibilityLabel=""
-                size="100%"
-              />
+              <Icon color="red" icon={icon} accessibilityLabel="" size="100%" />
             </Box>
           </Box>
         )}
