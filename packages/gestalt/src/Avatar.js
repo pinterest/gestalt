@@ -60,6 +60,7 @@ type AvatarProps = {|
   size?: 'sm' | 'md' | 'lg',
   src?: string,
   verified?: boolean,
+  icon?: 'check-circle' | 'pinterest',
 |};
 
 const sizes = {
@@ -84,10 +85,18 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
   handleImageError = () => this.setState({ isImageLoaded: false });
 
   render() {
-    const { name, outline, size, src, verified } = this.props;
+    const {
+      name,
+      outline,
+      size,
+      src,
+      verified,
+      icon = 'check-circle',
+    } = this.props;
     const { isImageLoaded } = this.state;
     const width = size ? sizes[size] : '100%';
     const height = size ? sizes[size] : '';
+
     return (
       <Box
         color="white"
@@ -144,12 +153,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
                 },
               }}
             >
-              <Icon
-                color="red"
-                icon="check-circle"
-                accessibilityLabel=""
-                size="100%"
-              />
+              <Icon color="red" icon={icon} accessibilityLabel="" size="100%" />
             </Box>
           </Box>
         )}
