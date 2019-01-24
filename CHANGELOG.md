@@ -12,6 +12,7 @@
 - Icon: rename icon name trashcan to trash-can (#463)
 - Internal: Updated rollup build tools to use stable/predictable minified CSS classnames (#455)
 - Icon: add new icon reorder-images (#466)
+- Avatar: Add property to use pinterest icon for verified (#460)
 
 ### Patch
 
