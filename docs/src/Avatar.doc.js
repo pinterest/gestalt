@@ -48,7 +48,8 @@ card(
       {
         name: 'icon',
         type: '"check-circle" | "pinterest"',
-        defaultValue: false,
+        defaultValue: 'check-circle',
+        description: 'This is the icon shown only when "verified=true"',
       },
     ]}
   />
