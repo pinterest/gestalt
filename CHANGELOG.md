@@ -8,16 +8,20 @@
 
 ### Minor
 
-- Icon: add new trashcan icon (#462)
-- Icon: rename icon name trashcan to trash-can (#463)
-- Internal: Updated rollup build tools to use stable/predictable minified CSS classnames (#455)
-- Video: add children prop (#464)
-- Icon: add new icon reorder-images (#466)
-- Avatar: Add property to use pinterest icon for verified (#460)
-
 ### Patch
 
 </details>
+
+## 0.88.0 (January 24, 2019)
+
+### Minor
+
+- Icon: add new trashcan icon (#462)
+- Icon: rename icon name trashcan to trash-can (#463)
+- Internal: updated rollup build tools to use stable/predictable minified CSS classnames (#455)
+- Video: add children prop (#464)
+- Icon: add new icon reorder-images (#466)
+- Avatar: add property to use Pinterest icon for verified (#460)
 
 ## 0.87.0 (January 17, 2019)
 
