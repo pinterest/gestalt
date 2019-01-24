@@ -4,6 +4,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import styles from './Video.css';
+import Box from './Box.js';
 
 type Source =
   | string
@@ -18,6 +19,7 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
+  children?: React.Node,
   controls?: boolean,
   loop?: boolean,
   onDurationChange?: ({
@@ -160,6 +162,7 @@ export default class Video extends React.PureComponent<Props, State> {
     accessibilityUnmuteLabel: PropTypes.string,
     aspectRatio: PropTypes.number.isRequired,
     captions: PropTypes.string.isRequired,
+    children: PropTypes.node,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
@@ -436,6 +439,7 @@ export default class Video extends React.PureComponent<Props, State> {
     const {
       aspectRatio,
       captions,
+      children,
       loop,
       playing,
       playsInline,
@@ -477,6 +481,11 @@ export default class Video extends React.PureComponent<Props, State> {
             ))}
           <track kind="captions" src={captions} />
         </video>
+        {children && (
+          <Box position="absolute" top left bottom right overflow="hidden">
+            {children}
+          </Box>
+        )}
         {/* Need to use full path for these props so Flow can infer correct subtype */}
         {this.props.controls && (
           <VideoControls

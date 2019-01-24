@@ -69,6 +69,12 @@ card(
         required: true,
       },
       {
+        name: 'children',
+        type: 'React.Node',
+        description: `This \`children\` prop is not same as children inside the native html \`video\` element.
+          Instead it serves to add overlays on top of the html video element, while still being under the video controls.`,
+      },
+      {
         name: 'controls',
         type: 'boolean',
         description: 'Show the video player controls',
@@ -273,6 +279,43 @@ card(
   controls
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
+`}
+  />
+);
+
+card(
+  <Example
+    name="Video with children"
+    description={`
+    \`Video\` component can show components in the \`chilren\` prop on top of the html video element, while under the controls.
+    The children of \`Video\` is not same as the children of html \`video\` element, acutally it's "outside" the html \`video\` element.
+  `}
+    defaultCode={`
+<Video
+  accessibilityMaximizeLabel="Maximize"
+  accessibilityMinimizeLabel="Minimize"
+  accessibilityMuteLabel="Mute"
+  accessibilityPauseLabel="Pause"
+  accessibilityPlayLabel="Play"
+  accessibilityUnmuteLabel="Unmute"
+  aspectRatio={853 / 480}
+  captions=""
+  controls
+  playing
+  src="http://media.w3.org/2010/05/bunny/movie.mp4"
+>
+  <Box width="100%" height="100%"
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    dangerouslySetInlineStyle={{__style:{backgroundColor:'rgba(0, 0, 0, 0.3)'}}}>
+      <IconButton
+        accessibilityLabel="Love"
+        bgColor="white"
+        icon="trash-can"
+        size="lg" />
+  </Box>
+</Video>
 `}
   />
 );
