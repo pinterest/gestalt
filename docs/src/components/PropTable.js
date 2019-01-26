@@ -1,11 +1,12 @@
 // @flow
 import * as React from 'react';
-import { Box, Text, Icon } from 'gestalt';
+import { Box, Text, Icon, Link } from 'gestalt';
 
 type Props = {|
   props: Array<{|
     defaultValue?: any,
     description?: string,
+    id: ?string,
     name: string,
     required?: boolean,
     responsive?: boolean,
@@ -104,7 +105,15 @@ export default function PropTable({ props: properties, Component }: Props) {
             ).reduce(
               (
                 acc,
-                { required, name, responsive, type, defaultValue, description },
+                {
+                  required,
+                  name,
+                  responsive,
+                  type,
+                  defaultValue,
+                  description,
+                  id,
+                },
                 i
               ) => {
                 acc.push(
@@ -126,7 +135,22 @@ export default function PropTable({ props: properties, Component }: Props) {
                     <Td shrink border={!description}>
                       <Box>
                         <Text overflow="normal" bold leading="tall">
-                          <code>{name}</code>
+                          {id ? (
+                            <Link
+                              href={`#${id}`}
+                              onClick={({ event }) => {
+                                event.preventDefault();
+                                const elem = document.getElementById(id);
+                                if (elem) {
+                                  elem.scrollIntoView({ behavior: 'smooth' });
+                                }
+                              }}
+                            >
+                              <code>{name}</code>
+                            </Link>
+                          ) : (
+                            <code>{name}</code>
+                          )}
                         </Text>
                       </Box>
                       {responsive && (
