@@ -8,6 +8,7 @@ import Checkerboard from './Checkerboard.js';
 type Props = {|
   defaultCode: string,
   description?: string,
+  id?: string,
   name: string,
   direction?: 'row' | 'column',
 |};
@@ -17,6 +18,7 @@ const { Box, Text, Column } = gestalt;
 function Example({
   defaultCode,
   description,
+  id,
   name,
   direction = 'column',
 }: Props) {
@@ -24,6 +26,7 @@ function Example({
     <Card
       name={name}
       description={description}
+      id={id}
       stacked={direction === 'column'}
     >
       <LiveProvider code={defaultCode.trim()} scope={gestalt}>

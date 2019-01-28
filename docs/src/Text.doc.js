@@ -21,11 +21,13 @@ card(
         name: 'align',
         type: `"left" | "right" | "center" | "justify"`,
         defaultValue: 'left',
+        href: 'align',
       },
       {
         name: 'bold',
         type: 'boolean',
         defaultValue: false,
+        href: 'styles',
       },
       {
         name: 'children',
@@ -35,11 +37,13 @@ card(
         name: 'color',
         type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
         defaultValue: 'darkGray',
+        href: 'color',
       },
       {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
+        href: 'inline',
       },
       {
         name: 'leading',
@@ -50,17 +54,20 @@ card(
         name: 'italic',
         type: 'boolean',
         defaultValue: false,
+        href: 'styles',
       },
       {
         name: 'overflow',
         type: `"normal" | "breakWord"`,
         defaultValue: 'breakWord',
+        href: 'overflow',
       },
       {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 12px, sm: 14px, md: 16px, lg: 18px, xl: 21px`,
         defaultValue: 'md',
+        href: 'size',
         responsive: true,
       },
       {
@@ -68,6 +75,7 @@ card(
         type: 'boolean',
         description:
           'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
+        href: 'overflow',
         defaultValue: false,
       },
     ]}
@@ -77,6 +85,7 @@ card(
 card(
   <Example
     description="You can apply the following to adjust the positioning of text within wrapper elements."
+    id="align"
     name="Alignment"
     defaultCode={`
 <Box maxWidth="8em">
@@ -94,6 +103,7 @@ card(
     description={`
     The Text component allows you to specifiy whether you want \`block\` or \`inline\` text.
   `}
+    id="inline"
     name="Block vs inline"
     defaultCode={`
 <Box>
@@ -113,6 +123,7 @@ card(
 card(
   <Example
     description="You can specify which color you want for your text."
+    id="color"
     name="Colors"
     defaultCode={`
 <Box>
@@ -139,6 +150,7 @@ card(
 card(
   <Example
     description="Gestalt provides utility options to deal with text overflow."
+    id="overflow"
     name="Overflow"
     defaultCode={`
 <Box maxWidth={240}>
@@ -174,6 +186,7 @@ card(
     description={`
     You can apply the following \`size\` options to define the size of the text.
   `}
+    id="size"
     name="Sizes"
     defaultCode={`
 <Box>
@@ -237,6 +250,7 @@ card(
     There are multiple styles such as bold and italic that we can
     attach to the Text component.
   "
+    id="styles"
     name="Styles"
     defaultCode={`
 <Box>
