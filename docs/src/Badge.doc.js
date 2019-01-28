@@ -19,15 +19,15 @@ card(
   <PropTable
     props={[
       {
+        name: 'text',
+        type: `string`,
+        required: true,
+      },
+      {
         name: 'position',
         type: `"middle" | "top"`,
         defaultValue: 'middle',
         description: 'Badge position relative to its parent element.',
-      },
-      {
-        name: 'text',
-        type: `string`,
-        required: true,
       },
     ]}
   />
