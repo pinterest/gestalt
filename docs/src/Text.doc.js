@@ -21,13 +21,13 @@ card(
         name: 'align',
         type: `"left" | "right" | "center" | "justify"`,
         defaultValue: 'left',
-        id: 'align',
+        href: 'align',
       },
       {
         name: 'bold',
         type: 'boolean',
         defaultValue: false,
-        id: 'styles',
+        href: 'styles',
       },
       {
         name: 'children',
@@ -37,13 +37,13 @@ card(
         name: 'color',
         type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
         defaultValue: 'darkGray',
-        id: 'color',
+        href: 'color',
       },
       {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
-        id: 'inline',
+        href: 'inline',
       },
       {
         name: 'leading',
@@ -54,20 +54,20 @@ card(
         name: 'italic',
         type: 'boolean',
         defaultValue: false,
-        id: 'styles',
+        href: 'styles',
       },
       {
         name: 'overflow',
         type: `"normal" | "breakWord"`,
         defaultValue: 'breakWord',
-        id: 'overflow',
+        href: 'overflow',
       },
       {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 12px, sm: 14px, md: 16px, lg: 18px, xl: 21px`,
         defaultValue: 'md',
-        id: 'size',
+        href: 'size',
         responsive: true,
       },
       {
@@ -75,7 +75,7 @@ card(
         type: 'boolean',
         description:
           'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
-        id: 'overflow',
+        href: 'overflow',
         defaultValue: false,
       },
     ]}

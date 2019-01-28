@@ -21,7 +21,7 @@ export default function Card({
   stacked = false,
 }: Props) {
   return (
-    <Box {...(id ? { id } : {})}>
+    <Box id={id}>
       {heading && <Heading size="xs">{name}</Heading>}
       <Box
         marginLeft={-2}
