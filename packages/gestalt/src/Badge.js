@@ -5,18 +5,18 @@ import cx from 'classnames';
 import styles from './Badge.css';
 
 type Props = {|
-  size?: 'sm' | 'md' | 'lg',
+  position?: 'middle' | 'top',
   text: string,
 |};
 
 export default function Badge(props: Props) {
-  const { size = 'sm', text } = props;
-  const cs = cx(styles.Badge, styles[size]);
+  const { position = 'middle', text } = props;
+  const cs = cx(styles.Badge, styles[position]);
 
   return <span className={cs}>{text}</span>;
 }
 
 Badge.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  position: PropTypes.oneOf(['middle', 'top']),
   text: PropTypes.string.isRequired,
 };

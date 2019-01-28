@@ -1,23 +1,24 @@
 .Badge {
   composes: antialiased sansSerif letterSpacing from "./Typography.css";
   composes: fontWeightBold from "./Typography.css";
-  composes: gray from "./Colors.css";
+  composes: blue from "./Colors.css";
+  composes: blueBorder from "./Colors.css";
   composes: inlineBlock from "./Layout.css";
-  border: 1px solid #8e8e8e;
   border-radius: 4px;
-  padding: 4px;
-  vertical-align: middle;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 10px;
+  line-height: 1;
+  margin-top: -4px;
+  padding: 2px;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
-.sm {
-  font-size: 12px;
+.middle {
+  vertical-align: middle;
 }
 
-.md {
-  font-size: 14px;
-}
-
-.lg {
-  font-size: 18px;
+.top {
+  vertical-align: super;
 }
