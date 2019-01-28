@@ -8,9 +8,9 @@
 
 ### Minor
 
-### Patch
-
 - Masonry: Small cosmetic refactoring and fixed a tiny edge-case bug with `scrollContainer` prop (#471)
+
+### Patch
 
 </details>
 
