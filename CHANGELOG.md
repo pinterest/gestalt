@@ -9,7 +9,7 @@
 ### Minor
 
 ### Patch
-- Docs: Update Box prop table to include links to examples
+- Docs: Update Box prop table to include links to examples (#470)
 
 </details>
 
