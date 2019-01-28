@@ -22,7 +22,7 @@ type Props = {|
   scrollContainer: ?HTMLElement | (() => ?HTMLElement),
 |};
 
-function getScrollContainer(scrollContainer) {
+export function getScrollContainer(scrollContainer) {
   return typeof scrollContainer === 'function'
     ? scrollContainer()
     : scrollContainer;

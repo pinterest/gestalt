@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
-import ScrollContainer from './ScrollContainer.js';
+import ScrollContainer, { getScrollContainer } from './ScrollContainer.js';
 import throttle from './throttle.js';
 import type { Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
@@ -86,16 +86,16 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
    * Delays resize handling in case the scroll container is still being resized.
    */
   handleResize = debounce(() => {
-    if (this.gridWrapper) {
-      this.setState({ width: this.gridWrapper.clientWidth });
+    if (this.gridWrapper.current) {
+      this.setState({ width: this.gridWrapper.current.clientWidth });
     }
   }, RESIZE_DEBOUNCE);
 
   updateScrollPosition = throttle(() => {
-    if (!this.scrollContainer) {
+    if (!this.scrollContainer.current) {
       return;
     }
-    const scrollContainer = this.scrollContainer.getScrollContainerRef();
+    const scrollContainer = this.scrollContainer.current.getScrollContainerRef();
 
     if (!scrollContainer) {
       return;
@@ -186,6 +186,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     virtualize: false,
   };
 
+  gridWrapper: { current: HTMLElement | null } = React.createRef();
+
+  scrollContainer: { current: ScrollContainer | null } = React.createRef();
+
   constructor(props: Props<T>) {
     super(props);
 
@@ -213,8 +217,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.measureContainer();
 
     let { scrollTop } = this.state;
-    if (this.scrollContainer != null) {
-      const scrollContainer = this.scrollContainer.getScrollContainerRef();
+    if (this.scrollContainer.current) {
+      const scrollContainer = this.scrollContainer.current.getScrollContainerRef();
       if (scrollContainer) {
         scrollTop = getScrollPos(scrollContainer);
       }
@@ -222,7 +226,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
     this.setState(prevState => ({
       scrollTop,
-      width: this.gridWrapper ? this.gridWrapper.clientWidth : prevState.width,
+      width: this.gridWrapper.current
+        ? this.gridWrapper.current.clientWidth
+        : prevState.width,
     }));
   }
 
@@ -322,22 +328,14 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     return null;
   }
 
-  setGridWrapperRef = (ref: ?HTMLElement) => {
-    this.gridWrapper = ref;
-  };
-
-  setScrollContainerRef = (ref: ?ScrollContainer) => {
-    this.scrollContainer = ref;
-  };
-
   fetchMore = () => {
-    const { loadItems } = this.props;
+    const { loadItems, items } = this.props;
     if (loadItems && typeof loadItems === 'function') {
       this.setState(
         {
           isFetching: true,
         },
-        () => loadItems({ from: this.props.items.length })
+        () => loadItems({ from: items.length })
       );
     }
   };
@@ -346,17 +344,13 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
   containerOffset: number;
 
-  gridWrapper: ?HTMLElement;
-
   insertAnimationFrame: AnimationFrameID;
 
   measureTimeout: TimeoutID;
 
-  scrollContainer: ?ScrollContainer;
-
   measureContainer() {
-    if (this.scrollContainer != null) {
-      const { scrollContainer } = this;
+    if (this.scrollContainer.current) {
+      const scrollContainer = this.scrollContainer.current;
       const scrollContainerRef = scrollContainer.getScrollContainerRef();
       if (scrollContainerRef) {
         this.containerHeight = getElementHeight(scrollContainerRef);
@@ -376,7 +370,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
    * number of columns we would display should change after a resize.
    */
   reflow() {
-    this.props.measurementStore.reset();
+    const { measurementStore } = this.props;
+    measurementStore.reset();
     this.measureContainer();
     this.forceUpdate();
   }
@@ -387,11 +382,15 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       virtualize,
       virtualBoundsTop,
       virtualBoundsBottom,
+      scrollContainer,
     } = this.props;
     const { top, left, width, height } = position;
 
-    let isVisible;
-    if (this.props.scrollContainer) {
+    // Assume the container is visible. If a scroll container is passed in,
+    // we can check bounds to determine.
+    let isVisible = true;
+
+    if (getScrollContainer(scrollContainer)) {
       const virtualBuffer = this.containerHeight * VIRTUAL_BUFFER_FACTOR;
       const offsetScrollPos = this.state.scrollTop - this.containerOffset;
       const viewportTop = virtualBoundsTop
@@ -405,9 +404,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         position.top + position.height < viewportTop ||
         position.top > viewportBottom
       );
-    } else {
-      // if no scroll container is passed in, items should always be visible
-      isVisible = true;
     }
 
     const itemComponent = (
@@ -442,6 +438,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       measurementStore,
       items,
       minCols,
+      scrollContainer,
+      layout: layoutEngine,
     } = this.props;
     const { hasPendingMeasurements, width } = this.state;
 
@@ -455,8 +453,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         width,
       });
     } else if (
-      this.props.layout === UniformRowLayoutSymbol ||
-      this.props.layout instanceof LegacyUniformRowLayout
+      layoutEngine === UniformRowLayoutSymbol ||
+      layoutEngine instanceof LegacyUniformRowLayout
     ) {
       layout = uniformRowLayout({
         cache: measurementStore,
@@ -483,7 +481,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         <div
           className={styles.Masonry}
           style={{ height: 0, width: '100%' }}
-          ref={this.setGridWrapperRef}
+          ref={this.gridWrapper}
         >
           {items.filter(item => item).map((item, i) => (
             <div // keep this in sync with renderMasonryComponent
@@ -514,7 +512,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     } else if (width == null) {
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
-      gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
+      gridBody = <div style={{ width: '100%' }} ref={this.gridWrapper} />;
     } else {
       // Full layout is possible
       const itemsToRender = items.filter(
@@ -531,7 +529,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
         ? Math.max(...positions.map(pos => pos.top + pos.height))
         : 0;
       gridBody = (
-        <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
+        <div style={{ width: '100%' }} ref={this.gridWrapper}>
           <div className={styles.Masonry} style={{ height, width }}>
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(item, i, positions[i])
@@ -571,7 +569,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
             })}
           </div>
 
-          {this.scrollContainer && (
+          {this.scrollContainer.current && (
             <FetchItems
               containerHeight={this.containerHeight}
               fetchMore={this.fetchMore}
@@ -586,11 +584,11 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       );
     }
 
-    return this.props.scrollContainer ? (
+    return scrollContainer ? (
       <ScrollContainer
-        ref={this.setScrollContainerRef}
+        ref={this.scrollContainer}
         onScroll={this.updateScrollPosition}
-        scrollContainer={this.props.scrollContainer}
+        scrollContainer={scrollContainer}
       >
         {gridBody}
       </ScrollContainer>
