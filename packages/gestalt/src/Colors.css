@@ -118,6 +118,10 @@
   background-color: var(--blue);
 }
 
+.blueBorder {
+  border-color: var(--blue);
+}
+
 /* navy */
 
 .navy {
