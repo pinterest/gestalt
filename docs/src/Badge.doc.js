@@ -50,7 +50,7 @@ card(
     Larger text looks better with a superscript `Badge`."
     name="Example"
     defaultCode={`
-  <Heading>Headings <Badge text="new" position="top" /></Heading>
+  <Heading>Heading <Badge text="new" position="top" /></Heading>
 `}
   />
 );
