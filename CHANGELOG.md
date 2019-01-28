@@ -12,6 +12,8 @@
 
 ### Patch
 
+- Masonry: Small cosmetic refactoring and fixed a tiny edge-case bug with `scrollContainer` prop (#471)
+
 </details>
 
 ## 0.93.0 (March 13, 2019)
