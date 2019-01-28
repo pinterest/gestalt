@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- Docs: Update Box prop table to include links to examples
 
 </details>
 
