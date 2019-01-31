@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SegmentedControl: add optional `equalWidths` prop for forcing all items to have equal width (#473)
+
 ### Patch
 
 </details>

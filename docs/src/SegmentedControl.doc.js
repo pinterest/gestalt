@@ -24,6 +24,13 @@ card(
   <PropTable
     props={[
       {
+        name: 'equalWidths',
+        type: 'boolean',
+        required: false,
+        description:
+          'By default, the width of an item is based on its content. This forces all items to have equal width.',
+      },
+      {
         name: 'items',
         type: 'Array<React.Node>',
         required: true,
