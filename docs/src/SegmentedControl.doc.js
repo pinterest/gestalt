@@ -106,7 +106,7 @@ class SegmentedControlExample extends React.Component {
 
 card(
   <Example
-    description="Segmented Controls can have equal widths"
+    description="Segmented Controls can have responsive widths where the width of an item is based on its content."
     name="Example"
     defaultCode={`
 class SegmentedControlExample extends React.Component {
