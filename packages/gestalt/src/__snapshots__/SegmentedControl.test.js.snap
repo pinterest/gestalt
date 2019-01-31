@@ -59,3 +59,47 @@ exports[`SegmentedControl renders 1`] = `
   </button>
 </div>
 `;
+
+exports[`SegmentedControl with equal widths renders 1`] = `
+<div
+  className="SegmentedControl md"
+  role="tablist"
+>
+  <button
+    aria-selected={true}
+    className="item itemIsSelected"
+    onClick={[Function]}
+    role="tab"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+    type="button"
+  >
+    <div
+      className="Text fontSize3 darkGray alignCenter breakWord fontStyleNormal fontWeightBold"
+    >
+      Short
+    </div>
+  </button>
+  <button
+    aria-selected={false}
+    className="item itemIsNotSelected"
+    onClick={[Function]}
+    role="tab"
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+    type="button"
+  >
+    <div
+      className="Text fontSize3 gray alignCenter breakWord fontStyleNormal fontWeightBold"
+    >
+      Really really really long title
+    </div>
+  </button>
+</div>
+`;

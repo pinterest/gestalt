@@ -15,6 +15,18 @@ test('SegmentedControl renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('SegmentedControl with equal widths renders', () => {
+  const tree = create(
+    <SegmentedControl
+      equalWidths
+      items={['Short', 'Really really really long title']}
+      selectedItemIndex={0}
+      onChange={() => {}}
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('SegmentedControl handles click', () => {
   const mockOnChange = jest.fn();
   const wrapper = shallow(

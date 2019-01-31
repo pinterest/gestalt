@@ -7,6 +7,7 @@ import Text from './Text.js';
 import styles from './SegmentedControl.css';
 
 type Props = {|
+  equalWidths?: boolean,
   items: Array<React.Node>,
   onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
   selectedItemIndex: number,
@@ -14,7 +15,16 @@ type Props = {|
 |};
 
 export default function SegmentedControl(props: Props) {
-  const { items, onChange, selectedItemIndex, size = 'md' } = props;
+  const {
+    equalWidths,
+    items,
+    onChange,
+    selectedItemIndex,
+    size = 'md',
+  } = props;
+  const buttonStyle = equalWidths
+    ? { width: `${Math.floor(100 / Math.max(1, items.length))}%` }
+    : undefined;
   return (
     <div
       className={classnames(styles.SegmentedControl, {
@@ -37,6 +47,7 @@ export default function SegmentedControl(props: Props) {
             onClick={e => onChange({ event: e, activeIndex: i })}
             role="tab"
             type="button"
+            style={buttonStyle}
           >
             {typeof item === 'string' ? (
               <Text

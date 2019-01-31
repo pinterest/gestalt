@@ -59,7 +59,7 @@ card(
     "
     name="Example"
     defaultCode={`
-class ToastExample extends React.Component {
+class SegmentedControlExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -90,6 +90,44 @@ class ToastExample extends React.Component {
         selectedItemIndex={this.state.itemIndex}
         onChange={this.handleItemChange}
       />
+    );
+  }
+}
+    `}
+  />
+);
+
+card(
+  <Example
+    description="Segmented Controls can have equal widths"
+    name="Example"
+    defaultCode={`
+class SegmentedControlExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemIndex: 0,
+    };
+    this.handleItemChange = this.handleItemChange.bind(this);
+  }
+
+  handleItemChange({ activeIndex }) {
+    this.setState(prevState => ({ itemIndex: activeIndex }));
+  };
+
+  render() {
+    const props = {
+      items: ['Short', 'Really really really long title'],
+      selectedItemIndex: this.state.itemIndex,
+      onChange: this.handleItemChange,
+    };
+    return (
+      <Box>
+        <h3>Responsive widths</h3>
+        <SegmentedControl {...props} />
+        <h3>Equal widths</h3>
+        <SegmentedControl {...props} equalWidths />
+      </Box>
     );
   }
 }
