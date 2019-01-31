@@ -16,9 +16,9 @@ type Props = {|
 
 export default function SegmentedControl(props: Props) {
   const { items, onChange, responsive, selectedItemIndex, size = 'md' } = props;
-  const buttonStyle = responsive
+  const buttonWidth = responsive
     ? undefined
-    : { width: `${Math.floor(100 / Math.max(1, items.length))}%` };
+    : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div
       className={classnames(styles.SegmentedControl, {
@@ -41,7 +41,7 @@ export default function SegmentedControl(props: Props) {
             onClick={e => onChange({ event: e, activeIndex: i })}
             role="tab"
             type="button"
-            style={buttonStyle}
+            style={{ width: buttonWidth }}
           >
             {typeof item === 'string' ? (
               <Text

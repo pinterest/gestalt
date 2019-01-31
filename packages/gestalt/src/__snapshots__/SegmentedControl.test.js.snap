@@ -90,6 +90,11 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
     className="item itemIsSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
     type="button"
   >
     <div
@@ -103,6 +108,11 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
     type="button"
   >
     <div
