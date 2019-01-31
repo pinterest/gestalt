@@ -34,6 +34,13 @@ card(
         required: true,
       },
       {
+        name: 'responsive',
+        type: 'boolean',
+        required: false,
+        description:
+          'By default, items have equal widths. If this prop is true, the width of an item is based on its content.',
+      },
+      {
         name: 'selectedItemIndex',
         type: 'number',
         required: true,
@@ -59,7 +66,7 @@ card(
     "
     name="Example"
     defaultCode={`
-class ToastExample extends React.Component {
+class SegmentedControlExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -90,6 +97,44 @@ class ToastExample extends React.Component {
         selectedItemIndex={this.state.itemIndex}
         onChange={this.handleItemChange}
       />
+    );
+  }
+}
+    `}
+  />
+);
+
+card(
+  <Example
+    description="Segmented Controls can have responsive widths where the width of an item is based on its content."
+    name="Example"
+    defaultCode={`
+class SegmentedControlExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemIndex: 0,
+    };
+    this.handleItemChange = this.handleItemChange.bind(this);
+  }
+
+  handleItemChange({ activeIndex }) {
+    this.setState(prevState => ({ itemIndex: activeIndex }));
+  };
+
+  render() {
+    const props = {
+      items: ['Short', 'Really really really long title'],
+      selectedItemIndex: this.state.itemIndex,
+      onChange: this.handleItemChange,
+    };
+    return (
+      <Box>
+        <h3>Equal widths</h3>
+        <SegmentedControl {...props} />
+        <h3>Responsive widths</h3>
+        <SegmentedControl {...props} responsive />
+      </Box>
     );
   }
 }

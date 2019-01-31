@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SegmentedControl: items have equal width by default; add `responsive` prop which makes item width responsive to content width (#473)
+
 ### Patch
 
 </details>
