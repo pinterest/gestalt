@@ -24,13 +24,6 @@ card(
   <PropTable
     props={[
       {
-        name: 'equalWidths',
-        type: 'boolean',
-        required: false,
-        description:
-          'By default, the width of an item is based on its content. This forces all items to have equal width.',
-      },
-      {
         name: 'items',
         type: 'Array<React.Node>',
         required: true,
@@ -39,6 +32,13 @@ card(
         name: 'onChange',
         type: '({ event: SyntheticMouseEvent<>, activeIndex: number }) => void',
         required: true,
+      },
+      {
+        name: 'responsive',
+        type: 'boolean',
+        required: false,
+        description:
+          'By default, items have equal widths. If this prop is true, the width of an item is based on its content.',
       },
       {
         name: 'selectedItemIndex',
@@ -130,10 +130,10 @@ class SegmentedControlExample extends React.Component {
     };
     return (
       <Box>
-        <h3>Responsive widths</h3>
-        <SegmentedControl {...props} />
         <h3>Equal widths</h3>
-        <SegmentedControl {...props} equalWidths />
+        <SegmentedControl {...props} />
+        <h3>Responsive widths</h3>
+        <SegmentedControl {...props} responsive />
       </Box>
     );
   }

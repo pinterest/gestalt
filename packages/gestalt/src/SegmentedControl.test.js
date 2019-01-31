@@ -15,10 +15,10 @@ test('SegmentedControl renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('SegmentedControl with equal widths renders', () => {
+test('SegmentedControl with responsive widths renders', () => {
   const tree = create(
     <SegmentedControl
-      equalWidths
+      responsive
       items={['Short', 'Really really really long title']}
       selectedItemIndex={0}
       onChange={() => {}}

@@ -10,6 +10,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -23,6 +28,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -36,6 +46,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -49,6 +64,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -60,7 +80,7 @@ exports[`SegmentedControl renders 1`] = `
 </div>
 `;
 
-exports[`SegmentedControl with equal widths renders 1`] = `
+exports[`SegmentedControl with responsive widths renders 1`] = `
 <div
   className="SegmentedControl md"
   role="tablist"
@@ -70,11 +90,6 @@ exports[`SegmentedControl with equal widths renders 1`] = `
     className="item itemIsSelected"
     onClick={[Function]}
     role="tab"
-    style={
-      Object {
-        "width": "50%",
-      }
-    }
     type="button"
   >
     <div
@@ -88,11 +103,6 @@ exports[`SegmentedControl with equal widths renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
-    style={
-      Object {
-        "width": "50%",
-      }
-    }
     type="button"
   >
     <div
