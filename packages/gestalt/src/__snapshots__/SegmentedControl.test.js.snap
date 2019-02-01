@@ -10,6 +10,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -23,6 +28,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -36,6 +46,11 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
@@ -49,12 +64,61 @@ exports[`SegmentedControl renders 1`] = `
     className="item itemIsNotSelected"
     onClick={[Function]}
     role="tab"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
     type="button"
   >
     <div
       className="box justifyCenter xsDisplayFlex"
     >
       <div />
+    </div>
+  </button>
+</div>
+`;
+
+exports[`SegmentedControl with responsive widths renders 1`] = `
+<div
+  className="SegmentedControl md"
+  role="tablist"
+>
+  <button
+    aria-selected={true}
+    className="item itemIsSelected"
+    onClick={[Function]}
+    role="tab"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+    type="button"
+  >
+    <div
+      className="Text fontSize3 darkGray alignCenter breakWord fontStyleNormal fontWeightBold"
+    >
+      Short
+    </div>
+  </button>
+  <button
+    aria-selected={false}
+    className="item itemIsNotSelected"
+    onClick={[Function]}
+    role="tab"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+    type="button"
+  >
+    <div
+      className="Text fontSize3 gray alignCenter breakWord fontStyleNormal fontWeightBold"
+    >
+      Really really really long title
     </div>
   </button>
 </div>
