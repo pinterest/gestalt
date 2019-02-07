@@ -13,6 +13,7 @@
 
 ### Patch
 
+- Add [ESLint Plugin for React Hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) (#475)
 - Docs: Update Box prop table to include links to examples (#470)
 
 </details>
