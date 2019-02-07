@@ -8,9 +8,11 @@
 
 ### Minor
 
+- Upgrade React version to [16.8.0](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) (#474)
 - SegmentedControl: items have equal width by default; add `responsive` prop which makes item width responsive to content width (#473)
 
 ### Patch
+
 - Docs: Update Box prop table to include links to examples (#470)
 
 </details>
