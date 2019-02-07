@@ -22,6 +22,7 @@
     "jsx-a11y",
     "prettier",
     "react",
+    "react-hooks",
     "import"
   ],
   "rules": {
@@ -48,7 +49,8 @@
     ],
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
-    "import/no-relative-parent-imports": "error"
+    "import/no-relative-parent-imports": "error",
+    "react-hooks/rules-of-hooks": "error"
   },
   "overrides": [
     {
