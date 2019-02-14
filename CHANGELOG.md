@@ -27,6 +27,7 @@
 
 - Upgrade React version to [16.8.0](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) (#474)
 - SegmentedControl: items have equal width by default; add `responsive` prop which makes item width responsive to content width (#473)
+- Button: Update border radius (#476)
 - Icon: Add new alert and arrow-circle-up icons (#477)
 
 ### Patch
