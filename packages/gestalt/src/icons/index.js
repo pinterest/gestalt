@@ -2,6 +2,7 @@
 import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addPin from './add-pin.svg';
+import alert from './alert.svg';
 import alignBottomCenter from './align-bottom-center.svg';
 import alignBottomLeft from './align-bottom-left.svg';
 import alignBottomRight from './align-bottom-right.svg';
@@ -14,8 +15,9 @@ import alignTop from './align-top.svg';
 import angledPin from './angled-pin.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
-import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowCircleDown from './arrow-circle-down.svg';
+import arrowCircleForward from './arrow-circle-forward.svg';
+import arrowCircleUp from './arrow-circle-up.svg';
 import arrowDown from './arrow-down.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowUp from './arrow-up.svg';
@@ -126,6 +128,7 @@ export default {
   add,
   'add-circle': addCircle,
   'add-pin': addPin,
+  alert,
   'align-bottom-center': alignBottomCenter,
   'align-bottom-left': alignBottomLeft,
   'align-bottom-right': alignBottomRight,
@@ -140,6 +143,7 @@ export default {
   'arrow-back': arrowBack,
   'arrow-circle-down': arrowCircleDown,
   'arrow-circle-forward': arrowCircleForward,
+  'arrow-circle-up': arrowCircleUp,
   'arrow-down': arrowDown,
   'arrow-forward': arrowForward,
   'arrow-up': arrowUp,
