@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.89.0 (February 15, 2019)
+
+### Minor
+
 - Upgrade React version to [16.8.0](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) (#474)
 - SegmentedControl: items have equal width by default; add `responsive` prop which makes item width responsive to content width (#473)
 - Icon: Add new alert and arrow-circle-up icons (#477)
@@ -16,8 +24,6 @@
 
 - Add [ESLint Plugin for React Hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) (#475)
 - Docs: Update Box prop table to include links to examples (#470)
-
-</details>
 
 ## 0.88.0 (January 24, 2019)
 
