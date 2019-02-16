@@ -3,7 +3,7 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 
 type Props = {|
-  children?: React.Node,
+  children: React.Node,
 |};
 type State = {|
   mounted: boolean,
