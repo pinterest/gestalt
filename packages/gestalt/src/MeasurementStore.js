@@ -1,10 +1,12 @@
 // @flow
 import type { Cache } from './Cache.js';
 
-export default class MeasurementStore<T, V> implements Cache<T, V> {
-  map: WeakMap<T, V> = new WeakMap();
+export type MeasurementStoreType<T> = Cache<T, number>;
 
-  get(key: T): ?V {
+export default class MeasurementStore<T> implements Cache<T, number> {
+  map: WeakMap<T, number> = new WeakMap();
+
+  get(key: T): ?number {
     return this.map.get(key);
   }
 
@@ -12,7 +14,7 @@ export default class MeasurementStore<T, V> implements Cache<T, V> {
     return this.map.has(key);
   }
 
-  set(key: T, value: V): void {
+  set(key: T, value: number): void {
     this.map.set(key, value);
   }
 

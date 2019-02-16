@@ -6,8 +6,9 @@ import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
-import type { Cache } from './Cache.js';
-import MeasurementStore from './MeasurementStore.js';
+import MeasurementStore, {
+  type MeasurementStoreType,
+} from './MeasurementStore.js';
 import {
   getElementHeight,
   getRelativeScrollTop,
@@ -39,7 +40,7 @@ type Props<T> = {|
   flexible?: boolean,
   gutterWidth?: number,
   items: Array<T>,
-  measurementStore: Cache<T, *>,
+  measurementStore: MeasurementStoreType<T>,
   minCols: number,
   layout?: Layout,
   // Support legacy loadItems usage.
@@ -79,7 +80,7 @@ const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
  */
 export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   static createMeasurementStore() {
-    return new MeasurementStore();
+    return (new MeasurementStore(): MeasurementStoreType<T>);
   }
 
   /**
@@ -179,7 +180,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
   static defaultProps = {
     columnWidth: 236,
-    measurementStore: new MeasurementStore(),
+    measurementStore: (new MeasurementStore(): MeasurementStoreType<T>),
     minCols: 3,
     layout: DefaultLayoutSymbol,
     loadItems: () => {},

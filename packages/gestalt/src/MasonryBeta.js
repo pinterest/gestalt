@@ -5,8 +5,9 @@ import debounce from './debounce.js';
 import styles from './Masonry.css';
 import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
-import type { Cache } from './Cache.js';
-import MeasurementStore from './MeasurementStore.js';
+import MeasurementStore, {
+  type MeasurementStoreType,
+} from './MeasurementStore.js';
 import {
   getElementHeight,
   getRelativeScrollTop,
@@ -40,7 +41,7 @@ export type Props<T> = {|
   flexible?: boolean,
   gutterWidth?: number,
   items: Array<T>,
-  measurementStore: Cache<T, *>,
+  measurementStore: MeasurementStoreType<T>,
   minCols: number,
   // Content layer and Viewport layer is as defined in Collection.
   onVirtualizationWindowUpdate?: (
@@ -266,7 +267,7 @@ export default class MasonryBeta<T> extends React.Component<
 
   static defaultProps = {
     columnWidth: 236,
-    measurementStore: new MeasurementStore(),
+    measurementStore: (new MeasurementStore(): MeasurementStoreType<T>),
     minCols: 3,
     layout: DefaultLayoutSymbol,
     loadItems: () => {},
