@@ -1,9 +1,7 @@
 // @flow
 import * as React from 'react';
 import FetchItems from './FetchItems.js';
-import MeasurementStore, {
-  type MeasurementStoreType,
-} from './MeasurementStore.js';
+import MeasurementStore from './MeasurementStore.js';
 import Masonry, { type Props, type MeasurementState } from './MasonryBeta.js';
 import { type Position } from './defaultLayout.js';
 
@@ -29,7 +27,7 @@ export default class MasonryInfiniteBeta<T> extends React.Component<
   State<T>
 > {
   static createMeasurementStore() {
-    return (new MeasurementStore(): MeasurementStoreType<T>);
+    return new MeasurementStore();
   }
 
   static defaultProps = Masonry.defaultProps;
