@@ -8,6 +8,9 @@
 
 ### Minor
 
+- Upgrade flow version to [0.84.0](https://github.com/facebook/flow/releases/tag/v0.85.0) (#479)
+- Layer: `children` prop is now required (#479)
+
 ### Patch
 
 </details>
