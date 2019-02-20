@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Docs: Improve Image description (#481)
+
 </details>
 
 ## 0.90.0 (February 19, 2019)
