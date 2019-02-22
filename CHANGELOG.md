@@ -18,6 +18,7 @@
 
 ### Minor
 
+- Update fill-transparent icon (#480)
 - Upgrade flow version to [0.84.0](https://github.com/facebook/flow/releases/tag/v0.84.0) (#479)
 - Layer: `children` prop is now required (#479)
 
