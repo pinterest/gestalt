@@ -92,7 +92,7 @@ card(
         type: `"start" | "end" | "center" | "baseline" | "stretch"`,
         defaultValue: 'stretch',
         description:
-          'Defines the default behaviour for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
+          'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
         href: 'layout',
       },
       {
@@ -187,7 +187,7 @@ card(
     description={`
     The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
 
-    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you loose flexibility and have to change styling if you make changes to the structure.
+    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you lose flexibility and have to change styling if you make changes to the structure.
   `}
     name="Example: Media object"
     defaultCode={`
@@ -213,7 +213,7 @@ card(
 card(
   <Example
     description={`
-    In this example we use the \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and seeing what happens.
+    In this example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
   `}
     name="Example: Double-sided media object"
     defaultCode={`
@@ -242,7 +242,7 @@ card(
 card(
   <Example
     description={`
-    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still being read by screenreaders.
+    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still be read by screenreaders.
   `}
     id="display"
     name="Example: Visually Hidden"
@@ -365,7 +365,7 @@ card(
 
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
 
-    Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL language aware \`marginStart\` and \`marginEnd\`.
+    Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL-language-aware \`marginStart\` and \`marginEnd\`.
 
     ~~~jsx
     <Box margin={1} />

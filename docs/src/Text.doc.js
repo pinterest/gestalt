@@ -84,7 +84,7 @@ card(
 
 card(
   <Example
-    description="You can apply the following to adjust the positioning of text within wrapper elements."
+    description="Use this to adjust the positioning of text within wrapper elements."
     id="align"
     name="Alignment"
     defaultCode={`
@@ -184,7 +184,7 @@ card(
 card(
   <Example
     description={`
-    You can apply the following \`size\` options to define the size of the text.
+    You can apply \`size\` options to define the size of the text.
   `}
     id="size"
     name="Sizes"
@@ -247,7 +247,7 @@ card(
 card(
   <Example
     description="
-    There are multiple styles such as bold and italic that we can
+    There are multiple styles, such as bold and italic, that we can
     attach to the Text component.
   "
     id="styles"

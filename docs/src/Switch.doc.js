@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="Switch"
     description="Use switches for single cell options that can be turned on and off only.
-If you have a cell with multiple options that can activated or not consider using check marks."
+If you have a cell with multiple options that can activated, consider using check marks."
   />
 );
 

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import stock1 from './images/stock1.jpg';
+// import stock1 from './images/stock1.jpg';
 import stock2 from './images/stock2.jpg';
 import stock3 from './images/stock3.jpg';
 import stock4 from './images/stock4.jpg';
@@ -97,8 +97,8 @@ card(
     This is so that the placeholder's size can be calculated before the image has
     rendered.
 
-    While the exact dimensions supplied aren't used, (only the ratio between them is
-    considered) you should always try to try to supply the exact dimensions of the
+    While the exact dimensions supplied aren't used (only the ratio between them is
+    considered), you should always try to try to supply the exact dimensions of the
     source image requested.
   `}
     name="Dimensions"
@@ -120,7 +120,7 @@ card(
     color="rgb(111, 91, 77)"
     naturalHeight={564}
     naturalWidth={564}
-    src="${stock1}"
+    src=""
   />
 </Column>
 `}
@@ -159,14 +159,14 @@ card(
     In some cases, you may want to scale an image to fit into its container.
     To achieve that, you can set \`fit\` to either \`cover\` or \`contain\`, depending on the effect you wish to achieve.
 
-    Contain - This makes it so that the image is "contained" within its container. This means that the image is resized appropriately
+    Contain: This makes it so that the image is "contained" within its container. This means that the image is resized appropriately
     such that the entire image can fit in the container, while maintaining its aspect ratio (think letterbox);
 
     ~~~jsx
     <Image alt="..." color="#000" fit="contain" src="..." />
     ~~~
 
-    Cover - This does the opposite of contain and tries to scale the image as large as possible so that the entire container is occupied,
+    Cover: This does the opposite of contain and tries to scale the image as large as possible so that the entire container is occupied,
     while maintaining the aspect ratio of the image.
 
     ~~~jsx
