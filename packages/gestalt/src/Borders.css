@@ -56,6 +56,14 @@ html[dir="rtl"] .borderLeft {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
+.radiusLarge {
+  border-radius: 12px;
+}
+
+.radiusSmall {
+  border-radius: var(--border-radius);
+}
+
 html:not([dir="rtl"]) .roundedRight {
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
