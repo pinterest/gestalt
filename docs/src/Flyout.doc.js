@@ -11,7 +11,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Flyout"
-    description="Flyouts are similar to modals, but they’re an alternative when we have less content to display
+    description="Flyouts are similar to modals. They’re an alternative when there is less content to display,
 or to make the interaction feel faster."
   />
 );
@@ -51,7 +51,7 @@ card(
         type: `"blue" | "orange" | "white" | "darkGray"`,
         defaultValue: 'white',
         description:
-          'The background color of the Flyout: orange matches other baked-in error flyouts',
+          'The background color of the Flyout; orange matches other default error messaging',
       },
       {
         name: 'shouldFocus',
@@ -200,7 +200,7 @@ card(
 
     If no \`idealDirection\` is provided, the flyout will open in the direction where there is the
     most space available within the viewport. If there is not enough space in any direction, the flyout
-    will no longer be context-specific (with a caret to your anchor) and will appear at the bottom of
+    will no longer be context-specific (with a caret to the anchor) and will appear at the bottom of
     the screen. This is to ensure that users are always able to view the contents of the flyout,
     regardless of their screen size.
   `}

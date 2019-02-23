@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="Icon"
     description="
-Show icons with different colors & sizes in an accessible way.
+Show icons with different colors and sizes in an accessible way.
 "
   />
 );
@@ -42,7 +42,7 @@ card(
       {
         name: 'size',
         type: `number | string`,
-        description: `Use numbers for pixel sizes and string for percentage based sizes`,
+        description: `Use a number for pixel sizes or a string for percentage based sizes`,
         defaultValue: 16,
       },
       {
@@ -67,7 +67,7 @@ card(
 
 card(
   <Example
-    description="Icon with a label."
+    description="Icon with a label"
     name="Example:"
     defaultCode={`
 <Box alignItems="center" display="flex">

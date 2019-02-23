@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="Pog"
     description="
-A lower level functional component to show the active, hovered & focused states of an [IconButton](#/IconButton).
+A lower-level functional component to show the active, hovered, & focused states of an [IconButton](#/IconButton).
 
 This abstraction to allow for links that look like an IconButton.
 "
@@ -53,7 +53,7 @@ card(
         type: '$Keys<typeof icons>',
         required: true,
         description: `This allows us to type check for a valid icon name based on the keys from the list of icons in
-        gestalt-icon/icons/index.js.`,
+        Icon`,
       },
       {
         name: 'size',

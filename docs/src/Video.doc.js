@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Video"
     description="
-Like an Image, a Video component is used to lay out media. This component is
+Like an Image, a Video component is used for media layout. This component is
 supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
 "
   />
@@ -264,7 +264,7 @@ card(
     name="Video controls"
     description={`
     \`Video\` components can show a control bar to users in order to allow them access to certain features
-    such as play/pause, time stamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear.
+    such as play/pause, timestamps, mute, and fullscreen. Pass in the \`controls\` prop to make them appear.
   `}
     defaultCode={`
 <Video
@@ -288,7 +288,7 @@ card(
     name="Video with children"
     description={`
     \`Video\` component can show components in the \`chilren\` prop on top of the html video element, while under the controls.
-    The children of \`Video\` is not same as the children of html \`video\` element, acutally it's "outside" the html \`video\` element.
+    The children of \`Video\` are not same as the children of the html \`video\` element; they're "outside" the html \`video\` element.
   `}
     defaultCode={`
 <Video
@@ -324,7 +324,7 @@ card(
   <Example
     name="Video updates"
     description={`
-    \`Video\` is robust enough to handle any updates to it such as changing the source, volume, or speed.`}
+    \`Video\` is robust enough to handle any updates, such as changing the source, volume, or speed.`}
     defaultCode={`
 class Example extends React.Component {
   constructor(props) {

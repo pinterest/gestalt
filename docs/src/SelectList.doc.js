@@ -125,7 +125,7 @@ class SelectListExample extends React.Component {
 card(
   <Example
     name="Example: With Error Message"
-    description={`SelectList's can display their own error messages if you'd like them to.
+    description={`SelectList can display error messages if you'd like.
     To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
     handle the rest.`}
     defaultCode={`

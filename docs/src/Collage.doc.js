@@ -28,7 +28,7 @@ card(
       {
         name: 'columns',
         type: 'number',
-        description: 'Number of columns (2 ~ 4)',
+        description: 'Number of columns (2 - 4)',
         required: true,
       },
       {
@@ -144,7 +144,7 @@ card(
 card(
   <Example
     name="Different columns"
-    description="2 ~ 4 columns"
+    description="2 - 4 columns"
     defaultCode={`
 <Box display="flex" wrap>
   {[2, 3, 4].map((columns) => (
@@ -347,7 +347,7 @@ card(
 card(
   <Example
     name="Different columns with cover image"
-    description="2 ~ 4 columns with cover image"
+    description="2 - 4 columns with cover image"
     defaultCode={`
 <Box display="flex" wrap>
   {[2, 3, 4].map((columns) => (

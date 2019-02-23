@@ -53,8 +53,8 @@ card(
         name: 'icon',
         type: '$Keys<typeof icons>',
         required: true,
-        description: `This allows us to type check for a valid icon name based on the keys from the list of icons in
-        gestalt-icon/icons/index.js.`,
+        description: `This allows type checking for a valid icon name based on the keys from the list of icons in
+        Icon.`,
       },
       {
         name: 'size',
@@ -88,10 +88,10 @@ card(
 card(
   <Example
     description={`
-    We want to make sure every button on the page is unique when being read by screenreader.
-    \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open
-    \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout)
-    \`accessibilityLabel\` allows us to update the spoken text.
+      We want to make sure every button on the page is unique when being read by screenreader.
+      \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open.
+      \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
+      \`accessibilityLabel\` allows us to update the spoken text.
 
     Be sure to internationalize your \`accessibilityLabel\`.
   `}

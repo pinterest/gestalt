@@ -47,7 +47,7 @@ card(
         defaultValue: false,
         description: `Indeterminism is
 purely presentational - the value of
-a checkbox and it's indeterminism are independent.`,
+a checkbox and its indeterminism are independent.`,
       },
       {
         name: 'name',
