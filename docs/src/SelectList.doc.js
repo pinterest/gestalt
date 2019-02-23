@@ -32,12 +32,6 @@ card(
         required: true,
       },
       {
-        name: 'idealErrorDirection',
-        type: `?'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the error Flyout to open',
-        defaultValue: 'right',
-      },
-      {
         name: 'name',
         type: '?string',
       },
@@ -169,7 +163,7 @@ class SelectListExample extends React.Component {
         <SelectList
           id="city"
           name="city"
-          errorMessage="This field can not be blank"
+          errorMessage="This selection has an error"
           onChange={this.handleChange}
           options={cityOptions}
           placeholder="Select city"

@@ -2,22 +2,20 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import ErrorMessage from './ErrorMessage.js';
 import TextField from './TextField.js';
-import Flyout from './Flyout.js';
 
 describe('TextField', () => {
-  it('Renders a Flyout if an error message is passed in', () => {
+  it('Renders an ErrorMessage if an error message is passed in', () => {
     const wrapper = shallow(
       <TextField errorMessage="test" id="test" onChange={jest.fn()} />
     );
-    wrapper.instance().setState({ errorIsOpen: true });
-    wrapper.simulate('focus');
-    expect(wrapper.find(Flyout)).toHaveLength(1);
+    expect(wrapper.find(ErrorMessage)).toHaveLength(1);
   });
 
-  it('Does not render a Flyout when errorMessage is null', () => {
+  it('Does not render an ErrorMessage when errorMessage is null', () => {
     const wrapper = shallow(<TextField id="test" onChange={jest.fn()} />);
-    expect(wrapper.find(Flyout)).toHaveLength(0);
+    expect(wrapper.find(ErrorMessage)).toHaveLength(0);
   });
 
   it('TextField normal', () => {
@@ -55,8 +53,6 @@ describe('TextField', () => {
         onBlur={jest.fn()}
       />
     );
-
-    expect(wrapper.find(Flyout)).toHaveLength(0);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -95,11 +91,11 @@ describe('TextField', () => {
         onBlur={jest.fn()}
       />
     );
-    expect(tree.find(Flyout)).toHaveLength(0);
+    expect(tree.find(ErrorMessage)).toHaveLength(0);
     tree.setProps({
       errorMessage: 'error message',
     });
-    expect(tree.find(Flyout)).toHaveLength(1);
+    expect(tree.find(ErrorMessage)).toHaveLength(1);
   });
 
   it('TextField with type number', () => {

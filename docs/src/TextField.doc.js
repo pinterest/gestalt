@@ -34,12 +34,6 @@ card(
         required: true,
       },
       {
-        name: 'idealErrorDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the error Flyout to open',
-        defaultValue: 'right',
-      },
-      {
         name: 'name',
         type: 'string',
       },

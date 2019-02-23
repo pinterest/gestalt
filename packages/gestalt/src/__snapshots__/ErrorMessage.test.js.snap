@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessage with errorMessage 1`] = `
+<div
+  className="box marginTop1"
+>
+  <div
+    className="Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal"
+  >
+    <span
+      id="test-gestalt-error"
+    >
+      some error message
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ErrorMessage with no errorMessage 1`] = `null`;

@@ -3,15 +3,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Flyout from './Flyout.js';
-import Box from './Box.js';
-import Text from './Text.js';
+import ErrorMessage from './ErrorMessage.js';
+import formatErrorId from './formatErrorId.js';
 import styles from './TextArea.css';
 
 type State = {
-  focused: boolean,
-  errorIsOpen: boolean,
   errorMessage?: string,
+  focused: boolean,
 };
 
 type Props = {|
@@ -19,7 +17,6 @@ type Props = {|
   disabled?: boolean,
   hasError?: boolean,
   id: string,
-  idealErrorDirection?: 'up' | 'right' | 'down' | 'left' /* default: right */,
   name?: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
@@ -48,7 +45,6 @@ export default class TextArea extends React.Component<Props, State> {
     errorMessage: PropTypes.string,
     hasError: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    idealErrorDirection: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
@@ -62,19 +58,16 @@ export default class TextArea extends React.Component<Props, State> {
   static defaultProps = {
     disabled: false,
     hasError: false,
-    idealErrorDirection: 'right',
     rows: 3,
   };
 
   state = {
     focused: false,
-    errorIsOpen: false,
   };
 
   static getDerivedStateFromProps(props: Props, state: State) {
     if (props.errorMessage !== state.errorMessage) {
       return {
-        errorIsOpen: !!props.errorMessage,
         errorMessage: props.errorMessage,
       };
     }
@@ -87,16 +80,9 @@ export default class TextArea extends React.Component<Props, State> {
       event,
       value: event.currentTarget.value,
     });
-
-    if (this.props.errorMessage) {
-      this.setState({ errorIsOpen: true });
-    }
   };
 
   handleBlur = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
-    if (this.props.errorMessage) {
-      this.setState({ errorIsOpen: false });
-    }
     if (this.props.onBlur) {
       this.props.onBlur({
         event,
@@ -106,9 +92,6 @@ export default class TextArea extends React.Component<Props, State> {
   };
 
   handleFocus = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
-    if (this.props.errorMessage) {
-      this.setState({ errorIsOpen: true });
-    }
     if (this.props.onFocus) {
       this.props.onFocus({
         event,
@@ -134,7 +117,6 @@ export default class TextArea extends React.Component<Props, State> {
       errorMessage,
       hasError,
       id,
-      idealErrorDirection,
       name,
       placeholder,
       rows,
@@ -151,7 +133,7 @@ export default class TextArea extends React.Component<Props, State> {
       <span>
         <textarea
           aria-describedby={
-            errorMessage && this.state.focused ? `${id}-gestalt-error` : null
+            errorMessage && this.state.focused ? formatErrorId(id) : null
           }
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           className={classes}
@@ -169,22 +151,7 @@ export default class TextArea extends React.Component<Props, State> {
           rows={rows}
           value={value}
         />
-        {errorMessage && this.state.errorIsOpen ? (
-          <Flyout
-            anchor={this.textarea}
-            color="orange"
-            idealDirection={idealErrorDirection}
-            onDismiss={() => this.setState({ errorIsOpen: false })}
-            shouldFocus={false}
-            size="sm"
-          >
-            <Box padding={3}>
-              <Text bold color="white">
-                <span id={`${id}-gestalt-error`}>{errorMessage}</span>
-              </Text>
-            </Box>
-          </Flyout>
-        ) : null}
+        {errorMessage && <ErrorMessage errorMessage={errorMessage} id={id} />}
       </span>
     );
   }
