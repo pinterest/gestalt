@@ -16,4 +16,18 @@ exports[`ErrorMessage with errorMessage 1`] = `
 </div>
 `;
 
-exports[`ErrorMessage with no errorMessage 1`] = `null`;
+exports[`ErrorMessage with no errorMessage 1`] = `
+<div
+  className="box marginTop1"
+>
+  <div
+    className="Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal"
+  >
+    <span
+      id="test-gestalt-error"
+    >
+      
+    </span>
+  </div>
+</div>
+`;

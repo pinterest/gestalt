@@ -11,14 +11,14 @@ type Props = {|
   id: string,
 |};
 
-export default function ErrorMessage({ errorMessage, id }: Props) {
-  return errorMessage ? (
+export default function ErrorMessage({ errorMessage = '', id }: Props) {
+  return (
     <Box marginTop={1}>
       <Text color="orange">
         <span id={formatErrorId(id)}>{errorMessage}</span>
       </Text>
     </Box>
-  ) : null;
+  );
 }
 
 ErrorMessage.propTypes = {
