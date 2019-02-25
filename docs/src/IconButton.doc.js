@@ -24,12 +24,14 @@ card(
         type: 'boolean',
         description:
           'Use this property on elements that can expand to reveal additional information',
+        href: 'accessibility',
       },
       {
         name: 'accessibilityHaspopup',
         type: 'boolean',
         description:
           'Indicates that the element has a popup context menu or sub-level menu.',
+        href: 'accessibility',
       },
       {
         name: 'accessibilityLabel',
@@ -37,17 +39,20 @@ card(
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the element. Will also be used for hover text (title). Always localize the label.',
+        href: 'accessibility',
       },
       {
         name: 'bgColor',
         type:
           '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white"',
         defaultValue: 'transparent',
+        href: 'backgroundColorCombinations',
       },
       {
         name: 'iconColor',
         type: `"blue" | "darkGray" | "gray" | "red" | "white"`,
         defaultValue: 'gray',
+        href: 'iconColorCombinations',
       },
       {
         name: 'icon',
@@ -61,6 +66,7 @@ card(
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
         defaultValue: 'md',
+        href: 'sizeCombinations',
       },
       {
         name: 'onClick',
@@ -87,6 +93,7 @@ card(
 
 card(
   <Example
+    id="accessibility"
     description={`
       We want to make sure every button on the page is unique when being read by screenreader.
       \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open.
@@ -132,13 +139,18 @@ card(
 );
 
 card(
-  <Combination name="Size Combinations" size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination
+    id="sizeCombinations"
+    name="Size Combinations"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
   </Combination>
 );
 
 card(
   <Combination
+    id="iconColorCombinations"
     name="Icon Color Combinations"
     iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
   >
@@ -148,6 +160,7 @@ card(
 
 card(
   <Combination
+    id="backgroundColorCombinations"
     name="Background Color Combinations"
     bgColor={[
       'transparent',
