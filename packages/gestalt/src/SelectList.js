@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ErrorMessage from './ErrorMessage.js';
+import FormErrorMessage from './FormErrorMessage.js';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import styles from './SelectList.css';
@@ -147,7 +147,7 @@ export default class SelectList extends React.Component<Props, State> {
           </select>
         </Box>
 
-        {errorMessage && <ErrorMessage errorMessage={errorMessage} id={id} />}
+        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
       </Box>
     );
   }

@@ -1,18 +1,18 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import ErrorMessage from './ErrorMessage.js';
+import FormErrorMessage from './FormErrorMessage.js';
 
-describe('ErrorMessage', () => {
+describe('FormErrorMessage', () => {
   it('with errorMessage', () => {
     const tree = create(
-      <ErrorMessage errorMessage="some error message" id="test" />
+      <FormErrorMessage id="test" text="some error message" />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('with no errorMessage', () => {
-    const tree = create(<ErrorMessage id="test" />).toJSON();
+    const tree = create(<FormErrorMessage id="test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

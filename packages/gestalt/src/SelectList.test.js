@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import ErrorMessage from './ErrorMessage.js';
+import FormErrorMessage from './FormErrorMessage.js';
 import SelectList from './SelectList.js';
 
 const options = [
@@ -12,7 +12,7 @@ const options = [
 ];
 
 describe('SelectList', () => {
-  it('Renders an ErrorMessage if an error message is passed in', () => {
+  it('Renders an FormErrorMessage if an error message is passed in', () => {
     const wrapper = shallow(
       <SelectList
         errorMessage="test"
@@ -21,14 +21,14 @@ describe('SelectList', () => {
         options={options}
       />
     );
-    expect(wrapper.find(ErrorMessage)).toHaveLength(1);
+    expect(wrapper.find(FormErrorMessage)).toHaveLength(1);
   });
 
-  it('Does not render an ErrorMessage when errorMessage is null', () => {
+  it('Does not render an FormErrorMessage when errorMessage is null', () => {
     const wrapper = shallow(
       <SelectList id="test" onChange={jest.fn()} options={options} />
     );
-    expect(wrapper.find(ErrorMessage)).toHaveLength(0);
+    expect(wrapper.find(FormErrorMessage)).toHaveLength(0);
   });
 
   it('SelectList normal', () => {
@@ -66,11 +66,11 @@ describe('SelectList', () => {
     const tree = shallow(
       <SelectList id="test" onChange={jest.fn()} options={options} />
     );
-    expect(tree.find(ErrorMessage)).toHaveLength(0);
+    expect(tree.find(FormErrorMessage)).toHaveLength(0);
     tree.setProps({
       errorMessage: 'error message',
     });
-    expect(tree.find(ErrorMessage)).toHaveLength(1);
+    expect(tree.find(FormErrorMessage)).toHaveLength(1);
   });
 
   it('SelectList with disabled', () => {

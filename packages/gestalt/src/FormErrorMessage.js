@@ -6,21 +6,21 @@ import Box from './Box.js';
 import Text from './Text.js';
 
 type Props = {|
-  errorMessage?: string,
   id: string,
+  text?: string,
 |};
 
-export default function ErrorMessage({ errorMessage = '', id }: Props) {
+export default function FormErrorMessage({ id, text = '' }: Props) {
   return (
     <Box marginTop={1}>
       <Text color="orange">
-        <span id={`${id}-error`}>{errorMessage}</span>
+        <span id={`${id}-error`}>{text}</span>
       </Text>
     </Box>
   );
 }
 
-ErrorMessage.propTypes = {
-  errorMessage: PropTypes.string,
+FormErrorMessage.propTypes = {
   id: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
