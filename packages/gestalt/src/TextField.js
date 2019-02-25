@@ -4,7 +4,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ErrorMessage from './ErrorMessage.js';
-import formatErrorId from './formatErrorId.js';
 import styles from './TextField.css';
 
 type State = {
@@ -152,7 +151,7 @@ export default class TextField extends React.Component<Props, State> {
       <span>
         <input
           aria-describedby={
-            errorMessage && this.state.focused ? formatErrorId(id) : null
+            errorMessage && this.state.focused ? `${id}-error` : null
           }
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           autoComplete={autoComplete}

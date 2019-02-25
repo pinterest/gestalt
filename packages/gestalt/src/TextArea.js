@@ -4,7 +4,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ErrorMessage from './ErrorMessage.js';
-import formatErrorId from './formatErrorId.js';
 import styles from './TextArea.css';
 
 type State = {
@@ -133,7 +132,7 @@ export default class TextArea extends React.Component<Props, State> {
       <span>
         <textarea
           aria-describedby={
-            errorMessage && this.state.focused ? formatErrorId(id) : null
+            errorMessage && this.state.focused ? `${id}-error` : null
           }
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           className={classes}

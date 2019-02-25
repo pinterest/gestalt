@@ -8,7 +8,7 @@ exports[`ErrorMessage with errorMessage 1`] = `
     className="Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal"
   >
     <span
-      id="test-gestalt-error"
+      id="test-error"
     >
       some error message
     </span>
@@ -24,7 +24,7 @@ exports[`ErrorMessage with no errorMessage 1`] = `
     className="Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal"
   >
     <span
-      id="test-gestalt-error"
+      id="test-error"
     >
       
     </span>

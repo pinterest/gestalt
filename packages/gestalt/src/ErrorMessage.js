@@ -3,7 +3,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
-import formatErrorId from './formatErrorId.js';
 import Text from './Text.js';
 
 type Props = {|
@@ -15,7 +14,7 @@ export default function ErrorMessage({ errorMessage = '', id }: Props) {
   return (
     <Box marginTop={1}>
       <Text color="orange">
-        <span id={formatErrorId(id)}>{errorMessage}</span>
+        <span id={`${id}-error`}>{errorMessage}</span>
       </Text>
     </Box>
   );

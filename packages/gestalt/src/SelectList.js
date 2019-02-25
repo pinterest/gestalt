@@ -3,7 +3,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ErrorMessage from './ErrorMessage.js';
-import formatErrorId from './formatErrorId.js';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import styles from './SelectList.css';
@@ -120,7 +119,7 @@ export default class SelectList extends React.Component<Props, State> {
           </Box>
           <select
             aria-describedby={
-              errorMessage && this.state.focused ? formatErrorId(id) : null
+              errorMessage && this.state.focused ? `${id}-error` : null
             }
             aria-invalid={errorMessage ? 'true' : 'false'}
             className={classes}
