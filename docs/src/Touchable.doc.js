@@ -25,16 +25,19 @@ card(
       {
         name: 'fullHeight',
         type: 'boolean',
+        href: 'fullHeightWidthExample',
       },
       {
         name: 'fullWidth',
         type: 'boolean',
         defaultValue: true,
+        href: 'fullHeightWidthExample',
       },
       {
         name: 'mouseCursor',
         type: `"copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut"`,
         defaultValue: 'pointer',
+        href: 'basicExample',
       },
       {
         name: 'onMouseEnter',
@@ -49,11 +52,13 @@ card(
         type:
           '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> }) => void',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'shape',
         type: `"square" | "rounded" | "pill" | "circle" | "roundedTop" | "roundedBottom" | "roundedLeft" | "roundedRight"`,
         defaultValue: 'square',
+        href: 'basicExample',
       },
     ]}
   />
@@ -61,6 +66,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     description={`
     For a generic container to be clickable, use the Touchable component.
 
@@ -125,6 +131,7 @@ class TouchableExample extends React.Component {
 
 card(
   <Example
+    id="fullHeightWidthExample"
     description={`
     \`fullWidth\` and \`fullHeight\` are flags on \`Touchable\` controlling how it is sized relative to the parent container.
     If one is set to \`true\`, the \`Touchable\` component will expand to the full size of its parent in that direction.

@@ -25,48 +25,56 @@ card(
         type: 'string',
         description:
           'Accessibility label for the fullscreen maximize button if controls are shown',
+        href: 'videoControlsExample',
       },
       {
         name: 'accessibilityMinimizeLabel',
         type: 'string',
         description:
           'Accessibility label for the fullscreen minimize button if controls are shown',
+        href: 'videoControlsExample',
       },
       {
         name: 'accessibilityMuteLabel',
         type: 'string',
         description:
           'Accessibility label for the mute button if controls are shown',
+        href: 'videoControlsExample',
       },
       {
         name: 'accessibilityPauseLabel',
         type: 'string',
         description:
           'Accessibility label for the pause button if controls are shown',
+        href: 'videoControlsExample',
       },
       {
         name: 'accessibilityPlayLabel',
         type: 'string',
         description:
           'Accessibility label for the play button if controls are shown',
+        href: 'videoControlsExample',
       },
       {
         name: 'accessibilityUnmuteLabel',
         type: 'string',
         description:
           'Accessibility label for the unmute button if controls are shown',
+        href: 'videoControlsExample',
       },
       {
         name: 'aspectRatio',
         type: 'number',
         description: `Proportional relationship between width and height of the video, calculated as width / height.`,
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'captions',
         type: 'string',
         description: 'The URL of the captions track for the video (.vtt file)',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'children',
@@ -78,11 +86,13 @@ card(
         name: 'controls',
         type: 'boolean',
         description: 'Show the video player controls',
+        href: 'videoControlsExample',
       },
       {
         name: 'loop',
         type: 'boolean',
         description: 'The video will start playing over again when finished',
+        href: 'nativeVideoAttributesExample',
       },
       {
         name: 'onDurationChange',
@@ -112,11 +122,13 @@ card(
         type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description:
           'Sent when playback of the media starts after having been paused',
+        href: 'videoUpdatesExample',
       },
       {
         name: 'onPause',
         type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description: 'Sent when playback is paused',
+        href: 'videoUpdatesExample',
       },
       {
         name: 'onReady',
@@ -140,6 +152,7 @@ card(
         type:
           '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
+        href: 'videoUpdatesExample',
       },
       {
         name: 'playbackRate',
@@ -147,12 +160,14 @@ card(
         description:
           'Specifies the speed at which the video plays: 1 for normal',
         defaultValue: 1,
+        href: 'videoUpdatesExample',
       },
       {
         name: 'playing',
         type: 'boolean',
         description: 'Specifies whether the video should play or not',
         defaultValue: false,
+        href: 'nativeVideoAttributesExample',
       },
       {
         name: 'playsInline',
@@ -166,6 +181,7 @@ card(
         name: 'poster',
         type: 'string',
         description: 'The image to show while the video is downloading',
+        href: 'basicExample',
       },
       {
         name: 'preload',
@@ -181,6 +197,7 @@ card(
         description: `The URL of the video file to play. This can also be supplied as a list of video types to respective
           video source urls in fallback order for support on various browsers.`,
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'volume',
@@ -188,6 +205,7 @@ card(
         description:
           'Specifies the volume of the video audio: 0 for muted, 1 for max',
         defaultValue: 1,
+        href: 'nativeVideoAttributesExample',
       },
     ]}
   />
@@ -195,6 +213,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Video media basics"
     description={`
     The source url you pass into \`Video\` will be used to download and play the video file. While it is
@@ -241,6 +260,7 @@ card(
 
 card(
   <Example
+    id="nativeVideoAttributesExample"
     name="Native video attributes"
     description={`
     \`Video\` supports the native HTML video attributes such as \`autoPlay\`, \`loop\`, \`muted\`, and more.
@@ -261,6 +281,7 @@ card(
 
 card(
   <Example
+    id="videoControlsExample"
     name="Video controls"
     description={`
     \`Video\` components can show a control bar to users in order to allow them access to certain features
@@ -322,6 +343,7 @@ card(
 
 card(
   <Example
+    id="videoUpdatesExample"
     name="Video updates"
     description={`
     \`Video\` is robust enough to handle any updates, such as changing the source, volume, or speed.`}

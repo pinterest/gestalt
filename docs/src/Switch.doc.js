@@ -24,25 +24,30 @@ card(
         name: 'disabled',
         type: 'boolean',
         defaultValue: false,
+        href: 'switchCombinations',
       },
       {
         name: 'id',
         type: 'string',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'name',
         type: 'string',
+        href: 'basicExample',
       },
       {
         name: 'onChange',
         type: '({ event: SyntheticInputEvent<>, value: boolean }) => void',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'switched',
         type: 'boolean',
         defaultValue: false,
+        href: 'switchCombinations',
       },
     ]}
   />
@@ -50,6 +55,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     description={`
     Whenever you are using a \`Switch\` component, you should use a [Label](#/Label) with it to make your component accessible.
   `}
@@ -87,6 +93,7 @@ class SwitchExample extends React.Component {
 
 card(
   <Combination
+    id="switchCombinations"
     disabled={[false, true]}
     switched={[false, true]}
     heading={false}

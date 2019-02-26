@@ -41,24 +41,28 @@ card(
         name: 'color',
         type: 'string',
         required: true,
+        href: 'placeholders',
       },
       {
         name: 'fit',
         type: `"cover" | "contain" | "none"`,
         defaultValue: 'none',
         description: `Doesn't work with srcSet or sizes.`,
+        href: 'fit',
       },
       {
         name: 'naturalHeight',
         type: 'number',
         required: true,
         description: 'Exact height of source image',
+        href: 'fit',
       },
       {
         name: 'naturalWidth',
         type: 'number',
         required: true,
         description: 'Exact width of source image',
+        href: 'fit',
       },
       {
         name: 'onError',
@@ -78,6 +82,7 @@ card(
         name: 'src',
         type: 'string',
         required: true,
+        href: 'placeholders',
       },
       {
         name: 'srcSet',
@@ -107,6 +112,7 @@ card(
 
 card(
   <Example
+    id="placeholders"
     description={`
     The color you pass into \`Image\` will be used to fill the placeholder that shows up
     as an image loads. The example shown has an empty \`src\` prop provided so it remains
@@ -155,6 +161,7 @@ card(
 
 card(
   <Example
+    id="fit"
     description={`
     In some cases, you may want to scale an image to fit into its container.
     To achieve that, you can set \`fit\` to either \`cover\` or \`contain\`, depending on the effect you wish to achieve.

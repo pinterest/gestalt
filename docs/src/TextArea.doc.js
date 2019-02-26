@@ -22,15 +22,18 @@ card(
         name: 'disabled',
         type: 'boolean',
         defaultValue: 'false',
+        href: 'disabledExample',
       },
       {
         name: 'errorMessage',
         type: 'string',
+        href: 'errorMessageExample',
       },
       {
         name: 'id',
         type: 'string',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'idealErrorDirection',
@@ -52,6 +55,7 @@ card(
         type:
           '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'onFocus',
@@ -66,6 +70,7 @@ card(
       {
         name: 'placeholder',
         type: 'string',
+        href: 'basicExample',
       },
       {
         name: 'rows',
@@ -76,6 +81,7 @@ card(
       {
         name: 'value',
         type: 'string',
+        href: 'basicExample',
       },
     ]}
   />
@@ -83,6 +89,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Example"
     description={`
     A \`TextArea\` will expand to fill the width of the parent container.
@@ -125,6 +132,7 @@ class Example extends React.Component {
 
 card(
   <Example
+    id="disabledExample"
     name="Example: Disabled"
     defaultCode={`
 class Example extends React.Component {
@@ -165,6 +173,7 @@ class Example extends React.Component {
 
 card(
   <Example
+    id="errorMessageExample"
     name="Example: Error message"
     description={`
     A TextArea can display its own error message.

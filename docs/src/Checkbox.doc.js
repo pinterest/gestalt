@@ -25,16 +25,19 @@ card(
         name: 'checked',
         type: 'boolean',
         defaultValue: false,
+        href: 'combinations',
       },
       {
         name: 'disabled',
         type: 'boolean',
         defaultValue: false,
+        href: 'combinations',
       },
       {
         name: 'hasError',
         type: 'boolean',
         defaultValue: false,
+        href: 'hasError',
       },
       {
         name: 'id',
@@ -48,6 +51,7 @@ card(
         description: `Indeterminism is
 purely presentational - the value of
 a checkbox and its indeterminism are independent.`,
+        href: 'combinations',
       },
       {
         name: 'name',
@@ -67,6 +71,7 @@ a checkbox and its indeterminism are independent.`,
         type: `"sm" | "md"`,
         defaultValue: 'md',
         description: `"sm" is 16px & "md" is 24px`,
+        href: 'combinations',
       },
     ]}
   />
@@ -155,6 +160,7 @@ class CheckboxExample extends React.Component {
 
 card(
   <Example
+    id="hasError"
     name="Example: Error state"
     defaultCode={`
 class CheckboxExample extends React.Component {
@@ -182,6 +188,7 @@ class CheckboxExample extends React.Component {
 
 card(
   <Combination
+    id="combinations"
     checked={[false, true]}
     disabled={[false, true]}
     indeterminate={[false, true]}

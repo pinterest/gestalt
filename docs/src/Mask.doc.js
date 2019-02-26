@@ -30,20 +30,24 @@ card(
       {
         name: 'height',
         type: `number | string`,
+        href: 'basicExample',
       },
       {
         name: 'width',
         type: `number | string`,
+        href: 'basicExample',
       },
       {
         name: 'shape',
         type: `"circle" | "rounded" | "square"`,
         defaultValue: 'square',
+        href: 'shapeCombinations',
       },
       {
         name: 'wash',
         type: 'boolean',
         defaultValue: false,
+        href: 'wash',
       },
     ]}
   />
@@ -51,6 +55,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Example"
     defaultCode={`
 <Mask height={70} shape="circle" width={70}>
@@ -82,6 +87,7 @@ card(
 
 card(
   <Example
+    id="wash"
     description="
     If you expect the masked content to be nearly white, you can apply a wash to emphasize the edge of the mask.
   "
@@ -102,6 +108,7 @@ card(
 
 card(
   <Combination
+    id="shapeCombinations"
     name="Shape Combinations"
     shape={['circle', 'rounded', 'square']}
   >
