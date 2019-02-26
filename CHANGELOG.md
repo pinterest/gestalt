@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- Docs: Update remaining prop tables to include links to examples (#XXX)
 
 - Docs: Improve Image description (#481)
 
