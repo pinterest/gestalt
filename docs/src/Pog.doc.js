@@ -27,26 +27,31 @@ card(
         name: 'active',
         type: 'boolean',
         defaultValue: false,
+        href: 'stateCombinations',
       },
       {
         name: 'bgColor',
         type: `"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white"`,
         defaultValue: 'transparent',
+        href: 'colorCombinations',
       },
       {
         name: 'focused',
         type: 'boolean',
         defaultValue: false,
+        href: 'stateCombinations',
       },
       {
         name: 'hovered',
         type: 'boolean',
         defaultValue: false,
+        href: 'stateCombinations',
       },
       {
         name: 'iconColor',
         type: `"blue" | "darkGray" | "gray" | "red" | "white"`,
         defaultValue: 'gray',
+        href: 'colorCombinations',
       },
       {
         name: 'icon',
@@ -60,6 +65,7 @@ card(
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
         defaultValue: 'md',
+        href: 'sizeCombinations',
       },
     ]}
   />
@@ -79,6 +85,7 @@ card(
 
 card(
   <Combination
+    id="stateCombinations"
     name="State Combinations"
     hovered={[false, true]}
     focused={[false, true]}
@@ -89,13 +96,18 @@ card(
 );
 
 card(
-  <Combination name="Size Combinations" size={['xs', 'sm', 'md', 'lg', 'xl']}>
+  <Combination
+    id="sizeCombinations"
+    name="Size Combinations"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
     {props => <Pog icon="heart" {...props} />}
   </Combination>
 );
 
 card(
   <Combination
+    id="colorCombinations"
     name="Color Combinations"
     iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
     bgColor={[
