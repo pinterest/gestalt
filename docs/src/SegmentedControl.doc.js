@@ -15,7 +15,7 @@ Segmented Controls may be used to group between multiple selections.
 The controls display the current state and related state.
 
 Create layout to convey clear sense of information hierarchy.
-When control is engaged, information below the control should get updated.
+When a control is engaged, information below the control should get updated.
 "
   />
 );
@@ -59,9 +59,9 @@ card(
 
 card(
   <Example
-    description="Segmented Controls are naive components, meaning you need to write up the behavior when you click on an item.
+    description="Segmented Controls are naive components, meaning you need to wire up the behavior when you click on an item.
 
-    If you'd like the tabs to control hiding or showing content that state should
+    If you'd like the tabs to control hiding or showing content, that state should
     live in a parent component.
     "
     name="Example"

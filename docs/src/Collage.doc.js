@@ -28,26 +28,30 @@ card(
       {
         name: 'columns',
         type: 'number',
-        description: 'Number of columns (2 ~ 4)',
+        description: 'Number of columns (2 - 4)',
         required: true,
+        href: 'columns',
       },
       {
         name: 'cover',
         type: 'boolean',
         description: 'Whether or not the first image is a cover image',
         defaultValue: false,
+        href: 'coverImage',
       },
       {
         name: 'gutter',
         type: 'number',
         description: 'The amount of vertical & horizontal space between images',
         defaultValue: 0,
+        href: 'gutter',
       },
       {
         name: 'height',
         type: 'number',
         description: 'Height of the collage',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'layoutKey',
@@ -57,6 +61,7 @@ card(
         If there are N layouts available, (layoutKey % N) will determine which layout is used.
         `,
         defaultValue: 0,
+        href: 'layoutKey',
       },
       {
         name: 'renderImage',
@@ -64,12 +69,14 @@ card(
           '({ width: number, height: number, index: number }) => React.Node',
         description: 'Render prop for the collage images',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'width',
         type: 'number',
         description: 'Width of the collage',
         required: true,
+        href: 'basicExample',
       },
     ]}
   />
@@ -77,6 +84,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Basic example"
     defaultCode={`
 <Collage
@@ -143,8 +151,9 @@ card(
 
 card(
   <Example
+    id="columns"
     name="Different columns"
-    description="2 ~ 4 columns"
+    description="2 - 4 columns"
     defaultCode={`
 <Box display="flex" wrap>
   {[2, 3, 4].map((columns) => (
@@ -225,6 +234,7 @@ card(
 
 card(
   <Example
+    id="gutter"
     name="Gutter"
     defaultCode={`
 <Box color="gray" width={300} height={300}>
@@ -294,6 +304,7 @@ card(
 
 card(
   <Example
+    id="coverImage"
     name="Cover image"
     defaultCode={`
 <Box color="gray" width={300} height={300}>
@@ -347,7 +358,7 @@ card(
 card(
   <Example
     name="Different columns with cover image"
-    description="2 ~ 4 columns with cover image"
+    description="2 - 4 columns with cover image"
     defaultCode={`
 <Box display="flex" wrap>
   {[2, 3, 4].map((columns) => (
@@ -429,6 +440,7 @@ card(
 
 card(
   <Example
+    id="layoutKey"
     name="Layout key"
     description="
       You can pick a layout using the layout key (layout key is 0 by default).
