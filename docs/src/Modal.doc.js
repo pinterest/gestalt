@@ -28,6 +28,7 @@ card(
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the close button. Always localize the label.',
+        href: 'accessibility',
       },
       {
         name: 'accessibilityModalLabel',
@@ -35,31 +36,37 @@ card(
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the modal. Always localize the label.',
+        href: 'accessibility',
       },
       {
         name: 'footer',
         type: 'React.Node',
+        href: 'sizesExample',
       },
       {
         name: 'heading',
         type: `string`,
         required: true,
+        href: 'sizesExample',
       },
       {
         name: 'onDismiss',
         type: '() => void',
         required: true,
+        href: 'sizesExample',
       },
       {
         name: 'role',
         type: `"alertdialog" | "dialog"`,
         defaultValue: 'dialog',
+        href: 'role',
       },
       {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'sm',
         description: `sm: 414px, md: 544px, lg: 804px`,
+        href: 'sizesExample',
       },
     ]}
   />
@@ -67,6 +74,7 @@ card(
 
 card(
   <Example
+    id="sizesExample"
     name="Sizes"
     description={`
       There are 3 different widths available for a \`Modal\`. Click on each button
@@ -230,6 +238,7 @@ class Example extends React.Component {
 
 card(
   <Example
+    id="role"
     name="Alert Dialogs"
     description={`
       The \`alertdialog\` role is used to notify the user of urgent information that demands the user's immediate attention.
@@ -507,6 +516,7 @@ class Example extends React.Component {
 
 card(
   <Card
+    id="accessibility"
     description={`
     We want to make sure every button on the page is unique when being read by screenreader.
 
