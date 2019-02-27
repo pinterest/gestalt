@@ -8,9 +8,11 @@
 
 ### Minor
 
-### Patch
-- Docs: Update remaining prop tables to include links to examples (#487)
+- Flyout: Apply the box shadow to Flyout at all times  (#488)
 
+### Patch
+
+- Docs: Update remaining prop tables to include links to examples (#487)
 - Docs: Improve Image description (#481)
 
 </details>
