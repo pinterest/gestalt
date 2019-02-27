@@ -8,9 +8,6 @@
   composes: borderBox from "./Layout.css";
   composes: rounded from "./Borders.css";
   border: 1px solid currentColor;
-}
-
-.contents:focus {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
   outline: none;
 }
