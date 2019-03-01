@@ -8,14 +8,20 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.91.0 (March 1, 2019)
+
+### Minor
+
 - Flyout: Apply the box shadow to Flyout at all times  (#488)
 
 ### Patch
 
 - Docs: Update remaining prop tables to include links to examples (#487)
 - Docs: Improve Image description (#481)
-
-</details>
 
 ## 0.90.0 (February 19, 2019)
 
