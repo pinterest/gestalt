@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add new video-camera icon (#491)
+
 ### Patch
 
 </details>
