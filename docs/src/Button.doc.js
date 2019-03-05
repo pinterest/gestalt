@@ -38,21 +38,25 @@ card(
         type: 'string',
         description:
           'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
+        href: 'accessibilityLabel',
       },
       {
         name: 'color',
         type: `"blue" | "gray" | "red" | "transparent" | "white"`,
         defaultValue: 'gray',
+        href: 'color',
       },
       {
         name: 'disabled',
         type: 'boolean',
         defaultValue: false,
+        href: 'combinations',
       },
       {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
+        href: 'widths',
       },
       {
         name: 'name',
@@ -67,6 +71,7 @@ card(
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'md',
         description: 'sm: 36px, md: 40px, lg: 48px',
+        href: 'combinations',
       },
       {
         name: 'text',
@@ -77,6 +82,7 @@ card(
         name: 'type',
         type: `"submit" | "button"`,
         defaultValue: 'button',
+        href: 'types',
       },
     ]}
   />
@@ -98,6 +104,7 @@ card(
     are sized by the text within the button, whereas the default block buttons
     expand to the full width of their container. The default \`inline\` is false.
   `}
+    id="widths"
     name="Widths"
     defaultCode={`
 <Box margin={-2}>
@@ -117,6 +124,7 @@ card(
     description={`
     \`transparent\` and \`white\` are our secondary colors for \`Button\`. We should only show them on a dark gray background.
   `}
+    id="color"
     name="Colors: Dark Backgrounds"
     defaultCode={`
 <Box color="darkGray" maxWidth={320} shape="rounded" padding={4}>
@@ -145,6 +153,7 @@ card(
     There are 2 types of buttons: button and submit. Use the \`submit\` type when you do not
     need to specify an \`onClick\` handler. The default type is \`button\`.
   `}
+    id="types"
     name="Types"
     defaultCode={`
 <Box margin={-2}>
@@ -167,6 +176,7 @@ card(
 
     Be sure to internationalize your \`accessibilityLabel\`!
   `}
+    id="accessibilityLabel"
     name="Accessibility Label"
     defaultCode={`
 <Box margin={-2}>
@@ -183,6 +193,7 @@ card(
 
 card(
   <Combination
+    id="combinations"
     name="Combinations"
     color={['gray', 'red', 'blue']}
     disabled={[false, true]}

@@ -23,15 +23,18 @@ card(
         name: 'disabled',
         type: 'boolean',
         defaultValue: 'false',
+        href: 'disabledExample',
       },
       {
         name: 'errorMessage',
         type: 'string',
+        href: 'errorMessageExample',
       },
       {
         name: 'id',
         type: 'string',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'name',
@@ -47,6 +50,7 @@ card(
         type:
           '({ event: SyntheticInputEvent<HTMLInputElement>, value: string }) => void',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'onFocus',
@@ -61,15 +65,18 @@ card(
       {
         name: 'placeholder',
         type: 'string',
+        href: 'basicExample',
       },
       {
         name: 'type',
         type: `"date" | "email" | "number" | "password" | "text" | "url"`,
         defaultValue: 'text',
+        href: 'basicExample',
       },
       {
         name: 'value',
         type: 'string',
+        href: 'basicExample',
       },
     ]}
   />
@@ -77,9 +84,10 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Example"
     description={`
-    A \`TextField\` will expand to fill the width of their parent container.
+    A \`TextField\` will expand to fill the width of the parent container.
   `}
     defaultCode={`
 class Example extends React.Component {
@@ -118,6 +126,7 @@ class Example extends React.Component {
 
 card(
   <Example
+    id="disabledExample"
     name="Example: Disabled"
     defaultCode={`
 class Example extends React.Component {
@@ -156,6 +165,7 @@ class Example extends React.Component {
 
 card(
   <Example
+    id="errorMessageExample"
     name="Example: Error message"
     description={`
     A TextField can display its own error message.
@@ -208,14 +218,14 @@ card(
 card(
   <Card
     description={`
-    \`TextField\` is commonly used as an input in forms along side submit buttons.
+    \`TextField\` is commonly used as an input in forms alongside submit buttons.
     In these cases, users expect that pressing Enter or Return with the input
     focused will submit the form.
 
     Out of the box, \`TextField\` doesn't expose an \`onSubmit\` handler or
     individual key event handlers due to the complexities of handling these
     properly. Instead, developers are encouraged to wrap the \`TextField\`
-    in a \`form\` and to attach an \`onSubmit\` handler to that \`form\`.
+    in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
   `}
     name="onSubmit"
   />

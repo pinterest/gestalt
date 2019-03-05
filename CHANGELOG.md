@@ -8,15 +8,42 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.91.0 (March 1, 2019)
+
+### Minor
+
+- Flyout: Apply the box shadow to Flyout at all times  (#488)
+
+### Patch
+
+- Docs: Update remaining prop tables to include links to examples (#487)
+- Docs: Improve Image description (#481)
+
+## 0.90.0 (February 19, 2019)
+
+### Minor
+
+- Update fill-transparent icon (#483)
+- Upgrade flow version to [0.84.0](https://github.com/facebook/flow/releases/tag/v0.84.0) (#479)
+- Layer: `children` prop is now required (#479)
+
+## 0.89.0 (February 15, 2019)
+
+### Minor
+
 - Upgrade React version to [16.8.0](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html) (#474)
 - SegmentedControl: items have equal width by default; add `responsive` prop which makes item width responsive to content width (#473)
+- Button: Update border radius (#476)
+- Icon: Add new alert and arrow-circle-up icons (#477)
 
 ### Patch
 
 - Add [ESLint Plugin for React Hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) (#475)
 - Docs: Update Box prop table to include links to examples (#470)
-
-</details>
 
 ## 0.88.0 (January 24, 2019)
 

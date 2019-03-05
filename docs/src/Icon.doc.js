@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="Icon"
     description="
-Show icons with different colors & sizes in an accessible way.
+Show icons with different colors and sizes in an accessible way.
 "
   />
 );
@@ -27,23 +27,27 @@ card(
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
+        href: 'iconWithLabel',
       },
       {
         name: 'color',
         type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
         defaultValue: 'gray',
+        href: 'sizeColorCombinations',
       },
       {
         name: 'icon',
         type: Icon.icons.map(name => `'${name}'`).join(' | '),
         required: true,
         description: `This allows us to type check for a valid icon name based on the keys from the list of icons shown below.`,
+        href: 'iconCombinations',
       },
       {
         name: 'size',
         type: `number | string`,
-        description: `Use numbers for pixel sizes and string for percentage based sizes`,
+        description: `Use a number for pixel sizes or a string for percentage based sizes`,
         defaultValue: 16,
+        href: 'sizeColorCombinations',
       },
       {
         name: 'inline',
@@ -67,7 +71,8 @@ card(
 
 card(
   <Example
-    description="Icon with a label."
+    id="iconWithLabel"
+    description="Icon with a label"
     name="Example:"
     defaultCode={`
 <Box alignItems="center" display="flex">
@@ -83,7 +88,7 @@ card(
 );
 
 card(
-  <Combination name="Icon Combinations" icon={Icon.icons}>
+  <Combination id="iconCombinations" name="Icon Combinations" icon={Icon.icons}>
     {props => (
       <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
     )}
@@ -92,6 +97,7 @@ card(
 
 card(
   <Combination
+    id="sizeColorCombinations"
     name="Size & Color Combinations"
     size={[16, 24, 32]}
     color={['gray', 'darkGray', 'red']}

@@ -11,7 +11,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Flyout"
-    description="Flyouts are similar to modals, but they’re an alternative when we have less content to display
+    description="Flyouts are similar to modals. They’re an alternative when there is less content to display,
 or to make the interaction feel faster."
   />
 );
@@ -24,11 +24,13 @@ card(
         type: '?HTMLElement',
         required: true,
         description: 'Ref for the element that the Flyout will attach to',
+        href: 'anchor',
       },
       {
         name: 'idealDirection',
         type: `'up' | 'right' | 'down' | 'left'`,
         description: 'Preferred direction for the Flyout to open',
+        href: 'idealDirection',
       },
       {
         name: 'children',
@@ -38,6 +40,7 @@ card(
         name: 'onDismiss',
         type: '() => void',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'positionRelativeToAnchor',
@@ -45,25 +48,29 @@ card(
         defaultValue: true,
         description:
           'Depicts if the Flyout shares a relative root with the anchor element',
+        href: 'anchor',
       },
       {
         name: 'color',
         type: `"blue" | "orange" | "white" | "darkGray"`,
         defaultValue: 'white',
         description:
-          'The background color of the Flyout: orange matches other baked-in error flyouts',
+          'The background color of the Flyout; orange matches other default error messaging',
+        href: 'errorFlyout',
       },
       {
         name: 'shouldFocus',
         type: 'boolean',
         defaultValue: true,
         description: 'Focus on the flyout when opened',
+        href: 'errorFlyout',
       },
       {
         name: 'size',
         type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
         description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
         defaultValue: 'sm',
+        href: 'basicExample',
       },
     ]}
   />
@@ -71,6 +78,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Example"
     defaultCode={`
 class FlyoutExample extends React.Component {
@@ -124,6 +132,7 @@ class FlyoutExample extends React.Component {
 
 card(
   <Example
+    id="errorFlyout"
     name="Example: ErrorFlyout"
     description={`Flyout can also take on additional roles. Like [TextField](#TextField) and [TextArea](#TextArea), this component
 can be used to highlight errors on other types of form fields by setting the \`color\` to \`orange.\``}
@@ -174,6 +183,7 @@ class ErrorFlyoutExample extends React.Component {
 
 card(
   <Card
+    id="anchor"
     description={`
     The \`anchor\` ref you pass in should not include anything other than the trigger element itself. The Flyout
     calculates its position based on the bounding box of the \`anchor\`. To achieve this, we recommend setting a
@@ -189,6 +199,7 @@ card(
 
 card(
   <Card
+    id="idealDirection"
     description={`
     The \`Flyout\` component gives you the ability to _influence_ the preferred direction that it
     opens. This may be a useful property to specify if you have a page with many potential flyouts
@@ -200,7 +211,7 @@ card(
 
     If no \`idealDirection\` is provided, the flyout will open in the direction where there is the
     most space available within the viewport. If there is not enough space in any direction, the flyout
-    will no longer be context-specific (with a caret to your anchor) and will appear at the bottom of
+    will no longer be context-specific (with a caret to the anchor) and will appear at the bottom of
     the screen. This is to ensure that users are always able to view the contents of the flyout,
     regardless of their screen size.
   `}
