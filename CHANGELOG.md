@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Avatar: Fixed a bug in MS Edge where text was not vertically centered (#492)
+
 ### Patch
 
 </details>
@@ -16,7 +18,7 @@
 
 ### Minor
 
-- Flyout: Apply the box shadow to Flyout at all times  (#488)
+- Flyout: Apply the box shadow to Flyout at all times (#488)
 
 ### Patch
 
