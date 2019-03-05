@@ -147,7 +147,11 @@ export default class SelectList extends React.Component<Props, State> {
           </select>
         </Box>
 
-        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+        {errorMessage && (
+          <Box marginTop={1}>
+            <FormErrorMessage id={id} text={errorMessage} />
+          </Box>
+        )}
       </Box>
     );
   }

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import styles from './TextArea.css';
 
@@ -150,7 +151,11 @@ export default class TextArea extends React.Component<Props, State> {
           rows={rows}
           value={value}
         />
-        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+        {errorMessage && (
+          <Box marginTop={1}>
+            <FormErrorMessage id={id} text={errorMessage} />
+          </Box>
+        )}
       </span>
     );
   }
