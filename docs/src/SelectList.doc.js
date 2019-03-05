@@ -25,34 +25,41 @@ card(
       {
         name: 'errorMessage',
         type: '?string',
+        href: 'exampleWithError',
       },
       {
         name: 'id',
         type: 'string',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'name',
         type: '?string',
+        href: 'basicExample',
       },
       {
         name: 'onChange',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'options',
         type: 'Array<{ label: string, value: string }>',
         required: true,
+        href: 'basicExample',
       },
       {
         name: 'placeholder',
         type: '?string',
+        href: 'basicExample',
       },
       {
         name: 'value',
         type: '?string',
         description: 'Value that is selected.',
+        href: 'basicExample',
       },
     ]}
   />
@@ -60,6 +67,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Example"
     description={`Make sure to attach a \`Label\` to every SelectList.`}
     defaultCode={`
@@ -118,8 +126,9 @@ class SelectListExample extends React.Component {
 
 card(
   <Example
+    id="exampleWithError"
     name="Example: With Error Message"
-    description={`SelectList's can display their own error messages if you'd like them to.
+    description={`SelectList can display error messages if you'd like.
     To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
     handle the rest.`}
     defaultCode={`

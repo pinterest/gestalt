@@ -11,7 +11,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Modal"
-    description="Modals are light temporary views that are general purpose containers that allow for a multitude of design choices."
+    description="Modals are light temporary views; general purpose containers allowing for a multitude of design choices."
   />
 );
 
@@ -28,6 +28,7 @@ card(
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the close button. Always localize the label.',
+        href: 'accessibility',
       },
       {
         name: 'accessibilityModalLabel',
@@ -35,31 +36,37 @@ card(
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the modal. Always localize the label.',
+        href: 'accessibility',
       },
       {
         name: 'footer',
         type: 'React.Node',
+        href: 'sizesExample',
       },
       {
         name: 'heading',
         type: `string`,
         required: true,
+        href: 'sizesExample',
       },
       {
         name: 'onDismiss',
         type: '() => void',
         required: true,
+        href: 'sizesExample',
       },
       {
         name: 'role',
         type: `"alertdialog" | "dialog"`,
         defaultValue: 'dialog',
+        href: 'role',
       },
       {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'sm',
         description: `sm: 414px, md: 544px, lg: 804px`,
+        href: 'sizesExample',
       },
     ]}
   />
@@ -67,6 +74,7 @@ card(
 
 card(
   <Example
+    id="sizesExample"
     name="Sizes"
     description={`
       There are 3 different widths available for a \`Modal\`. Click on each button
@@ -175,7 +183,7 @@ card(
     name="Default padding & styling"
     description={`
       Some of the padding required to style your modal has already been provided for ease of use. The modal shown
-      by clicking on the "View padding" button highlights what the default behavior is. The two divider's between
+      by clicking on the "View padding" button highlights the default behavior. The two dividers between
       the \`heading\`, \`children\`, and \`footer\` are included as well.
     `}
     defaultCode={`
@@ -230,14 +238,15 @@ class Example extends React.Component {
 
 card(
   <Example
+    id="role"
     name="Alert Dialogs"
     description={`
       The \`alertdialog\` role is used to notify the user of urgent information that demands the user's immediate attention.
-      We need to specify this role separately from other dialog's for accessibility.
+      We need to specify this role separately from other dialogs for accessibility.
 
-      _Note: There are 3 small visual differences from the other Modal's we've seen so far. First, there is no cancel button in the top
+      _Note: There are 3 small visual differences from the other Modals we've seen so far. First, there is no cancel button in the top
       right, forcing the user to take an explicit action. Second, there is no divider between the heading, children,
-      and footer. Finally, the heading's are larger and are left-aligned rather than centered._
+      and footer. Finally, the headings are larger and are left-aligned rather than centered._
     `}
     defaultCode={`
 class Example extends React.Component {
@@ -507,6 +516,7 @@ class Example extends React.Component {
 
 card(
   <Card
+    id="accessibility"
     description={`
     We want to make sure every button on the page is unique when being read by screenreader.
 

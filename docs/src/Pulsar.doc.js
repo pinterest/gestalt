@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Pulsar"
     description="Pulsars bring focus to a specific element on the screen and act like training wheels
-to guide People towards the normal way to perform that action. They are used in isolation
+to guide people towards the normal way to perform that action. They are used in isolation
 or combination with other education components for more instructions."
   />
 );

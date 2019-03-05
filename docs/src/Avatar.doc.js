@@ -58,7 +58,7 @@ card(
 card(
   <Example
     description={`
-    There are 3 sizes you can choose for an \`Avatar\`. For certain designs you may need a container based size. More information on that option is below.
+    There are 3 sizes you can choose for an \`Avatar\`. For certain designs you may need a container-based size. More information on that option is below.
   `}
     name="Fixed Sizes"
     defaultCode={`
@@ -133,7 +133,7 @@ card(
 card(
   <Example
     description={`
-    We can also changed \`verified\` icon to the Pinterest logo by setting the
+    We can also changed the \`verified\` icon to the Pinterest logo by setting the
     \`icon\` prop to \`pinterest\`.
   `}
     name="Verified"

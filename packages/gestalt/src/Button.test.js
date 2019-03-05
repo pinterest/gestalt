@@ -17,3 +17,11 @@ test('Button handles click', () => {
   wrapper.find('button').simulate('click');
   expect(mockOnClick).toBeCalled();
 });
+
+test('Inline Button border radius', () => {
+  const mockOnClick = jest.fn();
+  const tree = create(
+    <Button inline text="Text" onClick={mockOnClick} />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

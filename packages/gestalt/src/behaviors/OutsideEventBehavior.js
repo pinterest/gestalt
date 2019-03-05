@@ -3,7 +3,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 
 type Props = {|
-  children?: React.Node,
+  children: React.Node,
   onClick?: (event: MouseEvent) => void,
 |};
 
