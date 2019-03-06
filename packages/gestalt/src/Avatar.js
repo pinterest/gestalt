@@ -35,7 +35,7 @@ const DefaultAvatar = ({ name }: { name: string }) => {
           <text
             fontSize="50px"
             fill="#fff"
-            dominantBaseline="central"
+            dy="0.35em"
             textAnchor="middle"
             className={[
               typography.antialiased,
