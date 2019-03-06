@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SelectList, TextArea, TextField: Remove Flyout error message, use new FormErrorMessage (#486)
+
 ### Patch
 
 </details>
