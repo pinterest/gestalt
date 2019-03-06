@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Icon: Add new video-camera icon (#491)
 - Avatar: Fixed a bug in MS Edge where text was not vertically centered (#492)
 
 ### Patch

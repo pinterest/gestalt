@@ -120,6 +120,7 @@ import textMedium from './text-medium.svg';
 import textSmall from './text-small.svg';
 import trashCan from './trash-can.svg';
 import twitter from './twitter.svg';
+import videoCamera from './video-camera.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
@@ -246,6 +247,7 @@ export default {
   'text-small': textSmall,
   'trash-can': trashCan,
   twitter,
+  'video-camera': videoCamera,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
