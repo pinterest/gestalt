@@ -9,6 +9,8 @@
 ### Minor
 
 - SelectList, TextArea, TextField: Remove Flyout error message, use new FormErrorMessage (#486)
+- Icon: Add new video-camera icon (#491)
+- Avatar: Fixed a bug in MS Edge where text was not vertically centered (#492)
 
 ### Patch
 
@@ -18,7 +20,7 @@
 
 ### Minor
 
-- Flyout: Apply the box shadow to Flyout at all times  (#488)
+- Flyout: Apply the box shadow to Flyout at all times (#488)
 
 ### Patch
 

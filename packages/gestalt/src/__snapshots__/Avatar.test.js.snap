@@ -37,7 +37,7 @@ exports[`Avatar renders an outline 1`] = `
         </title>
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
+          dy="0.35em"
           fill="#fff"
           fontSize="50px"
           textAnchor="middle"
@@ -86,7 +86,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
         </title>
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
+          dy="0.35em"
           fill="#fff"
           fontSize="50px"
           textAnchor="middle"
@@ -475,7 +475,7 @@ exports[`Avatar renders the verified icon 1`] = `
         </title>
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
+          dy="0.35em"
           fill="#fff"
           fontSize="50px"
           textAnchor="middle"
