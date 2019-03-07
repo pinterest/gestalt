@@ -8,8 +8,6 @@
 
 ### Minor
 
-</details>
-
 ### Patch
 
 </details>
