@@ -3,15 +3,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Flyout from './Flyout.js';
 import Box from './Box.js';
-import Text from './Text.js';
+import FormErrorMessage from './FormErrorMessage.js';
 import styles from './TextField.css';
 
 type State = {
-  focused: boolean,
-  errorIsOpen: boolean,
   errorMessage?: string,
+  focused: boolean,
 };
 
 type Props = {|
@@ -20,7 +18,6 @@ type Props = {|
   errorMessage?: string,
   hasError?: boolean,
   id: string,
-  idealErrorDirection?: 'up' | 'right' | 'down' | 'left' /* default: right */,
   name?: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -55,7 +52,6 @@ export default class TextField extends React.Component<Props, State> {
     errorMessage: PropTypes.string,
     hasError: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    idealErrorDirection: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
@@ -76,19 +72,16 @@ export default class TextField extends React.Component<Props, State> {
   static defaultProps = {
     disabled: false,
     hasError: false,
-    idealErrorDirection: 'right',
     type: 'text',
   };
 
   state = {
     focused: false,
-    errorIsOpen: false,
   };
 
   static getDerivedStateFromProps(props: Props, state: State) {
     if (props.errorMessage !== state.errorMessage) {
       return {
-        errorIsOpen: !!props.errorMessage,
         errorMessage: props.errorMessage,
       };
     }
@@ -104,9 +97,6 @@ export default class TextField extends React.Component<Props, State> {
   };
 
   handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (this.props.errorMessage) {
-      this.setState({ errorIsOpen: false });
-    }
     if (this.props.onBlur) {
       this.props.onBlur({
         event,
@@ -116,9 +106,6 @@ export default class TextField extends React.Component<Props, State> {
   };
 
   handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (this.props.errorMessage) {
-      this.setState({ errorIsOpen: true });
-    }
     if (this.props.onFocus) {
       this.props.onFocus({
         event,
@@ -145,7 +132,6 @@ export default class TextField extends React.Component<Props, State> {
       errorMessage,
       hasError,
       id,
-      idealErrorDirection,
       name,
       placeholder,
       type,
@@ -166,7 +152,7 @@ export default class TextField extends React.Component<Props, State> {
       <span>
         <input
           aria-describedby={
-            errorMessage && this.state.focused ? `${id}-gestalt-error` : null
+            errorMessage && this.state.focused ? `${id}-error` : null
           }
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           autoComplete={autoComplete}
@@ -186,23 +172,11 @@ export default class TextField extends React.Component<Props, State> {
           type={type}
           value={value}
         />
-        {errorMessage &&
-          this.state.errorIsOpen && (
-            <Flyout
-              anchor={this.textfield}
-              color="orange"
-              idealDirection={idealErrorDirection}
-              onDismiss={() => this.setState({ errorIsOpen: false })}
-              shouldFocus={false}
-              size="sm"
-            >
-              <Box padding={3}>
-                <Text bold color="white">
-                  <span id={`${id}-gestalt-error`}>{errorMessage}</span>
-                </Text>
-              </Box>
-            </Flyout>
-          )}
+        {errorMessage && (
+          <Box marginTop={1}>
+            <FormErrorMessage id={id} text={errorMessage} />
+          </Box>
+        )}
       </span>
     );
   }

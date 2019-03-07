@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormErrorMessage with errorMessage 1`] = `
+<div
+  className="Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal"
+>
+  <span
+    id="test-error"
+  >
+    some error message
+  </span>
+</div>
+`;
+
+exports[`FormErrorMessage with no errorMessage 1`] = `
+<div
+  className="Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal"
+>
+  <span
+    id="test-error"
+  >
+    
+  </span>
+</div>
+`;
