@@ -8,13 +8,17 @@
 
 ### Minor
 
-- SelectList, TextArea, TextField: Remove Flyout error message, use new FormErrorMessage (#486)
-- Icon: Add new video-camera icon (#491)
-- Avatar: Fixed a bug in MS Edge where text was not vertically centered (#492)
-
 ### Patch
 
 </details>
+
+## 0.92.0 (March 7, 2019)
+
+### Minor
+
+- SelectList, TextArea, TextField: Remove Flyout error message, use new FormErrorMessage (#486)
+- Icon: Add new video-camera icon (#491)
+- Avatar: Fixed a bug in MS Edge where text was not vertically centered (#492)
 
 ## 0.91.0 (March 1, 2019)
 
