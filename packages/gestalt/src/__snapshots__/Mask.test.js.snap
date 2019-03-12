@@ -2,7 +2,7 @@
 
 exports[`Mask has the correct width 1`] = `
 <div
-  className="Mask square"
+  className="Mask square hintBrowser"
   style={
     Object {
       "height": undefined,
@@ -19,7 +19,7 @@ exports[`Mask has the correct width 1`] = `
 
 exports[`Mask renders 1`] = `
 <div
-  className="Mask square"
+  className="Mask square hintBrowser"
   style={
     Object {
       "height": undefined,
