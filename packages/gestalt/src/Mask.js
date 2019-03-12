@@ -7,15 +7,21 @@ import styles from './Mask.css';
 type Props = {|
   children?: React.Node,
   height?: number | string,
+  hintBrowser ?: boolean,
   shape?: 'circle' | 'rounded' | 'square',
   width?: number | string,
   wash?: boolean,
 |};
 
 export default function Mask(props: Props) {
-  const { children, shape = 'square', width, height, wash = false } = props;
+  const { children, shape = 'square', width, height, hintBrowser = true, wash = false } = props;
   return (
-    <div className={cx(styles.Mask, styles[shape])} style={{ width, height }}>
+      <div
+      className={cx(styles.Mask, styles[shape], {
+        [styles.hintBrowser]: hintBrowser,
+      })}
+      style={{ width, height }}
+    >
       {children}
       {wash && <div className={styles.wash} />}
     </div>

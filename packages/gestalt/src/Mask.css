@@ -1,7 +1,9 @@
 .Mask {
   composes: overflowHidden from "./Layout.css";
   composes: relative from "./Layout.css";
+}
 
+.hintBrowser {
   /* ⬇ https://github.com/pinterest/gestalt/pull/965 */
   will-change: transform;
 }
