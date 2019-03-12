@@ -3,7 +3,7 @@
   composes: relative from "./Layout.css";
 }
 
-.hintBrowser {
+.willChangeTransform {
   /* ⬇ https://github.com/pinterest/gestalt/pull/965 */
   will-change: transform;
 }

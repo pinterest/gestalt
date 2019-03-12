@@ -20,7 +20,7 @@ exports[`Confirmation Toast 1`] = `
         className="box flexNone justifyCenter xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Mask rounded hintBrowser"
+          className="Mask rounded willChangeTransform"
           style={
             Object {
               "height": 48,

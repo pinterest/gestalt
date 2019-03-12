@@ -2,7 +2,7 @@
 
 exports[`Letterbox covers square content in a horizontal frame 1`] = `
 <div
-  className="Mask square hintBrowser"
+  className="Mask square willChangeTransform"
   style={
     Object {
       "height": 50,
@@ -19,7 +19,7 @@ exports[`Letterbox covers square content in a horizontal frame 1`] = `
     }
   >
     <div
-      className="Mask square hintBrowser"
+      className="Mask square willChangeTransform"
       style={
         Object {
           "height": 150,
@@ -33,7 +33,7 @@ exports[`Letterbox covers square content in a horizontal frame 1`] = `
 
 exports[`Letterbox covers square content in a vertical frame 1`] = `
 <div
-  className="Mask square hintBrowser"
+  className="Mask square willChangeTransform"
   style={
     Object {
       "height": 150,
@@ -50,7 +50,7 @@ exports[`Letterbox covers square content in a vertical frame 1`] = `
     }
   >
     <div
-      className="Mask square hintBrowser"
+      className="Mask square willChangeTransform"
       style={
         Object {
           "height": 150,
@@ -64,7 +64,7 @@ exports[`Letterbox covers square content in a vertical frame 1`] = `
 
 exports[`Letterbox crops tall content 1`] = `
 <div
-  className="Mask square hintBrowser"
+  className="Mask square willChangeTransform"
   style={
     Object {
       "height": 50,
@@ -81,7 +81,7 @@ exports[`Letterbox crops tall content 1`] = `
     }
   >
     <div
-      className="Mask square hintBrowser"
+      className="Mask square willChangeTransform"
       style={
         Object {
           "height": 71.45390070921985,
@@ -95,7 +95,7 @@ exports[`Letterbox crops tall content 1`] = `
 
 exports[`Letterbox crops wide content 1`] = `
 <div
-  className="Mask square hintBrowser"
+  className="Mask square willChangeTransform"
   style={
     Object {
       "height": 50,
@@ -112,7 +112,7 @@ exports[`Letterbox crops wide content 1`] = `
     }
   >
     <div
-      className="Mask square hintBrowser"
+      className="Mask square willChangeTransform"
       style={
         Object {
           "height": 50,
@@ -126,7 +126,7 @@ exports[`Letterbox crops wide content 1`] = `
 
 exports[`Letterbox fits square content 1`] = `
 <div
-  className="Mask square hintBrowser"
+  className="Mask square willChangeTransform"
   style={
     Object {
       "height": 50,
@@ -143,7 +143,7 @@ exports[`Letterbox fits square content 1`] = `
     }
   >
     <div
-      className="Mask square hintBrowser"
+      className="Mask square willChangeTransform"
       style={
         Object {
           "height": 50,
