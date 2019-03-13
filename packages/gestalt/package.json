@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "0.88.0",
+  "version": "0.93.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "description": "A set of React UI components which enforce Pinterest’s design language",
@@ -17,8 +17,8 @@
     "prop-types": "^15.6.0"
   },
   "peerDependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",

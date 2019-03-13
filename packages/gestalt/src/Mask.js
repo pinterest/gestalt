@@ -9,13 +9,26 @@ type Props = {|
   height?: number | string,
   shape?: 'circle' | 'rounded' | 'square',
   width?: number | string,
+  willChangeTransform?: boolean,
   wash?: boolean,
 |};
 
 export default function Mask(props: Props) {
-  const { children, shape = 'square', width, height, wash = false } = props;
+  const {
+    children,
+    shape = 'square',
+    width,
+    height,
+    willChangeTransform = true,
+    wash = false,
+  } = props;
   return (
-    <div className={cx(styles.Mask, styles[shape])} style={{ width, height }}>
+    <div
+      className={cx(styles.Mask, styles[shape], {
+        [styles.willChangeTransform]: willChangeTransform,
+      })}
+      style={{ width, height }}
+    >
       {children}
       {wash && <div className={styles.wash} />}
     </div>
@@ -27,5 +40,6 @@ Mask.propTypes = {
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   shape: PropTypes.oneOf(['circle', 'rounded', 'square']),
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  willChangeTransform: PropTypes.bool,
   wash: PropTypes.bool,
 };

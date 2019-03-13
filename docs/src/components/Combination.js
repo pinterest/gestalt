@@ -8,6 +8,7 @@ type Props = {
   children: (Object, number) => React.Node,
   description?: string,
   heading?: boolean,
+  id?: string,
   name?: string,
   stacked?: boolean,
 };
@@ -55,6 +56,7 @@ const toReactAttribute = (key, value) => {
 export default function Combination({
   name = '',
   description = '',
+  id,
   stacked = false,
   heading = true,
   children,
@@ -64,6 +66,7 @@ export default function Combination({
     <Card
       name={name}
       description={description}
+      id={id}
       stacked={stacked}
       heading={heading}
     >

@@ -5,7 +5,7 @@ import { Box, Text, Icon, Link } from 'gestalt';
 type Props = {|
   props: Array<{|
     defaultValue?: any,
-    description?: string,
+    description?: ?string,
     href: ?string,
     name: string,
     required?: boolean,

@@ -30,20 +30,30 @@ card(
       {
         name: 'height',
         type: `number | string`,
+        href: 'basicExample',
       },
       {
         name: 'width',
         type: `number | string`,
+        href: 'basicExample',
       },
       {
         name: 'shape',
         type: `"circle" | "rounded" | "square"`,
         defaultValue: 'square',
+        href: 'shapeCombinations',
       },
       {
         name: 'wash',
         type: 'boolean',
         defaultValue: false,
+        href: 'wash',
+      },
+      {
+        name: 'willChangeTransform',
+        type: 'boolean',
+        defaultValue: true,
+        href: 'willChangeTransform',
       },
     ]}
   />
@@ -51,6 +61,7 @@ card(
 
 card(
   <Example
+    id="basicExample"
     name="Example"
     defaultCode={`
 <Mask height={70} shape="circle" width={70}>
@@ -82,6 +93,7 @@ card(
 
 card(
   <Example
+    id="wash"
     description="
     If you expect the masked content to be nearly white, you can apply a wash to emphasize the edge of the mask.
   "
@@ -102,6 +114,7 @@ card(
 
 card(
   <Combination
+    id="shapeCombinations"
     name="Shape Combinations"
     shape={['circle', 'rounded', 'square']}
   >
@@ -111,6 +124,27 @@ card(
       </Mask>
     )}
   </Combination>
+);
+
+card(
+  <Example
+    id="willChangeTransform"
+    description="
+  If you want to turn off the `willChange:transform` property for rendering reasons, you can set this to false.
+  "
+    name="Example: willChangeTransform"
+    defaultCode={`
+<Box maxWidth={300}>
+  <Mask shape="rounded" willChangeTransform="false">
+    <img
+      alt="subliming.tumblr.com"
+      src="${stock8}"
+      style={{ maxWidth: '100%', display: 'block' }}
+    />
+  </Mask>
+</Box>
+`}
+  />
 );
 
 export default cards;

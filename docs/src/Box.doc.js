@@ -10,6 +10,40 @@ import Card from './components/Card.js';
 const cards = [];
 const card = c => cards.push(c);
 
+const marginProps = [
+  { name: 'margin', description: 'Scale is in boints, where 1bt is 4px' },
+  { name: 'marginTop' },
+  { name: 'marginRight' },
+  { name: 'marginBottom' },
+  { name: 'marginLeft' },
+  { name: 'marginStart' },
+  { name: 'marginEnd' },
+].map((prop: {| name: string, description?: string |}) => ({
+  name: prop.name,
+  type: `-12 ... 12`,
+  defaultValue: 0,
+  responsive: true,
+  description: prop.description,
+  href: 'margins',
+}));
+
+const absolutePositioningProps = ['left', 'right', 'top', 'bottom'].map(
+  name => ({
+    name,
+    type: `boolean`,
+    defaultValue: false,
+    href: 'absolutePositioning',
+  })
+);
+
+const paddingProps = ['padding', 'paddingX', 'paddingY'].map(name => ({
+  name,
+  type: `0 .. 12`,
+  defaultValue: 0,
+  responsive: true,
+  href: 'padding',
+}));
+
 card(
   <PageHeader
     name="Box"
@@ -36,6 +70,7 @@ card(
         type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
         defaultValue: 'block',
         responsive: true,
+        href: 'display',
       },
       {
         name: 'direction',
@@ -57,7 +92,8 @@ card(
         type: `"start" | "end" | "center" | "baseline" | "stretch"`,
         defaultValue: 'stretch',
         description:
-          'Defines the default behaviour for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
+          'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
+        href: 'layout',
       },
       {
         name: 'alignSelf',
@@ -67,14 +103,10 @@ card(
           'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
       },
       {
-        name: 'bottom',
-        type: `boolean`,
-        defaultValue: false,
-      },
-      {
         name: 'color',
         type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
         defaultValue: 'transparent',
+        href: 'color',
       },
       { name: 'fit', type: 'boolean', defaultValue: false },
       {
@@ -89,65 +121,10 @@ card(
         defaultValue: 'start',
         description:
           'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
+        href: 'layout',
       },
-      {
-        name: 'left',
-        type: `boolean`,
-        defaultValue: false,
-      },
-      {
-        name: 'right',
-        type: `boolean`,
-        defaultValue: false,
-      },
-      {
-        name: 'top',
-        type: `boolean`,
-        defaultValue: false,
-      },
-      {
-        name: 'margin',
-        type: `-12 ... 12`,
-        defaultValue: 0,
-        responsive: true,
-        description: 'Scale is in boints, where 1bt is 4px',
-      },
-      {
-        name: 'marginTop',
-        type: `-12 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'marginRight',
-        type: `-12 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'marginBottom',
-        type: `-12 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'marginLeft',
-        type: `-12 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'marginStart',
-        type: `-12 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'marginEnd',
-        type: `-12 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
+      ...absolutePositioningProps,
+      ...marginProps,
       {
         name: 'column',
         type: `0 .. 12`,
@@ -182,33 +159,18 @@ card(
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
       },
-      {
-        name: 'padding',
-        type: `0 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'paddingX',
-        type: `0 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
-      {
-        name: 'paddingY',
-        type: `0 .. 12`,
-        defaultValue: 0,
-        responsive: true,
-      },
+      ...paddingProps,
       {
         name: 'position',
         type: `"static" | "absolute" | "relative" | "fixed"`,
         defaultValue: 'static',
+        href: 'absolutePositioning',
       },
       {
         name: 'shape',
         type: `"square" | "rounded" | "pill" | "circle" | "roundedTop" | "roundedBottom" | "roundedLeft" | "roundedRight"`,
         defaultValue: 'square',
+        href: 'shapes',
       },
       {
         name: 'wrap',
@@ -225,7 +187,7 @@ card(
     description={`
     The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
 
-    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you loose flexibility and have to change styling if you make changes to the structure.
+    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you lose flexibility and have to change styling if you make changes to the structure.
   `}
     name="Example: Media object"
     defaultCode={`
@@ -251,7 +213,7 @@ card(
 card(
   <Example
     description={`
-    In this example we use the \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and seeing what happens.
+    In this example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
   `}
     name="Example: Double-sided media object"
     defaultCode={`
@@ -280,8 +242,9 @@ card(
 card(
   <Example
     description={`
-    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still being read by screenreaders.
+    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still be read by screenreaders.
   `}
+    id="display"
     name="Example: Visually Hidden"
     defaultCode={`
 <>
@@ -297,6 +260,7 @@ card(
     description={`
     Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
   `}
+    id="layout"
     name="Layout"
     // alignContent={['start', 'end', 'center', 'between', 'around', 'stretch']}
     justifyContent={['start', 'end', 'center', 'between', 'around']}
@@ -358,6 +322,7 @@ card(
     <Box paddingY={1} />
     ~~~
   `}
+    id="padding"
     name="Padding"
   >
     <Box
@@ -400,7 +365,7 @@ card(
 
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
 
-    Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL language aware \`marginStart\` and \`marginEnd\`.
+    Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL-language-aware \`marginStart\` and \`marginEnd\`.
 
     ~~~jsx
     <Box margin={1} />
@@ -410,6 +375,7 @@ card(
     <Box marginEnd={1} />
     ~~~
   `}
+    id="margins"
     name="Margins"
   >
     <Box
@@ -476,6 +442,7 @@ card(
     description={`
     Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
   `}
+    id="absolutePositioning"
     name="Example: Absolute positioning"
     defaultCode={`
 <Box position="relative" color="white" height={200}>
@@ -498,6 +465,7 @@ card(
 
 card(
   <Combination
+    id="color"
     name="Colors"
     color={[
       'red',
@@ -529,6 +497,7 @@ card(
 
 card(
   <Combination
+    id="shapes"
     name="Shapes"
     shape={[
       'square',

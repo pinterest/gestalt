@@ -26,23 +26,27 @@ card(
         name: 'color',
         type: `'darkGray' | 'orange'`,
         defaultValue: 'darkGray',
+        href: 'errorExample',
       },
       {
         name: 'icon',
         type: 'arrow-circle-forward',
         defaultValue: 'arrow-circle-forward',
         description: 'More icons can be added in the future.',
+        href: 'guideExample',
       },
       {
         name: 'thumbnail',
         type: 'React.Node',
         description: 'Image should fit nicely into a square',
+        href: 'confirmationExample',
       },
       {
         name: 'text',
         type: 'string | Array<string>',
         description:
           'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
+        href: 'confirmationExample',
       },
     ]}
   />
@@ -50,6 +54,7 @@ card(
 
 card(
   <Example
+    id="confirmationExample"
     name="Confirmation Toasts"
     description="You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
         always include a thumbnail and two lines of text."
@@ -109,6 +114,7 @@ class ToastExample extends React.Component {
 
 card(
   <Example
+    id="guideExample"
     name="Guide Toasts"
     description="You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
       your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
@@ -162,6 +168,7 @@ class ToastExample extends React.Component {
 
 card(
   <Example
+    id="errorExample"
     description="
       You can use Toasts to indicate that something wrong occurred by setting the color to orange.
     "

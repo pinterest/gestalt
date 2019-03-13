@@ -36,7 +36,7 @@ card(
   <Card
     description={`
     Column is a basic layout component to help you size your UI. A full width is composed
-    of 12 units each equal to 1/12 of the total width. By setting the \`span\` prop you
+    of 12 units, each equal to 1/12 of the total width. By setting the \`span\` prop you
     dictate the percent width an element can occupy.
   `}
     name="Static columns"
@@ -144,7 +144,7 @@ card(
 card(
   <Card
     description={`
-    Column supports setting a span at our 4 responsive breakpoints: sm, md, lg. Each
+    Column supports setting a span at our 3 responsive breakpoints: sm, md, lg. Each
     sets the span of the column from that breakpoint and up. If you don't want your
     column to be responsive, only set the \`span\` prop.
   `}

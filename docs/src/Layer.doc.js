@@ -21,6 +21,7 @@ card(
       {
         name: 'children',
         type: 'React.Node',
+        required: true,
       },
     ]}
   />
@@ -29,8 +30,8 @@ card(
 card(
   <Card
     description="
-    Because creating a portal in Layer depends on DOM manipulation, if document is not present
-    such as in a server rendering environment the children will not be rendered.
+    Because creating a portal in Layer depends on DOM manipulation, if document is not present,
+    such as in a server rendering environment, the children will not be rendered.
   "
     name="Server Rendering"
   />

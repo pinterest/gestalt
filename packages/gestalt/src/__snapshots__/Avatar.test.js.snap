@@ -37,7 +37,7 @@ exports[`Avatar renders an outline 1`] = `
         </title>
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
+          dy="0.35em"
           fill="#fff"
           fontSize="50px"
           textAnchor="middle"
@@ -86,7 +86,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
         </title>
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
+          dy="0.35em"
           fill="#fff"
           fontSize="50px"
           textAnchor="middle"
@@ -110,7 +110,7 @@ exports[`Avatar renders the Pinterest P on verified 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="Mask circle willChangeTransform"
     style={
       Object {
         "height": undefined,
@@ -194,7 +194,7 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="Mask circle willChangeTransform"
     style={
       Object {
         "height": undefined,
@@ -278,7 +278,7 @@ exports[`Avatar renders the correct size - lg 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="Mask circle willChangeTransform"
     style={
       Object {
         "height": undefined,
@@ -321,7 +321,7 @@ exports[`Avatar renders the correct size - md 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="Mask circle willChangeTransform"
     style={
       Object {
         "height": undefined,
@@ -364,7 +364,7 @@ exports[`Avatar renders the correct size - sm 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="Mask circle willChangeTransform"
     style={
       Object {
         "height": undefined,
@@ -407,7 +407,7 @@ exports[`Avatar renders the correct src 1`] = `
   }
 >
   <div
-    className="Mask circle"
+    className="Mask circle willChangeTransform"
     style={
       Object {
         "height": undefined,
@@ -475,7 +475,7 @@ exports[`Avatar renders the verified icon 1`] = `
         </title>
         <text
           className="antialiased sansSerif leadingSmall fontWeightBold"
-          dominantBaseline="central"
+          dy="0.35em"
           fill="#fff"
           fontSize="50px"
           textAnchor="middle"

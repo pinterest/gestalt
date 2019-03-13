@@ -9,12 +9,16 @@ import styles from './SegmentedControl.css';
 type Props = {|
   items: Array<React.Node>,
   onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
+  responsive?: boolean,
   selectedItemIndex: number,
   size?: 'md' | 'lg',
 |};
 
 export default function SegmentedControl(props: Props) {
-  const { items, onChange, selectedItemIndex, size = 'md' } = props;
+  const { items, onChange, responsive, selectedItemIndex, size = 'md' } = props;
+  const buttonWidth = responsive
+    ? undefined
+    : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div
       className={classnames(styles.SegmentedControl, {
@@ -37,6 +41,7 @@ export default function SegmentedControl(props: Props) {
             onClick={e => onChange({ event: e, activeIndex: i })}
             role="tab"
             type="button"
+            style={{ width: buttonWidth }}
           >
             {typeof item === 'string' ? (
               <Text
@@ -62,5 +67,7 @@ export default function SegmentedControl(props: Props) {
 SegmentedControl.propTypes = {
   items: PropTypes.arrayOf(PropTypes.node).isRequired,
   onChange: PropTypes.func.isRequired,
+  responsive: PropTypes.bool,
   selectedItemIndex: PropTypes.number.isRequired,
+  size: PropTypes.oneOf(['md', 'lg']),
 };

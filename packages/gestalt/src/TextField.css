@@ -22,8 +22,13 @@
   border-color: #8e8e8e;
 }
 
-.errored {
+input.errored {
   border-color: #e3780c;
+}
+
+input.errored:focus {
+  box-shadow: 0 0 0 4px rgba(227, 120, 12, 0.75);
+  outline: none;
 }
 
 .enabled {

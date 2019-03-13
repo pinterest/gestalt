@@ -23,6 +23,7 @@ card(
         name: 'accessibilityLevel',
         type: '1 | 2 | 3 | 4 | 5 | 6',
         description: 'Allows you to override the default heading level',
+        href: 'levels',
       },
       {
         name: 'children',
@@ -32,6 +33,7 @@ card(
         name: 'color',
         type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
         defaultValue: 'darkGray',
+        href: 'colors',
       },
       {
         name: 'id',
@@ -41,6 +43,7 @@ card(
         name: 'overflow',
         type: '"normal" | "breakWord"',
         defaultValue: 'breakWord',
+        href: 'overflowTruncation',
       },
       {
         name: 'size',
@@ -48,11 +51,13 @@ card(
         description: `xs: 24px, sm: 36px, md: 48px, lg: 64px, xl: 96px`,
         responsive: true,
         defaultValue: 'md',
+        href: 'sizes',
       },
       {
         name: 'truncate',
         type: 'boolean',
         defaultValue: false,
+        href: 'overflowTruncation',
       },
     ]}
   />
@@ -60,6 +65,7 @@ card(
 
 card(
   <Example
+    id="sizes"
     name="Example: Sizes"
     defaultCode={`
 <Box>
@@ -92,6 +98,7 @@ card(
 
 card(
   <Example
+    id="colors"
     name="Example: Colors"
     defaultCode={`
 <Box>
@@ -121,6 +128,7 @@ card(
 
 card(
   <Example
+    id="overflowTruncation"
     name="Example: Overflow & truncation"
     defaultCode={`
 <Box maxWidth={240} marginTop={-2} marginBottom={-2}>
@@ -151,6 +159,7 @@ card(
 
 card(
   <Example
+    id="levels"
     description="
     For accessibility purposes, we allow you to override the heading level.
 

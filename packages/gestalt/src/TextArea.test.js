@@ -2,22 +2,20 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { shallow } from 'enzyme';
+import FormErrorMessage from './FormErrorMessage.js';
 import TextArea from './TextArea.js';
-import Flyout from './Flyout.js';
 
 describe('TextArea', () => {
-  it('Renders a Flyout if an error message is passed in', () => {
+  it('Renders an FormErrorMessage if an error message is passed in', () => {
     const wrapper = shallow(
       <TextArea errorMessage="test" id="test" onChange={jest.fn()} />
     );
-    wrapper.instance().setState({ errorIsOpen: true });
-    wrapper.simulate('focus');
-    expect(wrapper.find(Flyout)).toHaveLength(1);
+    expect(wrapper.find(FormErrorMessage)).toHaveLength(1);
   });
 
-  it('Does not render a Flyout when errorMessage is null', () => {
+  it('Does not render an FormErrorMessage when errorMessage is null', () => {
     const wrapper = shallow(<TextArea id="test" onChange={jest.fn()} />);
-    expect(wrapper.find(Flyout)).toHaveLength(0);
+    expect(wrapper.find(FormErrorMessage)).toHaveLength(0);
   });
 
   it('TextArea normal', () => {
@@ -55,7 +53,6 @@ describe('TextArea', () => {
         onBlur={jest.fn()}
       />
     );
-    expect(wrapper.find(Flyout)).toHaveLength(0);
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -75,11 +72,11 @@ describe('TextArea', () => {
         onBlur={jest.fn()}
       />
     );
-    expect(tree.find(Flyout)).toHaveLength(0);
+    expect(tree.find(FormErrorMessage)).toHaveLength(0);
     tree.setProps({
       errorMessage: 'error message',
     });
-    expect(tree.find(Flyout)).toHaveLength(1);
+    expect(tree.find(FormErrorMessage)).toHaveLength(1);
   });
 
   it('handles blur events', () => {

@@ -10,7 +10,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Sticky"
-    description="Sticky allows for an element to become fixed when it reaches a threshold (top, left, bottom, or right)"
+    description="Sticky allows an element to become fixed when it reaches a threshold (top, left, bottom, or right)."
   />
 );
 
