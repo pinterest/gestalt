@@ -7,7 +7,6 @@
   </summary>
 
 ### Minor
-
 ### Patch
 
 </details>
