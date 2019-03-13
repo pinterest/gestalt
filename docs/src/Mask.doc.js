@@ -49,6 +49,12 @@ card(
         defaultValue: false,
         href: 'wash',
       },
+      {
+        name: 'willChangeTransform',
+        type: 'boolean',
+        defaultValue: true,
+        href: 'willChangeTransform',
+      },
     ]}
   />
 );
@@ -118,6 +124,27 @@ card(
       </Mask>
     )}
   </Combination>
+);
+
+card(
+  <Example
+    id="willChangeTransform"
+    description="
+  If you want to turn off the `willChange:transform` property for rendering reasons, you can set this to false.
+  "
+    name="Example: willChangeTransform"
+    defaultCode={`
+<Box maxWidth={300}>
+  <Mask shape="rounded" willChangeTransform="false">
+    <img
+      alt="subliming.tumblr.com"
+      src="${stock8}"
+      style={{ maxWidth: '100%', display: 'block' }}
+    />
+  </Mask>
+</Box>
+`}
+  />
 );
 
 export default cards;
