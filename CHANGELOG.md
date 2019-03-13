@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Icon: add some more text related icons
+- Icon: add some new text related icons (#496)
 
 ### Patch
 
