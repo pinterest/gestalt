@@ -8,8 +8,6 @@
 
 ### Minor
 
-- Mask: add new prop `willChangeTransform` default true which can turn off `willChange:transform` property in CSS (#494)
-
 ### Patch
 
 </details>
