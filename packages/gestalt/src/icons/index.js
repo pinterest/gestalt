@@ -114,10 +114,15 @@ import terms from './terms.svg';
 import textAlignCenter from './text-align-center.svg';
 import textAlignLeft from './text-align-left.svg';
 import textAlignRight from './text-align-right.svg';
+import textAllCaps from './text-all-caps.svg';
 import textExtraSmall from './text-extra-small.svg';
 import textLarge from './text-large.svg';
+import textLineHeight from './text-line-height.svg';
 import textMedium from './text-medium.svg';
+import textSentenceCase from './text-sentence-case.svg';
+import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
+import textSpacing from './text-spacing.svg';
 import trashCan from './trash-can.svg';
 import twitter from './twitter.svg';
 import videoCamera from './video-camera.svg';
@@ -241,10 +246,15 @@ export default {
   'text-align-left': textAlignLeft,
   'text-align-center': textAlignCenter,
   'text-align-right': textAlignRight,
+  'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
   'text-large': textLarge,
+  'text-line-height': textLineHeight,
   'text-medium': textMedium,
+  'text-sentence-case': textSentenceCase,
+  'text-size': textSize,
   'text-small': textSmall,
+  'text-spacing': textSpacing,
   'trash-can': trashCan,
   twitter,
   'video-camera': videoCamera,
