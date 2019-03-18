@@ -15,7 +15,7 @@ type Props = {|
   accessibilityModalLabel: string,
   children?: React.Node,
   footer?: React.Node,
-  heading: React.Node,
+  heading: string | React.Node,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
@@ -81,7 +81,7 @@ export default class Modal extends React.Component<Props> {
     accessibilityModalLabel: PropTypes.string.isRequired,
     children: PropTypes.node,
     footer: PropTypes.node,
-    heading: PropTypes.node.isRequired,
+    heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     onDismiss: PropTypes.func,
     role: PropTypes.oneOf(['alertdialog', 'dialog']),
     size: PropTypes.oneOfType([
