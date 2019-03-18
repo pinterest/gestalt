@@ -45,9 +45,9 @@ card(
       },
       {
         name: 'heading',
-        type: `string`,
+        type: `React.Node`,
         required: true,
-        href: 'sizesExample',
+        href: 'heading',
       },
       {
         name: 'onDismiss',
@@ -215,6 +215,92 @@ class Example extends React.Component {
               accessibilityCloseLabel="close"
               accessibilityModalLabel="View default padding and styling"
               heading="Heading"
+              onDismiss={this.handleToggleModal}
+              footer={
+                <Box color="gray">
+                  <Heading size="sm">Footer</Heading>
+                </Box>
+              }
+              size="md"
+            >
+              <Box color="gray" height={400}>
+                <Heading size="sm">Children</Heading>
+              </Box>
+            </Modal>
+          )}
+        </Box>
+      </Box>
+    );
+  }
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="heading"
+    name="Custom heading"
+    description="
+      If you need more control over the Modal heading besides a wrapped and centered text element,
+      you can pass a custom React node as the heading prop and the Modal will render that instead.
+    "
+    defaultCode={`
+class HeadingExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleModal = this._handleToggleModal.bind(this);
+    this.handleChangeTab = this._handleChangeTab.bind(this);
+    this.state = {
+      showModal: false,
+      activeTabIndex: 0,
+    };
+  }
+
+  _handleToggleModal() {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  }
+
+  _handleChangeTab({ activeTabIndex, event }) {
+    event.preventDefault();
+    this.setState({ activeTabIndex });
+  }
+
+  render() {
+    const { showModal } = this.state;
+    return (
+      <Box marginLeft={-1} marginRight={-1}>
+        <Box padding={1}>
+          <Button
+            text="View heading"
+            onClick={this.handleToggleModal}
+          />
+          {showModal && (
+            <Modal
+              accessibilityCloseLabel="close"
+              accessibilityModalLabel="View custom modal heading"
+              heading={
+                <Box padding={2}>
+                  <Tabs
+                    tabs={[
+                      {
+                        text: "Boards",
+                        href: "#"
+                      },
+                      {
+                        text: "Pins",
+                        href: "#"
+                      },
+                      {
+                        text: "Topics",
+                        href: "#"
+                      }
+                    ]}
+                    activeTabIndex={this.state.activeTabIndex}
+                    onChange={this.handleChangeTab}
+                  />
+                </Box>
+              }
               onDismiss={this.handleToggleModal}
               footer={
                 <Box color="gray">
