@@ -63,7 +63,7 @@ card(
       },
       {
         name: 'size',
-        type: `"sm" | "md" | "lg"`,
+        type: `"sm" | "md" | "lg" | number`,
         defaultValue: 'sm',
         description: `sm: 414px, md: 544px, lg: 804px`,
         href: 'sizesExample',
@@ -77,8 +77,9 @@ card(
     id="sizesExample"
     name="Sizes"
     description={`
-      There are 3 different widths available for a \`Modal\`. Click on each button
-      to view a sample Modal of the specified size. All Modals have a max width of 100%.
+      There are 3 different pre-selected widths available for a \`Modal\`, as well as a last-resort
+      option to set a custom width. Click on each button to view a sample Modal of the specified size.
+      All Modals have a max width of 100%.
     `}
     defaultCode={`
 class Example extends React.Component {

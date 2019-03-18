@@ -9,6 +9,7 @@
 ### Minor
 
 - Icon: add some new text related icons (#496)
+- Modal: add a new sizing option to Modal to match Flyout (#499)
 
 ### Patch
 
