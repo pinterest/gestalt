@@ -18,7 +18,7 @@ type Props = {|
   heading: string,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
-  size?: 'sm' | 'md' | 'lg',
+  size?: 'sm' | 'md' | 'lg' | number,
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -38,14 +38,17 @@ const Backdrop = ({ children }: { children?: React.Node }) => (
 
 export default class Modal extends React.Component<Props> {
   static propTypes = {
-    children: PropTypes.node,
     accessibilityCloseLabel: PropTypes.string.isRequired,
+    accessibilityModalLabel: PropTypes.string.isRequired,
+    children: PropTypes.node,
     footer: PropTypes.node,
     heading: PropTypes.string.isRequired,
-    accessibilityModalLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func,
     role: PropTypes.oneOf(['alertdialog', 'dialog']),
-    size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    size: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.oneOf(['sm', 'md', 'lg']),
+    ]),
   };
 
   componentDidMount() {
@@ -80,7 +83,8 @@ export default class Modal extends React.Component<Props> {
       role = 'dialog',
       size = 'sm',
     } = this.props;
-    const width = SIZE_WIDTH_MAP[size];
+
+    const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
     return (
       <StopScrollBehavior>
