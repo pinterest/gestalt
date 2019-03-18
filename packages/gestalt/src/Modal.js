@@ -42,7 +42,7 @@ function Header({
   heading,
   role,
 }: {
-  heading: React.Node,
+  heading: string | React.Node,
   role?: 'alertdialog' | 'dialog',
 }) {
   if (typeof heading !== 'string') {
