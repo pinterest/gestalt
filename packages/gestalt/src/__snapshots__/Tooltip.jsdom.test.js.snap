@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip does not render when the anchor is null 1`] = `null`;
+
+exports[`Tooltip renders 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": null,
+      "top": -12,
+      "visibility": "visible",
+    }
+  }
+>
+  <div
+    className="darkGrayBg darkGray contents maxDimensions"
+    tabIndex={-1}
+  >
+    <div
+      className="innerContents maxDimensions"
+      style={
+        Object {
+          "width": null,
+        }
+      }
+    >
+      <div
+        className="box paddingX2 paddingY1"
+        id="test-tooltip-id"
+        style={
+          Object {
+            "maxWidth": 180,
+          }
+        }
+      >
+        <div
+          className="Text fontSize1 white alignLeft breakWord fontStyleNormal fontWeightNormal"
+        >
+          This is a tooltip
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
