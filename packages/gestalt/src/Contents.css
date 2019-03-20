@@ -3,7 +3,6 @@
 }
 
 .contents {
-  composes: absolute from "./Layout.css";
   composes: block from "./Layout.css";
   composes: borderBox from "./Layout.css";
   composes: rounded from "./Borders.css";

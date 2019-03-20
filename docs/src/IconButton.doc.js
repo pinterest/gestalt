@@ -38,7 +38,7 @@ card(
         type: 'string',
         required: true,
         description:
-          'String that clients such as VoiceOver will read to describe the element. Will also be used for hover text (title). Always localize the label.',
+          'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
         href: 'accessibility',
       },
       {
@@ -62,6 +62,13 @@ card(
         Icon.`,
       },
       {
+        name: 'id',
+        type: 'string',
+        description:
+          'Element id for the tooltip used in association with title',
+        href: 'title',
+      },
+      {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
@@ -71,6 +78,13 @@ card(
       {
         name: 'onClick',
         type: '({ event: SyntheticMouseEvent<> }) => void',
+      },
+      {
+        name: 'title',
+        type: 'string',
+        description:
+          'String that is shown as addition information in a tooltip bubble to describe the button. This supersedes the accessibilityLabel and clients such as VoiceOver will use this to describe the element. Always localize the label.',
+        href: 'title',
       },
     ]}
   />
@@ -86,6 +100,30 @@ card(
   icon="heart"
   iconColor="red"
   onClick={() => { console.log('❤️')}}
+/>
+`}
+  />
+);
+
+card(
+  <Example
+    id="title"
+    name="Titles"
+    description={`
+      If more information is needed to describe an IconButton, you can optionally pass a title and
+      id to the component in order to reveal more help text on hover or focus. This text will supersede
+      any accessibility label and be available to screenreaders.
+
+      Be sure to internationalize your \`title\`.
+  `}
+    defaultCode={`
+<IconButton
+  accessibilityLabel="Delete this image from your profile"
+  bgColor="white"
+  icon="trash-can"
+  iconColor="darkGray"
+  onClick={() => { console.log('😱')}}
+  title="Delete image"
 />
 `}
   />

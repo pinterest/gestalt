@@ -9,10 +9,11 @@ const noop = () => {};
 
 type Props = {|
   anchor: ?HTMLElement,
+  id?: string,
   text: string,
 |};
 
-export default function Tooltip({ anchor, text }: Props) {
+export default function Tooltip({ anchor, id, text }: Props) {
   if (!anchor) {
     return null;
   }
@@ -27,7 +28,7 @@ export default function Tooltip({ anchor, text }: Props) {
       positionRelativeToAnchor
       size={null}
     >
-      <Box padding={2}>
+      <Box maxWidth={180} paddingY={1} paddingX={2} id={id}>
         <Text color="white" size="xs">
           {text}
         </Text>

@@ -19,8 +19,10 @@ type Props = {|
     | 'white',
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
+  id?: string,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  title?: string,
 |};
 
 type State = {|
@@ -43,8 +45,10 @@ export default class IconButton extends React.Component<Props, State> {
     ]),
     icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
+    id: PropTypes.string,
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    title: PropTypes.string,
   };
 
   state = {
@@ -75,8 +79,10 @@ export default class IconButton extends React.Component<Props, State> {
       bgColor,
       iconColor,
       icon,
+      id,
       size,
       onClick,
+      title,
     } = this.props;
 
     const { active, focused, hovered } = this.state;
@@ -87,6 +93,7 @@ export default class IconButton extends React.Component<Props, State> {
           aria-expanded={accessibilityExpanded}
           aria-haspopup={accessibilityHaspopup}
           aria-label={accessibilityLabel}
+          aria-labelledby={id}
           className={styles.button}
           onBlur={this.handleBlur}
           onClick={event => onClick && onClick({ event })}
@@ -108,7 +115,10 @@ export default class IconButton extends React.Component<Props, State> {
             size={size}
           />
         </button>
-        {hovered && <Tooltip anchor={this.buttonRef.current} text="YOLO" />}
+        {(hovered || focused) &&
+          !!title && (
+            <Tooltip anchor={this.buttonRef.current} id={id} text={title} />
+          )}
       </Box>
     );
   }
