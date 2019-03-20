@@ -21,10 +21,11 @@ export default function Tooltip({ anchor, text }: Props) {
     <Controller
       anchor={anchor}
       bgColor="darkGray"
+      caret={false}
       idealDirection="down"
       onDismiss={noop}
       positionRelativeToAnchor
-      size="xs"
+      size={null}
     >
       <Box padding={2}>
         <Text color="white" size="xs">

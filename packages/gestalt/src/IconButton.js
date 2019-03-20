@@ -96,7 +96,6 @@ export default class IconButton extends React.Component<Props, State> {
           onMouseLeave={this.handleMouseLeave}
           onMouseUp={this.handleMouseUp}
           ref={this.buttonRef}
-          title={accessibilityLabel}
           type="button"
         >
           <Pog
@@ -107,7 +106,6 @@ export default class IconButton extends React.Component<Props, State> {
             iconColor={iconColor}
             icon={icon}
             size={size}
-            title={accessibilityLabel}
           />
         </button>
         {hovered && <Tooltip anchor={this.buttonRef.current} text="YOLO" />}

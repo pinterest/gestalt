@@ -5,14 +5,15 @@ import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 
 type Props = {|
-  anchor: ?HTMLElement,
+  anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
+  caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
   shouldFocus?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -34,16 +35,22 @@ type ClientRect = {
   width: number,
 };
 
-type State = {
+type State = {|
   relativeOffset: {
     x: number,
     y: number,
   },
   triggerBoundingRect: ClientRect,
-};
+|};
 
 export default class Controller extends React.Component<Props, State> {
-  state: State = {
+  static defaultProps = {
+    // Default size only applies when size is omitted,
+    // if passed as null it will remain null
+    size: 'sm',
+  };
+
+  state = {
     relativeOffset: {
       x: 0,
       y: 0,
@@ -67,18 +74,16 @@ export default class Controller extends React.Component<Props, State> {
   }
 
   handleKeyDown = (event: { keyCode: number }) => {
+    const { onDismiss } = this.props;
     if (event.keyCode === ESCAPE_KEY_CODE) {
-      this.props.onDismiss();
+      onDismiss();
     }
   };
 
   handlePageClick = (event: Event) => {
-    if (
-      event.target instanceof Node &&
-      this.props.anchor &&
-      !this.props.anchor.contains(event.target)
-    ) {
-      this.props.onDismiss();
+    const { anchor, onDismiss } = this.props;
+    if (event.target instanceof Node && !anchor.contains(event.target)) {
+      onDismiss();
     }
   };
 
@@ -109,29 +114,30 @@ export default class Controller extends React.Component<Props, State> {
 
   render() {
     const {
-      anchor,
       bgColor,
+      caret,
       children,
       idealDirection,
       positionRelativeToAnchor,
       shouldFocus,
+      size,
     } = this.props;
-    if (!anchor) {
-      return null;
-    }
-    const size = this.props.size ? this.props.size : 'sm';
+    const { relativeOffset, triggerBoundingRect } = this.state;
+
     const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
+
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
           bgColor={bgColor}
+          caret={caret}
           idealDirection={idealDirection}
           onKeyDown={this.handleKeyDown}
           onResize={this.handleResize}
           positionRelativeToAnchor={positionRelativeToAnchor}
-          relativeOffset={this.state.relativeOffset}
+          relativeOffset={relativeOffset}
           shouldFocus={shouldFocus}
-          triggerRect={this.state.triggerBoundingRect}
+          triggerRect={triggerBoundingRect}
           width={width}
         >
           {children}

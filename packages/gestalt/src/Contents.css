@@ -12,9 +12,12 @@
   outline: none;
 }
 
-.dimensions {
+.maxDimensions {
   max-height: 90vh;
   max-width: 90vw;
+}
+
+.minDimensions {
   min-height: 40px;
 }
 
