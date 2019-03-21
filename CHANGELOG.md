@@ -11,6 +11,7 @@
 - Icon: add some new text related icons (#496)
 - Modal: add a new sizing option to Modal to match Flyout (#499)
 - Modal: add the ability to set a custom header beyond text (#500)
+- Touchable: add a new `capture` prop to allow for onTouch to be invoked on capture phase (#502)
 
 ### Patch
 
