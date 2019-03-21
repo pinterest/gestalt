@@ -7,10 +7,7 @@ test('Tooltip renders', () => {
   const component = create(
     <Tooltip text="This is a tooltip">
       <div>Hi</div>
-    </Tooltip>,
-    {
-      createNodeMock: () => true,
-    }
+    </Tooltip>
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
