@@ -19,12 +19,6 @@ card(
   <PropTable
     props={[
       {
-        name: 'capture',
-        type: 'boolean',
-        description:
-          'Set this flag to true to invoke the onTouch handler during the capture instead of bubble phase',
-      },
-      {
         name: 'children',
         type: 'React.Node',
       },
