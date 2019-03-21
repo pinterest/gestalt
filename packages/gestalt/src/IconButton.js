@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
-import Tooltip from './Tooltip.js';
-import Box from './Box.js';
 
 type Props = {|
   accessibilityExpanded?: boolean,
@@ -19,10 +17,8 @@ type Props = {|
     | 'white',
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
-  id?: string,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  title?: string,
 |};
 
 type State = {|
@@ -45,10 +41,8 @@ export default class IconButton extends React.Component<Props, State> {
     ]),
     icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
-    id: PropTypes.string,
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-    title: PropTypes.string,
   };
 
   state = {
@@ -56,8 +50,6 @@ export default class IconButton extends React.Component<Props, State> {
     focused: false,
     hovered: false,
   };
-
-  buttonRef = React.createRef();
 
   handleBlur = () => this.setState({ focused: false });
 
@@ -79,47 +71,37 @@ export default class IconButton extends React.Component<Props, State> {
       bgColor,
       iconColor,
       icon,
-      id,
       size,
       onClick,
-      title,
     } = this.props;
 
     const { active, focused, hovered } = this.state;
 
     return (
-      <Box>
-        <button
-          aria-expanded={accessibilityExpanded}
-          aria-haspopup={accessibilityHaspopup}
-          aria-label={accessibilityLabel}
-          aria-labelledby={id}
-          className={styles.button}
-          onBlur={this.handleBlur}
-          onClick={event => onClick && onClick({ event })}
-          onFocus={this.handleFocus}
-          onMouseDown={this.handleMouseDown}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          onMouseUp={this.handleMouseUp}
-          ref={this.buttonRef}
-          type="button"
-        >
-          <Pog
-            active={active}
-            bgColor={bgColor}
-            focused={focused}
-            hovered={hovered}
-            iconColor={iconColor}
-            icon={icon}
-            size={size}
-          />
-        </button>
-        {(hovered || focused) &&
-          !!title && (
-            <Tooltip anchor={this.buttonRef.current} id={id} text={title} />
-          )}
-      </Box>
+      <button
+        aria-expanded={accessibilityExpanded}
+        aria-haspopup={accessibilityHaspopup}
+        aria-label={accessibilityLabel}
+        className={styles.button}
+        onBlur={this.handleBlur}
+        onClick={event => onClick && onClick({ event })}
+        onFocus={this.handleFocus}
+        onMouseDown={this.handleMouseDown}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onMouseUp={this.handleMouseUp}
+        type="button"
+      >
+        <Pog
+          active={active}
+          bgColor={bgColor}
+          focused={focused}
+          hovered={hovered}
+          iconColor={iconColor}
+          icon={icon}
+          size={size}
+        />
+      </button>
     );
   }
 }

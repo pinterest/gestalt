@@ -7,13 +7,7 @@ import Box from './Box.js';
 
 const noop = () => {};
 
-type Props = {|
-  anchor: ?HTMLElement,
-  id?: string,
-  text: string,
-|};
-
-export default function Tooltip({ anchor, id, text }: Props) {
+function Popout({ anchor, text }: {| anchor: ?HTMLElement, text: string |}) {
   if (!anchor) {
     return null;
   }
@@ -28,11 +22,60 @@ export default function Tooltip({ anchor, id, text }: Props) {
       positionRelativeToAnchor
       size={null}
     >
-      <Box maxWidth={180} paddingY={1} paddingX={2} id={id}>
+      <Box maxWidth={180} paddingY={1} paddingX={2} role="tooltip">
         <Text color="white" size="xs">
           {text}
         </Text>
       </Box>
     </Controller>
   );
+}
+
+type Props = {|
+  children: React.Node,
+  text: string,
+|};
+
+type State = {|
+  focused: boolean,
+  hovered: boolean,
+|};
+
+export default class Tooltip extends React.Component<Props, State> {
+  state = {
+    focused: false,
+    hovered: false,
+  };
+
+  childRef = React.createRef();
+
+  handleBlur = () => this.setState({ focused: false });
+
+  handleFocus = () => this.setState({ focused: true });
+
+  handleMouseEnter = () => this.setState({ hovered: true });
+
+  handleMouseLeave = () => this.setState({ hovered: false });
+
+  render() {
+    const { children, text } = this.props;
+    const { focused, hovered } = this.state;
+
+    return (
+      <Box display="inlineBlock">
+        <Box
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+          ref={this.childRef}
+        >
+          {children}
+        </Box>
+        {(hovered || focused) && (
+          <Popout anchor={this.childRef.current} text={text} />
+        )}
+      </Box>
+    );
+  }
 }
