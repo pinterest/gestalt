@@ -25,6 +25,7 @@ type MouseCursor =
   | 'zoomOut';
 
 type Props = {|
+  capture?: boolean,
   children?: React.Node,
   fullHeight?: boolean,
   fullWidth?: boolean,
@@ -56,15 +57,34 @@ export default class Touchable extends React.Component<Props> {
     }
   };
 
+  handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    const { onMouseEnter } = this.props;
+    if (onMouseEnter) {
+      onMouseEnter({ event });
+    }
+  };
+
+  handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    const { onMouseLeave } = this.props;
+    if (onMouseLeave) {
+      onMouseLeave({ event });
+    }
+  };
+
+  handleClick = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    const { onTouch } = this.props;
+    if (onTouch) {
+      onTouch({ event });
+    }
+  };
+
   render() {
     const {
+      capture,
       children,
       fullWidth = true,
       fullHeight,
       mouseCursor = 'pointer',
-      onMouseEnter,
-      onMouseLeave,
-      onTouch,
       shape = 'square',
     } = this.props;
 
@@ -78,15 +98,19 @@ export default class Touchable extends React.Component<Props> {
       }
     );
 
+    const clickHandler = {
+      [capture ? 'onClickCapture' : 'onClick']: this.handleClick,
+    };
+
     return (
       <div
         className={classes}
-        onClick={event => onTouch && onTouch({ event })}
-        onMouseEnter={event => onMouseEnter && onMouseEnter({ event })}
-        onMouseLeave={event => onMouseLeave && onMouseLeave({ event })}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
         onKeyPress={this.handleKeyPress}
         role="button"
         tabIndex="0"
+        {...clickHandler}
       >
         {children}
       </div>
@@ -95,6 +119,7 @@ export default class Touchable extends React.Component<Props> {
 }
 
 Touchable.propTypes = {
+  capture: PropTypes.bool,
   children: PropTypes.node,
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
