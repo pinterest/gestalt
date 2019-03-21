@@ -10,9 +10,6 @@ exports[`Icon has correct aria-hidden property applied when accessibilityLabel i
   viewBox="0 0 24 24"
   width={16}
 >
-  <title>
-    
-  </title>
   <path
     d="test-file-stub"
   />
@@ -29,9 +26,6 @@ exports[`Icon renders 1`] = `
   viewBox="0 0 24 24"
   width={16}
 >
-  <title>
-    Add
-  </title>
   <path
     d="test-file-stub"
   />
@@ -48,9 +42,6 @@ exports[`Icon uses the dangerouslySetSvgPath prop when icon path is not specifie
   viewBox="0 0 24 24"
   width={16}
 >
-  <title>
-    Line
-  </title>
   <path
     d="M13.00,20.00"
   />

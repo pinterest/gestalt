@@ -34,9 +34,6 @@ exports[`IconButton renders 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          
-        </title>
         <path
           d="test-file-stub"
         />
