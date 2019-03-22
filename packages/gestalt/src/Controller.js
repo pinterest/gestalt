@@ -13,7 +13,7 @@ type Props = {|
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
   shouldFocus?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
 |};
 
 const SIZE_WIDTH_MAP = {
