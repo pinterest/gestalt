@@ -7,30 +7,6 @@ import Box from './Box.js';
 
 const noop = () => {};
 
-function Popout({ anchor, text }: {| anchor: ?HTMLElement, text: string |}) {
-  if (!anchor) {
-    return null;
-  }
-
-  return (
-    <Controller
-      anchor={anchor}
-      bgColor="darkGray"
-      caret={false}
-      idealDirection="down"
-      onDismiss={noop}
-      positionRelativeToAnchor
-      size={null}
-    >
-      <Box maxWidth={180} paddingY={1} paddingX={2} role="tooltip">
-        <Text color="white" size="xs">
-          {text}
-        </Text>
-      </Box>
-    </Controller>
-  );
-}
-
 type Props = {|
   children: React.Node,
   text: string,
@@ -60,6 +36,7 @@ export default class Tooltip extends React.Component<Props, State> {
   render() {
     const { children, text } = this.props;
     const { focused, hovered } = this.state;
+    const { current: anchor } = this.childRef;
 
     return (
       <Box display="inlineBlock">
@@ -72,9 +49,24 @@ export default class Tooltip extends React.Component<Props, State> {
         >
           {children}
         </Box>
-        {(hovered || focused) && (
-          <Popout anchor={this.childRef.current} text={text} />
-        )}
+        {(hovered || focused) &&
+          !!anchor && (
+            <Controller
+              anchor={anchor}
+              bgColor="darkGray"
+              caret={false}
+              idealDirection="down"
+              onDismiss={noop}
+              positionRelativeToAnchor
+              size={null}
+            >
+              <Box maxWidth={180} paddingY={1} paddingX={2} role="tooltip">
+                <Text color="white" size="xs">
+                  {text}
+                </Text>
+              </Box>
+            </Controller>
+          )}
       </Box>
     );
   }

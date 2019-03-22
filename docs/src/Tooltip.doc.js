@@ -11,7 +11,8 @@ card(
   <PageHeader
     name="Tooltip"
     description="The Tooltip component allows you to wrap a child with a help tooltip when focused
-    or hovered."
+    or hovered. Tooltips are about way finding, not feature adoption, education, or promotion. They
+    should only include short descriptive text and are co-located with the element they describe."
   />
 );
 
@@ -29,7 +30,7 @@ card(
         type: 'string',
         required: true,
         description:
-          'String that is shown as addition information in a tooltip bubble to describe the child. This supersedes the accessibilityLabel and clients such as VoiceOver will use this to describe the element. Always localize the label.',
+          'String that is shown as addition information in a tooltip bubble to describe the child. Always localize the text.',
       },
     ]}
   />
@@ -39,9 +40,11 @@ card(
   <Example
     name="Icon Button Tooltips"
     description={`
-      If more information is needed to describe an IconButton, you can wrap it in a Tooltip and
-      in order to reveal more help text on hover or focus. This text will supersede
-      any accessibility label and be available to screenreaders.
+      If more information is needed to describe an IconButton, you can wrap it in a Tooltip
+      in order to reveal more help text on hover or focus.
+
+      Screenreaders will pick up on the accessibilityLabel supplied to the child, in this case
+      IconButton, while the Tooltip just provides a more visible on screen description.
 
       Be sure to internationalize your \`text\`.
   `}
@@ -76,13 +79,14 @@ card(
 
 card(
   <Example
-    name="Text Tooltips"
-    description="A tooltip can be used to help describe confusing text such as an acronym"
+    name="Button Tooltips"
     defaultCode={`
-<Tooltip text="Words per minute">
-  <Heading>
-    150 WPM
-  </Heading>
+<Tooltip text="Add friend">
+  <Button
+    accessibilityLabel="Add Peter as a friend"
+    color="red"
+    text="Add"
+  />
 </Tooltip>
 `}
   />
