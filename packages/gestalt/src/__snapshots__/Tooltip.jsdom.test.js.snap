@@ -2,7 +2,7 @@
 
 exports[`Tooltip renders 1`] = `
 <div
-  className="box xsDisplayInlineBlock"
+  className="box xsDisplayBlock"
 >
   <div
     className="box"

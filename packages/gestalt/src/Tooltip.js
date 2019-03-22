@@ -9,6 +9,7 @@ const noop = () => {};
 
 type Props = {|
   children: React.Node,
+  inline?: boolean,
   text: string,
 |};
 
@@ -34,12 +35,12 @@ export default class Tooltip extends React.Component<Props, State> {
   handleMouseLeave = () => this.setState({ hovered: false });
 
   render() {
-    const { children, text } = this.props;
+    const { children, inline, text } = this.props;
     const { focused, hovered } = this.state;
     const { current: anchor } = this.childRef;
 
     return (
-      <Box display="inlineBlock">
+      <Box display={inline ? 'inlineBlock' : 'block'}>
         <Box
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
