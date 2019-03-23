@@ -12,6 +12,7 @@
 - Modal: add a new sizing option to Modal to match Flyout (#499)
 - Modal: add the ability to set a custom header beyond text (#500)
 - Touchable: cleanup event handlers (#502)
+- TextArea/TextField/SelectList: cleanup components and remove gDSFP (#503)
 
 ### Patch
 
