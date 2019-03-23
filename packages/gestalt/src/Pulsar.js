@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Pulsar.css';
 
-type Props = {
+type Props = {|
   paused?: boolean,
   size?: number,
-};
+|};
 
-export default function Pulsar(props: Props) {
-  const { paused, size = 135 } = props;
-
+export default function Pulsar({ paused, size = 135 }: Props) {
   return (
     <Box
       dangerouslySetInlineStyle={{

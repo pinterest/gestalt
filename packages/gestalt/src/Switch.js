@@ -30,22 +30,18 @@ export default class Switch extends React.Component<Props, State> {
     switched: false,
   };
 
-  state: State = {
+  state = {
     focused: false,
   };
 
   handleBlur = () => this.setState({ focused: false });
 
-  handleChange = (event: SyntheticInputEvent<>) => {
-    const { checked } = event.target;
-    this.props.onChange({
-      event,
-      value: checked,
-    });
-  };
+  handleFocus = () => this.setState({ focused: true });
 
-  handleFocus = () => {
-    this.setState({ focused: true });
+  handleChange = (event: SyntheticInputEvent<>) => {
+    const { onChange } = this.props;
+    const { checked } = event.target;
+    onChange({ event, value: checked });
   };
 
   render() {

@@ -40,23 +40,22 @@ export default class SearchField extends React.Component<Props, State> {
     value: PropTypes.string,
   };
 
-  state: State = {
+  state = {
     focused: false,
     hovered: false,
   };
 
   handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
-    this.props.onChange({
+    const { onChange } = this.props;
+    onChange({
       value: event.currentTarget.value,
       syntheticEvent: event,
     });
   };
 
   handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
-    this.props.onChange({
-      value: '',
-      syntheticEvent: event,
-    });
+    const { onChange } = this.props;
+    onChange({ value: '', syntheticEvent: event });
   };
 
   handleMouseEnter = () => this.setState({ hovered: true });
@@ -64,10 +63,11 @@ export default class SearchField extends React.Component<Props, State> {
   handleMouseLeave = () => this.setState({ hovered: false });
 
   handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { onFocus } = this.props;
     this.setState({ focused: true });
 
-    if (this.props.onFocus) {
-      this.props.onFocus({
+    if (onFocus) {
+      onFocus({
         value: event.currentTarget.value,
         syntheticEvent: event,
       });
@@ -75,10 +75,11 @@ export default class SearchField extends React.Component<Props, State> {
   };
 
   handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { onBlur } = this.props;
     this.setState({ focused: false });
 
-    if (this.props.onBlur) {
-      this.props.onBlur({ event });
+    if (onBlur) {
+      onBlur({ event });
     }
   };
 
@@ -91,10 +92,11 @@ export default class SearchField extends React.Component<Props, State> {
       value,
     } = this.props;
 
+    const { focused, hovered } = this.state;
+
     // This mirrors the built in browser behavior. If there's a value, show the
     // clear button if you're hovering or if you've focused on the field
-    const showClear =
-      (this.state.focused || this.state.hovered) && value && value.length > 0;
+    const showClear = (focused || hovered) && value && value.length > 0;
 
     return (
       <Box

@@ -7,11 +7,6 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import styles from './SelectList.css';
 
-type State = {
-  errorMessage?: string,
-  focused: boolean,
-};
-
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
@@ -24,6 +19,10 @@ type Props = {|
   }>,
   placeholder?: string,
   value?: ?string,
+|};
+
+type State = {|
+  focused: boolean,
 |};
 
 export default class SelectList extends React.Component<Props, State> {
@@ -52,22 +51,17 @@ export default class SelectList extends React.Component<Props, State> {
     focused: false,
   };
 
-  static getDerivedStateFromProps(props: Props, state: State) {
-    if (props.errorMessage !== state.errorMessage) {
-      return {
-        errorMessage: props.errorMessage,
-      };
-    }
-
-    return null;
-  }
+  setSelectListRef = (ref: ?HTMLSelectElement) => {
+    this.select = ref;
+  };
 
   handleOnChange = (event: SyntheticInputEvent<>) => {
+    const { onChange, value } = this.props;
     if (
       event.target instanceof HTMLSelectElement &&
-      this.props.value !== event.target.value
+      value !== event.target.value
     ) {
-      this.props.onChange({ event, value: event.target.value });
+      onChange({ event, value: event.target.value });
     }
   };
 
@@ -83,6 +77,8 @@ export default class SelectList extends React.Component<Props, State> {
       placeholder,
       value,
     } = this.props;
+
+    const { focused } = this.state;
 
     const classes = classnames(
       styles.select,
@@ -118,9 +114,7 @@ export default class SelectList extends React.Component<Props, State> {
             />
           </Box>
           <select
-            aria-describedby={
-              errorMessage && this.state.focused ? `${id}-error` : null
-            }
+            aria-describedby={errorMessage && focused ? `${id}-error` : null}
             aria-invalid={errorMessage ? 'true' : 'false'}
             className={classes}
             disabled={disabled}
@@ -128,9 +122,7 @@ export default class SelectList extends React.Component<Props, State> {
             name={name}
             onBlur={this.handleOnChange}
             onChange={this.handleOnChange}
-            ref={c => {
-              this.select = c;
-            }}
+            ref={this.setSelectListRef}
             value={value}
           >
             {placeholder &&
