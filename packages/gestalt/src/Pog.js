@@ -28,7 +28,6 @@ type Props = {|
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
-  title?: string,
 |};
 
 const defaultIconButtonIconColors = {
@@ -48,7 +47,6 @@ export default function Pog(props: Props) {
     iconColor = defaultIconButtonIconColors[bgColor],
     icon,
     size = 'md',
-    title = '',
   } = props;
 
   const iconSize = SIZE_NAME_TO_PIXEL[size] / 2;
@@ -78,7 +76,6 @@ export default function Pog(props: Props) {
           color={iconColor}
           icon={icon}
           size={iconSize}
-          title={title}
         />
       </Box>
     </div>
