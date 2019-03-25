@@ -90,9 +90,6 @@ exports[`Video with children 1`] = `
           viewBox="0 0 24 24"
           width={20}
         >
-          <title>
-            Play
-          </title>
           <path
             d="test-file-stub"
           />
@@ -213,9 +210,6 @@ exports[`Video with children 1`] = `
           viewBox="0 0 24 24"
           width={20}
         >
-          <title>
-            Mute
-          </title>
           <path
             d="test-file-stub"
           />

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controller renders 1`] = `
+<div
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": null,
+      "top": -12,
+      "visibility": "visible",
+    }
+  }
+>
+  <div
+    className="darkGrayBg darkGray contents maxDimensions minDimensions"
+    tabIndex={-1}
+  >
+    <div
+      className="innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "width": 230,
+        }
+      }
+    />
+    <div
+      className="darkGray caret"
+      style={
+        Object {
+          "bottom": null,
+          "left": 8,
+          "right": null,
+          "top": null,
+        }
+      }
+    >
+      <svg
+        height="24"
+        width="24"
+      >
+        <path
+          d="M0 0 L12 12 L24 0"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

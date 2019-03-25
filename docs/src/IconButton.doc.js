@@ -38,7 +38,7 @@ card(
         type: 'string',
         required: true,
         description:
-          'String that clients such as VoiceOver will read to describe the element. Will also be used for hover text (title). Always localize the label.',
+          'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
         href: 'accessibility',
       },
       {
