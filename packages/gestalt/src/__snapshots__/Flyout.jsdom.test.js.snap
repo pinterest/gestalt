@@ -15,11 +15,11 @@ exports[`Flyout renders 1`] = `
   }
 >
   <div
-    className="whiteBg lightGray dimensions contents"
+    className="whiteBg lightGray contents maxDimensions minDimensions"
     tabIndex={-1}
   >
     <div
-      className="dimensions innerContents"
+      className="innerContents maxDimensions minDimensions"
       style={
         Object {
           "width": 230,
@@ -63,11 +63,11 @@ exports[`Flyout renders as blue 1`] = `
   }
 >
   <div
-    className="blueBg blue dimensions contents"
+    className="blueBg blue contents maxDimensions minDimensions"
     tabIndex={-1}
   >
     <div
-      className="dimensions innerContents"
+      className="innerContents maxDimensions minDimensions"
       style={
         Object {
           "width": 230,
@@ -111,11 +111,11 @@ exports[`Flyout renders as error 1`] = `
   }
 >
   <div
-    className="orangeBg orange dimensions contents"
+    className="orangeBg orange contents maxDimensions minDimensions"
     tabIndex={-1}
   >
     <div
-      className="dimensions innerContents"
+      className="innerContents maxDimensions minDimensions"
       style={
         Object {
           "width": 230,

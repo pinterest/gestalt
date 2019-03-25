@@ -22,9 +22,6 @@ exports[`Pog active renders 1`] = `
       viewBox="0 0 24 24"
       width={20}
     >
-      <title>
-        
-      </title>
       <path
         d="test-file-stub"
       />
@@ -55,9 +52,6 @@ exports[`Pog focused renders 1`] = `
       viewBox="0 0 24 24"
       width={20}
     >
-      <title>
-        
-      </title>
       <path
         d="test-file-stub"
       />
@@ -88,9 +82,6 @@ exports[`Pog hovered renders 1`] = `
       viewBox="0 0 24 24"
       width={20}
     >
-      <title>
-        
-      </title>
       <path
         d="test-file-stub"
       />
@@ -121,9 +112,6 @@ exports[`Pog renders 1`] = `
       viewBox="0 0 24 24"
       width={20}
     >
-      <title>
-        
-      </title>
       <path
         d="test-file-stub"
       />

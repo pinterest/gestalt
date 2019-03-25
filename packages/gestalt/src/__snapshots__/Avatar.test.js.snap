@@ -171,9 +171,6 @@ exports[`Avatar renders the Pinterest P on verified 1`] = `
         viewBox="0 0 24 24"
         width="100%"
       >
-        <title>
-          
-        </title>
         <path
           d="test-file-stub"
         />
@@ -255,9 +252,6 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
         viewBox="0 0 24 24"
         width="100%"
       >
-        <title>
-          
-        </title>
         <path
           d="test-file-stub"
         />
@@ -517,9 +511,6 @@ exports[`Avatar renders the verified icon 1`] = `
         viewBox="0 0 24 24"
         width="100%"
       >
-        <title>
-          
-        </title>
         <path
           d="test-file-stub"
         />

@@ -11,7 +11,6 @@ exports[`IconButton renders 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  title="Pinterest"
   type="button"
 >
   <div
@@ -35,9 +34,6 @@ exports[`IconButton renders 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Pinterest
-        </title>
         <path
           d="test-file-stub"
         />

@@ -3,7 +3,6 @@
 }
 
 .contents {
-  composes: absolute from "./Layout.css";
   composes: block from "./Layout.css";
   composes: borderBox from "./Layout.css";
   composes: rounded from "./Borders.css";
@@ -12,9 +11,12 @@
   outline: none;
 }
 
-.dimensions {
+.maxDimensions {
   max-height: 90vh;
   max-width: 90vw;
+}
+
+.minDimensions {
   min-height: 40px;
 }
 

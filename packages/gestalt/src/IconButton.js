@@ -45,7 +45,7 @@ export default class IconButton extends React.Component<Props, State> {
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   };
 
-  state: State = {
+  state = {
     active: false,
     focused: false,
     hovered: false,
@@ -53,28 +53,15 @@ export default class IconButton extends React.Component<Props, State> {
 
   handleBlur = () => this.setState({ focused: false });
 
-  handleFocus = () => {
-    this.setState({ focused: true });
-  };
+  handleFocus = () => this.setState({ focused: true });
 
-  handleMouseDown = () => {
-    this.setState({ active: true });
-  };
+  handleMouseDown = () => this.setState({ active: true });
 
-  handleMouseEnter = () => {
-    this.setState({ hovered: true });
-  };
+  handleMouseEnter = () => this.setState({ hovered: true });
 
-  handleMouseLeave = () => {
-    this.setState({
-      active: false,
-      hovered: false,
-    });
-  };
+  handleMouseLeave = () => this.setState({ active: false, hovered: false });
 
-  handleMouseUp = () => {
-    this.setState({ active: false });
-  };
+  handleMouseUp = () => this.setState({ active: false });
 
   render() {
     const {
@@ -103,7 +90,6 @@ export default class IconButton extends React.Component<Props, State> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onMouseUp={this.handleMouseUp}
-        title={accessibilityLabel}
         type="button"
       >
         <Pog
@@ -114,7 +100,6 @@ export default class IconButton extends React.Component<Props, State> {
           iconColor={iconColor}
           icon={icon}
           size={size}
-          title={accessibilityLabel}
         />
       </button>
     );

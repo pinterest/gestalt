@@ -52,8 +52,10 @@ type Shift = { x: number, y: number };
 
 type EdgeShift = { caret: Shift, flyout: Shift };
 
+/* eslint-disable react/no-unused-prop-types */
 type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
+  caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onKeyDown: (event: { keyCode: number }) => void,
@@ -65,10 +67,11 @@ type Props = {|
   },
   shouldFocus?: boolean,
   triggerRect: ClientRect,
-  width: number,
+  width: ?number,
 |};
+/* eslint-enable react/no-unused-prop-types */
 
-type State = {
+type State = {|
   flyoutOffset: {
     top: ?number,
     left: ?number,
@@ -80,7 +83,7 @@ type State = {
     left: ?number,
   },
   mainDir: ?MainDir,
-};
+|};
 
 /**
  * Determines the main direction the flyout opens
@@ -324,7 +327,35 @@ export function baseOffsets(
 }
 
 export default class Contents extends React.Component<Props, State> {
-  state: State = {
+  static propTypes = {
+    bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'white']),
+    caret: PropTypes.bool,
+    children: PropTypes.node,
+    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+    onKeyDown: PropTypes.func.isRequired,
+    onResize: PropTypes.func.isRequired,
+    relativeOffset: PropTypes.exact({
+      x: PropTypes.number,
+      y: PropTypes.number,
+    }),
+    positionRelativeToAnchor: PropTypes.bool,
+    shouldFocus: PropTypes.bool,
+    triggerRect: PropTypes.exact({
+      bottom: PropTypes.number,
+      height: PropTypes.number,
+      left: PropTypes.number,
+      right: PropTypes.number,
+      top: PropTypes.number,
+      width: PropTypes.number,
+    }),
+    width: PropTypes.number,
+  };
+
+  static defaultProps = {
+    caret: true,
+  };
+
+  state = {
     flyoutOffset: {
       top: undefined,
       right: undefined,
@@ -340,11 +371,13 @@ export default class Contents extends React.Component<Props, State> {
     mainDir: null,
   };
 
+  flyout = React.createRef();
+
   componentDidMount() {
     this.setFlyoutPosition(this.props);
     setTimeout(() => {
-      if (this.props.shouldFocus && this.flyout) {
-        this.flyout.focus();
+      if (this.props.shouldFocus && this.flyout.current) {
+        this.flyout.current.focus();
       }
     });
     window.addEventListener('resize', this.props.onResize);
@@ -366,9 +399,9 @@ export default class Contents extends React.Component<Props, State> {
    */
   setFlyoutPosition = (props: Props) => {
     const {
-      relativeOffset,
       idealDirection,
       positionRelativeToAnchor,
+      relativeOffset,
       triggerRect,
       width,
     } = props;
@@ -394,8 +427,9 @@ export default class Contents extends React.Component<Props, State> {
     };
 
     const flyoutSize = {
-      height: this.flyout ? this.flyout.clientHeight : 0,
-      width,
+      height: this.flyout.current ? this.flyout.current.clientHeight : 0,
+      width:
+        width || (this.flyout.current ? this.flyout.current.clientWidth : 0),
     };
 
     // First choose one of 4 main direction
@@ -438,13 +472,12 @@ export default class Contents extends React.Component<Props, State> {
     });
   };
 
-  flyout: ?HTMLElement;
-
   render() {
-    const { bgColor, children, width } = this.props;
+    const { bgColor, caret, children, width } = this.props;
+    const { caretOffset, flyoutOffset, mainDir } = this.state;
 
     // Needed to prevent UI thrashing
-    const visibility = this.state.mainDir === null ? 'hidden' : 'visible';
+    const visibility = mainDir === null ? 'hidden' : 'visible';
     const background = `${bgColor}Bg`;
     const stroke = bgColor === 'white' ? '#efefef' : null;
     const borderColor = bgColor === 'white' ? 'lightGray' : bgColor;
@@ -452,55 +485,39 @@ export default class Contents extends React.Component<Props, State> {
     return (
       <div
         className={styles.container}
-        style={{ stroke, visibility, ...this.state.flyoutOffset }}
+        style={{ stroke, visibility, ...flyoutOffset }}
       >
         <div
           className={classnames(
             colors[background],
             colors[borderColor],
-            styles.dimensions,
-            styles.contents
+            styles.contents,
+            styles.maxDimensions,
+            width !== null && styles.minDimensions
           )}
-          ref={c => {
-            this.flyout = c;
-          }}
+          ref={this.flyout}
           tabIndex={-1}
         >
           <div
-            className={classnames(styles.dimensions, styles.innerContents)}
+            className={classnames(
+              styles.innerContents,
+              styles.maxDimensions,
+              width !== null && styles.minDimensions
+            )}
             style={{ width }}
           >
             {children}
           </div>
-          <div
-            className={classnames(colors[bgColor], styles.caret)}
-            style={{ ...this.state.caretOffset }}
-          >
-            <Caret direction={this.state.mainDir} />
-          </div>
+          {caret && (
+            <div
+              className={classnames(colors[bgColor], styles.caret)}
+              style={{ ...caretOffset }}
+            >
+              <Caret direction={mainDir} />
+            </div>
+          )}
         </div>
       </div>
     );
   }
 }
-
-/* eslint react/no-unused-prop-types: 0 */
-Contents.propTypes = {
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'white']),
-  children: PropTypes.node,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onKeyDown: PropTypes.func.isRequired,
-  onResize: PropTypes.func.isRequired,
-  relativeOffset: PropTypes.exact({ x: PropTypes.number, y: PropTypes.number }),
-  positionRelativeToAnchor: PropTypes.bool,
-  shouldFocus: PropTypes.bool,
-  triggerRect: PropTypes.exact({
-    bottom: PropTypes.number,
-    height: PropTypes.number,
-    left: PropTypes.number,
-    right: PropTypes.number,
-    top: PropTypes.number,
-    width: PropTypes.number,
-  }),
-  width: PropTypes.number,
-};
