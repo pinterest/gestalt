@@ -43,22 +43,22 @@ export default class RadioButton extends React.Component<Props, State> {
   };
 
   handleChange = (event: SyntheticInputEvent<>) => {
+    const { onChange } = this.props;
     const { checked } = event.target;
-    this.props.onChange({ checked, event });
+    onChange({ checked, event });
   };
 
   handleBlur = () => this.setState({ focused: false });
 
-  handleFocus = () => {
-    this.setState({ focused: true });
-  };
+  handleFocus = () => this.setState({ focused: true });
 
   render() {
     const { checked, disabled, id, name, size, value } = this.props;
+    const { focused } = this.state;
     return (
       <div
         className={classnames(styles.RadioButton, {
-          [styles.RadioButtonIsFocused]: this.state.focused,
+          [styles.RadioButtonIsFocused]: focused,
           [styles.RadioButtonSm]: size === 'sm',
           [styles.RadioButtonMd]: size === 'md',
           [styles.RadioButtonWhiteBg]: !disabled || checked,

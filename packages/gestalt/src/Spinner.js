@@ -14,7 +14,7 @@ type Props = {|
 
 export default function Spinner({ accessibilityLabel, show }: Props) {
   return show ? (
-    <Box xs={{ display: 'flex' }} justifyContent="around" overflow="hidden">
+    <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={styles.icon}>
         <Icon
           icon="knoop"
