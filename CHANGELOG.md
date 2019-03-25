@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.94.0 (March 25, 2019)
+
+### Minor
+
 - Icon: add some new text related icons (#496)
 - Modal: add a new sizing option to Modal to match Flyout (#499)
 - Modal: add the ability to set a custom header beyond text (#500)
@@ -16,9 +24,6 @@
 - TextArea/TextField/SelectList: cleanup components and remove gDSFP (#503)
 - Upgrade React version to [16.8.5](https://github.com/facebook/react/releases/tag/v16.8.5) (#504)
 
-### Patch
-
-</details>
 
 ## 0.93.0 (March 13, 2019)
 
