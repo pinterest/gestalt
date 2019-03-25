@@ -14,6 +14,7 @@
 - Tooltip: introduce new Tooltip wrapper component (#501)
 - Touchable: cleanup event handlers (#502)
 - TextArea/TextField/SelectList: cleanup components and remove gDSFP (#503)
+- Upgrade React version to [16.8.5](https://github.com/facebook/react/releases/tag/v16.8.5) (#504)
 
 ### Patch
 
