@@ -10,9 +10,9 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Tooltip"
-    description="The Tooltip component allows you to wrap a child with a help tooltip when focused
-    or hovered. Tooltips are about way finding, not feature adoption, education, or promotion. They
-    should only include short descriptive text and are co-located with the element they describe."
+    description="The Tooltip component allows you to wrap a child with a help tooltip when hovered.
+    Tooltips are about way finding, not feature adoption, education, or promotion. They should
+    only include short descriptive text and are co-located with the element they describe."
   />
 );
 
@@ -23,7 +23,7 @@ card(
         name: 'children',
         type: 'React.Node',
         required: true,
-        description: 'The element to wrap with a tooltip on hover or focus.',
+        description: 'The element to wrap with a tooltip on hover.',
       },
       {
         name: 'inline',
@@ -98,7 +98,7 @@ card(
     name="Accessibility"
     description={`
       If more information is needed to describe an IconButton, you can wrap it in a Tooltip
-      in order to reveal more help text on hover or focus.
+      in order to reveal more help text on hover.
 
       Screenreaders will pick up on the accessibilityLabel supplied to the child, in this case
       IconButton, while the Tooltip just provides a more visible on screen description.
