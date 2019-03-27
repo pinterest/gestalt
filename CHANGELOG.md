@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tooltip: remove focus from revealing Tooltip (#506)
+
 ### Patch
 
 </details>
