@@ -14,21 +14,15 @@ type Props = {|
 |};
 
 type State = {|
-  focused: boolean,
   hovered: boolean,
 |};
 
 export default class Tooltip extends React.Component<Props, State> {
   state = {
-    focused: false,
     hovered: false,
   };
 
   childRef = React.createRef();
-
-  handleBlur = () => this.setState({ focused: false });
-
-  handleFocus = () => this.setState({ focused: true });
 
   handleMouseEnter = () => this.setState({ hovered: true });
 
@@ -36,21 +30,19 @@ export default class Tooltip extends React.Component<Props, State> {
 
   render() {
     const { children, inline, text } = this.props;
-    const { focused, hovered } = this.state;
+    const { hovered } = this.state;
     const { current: anchor } = this.childRef;
 
     return (
       <Box display={inline ? 'inlineBlock' : 'block'}>
         <Box
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
           ref={this.childRef}
         >
           {children}
         </Box>
-        {(hovered || focused) &&
+        {hovered &&
           !!anchor && (
             <Controller
               anchor={anchor}
