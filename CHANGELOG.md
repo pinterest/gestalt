@@ -9,6 +9,7 @@
 ### Minor
 
 - Tooltip: remove focus from revealing Tooltip (#506)
+- TextField: Add autocomplete prop value to TextField (#508)
 
 ### Patch
 
