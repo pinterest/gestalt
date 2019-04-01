@@ -8,7 +8,12 @@ import FormErrorMessage from './FormErrorMessage.js';
 import styles from './TextField.css';
 
 type Props = {|
-  autoComplete?: 'current-password' | 'on' | 'off' | 'username',
+  autoComplete?:
+    | 'current-password'
+    | 'new-password'
+    | 'on'
+    | 'off'
+    | 'username',
   disabled?: boolean,
   errorMessage?: string,
   hasError?: boolean,
@@ -43,6 +48,7 @@ export default class TextField extends React.Component<Props, State> {
   static propTypes = {
     autoComplete: PropTypes.oneOf([
       'current-password',
+      'new-password',
       'on',
       'off',
       'username',
