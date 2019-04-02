@@ -17,7 +17,7 @@ card(
     props={[
       {
         name: 'autoComplete',
-        type: `"current-password" | "on" | "off" | "username"`,
+        type: `"current-password" | "new-password" | "on" | "off" | "username"`,
       },
       {
         name: 'disabled',
