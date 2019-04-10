@@ -22,7 +22,7 @@ export default class Tooltip extends React.Component<Props, State> {
     hovered: false,
   };
 
-  childRef: {| current: null | HTMLDivElement |} = React.createRef();
+  childRef: {| current: null | React.ElementRef<'div'> |} = React.createRef();
 
   handleMouseEnter = () => this.setState({ hovered: true });
 
