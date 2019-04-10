@@ -8,12 +8,19 @@
 
 ### Minor
 
-- Tooltip: remove focus from revealing Tooltip (#506)
-- TextField: Add autocomplete prop value to TextField (#508)
-
 ### Patch
 
 </details>
+
+## 0.95.0 (April 10, 2019)
+
+### Minor
+
+- Tooltip: remove focus from revealing Tooltip (#506)
+- TextField: Add autocomplete prop value to TextField (#508)
+- Upgrade flow version to [0.69.0](https://github.com/facebook/flow/releases/tag/v0.69.0) (#509)
+
+### Patch
 
 ## 0.94.0 (March 25, 2019)
 
