@@ -129,7 +129,6 @@ function statesForRendering<T>(props: Props<T>, state: State<T>) {
   const { items } = state;
 
   // Full layout is possible
-  // $FlowIssue https://github.com/facebook/flow/issues/6151
   const itemsToRender = items.filter(
     item => item && measurementStore.has(item)
   );
@@ -266,6 +265,7 @@ export default class MasonryBeta<T> extends React.Component<
 
   static defaultProps = {
     columnWidth: 236,
+    // $FlowFixMe: new errors found from flow 0.96 upgrade
     measurementStore: new MeasurementStore(),
     minCols: 3,
     layout: DefaultLayoutSymbol,

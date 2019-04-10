@@ -760,6 +760,7 @@ const PaddingPropType = PropTypes.oneOf([
   12,
 ]);
 
+// $FlowIssue https://github.com/facebook/flow/issues/7484
 Box.propTypes = {
   children: PropTypes.node,
   dangerouslySetInlineStyle: PropTypes.exact({

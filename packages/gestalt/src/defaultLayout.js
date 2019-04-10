@@ -56,7 +56,6 @@ export default <T>({
 
   return items.reduce((acc, item) => {
     const positions = acc;
-    // $FlowFixMe
     const height = cache.get(item);
     let position;
 
