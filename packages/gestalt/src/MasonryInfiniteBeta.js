@@ -27,6 +27,7 @@ export default class MasonryInfiniteBeta<T> extends React.Component<
   State<T>
 > {
   static createMeasurementStore() {
+    // $FlowFixMe: new errors found from flow 0.96 upgrade
     return new MeasurementStore();
   }
 

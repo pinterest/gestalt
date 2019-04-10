@@ -371,7 +371,7 @@ export default class Contents extends React.Component<Props, State> {
     mainDir: null,
   };
 
-  flyout = React.createRef();
+  flyout: {| current: null | React.ElementRef<'div'> |} = React.createRef();
 
   componentDidMount() {
     this.setFlyoutPosition(this.props);

@@ -79,6 +79,7 @@ const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
  */
 export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   static createMeasurementStore() {
+    // $FlowFixMe: new errors found from flow 0.96 upgrade
     return new MeasurementStore();
   }
 
@@ -179,6 +180,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
   static defaultProps = {
     columnWidth: 236,
+    // $FlowFixMe: new errors found from flow 0.96 upgrade
     measurementStore: new MeasurementStore(),
     minCols: 3,
     layout: DefaultLayoutSymbol,
