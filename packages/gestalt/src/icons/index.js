@@ -1,17 +1,19 @@
 // @flow
+import ad from './ad.svg';
 import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addPin from './add-pin.svg';
+import adGroup from './ad-group.svg';
 import alert from './alert.svg';
+import alignBottom from './align-bottom.svg';
 import alignBottomCenter from './align-bottom-center.svg';
 import alignBottomLeft from './align-bottom-left.svg';
 import alignBottomRight from './align-bottom-right.svg';
-import alignBottom from './align-bottom.svg';
 import alignMiddle from './align-middle.svg';
+import alignTop from './align-top.svg';
 import alignTopCenter from './align-top-center.svg';
 import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
-import alignTop from './align-top.svg';
 import angledPin from './angled-pin.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
@@ -19,7 +21,9 @@ import arrowCircleDown from './arrow-circle-down.svg';
 import arrowCircleForward from './arrow-circle-forward.svg';
 import arrowCircleUp from './arrow-circle-up.svg';
 import arrowDown from './arrow-down.svg';
+import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
+import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
@@ -39,6 +43,7 @@ import compose from './compose.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
 import download from './download.svg';
+import duplicate from './duplicate.svg';
 import edit from './edit.svg';
 import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
@@ -48,9 +53,9 @@ import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
-import filter from './filter.svg';
 import fillOpaque from './fill-opaque.svg';
 import fillTransparent from './fill-transparent.svg';
+import filter from './filter.svg';
 import flag from './flag.svg';
 import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
@@ -61,19 +66,20 @@ import globeChecked from './globe-checked.svg';
 import gmail from './gmail.svg';
 import googlePlus from './google-plus.svg';
 import graphBar from './graph-bar.svg';
-import knoop from './knoop.svg';
-import lightbulb from './lightbulb.svg';
-import logout from './logout.svg';
-import logoLarge from './logo-large.svg';
-import logoSmall from './logo-small.svg';
 import handle from './handle.svg';
 import handPointing from './hand-pointing.svg';
 import heart from './heart.svg';
 import heartBroken from './heart-broken.svg';
 import impressum from './impressum.svg';
+import key from './key.svg';
+import knoop from './knoop.svg';
+import lightbulb from './lightbulb.svg';
 import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
+import logoLarge from './logo-large.svg';
+import logoSmall from './logo-small.svg';
+import logout from './logout.svg';
 import marginsLarge from './margins-large.svg';
 import marginsMedium from './margins-medium.svg';
 import marginsSmall from './margins-small.svg';
@@ -93,6 +99,7 @@ import pinHide from './pin-hide.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
 import questionMark from './question-mark.svg';
+import refresh from './refresh.svg';
 import remove from './remove.svg';
 import reorderImages from './reorder-images.svg';
 import report from './report.svg';
@@ -105,6 +112,8 @@ import shoppingBag from './shopping-bag.svg';
 import smiley from './smiley.svg';
 import smileyOutline from './smiley-outline.svg';
 import sound from './sound.svg';
+import sortAscending from './sort-ascending.svg';
+import sortDescending from './sort-descending.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import star from './star.svg';
@@ -131,6 +140,8 @@ import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 
 export default {
+  ad,
+  'ad-group': adGroup,
   add,
   'add-circle': addCircle,
   'add-pin': addPin,
@@ -151,7 +162,9 @@ export default {
   'arrow-circle-forward': arrowCircleForward,
   'arrow-circle-up': arrowCircleUp,
   'arrow-down': arrowDown,
+  'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
+  'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-right': arrowUpRight,
   bell,
@@ -171,6 +184,7 @@ export default {
   crop,
   dash,
   download,
+  duplicate,
   edit,
   ellipsis,
   'ellipsis-circle-outline': ellipsisCircleOutline,
@@ -198,6 +212,7 @@ export default {
   heart,
   'heart-broken': heartBroken,
   impressum,
+  key,
   knoop,
   lightbulb,
   link,
@@ -224,6 +239,7 @@ export default {
   'pin-hide': pinHide,
   pinterest,
   play,
+  refresh,
   'question-mark': questionMark,
   remove,
   'reorder-images': reorderImages,
@@ -237,6 +253,8 @@ export default {
   send,
   share,
   sound,
+  'sort-ascending': sortAscending,
+  'sort-descending': sortDescending,
   speech,
   'speech-ellipsis': speechEllipsis,
   star,
