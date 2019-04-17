@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: add calendar icon to gestalt (#512)
+
 ### Patch
 
 </details>
