@@ -75,6 +75,7 @@ import impressum from './impressum.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
+import lightningBoltCircle from './lightning-bolt-circle.svg';
 import link from './link.svg';
 import location from './location.svg';
 import lock from './lock.svg';
@@ -217,6 +218,7 @@ export default {
   key,
   knoop,
   lightbulb,
+  'lightning-bolt-circle': lightningBoltCircle,
   link,
   location,
   lock,
