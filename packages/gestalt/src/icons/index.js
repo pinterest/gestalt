@@ -27,6 +27,7 @@ import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpRight from './arrow-up-right.svg';
 import bell from './bell.svg';
+import calendar from './calendar.svg';
 import camera from './camera.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
@@ -168,6 +169,7 @@ export default {
   'arrow-up': arrowUp,
   'arrow-up-right': arrowUpRight,
   bell,
+  calendar,
   camera,
   'camera-roll': cameraRoll,
   cancel,
