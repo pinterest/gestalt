@@ -9,6 +9,7 @@
 ### Minor
 
 - Icon: add calendar icon to gestalt (#512)
+- Icon: add lightning bolt icon (#513)
 
 ### Patch
 
