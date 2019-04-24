@@ -10,6 +10,7 @@
 
 - Icon: add calendar icon to gestalt (#512)
 - Icon: add lightning bolt icon (#513)
+- Flow: upgrade version to [0.97.0](https://github.com/facebook/flow/releases/tag/v0.97.0) (#514)
 
 ### Patch
 
@@ -21,7 +22,7 @@
 
 - Tooltip: remove focus from revealing Tooltip (#506)
 - TextField: Add autocomplete prop value to TextField (#508)
-- Upgrade flow version to [0.69.0](https://github.com/facebook/flow/releases/tag/v0.69.0) (#509)
+- Upgrade flow version to [0.96.0](https://github.com/facebook/flow/releases/tag/v0.96.0) (#509)
 
 ### Patch
 
