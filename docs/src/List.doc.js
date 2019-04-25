@@ -50,10 +50,11 @@ class ListExample extends React.Component {
   }
   render() {
     return (
-      <Box>
-        <Box ref={this.buttonRef}>
+      <Box display="inlineBlock">
+        <Box ref={this.anchorRef}>
           <IconButton
             accessibilityLabel="More options"
+            bgColor="gray"
             icon="ellipsis"
             onClick={this.handleClick}
           />
@@ -113,10 +114,11 @@ class ListExample extends React.Component {
   }
   render() {
     return (
-      <Box>
-        <Box ref={this.buttonRef}>
+      <Box display="inlineBlock">
+        <Box ref={this.anchorRef}>
           <IconButton
             accessibilityLabel="Invite user"
+            bgColor="gray"
             icon="add"
             onClick={this.handleClick}
           />
@@ -134,11 +136,11 @@ class ListExample extends React.Component {
                   children: (
                     <Box alignItems="center" display="flex" marginStart={-1} marginEnd={-1}>
                       <Box paddingX={1}>
-                        <Avatar name="chrislloyd" size="md" />
+                        <Avatar name="peterfarejowicz" size="md" />
                       </Box>
                       <Box paddingX={1}>
-                        <Text bold>Chris Lloyd</Text>
-                        <Text>joined 3 years ago</Text>
+                        <Text bold>Peter Farejowicz</Text>
+                        <Text>joined 2 years ago</Text>
                       </Box>
                     </Box>
                   ),
@@ -148,11 +150,11 @@ class ListExample extends React.Component {
                   children: (
                     <Box alignItems="center" display="flex" marginStart={-1} marginEnd={-1}>
                       <Box paddingX={1}>
-                        <Avatar name="peterfarejowicz" size="md" />
+                        <Avatar name="chrislloyd" size="md" />
                       </Box>
                       <Box paddingX={1}>
-                        <Text bold>Peter Farejowicz</Text>
-                        <Text>joined 2 years ago</Text>
+                        <Text bold>Chris Lloyd</Text>
+                        <Text>joined 3 years ago</Text>
                       </Box>
                     </Box>
                   ),
