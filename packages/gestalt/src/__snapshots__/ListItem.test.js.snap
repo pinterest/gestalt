@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem renders 1`] = `
+<div
+  className="box paddingX1 paddingY1 whiteBg"
+  role="listitem"
+>
+  <div
+    className="touchable pointer square fullWidth"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <div
+      className="box paddingX3 paddingY1 xsCol12"
+    >
+      <div
+        className="Text fontSize3 darkGray alignLeft breakWord fontStyleNormal fontWeightBold"
+      >
+        Item
+      </div>
+    </div>
+  </div>
+</div>
+`;
