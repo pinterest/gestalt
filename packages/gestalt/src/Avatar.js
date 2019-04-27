@@ -52,7 +52,7 @@ const DefaultAvatar = ({ name }: { name: string }) => {
   );
 };
 
-type State = {| isImageLoaded: boolean |};
+type State = {| isImageLoaded: boolean, localSrc: string |};
 
 type AvatarProps = {|
   name: string,
@@ -80,7 +80,17 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
 
   state = {
     isImageLoaded: true,
+    localSrc: '',
   };
+
+  static getDerivedStateFromProps = (props: AvatarProps, state: State) => {
+    if (props.src !== state.localSrc) {
+      return { localSrc: props.src, isImageLoaded: true };
+    }
+    return null;
+  };
+
+  componentDidMount = () => this.setState({ localSrc: this.props.src });
 
   handleImageError = () => this.setState({ isImageLoaded: false });
 
@@ -93,7 +103,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
       verified,
       icon = 'check-circle',
     } = this.props;
-    const { isImageLoaded } = this.state;
+    const { isImageLoaded, localSrc } = this.state;
     const width = size ? sizes[size] : '100%';
     const height = size ? sizes[size] : '';
 
@@ -121,7 +131,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
               color="#EFEFEF"
               naturalHeight={1}
               naturalWidth={1}
-              src={src}
+              src={localSrc}
               onError={this.handleImageError}
             />
           </Mask>
