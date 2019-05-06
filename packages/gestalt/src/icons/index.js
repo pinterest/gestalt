@@ -32,6 +32,7 @@ import camera from './camera.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
 import canonicalPin from './canonical-pin.svg';
+import chart from './chart.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import circleOutline from './circle-outline.svg';
@@ -176,6 +177,7 @@ export default {
   cancel,
   'canonical-pin': canonicalPin,
   'color-picker': colorPicker,
+  chart,
   check,
   'check-circle': checkCircle,
   'circle-outline': circleOutline,

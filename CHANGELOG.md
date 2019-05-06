@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- Icon: add chart icon, update graph-bar icon (#520)
 
 ### Patch
 
