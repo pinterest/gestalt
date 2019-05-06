@@ -8,13 +8,17 @@
 
 ### Minor
 
-- Icon: add calendar icon to gestalt (#512)
-- Icon: add lightning bolt icon (#513)
-- Flow: upgrade version to [0.97.0](https://github.com/facebook/flow/releases/tag/v0.97.0) (#515)
-
 ### Patch
 
 </details>
+
+## 0.96.0 (May 6, 2019)
+
+## Minor
+
+- Icon: add calendar icon to gestalt (#512)
+- Icon: add lightning bolt icon (#513)
+- Flow: upgrade version to [0.97.0](https://github.com/facebook/flow/releases/tag/v0.97.0) (#515)
 
 ## 0.95.0 (April 10, 2019)
 
