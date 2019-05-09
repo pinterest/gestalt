@@ -101,10 +101,10 @@ export default class IconButton extends React.Component<Props, State> {
         type="button"
       >
         <Pog
-          active={active}
+          active={disabled ? false : active}
           bgColor={bgColor}
-          focused={focused}
-          hovered={hovered}
+          focused={disabled ? false : focused}
+          hovered={disabled ? false : hovered}
           iconColor={iconColor}
           icon={icon}
           size={size}
