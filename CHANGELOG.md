@@ -8,6 +8,8 @@
 
 ### Minor
 
+- IconButton: Add new `disabled` prop and stylings to `IconButton` component (#521)
+
 ### Patch
 
 </details>
