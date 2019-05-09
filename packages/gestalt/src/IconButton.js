@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
@@ -15,6 +16,7 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white',
+  disabled?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
@@ -39,6 +41,7 @@ export default class IconButton extends React.Component<Props, State> {
       'lightGray',
       'white',
     ]),
+    disabled: PropTypes.bool,
     icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
     onClick: PropTypes.func,
@@ -69,6 +72,7 @@ export default class IconButton extends React.Component<Props, State> {
       accessibilityHaspopup,
       accessibilityLabel,
       bgColor,
+      disabled,
       iconColor,
       icon,
       size,
@@ -82,7 +86,11 @@ export default class IconButton extends React.Component<Props, State> {
         aria-expanded={accessibilityExpanded}
         aria-haspopup={accessibilityHaspopup}
         aria-label={accessibilityLabel}
-        className={styles.button}
+        className={classnames(
+          styles.button,
+          disabled ? styles.disabled : styles.enabled
+        )}
+        disabled={disabled}
         onBlur={this.handleBlur}
         onClick={event => onClick && onClick({ event })}
         onFocus={this.handleFocus}

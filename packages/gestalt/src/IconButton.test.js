@@ -10,3 +10,11 @@ test('IconButton renders', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('IconButton renders with disabled state', () => {
+  const component = renderer.create(
+    <IconButton accessibilityLabel="Pinterest" icon="pin" disabled />
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
