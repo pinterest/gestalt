@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Icon: Add new icon of `ads-stats` and `ads-overview` (#522)
 - IconButton: Add new `disabled` prop and stylings to `IconButton` component (#521)
 
 ### Patch
@@ -43,7 +44,6 @@
 - Touchable: cleanup event handlers (#502)
 - TextArea/TextField/SelectList: cleanup components and remove gDSFP (#503)
 - Upgrade React version to [16.8.5](https://github.com/facebook/react/releases/tag/v16.8.5) (#504)
-
 
 ## 0.93.0 (March 13, 2019)
 

@@ -4,6 +4,8 @@ import add from './add.svg';
 import addCircle from './add-circle.svg';
 import addPin from './add-pin.svg';
 import adGroup from './ad-group.svg';
+import adsStats from './ads-stats.svg';
+import adsOverview from './ads-overview.svg';
 import alert from './alert.svg';
 import alignBottom from './align-bottom.svg';
 import alignBottomCenter from './align-bottom-center.svg';
@@ -147,6 +149,8 @@ export default {
   add,
   'add-circle': addCircle,
   'add-pin': addPin,
+  'ads-stats': adsStats,
+  'ads-overview': adsOverview,
   alert,
   'align-bottom-center': alignBottomCenter,
   'align-bottom-left': alignBottomLeft,
