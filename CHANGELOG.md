@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Icon: Add new icon of `ads-stats` and `ads-overview` (#522)
-- IconButton: Add new `disabled` prop and stylings to `IconButton` component (#521)
-
 ### Patch
 
 </details>
+
+## 0.97.0 (May 15, 2019)
+
+### Minor
+
+- IconButton: Add new `disabled` prop and stylings to `IconButton` component (#521)
+- Icon: Add new icon of `ads-stats` and `ads-overview` (#522)
 
 ## 0.96.0 (May 6, 2019)
 
