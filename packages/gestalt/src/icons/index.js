@@ -72,6 +72,7 @@ import graphBar from './graph-bar.svg';
 import handle from './handle.svg';
 import handPointing from './hand-pointing.svg';
 import heart from './heart.svg';
+import heartOutline from './heart-outline.svg';
 import heartBroken from './heart-broken.svg';
 import impressum from './impressum.svg';
 import key from './key.svg';
@@ -217,6 +218,7 @@ export default {
   handle,
   'hand-pointing': handPointing,
   heart,
+  'heart-outline': heartOutline,
   'heart-broken': heartBroken,
   impressum,
   key,
