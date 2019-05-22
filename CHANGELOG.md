@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- Typography: Add missing comma in font-family string (#XXX)
 
 </details>
 
