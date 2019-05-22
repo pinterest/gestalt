@@ -8,15 +8,11 @@
 
 ### Minor
 
+- Icon: Add new icon of `heart-outline` and update icon of `heart` (#526)
+
 ### Patch
 
 </details>
-
-## 0.98.0 (May 22, 2019)
-
-### Minor
-
-- Icon: Add new icon of `heart-outline` and update icon of `heart` (#526)
 
 ## 0.97.0 (May 15, 2019)
 
