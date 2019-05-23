@@ -12,6 +12,8 @@
 
 ### Patch
 
+- Typography: Fixed a tiny bug where our CSS file had a few uses of curly quotes instead of regular quotes (#524)
+
 </details>
 
 ## 0.97.0 (May 15, 2019)
