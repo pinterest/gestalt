@@ -8,6 +8,10 @@
 
 ### Minor
 
+- Icon: Update `flashlight` icon to use new asset (#527)
+
+### Minor
+
 - Icon: Add new icon of `heart-outline` and update icon of `heart` (#526)
 
 ### Patch
