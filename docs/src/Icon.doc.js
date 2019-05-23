@@ -59,12 +59,6 @@ card(
         type: `{ __path: string }`,
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
-      {
-        name: 'title',
-        type: 'string',
-        description:
-          'Used for hover text in place of accessibilityLabel if provided. Always localize the label.',
-      },
     ]}
   />
 );

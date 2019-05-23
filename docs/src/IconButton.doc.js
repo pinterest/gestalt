@@ -38,7 +38,7 @@ card(
         type: 'string',
         required: true,
         description:
-          'String that clients such as VoiceOver will read to describe the element. Will also be used for hover text (title). Always localize the label.',
+          'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
         href: 'accessibility',
       },
       {
@@ -47,6 +47,11 @@ card(
           '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white"',
         defaultValue: 'transparent',
         href: 'backgroundColorCombinations',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        href: 'disabledCombinations',
       },
       {
         name: 'iconColor',
@@ -171,6 +176,19 @@ card(
     ]}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="disabledCombinations"
+    name="Disabled Combinations"
+    description="Icon buttons can be disabled as well. Adding the disabled flag to any color combination will add a 50% opacity and remove interactivity"
+    iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
+  >
+    {props => (
+      <IconButton icon="heart" accessibilityLabel="" disabled {...props} />
+    )}
   </Combination>
 );
 

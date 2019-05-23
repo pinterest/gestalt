@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
@@ -15,6 +16,7 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white',
+  disabled?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
   icon: $Keys<typeof icons>,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
@@ -39,13 +41,14 @@ export default class IconButton extends React.Component<Props, State> {
       'lightGray',
       'white',
     ]),
+    disabled: PropTypes.bool,
     icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   };
 
-  state: State = {
+  state = {
     active: false,
     focused: false,
     hovered: false,
@@ -53,28 +56,15 @@ export default class IconButton extends React.Component<Props, State> {
 
   handleBlur = () => this.setState({ focused: false });
 
-  handleFocus = () => {
-    this.setState({ focused: true });
-  };
+  handleFocus = () => this.setState({ focused: true });
 
-  handleMouseDown = () => {
-    this.setState({ active: true });
-  };
+  handleMouseDown = () => this.setState({ active: true });
 
-  handleMouseEnter = () => {
-    this.setState({ hovered: true });
-  };
+  handleMouseEnter = () => this.setState({ hovered: true });
 
-  handleMouseLeave = () => {
-    this.setState({
-      active: false,
-      hovered: false,
-    });
-  };
+  handleMouseLeave = () => this.setState({ active: false, hovered: false });
 
-  handleMouseUp = () => {
-    this.setState({ active: false });
-  };
+  handleMouseUp = () => this.setState({ active: false });
 
   render() {
     const {
@@ -82,6 +72,7 @@ export default class IconButton extends React.Component<Props, State> {
       accessibilityHaspopup,
       accessibilityLabel,
       bgColor,
+      disabled,
       iconColor,
       icon,
       size,
@@ -95,7 +86,11 @@ export default class IconButton extends React.Component<Props, State> {
         aria-expanded={accessibilityExpanded}
         aria-haspopup={accessibilityHaspopup}
         aria-label={accessibilityLabel}
-        className={styles.button}
+        className={classnames(
+          styles.button,
+          disabled ? styles.disabled : styles.enabled
+        )}
+        disabled={disabled}
         onBlur={this.handleBlur}
         onClick={event => onClick && onClick({ event })}
         onFocus={this.handleFocus}
@@ -103,18 +98,16 @@ export default class IconButton extends React.Component<Props, State> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onMouseUp={this.handleMouseUp}
-        title={accessibilityLabel}
         type="button"
       >
         <Pog
-          active={active}
+          active={!disabled && active}
           bgColor={bgColor}
-          focused={focused}
-          hovered={hovered}
+          focused={!disabled && focused}
+          hovered={!disabled && hovered}
           iconColor={iconColor}
           icon={icon}
           size={size}
-          title={accessibilityLabel}
         />
       </button>
     );

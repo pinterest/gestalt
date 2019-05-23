@@ -45,9 +45,9 @@ card(
       },
       {
         name: 'heading',
-        type: `string`,
+        type: `string | React.Node`,
         required: true,
-        href: 'sizesExample',
+        href: 'heading',
       },
       {
         name: 'onDismiss',
@@ -63,7 +63,7 @@ card(
       },
       {
         name: 'size',
-        type: `"sm" | "md" | "lg"`,
+        type: `"sm" | "md" | "lg" | number`,
         defaultValue: 'sm',
         description: `sm: 414px, md: 544px, lg: 804px`,
         href: 'sizesExample',
@@ -77,8 +77,9 @@ card(
     id="sizesExample"
     name="Sizes"
     description={`
-      There are 3 different widths available for a \`Modal\`. Click on each button
-      to view a sample Modal of the specified size. All Modals have a max width of 100%.
+      There are 3 different pre-selected widths available for a \`Modal\`, as well as a last-resort
+      option to set a custom width. Click on each button to view a sample Modal of the specified size.
+      All Modals have a max width of 100%.
     `}
     defaultCode={`
 class Example extends React.Component {
@@ -214,6 +215,92 @@ class Example extends React.Component {
               accessibilityCloseLabel="close"
               accessibilityModalLabel="View default padding and styling"
               heading="Heading"
+              onDismiss={this.handleToggleModal}
+              footer={
+                <Box color="gray">
+                  <Heading size="sm">Footer</Heading>
+                </Box>
+              }
+              size="md"
+            >
+              <Box color="gray" height={400}>
+                <Heading size="sm">Children</Heading>
+              </Box>
+            </Modal>
+          )}
+        </Box>
+      </Box>
+    );
+  }
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="heading"
+    name="Custom heading"
+    description="
+      If you need more control over the Modal heading besides a wrapped and centered text element,
+      you can pass a custom React node as the heading prop and the Modal will render that instead.
+    "
+    defaultCode={`
+class HeadingExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleModal = this._handleToggleModal.bind(this);
+    this.handleChangeTab = this._handleChangeTab.bind(this);
+    this.state = {
+      showModal: false,
+      activeTabIndex: 0,
+    };
+  }
+
+  _handleToggleModal() {
+    this.setState(prevState => ({ showModal: !prevState.showModal }));
+  }
+
+  _handleChangeTab({ activeTabIndex, event }) {
+    event.preventDefault();
+    this.setState({ activeTabIndex });
+  }
+
+  render() {
+    const { showModal } = this.state;
+    return (
+      <Box marginLeft={-1} marginRight={-1}>
+        <Box padding={1}>
+          <Button
+            text="View heading"
+            onClick={this.handleToggleModal}
+          />
+          {showModal && (
+            <Modal
+              accessibilityCloseLabel="close"
+              accessibilityModalLabel="View custom modal heading"
+              heading={
+                <Box padding={2}>
+                  <Tabs
+                    tabs={[
+                      {
+                        text: "Boards",
+                        href: "#"
+                      },
+                      {
+                        text: "Pins",
+                        href: "#"
+                      },
+                      {
+                        text: "Topics",
+                        href: "#"
+                      }
+                    ]}
+                    activeTabIndex={this.state.activeTabIndex}
+                    onChange={this.handleChangeTab}
+                  />
+                </Box>
+              }
               onDismiss={this.handleToggleModal}
               footer={
                 <Box color="gray">

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip renders 1`] = `
+<div
+  className="box xsDisplayBlock"
+>
+  <div
+    className="box"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <div>
+      Hi
+    </div>
+  </div>
+</div>
+`;

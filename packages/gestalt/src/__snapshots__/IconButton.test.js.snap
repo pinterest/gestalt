@@ -3,7 +3,7 @@
 exports[`IconButton renders 1`] = `
 <button
   aria-label="Pinterest"
-  className="button"
+  className="button enabled"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -11,7 +11,6 @@ exports[`IconButton renders 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  title="Pinterest"
   type="button"
 >
   <div
@@ -35,9 +34,50 @@ exports[`IconButton renders 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Pinterest
-        </title>
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`IconButton renders with disabled state 1`] = `
+<button
+  aria-label="Pinterest"
+  className="button disabled"
+  disabled={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  type="button"
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <div
+      className="box circle"
+    >
+      <svg
+        aria-hidden={true}
+        aria-label=""
+        className="icon gray iconBlock"
+        height={20}
+        role="img"
+        viewBox="0 0 24 24"
+        width={20}
+      >
         <path
           d="test-file-stub"
         />

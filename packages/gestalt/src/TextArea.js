@@ -7,11 +7,6 @@ import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import styles from './TextArea.css';
 
-type State = {
-  errorMessage?: string,
-  focused: boolean,
-};
-
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
@@ -37,6 +32,10 @@ type Props = {|
   placeholder?: string,
   rows?: number /* default: 3 */,
   value?: string,
+|};
+
+type State = {|
+  focused: boolean,
 |};
 
 export default class TextArea extends React.Component<Props, State> {
@@ -65,50 +64,38 @@ export default class TextArea extends React.Component<Props, State> {
     focused: false,
   };
 
-  static getDerivedStateFromProps(props: Props, state: State) {
-    if (props.errorMessage !== state.errorMessage) {
-      return {
-        errorMessage: props.errorMessage,
-      };
-    }
-
-    return null;
-  }
+  setTextAreaRef = (ref: ?HTMLTextAreaElement) => {
+    this.textarea = ref;
+  };
 
   handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {
-    this.props.onChange({
-      event,
-      value: event.currentTarget.value,
-    });
+    const { onChange } = this.props;
+    onChange({ event, value: event.currentTarget.value });
   };
 
   handleBlur = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
-    if (this.props.onBlur) {
-      this.props.onBlur({
-        event,
-        value: event.currentTarget.value,
-      });
+    const { onBlur } = this.props;
+    if (onBlur) {
+      onBlur({ event, value: event.currentTarget.value });
     }
   };
 
   handleFocus = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
-    if (this.props.onFocus) {
-      this.props.onFocus({
-        event,
-        value: event.currentTarget.value,
-      });
+    const { onFocus } = this.props;
+    if (onFocus) {
+      onFocus({ event, value: event.currentTarget.value });
     }
   };
 
   handleKeyDown = (event: SyntheticKeyboardEvent<HTMLTextAreaElement>) => {
-    if (this.props.onKeyDown) {
-      this.props.onKeyDown({
-        event,
-        value: event.currentTarget.value,
-      });
+    const { onKeyDown } = this.props;
+    if (onKeyDown) {
+      onKeyDown({ event, value: event.currentTarget.value });
     }
   };
 
+  // NOTE: we cannot move to React createRef until we audit uses of callsites
+  // that reach into this component and use this instance variable
   textarea: ?HTMLElement;
 
   render() {
@@ -123,6 +110,8 @@ export default class TextArea extends React.Component<Props, State> {
       value,
     } = this.props;
 
+    const { focused } = this.state;
+
     const classes = classnames(
       styles.textArea,
       disabled ? styles.disabled : styles.enabled,
@@ -132,9 +121,7 @@ export default class TextArea extends React.Component<Props, State> {
     return (
       <span>
         <textarea
-          aria-describedby={
-            errorMessage && this.state.focused ? `${id}-error` : null
-          }
+          aria-describedby={errorMessage && focused ? `${id}-error` : null}
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           className={classes}
           disabled={disabled}
@@ -145,9 +132,7 @@ export default class TextArea extends React.Component<Props, State> {
           onFocus={this.handleFocus}
           onKeyDown={this.handleKeyDown}
           placeholder={placeholder}
-          ref={c => {
-            this.textarea = c;
-          }}
+          ref={this.setTextAreaRef}
           rows={rows}
           value={value}
         />

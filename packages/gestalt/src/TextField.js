@@ -7,13 +7,13 @@ import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import styles from './TextField.css';
 
-type State = {
-  errorMessage?: string,
-  focused: boolean,
-};
-
 type Props = {|
-  autoComplete?: 'current-password' | 'on' | 'off' | 'username',
+  autoComplete?:
+    | 'current-password'
+    | 'new-password'
+    | 'on'
+    | 'off'
+    | 'username',
   disabled?: boolean,
   errorMessage?: string,
   hasError?: boolean,
@@ -40,10 +40,15 @@ type Props = {|
   value?: string,
 |};
 
+type State = {|
+  focused: boolean,
+|};
+
 export default class TextField extends React.Component<Props, State> {
   static propTypes = {
     autoComplete: PropTypes.oneOf([
       'current-password',
+      'new-password',
       'on',
       'off',
       'username',
@@ -79,51 +84,39 @@ export default class TextField extends React.Component<Props, State> {
     focused: false,
   };
 
-  static getDerivedStateFromProps(props: Props, state: State) {
-    if (props.errorMessage !== state.errorMessage) {
-      return {
-        errorMessage: props.errorMessage,
-      };
-    }
-
-    return null;
-  }
+  setTextFieldRef = (ref: ?HTMLInputElement) => {
+    this.textfield = ref;
+  };
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    this.props.onChange({
-      event,
-      value: event.currentTarget.value,
-    });
+    const { onChange } = this.props;
+    onChange({ event, value: event.currentTarget.value });
   };
 
   handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (this.props.onBlur) {
-      this.props.onBlur({
-        event,
-        value: event.currentTarget.value,
-      });
+    const { onBlur } = this.props;
+    if (onBlur) {
+      onBlur({ event, value: event.currentTarget.value });
     }
   };
 
   handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (this.props.onFocus) {
-      this.props.onFocus({
-        event,
-        value: event.currentTarget.value,
-      });
+    const { onFocus } = this.props;
+    if (onFocus) {
+      onFocus({ event, value: event.currentTarget.value });
     }
   };
 
   handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (this.props.onKeyDown) {
-      this.props.onKeyDown({
-        event,
-        value: event.currentTarget.value,
-      });
+    const { onKeyDown } = this.props;
+    if (onKeyDown) {
+      onKeyDown({ event, value: event.currentTarget.value });
     }
   };
 
-  textfield: ?HTMLElement;
+  // NOTE: we cannot move to React createRef until we audit uses of callsites
+  // that reach into this component and use this instance variable
+  textfield: ?HTMLInputElement;
 
   render() {
     const {
@@ -138,6 +131,8 @@ export default class TextField extends React.Component<Props, State> {
       value,
     } = this.props;
 
+    const { focused } = this.state;
+
     const classes = classnames(
       styles.textField,
       disabled ? styles.disabled : styles.enabled,
@@ -151,9 +146,7 @@ export default class TextField extends React.Component<Props, State> {
     return (
       <span>
         <input
-          aria-describedby={
-            errorMessage && this.state.focused ? `${id}-error` : null
-          }
+          aria-describedby={errorMessage && focused ? `${id}-error` : null}
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
           autoComplete={autoComplete}
           className={classes}
@@ -166,9 +159,7 @@ export default class TextField extends React.Component<Props, State> {
           onKeyDown={this.handleKeyDown}
           pattern={pattern}
           placeholder={placeholder}
-          ref={c => {
-            this.textfield = c;
-          }}
+          ref={this.setTextFieldRef}
           type={type}
           value={value}
         />

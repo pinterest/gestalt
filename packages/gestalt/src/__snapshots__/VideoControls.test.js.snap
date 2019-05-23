@@ -25,9 +25,6 @@ exports[`VideoControls for double digit minutes 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Play
-        </title>
         <path
           d="test-file-stub"
         />
@@ -148,9 +145,6 @@ exports[`VideoControls for double digit minutes 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Unmute
-        </title>
         <path
           d="test-file-stub"
         />
@@ -185,9 +179,6 @@ exports[`VideoControls for double digit seconds 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Play
-        </title>
         <path
           d="test-file-stub"
         />
@@ -308,9 +299,6 @@ exports[`VideoControls for double digit seconds 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Unmute
-        </title>
         <path
           d="test-file-stub"
         />
@@ -345,9 +333,6 @@ exports[`VideoControls for single digit minutes 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Play
-        </title>
         <path
           d="test-file-stub"
         />
@@ -468,9 +453,6 @@ exports[`VideoControls for single digit minutes 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Unmute
-        </title>
         <path
           d="test-file-stub"
         />
@@ -505,9 +487,6 @@ exports[`VideoControls for single digit seconds 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Play
-        </title>
         <path
           d="test-file-stub"
         />
@@ -628,9 +607,6 @@ exports[`VideoControls for single digit seconds 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Unmute
-        </title>
         <path
           d="test-file-stub"
         />
@@ -665,9 +641,6 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Play
-        </title>
         <path
           d="test-file-stub"
         />
@@ -788,9 +761,6 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         viewBox="0 0 24 24"
         width={20}
       >
-        <title>
-          Unmute
-        </title>
         <path
           d="test-file-stub"
         />
