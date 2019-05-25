@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Box allows auto margin 1`] = `
+<div
+  className="box marginRightAuto"
+/>
+`;
+
 exports[`Box allows zero values for whitespace 1`] = `
 <div
   className="box"

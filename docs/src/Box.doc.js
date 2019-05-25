@@ -20,7 +20,7 @@ const marginProps = [
   { name: 'marginEnd' },
 ].map((prop: {| name: string, description?: string |}) => ({
   name: prop.name,
-  type: `-12 ... 12`,
+  type: '-12 ... 12 | "auto"',
   defaultValue: 0,
   responsive: true,
   description: prop.description,
@@ -30,7 +30,7 @@ const marginProps = [
 const absolutePositioningProps = ['left', 'right', 'top', 'bottom'].map(
   name => ({
     name,
-    type: `boolean`,
+    type: 'boolean',
     defaultValue: false,
     href: 'absolutePositioning',
   })
@@ -38,7 +38,7 @@ const absolutePositioningProps = ['left', 'right', 'top', 'bottom'].map(
 
 const paddingProps = ['padding', 'paddingX', 'paddingY'].map(name => ({
   name,
-  type: `0 .. 12`,
+  type: '0 .. 12',
   defaultValue: 0,
   responsive: true,
   href: 'padding',
@@ -403,6 +403,28 @@ card(
       <MarginSwatch marginBottom={-1} />
       <MarginSwatch marginStart={-1} />
       <MarginSwatch marginEnd={-1} />
+    </Box>
+  </Card>
+);
+
+card(
+  <Card
+    description={`
+    Auto margin is a useful tool when using flexbox layouts. When a flex container has extra space and no components are set to grow, the browser would normally place elements next to each other. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
+
+    ~~~jsx
+    <Box display="flex" direction="column" height={200}>
+      <Box>Top</Box>
+      <Box marginTop="auto">I’m pushed to the bottom!</Box>
+    </Box>
+    ~~~
+  `}
+    id="auto-margin"
+    name="Auto Margin"
+  >
+    <Box display="flex" direction="column" height={80} color="green">
+      <Box>Top</Box>
+      <Box marginTop="auto">I’m pushed to the bottom!</Box>
     </Box>
   </Card>
 );
