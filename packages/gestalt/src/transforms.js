@@ -51,9 +51,13 @@ export const rangeWithoutZero = (scale: string) => (n: number): Style =>
 // Binds a string classname to the value in an object. Useful when interacting
 // with ranges that need to come dynamically from a style object. This is
 // similar to the NPM package 'classnames/bind'.
-export const bind = <T>(fn: Functor<T>, scope: { [key: string]: string }) => (
-  val: T
-): Style => mapClassName(name => scope[name])(fn(val));
+export function bind<T>(
+  fn: Functor<T>,
+  scope: { [key: string]: string }
+): (val: T) => Style {
+  const map = mapClassName(name => scope[name]);
+  return (val: T): Style => map(fn(val));
+}
 
 // This takes a series of the previously defined functors, runs them all
 // against a value and returns the set of their classnames.
