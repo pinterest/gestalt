@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Box: `margin` prop now supports `auto` for use in flexbox layouts (#528)
 - Icon: Update `flashlight` icon to use new asset (#527)
 - Icon: Add new icon of `heart-outline` and update icon of `heart` (#526)
 
