@@ -413,9 +413,12 @@ card(
     Auto margin is a useful tool when using flexbox layouts. When a flex container has extra space and no components are set to grow, the browser would normally place elements next to each other. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
 
     ~~~jsx
-    <Box display="flex" direction="column" height={200}>
-      <Box>Top</Box>
-      <Box marginTop="auto">I’m pushed to the bottom!</Box>
+    <Box display="flex" direction="column" height={120} color="green">
+      <Box>This is a title!</Box>
+      <Box>This one is a subtitle.</Box>
+      <Box marginTop="auto">
+        I’m pushed to the bottom due to marginTop: auto.
+      </Box>
     </Box>
     ~~~
   `}
