@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.98.0 (May 28, 2019)
+
+### Minor
+
 - Box: `margin` prop now supports `auto` for use in flexbox layouts (#528)
 - Icon: Update `flashlight` icon to use new asset (#527)
 - Icon: Add new icon of `heart-outline` and update icon of `heart` (#526)
@@ -15,8 +23,6 @@
 ### Patch
 
 - Typography: Fixed a tiny bug where our CSS file had a few uses of curly quotes instead of regular quotes (#524)
-
-</details>
 
 ## 0.97.0 (May 15, 2019)
 
