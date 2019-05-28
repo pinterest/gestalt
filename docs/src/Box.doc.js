@@ -422,9 +422,12 @@ card(
     id="auto-margin"
     name="Auto Margin"
   >
-    <Box display="flex" direction="column" height={80} color="green">
-      <Box>Top</Box>
-      <Box marginTop="auto">I’m pushed to the bottom!</Box>
+    <Box display="flex" direction="column" height={120} color="green">
+      <Box>This is a title!</Box>
+      <Box>This one is a subtitle.</Box>
+      <Box marginTop="auto">
+        I’m pushed to the bottom due to marginTop: auto.
+      </Box>
     </Box>
   </Card>
 );
