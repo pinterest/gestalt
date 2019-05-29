@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Masonry: remove `MasonryBeta` and `MasonryInfiniteBeta` from source code (#531)
+
 ### Patch
 
 </details>

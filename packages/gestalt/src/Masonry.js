@@ -72,11 +72,6 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
-/**
- * NOTE: This is to be replaced by MasonryInfiniteBeta when it is ready
- * NOTE: Please do not modify this or make sure changes in here are also
- *       replicated in MasonryBeta.
- */
 export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   static createMeasurementStore() {
     // $FlowFixMe: new errors found from flow 0.96 upgrade
