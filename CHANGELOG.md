@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SegmentedControl: Update outer border radius to 8px from new design spec (#530)
+
 ### Patch
 
 </details>
