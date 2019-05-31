@@ -237,7 +237,7 @@ const transformNumberOrPassthrough = (selector: string) => (
   }
 
   if (m === 'auto') {
-    return fromClassName(`${selector}Auto`);
+    return fromClassName(whitespace[`${selector}Auto`]);
   }
 
   return identity();
@@ -762,6 +762,7 @@ const MarginPropType = PropTypes.oneOf([
   10,
   11,
   12,
+  'auto',
 ]);
 
 const PaddingPropType = PropTypes.oneOf([

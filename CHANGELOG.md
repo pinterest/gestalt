@@ -13,6 +13,8 @@
 
 ### Patch
 
+- Box: Fixed name minification bug and missing PropType from my recent margin:auto change (#532)
+
 </details>
 
 ## 0.98.0 (May 28, 2019)
