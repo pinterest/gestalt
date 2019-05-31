@@ -762,6 +762,7 @@ const MarginPropType = PropTypes.oneOf([
   10,
   11,
   12,
+  'auto',
 ]);
 
 const PaddingPropType = PropTypes.oneOf([

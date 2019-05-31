@@ -13,6 +13,8 @@
 
 ### Patch
 
+- Box: Updated PropTypes to match my recent margin:auto change (#532)
+
 </details>
 
 ## 0.98.0 (May 28, 2019)
