@@ -13,7 +13,7 @@
 
 ### Patch
 
-- Box: Updated PropTypes to match my recent margin:auto change (#532)
+- Box: Fixed name minification bug and missing PropType from my recent margin:auto change (#532)
 
 </details>
 

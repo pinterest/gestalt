@@ -237,7 +237,7 @@ const transformNumberOrPassthrough = (selector: string) => (
   }
 
   if (m === 'auto') {
-    return fromClassName(`${selector}Auto`);
+    return fromClassName(whitespace[`${selector}Auto`]);
   }
 
   return identity();
