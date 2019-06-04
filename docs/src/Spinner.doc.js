@@ -25,6 +25,14 @@ card(
         required: true,
         defaultValue: false,
       },
+      {
+        name: 'delay',
+        type: 'boolean',
+        required: false,
+        defaultValue: true,
+        description:
+          'Whether or not to render with a 300ms delay. The delay is for perceived performance so you should rarely need to remove it.',
+      },
     ]}
   />
 );
