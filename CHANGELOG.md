@@ -10,6 +10,7 @@
 
 - SegmentedControl: Update outer border radius to 8px from new design spec (#530)
 - Masonry: remove `MasonryBeta` and `MasonryInfiniteBeta` from source code (#531)
+- Spinner: add `delay` prop to optionally remove 300ms delay to appear (#533)
 
 ### Patch
 
