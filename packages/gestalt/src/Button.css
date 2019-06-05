@@ -8,6 +8,7 @@
 
 .button {
   composes: borderBox from "./Layout.css";
+  composes: rounded from "./Borders.css";
 }
 
 .solid {
