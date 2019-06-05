@@ -8,7 +8,7 @@
 
 .button {
   composes: borderBox from "./Layout.css";
-  border-radius: 8px;
+  composes: rounded from "./Borders.css";
 }
 
 .solid {
