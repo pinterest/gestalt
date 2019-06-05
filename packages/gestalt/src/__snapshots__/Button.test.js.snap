@@ -2,7 +2,7 @@
 
 exports[`<Button color="transparent" /> 1`] = `
 <button
-  className="button md transparent enabled block radiusLarge"
+  className="button md transparent enabled block"
   disabled={false}
   onClick={[Function]}
   type="button"
@@ -11,21 +11,6 @@ exports[`<Button color="transparent" /> 1`] = `
     className="Text fontSize3 white alignCenter fontStyleNormal fontWeightBold"
   >
     Hello World
-  </div>
-</button>
-`;
-
-exports[`Inline Button border radius 1`] = `
-<button
-  className="button md solid gray enabled inline radiusSmall"
-  disabled={false}
-  onClick={[Function]}
-  type="button"
->
-  <div
-    className="Text fontSize3 darkGray alignCenter fontStyleNormal fontWeightBold"
-  >
-    Text
   </div>
 </button>
 `;
