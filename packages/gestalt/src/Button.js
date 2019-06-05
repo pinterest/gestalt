@@ -2,7 +2,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import borderStyles from './Borders.css';
 import styles from './Button.css';
 import Text from './Text.js';
 
@@ -53,8 +52,6 @@ export default function Button(props: Props) {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
-    [borderStyles.radiusLarge]: !inline,
-    [borderStyles.radiusSmall]: inline,
   });
 
   /* eslint-disable react/button-has-type */
