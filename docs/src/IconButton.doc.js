@@ -62,9 +62,13 @@ card(
       {
         name: 'icon',
         type: '$Keys<typeof icons>',
-        required: true,
         description: `This allows type checking for a valid icon name based on the keys from the list of icons in
         Icon.`,
+      },
+      {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
       {
         name: 'size',

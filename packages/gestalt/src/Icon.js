@@ -6,7 +6,7 @@ import styles from './Icon.css';
 import icons from './icons/index.js';
 import colors from './Colors.css';
 
-type IconProps = {
+type Props = {|
   accessibilityLabel: string,
   color?:
     | 'blue'
@@ -26,21 +26,11 @@ type IconProps = {
     | 'red'
     | 'watermelon'
     | 'white',
+  icon?: $Keys<typeof icons>,
+  dangerouslySetSvgPath?: { __path: string },
   inline?: boolean,
   size?: number | string,
-};
-
-type IconNoPath = {
-  icon: $Keys<typeof icons>,
-  dangerouslySetSvgPath?: null,
-};
-
-type PathNoIcon = {
-  icon?: null,
-  dangerouslySetSvgPath: { __path: string },
-};
-
-type Props = IconProps & (PathNoIcon | IconNoPath);
+|};
 
 const IconNames = Object.keys(icons);
 
