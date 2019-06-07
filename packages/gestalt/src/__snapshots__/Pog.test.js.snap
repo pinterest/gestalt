@@ -90,7 +90,7 @@ exports[`Pog hovered renders 1`] = `
 </div>
 `;
 
-exports[`Pog renders 1`] = `
+exports[`Pog renders with icon 1`] = `
 <div
   className="pog transparent"
   style={
@@ -114,6 +114,36 @@ exports[`Pog renders 1`] = `
     >
       <path
         d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`Pog renders with svg 1`] = `
+<div
+  className="pog transparent"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="box circle"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="M13.00,20.00"
       />
     </svg>
   </div>

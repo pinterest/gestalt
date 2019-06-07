@@ -3,8 +3,15 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import Pog from './Pog.js';
 
-test('Pog renders', () => {
+test('Pog renders with icon', () => {
   const tree = create(<Pog icon="heart" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Pog renders with svg', () => {
+  const tree = create(
+    <Pog dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }} />
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

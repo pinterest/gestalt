@@ -23,10 +23,11 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white',
+  dangerouslySetSvgPath?: { __path: string },
   focused?: boolean,
   hovered?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
-  icon: $Keys<typeof icons>,
+  icon?: $Keys<typeof icons>,
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
 |};
 
@@ -42,6 +43,7 @@ export default function Pog(props: Props) {
   const {
     active = false,
     bgColor = 'transparent',
+    dangerouslySetSvgPath,
     focused = false,
     hovered = false,
     iconColor = defaultIconButtonIconColors[bgColor],
@@ -74,6 +76,7 @@ export default function Pog(props: Props) {
         <Icon
           accessibilityLabel=""
           color={iconColor}
+          dangerouslySetSvgPath={dangerouslySetSvgPath}
           icon={icon}
           size={iconSize}
         />
@@ -91,9 +94,12 @@ Pog.propTypes = {
     'lightGray',
     'white',
   ]),
+  dangerouslySetSvgPath: PropTypes.shape({
+    __path: PropTypes.string,
+  }),
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
-  icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
+  icon: PropTypes.oneOf(Object.keys(icons)),
   size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
 };

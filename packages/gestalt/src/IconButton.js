@@ -16,9 +16,10 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white',
+  dangerouslySetSvgPath?: { __path: string },
   disabled?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
-  icon: $Keys<typeof icons>,
+  icon?: $Keys<typeof icons>,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
@@ -41,8 +42,11 @@ export default class IconButton extends React.Component<Props, State> {
       'lightGray',
       'white',
     ]),
+    dangerouslySetSvgPath: PropTypes.shape({
+      __path: PropTypes.string,
+    }),
     disabled: PropTypes.bool,
-    icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
+    icon: PropTypes.oneOf(Object.keys(icons)),
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
@@ -72,6 +76,7 @@ export default class IconButton extends React.Component<Props, State> {
       accessibilityHaspopup,
       accessibilityLabel,
       bgColor,
+      dangerouslySetSvgPath,
       disabled,
       iconColor,
       icon,
@@ -103,6 +108,7 @@ export default class IconButton extends React.Component<Props, State> {
         <Pog
           active={!disabled && active}
           bgColor={bgColor}
+          dangerouslySetSvgPath={dangerouslySetSvgPath}
           focused={!disabled && focused}
           hovered={!disabled && hovered}
           iconColor={iconColor}
