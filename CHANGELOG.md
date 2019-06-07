@@ -12,6 +12,7 @@
 - Masonry: remove `MasonryBeta` and `MasonryInfiniteBeta` from source code (#531)
 - Spinner: add `delay` prop to optionally remove 300ms delay to appear (#533)
 - Button: Undo Button border radii changes for full width buttons.  Conform all to 8px (#534)
+- IconButton/Pog: Add `dangerouslySetSvgPath` support (#536)
 
 ### Patch
 
