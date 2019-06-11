@@ -13,6 +13,7 @@
 - Spinner: add `delay` prop to optionally remove 300ms delay to appear (#533)
 - Button: Undo Button border radii changes for full width buttons.  Conform all to 8px (#534)
 - IconButton/Pog: Add `dangerouslySetSvgPath` support (#536)
+- Flow: Bumping to latest version `v0.101.0` (#539)
 
 ### Patch
 
