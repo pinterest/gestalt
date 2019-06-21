@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.99.0 (Jun 21, 2019)
+
+### Minor
+
 - SegmentedControl: Update outer border radius to 8px from new design spec (#530)
 - Masonry: remove `MasonryBeta` and `MasonryInfiniteBeta` from source code (#531)
 - Spinner: add `delay` prop to optionally remove 300ms delay to appear (#533)
@@ -19,8 +27,6 @@
 ### Patch
 
 - Box: Fixed name minification bug and missing PropType from my recent margin:auto change (#532)
-
-</details>
 
 ## 0.98.0 (May 28, 2019)
 
