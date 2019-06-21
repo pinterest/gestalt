@@ -14,6 +14,7 @@
 - Button: Undo Button border radii changes for full width buttons.  Conform all to 8px (#534)
 - IconButton/Pog: Add `dangerouslySetSvgPath` support (#536)
 - Flow: Bumping to latest version `v0.101.0` (#539)
+- TextField/TextArea/SelectList/Checkbox: Switch from orange to red error states (#540)
 
 ### Patch
 
