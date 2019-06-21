@@ -78,7 +78,7 @@ exports[`Error Toast 1`] = `
   }
 >
   <div
-    className="box fit orangeBg paddingX8 paddingY5 pill"
+    className="box fit paddingX8 paddingY5 pill redBg"
   >
     <div
       className="box itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"

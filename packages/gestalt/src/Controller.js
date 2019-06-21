@@ -6,7 +6,7 @@ import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 
 type Props = {|
   anchor: HTMLElement,
-  bgColor: 'blue' | 'darkGray' | 'orange' | 'white',
+  bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
@@ -152,7 +152,7 @@ Controller.propTypes = {
     contains: PropTypes.func,
     getBoundingClientRect: PropTypes.func,
   }),
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'white']),
+  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
   children: PropTypes.node,
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,

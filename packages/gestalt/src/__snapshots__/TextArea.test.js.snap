@@ -17,7 +17,7 @@ exports[`TextArea TextArea normal 1`] = `
 </span>
 `;
 
-exports[`TextArea TextArea with error 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea><div class=\\"box marginTop1\\"><div class=\\"Text fontSize3 orange alignLeft breakWord fontStyleNormal fontWeightNormal\\"><span id=\\"test-error\\">error message</span></div></div></span>"`;
+exports[`TextArea TextArea with error 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea><div class=\\"box marginTop1\\"><div class=\\"Text fontSize3 red alignLeft breakWord fontStyleNormal fontWeightNormal\\"><span id=\\"test-error\\">error message</span></div></div></span>"`;
 
 exports[`TextArea TextArea with hasError 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea></span>"`;
 
