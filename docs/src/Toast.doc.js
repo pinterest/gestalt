@@ -24,7 +24,7 @@ card(
     props={[
       {
         name: 'color',
-        type: `'darkGray' | 'orange'`,
+        type: `'darkGray' | 'orange' | 'red'`,
         defaultValue: 'darkGray',
         href: 'errorExample',
       },
@@ -170,7 +170,7 @@ card(
   <Example
     id="errorExample"
     description="
-      You can use Toasts to indicate that something wrong occurred by setting the color to orange.
+      You can use Toasts to indicate that something wrong occurred by setting the color to red.
     "
     name="Error Toasts"
     defaultCode={`
@@ -207,7 +207,7 @@ class ToastExample extends React.Component {
           position='fixed'
         >
           {this.state.showErrorToast ? (
-            <Toast color='orange' text="Oops, we couldn't find that!" />
+            <Toast color='red' text="Oops, we couldn't find that!" />
           ) : null}
         </Box>
       </Box>

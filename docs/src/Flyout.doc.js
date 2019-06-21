@@ -52,10 +52,10 @@ card(
       },
       {
         name: 'color',
-        type: `"blue" | "orange" | "white" | "darkGray"`,
+        type: `"blue" | "orange" | "red" | "white" | "darkGray"`,
         defaultValue: 'white',
         description:
-          'The background color of the Flyout; orange matches other default error messaging',
+          'The background color of the Flyout; red matches other default error messaging',
         href: 'errorFlyout',
       },
       {
@@ -135,7 +135,7 @@ card(
     id="errorFlyout"
     name="Example: ErrorFlyout"
     description={`Flyout can also take on additional roles. Like [TextField](#TextField) and [TextArea](#TextArea), this component
-can be used to highlight errors on other types of form fields by setting the \`color\` to \`orange.\``}
+can be used to highlight errors on other types of form fields by setting the \`color\` to \`red.\``}
     defaultCode={`
 class ErrorFlyoutExample extends React.Component {
   constructor(props) {
@@ -162,7 +162,7 @@ class ErrorFlyoutExample extends React.Component {
             anchor={this.anchorRef.current}
             idealDirection="up"
             onDismiss={this.handleDismiss}
-            color="orange"
+            color="red"
             shouldFocus={false}
             size="md"
           >

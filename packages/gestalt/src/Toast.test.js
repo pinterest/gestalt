@@ -27,7 +27,7 @@ test('Guide Toast', () => {
 
 test('Error Toast', () => {
   const tree = create(
-    <Toast color="orange" text="Oops, we couldn't find that!" />
+    <Toast color="red" text="Oops, we couldn't find that!" />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
