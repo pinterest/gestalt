@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Button: add new `textColor` prop to allow overriding of text color for buttons (#545)
+
 ### Patch
 
 </details>
