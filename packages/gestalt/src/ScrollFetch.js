@@ -88,8 +88,6 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     };
   }
 
-  scrollBuffer: number;
-
   render() {
     const { containerHeight, scrollHeight, scrollTop } = this.state;
     const { container, fetchMore, isAtEnd, isFetching } = this.props;

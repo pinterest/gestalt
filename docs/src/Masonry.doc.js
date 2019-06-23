@@ -115,12 +115,12 @@ card(
   />
 );
 
-type ExampleMasonryProps = {|
+type Props = {|
   flexible?: boolean,
   layout?: Function,
 |};
 
-type ExampleMasonryState = {|
+type State = {|
   pins: Array<{|
     color: string,
     height: number,
@@ -180,10 +180,13 @@ const getPins = () => {
   return Promise.resolve(pinList);
 };
 
-class ExampleMasonry extends React.Component<
-  ExampleMasonryProps,
-  ExampleMasonryState
-> {
+class ExampleMasonry extends React.Component<Props, State> {
+  // ref on a component gets the mounted instance of the component
+  // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
+  grid: ?Masonry<*>;
+
+  scrollContainer: ?HTMLElement;
+
   constructor() {
     super();
     this.state = {
@@ -208,12 +211,6 @@ class ExampleMasonry extends React.Component<
       }
     });
   };
-
-  // ref on a component gets the mounted instance of the component
-  // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
-  grid: ?Masonry<*>;
-
-  scrollContainer: ?HTMLElement;
 
   render() {
     const containerStyle = {

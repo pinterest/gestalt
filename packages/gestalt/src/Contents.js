@@ -331,15 +331,17 @@ export default class Contents extends React.Component<Props, State> {
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
     caret: PropTypes.bool,
     children: PropTypes.node,
-    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']), // eslint-disable-line react/no-unused-prop-types
     onKeyDown: PropTypes.func.isRequired,
     onResize: PropTypes.func.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
     relativeOffset: PropTypes.exact({
       x: PropTypes.number,
       y: PropTypes.number,
     }),
-    positionRelativeToAnchor: PropTypes.bool,
+    positionRelativeToAnchor: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
     shouldFocus: PropTypes.bool,
+    // eslint-disable-next-line react/no-unused-prop-types
     triggerRect: PropTypes.exact({
       bottom: PropTypes.number,
       height: PropTypes.number,

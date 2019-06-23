@@ -8,7 +8,7 @@ type Props = {|
   children?: React.Node,
   history: *,
   onClick: Function,
-  replace: boolean,
+  replace?: boolean,
   target?: null | 'self' | 'blank',
   to: string | Object,
 |};
