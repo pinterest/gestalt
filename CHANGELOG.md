@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Eslint: Upgrade to `v6.0.0` and bump all related packages/plugins (#544)
+- Eslint: Bump all related packages/plugins to current latest version (#544)
 
 ### Patch
 
