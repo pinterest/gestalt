@@ -79,6 +79,13 @@ card(
         required: true,
       },
       {
+        name: 'textColor',
+        type: `"blue" | "red" | "darkGray" | "white"`,
+        description:
+          'The color for the text shown inside the Button. Note: should only be used for "white" buttons',
+        href: 'textColor',
+      },
+      {
         name: 'type',
         type: `"submit" | "button"`,
         defaultValue: 'button',
@@ -121,9 +128,7 @@ card(
 
 card(
   <Example
-    description={`
-    \`transparent\` and \`white\` are our secondary colors for \`Button\`. We should only show them on a dark gray background.
-  `}
+    description={`\`transparent\` and \`white\` are our secondary colors for \`Button\`.`}
     id="color"
     name="Colors: Dark Backgrounds"
     defaultCode={`
@@ -140,6 +145,51 @@ card(
     </Box>
     <Box column={6} paddingX={2}>
       <Button color="white" text="Learn more" />
+    </Box>
+  </Box>
+</Box>
+`}
+  />
+);
+
+card(
+  <Example
+    description={`When using the \`white\` background color for \`Button\` it may become necessary to
+      override the text color within the button to match that of the parent's background. For this you
+      may use the \`textColor\` prop to manually set the text color. NOTE: please refrain from overriding
+      the text color for any button besides those with white background as it breaks our design standards.`}
+    id="textColor"
+    name="Text colors"
+    defaultCode={`
+<Box display="flex">
+  <Box color="blue" maxWidth={320} shape="rounded" padding={4} margin={4}>
+    <Box marginBottom={4}>
+      <Text color="white">
+        Click to crop, rotate, apply filters, or edit your image.
+      </Text>
+    </Box>
+    <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
+      <Box display="flex" direction="row" column={6} paddingX={2}>
+        <Button color="transparent" text="Later" />
+      </Box>
+      <Box column={6} paddingX={2}>
+        <Button color="white" textColor="blue" text="Got it" />
+      </Box>
+    </Box>
+  </Box>
+  <Box color="red" maxWidth={320} shape="rounded" padding={4} margin={4}>
+    <Box marginBottom={4}>
+      <Text color="white">
+        Oops, something went wrong! Would you like to try again?
+      </Text>
+    </Box>
+    <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
+      <Box display="flex" direction="row" column={6} paddingX={2}>
+        <Button color="transparent" text="Cancel" />
+      </Box>
+      <Box column={6} paddingX={2}>
+        <Button color="white" textColor="red" text="Try again" />
+      </Box>
     </Box>
   </Box>
 </Box>

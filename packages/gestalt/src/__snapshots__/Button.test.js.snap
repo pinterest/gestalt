@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button color="transparent" /> 1`] = `
+exports[`Button with custom color 1`] = `
 <button
   className="button md transparent enabled block"
   disabled={false}
@@ -9,6 +9,21 @@ exports[`<Button color="transparent" /> 1`] = `
 >
   <div
     className="Text fontSize3 white alignCenter fontStyleNormal fontWeightBold"
+  >
+    Hello World
+  </div>
+</button>
+`;
+
+exports[`Button with custom text color 1`] = `
+<button
+  className="button md solid white enabled block"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  <div
+    className="Text fontSize3 blue alignCenter fontStyleNormal fontWeightBold"
   >
     Hello World
   </div>
