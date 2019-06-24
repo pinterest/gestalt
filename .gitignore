@@ -4,6 +4,8 @@ docs/build/
 *.log
 stats.html
 screenshots
+package.json
+package-lock.json
 
 packages/gestalt/dist/*
 # the flow export file as it's maintained by hand

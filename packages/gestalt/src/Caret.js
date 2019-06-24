@@ -11,22 +11,22 @@ export default function Caret(props: Props) {
   let path;
   switch (direction) {
     case 'up':
-      path = 'M0 -2 L12 12 L24 -2';
+      path = 'M0 -1 L12 12 L24 -1';
       break;
     case 'right':
-      path = 'M26 0 L12 12 L26 24';
+      path = 'M25 0 L12 12 L25 24';
       break;
     case 'down':
-      path = 'M0 26 L12 12 L24 26';
+      path = 'M0 25 L12 12 L24 25';
       break;
     case 'left':
-      path = 'M-2 0 L12 12 L-2 24';
+      path = 'M-1 0 L12 12 L-1 24';
       break;
     default:
   }
 
   return (
-    <svg width="26" height="26">
+    <svg width="25" height="25">
       <path d={path} />
     </svg>
   );

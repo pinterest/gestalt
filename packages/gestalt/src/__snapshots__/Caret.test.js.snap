@@ -2,44 +2,44 @@
 
 exports[`Caret renders with direction down 1`] = `
 <svg
-  height="26"
-  width="26"
+  height="25"
+  width="25"
 >
   <path
-    d="M0 26 L12 12 L24 26"
+    d="M0 25 L12 12 L24 25"
   />
 </svg>
 `;
 
 exports[`Caret renders with direction left 1`] = `
 <svg
-  height="26"
-  width="26"
+  height="25"
+  width="25"
 >
   <path
-    d="M-2 0 L12 12 L-2 24"
+    d="M-1 0 L12 12 L-1 24"
   />
 </svg>
 `;
 
 exports[`Caret renders with direction right 1`] = `
 <svg
-  height="26"
-  width="26"
+  height="25"
+  width="25"
 >
   <path
-    d="M26 0 L12 12 L26 24"
+    d="M25 0 L12 12 L25 24"
   />
 </svg>
 `;
 
 exports[`Caret renders with direction up 1`] = `
 <svg
-  height="26"
-  width="26"
+  height="25"
+  width="25"
 >
   <path
-    d="M0 -2 L12 12 L24 -2"
+    d="M0 -1 L12 12 L24 -1"
   />
 </svg>
 `;
