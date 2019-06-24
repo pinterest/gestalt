@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Enzyme: Upgrade to the latest `v3.10.0` version and pull in Flow library changes (#543)
 - Eslint: Bump all related packages/plugins to current latest version (#544)
 
 ### Patch
