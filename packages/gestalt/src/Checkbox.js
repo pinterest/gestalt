@@ -51,6 +51,8 @@ export default class Checkbox extends React.Component<Props, State> {
     focused: false,
   };
 
+  input: ?HTMLInputElement;
+
   componentDidMount() {
     if (this.props.indeterminate) {
       this.setIndeterminate(!!this.props.indeterminate);
@@ -85,8 +87,6 @@ export default class Checkbox extends React.Component<Props, State> {
   handleBlur = () => this.setState({ focused: false });
 
   handleFocus = () => this.setState({ focused: true });
-
-  input: ?HTMLInputElement;
 
   render() {
     const {

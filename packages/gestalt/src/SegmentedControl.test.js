@@ -40,6 +40,9 @@ test('SegmentedControl handles click', () => {
   const mockEvent = {};
   wrapper.find('button').simulate('click', mockEvent);
 
-  expect(mockOnChange).toBeCalled();
-  expect(mockOnChange).toBeCalledWith({ event: mockEvent, activeIndex: 0 });
+  expect(mockOnChange).toHaveBeenCalled();
+  expect(mockOnChange).toHaveBeenCalledWith({
+    event: mockEvent,
+    activeIndex: 0,
+  });
 });

@@ -26,7 +26,7 @@ test('VideoControls handles play events', () => {
     />
   );
   wrapper.find('Icon[icon="play"]').simulate('click');
-  expect(mockOnPlay).toBeCalled();
+  expect(mockOnPlay).toHaveBeenCalled();
 });
 
 test('VideoControls handles pause events', () => {
@@ -52,7 +52,7 @@ test('VideoControls handles pause events', () => {
     />
   );
   wrapper.find('Icon[icon="pause"]').simulate('click');
-  expect(mockOnPause).toBeCalled();
+  expect(mockOnPause).toHaveBeenCalled();
 });
 
 test('VideoControls handles volume events', () => {
@@ -78,5 +78,5 @@ test('VideoControls handles volume events', () => {
     />
   );
   wrapper.find('Icon[icon="mute"]').simulate('click');
-  expect(mockOnVolumeChange).toBeCalled();
+  expect(mockOnVolumeChange).toHaveBeenCalled();
 });

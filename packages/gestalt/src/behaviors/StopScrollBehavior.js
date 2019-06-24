@@ -6,6 +6,8 @@ type Props = {|
 |};
 
 export default class NoScrollBehavior extends React.Component<Props> {
+  prevOverflow: string | null;
+
   constructor(props: Props) {
     super(props);
     this.prevOverflow = null;
@@ -23,8 +25,6 @@ export default class NoScrollBehavior extends React.Component<Props> {
       window.document.body.style.overflow = this.prevOverflow;
     }
   }
-
-  prevOverflow: string | null;
 
   render() {
     return this.props.children;

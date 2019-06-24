@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 type Props = {|
   children: React.Node,
 |};
+
 type State = {|
   mounted: boolean,
 |};
@@ -13,6 +14,8 @@ export default class Layer extends React.Component<Props, State> {
   state = {
     mounted: false,
   };
+
+  el: HTMLDivElement;
 
   constructor(props: Props) {
     super(props);
@@ -38,8 +41,6 @@ export default class Layer extends React.Component<Props, State> {
       document.body.removeChild(this.el);
     }
   }
-
-  el: HTMLDivElement;
 
   render() {
     const { children } = this.props;

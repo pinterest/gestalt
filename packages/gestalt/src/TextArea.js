@@ -64,6 +64,10 @@ export default class TextArea extends React.Component<Props, State> {
     focused: false,
   };
 
+  // NOTE: we cannot move to React createRef until we audit uses of callsites
+  // that reach into this component and use this instance variable
+  textarea: ?HTMLElement;
+
   setTextAreaRef = (ref: ?HTMLTextAreaElement) => {
     this.textarea = ref;
   };
@@ -93,10 +97,6 @@ export default class TextArea extends React.Component<Props, State> {
       onKeyDown({ event, value: event.currentTarget.value });
     }
   };
-
-  // NOTE: we cannot move to React createRef until we audit uses of callsites
-  // that reach into this component and use this instance variable
-  textarea: ?HTMLElement;
 
   render() {
     const {
