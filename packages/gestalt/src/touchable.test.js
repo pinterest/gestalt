@@ -53,7 +53,7 @@ test('Touchable handles onTouch callback', () => {
     <Touchable onTouch={mockOnTouch}>Touchable</Touchable>
   );
   wrapper.simulate('click');
-  expect(mockOnTouch).toBeCalled();
+  expect(mockOnTouch).toHaveBeenCalled();
 });
 
 test('Touchable handles onMouseEnter callback', () => {
@@ -62,7 +62,7 @@ test('Touchable handles onMouseEnter callback', () => {
     <Touchable onMouseEnter={mockOnMouseEnter}>Touchable</Touchable>
   );
   wrapper.simulate('mouseEnter');
-  expect(mockOnMouseEnter).toBeCalled();
+  expect(mockOnMouseEnter).toHaveBeenCalled();
 });
 
 test('Touchable handles onMouseLeave callback', () => {
@@ -71,7 +71,7 @@ test('Touchable handles onMouseLeave callback', () => {
     <Touchable onMouseLeave={mockOnMouseLeave}>Touchable</Touchable>
   );
   wrapper.simulate('mouseLeave');
-  expect(mockOnMouseLeave).toBeCalled();
+  expect(mockOnMouseLeave).toHaveBeenCalled();
 });
 
 test('Touchable handles key press event', () => {
@@ -81,5 +81,5 @@ test('Touchable handles key press event', () => {
   );
   const mockEvent = { charCode: 32, preventDefault: jest.fn() };
   wrapper.simulate('keyPress', mockEvent);
-  expect(mockOnTouch).toBeCalled();
+  expect(mockOnTouch).toHaveBeenCalled();
 });

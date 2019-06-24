@@ -15,5 +15,5 @@ test('Button handles click', () => {
   const mockOnClick = jest.fn();
   const wrapper = shallow(<Button text="Text" onClick={mockOnClick} />);
   wrapper.find('button').simulate('click');
-  expect(mockOnClick).toBeCalled();
+  expect(mockOnClick).toHaveBeenCalled();
 });
