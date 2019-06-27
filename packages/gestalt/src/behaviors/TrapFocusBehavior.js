@@ -33,6 +33,10 @@ const focusElement = (el: HTMLElement) => {
 };
 
 export default class TrapFocusBehavior extends React.Component<Props> {
+  el: ?HTMLDivElement;
+
+  previouslyFocusedEl: ?HTMLElement;
+
   componentDidMount() {
     this.previouslyFocusedEl = document.activeElement;
     this.focusFirstChild();
@@ -71,10 +75,6 @@ export default class TrapFocusBehavior extends React.Component<Props> {
       focusElement(queryFocusableAll(el)[0]);
     }
   }
-
-  el: ?HTMLDivElement;
-
-  previouslyFocusedEl: ?HTMLElement;
 
   render() {
     return <div ref={this.setElRef}>{this.props.children}</div>;

@@ -36,6 +36,8 @@ export default class ScrollContainer extends React.Component<Props> {
       .isRequired,
   };
 
+  scrollContainer: ?HTMLElement;
+
   componentDidMount() {
     const scrollContainer = getScrollContainer(this.props.scrollContainer);
     if (scrollContainer) {
@@ -70,8 +72,6 @@ export default class ScrollContainer extends React.Component<Props> {
     this.scrollContainer = scrollContainer;
     this.scrollContainer.addEventListener('scroll', this.handleScroll);
   }
-
-  scrollContainer: ?HTMLElement;
 
   render() {
     return React.Children.only(this.props.children);

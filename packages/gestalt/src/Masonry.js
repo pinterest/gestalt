@@ -183,6 +183,18 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     virtualize: false,
   };
 
+  containerHeight: number;
+
+  containerOffset: number;
+
+  gridWrapper: ?HTMLElement;
+
+  insertAnimationFrame: AnimationFrameID;
+
+  measureTimeout: TimeoutID;
+
+  scrollContainer: ?ScrollContainer;
+
   constructor(props: Props<T>) {
     super(props);
 
@@ -338,18 +350,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       );
     }
   };
-
-  containerHeight: number;
-
-  containerOffset: number;
-
-  gridWrapper: ?HTMLElement;
-
-  insertAnimationFrame: AnimationFrameID;
-
-  measureTimeout: TimeoutID;
-
-  scrollContainer: ?ScrollContainer;
 
   measureContainer() {
     if (this.scrollContainer != null) {
