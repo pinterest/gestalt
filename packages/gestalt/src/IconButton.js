@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
+import Tooltip from './ToolTip.js';
 
 type Props = {|
   accessibilityExpanded?: boolean,
@@ -22,6 +23,7 @@ type Props = {|
   icon?: $Keys<typeof icons>,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  tooltipText?: string,
 |};
 
 type State = {|
@@ -50,6 +52,7 @@ export default class IconButton extends React.Component<Props, State> {
     iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    tooltipText: PropTypes.string,
   };
 
   state = {
@@ -82,11 +85,12 @@ export default class IconButton extends React.Component<Props, State> {
       icon,
       size,
       onClick,
+      tooltipText,
     } = this.props;
 
     const { active, focused, hovered } = this.state;
 
-    return (
+    const button = (
       <button
         aria-expanded={accessibilityExpanded}
         aria-haspopup={accessibilityHaspopup}
@@ -116,6 +120,14 @@ export default class IconButton extends React.Component<Props, State> {
           size={size}
         />
       </button>
+    );
+
+    return tooltipText ? (
+      <Tooltip text={tooltipText} inline>
+        {button}
+      </Tooltip>
+    ) : (
+      button
     );
   }
 }

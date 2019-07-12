@@ -32,6 +32,32 @@ exports[`Icon renders 1`] = `
 </svg>
 `;
 
+exports[`Icon renders with tooltip text 1`] = `
+<div
+  className="box xsDisplayInlineBlock"
+>
+  <div
+    className="box"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="Pinterest"
+      className="icon gray iconBlock"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
 exports[`Icon uses the dangerouslySetSvgPath prop when icon path is not specified 1`] = `
 <svg
   aria-hidden={null}

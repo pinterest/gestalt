@@ -58,6 +58,12 @@ card(
         type: `{ __path: string }`,
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
+      {
+        name: 'tooltipText',
+        type: 'string',
+        description:
+          'Optional tooltip text that will be displayed on hover. The string should be localized.',
+      },
     ]}
   />
 );

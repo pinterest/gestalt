@@ -29,3 +29,15 @@ test('IconButton renders with svg', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('IconButton renders with tooltip text', () => {
+  const component = renderer.create(
+    <IconButton
+      accessibilityLabel="Pinterest"
+      icon="pin"
+      tooltipText="Quite Pinteresting!"
+    />
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

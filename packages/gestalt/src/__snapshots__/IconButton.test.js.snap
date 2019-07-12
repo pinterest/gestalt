@@ -129,3 +129,56 @@ exports[`IconButton renders with svg 1`] = `
   </div>
 </button>
 `;
+
+exports[`IconButton renders with tooltip text 1`] = `
+<div
+  className="box xsDisplayInlineBlock"
+>
+  <div
+    className="box"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <button
+      aria-label="Pinterest"
+      className="button enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <div
+          className="box circle"
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon gray iconBlock"
+            height={20}
+            role="img"
+            viewBox="0 0 24 24"
+            width={20}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;

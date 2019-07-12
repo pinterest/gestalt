@@ -22,3 +22,14 @@ test('Icon uses the dangerouslySetSvgPath prop when icon path is not specified',
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Icon renders with tooltip text', () => {
+  const tree = create(
+    <Icon
+      accessibilityLabel="Pinterest"
+      icon="pin"
+      tooltipText="Quite Pinteresting!"
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

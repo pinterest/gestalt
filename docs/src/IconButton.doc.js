@@ -81,6 +81,12 @@ card(
         name: 'onClick',
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },
+      {
+        name: 'tooltipText',
+        type: 'string',
+        description:
+          'Optional tooltip text that will be displayed on hover. The string should be localized.',
+      },
     ]}
   />
 );
