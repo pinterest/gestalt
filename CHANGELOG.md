@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+  - Icon: Add new lightning icon
 
 ### Patch
 
