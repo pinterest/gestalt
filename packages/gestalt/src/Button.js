@@ -1,10 +1,18 @@
 // @flow
-import * as React from 'react';
+
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import borderStyles from './Borders.css';
 import styles from './Button.css';
 import Text from './Text.js';
+
+const DEFAULT_TEXT_COLORS = {
+  blue: 'white',
+  gray: 'darkGray',
+  red: 'white',
+  transparent: 'white',
+  white: 'darkGray',
+};
 
 type Props = {|
   accessibilityExpanded?: boolean,
@@ -17,6 +25,7 @@ type Props = {|
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   size?: 'sm' | 'md' | 'lg',
   text: string,
+  textColor?: 'white' | 'darkGray' | 'blue' | 'red',
   type?: 'submit' | 'button',
 |};
 
@@ -32,16 +41,9 @@ export default function Button(props: Props) {
     onClick,
     size = 'md',
     text,
+    textColor,
     type = 'button',
   } = props;
-
-  const textColor = {
-    blue: 'white',
-    gray: 'darkGray',
-    red: 'white',
-    transparent: 'white',
-    white: 'darkGray',
-  };
 
   const classes = classnames(styles.button, {
     [styles.sm]: size === 'sm',
@@ -53,8 +55,6 @@ export default function Button(props: Props) {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
-    [borderStyles.radiusLarge]: !inline,
-    [borderStyles.radiusSmall]: inline,
   });
 
   /* eslint-disable react/button-has-type */
@@ -72,7 +72,7 @@ export default function Button(props: Props) {
       <Text
         align="center"
         bold
-        color={disabled ? 'gray' : textColor[color]}
+        color={disabled ? 'gray' : textColor || DEFAULT_TEXT_COLORS[color]}
         overflow="normal"
         size={size}
       >
@@ -94,5 +94,6 @@ Button.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   text: PropTypes.string.isRequired,
+  textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
   type: PropTypes.oneOf(['button', 'submit']),
 };

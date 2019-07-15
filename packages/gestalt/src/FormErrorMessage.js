@@ -11,7 +11,7 @@ type Props = {|
 
 export default function FormErrorMessage({ id, text = '' }: Props) {
   return (
-    <Text color="orange">
+    <Text color="red">
       <span id={`${id}-error`}>{text}</span>
     </Text>
   );

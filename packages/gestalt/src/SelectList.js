@@ -51,6 +51,8 @@ export default class SelectList extends React.Component<Props, State> {
     focused: false,
   };
 
+  select: ?HTMLSelectElement;
+
   setSelectListRef = (ref: ?HTMLSelectElement) => {
     this.select = ref;
   };
@@ -64,8 +66,6 @@ export default class SelectList extends React.Component<Props, State> {
       onChange({ event, value: event.target.value });
     }
   };
-
-  select: ?HTMLSelectElement;
 
   render() {
     const {

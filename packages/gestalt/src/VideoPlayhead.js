@@ -26,6 +26,8 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     seeking: false,
   };
 
+  playhead: ?HTMLDivElement;
+
   setPlayheadRef = (ref: ?HTMLDivElement) => {
     this.playhead = ref;
   };
@@ -58,8 +60,6 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
   handleMouseUp = () => {
     this.setState({ seeking: false });
   };
-
-  playhead: ?HTMLDivElement;
 
   render() {
     const { currentTime, duration } = this.props;

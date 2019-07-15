@@ -206,6 +206,10 @@ export default class Video extends React.PureComponent<Props, State> {
     fullscreen: false,
   };
 
+  video: ?HTMLVideoElement;
+
+  player: ?HTMLDivElement;
+
   /**
    * React lifecycle hooks pertinent to Video
    */
@@ -430,10 +434,6 @@ export default class Video extends React.PureComponent<Props, State> {
       onVolumeChange({ event, volume: muted ? 1 : 0 });
     }
   };
-
-  video: ?HTMLVideoElement;
-
-  player: ?HTMLDivElement;
 
   render() {
     const {

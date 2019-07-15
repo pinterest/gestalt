@@ -30,6 +30,7 @@ import {
   identity,
   mapClassName,
   toProps,
+  type Style,
 } from './style.js';
 import {
   union,
@@ -82,7 +83,8 @@ type Margin =
   | 9
   | 10
   | 11
-  | 12;
+  | 12
+  | 'auto';
 type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type PropType = {
   children?: React.Node,
@@ -227,18 +229,32 @@ There's a little preamble here, but it culminates in a big object mapping the ac
 
 */
 
-const marginStart = bind(rangeWithoutZero('marginStart'), whitespace);
-const marginEnd = bind(rangeWithoutZero('marginEnd'), whitespace);
-const marginTop = bind(rangeWithoutZero('marginTop'), whitespace);
-const marginRight = bind(rangeWithoutZero('marginRight'), whitespace);
-const marginBottom = bind(rangeWithoutZero('marginBottom'), whitespace);
-const marginLeft = bind(rangeWithoutZero('marginLeft'), whitespace);
+const transformNumberOrPassthrough = (selector: string) => (
+  m: Margin
+): Style => {
+  if (typeof m === 'number') {
+    return bind(rangeWithoutZero(selector), whitespace)(m);
+  }
+
+  if (m === 'auto') {
+    return fromClassName(whitespace[`${selector}Auto`]);
+  }
+
+  return identity();
+};
+
+const marginStart = transformNumberOrPassthrough('marginStart');
+const marginEnd = transformNumberOrPassthrough('marginEnd');
+const marginTop = transformNumberOrPassthrough('marginTop');
+const marginRight = transformNumberOrPassthrough('marginRight');
+const marginBottom = transformNumberOrPassthrough('marginBottom');
+const marginLeft = transformNumberOrPassthrough('marginLeft');
 const margin = union(marginTop, marginBottom, marginLeft, marginRight);
 
-const smMarginTop = bind(rangeWithoutZero('smMarginTop'), whitespace);
-const smMarginRight = bind(rangeWithoutZero('smMarginRight'), whitespace);
-const smMarginBottom = bind(rangeWithoutZero('smMarginBottom'), whitespace);
-const smMarginLeft = bind(rangeWithoutZero('smMarginLeft'), whitespace);
+const smMarginTop = transformNumberOrPassthrough('smMarginTop');
+const smMarginRight = transformNumberOrPassthrough('smMarginRight');
+const smMarginBottom = transformNumberOrPassthrough('smMarginBottom');
+const smMarginLeft = transformNumberOrPassthrough('smMarginLeft');
 const smMargin = union(
   smMarginTop,
   smMarginBottom,
@@ -246,10 +262,10 @@ const smMargin = union(
   smMarginRight
 );
 
-const mdMarginTop = bind(rangeWithoutZero('mdMarginTop'), whitespace);
-const mdMarginRight = bind(rangeWithoutZero('mdMarginRight'), whitespace);
-const mdMarginBottom = bind(rangeWithoutZero('mdMarginBottom'), whitespace);
-const mdMarginLeft = bind(rangeWithoutZero('mdMarginLeft'), whitespace);
+const mdMarginTop = transformNumberOrPassthrough('mdMarginTop');
+const mdMarginRight = transformNumberOrPassthrough('mdMarginRight');
+const mdMarginBottom = transformNumberOrPassthrough('mdMarginBottom');
+const mdMarginLeft = transformNumberOrPassthrough('mdMarginLeft');
 const mdMargin = union(
   mdMarginTop,
   mdMarginBottom,
@@ -257,10 +273,10 @@ const mdMargin = union(
   mdMarginRight
 );
 
-const lgMarginTop = bind(rangeWithoutZero('lgMarginTop'), whitespace);
-const lgMarginRight = bind(rangeWithoutZero('lgMarginRight'), whitespace);
-const lgMarginBottom = bind(rangeWithoutZero('lgMarginBottom'), whitespace);
-const lgMarginLeft = bind(rangeWithoutZero('lgMarginLeft'), whitespace);
+const lgMarginTop = transformNumberOrPassthrough('lgMarginTop');
+const lgMarginRight = transformNumberOrPassthrough('lgMarginRight');
+const lgMarginBottom = transformNumberOrPassthrough('lgMarginBottom');
+const lgMarginLeft = transformNumberOrPassthrough('lgMarginLeft');
 const lgMargin = union(
   lgMarginTop,
   lgMarginBottom,
@@ -641,22 +657,26 @@ const omit = (keys, obj) =>
     };
   }, {});
 
+// Box is a "pass-through" component, meaning that if you pass properties to it
+// that it doesn't know about (`aria-label` for instance) it passes directly
+// back to the underlying `<div/>`. That's generally useful, but we'd also like
+// to strip out a few naughty properties that break style encapsulation
+// (className, style) or accessibility (onClick).
+const blacklistProps = ['onClick', 'className', 'style'];
+
 // $FlowIssue https://github.com/facebook/flow/issues/6103
 const Box = React.forwardRef(
   ({ children, ...props }: PropType, ref: React.ElementRef<*>) => {
     // Flow can't reason about the constant nature of Object.keys so we can't use
     // a functional (reduce) style here.
 
-    // Box is a "pass-through" component, meaning that if you pass properties to
-    // it that it doesn't know about (`aria-label` for instance) it passes
-    // directly back to the underlying `<div/>`. That's generally useful, but
-    // we'd also like to strip out a few naughty properties that break style
-    // encapsulation (className, style) or accessibility (onClick).
-    let blacklist = ['onClick', 'className', 'style'];
-
     // All Box's are box-sized by default, so we start off building up the styles
     // to be applied with a Box base class.
     let s = fromClassName(styles.box);
+
+    // Init the list of props we'll omit from passthrough. We'll add to this
+    // list as we match props against the transforms list.
+    const omitProps = [...blacklistProps];
 
     // This loops through each property and if it exists in the previously
     // defined transform map, concatentes the resulting styles to the base
@@ -672,14 +692,14 @@ const Box = React.forwardRef(
       if (Object.prototype.hasOwnProperty.call(propToFn, prop)) {
         const fn = propToFn[prop];
         const value = props[prop];
-        blacklist = blacklist.concat(prop);
+        omitProps.push(prop);
         s = concat([s, fn(value)]);
       }
     }
 
     // And... magic!
     return (
-      <div {...omit(blacklist, props)} {...toProps(s)} ref={ref}>
+      <div {...omit(omitProps, props)} {...toProps(s)} ref={ref}>
         {children}
       </div>
     );
@@ -742,6 +762,7 @@ const MarginPropType = PropTypes.oneOf([
   10,
   11,
   12,
+  'auto',
 ]);
 
 const PaddingPropType = PropTypes.oneOf([

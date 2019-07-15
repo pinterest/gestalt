@@ -9,9 +9,56 @@
 ### Minor
   - Icon: Add new lightning icon
 
+- Enzyme: Upgrade to the latest `v3.10.0` version and pull in Flow library changes (#543)
+- Eslint: Bump all related packages/plugins to current latest version (#544)
+- Button: add new `textColor` prop to allow overriding of text color for buttons (#545)
+
 ### Patch
 
 </details>
+
+## 0.99.0 (Jun 21, 2019)
+
+### Minor
+
+- SegmentedControl: Update outer border radius to 8px from new design spec (#530)
+- Masonry: remove `MasonryBeta` and `MasonryInfiniteBeta` from source code (#531)
+- Spinner: add `delay` prop to optionally remove 300ms delay to appear (#533)
+- Button: Undo Button border radii changes for full width buttons.  Conform all to 8px (#534)
+- IconButton/Pog: Add `dangerouslySetSvgPath` support (#536)
+- Flow: Bumping to latest version `v0.101.0` (#539)
+- TextField/TextArea/SelectList/Checkbox: Switch from orange to red error states (#540)
+
+### Patch
+
+- Box: Fixed name minification bug and missing PropType from my recent margin:auto change (#532)
+
+## 0.98.0 (May 28, 2019)
+
+### Minor
+
+- Box: `margin` prop now supports `auto` for use in flexbox layouts (#528)
+- Icon: Update `flashlight` icon to use new asset (#527)
+- Icon: Add new icon of `heart-outline` and update icon of `heart` (#526)
+
+### Patch
+
+- Typography: Fixed a tiny bug where our CSS file had a few uses of curly quotes instead of regular quotes (#524)
+
+## 0.97.0 (May 15, 2019)
+
+### Minor
+
+- IconButton: Add new `disabled` prop and stylings to `IconButton` component (#521)
+- Icon: Add new icon of `ads-stats` and `ads-overview` (#522)
+
+## 0.96.0 (May 6, 2019)
+
+## Minor
+
+- Icon: add calendar icon to gestalt (#512)
+- Icon: add lightning bolt icon (#513)
+- Flow: upgrade version to [0.97.0](https://github.com/facebook/flow/releases/tag/v0.97.0) (#515)
 
 ## 0.95.0 (April 10, 2019)
 
@@ -19,7 +66,7 @@
 
 - Tooltip: remove focus from revealing Tooltip (#506)
 - TextField: Add autocomplete prop value to TextField (#508)
-- Upgrade flow version to [0.69.0](https://github.com/facebook/flow/releases/tag/v0.69.0) (#509)
+- Upgrade flow version to [0.96.0](https://github.com/facebook/flow/releases/tag/v0.96.0) (#509)
 
 ### Patch
 
@@ -34,7 +81,6 @@
 - Touchable: cleanup event handlers (#502)
 - TextArea/TextField/SelectList: cleanup components and remove gDSFP (#503)
 - Upgrade React version to [16.8.5](https://github.com/facebook/react/releases/tag/v16.8.5) (#504)
-
 
 ## 0.93.0 (March 13, 2019)
 

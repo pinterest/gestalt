@@ -111,7 +111,7 @@ exports[`Flyout renders as error 1`] = `
   }
 >
   <div
-    className="orangeBg orange contents maxDimensions minDimensions"
+    className="redBg red contents maxDimensions minDimensions"
     tabIndex={-1}
   >
     <div
@@ -123,7 +123,7 @@ exports[`Flyout renders as error 1`] = `
       }
     />
     <div
-      className="orange caret"
+      className="red caret"
       style={
         Object {
           "bottom": null,

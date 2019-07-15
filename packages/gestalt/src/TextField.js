@@ -84,6 +84,10 @@ export default class TextField extends React.Component<Props, State> {
     focused: false,
   };
 
+  // NOTE: we cannot move to React createRef until we audit uses of callsites
+  // that reach into this component and use this instance variable
+  textfield: ?HTMLInputElement;
+
   setTextFieldRef = (ref: ?HTMLInputElement) => {
     this.textfield = ref;
   };
@@ -113,10 +117,6 @@ export default class TextField extends React.Component<Props, State> {
       onKeyDown({ event, value: event.currentTarget.value });
     }
   };
-
-  // NOTE: we cannot move to React createRef until we audit uses of callsites
-  // that reach into this component and use this instance variable
-  textfield: ?HTMLInputElement;
 
   render() {
     const {

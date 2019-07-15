@@ -12,10 +12,13 @@
 
 .icon {
   composes: block from "./Layout.css";
-  animation-delay: 0.3s;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-name: spin;
   animation-timing-function: linear;
+}
+
+.delay {
+  animation-delay: 0.3s;
   opacity: 0;
 }

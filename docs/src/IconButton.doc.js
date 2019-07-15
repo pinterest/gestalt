@@ -49,6 +49,11 @@ card(
         href: 'backgroundColorCombinations',
       },
       {
+        name: 'disabled',
+        type: 'boolean',
+        href: 'disabledCombinations',
+      },
+      {
         name: 'iconColor',
         type: `"blue" | "darkGray" | "gray" | "red" | "white"`,
         defaultValue: 'gray',
@@ -57,9 +62,13 @@ card(
       {
         name: 'icon',
         type: '$Keys<typeof icons>',
-        required: true,
         description: `This allows type checking for a valid icon name based on the keys from the list of icons in
         Icon.`,
+      },
+      {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
       {
         name: 'size',
@@ -171,6 +180,19 @@ card(
     ]}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="disabledCombinations"
+    name="Disabled Combinations"
+    description="Icon buttons can be disabled as well. Adding the disabled flag to any color combination will add a 50% opacity and remove interactivity"
+    iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
+  >
+    {props => (
+      <IconButton icon="heart" accessibilityLabel="" disabled {...props} />
+    )}
   </Combination>
 );
 
