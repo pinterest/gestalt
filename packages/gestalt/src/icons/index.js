@@ -60,6 +60,7 @@ import fillOpaque from './fill-opaque.svg';
 import fillTransparent from './fill-transparent.svg';
 import filter from './filter.svg';
 import flag from './flag.svg';
+import flash from './flash.svg';
 import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
 import flipVertical from './flip-vertical.svg';
@@ -206,6 +207,7 @@ export default {
   'fill-transparent': fillTransparent,
   filter,
   flag,
+  flash,
   flashlight,
   flipHorizontal,
   flipVertical,
