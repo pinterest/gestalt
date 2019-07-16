@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
-import Tooltip from './ToolTip.js';
+import Tooltip from './Tooltip.js';
 
 type Props = {|
   accessibilityExpanded?: boolean,

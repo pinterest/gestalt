@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index.js';
 import colors from './Colors.css';
-import Tooltip from './ToolTip.js';
 
 type Props = {|
   accessibilityLabel: string,
@@ -31,7 +30,6 @@ type Props = {|
   dangerouslySetSvgPath?: { __path: string },
   inline?: boolean,
   size?: number | string,
-  tooltipText?: string,
 |};
 
 const IconNames = Object.keys(icons);
@@ -44,7 +42,6 @@ export default function Icon(props: Props) {
     icon,
     inline,
     size = 16,
-    tooltipText,
   } = props;
 
   const cs = classnames(styles.icon, colors[color], {
@@ -59,7 +56,7 @@ export default function Icon(props: Props) {
 
   const ariaHidden = accessibilityLabel === '' ? true : null;
 
-  const svg = (
+  return (
     <svg
       className={cs}
       height={size}
@@ -71,14 +68,6 @@ export default function Icon(props: Props) {
     >
       <path d={path} />
     </svg>
-  );
-
-  return tooltipText ? (
-    <Tooltip text={tooltipText} inline>
-      {svg}
-    </Tooltip>
-  ) : (
-    svg
   );
 }
 
@@ -111,5 +100,4 @@ Icon.propTypes = {
   icon: PropTypes.oneOf(IconNames),
   inline: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  tooltipText: PropTypes.string,
 };
