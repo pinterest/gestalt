@@ -7,7 +7,7 @@
   </summary>
 
 ### Minor
-  - Icon: Update send icon (#548)
+  - Icon: Update send icon (#549)
   - Icon: Add new lightning icon (#547)
 
 - Enzyme: Upgrade to the latest `v3.10.0` version and pull in Flow library changes (#543)
