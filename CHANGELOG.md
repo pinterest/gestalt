@@ -12,7 +12,7 @@
 
 </details>
 
-## 0.100.0 (Jul 22, 2019)
+## 0.100.0 (Jul 23, 2019)
 
 ### Minor
 
@@ -21,6 +21,7 @@
 - Button: add new `textColor` prop to allow overriding of text color for buttons (#545)
 - Icon: Add new lightning icon (#547)
 - Icon: Update send icon (#549)
+- SegmentedControl: Fixup some extra CSS that was messing with Tooltips (#550)
 
 ## 0.99.0 (Jun 21, 2019)
 
