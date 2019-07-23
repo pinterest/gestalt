@@ -7,12 +7,13 @@
   </summary>
 
 ### Minor
-  - Icon: Update send icon (#549)
-  - Icon: Add new lightning icon (#547)
 
 - Enzyme: Upgrade to the latest `v3.10.0` version and pull in Flow library changes (#543)
 - Eslint: Bump all related packages/plugins to current latest version (#544)
 - Button: add new `textColor` prop to allow overriding of text color for buttons (#545)
+- Icon: Add new lightning icon (#547)
+- Icon: Update send icon (#549)
+- SegmentedControl: Fixup some extra CSS that was messing with Tooltips (#550)
 
 ### Patch
 

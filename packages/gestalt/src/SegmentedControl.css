@@ -28,10 +28,6 @@
   padding: 4px 14px;
 }
 
-.item:focus {
-  position: relative;
-}
-
 .itemIsNotSelected {
   background: transparent;
 }
