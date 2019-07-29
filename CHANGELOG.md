@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- SearchField: Remove the white background color of the outer box to make its corners looks correct on backgrounds with colors different than white (#552)
 
 ### Patch
 

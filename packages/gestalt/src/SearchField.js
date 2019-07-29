@@ -107,7 +107,6 @@ export default class SearchField extends React.Component<Props, State> {
         onMouseLeave={this.handleMouseLeave}
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
-        color="white"
       >
         <Box
           dangerouslySetInlineStyle={{
