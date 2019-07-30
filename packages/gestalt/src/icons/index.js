@@ -56,6 +56,7 @@ import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
+import fileUnknown from './file-unknown.svg';
 import fillOpaque from './fill-opaque.svg';
 import fillTransparent from './fill-transparent.svg';
 import filter from './filter.svg';
@@ -64,6 +65,7 @@ import flash from './flash.svg';
 import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
 import flipVertical from './flip-vertical.svg';
+import folder from './folder.svg';
 import gif from './gif.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
@@ -203,6 +205,7 @@ export default {
   'face-happy': faceHappy,
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
+  'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
   'fill-transparent': fillTransparent,
   filter,
@@ -211,6 +214,7 @@ export default {
   flashlight,
   flipHorizontal,
   flipVertical,
+  folder,
   gif,
   globe,
   'globe-checked': globeChecked,
