@@ -7,12 +7,17 @@
   </summary>
 
 ### Minor
-- SearchField: Remove the white background color of the outer box to make its corners looks correct on backgrounds with colors different than white (#552)
-- Icon: Add new folder and file-unknown icon (#554)
 
 ### Patch
 
 </details>
+
+## 0.101.0 (Jul 31, 2019)
+
+### Minor
+
+- SearchField: Remove the white background color of the outer box to make its corners looks correct on backgrounds with colors different than white (#552)
+- Icon: Add new folder and file-unknown icon (#554)
 
 ## 0.100.0 (Jul 23, 2019)
 
