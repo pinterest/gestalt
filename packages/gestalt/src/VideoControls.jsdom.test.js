@@ -77,6 +77,6 @@ test('VideoControls handles volume events', () => {
       volume={0}
     />
   );
-  wrapper.find('Icon[icon="mute"]').simulate('click');
+  wrapper.find('Icon[icon="sound-off"]').simulate('click');
   expect(mockOnVolumeChange).toHaveBeenCalled();
 });

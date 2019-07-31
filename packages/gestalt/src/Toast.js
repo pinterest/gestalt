@@ -8,7 +8,7 @@ import Icon from './Icon.js';
 
 type Props = {|
   color?: 'darkGray' | 'orange' | 'red',
-  icon?: 'arrow-circle-forward', // leaving open to additional icons in the future
+  icon?: 'circle-arrow-right', // leaving open to additional icons in the future
   text: string | Array<string>,
   thumbnail?: React.Node,
 |};
@@ -77,7 +77,7 @@ export default function Toast(props: Props) {
 
 Toast.propTypes = {
   color: PropTypes.oneOf(['darkGray', 'orange', 'red']),
-  icon: PropTypes.oneOf(['arrow-circle-forward']), // leaving open to additional icons in the future
+  icon: PropTypes.oneOf(['circle-arrow-right']), // leaving open to additional icons in the future
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.string),

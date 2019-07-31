@@ -163,7 +163,7 @@ class VideoControls extends React.Component<Props> {
                 muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
               }
               color="white"
-              icon={muted ? 'mute' : 'sound'}
+              icon={muted ? 'sound-off' : 'sound-on'}
               size={20}
             />
           </Touchable>

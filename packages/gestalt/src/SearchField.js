@@ -142,7 +142,7 @@ export default class SearchField extends React.Component<Props, State> {
               tabIndex={-1}
               type="button"
             >
-              <Icon icon="clear" accessibilityLabel="" />
+              <Icon icon="circle-cancel" accessibilityLabel="" />
             </button>
           </Box>
         )}

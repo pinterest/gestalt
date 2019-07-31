@@ -60,7 +60,7 @@ type AvatarProps = {|
   size?: 'sm' | 'md' | 'lg',
   src?: string,
   verified?: boolean,
-  icon?: 'check-circle' | 'pinterest',
+  icon?: 'circle-check' | 'pinterest',
 |};
 
 const sizes = {
@@ -91,7 +91,7 @@ export default class Avatar extends React.PureComponent<AvatarProps, State> {
       size,
       src,
       verified,
-      icon = 'check-circle',
+      icon = 'circle-check',
     } = this.props;
     const { isImageLoaded } = this.state;
     const width = size ? sizes[size] : '100%';
