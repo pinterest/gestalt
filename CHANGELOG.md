@@ -8,6 +8,7 @@
 
 ### Minor
 - SearchField: Remove the white background color of the outer box to make its corners looks correct on backgrounds with colors different than white (#552)
+- Icon: Add new folder and file-unknown icon (#554)
 
 ### Patch
 
