@@ -70,6 +70,12 @@
         "markdown": true,
         "warn": true
       }
+    },
+    {
+      "files": ["**/*.svg"],
+      "rules": {
+        "max-len": 0
+      }
     }
   ]
 }
