@@ -27,14 +27,13 @@ export default function Spinner({
   show,
   size = 'md',
 }: Props) {
-  const iconSize = SIZE_NAME_TO_PIXEL[size];
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           icon="knoop"
           accessibilityLabel={accessibilityLabel}
-          size={iconSize}
+          size={SIZE_NAME_TO_PIXEL[size]}
         />
       </div>
     </Box>
