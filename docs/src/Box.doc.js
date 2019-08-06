@@ -82,7 +82,7 @@ card(
       },
       {
         name: 'alignContent',
-        type: `"start" | "end" | "center" | "between" | "around" | "stretch"`,
+        type: `"start" | "end" | "center" | "between" | "around" | "evenly" | "stretch"`,
         defaultValue: 'stretch',
         description:
           "Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.",
@@ -117,7 +117,7 @@ card(
       },
       {
         name: 'justifyContent',
-        type: `"start" | "end" | "center" | "between" | "around"`,
+        type: `"start" | "end" | "center" | "between" | "around" | "evenly"`,
         defaultValue: 'start',
         description:
           'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',

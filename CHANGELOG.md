@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Box: Allow `justifyContent` and `alignContent` props to be passed `evenly` as a value (#557)
+
 ### Patch
 
 </details>
