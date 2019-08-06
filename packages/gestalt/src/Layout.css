@@ -197,6 +197,10 @@
   justify-content: space-around;
 }
 
+.justifyEvenly {
+  justify-content: space-evenly;
+}
+
 .contentStart {
   align-content: flex-start;
 }
@@ -215,6 +219,10 @@
 
 .contentAround {
   align-content: space-around;
+}
+
+.contentEvenly {
+  align-content: space-evenly;
 }
 
 .contentStretch {

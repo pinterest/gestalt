@@ -119,7 +119,14 @@ type PropType = {
   lgColumn?: Column,
   lgDirection?: Direction,
 
-  alignContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'stretch',
+  alignContent?:
+    | 'start'
+    | 'end'
+    | 'center'
+    | 'between'
+    | 'around'
+    | 'evenly'
+    | 'stretch',
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   bottom?: boolean,
@@ -148,7 +155,7 @@ type PropType = {
   fit?: boolean,
   flex?: 'grow' | 'shrink' | 'none',
   height?: number | string,
-  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around',
+  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly',
   left?: boolean,
 
   marginStart?: Margin,
@@ -454,6 +461,7 @@ const propToFn = {
     center: layout.contentCenter,
     between: layout.contentBetween,
     around: layout.contentAround,
+    evenly: layout.contentEvenly,
     // default: stretch
   }),
   alignItems: mapping({
@@ -507,6 +515,7 @@ const propToFn = {
     center: layout.justifyCenter,
     between: layout.justifyBetween,
     around: layout.justifyAround,
+    evenly: layout.justifyEvenly,
     // default: start
   }),
   left: toggle(layout.left0),
@@ -879,6 +888,7 @@ Box.propTypes = {
     'center',
     'between',
     'around',
+    'evenly',
     'stretch',
   ]),
   alignItems: PropTypes.oneOf([
@@ -930,6 +940,7 @@ Box.propTypes = {
     'center',
     'between',
     'around',
+    'evenly',
   ]),
   left: PropTypes.bool,
 
