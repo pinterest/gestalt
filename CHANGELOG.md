@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Box: Allow `justifyContent` and `alignContent` props to be passed `evenly` as a value (#557)
-
 ### Patch
 
 </details>
+
+## 0.102.0 (Aug 6, 2019)
+
+### Minor
+
+- Box: Allow `justifyContent` and `alignContent` props to be passed `evenly` as a value (#557)
 
 ## 0.101.0 (Jul 31, 2019)
 
