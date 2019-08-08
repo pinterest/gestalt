@@ -11,6 +11,8 @@ type Props = {|
   children?: React.Node,
   color: string,
   fit: 'contain' | 'cover' | 'none',
+  importance?: 'high' | 'low' | 'auto',
+  loading?: 'eager' | 'lazy' | 'auto',
   naturalHeight: number,
   naturalWidth: number,
   onError?: () => void,
@@ -26,6 +28,8 @@ export default class Image extends React.PureComponent<Props> {
     children: PropTypes.node,
     color: PropTypes.string,
     fit: PropTypes.oneOf(['contain', 'cover', 'none']),
+    importance: PropTypes.oneOf(['high', 'low', 'auto']),
+    loading: PropTypes.oneOf(['eager', 'lazy', 'auto']),
     naturalHeight: PropTypes.number.isRequired,
     naturalWidth: PropTypes.number.isRequired,
     onError: PropTypes.func,
@@ -38,6 +42,8 @@ export default class Image extends React.PureComponent<Props> {
   static defaultProps = {
     color: 'transparent',
     fit: 'none',
+    importance: 'auto',
+    loading: 'auto',
   };
 
   componentDidMount() {
@@ -80,6 +86,8 @@ export default class Image extends React.PureComponent<Props> {
       color,
       children,
       fit,
+      importance,
+      loading,
       naturalHeight,
       naturalWidth,
       sizes,
@@ -119,6 +127,8 @@ export default class Image extends React.PureComponent<Props> {
         <img
           alt={alt}
           className={styles.img}
+          importance={importance}
+          loading={loading}
           onError={this.handleError}
           onLoad={this.handleLoad}
           sizes={sizes}
