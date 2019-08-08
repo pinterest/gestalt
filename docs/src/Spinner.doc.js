@@ -35,8 +35,8 @@ card(
       },
       {
         name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
+        type: `"sm" | "md"`,
+        description: `sm: 32px, md: 40px`,
         defaultValue: 'md',
       },
     ]}

@@ -7,18 +7,15 @@ import Icon from './Icon.js';
 import styles from './Spinner.css';
 
 const SIZE_NAME_TO_PIXEL = {
-  xs: 24,
   sm: 32,
   md: 40,
-  lg: 48,
-  xl: 56,
 };
 
 type Props = {|
   accessibilityLabel: string,
   delay?: boolean,
   show: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size?: 'sm' | 'md',
 |};
 
 export default function Spinner({
@@ -46,5 +43,5 @@ Spinner.propTypes = {
   show: PropTypes.bool.isRequired,
   accessibilityLabel: PropTypes.string.isRequired,
   delay: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['sm', 'md']),
 };

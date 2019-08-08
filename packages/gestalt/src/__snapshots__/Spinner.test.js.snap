@@ -26,7 +26,7 @@ exports[`Spinner renders when passed show 1`] = `
 </div>
 `;
 
-exports[`Spinner renders with large size 1`] = `
+exports[`Spinner renders with medium size 1`] = `
 <div
   className="box justifyAround overflowHidden xsDisplayFlex"
 >
@@ -37,10 +37,10 @@ exports[`Spinner renders with large size 1`] = `
       aria-hidden={null}
       aria-label="Test"
       className="icon gray iconBlock"
-      height={48}
+      height={40}
       role="img"
       viewBox="0 0 24 24"
-      width={48}
+      width={40}
     >
       <path
         d="test-file-stub"
