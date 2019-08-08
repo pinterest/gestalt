@@ -5,6 +5,7 @@ import stock2 from './images/stock2.jpg';
 import stock3 from './images/stock3.jpg';
 import stock4 from './images/stock4.jpg';
 import stock5 from './images/stock5.jpg';
+import stock6 from './images/stock6.jpg';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -48,6 +49,22 @@ card(
         type: `"cover" | "contain" | "none"`,
         defaultValue: 'none',
         description: `Doesn't work with srcSet or sizes.`,
+        href: 'fit',
+      },
+      {
+        name: 'importance',
+        type: `"high" | "low" | "auto"`,
+        defaultValue: 'auto',
+        description: `Priority Hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). ‘high‘ the developer considers the resource as being high priority. ‘low‘ the developer considers the resource as being low priority. ‘auto‘ the developer does not indicate a preference. This also serves as the attribute's invalid value default and missing value default.`,
+        href: 'fit',
+      },
+      {
+        name: 'loading',
+        type: `"eager" | "lazy" | "auto"`,
+        defaultValue: 'auto',
+        description: `
+        Controls if loading the image should be defered when it's off-screen. ‘lazy’ to defer the load until the image or iframe reaches a distance threshold from the viewport. ‘eager’ to load the resource immediately. ‘auto’ the default behavior, which is to eagerly load the resource.
+        `,
         href: 'fit',
       },
       {
@@ -299,6 +316,27 @@ card(
       </Box>
     </Box>
   </Box>
+</Box>
+`}
+  />
+);
+
+card(
+  <Example
+    description="
+    You can delay loading images that are off-screen with the loading attribute.
+  "
+    name="Lazy"
+    defaultCode={`
+<Box column={6} paddingX={2}>
+  <Image
+    alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
+    color="rgb(231, 186, 176)"
+    naturalHeight={496}
+    naturalWidth={496}
+    src="${stock6}"
+    loading="lazy"
+  />
 </Box>
 `}
   />
