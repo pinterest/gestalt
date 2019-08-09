@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Spinner: Add `size` prop which can be passed `sm` or `md` as a value (#553)
+
 ### Patch
 
 </details>
