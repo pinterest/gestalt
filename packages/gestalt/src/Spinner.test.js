@@ -22,3 +22,13 @@ test('Spinner renders with no delay', () => {
   const tree = create(<Spinner {...baseProps} show delay={false} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Spinner renders with medium size', () => {
+  const tree = create(<Spinner {...baseProps} show size="md" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Spinner renders with small size', () => {
+  const tree = create(<Spinner {...baseProps} show size="sm" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});

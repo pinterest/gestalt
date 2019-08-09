@@ -6,18 +6,23 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import styles from './Spinner.css';
 
-const SIZE = 40;
+const SIZE_NAME_TO_PIXEL = {
+  sm: 32,
+  md: 40,
+};
 
 type Props = {|
   accessibilityLabel: string,
   delay?: boolean,
   show: boolean,
+  size?: 'sm' | 'md',
 |};
 
 export default function Spinner({
   accessibilityLabel,
   delay = true,
   show,
+  size = 'md',
 }: Props) {
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">
@@ -25,7 +30,7 @@ export default function Spinner({
         <Icon
           icon="knoop"
           accessibilityLabel={accessibilityLabel}
-          size={SIZE}
+          size={SIZE_NAME_TO_PIXEL[size]}
         />
       </div>
     </Box>
@@ -38,4 +43,5 @@ Spinner.propTypes = {
   show: PropTypes.bool.isRequired,
   accessibilityLabel: PropTypes.string.isRequired,
   delay: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'md']),
 };

@@ -33,6 +33,12 @@ card(
         description:
           'Whether or not to render with a 300ms delay. The delay is for perceived performance so you should rarely need to remove it.',
       },
+      {
+        name: 'size',
+        type: `"sm" | "md"`,
+        description: `sm: 32px, md: 40px`,
+        defaultValue: 'md',
+      },
     ]}
   />
 );
