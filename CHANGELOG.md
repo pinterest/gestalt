@@ -9,6 +9,7 @@
 ### Minor
 
 - Spinner: Add `size` prop which can be passed `sm` or `md` as a value (#553)
+- Icon: Replace existing folder and file-unknown icon (#562)
 
 ### Patch
 
