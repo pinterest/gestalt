@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Spinner: Add `size` prop which can be passed `sm` or `md` as a value (#553)
-- Icon: Replace existing folder and file-unknown icon (#562)
-
 ### Patch
 
 </details>
+
+## 0.103.0 (Aug 19, 2019)
+
+### Minor
+
+- Spinner: Add `size` prop which can be passed `sm` or `md` as a value (#553)
+- Icon: Replace existing folder and file-unknown icon (#562)
 
 ## 0.102.0 (Aug 6, 2019)
 
