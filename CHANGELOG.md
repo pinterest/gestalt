@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Replace existing filter icon (#565)
+
 ### Patch
 
 </details>
