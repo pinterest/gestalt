@@ -386,7 +386,7 @@ export default class Contents extends React.Component<Props, State> {
     window.addEventListener('keydown', this.props.onKeyDown);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     this.setFlyoutPosition(nextProps);
   }
 

@@ -69,7 +69,7 @@ export default class Controller extends React.Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     this.updateTriggerRect(nextProps);
   }
 
