@@ -470,6 +470,7 @@ export default class Contents extends React.Component<Props, State> {
     });
   };
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps: Props) {
     this.setFlyoutPosition(nextProps);
   }

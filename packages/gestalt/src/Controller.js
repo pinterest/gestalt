@@ -108,6 +108,7 @@ export default class Controller extends React.Component<Props, State> {
     this.setState({ relativeOffset, triggerBoundingRect });
   };
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps: Props) {
     this.updateTriggerRect(nextProps);
   }
