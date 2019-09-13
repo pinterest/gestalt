@@ -69,10 +69,6 @@ export default class Controller extends React.Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps: Props) {
-    this.updateTriggerRect(nextProps);
-  }
-
   handleKeyDown = (event: { keyCode: number }) => {
     const { onDismiss } = this.props;
     if (event.keyCode === ESCAPE_KEY_CODE) {
@@ -111,6 +107,10 @@ export default class Controller extends React.Component<Props, State> {
 
     this.setState({ relativeOffset, triggerBoundingRect });
   };
+
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
+    this.updateTriggerRect(nextProps);
+  }
 
   render() {
     const {

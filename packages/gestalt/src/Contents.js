@@ -386,10 +386,6 @@ export default class Contents extends React.Component<Props, State> {
     window.addEventListener('keydown', this.props.onKeyDown);
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps: Props) {
-    this.setFlyoutPosition(nextProps);
-  }
-
   componentWillUnmount() {
     window.removeEventListener('resize', this.props.onResize);
     window.removeEventListener('keydown', this.props.onKeyDown);
@@ -473,6 +469,10 @@ export default class Contents extends React.Component<Props, State> {
       mainDir,
     });
   };
+
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
+    this.setFlyoutPosition(nextProps);
+  }
 
   render() {
     const { bgColor, caret, children, width } = this.props;
