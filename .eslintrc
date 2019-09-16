@@ -26,6 +26,13 @@
     "import"
   ],
   "rules": {
+    "camelcase": [
+      "error",
+      {"allow": [
+          "UNSAFE_componentWillReceiveProps"
+        ]
+      }
+    ],
     "jsx-a11y/label-has-for": [
       "error",
       { "components": ["label"], "allowChildren": true }
