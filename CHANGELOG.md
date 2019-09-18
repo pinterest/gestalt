@@ -9,6 +9,7 @@
 ### Minor
 
 - Icon: Replace existing filter icon (#565)
+- Contents/Controller: Replace componentWillReceiveProps with UNSAFE_componentWillReceiveProps (#566)
 
 ### Patch
 
