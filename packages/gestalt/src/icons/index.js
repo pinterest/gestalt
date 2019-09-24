@@ -110,8 +110,10 @@ import questionMark from './question-mark.svg';
 import refresh from './refresh.svg';
 import remove from './remove.svg';
 import reorderImages from './reorder-images.svg';
+import replace from './replace.svg';
 import report from './report.svg';
 import rotate from './rotate.svg';
+import scale from './scale.svg';
 import search from './search.svg';
 import security from './security.svg';
 import send from './send.svg';
@@ -259,8 +261,10 @@ export default {
   'question-mark': questionMark,
   remove,
   'reorder-images': reorderImages,
+  replace,
   report,
   rotate,
+  scale,
   search,
   security,
   'shopping-bag': shoppingBag,
