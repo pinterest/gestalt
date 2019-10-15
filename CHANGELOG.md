@@ -8,14 +8,19 @@
 
 ### Minor
 
-- Icon: Replace existing filter icon (#565)
-- Contents/Controller: Replace componentWillReceiveProps with UNSAFE_componentWillReceiveProps (#566)
-- Icon: Add new replace/scale icons (#567)
 - defaultProps: Remove the last React defaultProps and transfer it to the already existing but empty ES6 static defaultProps on the same file (#568)
 
 ### Patch
 
 </details>
+
+## 0.104.0 (Oct 3, 2019)
+
+### Minor
+
+- Icon: Replace existing filter icon (#565)
+- Contents/Controller: Replace componentWillReceiveProps with UNSAFE_componentWillReceiveProps (#566)
+- Icon: Add new replace/scale icons (#567)
 
 ## 0.103.0 (Aug 19, 2019)
 
