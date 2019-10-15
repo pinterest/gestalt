@@ -82,3 +82,17 @@
 .gray.active {
   background-color: #828282;
 }
+
+.blue {
+  composes: blueBg from "./Colors.css";
+}
+
+.blue.hovered,
+.blue.focused {
+  background-color: #4a8ad4;
+}
+
+.blue.active {
+  background-color: #4a85c9;
+}
+

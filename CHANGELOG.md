@@ -8,6 +8,9 @@
 
 ### Minor
 
+- IconButton: Allow `blue` background color prop to be passed as a value
+- Pog: Add `blue` background color prop to be passed as a value
+
 ### Patch
 
 </details>
