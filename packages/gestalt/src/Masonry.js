@@ -380,8 +380,11 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
    * number of columns we would display should change after a resize.
    */
   reflow() {
-    this.props.measurementStore.reset();
+    if (this.props.measurementStore) {
+      this.props.measurementStore.reset();
+    }
     this.state.measurementStore.reset();
+
     this.measureContainer();
     this.forceUpdate();
   }
