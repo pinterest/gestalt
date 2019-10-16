@@ -74,9 +74,9 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
 export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
-  static createMeasurementStore() {
+  static createMeasurementStore<M>() {
     // $FlowFixMe: new errors found from flow 0.96 upgrade
-    return new MeasurementStore();
+    return new MeasurementStore<M>();
   }
 
   /**
@@ -176,7 +176,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
   static defaultProps = {
     columnWidth: 236,
-    // $FlowFixMe: new errors found from flow 0.96 upgrade
     minCols: 3,
     layout: DefaultLayoutSymbol,
     loadItems: () => {},
@@ -201,7 +200,7 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.containerHeight = 0;
     this.containerOffset = 0;
 
-    const measurementStore =
+    const measurementStore: Cache<T, *> =
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.state = {
