@@ -39,7 +39,7 @@ type Props<T> = {|
   flexible?: boolean,
   gutterWidth?: number,
   items: Array<T>,
-  measurementStore: Cache<T, *>,
+  measurementStore?: Cache<T, *>,
   minCols: number,
   layout?: Layout,
   // Support legacy loadItems usage.
