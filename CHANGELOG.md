@@ -11,6 +11,7 @@
 - IconButton: Allow `blue` background color prop to be passed as a value (#572)
 - Pog: Add `blue` background color prop to be passed as a value (#572)
 - Masonry: Fixed a bug where all grids shared the same default measurement store (#573)
+- Icon: Add new add-layout icon (#574)
 
 ### Patch
 
