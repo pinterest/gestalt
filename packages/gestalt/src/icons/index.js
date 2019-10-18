@@ -2,6 +2,7 @@
 import ad from './ad.svg';
 import add from './add.svg';
 import addCircle from './add-circle.svg';
+import addLayout from './add-layout.svg';
 import addPin from './add-pin.svg';
 import adGroup from './ad-group.svg';
 import adsStats from './ads-stats.svg';
@@ -154,6 +155,7 @@ export default {
   'ad-group': adGroup,
   add,
   'add-circle': addCircle,
+  'add-layout': addLayout,
   'add-pin': addPin,
   'ads-stats': adsStats,
   'ads-overview': adsOverview,
