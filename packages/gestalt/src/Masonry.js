@@ -73,10 +73,12 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
-export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
-  static createMeasurementStore<M>() {
-    // $FlowFixMe: new errors found from flow 0.96 upgrade
-    return new MeasurementStore<M>();
+export default class Masonry<T: {}> extends React.Component<
+  Props<T>,
+  State<T>
+> {
+  static createMeasurementStore<T1: {}, T2>(): MeasurementStore<T1, T2> {
+    return new MeasurementStore();
   }
 
   /**
