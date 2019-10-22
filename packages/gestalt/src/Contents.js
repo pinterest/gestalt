@@ -483,7 +483,6 @@ export default class Contents extends React.Component<Props, State> {
     const visibility = mainDir === null ? 'hidden' : 'visible';
     const background = `${bgColor}Bg`;
     const stroke = bgColor === 'white' ? '#efefef' : null;
-    const borderColor = bgColor === 'white' ? 'lightGray' : bgColor;
 
     return (
       <div
@@ -493,7 +492,7 @@ export default class Contents extends React.Component<Props, State> {
         <div
           className={classnames(
             colors[background],
-            colors[borderColor],
+            colors[bgColor],
             styles.contents,
             styles.maxDimensions,
             width !== null && styles.minDimensions

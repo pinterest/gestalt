@@ -12,6 +12,7 @@
 - Pog: Add `blue` background color prop to be passed as a value (#572)
 - Masonry: Fixed a bug where all grids shared the same default measurement store (#573)
 - Icon: Add new add-layout icon (#574)
+- Flyout: Remove the lightgray border between content and caret on white flyouts
 
 ### Patch
 
