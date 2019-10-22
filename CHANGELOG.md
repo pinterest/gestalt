@@ -8,16 +8,20 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.105.0 (Oct 22, 2019)
+
+### Minor
+
 - IconButton: Allow `blue` background color prop to be passed as a value (#572)
 - Pog: Add `blue` background color prop to be passed as a value (#572)
 - Masonry: Fixed a bug where all grids shared the same default measurement store (#573)
 - Icon: Add new add-layout icon (#574)
-- Flyout: Remove the lightgray border between content and caret on white flyouts
+- Flyout: Remove the lightgray border between content and caret on white flyouts (#576)
 - Contents/Controller: Remove UNSAFE\_ methods in favor of supported ones (#570)
-
-### Patch
-
-</details>
 
 ## 0.104.0 (Oct 3, 2019)
 
