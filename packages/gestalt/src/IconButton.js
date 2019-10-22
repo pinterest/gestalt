@@ -15,7 +15,8 @@ type Props = {|
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
-    | 'white',
+    | 'white'
+    | 'blue',
   dangerouslySetSvgPath?: { __path: string },
   disabled?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
@@ -41,6 +42,7 @@ export default class IconButton extends React.Component<Props, State> {
       'gray',
       'lightGray',
       'white',
+      'blue',
     ]),
     dangerouslySetSvgPath: PropTypes.shape({
       __path: PropTypes.string,

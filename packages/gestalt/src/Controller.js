@@ -43,12 +43,39 @@ type State = {|
   triggerBoundingRect: ClientRect,
 |};
 
+function getTriggerRect(
+  anchor: HTMLElement,
+  positionRelativeToAnchor: boolean
+) {
+  let triggerBoundingRect;
+  let relativeOffset;
+  if (anchor) {
+    triggerBoundingRect = anchor.getBoundingClientRect();
+
+    // Needed for correct positioning within Contents.js
+    relativeOffset = {
+      x: positionRelativeToAnchor
+        ? triggerBoundingRect.left - anchor.offsetLeft
+        : 0,
+      y: positionRelativeToAnchor
+        ? triggerBoundingRect.top - anchor.offsetTop
+        : 0,
+    };
+  }
+
+  return { relativeOffset, triggerBoundingRect };
+}
+
 export default class Controller extends React.Component<Props, State> {
   static defaultProps = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
     size: 'sm',
   };
+
+  static getDerivedStateFromProps({ anchor, positionRelativeToAnchor }: Props) {
+    return getTriggerRect(anchor, positionRelativeToAnchor);
+  }
 
   state = {
     relativeOffset: {
@@ -87,31 +114,13 @@ export default class Controller extends React.Component<Props, State> {
     this.updateTriggerRect(this.props);
   };
 
-  updateTriggerRect = (props: Props) => {
-    const { anchor, positionRelativeToAnchor } = props;
-    let triggerBoundingRect;
-    let relativeOffset;
-    if (anchor) {
-      triggerBoundingRect = anchor.getBoundingClientRect();
-
-      // Needed for correct positioning within Contents.js
-      relativeOffset = {
-        x: positionRelativeToAnchor
-          ? triggerBoundingRect.left - anchor.offsetLeft
-          : 0,
-        y: positionRelativeToAnchor
-          ? triggerBoundingRect.top - anchor.offsetTop
-          : 0,
-      };
-    }
-
+  updateTriggerRect = ({ anchor, positionRelativeToAnchor }: Props) => {
+    const { relativeOffset, triggerBoundingRect } = getTriggerRect(
+      anchor,
+      positionRelativeToAnchor
+    );
     this.setState({ relativeOffset, triggerBoundingRect });
   };
-
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps: Props) {
-    this.updateTriggerRect(nextProps);
-  }
 
   render() {
     const {

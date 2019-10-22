@@ -83,6 +83,7 @@ type State = {|
     left: ?number,
   },
   mainDir: ?MainDir,
+  flyoutRef: ?HTMLElement,
 |};
 
 /**
@@ -371,39 +372,44 @@ export default class Contents extends React.Component<Props, State> {
       left: undefined,
     },
     mainDir: null,
+    flyoutRef: null,
   };
 
-  flyout: {| current: null | React.ElementRef<'div'> |} = React.createRef();
-
   componentDidMount() {
-    this.setFlyoutPosition(this.props);
+    const { onResize, onKeyDown } = this.props;
+    const { flyoutRef } = this.state;
+
     setTimeout(() => {
-      if (this.props.shouldFocus && this.flyout.current) {
-        this.flyout.current.focus();
+      if (this.props.shouldFocus && flyoutRef) {
+        flyoutRef.focus();
       }
     });
-    window.addEventListener('resize', this.props.onResize);
-    window.addEventListener('keydown', this.props.onKeyDown);
+
+    window.addEventListener('resize', onResize);
+    window.addEventListener('keydown', onKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.props.onResize);
-    window.removeEventListener('keydown', this.props.onKeyDown);
+    const { onResize, onKeyDown } = this.props;
+
+    window.removeEventListener('resize', onResize);
+    window.removeEventListener('keydown', onKeyDown);
   }
 
   /**
    * Determines the main direciton, sub direction, and corresponding offsets needed
    * to correctly position the offset
    */
-  setFlyoutPosition = (props: Props) => {
-    const {
+  static getDerivedStateFromProps(
+    {
       idealDirection,
       positionRelativeToAnchor,
       relativeOffset,
       triggerRect,
       width,
-    } = props;
-
+    }: Props,
+    { flyoutRef }: State
+  ) {
     // Scroll not needed for relative elements
     // We can't use window.scrollX / window.scrollY since it's not supported by IE11
     const scrollX = positionRelativeToAnchor
@@ -425,9 +431,8 @@ export default class Contents extends React.Component<Props, State> {
     };
 
     const flyoutSize = {
-      height: this.flyout.current ? this.flyout.current.clientHeight : 0,
-      width:
-        width || (this.flyout.current ? this.flyout.current.clientWidth : 0),
+      height: flyoutRef ? flyoutRef.clientHeight : 0,
+      width: width || (flyoutRef ? flyoutRef.clientWidth : 0),
     };
 
     // First choose one of 4 main direction
@@ -463,17 +468,22 @@ export default class Contents extends React.Component<Props, State> {
       triggerRect
     );
 
-    this.setState({
+    return {
       caretOffset,
       flyoutOffset,
       mainDir,
-    });
-  };
-
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps: Props) {
-    this.setFlyoutPosition(nextProps);
+    };
   }
+
+  // Copy the flyout DOM node to state. This is required because we need to
+  // derive the flyout location from it in getDerivedStateFromProps, and because
+  // this method is static, it doesn't have access to the component instance.
+  // Instead, we rely on React passing the state values into that method.
+  setFlyoutRef = (flyoutRef: ?HTMLElement) => {
+    if (!this.state.flyoutRef) {
+      this.setState({ flyoutRef });
+    }
+  };
 
   render() {
     const { bgColor, caret, children, width } = this.props;
@@ -483,7 +493,6 @@ export default class Contents extends React.Component<Props, State> {
     const visibility = mainDir === null ? 'hidden' : 'visible';
     const background = `${bgColor}Bg`;
     const stroke = bgColor === 'white' ? '#efefef' : null;
-    const borderColor = bgColor === 'white' ? 'lightGray' : bgColor;
 
     return (
       <div
@@ -493,12 +502,12 @@ export default class Contents extends React.Component<Props, State> {
         <div
           className={classnames(
             colors[background],
-            colors[borderColor],
+            colors[bgColor],
             styles.contents,
             styles.maxDimensions,
             width !== null && styles.minDimensions
           )}
-          ref={this.flyout}
+          ref={this.setFlyoutRef}
           tabIndex={-1}
         >
           <div

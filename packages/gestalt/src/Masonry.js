@@ -39,7 +39,7 @@ type Props<T> = {|
   flexible?: boolean,
   gutterWidth?: number,
   items: Array<T>,
-  measurementStore: Cache<T, *>,
+  measurementStore?: Cache<T, *>,
   minCols: number,
   layout?: Layout,
   // Support legacy loadItems usage.
@@ -58,6 +58,7 @@ type Props<T> = {|
 |};
 
 type State<T> = {|
+  measurementStore: Cache<T, *>,
   hasPendingMeasurements: boolean,
   isFetching: boolean,
   items: Array<T>,
@@ -72,9 +73,11 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
-export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
-  static createMeasurementStore() {
-    // $FlowFixMe: new errors found from flow 0.96 upgrade
+export default class Masonry<T: {}> extends React.Component<
+  Props<T>,
+  State<T>
+> {
+  static createMeasurementStore<T1: {}, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
 
@@ -175,8 +178,6 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
 
   static defaultProps = {
     columnWidth: 236,
-    // $FlowFixMe: new errors found from flow 0.96 upgrade
-    measurementStore: new MeasurementStore(),
     minCols: 3,
     layout: DefaultLayoutSymbol,
     loadItems: () => {},
@@ -201,13 +202,17 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
     this.containerHeight = 0;
     this.containerOffset = 0;
 
+    const measurementStore: Cache<T, *> =
+      props.measurementStore || Masonry.createMeasurementStore();
+
     this.state = {
       hasPendingMeasurements: props.items.some(
-        item => !!item && !props.measurementStore.has(item)
+        item => !!item && !measurementStore.has(item)
       ),
       isFetching: false,
       // eslint-disable-next-line react/no-unused-state
       items: props.items,
+      measurementStore,
       scrollTop: 0,
       width: undefined,
     };
@@ -236,7 +241,8 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   }
 
   componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
-    const { items, measurementStore } = this.props;
+    const { items } = this.props;
+    const { measurementStore } = this.state;
 
     this.measureContainerAsync();
 
@@ -277,7 +283,9 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
   }
 
   static getDerivedStateFromProps(props: Props<T>, state: State<T>) {
-    const { items, measurementStore } = props;
+    const { items } = props;
+    const { measurementStore } = state;
+
     // whenever we're receiving new props, determine whether any items need to be measured
     // TODO - we should treat items as immutable
     const hasPendingMeasurements = items.some(
@@ -373,7 +381,11 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
    * number of columns we would display should change after a resize.
    */
   reflow() {
-    this.props.measurementStore.reset();
+    if (this.props.measurementStore) {
+      this.props.measurementStore.reset();
+    }
+    this.state.measurementStore.reset();
+
     this.measureContainer();
     this.forceUpdate();
   }
@@ -436,11 +448,10 @@ export default class Masonry<T> extends React.Component<Props<T>, State<T>> {
       comp: Component,
       flexible,
       gutterWidth: gutter,
-      measurementStore,
       items,
       minCols,
     } = this.props;
-    const { hasPendingMeasurements, width } = this.state;
+    const { hasPendingMeasurements, measurementStore, width } = this.state;
 
     let layout;
     if (flexible && width !== null) {
