@@ -8,6 +8,8 @@
 
 ### Minor
 
+- defaultProps: Remove the last React defaultProps and transfer it to the already existing but empty ES6 static defaultProps on the same file (#568)
+
 ### Patch
 
 </details>

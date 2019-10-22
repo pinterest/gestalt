@@ -32,7 +32,9 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     this.setState(this.getScrollState());
   });
 
-  static defaultProps: {};
+  static defaultProps = {
+    container: typeof window !== 'undefined' ? window : null,
+  };
 
   state = {
     containerHeight: 0,
@@ -127,8 +129,4 @@ ScrollFetch.propTypes = {
   isAtEnd: PropTypes.bool,
   isFetching: PropTypes.bool,
   fetchMore: PropTypes.func,
-};
-
-ScrollFetch.defaultProps = {
-  container: typeof window !== 'undefined' ? window : null,
 };
