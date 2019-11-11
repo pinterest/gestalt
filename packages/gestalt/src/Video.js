@@ -33,6 +33,8 @@ type Props = {|
     loaded: number,
   }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onPlayheadDown?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onPlayheadUp?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
   onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
@@ -384,6 +386,24 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
+  // Sent when mouse down event happens on playhead
+  handlePlayheadDown = (event: SyntheticEvent<HTMLDivElement>) => {
+    const { onPlayheadDown } = this.props;
+
+    if (onPlayheadDown) {
+      onPlayheadDown({ event });
+    }
+  };
+
+  // Sent when mouse up event happens on playhead
+  handlePlayheadUp = (event: SyntheticEvent<HTMLDivElement>) => {
+    const { onPlayheadUp } = this.props;
+
+    if (onPlayheadUp) {
+      onPlayheadUp({ event });
+    }
+  };
+
   // Sent when playback is paused.
   handlePause = (event: SyntheticEvent<HTMLDivElement>) => {
     const { onPause } = this.props;
@@ -499,6 +519,8 @@ export default class Video extends React.PureComponent<Props, State> {
             duration={duration}
             fullscreen={fullscreen}
             onPlay={this.handlePlay}
+            onPlayheadDown={this.handlePlayheadDown}
+            onPlayheadUp={this.handlePlayheadUp}
             onPause={this.handlePause}
             onFullscreenChange={this.toggleFullscreen}
             onVolumeChange={this.handleVolumeChange}
