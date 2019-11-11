@@ -33,8 +33,8 @@ type Props = {|
     loaded: number,
   }) => void,
   onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
-  onPlayheadDown?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
-  onPlayheadUp?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
+  onPlayheadDown?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onPlayheadUp?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
   onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
   onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
@@ -387,7 +387,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when mouse down event happens on playhead
-  handlePlayheadDown = (event: SyntheticEvent<HTMLDivElement>) => {
+  handlePlayheadDown = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     const { onPlayheadDown } = this.props;
 
     if (onPlayheadDown) {
@@ -396,7 +396,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when mouse up event happens on playhead
-  handlePlayheadUp = (event: SyntheticEvent<HTMLDivElement>) => {
+  handlePlayheadUp = (event: SyntheticMouseEvent<HTMLDivElement>) => {
     const { onPlayheadUp } = this.props;
 
     if (onPlayheadUp) {
