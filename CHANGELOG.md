@@ -8,12 +8,16 @@
 
 ### Minor
 
-- defaultProps: Remove the last React defaultProps and transfer it to the already existing but empty ES6 static defaultProps on the same file (#568)
-- Video: add onPlayheadDown and onPlayheadUp callbacks (#585)
-
 ### Patch
 
 </details>
+
+## 0.106.0 (Nov 12, 2019)
+
+### Minor
+
+- defaultProps: Remove the last React defaultProps and transfer it to the already existing but empty ES6 static defaultProps on the same file (#568)
+- Video: add onPlayheadDown and onPlayheadUp callbacks (#585)
 
 ## 0.105.0 (Oct 22, 2019)
 
