@@ -128,13 +128,11 @@ card(
         name: 'onPlayheadDown',
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
         description: 'Sent when mouse down event occurs on playhead',
-        href: 'videoUpdatesExample',
       },
       {
         name: 'onPlayheadUp',
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
-        description: 'Sent when mouse up  event occurs on playhead',
-        href: 'videoUpdatesExample',
+        description: 'Sent when mouse up event occurs on playhead',
       },
       {
         name: 'onPause',
