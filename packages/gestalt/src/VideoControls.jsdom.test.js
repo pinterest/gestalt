@@ -19,6 +19,8 @@ test('VideoControls handles play events', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={mockOnPlay}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
@@ -45,6 +47,8 @@ test('VideoControls handles pause events', () => {
       onFullscreenChange={() => {}}
       onPause={mockOnPause}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing
       seek={() => {}}
@@ -71,6 +75,8 @@ test('VideoControls handles volume events', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={mockOnVolumeChange}
       playing={false}
       seek={() => {}}

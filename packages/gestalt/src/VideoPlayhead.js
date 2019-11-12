@@ -8,6 +8,8 @@ import styles from './Video.css';
 type Props = {|
   currentTime: number,
   duration: number,
+  onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
+  onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   seek: (time: number) => void,
 |};
 
@@ -19,6 +21,8 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
   static propTypes = {
     currentTime: PropTypes.number.isRequired,
     duration: PropTypes.number.isRequired,
+    onPlayheadDown: PropTypes.func.isRequired,
+    onPlayheadUp: PropTypes.func.isRequired,
     seek: PropTypes.func.isRequired,
   };
 
@@ -46,6 +50,8 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     event.stopPropagation();
 
   handleMouseDown = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    const { onPlayheadDown } = this.props;
+    onPlayheadDown(event);
     this.setState({ seeking: true });
     this.seek(event.clientX);
   };
@@ -57,8 +63,10 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     }
   };
 
-  handleMouseUp = () => {
+  handleMouseUp = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    const { onPlayheadUp } = this.props;
     this.setState({ seeking: false });
+    onPlayheadUp(event);
   };
 
   render() {

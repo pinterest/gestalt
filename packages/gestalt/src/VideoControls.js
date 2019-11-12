@@ -22,6 +22,8 @@ type Props = {|
   onFullscreenChange: () => void,
   onPause: (event: SyntheticEvent<HTMLDivElement>) => void,
   onPlay: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
+  onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   onVolumeChange: (event: SyntheticEvent<HTMLDivElement>) => void,
   playing: boolean,
   seek: (time: number) => void,
@@ -61,6 +63,8 @@ class VideoControls extends React.Component<Props> {
     onFullscreenChange: PropTypes.func.isRequired,
     onPause: PropTypes.func.isRequired,
     onPlay: PropTypes.func.isRequired,
+    onPlayheadDown: PropTypes.func.isRequired,
+    onPlayheadUp: PropTypes.func.isRequired,
     onVolumeChange: PropTypes.func.isRequired,
     playing: PropTypes.bool.isRequired,
     seek: PropTypes.func.isRequired,
@@ -118,6 +122,8 @@ class VideoControls extends React.Component<Props> {
       currentTime,
       duration,
       fullscreen,
+      onPlayheadDown,
+      onPlayheadUp,
       playing,
       seek,
       volume,
@@ -148,6 +154,8 @@ class VideoControls extends React.Component<Props> {
           <VideoPlayhead
             currentTime={currentTime}
             duration={duration}
+            onPlayheadDown={onPlayheadDown}
+            onPlayheadUp={onPlayheadUp}
             seek={seek}
           />
         </Box>

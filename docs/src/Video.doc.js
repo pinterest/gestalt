@@ -125,6 +125,16 @@ card(
         href: 'videoUpdatesExample',
       },
       {
+        name: 'onPlayheadDown',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
+        description: 'Sent when mouse down event occurs on playhead',
+      },
+      {
+        name: 'onPlayheadUp',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
+        description: 'Sent when mouse up event occurs on playhead',
+      },
+      {
         name: 'onPause',
         type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description: 'Sent when playback is paused',

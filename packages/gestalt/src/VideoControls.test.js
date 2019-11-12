@@ -18,6 +18,8 @@ test('VideoControls for single digit seconds', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
@@ -42,6 +44,8 @@ test('VideoControls for double digit seconds', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
@@ -66,6 +70,8 @@ test('VideoControls for single digit minutes', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
@@ -90,6 +96,8 @@ test('VideoControls for double digit minutes', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
@@ -114,6 +122,8 @@ test('VideoControls rounds for partial seconds', () => {
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
+      onPlayheadDown={() => {}}
+      onPlayheadUp={() => {}}
       onVolumeChange={() => {}}
       playing={false}
       seek={() => {}}
