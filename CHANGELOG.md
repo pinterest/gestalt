@@ -8,11 +8,15 @@
 
 ### Minor
 
-- ScrollFetch: Fixed a tiny flow type bug on the default props (#587)
-
 ### Patch
 
 </details>
+
+## 0.107.0 (Nov 14, 2019)
+
+### Minor
+
+- ScrollFetch: Fixed a tiny flow type bug on the default props (#587)
 
 ## 0.106.0 (Nov 12, 2019)
 
