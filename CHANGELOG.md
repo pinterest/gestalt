@@ -8,6 +8,8 @@
 
 ### Minor
 
+- ScrollFetch: Fixed a tiny flow type bug on the default props (#587)
+
 ### Patch
 
 </details>
