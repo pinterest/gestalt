@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Colors: Update blue color with higher contrast version (improved a11y) (#589)
+
 ### Patch
 
 </details>
