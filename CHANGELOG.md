@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Colors: Update blue color with higher contrast version (improved a11y) (#589)
-
 ### Patch
 
 </details>
+
+## 0.108.0 (Nov 18, 2019)
+
+### Minor
+
+- Colors: Update blue color with higher contrast version (improved a11y) (#589)
 
 ## 0.107.0 (Nov 14, 2019)
 
