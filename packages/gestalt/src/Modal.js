@@ -31,6 +31,7 @@ const ESCAPE_KEY_CODE = 27;
 
 function Backdrop({ children }: { children?: React.Node }) {
   return (
+    // eslint-disable-next-line react/jsx-fragments
     <React.Fragment>
       <div className={styles.Backdrop} />
       {children}
@@ -146,7 +147,7 @@ export default class Modal extends React.Component<Props> {
                     <Box fit>
                       <Header heading={heading} role={role} />
                       {role === 'dialog' && (
-                        <React.Fragment>
+                        <>
                           <Box padding={2} position="absolute" top right>
                             <IconButton
                               accessibilityLabel={accessibilityCloseLabel}
@@ -155,7 +156,7 @@ export default class Modal extends React.Component<Props> {
                             />
                           </Box>
                           <Divider />
-                        </React.Fragment>
+                        </>
                       )}
                     </Box>
                     <Box flex="grow" overflow="auto" position="relative">

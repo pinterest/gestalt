@@ -109,6 +109,18 @@ export default class Masonry<T: {}> extends React.Component<
     this.measureContainer();
   }, 0);
 
+  containerHeight: number;
+
+  containerOffset: number;
+
+  gridWrapper: ?HTMLElement;
+
+  insertAnimationFrame: AnimationFrameID;
+
+  measureTimeout: TimeoutID;
+
+  scrollContainer: ?ScrollContainer;
+
   static propTypes = {
     /**
      * The preferred/target item width. If `flexible` is set, the item width will
@@ -184,18 +196,6 @@ export default class Masonry<T: {}> extends React.Component<
     virtualize: false,
   };
 
-  containerHeight: number;
-
-  containerOffset: number;
-
-  gridWrapper: ?HTMLElement;
-
-  insertAnimationFrame: AnimationFrameID;
-
-  measureTimeout: TimeoutID;
-
-  scrollContainer: ?ScrollContainer;
-
   constructor(props: Props<T>) {
     super(props);
 
@@ -205,6 +205,7 @@ export default class Masonry<T: {}> extends React.Component<
     const measurementStore: Cache<T, *> =
       props.measurementStore || Masonry.createMeasurementStore();
 
+    // eslint-disable-next-line react/state-in-constructor
     this.state = {
       hasPendingMeasurements: props.items.some(
         item => !!item && !measurementStore.has(item)

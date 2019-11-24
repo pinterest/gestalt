@@ -187,13 +187,10 @@ class ExampleMasonry extends React.Component<Props, State> {
 
   scrollContainer: ?HTMLElement;
 
-  constructor() {
-    super();
-    this.state = {
-      pins: [],
-      width: 700,
-    };
-  }
+  state = {
+    pins: [],
+    width: 700,
+  };
 
   componentDidMount() {
     getPins().then(startPins => {

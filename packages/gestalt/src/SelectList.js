@@ -26,6 +26,8 @@ type State = {|
 |};
 
 export default class SelectList extends React.Component<Props, State> {
+  select: ?HTMLSelectElement;
+
   static propTypes = {
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -50,8 +52,6 @@ export default class SelectList extends React.Component<Props, State> {
   state = {
     focused: false,
   };
-
-  select: ?HTMLSelectElement;
 
   setSelectListRef = (ref: ?HTMLSelectElement) => {
     this.select = ref;

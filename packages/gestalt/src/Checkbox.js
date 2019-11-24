@@ -27,6 +27,8 @@ type State = {|
 |};
 
 export default class Checkbox extends React.Component<Props, State> {
+  input: ?HTMLInputElement;
+
   static propTypes = {
     checked: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -50,8 +52,6 @@ export default class Checkbox extends React.Component<Props, State> {
   state = {
     focused: false,
   };
-
-  input: ?HTMLInputElement;
 
   componentDidMount() {
     if (this.props.indeterminate) {

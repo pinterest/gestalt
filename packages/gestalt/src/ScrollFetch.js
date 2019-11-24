@@ -32,6 +32,20 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     this.setState(this.getScrollState());
   });
 
+  static propTypes = {
+    /**
+     * The scroll container to use. Defaults to window.
+     */
+    container: PropTypes.shape({
+      addEventListener: PropTypes.func,
+      removeEventListener: PropTypes.func,
+    }),
+    renderHeight: PropTypes.func,
+    isAtEnd: PropTypes.bool,
+    isFetching: PropTypes.bool,
+    fetchMore: PropTypes.func,
+  };
+
   static defaultProps = {
     container: typeof window !== 'undefined' ? window : undefined,
   };
@@ -116,17 +130,3 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     );
   }
 }
-
-ScrollFetch.propTypes = {
-  /**
-   * The scroll container to use. Defaults to window.
-   */
-  container: PropTypes.shape({
-    addEventListener: PropTypes.func,
-    removeEventListener: PropTypes.func,
-  }),
-  renderHeight: PropTypes.func,
-  isAtEnd: PropTypes.bool,
-  isFetching: PropTypes.bool,
-  fetchMore: PropTypes.func,
-};

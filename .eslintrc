@@ -50,7 +50,10 @@
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
     "import/no-relative-parent-imports": "error",
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-props-no-spreading": "off",
+    "react/static-property-placement": ["error", "static public field"],
+    "react/state-in-constructor": ["error", "never"]
   },
   "overrides": [
     {

@@ -43,6 +43,35 @@ const SPACE_CHAR_CODE = 32;
 const ENTER_CHAR_CODE = 13;
 
 export default class Touchable extends React.Component<Props> {
+  static propTypes = {
+    children: PropTypes.node,
+    fullHeight: PropTypes.bool,
+    fullWidth: PropTypes.bool,
+    mouseCursor: PropTypes.oneOf([
+      'copy',
+      'grab',
+      'grabbing',
+      'move',
+      'noDrop',
+      'pointer',
+      'zoomIn',
+      'zoomOut',
+    ]),
+    onTouch: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    shape: PropTypes.oneOf([
+      'square',
+      'rounded',
+      'pill',
+      'circle',
+      'roundedTop',
+      'roundedBottom',
+      'roundedLeft',
+      'roundedRight',
+    ]),
+  };
+
   handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
     const { onTouch } = this.props;
     // Check to see if space or enter were pressed
@@ -111,32 +140,3 @@ export default class Touchable extends React.Component<Props> {
     );
   }
 }
-
-Touchable.propTypes = {
-  children: PropTypes.node,
-  fullHeight: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  mouseCursor: PropTypes.oneOf([
-    'copy',
-    'grab',
-    'grabbing',
-    'move',
-    'noDrop',
-    'pointer',
-    'zoomIn',
-    'zoomOut',
-  ]),
-  onTouch: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  shape: PropTypes.oneOf([
-    'square',
-    'rounded',
-    'pill',
-    'circle',
-    'roundedTop',
-    'roundedBottom',
-    'roundedLeft',
-    'roundedRight',
-  ]),
-};
