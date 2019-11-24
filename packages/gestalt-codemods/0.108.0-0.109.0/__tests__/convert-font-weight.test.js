@@ -1,0 +1,17 @@
+import { defineTest } from 'jscodeshift/dist/testUtils.js';
+
+jest.mock('../convert-font-weight', () => {
+  return Object.assign(require.requireActual('../convert-font-weight'), {
+    parser: 'flow',
+  });
+});
+
+describe('convert-font-weight', () => {
+  [
+    'convert-font-weight-dynamic',
+    'convert-font-weight-spread',
+    'convert-font-weight-static',
+  ].forEach(test => {
+    defineTest(__dirname, 'convert-font-weight', { quote: 'single' }, test);
+  });
+});

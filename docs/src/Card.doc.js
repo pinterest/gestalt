@@ -77,7 +77,7 @@ class CardExample extends React.Component {
           }
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}>
-          <Text align="center" bold size="xl">
+          <Text align="center" size="xl" weight="bold">
             <Link href="https://pinterest.com">
               <Box paddingX={3} paddingY={2}>
                 James Jones

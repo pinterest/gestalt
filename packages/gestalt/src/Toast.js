@@ -40,7 +40,7 @@ export default function Toast(props: Props) {
               {text[0]}
             </Text>
           </Box>
-          <Text bold color="white" size="lg">
+          <Text color="white" size="lg" weight="bold">
             {text[1]}
           </Text>
         </Box>
@@ -54,7 +54,7 @@ export default function Toast(props: Props) {
         justifyContent="between"
         alignItems="center"
       >
-        <Text bold color="white" size="lg">
+        <Text color="white" size="lg" weight="bold">
           {text}
         </Text>
         {icon && (

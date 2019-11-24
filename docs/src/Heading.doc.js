@@ -59,6 +59,11 @@ card(
         defaultValue: false,
         href: 'overflowTruncation',
       },
+      {
+        name: 'weight',
+        type: `"bold" | "semibold"`,
+        defaultValue: 'bold',
+      },
     ]}
   />
 );

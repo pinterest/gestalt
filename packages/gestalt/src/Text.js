@@ -17,7 +17,6 @@ const SIZE_SCALE: { [size: ?string]: number } = {
 
 type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
-  bold?: boolean,
   children?: React.Node,
   color?:
     | 'green'
@@ -46,12 +45,12 @@ type Props = {|
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   leading?: 'tall' | 'short',
   truncate?: boolean,
+  weight?: 'bold' | 'normal' | 'semibold',
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
 
 export default function Text({
   align = 'left',
-  bold = false,
   children,
   color = 'darkGray',
   inline = false,
@@ -63,6 +62,7 @@ export default function Text({
   lgSize,
   leading,
   truncate = false,
+  weight = 'normal',
   __dangerouslyIncreaseLineHeight = false,
 }: Props) {
   const scale = SIZE_SCALE[size];
@@ -103,8 +103,9 @@ export default function Text({
     overflow === 'breakWord' && typography.breakWord,
     italic && typography.fontStyleItalic,
     !italic && typography.fontStyleNormal,
-    bold && typography.fontWeightBold,
-    !bold && typography.fontWeightNormal,
+    weight === 'bold' && typography.fontWeightBold,
+    weight === 'normal' && typography.fontWeightNormal,
+    weight === 'semibold' && typography.fontWeightSemibold,
     truncate && typography.truncate
   );
   const Tag = inline ? 'span' : 'div';
@@ -124,7 +125,6 @@ export default function Text({
 Text.propTypes = {
   __dangerouslyIncreaseLineHeight: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
-  bold: PropTypes.bool,
   children: PropTypes.node,
   color: PropTypes.oneOf([
     'green',
@@ -154,4 +154,5 @@ Text.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   smSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   truncate: PropTypes.bool,
+  weight: PropTypes.oneOf(['bold', 'normal', 'semibold']),
 };

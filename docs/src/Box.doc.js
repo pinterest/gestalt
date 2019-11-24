@@ -202,7 +202,7 @@ card(
     <Avatar name="chrislloyd" size="md" />
   </Box>
   <Box paddingX={1}>
-    <Text bold>Chris Lloyd</Text>
+    <Text weight="bold">Chris Lloyd</Text>
     <Text>joined 2 years ago</Text>
   </Box>
 </Box>
@@ -228,7 +228,7 @@ card(
     <Avatar name="chrislloyd" size="md" />
   </Box>
   <Box paddingX={1}  flex="grow">
-    <Text bold>Chris Lloyd</Text>
+    <Text weight="bold">Chris Lloyd</Text>
     <Text>joined 2 years ago</Text>
   </Box>
   <Box paddingX={1}>

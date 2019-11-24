@@ -5,6 +5,7 @@
 # Tracking https://github.com/facebook/flow/issues/4015
 <PROJECT_ROOT>/docs
 <PROJECT_ROOT>/test
+<PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
 
 [options]
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

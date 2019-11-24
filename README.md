@@ -61,20 +61,15 @@ Running Masonry's integration tests. This will leave lots of Firefox processes h
 
 When a release will cause breaking changes — in usage or in typing — we provide a codemod to ease the upgrade process. Codemods are organized by release in `/packages/gestalt-codemods`. We recommend using [jscodeshift](https://github.com/facebook/jscodeshift) to upgrade.
 
-### Prerequisite:
-Install `jscodeshift` globally if you haven't already.
-```bash
-yarn global add jscodeshift
-```
-
 ### Usage:
+
 Clone the Gestalt repo locally if you haven't already. Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used. Example usage for a codebase using Flow:
+
 ```bash
-jscodeshift --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
+yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
 ```
+
 For a dry run to see what the changes will be, add the `-d` (dry run) and `-p` (print output) flags (pipe stdout to a file for easier inspection if you like).
-
-
 
 ## Releasing
 

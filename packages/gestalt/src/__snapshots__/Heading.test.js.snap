@@ -3,21 +3,24 @@
 exports[`Heading default overflow 1`] = `
 <h4
   className="Heading fontSize2 darkGray breakWord"
-  id={null}
 />
 `;
 
 exports[`Heading overflow normal 1`] = `
 <h4
   className="Heading fontSize2 darkGray"
-  id={null}
+/>
+`;
+
+exports[`Heading semibold 1`] = `
+<h3
+  className="Heading fontSize3 darkGray breakWord fontWeightSemibold"
 />
 `;
 
 exports[`Heading small 1`] = `
 <h4
   className="Heading fontSize2 darkGray breakWord"
-  id={null}
 />
 `;
 
@@ -31,7 +34,6 @@ exports[`Heading small with id 1`] = `
 exports[`Heading truncate adds a title when the children are text only 1`] = `
 <h3
   className="Heading fontSize3 darkGray breakWord truncate"
-  id={null}
   title="When we two parted - Lord Byron"
 >
   When we two parted - Lord Byron
@@ -41,7 +43,6 @@ exports[`Heading truncate adds a title when the children are text only 1`] = `
 exports[`Heading truncate does not add a title when the children are objects 1`] = `
 <h3
   className="Heading fontSize3 darkGray breakWord truncate"
-  id={null}
 >
   <div>
     Breakup reading:
@@ -53,6 +54,5 @@ exports[`Heading truncate does not add a title when the children are objects 1`]
 exports[`Heading xsmall with level 3 1`] = `
 <h3
   className="Heading fontSize1 darkGray breakWord"
-  id={null}
 />
 `;

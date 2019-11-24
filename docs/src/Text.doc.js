@@ -24,12 +24,6 @@ card(
         href: 'align',
       },
       {
-        name: 'bold',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'styles',
-      },
-      {
         name: 'children',
         type: 'React.Node',
       },
@@ -77,6 +71,12 @@ card(
           'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
         href: 'overflow',
         defaultValue: false,
+      },
+      {
+        name: 'weight',
+        type: `"bold" | "normal" | "semibold"`,
+        defaultValue: 'normal',
+        href: 'styles',
       },
     ]}
   />
@@ -155,14 +155,14 @@ card(
     defaultCode={`
 <Box maxWidth={240}>
   <Box marginBottom={2}>
-    <Text bold>normal:</Text>
+    <Text weight="bold">normal:</Text>
     <Text overflow="normal" leading="tall">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
     </Text>
   </Box>
   <Box marginBottom={2}>
-    <Text bold>breakWord:</Text>
+    <Text weight="bold">breakWord:</Text>
     <Text leading="tall">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
@@ -170,7 +170,7 @@ card(
     </Text>
   </Box>
   <Box marginBottom={2}>
-    <Text bold>truncate:</Text>
+    <Text weight="bold">truncate:</Text>
     <Text truncate leading="tall">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
@@ -247,7 +247,7 @@ card(
 card(
   <Example
     description="
-    There are multiple styles, such as bold and italic, that we can
+    There are multiple styles, such as bold, semibold and italic, that we can
     attach to the Text component.
   "
     id="styles"
@@ -255,7 +255,10 @@ card(
     defaultCode={`
 <Box>
   <Box marginBottom={2}>
-    <Text bold>Bold</Text>
+    <Text weight="bold">Bold</Text>
+  </Box>
+  <Box marginBottom={2}>
+    <Text weight="semibold">Semibold</Text>
   </Box>
   <Box marginBottom={2}>
     <Text italic>Italic</Text>

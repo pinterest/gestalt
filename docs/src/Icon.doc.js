@@ -72,7 +72,7 @@ card(
   <Box marginRight={1} padding={1}>
     <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
   </Box>
-  <Text align="center" bold color="darkGray">
+  <Text align="center" color="darkGray" weight="bold">
     Pinterest
   </Text>
 </Box>
