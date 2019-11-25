@@ -10,13 +10,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
-    "@babel/plugin-external-helpers": "^7.7.4",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-transform-flow-strip-types": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-flow": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "benchmark": "^2.1.4",
