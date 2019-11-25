@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Upgrade react-scripts / babel7 & jest (#592)
+
 ### Patch
 
 </details>

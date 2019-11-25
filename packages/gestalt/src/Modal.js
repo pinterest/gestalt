@@ -31,11 +31,10 @@ const ESCAPE_KEY_CODE = 27;
 
 function Backdrop({ children }: { children?: React.Node }) {
   return (
-    // eslint-disable-next-line react/jsx-fragments
-    <React.Fragment>
+    <>
       <div className={styles.Backdrop} />
       {children}
-    </React.Fragment>
+    </>
   );
 }
 
