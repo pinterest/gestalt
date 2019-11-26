@@ -479,7 +479,7 @@ class Example extends React.Component {
                   <Box paddingY={2} paddingX={4} display="flex">
                     <Column span={4}>
                       <Label htmlFor="name">
-                        <Text align="left" bold>
+                        <Text align="left" weight="bold">
                           Name
                         </Text>
                       </Label>
@@ -492,7 +492,7 @@ class Example extends React.Component {
                   <Box paddingY={2} paddingX={4} display="flex">
                     <Column span={4}>
                       <Label htmlFor="desc">
-                        <Text align="left" bold>
+                        <Text align="left" weight="bold">
                           Description
                         </Text>
                       </Label>
@@ -505,7 +505,7 @@ class Example extends React.Component {
                   <Box paddingY={2} paddingX={4} display="flex">
                     <Column span={4}>
                       <Label htmlFor="notifications">
-                        <Text align="left" bold>
+                        <Text align="left" weight="bold">
                           Email Notifications
                         </Text>
                       </Label>

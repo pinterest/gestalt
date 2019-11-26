@@ -8,6 +8,11 @@ test('Heading small', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Heading semibold', () => {
+  const tree = create(<Heading weight="semibold" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Heading xsmall with level 3', () => {
   const tree = create(<Heading size="xs" accessibilityLevel={3} />).toJSON();
   expect(tree).toMatchSnapshot();

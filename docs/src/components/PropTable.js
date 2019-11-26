@@ -18,7 +18,7 @@ type Props = {|
 const Th = ({ children }: {| children?: React.Node |}) => (
   <th style={{ borderBottom: '2px solid #EFEFEF' }}>
     <Box padding={2}>
-      <Text bold size="sm" color="gray" overflow="normal">
+      <Text size="sm" color="gray" overflow="normal" weight="bold">
         {children}
       </Text>
     </Box>
@@ -134,7 +134,7 @@ export default function PropTable({ props: properties, Component }: Props) {
                     )}
                     <Td shrink border={!description}>
                       <Box>
-                        <Text overflow="normal" bold leading="tall">
+                        <Text overflow="normal" leading="tall" weight="bold">
                           {href ? (
                             <Link
                               href={`#${href}`}

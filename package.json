@@ -42,6 +42,7 @@
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.1.0",
+    "jscodeshift": "^0.6.4",
     "lint-staged": "^7.2.0",
     "prettier": "1.13.7",
     "react-test-renderer": "^16.8.5",
@@ -53,6 +54,7 @@
   },
   "scripts": {
     "build": "cd packages/gestalt && yarn build",
+    "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
     "greenkeeper-lockfile-update": "greenkeeper-lockfile-update",
@@ -73,6 +75,7 @@
           "\\.(css)$": "identity-obj-proxy"
         },
         "testPathIgnorePatterns": [
+          "/node_modules/",
           "jsdom.test.js"
         ],
         "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
@@ -84,6 +87,10 @@
           "\\.(svg)$": "<rootDir>/scripts/fileMock.js",
           "\\.(css)$": "identity-obj-proxy"
         },
+        "testPathIgnorePatterns": [
+          "/node_modules/",
+          "<rootDir>/packages/gestalt-codemods"
+        ],
         "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
       }
     ]

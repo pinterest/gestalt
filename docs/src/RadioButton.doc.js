@@ -75,7 +75,7 @@ card(
   <Box flex="grow">
     <Label htmlFor="usa">
       <Box paddingX={2}>
-        <Text bold>U.S.A.</Text>
+        <Text weight="bold">U.S.A.</Text>
       </Box>
     </Label>
   </Box>

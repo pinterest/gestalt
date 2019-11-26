@@ -85,9 +85,9 @@ export default class Tabs extends React.Component<Props, State> {
               role="tab"
             >
               <Text
-                bold
                 color={isActive || isHovered || isFocused ? 'darkGray' : 'gray'}
                 size="md"
+                weight="bold"
               >
                 {text}
               </Text>

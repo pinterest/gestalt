@@ -71,10 +71,10 @@ export default function Button(props: Props) {
     >
       <Text
         align="center"
-        bold
         color={disabled ? 'gray' : textColor || DEFAULT_TEXT_COLORS[color]}
         overflow="normal"
         size={size}
+        weight="bold"
       >
         {text}
       </Text>

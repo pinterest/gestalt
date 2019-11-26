@@ -114,7 +114,7 @@ class FlyoutExample extends React.Component {
             size="md"
           >
             <Box padding={3}>
-              <Text bold align="center">
+              <Text align="center" weight="bold">
                 Need help with something? Check out our Help Center.
               </Text>
               <Box paddingX={2} marginTop={3}>
@@ -167,7 +167,7 @@ class ErrorFlyoutExample extends React.Component {
             size="md"
           >
             <Box padding={3}>
-              <Text bold color="white">
+              <Text color="white" weight="bold">
                 Oops! This item is out of stock.
               </Text>
             </Box>

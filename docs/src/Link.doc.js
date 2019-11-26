@@ -54,11 +54,11 @@ card(
 <Box>
   <Link href="https://pinterest.com">
     <Box padding={2}>
-      <Text bold>Pinterest.com</Text>
+      <Text weight="bold">Pinterest.com</Text>
     </Box>
   </Link>
   <Box color="darkGray">
-    <Text color="white" bold>
+    <Text color="white" weight="bold">
       <Link href="https://pinterest.com">
         <Box padding={2}>
           Pinterest.com
@@ -84,7 +84,7 @@ card(
   </Heading>
   <Text>
     For more information,{' '}
-    <Text inline bold>
+    <Text inline weight="bold">
       <Link inline href="https://pinterest.com">
         click here
       </Link>
@@ -97,7 +97,7 @@ card(
     <Text>
       Visit
       {' '}
-      <Text inline bold>
+      <Text inline weight="bold">
         <Link inline href="https://pinterest.com">
           Pinterest.com
         </Link>

@@ -8,6 +8,9 @@
 
 ### Minor
 
+- Text / Heading: Add semibold weight (#591)
+- Internal: Introduce codemod unit tests (#591)
+
 ### Patch
 
 </details>

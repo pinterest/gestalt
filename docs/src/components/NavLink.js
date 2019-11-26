@@ -26,7 +26,7 @@ const NavLink = ({ children, to, history }: Props) => {
   return (
     <Route path={to} location={history.location}>
       {({ match }) => (
-        <Text bold={!!match}>
+        <Text weight={match ? 'bold' : 'normal'}>
           <Link href={href} onClick={handleClick}>
             {children}
           </Link>

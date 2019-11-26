@@ -45,10 +45,10 @@ export default function SegmentedControl(props: Props) {
           >
             {typeof item === 'string' ? (
               <Text
-                bold
                 color={isSelected ? 'darkGray' : 'gray'}
                 align="center"
                 size={size}
+                weight="bold"
               >
                 {item}
               </Text>
