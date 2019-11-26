@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Text / Heading: Add semibold weight (#591)
-- Internal: Introduce codemod unit tests (#591)
-
 ### Patch
 
 </details>
+
+## 0.109.0 (Nov 25, 2019)
+
+### Minor
+
+- Text / Heading: Add semibold weight (#591)
+- Internal: Introduce codemod unit tests (#591)
 
 ## 0.108.0 (Nov 18, 2019)
 
