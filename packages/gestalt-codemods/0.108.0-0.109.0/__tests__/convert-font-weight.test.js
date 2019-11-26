@@ -9,6 +9,7 @@ jest.mock('../convert-font-weight', () => {
 describe('convert-font-weight', () => {
   [
     'convert-font-weight-dynamic',
+    'convert-font-weight-false',
     'convert-font-weight-spread',
     'convert-font-weight-static',
   ].forEach(test => {

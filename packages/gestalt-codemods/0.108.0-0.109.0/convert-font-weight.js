@@ -42,26 +42,38 @@ export default function transformer(file, api) {
         return;
       }
 
-      node.openingElement.attributes = node.openingElement.attributes.map(
-        attr => {
-          return attr.name && attr.name.name === 'bold'
-            ? j.jsxAttribute(
+      node.openingElement.attributes = node.openingElement.attributes
+        .map(attr => {
+          if (attr.name && attr.name.name === 'bold') {
+            const isExpressionContainer =
+              attr.value && attr.value.type === 'JSXExpressionContainer';
+
+            if (isExpressionContainer) {
+              // <Text bold={false} />
+              if (
+                attr.value.expression &&
+                attr.value.expression.value === false
+              ) {
+                return null;
+              }
+              // <Text bold={expression} />
+              return j.jsxAttribute(
                 j.jsxIdentifier('weight'),
-                attr.value && attr.value.type === 'JSXExpressionContainer'
-                  ? // <Text weight={expression} />
-                    j.jsxExpressionContainer(
-                      j.conditionalExpression(
-                        attr.value.expression,
-                        j.literal('bold'),
-                        j.literal('normal')
-                      )
-                    )
-                  : // <Text bold />
-                    j.literal('bold')
-              )
-            : attr;
-        }
-      );
+                j.jsxExpressionContainer(
+                  j.conditionalExpression(
+                    attr.value.expression,
+                    j.literal('bold'),
+                    j.literal('normal')
+                  )
+                )
+              );
+            }
+            // <Text bold />
+            return j.jsxAttribute(j.jsxIdentifier('weight'), j.literal('bold'));
+          }
+          return attr;
+        })
+        .filter(Boolean);
 
       // Sort attributes alphabetically
       node.openingElement.attributes.sort(
