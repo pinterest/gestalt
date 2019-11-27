@@ -196,7 +196,6 @@ export default {
       ],
       plugins: ['@babel/proposal-class-properties'],
       exclude: 'node_modules/**',
-      externalHelpers: true,
     }),
     visualizer(),
     filesize(),

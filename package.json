@@ -75,7 +75,9 @@
           "/node_modules/",
           "jsdom.test.js"
         ],
-        "setupFilesAfterEnv": ["<rootDir>scripts/setupJest.js"]
+        "setupFilesAfterEnv": [
+          "<rootDir>scripts/setupJest.js"
+        ]
       },
       {
         "displayName": "jsdom",
@@ -88,7 +90,9 @@
           "/node_modules/",
           "<rootDir>/packages/gestalt-codemods"
         ],
-        "setupFilesAfterEnv": ["<rootDir>scripts/setupJest.js"]
+        "setupFilesAfterEnv": [
+          "<rootDir>scripts/setupJest.js"
+        ]
       }
     ]
   },
