@@ -160,9 +160,8 @@ export default function PropTable({ props: properties, Component }: Props) {
                         <Box>
                           <Text leading="tall">
                             <code>
-                              sm{upcase(name)}, md{upcase(name)}, lg{upcase(
-                                name
-                              )}
+                              sm{upcase(name)}, md{upcase(name)}, lg
+                              {upcase(name)}
                             </code>
                           </Text>
                         </Box>

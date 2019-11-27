@@ -18,7 +18,7 @@ yarn eslint .
 fold_end "eslint"
 
 fold_start "stylelint"
-yarn stylelint "packages/**/*.css"
+yarn stylelint "**/*.css"
 fold_end "stylelint"
 
 fold_start "jest"

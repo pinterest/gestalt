@@ -4,7 +4,6 @@
  * to
  *  <Text />
  */
-
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
@@ -37,9 +36,7 @@ export default function transformer(file, api) {
 
       if (attrs.some(attr => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Dynamic Text properties encountered at ${file.path}:${
-            node.loc.start.line.line
-          }`
+          `Dynamic Text properties encountered at ${file.path}:${node.loc.start.line.line}`
         );
       }
 
@@ -52,9 +49,9 @@ export default function transformer(file, api) {
             attr.name.name === 'smSize' ||
             attr.name.name === 'mdSize' ||
             attr.name.name === 'lgSize') &&
-          (attr.value.type === 'JSXExpressionContainer' &&
-            attr.value.expression.type === 'Literal' &&
-            typeof attr.value.expression.value === 'number')
+          attr.value.type === 'JSXExpressionContainer' &&
+          attr.value.expression.type === 'Literal' &&
+          typeof attr.value.expression.value === 'number'
         ) {
           if (attr.value.expression.value <= 2) {
             // eslint-disable-next-line no-param-reassign

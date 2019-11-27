@@ -5,8 +5,9 @@ sudo: required
 
 language: node_js
 node_js:
-  - lts/carbon
-  - lts/dubnium
+  - 10
+  - 12
+  - node
 
 cache: yarn
 

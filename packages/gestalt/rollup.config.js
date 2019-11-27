@@ -54,8 +54,11 @@ const statsPlugin = () => {
 
   return {
     name: 'stats',
-    ongenerate(bundle, obj) {
-      updateStats(obj.code, bundle.file);
+    generateBundle(options, bundles) {
+      const [file] = Object.keys(bundles);
+      const bundle = bundles[file];
+
+      updateStats(bundle.code, file);
     },
     updateStats,
   };
@@ -121,7 +124,7 @@ const cssModules = (options = {}) => {
       });
     },
 
-    ongenerate: () => {
+    generateBundle: () => {
       cssnano.process(css).then(result => {
         writeFileSync(options.output, result.css);
         options.stats.updateStats(result.css, options.output);

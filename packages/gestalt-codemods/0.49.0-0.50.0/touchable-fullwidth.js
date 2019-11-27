@@ -32,9 +32,7 @@ export default function transformer(file, api) {
 
       if (attributes.some(attr => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Dynamic Touchable properties encountered at ${file.path}:${
-            node.loc.start.line
-          }`
+          `Dynamic Touchable properties encountered at ${file.path}:${node.loc.start.line}`
         );
       }
 

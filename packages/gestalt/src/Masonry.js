@@ -494,30 +494,32 @@ export default class Masonry<T: {}> extends React.Component<
           style={{ height: 0, width: '100%' }}
           ref={this.setGridWrapperRef}
         >
-          {items.filter(item => item).map((item, i) => (
-            <div // keep this in sync with renderMasonryComponent
-              className="static"
-              data-grid-item
-              key={i}
-              style={{
-                top: 0,
-                left: 0,
-                transform: 'translateX(0px) translateY(0px)',
-                WebkitTransform: 'translateX(0px) translateY(0px)',
-                width: flexible
-                  ? undefined
-                  : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
-              }}
-              ref={el => {
-                if (el && !flexible) {
-                  // only measure flexible items on client
-                  measurementStore.set(item, el.clientHeight);
-                }
-              }}
-            >
-              <Component data={item} itemIdx={i} isMeasuring={false} />
-            </div>
-          ))}
+          {items
+            .filter(item => item)
+            .map((item, i) => (
+              <div // keep this in sync with renderMasonryComponent
+                className="static"
+                data-grid-item
+                key={i}
+                style={{
+                  top: 0,
+                  left: 0,
+                  transform: 'translateX(0px) translateY(0px)',
+                  WebkitTransform: 'translateX(0px) translateY(0px)',
+                  width: flexible
+                    ? undefined
+                    : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
+                }}
+                ref={el => {
+                  if (el && !flexible) {
+                    // only measure flexible items on client
+                    measurementStore.set(item, el.clientHeight);
+                  }
+                }}
+              >
+                <Component data={item} itemIdx={i} isMeasuring={false} />
+              </div>
+            ))}
         </div>
       );
     } else if (width == null) {

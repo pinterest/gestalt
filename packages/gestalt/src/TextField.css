@@ -27,7 +27,7 @@ input.errored {
 }
 
 input.errored:focus {
-  box-shadow: 0 0 0 4px rgba(230, 0, 35, 0.50);
+  box-shadow: 0 0 0 4px rgba(230, 0, 35, 0.5);
   outline: none;
 }
 

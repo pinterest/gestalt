@@ -3,7 +3,6 @@ import React from 'react';
 import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
-import './AtomDark.css';
 import './Markdown.css';
 
 type Props = {|

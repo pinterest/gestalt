@@ -1,5 +1,5 @@
-node_modules
-docs/build
-packages/gestalt/dist
-flow-typed
 coverage
+docs/build
+flow-typed
+node_modules
+packages/gestalt/dist
