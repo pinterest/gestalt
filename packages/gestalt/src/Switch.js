@@ -58,8 +58,8 @@ export default class Switch extends React.Component<Props, State> {
           ? styles.switchGray
           : styles.switchLightGray
         : switched
-          ? styles.switchDarkGray
-          : styles.switchWhite
+        ? styles.switchDarkGray
+        : styles.switchWhite
     );
 
     const sliderStyles = classnames(

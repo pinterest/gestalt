@@ -76,9 +76,15 @@ export default function transformer(file, api) {
         .filter(Boolean);
 
       // Sort attributes alphabetically
-      node.openingElement.attributes.sort(
-        (a, b) => (a.name ? a.name.name.localeCompare(b.name.name) : -1)
-      );
+      node.openingElement.attributes.sort((a, b) => {
+        if (!a.name) {
+          return -1;
+        }
+        if (!b.name) {
+          return 1;
+        }
+        return a.name.name.localeCompare(b.name.name);
+      });
 
       j(path).replaceWith(node);
 

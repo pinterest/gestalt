@@ -25,7 +25,12 @@ const columnLayout = (numOfColumns: 1 | Column) => {
     case 1:
       return [[MID], [UP], [DOWN]];
     case 2:
-      return [[UP, MID], [DOWN, MID], [MID, UP], [MID, DOWN]];
+      return [
+        [UP, MID],
+        [DOWN, MID],
+        [MID, UP],
+        [MID, DOWN],
+      ];
     case 4:
       return [
         [MID, UP, MID, MID],

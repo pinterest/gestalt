@@ -42,24 +42,23 @@ export default class Tooltip extends React.Component<Props, State> {
         >
           {children}
         </Box>
-        {hovered &&
-          !!anchor && (
-            <Controller
-              anchor={anchor}
-              bgColor="darkGray"
-              caret={false}
-              idealDirection="down"
-              onDismiss={noop}
-              positionRelativeToAnchor
-              size={null}
-            >
-              <Box maxWidth={180} paddingY={1} paddingX={2} role="tooltip">
-                <Text color="white" size="xs">
-                  {text}
-                </Text>
-              </Box>
-            </Controller>
-          )}
+        {hovered && !!anchor && (
+          <Controller
+            anchor={anchor}
+            bgColor="darkGray"
+            caret={false}
+            idealDirection="down"
+            onDismiss={noop}
+            positionRelativeToAnchor
+            size={null}
+          >
+            <Box maxWidth={180} paddingY={1} paddingX={2} role="tooltip">
+              <Text color="white" size="xs">
+                {text}
+              </Text>
+            </Box>
+          </Controller>
+        )}
       </Box>
     );
   }

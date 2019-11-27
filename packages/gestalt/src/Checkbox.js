@@ -138,8 +138,8 @@ export default class Checkbox extends React.Component<Props, State> {
                 ? colors.grayBg
                 : colors.lightGrayBg
               : checked || indeterminate
-                ? colors.darkGrayBg
-                : colors.whiteBg,
+              ? colors.darkGrayBg
+              : colors.whiteBg,
             {
               [styles.checkEnabled]: !disabled,
               [styles.checkFocused]: this.state.focused,

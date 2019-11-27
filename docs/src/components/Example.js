@@ -4,6 +4,7 @@ import * as gestalt from 'gestalt';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import Card from './Card.js';
 import Checkerboard from './Checkerboard.js';
+import theme from './atomDark.js';
 
 type Props = {|
   defaultCode: string,
@@ -29,7 +30,7 @@ function Example({
       id={id}
       stacked={direction === 'column'}
     >
-      <LiveProvider code={defaultCode.trim()} scope={gestalt}>
+      <LiveProvider code={defaultCode.trim()} scope={gestalt} theme={theme}>
         <Box
           display="flex"
           direction={direction}
@@ -68,7 +69,7 @@ function Example({
                   Editor
                 </Text>
               </Box>
-              <LiveEditor />
+              <LiveEditor padding={16} />
             </Box>
           </Column>
         </Box>

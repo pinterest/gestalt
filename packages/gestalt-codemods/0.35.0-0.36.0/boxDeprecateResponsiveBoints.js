@@ -65,9 +65,7 @@ export default function transformer(file, api) {
 
       if (attributes.some(attr => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Dynamic Box properties encountered at ${file.path}:${
-            node.loc.start.line
-          }`
+          `Dynamic Box properties encountered at ${file.path}:${node.loc.start.line}`
         );
       }
 
