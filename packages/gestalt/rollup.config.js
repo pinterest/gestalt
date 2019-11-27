@@ -8,14 +8,37 @@ import postcss from 'postcss';
 import postcssCssnext from 'postcss-cssnext';
 import postcssModules from 'postcss-modules';
 import replace from 'rollup-plugin-replace';
-import svg from 'rollup-plugin-inline-svg';
 import visualizer from 'rollup-plugin-visualizer';
-import { writeFileSync } from 'fs';
+import { parseString } from 'xml2js';
+import { readFileSync, writeFileSync } from 'fs';
 import { extname, relative } from 'path';
 
 import classnameBuilder from './lib/classnameBuilder.js';
 
 const breakpoints = require('./src/breakpoints.json');
+
+const svgPath = () => ({
+  name: 'svgPath',
+  load(id) {
+    if (extname(id) !== '.svg') {
+      return null;
+    }
+
+    const data = readFileSync(id, 'utf-8');
+
+    return new Promise((resolve, reject) =>
+      parseString(data, (err, result) => {
+        if (err) {
+          return reject(err);
+        }
+
+        const path = result.svg.path[0].$.d;
+        const code = `export default '${path}';`;
+        return resolve({ code });
+      })
+    );
+  },
+});
 
 const statsPlugin = () => {
   const statsMap = {};
@@ -160,7 +183,7 @@ export default {
         process.env.NODE_ENV || 'development'
       ),
     }),
-    svg(),
+    svgPath(),
     json({
       preferConst: true,
     }),
