@@ -8,11 +8,14 @@
 
 ### Minor
 
-- Internal: Upgrade react-scripts / babel7 & jest (#592)
-
 ### Patch
 
 </details>
+
+## 0.110.0 (Nov 27, 2019)
+
+- Internal: Upgrade react-scripts / babel7 & jest (#592)
+- Internal: upgrade gestalt package dependencies (#595)
 
 ## 0.109.0 (Nov 25, 2019)
 
