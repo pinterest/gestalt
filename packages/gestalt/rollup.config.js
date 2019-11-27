@@ -1,6 +1,7 @@
 import babel from 'rollup-plugin-babel';
 import cssnano from 'cssnano';
 import filesize from 'rollup-plugin-filesize';
+import gzip from 'gzip-size';
 import json from 'rollup-plugin-json';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import postcss from 'postcss';
@@ -8,10 +9,9 @@ import postcssCssnext from 'postcss-cssnext';
 import postcssModules from 'postcss-modules';
 import replace from 'rollup-plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
+import { parseString } from 'xml2js';
 import { readFileSync, writeFileSync } from 'fs';
 import { extname, relative } from 'path';
-import { parseString } from 'xml2js';
-import gzip from 'gzip-size';
 
 import classnameBuilder from './lib/classnameBuilder.js';
 
@@ -34,16 +34,7 @@ const svgPath = () => ({
 
         const path = result.svg.path[0].$.d;
         const code = `export default '${path}';`;
-        const ast = {
-          type: 'Program',
-          sourceType: 'module',
-          start: 0,
-          end: null,
-          body: [],
-        };
-
-        // Export as JS
-        return resolve({ ast, code, map: { mappings: '' } });
+        return resolve({ code });
       })
     );
   },
@@ -198,9 +189,13 @@ export default {
     }),
     babel({
       babelrc: false,
-      presets: [['env', { modules: false }], 'stage-1', 'react'],
+      presets: [
+        ['@babel/preset-env', { modules: false }],
+        '@babel/react',
+        '@babel/flow',
+      ],
+      plugins: ['@babel/proposal-class-properties'],
       exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
     }),
     visualizer(),
     filesize(),

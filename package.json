@@ -4,48 +4,45 @@
     "docs",
     "packages/*"
   ],
-  "resolutions": {
-    "jest": "^23.1.0"
-  },
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "9.0.0",
-    "babel-jest": "^23.4.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-flow": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "^24.9.0",
     "benchmark": "^2.1.4",
     "codecov": "^3.0.2",
     "concurrently": "^3.5.1",
     "danger": "6.1.12",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "eslint": "5.6.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^5.0.0",
+    "eslint": "6.7.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
-    "eslint-plugin-flowtype": "^3.10.5",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jest": "^22.7.1",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
-    "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-flowtype": "^4.4.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "filesize": "^3.6.1",
     "flow-bin": "^0.101.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.1.0",
+    "jest": "^24.9.0",
     "jscodeshift": "^0.6.4",
     "lint-staged": "^7.2.0",
     "prettier": "1.13.7",
     "react-test-renderer": "^16.8.5",
+    "rollup-plugin-inline-svg": "^1.1.1",
     "shelljs": "^0.8.2",
     "stylelint": "^9.6.0",
     "stylelint-config-prettier": "^4.0.0",
@@ -78,7 +75,9 @@
           "/node_modules/",
           "jsdom.test.js"
         ],
-        "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
+        "setupFilesAfterEnv": [
+          "<rootDir>scripts/setupJest.js"
+        ]
       },
       {
         "displayName": "jsdom",
@@ -91,7 +90,9 @@
           "/node_modules/",
           "<rootDir>/packages/gestalt-codemods"
         ],
-        "setupTestFrameworkScriptFile": "<rootDir>scripts/setupJest.js"
+        "setupFilesAfterEnv": [
+          "<rootDir>scripts/setupJest.js"
+        ]
       }
     ]
   },

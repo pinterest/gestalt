@@ -3,20 +3,25 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Card from './Card.js';
 
-const snapshot = component => {
-  const tree = renderer.create(component).toJSON();
-  expect(tree).toMatchSnapshot();
-};
-
-it('renders an empty Card', () => snapshot(<Card />));
-it('renders a Card with text', () => snapshot(<Card>Chris Lloyd</Card>));
+it('renders an empty Card', () =>
+  expect(renderer.create(<Card />).toJSON()).toMatchSnapshot());
+it('renders a Card with text', () =>
+  expect(renderer.create(<Card>Chris Lloyd</Card>).toJSON()).toMatchSnapshot());
 it('renders a Card with wash shown', () =>
-  snapshot(<Card active>Chris Lloyd</Card>));
+  expect(
+    renderer.create(<Card active>Chris Lloyd</Card>).toJSON()
+  ).toMatchSnapshot());
 it('renders a Card with wash hidden', () =>
-  snapshot(<Card active={false}>Chris Lloyd</Card>));
+  expect(
+    renderer.create(<Card active={false}>Chris Lloyd</Card>).toJSON()
+  ).toMatchSnapshot());
 it('renders a Card with an image', () =>
-  snapshot(
-    <Card active={false} image="Avatar">
-      Chris Lloyd
-    </Card>
-  ));
+  expect(
+    renderer
+      .create(
+        <Card active={false} image="Avatar">
+          Chris Lloyd
+        </Card>
+      )
+      .toJSON()
+  ).toMatchSnapshot());

@@ -18,6 +18,8 @@ type State = {|
 |};
 
 export default class VideoPlayhead extends React.PureComponent<Props, State> {
+  playhead: ?HTMLDivElement;
+
   static propTypes = {
     currentTime: PropTypes.number.isRequired,
     duration: PropTypes.number.isRequired,
@@ -29,8 +31,6 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
   state = {
     seeking: false,
   };
-
-  playhead: ?HTMLDivElement;
 
   setPlayheadRef = (ref: ?HTMLDivElement) => {
     this.playhead = ref;

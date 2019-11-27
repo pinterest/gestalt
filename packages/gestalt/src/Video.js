@@ -83,9 +83,7 @@ const requestFullscreen = (element: HTMLElement) => {
 };
 
 const exitFullscreen = () => {
-  // $FlowIssue - vendor prefix missing from Flow
   if (document.exitFullscreen) {
-    // $FlowIssue - vendor prefix missing from Flow
     document.exitFullscreen();
     // $FlowIssue - vendor prefix missing from Flow
   } else if (document.webkitExitFullscreen) {
@@ -105,7 +103,6 @@ const exitFullscreen = () => {
 // Normally document.fullscreen suffices here as a flag, but IE11 does not
 // have a vendor specific version so we must instead use the actual element
 const isFullscreen = () =>
-  // $FlowIssue - vendor prefix missing from Flow
   document.fullscreenElement ||
   // $FlowIssue - vendor prefix missing from Flow
   document.webkitFullscreenElement ||
@@ -155,6 +152,10 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
 };
 
 export default class Video extends React.PureComponent<Props, State> {
+  video: ?HTMLVideoElement;
+
+  player: ?HTMLDivElement;
+
   static propTypes = {
     accessibilityMaximizeLabel: PropTypes.string,
     accessibilityMinimizeLabel: PropTypes.string,
@@ -207,10 +208,6 @@ export default class Video extends React.PureComponent<Props, State> {
     duration: 0,
     fullscreen: false,
   };
-
-  video: ?HTMLVideoElement;
-
-  player: ?HTMLDivElement;
 
   /**
    * React lifecycle hooks pertinent to Video

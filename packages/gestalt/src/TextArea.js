@@ -39,6 +39,10 @@ type State = {|
 |};
 
 export default class TextArea extends React.Component<Props, State> {
+  // NOTE: we cannot move to React createRef until we audit uses of callsites
+  // that reach into this component and use this instance variable
+  textarea: ?HTMLElement;
+
   static propTypes = {
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -63,10 +67,6 @@ export default class TextArea extends React.Component<Props, State> {
   state = {
     focused: false,
   };
-
-  // NOTE: we cannot move to React createRef until we audit uses of callsites
-  // that reach into this component and use this instance variable
-  textarea: ?HTMLElement;
 
   setTextAreaRef = (ref: ?HTMLTextAreaElement) => {
     this.textarea = ref;

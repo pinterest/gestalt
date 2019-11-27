@@ -67,6 +67,23 @@ function getTriggerRect(
 }
 
 export default class Controller extends React.Component<Props, State> {
+  static propTypes = {
+    anchor: PropTypes.shape({
+      contains: PropTypes.func,
+      getBoundingClientRect: PropTypes.func,
+    }),
+    bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
+    children: PropTypes.node,
+    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+    onDismiss: PropTypes.func.isRequired,
+    positionRelativeToAnchor: PropTypes.bool,
+    shouldFocus: PropTypes.bool,
+    size: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+    ]),
+  };
+
   static defaultProps = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
@@ -156,20 +173,3 @@ export default class Controller extends React.Component<Props, State> {
     );
   }
 }
-
-Controller.propTypes = {
-  anchor: PropTypes.shape({
-    contains: PropTypes.func,
-    getBoundingClientRect: PropTypes.func,
-  }),
-  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-  children: PropTypes.node,
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-  onDismiss: PropTypes.func.isRequired,
-  positionRelativeToAnchor: PropTypes.bool,
-  shouldFocus: PropTypes.bool,
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
-  ]),
-};
