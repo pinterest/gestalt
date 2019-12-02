@@ -52,47 +52,25 @@ card(
   `}
     name="Example"
     defaultCode={`
-class CardExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hovered: false };
-    this.handleMouseEnter = this._handleMouseEnter.bind(this);
-    this.handleMouseLeave = this._handleMouseLeave.bind(this);
-  }
-  _handleMouseEnter() {
-    this.setState(() => ({ hovered: true }));
-  }
-  _handleMouseLeave() {
-    this.setState(() => ({ hovered: false }));
-  }
-  render() {
-    return (
-      <Box maxWidth={236} padding={2} column={12}>
-        <Card
-          image={
-            <Avatar
-              name="James Jones"
-              src="${james}"
-            />
-          }
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}>
-          <Text align="center" size="xl" weight="bold">
-            <Link href="https://pinterest.com">
-              <Box paddingX={3} paddingY={2}>
-                James Jones
-              </Box>
-            </Link>
-          </Text>
-          <Button
-            accessibilityLabel="Follow James Jones"
-            color="red"
-            text="Follow"
-          />
-        </Card>
-      </Box>
-    );
-  }
+function CardExample() {
+  return (
+    <Box maxWidth={236} padding={2} column={12}>
+      <Card image={<Avatar name="James Jones" src="${james}" />}>
+        <Text align="center" size="xl" weight="bold">
+          <Link href="https://pinterest.com">
+            <Box paddingX={3} paddingY={2}>
+              James Jones
+            </Box>
+          </Link>
+        </Text>
+        <Button
+          accessibilityLabel="Follow James Jones"
+          color="red"
+          text="Follow"
+        />
+      </Card>
+    </Box>
+  );
 }
 `}
   />

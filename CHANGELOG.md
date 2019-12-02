@@ -10,9 +10,13 @@
 
 ### Patch
 
+- Card: Convert examples & component to use hooks (#597)
+
 </details>
 
 ## 0.110.0 (Nov 27, 2019)
+
+### Minor
 
 - Internal: Upgrade react-scripts / babel7 & jest (#592)
 - Internal: upgrade gestalt package dependencies (#595)
