@@ -13,59 +13,47 @@ type Props = {|
   onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
 |};
 
-type State = {|
-  hovered: boolean,
-|};
+export default function Card(props: Props) {
+  const [hovered, setHovered] = React.useState(false);
+  const { active, children, image, onMouseEnter, onMouseLeave } = props;
 
-export default class Card extends React.Component<Props, State> {
-  static propTypes = {
-    active: PropTypes.bool,
-    children: PropTypes.node,
-    image: PropTypes.node,
-    onMouseEnter: PropTypes.func,
-    onMouseLeave: PropTypes.func,
+  const handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    setHovered(true);
+    if (onMouseEnter) {
+      onMouseEnter({ event });
+    }
   };
 
-  state: State = {
-    hovered: false,
+  const handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    setHovered(false);
+    if (onMouseLeave) {
+      onMouseLeave({ event });
+    }
   };
 
-  handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
-    const { onMouseEnter } = this.props;
-    this.setState(
-      { hovered: true },
-      onMouseEnter && (() => onMouseEnter({ event }))
-    );
-  };
+  const classes = classnames(styles.card, {
+    // If, like @chrislloyd, you can't remember Javascript equality rules,
+    // == null checks for `null` or `undefined` and leaves out `false`.
+    [styles.hover]: active || (active == null && hovered),
+  });
 
-  handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
-    const { onMouseLeave } = this.props;
-    this.setState(
-      { hovered: false },
-      onMouseLeave && (() => onMouseLeave({ event }))
-    );
-  };
-
-  render() {
-    const { active, children, image } = this.props;
-    const { hovered } = this.state;
-
-    const classes = classnames(styles.card, {
-      // If, like @chrislloyd, you can't remember Javascript equality rules,
-      // == null checks for `null` or `undefined` and leaves out `false`.
-      [styles.hover]: active || (active == null && hovered),
-    });
-
-    return (
-      <Box
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        position="relative"
-      >
-        {image && <Box marginBottom={1}>{image}</Box>}
-        <Box>{children}</Box>
-        <div className={classes} />
-      </Box>
-    );
-  }
+  return (
+    <Box
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      position="relative"
+    >
+      {image && <Box marginBottom={1}>{image}</Box>}
+      <Box>{children}</Box>
+      <div className={classes} />
+    </Box>
+  );
 }
+
+Card.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  image: PropTypes.node,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+};

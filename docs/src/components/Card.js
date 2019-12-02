@@ -29,7 +29,7 @@ export default function Card({
         display="flex"
         direction={stacked ? 'column' : 'row'}
       >
-        <Box paddingX={2} column={12}>
+        <Box marginTop={1} paddingX={2} column={12}>
           {description && <Markdown text={description} />}
           {children}
         </Box>
