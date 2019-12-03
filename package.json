@@ -14,6 +14,7 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-flow": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
+    "@testing-library/react": "^9.3.2",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "benchmark": "^2.1.4",

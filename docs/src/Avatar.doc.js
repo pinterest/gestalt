@@ -139,11 +139,11 @@ card(
     name="Verified"
     defaultCode={`
 <Avatar
+  icon="pinterest"
   name="Shanice"
   size="lg"
   src="${shanice}"
   verified
-  icon="pinterest"
 />
   `}
   />
