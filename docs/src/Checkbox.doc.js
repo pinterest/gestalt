@@ -84,32 +84,25 @@ card(
   `}
     name="Example: Accessibility"
     defaultCode={`
-class CheckboxExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { checked: true };
-    this.handleChecked = this._handleChecked.bind(this);
-  }
-  _handleChecked({ checked }) {
-    this.setState({ checked });
-  }
-  render() {
-    return (
-      <Box alignItems="center" direction="row" display="flex">
-        <Checkbox
-          checked={this.state.checked}
-          id="usa"
-          name="usa"
-          onChange={this.handleChecked}
-        />
-        <Label htmlFor="usa">
-          <Box paddingX={2}>
-            <Text>United States of America</Text>
-          </Box>
-        </Label>
-      </Box>
-    );
-  }
+function CheckboxExample() {
+  const [checked, setChecked] = React.useState(true);
+  return (
+    <Box alignItems="center" direction="row" display="flex">
+      <Checkbox
+        checked={checked}
+        id="usa"
+        name="usa"
+        onChange={({ checked }) => {
+          setChecked(checked);
+        }}
+      />
+      <Label htmlFor="usa">
+        <Box paddingX={2}>
+          <Text>United States of America</Text>
+        </Box>
+      </Label>
+    </Box>
+  );
 }
 `}
   />
@@ -122,37 +115,35 @@ card(
   "
     name="Example: Labeled stack"
     defaultCode={`
-class CheckboxExample extends React.Component {
-  render() {
-    const CheckboxWithLabel = ({ id, label }) => (
-      <Box alignItems="center" direction="row" display="flex">
-        <Checkbox
-          checked
-          id={id}
-          onChange={() => {}}
-        />
-        <Label htmlFor={id}>
-          <Box paddingX={2}>
-            <Text>{label}</Text>
-          </Box>
-        </Label>
-      </Box>
-    );
+function CheckboxExample() {
+  const CheckboxWithLabel = ({ id, label }) => (
+    <Box alignItems="center" direction="row" display="flex">
+      <Checkbox
+        checked
+        id={id}
+        onChange={() => {}}
+      />
+      <Label htmlFor={id}>
+        <Box paddingX={2}>
+          <Text>{label}</Text>
+        </Box>
+      </Label>
+    </Box>
+  );
 
-    return (
-      <Box display="flex" direction="column" justifyContent="around" marginTop={-1} marginBottom={-1}>
-        <Box paddingY={1}>
-          <CheckboxWithLabel label="Email" id="email" />
-        </Box>
-        <Box paddingY={1}>
-          <CheckboxWithLabel label="Mobile push" id="push" />
-        </Box>
-        <Box paddingY={1}>
-          <CheckboxWithLabel label="Carrier pidgeon" id="pidgeon" />
-        </Box>
+  return (
+    <Box display="flex" direction="column" justifyContent="around" marginTop={-1} marginBottom={-1}>
+      <Box paddingY={1}>
+        <CheckboxWithLabel label="Email" id="email" />
       </Box>
-    );
-  }
+      <Box paddingY={1}>
+        <CheckboxWithLabel label="Mobile push" id="push" />
+      </Box>
+      <Box paddingY={1}>
+        <CheckboxWithLabel label="Carrier pidgeon" id="pidgeon" />
+      </Box>
+    </Box>
+  );
 }
 `}
   />
@@ -163,24 +154,22 @@ card(
     id="hasError"
     name="Example: Error state"
     defaultCode={`
-class CheckboxExample extends React.Component {
-  render() {
-    return (
-      <Box alignItems="center" direction="row" display="flex">
-        <Checkbox
-          hasError
-          id="error"
-          name="error"
-          onChange={() => {}}
-        />
-        <Label htmlFor="error">
-          <Box paddingX={2}>
-            <Text>This checkbox has an error</Text>
-          </Box>
-        </Label>
-      </Box>
-    );
-  }
+function CheckboxExample() {
+  return (
+    <Box alignItems="center" direction="row" display="flex">
+      <Checkbox
+        hasError
+        id="error"
+        name="error"
+        onChange={() => {}}
+      />
+      <Label htmlFor="error">
+        <Box paddingX={2}>
+          <Text>This checkbox has an error</Text>
+        </Box>
+      </Label>
+    </Box>
+  );
 }
 `}
   />

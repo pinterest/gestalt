@@ -12,8 +12,10 @@
 
 - Avatar: Convert component to use hooks (#598)
 - Card: Convert examples & component to use hooks (#597)
+- Checkbox: Convert examples & component to use hooks (#600)
 - Internal: Add `react-testing-library` (#598)
 - Internal: Enable `react-hooks/exhaustive-deps` lint rule (#598)
+- Internal: Remove `concurrently` dependency (#599)
 
 </details>
 
