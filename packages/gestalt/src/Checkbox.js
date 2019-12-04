@@ -22,142 +22,106 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-type State = {|
-  focused: boolean,
-|};
+export default function Checkbox({
+  checked = false,
+  disabled = false,
+  hasError = false,
+  id,
+  indeterminate = false,
+  name,
+  onChange,
+  onClick,
+  size = 'md',
+}: Props) {
+  const inputElement = React.useRef<?HTMLInputElement>(null);
+  const [focused, setFocused] = React.useState(false);
 
-export default class Checkbox extends React.Component<Props, State> {
-  input: ?HTMLInputElement;
-
-  static propTypes = {
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    hasError: PropTypes.bool,
-    id: PropTypes.string.isRequired,
-    indeterminate: PropTypes.bool,
-    name: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    onClick: PropTypes.func,
-    size: PropTypes.oneOf(['sm', 'md']),
-  };
-
-  static defaultProps = {
-    checked: false,
-    disabled: false,
-    hasError: false,
-    indeterminate: false,
-    size: 'md',
-  };
-
-  state = {
-    focused: false,
-  };
-
-  componentDidMount() {
-    if (this.props.indeterminate) {
-      this.setIndeterminate(!!this.props.indeterminate);
+  React.useEffect(() => {
+    if (inputElement && inputElement.current) {
+      inputElement.current.indeterminate = indeterminate;
     }
-  }
+  }, [indeterminate]);
 
-  componentDidUpdate(previousProps: Props) {
-    if (previousProps.indeterminate !== this.props.indeterminate) {
-      this.setIndeterminate(!!this.props.indeterminate);
+  const handleChange = (event: SyntheticInputEvent<>) => {
+    if (onChange) {
+      onChange({ event, checked: event.target.checked });
     }
-  }
-
-  setIndeterminate(indeterminate: boolean) {
-    if (this.input) {
-      this.input.indeterminate = indeterminate;
-    }
-  }
-
-  handleChange = (event: SyntheticInputEvent<>) => {
-    const { checked } = event.target;
-    this.props.onChange({ event, checked });
   };
 
-  handleClick = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    const { onClick } = this.props;
+  const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) => {
     if (onClick) {
-      const { checked } = event.currentTarget;
-      onClick({ event, checked });
+      onClick({ event, checked: event.currentTarget.checked });
     }
   };
 
-  handleBlur = () => this.setState({ focused: false });
-
-  handleFocus = () => this.setState({ focused: true });
-
-  render() {
-    const {
-      checked,
-      disabled,
-      hasError,
-      id,
-      indeterminate,
-      name,
-      size,
-    } = this.props;
-
-    let borderStyle = styles.border;
-    if (!disabled && (checked || indeterminate)) {
-      borderStyle = styles.borderDark;
-    } else if (hasError) {
-      borderStyle = styles.borderError;
-    }
-
-    return (
-      <Box position="relative">
-        <input
-          checked={checked}
-          className={classnames(styles.input, {
-            [styles.inputEnabled]: !disabled,
-            [styles.indeterminate]: indeterminate,
-            [styles.inputSm]: size === 'sm',
-            [styles.inputMd]: size === 'md',
-          })}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          onClick={this.handleClick}
-          onFocus={this.handleFocus}
-          ref={el => {
-            this.input = el;
-          }}
-          type="checkbox"
-        />
-        <div
-          className={classnames(
-            borderStyle,
-            styles.check,
-            // eslint-disable-next-line no-nested-ternary
-            disabled
-              ? checked || indeterminate
-                ? colors.grayBg
-                : colors.lightGrayBg
-              : checked || indeterminate
-              ? colors.darkGrayBg
-              : colors.whiteBg,
-            {
-              [styles.checkEnabled]: !disabled,
-              [styles.checkFocused]: this.state.focused,
-              [styles.checkMd]: size === 'md',
-              [styles.checkSm]: size === 'sm',
-            }
-          )}
-        >
-          {(checked || indeterminate) && (
-            <Icon
-              accessibilityLabel=""
-              color="white"
-              icon={indeterminate ? 'dash' : 'check'}
-              size={size === 'sm' ? 8 : 12}
-            />
-          )}
-        </div>
-      </Box>
-    );
+  let borderStyle = styles.border;
+  if (!disabled && (checked || indeterminate)) {
+    borderStyle = styles.borderDark;
+  } else if (hasError) {
+    borderStyle = styles.borderError;
   }
+
+  return (
+    <Box position="relative">
+      <input
+        checked={checked}
+        className={classnames(styles.input, {
+          [styles.inputEnabled]: !disabled,
+          [styles.indeterminate]: indeterminate,
+          [styles.inputSm]: size === 'sm',
+          [styles.inputMd]: size === 'md',
+        })}
+        disabled={disabled}
+        id={id}
+        name={name}
+        onBlur={() => setFocused(false)}
+        onChange={handleChange}
+        onClick={handleClick}
+        onFocus={() => setFocused(true)}
+        ref={inputElement}
+        type="checkbox"
+      />
+      <div
+        className={classnames(
+          borderStyle,
+          styles.check,
+          // eslint-disable-next-line no-nested-ternary
+          disabled
+            ? checked || indeterminate
+              ? colors.grayBg
+              : colors.lightGrayBg
+            : checked || indeterminate
+            ? colors.darkGrayBg
+            : colors.whiteBg,
+          {
+            [styles.checkEnabled]: !disabled,
+            [styles.checkFocused]: focused,
+            [styles.checkMd]: size === 'md',
+            [styles.checkSm]: size === 'sm',
+          }
+        )}
+      >
+        {(checked || indeterminate) && (
+          <Icon
+            accessibilityLabel=""
+            color="white"
+            icon={indeterminate ? 'dash' : 'check'}
+            size={size === 'sm' ? 8 : 12}
+          />
+        )}
+      </div>
+    </Box>
+  );
 }
+
+Checkbox.propTypes = {
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  hasError: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  indeterminate: PropTypes.bool,
+  name: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['sm', 'md']),
+};
