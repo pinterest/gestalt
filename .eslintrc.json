@@ -34,6 +34,15 @@
       "error",
       { "components": ["label"], "allowChildren": true }
     ],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "labelComponents": ["Label"],
+        "labelAttributes": ["htmlFor"],
+        "controlComponents": ["CheckBox"],
+        "depth": 3
+      }
+    ],
     "no-await-in-loop": "off",
     "no-return-await": "off",
     "prettier/prettier": [
