@@ -49,7 +49,7 @@ card(
       },
       {
         name: 'iconColor',
-        type: `"blue" | "darkGray" | "gray" | "red" | "white"`,
+        type: `"blue" | "darkGray" | "gray" | "red" | "white" | "orange"`,
         defaultValue: 'gray',
         href: 'colorCombinations',
       },

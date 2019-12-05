@@ -27,7 +27,7 @@ type Props = {|
   dangerouslySetSvgPath?: { __path: string },
   focused?: boolean,
   hovered?: boolean,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white',
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
   icon?: $Keys<typeof icons>,
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
 |};
@@ -102,7 +102,14 @@ Pog.propTypes = {
   }),
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
-  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'blue', 'white']),
+  iconColor: PropTypes.oneOf([
+    'gray',
+    'darkGray',
+    'red',
+    'blue',
+    'white',
+    'orange',
+  ]),
   icon: PropTypes.oneOf(Object.keys(icons)),
   size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
 };

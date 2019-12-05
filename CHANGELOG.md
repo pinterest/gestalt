@@ -7,6 +7,8 @@
   </summary>
 
 ### Minor
+- IconButton: Allow `orange` icon color prop to be passed as a value (#602)
+- Pog: Add `orange` icon color prop to be passed as a value (#602)
 
 ### Patch
 
