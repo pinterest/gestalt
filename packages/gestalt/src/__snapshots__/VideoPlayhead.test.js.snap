@@ -17,6 +17,7 @@ exports[`VideoPlayhead 1`] = `
     onClick={[Function]}
     onKeyPress={[Function]}
     onMouseDown={[Function]}
+    onMouseLeave={[Function]}
     onMouseMove={[Function]}
     onMouseUp={[Function]}
     role="progressbar"

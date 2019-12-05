@@ -50,13 +50,25 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     event.stopPropagation();
 
   handleMouseDown = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
     const { onPlayheadDown } = this.props;
     onPlayheadDown(event);
     this.setState({ seeking: true });
     this.seek(event.clientX);
   };
 
+  handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    const { onPlayheadUp } = this.props;
+    const { seeking } = this.state;
+    // If the user is seeking and mouse leaves playhead then end the seek
+    if (seeking) {
+      this.setState({ seeking: false });
+      onPlayheadUp(event);
+    }
+  };
+
   handleMouseMove = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
     const { seeking } = this.state;
     if (seeking) {
       this.seek(event.clientX);
@@ -88,6 +100,7 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
           onClick={this.stopClick}
           onKeyPress={this.stopClick}
           onMouseDown={this.handleMouseDown}
+          onMouseLeave={this.handleMouseLeave}
           onMouseMove={this.handleMouseMove}
           onMouseUp={this.handleMouseUp}
           ref={this.setPlayheadRef}

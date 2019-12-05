@@ -18,6 +18,7 @@
 - Internal: Add `react-testing-library` (#598)
 - Internal: Enable `react-hooks/exhaustive-deps` lint rule (#598)
 - Internal: Remove `concurrently` dependency (#599)
+- Video: Improve video seeking (#601)
 
 </details>
 

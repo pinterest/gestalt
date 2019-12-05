@@ -31,11 +31,36 @@ test('VideoPlayhead handles on mouse down and up events', () => {
   );
   wrapper
     .find('div[role="progressbar"]')
-    .simulate('mousedown', { clientX: '0' });
+    .simulate('mousedown', { clientX: '0', preventDefault: jest.fn() });
   expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
   expect(mockOnPlayheadUp).toHaveBeenCalledTimes(0);
 
   wrapper.find('div[role="progressbar"]').simulate('mouseup', { clientX: '0' });
+  expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
+  expect(mockOnPlayheadUp).toHaveBeenCalledTimes(1);
+});
+
+test('VideoPlayhead ends seek when mouse leaves', () => {
+  const mockOnPlayheadDown = jest.fn();
+  const mockOnPlayheadUp = jest.fn();
+  const wrapper = shallow(
+    <VideoPlayhead
+      currentTime={50}
+      duration={100}
+      seek={() => {}}
+      onPlayheadDown={mockOnPlayheadDown}
+      onPlayheadUp={mockOnPlayheadUp}
+    />
+  );
+  wrapper
+    .find('div[role="progressbar"]')
+    .simulate('mousedown', { preventDefault: jest.fn() });
+  expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
+  expect(mockOnPlayheadUp).toHaveBeenCalledTimes(0);
+
+  wrapper
+    .find('div[role="progressbar"]')
+    .simulate('mouseleave', { preventDefault: jest.fn() });
   expect(mockOnPlayheadDown).toHaveBeenCalledTimes(1);
   expect(mockOnPlayheadUp).toHaveBeenCalledTimes(1);
 });
