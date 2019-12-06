@@ -38,7 +38,7 @@ export default function SegmentedControl(props: Props) {
             aria-selected={isSelected}
             className={cs}
             key={i}
-            onClick={e => onChange({ event: e, activeIndex: i })}
+            onClick={event => onChange({ event, activeIndex: i })}
             role="tab"
             type="button"
             style={{ width: buttonWidth }}

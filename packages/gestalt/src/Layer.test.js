@@ -1,46 +1,21 @@
 // @flow
 import React from 'react';
-import { createPortal } from 'react-dom';
-import { shallow } from 'enzyme';
+import { create } from 'react-test-renderer';
 import Layer from './Layer.js';
 
-jest.mock('react-dom', () => ({
-  createPortal: jest.fn(children => children),
-}));
-
 describe('Layer in server render', () => {
-  if (typeof document === 'undefined') {
-    it('does not use createPortal or render content', () => {
-      const wrapper = shallow(<Layer>content</Layer>);
-      expect(wrapper.instance().el).toBeUndefined();
-      expect(createPortal).not.toHaveBeenCalled();
-      expect(wrapper.text()).toBe('');
-    });
-  }
-});
+  it('does not use createPortal or render content', () => {
+    // Only run test in server context
+    if (typeof document !== 'undefined') {
+      expect(true).toEqual(true);
+      return;
+    }
 
-describe('Layer in browser render', () => {
-  if (typeof document !== 'undefined') {
-    it('appends itself to body on mount', () => {
-      const body = document.getElementsByTagName('body')[0];
-      const wrapper = shallow(<Layer>content</Layer>);
-      const element = wrapper.instance().el;
-      expect(body.contains(element)).toBeTruthy();
-    });
-
-    it('removes itself from body on unmount', () => {
-      const body = document.getElementsByTagName('body')[0];
-      const wrapper = shallow(<Layer>content</Layer>);
-      const element = wrapper.instance().el;
-      wrapper.unmount();
-      expect(body.contains(element)).toBeFalsy();
-    });
-
-    it('renders through createPortal', () => {
-      const wrapper = shallow(<Layer>content</Layer>);
-      const element = wrapper.instance().el;
-      expect(createPortal).toHaveBeenCalledWith('content', element);
-      expect(wrapper.text()).toBe('content');
-    });
-  }
+    const warnSpy = jest.spyOn(console, 'warn');
+    const tree = create(<Layer>content</Layer>).toJSON();
+    expect(tree).toEqual(null);
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Using Layer without document present. Children will not be rendered.'
+    );
+  });
 });

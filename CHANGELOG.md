@@ -7,8 +7,10 @@
   </summary>
 
 ### Minor
+
 - IconButton: Allow `orange` icon color prop to be passed as a value (#602)
 - Pog: Add `orange` icon color prop to be passed as a value (#602)
+- Video: Improve video seeking (#601)
 
 ### Patch
 
@@ -18,7 +20,7 @@
 - Internal: Add `react-testing-library` (#598)
 - Internal: Enable `react-hooks/exhaustive-deps` lint rule (#598)
 - Internal: Remove `concurrently` dependency (#599)
-- Video: Improve video seeking (#601)
+- Internal: Convert tests to React Testing Library (#603)
 
 </details>
 

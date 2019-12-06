@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import { shallow } from 'enzyme';
 import Touchable from './Touchable.js';
 
 test('Touchable renders', () => {
@@ -45,41 +44,4 @@ test('Touchable sets fullHeight correctly', () => {
     </Touchable>
   ).toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-test('Touchable handles onTouch callback', () => {
-  const mockOnTouch = jest.fn();
-  const wrapper = shallow(
-    <Touchable onTouch={mockOnTouch}>Touchable</Touchable>
-  );
-  wrapper.simulate('click');
-  expect(mockOnTouch).toHaveBeenCalled();
-});
-
-test('Touchable handles onMouseEnter callback', () => {
-  const mockOnMouseEnter = jest.fn();
-  const wrapper = shallow(
-    <Touchable onMouseEnter={mockOnMouseEnter}>Touchable</Touchable>
-  );
-  wrapper.simulate('mouseEnter');
-  expect(mockOnMouseEnter).toHaveBeenCalled();
-});
-
-test('Touchable handles onMouseLeave callback', () => {
-  const mockOnMouseLeave = jest.fn();
-  const wrapper = shallow(
-    <Touchable onMouseLeave={mockOnMouseLeave}>Touchable</Touchable>
-  );
-  wrapper.simulate('mouseLeave');
-  expect(mockOnMouseLeave).toHaveBeenCalled();
-});
-
-test('Touchable handles key press event', () => {
-  const mockOnTouch = jest.fn();
-  const wrapper = shallow(
-    <Touchable onTouch={mockOnTouch}>Touchable</Touchable>
-  );
-  const mockEvent = { charCode: 32, preventDefault: jest.fn() };
-  wrapper.simulate('keyPress', mockEvent);
-  expect(mockOnTouch).toHaveBeenCalled();
 });

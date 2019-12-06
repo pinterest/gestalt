@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
-import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import VideoControls from './VideoControls.js';
 
 test('VideoControls handles play events', () => {
   const mockOnPlay = jest.fn();
-  const wrapper = mount(
+  const { getByLabelText } = render(
     <VideoControls
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
@@ -27,13 +27,13 @@ test('VideoControls handles play events', () => {
       volume={0}
     />
   );
-  wrapper.find('Icon[icon="play"]').simulate('click');
+  fireEvent.click(getByLabelText('Play'));
   expect(mockOnPlay).toHaveBeenCalled();
 });
 
 test('VideoControls handles pause events', () => {
   const mockOnPause = jest.fn();
-  const wrapper = mount(
+  const { getByLabelText } = render(
     <VideoControls
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
@@ -55,13 +55,13 @@ test('VideoControls handles pause events', () => {
       volume={0}
     />
   );
-  wrapper.find('Icon[icon="pause"]').simulate('click');
+  fireEvent.click(getByLabelText('Pause'));
   expect(mockOnPause).toHaveBeenCalled();
 });
 
 test('VideoControls handles volume events', () => {
   const mockOnVolumeChange = jest.fn();
-  const wrapper = mount(
+  const { getByLabelText } = render(
     <VideoControls
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
@@ -83,6 +83,6 @@ test('VideoControls handles volume events', () => {
       volume={0}
     />
   );
-  wrapper.find('Icon[icon="mute"]').simulate('click');
+  fireEvent.click(getByLabelText('Unmute'));
   expect(mockOnVolumeChange).toHaveBeenCalled();
 });

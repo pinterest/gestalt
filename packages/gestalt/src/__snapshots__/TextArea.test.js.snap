@@ -17,9 +17,52 @@ exports[`TextArea TextArea normal 1`] = `
 </span>
 `;
 
-exports[`TextArea TextArea with error 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea><div class=\\"box marginTop1\\"><div class=\\"Text fontSize3 red alignLeft breakWord fontStyleNormal fontWeightNormal\\"><span id=\\"test-error\\">error message</span></div></div></span>"`;
+exports[`TextArea TextArea with error 1`] = `
+<span>
+  <textarea
+    aria-describedby={null}
+    aria-invalid="true"
+    className="textArea enabled errored"
+    disabled={false}
+    id="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    rows={3}
+  />
+  <div
+    className="box marginTop1"
+  >
+    <div
+      className="Text fontSize3 red alignLeft breakWord fontStyleNormal fontWeightNormal"
+    >
+      <span
+        id="test-error"
+      >
+        error message
+      </span>
+    </div>
+  </div>
+</span>
+`;
 
-exports[`TextArea TextArea with hasError 1`] = `"<span><textarea aria-invalid=\\"true\\" class=\\"textArea enabled errored\\" id=\\"test\\" rows=\\"3\\"></textarea></span>"`;
+exports[`TextArea TextArea with hasError 1`] = `
+<span>
+  <textarea
+    aria-describedby={null}
+    aria-invalid="true"
+    className="textArea enabled errored"
+    disabled={false}
+    id="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    rows={3}
+  />
+</span>
+`;
 
 exports[`TextArea TextArea with rows 1`] = `
 <span>
