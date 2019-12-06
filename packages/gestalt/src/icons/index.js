@@ -46,6 +46,8 @@ import compass from './compass.svg';
 import compose from './compose.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
+import directionalArrowLeft from './directional-arrow-left.svg';
+import directionalArrowRight from './directional-arrow-right.svg';
 import download from './download.svg';
 import duplicate from './duplicate.svg';
 import edit from './edit.svg';
@@ -198,6 +200,8 @@ export default {
   compose,
   crop,
   dash,
+  'directional-arrow-left': directionalArrowLeft,
+  'directional-arrow-right': directionalArrowRight,
   download,
   duplicate,
   edit,
