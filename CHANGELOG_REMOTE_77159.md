@@ -13,18 +13,9 @@
 - Icon: Add workflow-status-problem icon (#604)
 - Icon: Add workflow-status-unstarted icon (#604)
 
-### Patch
-
-</details>
-
-## 0.111.0 (Dec 9, 2019)
-
 ### Minor
-- Pog: Add `orange` icon color prop to be passed as a value (#602)
-- Icon: Add directional-arrow-left icon (#605)
-- Icon: Add directional-arrow-right icon (#605)
 - IconButton: Allow `orange` icon color prop to be passed as a value (#602)
-- Video: Improve video seeking (#601)
+- Pog: Add `orange` icon color prop to be passed as a value (#602)
 
 ### Patch
 
@@ -34,7 +25,9 @@
 - Internal: Add `react-testing-library` (#598)
 - Internal: Enable `react-hooks/exhaustive-deps` lint rule (#598)
 - Internal: Remove `concurrently` dependency (#599)
-- Internal: Convert tests to React Testing Library (#603)
+- Video: Improve video seeking (#601)
+
+</details>
 
 ## 0.110.0 (Nov 27, 2019)
 

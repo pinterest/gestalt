@@ -7,11 +7,6 @@
   </summary>
 
 ### Minor
-- Icon: Add info-circle icon (#604)
-- Icon: Add workflow-status-in-progress icon (#604)
-- Icon: Add workflow-status-ok icon (#604)
-- Icon: Add workflow-status-problem icon (#604)
-- Icon: Add workflow-status-unstarted icon (#604)
 
 ### Patch
 
@@ -20,6 +15,7 @@
 ## 0.111.0 (Dec 9, 2019)
 
 ### Minor
+
 - Pog: Add `orange` icon color prop to be passed as a value (#602)
 - Icon: Add directional-arrow-left icon (#605)
 - Icon: Add directional-arrow-right icon (#605)
