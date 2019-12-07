@@ -1,21 +1,19 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import FormErrorMessage from './FormErrorMessage.js';
 import TextArea from './TextArea.js';
 
 describe('TextArea', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {
-    const wrapper = shallow(
-      <TextArea errorMessage="test" id="test" onChange={jest.fn()} />
+    const component = create(
+      <TextArea errorMessage="Error message" id="test" onChange={jest.fn()} />
     );
-    expect(wrapper.find(FormErrorMessage)).toHaveLength(1);
+    expect(JSON.stringify(component.toJSON())).toContain('Error message');
   });
 
   it('Does not render an FormErrorMessage when errorMessage is null', () => {
-    const wrapper = shallow(<TextArea id="test" onChange={jest.fn()} />);
-    expect(wrapper.find(FormErrorMessage)).toHaveLength(0);
+    const component = create(<TextArea id="test" onChange={jest.fn()} />);
+    expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });
 
   it('TextArea normal', () => {
@@ -31,7 +29,7 @@ describe('TextArea', () => {
   });
 
   it('TextArea with error', () => {
-    const tree = shallow(
+    const tree = create(
       <TextArea
         errorMessage="error message"
         id="test"
@@ -39,12 +37,12 @@ describe('TextArea', () => {
         onFocus={jest.fn()}
         onBlur={jest.fn()}
       />
-    ).html();
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextArea with hasError', () => {
-    const wrapper = shallow(
+    const tree = create(
       <TextArea
         hasError
         id="test"
@@ -52,8 +50,8 @@ describe('TextArea', () => {
         onFocus={jest.fn()}
         onBlur={jest.fn()}
       />
-    );
-    expect(wrapper.html()).toMatchSnapshot();
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it('TextArea with rows', () => {
@@ -61,75 +59,5 @@ describe('TextArea', () => {
       <TextArea id="test" onChange={jest.fn()} rows={5} />
     ).toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  it('TextArea with errorMessage prop change', () => {
-    const tree = shallow(
-      <TextArea
-        id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
-      />
-    );
-    expect(tree.find(FormErrorMessage)).toHaveLength(0);
-    tree.setProps({
-      errorMessage: 'error message',
-    });
-    expect(tree.find(FormErrorMessage)).toHaveLength(1);
-  });
-
-  it('handles blur events', () => {
-    const mockBlur = jest.fn();
-    const tree = shallow(
-      <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} />
-    );
-    tree
-      .find('textarea')
-      .simulate('blur', { currentTarget: { value: 'fake value' } });
-    expect(mockBlur).toHaveBeenCalledWith({
-      event: { currentTarget: { value: 'fake value' } },
-      value: 'fake value',
-    });
-  });
-
-  it('handles change events', () => {
-    const mockChange = jest.fn();
-    const tree = shallow(<TextArea id="test" onChange={mockChange} />);
-    tree
-      .find('textarea')
-      .simulate('change', { currentTarget: { value: 'fake value' } });
-    expect(mockChange).toHaveBeenCalledWith({
-      event: { currentTarget: { value: 'fake value' } },
-      value: 'fake value',
-    });
-  });
-
-  it('handles focus events', () => {
-    const mockFocus = jest.fn();
-    const tree = shallow(
-      <TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} />
-    );
-    tree
-      .find('textarea')
-      .simulate('focus', { currentTarget: { value: 'fake value' } });
-    expect(mockFocus).toHaveBeenCalledWith({
-      event: { currentTarget: { value: 'fake value' } },
-      value: 'fake value',
-    });
-  });
-
-  it('handles key down events', () => {
-    const mockKeyDown = jest.fn();
-    const tree = shallow(
-      <TextArea id="test" onChange={jest.fn()} onKeyDown={mockKeyDown} />
-    );
-    tree
-      .find('textarea')
-      .simulate('keyDown', { currentTarget: { value: 'fake value' } });
-    expect(mockKeyDown).toHaveBeenCalledWith({
-      event: { currentTarget: { value: 'fake value' } },
-      value: 'fake value',
-    });
   });
 });

@@ -1,8 +1,6 @@
 // @flow
 import React from 'react';
 import { create } from 'react-test-renderer';
-import { shallow } from 'enzyme';
-import FormErrorMessage from './FormErrorMessage.js';
 import SelectList from './SelectList.js';
 
 const options = [
@@ -13,94 +11,29 @@ const options = [
 
 describe('SelectList', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {
-    const wrapper = shallow(
+    const component = create(
       <SelectList
-        errorMessage="test"
+        errorMessage="Error message"
         id="test"
         onChange={jest.fn()}
         options={options}
       />
     );
-    expect(wrapper.find(FormErrorMessage)).toHaveLength(1);
+
+    expect(JSON.stringify(component.toJSON())).toContain('Error message');
   });
 
   it('Does not render an FormErrorMessage when errorMessage is null', () => {
-    const wrapper = shallow(
+    const component = create(
       <SelectList id="test" onChange={jest.fn()} options={options} />
     );
-    expect(wrapper.find(FormErrorMessage)).toHaveLength(0);
+    expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });
 
   it('SelectList normal', () => {
     const tree = create(
       <SelectList id="test" onChange={jest.fn()} options={options} />
     ).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('SelectList with error', () => {
-    const tree = shallow(
-      <SelectList
-        errorMessage="error message"
-        id="test"
-        onChange={jest.fn()}
-        options={options}
-      />
-    ).html();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('SelectList with name', () => {
-    const tree = shallow(
-      <SelectList
-        name="select"
-        id="select"
-        onChange={jest.fn()}
-        options={options}
-      />
-    ).html();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('SelectList with errorMessage prop change', () => {
-    const tree = shallow(
-      <SelectList id="test" onChange={jest.fn()} options={options} />
-    );
-    expect(tree.find(FormErrorMessage)).toHaveLength(0);
-    tree.setProps({
-      errorMessage: 'error message',
-    });
-    expect(tree.find(FormErrorMessage)).toHaveLength(1);
-  });
-
-  it('SelectList with disabled', () => {
-    const tree = shallow(
-      <SelectList disabled id="test" onChange={jest.fn()} options={options} />
-    ).html();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('SelectList with placeholder', () => {
-    const tree = shallow(
-      <SelectList
-        id="test"
-        onChange={jest.fn()}
-        options={options}
-        placeholder={options[0].label}
-      />
-    ).html();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('SelectList with value', () => {
-    const tree = shallow(
-      <SelectList
-        id="test"
-        onChange={jest.fn()}
-        options={options}
-        value={options[0].value}
-      />
-    ).html();
     expect(tree).toMatchSnapshot();
   });
 });
