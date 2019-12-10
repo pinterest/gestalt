@@ -20,6 +20,7 @@
 ## 0.111.0 (Dec 9, 2019)
 
 ### Minor
+
 - Pog: Add `orange` icon color prop to be passed as a value (#602)
 - Icon: Add directional-arrow-left icon (#605)
 - Icon: Add directional-arrow-right icon (#605)
