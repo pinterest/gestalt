@@ -45,7 +45,7 @@ type Props = {|
   lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   leading?: 'tall' | 'short',
   truncate?: boolean,
-  weight?: 'bold' | 'normal' | 'semibold',
+  weight?: 'bold' | 'normal',
   __dangerouslyIncreaseLineHeight?: boolean,
 |};
 
@@ -105,7 +105,6 @@ export default function Text({
     !italic && typography.fontStyleNormal,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
-    weight === 'semibold' && typography.fontWeightSemibold,
     truncate && typography.truncate
   );
   const Tag = inline ? 'span' : 'div';
@@ -154,5 +153,5 @@ Text.propTypes = {
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   smSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   truncate: PropTypes.bool,
-  weight: PropTypes.oneOf(['bold', 'normal', 'semibold']),
+  weight: PropTypes.oneOf(['bold', 'normal']),
 };

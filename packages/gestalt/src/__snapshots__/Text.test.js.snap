@@ -24,12 +24,6 @@ exports[`Text renders 1`] = `
 />
 `;
 
-exports[`Text semibold adds the semibold class 1`] = `
-<div
-  className="Text fontSize3 darkGray alignLeft breakWord fontStyleNormal fontWeightSemibold"
-/>
-`;
-
 exports[`Text truncate should add a title when the children are text only 1`] = `
 <div
   className="Text fontSize3 darkGray alignLeft breakWord fontStyleNormal fontWeightNormal truncate"

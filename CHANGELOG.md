@@ -13,6 +13,8 @@
 - Icon: Add workflow-status-problem icon (#604)
 - Icon: Add workflow-status-unstarted icon (#604)
 
+- Text/Heading: Remove semibold (#607)
+
 ### Patch
 
 </details>

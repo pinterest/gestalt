@@ -61,7 +61,7 @@ card(
       },
       {
         name: 'weight',
-        type: `"bold" | "semibold"`,
+        type: `"bold"`,
         defaultValue: 'bold',
       },
     ]}

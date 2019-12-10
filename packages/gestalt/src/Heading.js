@@ -34,7 +34,6 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   truncate?: boolean,
-  weight?: 'bold' | 'semibold',
 |};
 
 const defaultHeadingLevels = {
@@ -65,7 +64,6 @@ export default function Heading(props: Props) {
     size = 'md',
     smSize,
     truncate = false,
-    weight = 'bold',
   } = props;
 
   const cs = cx(
@@ -76,8 +74,7 @@ export default function Heading(props: Props) {
     lgSize && styles[`lgFontSize${SIZE_SCALE[lgSize]}`],
     colors[color],
     overflow === 'breakWord' && typography.breakWord,
-    truncate && typography.truncate,
-    weight === 'semibold' && typography.fontWeightSemibold
+    truncate && typography.truncate
   );
 
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
@@ -123,5 +120,4 @@ Heading.propTypes = {
   mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   lgSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   truncate: PropTypes.bool,
-  weight: PropTypes.oneOf(['bold', 'semibold']),
 };

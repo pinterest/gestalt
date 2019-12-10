@@ -74,7 +74,7 @@ card(
       },
       {
         name: 'weight',
-        type: `"bold" | "normal" | "semibold"`,
+        type: `"bold" | "normal"`,
         defaultValue: 'normal',
         href: 'styles',
       },
@@ -247,7 +247,7 @@ card(
 card(
   <Example
     description="
-    There are multiple styles, such as bold, semibold and italic, that we can
+    There are multiple styles, such as bold and italic, that we can
     attach to the Text component.
   "
     id="styles"
@@ -256,9 +256,6 @@ card(
 <Box>
   <Box marginBottom={2}>
     <Text weight="bold">Bold</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text weight="semibold">Semibold</Text>
   </Box>
   <Box marginBottom={2}>
     <Text italic>Italic</Text>
