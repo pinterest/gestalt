@@ -7,6 +7,11 @@
   </summary>
 
 ### Minor
+- Icon: Add info-circle icon (#604)
+- Icon: Add workflow-status-in-progress icon (#604)
+- Icon: Add workflow-status-ok icon (#604)
+- Icon: Add workflow-status-problem icon (#604)
+- Icon: Add workflow-status-unstarted icon (#604)
 
 ### Patch
 

@@ -81,6 +81,7 @@ import heart from './heart.svg';
 import heartOutline from './heart-outline.svg';
 import heartBroken from './heart-broken.svg';
 import impressum from './impressum.svg';
+import infoCircle from './info-circle.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
 import lightbulb from './lightbulb.svg';
@@ -151,6 +152,11 @@ import videoCamera from './video-camera.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
+import workflowStatusHalted from './workflow-status-halted.svg';
+import workflowStatusInProgress from './workflow-status-in-progress.svg';
+import workflowStatusOk from './workflow-status-ok.svg';
+import workflowStatusProblem from './workflow-status-problem.svg';
+import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 
 export default {
   ad,
@@ -235,6 +241,7 @@ export default {
   'heart-outline': heartOutline,
   'heart-broken': heartBroken,
   impressum,
+  'info-circle': infoCircle,
   key,
   knoop,
   lightbulb,
@@ -305,4 +312,9 @@ export default {
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
+  'workflow-status-halted': workflowStatusHalted,
+  'workflow-status-in-progress': workflowStatusInProgress,
+  'workflow-status-ok': workflowStatusOk,
+  'workflow-status-problem': workflowStatusProblem,
+  'workflow-status-unstarted': workflowStatusUnstarted,
 };
