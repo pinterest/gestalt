@@ -12,12 +12,6 @@ exports[`Heading overflow normal 1`] = `
 />
 `;
 
-exports[`Heading semibold 1`] = `
-<h3
-  className="Heading fontSize3 darkGray breakWord fontWeightSemibold"
-/>
-`;
-
 exports[`Heading small 1`] = `
 <h4
   className="Heading fontSize2 darkGray breakWord"

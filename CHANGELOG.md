@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Text/Heading: Remove semibold (#607)
+
 ### Patch
 
 </details>
