@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconWithTooltip renders 1`] = `
+<div
+  className="box xsDisplayInlineBlock"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="touchable pointer rounded fullWidth"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="informational-tooltip"
+      className="icon gray iconBlock"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`IconWithTooltip renders with href 1`] = `
+<div
+  className="box xsDisplayInlineBlock"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="touchable pointer rounded fullWidth"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="informational-tooltip"
+      className="icon gray iconBlock"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`IconWithTooltip renders with missing hrefText 1`] = `
+<div
+  className="box xsDisplayInlineBlock"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="touchable pointer rounded fullWidth"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="informational-tooltip"
+      className="icon gray iconBlock"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</div>
+`;
