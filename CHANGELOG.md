@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Internal: Convert from Travis.ci to GitHub workflows (#610)
+
 </details>
 
 ## 0.112.0 (Dec 10, 2019)
