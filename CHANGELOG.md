@@ -11,6 +11,7 @@
 ### Patch
 
 - Internal: Convert from Travis.ci to GitHub workflows (#610)
+- Internal: include flow warnings in error output (#611)
 
 </details>
 
