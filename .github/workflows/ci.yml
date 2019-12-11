@@ -1,0 +1,21 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [10, 12]
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: yarn install, build, and test
+        run: |
+          yarn install
+          yarn build
+          yarn test
