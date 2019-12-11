@@ -31,7 +31,6 @@ type Props = {|
 |};
 
 const fullscreenEnabled = () =>
-  // $FlowIssue - vendor prefix missing from Flow
   document.fullscreenEnabled ||
   // $FlowIssue - vendor prefix missing from Flow
   document.webkitFullscreenEnabled ||
