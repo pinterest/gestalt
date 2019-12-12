@@ -113,36 +113,31 @@ card(
   `}
     name="Example: Accessibility"
     defaultCode={`
-  class A11yEx extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { isOpen: false };
-      this.anchorRef = React.createRef();
-    }
+function A11yEx() {
+  const [isOpen, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
-    render() {
-      return (
-        <Box>
-          <Box display="inlineBlock" ref={this.anchorRef}>
-            <IconButton
-              accessibilityLabel="see more"
-              accessibilityHaspopup
-              accessibilityExpanded={this.state.isOpen}
-              icon="ellipsis"
-              onClick={() => this.setState({ isOpen: !this.state.isOpen })}
-            />
+  return (
+    <Box>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <IconButton
+          accessibilityLabel="see more"
+          accessibilityHaspopup
+          accessibilityExpanded={isOpen}
+          icon="ellipsis"
+          onClick={() => setOpen(!isOpen)}
+        />
+      </Box>
+      {isOpen && (
+        <Flyout anchor={anchorRef && anchorRef.current} onDismiss={() => undefined} idealDirection="right">
+          <Box padding={2}>
+            <Text>I am a popup.</Text>
           </Box>
-          {this.state.isOpen && (
-            <Flyout anchor={this.anchorRef.current} onDismiss={() => undefined} idealDirection="right">
-              <Box padding={2}>
-                <Text>I am a popup.</Text>
-              </Box>
-            </Flyout>
-          )}
-        </Box>
-      );
-    }
-  }
+        </Flyout>
+      )}
+    </Box>
+  );
+}
 `}
   />
 );
