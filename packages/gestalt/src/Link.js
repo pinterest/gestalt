@@ -12,67 +12,60 @@ type Props = {|
   target?: null | 'self' | 'blank',
 |};
 
-type State = {|
-  enableFocusStyles: boolean,
-|};
-
 const TAB_KEY_CODE = 9;
 
-export default class Link extends React.Component<Props, State> {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    href: PropTypes.string.isRequired,
-    inline: PropTypes.bool,
-    onClick: PropTypes.func,
-    target: PropTypes.oneOf([null, 'self', 'blank']),
-  };
+export default function Link({
+  children,
+  href,
+  inline = false,
+  onClick,
+  target = null,
+}: Props) {
+  const [enableFocusStyles, setEnableFocusStyles] = React.useState(true);
+  const rel = target === 'blank' ? 'noopener noreferrer' : null;
+  const linkTarget = target ? `_${target}` : null;
 
-  state: State = {
-    enableFocusStyles: true,
-  };
-
-  handleClick = (event: SyntheticMouseEvent<>) => {
-    const { href, onClick } = this.props;
+  const handleClick = (event: SyntheticMouseEvent<>) => {
     if (onClick && href) {
       onClick({ event });
     }
   };
 
-  handleMouseDown = () => {
-    const { href, target } = this.props;
+  const handleMouseDown = () => {
     if (target === 'blank' && href) {
-      this.setState({ enableFocusStyles: false });
+      setEnableFocusStyles(false);
     }
   };
 
-  handleKeyUp = (event: SyntheticKeyboardEvent<>) => {
-    const { href, target } = this.props;
+  const handleKeyUp = (event: SyntheticKeyboardEvent<>) => {
     if (target === 'blank' && event.keyCode === TAB_KEY_CODE && href) {
-      this.setState({ enableFocusStyles: true });
+      setEnableFocusStyles(true);
     }
   };
 
-  render() {
-    const { children, inline = false, target = null, href } = this.props;
-    const rel = target === 'blank' ? 'noopener noreferrer' : null;
-    const linkTarget = target ? `_${target}` : null;
-
-    return (
-      <a
-        className={cx(
-          styles.link,
-          this.state.enableFocusStyles ? styles.accessibleFocusStyle : '',
-          inline ? '' : styles.block
-        )}
-        href={href}
-        onMouseDown={this.handleMouseDown}
-        onKeyUp={this.handleKeyUp}
-        onClick={this.handleClick}
-        rel={rel}
-        target={linkTarget}
-      >
-        {children}
-      </a>
-    );
-  }
+  return (
+    <a
+      className={cx(
+        styles.link,
+        enableFocusStyles ? styles.accessibleFocusStyle : '',
+        inline ? '' : styles.block
+      )}
+      href={href}
+      onMouseDown={handleMouseDown}
+      onKeyUp={handleKeyUp}
+      onClick={handleClick}
+      rel={rel}
+      target={linkTarget}
+    >
+      {children}
+    </a>
+  );
 }
+
+Link.propTypes = {
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string.isRequired,
+  inline: PropTypes.bool,
+  onClick: PropTypes.func,
+  target: PropTypes.oneOf([null, 'self', 'blank']),
+};
