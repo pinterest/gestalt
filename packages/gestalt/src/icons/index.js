@@ -152,6 +152,7 @@ import videoCamera from './video-camera.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
+import workflowStatusAll from './workflow-status-all.svg';
 import workflowStatusHalted from './workflow-status-halted.svg';
 import workflowStatusInProgress from './workflow-status-in-progress.svg';
 import workflowStatusOk from './workflow-status-ok.svg';
@@ -312,6 +313,7 @@ export default {
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
+  'workflow-status-all': workflowStatusAll,
   'workflow-status-halted': workflowStatusHalted,
   'workflow-status-in-progress': workflowStatusInProgress,
   'workflow-status-ok': workflowStatusOk,
