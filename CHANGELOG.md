@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add workflow-status-all icon (#614)
+
 ### Patch
 
 - IconButton: Convert examples & component to use hooks (#612)
