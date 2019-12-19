@@ -15,6 +15,7 @@
 - IconButton: Convert examples & component to use hooks (#612)
 - Internal: Convert from Travis.ci to GitHub workflows (#610)
 - Internal: include flow warnings in error output (#611)
+- Internal: Perform releases with GitHub CI (#615)
 - Link: Convert component to use hooks (#613)
 
 </details>
