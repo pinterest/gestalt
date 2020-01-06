@@ -9,6 +9,7 @@
 ### Minor
 
 - Icon: Add workflow-status-all icon (#614)
+- Icon: Add workflow-status-warning icon (#615)
 
 ### Patch
 
