@@ -158,6 +158,7 @@ import workflowStatusInProgress from './workflow-status-in-progress.svg';
 import workflowStatusOk from './workflow-status-ok.svg';
 import workflowStatusProblem from './workflow-status-problem.svg';
 import workflowStatusUnstarted from './workflow-status-unstarted.svg';
+import workflowStatusWarning from './workflow-status-warning.svg';
 
 export default {
   ad,
@@ -319,4 +320,5 @@ export default {
   'workflow-status-ok': workflowStatusOk,
   'workflow-status-problem': workflowStatusProblem,
   'workflow-status-unstarted': workflowStatusUnstarted,
+  'workflow-status-warning': workflowStatusWarning,
 };
