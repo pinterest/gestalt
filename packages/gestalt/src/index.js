@@ -15,6 +15,7 @@ import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
+import IconWithTooltip from './IconWithTooltip.js';
 import Image from './Image.js';
 import Label from './Label.js';
 import Layer from './Layer.js';
@@ -61,6 +62,7 @@ export {
   Heading,
   Icon,
   IconButton,
+  IconWithTooltip,
   Image,
   Label,
   Layer,
