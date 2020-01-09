@@ -5,6 +5,9 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+</details>
+
+## 0.113.0 (Jan 9, 2020)
 
 ### Minor
 
@@ -20,8 +23,6 @@
 - Internal: include flow warnings in error output (#611)
 - Internal: Perform releases with GitHub CI (#615)
 - Link: Convert component to use hooks (#613)
-
-</details>
 
 ## 0.112.0 (Dec 10, 2019)
 
