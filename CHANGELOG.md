@@ -10,6 +10,8 @@
 
 - Icon: Add workflow-status-all icon (#614)
 - Icon: Add workflow-status-warning icon (#616)
+- IconWithTooltip: Add component and tests (#609)
+- IconWithTooltip: Improve accessibility and convert component to hooks (#618)
 
 ### Patch
 
