@@ -5,6 +5,13 @@
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+
+### Minor
+
+### Patch
+
+- Internal: Fix the publish to GitHub pages
+
 </details>
 
 ## 0.113.0 (Jan 9, 2020)

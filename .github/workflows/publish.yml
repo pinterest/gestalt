@@ -28,14 +28,14 @@ jobs:
           yarn install
           cd packages/gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.version.outputs.VERSION }}
-      - name: Setup github access tokens
+      - name: Setup GitHub access tokens
         env:
           GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> .netrc
           echo "login christianvuerings" >> .netrc
           echo "password $GITHUB_PERSONAL_TOKEN" >> .netrc
-      - name: Update github pages
+      - name: Update GitHub pages branch
         run: |
           git config user.name "Publish gestalt"
           git config user.email "gestalt@users.noreply.github.com"
@@ -45,3 +45,12 @@ jobs:
           git commit -m "Deployed to Github Pages" --no-verify
           git subtree split --prefix docs/build -b tmp-gh-pages
           git push -f https://github.com/pinterest/gestalt.git tmp-gh-pages:gh-pages
+      # The following step can be removed once https://github.community/t5/GitHub-Actions/Github-action-not-triggering-gh-pages-upon-push is resolved
+      - name: Request Github Pages build
+        env:
+          GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+        run: >-
+          curl -L -X POST
+          -H "Content-Type: application/json"
+          -H "Authorization: token $GITHUB_PERSONAL_TOKEN"
+          "https://api.github.com/repos/pinterest/gestalt/pages/builds"
