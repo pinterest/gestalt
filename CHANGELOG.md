@@ -10,7 +10,8 @@
 
 ### Patch
 
-- Internal: Fix the publish to GitHub pages
+- Button: Fix spelling mistake in the docs (#622)
+- Internal: Fix the publish to GitHub pages (#621)
 
 </details>
 

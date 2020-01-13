@@ -14,7 +14,7 @@ card(
     name="Button"
     description="
 A form component that should be used to make something happen on the same page (i.e. open a modal).
-You are able to specify the color, type, and width of buttons to change their apperance."
+You are able to specify the color, type, and width of buttons to change their appearance."
   />
 );
 
