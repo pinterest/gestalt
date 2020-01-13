@@ -1,9 +1,6 @@
 name: Publish
 
-on:
-  push:
-    tags:
-      - 'v*'
+on: [pull_request]
 
 jobs:
   test:
@@ -26,8 +23,8 @@ jobs:
       - name: Publish to npm
         run: |
           yarn install
-          cd packages/gestalt
-          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.version.outputs.VERSION }}
+        # cd packages/gestalt
+        # yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.version.outputs.VERSION }}
       - name: Setup GitHub access tokens
         env:
           GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
@@ -49,8 +46,5 @@ jobs:
       - name: Request Github Pages build
         env:
           GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
-        run: >-
-          curl -L -X POST
-          -H "Content-Type: application/json"
-          -H "Authorization: token $GITHUB_PERSONAL_TOKEN"
-          "https://api.github.com/repos/pinterest/gestalt/pages/builds"
+        run: |
+          curl -L -X POST -H "Content-Type: application/json" -H "Authorization: token $GITHUB_PERSONAL_TOKEN" "https://api.github.com/repos/pinterest/gestalt/pages/builds"
