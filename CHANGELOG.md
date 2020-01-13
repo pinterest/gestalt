@@ -10,10 +10,14 @@
 
 ### Patch
 
+</details>
+
+## 0.113.1 (Jan 13, 2020)
+
+### Patch
+
 - Button: Fix spelling mistake in the docs (#622)
 - Internal: Fix the publish to GitHub pages (#621)
-
-</details>
 
 ## 0.113.0 (Jan 9, 2020)
 
