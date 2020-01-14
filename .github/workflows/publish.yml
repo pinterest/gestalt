@@ -1,6 +1,9 @@
 name: Publish
 
-on: [pull_request]
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   test:
@@ -26,7 +29,7 @@ jobs:
         run: |
           yarn install
           cd packages/gestalt
-        # yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.version.outputs.VERSION }}
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.version.outputs.VERSION }}
       - name: Setup GitHub access tokens
         env:
           GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
@@ -39,9 +42,7 @@ jobs:
           git config user.name "Publish gestalt"
           git config user.email "gestalt@users.noreply.github.com"
           git checkout -b tmp-deploy
-          pwd
           (cd docs && NODE_ENV=production yarn build --output-public-path '/gestalt')
-          pwd
           git add -f docs/build
           git commit -m "Deployed to Github Pages" --no-verify
           git subtree split --prefix docs/build -b tmp-gh-pages
