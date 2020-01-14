@@ -10,9 +10,13 @@
 
 ### Patch
 
-- Internal: Update GitHub pages publish script (#624)
-
 </details>
+
+## 0.113.3 (Jan 13, 2020)
+
+### Patch
+
+- Internal: Update GitHub pages publish script (#625)
 
 ## 0.113.2 (Jan 13, 2020)
 
