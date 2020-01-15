@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Stats: Calculate raw and percentage number of gestalt components vs native components
+
 </details>
 
 ## 0.113.3 (Jan 13, 2020)
