@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Switch } from 'gestalt';
+import { Switch, Button, Box } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -9,11 +9,37 @@ import PageHeader from './components/PageHeader.js';
 const cards = [];
 const card = c => cards.push(c);
 
+const toggleRTL = () => {
+  if (document && document.documentElement) {
+    const isRTL = document.documentElement.dir === 'rtl';
+    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+  }
+};
+
+const changeLocaleDirection = (
+  <Box
+    position="relative"
+    justifyContent="center"
+    display="flex"
+    marginTop={10}
+  >
+    <Box maxWidth={600}>
+      <Button
+        size="sm"
+        onClick={toggleRTL}
+        text="Toggle Page and Switch Direction: right-to-left/left-to-right"
+      />
+    </Box>
+  </Box>
+);
+
 card(
   <PageHeader
     name="Switch"
-    description="Use switches for single cell options that can be turned on and off only.
-If you have a cell with multiple options that can activated, consider using check marks."
+    description={`Use switches for single cell options that can be turned on and off only.
+If you have a cell with multiple options that can activated, consider using check marks.
+\`Switch\` component supports right-to-left(RTL) language locales layout
+(auto flip on RTL locales like Arabic).`}
   />
 );
 
@@ -53,6 +79,8 @@ card(
   />
 );
 
+card(changeLocaleDirection);
+
 card(
   <Example
     id="basicExample"
@@ -90,6 +118,8 @@ class SwitchExample extends React.Component {
 `}
   />
 );
+
+card(changeLocaleDirection);
 
 card(
   <Combination

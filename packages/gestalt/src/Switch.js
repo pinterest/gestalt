@@ -49,6 +49,9 @@ export default class Switch extends React.Component<Props, State> {
 
     const switchStyles = classnames(
       styles.switch,
+      /* Apply the flip style class for all statuses
+      when it is right-to-left language locales */
+      styles.rtlSupport,
       {
         [styles.focused]: this.state.focused,
       },
