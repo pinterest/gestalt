@@ -46,7 +46,6 @@ card(
       {
         name: 'heading',
         type: `string | React.Node`,
-        required: true,
         href: 'heading',
       },
       {

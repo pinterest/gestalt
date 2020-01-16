@@ -1,4 +1,4 @@
-## [Unreleased]
+## 0.113.4 (Jan 16, 2020)
 
 <details>
   <summary>
@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- Modal: Removing required heading to support more design options
 
 ### Patch
 

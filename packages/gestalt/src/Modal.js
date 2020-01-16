@@ -15,7 +15,7 @@ type Props = {|
   accessibilityModalLabel: string,
   children?: React.Node,
   footer?: React.Node,
-  heading: string | React.Node,
+  heading?: string | React.Node,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
@@ -81,7 +81,7 @@ export default class Modal extends React.Component<Props> {
     accessibilityModalLabel: PropTypes.string.isRequired,
     children: PropTypes.node,
     footer: PropTypes.node,
-    heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     onDismiss: PropTypes.func,
     role: PropTypes.oneOf(['alertdialog', 'dialog']),
     size: PropTypes.oneOfType([
@@ -143,7 +143,7 @@ export default class Modal extends React.Component<Props> {
                     direction="column"
                     width="100%"
                   >
-                    <Box fit>
+                    {heading && <Box fit>
                       <Header heading={heading} role={role} />
                       {role === 'dialog' && (
                         <>
@@ -157,7 +157,7 @@ export default class Modal extends React.Component<Props> {
                           <Divider />
                         </>
                       )}
-                    </Box>
+                    </Box>)}
                     <Box flex="grow" overflow="auto" position="relative">
                       {children}
                     </Box>
@@ -168,7 +168,7 @@ export default class Modal extends React.Component<Props> {
                           <Box padding={4}>{footer}</Box>
                         </Box>
                       )}
-                    </Box>
+                    </Box>}
                   </Box>
                 </div>
               </OutsideEventBehavior>
