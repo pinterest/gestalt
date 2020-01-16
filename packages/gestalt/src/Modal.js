@@ -143,21 +143,23 @@ export default class Modal extends React.Component<Props> {
                     direction="column"
                     width="100%"
                   >
-                    {heading && <Box fit>
-                      <Header heading={heading} role={role} />
-                      {role === 'dialog' && (
-                        <>
-                          <Box padding={2} position="absolute" top right>
-                            <IconButton
-                              accessibilityLabel={accessibilityCloseLabel}
-                              icon="cancel"
-                              onClick={this.handleCloseClick}
-                            />
-                          </Box>
-                          <Divider />
-                        </>
-                      )}
-                    </Box>)}
+                    {heading && (
+                      <Box fit>
+                        <Header heading={heading} role={role} />
+                        {role === 'dialog' && (
+                          <>
+                            <Box padding={2} position="absolute" top right>
+                              <IconButton
+                                accessibilityLabel={accessibilityCloseLabel}
+                                icon="cancel"
+                                onClick={this.handleCloseClick}
+                              />
+                            </Box>
+                            <Divider />
+                          </>
+                        )}
+                      </Box>
+                    )}
                     <Box flex="grow" overflow="auto" position="relative">
                       {children}
                     </Box>
@@ -168,7 +170,7 @@ export default class Modal extends React.Component<Props> {
                           <Box padding={4}>{footer}</Box>
                         </Box>
                       )}
-                    </Box>}
+                    </Box>
                   </Box>
                 </div>
               </OutsideEventBehavior>
