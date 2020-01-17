@@ -4,14 +4,6 @@
   --border: 1px;
 }
 
-html[dir="rtl"] .rtlSupport {
-  /*
-  Flip the Switch for all statuses
-  when it is right-to-left language locales
-  */
-  transform: rotateY(180deg);
-}
-
 .switch {
   composes: block from "./Layout.css";
   composes: borderBox from "./Layout.css";
@@ -24,6 +16,14 @@ html[dir="rtl"] .rtlSupport {
   transition: background-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975),
     border-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975);
   width: var(--width);
+}
+
+html[dir="rtl"] .switch {
+  /*
+  Flip the Switch for all statuses
+  when it is right-to-left language locales
+  */
+  transform: rotateY(180deg);
 }
 
 .focused {

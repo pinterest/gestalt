@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Switch, Button, Box } from 'gestalt';
+import { Box, Icon, Text, Switch } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -8,30 +8,6 @@ import PageHeader from './components/PageHeader.js';
 
 const cards = [];
 const card = c => cards.push(c);
-
-const toggleRTL = () => {
-  if (document && document.documentElement) {
-    const isRTL = document.documentElement.dir === 'rtl';
-    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-  }
-};
-
-const changeLocaleDirection = (
-  <Box
-    position="relative"
-    justifyContent="center"
-    display="flex"
-    marginTop={10}
-  >
-    <Box maxWidth={600}>
-      <Button
-        size="sm"
-        onClick={toggleRTL}
-        text="Toggle Page and Switch Direction: right-to-left/left-to-right"
-      />
-    </Box>
-  </Box>
-);
 
 card(
   <PageHeader
@@ -41,6 +17,23 @@ If you have a cell with multiple options that can activated, consider using chec
 \`Switch\` component supports right-to-left(RTL) language locales layout
 (auto flip on RTL locales like Arabic).`}
   />
+);
+
+card(
+  <Box display="flex" direction="row">
+    <Text size="lg">
+      Use the toggle button on Nav bar to see right-to-left/left-to-right page
+      directions:
+    </Text>
+    <Icon
+      accessibilityLabel="button example"
+      color="midnight"
+      dangerouslySetSvgPath={{
+        __path:
+          'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
+      }}
+    />
+  </Box>
 );
 
 card(
@@ -79,8 +72,6 @@ card(
   />
 );
 
-card(changeLocaleDirection);
-
 card(
   <Example
     id="basicExample"
@@ -118,8 +109,6 @@ class SwitchExample extends React.Component {
 `}
   />
 );
-
-card(changeLocaleDirection);
 
 card(
   <Combination
