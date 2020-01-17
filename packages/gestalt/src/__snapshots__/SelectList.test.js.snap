@@ -25,7 +25,7 @@ exports[`SelectList SelectList normal 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray iconBlock"
+        className="rtlSupport icon darkGray iconBlock"
         height={12}
         role="img"
         viewBox="0 0 24 24"

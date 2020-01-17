@@ -34,6 +34,20 @@ type Props = {|
 
 const IconNames = Object.keys(icons);
 
+const noFlipOnRtlIconNames = [
+  'facebook',
+  'gif',
+  'check',
+  'check-circle',
+  'clock',
+  'google-plus',
+  'pinterest',
+  'report',
+  'text-sentence-case',
+  'text-spacing',
+  'twitter',
+];
+
 export default function Icon(props: Props) {
   const {
     accessibilityLabel,
@@ -44,9 +58,12 @@ export default function Icon(props: Props) {
     size = 16,
   } = props;
 
-  const cs = classnames(styles.icon, colors[color], {
-    [styles.iconBlock]: !inline,
-  });
+  const cs = classnames(
+    !noFlipOnRtlIconNames.includes(icon) && styles.rtlSupport,
+    styles.icon,
+    colors[color],
+    { [styles.iconBlock]: !inline }
+  );
 
   const path =
     (icon && icons[icon]) ||

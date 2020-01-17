@@ -4,6 +4,22 @@ exports[`Icon has correct aria-hidden property applied when accessibilityLabel i
 <svg
   aria-hidden={true}
   aria-label=""
+  className="rtlSupport icon gray iconBlock"
+  height={16}
+  role="img"
+  viewBox="0 0 24 24"
+  width={16}
+>
+  <path
+    d="test-file-stub"
+  />
+</svg>
+`;
+
+exports[`Icon not flipped if its in the no flip on rtl list 1`] = `
+<svg
+  aria-hidden={null}
+  aria-label="pinterest"
   className="icon gray iconBlock"
   height={16}
   role="img"
@@ -20,7 +36,7 @@ exports[`Icon renders 1`] = `
 <svg
   aria-hidden={null}
   aria-label="Add"
-  className="icon gray iconBlock"
+  className="rtlSupport icon gray iconBlock"
   height={16}
   role="img"
   viewBox="0 0 24 24"
@@ -36,7 +52,7 @@ exports[`Icon uses the dangerouslySetSvgPath prop when icon path is not specifie
 <svg
   aria-hidden={null}
   aria-label="Line"
-  className="icon gray iconBlock"
+  className="rtlSupport icon gray iconBlock"
   height={16}
   role="img"
   viewBox="0 0 24 24"

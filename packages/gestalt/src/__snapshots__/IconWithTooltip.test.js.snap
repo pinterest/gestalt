@@ -20,7 +20,7 @@ exports[`IconWithTooltip renders 1`] = `
     <svg
       aria-hidden={null}
       aria-label="informational-tooltip"
-      className="icon gray iconBlock"
+      className="rtlSupport icon gray iconBlock"
       height={16}
       role="img"
       viewBox="0 0 24 24"
@@ -54,7 +54,7 @@ exports[`IconWithTooltip renders with href 1`] = `
     <svg
       aria-hidden={null}
       aria-label="informational-tooltip"
-      className="icon gray iconBlock"
+      className="rtlSupport icon gray iconBlock"
       height={16}
       role="img"
       viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ exports[`IconWithTooltip renders with missing hrefText 1`] = `
     <svg
       aria-hidden={null}
       aria-label="informational-tooltip"
-      className="icon gray iconBlock"
+      className="rtlSupport icon gray iconBlock"
       height={16}
       role="img"
       viewBox="0 0 24 24"

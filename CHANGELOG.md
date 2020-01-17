@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add right-to-left locales flip style support (#631)
+
 ### Patch
 
 - Stats: Calculate raw and percentage number of gestalt components vs native components

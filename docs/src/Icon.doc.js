@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Icon } from 'gestalt';
+import { Box, Icon, Text } from 'gestalt';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import Combination from './components/Combination.js';
@@ -16,6 +16,30 @@ card(
 Show icons with different colors and sizes in an accessible way.
 "
   />
+);
+
+card(
+  <Box display="flex" direction="column">
+    <Text size="lg">
+      Icon component supports right-to-left(RTL) language locales layout (auto
+      flip on RTL locales like Arabic). Consider whether you want to keep the
+      original layout on rtl if you are adding new icons.
+    </Text>
+    <Box display="flex" direction="row">
+      <Text size="lg">
+        Use the toggle button on Nav bar to see right-to-left/left-to-right page
+        directions:
+      </Text>
+      <Icon
+        accessibilityLabel="button example"
+        color="midnight"
+        dangerouslySetSvgPath={{
+          __path:
+            'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
+        }}
+      />
+    </Box>
+  </Box>
 );
 
 card(

@@ -22,3 +22,10 @@ test('Icon uses the dangerouslySetSvgPath prop when icon path is not specified',
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Icon not flipped if its in the no flip on rtl list', () => {
+  const tree = create(
+    <Icon accessibilityLabel="pinterest" icon="pinterest" />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
