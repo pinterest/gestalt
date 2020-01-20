@@ -55,6 +55,8 @@ type Props<T> = {|
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
   virtualize?: boolean,
+
+  fixFetchMoreBug?: boolean,
 |};
 
 type State<T> = {|
@@ -186,6 +188,11 @@ export default class Masonry<T: {}> extends React.Component<
      * Whether or not to use actual virtualization
      */
     virtualize: PropTypes.bool,
+
+    /**
+     * Flag to decide if we should fix fetch more bug (see commit notes)
+     */
+    fixFetchMoreBug: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -194,6 +201,8 @@ export default class Masonry<T: {}> extends React.Component<
     layout: DefaultLayoutSymbol,
     loadItems: () => {},
     virtualize: false,
+
+    fixFetchMoreBug: false,
   };
 
   constructor(props: Props<T>) {
@@ -451,6 +460,7 @@ export default class Masonry<T: {}> extends React.Component<
       gutterWidth: gutter,
       items,
       minCols,
+      fixFetchMoreBug,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
 
@@ -589,7 +599,9 @@ export default class Masonry<T: {}> extends React.Component<
               isFetching={
                 this.state.isFetching || this.state.hasPendingMeasurements
               }
-              scrollHeight={height}
+              scrollHeight={
+                height + (fixFetchMoreBug ? this.containerOffset : 0)
+              }
               scrollTop={this.state.scrollTop}
             />
           )}
