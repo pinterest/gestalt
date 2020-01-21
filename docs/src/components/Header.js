@@ -1,102 +1,91 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { Box, Text, Icon, IconButton, Link as GestaltLink } from 'gestalt';
 import Link from './Link.js';
 
-type State = {|
-  isRTL: boolean,
-|};
+export default function Header() {
+  const [isRTL, setIsRTL] = React.useState(false);
 
-export default class Header extends Component<{}, State> {
-  state: State = {
-    isRTL: false,
-  };
-
-  toggleRTL = () => {
+  const toggleRTL = () => {
     if (document && document.documentElement) {
-      const { isRTL } = this.state;
       document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-      this.setState({ isRTL: !isRTL });
+      setIsRTL(!isRTL);
     }
   };
+  const togglePageDirSvgPath = {
+    __path: isRTL
+      ? 'M9 10v5h2V4h2v11h2V4h2V2H9C6.79 2 5 3.79 5 6s1.79 4 4 4zm12 8l-4-4v3H5v2h12v3l4-4z'
+      : 'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
+  };
 
-  render() {
-    const { isRTL } = this.state;
-    const togglePageDirSvgPath = {
-      __path: isRTL
-        ? 'M9 10v5h2V4h2v11h2V4h2V2H9C6.79 2 5 3.79 5 6s1.79 4 4 4zm12 8l-4-4v3H5v2h12v3l4-4z'
-        : 'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
-    };
-
-    return (
-      <Box
-        paddingY={2}
-        paddingX={4}
-        mdPaddingX={6}
-        lgPaddingX={8}
-        color="pine"
-        display="flex"
-        direction="row"
-        alignItems="center"
-      >
-        <Box marginStart={-2} marginEnd={-2}>
-          <Text size="lg" color="white" weight="bold">
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <Link to="/">
-              <Box padding={2}>
-                <Box
-                  display="flex"
-                  direction="row"
-                  alignItems="center"
-                  marginLeft={-1}
-                  marginRight={-1}
-                >
-                  <Box paddingX={1}>
-                    <Icon
-                      icon="pinterest"
-                      color="white"
-                      size={24}
-                      accessibilityLabel="Pinterest Logo"
-                    />
-                  </Box>
-                  <Box paddingX={1}>Gestalt</Box>
+  return (
+    <Box
+      paddingY={2}
+      paddingX={4}
+      mdPaddingX={6}
+      lgPaddingX={8}
+      color="pine"
+      display="flex"
+      direction="row"
+      alignItems="center"
+    >
+      <Box marginStart={-2} marginEnd={-2}>
+        <Text size="lg" color="white" weight="bold">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link to="/">
+            <Box padding={2}>
+              <Box
+                display="flex"
+                direction="row"
+                alignItems="center"
+                marginLeft={-1}
+                marginRight={-1}
+              >
+                <Box paddingX={1}>
+                  <Icon
+                    icon="pinterest"
+                    color="white"
+                    size={24}
+                    accessibilityLabel="Pinterest Logo"
+                  />
                 </Box>
+                <Box paddingX={1}>Gestalt</Box>
               </Box>
-            </Link>
-          </Text>
-        </Box>
-
-        <Box flex="grow" />
-
-        <Box marginStart={-2} marginEnd={-2} display="flex" direction="row">
-          <Box>
-            <IconButton
-              size="md"
-              accessibilityLabel="toggle page direction"
-              iconColor="white"
-              dangerouslySetSvgPath={togglePageDirSvgPath}
-              onClick={this.toggleRTL}
-            />
-          </Box>
-          <Text color="white" size="lg">
-            <GestaltLink
-              href="https://codesandbox.io/s/k5plvp9v8v"
-              target="blank"
-            >
-              <Box padding={2}>Playground</Box>
-            </GestaltLink>
-          </Text>
-
-          <Text color="white" size="lg">
-            <GestaltLink
-              href="https://github.com/pinterest/gestalt"
-              target="blank"
-            >
-              <Box padding={2}>GitHub</Box>
-            </GestaltLink>
-          </Text>
-        </Box>
+            </Box>
+          </Link>
+        </Text>
       </Box>
-    );
-  }
+
+      <Box flex="grow" />
+
+      <Box marginStart={-2} marginEnd={-2} display="flex" direction="row">
+        <Box>
+          <IconButton
+            size="md"
+            accessibilityLabel="toggle page direction"
+            iconColor="white"
+            dangerouslySetSvgPath={togglePageDirSvgPath}
+            onClick={toggleRTL}
+          />
+        </Box>
+        <Text color="white" size="lg">
+          <GestaltLink
+            href="https://codesandbox.io/s/k5plvp9v8v"
+            target="blank"
+          >
+            <Box padding={2}>Playground</Box>
+          </GestaltLink>
+        </Text>
+
+        <Text color="white" size="lg">
+          <GestaltLink
+            href="https://github.com/pinterest/gestalt"
+            target="blank"
+          >
+            <Box padding={2}>GitHub</Box>
+          </GestaltLink>
+        </Text>
+      </Box>
+    </Box>
+  );
 }
