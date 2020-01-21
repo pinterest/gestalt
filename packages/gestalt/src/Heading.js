@@ -82,6 +82,7 @@ export default function Heading(props: Props) {
     `h${headingLevel}`,
     {
       className: cs,
+      // $FlowFixMe: new errors found from flow 0.116.1 upgrade
       ...(id ? { id } : null),
       ...(truncate && typeof children === 'string'
         ? { title: children }

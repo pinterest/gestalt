@@ -497,6 +497,7 @@ export default class Contents extends React.Component<Props, State> {
     return (
       <div
         className={styles.container}
+        // $FlowFixMe: new errors found from flow 0.116.1 upgrade
         style={{ stroke, visibility, ...flyoutOffset }}
       >
         <div

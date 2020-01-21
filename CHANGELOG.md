@@ -9,6 +9,7 @@
 ### Minor
 
 - Switch: Add right-to-left locales flip style support (#628)
+- Flow: Upgrade to version 0.116.1 (#635)
 
 ### Patch
 
