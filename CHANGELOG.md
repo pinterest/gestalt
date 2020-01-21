@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Switch: Add right-to-left locales flip style support (#628)
-- Flow: Upgrade to version 0.116.1 (#635)
-
 ### Patch
 
 </details>
+
+## 0.121.0 (Jan 21, 2020)
+
+### Minor
+
+- Switch: Add right-to-left locales flip style support (#628)
+- Flow: Upgrade to version 0.116.1 (#635)
 
 ## 0.120.0 (Jan 20, 2020)
 
