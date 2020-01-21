@@ -10,10 +10,14 @@
 
 ### Patch
 
-- Stats: Calculate raw and percentage number of gestalt components vs native components
-- Masonry: Add a flag to optionally fix a bug (see PR notes) (#632)
-
 </details>
+
+## 0.120.0 (Jan 20, 2020)
+
+### Patch
+
+- Stats: Calculate raw and percentage number of gestalt components vs native components (#627)
+- Masonry: Add a flag to optionally fix a bug (see PR notes) (#632)
 
 ## 0.113.3 (Jan 13, 2020)
 
