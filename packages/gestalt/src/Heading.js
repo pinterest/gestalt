@@ -78,18 +78,14 @@ export default function Heading(props: Props) {
   );
 
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
-  return React.createElement(
-    `h${headingLevel}`,
-    {
-      className: cs,
-      // $FlowFixMe: new errors found from flow 0.116.1 upgrade
-      ...(id ? { id } : null),
-      ...(truncate && typeof children === 'string'
-        ? { title: children }
-        : null),
-    },
-    children
-  );
+  let newProps = { className: cs };
+  if (id) {
+    newProps = { ...newProps, id };
+  }
+  if (truncate && typeof children === 'string') {
+    newProps = { ...newProps, title: children };
+  }
+  return React.createElement(`h${headingLevel}`, newProps, children);
 }
 
 Heading.propTypes = {

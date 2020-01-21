@@ -656,14 +656,12 @@ const propToFn = {
 
 const contains = (key, arr) => arr.indexOf(key) >= 0;
 const omit = (keys, obj) =>
-  Object.keys(obj).reduce((acc, k) => {
+  Object.keys(obj).reduce((acc, k: string) => {
     if (contains(k, keys)) {
       return acc;
     }
-    // $FlowFixMe: new errors found from flow 0.116.1 upgrade
     return {
       ...acc,
-      // $FlowFixMe: new errors found from flow 0.116.1 upgrade
       [k]: obj[k],
     };
   }, {});
