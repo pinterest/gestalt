@@ -18,6 +18,10 @@
   width: var(--width);
 }
 
+html[dir="rtl"] .switch {
+  transform: rotateY(180deg);
+}
+
 .focused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }

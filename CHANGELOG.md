@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Switch: Add right-to-left locales flip style support (#628)
+
 ### Patch
 
 </details>
