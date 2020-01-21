@@ -81,10 +81,7 @@ The following outlines our release process:
 1.  Checkout a new branch.
 2.  Bump package version in `packages/gestalt/package.json` & update `CHANGELOG.md`.
 3.  Open a pull request with the new version and land that in master.
-4.  Once the version is bumped in master, checkout that commit locally.
-5.  Run `npm login` using your npm username and password.
-6.  Run the release script from the root directory of the project `./scripts/publish.js` to publish the tag, npm package, and docs.
-7.  Draft a new release from the tag at https://github.com/pinterest/gestalt/releases.
+4.  Draft a new release from the tag at https://github.com/pinterest/gestalt/releases. GitHub Actions will automatically publish to npm and GitHub pages.
 
 ## Typescript Support
 
