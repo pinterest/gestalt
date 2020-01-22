@@ -34,6 +34,30 @@ type Props = {|
 
 const IconNames = Object.keys(icons);
 
+const flipOnRtlIconNames = [
+  'ads-stats',
+  'ads-overview',
+  'arrow-back',
+  'arrow-circle-forward',
+  'arrow-end',
+  'arrow-forward',
+  'arrow-start',
+  'arrow-up-right',
+  'compose',
+  'directional-arrow-left',
+  'directional-arrow-right',
+  'flipVertical',
+  'hand-pointing',
+  'link',
+  'reorder-images',
+  'send',
+  'sound',
+  'speech',
+  'speech-ellipsis',
+  'switch-account',
+  'text-size',
+];
+
 export default function Icon(props: Props) {
   const {
     accessibilityLabel,
@@ -44,9 +68,12 @@ export default function Icon(props: Props) {
     size = 16,
   } = props;
 
-  const cs = classnames(styles.icon, colors[color], {
-    [styles.iconBlock]: !inline,
-  });
+  const cs = classnames(
+    flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
+    styles.icon,
+    colors[color],
+    { [styles.iconBlock]: !inline }
+  );
 
   const path =
     (icon && icons[icon]) ||

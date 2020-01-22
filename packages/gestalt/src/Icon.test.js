@@ -22,3 +22,8 @@ test('Icon uses the dangerouslySetSvgPath prop when icon path is not specified',
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Icon flipped if its in the flip on rtl list', () => {
+  const tree = create(<Icon accessibilityLabel="send" icon="send" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});

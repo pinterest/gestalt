@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add right-to-left locales flip style support (#631)
+
 ### Patch
 
 </details>
