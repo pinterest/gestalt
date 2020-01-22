@@ -656,7 +656,7 @@ const propToFn = {
 
 const contains = (key, arr) => arr.indexOf(key) >= 0;
 const omit = (keys, obj) =>
-  Object.keys(obj).reduce((acc, k) => {
+  Object.keys(obj).reduce((acc, k: string) => {
     if (contains(k, keys)) {
       return acc;
     }

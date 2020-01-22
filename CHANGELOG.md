@@ -12,9 +12,21 @@
 
 ### Patch
 
-- Stats: Calculate raw and percentage number of gestalt components vs native components
-
 </details>
+
+## 0.121.0 (Jan 21, 2020)
+
+### Minor
+
+- Switch: Add right-to-left locales flip style support (#628)
+- Flow: Upgrade to version 0.116.1 (#635)
+
+## 0.120.0 (Jan 20, 2020)
+
+### Patch
+
+- Stats: Calculate raw and percentage number of gestalt components vs native components (#627)
+- Masonry: Add a flag to optionally fix a bug (see PR notes) (#632)
 
 ## 0.113.3 (Jan 13, 2020)
 

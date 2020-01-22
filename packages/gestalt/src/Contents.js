@@ -72,10 +72,10 @@ type Props = {|
 /* eslint-enable react/no-unused-prop-types */
 
 type State = {|
-  flyoutOffset: {
+  flyoutOffset: {|
     top: ?number,
     left: ?number,
-  },
+  |},
   caretOffset: {
     top: ?number,
     right: ?number,
@@ -361,8 +361,6 @@ export default class Contents extends React.Component<Props, State> {
   state = {
     flyoutOffset: {
       top: undefined,
-      right: undefined,
-      bottom: undefined,
       left: undefined,
     },
     caretOffset: {
