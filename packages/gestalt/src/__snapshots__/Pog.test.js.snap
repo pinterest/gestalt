@@ -16,7 +16,7 @@ exports[`Pog active renders 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon gray iconBlock"
+      className="icon gray iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ exports[`Pog focused renders 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon gray iconBlock"
+      className="icon gray iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -76,7 +76,7 @@ exports[`Pog hovered renders 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon gray iconBlock"
+      className="icon gray iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ exports[`Pog renders with icon 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon gray iconBlock"
+      className="icon gray iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"
@@ -136,7 +136,7 @@ exports[`Pog renders with svg 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon gray iconBlock"
+      className="icon gray iconBlock"
       height={20}
       role="img"
       viewBox="0 0 24 24"

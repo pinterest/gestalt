@@ -133,7 +133,7 @@ exports[`Checkbox indeterminate 1`] = `
     <svg
       aria-hidden={true}
       aria-label=""
-      className="rtlSupport icon white iconBlock"
+      className="icon white iconBlock"
       height={12}
       role="img"
       viewBox="0 0 24 24"

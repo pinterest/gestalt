@@ -84,7 +84,7 @@ exports[`Video with children 1`] = `
         <svg
           aria-hidden={null}
           aria-label="Play"
-          className="rtlSupport icon white iconBlock"
+          className="icon white iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"

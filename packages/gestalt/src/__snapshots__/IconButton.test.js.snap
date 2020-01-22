@@ -29,7 +29,7 @@ exports[`IconButton renders with disabled state 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="rtlSupport icon gray iconBlock"
+        className="icon gray iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ exports[`IconButton renders with icon 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="rtlSupport icon gray iconBlock"
+        className="icon gray iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ exports[`IconButton renders with svg 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="rtlSupport icon gray iconBlock"
+        className="icon gray iconBlock"
         height={20}
         role="img"
         viewBox="0 0 24 24"

@@ -34,18 +34,28 @@ type Props = {|
 
 const IconNames = Object.keys(icons);
 
-const noFlipOnRtlIconNames = [
-  'facebook',
-  'gif',
-  'check',
-  'check-circle',
-  'clock',
-  'google-plus',
-  'pinterest',
-  'report',
-  'text-sentence-case',
-  'text-spacing',
-  'twitter',
+const flipOnRtlIconNames = [
+  'ads-stats',
+  'ads-overview',
+  'arrow-back',
+  'arrow-circle-forward',
+  'arrow-end',
+  'arrow-forward',
+  'arrow-start',
+  'arrow-up-right',
+  'compose',
+  'directional-arrow-left',
+  'directional-arrow-right',
+  'flipVertical',
+  'hand-pointing',
+  'link',
+  'reorder-images',
+  'send',
+  'sound',
+  'speech',
+  'speech-ellipsis',
+  'switch-account',
+  'text-size',
 ];
 
 export default function Icon(props: Props) {
@@ -59,7 +69,7 @@ export default function Icon(props: Props) {
   } = props;
 
   const cs = classnames(
-    !noFlipOnRtlIconNames.includes(icon) && styles.rtlSupport,
+    flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
     colors[color],
     { [styles.iconBlock]: !inline }
