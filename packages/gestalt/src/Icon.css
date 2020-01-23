@@ -9,6 +9,5 @@
 }
 
 html[dir="rtl"] .rtlSupport {
-  /* Flip the icon for right-to-left language locales */
   transform: rotateY(180deg);
 }

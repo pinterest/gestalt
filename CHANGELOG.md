@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Icon: Added newline in css file and removed comment (#637)
 - Icon: Add right-to-left locales flip style support (#631)
 
 ### Patch
