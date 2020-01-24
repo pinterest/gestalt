@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Icon: Update existing workflow icon svg for ok, halted, problem, unstarted, in progress and warning (#638)
 - Icon: Added newline in css file and removed comment (#637)
 - Icon: Add right-to-left locales flip style support (#631)
 
