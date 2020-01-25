@@ -117,18 +117,20 @@ class Example extends React.Component {
             onClick={this.handleToggleSmall}
           />
           {sm && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="View default padding and styling"
-              heading="Small modal"
-              onDismiss={this.handleToggleSmall}
-              footer={<Heading size="sm">Footer</Heading>}
-              size="sm"
-            >
-              <Box padding={2}>
-                <Heading size="sm">Children</Heading>
-              </Box>
-            </Modal>
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="View default padding and styling"
+                heading="Small modal"
+                onDismiss={this.handleToggleSmall}
+                footer={<Heading size="sm">Footer</Heading>}
+                size="sm"
+              >
+                <Box padding={2}>
+                  <Heading size="sm">Children</Heading>
+                </Box>
+              </Modal>
+            </Layer>
           )}
         </Box>
         <Box padding={1}>
@@ -137,18 +139,20 @@ class Example extends React.Component {
             onClick={this.handleToggleMedium}
           />
           {md && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="View default padding and styling"
-              heading="Medium modal"
-              onDismiss={this.handleToggleMedium}
-              footer={<Heading size="sm">Footer</Heading>}
-              size="md"
-            >
-              <Box padding={2}>
-                <Heading size="sm">Children</Heading>
-              </Box>
-            </Modal>
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="View default padding and styling"
+                heading="Medium modal"
+                onDismiss={this.handleToggleMedium}
+                footer={<Heading size="sm">Footer</Heading>}
+                size="md"
+              >
+                <Box padding={2}>
+                  <Heading size="sm">Children</Heading>
+                </Box>
+              </Modal>
+            </Layer>
           )}
         </Box>
         <Box padding={1}>
@@ -157,18 +161,20 @@ class Example extends React.Component {
             onClick={this.handleToggleLarge}
           />
           {lg && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="View default padding and styling"
-              heading="Large modal"
-              onDismiss={this.handleToggleLarge}
-              footer={<Heading size="sm">Footer</Heading>}
-              size="lg"
-            >
-              <Box padding={2}>
-                <Heading size="sm">Children</Heading>
-              </Box>
-            </Modal>
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="View default padding and styling"
+                heading="Large modal"
+                onDismiss={this.handleToggleLarge}
+                footer={<Heading size="sm">Footer</Heading>}
+                size="lg"
+              >
+                <Box padding={2}>
+                  <Heading size="sm">Children</Heading>
+                </Box>
+              </Modal>
+            </Layer>
           )}
         </Box>
       </Box>
@@ -211,22 +217,24 @@ class Example extends React.Component {
             onClick={this.handleToggleModal}
           />
           {showModal && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="View default padding and styling"
-              heading="Heading"
-              onDismiss={this.handleToggleModal}
-              footer={
-                <Box color="gray">
-                  <Heading size="sm">Footer</Heading>
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="View default padding and styling"
+                heading="Heading"
+                onDismiss={this.handleToggleModal}
+                footer={
+                  <Box color="gray">
+                    <Heading size="sm">Footer</Heading>
+                  </Box>
+                }
+                size="md"
+              >
+                <Box color="gray" height={400}>
+                  <Heading size="sm">Children</Heading>
                 </Box>
-              }
-              size="md"
-            >
-              <Box color="gray" height={400}>
-                <Heading size="sm">Children</Heading>
-              </Box>
-            </Modal>
+              </Modal>
+            </Layer>
           )}
         </Box>
       </Box>
@@ -276,43 +284,45 @@ class HeadingExample extends React.Component {
             onClick={this.handleToggleModal}
           />
           {showModal && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="View custom modal heading"
-              heading={
-                <Box padding={2}>
-                  <Tabs
-                    tabs={[
-                      {
-                        text: "Boards",
-                        href: "#"
-                      },
-                      {
-                        text: "Pins",
-                        href: "#"
-                      },
-                      {
-                        text: "Topics",
-                        href: "#"
-                      }
-                    ]}
-                    activeTabIndex={this.state.activeTabIndex}
-                    onChange={this.handleChangeTab}
-                  />
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="View custom modal heading"
+                heading={
+                  <Box padding={2}>
+                    <Tabs
+                      tabs={[
+                        {
+                          text: "Boards",
+                          href: "#"
+                        },
+                        {
+                          text: "Pins",
+                          href: "#"
+                        },
+                        {
+                          text: "Topics",
+                          href: "#"
+                        }
+                      ]}
+                      activeTabIndex={this.state.activeTabIndex}
+                      onChange={this.handleChangeTab}
+                    />
+                  </Box>
+                }
+                onDismiss={this.handleToggleModal}
+                footer={
+                  <Box color="gray">
+                    <Heading size="sm">Footer</Heading>
+                  </Box>
+                }
+                size="md"
+              >
+                <Box color="gray" height={400}>
+                  <Heading size="sm">Children</Heading>
                 </Box>
-              }
-              onDismiss={this.handleToggleModal}
-              footer={
-                <Box color="gray">
-                  <Heading size="sm">Footer</Heading>
-                </Box>
-              }
-              size="md"
-            >
-              <Box color="gray" height={400}>
-                <Heading size="sm">Children</Heading>
-              </Box>
-            </Modal>
+              </Modal>
+            </Layer>
           )}
         </Box>
       </Box>
@@ -359,45 +369,47 @@ class Example extends React.Component {
             onClick={this.handleToggleModal}
           />
           {showModal && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="Would you like to block Chris?"
-              heading="Block Chris?"
-              onDismiss={this.handleToggleModal}
-              footer={
-                <Box
-                  display="flex"
-                  marginLeft={-1}
-                  marginRight={-1}
-                  justifyContent="end"
-                >
-                  <Box padding={1}>
-                    <Button
-                      size="lg"
-                      text="Cancel"
-                      onClick={this.handleToggleModal}
-                    />
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="Would you like to block Chris?"
+                heading="Block Chris?"
+                onDismiss={this.handleToggleModal}
+                footer={
+                  <Box
+                    display="flex"
+                    marginLeft={-1}
+                    marginRight={-1}
+                    justifyContent="end"
+                  >
+                    <Box padding={1}>
+                      <Button
+                        size="lg"
+                        text="Cancel"
+                        onClick={this.handleToggleModal}
+                      />
+                    </Box>
+                    <Box padding={1}>
+                      <Button
+                        size="lg"
+                        color="red"
+                        text="Block"
+                        onClick={this.handleToggleModal}
+                      />
+                    </Box>
                   </Box>
-                  <Box padding={1}>
-                    <Button
-                      size="lg"
-                      color="red"
-                      text="Block"
-                      onClick={this.handleToggleModal}
-                    />
-                  </Box>
+                }
+                role="alertdialog"
+                size="sm"
+              >
+                <Box paddingX={4} paddingY={2}>
+                  <Text>
+                    You will not be able to follow each other or interact with each
+                    others Pins.
+                  </Text>
                 </Box>
-              }
-              role="alertdialog"
-              size="sm"
-            >
-              <Box paddingX={4} paddingY={2}>
-                <Text>
-                  You will not be able to follow each other or interact with each
-                  others Pins.
-                </Text>
-              </Box>
-            </Modal>
+              </Modal>
+            </Layer>
           )}
         </Box>
       </Box>
@@ -438,85 +450,87 @@ class Example extends React.Component {
             onClick={this.handleToggleModal}
           />
           {showModal && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="Edit Julia's board"
-              heading="Edit your board"
-              onDismiss={this.handleToggleModal}
-              footer={
-                <Box
-                  justifyContent="between"
-                  display="flex"
-                  direction="row"
-                  marginLeft={-1}
-                  marginRight={-1}
-                >
-                  <Box column={6} paddingX={1}>
-                    <Button text="Delete Board" inline />
-                  </Box>
-                  <Box column={6} paddingX={1}>
-                    <Box
-                      display="flex"
-                      direction="row"
-                      justifyContent="end"
-                      marginLeft={-1}
-                      marginRight={-1}
-                    >
-                      <Box paddingX={1}>
-                        <Button text="Cancel" inline onClick={this.handleToggleModal} />
-                      </Box>
-                      <Box paddingX={1}>
-                        <Button color="red" inline text="Save" />
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="Edit Julia's board"
+                heading="Edit your board"
+                onDismiss={this.handleToggleModal}
+                footer={
+                  <Box
+                    justifyContent="between"
+                    display="flex"
+                    direction="row"
+                    marginLeft={-1}
+                    marginRight={-1}
+                  >
+                    <Box column={6} paddingX={1}>
+                      <Button text="Delete Board" inline />
+                    </Box>
+                    <Box column={6} paddingX={1}>
+                      <Box
+                        display="flex"
+                        direction="row"
+                        justifyContent="end"
+                        marginLeft={-1}
+                        marginRight={-1}
+                      >
+                        <Box paddingX={1}>
+                          <Button text="Cancel" inline onClick={this.handleToggleModal} />
+                        </Box>
+                        <Box paddingX={1}>
+                          <Button color="red" inline text="Save" />
+                        </Box>
                       </Box>
                     </Box>
                   </Box>
+                }
+                size="md"
+              >
+                <Box display="flex" direction="row" position="relative">
+                  <Column span={12}>
+                    <Box paddingY={2} paddingX={4} display="flex">
+                      <Column span={4}>
+                        <Label htmlFor="name">
+                          <Text align="left" weight="bold">
+                            Name
+                          </Text>
+                        </Label>
+                      </Column>
+                      <Column span={8}>
+                        <TextField id="name" onChange={() => undefined} />
+                      </Column>
+                    </Box>
+                    <Divider />
+                    <Box paddingY={2} paddingX={4} display="flex">
+                      <Column span={4}>
+                        <Label htmlFor="desc">
+                          <Text align="left" weight="bold">
+                            Description
+                          </Text>
+                        </Label>
+                      </Column>
+                      <Column span={8}>
+                        <TextArea id="desc" onChange={() => undefined} />
+                      </Column>
+                    </Box>
+                    <Divider />
+                    <Box paddingY={2} paddingX={4} display="flex">
+                      <Column span={4}>
+                        <Label htmlFor="notifications">
+                          <Text align="left" weight="bold">
+                            Email Notifications
+                          </Text>
+                        </Label>
+                      </Column>
+                      <Column span={8}>
+                        <Switch id="notifications" onChange={() => undefined} switched />
+                      </Column>
+                    </Box>
+                  </Column>
                 </Box>
-              }
-              size="md"
-            >
-              <Box display="flex" direction="row" position="relative">
-                <Column span={12}>
-                  <Box paddingY={2} paddingX={4} display="flex">
-                    <Column span={4}>
-                      <Label htmlFor="name">
-                        <Text align="left" weight="bold">
-                          Name
-                        </Text>
-                      </Label>
-                    </Column>
-                    <Column span={8}>
-                      <TextField id="name" onChange={() => undefined} />
-                    </Column>
-                  </Box>
-                  <Divider />
-                  <Box paddingY={2} paddingX={4} display="flex">
-                    <Column span={4}>
-                      <Label htmlFor="desc">
-                        <Text align="left" weight="bold">
-                          Description
-                        </Text>
-                      </Label>
-                    </Column>
-                    <Column span={8}>
-                      <TextArea id="desc" onChange={() => undefined} />
-                    </Column>
-                  </Box>
-                  <Divider />
-                  <Box paddingY={2} paddingX={4} display="flex">
-                    <Column span={4}>
-                      <Label htmlFor="notifications">
-                        <Text align="left" weight="bold">
-                          Email Notifications
-                        </Text>
-                      </Label>
-                    </Column>
-                    <Column span={8}>
-                      <Switch id="notifications" onChange={() => undefined} switched />
-                    </Column>
-                  </Box>
-                </Column>
-              </Box>
-            </Modal>
+              </Modal>
+            </Layer>
           )}
         </Box>
       </Box>
@@ -567,30 +581,32 @@ class Example extends React.Component {
             onClick={this.handleToggleModal}
           />
           {showModal && (
-            <Modal
-              accessibilityCloseLabel="close"
-              accessibilityModalLabel="View random images"
-              heading="Images"
-              onDismiss={this.handleToggleModal}
-              footer={
-                <Box display="flex" direction="row" justifyContent="end">
-                  <Button size="lg" text="Cancel" onClick={this.handleToggleModal} />
+            <Layer>
+              <Modal
+                accessibilityCloseLabel="close"
+                accessibilityModalLabel="View random images"
+                heading="Images"
+                onDismiss={this.handleToggleModal}
+                footer={
+                  <Box display="flex" direction="row" justifyContent="end">
+                    <Button size="lg" text="Cancel" onClick={this.handleToggleModal} />
+                  </Box>
+                }
+                size="lg"
+              >
+                <Box display="flex" direction="row" justifyContent="center" alignItems="center">
+                  <Spinner
+                    accessibilityLabel="random image"
+                    show={!hasLoaded}
+                  />
+                  <img
+                    alt=""
+                    onLoad={this.handleLoad}
+                    src="http://lorempixel.com/400/400"
+                  />
                 </Box>
-              }
-              size="lg"
-            >
-              <Box display="flex" direction="row" justifyContent="center" alignItems="center">
-                <Spinner
-                  accessibilityLabel="random image"
-                  show={!hasLoaded}
-                />
-                <img
-                  alt=""
-                  onLoad={this.handleLoad}
-                  src="http://lorempixel.com/400/400"
-                />
-              </Box>
-            </Modal>
+              </Modal>
+            </Layer>
           )}
         </Box>
       </Box>
