@@ -14,7 +14,7 @@
 
 ### Patch
 
-- Modal: Update docs to wrap Modals in Layers so they don't get overlapped by example code (#639)
+- Docs: Update docs to wrap Flyouts, Modals, and Tooltips in Layers so they don't get overlapped by example code (#639)
 
 </details>
 
