@@ -59,26 +59,17 @@ card(
     description="You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
         always include a thumbnail and two lines of text."
     defaultCode={`
-class ToastExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showConfirmationToast: false,
-    };
-    this.handleConfirmationClick = this.handleConfirmationClick.bind(this);
-  }
-  handleConfirmationClick({ event }) {
-    this.setState(prevState => ({ showConfirmationToast: !prevState.showConfirmationToast }));
-  };
-  render() {
-    return (
-      <Box>
-        <Button
-          inline
-          text={ this.state.showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
-          onClick={this.handleConfirmationClick}
-          size='md'
-        />
+function ToastExample() {
+  const [showConfirmationToast, setShowConfirmationToast] = React.useState(false);
+  return (
+    <Box>
+      <Button
+        inline
+        text={ showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
+        onClick={() => setShowConfirmationToast(!showConfirmationToast)}
+        size='md'
+      />
+      <Layer>
         <Box
           fit
           dangerouslySetInlineStyle={{
@@ -91,7 +82,7 @@ class ToastExample extends React.Component {
           paddingX={1}
           position='fixed'
         >
-          {this.state.showConfirmationToast ? (
+          {showConfirmationToast ? (
               <Toast
                 text={['Saved to', 'Home decor']}
                 thumbnail={
@@ -105,9 +96,9 @@ class ToastExample extends React.Component {
               />
           ) : null}
         </Box>
-      </Box>
-    );
-  }
+      </Layer>
+    </Box>
+  );
 }`}
   />
 );
@@ -120,26 +111,17 @@ card(
       your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
       added. If you need a different Icon here, please contact the Gestalt team."
     defaultCode={`
-class ToastExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showGuideToast: false
-    };
-    this.handleGuideClick = this.handleGuideClick.bind(this);
-  }
-  handleGuideClick({ event }) {
-    this.setState(prevState => ({ showGuideToast: !prevState.showGuideToast }));
-  };
-  render() {
-    return (
-      <Box>
-        <Button
-          inline
-          text={ this.state.showGuideToast ? 'Close toast' : 'Show guide toast' }
-          onClick={this.handleGuideClick}
-          size='md'
-        />
+function ToastExample() {
+  const [showGuideToast, setShowGuideToast] = React.useState(false);
+  return (
+    <Box>
+      <Button
+        inline
+        text={ showGuideToast ? 'Close toast' : 'Show guide toast' }
+        onClick={() => setShowGuideToast(!showGuideToast)}
+        size='md'
+      />
+      <Layer>
         <Box
           fit
           dangerouslySetInlineStyle={{
@@ -152,16 +134,16 @@ class ToastExample extends React.Component {
           paddingX={1}
           position='fixed'
         >
-          {this.state.showGuideToast ? (
+          {showGuideToast ? (
             <Toast
               icon='arrow-circle-forward'
               text='Same great profile, just a new look. Learn more?'
             />
           ) : null}
         </Box>
-      </Box>
-    );
-  }
+      </Layer>
+    </Box>
+  );
 }`}
   />
 );
@@ -174,26 +156,17 @@ card(
     "
     name="Error Toasts"
     defaultCode={`
-class ToastExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showErrorToast: false
-    };
-    this.handleErrorClick = this.handleErrorClick.bind(this);
-  }
-  handleErrorClick({ event }) {
-    this.setState(prevState => ({ showErrorToast: !prevState.showErrorToast }));
-  };
-  render() {
-    return (
-      <Box>
-        <Button
-          inline
-          text={ this.state.showErrorToast ? 'Close toast' : 'Show error toast' }
-          onClick={this.handleErrorClick}
-          size='md'
-        />
+function ToastExample() {
+  const [showErrorToast, setShowErrorToast] = React.useState(false);
+  return (
+    <Box>
+      <Button
+        inline
+        text={ showErrorToast ? 'Close toast' : 'Show error toast' }
+        onClick={() => setShowErrorToast(!showErrorToast)}
+        size='md'
+      />
+      <Layer>
         <Box
           fit
           dangerouslySetInlineStyle={{
@@ -206,13 +179,13 @@ class ToastExample extends React.Component {
           paddingX={1}
           position='fixed'
         >
-          {this.state.showErrorToast ? (
+          {showErrorToast ? (
             <Toast color='red' text="Oops, we couldn't find that!" />
           ) : null}
         </Box>
-      </Box>
-    );
-  }
+      </Layer>
+    </Box>
+  );
 }`}
   />
 );
