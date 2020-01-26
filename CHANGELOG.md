@@ -14,6 +14,8 @@
 
 ### Patch
 
+- Docs: Update docs to wrap Flyouts, Modals, and Tooltips in Layers so they don't get overlapped by example code (#639)
+
 </details>
 
 ## 0.121.0 (Jan 21, 2020)
