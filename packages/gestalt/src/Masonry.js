@@ -69,6 +69,7 @@ type State<T> = {|
 |};
 
 const RESIZE_DEBOUNCE = 300;
+const SCROLL_THROTTLE = 16;
 // Multiplied against container height.
 // The amount of extra buffer space for populating visible items.
 const VIRTUAL_BUFFER_FACTOR = 0.7;
@@ -105,7 +106,7 @@ export default class Masonry<T: {}> extends React.Component<
     this.setState({
       scrollTop: getScrollPos(scrollContainer),
     });
-  });
+  }, SCROLL_THROTTLE);
 
   measureContainerAsync = debounce(() => {
     this.measureContainer();
