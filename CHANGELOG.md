@@ -12,6 +12,12 @@
 
 </details>
 
+## 0.122.1 (Jan 30, 2020)
+
+### Patch
+
+- Masonry: Add a `wait` value for throttling updateScrollPosition (#641)
+
 ## 0.122.0 (Jan 28, 2020)
 
 ### Minor
