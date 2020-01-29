@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 0.122.0 (Jan 28, 2020)
+
+### Minor
+
 - Icon: Update existing workflow icon svg for ok, halted, problem, unstarted, in progress and warning (#638)
 - Icon: Added newline in css file and removed comment (#637)
 - Icon: Add right-to-left locales flip style support (#631)
@@ -15,8 +23,6 @@
 ### Patch
 
 - Docs: Update docs to wrap Flyouts, Modals, and Tooltips in Layers so they don't get overlapped by example code (#639)
-
-</details>
 
 ## 0.121.0 (Jan 21, 2020)
 
