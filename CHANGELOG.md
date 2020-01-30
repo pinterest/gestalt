@@ -12,6 +12,12 @@
 
 </details>
 
+## 0.122.2 (Jan 30, 2020)
+
+### Patch
+
+- Masonry: Reverts the past update to `wait`. Turns out this was more dangerous than expected, and we should experiment on it later. (#645)
+
 ## 0.122.1 (Jan 29, 2020)
 
 ### Patch
