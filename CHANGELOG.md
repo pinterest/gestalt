@@ -12,6 +12,10 @@
 
 </details>
 
+## 0.122.3 (Jan 30, 2020)
+
+- Bumping version with no other changes for the sake of fixing release to npm.
+
 ## 0.122.2 (Jan 30, 2020)
 
 ### Patch
