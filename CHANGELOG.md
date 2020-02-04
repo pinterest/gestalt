@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Color: update dark gray color to #111 (#648)
+
 ### Patch
 
 </details>
