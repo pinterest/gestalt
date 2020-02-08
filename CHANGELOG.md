@@ -8,14 +8,20 @@
 
 ### Minor
 
-- Color: update dark gray color to #111 (#648)
-- Masonry: Shipped "fixFetchMoreBug" behavior and removed flag. This makes Masonry fetch less aggressively in some cases. (#651)
-
 ### Patch
 
 </details>
 
+## 0.123.0 (Feb 7, 2020)
+
+### Minor
+
+- Color: update dark gray color to #111 (#648)
+- Masonry: Shipped "fixFetchMoreBug" behavior and removed flag. This makes Masonry fetch less aggressively in some cases. (#651)
+
 ## 0.122.3 (Jan 30, 2020)
+
+### Patch
 
 - Bumping version with no other changes for the sake of fixing release to npm.
 
