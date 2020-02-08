@@ -9,6 +9,7 @@
 ### Minor
 
 - Color: update dark gray color to #111 (#648)
+- Masonry: Shipped "fixFetchMoreBug" behavior and removed flag. This makes Masonry fetch less aggressively in some cases. (#651)
 
 ### Patch
 
