@@ -309,12 +309,12 @@ const lgPaddingX = bind(rangeWithoutZero('lgPaddingX'), whitespace);
 const lgPaddingY = bind(rangeWithoutZero('lgPaddingY'), whitespace);
 const lgPadding = union(lgPaddingX, lgPaddingY);
 
-const map = mapClassName(name => styles[name]);
+const opacityMap = mapClassName(name => styles[name]);
 const opacity = val => {
   if (val > 0 && val < 1) {
-    return map(range('opacity0')(val * 10));
+    return opacityMap(range('opacity0')(val * 10));
   }
-  return map(range('opacity')(val));
+  return opacityMap(range('opacity')(val));
 };
 
 /*
