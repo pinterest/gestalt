@@ -72,3 +72,8 @@ test('Box has correct marginStart and marginEnd when marginStart and marginEnd a
 test('Box allows auto margin', () => {
   expect(create(<Box marginRight="auto" />)).toMatchSnapshot();
 });
+
+test('Box has correct class when opacity is 0.5', () => {
+  const tree = create(<Box opacity={0.5} />).toJSON();
+  expect(tree).toMatchSnapshot();
+});

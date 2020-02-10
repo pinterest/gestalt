@@ -155,6 +155,10 @@ card(
         type: `number | string`,
       },
       {
+        name: 'opacity',
+        type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
+      },
+      {
         name: 'overflow',
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
@@ -546,6 +550,16 @@ card(
         {...props}
       />
     )}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="opacity"
+    name="Opacity"
+    opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
+  >
+    {props => <Box color="darkGray" width={60} height={60} {...props} />}
   </Combination>
 );
 

@@ -190,6 +190,8 @@ type PropType = {
   minHeight?: number | string,
   minWidth?: number | string,
 
+  opacity?: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1,
+
   overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto',
 
   padding?: Padding,
@@ -306,6 +308,14 @@ const mdPadding = union(mdPaddingX, mdPaddingY);
 const lgPaddingX = bind(rangeWithoutZero('lgPaddingX'), whitespace);
 const lgPaddingY = bind(rangeWithoutZero('lgPaddingY'), whitespace);
 const lgPadding = union(lgPaddingX, lgPaddingY);
+
+const map = mapClassName(name => styles[name]);
+const opacity = val => {
+  if (val > 0 && val < 1) {
+    return map(range('opacity0')(val * 10));
+  }
+  return map(range('opacity')(val));
+};
 
 /*
 
@@ -586,6 +596,7 @@ const propToFn = {
   maxWidth: maxWidth => fromInlineStyle({ maxWidth }),
   minHeight: minHeight => fromInlineStyle({ minHeight }),
   minWidth: minWidth => fromInlineStyle({ minWidth }),
+  opacity,
   overflow: mapping({
     hidden: layout.overflowHidden,
     scroll: layout.overflowScroll,
