@@ -554,13 +554,17 @@ card(
 );
 
 card(
-  <Combination
+  <Card
+    description={`
+    Sets a css opacity value for the Box. Be sure to maintain accessibility when using this prop. The contrast of the text should still be <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank">WCAG 2.0 AA compatible</a>.
+  `}
     id="opacity"
     name="Opacity"
-    opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
   >
-    {props => <Box color="darkGray" width={60} height={60} {...props} />}
-  </Combination>
+    <Combination opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
+      {props => <Box color="darkGray" width={60} height={60} {...props} />}
+    </Combination>
+  </Card>
 );
 
 export default cards;
