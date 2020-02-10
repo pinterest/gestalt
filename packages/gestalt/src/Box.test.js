@@ -77,3 +77,8 @@ test('Box has correct class when opacity is 0.5', () => {
   const tree = create(<Box opacity={0.5} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Box has correct class when opacity is 1', () => {
+  const tree = create(<Box opacity={1} />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
