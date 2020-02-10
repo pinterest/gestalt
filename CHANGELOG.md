@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Box: Add new prop `opacity` to set css opacity with values 0 to 1 in tenth increments. (#654)
+
 ### Patch
 
 </details>
