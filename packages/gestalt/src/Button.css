@@ -8,7 +8,8 @@
 
 .button {
   composes: borderBox from "./Layout.css";
-  composes: rounded from "./Borders.css";
+  border-radius: 24px;
+  min-width: 60px;
 }
 
 .solid {
@@ -22,7 +23,7 @@
 
 .sm {
   composes: small from "./Layout.css";
-  padding: 8px 14px;
+  padding: 6px 14px;
 }
 
 .md {
@@ -60,6 +61,10 @@
 
 .gray:active {
   background-color: #dadada;
+}
+
+.darkGray {
+  composes: darkGrayBg from "./Colors.css";
 }
 
 .red {
