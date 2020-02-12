@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Box: Add new prop `opacity` to set css opacity with values 0 to 1 in tenth increments. (#654)
-- Button: Update border radius / small size + add dark gray option (#655)
-
 ### Patch
 
 </details>
+
+## 0.124.0 (Feb 12, 2020)
+
+### Minor
+
+- Box: Add new prop `opacity` to set css opacity with values 0 to 1 in tenth increments. (#654)
+- Button: Update border radius / small size + add dark gray option (#655)
 
 ## 0.123.0 (Feb 7, 2020)
 
