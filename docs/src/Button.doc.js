@@ -42,7 +42,7 @@ card(
       },
       {
         name: 'color',
-        type: `"blue" | "gray" | "red" | "transparent" | "white"`,
+        type: `"blue" | "darkGray" | "gray" | "red" | "transparent" | "white"`,
         defaultValue: 'gray',
         href: 'color',
       },
@@ -70,7 +70,7 @@ card(
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'md',
-        description: 'sm: 36px, md: 40px, lg: 48px',
+        description: 'sm: 32px, md: 40px, lg: 48px',
         href: 'combinations',
       },
       {
@@ -99,7 +99,7 @@ card(
   <Example
     name="Example"
     defaultCode={`
-<Button text="Medium Sized Button" />
+<Button text="Medium Sized Button" inline />
 `}
   />
 );
@@ -200,18 +200,42 @@ card(
 card(
   <Example
     description={`
+\`darkGray\` should only be used when the button is in a "selected" state.
+  `}
+    id="selected"
+    name="Selected state"
+    defaultCode={`
+
+function Example() {
+  const [selected, setSelected] = React.useState(true);
+  return (
+    <Button
+      inline
+      color={selected ? 'darkGray' : 'red'}
+      onClick={() => {setSelected(!selected)}}
+      text={selected ? 'Selected' : 'Deslected'}
+    />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    description={`
     There are 2 types of buttons: button and submit. Use the \`submit\` type when you do not
     need to specify an \`onClick\` handler. The default type is \`button\`.
   `}
     id="types"
     name="Types"
     defaultCode={`
-<Box margin={-2}>
+<Box margin={-2} display="flex">
   <Box padding={2}>
-    <Button onClick={() => {}} text="Clear" type="button" />
+    <Button onClick={() => {}} text="Clear" type="button" inline />
   </Box>
   <Box padding={2}>
-    <Button color="red" text="Submit" type="submit" />
+    <Button color="red" text="Submit" type="submit" inline />
   </Box>
 </Box>
 `}
@@ -229,12 +253,12 @@ card(
     id="accessibilityLabel"
     name="Accessibility Label"
     defaultCode={`
-<Box margin={-2}>
+<Box margin={-2} display="flex">
   <Box padding={2}>
-    <Button accessibilityLabel="Add James" text="Add" />
+    <Button accessibilityLabel="Add James" text="Add" inline />
   </Box>
   <Box padding={2}>
-    <Button accessibilityLabel="Add Irene" text="Add" />
+    <Button accessibilityLabel="Add Irene" text="Add" inline />
   </Box>
 </Box>
 `}
@@ -245,7 +269,7 @@ card(
   <Combination
     id="combinations"
     name="Combinations"
-    color={['gray', 'red', 'blue']}
+    color={['gray', 'red', 'darkGray']}
     disabled={[false, true]}
     size={['sm', 'md', 'lg']}
   >

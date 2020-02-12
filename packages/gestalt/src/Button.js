@@ -8,6 +8,7 @@ import Text from './Text.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
+  darkGray: 'white',
   gray: 'darkGray',
   red: 'white',
   transparent: 'white',
@@ -18,7 +19,7 @@ type Props = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel?: string,
-  color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
+  color?: 'gray' | 'darkGray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
   inline?: boolean,
   name?: string,
@@ -71,9 +72,9 @@ export default function Button(props: Props) {
     >
       <Text
         align="center"
-        color={disabled ? 'gray' : textColor || DEFAULT_TEXT_COLORS[color]}
+        color={(disabled && 'gray') || textColor || DEFAULT_TEXT_COLORS[color]}
         overflow="normal"
-        size={size}
+        size="md"
         weight="bold"
       >
         {text}
@@ -87,7 +88,14 @@ Button.propTypes = {
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
+  color: PropTypes.oneOf([
+    'blue',
+    'darkGray',
+    'gray',
+    'red',
+    'transparent',
+    'white',
+  ]),
   disabled: PropTypes.bool,
   inline: PropTypes.bool,
   name: PropTypes.string,
