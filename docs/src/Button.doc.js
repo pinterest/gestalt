@@ -200,6 +200,30 @@ card(
 card(
   <Example
     description={`
+\`darkGray\` should only be used when the button is in a "selected" state.
+  `}
+    id="selected"
+    name="Selected state"
+    defaultCode={`
+
+function Example() {
+  const [selected, setSelected] = React.useState(true);
+  return (
+    <Button
+      inline
+      color={selected ? 'darkGray' : 'red'}
+      onClick={() => {setSelected(!selected)}}
+      text={selected ? 'Selected' : 'Deslected'}
+    />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    description={`
     There are 2 types of buttons: button and submit. Use the \`submit\` type when you do not
     need to specify an \`onClick\` handler. The default type is \`button\`.
   `}
