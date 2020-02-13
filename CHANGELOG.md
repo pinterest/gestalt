@@ -8,7 +8,8 @@
 
 ### Minor
 
-IconButton/Pog: Add darkGray background option (#659)
+- IconButton/Pog: Add darkGray background option (#659)
+- Tabs: update states + improve docs & test coverage (#658)
 
 ### Patch
 

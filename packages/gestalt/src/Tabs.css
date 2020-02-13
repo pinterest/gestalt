@@ -33,5 +33,5 @@
 }
 
 .tabIsActive {
-  composes: lightGrayBg darkGray from "./Colors.css";
+  composes: darkGrayBg white from "./Colors.css";
 }
