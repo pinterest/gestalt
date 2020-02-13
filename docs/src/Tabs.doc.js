@@ -48,42 +48,32 @@ card(
     name="Example"
     direction="row"
     defaultCode={`
-class TabExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeIndex: 0
-    };
-    this.handleChange = this._handleChange.bind(this);
-  }
-  _handleChange({ activeTabIndex, event }) {
+function TabExample() {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const handleChange = ({ activeTabIndex, event }) => {
     event.preventDefault();
-    this.setState({
-      activeIndex: activeTabIndex
-    });
+    setActiveIndex(activeTabIndex)
   }
-  render() {
-    return (
-      <Tabs
-        tabs={[
-          {
-            text: "Boards",
-            href: "#"
-          },
-          {
-            text: "Pins",
-            href: "#"
-          },
-          {
-            text: "Topics",
-            href: "#"
-          }
-        ]}
-        activeTabIndex={this.state.activeIndex}
-        onChange={this.handleChange}
-      />
-    );
-  }
+  return (
+    <Tabs
+      tabs={[
+        {
+          text: "Boards",
+          href: "#"
+        },
+        {
+          text: "Pins",
+          href: "#"
+        },
+        {
+          text: "Topics",
+          href: "#"
+        }
+      ]}
+      activeTabIndex={activeIndex}
+      onChange={handleChange}
+    />
+  );
 }
   `}
   />
