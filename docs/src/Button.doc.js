@@ -99,7 +99,7 @@ card(
   <Example
     name="Example"
     defaultCode={`
-<Button text="Medium Sized Button" inline />
+<Button text="Medium sized button" inline />
 `}
   />
 );
@@ -116,10 +116,10 @@ card(
     defaultCode={`
 <Box margin={-2}>
   <Box padding={2}>
-    <Button text="inline button" inline />
+    <Button text="Inline button" inline />
   </Box>
   <Box padding={2}>
-    <Button text="default full width button" />
+    <Button text="Default full width button" />
   </Box>
 </Box>
 `}
@@ -213,7 +213,7 @@ function Example() {
       inline
       color={selected ? 'darkGray' : 'red'}
       onClick={() => {setSelected(!selected)}}
-      text={selected ? 'Selected' : 'Deslected'}
+      text={selected ? 'Selected' : 'Deselected'}
     />
   );
 }
