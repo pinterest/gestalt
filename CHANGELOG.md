@@ -8,6 +8,8 @@
 
 ### Minor
 
+IconButton/Pog: Add darkGray background option (#659)
+
 ### Patch
 
 </details>
