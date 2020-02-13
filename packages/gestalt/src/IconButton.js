@@ -15,6 +15,7 @@ type Props = {|
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
+    | 'darkGray'
     | 'white'
     | 'blue',
   dangerouslySetSvgPath?: { __path: string },

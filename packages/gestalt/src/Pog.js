@@ -22,6 +22,7 @@ type Props = {|
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
+    | 'darkGray'
     | 'white'
     | 'blue',
   dangerouslySetSvgPath?: { __path: string },
@@ -33,12 +34,13 @@ type Props = {|
 |};
 
 const defaultIconButtonIconColors = {
-  transparent: 'gray',
+  blue: 'white',
+  darkGray: 'white',
   gray: 'white',
   lightGray: 'gray',
-  white: 'gray',
+  transparent: 'gray',
   transparentDarkGray: 'white',
-  blue: 'white',
+  white: 'gray',
 };
 
 export default function Pog(props: Props) {

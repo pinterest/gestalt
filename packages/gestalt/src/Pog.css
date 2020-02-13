@@ -83,6 +83,10 @@
   background-color: #828282;
 }
 
+.darkGray {
+  composes: darkGrayBg from "./Colors.css";
+}
+
 .blue {
   composes: blueBg from "./Colors.css";
 }
