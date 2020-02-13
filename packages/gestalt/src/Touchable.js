@@ -4,15 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 
-type Shape =
-  | 'square'
-  | 'rounded'
-  | 'pill'
-  | 'circle'
-  | 'roundedTop'
-  | 'roundedBottom'
-  | 'roundedLeft'
-  | 'roundedRight';
+type Shape = 'square' | 'rounded' | 'pill' | 'circle';
 
 type MouseCursor =
   | 'copy'
@@ -60,16 +52,7 @@ export default class Touchable extends React.Component<Props> {
     onTouch: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    shape: PropTypes.oneOf([
-      'square',
-      'rounded',
-      'pill',
-      'circle',
-      'roundedTop',
-      'roundedBottom',
-      'roundedLeft',
-      'roundedRight',
-    ]),
+    shape: PropTypes.oneOf(['square', 'rounded', 'pill', 'circle']),
   };
 
   handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {

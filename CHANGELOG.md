@@ -6,6 +6,11 @@
     Click to see more.
   </summary>
 
+### Major
+
+- Box: BREAKING CHANGE - Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
+- Touchable: BREAKING CHANGE - Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
+
 ### Minor
 
 ### Patch

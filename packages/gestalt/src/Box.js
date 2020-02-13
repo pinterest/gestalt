@@ -211,15 +211,7 @@ type PropType = {
 
   position?: 'static' | 'absolute' | 'relative' | 'fixed',
   right?: boolean,
-  shape?:
-    | 'square'
-    | 'rounded'
-    | 'pill'
-    | 'circle'
-    | 'roundedTop'
-    | 'roundedBottom'
-    | 'roundedLeft'
-    | 'roundedRight',
+  shape?: 'square' | 'rounded' | 'pill' | 'circle',
   shrink?: boolean,
   top?: boolean,
   width?: number | string,
@@ -645,10 +637,6 @@ const propToFn = {
     circle: borders.circle,
     pill: borders.pill,
     rounded: borders.rounded,
-    roundedBottom: borders.roundedBottom,
-    roundedLeft: borders.roundedLeft,
-    roundedRight: borders.roundedRight,
-    roundedTop: borders.roundedTop,
     // default: square
   }),
   top: toggle(layout.top0),
@@ -1016,16 +1004,7 @@ Box.propTypes = {
 
   position: PropTypes.oneOf(['static', 'absolute', 'relative', 'fixed']),
   right: PropTypes.bool,
-  shape: PropTypes.oneOf([
-    'square',
-    'rounded',
-    'pill',
-    'circle',
-    'roundedTop',
-    'roundedBottom',
-    'roundedLeft',
-    'roundedRight',
-  ]),
+  shape: PropTypes.oneOf(['square', 'rounded', 'pill', 'circle']),
   top: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   wrap: PropTypes.bool,
