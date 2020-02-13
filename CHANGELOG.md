@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tabs: update states + improve docs & test coverage (#658)
+
 ### Patch
 
 </details>
