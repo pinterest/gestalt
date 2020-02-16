@@ -1,11 +1,3 @@
-:root {
-  --blue: #0074e8;
-  --darkGray: #111;
-  --red: #e60023;
-  --lightGray: #efefef;
-  --white: #fff;
-}
-
 .button {
   composes: borderBox from "./Layout.css";
   border-radius: 24px;
@@ -14,11 +6,6 @@
 
 .solid {
   composes: noBorder from "./Borders.css";
-}
-
-.enabled {
-  composes: accessibilityOutline from "./Focus.css";
-  composes: pointer from "./Cursor.css";
 }
 
 .sm {
@@ -45,9 +32,18 @@
   composes: inlineBlock from "./Layout.css";
 }
 
+.enabled {
+  composes: accessibilityOutline from "./Focus.css";
+  composes: pointer from "./Cursor.css";
+}
+
 .disabled {
   composes: lightGrayBg from "./Colors.css";
   cursor: default;
+}
+
+.selected {
+  composes: darkGrayBg from "./Colors.css";
 }
 
 .gray {
@@ -61,10 +57,6 @@
 
 .gray:active {
   background-color: #dadada;
-}
-
-.darkGray {
-  composes: darkGrayBg from "./Colors.css";
 }
 
 .red {

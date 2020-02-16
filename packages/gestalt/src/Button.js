@@ -8,7 +8,6 @@ import Text from './Text.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
-  darkGray: 'white',
   gray: 'darkGray',
   red: 'white',
   transparent: 'white',
@@ -19,11 +18,12 @@ type Props = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel?: string,
-  color?: 'gray' | 'darkGray' | 'red' | 'blue' | 'transparent' | 'white',
+  color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
   inline?: boolean,
   name?: string,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   text: string,
   textColor?: 'white' | 'darkGray' | 'blue' | 'red',
@@ -40,6 +40,7 @@ export default function Button(props: Props) {
     inline = false,
     name,
     onClick,
+    selected = false,
     size = 'md',
     text,
     textColor,
@@ -51,7 +52,8 @@ export default function Button(props: Props) {
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
     [styles.solid]: color !== 'transparent',
-    [styles[color]]: !disabled,
+    [styles[color]]: !disabled && !selected,
+    [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
@@ -72,7 +74,12 @@ export default function Button(props: Props) {
     >
       <Text
         align="center"
-        color={(disabled && 'gray') || textColor || DEFAULT_TEXT_COLORS[color]}
+        color={
+          (disabled && 'gray') ||
+          (selected && 'white') ||
+          textColor ||
+          DEFAULT_TEXT_COLORS[color]
+        }
         overflow="normal"
         size="md"
         weight="bold"
@@ -88,18 +95,12 @@ Button.propTypes = {
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'gray',
-    'red',
-    'transparent',
-    'white',
-  ]),
+  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
   disabled: PropTypes.bool,
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   text: PropTypes.string.isRequired,
   textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),

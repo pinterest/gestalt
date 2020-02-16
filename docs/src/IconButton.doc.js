@@ -44,13 +44,14 @@ card(
       {
         name: 'bgColor',
         type:
-          '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "darkGray" | "white" | "blue"',
+          '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "blue"',
         defaultValue: 'transparent',
         href: 'backgroundColorCombinations',
       },
       {
         name: 'disabled',
         type: 'boolean',
+        defaultValue: false,
         href: 'disabledCombinations',
       },
       {
@@ -69,6 +70,12 @@ card(
         name: 'dangerouslySetSvgPath',
         type: `{ __path: string }`,
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+      },
+      {
+        name: 'selected',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'selectedCombinations',
       },
       {
         name: 'size',
@@ -145,7 +152,7 @@ function A11yEx() {
 card(
   <Combination
     id="sizeCombinations"
-    name="Size Combinations"
+    name="Combinations: Size"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
@@ -155,7 +162,7 @@ card(
 card(
   <Combination
     id="iconColorCombinations"
-    name="Icon Color Combinations"
+    name="Combinations: Icon Color"
     iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
@@ -165,14 +172,13 @@ card(
 card(
   <Combination
     id="backgroundColorCombinations"
-    name="Background Color Combinations"
+    name="Combinations: Background Color"
     bgColor={[
       'transparent',
       'transparentDarkGray',
       'white',
       'lightGray',
       'gray',
-      'darkGray',
     ]}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
@@ -181,8 +187,19 @@ card(
 
 card(
   <Combination
+    id="selectedCombinations"
+    name="Combinations: Selected"
+    color={['gray']}
+    selected={[false, true]}
+  >
+    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
     id="disabledCombinations"
-    name="Disabled Combinations"
+    name="Combinations: Disabled"
     description="Icon buttons can be disabled as well. Adding the disabled flag to any color combination will add a 50% opacity and remove interactivity"
     iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
   >

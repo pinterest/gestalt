@@ -10,6 +10,7 @@
 
 - IconButton/Pog: Add darkGray background option (#659)
 - Tabs: update states + improve docs & test coverage (#658)
+- Button/IconButton/Pog: Convert 'darkGray' color to selected state (#661)
 
 ### Patch
 

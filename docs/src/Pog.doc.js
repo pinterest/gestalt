@@ -65,6 +65,12 @@ card(
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
       {
+        name: 'selected',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
         description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
