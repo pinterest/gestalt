@@ -8,13 +8,17 @@
 
 ### Minor
 
-- IconButton/Pog: Add darkGray background option (#659)
-- Tabs: update states + improve docs & test coverage (#658)
-- Button/IconButton/Pog: Convert 'darkGray' color to selected state (#661)
-
 ### Patch
 
 </details>
+
+## 0.125.0 (Feb 16, 2020)
+
+### Minor
+
+- IconButton/Pog: Add darkGray background option (#659)
+- Tabs: update states + improve docs & test coverage (#658)
+- Button/IconButton/Pog: Convert 'darkGray' color to selected state (#661)
 
 ## 0.124.0 (Feb 12, 2020)
 
