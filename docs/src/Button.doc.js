@@ -42,12 +42,18 @@ card(
       },
       {
         name: 'color',
-        type: `"blue" | "darkGray" | "gray" | "red" | "transparent" | "white"`,
+        type: `"blue" | "gray" | "red" | "transparent" | "white"`,
         defaultValue: 'gray',
         href: 'color',
       },
       {
         name: 'disabled',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
+        name: 'selected',
         type: 'boolean',
         defaultValue: false,
         href: 'combinations',
@@ -200,7 +206,7 @@ card(
 card(
   <Example
     description={`
-\`darkGray\` should only be used when the button is in a "selected" state.
+A "selected" state should be used as a toggle state to turn something on or off.
   `}
     id="selected"
     name="Selected state"
@@ -211,7 +217,8 @@ function Example() {
   return (
     <Button
       inline
-      color={selected ? 'darkGray' : 'red'}
+      color="red"
+      selected={selected}
       onClick={() => {setSelected(!selected)}}
       text={selected ? 'Selected' : 'Deselected'}
     />
@@ -269,8 +276,9 @@ card(
   <Combination
     id="combinations"
     name="Combinations"
-    color={['gray', 'red', 'darkGray']}
+    color={['gray', 'red']}
     disabled={[false, true]}
+    selected={[false, true]}
     size={['sm', 'md', 'lg']}
   >
     {(props, i) => (

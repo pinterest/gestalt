@@ -143,7 +143,6 @@ export default function PropTable({ props: properties, Component }: Props) {
                                 const elem = document.getElementById(href);
                                 if (elem) {
                                   elem.scrollIntoView({
-                                    behavior: 'smooth',
                                     block: 'start',
                                   });
                                 }

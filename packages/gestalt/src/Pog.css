@@ -15,6 +15,10 @@
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
 
+.selected {
+  composes: darkGrayBg from "./Colors.css";
+}
+
 .transparent {
   composes: transparentBg from "./Colors.css";
 }
