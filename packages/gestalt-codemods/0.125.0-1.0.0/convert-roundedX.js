@@ -1,26 +1,32 @@
 /**
  * Converts
- *  <Box shape="roundedTop" /> (and other roundedX variants)
+ *  <Box shape="roundedTop" /> or <Touchable shape="roundedTop" /> (and other roundedX variants)
  * to
- *  <Box shape="rounded" />
+ *  <Box shape="rounded" /> or <Touchable shape="rounded" />
  */
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
-  let localIdentifierName;
+  let boxLocalIdentifierName;
+  let touchableLocalIdentifierName;
 
   src.find(j.ImportDeclaration).forEach(path => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
+    const boxSpecifier = decl.specifiers.find(
       node => node.imported.name === 'Box'
     );
-    if (!specifier) {
+    const touchableSpecifier = decl.specifiers.find(
+      node => node.imported.name === 'Touchable'
+    );
+    if (!(boxSpecifier || touchableSpecifier)) {
       return;
     }
-    localIdentifierName = specifier.local.name;
+    boxLocalIdentifierName = boxSpecifier && boxSpecifier.local.name;
+    touchableLocalIdentifierName =
+      touchableSpecifier && touchableSpecifier.local.name;
   });
 
   let hasModifications = false;
@@ -30,7 +36,10 @@ export default function transformer(file, api) {
     .forEach(path => {
       const { node } = path;
 
-      if (node.openingElement.name.name !== localIdentifierName) {
+      if (
+        node.openingElement.name.name !== boxLocalIdentifierName &&
+        node.openingElement.name.name !== touchableLocalIdentifierName
+      ) {
         return;
       }
 

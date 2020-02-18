@@ -8,8 +8,8 @@
 
 ### Major
 
-- Box [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
-- Touchable [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
+- Box [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` _Has codemod_ (#657)
+- Touchable [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` _Has codemod_ (#657)
 
 ### Minor
 
