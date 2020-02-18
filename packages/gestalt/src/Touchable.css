@@ -22,22 +22,6 @@
   composes: rounded from "./Borders.css";
 }
 
-.roundedTop {
-  composes: roundedTop from "./Borders.css";
-}
-
-.roundedRight {
-  composes: roundedRight from "./Borders.css";
-}
-
-.roundedBottom {
-  composes: roundedBottom from "./Borders.css";
-}
-
-.roundedLeft {
-  composes: roundedLeft from "./Borders.css";
-}
-
 .pill {
   composes: pill from "./Borders.css";
 }

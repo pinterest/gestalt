@@ -172,7 +172,7 @@ card(
       },
       {
         name: 'shape',
-        type: `"square" | "rounded" | "pill" | "circle" | "roundedTop" | "roundedBottom" | "roundedLeft" | "roundedRight"`,
+        type: `"square" | "rounded" | "pill" | "circle"`,
         defaultValue: 'square',
         href: 'shapes',
       },
@@ -531,16 +531,7 @@ card(
   <Combination
     id="shapes"
     name="Shapes"
-    shape={[
-      'square',
-      'rounded',
-      'pill',
-      'circle',
-      'roundedTop',
-      'roundedRight',
-      'roundedBottom',
-      'roundedLeft',
-    ]}
+    shape={['square', 'rounded', 'pill', 'circle']}
   >
     {props => (
       <Box

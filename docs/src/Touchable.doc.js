@@ -56,7 +56,7 @@ card(
       },
       {
         name: 'shape',
-        type: `"square" | "rounded" | "pill" | "circle" | "roundedTop" | "roundedBottom" | "roundedLeft" | "roundedRight"`,
+        type: `"square" | "rounded" | "pill" | "circle"`,
         defaultValue: 'square',
         href: 'basicExample',
       },
