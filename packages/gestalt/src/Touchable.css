@@ -10,22 +10,6 @@
   composes: xsCol12 from "./Column.css";
 }
 
-.square {
-  composes: square from "./Borders.css";
-}
-
-.circle {
-  composes: circle from "./Borders.css";
-}
-
-.rounded {
-  composes: rounded from "./Borders.css";
-}
-
-.pill {
-  composes: pill from "./Borders.css";
-}
-
 .pointer {
   composes: pointer from "./Cursor.css";
 }

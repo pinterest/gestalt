@@ -86,6 +86,7 @@ type Margin =
   | 12
   | 'auto';
 type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 type PropType = {
   children?: React.Node,
   dangerouslySetInlineStyle?: {
@@ -211,7 +212,7 @@ type PropType = {
 
   position?: 'static' | 'absolute' | 'relative' | 'fixed',
   right?: boolean,
-  shape?: 'square' | 'rounded' | 'pill' | 'circle',
+  rounding?: Rounding,
   shrink?: boolean,
   top?: boolean,
   width?: number | string,
@@ -239,6 +240,21 @@ const transformNumberOrPassthrough = (selector: string) => (
 
   if (m === 'auto') {
     return fromClassName(whitespace[`${selector}Auto`]);
+  }
+
+  return identity();
+};
+const rounding = (r: Rounding): Style => {
+  if (typeof r === 'number') {
+    return bind(range('rounding'), borders)(r);
+  }
+
+  if (r === 'circle') {
+    return fromClassName(borders.circle);
+  }
+
+  if (r === 'pill') {
+    return fromClassName(borders.pill);
   }
 
   return identity();
@@ -633,12 +649,7 @@ const propToFn = {
     // default: static
   }),
   right: toggle(layout.right0),
-  shape: mapping({
-    circle: borders.circle,
-    pill: borders.pill,
-    rounded: borders.rounded,
-    // default: square
-  }),
+  rounding,
   top: toggle(layout.top0),
   width: width => fromInlineStyle({ width }),
   wrap: toggle(layout.flexWrap),
@@ -787,6 +798,20 @@ const PaddingPropType = PropTypes.oneOf([
   10,
   11,
   12,
+]);
+
+const RoundingPropType = PropTypes.oneOf([
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  'circle',
+  'pill',
 ]);
 
 // $FlowIssue https://github.com/facebook/flow/issues/7484
@@ -1004,7 +1029,7 @@ Box.propTypes = {
 
   position: PropTypes.oneOf(['static', 'absolute', 'relative', 'fixed']),
   right: PropTypes.bool,
-  shape: PropTypes.oneOf(['square', 'rounded', 'pill', 'circle']),
+  rounding: RoundingPropType,
   top: PropTypes.bool,
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   wrap: PropTypes.bool,

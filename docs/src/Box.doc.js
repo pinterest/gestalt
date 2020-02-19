@@ -171,10 +171,9 @@ card(
         href: 'absolutePositioning',
       },
       {
-        name: 'shape',
-        type: `"square" | "rounded" | "pill" | "circle"`,
-        defaultValue: 'square',
-        href: 'shapes',
+        name: 'rounding',
+        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+        href: 'rounding',
       },
       {
         name: 'wrap',
@@ -523,25 +522,29 @@ card(
       'darkWash',
     ]}
   >
-    {props => <Box width={60} height={60} shape="circle" {...props} />}
+    {props => <Box width={60} height={60} rounding="circle" {...props} />}
   </Combination>
 );
 
 card(
-  <Combination
-    id="shapes"
-    name="Shapes"
-    shape={['square', 'rounded', 'pill', 'circle']}
+  <Card
+    description={`
+    Sets a border radius for the Box. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in boints.
+  `}
+    id="rounding"
+    name="Rounding"
   >
-    {props => (
-      <Box
-        color="gray"
-        width={props.shape === 'pill' ? 120 : 60}
-        height={60}
-        {...props}
-      />
-    )}
-  </Combination>
+    <Combination rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
+      {props => (
+        <Box
+          color="gray"
+          width={props.rounding === 'pill' ? 120 : 70}
+          height={70}
+          {...props}
+        />
+      )}
+    </Combination>
+  </Card>
 );
 
 card(
