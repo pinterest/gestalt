@@ -75,7 +75,7 @@ export default function Pog(props: Props) {
 
   return (
     <div className={classes} style={inlineStyle}>
-      <Box shape="circle">
+      <Box rounding="circle">
         {/*
           We're explicitly setting an empty string as a label on the Icon since we
           already have an aria-label on the button container.

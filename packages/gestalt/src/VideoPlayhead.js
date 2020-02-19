@@ -112,19 +112,19 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
             right
             position="absolute"
             color="lightGray"
-            shape="rounded"
+            rounding={2}
             height={4}
           >
-            <Box color="white" shape="rounded" height="100%" width={width} />
+            <Box color="white" rounding={2} height="100%" width={width} />
           </Box>
           <Box
             position="absolute"
-            shape="rounded"
+            rounding={2}
             height={4}
             dangerouslySetInlineStyle={{ __style: { left: width } }}
           >
             <Box
-              shape="circle"
+              rounding="circle"
               width={16}
               height={16}
               color="white"

@@ -9,7 +9,7 @@ exports[`IconWithTooltip renders 1`] = `
   onMouseLeave={[Function]}
 >
   <div
-    className="touchable pointer rounded fullWidth"
+    className="touchable pointer rounding2 fullWidth"
     onClick={[Function]}
     onKeyPress={[Function]}
     onMouseEnter={[Function]}
@@ -43,7 +43,7 @@ exports[`IconWithTooltip renders with href 1`] = `
   onMouseLeave={[Function]}
 >
   <div
-    className="touchable pointer rounded fullWidth"
+    className="touchable pointer rounding2 fullWidth"
     onClick={[Function]}
     onKeyPress={[Function]}
     onMouseEnter={[Function]}
@@ -77,7 +77,7 @@ exports[`IconWithTooltip renders with missing hrefText 1`] = `
   onMouseLeave={[Function]}
 >
   <div
-    className="touchable pointer rounded fullWidth"
+    className="touchable pointer rounding2 fullWidth"
     onClick={[Function]}
     onKeyPress={[Function]}
     onMouseEnter={[Function]}

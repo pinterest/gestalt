@@ -138,7 +138,7 @@ card(
     id="color"
     name="Colors: Dark Backgrounds"
     defaultCode={`
-<Box color="darkGray" maxWidth={320} shape="rounded" padding={4}>
+<Box color="darkGray" maxWidth={320} rounding={2} padding={4}>
   <Box marginBottom={4}>
     <Text color="white">
       Explore today’s trending ideas, curated finds, and personalized
@@ -168,7 +168,7 @@ card(
     name="Text colors"
     defaultCode={`
 <Box display="flex">
-  <Box color="blue" maxWidth={320} shape="rounded" padding={4} margin={4}>
+  <Box color="blue" maxWidth={320} rounding={2} padding={4} margin={4}>
     <Box marginBottom={4}>
       <Text color="white">
         Click to crop, rotate, apply filters, or edit your image.
@@ -183,7 +183,7 @@ card(
       </Box>
     </Box>
   </Box>
-  <Box color="red" maxWidth={320} shape="rounded" padding={4} margin={4}>
+  <Box color="red" maxWidth={320} rounding={2} padding={4} margin={4}>
     <Box marginBottom={4}>
       <Text color="white">
         Oops, something went wrong! Would you like to try again?

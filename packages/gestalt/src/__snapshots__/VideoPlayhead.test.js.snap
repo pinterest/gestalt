@@ -24,7 +24,7 @@ exports[`VideoPlayhead 1`] = `
     tabIndex="-1"
   >
     <div
-      className="absolute box left0 lightGrayBg right0 rounded"
+      className="absolute box left0 lightGrayBg right0 rounding2"
       style={
         Object {
           "height": 4,
@@ -32,7 +32,7 @@ exports[`VideoPlayhead 1`] = `
       }
     >
       <div
-        className="box rounded whiteBg"
+        className="box rounding2 whiteBg"
         style={
           Object {
             "height": "100%",
@@ -42,7 +42,7 @@ exports[`VideoPlayhead 1`] = `
       />
     </div>
     <div
-      className="absolute box rounded"
+      className="absolute box rounding2"
       style={
         Object {
           "height": 4,

@@ -2,9 +2,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import borders from './Borders.css';
 import styles from './Touchable.css';
-
-type Shape = 'square' | 'rounded' | 'pill' | 'circle';
+import { fromClassName, identity, toProps, type Style } from './style.js';
+import { bind, range } from './transforms.js';
 
 type MouseCursor =
   | 'copy'
@@ -15,6 +16,7 @@ type MouseCursor =
   | 'pointer'
   | 'zoomIn'
   | 'zoomOut';
+type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 type Props = {|
   children?: React.Node,
@@ -28,11 +30,41 @@ type Props = {|
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => void,
-  shape?: Shape,
+  rounding?: Rounding,
 |};
 
 const SPACE_CHAR_CODE = 32;
 const ENTER_CHAR_CODE = 13;
+
+const RoundingPropType = PropTypes.oneOf([
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  'circle',
+  'pill',
+]);
+
+const getRoundingStyle = (r: Rounding): Style => {
+  if (typeof r === 'number') {
+    return bind(range('rounding'), borders)(r);
+  }
+
+  if (r === 'circle') {
+    return fromClassName(borders.circle);
+  }
+
+  if (r === 'pill') {
+    return fromClassName(borders.pill);
+  }
+
+  return identity();
+};
 
 export default class Touchable extends React.Component<Props> {
   static propTypes = {
@@ -52,7 +84,7 @@ export default class Touchable extends React.Component<Props> {
     onTouch: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    shape: PropTypes.oneOf(['square', 'rounded', 'pill', 'circle']),
+    rounding: RoundingPropType,
   };
 
   handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
@@ -95,13 +127,13 @@ export default class Touchable extends React.Component<Props> {
       fullWidth = true,
       fullHeight,
       mouseCursor = 'pointer',
-      shape = 'square',
+      rounding = 0,
     } = this.props;
 
     const classes = classnames(
       styles.touchable,
       styles[mouseCursor],
-      styles[shape],
+      toProps(getRoundingStyle(rounding)).className,
       {
         [styles.fullHeight]: fullHeight,
         [styles.fullWidth]: fullWidth,

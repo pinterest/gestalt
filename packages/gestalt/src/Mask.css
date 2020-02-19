@@ -8,18 +8,6 @@
   will-change: transform;
 }
 
-.square {
-  composes: square from "./Borders.css";
-}
-
-.rounded {
-  composes: rounded from "./Borders.css";
-}
-
-.circle {
-  composes: circle from "./Borders.css";
-}
-
 .wash {
   composes: absolute from "./Layout.css";
   composes: bottom0 from "./Layout.css";
