@@ -5,8 +5,10 @@
 .contents {
   composes: block from "./Layout.css";
   composes: borderBox from "./Layout.css";
-  composes: rounded from "./Borders.css";
+
+  /* composes: rounded from "./Borders.css"; TODO: switch back to "rounded" when that style is updated to 16px */
   border: 1px solid currentColor;
+  border-radius: 16px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   outline: none;
 }
