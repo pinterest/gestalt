@@ -27,7 +27,9 @@ type Layout =
   | typeof DefaultLayoutSymbol
   | typeof UniformRowLayoutSymbol
   | LegacyMasonryLayout
-  | LegacyUniformRowLayout;
+  | LegacyUniformRowLayout
+  | 'default'
+  | 'uniformRow';
 
 type Props<T> = {|
   columnWidth?: number,
@@ -164,6 +166,7 @@ export default class Masonry<T: {}> extends React.Component<
       PropTypes.instanceOf(LegacyMasonryLayout),
       PropTypes.instanceOf(LegacyUniformRowLayout),
       PropTypes.symbol,
+      PropTypes.string,
     ]),
 
     /**
@@ -193,7 +196,7 @@ export default class Masonry<T: {}> extends React.Component<
   static defaultProps = {
     columnWidth: 236,
     minCols: 3,
-    layout: DefaultLayoutSymbol,
+    layout: 'default',
     loadItems: () => {},
     virtualize: false,
   };
@@ -351,13 +354,13 @@ export default class Masonry<T: {}> extends React.Component<
   };
 
   fetchMore = () => {
-    const { loadItems } = this.props;
+    const { loadItems, items } = this.props;
     if (loadItems && typeof loadItems === 'function') {
       this.setState(
         {
           isFetching: true,
         },
-        () => loadItems({ from: this.props.items.length })
+        () => loadItems({ from: items.length })
       );
     }
   };
@@ -384,8 +387,10 @@ export default class Masonry<T: {}> extends React.Component<
    * number of columns we would display should change after a resize.
    */
   reflow() {
-    if (this.props.measurementStore) {
-      this.props.measurementStore.reset();
+    const { measurementStore } = this.props;
+
+    if (measurementStore) {
+      measurementStore.reset();
     }
     this.state.measurementStore.reset();
 
@@ -396,6 +401,7 @@ export default class Masonry<T: {}> extends React.Component<
   renderMasonryComponent = (itemData: T, idx: number, position: *) => {
     const {
       comp: Component,
+      scrollContainer,
       virtualize,
       virtualBoundsTop,
       virtualBoundsBottom,
@@ -403,7 +409,7 @@ export default class Masonry<T: {}> extends React.Component<
     const { top, left, width, height } = position;
 
     let isVisible;
-    if (this.props.scrollContainer) {
+    if (scrollContainer) {
       const virtualBuffer = this.containerHeight * VIRTUAL_BUFFER_FACTOR;
       const offsetScrollPos = this.state.scrollTop - this.containerOffset;
       const viewportTop = virtualBoundsTop
@@ -452,13 +458,15 @@ export default class Masonry<T: {}> extends React.Component<
       flexible,
       gutterWidth: gutter,
       items,
+      layout,
       minCols,
+      scrollContainer,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
 
-    let layout;
+    let getPositions;
     if (flexible && width !== null) {
-      layout = fullWidthLayout({
+      getPositions = fullWidthLayout({
         gutter,
         cache: measurementStore,
         minCols,
@@ -466,10 +474,11 @@ export default class Masonry<T: {}> extends React.Component<
         width,
       });
     } else if (
-      this.props.layout === UniformRowLayoutSymbol ||
-      this.props.layout instanceof LegacyUniformRowLayout
+      layout === UniformRowLayoutSymbol ||
+      layout instanceof LegacyUniformRowLayout ||
+      layout === 'uniformRow'
     ) {
-      layout = uniformRowLayout({
+      getPositions = uniformRowLayout({
         cache: measurementStore,
         columnWidth,
         gutter,
@@ -477,7 +486,7 @@ export default class Masonry<T: {}> extends React.Component<
         width,
       });
     } else {
-      layout = defaultLayout({
+      getPositions = defaultLayout({
         cache: measurementStore,
         columnWidth,
         gutter,
@@ -537,8 +546,8 @@ export default class Masonry<T: {}> extends React.Component<
         .filter(item => item && !measurementStore.has(item))
         .slice(0, minCols);
 
-      const positions = layout(itemsToRender);
-      const measuringPositions = layout(itemsToMeasure);
+      const positions = getPositions(itemsToRender);
+      const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
         ? Math.max(...positions.map(pos => pos.top + pos.height))
@@ -599,11 +608,11 @@ export default class Masonry<T: {}> extends React.Component<
       );
     }
 
-    return this.props.scrollContainer ? (
+    return scrollContainer ? (
       <ScrollContainer
         ref={this.setScrollContainerRef}
         onScroll={this.updateScrollPosition}
-        scrollContainer={this.props.scrollContainer}
+        scrollContainer={scrollContainer}
       >
         {gridBody}
       </ScrollContainer>
