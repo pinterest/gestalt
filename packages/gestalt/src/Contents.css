@@ -25,10 +25,3 @@
   composes: overflowAuto from "./Layout.css";
   composes: rounded from "./Borders.css";
 }
-
-.caret {
-  composes: absolute from "./Layout.css";
-  fill: currentColor;
-  height: 24px;
-  pointer-events: none;
-}

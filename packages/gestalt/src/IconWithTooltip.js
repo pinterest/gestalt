@@ -107,7 +107,6 @@ export default function IconWithTooltip({
         <Controller
           anchor={anchor}
           bgColor="darkGray"
-          caret={false}
           idealDirection="down"
           onDismiss={noop}
           positionRelativeToAnchor
