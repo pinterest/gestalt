@@ -4,12 +4,20 @@
  * to
  *  <Box shape="rounded" /> or <Touchable shape="rounded" />
  */
+
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
   let boxLocalIdentifierName;
   let maskLocalIdentifierName;
   let touchableLocalIdentifierName;
+
+  const oldToNewMap = {
+    circle: j.literal('circle'),
+    pill: j.literal('pill'),
+    rounded: j.literal(2),
+    square: j.literal(0),
+  };
 
   src.find(j.ImportDeclaration).forEach(path => {
     const decl = path.node;
@@ -59,24 +67,37 @@ export default function transformer(file, api) {
 
       node.openingElement.attributes = node.openingElement.attributes
         .map(attr => {
-          if (attr.name && attr.name.name === 'shape' && attr.value.value) {
-            if (attr.value.value === 'circle' || attr.value.value === 'pill') {
-              return j.jsxAttribute(
-                j.jsxIdentifier('rounding'),
-                j.literal(attr.value.value)
-              );
+          if (attr.name && attr.name.name === 'shape') {
+            let oldVal;
+            let newVal;
+            if (attr.value.value) {
+              oldVal = attr.value.value;
+            } else if (attr.value.expression) {
+              const { expression } = attr.value;
+              if (expression.type === 'Literal') {
+                oldVal = expression.value;
+              } else if (expression.type === 'ConditionalExpression') {
+                return j.jsxAttribute(
+                  j.jsxIdentifier('rounding'),
+                  j.jsxExpressionContainer(
+                    j.conditionalExpression(
+                      expression.test,
+                      oldToNewMap[expression.consequent.value] ||
+                        expression.consequent,
+                      oldToNewMap[expression.alternate.value] ||
+                        expression.alternate
+                    )
+                  )
+                );
+              }
             }
-            if (attr.value.value === 'rounded') {
-              return j.jsxAttribute(
-                j.jsxIdentifier('rounding'),
-                j.jsxExpressionContainer(j.literal(2))
-              );
+            if (oldVal === 'circle' || oldVal === 'pill') {
+              newVal = oldToNewMap[oldVal];
+            } else if (oldVal === 'rounded' || oldVal === 'square') {
+              newVal = j.jsxExpressionContainer(oldToNewMap[oldVal]);
             }
-            if (attr.value.value === 'square') {
-              return j.jsxAttribute(
-                j.jsxIdentifier('rounding'),
-                j.jsxExpressionContainer(j.literal(0))
-              );
+            if (newVal) {
+              return j.jsxAttribute(j.jsxIdentifier('rounding'), newVal);
             }
           }
           return attr;
