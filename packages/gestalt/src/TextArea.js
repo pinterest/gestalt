@@ -4,6 +4,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
+import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import styles from './TextArea.css';
 
@@ -114,8 +115,9 @@ export default class TextArea extends React.Component<Props, State> {
 
     const classes = classnames(
       styles.textArea,
-      disabled ? styles.disabled : styles.enabled,
-      hasError || errorMessage ? styles.errored : styles.normal
+      formElement.base,
+      disabled ? formElement.disabled : formElement.enabled,
+      hasError || errorMessage ? formElement.errored : formElement.normal
     );
 
     return (
@@ -137,7 +139,7 @@ export default class TextArea extends React.Component<Props, State> {
           value={value}
         />
         {errorMessage && (
-          <Box marginTop={1}>
+          <Box marginTop={2}>
             <FormErrorMessage id={id} text={errorMessage} />
           </Box>
         )}

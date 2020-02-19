@@ -90,35 +90,24 @@ card(
     A \`TextField\` will expand to fill the width of the parent container.
   `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      value: ""
-    };
-  }
-  _handleChange({ value }) {
-    this.setState({ value });
-  }
-  render() {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Label htmlFor="email">
-            <Text>Email</Text>
-          </Label>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box>
+      <Label htmlFor="email">
+        <Box padding={2}>
+          <Text size="sm">Email</Text>
         </Box>
-        <TextField
-          id="email"
-          onChange={this.handleChange}
-          placeholder="Email Address"
-          value={this.state.value}
-          type="email"
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <TextField
+        id="email"
+        onChange={({value}) => setValue(value)}
+        placeholder="Add email"
+        value={value}
+        type="email"
+      />
+    </Box>
+  );
 }
 `}
   />
@@ -129,35 +118,24 @@ card(
     id="disabledExample"
     name="Example: Disabled"
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      value: ""
-    };
-  }
-  _handleChange({ value }) {
-    this.setState({ value });
-  }
-  render() {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Label htmlFor="name">
-            <Text>Disabled</Text>
-          </Label>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box>
+      <Label htmlFor="name">
+        <Box padding={2}>
+          <Text size="sm">Disabled</Text>
         </Box>
-        <TextField
-          disabled
-          id="name"
-          onChange={this.handleChange}
-          placeholder="Name"
-          value={this.state.value}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <TextField
+        disabled
+        id="name"
+        onChange={({value}) => setValue(value)}
+        placeholder="Name"
+        value={value}
+      />
+    </Box>
+  );
 }
 `}
   />
@@ -171,34 +149,23 @@ card(
     A TextField can display its own error message.
     To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      value: ""
-    };
-  }
-  _handleChange({ value }) {
-    this.setState({ value });
-  }
-  render() {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Label htmlFor="aboutme">
-            <Text>With an error message</Text>
-          </Label>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box>
+      <Label htmlFor="aboutme">
+        <Box padding={2}>
+          <Text size="sm">With an error message</Text>
         </Box>
-        <TextField
-          id="aboutme"
-          errorMessage={!this.state.value ? "This field can't be blank!" : null}
-          onChange={this.handleChange}
-          value={this.state.value}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <TextField
+        id="aboutme"
+        errorMessage={!value ? "This field can't be blank!" : null}
+        onChange={({value}) => setValue(value)}
+        value={value}
+      />
+    </Box>
+  );
 }
 `}
   />
