@@ -19,7 +19,7 @@
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "benchmark": "^2.1.4",
-    "codecov": "^3.6.1",
+    "codecov": "^3.6.5",
     "danger": "9.2.8",
     "eslint": "6.7.1",
     "eslint-config-airbnb": "^18.0.1",
