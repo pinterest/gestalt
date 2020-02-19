@@ -1,8 +1,8 @@
 /**
  * Converts
- *  <Box shape="roundedTop" /> or <Touchable shape="roundedTop" /> (and other roundedX variants)
+ *  <Box shape="circle" /> or <Touchable shape="pill" /> or <Mask shape="rounded" />
  * to
- *  <Box shape="rounded" /> or <Touchable shape="rounded" />
+ *  <Box rounding="circle" /> or <Touchable rounding="pill" /> or <Mask rounding={2} />
  */
 
 export default function transformer(file, api) {
@@ -103,17 +103,6 @@ export default function transformer(file, api) {
           return attr;
         })
         .filter(Boolean);
-
-      // Sort attributes alphabetically
-      node.openingElement.attributes.sort((a, b) => {
-        if (!a.name) {
-          return -1;
-        }
-        if (!b.name) {
-          return 1;
-        }
-        return a.name.name.localeCompare(b.name.name);
-      });
 
       j(path).replaceWith(node);
 

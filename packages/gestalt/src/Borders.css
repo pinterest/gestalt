@@ -1,6 +1,7 @@
 :root {
   --border-width: 1px;
   --border-color: #efefef;
+  --bt: 4px;
 }
 
 /* Border lines */
@@ -44,39 +45,39 @@ html[dir="rtl"] .borderLeft {
 }
 
 .rounding0 {
-  border-radius: 0;
+  border-radius: calc(var(--bt) * 0);
 }
 
 .rounding1 {
-  border-radius: 4px;
+  border-radius: calc(var(--bt) * 1);
 }
 
 .rounding2 {
-  border-radius: 8px;
+  border-radius: calc(var(--bt) * 2);
 }
 
 .rounding3 {
-  border-radius: 12px;
+  border-radius: calc(var(--bt) * 3);
 }
 
 .rounding4 {
-  border-radius: 16px;
+  border-radius: calc(var(--bt) * 4);
 }
 
 .rounding5 {
-  border-radius: 20px;
+  border-radius: calc(var(--bt) * 5);
 }
 
 .rounding6 {
-  border-radius: 24px;
+  border-radius: calc(var(--bt) * 6);
 }
 
 .rounding7 {
-  border-radius: 28px;
+  border-radius: calc(var(--bt) * 7);
 }
 
 .rounding8 {
-  border-radius: 32px;
+  border-radius: calc(var(--bt) * 8);
 }
 
 .noBorder {
