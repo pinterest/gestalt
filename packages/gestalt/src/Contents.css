@@ -7,7 +7,7 @@
   composes: borderBox from "./Layout.css";
   composes: rounded from "./Borders.css";
   border: 1px solid currentColor;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
