@@ -28,7 +28,8 @@ type Layout =
   | typeof UniformRowLayoutSymbol
   | LegacyMasonryLayout
   | LegacyUniformRowLayout
-  | 'default'
+  | 'basic'
+  | 'flexible'
   | 'uniformRow';
 
 type Props<T> = {|
@@ -196,7 +197,7 @@ export default class Masonry<T: {}> extends React.Component<
   static defaultProps = {
     columnWidth: 236,
     minCols: 3,
-    layout: 'default',
+    layout: 'basic',
     loadItems: () => {},
     virtualize: false,
   };
@@ -465,7 +466,7 @@ export default class Masonry<T: {}> extends React.Component<
     const { hasPendingMeasurements, measurementStore, width } = this.state;
 
     let getPositions;
-    if (flexible && width !== null) {
+    if ((flexible || layout === 'flexible') && width !== null) {
       getPositions = fullWidthLayout({
         gutter,
         cache: measurementStore,
@@ -517,12 +518,13 @@ export default class Masonry<T: {}> extends React.Component<
                   left: 0,
                   transform: 'translateX(0px) translateY(0px)',
                   WebkitTransform: 'translateX(0px) translateY(0px)',
-                  width: flexible
-                    ? undefined
-                    : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
+                  width:
+                    flexible || layout === 'flexible'
+                      ? undefined
+                      : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
                 }}
                 ref={el => {
-                  if (el && !flexible) {
+                  if (el && layout !== 'flexible') {
                     // only measure flexible items on client
                     measurementStore.set(item, el.clientHeight);
                   }
