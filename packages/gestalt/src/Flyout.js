@@ -34,7 +34,6 @@ export default function Flyout(props: Props) {
     <Controller
       anchor={anchor}
       bgColor={color}
-      caret={false}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
