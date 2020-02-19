@@ -15,6 +15,8 @@ yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/conver
 
 ### Minor
 
+- Flyout: Remove caret, update shadow (#663)
+
 ### Patch
 
 </details>
