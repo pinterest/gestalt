@@ -23,5 +23,5 @@
 .innerContents {
   composes: flex from "./Layout.css";
   composes: overflowAuto from "./Layout.css";
-  composes: rounded from "./Borders.css";
+  composes: rounding2 from "./Borders.css";
 }
