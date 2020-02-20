@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Update dependencies (#671)
+
 ### Patch
 
 - Heading: removed unused weight prop from docs (#653)
