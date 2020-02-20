@@ -21,7 +21,7 @@
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.4.0"
   },
   "browserslist": [
     "last 2 versions",
