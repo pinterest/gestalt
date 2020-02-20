@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Update dependencies (#671)
+
 ### Patch
 
 </details>
