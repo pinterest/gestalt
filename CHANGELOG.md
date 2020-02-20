@@ -8,13 +8,19 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.2.0 (Feb 20, 2020)
+
+### Minor
+
 - Internal: Update dependencies (#671)
 
 ### Patch
 
 - Heading: removed unused weight prop from docs (#653)
-
-</details>
 
 ## 1.1.0 (Feb 20, 2020)
 
