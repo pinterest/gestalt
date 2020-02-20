@@ -8,11 +8,13 @@
 
 ### Minor
 
-Modal / SegmentedControl / Card: Fix corner radius (#672)
-
 ### Patch
 
 </details>
+
+## 1.3.0 (Feb 20, 2020)
+
+- Modal / SegmentedControl / Card: Fix corner radius (#672)
 
 ## 1.2.0 (Feb 20, 2020)
 
