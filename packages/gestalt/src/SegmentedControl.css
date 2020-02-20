@@ -3,7 +3,7 @@
   composes: lightGrayBg from "./Colors.css";
   composes: flex from "./Layout.css";
   composes: justifyBetween from "./Layout.css";
-  composes: rounded from "./Borders.css";
+  composes: rounding2 from "./Borders.css";
   padding: 2px;
   user-select: none;
 }

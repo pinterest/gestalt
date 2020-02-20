@@ -8,6 +8,8 @@
 
 ### Minor
 
+Modal / SegmentedControl / Card: Fix corner radius (#672)
+
 ### Patch
 
 </details>
