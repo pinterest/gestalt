@@ -95,7 +95,7 @@ export default function IconWithTooltip({
       onFocus={handleIconMouseEnter}
       onBlur={handleIconMouseLeave}
     >
-      <Touchable onTouch={handleIconMouseEnter} shape="rounded">
+      <Touchable onTouch={handleIconMouseEnter} rounding={2}>
         <Icon
           color={isOpen ? 'darkGray' : 'gray'}
           icon={icon}
@@ -107,7 +107,6 @@ export default function IconWithTooltip({
         <Controller
           anchor={anchor}
           bgColor="darkGray"
-          caret={false}
           idealDirection="down"
           onDismiss={noop}
           positionRelativeToAnchor

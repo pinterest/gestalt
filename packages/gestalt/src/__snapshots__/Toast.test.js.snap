@@ -20,7 +20,7 @@ exports[`Confirmation Toast 1`] = `
         className="box flexNone justifyCenter xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Mask rounded willChangeTransform"
+          className="Mask rounding2 willChangeTransform"
           style={
             Object {
               "height": 48,

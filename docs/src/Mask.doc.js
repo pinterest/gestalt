@@ -38,10 +38,9 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'shape',
-        type: `"circle" | "rounded" | "square"`,
-        defaultValue: 'square',
-        href: 'shapeCombinations',
+        name: 'rounding',
+        type: `"circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+        href: 'roundingCombinations',
       },
       {
         name: 'wash',
@@ -64,7 +63,7 @@ card(
     id="basicExample"
     name="Example"
     defaultCode={`
-<Mask height={70} shape="circle" width={70}>
+<Mask height={70} rounding="circle" width={70}>
   <div style={{ backgroundColor: '#0fa573', width: 70, height: 70 }} />
 </Mask>
 `}
@@ -79,7 +78,7 @@ card(
     name="Example: Masking other content"
     defaultCode={`
 <Box maxWidth={300}>
-  <Mask shape="circle">
+  <Mask rounding="circle">
     <img
       alt="weakendclub.com"
       src="${stock7}"
@@ -100,7 +99,7 @@ card(
     name="Example: Adding a wash"
     defaultCode={`
 <Box maxWidth={300}>
-  <Mask shape="rounded" wash>
+  <Mask rounding={2} wash>
     <img
       alt="subliming.tumblr.com"
       src="${stock8}"
@@ -114,9 +113,9 @@ card(
 
 card(
   <Combination
-    id="shapeCombinations"
-    name="Shape Combinations"
-    shape={['circle', 'rounded', 'square']}
+    id="roundingCombinations"
+    name="Rounding Combinations"
+    rounding={['circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}
   >
     {props => (
       <Mask height={70} width={70} {...props}>
@@ -135,7 +134,7 @@ card(
     name="Example: willChangeTransform"
     defaultCode={`
 <Box maxWidth={300}>
-  <Mask shape="rounded" willChangeTransform="false">
+  <Mask rounding={2} willChangeTransform="false">
     <img
       alt="subliming.tumblr.com"
       src="${stock8}"

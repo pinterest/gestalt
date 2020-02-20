@@ -55,9 +55,8 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'shape',
-        type: `"square" | "rounded" | "pill" | "circle"`,
-        defaultValue: 'square',
+        name: 'rounding',
+        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
         href: 'basicExample',
       },
     ]}
@@ -95,9 +94,9 @@ class TouchableExample extends React.Component {
         <Touchable
           mouseCursor="zoomIn"
           onTouch={this.handleTouch}
-          shape="rounded"
+          rounding={2}
         >
-          <Mask shape="rounded">
+          <Mask rounding={2}>
             <Image
               alt="Antelope Canyon"
               naturalHeight={1}

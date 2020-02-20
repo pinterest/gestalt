@@ -19,9 +19,9 @@ test('Touchable sets correct mouse cursor', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Touchable sets correct shape', () => {
+test('Touchable sets correct rounding', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} shape="circle">
+    <Touchable onTouch={() => {}} rounding="circle">
       Touchable
     </Touchable>
   ).toJSON();

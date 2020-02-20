@@ -8,7 +8,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -71,7 +71,7 @@ exports[`VideoControls for double digit minutes 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounded"
+          className="absolute box left0 lightGrayBg right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -79,7 +79,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           }
         >
           <div
-            className="box rounded whiteBg"
+            className="box rounding2 whiteBg"
             style={
               Object {
                 "height": "100%",
@@ -89,7 +89,7 @@ exports[`VideoControls for double digit minutes 1`] = `
           />
         </div>
         <div
-          className="absolute box rounded"
+          className="absolute box rounding2"
           style={
             Object {
               "height": 4,
@@ -129,7 +129,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -163,7 +163,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -226,7 +226,7 @@ exports[`VideoControls for double digit seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounded"
+          className="absolute box left0 lightGrayBg right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -234,7 +234,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           }
         >
           <div
-            className="box rounded whiteBg"
+            className="box rounding2 whiteBg"
             style={
               Object {
                 "height": "100%",
@@ -244,7 +244,7 @@ exports[`VideoControls for double digit seconds 1`] = `
           />
         </div>
         <div
-          className="absolute box rounded"
+          className="absolute box rounding2"
           style={
             Object {
               "height": 4,
@@ -284,7 +284,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -318,7 +318,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -381,7 +381,7 @@ exports[`VideoControls for single digit minutes 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounded"
+          className="absolute box left0 lightGrayBg right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -389,7 +389,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           }
         >
           <div
-            className="box rounded whiteBg"
+            className="box rounding2 whiteBg"
             style={
               Object {
                 "height": "100%",
@@ -399,7 +399,7 @@ exports[`VideoControls for single digit minutes 1`] = `
           />
         </div>
         <div
-          className="absolute box rounded"
+          className="absolute box rounding2"
           style={
             Object {
               "height": 4,
@@ -439,7 +439,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -473,7 +473,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -536,7 +536,7 @@ exports[`VideoControls for single digit seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounded"
+          className="absolute box left0 lightGrayBg right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -544,7 +544,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           }
         >
           <div
-            className="box rounded whiteBg"
+            className="box rounding2 whiteBg"
             style={
               Object {
                 "height": "100%",
@@ -554,7 +554,7 @@ exports[`VideoControls for single digit seconds 1`] = `
           />
         </div>
         <div
-          className="absolute box rounded"
+          className="absolute box rounding2"
           style={
             Object {
               "height": 4,
@@ -594,7 +594,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -628,7 +628,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
@@ -691,7 +691,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
         tabIndex="-1"
       >
         <div
-          className="absolute box left0 lightGrayBg right0 rounded"
+          className="absolute box left0 lightGrayBg right0 rounding2"
           style={
             Object {
               "height": 4,
@@ -699,7 +699,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           }
         >
           <div
-            className="box rounded whiteBg"
+            className="box rounding2 whiteBg"
             style={
               Object {
                 "height": "100%",
@@ -709,7 +709,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
           />
         </div>
         <div
-          className="absolute box rounded"
+          className="absolute box rounding2"
           style={
             Object {
               "height": 4,
@@ -749,7 +749,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer square"
+      className="touchable pointer rounding0"
       onClick={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
