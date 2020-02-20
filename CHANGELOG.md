@@ -7,11 +7,16 @@
   </summary>
 
 ### Minor
-- Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
 
 ### Patch
 
 </details>
+
+## 1.1.0 (Feb 20, 2020)
+
+### Minor
+
+- Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
 
 ## 1.0.0 (Feb 20, 2020)
 
@@ -21,8 +26,9 @@
 - Box / Mask / Touchable [Breaking]: Replace `shape` prop with `rounding` (#666)
 
 Run codemods for breaking changes in order:
-1) `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-roundedX.js ~/code/repo`
-2) `yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-shape-to-rounding.js ~/code/repo`
+
+1. `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-roundedX.js ~/code/repo`
+2. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-shape-to-rounding.js ~/code/repo`
 
 ### Minor
 
