@@ -27,18 +27,20 @@ type Props = {|
   dangerouslySetSvgPath?: { __path: string },
   focused?: boolean,
   hovered?: boolean,
+  selected?: boolean,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
   icon?: $Keys<typeof icons>,
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
 |};
 
 const defaultIconButtonIconColors = {
-  transparent: 'gray',
+  blue: 'white',
+  darkGray: 'white',
   gray: 'white',
   lightGray: 'gray',
-  white: 'gray',
+  transparent: 'gray',
   transparentDarkGray: 'white',
-  blue: 'white',
+  white: 'gray',
 };
 
 export default function Pog(props: Props) {
@@ -48,19 +50,24 @@ export default function Pog(props: Props) {
     dangerouslySetSvgPath,
     focused = false,
     hovered = false,
-    iconColor = defaultIconButtonIconColors[bgColor],
+    iconColor,
     icon,
+    selected = false,
     size = 'md',
   } = props;
 
   const iconSize = SIZE_NAME_TO_PIXEL[size] / 2;
+  const color =
+    (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
 
   const inlineStyle = {
     height: SIZE_NAME_TO_PIXEL[size],
     width: SIZE_NAME_TO_PIXEL[size],
   };
 
-  const classes = classnames(styles.pog, styles[bgColor], {
+  const classes = classnames(styles.pog, {
+    [styles[bgColor]]: !selected,
+    [styles.selected]: selected,
     [styles.active]: active,
     [styles.focused]: focused,
     [styles.hovered]: hovered && !focused && !active,
@@ -68,7 +75,7 @@ export default function Pog(props: Props) {
 
   return (
     <div className={classes} style={inlineStyle}>
-      <Box shape="circle">
+      <Box rounding="circle">
         {/*
           We're explicitly setting an empty string as a label on the Icon since we
           already have an aria-label on the button container.
@@ -77,7 +84,7 @@ export default function Pog(props: Props) {
         */}
         <Icon
           accessibilityLabel=""
-          color={iconColor}
+          color={color}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
           icon={icon}
           size={iconSize}
@@ -111,5 +118,6 @@ Pog.propTypes = {
     'orange',
   ]),
   icon: PropTypes.oneOf(Object.keys(icons)),
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
 };

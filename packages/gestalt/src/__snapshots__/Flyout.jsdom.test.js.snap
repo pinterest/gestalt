@@ -7,7 +7,7 @@ exports[`Flyout renders 1`] = `
   className="container"
   style={
     Object {
-      "left": -20,
+      "left": -28,
       "stroke": "#efefef",
       "top": NaN,
       "visibility": "visible",
@@ -26,26 +26,6 @@ exports[`Flyout renders 1`] = `
         }
       }
     />
-    <div
-      className="white caret"
-      style={
-        Object {
-          "bottom": null,
-          "left": 8,
-          "right": null,
-          "top": null,
-        }
-      }
-    >
-      <svg
-        height="24"
-        width="24"
-      >
-        <path
-          d="M0 0 L12 12 L24 0"
-        />
-      </svg>
-    </div>
   </div>
 </div>
 `;
@@ -55,7 +35,7 @@ exports[`Flyout renders as blue 1`] = `
   className="container"
   style={
     Object {
-      "left": -20,
+      "left": -28,
       "stroke": null,
       "top": NaN,
       "visibility": "visible",
@@ -74,26 +54,6 @@ exports[`Flyout renders as blue 1`] = `
         }
       }
     />
-    <div
-      className="blue caret"
-      style={
-        Object {
-          "bottom": null,
-          "left": 8,
-          "right": null,
-          "top": null,
-        }
-      }
-    >
-      <svg
-        height="24"
-        width="24"
-      >
-        <path
-          d="M0 0 L12 12 L24 0"
-        />
-      </svg>
-    </div>
   </div>
 </div>
 `;
@@ -103,7 +63,7 @@ exports[`Flyout renders as error 1`] = `
   className="container"
   style={
     Object {
-      "left": -20,
+      "left": -28,
       "stroke": null,
       "top": NaN,
       "visibility": "visible",
@@ -122,26 +82,6 @@ exports[`Flyout renders as error 1`] = `
         }
       }
     />
-    <div
-      className="red caret"
-      style={
-        Object {
-          "bottom": null,
-          "left": 8,
-          "right": null,
-          "top": null,
-        }
-      }
-    >
-      <svg
-        height="24"
-        width="24"
-      >
-        <path
-          d="M0 0 L12 12 L24 0"
-        />
-      </svg>
-    </div>
   </div>
 </div>
 `;

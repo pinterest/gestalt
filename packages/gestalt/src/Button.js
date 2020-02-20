@@ -23,6 +23,7 @@ type Props = {|
   inline?: boolean,
   name?: string,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   text: string,
   textColor?: 'white' | 'darkGray' | 'blue' | 'red',
@@ -39,6 +40,7 @@ export default function Button(props: Props) {
     inline = false,
     name,
     onClick,
+    selected = false,
     size = 'md',
     text,
     textColor,
@@ -50,7 +52,8 @@ export default function Button(props: Props) {
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
     [styles.solid]: color !== 'transparent',
-    [styles[color]]: !disabled,
+    [styles[color]]: !disabled && !selected,
+    [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
@@ -71,9 +74,14 @@ export default function Button(props: Props) {
     >
       <Text
         align="center"
-        color={disabled ? 'gray' : textColor || DEFAULT_TEXT_COLORS[color]}
+        color={
+          (disabled && 'gray') ||
+          (selected && 'white') ||
+          textColor ||
+          DEFAULT_TEXT_COLORS[color]
+        }
         overflow="normal"
-        size={size}
+        size="md"
         weight="bold"
       >
         {text}
@@ -92,6 +100,7 @@ Button.propTypes = {
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
+  selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   text: PropTypes.string.isRequired,
   textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),

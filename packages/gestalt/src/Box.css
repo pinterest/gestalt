@@ -378,3 +378,49 @@
     composes: lgCol12 from "./Column.css";
   }
 }
+
+/* Opacity */
+
+.opacity0 {
+  opacity: 0;
+}
+
+.opacity01 {
+  opacity: 0.1;
+}
+
+.opacity02 {
+  opacity: 0.2;
+}
+
+.opacity03 {
+  opacity: 0.3;
+}
+
+.opacity04 {
+  opacity: 0.4;
+}
+
+.opacity05 {
+  opacity: 0.5;
+}
+
+.opacity06 {
+  opacity: 0.6;
+}
+
+.opacity07 {
+  opacity: 0.7;
+}
+
+.opacity08 {
+  opacity: 0.8;
+}
+
+.opacity09 {
+  opacity: 0.9;
+}
+
+.opacity1 {
+  opacity: 1;
+}

@@ -47,6 +47,30 @@ exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] 
 />
 `;
 
+exports[`Box has correct class when opacity is 0.5 1`] = `
+<div
+  className="box opacity05"
+/>
+`;
+
+exports[`Box has correct class when opacity is 1 1`] = `
+<div
+  className="box opacity1"
+/>
+`;
+
+exports[`Box has correct class when rounding is 1 1`] = `
+<div
+  className="box rounding1"
+/>
+`;
+
+exports[`Box has correct class when rounding is circle 1`] = `
+<div
+  className="box circle"
+/>
+`;
+
 exports[`Box has correct classes when display is flex 1`] = `
 <div
   className="box"

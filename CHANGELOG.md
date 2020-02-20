@@ -14,6 +14,44 @@
 
 </details>
 
+## 1.1.0 (Feb 20, 2020)
+
+### Minor
+
+- Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
+
+## 1.0.0 (Feb 20, 2020)
+
+### Major
+
+- Box / Touchable [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
+- Box / Mask / Touchable [Breaking]: Replace `shape` prop with `rounding` (#666)
+
+Run codemods for breaking changes in order:
+
+1. `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-roundedX.js ~/code/repo`
+2. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-shape-to-rounding.js ~/code/repo`
+
+### Minor
+
+- Flyout: Remove caret, update shadow (#663)
+- Flyout: Update spacing around items to 8px + remove caret code (#668)
+
+## 0.125.0 (Feb 16, 2020)
+
+### Minor
+
+- IconButton/Pog: Add darkGray background option (#659)
+- Tabs: update states + improve docs & test coverage (#658)
+- Button/IconButton/Pog: Convert 'darkGray' color to selected state (#661)
+
+## 0.124.0 (Feb 12, 2020)
+
+### Minor
+
+- Box: Add new prop `opacity` to set css opacity with values 0 to 1 in tenth increments. (#654)
+- Button: Update border radius / small size + add dark gray option (#655)
+
 ## 0.123.0 (Feb 7, 2020)
 
 ### Minor

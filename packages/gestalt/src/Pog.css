@@ -15,6 +15,10 @@
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
 
+.selected {
+  composes: darkGrayBg from "./Colors.css";
+}
+
 .transparent {
   composes: transparentBg from "./Colors.css";
 }
@@ -81,6 +85,10 @@
 
 .gray.active {
   background-color: #828282;
+}
+
+.darkGray {
+  composes: darkGrayBg from "./Colors.css";
 }
 
 .blue {

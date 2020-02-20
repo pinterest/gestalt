@@ -22,7 +22,7 @@ const Square = (props: *) => (
 const DefaultAvatar = ({ name }: { name: string }) => {
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   return (
-    <Square color="gray" shape="circle">
+    <Square color="gray" rounding="circle">
       {firstInitial && (
         <svg
           width="100%"
@@ -90,10 +90,10 @@ export default function Avatar(props: Props) {
       width={width}
       height={height}
       position="relative"
-      shape="circle"
+      rounding="circle"
     >
       {src && isImageLoaded ? (
-        <Mask shape="circle" wash>
+        <Mask rounding="circle" wash>
           <Image
             alt={name}
             color="#EFEFEF"
@@ -124,7 +124,7 @@ export default function Avatar(props: Props) {
             color="white"
             width="100%"
             height="100%"
-            shape="circle"
+            rounding="circle"
             dangerouslySetInlineStyle={{
               __style: {
                 boxShadow: '0 0 0 2px #fff',

@@ -155,6 +155,10 @@ card(
         type: `number | string`,
       },
       {
+        name: 'opacity',
+        type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
+      },
+      {
         name: 'overflow',
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
@@ -167,10 +171,9 @@ card(
         href: 'absolutePositioning',
       },
       {
-        name: 'shape',
-        type: `"square" | "rounded" | "pill" | "circle" | "roundedTop" | "roundedBottom" | "roundedLeft" | "roundedRight"`,
-        defaultValue: 'square',
-        href: 'shapes',
+        name: 'rounding',
+        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+        href: 'rounding',
       },
       {
         name: 'wrap',
@@ -519,34 +522,43 @@ card(
       'darkWash',
     ]}
   >
-    {props => <Box width={60} height={60} shape="circle" {...props} />}
+    {props => <Box width={60} height={60} rounding="circle" {...props} />}
   </Combination>
 );
 
 card(
-  <Combination
-    id="shapes"
-    name="Shapes"
-    shape={[
-      'square',
-      'rounded',
-      'pill',
-      'circle',
-      'roundedTop',
-      'roundedRight',
-      'roundedBottom',
-      'roundedLeft',
-    ]}
+  <Card
+    description={`
+    Sets a border radius for the Box. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in boints.
+  `}
+    id="rounding"
+    name="Rounding"
   >
-    {props => (
-      <Box
-        color="gray"
-        width={props.shape === 'pill' ? 120 : 60}
-        height={60}
-        {...props}
-      />
-    )}
-  </Combination>
+    <Combination rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
+      {props => (
+        <Box
+          color="gray"
+          width={props.rounding === 'pill' ? 120 : 70}
+          height={70}
+          {...props}
+        />
+      )}
+    </Combination>
+  </Card>
+);
+
+card(
+  <Card
+    description={`
+    Sets a css opacity value for the Box. Be sure to maintain accessibility when using this prop. The contrast of the text should still be <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank">WCAG 2.0 AA compatible</a>.
+  `}
+    id="opacity"
+    name="Opacity"
+  >
+    <Combination opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
+      {props => <Box color="darkGray" width={60} height={60} {...props} />}
+    </Combination>
+  </Card>
 );
 
 export default cards;

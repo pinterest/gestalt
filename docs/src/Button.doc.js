@@ -53,6 +53,12 @@ card(
         href: 'combinations',
       },
       {
+        name: 'selected',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
@@ -70,7 +76,7 @@ card(
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'md',
-        description: 'sm: 36px, md: 40px, lg: 48px',
+        description: 'sm: 32px, md: 40px, lg: 48px',
         href: 'combinations',
       },
       {
@@ -99,7 +105,7 @@ card(
   <Example
     name="Example"
     defaultCode={`
-<Button text="Medium Sized Button" />
+<Button text="Medium sized button" inline />
 `}
   />
 );
@@ -116,10 +122,10 @@ card(
     defaultCode={`
 <Box margin={-2}>
   <Box padding={2}>
-    <Button text="inline button" inline />
+    <Button text="Inline button" inline />
   </Box>
   <Box padding={2}>
-    <Button text="default full width button" />
+    <Button text="Default full width button" />
   </Box>
 </Box>
 `}
@@ -132,7 +138,7 @@ card(
     id="color"
     name="Colors: Dark Backgrounds"
     defaultCode={`
-<Box color="darkGray" maxWidth={320} shape="rounded" padding={4}>
+<Box color="darkGray" maxWidth={320} rounding={2} padding={4}>
   <Box marginBottom={4}>
     <Text color="white">
       Explore today’s trending ideas, curated finds, and personalized
@@ -162,7 +168,7 @@ card(
     name="Text colors"
     defaultCode={`
 <Box display="flex">
-  <Box color="blue" maxWidth={320} shape="rounded" padding={4} margin={4}>
+  <Box color="blue" maxWidth={320} rounding={2} padding={4} margin={4}>
     <Box marginBottom={4}>
       <Text color="white">
         Click to crop, rotate, apply filters, or edit your image.
@@ -177,7 +183,7 @@ card(
       </Box>
     </Box>
   </Box>
-  <Box color="red" maxWidth={320} shape="rounded" padding={4} margin={4}>
+  <Box color="red" maxWidth={320} rounding={2} padding={4} margin={4}>
     <Box marginBottom={4}>
       <Text color="white">
         Oops, something went wrong! Would you like to try again?
@@ -200,18 +206,43 @@ card(
 card(
   <Example
     description={`
+A "selected" state should be used as a toggle state to turn something on or off.
+  `}
+    id="selected"
+    name="Selected state"
+    defaultCode={`
+
+function Example() {
+  const [selected, setSelected] = React.useState(true);
+  return (
+    <Button
+      inline
+      color="red"
+      selected={selected}
+      onClick={() => {setSelected(!selected)}}
+      text={selected ? 'Selected' : 'Deselected'}
+    />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    description={`
     There are 2 types of buttons: button and submit. Use the \`submit\` type when you do not
     need to specify an \`onClick\` handler. The default type is \`button\`.
   `}
     id="types"
     name="Types"
     defaultCode={`
-<Box margin={-2}>
+<Box margin={-2} display="flex">
   <Box padding={2}>
-    <Button onClick={() => {}} text="Clear" type="button" />
+    <Button onClick={() => {}} text="Clear" type="button" inline />
   </Box>
   <Box padding={2}>
-    <Button color="red" text="Submit" type="submit" />
+    <Button color="red" text="Submit" type="submit" inline />
   </Box>
 </Box>
 `}
@@ -229,12 +260,12 @@ card(
     id="accessibilityLabel"
     name="Accessibility Label"
     defaultCode={`
-<Box margin={-2}>
+<Box margin={-2} display="flex">
   <Box padding={2}>
-    <Button accessibilityLabel="Add James" text="Add" />
+    <Button accessibilityLabel="Add James" text="Add" inline />
   </Box>
   <Box padding={2}>
-    <Button accessibilityLabel="Add Irene" text="Add" />
+    <Button accessibilityLabel="Add Irene" text="Add" inline />
   </Box>
 </Box>
 `}
@@ -245,8 +276,9 @@ card(
   <Combination
     id="combinations"
     name="Combinations"
-    color={['gray', 'red', 'blue']}
+    color={['gray', 'red']}
     disabled={[false, true]}
+    selected={[false, true]}
     size={['sm', 'md', 'lg']}
   >
     {(props, i) => (

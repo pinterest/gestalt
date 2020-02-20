@@ -1,7 +1,7 @@
 :root {
   --border-width: 1px;
   --border-color: #efefef;
-  --border-radius: 8px;
+  --bt: 4px;
 }
 
 /* Border lines */
@@ -36,10 +36,6 @@ html[dir="rtl"] .borderLeft {
 
 /* Border radii */
 
-.square {
-  border-radius: 0;
-}
-
 .circle {
   border-radius: 50%;
 }
@@ -48,32 +44,40 @@ html[dir="rtl"] .borderLeft {
   border-radius: 999px;
 }
 
-.rounded {
-  border-radius: var(--border-radius);
+.rounding0 {
+  border-radius: calc(var(--bt) * 0);
 }
 
-.roundedTop {
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
+.rounding1 {
+  border-radius: calc(var(--bt) * 1);
 }
 
-html:not([dir="rtl"]) .roundedRight {
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+.rounding2 {
+  border-radius: calc(var(--bt) * 2);
 }
 
-html[dir="rtl"] .roundedRight {
-  border-radius: var(--border-radius) 0 0 var(--border-radius);
+.rounding3 {
+  border-radius: calc(var(--bt) * 3);
 }
 
-.roundedBottom {
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
+.rounding4 {
+  border-radius: calc(var(--bt) * 4);
 }
 
-html:not([dir="rtl"]) .roundedLeft {
-  border-radius: var(--border-radius) 0 0 var(--border-radius);
+.rounding5 {
+  border-radius: calc(var(--bt) * 5);
 }
 
-html[dir="rtl"] .roundedLeft {
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+.rounding6 {
+  border-radius: calc(var(--bt) * 6);
+}
+
+.rounding7 {
+  border-radius: calc(var(--bt) * 7);
+}
+
+.rounding8 {
+  border-radius: calc(var(--bt) * 8);
 }
 
 .noBorder {
