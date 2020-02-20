@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Heading: removed unused weight prop from docs (#653)
+
 </details>
 
 ## 0.123.0 (Feb 7, 2020)
