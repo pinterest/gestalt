@@ -6,6 +6,14 @@
     Click to see more.
   </summary>
 
+### Minor
+
+### Patch
+
+</details>
+
+## 1.0.0 (Feb 20, 2020)
+
 ### Major
 
 - Box / Touchable [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
