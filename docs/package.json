@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "gestalt": ">0.0.0",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^9.18.1",
     "history": "^4.10.1",
-    "marked": "^0.7.0",
+    "marked": "^0.8.0",
     "react": "^16.8.5",
     "react-dom": "^16.12.0",
-    "react-live": "^2.2.1",
+    "react-live": "^2.2.2",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {

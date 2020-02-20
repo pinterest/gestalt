@@ -9,6 +9,12 @@
         "ignoreProperties": ["composes"]
       }
     ],
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreProperties": ["composes"]
+      }
+    ],
     "declaration-block-no-duplicate-properties": [
       true,
       {
