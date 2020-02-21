@@ -102,7 +102,6 @@ export default function Text({
     align === 'right' && typography.alignRight,
     overflow === 'breakWord' && typography.breakWord,
     italic && typography.fontStyleItalic,
-    !italic && typography.fontStyleNormal,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
     truncate && typography.truncate

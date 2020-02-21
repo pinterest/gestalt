@@ -35,7 +35,7 @@ exports[`TextArea TextArea with error 1`] = `
     className="box marginTop1"
   >
     <div
-      className="Text fontSize3 red alignLeft breakWord fontStyleNormal fontWeightNormal"
+      className="Text fontSize3 red alignLeft breakWord fontWeightNormal"
     >
       <span
         id="test-error"

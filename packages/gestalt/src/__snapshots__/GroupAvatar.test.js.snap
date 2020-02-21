@@ -125,7 +125,7 @@ exports[`GroupAvatar renders avatars for 0 people 1`] = `
           
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
           fill="#fff"
           fontSize="50px"
@@ -514,7 +514,7 @@ exports[`GroupAvatar renders multi-byte character initials 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
           fill="#fff"
           fontSize="50px"
@@ -581,7 +581,7 @@ exports[`GroupAvatar renders single-byte character initials for 1 person 1`] = `
           Jane Smith
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
           fill="#fff"
           fontSize="50px"
@@ -648,7 +648,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
           Jane Smith
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
           fill="#fff"
           fontSize="50px"
@@ -695,7 +695,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
           Jane Smith
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
           fill="#fff"
           fontSize="50px"
@@ -742,7 +742,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
           Jane Smith
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
           fill="#fff"
           fontSize="50px"

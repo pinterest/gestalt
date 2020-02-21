@@ -36,7 +36,7 @@ exports[`Avatar renders an outline 1`] = `
           Jenny
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#fff"
           fontSize="50px"
@@ -85,7 +85,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#fff"
           fontSize="50px"
@@ -480,7 +480,7 @@ exports[`Avatar renders the verified icon 1`] = `
           Jammy
         </title>
         <text
-          className="antialiased sansSerif leadingSmall fontWeightBold"
+          className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#fff"
           fontSize="50px"

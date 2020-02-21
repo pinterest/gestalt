@@ -84,8 +84,6 @@ export default class RadioButton extends React.Component<Props, State> {
         {checked && (
           <div
             className={classnames(styles.Check, {
-              [styles.CheckSm]: size === 'sm',
-              [styles.CheckMd]: size === 'md',
               [styles.CheckEnabled]: !disabled,
               [styles.CheckDisabled]: disabled,
             })}
