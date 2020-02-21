@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Internal: Detect invalid composes in CSS modules (#676)
 - Internal: Flowtype CSS files in CI (#675)
 
 ### Patch

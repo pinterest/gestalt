@@ -2,7 +2,6 @@
   composes: antialiased sansSerif letterSpacing from "./Typography.css";
   composes: fontWeightBold from "./Typography.css";
   composes: blue from "./Colors.css";
-  composes: blueBorder from "./Colors.css";
   composes: inlineBlock from "./Layout.css";
   border-radius: 4px;
   border-style: solid;
