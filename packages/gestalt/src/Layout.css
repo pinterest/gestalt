@@ -99,7 +99,7 @@
 
 /* box model */
 
-.borderBoxs {
+.borderBox {
   box-sizing: border-box;
 }
 
