@@ -131,6 +131,7 @@ type PropType = {
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
   bottom?: boolean,
+  borderSize?: 'sm' | 'md' | 'none',
   color?:
     | 'blue'
     | 'darkGray'
@@ -498,6 +499,16 @@ const propToFn = {
     // default: auto
   }),
   bottom: toggle(layout.bottom0),
+  borderSize: value =>
+    concat([
+      mapping({
+        sm: borders.sizeSm,
+        lg: borders.sizeLg,
+        // default: none
+      })(value),
+      fromClassName(borders.solid),
+      fromClassName(colors.lightGrayBorder),
+    ]),
   color: mapping({
     blue: colors.blueBg,
     darkGray: colors.darkGrayBg,
@@ -931,6 +942,7 @@ Box.propTypes = {
     'stretch',
   ]),
   bottom: PropTypes.bool,
+  borderSize: PropTypes.oneOf(['sm', 'lg', 'none']),
   color: PropTypes.oneOf([
     'blue',
     'darkGray',

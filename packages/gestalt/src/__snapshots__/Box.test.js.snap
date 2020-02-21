@@ -71,6 +71,12 @@ exports[`Box has correct class when rounding is circle 1`] = `
 />
 `;
 
+exports[`Box has correct classes when borderSize is lg 1`] = `
+<div
+  className="box lightGrayBorder sizeLg solid"
+/>
+`;
+
 exports[`Box has correct classes when display is flex 1`] = `
 <div
   className="box"

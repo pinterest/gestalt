@@ -103,6 +103,14 @@ card(
           'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
       },
       {
+        name: 'borderSize',
+        type: `"sm" | "lg" | "none"`,
+        defaultValue: 'none',
+        description:
+          'Specify a border width for the box. "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray',
+        href: 'border',
+      },
+      {
         name: 'color',
         type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
         defaultValue: 'transparent',
@@ -492,6 +500,28 @@ card(
 </Box>
 `}
   />
+);
+
+card(
+  <Card
+    description={`
+    Borders are controlled by the "borderSize" prop. Setting a size enables a solid light gray color in that width.
+  `}
+    id="border"
+    name="Borders"
+  >
+    <Combination borderSize={['sm', 'lg']}>
+      {props => (
+        <Box
+          width={60}
+          height={60}
+          rounding="circle"
+          color="white"
+          {...props}
+        />
+      )}
+    </Combination>
+  </Card>
 );
 
 card(

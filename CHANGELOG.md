@@ -10,6 +10,7 @@
 
 - Internal: Detect invalid composes in CSS modules (#676)
 - Internal: Flowtype CSS files in CI (#675)
+- Box: Add `borderSize` prop for styling borders (#678)
 
 ### Patch
 

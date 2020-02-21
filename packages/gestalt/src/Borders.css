@@ -1,5 +1,6 @@
 :root {
   --border-width: 1px;
+  --border-width-lg: 2px;
   --border-color: #efefef;
   --bt: 4px;
 }
@@ -82,4 +83,16 @@ html[dir="rtl"] .borderLeft {
 
 .noBorder {
   border: 0;
+}
+
+.sizeSm {
+  border-width: var(--border-width);
+}
+
+.sizeLg {
+  border-width: var(--border-width-lg);
+}
+
+.solid {
+  border-style: solid;
 }

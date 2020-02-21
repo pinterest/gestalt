@@ -18,4 +18,7 @@ declare module.exports: {|
   +'rounding6': string,
   +'rounding7': string,
   +'rounding8': string,
+  +'sizeLg': string,
+  +'sizeSm': string,
+  +'solid': string,
 |};
