@@ -53,7 +53,7 @@ export const rangeWithoutZero = (scale: string) => (n: number): Style =>
 // similar to the NPM package 'classnames/bind'.
 export function bind<T>(
   fn: Functor<T>,
-  scope: { [key: string]: string }
+  scope: { +[key: string]: string }
 ): (val: T) => Style {
   const map = mapClassName(name => scope[name]);
   return (val: T): Style => map(fn(val));

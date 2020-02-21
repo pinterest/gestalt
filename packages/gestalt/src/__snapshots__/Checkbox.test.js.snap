@@ -118,7 +118,7 @@ exports[`Checkbox indeterminate 1`] = `
 >
   <input
     checked={false}
-    className="input inputEnabled indeterminate inputMd"
+    className="input inputEnabled inputMd"
     disabled={false}
     id="id"
     onBlur={[Function]}

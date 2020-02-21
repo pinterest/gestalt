@@ -67,7 +67,6 @@ export default function Checkbox({
         checked={checked}
         className={classnames(styles.input, {
           [styles.inputEnabled]: !disabled,
-          [styles.indeterminate]: indeterminate,
           [styles.inputSm]: size === 'sm',
           [styles.inputMd]: size === 'md',
         })}

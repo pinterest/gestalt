@@ -105,7 +105,7 @@ export default class Image extends React.PureComponent<Props> {
     return isScaledImage ? (
       <div
         aria-label={alt}
-        className={styles[fit]}
+        className={fit === 'contain' || fit === 'cover' ? styles[fit] : null}
         style={{
           backgroundColor: color,
           backgroundImage: `url('${src}')`,
