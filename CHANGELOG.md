@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Detect invalid composes in CSS modules (#676)
+
 ### Patch
 
 </details>

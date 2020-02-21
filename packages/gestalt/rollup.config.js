@@ -89,8 +89,15 @@ const cssModules = (options = {}) => {
 
         return scopeNames[hash];
       },
-      getJSON: (path, exportTokens) => {
-        cssExportMap[path] = exportTokens;
+      getJSON: (filePath, exportTokens) => {
+        Object.entries(exportTokens).forEach(([className, value]) => {
+          if (value.includes('undefined')) {
+            throw new Error(
+              `${filePath} / .${className} composes from an incorrect classname`
+            );
+          }
+        });
+        cssExportMap[filePath] = exportTokens;
       },
     }),
   ];
