@@ -55,7 +55,6 @@
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
     "flow-generate:css": "./node_modules/.bin/css-modules-flow-types packages/gestalt/src/ >/dev/null",
-    "flow:css": "yarn flow-generate:css && yarn flow",
     "greenkeeper-lockfile-update": "greenkeeper-lockfile-update",
     "greenkeeper-lockfile-upload": "greenkeeper-lockfile-upload",
     "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch)",
@@ -105,7 +104,7 @@
     ],
     "*.css": [
       "stylelint",
-      "flow:css"
+      "flow-generate:css && flow"
     ]
   }
 }
