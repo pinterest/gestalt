@@ -13,6 +13,9 @@ yarn stylelint "**/*.css"
 echo "jest"
 yarn jest --coverage
 
+echo "Generate CSS modules flow files"
+yarn flow-generate:css
+
 echo "flow"
 yarn flow check
 

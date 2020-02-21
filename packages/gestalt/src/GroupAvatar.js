@@ -106,7 +106,6 @@ const DefaultAvatar = (props: {|
         className={[
           typography.antialiased,
           typography.sansSerif,
-          typography.leadingSmall,
           typography.fontWeightBold,
         ].join(' ')}
       >

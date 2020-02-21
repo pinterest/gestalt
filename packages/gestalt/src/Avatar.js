@@ -40,7 +40,6 @@ const DefaultAvatar = ({ name }: { name: string }) => {
             className={[
               typography.antialiased,
               typography.sansSerif,
-              typography.leadingSmall,
               typography.fontWeightBold,
             ].join(' ')}
           >

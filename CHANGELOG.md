@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: Flowtype CSS files in CI (#675)
+
 ### Patch
 
 </details>
