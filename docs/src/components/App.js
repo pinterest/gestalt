@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Box, Column, Divider } from 'gestalt';
+import { Box, Column, Divider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 
@@ -25,6 +25,19 @@ export default function App(props: Props) {
           </Box>
         </Column>
       </Box>
+      {document.location.href.includes('netlify') ? (
+        <Box>
+          <Divider />
+
+          <Box padding={4} mdPadding={6} lgPadding={8}>
+            <Link href="https://www.netlify.com/">
+              <Box paddingX={2} paddingY={1}>
+                <Text align="right">This site is powered by Netlify</Text>
+              </Box>
+            </Link>
+          </Box>
+        </Box>
+      ) : null}
     </Box>
   );
 }

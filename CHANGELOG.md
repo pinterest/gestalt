@@ -8,13 +8,20 @@
 
 ### Minor
 
-- Internal: Detect invalid composes in CSS modules (#676)
-- Internal: Flowtype CSS files in CI (#675)
 - Box: Add `borderSize` prop for styling borders (#678)
 
 ### Patch
 
 </details>
+
+## 1.4.0 (Feb 24, 2020)
+
+### Minor
+
+- Internal: Detect invalid composes in CSS modules (#676)
+- Internal: Flowtype CSS files in CI (#675)
+- Internal: Add code of conduct & powered by netlify link (#679)
+- Text/Heading: Update letter spacing to default (#681)
 
 ## 1.3.0 (Feb 20, 2020)
 
