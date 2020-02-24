@@ -56,6 +56,10 @@
   background-color: var(--lightGray);
 }
 
+.lightGrayBorder {
+  border-color: var(--lightGray);
+}
+
 /* gray */
 
 .gray {

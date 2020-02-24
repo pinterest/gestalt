@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Box: Add `borderSize` prop for styling borders (#678)
+
 ### Patch
 
 </details>
