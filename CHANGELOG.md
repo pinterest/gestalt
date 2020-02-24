@@ -11,6 +11,7 @@
 - Internal: Detect invalid composes in CSS modules (#676)
 - Internal: Flowtype CSS files in CI (#675)
 - Internal: Add code of conduct & powered by netlify link (#679)
+- Text/Heading: Update letter spacing to default (#681)
 
 ### Patch
 
