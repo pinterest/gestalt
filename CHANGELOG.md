@@ -8,6 +8,8 @@
 
 ### Minor
 
+Internal: Update Node.js version to 12.x
+
 ### Patch
 
 </details>
