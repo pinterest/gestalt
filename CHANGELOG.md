@@ -8,6 +8,8 @@
 
 ### Minor
 
+Button: update horizontal padding to 12px (#688)
+
 ### Patch
 
 </details>

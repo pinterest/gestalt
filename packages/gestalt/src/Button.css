@@ -10,17 +10,20 @@
 
 .sm {
   composes: small from "./Layout.css";
-  padding: 6px 14px;
+  composes: paddingX3 from "./boxWhitespace.css";
+  composes: paddingY1 from "./boxWhitespace.css";
 }
 
 .md {
   composes: medium from "./Layout.css";
-  padding: 10px 14px;
+  composes: paddingX3 from "./boxWhitespace.css";
+  composes: paddingY2 from "./boxWhitespace.css";
 }
 
 .lg {
   composes: large from "./Layout.css";
-  padding: 12px 14px;
+  composes: paddingX3 from "./boxWhitespace.css";
+  composes: paddingY3 from "./boxWhitespace.css";
 }
 
 .block {
