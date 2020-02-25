@@ -39,6 +39,12 @@ card(
         description:
           'String that is shown as addition information in a tooltip bubble to describe the child. Always localize the text.',
       },
+      {
+        name: 'link',
+        type: 'React.Node',
+        required: false,
+        description: 'A link element',
+      },
     ]}
   />
 );
@@ -65,7 +71,17 @@ card(
     name="Tooltips with link"
     description="Passing a href prop will render a Learn More link below the provided tooltip text. Be sure to internationalize your hrefText."
     defaultCode={`
-<Tooltip inline href="pinterest.com/anniejiwon" hrefText="Learn more" text="Logout">
+<Tooltip
+  inline
+  text="Logout"
+  link={
+    <Link href="https://pinterest.com" target="blank">
+      <Text color="white" size="xs" weight="bold">
+        Learn more about logout
+      </Text>
+    </Link>
+  }
+>
   <Icon
     accessibilityLabel="Logout of your profile"
     color="pine"

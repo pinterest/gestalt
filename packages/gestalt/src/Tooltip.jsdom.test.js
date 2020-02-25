@@ -3,6 +3,8 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { fireEvent, render } from '@testing-library/react';
 import Tooltip from './Tooltip.js';
+import Link from './Link.js';
+import Text from './Text.js';
 
 test('Tooltip renders', () => {
   const component = create(
@@ -15,10 +17,15 @@ test('Tooltip renders', () => {
 });
 
 test('Tooltip renders the hrefText when hovered', () => {
-  const { getByRole, getByText } = render(
+  const { container, getByRole, getByText } = render(
     <Tooltip
-      href="pinterest.com"
-      hrefText="Learn more about Pinterest"
+      link={
+        <Link href="https://pinterest.com" target="blank">
+          <Text color="white" size="sm" weight="bold">
+            Learn more about logout
+          </Text>
+        </Link>
+      }
       text="This is a tooltip"
     >
       <div>Hi</div>
@@ -26,7 +33,8 @@ test('Tooltip renders the hrefText when hovered', () => {
   );
 
   fireEvent.mouseEnter(getByRole('tooltip'));
-  expect(getByText('Learn more about Pinterest')).toBeVisible();
+  expect(getByText('Learn more about logout')).toBeVisible();
+  expect(container.firstChild).toMatchSnapshot();
 });
 
 test('Tooltip should render as expected when hovered', () => {
