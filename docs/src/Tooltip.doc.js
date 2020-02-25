@@ -62,6 +62,22 @@ card(
 
 card(
   <Example
+    name="Tooltips with link"
+    description="Passing a href prop will render a Learn More link below the provided tooltip text. Be sure to internationalize your hrefText."
+    defaultCode={`
+<Tooltip inline href="pinterest.com/anniejiwon" hrefText="Learn more" text="Logout">
+  <Icon
+    accessibilityLabel="Logout of your profile"
+    color="pine"
+    icon="logout"
+  />
+</Tooltip>
+`}
+  />
+);
+
+card(
+  <Example
     id="inline"
     name="Inlining Tooltips"
     description="Pass this flag in when rendering the tooltip around an inline element such as an Icon,

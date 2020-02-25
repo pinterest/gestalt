@@ -6,8 +6,11 @@ exports[`Tooltip renders 1`] = `
 >
   <div
     className="box"
+    onBlur={[Function]}
+    onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    role="tooltip-container"
   >
     <div>
       Hi
