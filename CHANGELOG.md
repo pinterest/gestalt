@@ -15,6 +15,7 @@
 ## 1.3.2 (Feb 25, 2020)
 
 - [Revert] Flyout: Remove caret, update shadow (#663)
+- [Revert] Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
 
 ## 1.3.0 (Feb 20, 2020)
 
@@ -51,7 +52,11 @@ Run codemods for breaking changes in order:
 ### Minor
 
 - Flyout: Remove caret, update shadow (#663)
-- Flyout: Update spacing around items to 8px + remove caret code (#668)
+- Flyout: Update spacing around items to 8px + remove caret code (#665)
+
+### Patch
+
+</details>
 
 ## 0.125.0 (Feb 16, 2020)
 
