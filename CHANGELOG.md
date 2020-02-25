@@ -8,6 +8,8 @@
 
 ### Minor
 
+IconWithTooltip: deprecate component (#690)
+
 ### Patch
 
 </details>
