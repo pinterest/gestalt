@@ -9,6 +9,7 @@
 ### Minor
 
 IconWithTooltip: deprecate component (#690)
+Button: update horizontal padding to 12px (#688)
 
 ### Patch
 
