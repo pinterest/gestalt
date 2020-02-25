@@ -8,15 +8,19 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.5.0 (Feb 25, 2020)
+
+### Minor
+
 - Box: Add `borderSize` prop for styling borders (#678)
 - Modal: visual refresh + heading optional + add closeOnOutsideClick (#680)
 
 Codemods:
 `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.3.0-1.4.0/modal-remove-close-label.js ~/code/repo`
-
-### Patch
-
-</details>
 
 ## 1.4.0 (Feb 24, 2020)
 
