@@ -10,10 +10,49 @@ exports[`Tooltip renders 1`] = `
     onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
-    role="tooltip-container"
+    role="tooltip"
   >
     <div>
       Hi
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip should render as expected when hovered 1`] = `
+<div
+  class="box xsDisplayBlock"
+>
+  <div
+    class="box"
+    role="tooltip"
+  >
+    <div>
+      Hi
+    </div>
+  </div>
+  <div
+    class="container"
+    style="visibility: visible; top: -8px; left: -28px;"
+  >
+    <div
+      class="darkGrayBg darkGray contents maxDimensions"
+      tabindex="-1"
+    >
+      <div
+        class="innerContents maxDimensions"
+      >
+        <div
+          class="box paddingX2 paddingY1"
+          style="max-width: 180px;"
+        >
+          <div
+            class="Text fontSize1 white alignLeft breakWord fontWeightNormal"
+          >
+            This is a tooltip
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

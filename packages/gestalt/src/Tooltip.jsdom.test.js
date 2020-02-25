@@ -15,7 +15,7 @@ test('Tooltip renders', () => {
 });
 
 test('Tooltip renders the hrefText when hovered', () => {
-  const { getByRole } = render(
+  const { getByRole, getByText } = render(
     <Tooltip
       href="pinterest.com"
       hrefText="learn more"
@@ -25,17 +25,17 @@ test('Tooltip renders the hrefText when hovered', () => {
     </Tooltip>
   );
 
-  fireEvent.mouseEnter(getByRole('tooltip-container'));
-  expect(getByRole('href-link')).toBeVisible();
+  fireEvent.mouseEnter(getByRole('tooltip'));
+  expect(getByText('learn more')).toBeVisible();
 });
 
-test('Tooltip does not render the hrefText when hovered', () => {
-  const { getByRole, queryByRole } = render(
+test('Tooltip should render as expected when hovered', () => {
+  const { container, getByRole } = render(
     <Tooltip text="This is a tooltip">
       <div>Hi</div>
     </Tooltip>
   );
 
-  fireEvent.mouseEnter(getByRole('tooltip-container'));
-  expect(queryByRole('href-link')).toBeNull();
+  fireEvent.mouseEnter(getByRole('tooltip'));
+  expect(container.firstChild).toMatchSnapshot();
 });
