@@ -8,18 +8,22 @@
 
 ### Minor
 
-Button: update horizontal padding to 12px (#688)
-[Revert] Flyout: Update spacing around items to 8px + remove caret code (#668)
-[Revert] Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
-
 ### Patch
 
 </details>
 
+## 1.7.0 (Feb 25, 2020)
+
+### Minor
+
+- Button: update horizontal padding to 12px (#688)
+- [Revert] Flyout: Update spacing around items to 8px + remove caret code (#668)
+- [Revert] Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
+
 ## 1.6.0 (Feb 25, 2020)
 
-Internal: Update Node.js version to 12.x (#686)
-Internal: update yarn.lock file (#687)
+- Internal: Update Node.js version to 12.x (#686)
+- Internal: update yarn.lock file (#687)
 
 ## 1.5.0 (Feb 25, 2020)
 
