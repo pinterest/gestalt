@@ -7,7 +7,7 @@ exports[`Flyout renders 1`] = `
   className="container"
   style={
     Object {
-      "left": -28,
+      "left": -20,
       "stroke": "#efefef",
       "top": NaN,
       "visibility": "visible",
@@ -35,7 +35,7 @@ exports[`Flyout renders as blue 1`] = `
   className="container"
   style={
     Object {
-      "left": -28,
+      "left": -20,
       "stroke": null,
       "top": NaN,
       "visibility": "visible",
@@ -63,7 +63,7 @@ exports[`Flyout renders as error 1`] = `
   className="container"
   style={
     Object {
-      "left": -28,
+      "left": -20,
       "stroke": null,
       "top": NaN,
       "visibility": "visible",
