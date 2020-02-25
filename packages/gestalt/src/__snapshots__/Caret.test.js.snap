@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Caret renders with direction down 1`] = `
+<svg
+  height="24"
+  width="24"
+>
+  <path
+    d="M0 24 L12 12 L24 24"
+  />
+</svg>
+`;
+
+exports[`Caret renders with direction left 1`] = `
+<svg
+  height="24"
+  width="24"
+>
+  <path
+    d="M0 0 L12 12 L0 24"
+  />
+</svg>
+`;
+
+exports[`Caret renders with direction right 1`] = `
+<svg
+  height="24"
+  width="24"
+>
+  <path
+    d="M24 0 L12 12 L24 24"
+  />
+</svg>
+`;
+
+exports[`Caret renders with direction up 1`] = `
+<svg
+  height="24"
+  width="24"
+>
+  <path
+    d="M0 0 L12 12 L24 0"
+  />
+</svg>
+`;

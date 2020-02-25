@@ -2,6 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Caret from './Caret.js';
 import styles from './Contents.css';
 import colors from './Colors.css';
 
@@ -22,8 +23,9 @@ const DIR_INDEX_MAP = {
 };
 
 const MARGIN = 24;
-export const SPACING_OUTSIDE = 8;
-export const BORDER_RADIUS = 16;
+export const CARET_HEIGHT = 24;
+const CARET_OFFSET_FROM_SIDE = 24;
+export const BORDER_RADIUS = 8;
 
 type MainDir = ?('up' | 'right' | 'down' | 'left');
 type SubDir = 'up' | 'right' | 'down' | 'left' | 'middle';
@@ -48,10 +50,12 @@ type Flyout = { height: number, width: number };
 
 type Shift = { x: number, y: number };
 
-type EdgeShift = { flyout: Shift };
+type EdgeShift = { caret: Shift, flyout: Shift };
 
+/* eslint-disable react/no-unused-prop-types */
 type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onKeyDown: (event: { keyCode: number }) => void,
@@ -65,12 +69,19 @@ type Props = {|
   triggerRect: ClientRect,
   width: ?number,
 |};
+/* eslint-enable react/no-unused-prop-types */
 
 type State = {|
   flyoutOffset: {|
     top: ?number,
     left: ?number,
   |},
+  caretOffset: {
+    top: ?number,
+    right: ?number,
+    bottom: ?number,
+    left: ?number,
+  },
   mainDir: ?MainDir,
   flyoutRef: ?HTMLElement,
 |};
@@ -83,14 +94,15 @@ export function getMainDir(
   idealDirection: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-): MainDir {
+) {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
-  let up = triggerRect.top - flyoutSize.height - MARGIN;
-  let right = windowSize.width - flyoutSize.width - MARGIN - triggerRect.right;
+  let up = triggerRect.top - flyoutSize.height - CARET_HEIGHT;
+  let right =
+    windowSize.width - flyoutSize.width - CARET_HEIGHT - triggerRect.right;
   let down =
-    windowSize.height - flyoutSize.height - MARGIN - triggerRect.bottom;
-  let left = triggerRect.left - flyoutSize.width - MARGIN;
+    windowSize.height - flyoutSize.height - CARET_HEIGHT - triggerRect.bottom;
+  let left = triggerRect.left - flyoutSize.width - CARET_HEIGHT;
 
   // overrides available space when the trigger is close to the edge of the screen
   // trigger is too close to top/bottom of screen for left & right flyouts
@@ -136,8 +148,8 @@ export function getSubDir(
   mainDir: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-): SubDir {
-  // Now that we have the main direction, chose from 3 placements for that direction
+) {
+  // Now that we have the main direction, chose from 3 caret placements for that direction
   let offset;
   let triggerMid;
   let windowSpaceAvailable;
@@ -157,31 +169,35 @@ export function getSubDir(
   const belowOrRight = windowSpaceAvailable - triggerMid - offset - MARGIN;
   let subDir;
   if (aboveOrLeft > 0 && belowOrRight > 0) {
-    // should go in middle b/c it can
+    // caret should go in middle b/c it can
     subDir = 'middle';
   } else if (belowOrRight > 0) {
-    // should go at top for left/right and left for up/down
+    // caret should go at top for left/right and left for up/down
     subDir = mainDir === 'left' || mainDir === 'right' ? 'up' : 'left';
   } else {
-    // should go at bottom for left/right and right for up/down
+    // caret should go at bottom for left/right and right for up/down
     subDir = mainDir === 'left' || mainDir === 'right' ? 'down' : 'right';
   }
   return subDir;
 }
 
 /**
- * Calculates the amount the flyout need to shift over to align with designs
+ * Calculates the amount the flyout & caret need to shift over to align with designs
  */
 export function calcEdgeShifts(
   subDir: SubDir,
   triggerRect: ClientRect,
   windowSize: Window
 ) {
-  // Target values for flyout shifts
-  let flyoutVerticalShift = MARGIN - (triggerRect.height - MARGIN) / 2;
-  let flyoutHorizontalShift = MARGIN - (triggerRect.width - MARGIN) / 2;
+  // Target values for flyout and caret shifts
+  let flyoutVerticalShift =
+    CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
+  let flyoutHorizontalShift =
+    CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
+  let caretVerticalShift = CARET_HEIGHT;
+  let caretHorizontalShift = CARET_HEIGHT;
 
-  // Covers edge case where trigger is in a corner and we need to adjust the offset
+  // Covers edge case where trigger is in a corner and we need to adjust the offset of the caret
   // to something smaller than normal in order
   const isCloseVertically =
     triggerRect.top - flyoutVerticalShift < 0 ||
@@ -190,10 +206,14 @@ export function calcEdgeShifts(
     triggerRect.left - flyoutHorizontalShift < 0 ||
     triggerRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseVertically) {
-    flyoutVerticalShift = BORDER_RADIUS - (triggerRect.height - MARGIN) / 2;
+    flyoutVerticalShift =
+      BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
+    caretVerticalShift = BORDER_RADIUS;
   }
   if (isCloseHorizontally) {
-    flyoutHorizontalShift = BORDER_RADIUS - (triggerRect.width - MARGIN) / 2;
+    flyoutHorizontalShift =
+      BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
+    caretHorizontalShift = BORDER_RADIUS;
   }
 
   return {
@@ -201,11 +221,15 @@ export function calcEdgeShifts(
       x: flyoutHorizontalShift,
       y: flyoutVerticalShift,
     },
+    caret: {
+      x: caretHorizontalShift,
+      y: caretVerticalShift,
+    },
   };
 }
 
 /**
- * Calculates flyout offsets for styling
+ * Calculates flyout and caret offsets for styling
  */
 export function adjustOffsets(
   base: { top: number, left: number },
@@ -215,32 +239,52 @@ export function adjustOffsets(
   subDir: SubDir,
   triggerRect: ClientRect
 ) {
-  let { left, top } = base;
+  let flyoutLeft = base.left;
+  let flyoutTop = base.top;
+
+  let caretTop = mainDir === 'down' ? -CARET_HEIGHT : null;
+  let caretRight = mainDir === 'left' ? -CARET_HEIGHT : null;
+  let caretBottom = null;
+  let caretLeft = mainDir === 'right' ? -CARET_HEIGHT : null;
 
   if (subDir === 'up') {
-    top = base.top - edgeShift.flyout.y;
+    flyoutTop = base.top - edgeShift.flyout.y;
+    caretTop = edgeShift.caret.y;
   } else if (subDir === 'down') {
-    top =
+    flyoutTop =
       base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
+    caretBottom = edgeShift.caret.y;
   } else if (subDir === 'left') {
-    left = base.left - edgeShift.flyout.x;
+    flyoutLeft = base.left - edgeShift.flyout.x;
+    caretLeft = edgeShift.caret.x;
   } else if (subDir === 'right') {
-    left =
+    flyoutLeft =
       base.left - flyoutSize.width + triggerRect.width + edgeShift.flyout.x;
+    caretRight = edgeShift.caret.x;
   } else if (subDir === 'middle') {
     if (mainDir === 'left' || mainDir === 'right') {
-      const triggerMid = top + triggerRect.height / 2;
-      top = triggerMid - flyoutSize.height / 2;
+      const triggerMid = flyoutTop + triggerRect.height / 2;
+      flyoutTop = triggerMid - flyoutSize.height / 2;
+      caretTop = (flyoutSize.height - CARET_HEIGHT) / 2;
     }
     if (mainDir === 'up' || mainDir === 'down') {
-      const triggerMid = left + triggerRect.width / 2;
-      left = triggerMid - flyoutSize.width / 2;
+      const triggerMid = flyoutLeft + triggerRect.width / 2;
+      flyoutLeft = triggerMid - flyoutSize.width / 2;
+      caretLeft = (flyoutSize.width - CARET_HEIGHT) / 2;
     }
   }
 
   return {
-    top,
-    left,
+    flyoutOffset: {
+      top: flyoutTop,
+      left: flyoutLeft,
+    },
+    caretOffset: {
+      top: caretTop,
+      right: caretRight,
+      bottom: caretBottom,
+      left: caretLeft,
+    },
   };
 }
 
@@ -251,18 +295,15 @@ export function baseOffsets(
   mainDir: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-): {
-  top: number,
-  left: number,
-} {
+) {
+  const HALF_CARET = CARET_HEIGHT / 2;
   // TOP OFFSET
   let top;
   if (mainDir === 'down') {
-    top = windowSize.scrollY + triggerRect.bottom + SPACING_OUTSIDE;
+    top = windowSize.scrollY + triggerRect.bottom + HALF_CARET;
   } else if (mainDir === 'up') {
     top =
-      windowSize.scrollY +
-      (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE);
+      windowSize.scrollY + (triggerRect.top - flyoutSize.height - HALF_CARET);
   } else {
     // left and right
     top = windowSize.scrollY + triggerRect.top;
@@ -272,10 +313,9 @@ export function baseOffsets(
   let left;
   if (mainDir === 'left') {
     left =
-      windowSize.scrollX +
-      (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE);
+      windowSize.scrollX + (triggerRect.left - flyoutSize.width - HALF_CARET);
   } else if (mainDir === 'right') {
-    left = windowSize.scrollX + triggerRect.right + SPACING_OUTSIDE;
+    left = windowSize.scrollX + triggerRect.right + HALF_CARET;
   } else {
     // down and up
     left = windowSize.scrollX + triggerRect.left;
@@ -290,16 +330,19 @@ export function baseOffsets(
 export default class Contents extends React.Component<Props, State> {
   static propTypes = {
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
+    caret: PropTypes.bool,
     children: PropTypes.node,
-    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']), // eslint-disable-line react/no-unused-prop-types
     onKeyDown: PropTypes.func.isRequired,
     onResize: PropTypes.func.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
     relativeOffset: PropTypes.exact({
       x: PropTypes.number,
       y: PropTypes.number,
     }),
-    positionRelativeToAnchor: PropTypes.bool,
+    positionRelativeToAnchor: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
     shouldFocus: PropTypes.bool,
+    // eslint-disable-next-line react/no-unused-prop-types
     triggerRect: PropTypes.exact({
       bottom: PropTypes.number,
       height: PropTypes.number,
@@ -311,9 +354,19 @@ export default class Contents extends React.Component<Props, State> {
     width: PropTypes.number,
   };
 
+  static defaultProps = {
+    caret: true,
+  };
+
   state = {
     flyoutOffset: {
       top: undefined,
+      left: undefined,
+    },
+    caretOffset: {
+      top: undefined,
+      right: undefined,
+      bottom: undefined,
       left: undefined,
     },
     mainDir: null,
@@ -342,7 +395,7 @@ export default class Contents extends React.Component<Props, State> {
   }
 
   /**
-   * Determines the main direction, sub direction, and corresponding offsets needed
+   * Determines the main direciton, sub direction, and corresponding offsets needed
    * to correctly position the offset
    */
   static getDerivedStateFromProps(
@@ -380,7 +433,7 @@ export default class Contents extends React.Component<Props, State> {
       width: width || (flyoutRef ? flyoutRef.clientWidth : 0),
     };
 
-    // First choose one of 4 main directions
+    // First choose one of 4 main direction
     const mainDir = getMainDir(
       flyoutSize,
       idealDirection,
@@ -388,7 +441,7 @@ export default class Contents extends React.Component<Props, State> {
       windowSize
     );
 
-    // Now that we have the main direction, choose from 3 placements for that direction
+    // Now that we have the main direction, chose from 3 caret placements for that direction
     const subDir = getSubDir(flyoutSize, mainDir, triggerRect, windowSize);
 
     // Gets the base offset that positions the flyout based on the main direction only
@@ -403,8 +456,8 @@ export default class Contents extends React.Component<Props, State> {
     // Gets the edge shifts for the flyout
     const edgeShifts = calcEdgeShifts(subDir, triggerRect, windowSize);
 
-    // Adjusts for the subdirection
-    const flyoutOffset = adjustOffsets(
+    // Adjusts for the subdirection of the caret
+    const { flyoutOffset, caretOffset } = adjustOffsets(
       base,
       edgeShifts,
       flyoutSize,
@@ -414,6 +467,7 @@ export default class Contents extends React.Component<Props, State> {
     );
 
     return {
+      caretOffset,
       flyoutOffset,
       mainDir,
     };
@@ -430,8 +484,8 @@ export default class Contents extends React.Component<Props, State> {
   };
 
   render() {
-    const { bgColor, children, width } = this.props;
-    const { flyoutOffset, mainDir } = this.state;
+    const { bgColor, caret, children, width } = this.props;
+    const { caretOffset, flyoutOffset, mainDir } = this.state;
 
     // Needed to prevent UI thrashing
     const visibility = mainDir === null ? 'hidden' : 'visible';
@@ -464,6 +518,14 @@ export default class Contents extends React.Component<Props, State> {
           >
             {children}
           </div>
+          {caret && (
+            <div
+              className={classnames(colors[bgColor], styles.caret)}
+              style={{ ...caretOffset }}
+            >
+              <Caret direction={mainDir} />
+            </div>
+          )}
         </div>
       </div>
     );

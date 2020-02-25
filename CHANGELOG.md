@@ -9,6 +9,7 @@
 ### Minor
 
 Button: update horizontal padding to 12px (#688)
+[Revert] Flyout: Update spacing around items to 8px + remove caret code (#668)
 
 ### Patch
 
