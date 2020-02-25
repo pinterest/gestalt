@@ -8,7 +8,8 @@
 
 ### Minor
 
-Internal: Update Node.js version to 12.x
+Internal: Update Node.js version to 12.x (#686)
+Internal: update yarn.lock file (#687)
 
 ### Patch
 
