@@ -32,3 +32,10 @@
   height: 24px;
   pointer-events: none;
 }
+
+.caret {
+  composes: absolute from "./Layout.css";
+  fill: currentColor;
+  height: 24px;
+  pointer-events: none;
+}
