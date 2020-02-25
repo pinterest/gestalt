@@ -18,7 +18,7 @@ test('Tooltip renders the hrefText when hovered', () => {
   const { getByRole, getByText } = render(
     <Tooltip
       href="pinterest.com"
-      hrefText="learn more"
+      hrefText="Learn more about Pinterest"
       text="This is a tooltip"
     >
       <div>Hi</div>
@@ -26,7 +26,7 @@ test('Tooltip renders the hrefText when hovered', () => {
   );
 
   fireEvent.mouseEnter(getByRole('tooltip'));
-  expect(getByText('learn more')).toBeVisible();
+  expect(getByText('Learn more about Pinterest')).toBeVisible();
 });
 
 test('Tooltip should render as expected when hovered', () => {
