@@ -12,6 +12,10 @@
 
 </details>
 
+## 1.3.2 (Feb 25, 2020)
+
+- [Revert] Flyout: Remove caret, update shadow (#663)
+
 ## 1.3.0 (Feb 20, 2020)
 
 - Modal / SegmentedControl / Card: Fix corner radius (#672)

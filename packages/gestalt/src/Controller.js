@@ -7,6 +7,7 @@ import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 type Props = {|
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -141,6 +142,7 @@ export default class Controller extends React.Component<Props, State> {
   render() {
     const {
       bgColor,
+      caret,
       children,
       idealDirection,
       positionRelativeToAnchor,
@@ -155,6 +157,7 @@ export default class Controller extends React.Component<Props, State> {
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
           bgColor={bgColor}
+          caret={caret}
           idealDirection={idealDirection}
           onKeyDown={this.handleKeyDown}
           onResize={this.handleResize}
