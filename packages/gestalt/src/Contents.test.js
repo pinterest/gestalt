@@ -5,7 +5,7 @@ import {
   calcEdgeShifts,
   baseOffsets,
   adjustOffsets,
-  SPACING_OUTSIDE,
+  CARET_HEIGHT,
   BORDER_RADIUS,
 } from './Contents.js';
 
@@ -46,7 +46,7 @@ const upperMiddleTriggerRect = (props = {}) => ({
   ...props,
 });
 
-// between BORDER_RADIUS away from the edge of the scrren
+// between BORDER_RADIUS & CARET_HEIGHT away from the edge of the scrren
 const upperLeftTriggerRect = (props = {}) => ({
   bottom: 50,
   height: 40,
@@ -128,7 +128,7 @@ describe('Contents', () => {
         top: windowSize.scrollY + triggerRect.top,
         left:
           windowSize.scrollX +
-          (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE),
+          (triggerRect.left - flyoutSize.width - CARET_HEIGHT / 2),
       };
       const base = baseOffsets(
         fixedOffset,
@@ -145,7 +145,7 @@ describe('Contents', () => {
       const mainDir = 'right';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.top,
-        left: windowSize.scrollX + (triggerRect.right + SPACING_OUTSIDE),
+        left: windowSize.scrollX + (triggerRect.right + CARET_HEIGHT / 2),
       };
       const base = baseOffsets(
         fixedOffset,
@@ -163,7 +163,7 @@ describe('Contents', () => {
       const expectedBase = {
         top:
           windowSize.scrollY +
-          (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE),
+          (triggerRect.top - flyoutSize.height - CARET_HEIGHT / 2),
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets(
@@ -180,7 +180,7 @@ describe('Contents', () => {
       const triggerRect = centerTriggerRect();
       const mainDir = 'down';
       const expectedBase = {
-        top: windowSize.scrollY + triggerRect.bottom + SPACING_OUTSIDE,
+        top: windowSize.scrollY + triggerRect.bottom + CARET_HEIGHT / 2,
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets(
@@ -208,12 +208,22 @@ describe('Contents', () => {
           x: 24,
           y: 24,
         },
+        caret: {
+          x: 24,
+          y: 24,
+        },
       };
       const expectedFlyoutOffset = {
         top: base.top - edgeShift.flyout.y,
         left: base.left,
       };
-      const flyoutOffset = adjustOffsets(
+      const expectedCaretOffset = {
+        top: edgeShift.caret.y,
+        right: -edgeShift.caret.x,
+        bottom: null,
+        left: null,
+      };
+      const { flyoutOffset, caretOffset } = adjustOffsets(
         base,
         edgeShift,
         flyoutSize,
@@ -222,6 +232,7 @@ describe('Contents', () => {
         triggerRect
       );
       expect(flyoutOffset).toEqual(expectedFlyoutOffset);
+      expect(caretOffset).toEqual(expectedCaretOffset);
     });
   });
 
@@ -229,9 +240,11 @@ describe('Contents', () => {
     it('Keeps Container on screen when trigger is on the edge', () => {
       const triggerRect = upperLeftTriggerRect();
       const subDir = 'up';
-      const { flyout } = calcEdgeShifts(subDir, triggerRect, windowSize);
+      const { flyout, caret } = calcEdgeShifts(subDir, triggerRect, windowSize);
       expect(triggerRect.bottom - flyout.y).toBeGreaterThan(0);
       expect(flyout.x).toBeLessThan(BORDER_RADIUS);
+      expect(caret.x).toEqual(caret.y);
+      expect(caret.x).toEqual(BORDER_RADIUS);
     });
   });
 });
