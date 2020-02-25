@@ -12,15 +12,13 @@
 
 </details>
 
-## 1.3.0 (Feb 20, 2020)
-
-- Modal / SegmentedControl / Card: Fix corner radius (#672)
-
-## 1.2.0 (Feb 20, 2020)
+- Box [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
+- Touchable [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
+- Run codemod for breaking changes: `cd gestalt yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-roundedX.js ~/code/repo`
 
 ### Minor
 
-- Internal: Update dependencies (#671)
+- Flyout: Remove caret, update shadow (#663)
 
 ### Patch
 
