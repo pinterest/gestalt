@@ -46,6 +46,7 @@ export default class Tooltip extends React.Component<Props, State> {
           <Controller
             anchor={anchor}
             bgColor="darkGray"
+            caret={false}
             idealDirection="down"
             onDismiss={noop}
             positionRelativeToAnchor
