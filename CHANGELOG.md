@@ -10,6 +10,7 @@
 
 Button: update horizontal padding to 12px (#688)
 [Revert] Flyout: Update spacing around items to 8px + remove caret code (#668)
+[Revert] Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
 
 ### Patch
 
