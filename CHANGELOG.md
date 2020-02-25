@@ -12,6 +12,12 @@
 
 </details>
 
+## 1.4.1 (Feb 25, 2020)
+
+### Minor
+
+- [Revert] Masonry: Allowing string enums for Masonry layout (#667)
+
 ## 1.4.0 (Feb 24, 2020)
 
 ### Minor
@@ -46,9 +52,9 @@
 ### Major
 
 - Box / Touchable [Breaking]: Removed support for `shape` prop values `roundedTop`, `roundedRight`, `roundedBottom`, and `roundedLeft` (#657)
-- Box / Mask / Touchable [Breaking]: Replace `shape` prop with `rounding` (#666)
+- Box / Mask / Touchable [Breaking]: Replace `shape` prop with `rounding` (#666
 
-Run codemods for breaking changes in order:
+- Run codemods for breaking changes in order:
 
 1. `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-roundedX.js ~/code/repo`
 2. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/0.125.0-1.0.0/convert-shape-to-rounding.js ~/code/repo`
@@ -56,7 +62,11 @@ Run codemods for breaking changes in order:
 ### Minor
 
 - Flyout: Remove caret, update shadow (#663)
-- Flyout: Update spacing around items to 8px + remove caret code (#668)
+- Flyout: Update spacing around items to 8px + remove caret code (#665)
+
+### Patch
+
+</details>
 
 ## 0.125.0 (Feb 16, 2020)
 
