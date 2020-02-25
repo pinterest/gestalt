@@ -19,24 +19,22 @@ card(
   <PropTable
     props={[
       {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'accessibilityCloseLabel',
-        type: 'string',
-        required: true,
-        description:
-          'String that clients such as VoiceOver will read to describe the close button. Always localize the label.',
-        href: 'accessibility',
-      },
-      {
         name: 'accessibilityModalLabel',
         type: 'string',
         required: true,
         description:
           'String that clients such as VoiceOver will read to describe the modal. Always localize the label.',
         href: 'accessibility',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'closeOnOutsideClick',
+        type: 'boolean',
+        description: 'Close the modal when you click outside of it',
+        defaultValue: false,
       },
       {
         name: 'footer',
@@ -46,7 +44,7 @@ card(
       {
         name: 'heading',
         type: `string | React.Node`,
-        required: true,
+        required: false,
         href: 'heading',
       },
       {
@@ -65,7 +63,7 @@ card(
         name: 'size',
         type: `"sm" | "md" | "lg" | number`,
         defaultValue: 'sm',
-        description: `sm: 414px, md: 544px, lg: 804px`,
+        description: `sm: 540px, md: 720px, lg: 900px`,
         href: 'sizesExample',
       },
     ]}
@@ -82,104 +80,92 @@ card(
       All Modals have a max width of 100%.
     `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggleSmall = this._handleToggleSmall.bind(this);
-    this.handleToggleMedium = this._handleToggleMedium.bind(this);
-    this.handleToggleLarge = this._handleToggleLarge.bind(this);
-    this.state = {
-      sm: false,
-      md: false,
-      lg: false,
-    };
+function Example(props) {
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'small':
+        return {modal: 'small'};
+      case 'medium':
+        return {modal: 'medium'};
+      case 'large':
+        return {modal: 'large'};
+      case 'none':
+        return {modal: 'none'};
+      default:
+        throw new Error();
+    }
   }
 
-  _handleToggleSmall() {
-    this.setState(prevState => ({ sm: !prevState.sm }));
-  }
+  const initialState = {modal: 'none'};
+  const [state, dispatch] = React.useReducer(reducer, initialState);
 
-  _handleToggleMedium() {
-    this.setState(prevState => ({ md: !prevState.md }));
-  }
-
-  _handleToggleLarge() {
-    this.setState(prevState => ({ lg: !prevState.lg }));
-  }
-
-  render() {
-    const { sm, md, lg } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="size='sm'"
-            onClick={this.handleToggleSmall}
-          />
-          {sm && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="View default padding and styling"
-                heading="Small modal"
-                onDismiss={this.handleToggleSmall}
-                footer={<Heading size="sm">Footer</Heading>}
-                size="sm"
-              >
-                <Box padding={2}>
-                  <Heading size="sm">Children</Heading>
-                </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
-        <Box padding={1}>
-          <Button
-            text="size='md'"
-            onClick={this.handleToggleMedium}
-          />
-          {md && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="View default padding and styling"
-                heading="Medium modal"
-                onDismiss={this.handleToggleMedium}
-                footer={<Heading size="sm">Footer</Heading>}
-                size="md"
-              >
-                <Box padding={2}>
-                  <Heading size="sm">Children</Heading>
-                </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
-        <Box padding={1}>
-          <Button
-            text="size='lg'"
-            onClick={this.handleToggleLarge}
-          />
-          {lg && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="View default padding and styling"
-                heading="Large modal"
-                onDismiss={this.handleToggleLarge}
-                footer={<Heading size="sm">Footer</Heading>}
-                size="lg"
-              >
-                <Box padding={2}>
-                  <Heading size="sm">Children</Heading>
-                </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="size='sm'"
+          onClick={() => { dispatch({type: 'small'}) }}
+        />
+        {state.modal === 'small' && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View default padding and styling"
+              heading="Small modal"
+              onDismiss={() => { dispatch({type: 'none'}) }}
+              footer={<Heading size="xs">Footer</Heading>}
+              size="sm"
+            >
+              <Box padding={8}>
+                <Heading size="xs">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+      <Box padding={1}>
+        <Button
+          text="size='md'"
+          onClick={() => { dispatch({type: 'medium'}) }}
+        />
+        {state.modal === 'medium' && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View default padding and styling"
+              heading="Medium modal"
+              onDismiss={() => { dispatch({type: 'none'}) }}
+              footer={<Heading size="xs">Footer</Heading>}
+              size="md"
+            >
+              <Box padding={8}>
+                <Heading size="xs">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
+      </Box>
+      <Box padding={1}>
+        <Button
+          text="size='lg'"
+          onClick={() => { dispatch({type: 'large'}) }}
+        />
+        {state.modal === 'large' && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View default padding and styling"
+              heading="Large modal"
+              onDismiss={() => { dispatch({type: 'none'}) }}
+              footer={<Heading size="xs">Footer</Heading>}
+              size="lg"
+            >
+              <Box padding={8}>
+                <Heading size="xs">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
+      </Box>
+    </Box>
+  );
 }
 `}
   />
@@ -187,59 +173,44 @@ class Example extends React.Component {
 
 card(
   <Example
-    name="Default padding & styling"
+    name="Default padding &amp; styling"
     description={`
       Some of the padding required to style your modal has already been provided for ease of use. The modal shown
-      by clicking on the "View padding" button highlights the default behavior. The two dividers between
+      by clicking on the "View padding" button highlights the default behavior. The shadow (when scrolling) between
       the \`heading\`, \`children\`, and \`footer\` are included as well.
     `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggleModal = this._handleToggleModal.bind(this);
-    this.state = {
-      showModal: false,
-    };
-  }
-
-  _handleToggleModal() {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
-  }
-
-  render() {
-    const { showModal } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="View padding"
-            onClick={this.handleToggleModal}
-          />
-          {showModal && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="View default padding and styling"
-                heading="Heading"
-                onDismiss={this.handleToggleModal}
-                footer={
-                  <Box color="gray">
-                    <Heading size="sm">Footer</Heading>
-                  </Box>
-                }
-                size="md"
-              >
-                <Box color="gray" height={400}>
-                  <Heading size="sm">Children</Heading>
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="View padding"
+          onClick={() => { setShowModal(!showModal) }}
+        />
+        {showModal && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View default padding and styling"
+              heading="Heading"
+              onDismiss={() => { setShowModal(!showModal) }}
+              footer={
+                <Box color="lightGray">
+                  <Heading size="xs">Footer</Heading>
                 </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
+              }
+              size="md"
+            >
+              <Box>
+                <Heading size="xs">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
@@ -254,80 +225,65 @@ card(
       you can pass a custom React node as the heading prop and the Modal will render that instead.
     "
     defaultCode={`
-class HeadingExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggleModal = this._handleToggleModal.bind(this);
-    this.handleChangeTab = this._handleChangeTab.bind(this);
-    this.state = {
-      showModal: false,
-      activeTabIndex: 0,
-    };
-  }
+function HeadingExample(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  const [activeTabIndex, setActiveTabIndex] = React.useState(0);
 
-  _handleToggleModal() {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
-  }
-
-  _handleChangeTab({ activeTabIndex, event }) {
+  const handleChangeTab = ({ activeTabIndex, event }) => {
     event.preventDefault();
-    this.setState({ activeTabIndex });
+    setActiveTabIndex(activeTabIndex);
   }
 
-  render() {
-    const { showModal } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="View heading"
-            onClick={this.handleToggleModal}
-          />
-          {showModal && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="View custom modal heading"
-                heading={
-                  <Box padding={2}>
-                    <Tabs
-                      tabs={[
-                        {
-                          text: "Boards",
-                          href: "#"
-                        },
-                        {
-                          text: "Pins",
-                          href: "#"
-                        },
-                        {
-                          text: "Topics",
-                          href: "#"
-                        }
-                      ]}
-                      activeTabIndex={this.state.activeTabIndex}
-                      onChange={this.handleChangeTab}
-                    />
-                  </Box>
-                }
-                onDismiss={this.handleToggleModal}
-                footer={
-                  <Box color="gray">
-                    <Heading size="sm">Footer</Heading>
-                  </Box>
-                }
-                size="md"
-              >
-                <Box color="gray" height={400}>
-                  <Heading size="sm">Children</Heading>
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="View heading"
+          onClick={() => { setShowModal(!showModal) }}
+        />
+        {showModal && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View custom modal heading"
+              heading={
+                <Box padding={8}>
+                  <Tabs
+                    tabs={[
+                      {
+                        text: "Boards",
+                        href: "#"
+                      },
+                      {
+                        text: "Pins",
+                        href: "#"
+                      },
+                      {
+                        text: "Topics",
+                        href: "#"
+                      }
+                    ]}
+                    activeTabIndex={activeTabIndex}
+                    onChange={handleChangeTab}
+                  />
                 </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
+              }
+              onDismiss={() => { setShowModal(!showModal) }}
+              footer={
+                <Box color="lightGray">
+                  <Heading size="xs">Footer</Heading>
+                </Box>
+              }
+              size="md"
+            >
+              <Box color="lightGray" minHeight={400}>
+                <Heading size="xs">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
@@ -340,81 +296,62 @@ card(
     description={`
       The \`alertdialog\` role is used to notify the user of urgent information that demands the user's immediate attention.
       We need to specify this role separately from other dialogs for accessibility.
-
-      _Note: There are 3 small visual differences from the other Modals we've seen so far. First, there is no cancel button in the top
-      right, forcing the user to take an explicit action. Second, there is no divider between the heading, children,
-      and footer. Finally, the headings are larger and are left-aligned rather than centered._
     `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggleModal = this._handleToggleModal.bind(this);
-    this.state = {
-      showModal: false,
-    };
-  }
-
-  _handleToggleModal() {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
-  }
-
-  render() {
-    const { showModal } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="Block Chris"
-            onClick={this.handleToggleModal}
-          />
-          {showModal && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="Would you like to block Chris?"
-                heading="Block Chris?"
-                onDismiss={this.handleToggleModal}
-                footer={
-                  <Box
-                    display="flex"
-                    marginLeft={-1}
-                    marginRight={-1}
-                    justifyContent="end"
-                  >
-                    <Box padding={1}>
-                      <Button
-                        size="lg"
-                        text="Cancel"
-                        onClick={this.handleToggleModal}
-                      />
-                    </Box>
-                    <Box padding={1}>
-                      <Button
-                        size="lg"
-                        color="red"
-                        text="Block"
-                        onClick={this.handleToggleModal}
-                      />
-                    </Box>
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="Block Chris"
+          onClick={() => { setShowModal(!showModal) }}
+        />
+        {showModal && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="Would you like to block Chris?"
+              heading="Block Chris?"
+              onDismiss={() => { setShowModal(!showModal) }}
+              footer={
+                <Box
+                  display="flex"
+                  marginLeft={-1}
+                  marginRight={-1}
+                  justifyContent="center"
+                >
+                  <Box padding={1}>
+                    <Button
+                      size="lg"
+                      text="Cancel"
+                      onClick={() => { setShowModal(!showModal) }}
+                    />
                   </Box>
-                }
-                role="alertdialog"
-                size="sm"
-              >
-                <Box paddingX={4} paddingY={2}>
-                  <Text>
-                    You will not be able to follow each other or interact with each
-                    others Pins.
-                  </Text>
+                  <Box padding={1}>
+                    <Button
+                      size="lg"
+                      color="red"
+                      text="Block"
+                      onClick={() => { setShowModal(!showModal) }}
+                    />
+                  </Box>
                 </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
+              }
+              role="alertdialog"
+              size="sm"
+            >
+              <Box paddingX={8}>
+                <Text align="center">
+                  You will not be able to follow each other or interact with each
+                  others Pins.
+                </Text>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
@@ -427,115 +364,99 @@ card(
       Here is an example of the \`Modal\` component with static content.
     `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggleModal = this._handleToggleModal.bind(this);
-    this.state = {
-      showModal: false,
-    };
-  }
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
 
-  _handleToggleModal() {
-    this.setState(prevState => ({ showModal: !prevState.showModal }));
-  }
-
-  render() {
-    const { showModal } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="Edit board"
-            onClick={this.handleToggleModal}
-          />
-          {showModal && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="Edit Julia's board"
-                heading="Edit your board"
-                onDismiss={this.handleToggleModal}
-                footer={
-                  <Box
-                    justifyContent="between"
-                    display="flex"
-                    direction="row"
-                    marginLeft={-1}
-                    marginRight={-1}
-                  >
-                    <Box column={6} paddingX={1}>
-                      <Button text="Delete Board" inline />
-                    </Box>
-                    <Box column={6} paddingX={1}>
-                      <Box
-                        display="flex"
-                        direction="row"
-                        justifyContent="end"
-                        marginLeft={-1}
-                        marginRight={-1}
-                      >
-                        <Box paddingX={1}>
-                          <Button text="Cancel" inline onClick={this.handleToggleModal} />
-                        </Box>
-                        <Box paddingX={1}>
-                          <Button color="red" inline text="Save" />
-                        </Box>
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="Edit board"
+          onClick={() => { setShowModal(!showModal) }}
+        />
+        {showModal && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="Edit Julia's board"
+              heading="Edit your board"
+              onDismiss={() => { setShowModal(!showModal) }}
+              footer={
+                <Box
+                  justifyContent="between"
+                  display="flex"
+                  direction="row"
+                  marginLeft={-1}
+                  marginRight={-1}
+                >
+                  <Box column={6} paddingX={1}>
+                    <Button text="Delete Board" inline size="lg" />
+                  </Box>
+                  <Box column={6} paddingX={1}>
+                    <Box
+                      display="flex"
+                      direction="row"
+                      justifyContent="end"
+                      marginLeft={-1}
+                      marginRight={-1}
+                    >
+                      <Box paddingX={1}>
+                        <Button text="Cancel" inline onClick={() => { setShowModal(!showModal) }} size="lg" />
+                      </Box>
+                      <Box paddingX={1}>
+                        <Button color="red" inline text="Save" size="lg" />
                       </Box>
                     </Box>
                   </Box>
-                }
-                size="md"
-              >
-                <Box display="flex" direction="row" position="relative">
-                  <Column span={12}>
-                    <Box paddingY={2} paddingX={4} display="flex">
-                      <Column span={4}>
-                        <Label htmlFor="name">
-                          <Text align="left" weight="bold">
-                            Name
-                          </Text>
-                        </Label>
-                      </Column>
-                      <Column span={8}>
-                        <TextField id="name" onChange={() => undefined} />
-                      </Column>
-                    </Box>
-                    <Divider />
-                    <Box paddingY={2} paddingX={4} display="flex">
-                      <Column span={4}>
-                        <Label htmlFor="desc">
-                          <Text align="left" weight="bold">
-                            Description
-                          </Text>
-                        </Label>
-                      </Column>
-                      <Column span={8}>
-                        <TextArea id="desc" onChange={() => undefined} />
-                      </Column>
-                    </Box>
-                    <Divider />
-                    <Box paddingY={2} paddingX={4} display="flex">
-                      <Column span={4}>
-                        <Label htmlFor="notifications">
-                          <Text align="left" weight="bold">
-                            Email Notifications
-                          </Text>
-                        </Label>
-                      </Column>
-                      <Column span={8}>
-                        <Switch id="notifications" onChange={() => undefined} switched />
-                      </Column>
-                    </Box>
-                  </Column>
                 </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
+              }
+              size="md"
+            >
+              <Box display="flex" direction="row" position="relative">
+                <Column span={12}>
+                  <Box paddingY={2} paddingX={8} display="flex">
+                    <Column span={4}>
+                      <Label htmlFor="name">
+                        <Text align="left" weight="bold">
+                          Name
+                        </Text>
+                      </Label>
+                    </Column>
+                    <Column span={8}>
+                      <TextField id="name" onChange={() => undefined} />
+                    </Column>
+                  </Box>
+                  <Box paddingY={2} paddingX={8} display="flex">
+                    <Column span={4}>
+                      <Label htmlFor="desc">
+                        <Text align="left" weight="bold">
+                          Description
+                        </Text>
+                      </Label>
+                    </Column>
+                    <Column span={8}>
+                      <TextArea id="desc" onChange={() => undefined} />
+                    </Column>
+                  </Box>
+                  <Box paddingY={2} paddingX={8} display="flex">
+                    <Column span={4}>
+                      <Label htmlFor="notifications">
+                        <Text align="left" weight="bold">
+                          Email Notifications
+                        </Text>
+                      </Label>
+                    </Column>
+                    <Column span={8}>
+                      <Switch id="notifications" onChange={() => undefined} switched />
+                    </Column>
+                  </Box>
+                </Column>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
@@ -552,66 +473,56 @@ card(
       \`Spinner\` while waiting for the contents to load and then only display the \`Modal\` once fully loaded.
     `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggleModal = this._handleToggleModal.bind(this);
-    this.handleLoad = this._handleLoad.bind(this);
-    this.state = {
-      showModal: false,
-      hasLoaded: false,
-    };
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  const [hasLoaded, setHasLoaded] = React.useState(false);
+
+  const handleToggleModal = () => {
+    setShowModal(!showModal);
+    setHasLoaded(false);
   }
 
-  _handleToggleModal() {
-    this.setState(prevState => ({ showModal: !prevState.showModal, hasLoaded: false }));
-  }
-
-  _handleLoad() {
-    this.setState({ hasLoaded: true });
-  }
-
-  render() {
-    const { hasLoaded, showModal } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="View images"
-            onClick={this.handleToggleModal}
-          />
-          {showModal && (
-            <Layer>
-              <Modal
-                accessibilityCloseLabel="close"
-                accessibilityModalLabel="View random images"
-                heading="Images"
-                onDismiss={this.handleToggleModal}
-                footer={
-                  <Box display="flex" direction="row" justifyContent="end">
-                    <Button size="lg" text="Cancel" onClick={this.handleToggleModal} />
-                  </Box>
-                }
-                size="lg"
-              >
-                <Box display="flex" direction="row" justifyContent="center" alignItems="center">
-                  <Spinner
-                    accessibilityLabel="random image"
-                    show={!hasLoaded}
-                  />
-                  <img
-                    alt=""
-                    onLoad={this.handleLoad}
-                    src="http://lorempixel.com/400/400"
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="View images"
+          onClick={handleToggleModal}
+        />
+        {showModal && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View random images"
+              heading="Images"
+              onDismiss={handleToggleModal}
+              footer={
+                <Box display="flex" direction="row" justifyContent="end">
+                  <Button size="lg" text="Cancel" onClick={handleToggleModal} />
+                </Box>
+              }
+              size="lg"
+            >
+              <Box display="flex" direction="row" justifyContent="center" alignItems="center">
+                <Spinner
+                  accessibilityLabel="random image"
+                  show={!hasLoaded}
+                />
+                <Box maxWidth={400} width="100%">
+                  <Image
+                    alt="LandScape"
+                    onLoad={() => { setHasLoaded(true) }}
+                    src="https://i.picsum.photos/id/1000/5626/3635.jpg"
+                    naturalHeight={3635}
+                    naturalWidth={5626}
                   />
                 </Box>
-              </Modal>
-            </Layer>
-          )}
-        </Box>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
@@ -623,15 +534,13 @@ card(
     description={`
     We want to make sure every button on the page is unique when being read by screenreader.
 
-    \`accessibilityCloseLabel\` allows us to specify text that is spoken for the close button<br>
     \`accessibilityModalLabel\` allows us to update the spoken text for the heading prop.
 
     ~~~html
     <Modal
-      accessibilityCloseLabel="Close edit board modal"
       accessibilityModalLabel="Edit the details about your board House and Home"
       heading="Edit board"
-      onDismiss={this.handleModalDismiss}
+      onDismiss={handleModalDismiss}
       footer={<Footer />}
       size="lg"
     >
