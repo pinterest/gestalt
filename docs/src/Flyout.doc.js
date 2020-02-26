@@ -191,7 +191,7 @@ card(
 
     If no \`idealDirection\` is provided, the flyout will open in the direction where there is the
     most space available within the viewport. If there is not enough space in any direction, the flyout
-    will no longer be context-specific (linked to the anchor) and will appear at the bottom of
+    will no longer be context-specific (with a caret to the anchor) and will appear at the bottom of
     the screen. This is to ensure that users are always able to view the contents of the flyout,
     regardless of their screen size.
   `}
