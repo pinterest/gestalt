@@ -43,7 +43,7 @@ card(
         name: 'link',
         type: 'React.Node',
         required: false,
-        description: 'A link element',
+        description: 'A link which will show on the bottom of a tooltip',
       },
     ]}
   />
@@ -69,7 +69,7 @@ card(
 card(
   <Example
     name="Tooltips with link"
-    description="Passing a href prop will render a Learn More link below the provided tooltip text. Be sure to internationalize your hrefText."
+    description="Passing in a link will render the link in the tooltip"
     defaultCode={`
 <Tooltip
   inline

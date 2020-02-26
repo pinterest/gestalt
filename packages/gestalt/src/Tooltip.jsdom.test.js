@@ -16,8 +16,8 @@ test('Tooltip renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Tooltip renders the hrefText when hovered', () => {
-  const { container, getByRole, getByText } = render(
+test('Tooltip renders the link when hovered', () => {
+  const { getByRole, getByText } = render(
     <Tooltip
       link={
         <Link href="https://pinterest.com" target="blank">
@@ -34,16 +34,16 @@ test('Tooltip renders the hrefText when hovered', () => {
 
   fireEvent.mouseEnter(getByRole('tooltip'));
   expect(getByText('Learn more about logout')).toBeVisible();
-  expect(container.firstChild).toMatchSnapshot();
+  expect(getByText('https://pinterest.com')).toBeVisible();
 });
 
 test('Tooltip should render as expected when hovered', () => {
-  const { container, getByRole } = render(
+  const { getByRole, getByText } = render(
     <Tooltip text="This is a tooltip">
       <div>Hi</div>
     </Tooltip>
   );
 
   fireEvent.mouseEnter(getByRole('tooltip'));
-  expect(container.firstChild).toMatchSnapshot();
+  expect(getByText('This is a tooltip')).toBeVisible();
 });
