@@ -18,7 +18,7 @@ type Props = {|
 const Th = ({ children }: {| children?: React.Node |}) => (
   <th style={{ borderBottom: '2px solid #EFEFEF' }}>
     <Box padding={2}>
-      <Text size="sm" color="gray" overflow="normal" weight="bold">
+      <Text size="md" color="gray" overflow="normal" weight="bold">
         {children}
       </Text>
     </Box>

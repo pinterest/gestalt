@@ -58,11 +58,10 @@ card(
       },
       {
         name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 12px, sm: 14px, md: 16px, lg: 18px, xl: 21px`,
-        defaultValue: 'md',
+        type: `"sm" | "md" | "lg"`,
+        description: `sm: 12px, md: 14px, lg: 16px`,
+        defaultValue: 'lg',
         href: 'size',
-        responsive: true,
       },
       {
         name: 'truncate',
@@ -191,16 +190,6 @@ card(
     defaultCode={`
 <Box>
   <Box marginBottom={2}>
-    <Text inline size="xs">
-      {'Extra small'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="xs">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
-  <Box marginBottom={2}>
     <Text inline size="sm">
       {'Small'}
     </Text>{' '}
@@ -226,16 +215,6 @@ card(
     </Text>{' '}
     <span lang="ja">
       <Text inline size="lg">
-        こんにちは
-      </Text>
-    </span>
-  </Box>
-  <Box marginBottom={2}>
-    <Text inline size="xl">
-      {'Extra Large'}
-    </Text>{' '}
-    <span lang="ja">
-      <Text inline size="xl">
         こんにちは
       </Text>
     </span>

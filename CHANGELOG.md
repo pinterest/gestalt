@@ -7,9 +7,13 @@
   </summary>
 
 ### Minor
-Text / Heading [Breaking]: Added codemod to support breaking changes from #693 (removed support for responsive size prop values smSize, mdSize, and lgSize in Text and Heading component) (#696)
+- Text / Heading [Breaking]: Added codemod to support breaking changes from #693 (removed support for responsive size prop values smSize, mdSize, and lgSize in Text and Heading component) (#696)
+- Heading / Text [Breaking]: Reduce size options from xs-xl to sm-lg (#693)
+
 Run codemods for breaking changes in order:
 1. `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/remove-responsive-text-sizing.js ~/code/repo`
+2. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/heading-size-replace.js ~/code/repo`
+3. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/text-size-replace.js ~/code/repo`
 
 ### Patch
 

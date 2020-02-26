@@ -46,7 +46,7 @@ function Example({
               height="100%"
             >
               <Box paddingY={2}>
-                <Text size="sm" color="gray">
+                <Text size="md" color="gray">
                   Preview
                 </Text>
               </Box>
@@ -65,7 +65,7 @@ function Example({
           <Column span={direction === 'column' ? 12 : 6}>
             <Box paddingX={2}>
               <Box paddingY={2}>
-                <Text size="sm" color="gray">
+                <Text size="md" color="gray">
                   Editor
                 </Text>
               </Box>

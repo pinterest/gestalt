@@ -1,52 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Heading default overflow 1`] = `
-<h4
-  className="Heading fontSize2 darkGray breakWord"
+<h3
+  className="Heading fontSize1 darkGray breakWord"
+/>
+`;
+
+exports[`Heading large 1`] = `
+<h1
+  className="Heading fontSize3 darkGray breakWord"
 />
 `;
 
 exports[`Heading overflow normal 1`] = `
-<h4
-  className="Heading fontSize2 darkGray"
-/>
-`;
-
-exports[`Heading small 1`] = `
-<h4
-  className="Heading fontSize2 darkGray breakWord"
+<h3
+  className="Heading fontSize1 darkGray"
 />
 `;
 
 exports[`Heading small with id 1`] = `
-<h4
-  className="Heading fontSize2 darkGray breakWord"
+<h3
+  className="Heading fontSize1 darkGray breakWord"
   id="account-basics"
 />
 `;
 
-exports[`Heading truncate adds a title when the children are text only 1`] = `
+exports[`Heading small with level 3 1`] = `
 <h3
+  className="Heading fontSize1 darkGray breakWord"
+/>
+`;
+
+exports[`Heading truncate adds a title when the children are text only 1`] = `
+<h1
   className="Heading fontSize3 darkGray breakWord truncate"
   title="When we two parted - Lord Byron"
 >
   When we two parted - Lord Byron
-</h3>
+</h1>
 `;
 
 exports[`Heading truncate does not add a title when the children are objects 1`] = `
-<h3
+<h1
   className="Heading fontSize3 darkGray breakWord truncate"
 >
   <div>
     Breakup reading:
   </div>
   When we two parted - Lord Byron
-</h3>
-`;
-
-exports[`Heading xsmall with level 3 1`] = `
-<h3
-  className="Heading fontSize1 darkGray breakWord"
-/>
+</h1>
 `;

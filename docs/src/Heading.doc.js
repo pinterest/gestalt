@@ -47,10 +47,9 @@ card(
       },
       {
         name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 24px, sm: 36px, md: 48px, lg: 64px, xl: 96px`,
-        responsive: true,
-        defaultValue: 'md',
+        type: `"sm" | "md" | "lg"`,
+        description: `sm: 20px, md: 28px, lg: 36px`,
+        defaultValue: 'lg',
         href: 'sizes',
       },
       {
@@ -69,10 +68,6 @@ card(
     name="Example: Sizes"
     defaultCode={`
 <Box>
-  <Heading size="xs">Heading extra small</Heading>
-  <span lang="ja">
-    <Heading size="xs">こんにちは</Heading>
-  </span>
   <Heading size="sm">Heading small</Heading>
   <span lang="ja">
     <Heading size="sm">こんにちは</Heading>
@@ -86,10 +81,6 @@ card(
   <Heading size="lg">Heading large</Heading>
   <span lang="ja">
     <Heading size="lg">こんにちは</Heading>
-  </span>
-  <Heading size="xl">Heading extra large</Heading>
-  <span lang="ja">
-    <Heading size="xl">こんにちは</Heading>
   </span>
 </Box>
 `}
@@ -133,21 +124,21 @@ card(
     defaultCode={`
 <Box maxWidth={240} marginTop={-2} marginBottom={-2}>
   <Box paddingY={2}>
-    <Heading size="xs">
+    <Heading size="sm">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
   </Box>
 
   <Box paddingY={2}>
-    <Heading size="xs" truncate>
+    <Heading size="sm" truncate>
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
   </Box>
 
   <Box paddingY={2}>
-    <Heading size="xs" overflow="normal">
+    <Heading size="sm" overflow="normal">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
@@ -168,11 +159,11 @@ card(
     name="Example: Levels"
     defaultCode={`
 <Box>
-  <Heading size="sm" accessibilityLevel={2}>
-    Small heading level 2
+  <Heading size="md" accessibilityLevel={2}>
+    Medium heading level 2
   </Heading>
-  <Heading size="xs" accessibilityLevel={3}>
-    Extra small heading level 3
+  <Heading size="sm" accessibilityLevel={3}>
+    Small heading level 3
   </Heading>
 </Box>
 `}
