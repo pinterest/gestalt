@@ -6,11 +6,12 @@
     Click to see more.
   </summary>
 
-### Minor
-
 ## 1.6.1 (Feb 25, 2020)
 
+### Minor
+
 - [Revert] Flyout: Update spacing around items to 8px + remove caret code (#668)
+- [Revert] Masonry: Allowing string enums for Masonry layout (#667)
 
 ## 1.6.0 (Feb 25, 2020)
 
