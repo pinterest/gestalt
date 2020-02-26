@@ -34,11 +34,7 @@
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: 100% 20px, 100% 20px, 100% 8px, 100% 8px;
-}
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .content {
-    /* Hack on retina screens to avoid the extra gray border between the content and footer */
-    transform: scaleX(1.0000001);
-  }
+  /* Hack on retina screens to avoid the extra gray border between the content and footer */
+  transform: scaleX(1.0000001);
 }
