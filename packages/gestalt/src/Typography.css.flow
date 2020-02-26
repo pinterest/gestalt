@@ -13,6 +13,7 @@ declare module.exports: {|
   +'fontWeightNormal': string,
   +'leadingShort': string,
   +'leadingTall': string,
+  +'letterSpacing': string,
   +'noUnderline': string,
   +'sansSerif': string,
   +'truncate': string,

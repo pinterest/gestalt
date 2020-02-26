@@ -40,7 +40,7 @@ console.log(
       ruleset('.Heading', [
         [
           'composes',
-          "antialiased sansSerif leadingSmall from '../Typography.css'",
+          "antialiased sansSerif letterSpacing leadingSmall from '../Typography.css'",
         ],
         ['margin-bottom', '0'],
         ['margin-top', '0'],

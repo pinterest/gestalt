@@ -24,6 +24,12 @@
   quotes: "「" "」";
 }
 
+/* kerning */
+
+.letterSpacing {
+  letter-spacing: -0.4px;
+}
+
 /* leading */
 
 .leadingShort {
