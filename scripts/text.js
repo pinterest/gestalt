@@ -38,7 +38,10 @@ console.log(
         ['--font-size-5', '21px'],
       ]),
       ruleset('.Text', [
-        ['composes', "antialiased sansSerif from '../Typography.css'"],
+        [
+          'composes',
+          "antialiased sansSerif letterSpacing from '../Typography.css'",
+        ],
       ]),
     ].concat(
       SCALE.reduce((arr, i) => arr.concat(rules(i)), []),

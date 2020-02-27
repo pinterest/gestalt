@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Modal: Fix extra border between content / footer + revert letter spacing changes
+
 ### Patch
 
 </details>
