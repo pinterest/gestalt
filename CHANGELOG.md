@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tabs: update horizontal padding to 12px (#698)
+
 ### Patch
 
 </details>
