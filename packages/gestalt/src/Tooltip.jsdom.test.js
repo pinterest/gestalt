@@ -49,3 +49,13 @@ test('Tooltip should render as expected when hovered', () => {
   fireEvent.mouseEnter(container.querySelector('[aria-label]'));
   expect(getByText('This is a tooltip')).toBeVisible();
 });
+
+test('Tooltip renders with idealDirection', () => {
+  const component = create(
+    <Tooltip text="This is a tooltip" idealDirection="up">
+      <div>Hi</div>
+    </Tooltip>
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
