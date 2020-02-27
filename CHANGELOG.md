@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
+
 ### Patch
 
 </details>

@@ -34,7 +34,7 @@ card(
         name: 'closeOnOutsideClick',
         type: 'boolean',
         description: 'Close the modal when you click outside of it',
-        defaultValue: false,
+        defaultValue: true,
       },
       {
         name: 'footer',
