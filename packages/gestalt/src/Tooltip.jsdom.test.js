@@ -17,7 +17,7 @@ test('Tooltip renders', () => {
 });
 
 test('Tooltip renders the link when hovered', () => {
-  const { getByRole, getByText } = render(
+  const { container, getByRole, getByText } = render(
     <Tooltip
       link={
         <Link href="https://pinterest.com" target="blank">
@@ -34,7 +34,9 @@ test('Tooltip renders the link when hovered', () => {
 
   fireEvent.mouseEnter(getByRole('tooltip'));
   expect(getByText('Learn more about logout')).toBeVisible();
-  expect(getByText('https://pinterest.com')).toBeVisible();
+  expect(
+    container.querySelector('[href="https://pinterest.com"]')
+  ).toBeVisible();
 });
 
 test('Tooltip should render as expected when hovered', () => {
