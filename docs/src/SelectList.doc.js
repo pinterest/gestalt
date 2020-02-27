@@ -71,54 +71,39 @@ card(
     name="Example"
     description={`Make sure to attach a \`Label\` to every SelectList.`}
     defaultCode={`
-class SelectListExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      city: 'la'
+function Example(props) {
+  const [city, setCity] = React.useState('la')
+  const cityOptions = [
+    {
+      value: "bos",
+      label: "Boston"
+    },
+    {
+      value: "la",
+      label: "Los Angeles"
+    },
+    {
+      value: "sf",
+      label: "San Francisco"
     }
-  }
-
-  _handleChange({ value }) {
-    this.setState({
-      city: value,
-    })
-  }
-
-  render() {
-    const cityOptions = [
-      {
-        value: "bos",
-        label: "Boston"
-      },
-      {
-        value: "la",
-        label: "Los Angeles"
-      },
-      {
-        value: "sf",
-        label: "San Francisco"
-      }
-    ];
-    return (
-      <Box>
-        <Box paddingY={2}>
-          <Label htmlFor="city">
-            <Text>City</Text>
-          </Label>
+  ];
+  return (
+    <>
+      <Label htmlFor="city">
+        <Box padding={2}>
+          <Text size="sm">City</Text>
         </Box>
-        <SelectList
-          id="city"
-          name="city"
-          onChange={this.handleChange}
-          options={cityOptions}
-          placeholder="Select city"
-          value={this.state.city}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <SelectList
+        id="city"
+        name="city"
+        onChange={({ value }) => setCity(value)}
+        options={cityOptions}
+        placeholder="Select city"
+        value={city}
+      />
+    </>
+  );
 }
     `}
   />
@@ -129,58 +114,42 @@ card(
     id="exampleWithError"
     name="Example: With Error Message"
     description={`SelectList can display error messages if you'd like.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will
-    handle the rest.`}
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present.`}
     defaultCode={`
-class SelectListExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      city: 'la'
+function Example(props) {
+  const [hobby, setHobby] = React.useState('sailing')
+  const hobbies = [
+    {
+      value: "sailing",
+      label: "Sailing"
+    },
+    {
+      value: "skiing",
+      label: "Skiing"
+    },
+    {
+      value: "cycling",
+      label: "Cycling"
     }
-  }
-
-  _handleChange({ value }) {
-    this.setState({
-      city: value,
-    })
-  }
-
-  render() {
-    const cityOptions = [
-      {
-        value: "bos",
-        label: "Boston"
-      },
-      {
-        value: "la",
-        label: "Los Angeles"
-      },
-      {
-        value: "sf",
-        label: "San Francisco"
-      }
-    ];
-    return (
-      <Box>
-        <Box paddingY={2}>
-          <Label htmlFor="city">
-            <Text>City</Text>
-          </Label>
+  ];
+  return (
+    <>
+      <Label htmlFor="hobby">
+        <Box padding={2}>
+          <Text size="sm">Hobby</Text>
         </Box>
-        <SelectList
-          id="city"
-          name="city"
-          errorMessage="This selection has an error"
-          onChange={this.handleChange}
-          options={cityOptions}
-          placeholder="Select city"
-          value={this.state.city}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <SelectList
+        id="hobby"
+        name="hobby"
+        errorMessage={ hobby === 'sailing' ? 'Sailing is not a hobby, it is a passion' : null}
+        onChange={({ value }) => setHobby(value)}
+        options={hobbies}
+        placeholder="Select hobby"
+        value={hobby}
+      />
+    </>
+  );
 }
     `}
   />

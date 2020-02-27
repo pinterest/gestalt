@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SelectList / TextField / TextArea: Update design (#664)
+
 ### Patch
 
 </details>

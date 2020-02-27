@@ -1,0 +1,42 @@
+.base {
+  appearance: none;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.base:focus {
+  border-color: #111;
+  outline: none;
+}
+
+.normal {
+  border-color: #efefef;
+}
+
+.normal:hover:not(:focus) {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.errored {
+  border-color: #e60023;
+  outline: none;
+}
+
+.errored:focus {
+  border-color: #111;
+}
+
+.errored:hover:not(:focus) {
+  border-color: #d80021;
+}
+
+.enabled {
+  composes: darkGray from "./Colors.css";
+  composes: whiteBg from "./Colors.css";
+}
+
+.disabled {
+  composes: gray from "./Colors.css";
+  composes: lightGrayBg from "./Colors.css";
+}

@@ -89,36 +89,23 @@ card(
     A \`TextArea\` will expand to fill the width of the parent container.
   `}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      value: ""
-    };
-  }
-  _handleChange({ value }) {
-    this.setState({
-      value
-    });
-  }
-  render() {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Label htmlFor="aboutme">
-            <Text>With a placeholder</Text>
-          </Label>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box>
+      <Label htmlFor="aboutme">
+        <Box padding={2}>
+          <Text size="sm">With a placeholder</Text>
         </Box>
-        <TextArea
-          id="aboutme"
-          onChange={this.handleChange}
-          placeholder="Write something about yourself..."
-          value={this.state.value}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <TextArea
+        id="aboutme"
+        onChange={({value}) => setValue(value)}
+        placeholder="Write something about yourself..."
+        value={value}
+      />
+    </Box>
+  );
 }
 `}
   />
@@ -129,37 +116,24 @@ card(
     id="disabledExample"
     name="Example: Disabled"
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      value: ""
-    };
-  }
-  _handleChange({ value }) {
-    this.setState({
-      value
-    });
-  }
-  render() {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Label htmlFor="aboutme">
-            <Text>Disabled</Text>
-          </Label>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box>
+      <Label htmlFor="disabled">
+        <Box padding={2}>
+          <Text size="sm">With a placeholder</Text>
         </Box>
-        <TextArea
-          disabled
-          id="aboutme"
-          onChange={this.handleChange}
-          placeholder="Write something about yourself..."
-          value={this.state.value}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <TextArea
+        disabled
+        id="disabled"
+        onChange={({value}) => setValue(value)}
+        placeholder="Write something about yourself..."
+        value={value}
+      />
+    </Box>
+  );
 }
 `}
   />
@@ -173,34 +147,24 @@ card(
     A TextArea can display its own error message.
     To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this._handleChange.bind(this);
-    this.state = {
-      value: ""
-    };
-  }
-  _handleChange({ value }) {
-    this.setState({ value });
-  }
-  render() {
-    return (
-      <Box>
-        <Box marginBottom={2}>
-          <Label htmlFor="aboutme">
-            <Text>With an error message</Text>
-          </Label>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box>
+      <Label htmlFor="witherror">
+        <Box padding={2}>
+          <Text size="sm">With an error message</Text>
         </Box>
-        <TextArea
-          id="aboutme"
-          errorMessage={!this.state.value ? "This field can't be blank!" : null}
-          onChange={this.handleChange}
-          value={this.state.value}
-        />
-      </Box>
-    );
-  }
+      </Label>
+      <TextArea
+        id="witherror"
+        onChange={({value}) => setValue(value)}
+        errorMessage={!value ? "This field can't be blank!" : null}
+        placeholder="Write something about yourself..."
+        value={value}
+      />
+    </Box>
+  );
 }
 `}
   />

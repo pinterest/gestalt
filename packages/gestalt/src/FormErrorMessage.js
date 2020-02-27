@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Box from './Box.js';
 import Text from './Text.js';
 
 type Props = {|
@@ -11,9 +12,11 @@ type Props = {|
 
 export default function FormErrorMessage({ id, text = '' }: Props) {
   return (
-    <Text color="red">
-      <span id={`${id}-error`}>{text}</span>
-    </Text>
+    <Box paddingX={2}>
+      <Text color="red" size="sm">
+        <span id={`${id}-error`}>{text}</span>
+      </Text>
+    </Box>
   );
 }
 
