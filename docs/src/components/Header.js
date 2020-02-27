@@ -30,7 +30,7 @@ export default function Header() {
       alignItems="center"
     >
       <Box marginStart={-2} marginEnd={-2}>
-        <Text size="lg" color="white" weight="bold">
+        <Text color="white" weight="bold">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link to="/">
             <Box padding={2}>
@@ -68,7 +68,7 @@ export default function Header() {
             onClick={toggleRTL}
           />
         </Box>
-        <Text color="white" size="lg">
+        <Text color="white">
           <GestaltLink
             href="https://codesandbox.io/s/k5plvp9v8v"
             target="blank"
@@ -77,7 +77,7 @@ export default function Header() {
           </GestaltLink>
         </Text>
 
-        <Text color="white" size="lg">
+        <Text color="white">
           <GestaltLink
             href="https://github.com/pinterest/gestalt"
             target="blank"

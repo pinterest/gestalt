@@ -56,7 +56,7 @@ function CardExample() {
   return (
     <Box maxWidth={236} padding={2} column={12}>
       <Card image={<Avatar name="James Jones" src="${james}" />}>
-        <Text align="center" size="xl" weight="bold">
+        <Text align="center" weight="bold">
           <Link href="https://pinterest.com">
             <Box paddingX={3} paddingY={2}>
               James Jones

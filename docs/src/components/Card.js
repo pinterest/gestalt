@@ -22,7 +22,7 @@ export default function Card({
 }: Props) {
   return (
     <Box id={id}>
-      {heading && <Heading size="xs">{name}</Heading>}
+      {heading && <Heading size="md">{name}</Heading>}
       <Box
         marginLeft={-2}
         marginRight={-2}

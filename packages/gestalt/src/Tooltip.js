@@ -53,7 +53,7 @@ export default class Tooltip extends React.Component<Props, State> {
             size={null}
           >
             <Box maxWidth={180} paddingY={1} paddingX={2} role="tooltip">
-              <Text color="white" size="xs">
+              <Text color="white" size="sm">
                 {text}
               </Text>
             </Box>

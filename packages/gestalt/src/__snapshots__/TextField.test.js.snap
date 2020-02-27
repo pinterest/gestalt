@@ -56,7 +56,7 @@ exports[`TextField TextField with error 1`] = `
       className="box paddingX2"
     >
       <div
-        className="Text fontSize2 red alignLeft breakWord fontWeightNormal"
+        className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
       >
         <span
           id="test-error"

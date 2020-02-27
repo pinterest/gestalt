@@ -79,7 +79,7 @@ card(
     name="Accessibility"
     defaultCode={`
 <Box>
-  <Heading size="sm">
+  <Heading>
     Bad ❌
   </Heading>
   <Text>
@@ -91,7 +91,7 @@ card(
     </Text>.
   </Text>
   <Box paddingY={4}>
-    <Heading size="sm">
+    <Heading>
       Good ✅
     </Heading>
     <Text>

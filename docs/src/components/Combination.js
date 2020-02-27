@@ -84,7 +84,7 @@ export default function Combination({
           >
             <Box marginBottom={2}>
               {Object.keys(combination).map(key => (
-                <Text align="center" size="sm" key={`${i}-${key}`}>
+                <Text align="center" size="md" key={`${i}-${key}`}>
                   {toReactAttribute(key, combination[key])}
                 </Text>
               ))}
