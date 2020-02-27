@@ -1,5 +1,5 @@
 .Badge {
-  composes: antialiased sansSerif from "./Typography.css";
+  composes: antialiased sansSerif letterSpacing from "./Typography.css";
   composes: fontWeightBold from "./Typography.css";
   composes: blue from "./Colors.css";
   composes: inlineBlock from "./Layout.css";
