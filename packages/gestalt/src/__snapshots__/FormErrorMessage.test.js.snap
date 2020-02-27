@@ -5,7 +5,7 @@ exports[`FormErrorMessage with errorMessage 1`] = `
   className="box paddingX2"
 >
   <div
-    className="Text fontSize2 red alignLeft breakWord fontWeightNormal"
+    className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
   >
     <span
       id="test-error"
@@ -21,7 +21,7 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
   className="box paddingX2"
 >
   <div
-    className="Text fontSize2 red alignLeft breakWord fontWeightNormal"
+    className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
   >
     <span
       id="test-error"
