@@ -8,11 +8,16 @@
 
 ### Minor
 
-- Modal: Fix extra border between content / footer + revert letter spacing changes
-
 ### Patch
 
 </details>
+
+## 1.7.1 (Feb 26, 2020)
+
+### Minor
+
+- Modal: Fix extra border between content / footer (#694)
+- Text/Heading: Revert letter spacing changes (#694)
 
 ## 1.7.0 (Feb 25, 2020)
 
