@@ -8,11 +8,15 @@
 
 ### Minor
 
-- SelectList / TextField / TextArea: Update design (#664)
-
 ### Patch
 
 </details>
+
+## 1.8.0 (Feb 27, 2020)
+
+### Minor
+
+- SelectList / TextField / TextArea: Update design (#664)
 
 ## 1.7.1 (Feb 26, 2020)
 
