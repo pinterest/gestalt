@@ -76,7 +76,7 @@ card(
   text="Logout"
   link={
     <Link href="https://pinterest.com" target="blank">
-      <Text color="white" size="xs" weight="bold">
+      <Text color="white" size="sm" weight="bold">
         Learn more about logout
       </Text>
     </Link>

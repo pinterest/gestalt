@@ -6,7 +6,7 @@ import Text from './Text.js';
 import Box from './Box.js';
 
 const noop = () => {};
-const TIMEOUT = 75;
+const TIMEOUT = 100;
 
 type Props = {|
   children: React.Node,
