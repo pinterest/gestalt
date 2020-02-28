@@ -81,7 +81,6 @@ export default function Tooltip({ children, link, inline, text }: Props) {
         ref={childRef}
         onMouseEnter={handleIconMouseEnter}
         onMouseLeave={handleIconMouseLeave}
-        role="tooltip"
       >
         {children}
       </Box>
@@ -103,6 +102,7 @@ export default function Tooltip({ children, link, inline, text }: Props) {
             onFocus={link ? handleTextMouseEnter : undefined}
             onMouseEnter={link ? handleTextMouseEnter : undefined}
             onMouseLeave={link ? handleTextMouseLeave : undefined}
+            role="tooltip"
             tabIndex={0}
           >
             <Text color="white" size="sm">
