@@ -59,7 +59,6 @@
     "greenkeeper-lockfile-upload": "greenkeeper-lockfile-upload",
     "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch)",
     "test": "./scripts/test.sh",
-    "test:integration": "./run_integration_tests",
     "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
     "precommit": "lint-staged"
   },

@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- ReadMe/package.json: Removed references and script to run integrations tests. (#702)
 
 </details>
 
