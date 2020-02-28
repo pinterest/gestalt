@@ -8,6 +8,14 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.10.0 (Feb 28, 2020)
+
+### Minor
+
 - Tooltip: Add ability to hover over tooltip and add a clickable link (#684)
 - Tooltip: Add idealDirection (#701)
 - IconWithTooltip: deprecate component (#690)
@@ -17,8 +25,6 @@
 - Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
 - Box/Mask/Sticky: [Docs] Added descriptions about usage to attributes accepting both string and number formats. (#703)
 - README: [Docs] Removed references and script to run integrations tests. (#702)
-
-</details>
 
 ## 1.9.0 (Feb 27, 2020)
 
