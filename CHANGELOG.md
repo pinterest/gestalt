@@ -7,6 +7,12 @@
   </summary>
 
 ### Minor
+- Box [Breaking]: Removes support to deprecated props deprecatedMargin & deprecatedPadding (#711)
+
+Run codemods:
+
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.15.0-1.16.0/deprecatedMargin-box-replace.js ~/code/repo`
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.15.0-1.16.0/deprecatedPadding-box-replace.js ~/code/repo`
 
 ### Patch
 
