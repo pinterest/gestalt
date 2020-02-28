@@ -145,22 +145,27 @@ card(
       {
         name: 'maxWidth',
         type: `number | string`,
+        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%"`,
       },
       {
         name: 'minHeight',
         type: `number | string`,
+        description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%"`,
       },
       {
         name: 'minWidth',
         type: `number | string`,
+        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%"`,
       },
       {
         name: 'height',
         type: `number | string`,
+        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
       },
       {
         name: 'width',
         type: `number | string`,
+        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
       },
       {
         name: 'opacity',

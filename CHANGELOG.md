@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- Box/Mask/Sticky Docs: Added descriptions about usage to attributes accepting both string and number formats. (#703)
 
 </details>
 
