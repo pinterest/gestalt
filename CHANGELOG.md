@@ -14,6 +14,7 @@
 - Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
 
 ### Patch
+- ReadMe/package.json: Removed references and script to run integrations tests. (#702)
 
 </details>
 
