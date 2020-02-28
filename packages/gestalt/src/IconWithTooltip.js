@@ -107,6 +107,7 @@ export default function IconWithTooltip({
         <Controller
           anchor={anchor}
           bgColor="darkGray"
+          caret={false}
           idealDirection="down"
           onDismiss={noop}
           positionRelativeToAnchor
@@ -123,13 +124,13 @@ export default function IconWithTooltip({
             role="tooltip"
             tabIndex={0}
           >
-            <Text color="white" size="xs">
+            <Text color="white" size="sm">
               {tooltipText}
             </Text>
             {href && hrefText && (
               <Box paddingY={1} role="link">
                 <Link href={href}>
-                  <Text color="white" size="xs" weight="bold">
+                  <Text color="white" size="sm" weight="bold">
                     {hrefText}
                   </Text>
                 </Link>

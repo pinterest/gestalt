@@ -46,11 +46,7 @@ export default function Tabs({
             onClick={(e: SyntheticMouseEvent<>) => handleTabClick(i, e)}
             role="tab"
           >
-            <Text
-              color={isActive ? 'white' : 'darkGray'}
-              size="md"
-              weight="bold"
-            >
+            <Text color={isActive ? 'white' : 'darkGray'} weight="bold">
               {text}
             </Text>
           </a>

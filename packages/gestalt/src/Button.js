@@ -81,7 +81,6 @@ export default function Button(props: Props) {
           DEFAULT_TEXT_COLORS[color]
         }
         overflow="normal"
-        size="md"
         weight="bold"
       >
         {text}

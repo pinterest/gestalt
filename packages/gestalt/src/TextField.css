@@ -1,43 +1,10 @@
 .textField {
-  composes: accessibilityOutline from "./Focus.css";
   composes: borderBox medium from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
-  appearance: none;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 8px 14px;
+  padding: 8px 16px;
 }
 
 .textField::placeholder {
   color: #8e8e8e;
-}
-
-.textField:focus {
-  background-color: #fff;
-}
-
-.normal {
-  border-color: #8e8e8e;
-}
-
-input.errored {
-  border-color: #e60023;
-}
-
-input.errored:focus {
-  box-shadow: 0 0 0 4px rgba(230, 0, 35, 0.5);
-  outline: none;
-}
-
-.enabled {
-  composes: darkGray from "./Colors.css";
-  composes: whiteBg from "./Colors.css";
-  cursor: text;
-}
-
-.disabled {
-  composes: gray from "./Colors.css";
-  composes: lightGrayBg from "./Colors.css";
 }

@@ -122,7 +122,7 @@ class FlyoutExample extends React.Component {
             shouldFocus={false}
           >
             <Box column={12} padding={3}>
-              <Text color="white" size="md" weight="bold">
+              <Text color="white" weight="bold">
                 Create a board to save Pins about Kitchen Design for later
               </Text>
             </Box>

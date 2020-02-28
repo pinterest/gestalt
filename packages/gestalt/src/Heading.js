@@ -28,28 +28,21 @@ type Props = {|
     | 'watermelon'
     | 'white',
   id?: string,
-  lgSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  mdSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
   overflow?: 'normal' | 'breakWord',
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  smSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  size?: 'sm' | 'md' | 'lg',
   truncate?: boolean,
 |};
 
 const defaultHeadingLevels = {
-  xs: 5,
-  sm: 4,
-  md: 3,
-  lg: 2,
-  xl: 1,
+  sm: 3,
+  md: 2,
+  lg: 1,
 };
 
 const SIZE_SCALE: { [size: ?string]: number } = {
-  xs: 1,
-  sm: 2,
-  md: 3,
-  lg: 4,
-  xl: 5,
+  sm: 1,
+  md: 2,
+  lg: 3,
 };
 
 export default function Heading(props: Props) {
@@ -58,20 +51,14 @@ export default function Heading(props: Props) {
     children,
     color = 'darkGray',
     id = null,
-    lgSize,
-    mdSize,
     overflow = 'breakWord',
-    size = 'md',
-    smSize,
+    size = 'lg',
     truncate = false,
   } = props;
 
   const cs = cx(
     styles.Heading,
     styles[`fontSize${SIZE_SCALE[size]}`],
-    smSize && styles[`smFontSize${SIZE_SCALE[smSize]}`],
-    mdSize && styles[`mdFontSize${SIZE_SCALE[mdSize]}`],
-    lgSize && styles[`lgFontSize${SIZE_SCALE[lgSize]}`],
     colors[color],
     overflow === 'breakWord' && typography.breakWord,
     truncate && typography.truncate
@@ -112,9 +99,6 @@ Heading.propTypes = {
   ]),
   id: PropTypes.string,
   overflow: PropTypes.oneOf(['normal', 'breakWord']),
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  smSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  mdSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-  lgSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   truncate: PropTypes.bool,
 };

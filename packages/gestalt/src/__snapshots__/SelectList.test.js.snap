@@ -39,7 +39,7 @@ exports[`SelectList SelectList normal 1`] = `
     <select
       aria-describedby={null}
       aria-invalid="false"
-      className="select enabled normal"
+      className="select base enabled normal"
       disabled={false}
       id="test"
       onBlur={[Function]}

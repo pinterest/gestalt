@@ -3,13 +3,13 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import Heading from './Heading.js';
 
-test('Heading small', () => {
-  const tree = create(<Heading size="sm" />).toJSON();
+test('Heading large', () => {
+  const tree = create(<Heading size="lg" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Heading xsmall with level 3', () => {
-  const tree = create(<Heading size="xs" accessibilityLevel={3} />).toJSON();
+test('Heading small with level 3', () => {
+  const tree = create(<Heading size="sm" accessibilityLevel={3} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

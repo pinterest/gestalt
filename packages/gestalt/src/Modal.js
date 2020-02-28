@@ -43,8 +43,8 @@ function Header({ heading }: {| heading: string | React.Node |}) {
 
   return (
     <Box display="flex" justifyContent="center" padding={8}>
-      <Heading size="xs" accessibilityLevel={1}>
-        <span style={{ fontSize: 28 }}>{heading}</span>
+      <Heading size="md" accessibilityLevel={1}>
+        {heading}
       </Heading>
     </Box>
   );

@@ -13,6 +13,11 @@ test('Text orange adds the orange color class', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Text size sm adds the small size class', () => {
+  const tree = create(<Text size="sm" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Text leading short adds the leadingShort class', () => {
   const tree = create(<Text leading="short" />).toJSON();
   expect(tree).toMatchSnapshot();

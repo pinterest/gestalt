@@ -8,17 +8,52 @@
 
 ### Minor
 
-IconWithTooltip: deprecate component (#690)
-Button: update horizontal padding to 12px (#688)
+- Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
+- Tooltip: Add ability to hover over tooltip and add a clickable link (#684)
+- IconWithTooltip: deprecate component (#690)
 
 ### Patch
 
 </details>
 
+## 1.9.0 (Feb 27, 2020)
+
+### Minor
+
+- Text / Heading [Breaking]: Added codemod to support breaking changes from #693 (removed support for responsive size prop values smSize, mdSize, and lgSize in Text and Heading component) (#696)
+- Heading / Text [Breaking]: Reduce size options from xs-xl to sm-lg (#693)
+
+Run codemods for breaking changes in order:
+
+1. `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/remove-responsive-text-sizing.js ~/code/repo`
+2. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/heading-size-replace.js ~/code/repo`
+3. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/text-size-replace.js ~/code/repo`
+
+## 1.8.0 (Feb 27, 2020)
+
+### Minor
+
+- SelectList / TextField / TextArea: Update design (#664)
+
+## 1.7.1 (Feb 26, 2020)
+
+### Minor
+
+- Modal: Fix extra border between content / footer (#694)
+- Text/Heading: Revert letter spacing changes (#694)
+
+## 1.7.0 (Feb 25, 2020)
+
+### Minor
+
+- Button: update horizontal padding to 12px (#688)
+- [Revert] Flyout: Update spacing around items to 8px + remove caret code (#668)
+- [Revert] Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#667)
+
 ## 1.6.0 (Feb 25, 2020)
 
-Internal: Update Node.js version to 12.x (#686)
-Internal: update yarn.lock file (#687)
+- Internal: Update Node.js version to 12.x (#686)
+- Internal: update yarn.lock file (#687)
 
 ## 1.5.0 (Feb 25, 2020)
 
