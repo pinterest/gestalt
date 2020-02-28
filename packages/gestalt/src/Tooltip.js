@@ -81,8 +81,6 @@ export default function Tooltip({ children, link, inline, text }: Props) {
         ref={childRef}
         onMouseEnter={handleIconMouseEnter}
         onMouseLeave={handleIconMouseLeave}
-        onFocus={handleIconMouseEnter}
-        onBlur={handleIconMouseLeave}
         role="tooltip"
       >
         {children}
