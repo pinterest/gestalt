@@ -78,6 +78,7 @@ export default function Tooltip({ children, link, inline, text }: Props) {
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
+        aria-label={text}
         ref={childRef}
         onMouseEnter={handleIconMouseEnter}
         onMouseLeave={handleIconMouseLeave}
