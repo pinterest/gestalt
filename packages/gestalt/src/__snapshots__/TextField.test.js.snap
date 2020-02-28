@@ -50,20 +50,16 @@ exports[`TextField TextField with error 1`] = `
     type="text"
   />
   <div
-    className="box marginTop2"
+    className="box marginTop2 paddingX2"
   >
     <div
-      className="box paddingX2"
+      className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
     >
-      <div
-        className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
+      <span
+        id="test-error"
       >
-        <span
-          id="test-error"
-        >
-          error message
-        </span>
-      </div>
+        error message
+      </span>
     </div>
   </div>
 </span>

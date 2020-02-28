@@ -1,11 +1,11 @@
 // @flow
-
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from './Box.js';
+import PropTypes from 'prop-types';
 import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
+import FormHelperText from './FormHelperText.js';
+import FormLabel from './FormLabel.js';
 import styles from './TextField.css';
 
 type Props = {|
@@ -18,7 +18,9 @@ type Props = {|
   disabled?: boolean,
   errorMessage?: string,
   hasError?: boolean,
+  helperText?: string,
   id: string,
+  label?: string,
   name?: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -61,7 +63,9 @@ export default class TextField extends React.Component<Props, State> {
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
     hasError: PropTypes.bool,
+    helperText: PropTypes.string,
     id: PropTypes.string.isRequired,
+    label: PropTypes.string,
     name: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
@@ -125,7 +129,9 @@ export default class TextField extends React.Component<Props, State> {
       disabled,
       errorMessage,
       hasError,
+      helperText,
       id,
+      label,
       name,
       placeholder,
       type,
@@ -147,6 +153,7 @@ export default class TextField extends React.Component<Props, State> {
 
     return (
       <span>
+        {label && <FormLabel id={id} label={label} />}
         <input
           aria-describedby={errorMessage && focused ? `${id}-error` : null}
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
@@ -165,11 +172,10 @@ export default class TextField extends React.Component<Props, State> {
           type={type}
           value={value}
         />
-        {errorMessage && (
-          <Box marginTop={2}>
-            <FormErrorMessage id={id} text={errorMessage} />
-          </Box>
-        )}
+        {helperText && !errorMessage ? (
+          <FormHelperText text={helperText} />
+        ) : null}
+        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
       </span>
     );
   }

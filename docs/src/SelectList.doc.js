@@ -24,8 +24,14 @@ card(
       },
       {
         name: 'errorMessage',
-        type: '?string',
+        type: 'string',
         href: 'exampleWithError',
+      },
+      {
+        name: 'helperText',
+        type: 'string',
+        description: 'More information about how to complete the form field',
+        href: 'helperText',
       },
       {
         name: 'id',
@@ -34,8 +40,12 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'label',
+        type: 'string',
+      },
+      {
         name: 'name',
-        type: '?string',
+        type: 'string',
         href: 'basicExample',
       },
       {
@@ -52,12 +62,12 @@ card(
       },
       {
         name: 'placeholder',
-        type: '?string',
+        type: 'string',
         href: 'basicExample',
       },
       {
         name: 'value',
-        type: '?string',
+        type: 'string',
         description: 'Value that is selected.',
         href: 'basicExample',
       },
@@ -88,24 +98,59 @@ function Example(props) {
     }
   ];
   return (
-    <>
-      <Label htmlFor="city">
-        <Box padding={2}>
-          <Text size="sm">City</Text>
-        </Box>
-      </Label>
-      <SelectList
-        id="city"
-        name="city"
-        onChange={({ value }) => setCity(value)}
-        options={cityOptions}
-        placeholder="Select city"
-        value={city}
-      />
-    </>
+    <SelectList
+      id="city"
+      name="city"
+      onChange={({ value }) => setCity(value)}
+      options={cityOptions}
+      placeholder="Select city"
+      label="City"
+      value={city}
+    />
   );
 }
     `}
+  />
+);
+
+card(
+  <Example
+    id="helperText"
+    name="Example: Helper Text"
+    description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
+    defaultCode={`
+function Example(props) {
+  const [country, setCountry] = React.useState('belgium')
+  const countries = [
+    {
+      value: "belgium",
+      label: "Belgium"
+    },
+    {
+      value: "france",
+      label: "France"
+    },
+    {
+      value: "usa",
+      label: "USA"
+    }
+  ];
+  return (
+    <Box padding={2} color="white">
+      <SelectList
+        id="country"
+        name="country"
+        onChange={({ value }) => setCountry(value)}
+        options={countries}
+        placeholder="Select country"
+        label="Country"
+        helperText="Pick your favourite country (the one with the best fries)"
+        value={country}
+      />
+    </Box>
+  );
+}
+`}
   />
 );
 
@@ -133,22 +178,16 @@ function Example(props) {
     }
   ];
   return (
-    <>
-      <Label htmlFor="hobby">
-        <Box padding={2}>
-          <Text size="sm">Hobby</Text>
-        </Box>
-      </Label>
-      <SelectList
-        id="hobby"
-        name="hobby"
-        errorMessage={ hobby === 'sailing' ? 'Sailing is not a hobby, it is a passion' : null}
-        onChange={({ value }) => setHobby(value)}
-        options={hobbies}
-        placeholder="Select hobby"
-        value={hobby}
-      />
-    </>
+    <SelectList
+      id="hobby"
+      name="hobby"
+      errorMessage={ hobby === 'sailing' ? 'Sailing is not a hobby, it is a passion' : null}
+      onChange={({ value }) => setHobby(value)}
+      options={hobbies}
+      placeholder="Select hobby"
+      label="Hobby"
+      value={hobby}
+    />
   );
 }
     `}

@@ -5,14 +5,15 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
 
-type Props = {|
+export default function FormErrorMessage({
+  id,
+  text = '',
+}: {|
   id: string,
   text?: string,
-|};
-
-export default function FormErrorMessage({ id, text = '' }: Props) {
+|}) {
   return (
-    <Box paddingX={2}>
+    <Box marginTop={2} paddingX={2}>
       <Text color="red" size="sm">
         <span id={`${id}-error`}>{text}</span>
       </Text>

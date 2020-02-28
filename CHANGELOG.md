@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
+
 ### Patch
 
 </details>
