@@ -26,6 +26,11 @@ card(
         description: 'The element to wrap with a tooltip on hover.',
       },
       {
+        name: 'idealDirection',
+        type: `'up' | 'right' | 'down' | 'left'`,
+        description: 'Preferred direction for the Tooltip to open',
+      },
+      {
         name: 'inline',
         type: 'boolean',
         href: 'inline',

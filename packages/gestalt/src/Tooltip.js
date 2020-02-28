@@ -11,6 +11,7 @@ const TIMEOUT = 100;
 type Props = {|
   children: React.Node,
   link?: React.Node,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
   text: string,
 |};
@@ -48,7 +49,13 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Tooltip({ children, link, inline, text }: Props) {
+export default function Tooltip({
+  children,
+  link,
+  idealDirection = 'down',
+  inline,
+  text,
+}: Props) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { isOpen } = state;
 
@@ -90,7 +97,7 @@ export default function Tooltip({ children, link, inline, text }: Props) {
           anchor={anchor}
           caret={false}
           bgColor="darkGray"
-          idealDirection="down"
+          idealDirection={idealDirection}
           onDismiss={noop}
           positionRelativeToAnchor
           size={null}

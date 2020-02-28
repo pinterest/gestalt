@@ -8,9 +8,10 @@
 
 ### Minor
 
-- Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
 - Tooltip: Add ability to hover over tooltip and add a clickable link (#684)
+- Tooltip: Add idealDirection (#701)
 - IconWithTooltip: deprecate component (#690)
+- Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
 
 ### Patch
 
