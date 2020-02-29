@@ -31,11 +31,13 @@ card(
         name: 'height',
         type: `number | string`,
         href: 'basicExample',
+        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
       },
       {
         name: 'width',
         type: `number | string`,
         href: 'basicExample',
+        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
       },
       {
         name: 'rounding',
