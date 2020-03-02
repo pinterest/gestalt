@@ -9,6 +9,7 @@ const components = Object.keys(routes);
 export default function Navigation() {
   return (
     <Box>
+      Netlify test
       <Box
         display="flex"
         mdDisplay="none"
