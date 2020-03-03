@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Docs: make checkerboard optional (#714)
+
 ### Patch
 
 </details>
