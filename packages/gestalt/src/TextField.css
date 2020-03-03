@@ -1,5 +1,5 @@
 .textField {
-  composes: borderBox medium from "./Layout.css";
+  composes: borderBox large from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
   padding: 8px 16px;

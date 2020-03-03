@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Form fields: Update height to 48px
+
 ### Patch
 
 </details>
