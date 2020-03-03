@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Flyout: Make caret optional (#706)
+
 ### Patch
 
 </details>

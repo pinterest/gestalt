@@ -6,11 +6,12 @@ import Controller from './Controller.js';
 type Props = {|
   anchor: ?HTMLElement,
   children?: React.Node,
+  color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray',
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
-  color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray',
   shouldFocus?: boolean,
+  showCaret?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
 |};
 
@@ -23,6 +24,7 @@ export default function Flyout(props: Props) {
     positionRelativeToAnchor = true,
     color = 'white',
     shouldFocus = true,
+    showCaret = false,
     size,
   } = props;
 
@@ -34,7 +36,7 @@ export default function Flyout(props: Props) {
     <Controller
       anchor={anchor}
       bgColor={color}
-      caret={false}
+      caret={showCaret}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
@@ -60,4 +62,5 @@ Flyout.propTypes = {
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
   ]),
+  showCaret: PropTypes.bool,
 };
