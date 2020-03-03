@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tooltip: Bugfix: add layer (#717)
+
 ### Patch
 
 </details>
