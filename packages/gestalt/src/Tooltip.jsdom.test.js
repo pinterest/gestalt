@@ -5,7 +5,6 @@ import { fireEvent, render } from '@testing-library/react';
 import Tooltip from './Tooltip.js';
 import Link from './Link.js';
 import Text from './Text.js';
-import Layer from './Layer.js';
 
 test('Tooltip renders', () => {
   const component = create(
