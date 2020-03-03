@@ -44,6 +44,8 @@ import cog from './cog.svg';
 import colorPicker from './color-picker.svg';
 import compass from './compass.svg';
 import compose from './compose.svg';
+import conversionTag from './conversion-tag.svg';
+import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import dash from './dash.svg';
 import directionalArrowLeft from './directional-arrow-left.svg';
@@ -208,6 +210,8 @@ export default {
   compose,
   crop,
   dash,
+  'conversion-tag': conversionTag,
+  'credit-card': creditCard,
   'directional-arrow-left': directionalArrowLeft,
   'directional-arrow-right': directionalArrowRight,
   download,
