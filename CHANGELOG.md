@@ -10,9 +10,13 @@
 
 ### Patch
 
-- Tooltip: Bugfix: add layer (#717)
-
 </details>
+
+## 1.11.1 (Mar 3, 2020)
+
+### Patch
+
+- Tooltip: Bugfix: add layer (#717)
 
 ## 1.11.0 (Mar 3, 2020)
 
