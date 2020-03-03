@@ -30,10 +30,20 @@ card(
         href: 'errorMessageExample',
       },
       {
+        name: 'helperText',
+        type: 'string',
+        description: 'More information about how to complete the form field',
+        href: 'helperText',
+      },
+      {
         name: 'id',
         type: 'string',
         required: true,
         href: 'basicExample',
+      },
+      {
+        name: 'label',
+        type: 'string',
       },
       {
         name: 'name',
@@ -92,19 +102,13 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box>
-      <Label htmlFor="aboutme">
-        <Box padding={2}>
-          <Text size="sm">With a placeholder</Text>
-        </Box>
-      </Label>
-      <TextArea
-        id="aboutme"
-        onChange={({value}) => setValue(value)}
-        placeholder="Write something about yourself..."
-        value={value}
-      />
-    </Box>
+    <TextArea
+      id="aboutme"
+      onChange={({value}) => setValue(value)}
+      placeholder="Write something about yourself..."
+      label="With a placeholder"
+      value={value}
+    />
   );
 }
 `}
@@ -119,17 +123,36 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box>
-      <Label htmlFor="disabled">
-        <Box padding={2}>
-          <Text size="sm">With a placeholder</Text>
-        </Box>
-      </Label>
+    <TextArea
+      disabled
+      id="disabled"
+      onChange={({value}) => setValue(value)}
+      placeholder="Write something about yourself..."
+      label="With a placeholder"
+      value={value}
+    />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="helperText"
+    name="Example: Helper Text"
+    description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box padding={2} color="white">
       <TextArea
-        disabled
-        id="disabled"
+        id="aboutmemore"
         onChange={({value}) => setValue(value)}
         placeholder="Write something about yourself..."
+        helperText="I love to sail, run and visit remote places"
+        label="With a placeholder"
         value={value}
       />
     </Box>
@@ -150,20 +173,14 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box>
-      <Label htmlFor="witherror">
-        <Box padding={2}>
-          <Text size="sm">With an error message</Text>
-        </Box>
-      </Label>
-      <TextArea
-        id="witherror"
-        onChange={({value}) => setValue(value)}
-        errorMessage={!value ? "This field can't be blank!" : null}
-        placeholder="Write something about yourself..."
-        value={value}
-      />
-    </Box>
+    <TextArea
+      id="witherror"
+      onChange={({value}) => setValue(value)}
+      errorMessage={!value ? "This field can't be blank!" : null}
+      placeholder="Write something about yourself..."
+      label="With an error message"
+      value={value}
+    />
   );
 }
 `}

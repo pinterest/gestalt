@@ -14,7 +14,7 @@
   border-color: #efefef;
 }
 
-.normal:hover:not(:focus) {
+.normal:hover:not(:focus):not(.disabled) {
   border-color: rgba(0, 0, 0, 0.12);
 }
 

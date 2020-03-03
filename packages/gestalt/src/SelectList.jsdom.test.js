@@ -71,3 +71,49 @@ it('SelectList with placeholder', () => {
   );
   expect(container.querySelector('option')).toBeDisabled();
 });
+
+it('shows a label for the select list', () => {
+  const { getByText } = render(
+    <SelectList
+      id="test"
+      label="Label for the select list"
+      onChange={jest.fn()}
+      options={options}
+      placeholder={options[0].label}
+    />
+  );
+  expect(getByText('Label for the select list')).toBeVisible();
+});
+
+it('shows helper text for the select list', () => {
+  const { getByText } = render(
+    <SelectList
+      id="test"
+      label="Label for the select list"
+      helperText="Helper text for the select list"
+      onChange={jest.fn()}
+      options={options}
+      placeholder={options[0].label}
+    />
+  );
+  expect(getByText('Helper text for the select list')).toBeVisible();
+});
+
+it('hides the helper text for the select list when an error message is shown', () => {
+  const { getByText } = render(
+    <SelectList
+      id="test"
+      label="Label for the select list"
+      helperText="Helper text for the select list"
+      errorMessage="Error message for the select list"
+      onChange={jest.fn()}
+      options={options}
+      placeholder={options[0].label}
+    />
+  );
+  expect(() => {
+    getByText('Helper text for the select list');
+  }).toThrow(
+    'Unable to find an element with the text: Helper text for the select list'
+  );
+});

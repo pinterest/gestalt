@@ -8,6 +8,7 @@
 
 ### Minor
 
+- SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
 - Flyout: Make caret optional (#706)
 
 ### Patch
