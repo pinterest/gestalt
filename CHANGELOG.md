@@ -8,12 +8,16 @@
 
 ### Minor
 
-- SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
-- Flyout: Make caret optional (#706)
-
 ### Patch
 
 </details>
+
+## 1.11.0 (Mar 3, 2020)
+
+### Minor
+
+- SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
+- Flyout: Make caret optional (#706)
 
 ## 1.10.1 (Mar 2, 2020)
 
