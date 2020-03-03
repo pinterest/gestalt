@@ -66,6 +66,13 @@ card(
         href: 'errorFlyout',
       },
       {
+        name: 'showCaret',
+        type: 'boolean',
+        defaultValue: false,
+        description: 'Show the caret on the flyout',
+        href: 'showCaret',
+      },
+      {
         name: 'size',
         type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
         description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
@@ -110,6 +117,48 @@ function FlyoutExample() {
               <Box paddingX={2} marginTop={3}>
                 <Button color="red" text="Visit the help center" />
               </Box>
+            </Box>
+          </Flyout>
+        </Layer>}
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="showCaret"
+    name="Example: Show Caret"
+    defaultCode={`
+function FlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+  return (
+    <Box>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <Button
+          accessibilityExpanded={!!open}
+          accessibilityHaspopup
+          onClick={() => setOpen(!open)}
+          text="Help"
+        />
+      </Box>
+      {open &&
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            idealDirection="up"
+            showCaret
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box padding={3} column={12}>
+              <Text align="center" weight="bold">
+                Flyout with a caret, not a 🥕
+              </Text>
             </Box>
           </Flyout>
         </Layer>}

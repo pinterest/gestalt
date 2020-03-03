@@ -9,10 +9,17 @@
 ### Minor
 
 - SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
+- Flyout: Make caret optional (#706)
 
 ### Patch
 
 </details>
+
+## 1.10.1 (Mar 2, 2020)
+
+### Patch
+
+- Text / Heading: Made typography changes more backwards-compatible by adding xl size back in as deprecated feature (#707)
 
 ## 1.10.0 (Feb 28, 2020)
 

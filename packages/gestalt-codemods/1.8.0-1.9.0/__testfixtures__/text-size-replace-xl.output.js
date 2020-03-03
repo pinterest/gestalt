@@ -4,8 +4,8 @@ import { Text } from 'gestalt';
 
 export default function XLText() {
   return (
-    <Text>
+    <Heading size="sm">
       xl
-    </Text>
+    </Heading>
   );
 }
