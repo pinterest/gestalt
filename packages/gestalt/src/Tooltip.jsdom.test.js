@@ -33,10 +33,9 @@ test('Tooltip renders the link when hovered', () => {
   );
 
   fireEvent.mouseEnter(container.querySelector('[aria-label]'));
-  expect(getByText('Learn more about logout')).toBeVisible();
-  expect(
-    container.querySelector('[href="https://pinterest.com"]')
-  ).toBeVisible();
+  const { body } = document;
+  const element = getByText('Learn more about logout');
+  expect(body && body.contains(element)).toBeTruthy();
 });
 
 test('Tooltip should render as expected when hovered', () => {
