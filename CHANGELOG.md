@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Tabs: update horizontal padding to 12px (#698)
 - SelectList/TextArea/TextField: Update focus states (#720)
 
 ### Patch
