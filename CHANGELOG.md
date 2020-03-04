@@ -8,14 +8,20 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.12.0 (Mar 4, 2020)
+
+### Minor
+
 - Tabs: update horizontal padding to 12px (#698)
 - SelectList/TextArea/TextField: Update focus states (#720)
 
 ### Patch
 
 - Docs: make checkerboard optional (#714)
-
-</details>
 
 ## 1.11.1 (Mar 3, 2020)
 
