@@ -100,11 +100,9 @@ class VideoControls extends React.Component<Props> {
   handleVolumeChange = ({
     event,
   }: {
-    /* eslint-disable react/no-unused-prop-types */
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-    /* eslint-enable react/no-unused-prop-types */
   }) => {
     const { onVolumeChange } = this.props;
     onVolumeChange(event);
