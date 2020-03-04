@@ -34,7 +34,7 @@ card(
         name: 'closeOnOutsideClick',
         type: 'boolean',
         description: 'Close the modal when you click outside of it',
-        defaultValue: false,
+        defaultValue: true,
       },
       {
         name: 'footer',
@@ -112,11 +112,11 @@ function Example(props) {
               accessibilityModalLabel="View default padding and styling"
               heading="Small modal"
               onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="xs">Footer</Heading>}
+              footer={<Heading size="md">Footer</Heading>}
               size="sm"
             >
               <Box padding={8}>
-                <Heading size="xs">Children</Heading>
+                <Heading size="md">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -133,11 +133,11 @@ function Example(props) {
               accessibilityModalLabel="View default padding and styling"
               heading="Medium modal"
               onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="xs">Footer</Heading>}
+              footer={<Heading size="md">Footer</Heading>}
               size="md"
             >
               <Box padding={8}>
-                <Heading size="xs">Children</Heading>
+                <Heading size="md">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -154,11 +154,11 @@ function Example(props) {
               accessibilityModalLabel="View default padding and styling"
               heading="Large modal"
               onDismiss={() => { dispatch({type: 'none'}) }}
-              footer={<Heading size="xs">Footer</Heading>}
+              footer={<Heading size="md">Footer</Heading>}
               size="lg"
             >
               <Box padding={8}>
-                <Heading size="xs">Children</Heading>
+                <Heading size="md">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -197,13 +197,13 @@ function Example(props) {
               onDismiss={() => { setShowModal(!showModal) }}
               footer={
                 <Box color="lightGray">
-                  <Heading size="xs">Footer</Heading>
+                  <Heading size="md">Footer</Heading>
                 </Box>
               }
               size="md"
             >
               <Box>
-                <Heading size="xs">Children</Heading>
+                <Heading size="md">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -270,13 +270,13 @@ function HeadingExample(props) {
               onDismiss={() => { setShowModal(!showModal) }}
               footer={
                 <Box color="lightGray">
-                  <Heading size="xs">Footer</Heading>
+                  <Heading size="md">Footer</Heading>
                 </Box>
               }
               size="md"
             >
               <Box color="lightGray" minHeight={400}>
-                <Heading size="xs">Children</Heading>
+                <Heading size="md">Children</Heading>
               </Box>
             </Modal>
           </Layer>

@@ -24,6 +24,12 @@ exports[`Text renders 1`] = `
 />
 `;
 
+exports[`Text size sm adds the small size class 1`] = `
+<div
+  className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+/>
+`;
+
 exports[`Text truncate should add a title when the children are text only 1`] = `
 <div
   className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"

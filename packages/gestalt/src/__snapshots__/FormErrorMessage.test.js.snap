@@ -2,24 +2,32 @@
 
 exports[`FormErrorMessage with errorMessage 1`] = `
 <div
-  className="Text fontSize3 red alignLeft breakWord fontWeightNormal"
+  className="box marginTop2 paddingX2"
 >
-  <span
-    id="test-error"
+  <div
+    className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
   >
-    some error message
-  </span>
+    <span
+      id="test-error"
+    >
+      some error message
+    </span>
+  </div>
 </div>
 `;
 
 exports[`FormErrorMessage with no errorMessage 1`] = `
 <div
-  className="Text fontSize3 red alignLeft breakWord fontWeightNormal"
+  className="box marginTop2 paddingX2"
 >
-  <span
-    id="test-error"
+  <div
+    className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
   >
-    
-  </span>
+    <span
+      id="test-error"
+    >
+      
+    </span>
+  </div>
 </div>
 `;

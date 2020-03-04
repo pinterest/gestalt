@@ -27,7 +27,7 @@ That syntax is Webpack specific (and will work with Create React App), but you c
 
 ## Development
 
-Gestalt is a [multi-project monorepo](https://yarnpkg.com/lang/en/docs/workspaces/). The docs, components and integration tests are all organized as separate packages that share similar tooling.
+Gestalt is a [multi-project monorepo](https://yarnpkg.com/lang/en/docs/workspaces/). The docs and components are all organized as separate packages that share similar tooling.
 
 Install project dependencies and run tests:
 
@@ -44,22 +44,9 @@ yarn start
 
 Visit [http://localhost:3000/](http://localhost:3000) and click on a component to view the docs.
 
-Using the Masonry playground:
-
-```bash
-cd test && yarn start
-open "http://localhost:3001/Masonry"
-```
-
-Running Masonry's integration tests. This will leave lots of Firefox processes hanging around, so please be warned.
-
-```bash
-./run_integration_tests
-```
-
 ## Codemods
 
-When a release will cause breaking changes — in usage or in typing — we provide a codemod to ease the upgrade process. Codemods are organized by release in `/packages/gestalt-codemods`. We recommend using [jscodeshift](https://github.com/facebook/jscodeshift) to upgrade.
+When a release will cause breaking changes — in usage or in typing — we provide a codemod to ease the upgrade process. Codemods are organized by release in `/packages/gestalt-codemods`.
 
 ### Usage:
 

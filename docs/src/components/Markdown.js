@@ -28,7 +28,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ text, size = 'md' }: Props) {
+export default function Markdown({ text, size = 'lg' }: Props) {
   const renderer = new Renderer();
 
   renderer.code = (code, language) => {

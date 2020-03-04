@@ -247,7 +247,7 @@ class ExampleMasonry extends React.Component<Props, State> {
                     naturalWidth={data.width}
                     src={data.src}
                   />
-                  <Text size="sm">{data.name}</Text>
+                  <Text>{data.name}</Text>
                 </Box>
               )}
               flexible={this.props.flexible}

@@ -26,6 +26,11 @@ card(
         description: 'The element to wrap with a tooltip on hover.',
       },
       {
+        name: 'idealDirection',
+        type: `'up' | 'right' | 'down' | 'left'`,
+        description: 'Preferred direction for the Tooltip to open',
+      },
+      {
         name: 'inline',
         type: 'boolean',
         href: 'inline',
@@ -39,6 +44,12 @@ card(
         description:
           'String that is shown as addition information in a tooltip bubble to describe the child. Always localize the text.',
       },
+      {
+        name: 'link',
+        type: 'React.Node',
+        required: false,
+        description: 'A link which will show on the bottom of a tooltip',
+      },
     ]}
   />
 );
@@ -50,6 +61,32 @@ card(
     text is wrapped around underneath."
     defaultCode={`
 <Tooltip inline text="Logout">
+  <Icon
+    accessibilityLabel="Logout of your profile"
+    color="pine"
+    icon="logout"
+  />
+</Tooltip>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Tooltips with link"
+    description="Passing in a link will render the link in the tooltip"
+    defaultCode={`
+<Tooltip
+  inline
+  text="Logout"
+  link={
+    <Link href="https://pinterest.com" target="blank">
+      <Text color="white" size="sm" weight="bold">
+        Learn more about logout
+      </Text>
+    </Link>
+  }
+>
   <Icon
     accessibilityLabel="Logout of your profile"
     color="pine"

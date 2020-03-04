@@ -9,10 +9,63 @@
 ### Minor
 
 - Tabs: update horizontal padding to 12px (#698)
+- SelectList/TextArea/TextField: Update focus states (#720)
 
 ### Patch
 
 </details>
+
+## 1.11.1 (Mar 3, 2020)
+
+### Patch
+
+- Tooltip: Bugfix: add layer (#717)
+
+## 1.11.0 (Mar 3, 2020)
+
+### Minor
+
+- SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
+- Flyout: Make caret optional (#706)
+
+## 1.10.1 (Mar 2, 2020)
+
+### Patch
+
+- Text / Heading: Made typography changes more backwards-compatible by adding xl size back in as deprecated feature (#707)
+
+## 1.10.0 (Feb 28, 2020)
+
+### Minor
+
+- Tooltip: Add ability to hover over tooltip and add a clickable link (#684)
+- Tooltip: Add idealDirection (#701)
+- IconWithTooltip: deprecate component (#690)
+
+### Patch
+
+- Modal: [Docs] Fix default value for closeOnOutsideClick (#697)
+- Box/Mask/Sticky: [Docs] Added descriptions about usage to attributes accepting both string and number formats. (#703)
+- README: [Docs] Removed references and script to run integrations tests. (#702)
+
+## 1.9.0 (Feb 27, 2020)
+
+### Minor
+
+- Text / Heading [Breaking]: Added codemod to support breaking changes from #693 (removed support for responsive size prop values smSize, mdSize, and lgSize in Text and Heading component) (#696)
+- Heading / Text [Breaking]: Reduce size options from xs-xl to sm-lg (#693)
+
+Run codemods for breaking changes in order:
+
+1. `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/remove-responsive-text-sizing.js ~/code/repo`
+2. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/heading-size-replace.js ~/code/repo`
+3. `yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.8.0-1.9.0/text-size-replace.js ~/code/repo`
+
+## 1.8.0 (Feb 27, 2020)
+
+### Minor
+
+- SelectList / TextField / TextArea: Update design (#664)
 
 ## 1.7.1 (Feb 26, 2020)
 

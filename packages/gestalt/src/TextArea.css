@@ -1,45 +1,12 @@
 .textArea {
-  composes: accessibilityOutline from "./Focus.css";
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
   composes: leadingTall from "./Typography.css";
   composes: xsCol12 from "./Column.css";
-  appearance: none;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 10px 14px;
+  padding: 8px 16px;
   resize: none;
-}
-
-.textArea:focus {
-  background-color: #fff;
 }
 
 .textArea::placeholder {
   color: #8e8e8e;
-}
-
-.normal {
-  border-color: #8e8e8e;
-}
-
-textarea.errored {
-  border-color: #e60023;
-}
-
-textarea.errored:focus {
-  box-shadow: 0 0 0 4px rgba(230, 0, 35, 0.5);
-  outline: none;
-}
-
-.enabled {
-  composes: darkGray from "./Colors.css";
-  composes: whiteBg from "./Colors.css";
-  cursor: text;
-}
-
-.disabled {
-  composes: gray from "./Colors.css";
-  composes: lightGrayBg from "./Colors.css";
 }

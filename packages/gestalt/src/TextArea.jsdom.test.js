@@ -84,4 +84,47 @@ describe('TextArea', () => {
     });
     expect(mockKeyDown).toHaveBeenCalled();
   });
+
+  it('shows a label for the text area', () => {
+    const { getByText } = render(
+      <TextArea
+        id="test"
+        label="Label for the text area"
+        onChange={() => {}}
+        value="TextArea Text"
+      />
+    );
+    expect(getByText('Label for the text area')).toBeVisible();
+  });
+
+  it('shows helper text for the text area', () => {
+    const { getByText } = render(
+      <TextArea
+        id="test"
+        label="Label for the text area"
+        helperText="Helper text for the text area"
+        onChange={() => {}}
+        value="TextArea Text"
+      />
+    );
+    expect(getByText('Helper text for the text area')).toBeVisible();
+  });
+
+  it('hides the helper text for the text area when an error message is shown', () => {
+    const { getByText } = render(
+      <TextArea
+        id="test"
+        label="Label for the text area"
+        helperText="Helper text for the text area"
+        errorMessage="Error message for the text area"
+        onChange={() => {}}
+        value="TextArea Text"
+      />
+    );
+    expect(() => {
+      getByText('Helper text for the text area');
+    }).toThrow(
+      'Unable to find an element with the text: Helper text for the text area'
+    );
+  });
 });

@@ -20,6 +20,7 @@ card(
       {
         name: 'bottom',
         type: 'number | string',
+        description: `Use numbers for pixels: bottom={100} and strings for percentages: width="100%"`,
       },
       {
         name: 'children',
@@ -28,14 +29,17 @@ card(
       {
         name: 'left',
         type: 'number | string',
+        description: `Use numbers for pixels: left={100} and strings for percentages: left="100%"`,
       },
       {
         name: 'right',
         type: 'number | string',
+        description: `Use numbers for pixels: right={100} and strings for percentages: right="100%"`,
       },
       {
         name: 'top',
         type: 'number | string',
+        description: `Use numbers for pixels: top={100} and strings for percentages: top="100%"`,
       },
       {
         name: 'dangerouslySetZIndex',
