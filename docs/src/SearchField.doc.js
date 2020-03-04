@@ -71,6 +71,7 @@ card(
     Be sure to internationalize your \`accessibilityLabel\`.
   `}
     name="Example: Accessibility"
+    useCheckerboard={false}
     defaultCode={`
   class SearchFieldExample extends React.Component {
     constructor(props) {

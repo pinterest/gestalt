@@ -13,6 +13,8 @@
 
 ### Patch
 
+- Docs: make checkerboard optional (#714)
+
 </details>
 
 ## 1.11.1 (Mar 3, 2020)
