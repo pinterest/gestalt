@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SelectList/TextArea/TextField: Update focus states (#720)
+
 ### Patch
 
 </details>
