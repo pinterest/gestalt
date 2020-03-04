@@ -8,11 +8,27 @@
 
 ### Minor
 
-- Docs: make checkerboard optional (#714)
+- Tabs: update horizontal padding to 12px (#698)
+- SelectList/TextArea/TextField: Update focus states (#720)
 
 ### Patch
 
+- Docs: make checkerboard optional (#714)
+
 </details>
+
+## 1.11.1 (Mar 3, 2020)
+
+### Patch
+
+- Tooltip: Bugfix: add layer (#717)
+
+## 1.11.0 (Mar 3, 2020)
+
+### Minor
+
+- SelectList / TextField / TextArea: Add `label` and `helperText` props (#705)
+- Flyout: Make caret optional (#706)
 
 ## 1.10.1 (Mar 2, 2020)
 

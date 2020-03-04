@@ -31,10 +31,20 @@ card(
         href: 'errorMessageExample',
       },
       {
+        name: 'helperText',
+        type: 'string',
+        description: 'More information about how to complete the form field',
+        href: 'helperText',
+      },
+      {
         name: 'id',
         type: 'string',
         required: true,
         href: 'basicExample',
+      },
+      {
+        name: 'label',
+        type: 'string',
       },
       {
         name: 'name',
@@ -93,20 +103,14 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box>
-      <Label htmlFor="email">
-        <Box padding={2}>
-          <Text size="sm">Email</Text>
-        </Box>
-      </Label>
-      <TextField
-        id="email"
-        onChange={({value}) => setValue(value)}
-        placeholder="Add email"
-        value={value}
-        type="email"
-      />
-    </Box>
+    <TextField
+      id="email"
+      onChange={({value}) => setValue(value)}
+      placeholder="Add email"
+      label="Email"
+      value={value}
+      type="email"
+    />
   );
 }
 `}
@@ -121,17 +125,35 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box>
-      <Label htmlFor="name">
-        <Box padding={2}>
-          <Text size="sm">Disabled</Text>
-        </Box>
-      </Label>
+    <TextField
+      disabled
+      id="name"
+      onChange={({value}) => setValue(value)}
+      placeholder="Name"
+      label="Disabled"
+      value={value}
+    />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="helperText"
+    name="Example: Helper Text"
+    description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Box padding={2} color="white">
       <TextField
-        disabled
-        id="name"
+        id="username"
+        helperText={'https://pinterest.com/' + value}
         onChange={({value}) => setValue(value)}
-        placeholder="Name"
+        label="Username"
         value={value}
       />
     </Box>
@@ -152,19 +174,13 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box>
-      <Label htmlFor="aboutme">
-        <Box padding={2}>
-          <Text size="sm">With an error message</Text>
-        </Box>
-      </Label>
-      <TextField
-        id="aboutme"
-        errorMessage={!value ? "This field can't be blank!" : null}
-        onChange={({value}) => setValue(value)}
-        value={value}
-      />
-    </Box>
+    <TextField
+      id="aboutme"
+      errorMessage={!value ? "This field can't be blank!" : null}
+      onChange={({value}) => setValue(value)}
+      label="With an error message"
+      value={value}
+    />
   );
 }
 `}

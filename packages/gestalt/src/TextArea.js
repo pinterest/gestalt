@@ -3,16 +3,19 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from './Box.js';
 import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
+import FormHelperText from './FormHelperText.js';
+import FormLabel from './FormLabel.js';
 import styles from './TextArea.css';
 
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
   hasError?: boolean,
+  helperText?: string,
   id: string,
+  label?: string,
   name?: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
@@ -48,8 +51,10 @@ export default class TextArea extends React.Component<Props, State> {
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
     hasError: PropTypes.bool,
+    helperText: PropTypes.string,
     id: PropTypes.string.isRequired,
     name: PropTypes.string,
+    label: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
@@ -104,7 +109,9 @@ export default class TextArea extends React.Component<Props, State> {
       disabled,
       errorMessage,
       hasError,
+      helperText,
       id,
+      label,
       name,
       placeholder,
       rows,
@@ -122,6 +129,7 @@ export default class TextArea extends React.Component<Props, State> {
 
     return (
       <span>
+        {label && <FormLabel id={id} label={label} />}
         <textarea
           aria-describedby={errorMessage && focused ? `${id}-error` : null}
           aria-invalid={errorMessage || hasError ? 'true' : 'false'}
@@ -138,11 +146,10 @@ export default class TextArea extends React.Component<Props, State> {
           rows={rows}
           value={value}
         />
-        {errorMessage && (
-          <Box marginTop={2}>
-            <FormErrorMessage id={id} text={errorMessage} />
-          </Box>
-        )}
+        {helperText && !errorMessage ? (
+          <FormHelperText text={helperText} />
+        ) : null}
+        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
       </span>
     );
   }
