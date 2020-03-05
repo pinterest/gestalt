@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Form fields: Add "lg" size option (#713)
+
 ### Patch
 
 </details>

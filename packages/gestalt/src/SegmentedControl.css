@@ -8,14 +8,6 @@
   user-select: none;
 }
 
-.md {
-  composes: medium from "./Layout.css";
-}
-
-.lg {
-  composes: large from "./Layout.css";
-}
-
 .item {
   composes: accessibilityOutline from "./Focus.css";
   composes: flexGrow from "./Layout.css";

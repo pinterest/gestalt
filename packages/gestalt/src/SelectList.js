@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import formElement from './FormElement.css';
+import layout from './Layout.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
@@ -23,6 +24,7 @@ type Props = {|
     value: string,
   }>,
   placeholder?: string,
+  size?: 'md' | 'lg',
   value?: ?string,
 |};
 
@@ -48,11 +50,13 @@ export default class SelectList extends React.Component<Props, State> {
       })
     ),
     placeholder: PropTypes.string,
+    size: PropTypes.oneOf(['md', 'lg']),
     value: PropTypes.string,
   };
 
   static defaultProps = {
     disabled: false,
+    size: 'md',
     options: [],
   };
 
@@ -84,6 +88,7 @@ export default class SelectList extends React.Component<Props, State> {
       name,
       options,
       placeholder,
+      size,
       value,
     } = this.props;
 
@@ -93,7 +98,8 @@ export default class SelectList extends React.Component<Props, State> {
       styles.select,
       formElement.base,
       disabled ? formElement.disabled : formElement.enabled,
-      errorMessage ? formElement.errored : formElement.normal
+      errorMessage ? formElement.errored : formElement.normal,
+      size === 'md' ? layout.medium : layout.large
     );
 
     return (

@@ -2,7 +2,7 @@
   composes: Text fontSize3 from "./Text.css";
   composes: darkGray from "./Colors.css";
   composes: pointer from "./Cursor.css";
-  composes: relative medium from "./Layout.css";
+  composes: relative from "./Layout.css";
   composes: transparentBg from "./Colors.css";
   composes: xsCol12 from "./Column.css";
   padding: 0 35px 0 16px; /* right padding prevents it from running into arrow */
