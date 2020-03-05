@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Form fields: Add "lg" size option (#713)
-
 ### Patch
 
 </details>
+
+## 1.13.0 (Mar 5, 2020)
+
+### Minor
+
+- Form fields: Add "lg" size option (#713)
 
 ## 1.12.0 (Mar 4, 2020)
 
