@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Form Elements: Remove horizontal spacing for label / helperText and errorMessage (#727)
+
 ### Patch
 
 </details>

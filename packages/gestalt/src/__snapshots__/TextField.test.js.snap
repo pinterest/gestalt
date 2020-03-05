@@ -50,7 +50,7 @@ exports[`TextField TextField with error 1`] = `
     type="text"
   />
   <div
-    className="box marginTop2 paddingX2"
+    className="box marginTop2"
   >
     <div
       className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
