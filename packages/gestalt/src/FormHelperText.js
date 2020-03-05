@@ -7,7 +7,7 @@ import Text from './Text.js';
 
 export default function FormHelperText({ text }: {| text: string |}) {
   return (
-    <Box marginTop={2} paddingX={2}>
+    <Box marginTop={2}>
       <Text color="gray" size="sm">
         {text}
       </Text>

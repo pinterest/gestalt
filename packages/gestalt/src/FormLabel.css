@@ -1,4 +1,3 @@
 .formLabel {
-  composes: paddingX2 from "./boxWhitespace.css";
   padding-bottom: 8px;
 }
