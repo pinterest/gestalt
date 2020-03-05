@@ -5,7 +5,7 @@ exports[`TextField TextField normal 1`] = `
   <input
     aria-describedby={null}
     aria-invalid="false"
-    className="textField base enabled normal"
+    className="textField base enabled normal medium"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -22,7 +22,7 @@ exports[`TextField TextField with autocomplete 1`] = `
   <input
     aria-describedby={null}
     aria-invalid="false"
-    className="textField base enabled normal"
+    className="textField base enabled normal medium"
     disabled={false}
     id="test"
     name="email"
@@ -40,7 +40,7 @@ exports[`TextField TextField with error 1`] = `
   <input
     aria-describedby={null}
     aria-invalid="true"
-    className="textField base enabled errored"
+    className="textField base enabled errored medium"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -70,7 +70,7 @@ exports[`TextField TextField with hasError 1`] = `
   <input
     aria-describedby={null}
     aria-invalid="true"
-    className="textField base enabled errored"
+    className="textField base enabled errored medium"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -87,7 +87,7 @@ exports[`TextField TextField with name 1`] = `
   <input
     aria-describedby={null}
     aria-invalid="false"
-    className="textField base enabled normal"
+    className="textField base enabled normal medium"
     disabled={false}
     id="test"
     name="email"

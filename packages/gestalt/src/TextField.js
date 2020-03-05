@@ -6,6 +6,7 @@ import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
+import layout from './Layout.css';
 import styles from './TextField.css';
 
 type Props = {|
@@ -40,6 +41,7 @@ type Props = {|
   }) => void,
   placeholder?: string,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
+  size?: 'md' | 'lg',
   value?: string,
 |};
 
@@ -72,6 +74,7 @@ export default class TextField extends React.Component<Props, State> {
     onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
     placeholder: PropTypes.string,
+    size: PropTypes.oneOf(['md', 'lg']),
     type: PropTypes.oneOf([
       'date',
       'email',
@@ -86,6 +89,7 @@ export default class TextField extends React.Component<Props, State> {
   static defaultProps = {
     disabled: false,
     hasError: false,
+    size: 'md',
     type: 'text',
   };
 
@@ -134,6 +138,7 @@ export default class TextField extends React.Component<Props, State> {
       label,
       name,
       placeholder,
+      size,
       type,
       value,
     } = this.props;
@@ -144,7 +149,8 @@ export default class TextField extends React.Component<Props, State> {
       styles.textField,
       formElement.base,
       disabled ? formElement.disabled : formElement.enabled,
-      hasError || errorMessage ? formElement.errored : formElement.normal
+      hasError || errorMessage ? formElement.errored : formElement.normal,
+      size === 'md' ? layout.medium : layout.large
     );
 
     // type='number' doesn't work on ios safari without a pattern

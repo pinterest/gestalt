@@ -2,7 +2,7 @@
 
 exports[`SegmentedControl renders 1`] = `
 <div
-  className="SegmentedControl md"
+  className="SegmentedControl medium"
   role="tablist"
 >
   <button
@@ -82,7 +82,7 @@ exports[`SegmentedControl renders 1`] = `
 
 exports[`SegmentedControl with responsive widths renders 1`] = `
 <div
-  className="SegmentedControl md"
+  className="SegmentedControl medium"
   role="tablist"
 >
   <button

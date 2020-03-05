@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Form fields: Update height to 48px
+- Form fields: Add "lg" size option (#713)
 
 ### Patch
 

@@ -5,7 +5,7 @@
 
 .tab {
   composes: accessibilityOutline from "./Focus.css";
-  composes: borderBox large from "./Layout.css";
+  composes: borderBox from "./Layout.css";
   composes: flex flexColumn itemsCenter justifyCenter from "./Layout.css";
   composes: noBorder pill from "./Borders.css";
   composes: m0 from "./Whitespace.css";

@@ -66,6 +66,13 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+      {
         name: 'value',
         type: 'string',
         description: 'Value that is selected.',

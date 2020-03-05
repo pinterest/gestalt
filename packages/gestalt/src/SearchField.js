@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import layout from './Layout.css';
 import styles from './SearchField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -20,6 +22,7 @@ type Props = {|
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
   placeholder?: string,
+  size?: 'md' | 'lg',
   value?: string,
 |};
 
@@ -37,6 +40,7 @@ export default class SearchField extends React.Component<Props, State> {
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
+    size: PropTypes.oneOf(['md', 'lg']),
     value: PropTypes.string,
   };
 
@@ -89,6 +93,7 @@ export default class SearchField extends React.Component<Props, State> {
       autoComplete,
       id,
       placeholder,
+      size = 'md',
       value,
     } = this.props;
 
@@ -97,6 +102,11 @@ export default class SearchField extends React.Component<Props, State> {
     // This mirrors the built in browser behavior. If there's a value, show the
     // clear button if you're hovering or if you've focused on the field
     const showClear = (focused || hovered) && value && value.length > 0;
+
+    const className = classnames(
+      styles.input,
+      size === 'md' ? layout.medium : layout.large
+    );
 
     return (
       <Box
@@ -126,7 +136,7 @@ export default class SearchField extends React.Component<Props, State> {
         <input
           aria-label={accessibilityLabel}
           autoComplete={autoComplete}
-          className={styles.input}
+          className={className}
           id={id}
           onChange={this.handleChange}
           placeholder={placeholder}

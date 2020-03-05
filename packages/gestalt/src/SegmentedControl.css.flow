@@ -5,6 +5,4 @@ declare module.exports: {|
   +'item': string,
   +'itemIsNotSelected': string,
   +'itemIsSelected': string,
-  +'lg': string,
-  +'md': string,
 |};
