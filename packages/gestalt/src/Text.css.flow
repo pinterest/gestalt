@@ -5,5 +5,4 @@ declare module.exports: {|
   +'fontSize1': string,
   +'fontSize2': string,
   +'fontSize3': string,
-  +'fontSize4': string,
 |};

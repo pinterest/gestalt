@@ -11,7 +11,6 @@ const SIZE_SCALE: { [size: ?string]: number } = {
   sm: 1,
   md: 2,
   lg: 3,
-  xl: 4,
 };
 
 type Props = {|
@@ -38,7 +37,7 @@ type Props = {|
   inline?: boolean,
   italic?: boolean,
   overflow?: 'normal' | 'breakWord',
-  size?: 'sm' | 'md' | 'lg' | 'xl', // xl is intentionally undocumented because it is depreacted
+  size?: 'sm' | 'md' | 'lg',
   leading?: 'tall' | 'short',
   truncate?: boolean,
   weight?: 'bold' | 'normal',
@@ -134,7 +133,7 @@ Text.propTypes = {
   italic: PropTypes.bool,
   leading: PropTypes.oneOf(['tall', 'short']),
   overflow: PropTypes.oneOf(['normal', 'breakWord']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
   truncate: PropTypes.bool,
   weight: PropTypes.oneOf(['bold', 'normal']),
 };

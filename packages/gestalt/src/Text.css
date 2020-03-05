@@ -2,7 +2,6 @@
   --font-size-1: 12px;
   --font-size-2: 14px;
   --font-size-3: 16px;
-  --font-size-4: 21px;
 }
 
 .Text {
@@ -19,8 +18,4 @@
 
 .fontSize3 {
   font-size: var(--font-size-3);
-}
-
-.fontSize4 {
-  font-size: var(--font-size-4);
 }
