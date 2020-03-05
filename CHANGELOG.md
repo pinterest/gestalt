@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Form Elements: Remove horizontal spacing for label / helperText and errorMessage (#727)
-
 ### Patch
 
 </details>
+
+## 1.14.0 (Mar 5, 2020)
+
+### Minor
+
+- Form Elements: Remove horizontal spacing for label / helperText and errorMessage (#727)
 
 ## 1.13.0 (Mar 5, 2020)
 
