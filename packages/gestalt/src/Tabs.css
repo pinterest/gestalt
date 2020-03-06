@@ -19,7 +19,7 @@
 }
 
 .tabIsNotActive {
-  composes: transparentBg gray from "./Colors.css";
+  composes: whiteBg from "./Colors.css";
 }
 
 .tab:focus,
@@ -29,7 +29,12 @@
 
 .tabIsNotActive:focus,
 .tabIsNotActive:hover {
+  background-color: #f1f1f1;
   color: #111;
+}
+
+.tabIsNotActive:active {
+  background-color: #e8e8e8;
 }
 
 .tabIsActive {
