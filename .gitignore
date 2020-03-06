@@ -9,3 +9,4 @@ screenshots
 packages/gestalt/dist/*
 # the flow export file as it's maintained by hand
 !packages/gestalt/dist/gestalt.js.flow
+!packages/gestalt/dist/index.d.ts
