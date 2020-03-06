@@ -8,15 +8,19 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.15.0 (Mar 5, 2020)
+
+### Minor
+
 - Text [Breaking]: Removes deprecated size=xl (#729)
 
 Run codemod:
 
 `cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.14.0-1.15.0/remove-text-size-xl.js ~/code/repo`
-
-### Patch
-
-</details>
 
 ## 1.14.0 (Mar 5, 2020)
 
