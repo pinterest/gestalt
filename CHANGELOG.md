@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tabs: Add white background, backgrounds for active and hover/focus states (#731)
+
 ### Patch
 
 </details>
