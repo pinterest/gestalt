@@ -26,6 +26,7 @@
     "import"
   ],
   "rules": {
+    "eslint-comments/no-unused-disable": "error",
     "import/extensions": ["error", "always", { "ignorePackages": true }],
     "import/no-extraneous-dependencies": "off",
     "import/no-relative-parent-imports": "error",

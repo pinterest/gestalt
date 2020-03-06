@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Internal: Detect and remove unused eslint disables (#723)
+
 </details>
 
 ## 1.15.0 (Mar 5, 2020)
