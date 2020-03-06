@@ -12,6 +12,12 @@
 
 </details>
 
+## 1.15.1 (Mar 6, 2020)
+
+### Patch
+
+- Typescript: Added typescript typings
+
 ## 1.15.0 (Mar 5, 2020)
 
 ### Minor
