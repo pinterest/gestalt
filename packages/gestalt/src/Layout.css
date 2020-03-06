@@ -250,3 +250,7 @@
 .orderLast {
   order: 99999;
 }
+
+.minWidth60 {
+  min-width: 60px;
+}

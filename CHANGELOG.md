@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tabs: Add white background, backgrounds for active and hover/focus states, 60px min width (#731)
+
 ### Patch
 
 - Internal: Detect and remove unused eslint disables (#723)
