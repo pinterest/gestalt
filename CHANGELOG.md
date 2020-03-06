@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Tabs: Add white background, backgrounds for active and hover/focus states (#731)
+- Tabs: Add white background, backgrounds for active and hover/focus states, 60px min width (#731)
 
 ### Patch
 
