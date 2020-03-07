@@ -14,6 +14,55 @@
 
 </details>
 
+## 1.16.0 (Mar 6, 2020)
+
+### Minor
+
+- Tabs: Add white background, backgrounds for active and hover/focus states, 60px min width (#731)
+
+### Patch
+
+- Internal: Detect and remove unused eslint disables (#723)
+
+## 1.15.0 (Mar 5, 2020)
+
+### Minor
+
+- Text [Breaking]: Removes deprecated size=xl (#729)
+
+Run codemod:
+
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.14.0-1.15.0/remove-text-size-xl.js ~/code/repo`
+
+## 1.14.0 (Mar 5, 2020)
+
+### Minor
+
+- Form Elements: Remove horizontal spacing for label / helperText and errorMessage (#727)
+
+## 1.13.0 (Mar 5, 2020)
+
+### Minor
+
+- Form fields: Add "lg" size option (#713)
+
+## 1.12.0 (Mar 4, 2020)
+
+### Minor
+
+- Tabs: update horizontal padding to 12px (#698)
+- SelectList/TextArea/TextField: Update focus states (#720)
+
+### Patch
+
+- Docs: make checkerboard optional (#714)
+
+## 1.11.1 (Mar 3, 2020)
+
+### Patch
+
+- Tooltip: Bugfix: add layer (#717)
+
 ## 1.11.0 (Mar 3, 2020)
 
 ### Minor

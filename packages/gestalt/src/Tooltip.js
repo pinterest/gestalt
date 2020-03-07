@@ -4,6 +4,7 @@ import * as React from 'react';
 import Controller from './Controller.js';
 import Text from './Text.js';
 import Box from './Box.js';
+import Layer from './Layer.js';
 
 const noop = () => {};
 const TIMEOUT = 100;
@@ -93,32 +94,34 @@ export default function Tooltip({
         {children}
       </Box>
       {isOpen && !!anchor && (
-        <Controller
-          anchor={anchor}
-          caret={false}
-          bgColor="darkGray"
-          idealDirection={idealDirection}
-          onDismiss={noop}
-          positionRelativeToAnchor
-          size={null}
-        >
-          <Box
-            maxWidth={180}
-            paddingY={1}
-            paddingX={2}
-            onBlur={link ? handleTextMouseLeave : undefined}
-            onFocus={link ? handleTextMouseEnter : undefined}
-            onMouseEnter={link ? handleTextMouseEnter : undefined}
-            onMouseLeave={link ? handleTextMouseLeave : undefined}
-            role="tooltip"
-            tabIndex={0}
+        <Layer>
+          <Controller
+            anchor={anchor}
+            caret={false}
+            bgColor="darkGray"
+            idealDirection={idealDirection}
+            onDismiss={noop}
+            positionRelativeToAnchor={false}
+            size={null}
           >
-            <Text color="white" size="sm">
-              {text}
-            </Text>
-            {link && <Box paddingY={1}>{link}</Box>}
-          </Box>
-        </Controller>
+            <Box
+              maxWidth={180}
+              paddingY={1}
+              paddingX={2}
+              onBlur={link ? handleTextMouseLeave : undefined}
+              onFocus={link ? handleTextMouseEnter : undefined}
+              onMouseEnter={link ? handleTextMouseEnter : undefined}
+              onMouseLeave={link ? handleTextMouseLeave : undefined}
+              role="tooltip"
+              tabIndex={0}
+            >
+              <Text color="white" size="sm">
+                {text}
+              </Text>
+              {link && <Box paddingY={1}>{link}</Box>}
+            </Box>
+          </Controller>
+        </Layer>
       )}
     </Box>
   );

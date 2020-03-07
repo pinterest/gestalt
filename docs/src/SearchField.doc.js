@@ -53,6 +53,13 @@ card(
         type: 'string',
       },
       {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+      {
         name: 'value',
         type: 'string',
       },
@@ -71,6 +78,7 @@ card(
     Be sure to internationalize your \`accessibilityLabel\`.
   `}
     name="Example: Accessibility"
+    useCheckerboard={false}
     defaultCode={`
   class SearchFieldExample extends React.Component {
     constructor(props) {

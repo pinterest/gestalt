@@ -9,18 +9,20 @@ import layout from './Layout.css';
 export default function Tabs({
   activeTabIndex,
   onChange,
+  size = 'md',
   tabs,
   wrap,
 }: {|
   activeTabIndex: number,
-  tabs: Array<{|
-    text: React.Node,
-    href: string,
-  |}>,
   onChange: ({
     event: SyntheticMouseEvent<>,
     activeTabIndex: number,
   }) => void,
+  size?: 'md' | 'lg',
+  tabs: Array<{|
+    text: React.Node,
+    href: string,
+  |}>,
   wrap?: boolean,
 |}) {
   const handleTabClick = (i: number, e: SyntheticMouseEvent<>) =>
@@ -28,7 +30,11 @@ export default function Tabs({
 
   return (
     <div
-      className={classnames(styles.Tabs, wrap && layout.flexWrap)}
+      className={classnames(
+        styles.Tabs,
+        wrap && layout.flexWrap,
+        size === 'md' ? layout.medium : layout.large
+      )}
       role="tablist"
     >
       {tabs.map(({ text, href }, i) => {

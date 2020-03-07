@@ -13,7 +13,7 @@ export default function FormErrorMessage({
   text?: string,
 |}) {
   return (
-    <Box marginTop={2} paddingX={2}>
+    <Box marginTop={2}>
       <Text color="red" size="sm">
         <span id={`${id}-error`}>{text}</span>
       </Text>

@@ -12,6 +12,7 @@ type Props = {|
   id?: string,
   name: string,
   direction?: 'row' | 'column',
+  useCheckerboard?: boolean,
 |};
 
 const { Box, Text, Column } = gestalt;
@@ -22,6 +23,7 @@ function Example({
   id,
   name,
   direction = 'column',
+  useCheckerboard = true,
 }: Props) {
   return (
     <Card
@@ -52,9 +54,19 @@ function Example({
               </Box>
 
               <Box flex="grow" position="relative">
-                <Box position="absolute" top bottom left right>
-                  <Checkerboard />
-                </Box>
+                {useCheckerboard ? (
+                  <Box position="absolute" top bottom left right>
+                    <Checkerboard />
+                  </Box>
+                ) : (
+                  <Box
+                    position="absolute"
+                    left
+                    width={4}
+                    color="lightGray"
+                    height="100%"
+                  />
+                )}
                 <Box position="relative" padding={4}>
                   <LivePreview />
                 </Box>

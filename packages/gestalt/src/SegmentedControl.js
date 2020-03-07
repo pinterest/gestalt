@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Text from './Text.js';
+import layout from './Layout.css';
 import styles from './SegmentedControl.css';
 
 type Props = {|
@@ -21,10 +22,10 @@ export default function SegmentedControl(props: Props) {
     : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div
-      className={classnames(styles.SegmentedControl, {
-        [styles.md]: size === 'md',
-        [styles.lg]: size === 'lg',
-      })}
+      className={classnames(
+        styles.SegmentedControl,
+        size === 'md' ? layout.medium : layout.large
+      )}
       role="tablist"
     >
       {items.map((item, i) => {
