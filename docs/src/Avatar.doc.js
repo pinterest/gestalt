@@ -1,7 +1,5 @@
 // @flow
 import * as React from 'react';
-import keerthi from './avatars/keerthi.jpg';
-import shanice from './avatars/shanice.jpg';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -64,7 +62,7 @@ card(
     defaultCode={`
 <Avatar
   size="md"
-  src="${keerthi}"
+  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
   name="Keerthi"
 />
 `}
@@ -90,7 +88,7 @@ card(
     <Avatar name="Julia" />
   </Box>
   <Box column={4}>
-    <Avatar name="Keerthi" src="${keerthi}" />
+    <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
   </Box>
 </Box>
   `}
@@ -123,7 +121,7 @@ card(
 <Avatar
   name="Shanice"
   size="lg"
-  src="${shanice}"
+  src="https://i.ibb.co/7tGKGvb/shanice.jpg"
   verified
 />
   `}
@@ -142,7 +140,7 @@ card(
   icon="pinterest"
   name="Shanice"
   size="lg"
-  src="${shanice}"
+  src="https://i.ibb.co/7tGKGvb/shanice.jpg"
   verified
 />
   `}

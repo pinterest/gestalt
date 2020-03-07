@@ -3,7 +3,6 @@ import React from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
-import stock14 from './images/stock14.jpg';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -101,7 +100,7 @@ class TouchableExample extends React.Component {
               alt="Antelope Canyon"
               naturalHeight={1}
               naturalWidth={1}
-              src="${stock14}"
+              src="https://i.ibb.co/DwYrGy6/stock14.jpg"
             />
           </Mask>
           <Box paddingY={2}>
