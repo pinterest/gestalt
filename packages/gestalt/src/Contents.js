@@ -52,7 +52,6 @@ type Shift = { x: number, y: number };
 
 type EdgeShift = { caret: Shift, flyout: Shift };
 
-/* eslint-disable react/no-unused-prop-types */
 type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   caret?: boolean,
@@ -69,7 +68,6 @@ type Props = {|
   triggerRect: ClientRect,
   width: ?number,
 |};
-/* eslint-enable react/no-unused-prop-types */
 
 type State = {|
   flyoutOffset: {|
@@ -332,17 +330,15 @@ export default class Contents extends React.Component<Props, State> {
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
     caret: PropTypes.bool,
     children: PropTypes.node,
-    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']), // eslint-disable-line react/no-unused-prop-types
+    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
     onKeyDown: PropTypes.func.isRequired,
     onResize: PropTypes.func.isRequired,
-    // eslint-disable-next-line react/no-unused-prop-types
     relativeOffset: PropTypes.exact({
       x: PropTypes.number,
       y: PropTypes.number,
     }),
-    positionRelativeToAnchor: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
+    positionRelativeToAnchor: PropTypes.bool,
     shouldFocus: PropTypes.bool,
-    // eslint-disable-next-line react/no-unused-prop-types
     triggerRect: PropTypes.exact({
       bottom: PropTypes.number,
       height: PropTypes.number,

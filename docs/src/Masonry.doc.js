@@ -200,7 +200,6 @@ class ExampleMasonry extends React.Component<Props, State> {
     });
   }
 
-  // eslint-disable-next-line react/no-unused-prop-types
   updateWidth = ({ target }: { target: HTMLInputElement }) => {
     this.setState({ width: Number(target.value) }, () => {
       if (this.grid) {
