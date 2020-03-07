@@ -3,9 +3,25 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  test:
+  Ubuntu:
     name: Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [12, 13]
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node_version }}
+      - name: yarn install, build, and test
+        run: |
+          yarn install
+          yarn build
+          yarn test
+  Windows:
+    name: Tests
+    runs-on: windows-latest
     strategy:
       matrix:
         node_version: [12, 13]
