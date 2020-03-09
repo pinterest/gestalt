@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add credit-card and conversion-tag icons (#716)
+
 ### Patch
 
 </details>
