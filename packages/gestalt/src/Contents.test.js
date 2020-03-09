@@ -122,6 +122,7 @@ describe('Contents', () => {
 
   describe('Base offsets chosen correctly', () => {
     it('Left opening flyouts', () => {
+      const hasCaret = true;
       const triggerRect = centerTriggerRect();
       const mainDir = 'left';
       const expectedBase = {
@@ -131,6 +132,7 @@ describe('Contents', () => {
           (triggerRect.left - flyoutSize.width - CARET_HEIGHT / 2),
       };
       const base = baseOffsets(
+        hasCaret,
         fixedOffset,
         flyoutSize,
         mainDir,
@@ -141,6 +143,7 @@ describe('Contents', () => {
     });
 
     it('Right opening flyouts', () => {
+      const hasCaret = true;
       const triggerRect = centerTriggerRect();
       const mainDir = 'right';
       const expectedBase = {
@@ -148,6 +151,7 @@ describe('Contents', () => {
         left: windowSize.scrollX + (triggerRect.right + CARET_HEIGHT / 2),
       };
       const base = baseOffsets(
+        hasCaret,
         fixedOffset,
         flyoutSize,
         mainDir,
@@ -158,6 +162,7 @@ describe('Contents', () => {
     });
 
     it('Up opening flyouts', () => {
+      const hasCaret = true;
       const triggerRect = centerTriggerRect();
       const mainDir = 'up';
       const expectedBase = {
@@ -167,6 +172,7 @@ describe('Contents', () => {
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets(
+        hasCaret,
         fixedOffset,
         flyoutSize,
         mainDir,
@@ -177,6 +183,7 @@ describe('Contents', () => {
     });
 
     it('Down opening flyouts', () => {
+      const hasCaret = true;
       const triggerRect = centerTriggerRect();
       const mainDir = 'down';
       const expectedBase = {
@@ -184,6 +191,45 @@ describe('Contents', () => {
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets(
+        hasCaret,
+        fixedOffset,
+        flyoutSize,
+        mainDir,
+        triggerRect,
+        windowSize
+      );
+      expect(base).toEqual(expectedBase);
+    });
+
+    it('Left opening flyouts without caret', () => {
+      const hasCaret = false;
+      const triggerRect = centerTriggerRect();
+      const mainDir = 'left';
+      const expectedBase = {
+        top: windowSize.scrollY + triggerRect.top,
+        left: windowSize.scrollX + (triggerRect.left - flyoutSize.width - 8),
+      };
+      const base = baseOffsets(
+        hasCaret,
+        fixedOffset,
+        flyoutSize,
+        mainDir,
+        triggerRect,
+        windowSize
+      );
+      expect(base).toEqual(expectedBase);
+    });
+
+    it('Down opening flyouts without caret', () => {
+      const hasCaret = false;
+      const triggerRect = centerTriggerRect();
+      const mainDir = 'down';
+      const expectedBase = {
+        top: windowSize.scrollY + triggerRect.bottom + 8,
+        left: windowSize.scrollX + triggerRect.left,
+      };
+      const base = baseOffsets(
+        hasCaret,
         fixedOffset,
         flyoutSize,
         mainDir,
