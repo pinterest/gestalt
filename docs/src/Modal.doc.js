@@ -295,7 +295,7 @@ card(
     name="Alert Dialogs"
     description={`
       The \`alertdialog\` role is used to notify the user of urgent information that demands the user's immediate attention.
-      We need to specify this role separately from other dialogs for accessibility.
+      We need to specify this role separately from other dialogs for accessibility. The only visual difference is the spacing on the \`heading\`.
     `}
     defaultCode={`
 function Example(props) {

@@ -36,13 +36,25 @@ function Backdrop({ children }: { children?: React.Node }) {
   );
 }
 
-function Header({ heading }: {| heading: string | React.Node |}) {
+function Header({
+  heading,
+  role,
+}: {|
+  heading: string | React.Node,
+  role: 'alertdialog' | 'dialog',
+|}) {
   if (typeof heading !== 'string') {
     return heading;
   }
 
   return (
-    <Box display="flex" justifyContent="center" padding={8}>
+    <Box
+      display="flex"
+      justifyContent="center"
+      {...(role === 'dialog'
+        ? { padding: 8 }
+        : { paddingX: 8, marginTop: 8, marginBottom: 2 })}
+    >
       <Heading size="md" accessibilityLevel={1}>
         {heading}
       </Heading>
@@ -101,7 +113,7 @@ export default function Modal({
                 >
                   {heading && (
                     <Box fit>
-                      <Header heading={heading} />
+                      <Header heading={heading} role={role} />
                     </Box>
                   )}
                   <div className={styles.content}>{children}</div>

@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Modal: lower bottom heading spacing for alert dialogs (#736)
+
 ### Patch
 
 </details>
