@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: fail build when CSS flow changes are required (#738)
+
 ### Patch
 
 </details>
