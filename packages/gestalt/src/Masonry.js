@@ -213,7 +213,6 @@ export default class Masonry<T: {}> extends React.Component<
         item => !!item && !measurementStore.has(item)
       ),
       isFetching: false,
-      // eslint-disable-next-line react/no-unused-state
       items: props.items,
       measurementStore,
       scrollTop: 0,
