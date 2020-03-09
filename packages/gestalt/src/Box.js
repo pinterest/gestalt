@@ -22,7 +22,6 @@ import borders from './Borders.css';
 import colors from './Colors.css';
 import layout from './Layout.css';
 import whitespace from './boxWhitespace.css';
-import whitespaceLegacy from './Whitespace.css';
 import {
   concat,
   fromClassName,
@@ -49,8 +48,6 @@ Box's type definition is exhaustive. With the exception of `dangerouslySetInline
 
 */
 
-type NatBoint = 1 | 2 | 3 | 4 | 5 | 6;
-type IntBoint = -6 | -5 | -4 | -3 | -2 | -1 | NatBoint;
 type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
 type Direction = 'row' | 'column';
 type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -97,15 +94,6 @@ type PropType = {
   sm?: ResponsiveProps,
   md?: ResponsiveProps,
   lg?: ResponsiveProps,
-  deprecatedPadding?: NatBoint | { x?: NatBoint, y?: NatBoint },
-  deprecatedMargin?:
-    | IntBoint
-    | {
-        top?: IntBoint,
-        right?: IntBoint | 'auto',
-        bottom?: IntBoint,
-        left?: IntBoint | 'auto',
-      },
 
   display?: Display,
   column?: Column,
@@ -352,8 +340,6 @@ const display = value => {
 };
 const column = range('Col');
 
-const formatIntBoint = x => (x < 0 ? `n${Math.abs(x)}` : x.toString());
-
 /*
 
 It's preferable to put new properties into that object directly just so it's easier to read.
@@ -548,47 +534,6 @@ const propToFn = {
     // default: start
   }),
   left: toggle(layout.left0),
-  deprecatedMargin: value => {
-    let mt = identity();
-    let mb = identity();
-    let ml = identity();
-    let mr = identity();
-    switch (typeof value) {
-      case 'number':
-        return fromClassName(whitespaceLegacy[`m${formatIntBoint(value)}`]);
-      case 'object':
-        if (value.top) {
-          mt = fromClassName(
-            whitespaceLegacy[`mt${formatIntBoint(value.top)}`]
-          );
-        }
-
-        if (value.bottom) {
-          mb = fromClassName(
-            whitespaceLegacy[`mb${formatIntBoint(value.bottom)}`]
-          );
-        }
-
-        if (value.left) {
-          ml = fromClassName(
-            value.left === 'auto'
-              ? whitespaceLegacy.mlAuto
-              : whitespaceLegacy[`ml${formatIntBoint(value.left)}`]
-          );
-        }
-
-        if (value.right) {
-          mr = fromClassName(
-            value.right === 'auto'
-              ? whitespaceLegacy.mrAuto
-              : whitespaceLegacy[`mr${formatIntBoint(value.right)}`]
-          );
-        }
-        return concat([mt, mb, ml, mr]);
-      default:
-        return identity();
-    }
-  },
   marginStart,
   marginEnd,
   margin,
@@ -624,23 +569,6 @@ const propToFn = {
     scrollY: layout.overflowScrollY,
     // default: visible
   }),
-  deprecatedPadding: value => {
-    switch (typeof value) {
-      case 'number':
-        return fromClassName(whitespaceLegacy[`p${value}`]);
-      case 'object':
-        return concat([
-          value.x
-            ? fromClassName(whitespaceLegacy[`px${value.x}`])
-            : identity(),
-          value.y
-            ? fromClassName(whitespaceLegacy[`py${value.y}`])
-            : identity(),
-        ]);
-      default:
-        return identity();
-    }
-  },
   padding,
   paddingX,
   paddingY,
@@ -860,22 +788,6 @@ Box.propTypes = {
     ]),
     column: PropTypes.number,
   }),
-  deprecatedMargin: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      top: PropTypes.number,
-      bottom: PropTypes.number,
-      left: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['auto'])]),
-      right: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['auto'])]),
-    }),
-  ]),
-  deprecatedPadding: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.shape({
-      x: PropTypes.number,
-      y: PropTypes.number,
-    }),
-  ]),
 
   display: PropTypes.oneOf([
     'none',
