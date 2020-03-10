@@ -57,7 +57,13 @@ export default function Header() {
 
       <Box flex="grow" />
 
-      <Box marginStart={-2} marginEnd={-2} display="flex" direction="row">
+      <Box
+        marginStart={-2}
+        marginEnd={-2}
+        display="flex"
+        direction="row"
+        alignItems="center"
+      >
         <Box>
           <IconButton
             size="md"
