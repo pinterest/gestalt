@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Flyout/Tooltip: Update spacing around to 8px when caret is hidden (#737)
 - Docs: Open in CodeSandbox & remove checkerbox from example (#735)
 
 ### Patch

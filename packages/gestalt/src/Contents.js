@@ -288,20 +288,22 @@ export function adjustOffsets(
 
 /* Calculates baseline top and left offset for flyout */
 export function baseOffsets(
+  hasCaret: boolean,
   relativeOffset: { x: number, y: number },
   flyoutSize: Flyout,
   mainDir: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
 ) {
-  const HALF_CARET = CARET_HEIGHT / 2;
+  const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT / 2 : 8;
   // TOP OFFSET
   let top;
   if (mainDir === 'down') {
-    top = windowSize.scrollY + triggerRect.bottom + HALF_CARET;
+    top = windowSize.scrollY + triggerRect.bottom + SPACING_OUTSIDE;
   } else if (mainDir === 'up') {
     top =
-      windowSize.scrollY + (triggerRect.top - flyoutSize.height - HALF_CARET);
+      windowSize.scrollY +
+      (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE);
   } else {
     // left and right
     top = windowSize.scrollY + triggerRect.top;
@@ -311,9 +313,10 @@ export function baseOffsets(
   let left;
   if (mainDir === 'left') {
     left =
-      windowSize.scrollX + (triggerRect.left - flyoutSize.width - HALF_CARET);
+      windowSize.scrollX +
+      (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE);
   } else if (mainDir === 'right') {
-    left = windowSize.scrollX + triggerRect.right + HALF_CARET;
+    left = windowSize.scrollX + triggerRect.right + SPACING_OUTSIDE;
   } else {
     // down and up
     left = windowSize.scrollX + triggerRect.left;
@@ -396,6 +399,7 @@ export default class Contents extends React.Component<Props, State> {
    */
   static getDerivedStateFromProps(
     {
+      caret,
       idealDirection,
       positionRelativeToAnchor,
       relativeOffset,
@@ -442,6 +446,7 @@ export default class Contents extends React.Component<Props, State> {
 
     // Gets the base offset that positions the flyout based on the main direction only
     const base = baseOffsets(
+      Boolean(caret),
       relativeOffset,
       flyoutSize,
       mainDir,
