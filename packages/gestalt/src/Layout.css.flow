@@ -38,6 +38,7 @@ declare module.exports: {|
   +'lgFlex': string,
   +'mdFlex': string,
   +'medium': string,
+  +'minWidth60': string,
   +'orderFirst': string,
   +'orderLast': string,
   +'overflowAuto': string,
