@@ -3,7 +3,6 @@ import * as React from 'react';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import Example from './components/Example.js';
-import stock1 from './images/stock1.jpg';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -90,7 +89,7 @@ function ToastExample() {
                     alt='Saved to home decor board'
                     naturalHeight={564}
                     naturalWidth={564}
-                    src='${stock1}'
+                    src='https://i.ibb.co/Lx54BCT/stock1.jpg'
                   />
                 }
               />

@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Docs: Open in CodeSandbox & remove checkerbox from example (#735)
+
 ### Patch
 
 </details>

@@ -1,9 +1,5 @@
 // @flow
 import * as React from 'react';
-import stock3 from './images/stock3.jpg';
-import stock4 from './images/stock4.jpg';
-import stock5 from './images/stock5.jpg';
-import stock6 from './images/stock6.jpg';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
@@ -63,7 +59,7 @@ card(
 <Letterbox width={200} height={200} contentAspectRatio={564 / 806}>
   <Image
     alt="tall"
-    src="${stock5}"
+    src="https://i.ibb.co/jVR29XV/stock5.jpg"
     naturalWidth={564}
     naturalHeight={806}
   />
@@ -79,7 +75,7 @@ card(
 <Letterbox width={200} height={200} contentAspectRatio={564 / 517}>
   <Image
     alt="wide"
-    src="${stock4}"
+    src="https://i.ibb.co/SB0pXgS/stock4.jpg"
     naturalWidth={564}
     naturalHeight={517}
   />
@@ -95,7 +91,7 @@ card(
 <Letterbox width={200} height={200} contentAspectRatio={1}>
   <Image
     alt="square"
-    src="${stock6}"
+    src="https://i.ibb.co/FY2MKr5/stock6.jpg"
     naturalWidth={1}
     naturalHeight={1}
   />
@@ -111,7 +107,7 @@ card(
 <Letterbox width={200} height={300} contentAspectRatio={1}>
   <Image
     alt="square"
-    src="${stock3}"
+    src="https://i.ibb.co/d0pQsJz/stock3.jpg"
     naturalWidth={1}
     naturalHeight={1}
   />
@@ -127,7 +123,7 @@ card(
 <Letterbox width={300} height={200} contentAspectRatio={1}>
   <Image
     alt="square"
-    src="${stock3}"
+    src="https://i.ibb.co/d0pQsJz/stock3.jpg"
     naturalWidth={1}
     naturalHeight={1}
   />

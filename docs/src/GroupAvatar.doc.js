@@ -2,9 +2,6 @@
 import * as React from 'react';
 import { GroupAvatar } from 'gestalt';
 import PropTable from './components/PropTable.js';
-import james from './avatars/james.jpg';
-import keerthi from './avatars/keerthi.jpg';
-import shanice from './avatars/shanice.jpg';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
@@ -46,15 +43,15 @@ card(
 
 const user1 = {
   name: 'Keerthi',
-  src: keerthi,
+  src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
 };
 const user2 = {
   name: 'Shanice',
-  src: shanice,
+  src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
 };
 const user3 = {
   name: 'James',
-  src: james,
+  src: 'https://i.ibb.co/2Fc00R3/james.jpg',
 };
 
 card(
@@ -66,11 +63,11 @@ card(
     collaborators={[
       {
         name: 'Keerthi',
-        src: '${keerthi}',
+        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
       },
       {
         name: 'Shanice',
-        src: '${shanice}',
+        src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
       },
     ]}
     size="lg"
@@ -146,10 +143,10 @@ card(
     <GroupAvatar collaborators={[{ name: 'Julia' }]} />
   </Box>
   <Box column={2} padding={2}>
-    <GroupAvatar collaborators={[{ name: 'James', src: "${james}" }, { name: 'Julia' }]} />
+    <GroupAvatar collaborators={[{ name: 'James', src: "https://i.ibb.co/2Fc00R3/james.jpg" }, { name: 'Julia' }]} />
   </Box>
   <Box column={3} padding={2}>
-    <GroupAvatar collaborators={[{ name: 'Keerthi', src: "${keerthi}" }, { name: 'Shanice', src: "${shanice}" }, { name: 'Julia' }]} />
+    <GroupAvatar collaborators={[{ name: 'Keerthi', src: "https://i.ibb.co/ZfCZrY8/keerthi.jpg" }, { name: 'Shanice', src: "https://i.ibb.co/7tGKGvb/shanice.jpg" }, { name: 'Julia' }]} />
   </Box>
 </Box>
   `}
