@@ -8,11 +8,25 @@
 
 ### Minor
 
+- Flyout/Tooltip: Update spacing around to 8px when caret is hidden (#737)
+- Docs: Open in CodeSandbox & remove checkerbox from example (#735)
 - Internal: fail build when CSS flow changes are required (#738)
 
 ### Patch
 
 </details>
+
+## 1.17.0 (Mar 9, 2020)
+
+### Minor
+
+- Icon: Add credit-card and conversion-tag icons (#716)
+- Box [Breaking]: Removes support to deprecated props deprecatedMargin & deprecatedPadding (#711)
+
+Run codemods:
+
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.15.0-1.16.0/deprecatedMargin-box-replace.js ~/code/repo`
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.15.0-1.16.0/deprecatedPadding-box-replace.js ~/code/repo`
 
 ## 1.16.0 (Mar 6, 2020)
 

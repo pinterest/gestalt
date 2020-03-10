@@ -1,11 +1,5 @@
 // @flow
 import * as React from 'react';
-// import stock1 from './images/stock1.jpg';
-import stock2 from './images/stock2.jpg';
-import stock3 from './images/stock3.jpg';
-import stock4 from './images/stock4.jpg';
-import stock5 from './images/stock5.jpg';
-import stock6 from './images/stock6.jpg';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -163,7 +157,7 @@ card(
     color="rgb(231, 186, 176)"
     naturalHeight={751}
     naturalWidth={564}
-    src="${stock2}"
+    src="https://i.ibb.co/7bQQYkX/stock2.jpg"
   >
     <Box padding={3}>
       <Text color="white">
@@ -221,7 +215,7 @@ card(
           fit="contain"
           naturalHeight={1}
           naturalWidth={1}
-          src="${stock3}"
+          src="https://i.ibb.co/d0pQsJz/stock3.jpg"
         />
       </Box>
       <Box
@@ -237,7 +231,7 @@ card(
           fit="cover"
           naturalHeight={1}
           naturalWidth={1}
-          src="${stock3}"
+          src="https://i.ibb.co/d0pQsJz/stock3.jpg"
         />
       </Box>
     </Box>
@@ -258,7 +252,7 @@ card(
           fit="contain"
           naturalHeight={1}
           naturalWidth={1}
-          src="${stock4}"
+          src="https://i.ibb.co/SB0pXgS/stock4.jpg"
         />
       </Box>
       <Box
@@ -274,7 +268,7 @@ card(
           fit="cover"
           naturalHeight={1}
           naturalWidth={1}
-          src="${stock4}"
+          src="https://i.ibb.co/SB0pXgS/stock4.jpg"
         />
       </Box>
     </Box>
@@ -295,7 +289,7 @@ card(
           fit="contain"
           naturalHeight={1}
           naturalWidth={1}
-          src="${stock5}"
+          src="https://i.ibb.co/jVR29XV/stock5.jpg"
         />
       </Box>
       <Box
@@ -311,7 +305,7 @@ card(
           fit="cover"
           naturalHeight={1}
           naturalWidth={1}
-          src="${stock5}"
+          src="https://i.ibb.co/jVR29XV/stock5.jpg"
         />
       </Box>
     </Box>
@@ -334,7 +328,7 @@ card(
     color="rgb(231, 186, 176)"
     naturalHeight={496}
     naturalWidth={496}
-    src="${stock6}"
+    src="https://i.ibb.co/FY2MKr5/stock6.jpg"
     loading="lazy"
   />
 </Box>

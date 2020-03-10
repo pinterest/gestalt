@@ -2,11 +2,6 @@
 import * as React from 'react';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
 import PropTable from './components/PropTable.js';
-import stock9 from './images/stock9.jpg';
-import stock10 from './images/stock10.jpg';
-import stock11 from './images/stock11.jpg';
-import stock12 from './images/stock12.jpg';
-import stock13 from './images/stock13.jpg';
 import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
@@ -135,28 +130,28 @@ const pins = [
   {
     color: '#2b3938',
     height: 316,
-    src: stock9,
+    src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
     width: 474,
     name: 'the Hang Son Doong cave in Vietnam',
   },
   {
     color: '#8e7439',
     height: 1081,
-    src: stock10,
+    src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
     width: 474,
     name: 'La Gran Muralla, Pekín, China',
   },
   {
     color: '#698157',
     height: 711,
-    src: stock11,
+    src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
     width: 474,
     name: 'Plitvice Lakes National Park, Croatia',
   },
   {
     color: '#4e5d50',
     height: 632,
-    src: stock12,
+    src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
     width: 474,
     name:
       'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
@@ -164,7 +159,7 @@ const pins = [
   {
     color: '#6d6368',
     height: 710,
-    src: stock13,
+    src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
     width: 474,
     name: 'Border of China and Vietnam',
   },

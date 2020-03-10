@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react';
 import { Mask } from 'gestalt';
-import stock7 from './images/stock7.jpg';
-import stock8 from './images/stock8.jpg';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -83,7 +81,7 @@ card(
   <Mask rounding="circle">
     <img
       alt="weakendclub.com"
-      src="${stock7}"
+      src="https://i.ibb.co/121JJzC/stock7.jpg"
       style={{ maxWidth: '100%', display: 'block' }}
     />
   </Mask>
@@ -104,7 +102,7 @@ card(
   <Mask rounding={2} wash>
     <img
       alt="subliming.tumblr.com"
-      src="${stock8}"
+      src="https://i.ibb.co/8BSrgzX/stock8.jpg"
       style={{ maxWidth: '100%', display: 'block' }}
     />
   </Mask>
@@ -136,10 +134,10 @@ card(
     name="Example: willChangeTransform"
     defaultCode={`
 <Box maxWidth={300}>
-  <Mask rounding={2} willChangeTransform="false">
+  <Mask rounding={2} willChangeTransform={false}>
     <img
       alt="subliming.tumblr.com"
-      src="${stock8}"
+      src="https://i.ibb.co/8BSrgzX/stock8.jpg"
       style={{ maxWidth: '100%', display: 'block' }}
     />
   </Mask>

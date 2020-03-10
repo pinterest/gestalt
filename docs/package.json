@@ -14,6 +14,7 @@
     "gestalt": ">0.0.0",
     "highlight.js": "^9.18.1",
     "history": "^4.10.1",
+    "lz-string": "^1.4.4",
     "marked": "^0.8.0",
     "react": "^16.8.5",
     "react-dom": "^16.12.0",
