@@ -20,7 +20,7 @@
 }
 
 .errored:focus {
-  border-color: #111;
+  border-color: #efefef;
 }
 
 .errored:hover:not(:focus) {
