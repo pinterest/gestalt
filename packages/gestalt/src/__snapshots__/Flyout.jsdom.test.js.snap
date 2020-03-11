@@ -22,7 +22,7 @@ exports[`Flyout renders 1`] = `
       className="innerContents maxDimensions minDimensions"
       style={
         Object {
-          "width": 230,
+          "maxWidth": 230,
         }
       }
     />
@@ -50,7 +50,7 @@ exports[`Flyout renders as blue 1`] = `
       className="innerContents maxDimensions minDimensions"
       style={
         Object {
-          "width": 230,
+          "maxWidth": 230,
         }
       }
     />
@@ -78,7 +78,7 @@ exports[`Flyout renders as error 1`] = `
       className="innerContents maxDimensions minDimensions"
       style={
         Object {
-          "width": 230,
+          "maxWidth": 230,
         }
       }
     />

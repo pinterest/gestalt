@@ -18,6 +18,7 @@
 
 .minDimensions {
   min-height: 40px;
+  min-width: 180px;
 }
 
 .innerContents {

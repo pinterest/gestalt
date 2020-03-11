@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Flyout: Responsive, updated sizes + minimum width (#743)
+
 ### Patch
 
 </details>

@@ -17,11 +17,11 @@ type Props = {|
 |};
 
 const SIZE_WIDTH_MAP = {
-  xs: 185,
+  xs: 180,
   sm: 230,
   md: 284,
   lg: 320,
-  xl: 375,
+  xl: 360,
 };
 
 const ESCAPE_KEY_CODE = 27;

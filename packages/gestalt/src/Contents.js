@@ -430,7 +430,7 @@ export default class Contents extends React.Component<Props, State> {
 
     const flyoutSize = {
       height: flyoutRef ? flyoutRef.clientHeight : 0,
-      width: width || (flyoutRef ? flyoutRef.clientWidth : 0),
+      width: (flyoutRef ? flyoutRef.clientWidth : width) || 0,
     };
 
     // First choose one of 4 main direction
@@ -515,7 +515,7 @@ export default class Contents extends React.Component<Props, State> {
               styles.maxDimensions,
               width !== null && styles.minDimensions
             )}
-            style={{ width }}
+            style={{ maxWidth: width }}
           >
             {children}
           </div>
