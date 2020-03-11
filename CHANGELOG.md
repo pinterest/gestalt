@@ -8,6 +8,8 @@
 
 ### Minor
 
+- IconWithTooltip: Remove deprecated component (#741)
+
 ### Patch
 
 </details>
