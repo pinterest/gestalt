@@ -8,11 +8,15 @@
 
 ### Minor
 
-- IconWithTooltip: Remove deprecated component (#741)
-
 ### Patch
 
 </details>
+
+## 1.19.0 (Mar 11, 2020)
+
+### Minor
+
+- IconWithTooltip: Remove deprecated component (#741)
 
 ## 1.18.0 (Mar 10, 2020)
 
