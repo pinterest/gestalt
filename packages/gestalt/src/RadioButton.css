@@ -10,6 +10,7 @@
   composes: flex from "./Layout.css";
   composes: itemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
+  composes: relative from "./Layout.css";
   border: 1px solid #8e8e8e;
 }
 

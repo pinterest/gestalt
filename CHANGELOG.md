@@ -8,6 +8,8 @@
 
 ### Minor
 
+- RadioButton: Fix when container is set to overflow=auto (#745)
+
 ### Patch
 
 </details>
