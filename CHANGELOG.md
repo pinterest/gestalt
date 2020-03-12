@@ -8,14 +8,20 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.20.0 (Mar 12, 2020)
+
+### Minor
+
 - RadioButton: Fix when container is set to overflow=auto (#745)
 - Icon: Add phone icon (#746)
 
 ### Patch
 
 - TextField / TextArea / SelectList: Fix error focus state (#744)
-
-</details>
 
 ## 1.19.0 (Mar 11, 2020)
 
