@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add phone icon (#746)
+
 ### Patch
 
 </details>
