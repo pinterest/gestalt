@@ -108,6 +108,7 @@ import pause from './pause.svg';
 import people from './people.svg';
 import person from './person.svg';
 import personAdd from './person-add.svg';
+import phone from './phone.svg';
 import pin from './pin.svg';
 import pinHide from './pin-hide.svg';
 import pinterest from './pinterest.svg';
@@ -272,6 +273,7 @@ export default {
   people,
   person,
   'person-add': personAdd,
+  phone,
   pin,
   'pin-hide': pinHide,
   pinterest,
