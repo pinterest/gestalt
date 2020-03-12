@@ -12,6 +12,8 @@
 
 ### Patch
 
+- TextField / TextArea / SelectList: Fix error focus state (#744)
+
 </details>
 
 ## 1.19.0 (Mar 11, 2020)
