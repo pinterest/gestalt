@@ -8,6 +8,7 @@
 
 ### Minor
 
+- RadioButton: Fix when container is set to overflow=auto (#745)
 - Icon: Add phone icon (#746)
 
 ### Patch
