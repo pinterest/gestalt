@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add phone icon (#746)
+
 ### Patch
 
 </details>
@@ -16,7 +18,6 @@
 
 ### Minor
 
-- Icon: Add phone icon (#746)
 - IconWithTooltip: Remove deprecated component (#741)
 
 ## 1.18.0 (Mar 10, 2020)
