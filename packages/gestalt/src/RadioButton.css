@@ -1,4 +1,6 @@
 :root {
+  --border-sm: 6px;
+  --border-md: 8px;
   --size-sm: 16px;
   --size-md: 24px;
 }
@@ -11,31 +13,43 @@
   composes: itemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
   composes: relative from "./Layout.css";
-  border: 1px solid #8e8e8e;
-}
-
-.RadioButtonSm {
-  height: var(--size-sm);
-  padding: 2px;
-  width: var(--size-sm);
-}
-
-.RadioButtonMd {
-  height: var(--size-md);
-  padding: 3px;
-  width: var(--size-md);
+  composes: solid from "./Borders.css";
 }
 
 .RadioButtonIsFocused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
 
-.RadioButtonWhiteBg {
-  composes: whiteBg from "./Colors.css";
+.Border {
+  composes: borderColorLightGray from "./Borders.css";
 }
 
-.RadioButtonLightGrayBg {
+.BorderCheckedSm {
+  border-width: var(--border-sm);
+}
+
+.BorderCheckedMd {
+  border-width: var(--border-md);
+}
+
+.BorderDarkGray {
+  composes: borderColorDarkGray from "./Borders.css";
+}
+
+.BorderHovered {
+  composes: borderColorTranslucidGray from "./Borders.css";
+}
+
+.BorderUnchecked {
+  composes: sizeLg from "./Borders.css";
+}
+
+.BgDisabled {
   composes: lightGrayBg from "./Colors.css";
+}
+
+.BgEnabled {
+  composes: whiteBg from "./Colors.css";
 }
 
 .Input {
@@ -50,26 +64,12 @@
   composes: pointer from "./Cursor.css";
 }
 
-.InputSm {
+.SizeSm {
   height: var(--size-sm);
   width: var(--size-sm);
 }
 
-.InputMd {
+.SizeMd {
   height: var(--size-md);
   width: var(--size-md);
-}
-
-.Check {
-  composes: circle from "./Borders.css";
-  height: 100%;
-  width: 100%;
-}
-
-.CheckEnabled {
-  composes: darkGrayBg from "./Colors.css";
-}
-
-.CheckDisabled {
-  composes: grayBg from "./Colors.css";
 }

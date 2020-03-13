@@ -5,14 +5,19 @@ import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
 import Box from './Box.js';
+import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
+import Label from './Label.js';
+import Text from './Text.js';
 
 type Props = {|
   checked?: boolean,
   disabled?: boolean,
+  errorMessage?: string,
   hasError?: boolean,
   id: string,
   indeterminate?: boolean,
+  label?: string,
   name?: string,
   onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
   onClick?: ({
@@ -25,9 +30,11 @@ type Props = {|
 export default function Checkbox({
   checked = false,
   disabled = false,
+  errorMessage,
   hasError = false,
   id,
   indeterminate = false,
+  label,
   name,
   onChange,
   onClick,
@@ -35,6 +42,7 @@ export default function Checkbox({
 }: Props) {
   const inputElement = React.useRef<?HTMLInputElement>(null);
   const [focused, setFocused] = React.useState(false);
+  const [hovered, setHover] = React.useState(false);
 
   React.useEffect(() => {
     if (inputElement && inputElement.current) {
@@ -54,61 +62,103 @@ export default function Checkbox({
     }
   };
 
-  let borderStyle = styles.border;
-  if (!disabled && (checked || indeterminate)) {
-    borderStyle = styles.borderDark;
-  } else if (hasError) {
-    borderStyle = styles.borderError;
+  const handleHover = () => {
+    setHover(!hovered);
+  };
+
+  let bgStyle = colors.whiteBg;
+  if (disabled) {
+    bgStyle = colors.lightGrayBg;
+  } else if (checked || indeterminate) {
+    bgStyle = colors.darkGrayBg;
   }
 
+  let borderStyle = styles.border;
+  if (!disabled && (checked || indeterminate)) {
+    borderStyle = styles.borderDarkGray;
+  } else if (hasError || errorMessage) {
+    borderStyle = styles.borderError;
+  } else if (!disabled && hovered) {
+    borderStyle = styles.borderHovered;
+  }
+
+  const borderRadiusStyle =
+    size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
+
+  const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
+
   return (
-    <Box position="relative">
-      <input
-        checked={checked}
-        className={classnames(styles.input, {
-          [styles.inputEnabled]: !disabled,
-          [styles.inputSm]: size === 'sm',
-          [styles.inputMd]: size === 'md',
-        })}
-        disabled={disabled}
-        id={id}
-        name={name}
-        onBlur={() => setFocused(false)}
-        onChange={handleChange}
-        onClick={handleClick}
-        onFocus={() => setFocused(true)}
-        ref={inputElement}
-        type="checkbox"
-      />
-      <div
-        className={classnames(
-          borderStyle,
-          styles.check,
-          // eslint-disable-next-line no-nested-ternary
-          disabled
-            ? checked || indeterminate
-              ? colors.grayBg
-              : colors.lightGrayBg
-            : checked || indeterminate
-            ? colors.darkGrayBg
-            : colors.whiteBg,
-          {
-            [styles.checkEnabled]: !disabled,
-            [styles.checkFocused]: focused,
-            [styles.checkMd]: size === 'md',
-            [styles.checkSm]: size === 'sm',
-          }
-        )}
+    <Box>
+      <Box
+        alignItems="center"
+        display="flex"
+        justifyContent="start"
+        marginLeft={-1}
+        marginRight={-1}
       >
-        {(checked || indeterminate) && (
-          <Icon
-            accessibilityLabel=""
-            color="white"
-            icon={indeterminate ? 'dash' : 'check'}
-            size={size === 'sm' ? 8 : 12}
-          />
+        <Label htmlFor={id}>
+          <Box paddingX={1} position="relative">
+            <input
+              checked={checked}
+              className={classnames(styles.input, styleSize, {
+                [styles.inputEnabled]: !disabled,
+              })}
+              disabled={disabled}
+              id={id}
+              name={name}
+              onBlur={() => setFocused(false)}
+              onChange={handleChange}
+              onClick={handleClick}
+              onFocus={() => setFocused(true)}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleHover}
+              ref={inputElement}
+              type="checkbox"
+            />
+            <div
+              className={classnames(
+                bgStyle,
+                borderStyle,
+                borderRadiusStyle,
+                styleSize,
+                styles.check,
+                {
+                  [styles.checkFocused]: focused,
+                }
+              )}
+            >
+              {(checked || indeterminate) && (
+                <Icon
+                  accessibilityLabel=""
+                  color="white"
+                  icon={indeterminate ? 'dash' : 'check'}
+                  size={size === 'sm' ? 8 : 12}
+                />
+              )}
+            </div>
+          </Box>
+        </Label>
+
+        {label && (
+          <Label htmlFor={id}>
+            <Box paddingX={1}>
+              <Text
+                color={disabled ? 'gray' : undefined}
+                size={size === 'sm' ? 'md' : 'lg'}
+              >
+                {label}
+              </Text>
+            </Box>
+          </Label>
         )}
-      </div>
+      </Box>
+      {errorMessage && (
+        <Box marginTop={2}>
+          <Text color="red" size="sm">
+            <FormErrorMessage id={id} text={errorMessage} />
+          </Text>
+        </Box>
+      )}
     </Box>
   );
 }
@@ -116,9 +166,11 @@ export default function Checkbox({
 Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  errorMessage: PropTypes.string,
   hasError: PropTypes.bool,
   id: PropTypes.string.isRequired,
   indeterminate: PropTypes.bool,
+  label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func,
