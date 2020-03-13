@@ -7,7 +7,7 @@
 }
 
 .normal {
-  border-color: #efefef;
+  border-color: #ddd;
 }
 
 .normal:hover:not(:focus):not(.disabled) {
@@ -20,7 +20,7 @@
 }
 
 .errored:focus {
-  border-color: #efefef;
+  border-color: #ddd;
 }
 
 .errored:hover:not(:focus) {

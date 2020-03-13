@@ -204,7 +204,7 @@ export default function GroupAvatar(props: Props) {
               {src ? (
                 <Image
                   alt={name}
-                  color="#EFEFEF"
+                  color="#ddd"
                   src={src}
                   naturalWidth={1}
                   naturalHeight={1}

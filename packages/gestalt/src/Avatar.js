@@ -95,7 +95,7 @@ export default function Avatar(props: Props) {
         <Mask rounding="circle" wash>
           <Image
             alt={name}
-            color="#EFEFEF"
+            color="#ddd"
             naturalHeight={1}
             naturalWidth={1}
             src={src}
