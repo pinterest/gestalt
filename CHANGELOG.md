@@ -8,13 +8,19 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.21.0 (Mar 16, 2020)
+
+### Minor
+
 - Flyout: Responsive, updated sizes + minimum width (#743)
 
 ### Patch
 
 - Internal: upgrade packages (#751)
-
-</details>
 
 ## 1.20.0 (Mar 12, 2020)
 
