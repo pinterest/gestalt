@@ -12,6 +12,8 @@
 
 ### Patch
 
+- Internal: upgrade packages (#751)
+
 </details>
 
 ## 1.20.0 (Mar 12, 2020)
