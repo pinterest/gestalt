@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Flyout: Responsive, updated sizes + minimum width (#753)
-
 ### Patch
 
 </details>
+
+## 1.22.0 (Mar 16, 2020)
+
+### Minor
+
+- Docs: Use same React version as package (#753)
 
 ## 1.21.0 (Mar 16, 2020)
 
