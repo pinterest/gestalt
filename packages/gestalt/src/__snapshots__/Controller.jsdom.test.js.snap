@@ -20,7 +20,7 @@ exports[`Controller renders 1`] = `
       className="innerContents maxDimensions minDimensions"
       style={
         Object {
-          "width": 230,
+          "maxWidth": 230,
         }
       }
     />

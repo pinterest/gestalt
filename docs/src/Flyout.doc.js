@@ -75,7 +75,7 @@ card(
       {
         name: 'size',
         type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
-        description: `xs: 185px, sm: 230px, md: 284px, lg: 320px, xl:375px`,
+        description: `xs: 180px, sm: 230px, md: 284px, lg: 320px, xl: 360px`,
         defaultValue: 'sm',
         href: 'basicExample',
       },
@@ -110,7 +110,7 @@ function FlyoutExample() {
             positionRelativeToAnchor={false}
             size="md"
           >
-            <Box padding={3}>
+            <Box padding={3} display="flex" alignItems="center" direction="column" column={12}>
               <Text align="center" weight="bold">
                 Need help with something? Check out our Help Center.
               </Text>
