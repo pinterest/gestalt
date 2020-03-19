@@ -12,6 +12,12 @@
 
 </details>
 
+## 1.22.1 (Mar 19, 2020)
+
+### Patch
+
+- SelectList: Update wrapper rounding (#756)
+
 ## 1.22.0 (Mar 16, 2020)
 
 ### Minor
