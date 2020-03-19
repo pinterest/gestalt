@@ -107,9 +107,9 @@ export default class SelectList extends React.Component<Props, State> {
         {label && <FormLabel id={id} label={label} />}
         <Box
           color={disabled ? 'lightGray' : 'white'}
-          dangerouslySetInlineStyle={{ __style: { borderRadius: 4 } }}
           display="flex"
           position="relative"
+          rounding={4}
           width="100%"
         >
           <Box
@@ -142,11 +142,12 @@ export default class SelectList extends React.Component<Props, State> {
             ref={this.setSelectListRef}
             value={value}
           >
-            {placeholder && !value && (
-              <option selected disabled value hidden>
-                {placeholder}
-              </option>
-            )}
+            {placeholder &&
+              !value && (
+                <option selected disabled value hidden>
+                  {placeholder}
+                </option>
+              )}
             {options.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}
