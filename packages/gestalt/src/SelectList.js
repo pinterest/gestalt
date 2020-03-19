@@ -142,12 +142,11 @@ export default class SelectList extends React.Component<Props, State> {
             ref={this.setSelectListRef}
             value={value}
           >
-            {placeholder &&
-              !value && (
-                <option selected disabled value hidden>
-                  {placeholder}
-                </option>
-              )}
+            {placeholder && !value && (
+              <option selected disabled value hidden>
+                {placeholder}
+              </option>
+            )}
             {options.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}
