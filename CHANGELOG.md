@@ -8,6 +8,11 @@
 
 ### Minor
 
+- Toast: Update design + remove icon/color + add thumbnailShape/button (#755)
+
+Run codemods:
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.22.0-1.23.0/toast-remove-color-icon.js ~/code/repo`
+
 ### Patch
 
 </details>

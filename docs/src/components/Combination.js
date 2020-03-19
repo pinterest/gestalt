@@ -10,6 +10,8 @@ type Props = {
   heading?: boolean,
   id?: string,
   name?: string,
+  fullWidth?: boolean,
+  showValues?: boolean,
   stacked?: boolean,
 };
 
@@ -57,7 +59,9 @@ export default function Combination({
   name = '',
   description = '',
   id,
+  showValues = true,
   stacked = false,
+  fullWidth = false,
   heading = true,
   children,
   ...props
@@ -73,22 +77,24 @@ export default function Combination({
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => (
           <Box
-            column={4}
-            mdColumn={3}
-            lgColumn={2}
+            column={fullWidth ? 12 : 4}
+            mdColumn={fullWidth ? 12 : 3}
+            lgColumn={fullWidth ? 12 : 2}
             key={i}
             padding={4}
             display="flex"
             direction="column"
             alignItems="center"
           >
-            <Box marginBottom={2}>
-              {Object.keys(combination).map(key => (
-                <Text align="center" size="md" key={`${i}-${key}`}>
-                  {toReactAttribute(key, combination[key])}
-                </Text>
-              ))}
-            </Box>
+            {showValues && (
+              <Box marginBottom={2}>
+                {Object.keys(combination).map(key => (
+                  <Text align="center" size="md" key={`${i}-${key}`}>
+                    {toReactAttribute(key, combination[key])}
+                  </Text>
+                ))}
+              </Box>
+            )}
             <Box position="relative" padding={4}>
               <Box position="absolute" top left bottom right>
                 <Checkerboard />
