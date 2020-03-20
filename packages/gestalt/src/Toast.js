@@ -72,6 +72,7 @@ export default function Toast({
 
 Toast.propTypes = {
   button: PropTypes.node,
+  color: PropTypes.oneOf(['darkGray', 'red']),
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,
   thumbnailShape: PropTypes.oneOf(['circle', 'rectangle', 'square']),
