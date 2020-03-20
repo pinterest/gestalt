@@ -9,6 +9,7 @@
 ### Minor
 
 ### Patch
+- SelectList: Remove selected prop from the placeholder option tag for better React support (#759)
 
 </details>
 
