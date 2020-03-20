@@ -12,6 +12,12 @@
 
 </details>
 
+## 1.23.2 (Mar 20, 2020)
+
+### Patch
+
+- Toast: Fix color proptypes (#762)
+
 ## 1.23.1 (Mar 20, 2020)
 
 ### Patch
