@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Toast /> Red Toast 1`] = `
+<div
+  className="box marginBottom3 paddingX4"
+  style={
+    Object {
+      "maxWidth": 360,
+      "width": "100vw",
+    }
+  }
+>
+  <div
+    className="box fit paddingX6 paddingY6 pill redBg"
+  >
+    <div
+      className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
+    >
+      <div
+        className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
+      >
+        <div
+          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+        >
+          Same great profile, slightly new look. Learn more?
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Toast /> Text + Image + Button 1`] = `
 <div
   className="box marginBottom3 paddingX4"

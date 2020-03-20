@@ -7,6 +7,7 @@ import Text from './Text.js';
 
 type Props = {|
   button?: React.Node,
+  color?: 'darkGray' | 'red',
   text: string | React.Element<*>,
   thumbnail?: React.Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
@@ -14,13 +15,14 @@ type Props = {|
 
 export default function Toast({
   button,
+  color = 'darkGray',
   text,
   thumbnail,
   thumbnailShape = 'square',
 }: Props) {
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
-      <Box color="darkGray" fit padding={6} rounding="pill">
+      <Box color={color} fit padding={6} rounding="pill">
         <Box
           display="flex"
           marginLeft={-2}
