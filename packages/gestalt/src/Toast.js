@@ -4,83 +4,76 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
-import Icon from './Icon.js';
 
 type Props = {|
-  color?: 'darkGray' | 'orange' | 'red',
-  icon?: 'arrow-circle-forward', // leaving open to additional icons in the future
-  text: string | Array<string>,
+  button?: React.Node,
+  color?: 'darkGray' | 'red',
+  text: string | React.Element<*>,
   thumbnail?: React.Node,
+  thumbnailShape?: 'circle' | 'rectangle' | 'square',
 |};
 
-export default function Toast(props: Props) {
-  const { color = 'darkGray', icon, thumbnail, text } = props;
-
-  let contents;
-  // Confirmation Toasts
-  if (text instanceof Array && text.length > 1) {
-    contents = (
-      <Box xs={{ display: 'flex' }}>
-        <Box xs={{ display: 'flexColumn' }} flex="none" justifyContent="center">
-          {thumbnail ? (
-            <Mask rounding={2} height={48} width={48}>
-              {thumbnail}
-            </Mask>
-          ) : null}
-        </Box>
+export default function Toast({
+  button,
+  color = 'darkGray',
+  text,
+  thumbnail,
+  thumbnailShape = 'square',
+}: Props) {
+  return (
+    <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
+      <Box color={color} fit padding={6} rounding="pill">
         <Box
-          xs={{ display: 'flexColumn' }}
-          justifyContent="center"
-          dangerouslySetInlineStyle={{ __style: { paddingLeft: 10 } }}
+          display="flex"
+          marginLeft={-2}
+          marginRight={-2}
+          alignItems="center"
         >
+          {thumbnail ? (
+            <Box
+              display="flex"
+              flex="none"
+              justifyContent="center"
+              paddingX={2}
+            >
+              <Mask
+                rounding={thumbnailShape === 'circle' ? 'circle' : 2}
+                height={thumbnailShape === 'rectangle' ? 64 : 48}
+                width={48}
+              >
+                {thumbnail}
+              </Mask>
+            </Box>
+          ) : null}
           <Box
-            dangerouslySetInlineStyle={{ __style: { fontWeight: 'normal' } }}
+            display="flex"
+            direction="column"
+            flex="grow"
+            justifyContent="center"
+            paddingX={2}
           >
-            <Text color="white" size="lg">
-              {text[0]}
+            <Text
+              color="white"
+              align={!thumbnail && !button ? 'center' : 'left'}
+            >
+              {text}
             </Text>
           </Box>
-          <Text color="white" size="lg" weight="bold">
-            {text[1]}
-          </Text>
+          {button ? (
+            <Box flex="none" paddingX={2}>
+              {button}
+            </Box>
+          ) : null}
         </Box>
-      </Box>
-    );
-  } else {
-    // Toasts as Guides
-    contents = (
-      <Box
-        xs={{ display: 'flex' }}
-        justifyContent="between"
-        alignItems="center"
-      >
-        <Text color="white" size="lg" weight="bold">
-          {text}
-        </Text>
-        {icon && (
-          <Box dangerouslySetInlineStyle={{ __style: { paddingLeft: 24 } }}>
-            <Icon accessibilityLabel="" color="white" icon={icon} size={36} />
-          </Box>
-        )}
-      </Box>
-    );
-  }
-
-  return (
-    <Box marginBottom={3} paddingX={4} maxWidth={376} width="100vw">
-      <Box color={color} fit paddingX={8} paddingY={5} rounding="pill">
-        {contents}
       </Box>
     </Box>
   );
 }
 
 Toast.propTypes = {
-  color: PropTypes.oneOf(['darkGray', 'orange', 'red']),
-  icon: PropTypes.oneOf(['arrow-circle-forward']), // leaving open to additional icons in the future
-  text: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]).isRequired,
+  button: PropTypes.node,
+  color: PropTypes.oneOf(['darkGray', 'red']),
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,
+  thumbnailShape: PropTypes.oneOf(['circle', 'rectangle', 'square']),
 };

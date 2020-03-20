@@ -13,6 +13,33 @@
 
 </details>
 
+## 1.23.2 (Mar 20, 2020)
+
+### Patch
+
+- Toast: Fix color proptypes (#762)
+
+## 1.23.1 (Mar 20, 2020)
+
+### Patch
+
+- Toast: add back the color `red` as a deprecated feature (#760)
+
+## 1.23.0 (Mar 20, 2020)
+
+### Minor
+
+- Toast: Update design + remove icon/color + add thumbnailShape/button (#755)
+
+Run codemods:
+`cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.22.0-1.23.0/toast-remove-color-icon.js ~/code/repo`
+
+## 1.22.1 (Mar 19, 2020)
+
+### Patch
+
+- SelectList: Update wrapper rounding (#756)
+
 ## 1.22.0 (Mar 16, 2020)
 
 ### Minor

@@ -1,8 +1,10 @@
 // @flow
 import * as React from 'react';
-import PropTable from './components/PropTable.js';
-import PageHeader from './components/PageHeader.js';
+import { Button, Link, Image, Text, Toast } from 'gestalt';
+import Combination from './components/Combination.js';
 import Example from './components/Example.js';
+import PageHeader from './components/PageHeader.js';
+import PropTable from './components/PropTable.js';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -10,11 +12,9 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Toast"
-    description={`Toasts can educate people on the content of the screen, provide confirmation when people complete
-an action, or simply communicate a short message.
+    description={`Toasts can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
 
-<b><i>The Toast component is purely visual. In order to properly
-handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.<i><b>`}
+The Toast component is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.`}
   />
 );
 
@@ -22,30 +22,27 @@ card(
   <PropTable
     props={[
       {
-        name: 'color',
-        type: `'darkGray' | 'orange' | 'red'`,
-        defaultValue: 'darkGray',
-        href: 'errorExample',
-      },
-      {
-        name: 'icon',
-        type: 'arrow-circle-forward',
-        defaultValue: 'arrow-circle-forward',
-        description: 'More icons can be added in the future.',
-        href: 'guideExample',
+        name: 'button',
+        type: 'React.Node',
+        href: 'imageTextButtonExample',
       },
       {
         name: 'thumbnail',
         type: 'React.Node',
-        description: 'Image should fit nicely into a square',
-        href: 'confirmationExample',
+        href: 'imageTextExample',
+      },
+      {
+        name: 'thumbnailShape',
+        type: `'circle' | 'rectangle' | 'square'`,
+        defaultValue: 'square',
+        href: 'imageTextExample',
       },
       {
         name: 'text',
         type: 'string | Array<string>',
         description:
           'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
-        href: 'confirmationExample',
+        href: 'textOnlyExample',
       },
     ]}
   />
@@ -53,20 +50,17 @@ card(
 
 card(
   <Example
-    id="confirmationExample"
-    name="Confirmation Toasts"
-    description="You can use Toasts to confirm an action has occured. When you are using a Toast as a confirmation, you should
-        always include a thumbnail and two lines of text."
+    id="textOnlyExample"
+    name="Example: Text only"
     defaultCode={`
 function ToastExample() {
-  const [showConfirmationToast, setShowConfirmationToast] = React.useState(false);
+  const [showToast, setShowToast] = React.useState(false);
   return (
     <Box>
       <Button
         inline
-        text={ showConfirmationToast ? 'Close toast' : 'Show confirmation toast' }
-        onClick={() => setShowConfirmationToast(!showConfirmationToast)}
-        size='md'
+        text={ showToast ? 'Close toast' : 'Show toast' }
+        onClick={() => setShowToast(!showToast)}
       />
       <Layer>
         <Box
@@ -81,19 +75,20 @@ function ToastExample() {
           paddingX={1}
           position='fixed'
         >
-          {showConfirmationToast ? (
-              <Toast
-                text={['Saved to', 'Home decor']}
-                thumbnail={
-                  <Image
-                    alt='Saved to home decor board'
-                    naturalHeight={564}
-                    naturalWidth={564}
-                    src='https://i.ibb.co/Lx54BCT/stock1.jpg'
-                  />
-                }
-              />
-          ) : null}
+          {showToast && (
+            <Toast
+              text={
+                <>
+                  Saved to{' '}
+                  <Text inline color="white" weight="bold">
+                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                      Home decor
+                    </Link>
+                  </Text>
+                </>
+              }
+            />
+          )}
         </Box>
       </Layer>
     </Box>
@@ -104,21 +99,17 @@ function ToastExample() {
 
 card(
   <Example
-    id="guideExample"
-    name="Guide Toasts"
-    description="You can also use Toasts to guide and educate your users. In this case, no thumbnail is needed. Simply provide
-      your instructional text to the Toast component. The arrow icon indicating the Toast is a link will be automatically
-      added. If you need a different Icon here, please contact the Gestalt team."
+    id="imageTextExample"
+    name="Example: Image + Text"
     defaultCode={`
 function ToastExample() {
-  const [showGuideToast, setShowGuideToast] = React.useState(false);
+  const [showToast, setShowToast] = React.useState(false);
   return (
     <Box>
       <Button
         inline
-        text={ showGuideToast ? 'Close toast' : 'Show guide toast' }
-        onClick={() => setShowGuideToast(!showGuideToast)}
-        size='md'
+        text={ showToast ? 'Close toast' : 'Show toast' }
+        onClick={() => setShowToast(!showToast)}
       />
       <Layer>
         <Box
@@ -133,12 +124,28 @@ function ToastExample() {
           paddingX={1}
           position='fixed'
         >
-          {showGuideToast ? (
+          {showToast && (
             <Toast
-              icon='arrow-circle-forward'
-              text='Same great profile, just a new look. Learn more?'
+              thumbnail={
+                <Image
+                  alt='Saved to home decor board'
+                  naturalHeight={564}
+                  naturalWidth={564}
+                  src='https://i.ibb.co/Lx54BCT/stock1.jpg'
+                />
+              }
+              text={
+                <>
+                  Saved to{' '}
+                  <Text inline color="white" weight="bold">
+                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                      Home decor
+                    </Link>
+                  </Text>
+                </>
+              }
             />
-          ) : null}
+          )}
         </Box>
       </Layer>
     </Box>
@@ -149,21 +156,17 @@ function ToastExample() {
 
 card(
   <Example
-    id="errorExample"
-    description="
-      You can use Toasts to indicate that something wrong occurred by setting the color to red.
-    "
-    name="Error Toasts"
+    id="imageTextButtonExample"
+    name="Example: Image + Text + Button"
     defaultCode={`
 function ToastExample() {
-  const [showErrorToast, setShowErrorToast] = React.useState(false);
+  const [showToast, setShowToast] = React.useState(false);
   return (
     <Box>
       <Button
         inline
-        text={ showErrorToast ? 'Close toast' : 'Show error toast' }
-        onClick={() => setShowErrorToast(!showErrorToast)}
-        size='md'
+        text={ showToast ? 'Close toast' : 'Show toast' }
+        onClick={() => setShowToast(!showToast)}
       />
       <Layer>
         <Box
@@ -178,15 +181,112 @@ function ToastExample() {
           paddingX={1}
           position='fixed'
         >
-          {showErrorToast ? (
-            <Toast color='red' text="Oops, we couldn't find that!" />
-          ) : null}
+          {showToast && (
+            <Toast
+              thumbnail={
+                <Image
+                  alt='Saved to home decor board'
+                  naturalHeight={564}
+                  naturalWidth={564}
+                  src='https://i.ibb.co/Lx54BCT/stock1.jpg'
+                />
+              }
+              text={
+                <>
+                  Saved to{' '}
+                  <Text inline color="white" weight="bold">
+                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                      Home decor
+                    </Link>
+                  </Text>
+                </>
+              }
+              button={<Button key="button-key" inline text="Undo" size="lg" />}
+            />
+          )}
         </Box>
       </Layer>
     </Box>
   );
 }`}
   />
+);
+
+card(
+  <Combination
+    id="combinations"
+    name="Combinations: Overview"
+    fullWidth
+    showValues={false}
+    text={[
+      'Section created!',
+      <>
+        Saved to{' '}
+        <Text inline color="white" weight="bold">
+          <Link
+            inline
+            target="blank"
+            href="https://www.pinterest.com/search/pins/?q=home%20decor"
+          >
+            Home decor
+          </Link>
+        </Text>
+      </>,
+    ]}
+    thumbnail={[
+      null,
+      <Image
+        key="image-key"
+        alt="Saved to home decor board"
+        naturalHeight={564}
+        naturalWidth={564}
+        src="https://i.ibb.co/Lx54BCT/stock1.jpg"
+      />,
+    ]}
+    button={[null, <Button key="button-key" inline text="Undo" size="lg" />]}
+  >
+    {props => <Toast {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="combinations"
+    name="Combinations: Thumbnail shapes"
+    fullWidth
+    showValues={false}
+    thumbnailShape={['circle', 'rectangle', 'square']}
+  >
+    {props => (
+      <Toast
+        {...props}
+        thumbnail={
+          <Image
+            key="image-key"
+            alt="Saved to home decor board"
+            naturalHeight={751}
+            naturalWidth={564}
+            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+          />
+        }
+        text={
+          <>
+            Saved to{' '}
+            <Text inline color="white" weight="bold">
+              <Link
+                inline
+                target="blank"
+                href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              >
+                Home decor
+              </Link>
+            </Text>
+          </>
+        }
+        button={<Button key="button-key" inline text="Undo" size="lg" />}
+      />
+    )}
+  </Combination>
 );
 
 export default cards;
