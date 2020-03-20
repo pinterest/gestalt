@@ -10,9 +10,13 @@
 
 ### Patch
 
-- Toast: add back the color `red` as a deprecated feature (#760)
-
 </details>
+
+## 1.23.1 (Mar 20, 2020)
+
+### Patch
+
+- Toast: add back the color `red` as a deprecated feature (#760)
 
 ## 1.23.0 (Mar 20, 2020)
 
