@@ -5,7 +5,7 @@
 }
 
 .Text {
-  composes: antialiased sansSerif letterSpacing from "./Typography.css";
+  composes: antialiased sansSerif from "./Typography.css";
 }
 
 .fontSize1 {
