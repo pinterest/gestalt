@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Text/Heading: Update letter spacing to default (normal) (#764)
+
 ### Patch
 
 </details>
