@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Text/Heading: Update letter spacing to default (normal) (#764)
-
 ### Patch
 
 </details>
+
+## 1.24.0 (Mar 23, 2020)
+
+### Minor
+
+- Text/Heading: Update letter spacing to default (normal) (#764)
 
 ## 1.23.2 (Mar 20, 2020)
 
