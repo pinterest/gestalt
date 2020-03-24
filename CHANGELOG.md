@@ -12,6 +12,12 @@
 
 </details>
 
+## 1.24.1 (Mar 24, 2020)
+
+### Minor
+
+- Heading: Add in align props (#767)
+
 ## 1.24.0 (Mar 23, 2020)
 
 ### Minor
