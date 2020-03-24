@@ -7,6 +7,7 @@ import styles from './Heading.css';
 import typography from './Typography.css';
 
 type Props = {|
+  align?: 'left' | 'right' | 'center' | 'justify',
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
   children?: React.Node,
   color?:
@@ -48,6 +49,7 @@ const SIZE_SCALE: { [size: ?string]: number } = {
 export default function Heading(props: Props) {
   const {
     accessibilityLevel,
+    align = 'left',
     children,
     color = 'darkGray',
     id = null,
@@ -60,6 +62,10 @@ export default function Heading(props: Props) {
     styles.Heading,
     styles[`fontSize${SIZE_SCALE[size]}`],
     colors[color],
+    align === 'center' && typography.alignCenter,
+    align === 'justify' && typography.alignJustify,
+    align === 'left' && typography.alignLeft,
+    align === 'right' && typography.alignRight,
     overflow === 'breakWord' && typography.breakWord,
     truncate && typography.truncate
   );
