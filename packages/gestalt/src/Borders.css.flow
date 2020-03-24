@@ -3,6 +3,10 @@
 declare module.exports: {|
   +'border': string,
   +'borderBottom': string,
+  +'borderColorDarkGray': string,
+  +'borderColorLightGray': string,
+  +'borderColorRed': string,
+  +'borderColorTranslucidGray': string,
   +'borderLeft': string,
   +'borderRight': string,
   +'borderTop': string,

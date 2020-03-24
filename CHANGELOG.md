@@ -14,6 +14,13 @@
 
 </details>
 
+## 1.25.0 (Mar 24, 2020)
+
+### Minor
+
+- RadioButton: Updated style. Added built-in label (optional 'label' prop). (#749)
+- Checkbox: Updated style. Added built-in label (optional 'label' and 'errorMessage' props) (#749)
+
 ## 1.24.0 (Mar 23, 2020)
 
 ### Minor
