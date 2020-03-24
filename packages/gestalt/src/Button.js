@@ -3,6 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Box from './Box.js';
+import Icon from './Icon.js';
+import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
 
@@ -14,12 +17,19 @@ const DEFAULT_TEXT_COLORS = {
   white: 'darkGray',
 };
 
+const SIZE_NAME_TO_PIXEL = {
+  sm: 10,
+  md: 12,
+  lg: 12,
+};
+
 type Props = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel?: string,
   color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
+  iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
@@ -37,13 +47,14 @@ export default function Button(props: Props) {
     accessibilityLabel,
     color = 'gray',
     disabled = false,
+    iconEnd,
     inline = false,
     name,
     onClick,
     selected = false,
     size = 'md',
     text,
-    textColor,
+    textColor: textColorProp,
     type = 'button',
   } = props;
 
@@ -60,6 +71,24 @@ export default function Button(props: Props) {
     [styles.block]: !inline,
   });
 
+  const textColor =
+    (disabled && 'gray') ||
+    (selected && 'white') ||
+    textColorProp ||
+    DEFAULT_TEXT_COLORS[color];
+
+  const buttonText = (
+    <Text
+      align="center"
+      color={textColor}
+      inline
+      overflow="normal"
+      weight="bold"
+    >
+      {text}
+    </Text>
+  );
+
   /* eslint-disable react/button-has-type */
   return (
     <button
@@ -72,19 +101,22 @@ export default function Button(props: Props) {
       onClick={event => onClick && onClick({ event })}
       type={type}
     >
-      <Text
-        align="center"
-        color={
-          (disabled && 'gray') ||
-          (selected && 'white') ||
-          textColor ||
-          DEFAULT_TEXT_COLORS[color]
-        }
-        overflow="normal"
-        weight="bold"
-      >
-        {text}
-      </Text>
+      {iconEnd ? (
+        <Box alignItems="center" display="flex">
+          {buttonText}
+
+          <Box display="inlineBlock" flex="none" marginStart={2}>
+            <Icon
+              accessibilityLabel=""
+              color={textColor}
+              icon={iconEnd}
+              size={SIZE_NAME_TO_PIXEL[size]}
+            />
+          </Box>
+        </Box>
+      ) : (
+        buttonText
+      )}
     </button>
   );
   /* eslint-enable react/button-has-type */
@@ -96,6 +128,7 @@ Button.propTypes = {
   accessibilityLabel: PropTypes.string,
   color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
   disabled: PropTypes.bool,
+  iconEnd: PropTypes.oneOf(Object.keys(icons)),
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
