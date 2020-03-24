@@ -78,13 +78,7 @@ export default function Button(props: Props) {
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
-    <Text
-      align="center"
-      color={textColor}
-      inline
-      overflow="normal"
-      weight="bold"
-    >
+    <Text align="center" color={textColor} overflow="normal" weight="bold">
       {text}
     </Text>
   );
