@@ -83,6 +83,7 @@ export default function Heading(props: Props) {
 
 Heading.propTypes = {
   accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   children: PropTypes.node,
   color: PropTypes.oneOf([
     'blue',
