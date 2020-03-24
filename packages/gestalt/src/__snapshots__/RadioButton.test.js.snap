@@ -2,72 +2,254 @@
 
 exports[`RadioButton 1`] = `
 <div
-  className="RadioButton RadioButtonMd RadioButtonWhiteBg"
+  className="box itemsCenter marginLeftN1 marginRightN1 xsDisplayFlex"
 >
-  <input
-    checked={false}
-    className="Input InputEnabled InputMd"
-    disabled={false}
-    id="id"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="radio"
-    value=""
-  />
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="BgEnabled Border BorderUnchecked SizeMd RadioButton"
+      >
+        <input
+          checked={false}
+          className="Input SizeMd InputEnabled"
+          disabled={false}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="radio"
+          value=""
+        />
+      </div>
+    </div>
+  </label>
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        Name
+      </div>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`RadioButton checked 1`] = `
+<div
+  className="box itemsCenter marginLeftN1 marginRightN1 xsDisplayFlex"
+>
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="BgEnabled BorderDarkGray BorderCheckedMd SizeMd RadioButton"
+      >
+        <input
+          checked={true}
+          className="Input SizeMd InputEnabled"
+          disabled={false}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="radio"
+          value=""
+        />
+      </div>
+    </div>
+  </label>
 </div>
 `;
 
 exports[`RadioButton disabled 1`] = `
 <div
-  className="RadioButton RadioButtonMd RadioButtonLightGrayBg"
+  className="box itemsCenter marginLeftN1 marginRightN1 xsDisplayFlex"
 >
-  <input
-    checked={false}
-    className="Input InputMd"
-    disabled={true}
-    id="id"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="radio"
-    value=""
-  />
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="BgDisabled Border BorderUnchecked SizeMd RadioButton"
+      >
+        <input
+          checked={false}
+          className="Input SizeMd"
+          disabled={true}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="radio"
+          value=""
+        />
+      </div>
+    </div>
+  </label>
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="Text fontSize3 gray alignLeft breakWord fontWeightNormal"
+      >
+        Name
+      </div>
+    </div>
+  </label>
 </div>
 `;
 
 exports[`RadioButton disabled small 1`] = `
 <div
-  className="RadioButton RadioButtonSm RadioButtonLightGrayBg"
+  className="box itemsCenter marginLeftN1 marginRightN1 xsDisplayFlex"
 >
-  <input
-    checked={false}
-    className="Input InputSm"
-    disabled={true}
-    id="id"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="radio"
-    value=""
-  />
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="BgDisabled Border BorderUnchecked SizeSm RadioButton"
+      >
+        <input
+          checked={false}
+          className="Input SizeSm"
+          disabled={true}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="radio"
+          value=""
+        />
+      </div>
+    </div>
+  </label>
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      >
+        Name
+      </div>
+    </div>
+  </label>
 </div>
 `;
 
 exports[`RadioButton small 1`] = `
 <div
-  className="RadioButton RadioButtonSm RadioButtonWhiteBg"
+  className="box itemsCenter marginLeftN1 marginRightN1 xsDisplayFlex"
 >
-  <input
-    checked={false}
-    className="Input InputEnabled InputSm"
-    disabled={false}
-    id="id"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="radio"
-    value=""
-  />
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="BgEnabled Border BorderUnchecked SizeSm RadioButton"
+      >
+        <input
+          checked={false}
+          className="Input SizeSm InputEnabled"
+          disabled={false}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="radio"
+          value=""
+        />
+      </div>
+    </div>
+  </label>
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        Name
+      </div>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`RadioButton without label 1`] = `
+<div
+  className="box itemsCenter marginLeftN1 marginRightN1 xsDisplayFlex"
+>
+  <label
+    className="label"
+    htmlFor="id"
+  >
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="BgEnabled Border BorderUnchecked SizeMd RadioButton"
+      >
+        <input
+          checked={false}
+          className="Input SizeMd InputEnabled"
+          disabled={false}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="radio"
+          value=""
+        />
+      </div>
+    </div>
+  </label>
 </div>
 `;

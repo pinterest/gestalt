@@ -34,6 +34,10 @@ card(
         href: 'combinations',
       },
       {
+        name: 'errorMessage',
+        type: 'string',
+      },
+      {
         name: 'hasError',
         type: 'boolean',
         defaultValue: false,
@@ -52,6 +56,10 @@ card(
 purely presentational - the value of
 a checkbox and its indeterminism are independent.`,
         href: 'combinations',
+      },
+      {
+        name: 'label',
+        type: 'string',
       },
       {
         name: 'name',
@@ -79,29 +87,22 @@ a checkbox and its indeterminism are independent.`,
 
 card(
   <Example
-    description={`
-    You should provide accessible labels in order to make your checkboxes usable. If you use \`padding\` instead of \`margin\` around your labels, the clickable area will be larger.
-  `}
-    name="Example: Accessibility"
+    id="single"
+    name="Example"
     defaultCode={`
 function CheckboxExample() {
   const [checked, setChecked] = React.useState(true);
+
   return (
-    <Box alignItems="center" direction="row" display="flex">
       <Checkbox
         checked={checked}
         id="usa"
+        label="United States of America"
         name="usa"
         onChange={({ checked }) => {
           setChecked(checked);
         }}
       />
-      <Label htmlFor="usa">
-        <Box paddingX={2}>
-          <Text>United States of America</Text>
-        </Box>
-      </Label>
-    </Box>
   );
 }
 `}
@@ -110,37 +111,49 @@ function CheckboxExample() {
 
 card(
   <Example
-    description="
-    If you have lots of checkboxes you can stack them on top of one another.
-  "
-    name="Example: Labeled stack"
+    id="group"
+    description="Here is an example of an accessible group of checkboxes."
+    name="Example: Group"
     defaultCode={`
 function CheckboxExample() {
-  const CheckboxWithLabel = ({ id, label }) => (
-    <Box alignItems="center" direction="row" display="flex">
-      <Checkbox
-        checked
-        id={id}
-        onChange={() => {}}
-      />
-      <Label htmlFor={id}>
-        <Box paddingX={2}>
-          <Text>{label}</Text>
-        </Box>
-      </Label>
-    </Box>
-  );
+    const [checkedEn, setCheckedEn] = React.useState(false);
+    const [checkedSp, setCheckedSp] = React.useState(false);
+    const [checkedCh, setCheckedCh] = React.useState(false);
 
   return (
-    <Box display="flex" direction="column" justifyContent="around" marginTop={-1} marginBottom={-1}>
-      <Box paddingY={1}>
-        <CheckboxWithLabel label="Email" id="email" />
+    <Box margin={-2}>
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedEn}
+          id="english"
+          label="English"
+          name="english"
+          onChange={({ checked }) => {
+            setCheckedEn(checked);
+          }}
+        />
       </Box>
-      <Box paddingY={1}>
-        <CheckboxWithLabel label="Mobile push" id="push" />
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedSp}
+          id="spanish"
+          label="Spanish"
+          name="spanish"
+          onChange={({ checked }) => {
+            setCheckedSp(checked);
+          }}
+        />
       </Box>
-      <Box paddingY={1}>
-        <CheckboxWithLabel label="Carrier pidgeon" id="pidgeon" />
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedCh}
+          id="chinese"
+          label="Chinese"
+          name="chinese"
+          onChange={({ checked }) => {
+            setCheckedCh(checked);
+          }}
+        />
       </Box>
     </Box>
   );
@@ -151,24 +164,19 @@ function CheckboxExample() {
 
 card(
   <Example
+    description="Here is an example of a checkbox showing an error message."
     id="hasError"
     name="Example: Error state"
     defaultCode={`
 function CheckboxExample() {
   return (
-    <Box alignItems="center" direction="row" display="flex">
       <Checkbox
-        hasError
         id="error"
+        errorMessage="This checkbox has an error"
+        label="Email"
         name="error"
         onChange={() => {}}
       />
-      <Label htmlFor="error">
-        <Box paddingX={2}>
-          <Text>This checkbox has an error</Text>
-        </Box>
-      </Label>
-    </Box>
   );
 }
 `}
@@ -179,6 +187,7 @@ card(
   <Combination
     id="combinations"
     checked={[false, true]}
+    hasError={[false, true]}
     disabled={[false, true]}
     indeterminate={[false, true]}
     size={['sm', 'md']}

@@ -1,19 +1,25 @@
-:root {
-  --red: #e60023;
-  --size-sm: 16px;
-  --size-md: 24px;
+.border {
+  composes: borderColorLightGray from "./Borders.css";
 }
 
-.border {
-  border-color: #8e8e8e;
+.borderDarkGray {
+  composes: borderColorDarkGray from "./Borders.css";
 }
 
 .borderError {
-  border-color: #e60023;
+  composes: borderColorRed from "./Borders.css";
 }
 
-.borderDark {
-  border-color: #111;
+.borderHovered {
+  composes: borderColorTranslucidGray from "./Borders.css";
+}
+
+.borderRadiusSm {
+  composes: rounding1 from "./Borders.css";
+}
+
+.borderRadiusMd {
+  composes: rounding2 from "./Borders.css";
 }
 
 .check {
@@ -22,48 +28,26 @@
   composes: flex from "./Layout.css";
   composes: itemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
-  border-style: solid;
-  border-width: 1px;
-}
-
-.checkEnabled {
-  composes: pointer from "./Cursor.css";
+  composes: sizeLg from "./Borders.css";
+  composes: solid from "./Borders.css";
 }
 
 .checkFocused {
   composes: accessibilityOutlineFocus from "./Focus.css";
 }
 
-.checkSm {
-  border-radius: 3px;
-  height: var(--size-sm);
-  width: var(--size-sm);
-}
-
-.checkMd {
-  border-radius: 4px;
-  height: var(--size-md);
-  width: var(--size-md);
-}
-
 .input {
-  composes: absolute from "./Layout.css";
-  composes: m0 from "./Whitespace.css";
-  appearance: none;
-  opacity: 0;
-  outline: 0;
+  composes: Input from "./RadioButton.css";
 }
 
 .inputEnabled {
   composes: pointer from "./Cursor.css";
 }
 
-.inputSm {
-  height: var(--size-sm);
-  width: var(--size-sm);
+.sizeSm {
+  composes: SizeSm from "./RadioButton.css";
 }
 
-.inputMd {
-  height: var(--size-md);
-  width: var(--size-md);
+.sizeMd {
+  composes: SizeMd from "./RadioButton.css";
 }
