@@ -8,9 +8,6 @@
 
 ### Minor
 
-- RadioButton: Updated style. Added built-in label (optional 'label' prop). (#749)
-- Checkbox: Updated style. Added built-in label (optional 'label' and 'errorMessage' props) (#749)
-
 ### Patch
 
 </details>
