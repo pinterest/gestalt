@@ -2,6 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
+import Icon from './Icon.js';
 
 describe('<Button />', () => {
   test('Custom color', () => {
@@ -29,5 +30,12 @@ describe('<Button />', () => {
     ).props;
     expect(className).toContain('disabled');
     expect(className).not.toContain('red');
+  });
+
+  test('iconEnd', () => {
+    const instance = create(
+      <Button color="white" iconEnd="arrow-down" inline text="Menu" />
+    ).root;
+    expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
 });
