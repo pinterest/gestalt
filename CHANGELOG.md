@@ -8,7 +8,7 @@
 
 ### Minor
 
-- Button: add iconEnd prop, update docs with example (#)
+- Button: add iconEnd prop, update docs with example (#766)
 
 ### Patch
 
