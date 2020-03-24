@@ -264,12 +264,12 @@ card(
     id="iconEnd"
     name="Icons"
     defaultCode={`
-    function MenuButtonExample() {
+function MenuButtonExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
 
   return (
-    <Box>
+    <>
       <Box display="inlineBlock" ref={anchorRef}>
         <Button
           accessibilityExpanded={!!open}
@@ -282,7 +282,7 @@ card(
         />
       </Box>
 
-      {open &&
+      {open && (
         <Layer>
           <Flyout
             anchor={anchorRef.current}
@@ -304,8 +304,9 @@ card(
               </Box>
             </Box>
           </Flyout>
-        </Layer>}
-    </Box>
+        </Layer>
+      )}
+    </>
   );
 }
 `}
