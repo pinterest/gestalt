@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Button } from 'gestalt';
+import { Button, Icon } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -57,6 +57,12 @@ card(
         type: 'boolean',
         defaultValue: false,
         href: 'combinations',
+      },
+      {
+        name: 'iconEnd',
+        type: Icon.icons.map(name => `'${name}'`).join(' | '),
+        description: 'Add an icon to be displayed after the button text',
+        href: 'iconEnd',
       },
       {
         name: 'inline',
@@ -245,6 +251,62 @@ card(
     <Button color="red" text="Submit" type="submit" inline />
   </Box>
 </Box>
+`}
+  />
+);
+
+card(
+  <Example
+    description={`
+    Sometimes an icon can help clarify the usage of the button. Menus are a common use case.
+  `}
+    id="iconEnd"
+    name="Icons"
+    defaultCode={`
+    function MenuButtonExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+
+  return (
+    <Box>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <Button
+          accessibilityExpanded={!!open}
+          accessibilityHaspopup
+          color="white"
+          iconEnd="arrow-down"
+          inline
+          onClick={() => setOpen(!open)}
+          text="Menu"
+        />
+      </Box>
+
+      {open &&
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box direction="column" display="flex" padding={2}>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 1
+                </Text>
+              </Box>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 2
+                </Text>
+              </Box>
+            </Box>
+          </Flyout>
+        </Layer>}
+    </Box>
+  );
+}
 `}
   />
 );
