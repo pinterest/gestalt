@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Button, Icon } from 'gestalt';
+import { Button } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -60,8 +60,9 @@ card(
       },
       {
         name: 'iconEnd',
-        type: Icon.icons.map(name => `'${name}'`).join(' | '),
-        description: 'Add an icon to be displayed after the button text',
+        type: '$Keys<typeof icons>',
+        description:
+          'Add an icon to be displayed after the button text. This allows type checking for a valid icon name based on the keys from the list of icons in Icon.',
         href: 'iconEnd',
       },
       {
