@@ -8,7 +8,8 @@
 
 ### Minor
 
-- Heading: Add in align props (#767)
+- Heading: Add align prop (#767)
+- Button: Add iconEnd prop (#766)
 
 ### Patch
 
