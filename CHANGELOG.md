@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Button: add iconEnd prop, update docs with example (#766)
+
 ### Patch
 
 </details>

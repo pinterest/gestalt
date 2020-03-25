@@ -59,6 +59,13 @@ card(
         href: 'combinations',
       },
       {
+        name: 'iconEnd',
+        type: '$Keys<typeof icons>',
+        description:
+          'Add an icon to be displayed after the button text. This allows type checking for a valid icon name based on the keys from the list of icons in Icon.',
+        href: 'iconEnd',
+      },
+      {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
@@ -245,6 +252,63 @@ card(
     <Button color="red" text="Submit" type="submit" inline />
   </Box>
 </Box>
+`}
+  />
+);
+
+card(
+  <Example
+    description={`
+    Sometimes an icon can help clarify the usage of the button. Menus are a common use case.
+  `}
+    id="iconEnd"
+    name="Icons"
+    defaultCode={`
+function MenuButtonExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+
+  return (
+    <>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <Button
+          accessibilityExpanded={!!open}
+          accessibilityHaspopup
+          color="white"
+          iconEnd="arrow-down"
+          inline
+          onClick={() => setOpen(!open)}
+          text="Menu"
+        />
+      </Box>
+
+      {open && (
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box direction="column" display="flex" padding={2}>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 1
+                </Text>
+              </Box>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 2
+                </Text>
+              </Box>
+            </Box>
+          </Flyout>
+        </Layer>
+      )}
+    </>
+  );
+}
 `}
   />
 );
