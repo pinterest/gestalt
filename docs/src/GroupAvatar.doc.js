@@ -33,9 +33,10 @@ card(
       },
       {
         name: 'size',
-        type: `"sm" | "md" | "lg"`,
+        type: `"xs" | "sm" | "md" | "lg" | "xl" | "fit"`,
+        defaultValue: 'fit',
         description:
-          'sm: 24px, md: 40px, lg: 72px. If size is undefined, Avatar will fill 100% of the parent container width',
+          'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, GroupAvatar will fill 100% of the parent container width',
       },
     ]}
   />
@@ -78,19 +79,28 @@ card(
 );
 
 card(
-  <Combination name="Size Combinations: 1 Person" size={['sm', 'md', 'lg']}>
+  <Combination
+    name="Size Combinations: 1 Person"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
     {props => <GroupAvatar collaborators={[user1]} {...props} />}
   </Combination>
 );
 
 card(
-  <Combination name="Size Combinations: 2 People" size={['sm', 'md', 'lg']}>
+  <Combination
+    name="Size Combinations: 2 People"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
     {props => <GroupAvatar collaborators={[user1, user3]} {...props} />}
   </Combination>
 );
 
 card(
-  <Combination name="Size Combinations: 3 People" size={['sm', 'md', 'lg']}>
+  <Combination
+    name="Size Combinations: 3 People"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
     {props => <GroupAvatar collaborators={[user1, user3, user2]} {...props} />}
   </Combination>
 );

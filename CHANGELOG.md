@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Avatar/GroupAvatar: update sizes / default avatar / remove verified outline
+
 ### Patch
 
 </details>

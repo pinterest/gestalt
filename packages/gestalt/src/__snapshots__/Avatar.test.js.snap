@@ -12,7 +12,7 @@ exports[`Avatar renders an outline 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle lightGrayBg relative"
   >
     <div
       className="box relative"
@@ -38,8 +38,8 @@ exports[`Avatar renders an outline 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           J
@@ -61,7 +61,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle lightGrayBg relative"
   >
     <div
       className="box relative"
@@ -87,95 +87,12 @@ exports[`Avatar renders multi-byte character initials 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           💩
         </text>
-      </svg>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Avatar renders the Pinterest P on verified 1`] = `
-<div
-  className="box circle relative whiteBg"
-  style={
-    Object {
-      "height": 40,
-      "width": 40,
-    }
-  }
->
-  <div
-    className="Mask circle willChangeTransform"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  >
-    <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "#EFEFEF",
-          "paddingBottom": "100%",
-        }
-      }
-    >
-      <img
-        alt="Strava"
-        className="img"
-        importance="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
-    </div>
-    <div
-      className="wash"
-    />
-  </div>
-  <div
-    className="absolute box"
-    style={
-      Object {
-        "bottom": "4%",
-        "height": "20%",
-        "minHeight": 8,
-        "minWidth": 8,
-        "right": "4%",
-        "width": "20%",
-      }
-    }
-  >
-    <div
-      className="box circle whiteBg"
-      style={
-        Object {
-          "boxShadow": "0 0 0 2px #fff",
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-    >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="icon red iconBlock"
-        height="100%"
-        role="img"
-        viewBox="0 0 24 24"
-        width="100%"
-      >
-        <path
-          d="test-file-stub"
-        />
       </svg>
     </div>
   </div>
@@ -187,8 +104,8 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
   className="box circle relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
     }
   }
 >
@@ -229,11 +146,11 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
     style={
       Object {
         "bottom": "4%",
-        "height": "20%",
-        "minHeight": 8,
-        "minWidth": 8,
+        "height": "25%",
+        "minHeight": 12,
+        "minWidth": 12,
         "right": "4%",
-        "width": "20%",
+        "width": "25%",
       }
     }
   >
@@ -241,7 +158,6 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       className="box circle whiteBg"
       style={
         Object {
-          "boxShadow": "0 0 0 2px #fff",
           "height": "100%",
           "width": "100%",
         }
@@ -270,8 +186,8 @@ exports[`Avatar renders the correct size - lg 1`] = `
   className="box circle relative whiteBg"
   style={
     Object {
-      "height": 72,
-      "width": 72,
+      "height": 64,
+      "width": 64,
     }
   }
 >
@@ -315,8 +231,8 @@ exports[`Avatar renders the correct size - md 1`] = `
   className="box circle relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
     }
   }
 >
@@ -356,6 +272,96 @@ exports[`Avatar renders the correct size - md 1`] = `
 `;
 
 exports[`Avatar renders the correct size - sm 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": 32,
+      "width": 32,
+    }
+  }
+>
+  <div
+    className="Mask circle willChangeTransform"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "paddingBottom": "100%",
+        }
+      }
+    >
+      <img
+        alt="Strava"
+        className="img"
+        importance="auto"
+        loading="auto"
+        onError={[Function]}
+        onLoad={[Function]}
+        src="http://pinterest.com/img/strave.png"
+      />
+    </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - xl 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": 24,
+      "width": 24,
+    }
+  }
+>
+  <div
+    className="Mask circle willChangeTransform"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "backgroundColor": "#EFEFEF",
+          "paddingBottom": "100%",
+        }
+      }
+    >
+      <img
+        alt="Strava"
+        className="img"
+        importance="auto"
+        loading="auto"
+        onError={[Function]}
+        onLoad={[Function]}
+        src="http://pinterest.com/img/strave.png"
+      />
+    </div>
+    <div
+      className="wash"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar renders the correct size - xs 1`] = `
 <div
   className="box circle relative whiteBg"
   style={
@@ -456,7 +462,7 @@ exports[`Avatar renders the verified icon 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle lightGrayBg relative"
   >
     <div
       className="box relative"
@@ -482,8 +488,8 @@ exports[`Avatar renders the verified icon 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           J
@@ -496,11 +502,11 @@ exports[`Avatar renders the verified icon 1`] = `
     style={
       Object {
         "bottom": "4%",
-        "height": "20%",
-        "minHeight": 8,
-        "minWidth": 8,
+        "height": "25%",
+        "minHeight": 12,
+        "minWidth": 12,
         "right": "4%",
-        "width": "20%",
+        "width": "25%",
       }
     }
   >
@@ -508,7 +514,6 @@ exports[`Avatar renders the verified icon 1`] = `
       className="box circle whiteBg"
       style={
         Object {
-          "boxShadow": "0 0 0 2px #fff",
           "height": "100%",
           "width": "100%",
         }
@@ -543,7 +548,7 @@ exports[`Avatar renders with an empty name 1`] = `
   }
 >
   <div
-    className="box circle grayBg relative"
+    className="box circle lightGrayBg relative"
   >
     <div
       className="box relative"
