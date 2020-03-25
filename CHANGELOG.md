@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Heading: Add align prop (#767)
-- Button: Add iconEnd prop (#766)
-
 ### Patch
 
 </details>
+
+## 1.26.0 (Mar 25, 2020)
+
+### Minor
+
+- Heading: Add align prop (#767)
+- Button: Add iconEnd prop (#766)
 
 ## 1.25.0 (Mar 24, 2020)
 
