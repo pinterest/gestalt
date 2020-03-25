@@ -8,7 +8,8 @@
 
 ### Minor
 
-- Button: add iconEnd prop, update docs with example (#766)
+- Heading: Add align prop (#767)
+- Button: Add iconEnd prop (#766)
 
 ### Patch
 

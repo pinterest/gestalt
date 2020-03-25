@@ -26,6 +26,12 @@ card(
         href: 'levels',
       },
       {
+        name: 'align',
+        type: `"left" | "right" | "center" | "justify"`,
+        defaultValue: 'left',
+        href: 'align',
+      },
+      {
         name: 'children',
         type: 'React.Node',
       },
@@ -67,7 +73,7 @@ card(
     id="sizes"
     name="Example: Sizes"
     defaultCode={`
-<Box>
+<Box maxWidth="8em">
   <Heading size="sm">Heading small</Heading>
   <span lang="ja">
     <Heading size="sm">こんにちは</Heading>
@@ -143,6 +149,21 @@ card(
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
     </Heading>
   </Box>
+</Box>
+`}
+  />
+);
+
+card(
+  <Example
+    id="align"
+    name="Example: Alignment"
+    defaultCode={`
+<Box maxWidth="24em">
+  <Heading align="left" size="sm">Left-aligned heading (default)</Heading>
+  <Heading align="right" size="sm">Right-aligned heading</Heading>
+  <Heading align="center" size="sm">Center-aligned heading</Heading>
+  <Heading align="justify" size="sm">Justify-aligned heading</Heading>
 </Box>
 `}
   />
