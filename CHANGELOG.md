@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+Box [Breaking]: Removes support to deprecated props __dangerouslyIncreaseLineHeight (#773)
 
 ### Patch
 

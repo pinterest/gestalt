@@ -41,7 +41,6 @@ type Props = {|
   leading?: 'tall' | 'short',
   truncate?: boolean,
   weight?: 'bold' | 'normal',
-  __dangerouslyIncreaseLineHeight?: boolean,
 |};
 
 export default function Text({
@@ -55,7 +54,6 @@ export default function Text({
   leading,
   truncate = false,
   weight = 'normal',
-  __dangerouslyIncreaseLineHeight = false,
 }: Props) {
   const scale = SIZE_SCALE[size];
 
@@ -80,8 +78,7 @@ export default function Text({
     color === 'watermelon' && colors.watermelon,
     color === 'white' && colors.white,
     leading === 'short' && typography.leadingShort,
-    (leading === 'tall' || __dangerouslyIncreaseLineHeight) &&
-      typography.leadingTall,
+    leading === 'tall' && typography.leadingTall,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'left' && typography.alignLeft,
@@ -107,7 +104,6 @@ export default function Text({
 }
 
 Text.propTypes = {
-  __dangerouslyIncreaseLineHeight: PropTypes.bool,
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   children: PropTypes.node,
   color: PropTypes.oneOf([
