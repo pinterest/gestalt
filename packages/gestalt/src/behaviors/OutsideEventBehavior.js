@@ -1,39 +1,33 @@
 // @flow
-import * as React from 'react';
-import { findDOMNode } from 'react-dom';
+import React, { useEffect } from 'react';
 
 type Props = {|
   children: React.Node,
   onClick?: (event: MouseEvent) => void,
 |};
 
-export default class OutsideEventBehavior extends React.Component<Props> {
-  componentDidMount() {
-    document.addEventListener('click', this.handleClickEvent, {
-      capture: true,
-    });
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleClickEvent, {
-      capture: true,
-    });
-  }
-
-  handleClickEvent = (event: MouseEvent) => {
-    // eslint-disable-next-line react/no-find-dom-node
-    const el = findDOMNode(this);
-    if (
-      !this.props.onClick ||
-      !el ||
-      (event.target instanceof Node && el.contains(event.target))
-    ) {
+const OutsideEventBehavior = ({ children, onClick }: Props) => {
+  let isClickedInside = false;
+  const handleClickEvent = (event: MouseEvent) => {
+    if (isClickedInside) {
+      isClickedInside = false;
       return;
     }
-    this.props.onClick(event);
+
+    onClick(event);
   };
 
-  render() {
-    return this.props.children;
-  }
-}
+  useEffect(() => {
+    document.addEventListener('click', handleClickEvent);
+    return () => {
+      document.removeEventListener('click', handleClickEvent);
+    };
+  });
+
+  const handleClick = () => {
+    isClickedInside = true;
+  };
+  return <div onClickCapture={handleClick}>{children}</div>;
+};
+
+export default OutsideEventBehavior;

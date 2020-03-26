@@ -529,6 +529,72 @@ function Example(props) {
 );
 
 card(
+  <Example
+    name="Outside Event Exception Test"
+    description={`
+      Testing that outside event is working as expected with portals
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  const [hasLoaded, setHasLoaded] = React.useState(false);
+  const [showFlyout, setShowFlyout] = React.useState(false);
+
+  const anchorRef = React.useRef();
+
+  const handleToggleModal = () => {
+    setShowModal(!showModal);
+    setHasLoaded(false);
+  }
+
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="View Modal"
+          onClick={handleToggleModal}
+        />
+        {showModal && (
+          <Modal
+            accessibilityModalLabel="View flyout modal"
+            heading="Modal"
+            onDismiss={handleToggleModal}
+          >
+            <Box margin={4} ref={anchorRef}>
+              <Button text="Open Flyout" onClick={() => setShowFlyout(true)} />
+            </Box>
+            {showFlyout && (
+              <Layer>
+                <Flyout
+                  anchor={anchorRef.current}
+                  color="blue"
+                  idealDirection="up"
+                  onDismiss={() => setShowFlyout(false)}
+                  positionRelativeToAnchor={false}
+                  showCaret
+                  shouldFocus={false}
+                  size="md"
+                >
+                  <Box padding={3}>
+                    <Text color="white" weight="bold">
+                      This flyout is in a React portal.
+                    </Text>
+                    <Button text="Click me and the modal should not close" />
+                  </Box>
+                </Flyout>
+              </Layer>
+            )}
+          </Modal>
+        )}
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
   <Card
     id="accessibility"
     description={`
