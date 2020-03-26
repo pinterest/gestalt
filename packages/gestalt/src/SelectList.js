@@ -102,6 +102,8 @@ export default class SelectList extends React.Component<Props, State> {
       size === 'md' ? layout.medium : layout.large
     );
 
+    const showPlaceholder = placeholder && !value;
+
     return (
       <Box>
         {label && <FormLabel id={id} label={label} />}
@@ -140,10 +142,10 @@ export default class SelectList extends React.Component<Props, State> {
             onBlur={this.handleOnChange}
             onChange={this.handleOnChange}
             ref={this.setSelectListRef}
-            value={value}
+            value={showPlaceholder ? placeholder : value}
           >
-            {placeholder && !value && (
-              <option selected disabled value hidden>
+            {showPlaceholder && (
+              <option disabled value={placeholder} hidden>
                 {placeholder}
               </option>
             )}

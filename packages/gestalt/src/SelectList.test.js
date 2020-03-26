@@ -30,6 +30,20 @@ describe('SelectList', () => {
     expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });
 
+  it('Renders a hidden, disabled placeholder option if placeholder prop is passed', () => {
+    const component = create(
+      <SelectList
+        id="test"
+        onChange={jest.fn()}
+        options={options}
+        placeholder="Placeholder text"
+      />
+    );
+    expect(
+      component.root.findByProps({ hidden: true, disabled: true }).children
+    ).toEqual(['Placeholder text']);
+  });
+
   it('SelectList normal', () => {
     const tree = create(
       <SelectList id="test" onChange={jest.fn()} options={options} />
