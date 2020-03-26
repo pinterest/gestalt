@@ -8,22 +8,9 @@
 
 ### Minor
 
-- Text: Remove deprecated prop __dangerouslyIncreaseLineHeight (#773)
-
 ### Patch
-- SelectList: Remove selected prop from the placeholder option tag for better React support (#759)
 
 </details>
-
-## 1.28.0 (Mar 27, 2020)
-
-### Minor
-
-- Borders: Update lightgray border color to `#ddd` (#776)
-
-### Patch
-
-- Docs: Fix layout for 1 line code example (#779)
 
 ## 1.27.0 (Mar 26, 2020)
 
