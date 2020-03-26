@@ -9,10 +9,7 @@ declare module.exports: {|
   +'BorderDarkGray': string,
   +'BorderHovered': string,
   +'BorderUnchecked': string,
-  +'Input': string,
   +'InputEnabled': string,
   +'RadioButton': string,
   +'RadioButtonIsFocused': string,
-  +'SizeMd': string,
-  +'SizeSm': string,
 |};

@@ -2,6 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
@@ -81,7 +82,8 @@ export default class RadioButton extends React.Component<Props, State> {
       borderWidth = styles.BorderCheckedMd;
     }
 
-    const styleSize = size === 'sm' ? styles.SizeSm : styles.SizeMd;
+    const styleSize =
+      size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
     const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
@@ -109,7 +111,7 @@ export default class RadioButton extends React.Component<Props, State> {
             >
               <input
                 checked={checked}
-                className={classnames(styles.Input, styleSize, {
+                className={classnames(controlStyles.input, styleSize, {
                   [styles.InputEnabled]: !disabled,
                 })}
                 disabled={disabled}

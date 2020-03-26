@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- RadioButton/Checkbox: Moved shared classes to RadioButtonCheckbox.css (#810)
 
 ### Patch
 
