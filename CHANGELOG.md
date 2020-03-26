@@ -8,12 +8,19 @@
 
 ### Minor
 
-- Text: Remove deprecated prop __dangerouslyIncreaseLineHeight (#773)
-
 ### Patch
-- SelectList: Remove selected prop from the placeholder option tag for better React support (#759)
 
 </details>
+
+## 1.27.0 (Mar 26, 2020)
+
+### Minor
+
+- Text: Remove deprecated prop `__dangerouslyIncreaseLineHeight` (#773)
+
+### Patch
+
+- SelectList: Remove selected prop from the placeholder option tag for better React support (#759)
 
 ## 1.26.0 (Mar 25, 2020)
 
