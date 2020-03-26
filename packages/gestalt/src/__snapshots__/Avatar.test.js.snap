@@ -12,7 +12,7 @@ exports[`Avatar renders an outline 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle lightGrayBg overflowHidden relative"
   >
     <div
       className="box relative"
@@ -39,7 +39,7 @@ exports[`Avatar renders an outline 1`] = `
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#111"
-          fontSize="40px"
+          fontSize="50px"
           textAnchor="middle"
         >
           J
@@ -61,7 +61,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle lightGrayBg overflowHidden relative"
   >
     <div
       className="box relative"
@@ -88,7 +88,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#111"
-          fontSize="40px"
+          fontSize="50px"
           textAnchor="middle"
         >
           💩
@@ -451,6 +451,50 @@ exports[`Avatar renders the correct src 1`] = `
 </div>
 `;
 
+exports[`Avatar renders the default icon 1`] = `
+<div
+  className="box circle relative whiteBg"
+  style={
+    Object {
+      "height": "",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box circle lightGrayBg overflowHidden relative"
+  >
+    <div
+      className="box relative"
+      style={
+        Object {
+          "paddingBottom": "100%",
+        }
+      }
+    />
+    <div
+      className="absolute bottom0 box left0 right0 top0"
+    >
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        version="1.1"
+        viewBox="-3 -8 30 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          Carlos
+        </title>
+        <path
+          d="test-file-stub"
+          fill="#111"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Avatar renders the verified icon 1`] = `
 <div
   className="box circle relative whiteBg"
@@ -462,7 +506,7 @@ exports[`Avatar renders the verified icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle lightGrayBg overflowHidden relative"
   >
     <div
       className="box relative"
@@ -489,7 +533,7 @@ exports[`Avatar renders the verified icon 1`] = `
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#111"
-          fontSize="40px"
+          fontSize="50px"
           textAnchor="middle"
         >
           J
@@ -537,7 +581,7 @@ exports[`Avatar renders the verified icon 1`] = `
 </div>
 `;
 
-exports[`Avatar renders with an empty name 1`] = `
+exports[`Avatar renders with an empty name shows default icon 1`] = `
 <div
   className="box circle relative whiteBg"
   style={
@@ -548,7 +592,7 @@ exports[`Avatar renders with an empty name 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg relative"
+    className="box circle lightGrayBg overflowHidden relative"
   >
     <div
       className="box relative"
@@ -561,7 +605,19 @@ exports[`Avatar renders with an empty name 1`] = `
     <div
       className="absolute bottom0 box left0 right0 top0"
     >
-      
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        version="1.1"
+        viewBox="-3 -8 30 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        
+        <path
+          d="test-file-stub"
+          fill="#111"
+        />
+      </svg>
     </div>
   </div>
 </div>

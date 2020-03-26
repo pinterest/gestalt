@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Avatar: Add `__dangerouslyUseDefaultIcon` prop
+
 ### Patch
 
 </details>

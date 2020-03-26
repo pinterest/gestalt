@@ -5,6 +5,7 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
+import PersonSvg from './icons/person.svg';
 import typography from './Typography.css';
 
 const Square = (props: *) => (
@@ -19,11 +20,28 @@ const Square = (props: *) => (
   </Box>
 );
 
-const DefaultAvatar = ({ name }: { name: string }) => {
+type DefaultAvatarProps = {
+  name: string,
+  useDefaultIcon: boolean,
+};
+
+const DefaultAvatar = ({ name, useDefaultIcon }: DefaultAvatarProps) => {
+  const color = '#111';
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   return (
-    <Square color="lightGray" rounding="circle">
-      {firstInitial && (
+    <Square color="lightGray" rounding="circle" overflow="hidden">
+      {useDefaultIcon || !firstInitial ? (
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          version="1.1"
+          viewBox="-3 -8 30 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {name && <title>{name}</title>}
+          <path d={PersonSvg} fill={color} />
+        </svg>
+      ) : (
         <svg
           width="100%"
           viewBox="-50 -50 100 100"
@@ -33,8 +51,8 @@ const DefaultAvatar = ({ name }: { name: string }) => {
         >
           <title>{name}</title>
           <text
-            fontSize="40px"
-            fill="#111"
+            fontSize="50px"
+            fill={color}
             dy="0.35em"
             textAnchor="middle"
             className={[
@@ -57,6 +75,7 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
   src?: string,
   verified?: boolean,
+  __dangerouslyUseDefaultIcon?: boolean,
 |};
 
 const sizes = {
@@ -69,7 +88,14 @@ const sizes = {
 
 export default function Avatar(props: Props) {
   const [isImageLoaded, setIsImageLoaded] = React.useState(true);
-  const { name, outline, size = 'fit', src, verified } = props;
+  const {
+    name,
+    outline,
+    size = 'fit',
+    src,
+    verified,
+    __dangerouslyUseDefaultIcon: useDefaultIcon = false,
+  } = props;
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
 
@@ -104,7 +130,7 @@ export default function Avatar(props: Props) {
           />
         </Mask>
       ) : (
-        <DefaultAvatar name={name} />
+        <DefaultAvatar name={name} useDefaultIcon={useDefaultIcon} />
       )}
       {verified && (
         <Box

@@ -14,8 +14,15 @@ describe('Avatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders with an empty name', () => {
+  it('renders with an empty name shows default icon', () => {
     const tree = create(<Avatar name="" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders the default icon', () => {
+    const tree = create(
+      <Avatar name="Carlos" __dangerouslyUseDefaultIcon />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
