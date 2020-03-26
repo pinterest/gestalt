@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Text: Remove deprecated prop __dangerouslyIncreaseLineHeight (#773)
+
 ### Patch
 
 </details>
