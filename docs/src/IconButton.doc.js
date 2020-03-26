@@ -44,7 +44,7 @@ card(
       {
         name: 'bgColor',
         type:
-          '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "blue"',
+          '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "blue" | "red"',
         defaultValue: 'transparent',
         href: 'backgroundColorCombinations',
       },

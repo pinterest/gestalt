@@ -31,7 +31,7 @@ card(
       },
       {
         name: 'bgColor',
-        type: `"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "blue"`,
+        type: `"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "blue" | "red"`,
         defaultValue: 'transparent',
         href: 'colorCombinations',
       },

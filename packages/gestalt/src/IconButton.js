@@ -16,11 +16,13 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white'
-    | 'blue',
+    | 'blue'
+    | 'red',
   dangerouslySetSvgPath?: { __path: string },
   disabled?: boolean,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
   icon?: $Keys<typeof icons>,
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
+  iconSize?: 'default' | 'small',
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
@@ -33,8 +35,9 @@ export default function IconButton({
   bgColor,
   dangerouslySetSvgPath,
   disabled,
-  iconColor,
   icon,
+  iconColor,
+  iconSize,
   selected,
   size,
   onClick,
@@ -71,9 +74,10 @@ export default function IconButton({
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         focused={!disabled && isFocused}
         hovered={!disabled && isHovered}
-        iconColor={iconColor}
-        selected={selected}
         icon={icon}
+        iconColor={iconColor}
+        iconSize={iconSize}
+        selected={selected}
         size={size}
       />
     </button>
@@ -91,6 +95,7 @@ IconButton.propTypes = {
     'lightGray',
     'white',
     'blue',
+    'red',
   ]),
   dangerouslySetSvgPath: PropTypes.shape({
     __path: PropTypes.string,
@@ -105,6 +110,7 @@ IconButton.propTypes = {
     'white',
     'orange',
   ]),
+  iconSize: PropTypes.oneOf(['default', 'small']),
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
