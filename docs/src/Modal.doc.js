@@ -536,7 +536,6 @@ card(
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
   const [showFlyout, setShowFlyout] = React.useState(false);
-
   const anchorRef = React.useRef();
 
   return (
