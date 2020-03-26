@@ -15,6 +15,14 @@ const SIZE_NAME_TO_PIXEL = {
   xl: 56,
 };
 
+const ICON_SIZES_SMALL = {
+  xs: 12,
+  sm: 12,
+  md: 16,
+  lg: 20,
+  xl: 24,
+};
+
 type Props = {|
   active?: boolean,
   bgColor?:
@@ -23,13 +31,15 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white'
-    | 'blue',
+    | 'blue'
+    | 'red',
   dangerouslySetSvgPath?: { __path: string },
   focused?: boolean,
   hovered?: boolean,
   selected?: boolean,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
   icon?: $Keys<typeof icons>,
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
+  iconSize?: 'default' | 'small',
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
 |};
 
@@ -39,6 +49,7 @@ const defaultIconButtonIconColors = {
   gray: 'white',
   lightGray: 'gray',
   transparent: 'gray',
+  red: 'white',
   transparentDarkGray: 'white',
   white: 'gray',
 };
@@ -50,13 +61,17 @@ export default function Pog(props: Props) {
     dangerouslySetSvgPath,
     focused = false,
     hovered = false,
-    iconColor,
     icon,
+    iconColor,
+    iconSize: iconSizeProp,
     selected = false,
     size = 'md',
   } = props;
 
-  const iconSize = SIZE_NAME_TO_PIXEL[size] / 2;
+  const iconSize =
+    iconSizeProp === 'small'
+      ? ICON_SIZES_SMALL[size]
+      : SIZE_NAME_TO_PIXEL[size] / 2;
   const color =
     (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
 
@@ -109,6 +124,7 @@ Pog.propTypes = {
   }),
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
+  icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf([
     'gray',
     'darkGray',
@@ -117,7 +133,7 @@ Pog.propTypes = {
     'white',
     'orange',
   ]),
-  icon: PropTypes.oneOf(Object.keys(icons)),
+  iconSize: PropTypes.oneOf(['default', 'small']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
 };

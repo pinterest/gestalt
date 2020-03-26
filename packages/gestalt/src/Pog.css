@@ -101,3 +101,16 @@
 .blue.active {
   background-color: #4a85c9;
 }
+
+.red {
+  composes: redBg from "./Colors.css";
+}
+
+.red.hovered,
+.red.focused {
+  background-color: #ad081b;
+}
+
+.red.active {
+  background-color: #a3081a;
+}
