@@ -1,9 +1,22 @@
+:root {
+  --size-sm: 16px;
+  --size-md: 24px;
+}
+
 .base {
   composes: accessibilityOutline from "./Focus.css";
   appearance: none;
   border-radius: 16px;
   border-style: solid;
   border-width: 2px;
+}
+
+.input {
+  composes: absolute from "./Layout.css";
+  composes: m0 from "./Whitespace.css";
+  appearance: none;
+  opacity: 0;
+  outline: 0;
 }
 
 .normal {
@@ -35,4 +48,15 @@
 .disabled {
   composes: gray from "./Colors.css";
   composes: lightGrayBg from "./Colors.css";
+}
+
+
+.sizeSm {
+  height: var(--size-sm);
+  width: var(--size-sm);
+}
+
+.sizeMd {
+  height: var(--size-md);
+  width: var(--size-md);
 }

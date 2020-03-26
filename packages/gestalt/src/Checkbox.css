@@ -37,7 +37,7 @@
 }
 
 .input {
-  composes: Input from "./RadioButton.css";
+  composes: input from "./FormElement.css";
 }
 
 .inputEnabled {
@@ -45,9 +45,9 @@
 }
 
 .sizeSm {
-  composes: SizeSm from "./RadioButton.css";
+  composes: sizeSm from "./FormElement.css";
 }
 
 .sizeMd {
-  composes: SizeMd from "./RadioButton.css";
+  composes: sizeMd from "./FormElement.css";
 }

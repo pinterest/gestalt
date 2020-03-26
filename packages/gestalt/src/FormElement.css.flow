@@ -5,5 +5,8 @@ declare module.exports: {|
   +'disabled': string,
   +'enabled': string,
   +'errored': string,
+  +'input': string,
   +'normal': string,
+  +'sizeMd': string,
+  +'sizeSm': string,
 |};

@@ -53,11 +53,7 @@
 }
 
 .Input {
-  composes: absolute from "./Layout.css";
-  composes: m0 from "./Whitespace.css";
-  appearance: none;
-  opacity: 0;
-  outline: 0;
+  composes: input from "./FormElement.css";
 }
 
 .InputEnabled {
@@ -65,11 +61,9 @@
 }
 
 .SizeSm {
-  height: var(--size-sm);
-  width: var(--size-sm);
+  composes: sizeSm from "./FormElement.css";
 }
 
 .SizeMd {
-  height: var(--size-md);
-  width: var(--size-md);
+  composes: sizeMd from "./FormElement.css";
 }
