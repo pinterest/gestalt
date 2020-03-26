@@ -1,8 +1,9 @@
 // @flow
+import type { Element } from 'react';
 import React, { useEffect } from 'react';
 
 type Props = {|
-  children: React.Node,
+  children: Element<*> | Array<Element<*>>,
   onClick?: (event: MouseEvent) => void,
 |};
 
@@ -13,8 +14,9 @@ const OutsideEventBehavior = ({ children, onClick }: Props) => {
       isClickedInside = false;
       return;
     }
-
-    onClick(event);
+    if (onClick) {
+      onClick(event);
+    }
   };
 
   useEffect(() => {
