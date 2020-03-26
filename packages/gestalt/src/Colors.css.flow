@@ -14,7 +14,6 @@ declare module.exports: {|
   +'greenBg': string,
   +'lightGray': string,
   +'lightGrayBg': string,
-  +'lightGrayBorder': string,
   +'lightWashBg': string,
   +'maroon': string,
   +'maroonBg': string,

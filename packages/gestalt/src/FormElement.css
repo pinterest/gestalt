@@ -7,11 +7,11 @@
 }
 
 .normal {
-  border-color: #efefef;
+  border-color: #ddd;
 }
 
 .normal:hover:not(:focus):not(.disabled) {
-  border-color: rgba(0, 0, 0, 0.12);
+  border-color: #d0d0d0;
 }
 
 .errored {
@@ -20,7 +20,7 @@
 }
 
 .errored:focus {
-  border-color: #efefef;
+  border-color: #ddd;
 }
 
 .errored:hover:not(:focus) {
@@ -35,4 +35,5 @@
 .disabled {
   composes: gray from "./Colors.css";
   composes: lightGrayBg from "./Colors.css";
+  border-color: #efefef;
 }

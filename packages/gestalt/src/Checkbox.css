@@ -11,7 +11,7 @@
 }
 
 .borderHovered {
-  composes: borderColorTranslucidGray from "./Borders.css";
+  composes: borderColorLightGrayHovered from "./Borders.css";
 }
 
 .borderRadiusSm {

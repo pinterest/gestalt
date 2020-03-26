@@ -2,9 +2,9 @@
   --border-width: 1px;
   --border-width-lg: 2px;
   --border-color-darkGray: #111;
-  --border-color-lightGray: #efefef;
+  --border-color-lightGray: #ddd;
   --border-color-red: #e60023;
-  --border-color-translucidGray: rgba(0, 0, 0, 0.12);
+  --border-color-lightGrayHovered: #d0d0d0;
   --bt: 4px;
 }
 
@@ -13,7 +13,6 @@
 .border {
   border: var(--border-width) solid var(--border-color-lightGray);
 }
-
 
 .borderColorDarkGray {
   border-color: var(--border-color-darkGray);
@@ -27,10 +26,9 @@
   border-color: var(--border-color-red);
 }
 
-.borderColorTranslucidGray {
-  border-color: var(--border-color-translucidGray);
+.borderColorLightGrayHovered {
+  border-color: var(--border-color-lightGrayHovered);
 }
-
 
 .borderTop {
   border-top: var(--border-width) solid var(--border-color-lightGray);
