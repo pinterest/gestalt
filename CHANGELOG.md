@@ -7,7 +7,8 @@
   </summary>
 
 ### Minor
-Box: Removes support to deprecated props __dangerouslyIncreaseLineHeight (#773)
+
+- Text: Remove deprecated prop __dangerouslyIncreaseLineHeight (#773)
 
 ### Patch
 
