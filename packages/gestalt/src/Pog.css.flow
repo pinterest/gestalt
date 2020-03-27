@@ -9,6 +9,7 @@ declare module.exports: {|
   +'hovered': string,
   +'lightGray': string,
   +'pog': string,
+  +'red': string,
   +'selected': string,
   +'transparent': string,
   +'transparentDarkGray': string,

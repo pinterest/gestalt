@@ -17,10 +17,10 @@ exports[`Pog active renders 1`] = `
       aria-hidden={true}
       aria-label=""
       className="icon gray iconBlock"
-      height={20}
+      height={18}
       role="img"
       viewBox="0 0 24 24"
-      width={20}
+      width={18}
     >
       <path
         d="test-file-stub"
@@ -47,10 +47,10 @@ exports[`Pog focused renders 1`] = `
       aria-hidden={true}
       aria-label=""
       className="icon gray iconBlock"
-      height={20}
+      height={18}
       role="img"
       viewBox="0 0 24 24"
-      width={20}
+      width={18}
     >
       <path
         d="test-file-stub"
@@ -77,10 +77,10 @@ exports[`Pog hovered renders 1`] = `
       aria-hidden={true}
       aria-label=""
       className="icon gray iconBlock"
-      height={20}
+      height={18}
       role="img"
       viewBox="0 0 24 24"
-      width={20}
+      width={18}
     >
       <path
         d="test-file-stub"
@@ -107,10 +107,10 @@ exports[`Pog renders with icon 1`] = `
       aria-hidden={true}
       aria-label=""
       className="icon gray iconBlock"
-      height={20}
+      height={18}
       role="img"
       viewBox="0 0 24 24"
-      width={20}
+      width={18}
     >
       <path
         d="test-file-stub"
@@ -137,10 +137,10 @@ exports[`Pog renders with svg 1`] = `
       aria-hidden={true}
       aria-label=""
       className="icon gray iconBlock"
-      height={20}
+      height={18}
       role="img"
       viewBox="0 0 24 24"
-      width={20}
+      width={18}
     >
       <path
         d="M13.00,20.00"
