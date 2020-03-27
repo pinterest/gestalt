@@ -22,7 +22,6 @@ type Props = {|
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
-  iconSize?: 'default' | 'small',
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
@@ -37,7 +36,6 @@ export default function IconButton({
   disabled,
   icon,
   iconColor,
-  iconSize,
   selected,
   size,
   onClick,
@@ -76,7 +74,6 @@ export default function IconButton({
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}
-        iconSize={iconSize}
         selected={selected}
         size={size}
       />
@@ -110,7 +107,6 @@ IconButton.propTypes = {
     'white',
     'orange',
   ]),
-  iconSize: PropTypes.oneOf(['default', 'small']),
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
