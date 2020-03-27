@@ -9,7 +9,7 @@ type Props = {|
 
 const OutsideEventBehavior = ({ children, onClick }: Props) => {
   let isClickedInside = false;
-  const handleClickEvent = (event: MouseEvent) => {
+  const handleDocumentClickEvent = (event: MouseEvent) => {
     if (isClickedInside) {
       isClickedInside = false;
       return;
@@ -20,9 +20,9 @@ const OutsideEventBehavior = ({ children, onClick }: Props) => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickEvent);
+    document.addEventListener('click', handleDocumentClickEvent);
     return () => {
-      document.removeEventListener('click', handleClickEvent);
+      document.removeEventListener('click', handleDocumentClickEvent);
     };
   });
 
