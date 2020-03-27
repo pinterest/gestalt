@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Docs: Fix layout for 1 line code example (#779)
+
 </details>
 
 ## 1.27.0 (Mar 26, 2020)
