@@ -8,6 +8,9 @@
 
 ### Minor
 
+- IconButton: Add bgColor "red", add iconSize prop (#778)
+- Pog: Add bgColor "red" (#778)
+
 ### Patch
 
 </details>
