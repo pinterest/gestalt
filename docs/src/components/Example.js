@@ -159,16 +159,11 @@ const Example = ({
                   Editor
                 </Text>
               </Box>
-              <Box position="relative" display="flex">
+              <Box position="relative" display="flex" color="darkGray">
                 <Box flex="grow">
                   <LiveEditor padding={16} />
                 </Box>
-                <Box
-                  dangerouslySetInlineStyle={{
-                    __style: { backgroundColor: theme.plain.backgroundColor },
-                  }}
-                  padding={2}
-                >
+                <Box padding={2}>
                   <Tooltip inline text="Open in CodeSandbox">
                     <IconButton
                       dangerouslySetSvgPath={{

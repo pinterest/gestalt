@@ -1,7 +1,3 @@
-:root {
-  --lightGray: #efefef;
-}
-
 .button {
   composes: block from "./Layout.css";
   composes: noBorder from "./Borders.css";

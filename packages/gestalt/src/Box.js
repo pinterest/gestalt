@@ -493,7 +493,7 @@ const propToFn = {
         // default: none
       })(value),
       fromClassName(borders.solid),
-      fromClassName(colors.lightGrayBorder),
+      fromClassName(borders.borderColorLightGray),
     ]),
   color: mapping({
     blue: colors.blueBg,
