@@ -8,12 +8,15 @@
 
 ### Minor
 
-- IconButton: Add bgColor "red", add iconSize prop (#778)
-- Pog: Add bgColor "red" (#778)
-
 ### Patch
 
 </details>
+
+## 1.29.0 (Mar 27, 2020)
+
+### Minor
+
+- IconButton/Pog: Add "red" backgroundColor + update icon sizes (#778)
 
 ## 1.28.0 (Mar 27, 2020)
 
