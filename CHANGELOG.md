@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Borders: Update lightgray border color to `#ddd`
+
 ### Patch
 
 - Docs: Fix layout for 1 line code example (#779)

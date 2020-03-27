@@ -16,7 +16,7 @@ type Props = {|
 |};
 
 const Th = ({ children }: {| children?: React.Node |}) => (
-  <th style={{ borderBottom: '2px solid #EFEFEF' }}>
+  <th style={{ borderBottom: '2px solid #ddd' }}>
     <Box padding={2}>
       <Text size="md" color="gray" overflow="normal" weight="bold">
         {children}
@@ -41,7 +41,7 @@ const Td = ({
   <td
     style={{
       verticalAlign: 'top',
-      borderBottom: border && '1px solid #EFEFEF',
+      borderBottom: border && '1px solid #ddd',
       padding: 0,
       width: shrink ? '1px' : '',
     }}
