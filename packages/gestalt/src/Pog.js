@@ -15,10 +15,10 @@ const SIZE_NAME_TO_PIXEL = {
   xl: 56,
 };
 
-const ICON_SIZES_SMALL = {
+const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
   xs: 12,
-  sm: 12,
-  md: 16,
+  sm: 16,
+  md: 18,
   lg: 20,
   xl: 24,
 };
@@ -39,7 +39,6 @@ type Props = {|
   selected?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
-  iconSize?: 'default' | 'small',
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
 |};
 
@@ -63,15 +62,12 @@ export default function Pog(props: Props) {
     hovered = false,
     icon,
     iconColor,
-    iconSize: iconSizeProp,
     selected = false,
     size = 'md',
   } = props;
 
-  const iconSize =
-    iconSizeProp === 'small'
-      ? ICON_SIZES_SMALL[size]
-      : SIZE_NAME_TO_PIXEL[size] / 2;
+  const iconSize = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
+
   const color =
     (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
 
@@ -133,7 +129,6 @@ Pog.propTypes = {
     'white',
     'orange',
   ]),
-  iconSize: PropTypes.oneOf(['default', 'small']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
 };
