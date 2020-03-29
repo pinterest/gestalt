@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#782)
+
 ### Patch
 
 </details>
