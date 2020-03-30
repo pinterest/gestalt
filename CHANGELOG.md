@@ -12,6 +12,12 @@
 
 </details>
 
+## 1.30.0 (Mar 30, 2020)
+
+### Minor
+
+- Modal: Update OutsideEventBehavior to work well with Portals (#777)
+
 ## 1.29.0 (Mar 27, 2020)
 
 ### Minor
