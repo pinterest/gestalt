@@ -21,7 +21,7 @@ export default function ComponentHeader({ name, description = '' }: Props) {
     <Box marginBottom={6}>
       <Box marginBottom={4}>
         <Heading>{name}</Heading>
-        <Text leading="tall" color="gray">
+        <Text color="gray">
           <Link href={githubUrl(name)} inline>
             Source
           </Link>

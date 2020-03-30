@@ -1,17 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text leading short adds the leadingShort class 1`] = `
-<div
-  className="Text fontSize3 darkGray leadingShort alignLeft breakWord fontWeightNormal"
-/>
-`;
-
-exports[`Text leading tall adds the leadingTall class 1`] = `
-<div
-  className="Text fontSize3 darkGray leadingTall alignLeft breakWord fontWeightNormal"
-/>
-`;
-
 exports[`Text orange adds the orange color class 1`] = `
 <div
   className="Text fontSize3 orange alignLeft breakWord fontWeightNormal"

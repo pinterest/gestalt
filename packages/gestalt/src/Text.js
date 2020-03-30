@@ -38,7 +38,6 @@ type Props = {|
   italic?: boolean,
   overflow?: 'normal' | 'breakWord',
   size?: 'sm' | 'md' | 'lg',
-  leading?: 'tall' | 'short',
   truncate?: boolean,
   weight?: 'bold' | 'normal',
 |};
@@ -51,7 +50,6 @@ export default function Text({
   italic = false,
   overflow = 'breakWord',
   size = 'lg',
-  leading,
   truncate = false,
   weight = 'normal',
 }: Props) {
@@ -77,8 +75,6 @@ export default function Text({
     color === 'red' && colors.red,
     color === 'watermelon' && colors.watermelon,
     color === 'white' && colors.white,
-    leading === 'short' && typography.leadingShort,
-    leading === 'tall' && typography.leadingTall,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
     align === 'left' && typography.alignLeft,
@@ -127,7 +123,6 @@ Text.propTypes = {
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
-  leading: PropTypes.oneOf(['tall', 'short']),
   overflow: PropTypes.oneOf(['normal', 'breakWord']),
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   truncate: PropTypes.bool,

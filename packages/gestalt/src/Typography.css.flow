@@ -11,8 +11,6 @@ declare module.exports: {|
   +'fontStyleRegular': string,
   +'fontWeightBold': string,
   +'fontWeightNormal': string,
-  +'leadingShort': string,
-  +'leadingTall': string,
   +'noUnderline': string,
   +'sansSerif': string,
   +'truncate': string,

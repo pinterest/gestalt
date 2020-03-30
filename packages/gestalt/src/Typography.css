@@ -24,16 +24,6 @@
   quotes: "「" "」";
 }
 
-/* leading */
-
-.leadingShort {
-  line-height: 1.2;
-}
-
-.leadingTall {
-  line-height: 1.5;
-}
-
 /* font weight */
 
 .fontWeightNormal {

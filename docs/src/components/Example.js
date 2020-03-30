@@ -184,7 +184,7 @@ const Example = ({
         </Box>
 
         <Box padding={2}>
-          <Text color="watermelon" leading="tall">
+          <Text color="watermelon">
             <LiveError />
           </Text>
         </Box>
