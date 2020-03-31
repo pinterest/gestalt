@@ -4,96 +4,84 @@ exports[`Flyout does not render when the anchor is null 1`] = `null`;
 
 exports[`Flyout renders 1`] = `
 <div
-  onClickCapture={[Function]}
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": "#ddd",
+      "top": NaN,
+      "visibility": "visible",
+    }
+  }
 >
   <div
-    className="container"
-    style={
-      Object {
-        "left": -20,
-        "stroke": "#ddd",
-        "top": NaN,
-        "visibility": "visible",
-      }
-    }
+    className="whiteBg white contents maxDimensions minDimensions"
+    tabIndex={-1}
   >
     <div
-      className="whiteBg white contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
-      <div
-        className="innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
+      className="innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "maxWidth": 230,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;
 
 exports[`Flyout renders as blue 1`] = `
 <div
-  onClickCapture={[Function]}
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": null,
+      "top": NaN,
+      "visibility": "visible",
+    }
+  }
 >
   <div
-    className="container"
-    style={
-      Object {
-        "left": -20,
-        "stroke": null,
-        "top": NaN,
-        "visibility": "visible",
-      }
-    }
+    className="blueBg blue contents maxDimensions minDimensions"
+    tabIndex={-1}
   >
     <div
-      className="blueBg blue contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
-      <div
-        className="innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
+      className="innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "maxWidth": 230,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;
 
 exports[`Flyout renders as error 1`] = `
 <div
-  onClickCapture={[Function]}
+  className="container"
+  style={
+    Object {
+      "left": -20,
+      "stroke": null,
+      "top": NaN,
+      "visibility": "visible",
+    }
+  }
 >
   <div
-    className="container"
-    style={
-      Object {
-        "left": -20,
-        "stroke": null,
-        "top": NaN,
-        "visibility": "visible",
-      }
-    }
+    className="redBg red contents maxDimensions minDimensions"
+    tabIndex={-1}
   >
     <div
-      className="redBg red contents maxDimensions minDimensions"
-      tabIndex={-1}
-    >
-      <div
-        className="innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
+      className="innerContents maxDimensions minDimensions"
+      style={
+        Object {
+          "maxWidth": 230,
         }
-      />
-    </div>
+      }
+    />
   </div>
 </div>
 `;
