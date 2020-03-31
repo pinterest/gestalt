@@ -127,39 +127,13 @@ card(
     description={`
     If there is no image source provided to the \`Avatar\`, the first character of
     the name provided will be used as a placeholder.
-
-    When \`__dangerouslyUseDefaultIcon\` is set to \`true\`, it will show the default icon
   `}
     name="Without an image"
     defaultCode={`
-<Box display="flex">
-  <Box paddingX={1}>
-    <Avatar
-      name="Keerthi"
-      size="md"
-    />
-  </Box>
-  <Box paddingX={1}>
-    <Avatar
-      name="Keerthi"
-      size="lg"
-    />
-  </Box>
-  <Box paddingX={1}>
-    <Avatar
-      __dangerouslyUseDefaultIcon
-      name="Keerthi"
-      size="md"
-    />
-  </Box>
-  <Box paddingX={1}>
-    <Avatar
-      __dangerouslyUseDefaultIcon
-      name="Keerthi"
-      size="lg"
-    />
-  </Box>
-</Box>
+<Avatar
+  name="Keerthi"
+  size="lg"
+/>
   `}
   />
 );

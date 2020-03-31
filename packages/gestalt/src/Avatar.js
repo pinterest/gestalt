@@ -20,13 +20,13 @@ const Square = (props: *) => (
   </Box>
 );
 
-type DefaultAvatarProps = {
+const DefaultAvatar = ({
+  name,
+  useDefaultIcon,
+}: {|
   name: string,
   useDefaultIcon: boolean,
-};
-
-const DefaultAvatar = ({ name, useDefaultIcon }: DefaultAvatarProps) => {
-  const color = '#111';
+|}) => {
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   return (
     <Square color="lightGray" rounding="circle" overflow="hidden">
@@ -39,7 +39,7 @@ const DefaultAvatar = ({ name, useDefaultIcon }: DefaultAvatarProps) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           {name && <title>{name}</title>}
-          <path d={PersonSvg} fill={color} />
+          <path d={PersonSvg} fill="#111" />
         </svg>
       ) : (
         <svg
@@ -51,8 +51,8 @@ const DefaultAvatar = ({ name, useDefaultIcon }: DefaultAvatarProps) => {
         >
           <title>{name}</title>
           <text
-            fontSize="50px"
-            fill={color}
+            fontSize="40px"
+            fill="#111"
             dy="0.35em"
             textAnchor="middle"
             className={[

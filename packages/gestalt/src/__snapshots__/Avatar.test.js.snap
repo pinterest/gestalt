@@ -39,7 +39,7 @@ exports[`Avatar renders an outline 1`] = `
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#111"
-          fontSize="50px"
+          fontSize="40px"
           textAnchor="middle"
         >
           J
@@ -88,7 +88,7 @@ exports[`Avatar renders multi-byte character initials 1`] = `
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#111"
-          fontSize="50px"
+          fontSize="40px"
           textAnchor="middle"
         >
           💩
@@ -533,7 +533,7 @@ exports[`Avatar renders the verified icon 1`] = `
           className="antialiased sansSerif fontWeightBold"
           dy="0.35em"
           fill="#111"
-          fontSize="50px"
+          fontSize="40px"
           textAnchor="middle"
         >
           J

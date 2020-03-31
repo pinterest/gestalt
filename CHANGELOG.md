@@ -2,7 +2,7 @@
 
 <details>
   <summary>
-    Changes that have landed in master but are not yet released.
+    Changes that have landed in master but are not yet released. (#774)
     Click to see more.
   </summary>
 
