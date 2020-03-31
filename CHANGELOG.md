@@ -2,17 +2,21 @@
 
 <details>
   <summary>
-    Changes that have landed in master but are not yet released. (#774)
+    Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
 
 ### Minor
 
-- Avatar: Add `__dangerouslyUseDefaultIcon` prop
-
 ### Patch
 
 </details>
+
+## 1.33.0 (Mar 31, 2020)
+
+### Minor
+
+- Avatar: Add `__dangerouslyUseDefaultIcon` prop (#774)
 
 ## 1.32.0 (Mar 31, 2020)
 
