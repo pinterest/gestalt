@@ -9,6 +9,11 @@ type Props = {|
 
 const OutsideEventBehavior = ({ children, onClick }: Props) => {
   const isClickedInside = useRef(false);
+
+  const refreshClick = useCallback(() => {
+    isClickedInside.current = false;
+  }, []);
+
   const handleDocumentClickEvent = useCallback(
     (event: MouseEvent) => {
       if (isClickedInside.current) {
@@ -23,11 +28,13 @@ const OutsideEventBehavior = ({ children, onClick }: Props) => {
   );
 
   useEffect(() => {
+    document.addEventListener('click', refreshClick, { capture: true });
     document.addEventListener('click', handleDocumentClickEvent);
     return () => {
+      document.removeEventListener('click', refreshClick, { capture: true });
       document.removeEventListener('click', handleDocumentClickEvent);
     };
-  }, [handleDocumentClickEvent]);
+  }, [refreshClick, handleDocumentClickEvent]);
 
   const handleClick = () => {
     isClickedInside.current = true;
