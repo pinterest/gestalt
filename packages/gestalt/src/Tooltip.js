@@ -99,15 +99,16 @@ export default function Tooltip({
             anchor={anchor}
             caret={false}
             bgColor="darkGray"
+            border={false}
             idealDirection={idealDirection}
             onDismiss={noop}
             positionRelativeToAnchor={false}
+            rounding={2}
             size={null}
           >
             <Box
               maxWidth={180}
-              paddingY={1}
-              paddingX={2}
+              padding={2}
               onBlur={link ? handleTextMouseLeave : undefined}
               onFocus={link ? handleTextMouseEnter : undefined}
               onMouseEnter={link ? handleTextMouseEnter : undefined}
@@ -118,7 +119,7 @@ export default function Tooltip({
               <Text color="white" size="sm">
                 {text}
               </Text>
-              {link && <Box paddingY={1}>{link}</Box>}
+              {link && <Box marginTop={1}>{link}</Box>}
             </Box>
           </Controller>
         </Layer>
