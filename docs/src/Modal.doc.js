@@ -529,6 +529,69 @@ function Example(props) {
 );
 
 card(
+  <Example
+    name="Flyout inside of Modal Example"
+    description="Opens a Flyout inside of a Modal and verifies that outside events work as expected with portals"
+    defaultCode={`
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  const [showFlyout, setShowFlyout] = React.useState(false);
+  const anchorRef = React.useRef();
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="View Modal"
+          onClick={() => setShowModal(true)}
+        />
+        {showModal && (
+          <Layer>
+            <Modal
+              accessibilityModalLabel="View flyout modal"
+              heading="Modal"
+              onDismiss={() => {
+                setShowFlyout(false);
+                setShowModal(false)
+              }}
+            >
+              <Box margin={4} ref={anchorRef}>
+                <Button text="Open Flyout" onClick={() => setShowFlyout(true)} />
+              </Box>
+              {showFlyout && (
+                <Layer>
+                  <Flyout
+                    anchor={anchorRef.current}
+                    color="blue"
+                    idealDirection="up"
+                    onDismiss={() => setShowFlyout(false)}
+                    positionRelativeToAnchor={false}
+                    showCaret
+                    shouldFocus={false}
+                    size="md"
+                  >
+                    <Box padding={3}>
+                      <Text color="white" weight="bold">
+                        This flyout is in a React portal.
+                      </Text>
+                      <Box marginTop={3}>
+                        <Button text="Click me and the modal should not close" />
+                      </Box>
+                    </Box>
+                  </Flyout>
+                </Layer>
+              )}
+            </Modal>
+          </Layer>
+        )}
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
   <Card
     id="accessibility"
     description={`
