@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Avatar/GroupAvatar: update sizes / default avatar / remove verified outline
-
 ### Patch
 
 </details>
+
+## 1.32.0 (Mar 31, 2020)
+
+### Minor
+
+- Avatar/GroupAvatar: update sizes / default avatar / remove verified outline (#771)
 
 ## 1.31.0 (Mar 31, 2020)
 
