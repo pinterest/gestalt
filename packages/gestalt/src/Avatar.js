@@ -22,7 +22,7 @@ const Square = (props: *) => (
 const DefaultAvatar = ({ name }: { name: string }) => {
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   return (
-    <Square color="gray" rounding="circle">
+    <Square color="lightGray" rounding="circle">
       {firstInitial && (
         <svg
           width="100%"
@@ -33,8 +33,8 @@ const DefaultAvatar = ({ name }: { name: string }) => {
         >
           <title>{name}</title>
           <text
-            fontSize="50px"
-            fill="#fff"
+            fontSize="40px"
+            fill="#111"
             dy="0.35em"
             textAnchor="middle"
             className={[
@@ -54,23 +54,24 @@ const DefaultAvatar = ({ name }: { name: string }) => {
 type Props = {|
   name: string,
   outline?: boolean,
-  size?: 'sm' | 'md' | 'lg',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
   src?: string,
   verified?: boolean,
-  icon?: 'check-circle' | 'pinterest',
 |};
 
 const sizes = {
-  sm: 24,
-  md: 40,
-  lg: 72,
+  xs: 24,
+  sm: 32,
+  md: 48,
+  lg: 64,
+  xl: 120,
 };
 
 export default function Avatar(props: Props) {
   const [isImageLoaded, setIsImageLoaded] = React.useState(true);
-  const { name, outline, size, src, verified, icon = 'check-circle' } = props;
-  const width = size ? sizes[size] : '100%';
-  const height = size ? sizes[size] : '';
+  const { name, outline, size = 'fit', src, verified } = props;
+  const width = size === 'fit' ? '100%' : sizes[size];
+  const height = size === 'fit' ? '' : sizes[size];
 
   const handleImageError = () => setIsImageLoaded(false);
 
@@ -108,10 +109,10 @@ export default function Avatar(props: Props) {
       {verified && (
         <Box
           position="absolute"
-          width="20%"
-          height="20%"
-          minWidth={8}
-          minHeight={8}
+          width="25%"
+          height="25%"
+          minWidth={12}
+          minHeight={12}
           dangerouslySetInlineStyle={{
             __style: {
               bottom: '4%',
@@ -119,18 +120,13 @@ export default function Avatar(props: Props) {
             },
           }}
         >
-          <Box
-            color="white"
-            width="100%"
-            height="100%"
-            rounding="circle"
-            dangerouslySetInlineStyle={{
-              __style: {
-                boxShadow: '0 0 0 2px #fff',
-              },
-            }}
-          >
-            <Icon color="red" icon={icon} accessibilityLabel="" size="100%" />
+          <Box color="white" width="100%" height="100%" rounding="circle">
+            <Icon
+              color="red"
+              icon="check-circle"
+              accessibilityLabel=""
+              size="100%"
+            />
           </Box>
         </Box>
       )}
@@ -142,6 +138,6 @@ Avatar.propTypes = {
   name: PropTypes.string.isRequired,
   outline: PropTypes.bool,
   src: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
   verified: PropTypes.bool,
 };

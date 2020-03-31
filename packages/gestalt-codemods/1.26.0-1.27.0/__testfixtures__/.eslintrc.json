@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "prettier/prettier": "off",
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "react/jsx-no-undef": "off"
+  }
+}

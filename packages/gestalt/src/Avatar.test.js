@@ -36,6 +36,17 @@ describe('Avatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('renders the correct size - xs', () => {
+    const tree = create(
+      <Avatar
+        name="Strava"
+        src="http://pinterest.com/img/strave.png"
+        size="xs"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders the correct size - sm', () => {
     const tree = create(
       <Avatar
@@ -69,14 +80,12 @@ describe('Avatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders the Pinterest P on verified', () => {
+  it('renders the correct size - xl', () => {
     const tree = create(
       <Avatar
         name="Strava"
         src="http://pinterest.com/img/strave.png"
-        size="md"
-        verified
-        icon="pinterest"
+        size="xs"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();

@@ -13,9 +13,11 @@ function zip(a, b) {
 const BORDER_WIDTH = 2;
 
 const AVATAR_SIZES = {
-  sm: 24,
-  md: 40,
-  lg: 72,
+  xs: 24,
+  sm: 32,
+  md: 48,
+  lg: 64,
+  xl: 120,
 };
 
 type Props = {|
@@ -24,7 +26,7 @@ type Props = {|
     src?: string,
   |}>,
   outline?: boolean,
-  size?: 'sm' | 'md' | 'lg',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
 |};
 
 const avatarLayout = (n, size) => {
@@ -99,8 +101,8 @@ const DefaultAvatar = (props: {|
     >
       <title>{name}</title>
       <text
-        fontSize="50px"
-        fill="#fff"
+        fontSize="40px"
+        fill="#111"
         dominantBaseline="central"
         textAnchor="middle"
         className={[
@@ -118,7 +120,7 @@ const DefaultAvatar = (props: {|
       return (
         <Box
           aria-label={name}
-          color="gray"
+          color="lightGray"
           height="100%"
           display="flex"
           alignItems="end"
@@ -136,7 +138,7 @@ const DefaultAvatar = (props: {|
       return (
         <Box
           aria-label={name}
-          color="gray"
+          color="lightGray"
           height="100%"
           display="flex"
           alignItems="start"
@@ -154,7 +156,7 @@ const DefaultAvatar = (props: {|
       return (
         <Box
           aria-label={name}
-          color="gray"
+          color="lightGray"
           height="100%"
           display="flex"
           alignItems="center"
@@ -167,9 +169,9 @@ const DefaultAvatar = (props: {|
 };
 
 export default function GroupAvatar(props: Props) {
-  const { collaborators, outline, size } = props;
-  const avatarWidth = size ? AVATAR_SIZES[size] : '100%';
-  const avatarHeight = size ? AVATAR_SIZES[size] : '';
+  const { collaborators, outline, size = 'fit' } = props;
+  const avatarWidth = size === 'fit' ? '100%' : AVATAR_SIZES[size];
+  const avatarHeight = size === 'fit' ? '' : AVATAR_SIZES[size];
   const positions = avatarLayout(collaborators.length, avatarWidth);
   return (
     <Box
@@ -234,5 +236,5 @@ GroupAvatar.propTypes = {
     })
   ).isRequired,
   outline: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
 };

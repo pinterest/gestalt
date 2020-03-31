@@ -6,8 +6,8 @@ exports[`GroupAvatar renders an outline 1`] = `
   style={
     Object {
       "boxShadow": "0 0 0 2px #fff",
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -24,7 +24,7 @@ exports[`GroupAvatar renders an outline 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -50,7 +50,7 @@ exports[`GroupAvatar renders an outline 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": "calc(50% + 1px)",
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -80,8 +80,8 @@ exports[`GroupAvatar renders avatars for 0 people 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -98,16 +98,16 @@ exports[`GroupAvatar renders avatars for 0 people 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
-        "width": 40,
+        "width": 48,
       }
     }
   >
     <div
       aria-label=""
-      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+      className="box itemsCenter justifyCenter lightGrayBg xsDisplayFlex"
       style={
         Object {
           "height": "100%",
@@ -127,8 +127,8 @@ exports[`GroupAvatar renders avatars for 0 people 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           
@@ -147,8 +147,8 @@ exports[`GroupAvatar renders avatars for 1 person 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -165,10 +165,10 @@ exports[`GroupAvatar renders avatars for 1 person 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
-        "width": 40,
+        "width": 48,
       }
     }
   >
@@ -195,8 +195,8 @@ exports[`GroupAvatar renders avatars for 2 people 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -213,7 +213,7 @@ exports[`GroupAvatar renders avatars for 2 people 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -239,7 +239,7 @@ exports[`GroupAvatar renders avatars for 2 people 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": "calc(50% + 1px)",
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -269,8 +269,8 @@ exports[`GroupAvatar renders avatars for 3 people 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -287,7 +287,7 @@ exports[`GroupAvatar renders avatars for 3 people 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -369,8 +369,8 @@ exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -387,7 +387,7 @@ exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -469,8 +469,8 @@ exports[`GroupAvatar renders multi-byte character initials 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -487,16 +487,16 @@ exports[`GroupAvatar renders multi-byte character initials 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
-        "width": 40,
+        "width": 48,
       }
     }
   >
     <div
       aria-label="💩 astral"
-      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+      className="box itemsCenter justifyCenter lightGrayBg xsDisplayFlex"
       style={
         Object {
           "height": "100%",
@@ -516,8 +516,8 @@ exports[`GroupAvatar renders multi-byte character initials 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           💩
@@ -536,8 +536,8 @@ exports[`GroupAvatar renders single-byte character initials for 1 person 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -554,16 +554,16 @@ exports[`GroupAvatar renders single-byte character initials for 1 person 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
-        "width": 40,
+        "width": 48,
       }
     }
   >
     <div
       aria-label="Jane Smith"
-      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+      className="box itemsCenter justifyCenter lightGrayBg xsDisplayFlex"
       style={
         Object {
           "height": "100%",
@@ -583,8 +583,8 @@ exports[`GroupAvatar renders single-byte character initials for 1 person 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           J
@@ -603,8 +603,8 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
   className="box circle overflowHidden relative whiteBg"
   style={
     Object {
-      "height": 40,
-      "width": 40,
+      "height": 48,
+      "width": 48,
       "willChange": "transform",
     }
   }
@@ -621,7 +621,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
     className="absolute box"
     style={
       Object {
-        "height": 40,
+        "height": 48,
         "left": 0,
         "top": 0,
         "width": "calc(50% - 1px)",
@@ -630,7 +630,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
   >
     <div
       aria-label="Jane Smith"
-      className="box grayBg itemsCenter justifyCenter xsDisplayFlex"
+      className="box itemsCenter justifyCenter lightGrayBg xsDisplayFlex"
       style={
         Object {
           "height": "100%",
@@ -650,8 +650,8 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           J
@@ -675,7 +675,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
   >
     <div
       aria-label="Jane Smith"
-      className="box grayBg itemsStart xsDisplayFlex"
+      className="box itemsStart lightGrayBg xsDisplayFlex"
       style={
         Object {
           "height": "100%",
@@ -697,8 +697,8 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           J
@@ -722,7 +722,7 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
   >
     <div
       aria-label="Jane Smith"
-      className="box grayBg itemsEnd xsDisplayFlex"
+      className="box itemsEnd lightGrayBg xsDisplayFlex"
       style={
         Object {
           "height": "100%",
@@ -744,8 +744,8 @@ exports[`GroupAvatar renders single-byte character initials for 3 people 1`] = `
         <text
           className="antialiased sansSerif fontWeightBold"
           dominantBaseline="central"
-          fill="#fff"
-          fontSize="50px"
+          fill="#111"
+          fontSize="40px"
           textAnchor="middle"
         >
           J

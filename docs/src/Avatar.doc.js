@@ -30,9 +30,10 @@ card(
       },
       {
         name: 'size',
-        type: `"sm" | "md" | "lg"`,
+        type: `"xs" | "sm" | "md" | "lg" | "xl" | "fit"`,
+        defaultValue: 'fit',
         description:
-          'sm: 24px, md: 40px, lg: 72px. If size is undefined, Avatar will fill 100% of the parent container width',
+          'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width',
       },
       {
         name: 'src',
@@ -43,12 +44,6 @@ card(
         type: 'boolean',
         defaultValue: false,
       },
-      {
-        name: 'icon',
-        type: '"check-circle" | "pinterest"',
-        defaultValue: 'check-circle',
-        description: 'This is the icon shown only when "verified=true"',
-      },
     ]}
   />
 );
@@ -56,15 +51,47 @@ card(
 card(
   <Example
     description={`
-    There are 3 sizes you can choose for an \`Avatar\`. For certain designs you may need a container-based size. More information on that option is below.
+    There are 5 sizes you can choose for an \`Avatar\`. For certain designs you may need a container-based size. More information on that option is below.
   `}
     name="Fixed Sizes"
     defaultCode={`
-<Avatar
-  size="md"
-  src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-  name="Keerthi"
-/>
+<Box display="flex" direction="row" marginLeft={-2} marginRight={-2} wrap>
+  <Box paddingX={2}>
+    <Avatar
+      size="xs"
+      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+      name="Keerthi"
+    />
+  </Box>
+  <Box paddingX={2}>
+    <Avatar
+      size="sm"
+      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+      name="Keerthi"
+    />
+  </Box>
+  <Box paddingX={2}>
+    <Avatar
+      size="md"
+      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+      name="Keerthi"
+    />
+  </Box>
+  <Box paddingX={2}>
+    <Avatar
+      size="lg"
+      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+      name="Keerthi"
+    />
+  </Box>
+  <Box paddingX={2}>
+    <Avatar
+      size="xl"
+      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+      name="Keerthi"
+    />
+  </Box>
+</Box>
 `}
   />
 );
@@ -128,22 +155,4 @@ card(
   />
 );
 
-card(
-  <Example
-    description={`
-    We can also changed the \`verified\` icon to the Pinterest logo by setting the
-    \`icon\` prop to \`pinterest\`.
-  `}
-    name="Verified"
-    defaultCode={`
-<Avatar
-  icon="pinterest"
-  name="Shanice"
-  size="lg"
-  src="https://i.ibb.co/7tGKGvb/shanice.jpg"
-  verified
-/>
-  `}
-  />
-);
 export default cards;
