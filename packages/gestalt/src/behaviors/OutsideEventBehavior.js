@@ -1,45 +1,37 @@
 // @flow
-import type { Element } from 'react';
-import React, { useCallback, useEffect, useRef } from 'react';
+import * as React from 'react';
 
 type Props = {|
-  children: Element<*> | Array<Element<*>>,
+  children: React.Node,
   onClick?: (event: MouseEvent) => void,
 |};
 
-const OutsideEventBehavior = ({ children, onClick }: Props) => {
-  const isClickedInside = useRef(false);
+export default function OutsideEventBehavior({ children, onClick }: Props) {
+  const element = React.useRef<?HTMLDivElement>(null);
 
-  const refreshClick = useCallback(() => {
-    isClickedInside.current = false;
-  }, []);
-
-  const handleDocumentClickEvent = useCallback(
-    (event: MouseEvent) => {
-      if (isClickedInside.current) {
-        isClickedInside.current = false;
+  React.useEffect(() => {
+    const handleClickEvent = (event: MouseEvent) => {
+      if (
+        !onClick ||
+        !element ||
+        (event.target instanceof Node &&
+          element.current &&
+          element.current.contains(event.target))
+      ) {
         return;
       }
-      if (onClick) {
-        onClick(event);
-      }
-    },
-    [onClick]
-  );
-
-  useEffect(() => {
-    document.addEventListener('click', refreshClick, { capture: true });
-    document.addEventListener('click', handleDocumentClickEvent);
-    return () => {
-      document.removeEventListener('click', refreshClick, { capture: true });
-      document.removeEventListener('click', handleDocumentClickEvent);
+      onClick(event);
     };
-  }, [refreshClick, handleDocumentClickEvent]);
 
-  const handleClick = () => {
-    isClickedInside.current = true;
-  };
-  return <div onClickCapture={handleClick}>{children}</div>;
-};
+    document.addEventListener('click', handleClickEvent, {
+      capture: true,
+    });
+    return function cleanup() {
+      document.removeEventListener('click', handleClickEvent, {
+        capture: true,
+      });
+    };
+  }, [onClick]);
 
-export default OutsideEventBehavior;
+  return <div ref={element}>{children}</div>;
+}
