@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Tooltip: Update border radius + adjust spacing (#786)
-
 ### Patch
 
 </details>
+
+## 1.34.0 (Apr 1, 2020)
+
+### Minor
+
+- Tooltip: Update border radius + adjust spacing (#786)
 
 ## 1.33.0 (Mar 31, 2020)
 
