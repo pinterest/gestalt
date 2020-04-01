@@ -82,7 +82,7 @@ card(
   link={
     <Link href="https://pinterest.com" target="blank">
       <Text color="white" size="sm" weight="bold">
-        Learn more about logout
+        Learn more
       </Text>
     </Link>
   }

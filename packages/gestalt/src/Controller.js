@@ -7,11 +7,13 @@ import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 type Props = {|
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
+  border?: boolean,
   caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
+  rounding?: 2 | 4,
   shouldFocus?: boolean,
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
 |};
@@ -73,10 +75,13 @@ export default class Controller extends React.Component<Props, State> {
       getBoundingClientRect: PropTypes.func,
     }),
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
+    border: PropTypes.bool,
+    caret: PropTypes.bool,
     children: PropTypes.node,
     idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
     onDismiss: PropTypes.func.isRequired,
     positionRelativeToAnchor: PropTypes.bool,
+    rounding: PropTypes.oneOf([2, 4]),
     shouldFocus: PropTypes.bool,
     size: PropTypes.oneOfType([
       PropTypes.number,
@@ -142,10 +147,12 @@ export default class Controller extends React.Component<Props, State> {
   render() {
     const {
       bgColor,
+      border,
       caret,
       children,
       idealDirection,
       positionRelativeToAnchor,
+      rounding,
       shouldFocus,
       size,
     } = this.props;
@@ -157,12 +164,14 @@ export default class Controller extends React.Component<Props, State> {
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
           bgColor={bgColor}
+          border={border}
           caret={caret}
           idealDirection={idealDirection}
           onKeyDown={this.handleKeyDown}
           onResize={this.handleResize}
           positionRelativeToAnchor={positionRelativeToAnchor}
           relativeOffset={relativeOffset}
+          rounding={rounding}
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
           width={width}

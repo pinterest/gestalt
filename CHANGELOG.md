@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Tooltip: Update border radius + adjust spacing (#786)
+
 ### Patch
 
 </details>
