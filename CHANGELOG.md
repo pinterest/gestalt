@@ -8,14 +8,18 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.35.0 (Apr 2, 2020)
+
+### Minor
+
 - Text: Remove prop `leading` and related css properties (#784)
 
 Run codemods:
 cd gestalt; yarn run codemod --parser=flow -t=packages/gestalt-codemods/1.35.0-1.36.0/leading-text-remove.js ~/code/repo
-
-### Patch
-
-</details>
 
 ## 1.34.0 (Apr 1, 2020)
 
