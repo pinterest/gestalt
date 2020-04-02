@@ -48,7 +48,7 @@ const Td = ({
     colSpan={colspan}
   >
     <Box paddingX={2} marginTop={2} marginBottom={border ? 2 : 0}>
-      <Text overflow="normal" leading="tall" color={color}>
+      <Text overflow="normal" color={color}>
         {children}
       </Text>
     </Box>
@@ -134,7 +134,7 @@ export default function PropTable({ props: properties, Component }: Props) {
                     )}
                     <Td shrink border={!description}>
                       <Box>
-                        <Text overflow="normal" leading="tall" weight="bold">
+                        <Text overflow="normal" weight="bold">
                           {href ? (
                             <Link
                               href={`#${href}`}
@@ -157,7 +157,7 @@ export default function PropTable({ props: properties, Component }: Props) {
                       </Box>
                       {responsive && (
                         <Box>
-                          <Text leading="tall">
+                          <Text>
                             <code>
                               sm{upcase(name)}, md{upcase(name)}, lg
                               {upcase(name)}

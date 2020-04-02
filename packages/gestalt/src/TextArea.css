@@ -1,8 +1,8 @@
 .textArea {
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
-  composes: leadingTall from "./Typography.css";
   composes: xsCol12 from "./Column.css";
+  line-height: 1.5;
   padding: 8px 16px;
   resize: none;
 }

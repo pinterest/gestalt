@@ -40,11 +40,6 @@ card(
         href: 'inline',
       },
       {
-        name: 'leading',
-        type: `"short" | "tall"`,
-        description: `short: line-height 1.2, tall: line-height 1.5, default: browser determines line-height based on language`,
-      },
-      {
         name: 'italic',
         type: 'boolean',
         defaultValue: false,
@@ -155,14 +150,14 @@ card(
 <Box maxWidth={240}>
   <Box marginBottom={2}>
     <Text weight="bold">normal:</Text>
-    <Text overflow="normal" leading="tall">
+    <Text overflow="normal">
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉&#39;
     </Text>
   </Box>
   <Box marginBottom={2}>
     <Text weight="bold">breakWord:</Text>
-    <Text leading="tall">
+    <Text>
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
       ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
@@ -170,7 +165,7 @@ card(
   </Box>
   <Box marginBottom={2}>
     <Text weight="bold">truncate:</Text>
-    <Text truncate leading="tall">
+    <Text truncate>
       This is a long and Supercalifragilisticexpialidocious sentence.
       次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
       ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;

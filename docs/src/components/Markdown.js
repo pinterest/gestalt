@@ -39,7 +39,7 @@ export default function Markdown({ text, size = 'lg' }: Props) {
   const html = marked(stripIndent(text), { renderer });
 
   return (
-    <Text leading="tall" size={size}>
+    <Text size={size}>
       {/* eslint-disable-next-line react/no-danger */}
       <div className="Markdown" dangerouslySetInnerHTML={{ __html: html }} />
     </Text>
