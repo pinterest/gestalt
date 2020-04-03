@@ -4,6 +4,7 @@
   --border-color-gray: #767676;
   --border-color-darkGray: #111;
   --border-color-lightGray: #ddd;
+  --border-color-lightGrayDisabled: #efefef;
   --border-color-red: #e60023;
   --border-color-lightGrayHovered: #d0d0d0;
   --bt: 4px;
@@ -33,6 +34,10 @@
 
 .borderColorLightGrayHovered {
   border-color: var(--border-color-lightGrayHovered);
+}
+
+.borderColorLightGrayDisabled {
+  border-color: var(--border-color-lightGrayDisabled);
 }
 
 .borderTop {
