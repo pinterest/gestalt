@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add code icon (#786)
+
 ### Patch
 
 </details>

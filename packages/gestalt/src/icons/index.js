@@ -40,6 +40,7 @@ import checkCircle from './check-circle.svg';
 import circleOutline from './circle-outline.svg';
 import clear from './clear.svg';
 import clock from './clock.svg';
+import code from './code.svg';
 import cog from './cog.svg';
 import colorPicker from './color-picker.svg';
 import compass from './compass.svg';
@@ -206,6 +207,7 @@ export default {
   'circle-outline': circleOutline,
   clear,
   clock,
+  code,
   cog,
   compass,
   compose,
