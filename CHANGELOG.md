@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Icon: Add code icon (#786)
-
 ### Patch
 
 </details>
+
+## 1.36.0 (Apr 3, 2020)
+
+### Minor
+
+- Icon: Add code icon (#786)
 
 ## 1.35.0 (Apr 2, 2020)
 
