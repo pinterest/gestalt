@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Icon: Add code icon (#786)
+
 ### Patch
 
 </details>
@@ -23,10 +25,6 @@
 ### Minor
 
 - IconButton/Pog: Add "red" backgroundColor + update icon sizes (#778)
-
-### Minor
-
-- Icon: Add code icon (#786)
 
 ## 1.28.0 (Mar 27, 2020)
 
