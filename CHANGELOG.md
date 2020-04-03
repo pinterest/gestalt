@@ -8,11 +8,15 @@
 
 ### Minor
 
-- Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#782)
-
 ### Patch
 
 </details>
+
+## 1.37.0 (Apr 3, 2020)
+
+### Minor
+
+- Masonry: Allow string enum types for Masonry layout prop (in prep of removing symbols/classes) (#782)
 
 ## 1.36.0 (Apr 3, 2020)
 
