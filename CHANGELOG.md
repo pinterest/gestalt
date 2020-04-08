@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- SegmentedControl: Update the border radius from 8px outer / 6px inner to 16px outer / 14px inner (#798)
 
 ### Patch
 
