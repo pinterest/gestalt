@@ -21,6 +21,11 @@ card(
         name: 'children',
         type: 'React.Node',
       },
+      {
+        name: 'maxWidth',
+        type: 'number',
+        defaultValue: 800,
+      },
     ]}
   />
 );
@@ -28,7 +33,7 @@ card(
 card(
   <Example
     description="
-    On small screens, the container is the width of the screen. On large screens, it centers the content with a max-width of 800px.
+    On small screens, the container is the width of the screen. On large screens, it centers the content with a default max-width of 800px.
   "
     name="Responsive content"
     defaultCode={`

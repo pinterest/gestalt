@@ -5,13 +5,13 @@ import Box from './Box.js';
 
 type Props = {|
   children?: React.Node,
+  maxWidth?: number,
 |};
 
-export default function Container(props: Props) {
-  const { children } = props;
+export default function Container({ children, maxWidth }: Props) {
   return (
     <Box justifyContent="center" display="flex">
-      <Box maxWidth={800} width="100%">
+      <Box maxWidth={maxWidth ?? 800} width="100%">
         {children}
       </Box>
     </Box>
@@ -20,4 +20,5 @@ export default function Container(props: Props) {
 
 Container.propTypes = {
   children: PropTypes.node,
+  maxWidth: PropTypes.number,
 };
