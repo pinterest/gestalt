@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Container: Allow user to set max width (#799)
+
 ### Patch
 
 </details>
