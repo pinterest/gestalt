@@ -10,6 +10,7 @@ import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
+import FlexBox from './FlexBox.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -28,11 +29,13 @@ import Modal from './Modal.js';
 import Pog from './Pog.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
+import Row from './Row.js';
 import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Spinner from './Spinner.js';
+import Stack from './Stack.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
@@ -57,6 +60,7 @@ export {
   Column,
   Container,
   Divider,
+  FlexBox,
   Flyout,
   GroupAvatar,
   Heading,
@@ -75,11 +79,13 @@ export {
   Pog,
   Pulsar,
   RadioButton,
+  Row,
   ScrollFetch,
   SearchField,
   SegmentedControl,
   SelectList,
   Spinner,
+  Stack,
   Sticky,
   Switch,
   Table,
