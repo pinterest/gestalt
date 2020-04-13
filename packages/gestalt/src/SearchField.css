@@ -1,3 +1,8 @@
+:root {
+  --gray: #767676 ;
+  --white: #fff;
+}
+
 .input {
   composes: accessibilityOutline from "./Focus.css";
   composes: border from "./Borders.css";
@@ -7,8 +12,8 @@
   composes: fontWeightBold from "./Typography.css";
   composes: lightGrayBg from "./Colors.css";
   composes: xsCol12 from "./Column.css";
+  composes: rounding1 from "./Borders.css";
   appearance: none;
-  border-radius: 4px;
   padding: 8px calc(16px + (2 * 8px)) 8px calc(16px + (2 * 16px));
 }
 
@@ -17,7 +22,7 @@
 }
 
 .input::placeholder {
-  color: #8e8e8e;
+  color: var(--gray);
 }
 
 .input::-webkit-search-decoration,
@@ -28,7 +33,7 @@
 }
 
 .input:focus {
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .clear {
@@ -37,6 +42,6 @@
   composes: paddingX3 from "./boxWhitespace.css";
   composes: paddingY3 from "./boxWhitespace.css";
   composes: relative from "./Layout.css";
-  background-color: transparent;
+  composes: transparentBg from "./Colors.css";
   outline: none;
 }

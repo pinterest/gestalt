@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- [SearchField]: refactored css file for SearchField (#805)
 
 ### Patch
 
