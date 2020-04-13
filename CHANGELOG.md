@@ -14,6 +14,12 @@
 
 </details>
 
+## 1.38.0 (Apr 13, 2020)
+
+### Minor
+
+- Modal: support Flyout inside of a Modal (#793)
+
 ## 1.37.0 (Apr 3, 2020)
 
 ### Minor
