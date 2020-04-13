@@ -5,7 +5,6 @@ import Box from './Box.js';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 import styles from './Modal.css';
 
 type Props = {|
@@ -27,10 +26,27 @@ const SIZE_WIDTH_MAP = {
 
 const ESCAPE_KEY_CODE = 27;
 
-function Backdrop({ children }: { children?: React.Node }) {
+function Backdrop({
+  children,
+  onClick,
+}: {
+  children?: React.Node,
+  onClick?: (event: MouseEvent) => void,
+}) {
+  const handleClick = event => {
+    if (event.target !== event.currentTarget) {
+      return;
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
   return (
     <>
-      <div className={styles.backdrop} />
+      {/* Disabling the linters below is fine, we don't want key event listeners (ESC handled elsewhere) */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+      <div className={styles.backdrop} onClick={handleClick} />
       {children}
     </>
   );
@@ -89,32 +105,30 @@ export default function Modal({
           className={styles.container}
           role={role}
         >
-          <Backdrop>
-            <OutsideEventBehavior onClick={handleOutsideClick}>
-              <div className={styles.wrapper} tabIndex={-1} style={{ width }}>
-                <Box
-                  flex="grow"
-                  position="relative"
-                  display="flex"
-                  direction="column"
-                  width="100%"
-                >
-                  {heading && (
-                    <Box fit>
-                      <Header heading={heading} />
+          <Backdrop onClick={handleOutsideClick}>
+            <div className={styles.wrapper} tabIndex={-1} style={{ width }}>
+              <Box
+                flex="grow"
+                position="relative"
+                display="flex"
+                direction="column"
+                width="100%"
+              >
+                {heading && (
+                  <Box fit>
+                    <Header heading={heading} />
+                  </Box>
+                )}
+                <div className={styles.content}>{children}</div>
+                {footer && (
+                  <Box fit>
+                    <Box>
+                      <Box padding={8}>{footer}</Box>
                     </Box>
-                  )}
-                  <div className={styles.content}>{children}</div>
-                  {footer && (
-                    <Box fit>
-                      <Box>
-                        <Box padding={8}>{footer}</Box>
-                      </Box>
-                    </Box>
-                  )}
-                </Box>
-              </div>
-            </OutsideEventBehavior>
+                  </Box>
+                )}
+              </Box>
+            </div>
           </Backdrop>
         </div>
       </TrapFocusBehavior>
