@@ -1,6 +1,7 @@
 :root {
   --border-width: 1px;
   --border-width-lg: 2px;
+  --border-color-gray: #767676;
   --border-color-darkGray: #111;
   --border-color-lightGray: #ddd;
   --border-color-red: #e60023;
@@ -12,6 +13,10 @@
 
 .border {
   border: var(--border-width) solid var(--border-color-lightGray);
+}
+
+.borderColorGray {
+  border-color: var(--border-color-gray);
 }
 
 .borderColorDarkGray {

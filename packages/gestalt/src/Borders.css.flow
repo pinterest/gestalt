@@ -4,6 +4,7 @@ declare module.exports: {|
   +'border': string,
   +'borderBottom': string,
   +'borderColorDarkGray': string,
+  +'borderColorGray': string,
   +'borderColorLightGray': string,
   +'borderColorLightGrayHovered': string,
   +'borderColorRed': string,

@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- Color: update gray color to #767676 (#804)
 
 ### Patch
 
