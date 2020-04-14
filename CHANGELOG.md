@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Text/Heading: Use default (manual) hyphenation (#807)
+
 ### Patch
 
 </details>
