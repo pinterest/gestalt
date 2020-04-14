@@ -7,11 +7,16 @@
   </summary>
 
 ### Minor
-- SegmentedControl: Update the border radius from 8px outer / 6px inner to 16px outer / 14px inner (#798)
 
 ### Patch
 
 </details>
+
+## 1.39.0 (Apr 14, 2020)
+
+### Minor
+
+- SegmentedControl: Update the border radius from 8px outer / 6px inner to 16px outer / 14px inner (#798)
 
 ## 1.38.0 (Apr 13, 2020)
 
