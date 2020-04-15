@@ -27,6 +27,7 @@ then
   echo "----"
   echo "Folowing files require changes:"
   echo "$FILES"
+  git diff
   exit 1
 fi
 
