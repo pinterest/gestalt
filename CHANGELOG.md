@@ -8,11 +8,19 @@
 
 ### Minor
 
+### Patch
+
+</details>
+
+## 1.40.0 (Apr 15, 2020)
+
+### Minor
+
 - Text/Heading: Use default (manual) hyphenation (#807)
 
 ### Patch
 
-</details>
+- Internal: remove reference to unused .integration.js (#808)
 
 ## 1.39.0 (Apr 14, 2020)
 
