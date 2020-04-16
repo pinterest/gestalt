@@ -8,12 +8,16 @@
 
 ### Minor
 
-- Color: update gray color to #767676 (#804)
-- Icon: update default #8e8e8e to #767676 (#811)
-
 ### Patch
 
 </details>
+
+## 1.41.0 (Apr 16, 2020)
+
+### Minor
+
+- Color: update gray color to #767676 (#804)
+- Icon: update default #8e8e8e to #767676 (#811)
 
 ## 1.40.0 (Apr 15, 2020)
 
