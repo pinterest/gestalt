@@ -7,7 +7,9 @@
   </summary>
 
 ### Minor
+
 - Color: update gray color to #767676 (#804)
+- Icon: update default #8e8e8e to #767676 (#811)
 
 ### Patch
 
