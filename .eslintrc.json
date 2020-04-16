@@ -62,7 +62,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.test.js", "**/*.integration.js"],
+      "files": ["**/*.test.js"],
       "env": {
         "jest": true
       },

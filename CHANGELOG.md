@@ -13,6 +13,22 @@
 
 </details>
 
+## 1.40.0 (Apr 15, 2020)
+
+### Minor
+
+- Text/Heading: Use default (manual) hyphenation (#807)
+
+### Patch
+
+- Internal: remove reference to unused .integration.js (#808)
+
+## 1.39.0 (Apr 14, 2020)
+
+### Minor
+
+- SegmentedControl: Update the border radius from 8px outer / 6px inner to 16px outer / 14px inner (#798)
+
 ## 1.38.0 (Apr 13, 2020)
 
 ### Minor
