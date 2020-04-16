@@ -33,17 +33,17 @@ html[dir="rtl"] .switch {
 
 .switchGray {
   composes: grayBg from "./Colors.css";
-  border-color: #8e8e8e;
+  composes: borderColorGray from "./Borders.css";
 }
 
 .switchLightGray {
   composes: lightGrayBg from "./Colors.css";
-  border-color: #8e8e8e;
+  composes: borderColorGray from "./Borders.css";
 }
 
 .switchWhite {
   composes: whiteBg from "./Colors.css";
-  border-color: #8e8e8e;
+  composes: borderColorGray from "./Borders.css";
 }
 
 .slider {
@@ -71,7 +71,7 @@ html[dir="rtl"] .switch {
 }
 
 .sliderLight {
-  border-color: #8e8e8e;
+  composes: borderColorGray from "./Borders.css";
 }
 
 .checkbox {
