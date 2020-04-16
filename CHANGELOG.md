@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Internal: update yarn.lock file (#814)
+
 ### Patch
 
 - Docs: Add a note on the Tabs documentation about use with react-router (#813)
