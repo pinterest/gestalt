@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Docs: Add a note on the Tabs documentation about use with react-router (#813)
+
 </details>
 
 ## 1.41.0 (Apr 16, 2020)
