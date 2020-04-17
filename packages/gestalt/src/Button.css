@@ -21,7 +21,7 @@
 
 .lg {
   composes: large from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
+  composes: paddingX4 from "./boxWhitespace.css";
   composes: paddingY3 from "./boxWhitespace.css";
 }
 
