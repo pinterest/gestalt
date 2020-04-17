@@ -1723,7 +1723,7 @@
     dom-accessibility-api "^0.4.2"
     pretty-format "^25.1.0"
 
-"@testing-library/jest-dom@^5.1.1":
+"@testing-library/jest-dom@^5.5.0":
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.5.0.tgz#4707023e8f572021e8a84f65721303ff60828d88"
   integrity sha512-7sWHrpxG4Yd8TmryI7Rtbx8Ff4mbs3ASye3oshQIuHvsCR+QHgr7rTR/PfeXvOmwUwR36wSTTAvrLKsPmr6VEQ==
@@ -1738,7 +1738,7 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^10.0.1":
+"@testing-library/react@^10.0.2":
   version "10.0.2"
   resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-10.0.2.tgz#8eca7aa52d810cf7150048a2829fdc487162006d"
   integrity sha512-YT6Mw0oJz7R6vlEkmo1FlUD+K15FeXApOB5Ffm9zooFVnrwkt00w18dUJFMOh1yRp9wTdVRonbor7o4PIpFCmA==
@@ -2706,7 +2706,7 @@ babel-jest@^24.9.0:
     chalk "^2.4.2"
     slash "^2.0.0"
 
-babel-jest@^25.1.0, babel-jest@^25.3.0:
+babel-jest@^25.3.0:
   version "25.3.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-25.3.0.tgz#999d0c19e8427f66b796bf9ea233eedf087b957c"
   integrity sha512-qiXeX1Cmw4JZ5yQ4H57WpkO0MZ61Qj+YnsVUwAMnDV5ls+yHon11XjarDdgP7H8lTmiEi6biiZA8y3Tmvx6pCg==
@@ -8271,7 +8271,7 @@ jest@24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
-jest@^25.1.0:
+jest@^25.3.0:
   version "25.3.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-25.3.0.tgz#7a5e59741d94b8662664c77a9f346246d6bf228b"
   integrity sha512-iKd5ShQSHzFT5IL/6h5RZJhApgqXSoPxhp5HEi94v6OAw9QkF8T7X+liEU2eEHJ1eMFYTHmeWLrpBWulsDpaUg==
@@ -11895,7 +11895,7 @@ react-dev-utils@^10.2.0:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@^16.8.5:
+react-dom@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -12023,7 +12023,7 @@ react-simple-code-editor@^0.10.0:
   resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz#73e7ac550a928069715482aeb33ccba36efe2373"
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
-react-test-renderer@^16.13.0:
+react-test-renderer@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
   integrity sha512-Sn2VRyOK2YJJldOqoh8Tn/lWQ+ZiKhyZTPtaO0Q6yNj+QDbmRkVFap6pZPy3YQk8DScRDfyqm/KxKYP9gCMRiQ==
@@ -12033,7 +12033,7 @@ react-test-renderer@^16.13.0:
     react-is "^16.8.6"
     scheduler "^0.19.1"
 
-react@^16.8.5:
+react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -13672,7 +13672,7 @@ stylelint-order@^4.0.0:
     postcss "^7.0.26"
     postcss-sorting "^5.0.1"
 
-stylelint@^13.2.1:
+stylelint@^13.3.2:
   version "13.3.2"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-13.3.2.tgz#fbcb69a2452bc35de3eedd95b443449f92ab4107"
   integrity sha512-kpO3/Gz2ZY40EWUwFYYkgpzhf8ZDUyKpcui5+pS0XKJBj/EMYmZpOJoL8IFAz2yApYeg91NVy5yAjE39hDzWvQ==

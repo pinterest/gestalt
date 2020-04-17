@@ -9,6 +9,7 @@
 ### Minor
 
 - Internal: update yarn.lock file (#814)
+- Internal: Minor version updates for several dependencies (#815)
 
 ### Patch
 
