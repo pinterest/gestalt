@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
@@ -14,10 +14,10 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^10.0.1",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
     "babel-eslint": "10.1.0",
-    "babel-jest": "^25.1.0",
+    "babel-jest": "^25.3.0",
     "benchmark": "^2.1.4",
     "codecov": "^3.6.5",
     "css-modules-flow-types-cli": "^1.3.0",
@@ -36,15 +36,15 @@
     "flow-bin": "^0.116.1",
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^25.1.0",
+    "jest": "^25.3.0",
     "jscodeshift": "^0.7.0",
     "lint-staged": "^10.0.7",
     "papaparse": "^5.1.1",
     "prettier": "1.19.1",
-    "react-test-renderer": "^16.13.0",
+    "react-test-renderer": "^16.13.1",
     "rollup-plugin-inline-svg": "^1.1.1",
     "shelljs": "^0.8.3",
-    "stylelint": "^13.2.1",
+    "stylelint": "^13.3.2",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0"
