@@ -358,126 +358,78 @@ card(
     description={`
     \`Video\` is robust enough to handle any updates, such as changing the source, volume, or speed.`}
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChangeInput = this._handleChangeInput.bind(this);
-    this.handlePause = this._handlePause.bind(this);
-    this.handlePlay = this._handlePlay.bind(this);
-    this.handlePlaybackIncrease = this._handlePlaybackIncrease.bind(this);
-    this.handlePlaybackDecrease = this._handlePlaybackDecrease.bind(this);
-    this.handleSubmitInput = this._handleSubmitInput.bind(this);
-    this.handleToggleMute = this._handleToggleMute.bind(this);
-    this.handleVolumeChange = this._handleVolumeChange.bind(this);
-    this.state = {
-      input: "http://media.w3.org/2010/05/bunny/movie.mp4",
-      playbackRate: 1,
-      playing: false,
-      src: "http://media.w3.org/2010/05/bunny/movie.mp4",
-      volume: 1,
-    };
-  }
+function Example() {
+  const [input, setInput] = React.useState("http://media.w3.org/2010/05/bunny/movie.mp4");
+  const [playbackRate, setPlaybackRate] = React.useState(1);
+  const [playing, setPlaying] = React.useState(false);
+  const [src, setSrc] = React.useState("http://media.w3.org/2010/05/bunny/movie.mp4");
+  const [volume, setVolume] = React.useState(1);
 
-  _handleChangeInput({ value }) {
-    this.setState({ input: value });
-  }
-
-  _handleToggleMute() {
-    this.setState({ volume: this.state.volume === 0 ? 1 : 0 });
-  }
-
-  _handleVolumeChange({ volume }) {
-    this.setState({ volume });
-  }
-
-  _handleSubmitInput() {
-    this.setState({ src: this.state.input });
-  }
-
-  _handlePlay() {
-    this.setState({ playing: true });
-  }
-
-  _handlePause() {
-    this.setState({ playing: false });
-  }
-
-  _handlePlaybackIncrease() {
-    this.setState(prevState => ({ playbackRate: prevState.playbackRate * 2 }));
-  }
-
-  _handlePlaybackDecrease() {
-    this.setState(prevState => ({ playbackRate: prevState.playbackRate / 2 }));
-  }
-
-  render() {
-    const { input, playbackRate, playing, src, volume } = this.state;
-    return (
-      <Box>
-        <Box paddingY={2}>
-          <Box marginBottom={2}>
-            <Label htmlFor="video-source">
-              <Text>Video source URL</Text>
-            </Label>
-          </Box>
-          <Box display="flex" marginLeft={-1} marginRight={-1}>
-            <Box flex="grow" paddingX={1}>
-              <TextField
-                id="video-source"
-                onChange={this.handleChangeInput}
-                value={input}
-              />
-            </Box>
-            <Box paddingX={1}>
-              <Button
-                text="Submit"
-                color="red"
-                onClick={this.handleSubmitInput}
-              />
-            </Box>
-          </Box>
+  return (
+    <Box>
+      <Box paddingY={2}>
+        <Box marginBottom={2}>
+          <Label htmlFor="video-source">
+            <Text>Video source URL</Text>
+          </Label>
         </Box>
-        <Box paddingY={2}>
-          <Button
-            text={volume === 0 ? "Unmute" : "Mute"}
-            onClick={this.handleToggleMute}
-          />
-        </Box>
-        <Box display="flex" paddingY={2} marginLeft={-1} marginRight={-1}>
-          <Box paddingX={1} column={6}>
-            <Button
-              text="Playback x0.5"
-              onClick={this.handlePlaybackDecrease}
+        <Box display="flex" marginLeft={-1} marginRight={-1}>
+          <Box flex="grow" paddingX={1}>
+            <TextField
+              id="video-source"
+              onChange={({ value }) => setInput(value)}
+              value={input}
             />
           </Box>
-          <Box paddingX={1} column={6}>
+          <Box paddingX={1}>
             <Button
-              text="Playback x2"
-              onClick={this.handlePlaybackIncrease}
+              text="Submit"
+              color="red"
+              onClick={() => setSrc(input)}
             />
           </Box>
         </Box>
-        <Video
-          accessibilityMaximizeLabel="Maximize"
-          accessibilityMinimizeLabel="Minimize"
-          accessibilityMuteLabel="Mute"
-          accessibilityPauseLabel="Pause"
-          accessibilityPlayLabel="Play"
-          accessibilityUnmuteLabel="Unmute"
-          aspectRatio={853 / 480}
-          captions=""
-          controls
-          onPlay={this.handlePlay}
-          onPause={this.handlePause}
-          onVolumeChange={this.handleVolumeChange}
-          playbackRate={playbackRate}
-          playing={playing}
-          src={src}
-          volume={volume}
+      </Box>
+      <Box paddingY={2}>
+        <Button
+          text={volume === 0 ? "Unmute" : "Mute"}
+          onClick={() => setVolume(volume === 0 ? 1 : 0)}
         />
       </Box>
-    );
-  }
+      <Box display="flex" paddingY={2} marginLeft={-1} marginRight={-1}>
+        <Box paddingX={1} column={6}>
+          <Button
+            text="Playback x0.5"
+            onClick={() => setPlaybackRate(playbackRate / 2)}
+          />
+        </Box>
+        <Box paddingX={1} column={6}>
+          <Button
+            text="Playback x2"
+            onClick={() => setPlaybackRate(playbackRate * 2)}
+          />
+        </Box>
+      </Box>
+      <Video
+        accessibilityMaximizeLabel="Maximize"
+        accessibilityMinimizeLabel="Minimize"
+        accessibilityMuteLabel="Mute"
+        accessibilityPauseLabel="Pause"
+        accessibilityPlayLabel="Play"
+        accessibilityUnmuteLabel="Unmute"
+        aspectRatio={853 / 480}
+        captions=""
+        controls
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onVolumeChange={({ volume }) => setVolume(volume)}
+        playbackRate={playbackRate}
+        playing={playing}
+        src={src}
+        volume={volume}
+      />
+    </Box>
+  );
 }
 `}
   />
