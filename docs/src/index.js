@@ -12,19 +12,21 @@ const container = document.getElementById('root');
 
 if (container instanceof Element) {
   render(
-    <HashRouter>
-      <App>
-        <Switch>
-          {Object.keys(routes).map(pathname => (
-            <Route
-              path={`/${pathname}`}
-              key={pathname}
-              render={() => <CardPage cards={routes[pathname]} />}
-            />
-          ))}
-        </Switch>
-      </App>
-    </HashRouter>,
+    <React.StrictMode>
+      <HashRouter>
+        <App>
+          <Switch>
+            {Object.keys(routes).map(pathname => (
+              <Route
+                path={`/${pathname}`}
+                key={pathname}
+                render={() => <CardPage cards={routes[pathname]} />}
+              />
+            ))}
+          </Switch>
+        </App>
+      </HashRouter>
+    </React.StrictMode>,
     container
   );
 } else {
