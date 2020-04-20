@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Internal: Enable React.Strict on documentation (#821)
+
 </details>
 
 ## 1.42.0 (Apr 20, 2020)
