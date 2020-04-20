@@ -8,6 +8,9 @@
 
 ### Minor
 
+- IconButton/Pog: Removed unused iconColor options: blue, orange; added darkGray; added bgColor: darkGray (#823)
+- Docs: Replaced combinations in Pog with Combinations: Icon Color & Background Color. Removed IconButton-bgColor-blue option from Docs. (#823)
+
 ### Patch
 
 - Internal: Enable React.Strict on documentation (#821)

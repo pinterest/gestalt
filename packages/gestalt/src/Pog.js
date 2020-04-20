@@ -27,6 +27,7 @@ type Props = {|
   active?: boolean,
   bgColor?:
     | 'transparent'
+    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -38,7 +39,7 @@ type Props = {|
   hovered?: boolean,
   selected?: boolean,
   icon?: $Keys<typeof icons>,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
 |};
 
@@ -109,6 +110,7 @@ Pog.propTypes = {
   active: PropTypes.bool,
   bgColor: PropTypes.oneOf([
     'transparent',
+    'darkGray',
     'transparentDarkGray',
     'gray',
     'lightGray',
@@ -121,14 +123,7 @@ Pog.propTypes = {
   focused: PropTypes.bool,
   hovered: PropTypes.bool,
   icon: PropTypes.oneOf(Object.keys(icons)),
-  iconColor: PropTypes.oneOf([
-    'gray',
-    'darkGray',
-    'red',
-    'blue',
-    'white',
-    'orange',
-  ]),
+  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
 };
