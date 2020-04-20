@@ -10,6 +10,7 @@
 
 - Internal: update yarn.lock file (#814)
 - Internal: Minor version updates for several dependencies (#815)
+- Buttons/Tabs: Increase paddingX to 16px on lg Buttons and Tabs (#816)
 
 ### Patch
 
