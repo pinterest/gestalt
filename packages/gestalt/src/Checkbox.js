@@ -75,7 +75,9 @@ export default function Checkbox({
   }
 
   let borderStyle = styles.border;
-  if (!disabled && (checked || indeterminate)) {
+  if (disabled) {
+    borderStyle = styles.borderDisabled;
+  } else if (!disabled && (checked || indeterminate)) {
     borderStyle = styles.borderDarkGray;
   } else if (hasError || errorMessage) {
     borderStyle = styles.borderError;

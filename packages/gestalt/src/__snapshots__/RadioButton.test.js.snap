@@ -92,7 +92,7 @@ exports[`RadioButton disabled 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgDisabled Border BorderUnchecked sizeMd RadioButton"
+        className="BgDisabled Border BorderDisabled sizeMd RadioButton"
       >
         <input
           checked={false}
@@ -139,7 +139,7 @@ exports[`RadioButton disabled small 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgDisabled Border BorderUnchecked sizeSm RadioButton"
+        className="BgDisabled Border BorderDisabled sizeSm RadioButton"
       >
         <input
           checked={false}

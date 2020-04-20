@@ -36,6 +36,14 @@
   composes: borderColorDarkGray from "./Borders.css";
 }
 
+.BorderDisabled {
+  composes: noBorder from "./Borders.css";
+}
+
+.BorderDisabledChecked {
+  composes: borderColorLightGrayDisabled from "./Borders.css";
+}
+
 .BorderHovered {
   composes: borderColorLightGrayHovered from "./Borders.css";
 }

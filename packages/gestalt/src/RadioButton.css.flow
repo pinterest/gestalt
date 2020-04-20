@@ -7,6 +7,8 @@ declare module.exports: {|
   +'BorderCheckedMd': string,
   +'BorderCheckedSm': string,
   +'BorderDarkGray': string,
+  +'BorderDisabled': string,
+  +'BorderDisabledChecked': string,
   +'BorderHovered': string,
   +'BorderUnchecked': string,
   +'InputEnabled': string,

@@ -6,6 +6,10 @@
   composes: borderColorDarkGray from "./Borders.css";
 }
 
+.borderDisabled {
+  composes: borderColorLightGrayDisabled from "./Borders.css";
+}
+
 .borderError {
   composes: borderColorRed from "./Borders.css";
 }
