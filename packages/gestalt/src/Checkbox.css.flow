@@ -3,6 +3,7 @@
 declare module.exports: {|
   +'border': string,
   +'borderDarkGray': string,
+  +'borderDisabled': string,
   +'borderError': string,
   +'borderHovered': string,
   +'borderRadiusMd': string,

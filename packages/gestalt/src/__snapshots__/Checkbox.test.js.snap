@@ -142,7 +142,7 @@ exports[`Checkbox disabled & checked 1`] = `
           type="checkbox"
         />
         <div
-          className="lightGrayBg border borderRadiusSm sizeSm check"
+          className="lightGrayBg borderDisabled borderRadiusSm sizeSm check"
         >
           <svg
             aria-hidden={true}
@@ -206,7 +206,7 @@ exports[`Checkbox disabled 1`] = `
           type="checkbox"
         />
         <div
-          className="lightGrayBg border borderRadiusSm sizeSm check"
+          className="lightGrayBg borderDisabled borderRadiusSm sizeSm check"
         />
       </div>
     </label>

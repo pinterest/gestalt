@@ -69,14 +69,18 @@ export default class RadioButton extends React.Component<Props, State> {
     const { focused, hovered } = this.state;
 
     let borderStyle = styles.Border;
-    if (!disabled && checked) {
+    if (disabled && checked) {
+      borderStyle = styles.BorderDisabledChecked;
+    } else if (!disabled && checked) {
       borderStyle = styles.BorderDarkGray;
     } else if (!disabled && hovered) {
       borderStyle = styles.BorderHovered;
     }
 
     let borderWidth = styles.BorderUnchecked;
-    if (checked && size === 'sm') {
+    if (disabled && !checked) {
+      borderWidth = styles.BorderDisabled;
+    } else if (checked && size === 'sm') {
       borderWidth = styles.BorderCheckedSm;
     } else if (checked && size === 'md') {
       borderWidth = styles.BorderCheckedMd;
