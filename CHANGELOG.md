@@ -7,8 +7,16 @@
   </summary>
 
 ### Minor
-- RadioButton/Checkbox: Moved shared classes to RadioButtonCheckbox.css (#810)
 
+### Patch
+
+</details>
+
+## 1.42.0 (Apr 20, 2020)
+
+### Minor
+
+- RadioButton/Checkbox: Moved shared classes to RadioButtonCheckbox.css (#810)
 - Internal: update yarn.lock file (#814)
 - Internal: Minor version updates for several dependencies (#815)
 - Buttons/Tabs: Increase paddingX to 16px on lg Buttons and Tabs (#816)
@@ -16,8 +24,6 @@
 ### Patch
 
 - Docs: Add a note on the Tabs documentation about use with react-router (#813)
-
-</details>
 
 ## 1.41.0 (Apr 16, 2020)
 
