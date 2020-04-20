@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- RadioButton/Checkbox: Moved shared classes to RadioButtonCheckbox.css (#810)
 
 - Internal: update yarn.lock file (#814)
 - Internal: Minor version updates for several dependencies (#815)

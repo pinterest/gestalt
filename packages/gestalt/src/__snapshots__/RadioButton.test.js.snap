@@ -12,11 +12,11 @@ exports[`RadioButton 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgEnabled Border BorderUnchecked SizeMd RadioButton"
+        className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
       >
         <input
           checked={false}
-          className="Input SizeMd InputEnabled"
+          className="input sizeMd InputEnabled"
           disabled={false}
           id="id"
           onBlur={[Function]}
@@ -59,11 +59,11 @@ exports[`RadioButton checked 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgEnabled BorderDarkGray BorderCheckedMd SizeMd RadioButton"
+        className="BgEnabled BorderDarkGray BorderCheckedMd sizeMd RadioButton"
       >
         <input
           checked={true}
-          className="Input SizeMd InputEnabled"
+          className="input sizeMd InputEnabled"
           disabled={false}
           id="id"
           onBlur={[Function]}
@@ -92,11 +92,11 @@ exports[`RadioButton disabled 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgDisabled Border BorderUnchecked SizeMd RadioButton"
+        className="BgDisabled Border BorderUnchecked sizeMd RadioButton"
       >
         <input
           checked={false}
-          className="Input SizeMd"
+          className="input sizeMd"
           disabled={true}
           id="id"
           onBlur={[Function]}
@@ -139,11 +139,11 @@ exports[`RadioButton disabled small 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgDisabled Border BorderUnchecked SizeSm RadioButton"
+        className="BgDisabled Border BorderUnchecked sizeSm RadioButton"
       >
         <input
           checked={false}
-          className="Input SizeSm"
+          className="input sizeSm"
           disabled={true}
           id="id"
           onBlur={[Function]}
@@ -186,11 +186,11 @@ exports[`RadioButton small 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgEnabled Border BorderUnchecked SizeSm RadioButton"
+        className="BgEnabled Border BorderUnchecked sizeSm RadioButton"
       >
         <input
           checked={false}
-          className="Input SizeSm InputEnabled"
+          className="input sizeSm InputEnabled"
           disabled={false}
           id="id"
           onBlur={[Function]}
@@ -233,11 +233,11 @@ exports[`RadioButton without label 1`] = `
       className="box paddingX1"
     >
       <div
-        className="BgEnabled Border BorderUnchecked SizeMd RadioButton"
+        className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
       >
         <input
           checked={false}
-          className="Input SizeMd InputEnabled"
+          className="input sizeMd InputEnabled"
           disabled={false}
           id="id"
           onBlur={[Function]}
