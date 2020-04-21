@@ -8,6 +8,7 @@
 
 ### Minor
 
+- Tooltip: Show tooltip when React children have focus (#824)
 - IconButton/Pog: Removed unused iconColor options: blue, orange; added darkGray; added bgColor: darkGray (#823)
 - Docs: Replaced combinations in Pog with Combinations: Icon Color & Background Color. Removed IconButton-bgColor-blue option from Docs. (#823)
 
@@ -15,7 +16,7 @@
 
 - Internal: Enable React.Strict on documentation (#821)
 - Checkbox/Radiobutton: Updated checkbox and radiobutton borders for disabled state (disabled controls don't show outlines) (#795)
- 
+
 </details>
 
 ## 1.42.0 (Apr 20, 2020)
