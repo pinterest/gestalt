@@ -44,7 +44,7 @@ card(
       {
         name: 'bgColor',
         type:
-          '"transparent" | "transparentDarkGray" | "gray" | "lightGray" | "white" | "blue" | "red"',
+          '"transparent" | "transparentDarkGray" | "darkGray" | "gray" | "lightGray" | "white" | "red"',
         defaultValue: 'transparent',
         href: 'backgroundColorCombinations',
       },
@@ -56,7 +56,7 @@ card(
       },
       {
         name: 'iconColor',
-        type: `"blue" | "darkGray" | "gray" | "red" | "white" | "orange"`,
+        type: `"darkGray" | "gray" | "red" | "white"`,
         defaultValue: 'gray',
         href: 'iconColorCombinations',
       },
@@ -163,7 +163,7 @@ card(
   <Combination
     id="iconColorCombinations"
     name="Combinations: Icon Color"
-    iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
+    iconColor={['darkGray', 'gray', 'red', 'white']}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
   </Combination>
@@ -176,9 +176,10 @@ card(
     bgColor={[
       'transparent',
       'transparentDarkGray',
-      'white',
-      'lightGray',
+      'darkGray',
       'gray',
+      'lightGray',
+      'white',
     ]}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
@@ -201,7 +202,7 @@ card(
     id="disabledCombinations"
     name="Combinations: Disabled"
     description="Icon buttons can be disabled as well. Adding the disabled flag to any color combination will add a 50% opacity and remove interactivity"
-    iconColor={['blue', 'darkGray', 'gray', 'red', 'white']}
+    iconColor={['darkGray', 'gray', 'red', 'white']}
   >
     {props => (
       <IconButton icon="heart" accessibilityLabel="" disabled {...props} />
