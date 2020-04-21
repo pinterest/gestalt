@@ -8,11 +8,13 @@
 
 ### Minor
 
+- Tooltip: Show tooltip when React children have focus (#824)
+
 ### Patch
 
 - Internal: Enable React.Strict on documentation (#821)
 - Checkbox/Radiobutton: Updated checkbox and radiobutton borders for disabled state (disabled controls don't show outlines) (#795)
- 
+
 </details>
 
 ## 1.42.0 (Apr 20, 2020)
