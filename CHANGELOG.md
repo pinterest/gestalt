@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Internal: Test builds on Node.js 14 (#826)
+
 </details>
 
 ## 1.43.0 (Apr 21, 2020)
