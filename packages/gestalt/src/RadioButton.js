@@ -2,6 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
@@ -68,20 +69,25 @@ export default class RadioButton extends React.Component<Props, State> {
     const { focused, hovered } = this.state;
 
     let borderStyle = styles.Border;
-    if (!disabled && checked) {
+    if (disabled && checked) {
+      borderStyle = styles.BorderDisabledChecked;
+    } else if (!disabled && checked) {
       borderStyle = styles.BorderDarkGray;
     } else if (!disabled && hovered) {
       borderStyle = styles.BorderHovered;
     }
 
     let borderWidth = styles.BorderUnchecked;
-    if (checked && size === 'sm') {
+    if (disabled && !checked) {
+      borderWidth = styles.BorderDisabled;
+    } else if (checked && size === 'sm') {
       borderWidth = styles.BorderCheckedSm;
     } else if (checked && size === 'md') {
       borderWidth = styles.BorderCheckedMd;
     }
 
-    const styleSize = size === 'sm' ? styles.SizeSm : styles.SizeMd;
+    const styleSize =
+      size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
     const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
@@ -109,7 +115,7 @@ export default class RadioButton extends React.Component<Props, State> {
             >
               <input
                 checked={checked}
-                className={classnames(styles.Input, styleSize, {
+                className={classnames(controlStyles.input, styleSize, {
                   [styles.InputEnabled]: !disabled,
                 })}
                 disabled={disabled}

@@ -1,3 +1,7 @@
+:root {
+  --gray: #767676;
+}
+
 .input {
   composes: accessibilityOutline from "./Focus.css";
   composes: border from "./Borders.css";
@@ -17,7 +21,7 @@
 }
 
 .input::placeholder {
-  color: #8e8e8e;
+  color: var(--gray);
 }
 
 .input::-webkit-search-decoration,

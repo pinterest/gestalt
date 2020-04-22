@@ -17,6 +17,7 @@ import alignTop from './align-top.svg';
 import alignTopCenter from './align-top-center.svg';
 import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
+import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
 import apps from './apps.svg';
 import arrowBack from './arrow-back.svg';
@@ -183,6 +184,7 @@ export default {
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
   'align-top': alignTop,
+  'android-share': androidShare,
   'angled-pin': angledPin,
   apps,
   'arrow-back': arrowBack,

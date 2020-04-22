@@ -1,0 +1,22 @@
+:root {
+  --size-sm: 16px;
+  --size-md: 24px;
+}
+
+.input {
+  composes: absolute from "./Layout.css";
+  composes: m0 from "./Whitespace.css";
+  appearance: none;
+  opacity: 0;
+  outline: 0;
+}
+
+.sizeSm {
+  height: var(--size-sm);
+  width: var(--size-sm);
+}
+
+.sizeMd {
+  height: var(--size-md);
+  width: var(--size-md);
+}

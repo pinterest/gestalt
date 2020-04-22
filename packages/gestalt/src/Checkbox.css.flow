@@ -3,14 +3,12 @@
 declare module.exports: {|
   +'border': string,
   +'borderDarkGray': string,
+  +'borderDisabled': string,
   +'borderError': string,
   +'borderHovered': string,
   +'borderRadiusMd': string,
   +'borderRadiusSm': string,
   +'check': string,
   +'checkFocused': string,
-  +'input': string,
   +'inputEnabled': string,
-  +'sizeMd': string,
-  +'sizeSm': string,
 |};

@@ -88,6 +88,8 @@ export default function Tooltip({
       <Box
         aria-label={text}
         ref={childRef}
+        onFocus={handleIconMouseEnter}
+        onBlur={handleIconMouseLeave}
         onMouseEnter={handleIconMouseEnter}
         onMouseLeave={handleIconMouseLeave}
       >

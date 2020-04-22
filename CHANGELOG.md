@@ -10,7 +10,42 @@
 
 ### Patch
 
+- Internal: Test builds on Node.js 14 (#826)
+
 </details>
+
+## 1.43.0 (Apr 21, 2020)
+
+### Minor
+
+- Tooltip: Show tooltip when React children have focus (#824)
+- IconButton/Pog: Removed unused iconColor options: blue, orange; added darkGray; added bgColor: darkGray (#823)
+- Docs: Replaced combinations in Pog with Combinations: Icon Color & Background Color. Removed IconButton-bgColor-blue option from Docs. (#823)
+
+### Patch
+
+- Internal: Enable React.Strict on documentation (#821)
+- Checkbox/Radiobutton: Updated checkbox and radiobutton borders for disabled state (disabled controls don't show outlines) (#795)
+
+## 1.42.0 (Apr 20, 2020)
+
+### Minor
+
+- RadioButton/Checkbox: Moved shared classes to RadioButtonCheckbox.css (#810)
+- Internal: update yarn.lock file (#814)
+- Internal: Minor version updates for several dependencies (#815)
+- Buttons/Tabs: Increase paddingX to 16px on lg Buttons and Tabs (#816)
+
+### Patch
+
+- Docs: Add a note on the Tabs documentation about use with react-router (#813)
+
+## 1.41.0 (Apr 16, 2020)
+
+### Minor
+
+- Color: update gray color to #767676 (#804)
+- Icon: update default #8e8e8e to #767676 (#811)
 
 ## 1.40.0 (Apr 15, 2020)
 
