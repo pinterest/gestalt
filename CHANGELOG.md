@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SearchField: Update design
+
 ### Patch
 
 - Internal: Test builds on Node.js 14 (#826)
