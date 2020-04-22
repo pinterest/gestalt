@@ -89,19 +89,6 @@
   composes: darkGrayBg from "./Colors.css";
 }
 
-.blue {
-  composes: blueBg from "./Colors.css";
-}
-
-.blue.hovered,
-.blue.focused {
-  background-color: #4a8ad4;
-}
-
-.blue.active {
-  background-color: #4a85c9;
-}
-
 .red {
   composes: redBg from "./Colors.css";
 }
