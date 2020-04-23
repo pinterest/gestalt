@@ -80,15 +80,11 @@ card(
     name="Example: Accessibility"
     useCheckerboard={false}
     defaultCode={`
-  class SearchFieldExample extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { value: '' };
-    }
+  function SearchFieldExample() {
+    const [value, setValue] = React.useState('');
 
-    render() {
       return (
-        <Box color="white" rounding={2} padding={3} display="flex" direction="row" alignItems="center">
+        <Box color="white" rounding={2} padding={3} display="flex" alignItems="center">
           <Box padding={3}>
             <Icon
               icon="pinterest"
@@ -101,9 +97,9 @@ card(
             <SearchField
               accessibilityLabel="Demo Search Field"
               id="searchField"
-              onChange={({ value }) => this.setState({ value })}
+              onChange={({value}) => setValue(value)}
               placeholder="Search and explore"
-              value={this.state.value}
+              value={value}
             />
           </Box>
           <Box paddingX={2}>
@@ -118,7 +114,6 @@ card(
           </Box>
         </Box>
       );
-    }
   }
 `}
   />

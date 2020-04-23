@@ -66,39 +66,28 @@ card(
     "
     name="Example"
     defaultCode={`
-class SegmentedControlExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itemIndex: 0,
-    };
-    this.handleItemChange = this.handleItemChange.bind(this);
-  }
+function SegmentedControlExample() {
 
-  handleItemChange({ activeIndex }) {
-    this.setState(prevState => ({ itemIndex: activeIndex }));
-  };
+  const [itemIndex, setItemIndex] = React.useState(0);
 
-  render() {
-    const items = [
-      'News',
-      'You',
-      'Messages',
-      <Icon
-        icon="pin"
-        accessibilityLabel="Pin"
-        color={this.state.itemIndex === 3 ? 'darkGray' : 'gray'}
-      />,
-    ];
+  const items = [
+    'News',
+    'You',
+    'Messages',
+    <Icon
+      icon="pin"
+      accessibilityLabel="Pin"
+      color={itemIndex === 3 ? 'darkGray' : 'gray'}
+    />,
+  ];
 
-    return (
-      <SegmentedControl
-        items={items}
-        selectedItemIndex={this.state.itemIndex}
-        onChange={this.handleItemChange}
-      />
-    );
-  }
+  return (
+    <SegmentedControl
+      items={items}
+      selectedItemIndex={itemIndex}
+      onChange={({ activeIndex }) => setItemIndex(activeIndex)}
+    />
+  );
 }
     `}
   />
@@ -109,34 +98,24 @@ card(
     description="Segmented Controls can have responsive widths where the width of an item is based on its content."
     name="Example"
     defaultCode={`
-class SegmentedControlExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itemIndex: 0,
-    };
-    this.handleItemChange = this.handleItemChange.bind(this);
-  }
+function SegmentedControlExample() {
 
-  handleItemChange({ activeIndex }) {
-    this.setState(prevState => ({ itemIndex: activeIndex }));
+  const [itemIndex, setItemIndex] = React.useState(0);
+
+  const props = {
+    items: ['Short', 'Really really really long title'],
+    selectedItemIndex: itemIndex,
+    onChange: ({ activeIndex }) => setItemIndex(activeIndex),
   };
 
-  render() {
-    const props = {
-      items: ['Short', 'Really really really long title'],
-      selectedItemIndex: this.state.itemIndex,
-      onChange: this.handleItemChange,
-    };
-    return (
-      <Box>
-        <h3>Equal widths</h3>
-        <SegmentedControl {...props} />
-        <h3>Responsive widths</h3>
-        <SegmentedControl {...props} responsive />
-      </Box>
-    );
-  }
+  return (
+    <Box>
+      <h3>Equal widths</h3>
+      <SegmentedControl {...props} />
+      <h3>Responsive widths</h3>
+      <SegmentedControl {...props} responsive />
+    </Box>
+  );
 }
     `}
   />

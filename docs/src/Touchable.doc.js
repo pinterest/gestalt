@@ -72,56 +72,42 @@ card(
   `}
     name="Example"
     defaultCode={`
-class TouchableExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { clicks: 0 };
-    this.handleTouch = this._handleTouch.bind(this);
-    this.handleLinkClick = this._handleLinkClick.bind(this);
-  }
-  _handleTouch() {
-    this.setState({
-      clicks: this.state.clicks + 1,
-    });
-  };
-  _handleLinkClick({ event }) {
-    event.stopPropagation();
-  };
-  render() {
-    return (
-      <Box padding={2} width={150}>
-        <Touchable
-          mouseCursor="zoomIn"
-          onTouch={this.handleTouch}
-          rounding={2}
-        >
-          <Mask rounding={2}>
-            <Image
-              alt="Antelope Canyon"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/DwYrGy6/stock14.jpg"
-            />
-          </Mask>
-          <Box paddingY={2}>
-            <Link
-              href="https://en.wikipedia.org/wiki/Antelope_Canyon"
-              onClick={this.handleLinkClick}
-            >
-              <Text align="center">Wiki Link</Text>
-            </Link>
-          </Box>
-        </Touchable>
+function TouchableExample() {
+  const [clicks, setClicks] = React.useState(0);
+
+  return (
+    <Box padding={2} width={150}>
+      <Touchable
+        mouseCursor="zoomIn"
+        onTouch={() => setClicks(clicks + 1)}
+        rounding={2}
+      >
+        <Mask rounding={2}>
+          <Image
+            alt="Antelope Canyon"
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/DwYrGy6/stock14.jpg"
+          />
+        </Mask>
         <Box paddingY={2}>
-          <Text color="gray" align="center">
-            Clicked{' '}
-            {this.state.clicks}{' '}
-            {this.state.clicks === 1 ? 'time' : 'times'}
-          </Text>
+          <Link
+            href="https://en.wikipedia.org/wiki/Antelope_Canyon"
+            onClick={({ event }) => event.stopPropagation()}
+          >
+            <Text align="center">Wiki Link</Text>
+          </Link>
         </Box>
+      </Touchable>
+      <Box paddingY={2}>
+        <Text color="gray" align="center">
+          Clicked{' '}
+          {clicks}{' '}
+          {clicks === 1 ? 'time' : 'times'}
+        </Text>
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
