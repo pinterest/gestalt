@@ -14,6 +14,12 @@
 
 </details>
 
+## 1.45.0 (Apr 23, 2020)
+
+### Minor
+
+- SearchField: convert back to class component (#830)
+
 ## 1.44.0 (Apr 23, 2020)
 
 ### Minor
