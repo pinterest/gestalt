@@ -13,6 +13,7 @@
 ### Patch
 
 - Internal: Test builds on Node.js 14 (#826)
+- Docs: Refactored instances of class to function components in Docs (#817)
 
 </details>
 
