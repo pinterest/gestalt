@@ -8,6 +8,8 @@
 
 ### Minor
 
+- SearchField: convert back to class component (#830)
+
 ### Patch
 
 </details>
