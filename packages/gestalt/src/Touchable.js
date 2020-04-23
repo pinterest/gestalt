@@ -23,6 +23,8 @@ type Props = {|
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,
+  onBlur?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
+  onFocus?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
   onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   onTouch?: ({
@@ -81,6 +83,8 @@ export default class Touchable extends React.Component<Props> {
       'zoomIn',
       'zoomOut',
     ]),
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
     onTouch: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
@@ -97,6 +101,20 @@ export default class Touchable extends React.Component<Props> {
       // Prevent the default action to stop scrolling when space is pressed
       event.preventDefault();
       onTouch({ event });
+    }
+  };
+
+  handleBlur = (event: SyntheticFocusEvent<HTMLDivElement>) => {
+    const { onBlur } = this.props;
+    if (onBlur) {
+      onBlur({ event });
+    }
+  };
+
+  handleFocus = (event: SyntheticFocusEvent<HTMLDivElement>) => {
+    const { onFocus } = this.props;
+    if (onFocus) {
+      onFocus({ event });
     }
   };
 
@@ -144,6 +162,8 @@ export default class Touchable extends React.Component<Props> {
       <div
         className={classes}
         onClick={this.handleClick}
+        onBlur={this.handleBlur}
+        onFocus={this.handleFocus}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onKeyPress={this.handleKeyPress}
