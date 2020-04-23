@@ -54,6 +54,7 @@ type Props<T> = {|
           from: number,
         }
       ) => void | boolean | {}),
+  layoutDirection?: string,
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
@@ -198,6 +199,7 @@ export default class Masonry<T: {}> extends React.Component<
     columnWidth: 236,
     minCols: 3,
     layout: 'basic',
+    layoutDirection: 'ltr',
     loadItems: () => {},
     virtualize: false,
   };
@@ -401,6 +403,7 @@ export default class Masonry<T: {}> extends React.Component<
   renderMasonryComponent = (itemData: T, idx: number, position: *) => {
     const {
       comp: Component,
+      layoutDirection,
       scrollContainer,
       virtualize,
       virtualBoundsTop,
@@ -428,6 +431,8 @@ export default class Masonry<T: {}> extends React.Component<
       isVisible = true;
     }
 
+    const isRTL = layoutDirection === 'rtl';
+
     const itemComponent = (
       <div
         key={`item-${idx}`}
@@ -437,9 +442,12 @@ export default class Masonry<T: {}> extends React.Component<
         data-grid-item
         style={{
           top: 0,
-          left: 0,
+          left: isRTL ? null : 0,
+          right: isRTL ? 0 : null,
           transform: `translateX(${left}px) translateY(${top}px)`,
-          WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
+          WebkitTransform: isRTL
+            ? `translateX(-${left}px) translateY(${top}px)`
+            : `translateX(${left}px) translateY(${top}px)`,
           width: layoutNumberToCssDimension(width),
           height: layoutNumberToCssDimension(height),
         }}
@@ -460,6 +468,7 @@ export default class Masonry<T: {}> extends React.Component<
       items,
       layout,
       minCols,
+      layoutDirection,
       scrollContainer,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
@@ -496,6 +505,7 @@ export default class Masonry<T: {}> extends React.Component<
     }
 
     let gridBody;
+    const isRTL = layoutDirection === 'rtl';
     if (width == null && hasPendingMeasurements) {
       // When hyrdating from a server render, we don't have the width of the grid
       // and the measurement store is empty
@@ -514,7 +524,8 @@ export default class Masonry<T: {}> extends React.Component<
                 key={i}
                 style={{
                   top: 0,
-                  left: 0,
+                  left: isRTL ? null : 0,
+                  right: isRTL ? 0 : null,
                   transform: 'translateX(0px) translateY(0px)',
                   WebkitTransform: 'translateX(0px) translateY(0px)',
                   width:

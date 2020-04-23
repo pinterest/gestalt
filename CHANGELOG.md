@@ -9,6 +9,7 @@
 ### Minor
 
 - SearchField: Update design
+- Masonry: Add RTL support (#828)
 
 ### Patch
 

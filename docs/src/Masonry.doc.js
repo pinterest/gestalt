@@ -69,6 +69,13 @@ card(
           'A callback when the user scrolls and you need to load more items into the grid. Note that `scrollContainer` must be specified.',
       },
       {
+        name: 'layoutDirection',
+        type: 'string',
+        defaultValue: 'ltr',
+        description:
+          'Support ltr or rtl. Specifies whether Masonry should load first element from right to left instead of left to right for RTL support.',
+      },
+      {
         name: 'scrollContainer',
         type: '() => HTMLElement',
         description:
