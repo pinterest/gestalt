@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -26,37 +26,49 @@ type Props = {|
   value?: string,
 |};
 
-const SearchField = ({
-  accessibilityLabel,
-  autoComplete,
-  id,
-  onBlur,
-  onChange,
-  onFocus,
-  placeholder,
-  size = 'md',
-  value,
-}: Props) => {
-  const [focused, setFocused] = useState(false);
-  const [hovered, setHovered] = useState(false);
+type State = {|
+  focused: boolean,
+  hovered: boolean,
+|};
 
-  const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+export default class SearchField extends React.Component<Props, State> {
+  static propTypes = {
+    accessibilityLabel: PropTypes.string.isRequired,
+    autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
+    id: PropTypes.string.isRequired,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
+    onFocus: PropTypes.func,
+    placeholder: PropTypes.string,
+    size: PropTypes.oneOf(['md', 'lg']),
+    value: PropTypes.string,
+  };
+
+  state = {
+    focused: false,
+    hovered: false,
+  };
+
+  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { onChange } = this.props;
     onChange({
       value: event.currentTarget.value,
       syntheticEvent: event,
     });
   };
 
-  const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
+  handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { onChange } = this.props;
     onChange({ value: '', syntheticEvent: event });
   };
 
-  const handleMouseEnter = () => setHovered(true);
+  handleMouseEnter = () => this.setState({ hovered: true });
 
-  const handleMouseLeave = () => setHovered(false);
+  handleMouseLeave = () => this.setState({ hovered: false });
 
-  const handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
-    setFocused(true);
+  handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { onFocus } = this.props;
+    this.setState({ focused: true });
 
     if (onFocus) {
       onFocus({
@@ -66,104 +78,104 @@ const SearchField = ({
     }
   };
 
-  const handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
-    setFocused(false);
+  handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { onBlur } = this.props;
+    this.setState({ focused: false });
 
     if (onBlur) {
       onBlur({ event });
     }
   };
 
-  const hasValue = value && value.length > 0;
-  const hideSearchIcon = focused || hasValue;
+  render() {
+    const {
+      accessibilityLabel,
+      autoComplete,
+      id,
+      placeholder,
+      size = 'md',
+      value,
+    } = this.props;
 
-  const className = classnames(styles.input, {
-    [layout.medium]: size === 'md',
-    [layout.large]: size === 'lg',
-    [styles.inputActive]: focused || hasValue,
-    [styles.inputHovered]: hovered,
-  });
+    const { focused, hovered } = this.state;
 
-  const clearButtonSize = size === 'lg' ? 24 : 20;
-  const clearIconSize = size === 'lg' ? 12 : 10;
+    const hasValue = value && value.length > 0;
+    const hideSearchIcon = focused || hasValue;
 
-  return (
-    <Box
-      alignItems="center"
-      display="flex"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      position="relative"
-    >
-      {!hideSearchIcon && (
-        <Box
-          dangerouslySetInlineStyle={{
-            __style: {
-              pointerEvents: 'none',
-              // Added the following lines for Safari support
-              top: '50%',
-              transform: 'translateY(-50%)',
-            },
-          }}
-          left
-          paddingX={4}
-          position="absolute"
-        >
-          <Icon icon="search" accessibilityLabel="" />
-        </Box>
-      )}
-      <input
-        aria-label={accessibilityLabel}
-        autoComplete={autoComplete}
-        className={className}
-        id={id}
-        onChange={handleChange}
-        placeholder={placeholder}
-        role="searchbox"
-        type="search"
-        value={value}
-      />
-      {hasValue && (
-        <button
-          className={styles.clear}
-          onClick={handleClear}
-          tabIndex={-1}
-          type="button"
-        >
+    const className = classnames(styles.input, {
+      [layout.medium]: size === 'md',
+      [layout.large]: size === 'lg',
+      [styles.inputActive]: focused || hasValue,
+      [styles.inputHovered]: hovered,
+    });
+
+    const clearButtonSize = size === 'lg' ? 24 : 20;
+    const clearIconSize = size === 'lg' ? 12 : 10;
+
+    return (
+      <Box
+        alignItems="center"
+        display="flex"
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        position="relative"
+      >
+        {!hideSearchIcon && (
           <Box
-            alignItems="center"
-            color={focused ? 'darkGray' : 'transparent'}
-            display="flex"
-            height={clearButtonSize}
-            justifyContent="center"
-            rounding="circle"
-            width={clearButtonSize}
+            dangerouslySetInlineStyle={{
+              __style: {
+                pointerEvents: 'none',
+                // Added the following lines for Safari support
+                top: '50%',
+                transform: 'translateY(-50%)',
+              },
+            }}
+            left
+            paddingX={4}
+            position="absolute"
           >
-            <Icon
-              accessibilityLabel=""
-              color={focused ? 'white' : 'darkGray'}
-              icon="cancel"
-              size={clearIconSize}
-            />
+            <Icon icon="search" accessibilityLabel="" />
           </Box>
-        </button>
-      )}
-    </Box>
-  );
-};
-
-SearchField.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
-  id: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  value: PropTypes.string,
-};
-
-export default SearchField;
+        )}
+        <input
+          aria-label={accessibilityLabel}
+          autoComplete={autoComplete}
+          className={className}
+          id={id}
+          onChange={this.handleChange}
+          placeholder={placeholder}
+          role="searchbox"
+          type="search"
+          value={value}
+        />
+        {hasValue && (
+          <button
+            className={styles.clear}
+            onClick={this.handleClear}
+            tabIndex={-1}
+            type="button"
+          >
+            <Box
+              alignItems="center"
+              color={focused ? 'darkGray' : 'transparent'}
+              display="flex"
+              height={clearButtonSize}
+              justifyContent="center"
+              rounding="circle"
+              width={clearButtonSize}
+            >
+              <Icon
+                accessibilityLabel=""
+                color={focused ? 'white' : 'darkGray'}
+                icon="cancel"
+                size={clearIconSize}
+              />
+            </Box>
+          </button>
+        )}
+      </Box>
+    );
+  }
+}
