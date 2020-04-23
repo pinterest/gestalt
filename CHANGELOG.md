@@ -8,14 +8,20 @@
 
 ### Minor
 
-- SearchField: Update design
+### Patch
+
+</details>
+
+## 1.44.0 (Apr 23, 2020)
+
+### Minor
+
+- SearchField: Update design (#819)
 
 ### Patch
 
 - Internal: Test builds on Node.js 14 (#826)
 - Docs: Refactored instances of class to function components in Docs (#817)
-
-</details>
 
 ## 1.43.0 (Apr 21, 2020)
 
