@@ -63,31 +63,23 @@ card(
   `}
     name="Example: Using a label"
     defaultCode={`
-class SwitchExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { switched: false };
-    this.handleChange = this._handleChange.bind(this);
-  }
-  _handleChange() {
-    this.setState({ switched: !this.state.switched });
-  }
-  render() {
-    return (
-      <Box display="flex" direction="row" alignItems="center">
-        <Box paddingX={2} flex="grow">
-          <Label htmlFor="emailNotifications">
-            <Text>Airplane mode</Text>
-          </Label>
-        </Box>
-        <Switch
-          onChange={this.handleChange}
-          id="emailNotifications"
-          switched={this.state.switched}
-        />
+function SwitchExample() {
+  const [switched, setSwitched] = React.useState(false);
+
+  return (
+    <Box display="flex" alignItems="center">
+      <Box paddingX={2} flex="grow">
+        <Label htmlFor="emailNotifications">
+          <Text>Airplane mode</Text>
+        </Label>
       </Box>
-    );
-  }
+      <Switch
+        onChange={() => setSwitched(!switched)}
+        id="emailNotifications"
+        switched={switched}
+      />
+    </Box>
+  );
 }
 `}
   />

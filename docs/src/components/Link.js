@@ -16,45 +16,47 @@ type Props = {|
 const isModifiedEvent = event =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-class Link extends React.Component<Props> {
-  static defaultProps = {
-    replace: false,
-  };
+const Link = ({
+  children,
+  history,
+  onClick,
+  replace = false,
+  target,
+  to,
+}: Props) => {
+  const href = history.createHref(
+    typeof to === 'string'
+      ? createLocation(to, null, null, history.location)
+      : to
+  );
 
-  handleClick = ({ event }) => {
-    if (this.props.onClick) this.props.onClick({ event });
+  const handleClick = React.useCallback(
+    ({ event }) => {
+      if (onClick) onClick({ event });
 
-    if (
-      !event.defaultPrevented && // onClick prevented default
-      event.button === 0 && // ignore everything but left clicks
-      !this.props.target && // let browser handle "target=_blank" etc.
-      !isModifiedEvent(event) // ignore clicks with modifier keys
-    ) {
-      event.preventDefault();
+      if (
+        !event.defaultPrevented && // onClick prevented default
+        event.button === 0 && // ignore everything but left clicks
+        !target && // let browser handle "target=_blank" etc.
+        !isModifiedEvent(event) // ignore clicks with modifier keys
+      ) {
+        event.preventDefault();
 
-      const { replace, to, history } = this.props;
-
-      if (replace) {
-        history.replace(to);
-      } else {
-        history.push(to);
+        if (replace) {
+          history.replace(to);
+        } else {
+          history.push(to);
+        }
       }
-    }
-  };
+    },
+    [history, onClick, replace, target, to]
+  );
 
-  render() {
-    const { children, to, history, target } = this.props;
-    const href = history.createHref(
-      typeof to === 'string'
-        ? createLocation(to, null, null, history.location)
-        : to
-    );
-    return (
-      <GestaltLink target={target} onClick={this.handleClick} href={href}>
-        {children}
-      </GestaltLink>
-    );
-  }
-}
+  return (
+    <GestaltLink target={target} onClick={handleClick} href={href}>
+      {children}
+    </GestaltLink>
+  );
+};
 
 export default withRouter(Link);

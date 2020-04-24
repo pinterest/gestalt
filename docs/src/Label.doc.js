@@ -38,28 +38,23 @@ card(
   `}
     name="Example"
     defaultCode={`
-class LabelExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { switched: false };
-  }
+function LabelExample() {
+  const [switched, setSwitched] = React.useState(false);
 
-  render() {
-    return (
-      <Box>
-        <Box paddingY={1}>
-          <Label htmlFor="switchExample">
-            <Text>Live example</Text>
-          </Label>
-        </Box>
-        <Switch
-          onChange={() => this.setState({ switched: !this.state.switched })}
-          id="switchExample"
-          switched={this.state.switched}
-        />
+  return (
+    <Box>
+      <Box paddingY={1}>
+        <Label htmlFor="switchExample">
+          <Text>Live example</Text>
+        </Label>
       </Box>
-    );
-  }
+      <Switch
+        onChange={() => setSwitched(!switched)}
+        id="switchExample"
+        switched={switched}
+      />
+    </Box>
+  );
 }
 `}
   />
