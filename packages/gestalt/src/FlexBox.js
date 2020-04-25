@@ -55,7 +55,6 @@ type Props = {|
   mdPaddingY?: Padding,
   lgPaddingY?: Padding,
 
-  shrink?: boolean,
   width?: Dimension,
   wrap?: boolean,
 |};
