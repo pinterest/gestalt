@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import FlexBox from './FlexBox.js';
-import {
+import Box, {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
@@ -53,18 +53,34 @@ type Props = {|
   mdPaddingY?: Padding,
   lgPaddingY?: Padding,
 
+  spacing?: Padding,
   width?: Dimension,
   wrap?: boolean,
 |};
 
-export default function Row({ alignItems, justifyContent, ...rest }: Props) {
+export default function Row({
+  alignItems,
+  children,
+  justifyContent,
+  spacing,
+  ...rest
+}: Props) {
   return (
     <FlexBox
       alignItems={alignItems ?? 'center'}
       direction="row"
-      justifyContent={justifyContent ?? 'between'}
+      justifyContent={justifyContent ?? 'start'}
       {...rest}
-    />
+    >
+      {React.Children.map(children, (child, index) => (
+        <Box
+          marginStart={index === 0 ? 0 : spacing}
+          marginEnd={index === React.Children.count(children) - 1 ? 0 : spacing}
+        >
+          {child}
+        </Box>
+      ))}
+    </FlexBox>
   );
 }
 
@@ -101,6 +117,7 @@ Row.propTypes = {
   lgPaddingX: PaddingPropType,
   lgPaddingY: PaddingPropType,
 
+  spacing: PaddingPropType,
   width: DimensionPropType,
   wrap: PropTypes.bool,
 };
