@@ -1,3 +1,7 @@
+:root {
+  --gray: #767676;
+}
+
 .textArea {
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
@@ -8,5 +12,5 @@
 }
 
 .textArea::placeholder {
-  color: #8e8e8e;
+  color: var(--gray);
 }

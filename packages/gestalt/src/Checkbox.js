@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
+import controlStyles from './RadioButtonCheckbox.css';
 import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
@@ -74,7 +75,9 @@ export default function Checkbox({
   }
 
   let borderStyle = styles.border;
-  if (!disabled && (checked || indeterminate)) {
+  if (disabled) {
+    borderStyle = styles.borderDisabled;
+  } else if (!disabled && (checked || indeterminate)) {
     borderStyle = styles.borderDarkGray;
   } else if (hasError || errorMessage) {
     borderStyle = styles.borderError;
@@ -85,7 +88,7 @@ export default function Checkbox({
   const borderRadiusStyle =
     size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
 
-  const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
+  const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
   return (
     <Box>
@@ -100,7 +103,7 @@ export default function Checkbox({
           <Box paddingX={1} position="relative">
             <input
               checked={checked}
-              className={classnames(styles.input, styleSize, {
+              className={classnames(controlStyles.input, styleSize, {
                 [styles.inputEnabled]: !disabled,
               })}
               disabled={disabled}

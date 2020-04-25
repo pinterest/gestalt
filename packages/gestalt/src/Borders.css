@@ -1,8 +1,10 @@
 :root {
   --border-width: 1px;
   --border-width-lg: 2px;
+  --border-color-gray: #767676;
   --border-color-darkGray: #111;
   --border-color-lightGray: #ddd;
+  --border-color-lightGrayDisabled: #efefef;
   --border-color-red: #e60023;
   --border-color-lightGrayHovered: #d0d0d0;
   --bt: 4px;
@@ -12,6 +14,10 @@
 
 .border {
   border: var(--border-width) solid var(--border-color-lightGray);
+}
+
+.borderColorGray {
+  border-color: var(--border-color-gray);
 }
 
 .borderColorDarkGray {
@@ -28,6 +34,10 @@
 
 .borderColorLightGrayHovered {
   border-color: var(--border-color-lightGrayHovered);
+}
+
+.borderColorLightGrayDisabled {
+  border-color: var(--border-color-lightGrayDisabled);
 }
 
 .borderTop {

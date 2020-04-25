@@ -1,3 +1,7 @@
+:root {
+  --gray: #767676;
+}
+
 .textField {
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
@@ -6,5 +10,5 @@
 }
 
 .textField::placeholder {
-  color: #8e8e8e;
+  color: var(--gray);
 }

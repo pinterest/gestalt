@@ -85,51 +85,47 @@ card(
   "
     name="Example: Group"
     defaultCode={`
-class RadioButtonExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { gender: undefined };
-  }
-  render() {
-    return (
-      <Box
-        role="list"
-        display="flex"
-        direction="column"
-      >
-        <Box paddingY={1}>
-          <RadioButton
-            checked={this.state.gender === 'male'}
-            id="genderMale"
-            label="Male"
-            name="gender"
-            onChange={() => this.setState({ gender: 'male' })}
-            value="male"
-          />
-        </Box>
-        <Box paddingY={1}>
-          <RadioButton
-            checked={this.state.gender === 'female'}
-            id="genderFemale"
-            label="Female"
-            name="gender"
-            onChange={() => this.setState({ gender: 'female' })}
-            value="female"
-          />
-        </Box>
-        <Box paddingY={1}>
-          <RadioButton
-            checked={this.state.gender === 'other'}
-            id="genderOther"
-            label="Other"
-            name="gender"
-            onChange={() => this.setState({ gender: 'other' })}
-            value="other"
-          />
-        </Box>
+function RadioButtonExample() {
+  const [gender, setGender] = React.useState(undefined);
+
+  return (
+    <Box
+      role="list"
+      display="flex"
+      direction="column"
+    >
+      <Box paddingY={1}>
+        <RadioButton
+          checked={gender === 'male'}
+          id="genderMale"
+          label="Male"
+          name="gender"
+          onChange={() => setGender( 'male' )}
+          value="male"
+        />
       </Box>
-    );
-  }
+      <Box paddingY={1}>
+        <RadioButton
+          checked={gender === 'female'}
+          id="genderFemale"
+          label="Female"
+          name="gender"
+          onChange={() => setGender( 'female' )}
+          value="female"
+        />
+      </Box>
+      <Box paddingY={1}>
+        <RadioButton
+          checked={gender === 'other'}
+          id="genderOther"
+          label="Other"
+          name="gender"
+          onChange={() => setGender( 'other' )}
+          value="other"
+        />
+      </Box>
+    </Box>
+  );
 }
 `}
   />

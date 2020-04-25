@@ -12,6 +12,7 @@ type Props = {|
   accessibilityLabel: string,
   bgColor?:
     | 'transparent'
+    | 'darkGray'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -21,7 +22,7 @@ type Props = {|
   dangerouslySetSvgPath?: { __path: string },
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'blue' | 'white' | 'orange',
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   onClick?: ({ event: SyntheticMouseEvent<> }) => void,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
@@ -87,6 +88,7 @@ IconButton.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
   bgColor: PropTypes.oneOf([
     'transparent',
+    'darkGray',
     'transparentDarkGray',
     'gray',
     'lightGray',
@@ -99,14 +101,7 @@ IconButton.propTypes = {
   }),
   disabled: PropTypes.bool,
   icon: PropTypes.oneOf(Object.keys(icons)),
-  iconColor: PropTypes.oneOf([
-    'gray',
-    'darkGray',
-    'red',
-    'blue',
-    'white',
-    'orange',
-  ]),
+  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),

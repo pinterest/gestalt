@@ -33,6 +33,8 @@ card(
         name: 'onChange',
         type: `({ event: SyntheticMouseEvent<>, activeTabIndex: number }) => void`,
         required: true,
+        description:
+          'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
       },
       {
         name: 'size',

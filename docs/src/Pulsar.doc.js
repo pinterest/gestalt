@@ -41,31 +41,25 @@ card(
   `}
     name="Example"
     defaultCode={`
-class PulsarExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isPulsing: true
-    };
-  }
+  function PulsarExample() {
+    const [isPulsing, setIsPulsing] = React.useState(true);
 
-  render() {
-    const text = this.state.isPulsing ? 'Click to pause' : 'Click to show';
+    const text = isPulsing ? 'Click to pause' : 'Click to show';
+
     return (
       <Box display="flex" direction="column">
         <Box marginBottom={4}>
           <Button
             text={text}
-            onClick={() => this.setState({ isPulsing: !this.state.isPulsing })}
+            onClick={() => setIsPulsing(!isPulsing)}
             inline
             size="md"
           />
         </Box>
-        <Pulsar paused={!this.state.isPulsing} />
+        <Pulsar paused={!isPulsing} />
       </Box>
     );
   }
-}
 `}
   />
 );

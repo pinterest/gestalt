@@ -12,6 +12,78 @@
 
 </details>
 
+## 1.45.0 (Apr 23, 2020)
+
+### Minor
+
+- SearchField: convert back to class component (#830)
+
+## 1.44.0 (Apr 23, 2020)
+
+### Minor
+
+- SearchField: Update design (#819)
+
+### Patch
+
+- Internal: Test builds on Node.js 14 (#826)
+- Docs: Refactored instances of class to function components in Docs (#817)
+
+## 1.43.0 (Apr 21, 2020)
+
+### Minor
+
+- Tooltip: Show tooltip when React children have focus (#824)
+- IconButton/Pog: Removed unused iconColor options: blue, orange; added darkGray; added bgColor: darkGray (#823)
+- Docs: Replaced combinations in Pog with Combinations: Icon Color & Background Color. Removed IconButton-bgColor-blue option from Docs. (#823)
+
+### Patch
+
+- Internal: Enable React.Strict on documentation (#821)
+- Checkbox/Radiobutton: Updated checkbox and radiobutton borders for disabled state (disabled controls don't show outlines) (#795)
+
+## 1.42.0 (Apr 20, 2020)
+
+### Minor
+
+- RadioButton/Checkbox: Moved shared classes to RadioButtonCheckbox.css (#810)
+- Internal: update yarn.lock file (#814)
+- Internal: Minor version updates for several dependencies (#815)
+- Buttons/Tabs: Increase paddingX to 16px on lg Buttons and Tabs (#816)
+
+### Patch
+
+- Docs: Add a note on the Tabs documentation about use with react-router (#813)
+
+## 1.41.0 (Apr 16, 2020)
+
+### Minor
+
+- Color: update gray color to #767676 (#804)
+- Icon: update default #8e8e8e to #767676 (#811)
+
+## 1.40.0 (Apr 15, 2020)
+
+### Minor
+
+- Text/Heading: Use default (manual) hyphenation (#807)
+
+### Patch
+
+- Internal: remove reference to unused .integration.js (#808)
+
+## 1.39.0 (Apr 14, 2020)
+
+### Minor
+
+- SegmentedControl: Update the border radius from 8px outer / 6px inner to 16px outer / 14px inner (#798)
+
+## 1.38.0 (Apr 13, 2020)
+
+### Minor
+
+- Modal: support Flyout inside of a Modal (#793)
+
 ## 1.37.0 (Apr 3, 2020)
 
 ### Minor

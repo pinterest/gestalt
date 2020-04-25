@@ -44,48 +44,36 @@ card(
   "
     name="Overlaying Content"
     defaultCode={`
-class Example extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleToggle = this._handleToggle.bind(this);
-    this.state = {
-      showLayer: false,
-    };
-  }
+function Example() {
 
-  _handleToggle() {
-    this.setState(prevState => ({ showLayer: !prevState.showLayer }));
-  }
+  const [showLayer, setShowLayer] = React.useState(false);
 
-  render() {
-    const { showLayer } = this.state;
-    return (
-      <Box marginLeft={-1} marginRight={-1}>
-        <Box padding={1}>
-          <Button
-            text="Show Layer"
-            onClick={this.handleToggle}
-          />
-          {showLayer && (
-            <Layer>
-              <Box color="darkWash" position="fixed" top left right bottom display="flex" alignItems="center" justifyContent="center">
-                <Box color="white" padding={3} display="flex" alignItems="center">
-                  <Text>Layer Content</Text>
-                  <Box marginStart={2}>
-                    <IconButton
-                      accessibilityLabel="Close"
-                      icon="cancel"
-                      onClick={this.handleToggle}
-                    />
-                  </Box>
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="Show Layer"
+          onClick={() => setShowLayer(!showLayer)}
+        />
+        {showLayer && (
+          <Layer>
+            <Box color="darkWash" position="fixed" top left right bottom display="flex" alignItems="center" justifyContent="center">
+              <Box color="white" padding={3} display="flex" alignItems="center">
+                <Text>Layer Content</Text>
+                <Box marginStart={2}>
+                  <IconButton
+                    accessibilityLabel="Close"
+                    icon="cancel"
+                    onClick={() => setShowLayer(!showLayer)}
+                  />
                 </Box>
               </Box>
-            </Layer>
-          )}
-        </Box>
+            </Box>
+          </Layer>
+        )}
       </Box>
-    );
-  }
+    </Box>
+  );
 }
 `}
   />
