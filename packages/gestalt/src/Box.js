@@ -88,7 +88,7 @@ export type JustifyContent =
   | 'around'
   | 'evenly';
 
-type Margin =
+export type Margin =
   | -12
   | -11
   | -10
@@ -788,7 +788,7 @@ export const JustifyContentPropType = PropTypes.oneOf([
   'evenly',
 ]);
 
-const MarginPropType = PropTypes.oneOf([
+export const MarginPropType = PropTypes.oneOf([
   -12,
   -11,
   -10,

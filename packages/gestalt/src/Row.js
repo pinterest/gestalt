@@ -9,6 +9,7 @@ import Box, {
   DimensionPropType,
   FlexPropType,
   JustifyContentPropType,
+  MarginPropType,
   OverflowPropType,
   PaddingPropType,
   type AlignContent,
@@ -17,6 +18,7 @@ import Box, {
   type Dimension,
   type Flex,
   type JustifyContent,
+  type Margin,
   type Overflow,
   type Padding,
 } from './Box.js';
@@ -53,7 +55,7 @@ type Props = {|
   mdPaddingY?: Padding,
   lgPaddingY?: Padding,
 
-  spacing?: Padding,
+  spacing?: Margin,
   width?: Dimension,
   wrap?: boolean,
 |};
@@ -117,7 +119,7 @@ Row.propTypes = {
   lgPaddingX: PaddingPropType,
   lgPaddingY: PaddingPropType,
 
-  spacing: PaddingPropType,
+  spacing: MarginPropType,
   width: DimensionPropType,
   wrap: PropTypes.bool,
 };
