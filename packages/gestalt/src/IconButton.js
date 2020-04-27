@@ -17,7 +17,6 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white'
-    | 'blue'
     | 'red',
   dangerouslySetSvgPath?: { __path: string },
   disabled?: boolean,
@@ -93,7 +92,6 @@ IconButton.propTypes = {
     'gray',
     'lightGray',
     'white',
-    'blue',
     'red',
   ]),
   dangerouslySetSvgPath: PropTypes.shape({

@@ -12,6 +12,13 @@
 
 </details>
 
+## 1.46.0 (Apr 27, 2020)
+
+### Minor
+
+- IconButton/Pog: Deprecated bgColor=blue in Pog and IconButton (#827)
+- Touchable: add optional onBlur / onFocus props (#832)
+
 ## 1.45.0 (Apr 23, 2020)
 
 ### Minor

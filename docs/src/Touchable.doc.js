@@ -39,6 +39,14 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'onBlur',
+        type: '({ event: SyntheticFocusEvent<HTMLDivElement> }) => void',
+      },
+      {
+        name: 'onFocus',
+        type: '({ event: SyntheticFocusEvent<HTMLDivElement> }) => void',
+      },
+      {
         name: 'onMouseEnter',
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> }) => void',
       },
