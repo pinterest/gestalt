@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- IconButton/Pog: Deprecated bgColor=blue in Pog and IconButton (#827)
 
 ### Patch
 
