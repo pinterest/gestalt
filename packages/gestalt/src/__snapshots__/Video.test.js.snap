@@ -74,7 +74,9 @@ exports[`Video with children 1`] = `
     >
       <div
         className="touchable pointer rounding0"
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -195,7 +197,9 @@ exports[`Video with children 1`] = `
     >
       <div
         className="touchable pointer rounding0"
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onKeyPress={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

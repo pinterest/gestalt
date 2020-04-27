@@ -3,7 +3,9 @@
 exports[`Touchable renders 1`] = `
 <div
   className="touchable pointer rounding0 fullWidth"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -17,7 +19,9 @@ exports[`Touchable renders 1`] = `
 exports[`Touchable sets correct mouse cursor 1`] = `
 <div
   className="touchable zoomIn rounding0 fullWidth"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -31,7 +35,9 @@ exports[`Touchable sets correct mouse cursor 1`] = `
 exports[`Touchable sets correct rounding 1`] = `
 <div
   className="touchable pointer circle fullWidth"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -45,7 +51,9 @@ exports[`Touchable sets correct rounding 1`] = `
 exports[`Touchable sets fullHeight correctly 1`] = `
 <div
   className="touchable pointer rounding0 fullHeight fullWidth"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -59,7 +67,9 @@ exports[`Touchable sets fullHeight correctly 1`] = `
 exports[`Touchable sets fullWidth correctly 1`] = `
 <div
   className="touchable pointer rounding0"
+  onBlur={[Function]}
   onClick={[Function]}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

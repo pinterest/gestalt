@@ -9,7 +9,9 @@ exports[`VideoControls for double digit minutes 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -130,7 +132,9 @@ exports[`VideoControls for double digit minutes 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -164,7 +168,9 @@ exports[`VideoControls for double digit seconds 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -285,7 +291,9 @@ exports[`VideoControls for double digit seconds 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -319,7 +327,9 @@ exports[`VideoControls for single digit minutes 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -440,7 +450,9 @@ exports[`VideoControls for single digit minutes 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -474,7 +486,9 @@ exports[`VideoControls for single digit seconds 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -595,7 +609,9 @@ exports[`VideoControls for single digit seconds 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -629,7 +645,9 @@ exports[`VideoControls rounds for partial seconds 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -750,7 +768,9 @@ exports[`VideoControls rounds for partial seconds 1`] = `
   >
     <div
       className="touchable pointer rounding0"
+      onBlur={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
