@@ -23,6 +23,10 @@
   min-width: 180px;
 }
 
+.minDimensionsCustom {
+  padding: 3px
+}
+
 .innerContents {
   composes: flex from "./Layout.css";
   composes: overflowAuto from "./Layout.css";

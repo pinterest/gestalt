@@ -8,4 +8,5 @@ declare module.exports: {|
   +'innerContents': string,
   +'maxDimensions': string,
   +'minDimensions': string,
+  +'minDimensionsCustom': string,
 |};

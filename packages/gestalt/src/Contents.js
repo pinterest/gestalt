@@ -498,6 +498,10 @@ export default class Contents extends React.Component<Props, State> {
     const visibility = mainDir === null ? 'hidden' : 'visible';
     const background = `${bgColor}Bg`;
     const stroke = bgColor === 'white' ? '#ddd' : null;
+    const minDims =
+      typeof width === 'number' && width < 180
+        ? styles.minDimensionsCustom
+        : styles.minDimensions;
 
     return (
       <div
@@ -513,7 +517,7 @@ export default class Contents extends React.Component<Props, State> {
             rounding === 4 && borders.rounding4,
             styles.contents,
             styles.maxDimensions,
-            width !== null && styles.minDimensions
+            width !== null && minDims
           )}
           ref={this.setFlyoutRef}
           tabIndex={-1}
@@ -522,7 +526,7 @@ export default class Contents extends React.Component<Props, State> {
             className={classnames(
               styles.innerContents,
               styles.maxDimensions,
-              width !== null && styles.minDimensions
+              width !== null && minDims
             )}
             style={{ maxWidth: width }}
           >
