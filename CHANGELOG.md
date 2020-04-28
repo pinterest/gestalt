@@ -10,9 +10,13 @@
 
 ### Patch
 
-- Readme: Remove greenkeeper reference (#835)
-
 </details>
+
+## 1.46.1 (Apr 28, 2020)
+
+### Patch
+
+- Readme: Remove greenkeeper reference (#835)
 
 ## 1.46.0 (Apr 27, 2020)
 
