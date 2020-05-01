@@ -7,6 +7,7 @@
   </summary>
 
 ### Minor
+- Badge: Update to solid background and white text (#839)
 
 ### Patch
 
