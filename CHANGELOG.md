@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Table: add basic table components (#838)
+
 ### Patch
 
 </details>
