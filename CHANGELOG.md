@@ -10,6 +10,8 @@
 
 ### Patch
 
+- Flyout: fix stroke on caret (#837)
+
 </details>
 
 ## 1.46.1 (Apr 28, 2020)
