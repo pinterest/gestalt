@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { Box, Text, Icon, Link } from 'gestalt';
 

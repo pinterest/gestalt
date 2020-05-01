@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import defaultLayout from './defaultLayout.js';
 
 const stubCache = (measurements?: { [item: string]: number } = {}) => {

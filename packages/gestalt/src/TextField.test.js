@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
 import TextField from './TextField.js';

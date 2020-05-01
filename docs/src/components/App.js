@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { Box, Column, Divider, Link, Text } from 'gestalt';
 import Header from './Header.js';

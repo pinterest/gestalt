@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';

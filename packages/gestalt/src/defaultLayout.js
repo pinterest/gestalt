@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import type { Cache } from './Cache.js';
 
 export type Position = {

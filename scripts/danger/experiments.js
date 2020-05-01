@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export default function experiments() {
   const changed = danger.git.modified_files.some(file =>

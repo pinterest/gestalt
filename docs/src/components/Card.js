@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { Box, Heading } from 'gestalt';
 import Markdown from './Markdown.js';

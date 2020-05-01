@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';

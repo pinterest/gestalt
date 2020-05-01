@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import ad from './ad.svg';
 import add from './add.svg';
 import addCircle from './add-circle.svg';

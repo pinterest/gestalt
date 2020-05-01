@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import changelog from './scripts/danger/changelog.js';
 import lockfile from './scripts/danger/lockfile.js';
 import experiments from './scripts/danger/experiments.js';

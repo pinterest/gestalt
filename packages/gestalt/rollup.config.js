@@ -1,3 +1,4 @@
+// eslint-disable-next-line flowtype/require-valid-file-annotation
 import babel from 'rollup-plugin-babel';
 import cssnano from 'cssnano';
 import filesize from 'rollup-plugin-filesize';

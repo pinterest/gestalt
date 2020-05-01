@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';

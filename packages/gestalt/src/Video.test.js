@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Video from './Video.js';

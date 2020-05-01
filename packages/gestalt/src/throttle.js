@@ -4,7 +4,7 @@
  * on the leading and trailing edge.
  */
 
-// @flow
+// @flow strict
 export default function throttle(
   fn: (...args: *) => void,
   threshhold: number = 100

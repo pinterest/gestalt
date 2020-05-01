@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export default function lockfile() {
   const packageChanged = danger.git.modified_files.includes('package.json');
