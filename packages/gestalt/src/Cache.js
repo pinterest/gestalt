@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export interface Cache<K, V> {
   get(key: K): ?V;
   has(key: K): boolean;

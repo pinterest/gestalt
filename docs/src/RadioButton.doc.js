@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { RadioButton } from 'gestalt';
 import Example from './components/Example.js';

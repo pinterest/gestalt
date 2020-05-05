@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { Pog } from 'gestalt';
 import PropTable from './components/PropTable.js';

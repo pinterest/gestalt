@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { IconButton } from 'gestalt';
 import Example from './components/Example.js';

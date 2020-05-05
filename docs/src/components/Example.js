@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import * as gestalt from 'gestalt';
 import LZString from 'lz-string';

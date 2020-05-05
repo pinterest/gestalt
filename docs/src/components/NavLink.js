@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { Link, Text } from 'gestalt';
 import { withRouter, Route } from 'react-router-dom';

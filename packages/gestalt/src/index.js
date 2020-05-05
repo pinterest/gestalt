@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import Avatar from './Avatar.js';
 import Badge from './Badge.js';
 import Box from './Box.js';

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import type { Cache } from './Cache.js';
 
 export default class MeasurementStore<T: {} | $ReadOnlyArray<mixed>, V>

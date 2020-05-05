@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import { Link as GestaltLink } from 'gestalt';
 import { createLocation } from 'history';

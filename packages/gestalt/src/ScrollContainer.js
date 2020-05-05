@@ -12,7 +12,7 @@
  * or the API at all, so it could easily be adapted to other event types.
  */
 
-// @flow
+// @flow strict
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
