@@ -12,7 +12,7 @@ type Props = {|
   positionRelativeToAnchor?: boolean,
   shouldFocus?: boolean,
   showCaret?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number,
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number,
 |};
 
 export default function Flyout(props: Props) {
@@ -43,7 +43,7 @@ export default function Flyout(props: Props) {
       positionRelativeToAnchor={positionRelativeToAnchor}
       rounding={4}
       shouldFocus={shouldFocus}
-      size={size}
+      size={size === 'flexible' ? null : size}
     >
       {children}
     </Controller>
