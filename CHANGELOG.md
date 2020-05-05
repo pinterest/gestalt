@@ -16,7 +16,7 @@
 
 
 ### Minor 
-  - Icon: Add story pin icon (#)
+  - Icon: Add story pin icon (#842)
  
 ## 1.46.1 (Apr 28, 2020)
 
