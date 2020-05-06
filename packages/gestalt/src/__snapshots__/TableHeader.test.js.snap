@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<thead
+  className="thead"
+>
+  <div>
+    row with column names
+  </div>
+</thead>
+`;

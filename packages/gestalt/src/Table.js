@@ -1,81 +1,31 @@
 // @flow
 import * as React from 'react';
+import Box from './Box.js';
 import styles from './Table.css';
+import TableCell from './TableCell.js';
+import TableBody from './TableBody.js';
+import TableHeader from './TableHeader.js';
+import TableHeaderCell from './TableHeaderCell.js';
+import TableRow from './TableRow.js';
 
-const TableBody = ({ children }: { children: React.Node }) => (
-  <tbody>{children}</tbody>
-);
-
-const TableCell = ({
-  children,
-  colSpan,
-  rowSpan,
-}: {
-  children: React.Node,
-  colSpan?: number,
-  rowSpan?: number,
-}) => {
-  let props = { className: styles.td };
-  if (colSpan) {
-    props = { ...props, colSpan };
-  }
-  if (rowSpan) {
-    props = { ...props, rowSpan };
-  }
-
-  return <td {...props}>{children}</td>;
-};
-
-const TableHeader = ({ children }: { children: React.Node }) => (
-  <thead className={styles.thead}>{children}</thead>
-);
-
-const TableHeaderCell = ({
-  children,
-  colSpan,
-  rowSpan,
-  scope = 'col',
-}: {
-  children: React.Node,
-  colSpan?: number,
-  rowSpan?: number,
-  scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
-}) => {
-  let props = { className: styles.th, scope };
-  if (colSpan) {
-    props = { ...props, colSpan };
-  }
-  if (rowSpan) {
-    props = { ...props, rowSpan };
-  }
-
-  return <th {...props}>{children}</th>;
-};
-
-const TableRow = ({ children }: { children: React.Node }) => (
-  <tr>{children}</tr>
-);
-
-type TableProps = {|
+type Props = {|
   children: React.Node,
 |};
 
-export default class Table extends React.PureComponent<TableProps> {
-  static Body = TableBody;
-
-  static Cell = TableCell;
-
-  static Header = TableHeader;
-
-  static HeaderCell = TableHeaderCell;
-
-  static Row = TableRow;
-
-  render() {
-    return (
-      <div style={{ overflowX: 'scroll' }}>
-        <table className={styles.table}>{this.props.children}</table>
-      </div>
-    );
-  }
+export default function Table(props: Props) {
+  return (
+    <Box overflow="scrollX">
+      <table className={styles.table}>{props.children}</table>
+    </Box>
+  );
 }
+
+Table.Body = TableBody;
+
+Table.Cell = TableCell;
+
+Table.Header = TableHeader;
+
+Table.HeaderCell = TableHeaderCell;
+
+Table.Row = TableRow;

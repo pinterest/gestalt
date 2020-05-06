@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<td
+  className="td"
+>
+  cell content
+</td>
+`;
+
+exports[`renders correctly with colSpan and rowSpan 1`] = `
+<td
+  className="td"
+  colSpan={3}
+  rowSpan={2}
+>
+  cell content
+</td>
+`;

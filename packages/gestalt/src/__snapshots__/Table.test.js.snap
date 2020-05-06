@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Table /> renders correctly 1`] = `
+exports[`renders correctly 1`] = `
 <div
-  style={
-    Object {
-      "overflowX": "scroll",
-    }
-  }
+  className="box overflowScrollX"
 >
   <table
     className="table"
@@ -16,68 +12,4 @@ exports[`<Table /> renders correctly 1`] = `
     </div>
   </table>
 </div>
-`;
-
-exports[`<Table.Body /> renders correctly 1`] = `
-<tbody>
-  <div>
-    rows
-  </div>
-</tbody>
-`;
-
-exports[`<Table.Cell /> renders correctly 1`] = `
-<td
-  className="td"
->
-  cell content
-</td>
-`;
-
-exports[`<Table.Cell /> renders correctly with colSpan and rowSpan 1`] = `
-<td
-  className="td"
-  colSpan={3}
-  rowSpan={2}
->
-  cell content
-</td>
-`;
-
-exports[`<Table.Header /> renders correctly 1`] = `
-<thead
-  className="thead"
->
-  <div>
-    row with column names
-  </div>
-</thead>
-`;
-
-exports[`<Table.HeaderCell /> renders correctly 1`] = `
-<th
-  className="th"
-  scope="col"
->
-  column name
-</th>
-`;
-
-exports[`<Table.HeaderCell /> renders correctly with props 1`] = `
-<th
-  className="th"
-  colSpan={3}
-  rowSpan={2}
-  scope="row"
->
-  row name
-</th>
-`;
-
-exports[`<Table.Row /> renders correctly 1`] = `
-<tr>
-  <div>
-    row cells
-  </div>
-</tr>
 `;

@@ -1,14 +1,14 @@
 // @flow
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Table from './Table.js';
+import TableRow from './TableRow.js';
 
 test('renders correctly', () => {
   const tree = renderer
     .create(
-      <Table>
-        <div>rest of table</div>
-      </Table>
+      <TableRow>
+        <div>row cells</div>
+      </TableRow>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
