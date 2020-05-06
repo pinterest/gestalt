@@ -244,9 +244,9 @@ export function adjustOffsets(
   let flyoutTop = base.top;
 
   let caretTop = mainDir === 'down' ? -CARET_HEIGHT : null;
-  let caretRight = mainDir === 'left' ? -CARET_HEIGHT : null;
+  let caretRight = mainDir === 'left' ? -CARET_HEIGHT + 2 : null;
   let caretBottom = null;
-  let caretLeft = mainDir === 'right' ? -CARET_HEIGHT : null;
+  let caretLeft = mainDir === 'right' ? -CARET_HEIGHT + 2 : null;
 
   if (subDir === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
