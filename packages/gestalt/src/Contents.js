@@ -245,7 +245,7 @@ export function adjustOffsets(
 
   let caretTop = mainDir === 'down' ? -CARET_HEIGHT : null;
   let caretRight = mainDir === 'left' ? -CARET_HEIGHT + 2 : null;
-  let caretBottom = null;
+  let caretBottom = mainDir === 'up' ? -CARET_HEIGHT : null;
   let caretLeft = mainDir === 'right' ? -CARET_HEIGHT + 2 : null;
 
   if (subDir === 'up') {
@@ -515,6 +515,14 @@ export default class Contents extends React.Component<Props, State> {
           ref={this.setFlyoutRef}
           tabIndex={-1}
         >
+          {caret && (
+            <div
+              className={classnames(colors[bgColor], styles.caret)}
+              style={{ ...caretOffset }}
+            >
+              <Caret direction={mainDir} />
+            </div>
+          )}
           <div
             className={classnames(
               border && styles.border,
@@ -530,14 +538,6 @@ export default class Contents extends React.Component<Props, State> {
           >
             {children}
           </div>
-          {caret && (
-            <div
-              className={classnames(colors[bgColor], styles.caret)}
-              style={{ ...caretOffset }}
-            >
-              <Caret direction={mainDir} />
-            </div>
-          )}
         </div>
       </div>
     );

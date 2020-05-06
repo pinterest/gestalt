@@ -27,7 +27,6 @@
   composes: flex from "./Layout.css";
   composes: overflowAuto from "./Layout.css";
   position: relative;
-  z-index: 1;
 }
 
 .caret {
