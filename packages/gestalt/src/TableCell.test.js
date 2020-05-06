@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
 import TableCell from './TableCell.js';

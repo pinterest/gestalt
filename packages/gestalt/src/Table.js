@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import Box from './Box.js';
 import styles from './Table.css';

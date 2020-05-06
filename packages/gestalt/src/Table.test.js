@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Table from './Table.js';
