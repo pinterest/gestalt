@@ -506,9 +506,6 @@ export default class Contents extends React.Component<Props, State> {
       >
         <div
           className={classnames(
-            border && styles.border,
-            colors[background],
-            colors[bgColor],
             rounding === 2 && borders.rounding2,
             rounding === 4 && borders.rounding4,
             styles.contents,
@@ -520,6 +517,11 @@ export default class Contents extends React.Component<Props, State> {
         >
           <div
             className={classnames(
+              border && styles.border,
+              colors[background],
+              colors[bgColor],
+              rounding === 2 && borders.rounding2,
+              rounding === 4 && borders.rounding4,
               styles.innerContents,
               styles.maxDimensions,
               width !== null && styles.minDimensions

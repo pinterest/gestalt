@@ -26,7 +26,8 @@
 .innerContents {
   composes: flex from "./Layout.css";
   composes: overflowAuto from "./Layout.css";
-  composes: rounding2 from "./Borders.css";
+  position: relative;
+  z-index: 1;
 }
 
 .caret {

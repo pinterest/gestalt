@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Flyout: shift caret left/right towards flyout to align with rounded corners
+
 ### Patch
 
 </details>
