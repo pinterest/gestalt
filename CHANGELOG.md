@@ -10,14 +10,20 @@
 
 ### Patch
 
-- Flyout: fix stroke on caret (#837)
-
 </details>
 
+## 1.47.0 (May 6, 2020)
 
-### Minor 
-  - Icon: Add story pin icon (#842)
- 
+### Minor
+
+- Flyout: Add flexible size prop to flyout (#840)
+- Icon: Add story pin icon (#842)
+- Internal: Enable + enforce flow strict on every file (#841)
+
+### Patch
+
+- Flyout: Fix stroke on caret (#837)
+
 ## 1.46.1 (Apr 28, 2020)
 
 ### Patch
