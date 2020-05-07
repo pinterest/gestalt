@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## 1.47.1
+
+### Patch
+
+- VideoControls: overwriting overflow default behavior on timestamp text (#845)
+
 <details>
   <summary>
     Changes that have landed in master but are not yet released.
@@ -11,12 +17,6 @@
 ### Patch
 
 </details>
-
-## 1.47.1 (May 7, 2020)
-
-### Patch
-
-- VideoControls: overwriting overflow default behavior on timestamp text (#845)
 
 ## 1.47.0 (May 6, 2020)
 
