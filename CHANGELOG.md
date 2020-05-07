@@ -1,7 +1,5 @@
 ## [Unreleased]
 
-## 1.47.1
-
 ### Patch
 
 - VideoControls: overwriting overflow default behavior on timestamp text (#845)
