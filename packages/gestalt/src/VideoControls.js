@@ -143,7 +143,7 @@ class VideoControls extends React.Component<Props> {
           </Touchable>
         </Box>
         <Box width={50} padding={2}>
-          <Text color="white" align="right" size="sm">
+          <Text align="right" color="white" overflow="normal" size="sm">
             {timeToString(currentTime)}
           </Text>
         </Box>
@@ -157,7 +157,7 @@ class VideoControls extends React.Component<Props> {
           />
         </Box>
         <Box width={50} padding={2}>
-          <Text color="white" align="right" size="sm">
+          <Text align="right" color="white" overflow="normal" size="sm">
             {timeToString(duration)}
           </Text>
         </Box>
