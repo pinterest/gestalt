@@ -5,7 +5,7 @@ exports[`Avatar renders an outline 1`] = `
   className="box circle relative whiteBg"
   style={
     Object {
-      "boxShadow": "0 0 0 2px #fff",
+      "boxShadow": "0 0 0 1px #fff",
       "height": "",
       "width": "100%",
     }

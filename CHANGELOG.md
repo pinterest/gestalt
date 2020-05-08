@@ -8,6 +8,8 @@
 
 ### Minor
 
+- Avatar: Update outline to 1px (#846)
+
 ### Patch
 
 </details>
