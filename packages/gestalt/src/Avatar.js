@@ -108,7 +108,7 @@ export default function Avatar(props: Props) {
         ? {
             dangerouslySetInlineStyle: {
               __style: {
-                boxShadow: '0 0 0 2px #fff',
+                boxShadow: '0 0 0 1px #fff',
               },
             },
           }
