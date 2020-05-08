@@ -7,17 +7,22 @@
   </summary>
 
 ### Minor
-- Badge: Update to solid background and white text (#839)
 
-- Avatar: Update outline to 1px (#846)
+### Patch
+
+</details>
+
+## 1.48.0 (May 8, 2020)
+
+### Minor
 
 - Table: add basic table components (#838)
+- Badge: Update to solid background and white text (#839)
+- Avatar: Update outline to 1px (#846)
 
 ### Patch
 
 - VideoControls: overwriting overflow default behavior on timestamp text (#845)
-
-</details>
 
 ## 1.47.0 (May 6, 2020)
 
