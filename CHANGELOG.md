@@ -11,6 +11,8 @@
 
 - Avatar: Update outline to 1px (#846)
 
+- Table: add basic table components (#838)
+
 ### Patch
 
 - VideoControls: overwriting overflow default behavior on timestamp text (#845)
