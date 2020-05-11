@@ -24,6 +24,11 @@ card(
         name: 'children',
         type: 'React.Node',
       },
+      {
+        name: 'hasBorder',
+        type: 'boolean',
+        defaultValue: false,
+      },
     ]}
   />
 );
