@@ -59,15 +59,13 @@ For a dry run to see what the changes will be, add the `-d` (dry run) and `-p` (
 
 ## Releasing
 
-If you haven’t already, you’ll first need to [create an npm account](https://www.npmjs.com/signup). Once you've done that
-you can setup your username and email in Yarn using `yarn login`.
+Every commit to master performs a release. As a reviewer, ensure the correct label is attached to every PR. Please follow [semantic versioning](https://semver.org/).
 
-The following outlines our release process:
+- `patch release`: documentation updates / spelling mistakes in code / internal scripts
+- `minor release`: add component / add component props / API change with codemod
+- `major release`: backwards incompatible API change without codemod
 
-1.  Checkout a new branch.
-2.  Bump package version in `packages/gestalt/package.json` & update `CHANGELOG.md`.
-3.  Open a pull request with the new version and land that in master.
-4.  Draft a new release from the tag at https://github.com/pinterest/gestalt/releases. GitHub Actions will automatically publish to npm and GitHub pages.
+Example PR title: `Avatar: Add outline prop`
 
 ## Typescript Support
 
