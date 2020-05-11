@@ -36,6 +36,7 @@ declare module.exports: {|
   +'transparentBg': string,
   +'transparentDarkGray': string,
   +'transparentDarkGrayBg': string,
+  +'transparentWhiteBg': string,
   +'watermelon': string,
   +'watermelonBg': string,
   +'white': string,
