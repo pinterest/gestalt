@@ -107,9 +107,9 @@
 
 .white:hover,
 .white:focus {
-  background-color: #f1f1f1;
+  background-color: #f0f0f0;
 }
 
 .white:active {
-  background-color: #e8e8e8;
+  background-color: #e0e0e0;
 }
