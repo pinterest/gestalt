@@ -1,0 +1,97 @@
+name: Publish
+
+on:
+  push:
+    paths-ignore:
+      - 'CHANGELOG.md'
+    tags-ignore:
+      - '**'
+    branches:
+      - master
+
+jobs:
+  publish:
+    name: Publish gestalt
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt'
+    steps:
+      - uses: octokit/graphql-action@v2.x
+        id: query_labels
+        with:
+          query: |
+            query labels($owner:String!, $name:String!, $oid:GitObjectID!) {
+              repository(owner: $owner, name: $name) {
+                object(oid: $oid) {
+                  ... on Commit {
+                    message
+                    associatedPullRequests(first: 1) {
+                      edges {
+                        node {
+                          title
+                          labels(first: 5) {
+                            edges {
+                              node {
+                                name
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          owner: ${{ github.event.repository.owner.name }}
+          name: ${{ github.event.repository.name }}
+          oid: ${{ github.event.head_commit.id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract labels
+        id: extract_labels
+        env:
+          JSON_DATA: ${{ steps.query_labels.outputs.data }}
+        run: |
+          LABELS=$(echo "${JSON_DATA}" | jq '.repository.object.associatedPullRequests.edges[0].node.labels.edges[].node.name' | tr '\n' ', ')
+          echo "::set-output name=labels::${LABELS}"
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Setup npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
+      - name: Install dependencies
+        run: yarn install
+      - name: Setup GitHub access tokens
+        env:
+          GITHUB_PERSONAL_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
+        run: |
+          echo "machine github.com" >> ~/.netrc
+          echo "login christianvuerings" >> ~/.netrc
+          echo "password $GITHUB_PERSONAL_TOKEN" >> ~/.netrc
+      - name: Release Steps
+        id: release
+        run: ./scripts/releaseSteps.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABELS: ${{ steps.extract_labels.outputs.labels }}
+      - name: Publish to npm
+        run: |
+          cd packages/gestalt
+          yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
+      - name: Update GitHub pages branch
+        run: |
+          git config user.name "Gestalt Bot"
+          git config user.email "pinterest.gestalt@gmail.com"
+          git checkout -b tmp-deploy
+          (cd docs && NODE_ENV=production yarn build --output-public-path '/gestalt')
+          git add -f docs/build
+          git commit -m "Deployed to Github Pages" --no-verify
+          git subtree split --prefix docs/build -b tmp-gh-pages
+          git push -f https://github.com/pinterest/gestalt.git tmp-gh-pages:gh-pages

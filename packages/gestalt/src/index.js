@@ -35,6 +35,7 @@ import SelectList from './SelectList.js';
 import Spinner from './Spinner.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
+import Table from './Table.js';
 import Tabs from './Tabs.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
@@ -81,6 +82,7 @@ export {
   Spinner,
   Sticky,
   Switch,
+  Table,
   Tabs,
   Text,
   TextArea,

@@ -1,18 +1,27 @@
-## [Unreleased]
+## 1.49.1 (May 12, 2020)
 
-<details>
-  <summary>
-    Changes that have landed in master but are not yet released.
-    Click to see more.
-  </summary>
+  ### Patch
+
+  - Button/IconButton: update white background colors (#852)
+
+## 1.49.0 (May 12, 2020)
+
+  ### Minor
+
+  - Flyout: shift caret left/right towards flyout to align with rounded corners
+  - Internal: Release with every commit (#848)
+
+## 1.48.0 (May 8, 2020)
 
 ### Minor
 
-- Flyout: shift caret left/right towards flyout to align with rounded corners
+- Table: add basic table components (#838)
+- Badge: Update to solid background and white text (#839)
+- Avatar: Update outline to 1px (#846)
 
 ### Patch
 
-</details>
+- VideoControls: overwriting overflow default behavior on timestamp text (#845)
 
 ## 1.47.0 (May 6, 2020)
 

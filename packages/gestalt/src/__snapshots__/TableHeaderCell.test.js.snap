@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<th
+  className="th"
+  scope="col"
+>
+  column name
+</th>
+`;
+
+exports[`renders correctly with props 1`] = `
+<th
+  className="th"
+  colSpan={3}
+  rowSpan={2}
+  scope="row"
+>
+  row name
+</th>
+`;
