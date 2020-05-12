@@ -1,3 +1,9 @@
+## 1.49.1 (May 12, 2020)
+
+  ### Patch
+
+  - Button/IconButton: update white background colors (#852)
+
 ## 1.49.0 (May 12, 2020)
 
   ### Minor
