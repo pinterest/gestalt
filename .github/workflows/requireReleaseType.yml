@@ -6,7 +6,6 @@ on:
       - opened
       - labeled
       - unlabeled
-      - edited
       - synchronize
 
 jobs:
