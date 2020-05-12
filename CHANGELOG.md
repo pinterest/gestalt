@@ -1,17 +1,3 @@
-## [Unreleased]
-
-<details>
-  <summary>
-    Changes that have landed in master but are not yet released.
-    Click to see more.
-  </summary>
-
-### Minor
-
-### Patch
-
-</details>
-
 ## 1.48.0 (May 8, 2020)
 
 ### Minor
