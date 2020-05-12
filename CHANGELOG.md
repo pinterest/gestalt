@@ -1,3 +1,7 @@
+## 1.49.2 (May 12, 2020)
+  ### Minor 
+  - Icon: Adding star-half and plus (#856)
+
 ## 1.49.1 (May 12, 2020)
 
   ### Patch

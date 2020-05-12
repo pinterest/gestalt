@@ -115,6 +115,7 @@ import pin from './pin.svg';
 import pinHide from './pin-hide.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
+import plus from './plus.svg';
 import questionMark from './question-mark.svg';
 import refresh from './refresh.svg';
 import remove from './remove.svg';
@@ -136,6 +137,7 @@ import sortDescending from './sort-descending.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import star from './star.svg';
+import starHalf from './star-half.svg';
 import storyPin from './story-pin.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
@@ -283,6 +285,7 @@ export default {
   'pin-hide': pinHide,
   pinterest,
   play,
+  plus,
   refresh,
   'question-mark': questionMark,
   remove,
@@ -304,6 +307,7 @@ export default {
   speech,
   'speech-ellipsis': speechEllipsis,
   star,
+  'star-half': starHalf,
   'story-pin': storyPin,
   'switch-account': switchAccount,
   tag,
