@@ -25,9 +25,10 @@ card(
         type: 'React.Node',
       },
       {
-        name: 'hasBorder',
-        type: 'boolean',
-        defaultValue: false,
+        name: 'borderSize',
+        type: `"sm" | "none"`,
+        description: 'Specify a border width for table: "sm" is 1px',
+        defaultValue: 'none',
       },
     ]}
   />

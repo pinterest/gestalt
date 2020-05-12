@@ -10,16 +10,16 @@ import TableRow from './TableRow.js';
 
 type Props = {|
   children: React.Node,
-  hasBorder?: boolean,
+  borderSize?: 'sm' | 'none',
 |};
 
 export default function Table(props: Props) {
-  const { hasBorder, children } = props;
+  const { borderSize, children } = props;
 
   return (
     <Box
       overflow="scrollX"
-      {...(hasBorder ? { borderSize: 'sm', rounding: 1 } : {})}
+      {...(borderSize === 'sm' ? { borderSize: 'sm', rounding: 1 } : {})}
     >
       <table className={styles.table}>{children}</table>
     </Box>
