@@ -16,7 +16,4 @@ jobs:
     steps:
       - uses: zwaldowski/match-label-action@v2
         with:
-          allowed: >
-            "major release"
-            "minor release"
-            "patch release"
+          allowed: major release, minor release, patch release
