@@ -1,3 +1,9 @@
+## 1.49.0 (May 12, 2020)
+
+  ### Minor
+
+  - Internal: Release with every commit (#848)
+
 ## 1.48.0 (May 8, 2020)
 
 ### Minor
