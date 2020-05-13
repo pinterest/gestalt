@@ -136,6 +136,7 @@ import sortDescending from './sort-descending.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import star from './star.svg';
+import starHalf from './star-half.svg';
 import storyPin from './story-pin.svg';
 import switchAccount from './switch-account.svg';
 import tag from './tag.svg';
@@ -304,6 +305,7 @@ export default {
   speech,
   'speech-ellipsis': speechEllipsis,
   star,
+  'star-half': starHalf,
   'story-pin': storyPin,
   'switch-account': switchAccount,
   tag,
