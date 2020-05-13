@@ -1,3 +1,9 @@
+## 1.49.4 (May 13, 2020)
+
+### Patch
+
+- Internal: Fix Changelog formatting (#857)
+
 ## 1.49.3 (May 13, 2020)
 
 ### Patch
