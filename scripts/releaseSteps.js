@@ -38,9 +38,9 @@ async function getReleaseNotes({ lastCommitMessage, newVersion, releaseType }) {
 
   return `## ${newVersion} (${date})
 
-  ### ${capitalizeFirstLetter(releaseType)}
+### ${capitalizeFirstLetter(releaseType)}
 
-  - ${lastCommitMessage}`;
+- ${lastCommitMessage}`;
 }
 
 async function bumpPackageVersion() {

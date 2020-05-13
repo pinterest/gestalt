@@ -1,26 +1,26 @@
 ## 1.49.3 (May 13, 2020)
 
-  ### Patch
+### Patch
 
-  - Internal: Cache yarn dependencies in CI (#854)
+- Internal: Cache yarn dependencies in CI (#854)
 
 ## 1.49.2 (May 13, 2020)
 
-  ### Patch
+### Patch
 
-  - Internal: Require release type on every PR (#853)
+- Internal: Require release type on every PR (#853)
 
 ## 1.49.1 (May 12, 2020)
 
-  ### Patch
+### Patch
 
-  - Button/IconButton: update white background colors (#852)
+- Button/IconButton: update white background colors (#852)
 
 ## 1.49.0 (May 12, 2020)
 
-  ### Minor
+### Minor
 
-  - Internal: Release with every commit (#848)
+- Internal: Release with every commit (#848)
 
 ## 1.48.0 (May 8, 2020)
 
