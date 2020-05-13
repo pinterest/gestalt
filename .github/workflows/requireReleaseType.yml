@@ -1,0 +1,18 @@
+name: Require Release Type
+
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+
+jobs:
+  checkReleaseType:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zwaldowski/match-label-action@v2
+        with:
+          allowed: major release, minor release, patch release
