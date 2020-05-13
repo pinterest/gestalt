@@ -1,3 +1,6 @@
+### Minor
+  - Icon: Updating star (#858)
+
 ## 1.52.1 (May 18, 2020)
 
 ### Patch
