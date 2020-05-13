@@ -1,3 +1,9 @@
+## 1.52.0 (May 13, 2020)
+
+### Minor
+
+- Table: Add TableFooter component (#850)
+
 ## 1.51.0 (May 13, 2020)
 
 ### Minor
