@@ -7,6 +7,7 @@ import TableBody from './TableBody.js';
 import TableHeader from './TableHeader.js';
 import TableHeaderCell from './TableHeaderCell.js';
 import TableRow from './TableRow.js';
+import TableFooter from './TableFooter.js';
 
 type Props = {|
   children: React.Node,
@@ -29,6 +30,8 @@ export default function Table(props: Props) {
 Table.Body = TableBody;
 
 Table.Cell = TableCell;
+
+Table.Footer = TableFooter;
 
 Table.Header = TableHeader;
 

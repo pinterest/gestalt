@@ -12,7 +12,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Table"
-    description="The Table contains the following composable elements: Table, Table.Body, Table.Cell, Table.Header, Table.HeaderCell, Table.Row."
+    description="The Table contains the following composable elements: Table, Table.Body, Table.Cell, Table.Footer, Table.Header, Table.HeaderCell, Table.Row."
   />
 );
 
@@ -114,6 +114,20 @@ card(
         name: 'rowSpan',
         type: 'number',
         defaultValue: 1,
+      },
+    ]}
+  />
+);
+
+card(<Card name="Table.Footer" />);
+
+card(
+  <PropTable
+    Component={Table.Footer}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
       },
     ]}
   />
