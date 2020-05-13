@@ -13,3 +13,14 @@ test('renders correctly', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('renders correctly with border', () => {
+  const tree = renderer
+    .create(
+      <Table borderSize="sm">
+        <div>rest of table</div>
+      </Table>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
