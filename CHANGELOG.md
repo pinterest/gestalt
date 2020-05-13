@@ -1,3 +1,9 @@
+## 1.49.2 (May 13, 2020)
+
+  ### Patch
+
+  - Internal: Require release type on every PR (#853)
+
 ## 1.49.1 (May 12, 2020)
 
   ### Patch
