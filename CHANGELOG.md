@@ -1,3 +1,9 @@
+## 1.49.3 (May 13, 2020)
+
+  ### Patch
+
+  - Internal: Cache yarn dependencies in CI (#854)
+
 ## 1.49.2 (May 13, 2020)
 
   ### Patch
