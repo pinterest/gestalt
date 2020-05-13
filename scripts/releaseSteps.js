@@ -45,14 +45,13 @@ async function getReleaseNotes({ lastCommitMessage, newVersion, releaseType }) {
 
 async function bumpPackageVersion() {
   // Define the version bump type depending on the attached label:
-  // - 'patch release' (default)
+  // - 'patch release'
   // - 'minor release'
   // - 'major release'
   const types = ['patch', 'minor', 'major'];
-  const releaseType =
-    types.find(type =>
-      (process.env.LABELS || '').toLowerCase().includes(`${type} release`)
-    ) || 'patch';
+  const releaseType = types.find(type =>
+    (process.env.LABELS || '').toLowerCase().includes(`${type} release`)
+  );
 
   // Previous version
   const { version: previousVersion } = packageJSONParsed;
