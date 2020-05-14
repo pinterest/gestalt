@@ -37,11 +37,13 @@ export default function Stack({
   ...rest
 }: Props) {
   return (
-    <Box marginTop={-gap} marginBottom={-gap}>
+    <Box height="100%" marginTop={-gap} marginBottom={-gap} width="100%">
       <FlexBox
         alignItems={alignItems}
         direction="column"
+        height="100%"
         justifyContent={justifyContent}
+        width="100%"
         {...rest}
       >
         {React.Children.map(children, child => (

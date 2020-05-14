@@ -37,11 +37,13 @@ export default function Row({
   ...rest
 }: Props) {
   return (
-    <Box marginStart={-gap} marginEnd={-gap}>
+    <Box height="100%" marginStart={-gap} marginEnd={-gap} width="100%">
       <FlexBox
         alignItems={alignItems}
         direction="row"
+        height="100%"
         justifyContent={justifyContent}
+        width="100%"
         {...rest}
       >
         {React.Children.map(children, child => (
