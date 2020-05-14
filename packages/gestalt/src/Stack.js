@@ -30,18 +30,18 @@ type Props = {|
 |};
 
 export default function Stack({
-  alignItems,
+  alignItems = 'start',
   children,
   gap = 0,
-  justifyContent,
+  justifyContent = 'center',
   ...rest
 }: Props) {
   return (
     <Box marginTop={-gap} marginBottom={-gap}>
       <FlexBox
-        alignItems={alignItems ?? 'start'}
+        alignItems={alignItems}
         direction="column"
-        justifyContent={justifyContent ?? 'center'}
+        justifyContent={justifyContent}
         {...rest}
       >
         {React.Children.map(children, child => (
