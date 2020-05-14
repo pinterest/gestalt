@@ -37,7 +37,12 @@ export default function Stack({
   ...rest
 }: Props) {
   return (
-    <Box height="100%" marginTop={-gap} marginBottom={-gap} width="100%">
+    <Box
+      height="100%"
+      marginTop={gap ? -gap : 0}
+      marginBottom={gap ? -gap : 0}
+      width="100%"
+    >
       <FlexBox
         alignItems={alignItems}
         direction="column"

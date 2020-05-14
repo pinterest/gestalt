@@ -37,7 +37,12 @@ export default function Row({
   ...rest
 }: Props) {
   return (
-    <Box height="100%" marginStart={-gap} marginEnd={-gap} width="100%">
+    <Box
+      height="100%"
+      marginStart={gap ? -gap : 0}
+      marginEnd={gap ? -gap : 0}
+      width="100%"
+    >
       <FlexBox
         alignItems={alignItems}
         direction="row"
