@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
@@ -74,8 +74,8 @@ card(
       },
       {
         name: 'size',
-        type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | number`,
-        description: `xs: 180px, sm: 230px, md: 284px, lg: 320px, xl: 360px`,
+        type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number`,
+        description: `xs: 180px, sm: 230px, md: 284px, lg: 320px, xl: 360px, flexible: no inherent sizing from flyout`,
         defaultValue: 'sm',
         href: 'basicExample',
       },

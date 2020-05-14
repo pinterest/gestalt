@@ -4,7 +4,7 @@
  * the cooldown.
  */
 
-// @flow
+// @flow strict
 export default function debounce(
   fn: (...args: *) => void,
   threshhold: number = 100

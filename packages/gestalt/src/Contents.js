@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -497,7 +497,7 @@ export default class Contents extends React.Component<Props, State> {
     // Needed to prevent UI thrashing
     const visibility = mainDir === null ? 'hidden' : 'visible';
     const background = `${bgColor}Bg`;
-    const stroke = bgColor === 'white' ? '#ddd' : null;
+    const stroke = bgColor === 'white' ? '#efefef' : null;
 
     return (
       <div

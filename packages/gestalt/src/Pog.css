@@ -47,7 +47,7 @@
 }
 
 .white {
-  composes: whiteBg from "./Colors.css";
+  composes: transparentWhiteBg from "./Colors.css";
 }
 
 .white.hovered,
@@ -56,7 +56,7 @@
 }
 
 .white.active {
-  background-color: #e5e5e5;
+  background-color: #e0e0e0;
 }
 
 .lightGray {

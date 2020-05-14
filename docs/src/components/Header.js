@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { Box, Text, Icon, IconButton, Link as GestaltLink } from 'gestalt';
 import Link from './Link.js';

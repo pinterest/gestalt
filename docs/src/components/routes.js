@@ -1,3 +1,4 @@
+// @flow strict
 const routes = {};
 
 const requireCard = require.context('..', true, /\.doc\.js$/);

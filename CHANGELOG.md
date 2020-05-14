@@ -1,16 +1,80 @@
-## [Unreleased]
-
-<details>
-  <summary>
-    Changes that have landed in master but are not yet released.
-    Click to see more.
-  </summary>
+## 1.52.0 (May 13, 2020)
 
 ### Minor
 
+- Table: Add TableFooter component (#850)
+
+## 1.51.0 (May 13, 2020)
+
+### Minor
+
+- Table: Add table border prop (#851)
+
+## 1.50.0 (May 13, 2020)
+
+### Minor
+
+- Icon: add star-half icon (#856)
+
+## 1.49.4 (May 13, 2020)
+
 ### Patch
 
-</details>
+- Internal: Fix Changelog formatting (#857)
+
+## 1.49.3 (May 13, 2020)
+
+### Patch
+
+- Internal: Cache yarn dependencies in CI (#854)
+
+## 1.49.2 (May 13, 2020)
+
+### Patch
+
+- Internal: Require release type on every PR (#853)
+
+## 1.49.1 (May 12, 2020)
+
+### Patch
+
+- Button/IconButton: update white background colors (#852)
+
+## 1.49.0 (May 12, 2020)
+
+### Minor
+
+- Internal: Release with every commit (#848)
+
+## 1.48.0 (May 8, 2020)
+
+### Minor
+
+- Table: add basic table components (#838)
+- Badge: Update to solid background and white text (#839)
+- Avatar: Update outline to 1px (#846)
+
+### Patch
+
+- VideoControls: overwriting overflow default behavior on timestamp text (#845)
+
+## 1.47.0 (May 6, 2020)
+
+### Minor
+
+- Flyout: Add flexible size prop to flyout (#840)
+- Icon: Add story pin icon (#842)
+- Internal: Enable + enforce flow strict on every file (#841)
+
+### Patch
+
+- Flyout: Fix stroke on caret (#837)
+
+## 1.46.1 (Apr 28, 2020)
+
+### Patch
+
+- Readme: Remove greenkeeper reference (#835)
 
 ## 1.46.0 (Apr 27, 2020)
 

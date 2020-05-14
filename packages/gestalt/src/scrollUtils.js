@@ -4,7 +4,7 @@
  * utils abstract away these differences.
  */
 
-// @flow
+// @flow strict
 export function getElementHeight(element: HTMLElement): number {
   return element === window ? window.innerHeight : element.clientHeight;
 }

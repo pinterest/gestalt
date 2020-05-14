@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export default function changelog() {
   const changelogUpdated = danger.git.modified_files.includes('CHANGELOG.md');

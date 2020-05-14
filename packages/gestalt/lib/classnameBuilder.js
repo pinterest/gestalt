@@ -8,6 +8,7 @@
 // classnames were added or removed. To solve this, we now hash based on the
 // class name and only add variation when hashes collide.
 
+// eslint-disable-next-line flowtype/require-valid-file-annotation
 import md5 from 'blueimp-md5';
 
 class ClassnameBuilder {

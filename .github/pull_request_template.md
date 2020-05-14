@@ -1,6 +1,6 @@
 ## TODO
 
-- [ ] Documentation
-- [ ] Tests
-- [ ] Experimental evidence (required for Masonry changes)
 - [ ] Accessibility checkup
+- [ ] Update documentation
+- [ ] Add/update Tests
+- [ ] [Format PR title](https://github.com/pinterest/gestalt/#releasing): `ComponentName: Description`.

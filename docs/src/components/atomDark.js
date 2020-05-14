@@ -1,3 +1,4 @@
+// @flow strict
 export default {
   plain: {
     color: '#c5c8c6',

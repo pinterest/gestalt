@@ -9,7 +9,7 @@ exports[`Flyout renders 1`] = `
     style={
       Object {
         "left": -20,
-        "stroke": "#ddd",
+        "stroke": "#efefef",
         "top": NaN,
         "visibility": "visible",
       }

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import Avatar from './Avatar.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -38,6 +38,7 @@ import Spinner from './Spinner.js';
 import Stack from './Stack.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
+import Table from './Table.js';
 import Tabs from './Tabs.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
@@ -87,6 +88,7 @@ export {
   Stack,
   Sticky,
   Switch,
+  Table,
   Tabs,
   Text,
   TextArea,

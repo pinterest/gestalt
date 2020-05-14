@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import * as React from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
@@ -22,6 +22,8 @@ card(
         name: 'text',
         type: `string`,
         required: true,
+        description:
+          'Text displayed inside of the Badge. Sentence case is best.',
       },
       {
         name: 'position',
@@ -39,7 +41,7 @@ card(
     The `Badge` component is rendered inline within parent element."
     name="Example"
     defaultCode={`
-<Text>Some text that uses Badge component as its child <Badge text="new" /></Text>
+<Text>Some text that uses Badge component as its child <Badge text="New" /></Text>
 `}
   />
 );
@@ -47,10 +49,10 @@ card(
 card(
   <Example
     description="
-    Larger text looks better with a superscript `Badge`."
-    name="Example"
+    Larger text example rendered with a top positioned `Badge`."
+    name="Example: positioning"
     defaultCode={`
-  <Heading>Heading <Badge text="new" position="top" /></Heading>
+  <Heading>Heading <Badge text="Beta" position="top"/></Heading>
 `}
   />
 );

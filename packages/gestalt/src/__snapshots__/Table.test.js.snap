@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="box overflowScrollX"
+>
+  <table
+    className="table"
+  >
+    <div>
+      rest of table
+    </div>
+  </table>
+</div>
+`;
+
+exports[`renders correctly with border 1`] = `
+<div
+  className="borderColorLightGray box overflowScrollX rounding1 sizeSm solid"
+>
+  <table
+    className="table"
+  >
+    <div>
+      rest of table
+    </div>
+  </table>
+</div>
+`;

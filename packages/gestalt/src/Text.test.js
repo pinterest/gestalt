@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Text from './Text.js';
