@@ -31,6 +31,7 @@ type Props = {|
   fit?: boolean,
   flex?: Flex,
   height?: Dimension,
+  gap?: Margin,
   justifyContent?: JustifyContent,
 
   maxHeight?: Dimension,
@@ -55,7 +56,6 @@ type Props = {|
   mdPaddingY?: Padding,
   lgPaddingY?: Padding,
 
-  spacing?: Margin,
   width?: Dimension,
   wrap?: boolean,
 |};
@@ -63,8 +63,8 @@ type Props = {|
 export default function Row({
   alignItems,
   children,
+  gap,
   justifyContent,
-  spacing,
   ...rest
 }: Props) {
   return (
@@ -76,8 +76,8 @@ export default function Row({
     >
       {React.Children.map(children, (child, index) => (
         <Box
-          marginStart={index === 0 ? 0 : spacing}
-          marginEnd={index === React.Children.count(children) - 1 ? 0 : spacing}
+          marginStart={index === 0 ? 0 : gap}
+          marginEnd={index === React.Children.count(children) - 1 ? 0 : gap}
         >
           {child}
         </Box>
@@ -94,6 +94,7 @@ Row.propTypes = {
   fit: PropTypes.bool,
   flex: FlexPropType,
   height: DimensionPropType,
+  gap: MarginPropType,
   justifyContent: JustifyContentPropType,
 
   maxHeight: DimensionPropType,
@@ -119,7 +120,6 @@ Row.propTypes = {
   lgPaddingX: PaddingPropType,
   lgPaddingY: PaddingPropType,
 
-  spacing: MarginPropType,
   width: DimensionPropType,
   wrap: PropTypes.bool,
 };
