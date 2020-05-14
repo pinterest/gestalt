@@ -6,21 +6,15 @@ import Box, {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
-  DimensionPropType,
   FlexPropType,
   JustifyContentPropType,
   MarginPropType,
-  OverflowPropType,
-  PaddingPropType,
   type AlignContent,
   type AlignItems,
   type AlignSelf,
-  type Dimension,
   type Flex,
   type JustifyContent,
   type Margin,
-  type Overflow,
-  type Padding,
 } from './Box.js';
 
 type Props = {|
@@ -30,33 +24,8 @@ type Props = {|
   children?: React.Node,
   fit?: boolean,
   flex?: Flex,
-  height?: Dimension,
   gap?: Margin,
   justifyContent?: JustifyContent,
-
-  maxHeight?: Dimension,
-  maxWidth?: Dimension,
-  minHeight?: Dimension,
-  minWidth?: Dimension,
-
-  overflow?: Overflow,
-
-  padding?: Padding,
-  smPadding?: Padding,
-  mdPadding?: Padding,
-  lgPadding?: Padding,
-
-  paddingX?: Padding,
-  smPaddingX?: Padding,
-  mdPaddingX?: Padding,
-  lgPaddingX?: Padding,
-
-  paddingY?: Padding,
-  smPaddingY?: Padding,
-  mdPaddingY?: Padding,
-  lgPaddingY?: Padding,
-
-  width?: Dimension,
   wrap?: boolean,
 |};
 
@@ -93,33 +62,7 @@ Row.propTypes = {
   children: PropTypes.node,
   fit: PropTypes.bool,
   flex: FlexPropType,
-  height: DimensionPropType,
   gap: MarginPropType,
   justifyContent: JustifyContentPropType,
-
-  maxHeight: DimensionPropType,
-  maxWidth: DimensionPropType,
-  minHeight: DimensionPropType,
-  minWidth: DimensionPropType,
-
-  overflow: OverflowPropType,
-
-  padding: PaddingPropType,
-  paddingX: PaddingPropType,
-  paddingY: PaddingPropType,
-
-  smPadding: PaddingPropType,
-  smPaddingX: PaddingPropType,
-  smPaddingY: PaddingPropType,
-
-  mdPadding: PaddingPropType,
-  mdPaddingX: PaddingPropType,
-  mdPaddingY: PaddingPropType,
-
-  lgPadding: PaddingPropType,
-  lgPaddingX: PaddingPropType,
-  lgPaddingY: PaddingPropType,
-
-  width: DimensionPropType,
   wrap: PropTypes.bool,
 };
