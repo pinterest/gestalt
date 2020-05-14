@@ -8,13 +8,13 @@ import Box, {
   AlignSelfPropType,
   FlexPropType,
   JustifyContentPropType,
-  MarginPropType,
+  PaddingPropType,
   type AlignContent,
   type AlignItems,
   type AlignSelf,
   type Flex,
   type JustifyContent,
-  type Margin,
+  type Padding,
 } from './Box.js';
 
 type Props = {|
@@ -24,7 +24,7 @@ type Props = {|
   children?: React.Node,
   fit?: boolean,
   flex?: Flex,
-  gap?: Margin,
+  gap?: Padding,
   justifyContent?: JustifyContent,
   wrap?: boolean,
 |};
@@ -32,26 +32,23 @@ type Props = {|
 export default function Row({
   alignItems,
   children,
-  gap,
+  gap = 0,
   justifyContent,
   ...rest
 }: Props) {
   return (
-    <FlexBox
-      alignItems={alignItems ?? 'center'}
-      direction="row"
-      justifyContent={justifyContent ?? 'start'}
-      {...rest}
-    >
-      {React.Children.map(children, (child, index) => (
-        <Box
-          marginStart={index === 0 ? 0 : gap}
-          marginEnd={index === React.Children.count(children) - 1 ? 0 : gap}
-        >
-          {child}
-        </Box>
-      ))}
-    </FlexBox>
+    <Box marginStart={-gap} marginEnd={-gap}>
+      <FlexBox
+        alignItems={alignItems ?? 'center'}
+        direction="row"
+        justifyContent={justifyContent ?? 'start'}
+        {...rest}
+      >
+        {React.Children.map(children, child => (
+          <Box paddingX={gap}>{child}</Box>
+        ))}
+      </FlexBox>
+    </Box>
   );
 }
 
@@ -62,7 +59,7 @@ Row.propTypes = {
   children: PropTypes.node,
   fit: PropTypes.bool,
   flex: FlexPropType,
-  gap: MarginPropType,
+  gap: PaddingPropType,
   justifyContent: JustifyContentPropType,
   wrap: PropTypes.bool,
 };
