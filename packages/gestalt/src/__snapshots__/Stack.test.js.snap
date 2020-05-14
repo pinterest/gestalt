@@ -3,9 +3,21 @@
 exports[`Stack aligns items 1`] = `
 <div
   className="box"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box itemsEnd justifyCenter xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
   >
     <div
       className="box"
@@ -34,9 +46,21 @@ exports[`Stack aligns items 1`] = `
 exports[`Stack justifies content 1`] = `
 <div
   className="box"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box itemsStart justifyAround xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
   >
     <div
       className="box"
@@ -65,9 +89,21 @@ exports[`Stack justifies content 1`] = `
 exports[`Stack renders 1`] = `
 <div
   className="box"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
   >
     <div
       className="box"
@@ -96,9 +132,21 @@ exports[`Stack renders 1`] = `
 exports[`Stack renders with specified gap 1`] = `
 <div
   className="box marginBottomN4 marginTopN4"
+  style={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+    style={
+      Object {
+        "height": "100%",
+        "width": "100%",
+      }
+    }
   >
     <div
       className="box paddingY4"
