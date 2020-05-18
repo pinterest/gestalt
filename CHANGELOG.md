@@ -1,3 +1,9 @@
+## 1.52.3 (May 18, 2020)
+
+### Patch
+
+- Internal: Remove unused boxperf.js (#868)
+
 ## 1.52.2 (May 18, 2020)
 
 ### Patch
