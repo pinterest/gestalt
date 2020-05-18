@@ -1,3 +1,9 @@
+## 1.52.1 (May 18, 2020)
+
+### Patch
+
+- Internal: Use octokit/graphql-action@v2.0.0 (#867)
+
 ## 1.52.0 (May 13, 2020)
 
 ### Minor
