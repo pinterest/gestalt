@@ -1,4 +1,4 @@
-name: Add Default Release Type
+name: Add Default Release Type Label
 on:
   pull_request:
     branches:
