@@ -17,4 +17,4 @@ jobs:
           labels: |
             patch release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_TOKEN }}
