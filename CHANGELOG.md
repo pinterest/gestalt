@@ -8,7 +8,6 @@
 
   ### Minor
 
-  - Flyout: shift caret left/right towards flyout to align with rounded corners
   - Internal: Release with every commit (#848)
 
 ## 1.48.0 (May 8, 2020)
