@@ -1,3 +1,9 @@
+## 1.52.2 (May 18, 2020)
+
+### Patch
+
+- Video: Fix for `n.video.load is not a function` in Safari #870
+
 ## 1.52.1 (May 18, 2020)
 
 ### Patch
