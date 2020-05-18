@@ -1,6 +1,7 @@
 // @flow strict
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
@@ -76,6 +77,10 @@ export default function Modal({
   role = 'dialog',
   size = 'sm',
 }: Props) {
+  const [showTopShadow, setShowTopShadow] = React.useState(false);
+  const [showBottomShadow, setShowBottomShadow] = React.useState(false);
+  const content = React.useRef<?HTMLDivElement>(null);
+
   React.useEffect(() => {
     function handleKeyUp(event: { keyCode: number }) {
       if (event.keyCode === ESCAPE_KEY_CODE) {
@@ -94,6 +99,30 @@ export default function Modal({
       onDismiss();
     }
   };
+
+  const updateShadows = () => {
+    const target = content.current;
+    if (!target) {
+      return;
+    }
+    const hasVerticalScrollbar = target.clientHeight < target.scrollHeight;
+    setShowTopShadow(hasVerticalScrollbar && target.scrollTop > 0);
+    setShowBottomShadow(
+      hasVerticalScrollbar &&
+        target.offsetHeight + target.scrollTop < target.scrollHeight
+    );
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('resize', updateShadows);
+    return () => {
+      window.removeEventListener('resize', updateShadows);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    updateShadows();
+  }, []);
 
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -115,17 +144,30 @@ export default function Modal({
                 width="100%"
               >
                 {heading && (
-                  <Box fit>
+                  <div
+                    className={classnames(styles.shadowContainer, {
+                      [styles.shadow]: showTopShadow,
+                    })}
+                  >
                     <Header heading={heading} />
-                  </Box>
+                  </div>
                 )}
-                <div className={styles.content}>{children}</div>
+                <Box
+                  flex="grow"
+                  overflow="auto"
+                  onScroll={updateShadows}
+                  ref={content}
+                >
+                  {children}
+                </Box>
                 {footer && (
-                  <Box fit>
-                    <Box>
-                      <Box padding={8}>{footer}</Box>
-                    </Box>
-                  </Box>
+                  <div
+                    className={classnames(styles.shadowContainer, {
+                      [styles.shadow]: showBottomShadow,
+                    })}
+                  >
+                    <Box padding={8}>{footer}</Box>
+                  </div>
                 )}
               </Box>
             </div>
