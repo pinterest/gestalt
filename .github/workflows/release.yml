@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, 'Version bump:') == false && github.repository == 'pinterest/gestalt'
     steps:
-      - uses: octokit/graphql-action@v2.x
+      - uses: octokit/graphql-action@v2.1
         id: query_labels
         with:
           query: |
