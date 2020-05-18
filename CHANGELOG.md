@@ -1,3 +1,9 @@
+## 1.54.0 (May 18, 2020)
+
+### Minor
+
+- Modal: Fix shadows on scroll (#859)
+
 ## 1.53.0 (May 18, 2020)
 
 ### Minor
