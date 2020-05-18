@@ -2,8 +2,34 @@
 
 exports[`renders correctly 1`] = `
 <tr>
-  <div>
-    row cells
-  </div>
+  <td>
+    cell 1
+  </td>
+  <td>
+    cell 2
+  </td>
+  <td>
+    cell 3
+  </td>
+</tr>
+`;
+
+exports[`renders correctly when clickable 1`] = `
+<tr
+  className="trClickable"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  <td>
+    cell 1
+  </td>
+  <td>
+    cell 2
+  </td>
+  <td>
+    cell 3
+  </td>
 </tr>
 `;

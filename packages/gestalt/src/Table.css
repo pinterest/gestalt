@@ -1,10 +1,12 @@
 .table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  cursor: default;
   width: 100%;
 }
 
 .th {
+  composes: borderBottom from "./Borders.css";
   composes: paddingY3 from "./boxWhitespace.css";
   composes: paddingX3 from "./boxWhitespace.css";
 }
@@ -14,6 +16,15 @@
   composes: paddingX3 from "./boxWhitespace.css";
 }
 
-.thead {
-  composes: borderBottom from "./Borders.css";
+.trClickable:hover {
+  background-color: #efefef;
+  cursor: pointer;
+}
+
+.trClickable:hover td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.trClickable:hover td:last-child {
+  border-radius: 0 8px 8px 0;
 }

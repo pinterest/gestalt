@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="box overflowScrollX"
+  className="box overflowScrollX paddingX1"
 >
   <table
     className="table"
@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly with border 1`] = `
 <div
-  className="borderColorLightGray box overflowScrollX rounding1 sizeSm solid"
+  className="borderColorLightGray box overflowScrollX paddingX1 rounding1 sizeSm solid"
 >
   <table
     className="table"

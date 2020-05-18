@@ -4,5 +4,5 @@ declare module.exports: {|
   +'table': string,
   +'td': string,
   +'th': string,
-  +'thead': string,
+  +'trClickable': string,
 |};

@@ -7,7 +7,22 @@ test('renders correctly', () => {
   const tree = renderer
     .create(
       <TableRow>
-        <div>row cells</div>
+        <td>cell 1</td>
+        <td>cell 2</td>
+        <td>cell 3</td>
+      </TableRow>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('renders correctly when clickable', () => {
+  const tree = renderer
+    .create(
+      <TableRow onClick={() => {}}>
+        <td>cell 1</td>
+        <td>cell 2</td>
+        <td>cell 3</td>
       </TableRow>
     )
     .toJSON();

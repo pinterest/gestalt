@@ -176,7 +176,12 @@ card(
   />
 );
 
-card(<Card name="Table.Row" />);
+card(
+  <Card
+    name="Table.Row"
+    description="If there is an onClick function passed in, the row will be clickable and have cursor and hover style changes. With the onClick function, the row can be selected by mouse click, enter or space."
+  />
+);
 
 card(
   <PropTable
@@ -185,6 +190,11 @@ card(
       {
         name: 'children',
         type: 'React.Node',
+      },
+      {
+        name: 'onClick',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> }) => void',
       },
     ]}
   />
