@@ -294,7 +294,7 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Change the video source and re-load the video
   load = () => {
-    if (this.video) {
+    if (this.video && this.video.load) {
       this.video.load();
     }
   };
