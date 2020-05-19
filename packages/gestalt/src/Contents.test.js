@@ -241,7 +241,7 @@ describe('Contents', () => {
   });
 
   describe('Adjusted offsets chosen correctly', () => {
-    it('Left-up opening flyouts', () => {
+    it('Left-up opening flyouts with caret shifted left past rounded corners', () => {
       const triggerRect = centerTriggerRect();
       const mainDir = 'left';
       const subDir = 'up';
@@ -255,7 +255,7 @@ describe('Contents', () => {
           y: 24,
         },
         caret: {
-          x: 24,
+          x: 22,
           y: 24,
         },
       };
@@ -280,6 +280,46 @@ describe('Contents', () => {
       expect(flyoutOffset).toEqual(expectedFlyoutOffset);
       expect(caretOffset).toEqual(expectedCaretOffset);
     });
+  });
+
+  it('Right-up opening flyouts with caret shifted right past rounded corners', () => {
+    const triggerRect = centerTriggerRect();
+    const mainDir = 'right';
+    const subDir = 'up';
+    const base = {
+      top: 100,
+      left: 100,
+    };
+    const edgeShift = {
+      flyout: {
+        x: 24,
+        y: 24,
+      },
+      caret: {
+        x: 22,
+        y: 24,
+      },
+    };
+    const expectedFlyoutOffset = {
+      top: base.top - edgeShift.flyout.y,
+      left: base.left,
+    };
+    const expectedCaretOffset = {
+      top: edgeShift.caret.y,
+      right: null,
+      bottom: null,
+      left: -edgeShift.caret.x,
+    };
+    const { flyoutOffset, caretOffset } = adjustOffsets(
+      base,
+      edgeShift,
+      flyoutSize,
+      mainDir,
+      subDir,
+      triggerRect
+    );
+    expect(flyoutOffset).toEqual(expectedFlyoutOffset);
+    expect(caretOffset).toEqual(expectedCaretOffset);
   });
 
   describe('Edge shifts calculated correctly', () => {
