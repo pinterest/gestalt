@@ -1,3 +1,9 @@
+## 1.55.0 (May 19, 2020)
+
+### Minor
+
+- Internal: update devdependencies (Jest / Babel / StyleLint) (#872)
+
 ## 1.54.0 (May 18, 2020)
 
 ### Minor
