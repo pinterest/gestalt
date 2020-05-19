@@ -2,7 +2,7 @@ import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../avatar-update-sizes-remove-icon', () => {
   return Object.assign(
-    require.requireActual('../avatar-update-sizes-remove-icon'),
+    jest.requireActual('../avatar-update-sizes-remove-icon'),
     {
       parser: 'flow',
     }

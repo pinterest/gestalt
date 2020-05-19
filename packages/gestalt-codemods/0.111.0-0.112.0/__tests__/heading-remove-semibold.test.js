@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../heading-remove-semibold', () => {
-  return Object.assign(require.requireActual('../heading-remove-semibold'), {
+  return Object.assign(jest.requireActual('../heading-remove-semibold'), {
     parser: 'flow',
   });
 });
