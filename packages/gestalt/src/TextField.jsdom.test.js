@@ -49,10 +49,15 @@ describe('TextField', () => {
       <TextField id="test" onChange={mockChange} value="TextField Text" />
     );
 
-    fireEvent.change(container.querySelector('input'), {
-      target: { value: 'panda' },
-    });
-    expect(mockChange).toHaveBeenCalled();
+    const input = container.querySelector('input');
+    expect(input).not.toBe(null);
+
+    if (input) {
+      fireEvent.change(input, {
+        target: { value: 'panda' },
+      });
+      expect(mockChange).toHaveBeenCalled();
+    }
   });
   it('handles focus events', () => {
     const mockFocus = jest.fn();
@@ -79,10 +84,15 @@ describe('TextField', () => {
       />
     );
 
-    fireEvent.keyDown(container.querySelector('input'), {
-      target: { value: 'panda' },
-    });
-    expect(mockKeyDown).toHaveBeenCalled();
+    const input = container.querySelector('input');
+    expect(input).not.toBe(null);
+
+    if (input) {
+      fireEvent.keyDown(input, {
+        target: { value: 'panda' },
+      });
+      expect(mockKeyDown).toHaveBeenCalled();
+    }
   });
 
   it('shows a label for the text field', () => {

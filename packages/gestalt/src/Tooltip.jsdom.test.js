@@ -32,10 +32,15 @@ test('Tooltip renders the link when hovered', () => {
     </Tooltip>
   );
 
-  fireEvent.mouseEnter(container.querySelector('[aria-label]'));
-  const { body } = document;
-  const element = getByText('Learn more');
-  expect(body && body.contains(element)).toBeTruthy();
+  const ariaContainer = container.querySelector('[aria-label]');
+  expect(ariaContainer).not.toBe(null);
+
+  if (ariaContainer) {
+    fireEvent.mouseEnter(ariaContainer);
+    const { body } = document;
+    const element = getByText('Learn more');
+    expect(body && body.contains(element)).toBeTruthy();
+  }
 });
 
 test('Tooltip should render as expected when hovered', () => {
@@ -45,7 +50,13 @@ test('Tooltip should render as expected when hovered', () => {
     </Tooltip>
   );
 
-  fireEvent.mouseEnter(container.querySelector('[aria-label]'));
+  const ariaContainer = container.querySelector('[aria-label]');
+  expect(ariaContainer).not.toBe(null);
+
+  if (ariaContainer) {
+    fireEvent.mouseEnter(ariaContainer);
+  }
+
   expect(getByText('This is a tooltip')).toBeVisible();
 });
 
