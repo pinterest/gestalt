@@ -1,3 +1,9 @@
+## 1.55.2 (May 19, 2020)
+
+### Patch
+
+- Flyout: shift caret left/right towards flyout to align with rounded corners (#844)
+
 ## 1.55.1 (May 19, 2020)
 
 ### Patch
