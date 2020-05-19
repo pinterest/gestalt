@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../modal-remove-close-label', () => {
-  return Object.assign(require.requireActual('../modal-remove-close-label'), {
+  return Object.assign(jest.requireActual('../modal-remove-close-label'), {
     parser: 'flow',
   });
 });

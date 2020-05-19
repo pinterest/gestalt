@@ -1,10 +1,9 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../remove-responsive-text-sizing', () => {
-  return Object.assign(
-    require.requireActual('../remove-responsive-text-sizing'),
-    { parser: 'flow' }
-  );
+  return Object.assign(jest.requireActual('../remove-responsive-text-sizing'), {
+    parser: 'flow',
+  });
 });
 
 describe('remove-responsive-text-sizing', () => {

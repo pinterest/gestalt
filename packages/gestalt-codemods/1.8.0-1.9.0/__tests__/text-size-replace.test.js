@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../text-size-replace', () => {
-  return Object.assign(require.requireActual('../text-size-replace'), {
+  return Object.assign(jest.requireActual('../text-size-replace'), {
     parser: 'flow',
   });
 });

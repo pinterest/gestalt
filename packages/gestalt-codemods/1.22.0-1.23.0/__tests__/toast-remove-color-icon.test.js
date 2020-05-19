@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../toast-remove-color-icon', () => {
-  return Object.assign(require.requireActual('../toast-remove-color-icon'), {
+  return Object.assign(jest.requireActual('../toast-remove-color-icon'), {
     parser: 'flow',
   });
 });

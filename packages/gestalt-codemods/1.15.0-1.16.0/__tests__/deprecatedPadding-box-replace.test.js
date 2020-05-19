@@ -1,12 +1,9 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../deprecatedPadding-box-replace', () => {
-  return Object.assign(
-    require.requireActual('../deprecatedPadding-box-replace'),
-    {
-      parser: 'flow',
-    }
-  );
+  return Object.assign(jest.requireActual('../deprecatedPadding-box-replace'), {
+    parser: 'flow',
+  });
 });
 
 describe('deprecatedPadding-box-replace', () => {
