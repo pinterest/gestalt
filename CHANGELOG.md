@@ -1,3 +1,9 @@
+## 1.55.1 (May 19, 2020)
+
+### Patch
+
+- Internal: update flow-typed definitions (#873)
+
 ## 1.55.0 (May 19, 2020)
 
 ### Minor
