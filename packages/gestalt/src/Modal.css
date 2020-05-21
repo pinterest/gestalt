@@ -19,6 +19,9 @@
   composes: rounding8 from "./Borders.css";
   composes: marginLeft4 marginRight4 from "./boxWhitespace.css";
   max-height: calc(100vh - 32px);
+}
+
+.wrapper:focus {
   outline: none;
 }
 
