@@ -1,3 +1,9 @@
+## 1.55.3 (May 21, 2020)
+
+### Patch
+
+- Modal: make focus state more specific (#875)
+
 ## 1.55.2 (May 19, 2020)
 
 ### Patch
