@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict-local
 import Avatar from './Avatar.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -43,8 +43,10 @@ import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Touchable from './Touchable.js';
+import DatePicker from './DatePicker.js';
 import Video from './Video.js';
 
+console.log(DatePicker);
 export {
   Avatar,
   Badge,
@@ -56,6 +58,7 @@ export {
   Collection,
   Column,
   Container,
+  DatePicker,
   Divider,
   Flyout,
   GroupAvatar,
