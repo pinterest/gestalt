@@ -182,6 +182,7 @@ export default {
     'classnames/bind',
     'classnames',
     'react-dom',
+    'react-datepicker',
   ],
   plugins: [
     cssModules({
