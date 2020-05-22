@@ -1,3 +1,9 @@
+## 1.55.4 (May 22, 2020)
+
+### Patch
+
+- Internal: fix yarn watch keeps appending CSS (#877)
+
 ## 1.55.3 (May 21, 2020)
 
 ### Patch
