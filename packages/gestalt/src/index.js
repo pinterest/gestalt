@@ -1,5 +1,6 @@
 // @flow strict
 import Avatar from './Avatar.js';
+import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -47,6 +48,7 @@ import Video from './Video.js';
 
 export {
   Avatar,
+  AvatarPair,
   Badge,
   Box,
   Button,
