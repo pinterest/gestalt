@@ -1,3 +1,9 @@
+## 1.55.5 (May 26, 2020)
+
+### Patch
+
+- Icon: update check-circle (#881)
+
 ## 1.55.4 (May 22, 2020)
 
 ### Patch
