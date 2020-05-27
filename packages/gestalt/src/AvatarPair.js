@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 
@@ -8,11 +9,18 @@ type Props = {|
     name: string,
     src?: string,
   |}>,
+  size?: 'md' | 'lg' | 'fit',
 |};
 
-export default function AvatarPair({ collaborators }: Props) {
+const sizes = {
+  md: 48,
+  lg: 64,
+};
+
+export default function AvatarPair({ collaborators, size = 'fit' }: Props) {
+  const width = size === 'fit' ? '100%' : sizes[size];
   return (
-    <Box position="relative">
+    <Box position="relative" width={width}>
       <Box dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }} />
       {(collaborators || []).slice(0, 2).map(({ name, src }, index) => (
         <Box
@@ -33,3 +41,13 @@ export default function AvatarPair({ collaborators }: Props) {
     </Box>
   );
 }
+
+AvatarPair.propTypes = {
+  collaborators: PropTypes.arrayOf(
+    PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      src: PropTypes.string,
+    })
+  ).isRequired,
+  size: PropTypes.oneOf(['md', 'lg', 'fit']),
+};

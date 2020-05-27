@@ -3,6 +3,11 @@
 exports[`AvatarPair Renders only the first 2 collobarators when multiple are passed in 1`] = `
 <div
   className="box relative"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box"
@@ -128,6 +133,11 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
 exports[`AvatarPair Renders renders 2 collaborators 1`] = `
 <div
   className="box relative"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box"
@@ -253,6 +263,11 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
 exports[`AvatarPair Renders renders the avatar with text when no image is provided 1`] = `
 <div
   className="box relative"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
 >
   <div
     className="box"
