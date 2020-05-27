@@ -91,14 +91,12 @@ card(
     name="Example: Media object"
     defaultCode={`
 <Box marginStart={-1} marginEnd={-1}>
-  <Row>
-    <Box paddingX={1}>
-      <Avatar name="chrislloyd" size="md" />
-    </Box>
-    <Box paddingX={1}>
+  <Row gap={1}>
+    <Avatar name="chrislloyd" size="md" />
+    <Stack>
       <Text weight="bold">Chris Lloyd</Text>
       <Text>joined 2 years ago</Text>
-    </Box>
+    </Stack>
   </Row>
 </Box>
 `}

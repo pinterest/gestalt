@@ -112,7 +112,11 @@ card(
   >
     {({ alignItems, justifyContent, ...rest }) => (
       <Box height={96} width={96} {...rest}>
-        <Stack alignItems={alignItems} justifyContent={justifyContent}>
+        <Stack
+          alignItems={alignItems}
+          height="100%"
+          justifyContent={justifyContent}
+        >
           <Box margin={1} color="gray" width={8} height={8} />
           <Box margin={1} color="gray" width={16} height={8} />
           <Box margin={1} color="gray" width={32} height={8} />
