@@ -10,7 +10,6 @@ import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
-import FlexBox from './FlexBox.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -60,7 +59,6 @@ export {
   Column,
   Container,
   Divider,
-  FlexBox,
   Flyout,
   GroupAvatar,
   Heading,
