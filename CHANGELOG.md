@@ -1,3 +1,9 @@
+## 1.57.0 (May 27, 2020)
+
+### Minor
+
+- AvatarPair: add component (#880)
+
 ## 1.56.0 (May 27, 2020)
 
 ### Minor
