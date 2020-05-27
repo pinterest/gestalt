@@ -1,3 +1,9 @@
+## 1.56.0 (May 27, 2020)
+
+### Minor
+
+- Table: Add sortable header cells (#878)
+
 ## 1.55.5 (May 26, 2020)
 
 ### Patch
