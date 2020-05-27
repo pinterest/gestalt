@@ -7,5 +7,8 @@ screenshots
 .vscode
 
 packages/gestalt/dist/*
+packages/gestalt-datepicker/dist/*
+
 # the flow export file as it's maintained by hand
 !packages/gestalt/dist/gestalt.js.flow
+!packages/gestalt/dist/gestalt-datepicker.js.flow

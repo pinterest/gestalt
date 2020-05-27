@@ -3,6 +3,7 @@ import React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { render } from 'react-dom';
 import 'gestalt/dist/gestalt.css';
+import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 import App from './components/App.js';
 import CardPage from './components/CardPage.js';
 import routes from './components/routes.js';

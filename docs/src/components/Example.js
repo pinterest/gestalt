@@ -1,6 +1,7 @@
 // @flow strict
 import React from 'react';
 import * as gestalt from 'gestalt';
+import DatePicker from 'gestalt-datepicker';
 import LZString from 'lz-string';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import Card from './Card.js';
@@ -33,12 +34,34 @@ export default Demo;`;
 
 const handleCodeSandbox = async ({ code, title }) => {
   const gestaltComponents = Object.keys(gestalt);
+  const additionalGestaltComponents = ['DatePicker'];
+
   const usedComponents = [
     ...new Set(
       code.match(/<((\w+))/g).map(component => component.replace('<', ''))
     ),
   ];
-  const components = gestaltComponents.filter(x => usedComponents.includes(x));
+
+  const baseComponents = gestaltComponents.filter(x =>
+    usedComponents.includes(x)
+  );
+
+  const additionalComponents = additionalGestaltComponents.filter(x =>
+    usedComponents.includes(x)
+  );
+
+  const getPackagedComponents = () => {
+    const imports = [];
+    if (baseComponents.length > 0) {
+      imports.push(`import { ${baseComponents.join(', ')} } from "gestalt";`);
+    }
+
+    if (additionalComponents.includes('DatePicker')) {
+      imports.push('import DatePicker from "gestalt-datepicker";');
+    }
+    return imports.join('\n');
+  };
+
   const parameters = compress({
     module: '/example.js',
     files: {
@@ -50,6 +73,7 @@ const handleCodeSandbox = async ({ code, title }) => {
             react: 'latest',
             'react-dom': 'latest',
             gestalt: 'latest',
+            // 'gestalt-datepicker': 'latest',
           },
           devDependencies: {
             'react-scripts': 'latest',
@@ -69,7 +93,8 @@ render(<Example />, document.querySelector("#root"));`,
       'example.js': {
         content: `import React from "react";
 import "../node_modules/gestalt/dist/gestalt.css";
-import { ${components.join(', ')} } from "gestalt";
+// import "../node_modules/gestalt-datepicker/dist/gestalt-datepicker.css";
+${getPackagedComponents()}
 
 ${exportDefaultMaybe({ code })}`,
       },
@@ -109,6 +134,7 @@ const Example = ({
   direction = 'column',
 }: Props) => {
   const code = defaultCode.trim();
+  const scope = { ...gestalt, DatePicker };
   return (
     <Card
       name={name}
@@ -116,7 +142,7 @@ const Example = ({
       id={id}
       stacked={direction === 'column'}
     >
-      <LiveProvider code={code} scope={gestalt} theme={theme}>
+      <LiveProvider code={code} scope={scope} theme={theme}>
         <Box
           display="flex"
           direction={direction}

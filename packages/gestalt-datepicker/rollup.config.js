@@ -5,9 +5,9 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/gestalt.js',
+      file: 'dist/gestalt-datepicker.js',
       format: 'umd',
-      name: 'gestalt',
+      name: 'gestalt-datepicker',
       exports: 'named',
       globals: {
         react: 'React',
@@ -15,13 +15,14 @@ export default {
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
+        'react-datepicker': 'ReactDatePicker',
       },
       sourcemap: 'inline',
     },
     {
-      file: 'dist/gestalt.es.js',
+      file: 'dist/gestalt-datepicker.es.js',
       format: 'es',
-      name: 'gestalt',
+      name: 'gestalt-datepicker',
       exports: 'named',
       globals: {
         react: 'React',
@@ -29,6 +30,7 @@ export default {
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
+        'react-datepicker': 'ReactDatePicker',
       },
       sourcemap: 'inline',
     },
@@ -39,6 +41,8 @@ export default {
     'classnames/bind',
     'classnames',
     'react-dom',
+    'react-datepicker',
+    'date-fns',
   ],
-  plugins: plugins('gestalt'),
+  plugins: plugins('gestalt-datepicker'),
 };

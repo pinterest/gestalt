@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict-local
 import Avatar from './Avatar.js';
 import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';

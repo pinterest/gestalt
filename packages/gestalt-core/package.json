@@ -1,6 +1,7 @@
 {
-  "name": "gestalt",
-  "version": "2.0.1",
+  "name": "gestalt-core",
+  "private": true,
+  "version": "1.61.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "description": "A set of React UI components which enforce Pinterest’s design language",

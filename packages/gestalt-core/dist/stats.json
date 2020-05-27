@@ -1,0 +1,32 @@
+{
+  "gestalt.js": {
+    "fileName": "gestalt.js",
+    "size": 327467,
+    "gzipSize": 77377
+  },
+  "gestalt.es.js": {
+    "fileName": "gestalt.es.js",
+    "size": 310486,
+    "gzipSize": 76358
+  },
+  "../gestalt/gestalt.css": {
+    "fileName": "../gestalt/gestalt.css",
+    "size": 41097,
+    "gzipSize": 9364
+  },
+  "gestalt-datepicker.es.js": {
+    "fileName": "gestalt-datepicker.es.js",
+    "size": 637159,
+    "gzipSize": 132934
+  },
+  "gestalt-datepicker.js": {
+    "fileName": "gestalt-datepicker.js",
+    "size": 667090,
+    "gzipSize": 134019
+  },
+  "../gestalt-datepicker/gestalt-datepicker.css": {
+    "fileName": "../gestalt-datepicker/gestalt-datepicker.css",
+    "size": 5236,
+    "gzipSize": 1233
+  }
+}
