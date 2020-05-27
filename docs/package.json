@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "gestalt": ">0.0.0",
+    "gestalt-datepicker": "link:packages/gestalt-datepicker",
     "highlight.js": "^9.18.1",
     "history": "^4.10.1",
     "lz-string": "^1.4.4",

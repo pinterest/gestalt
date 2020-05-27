@@ -148,9 +148,9 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/gestalt.js',
+      file: 'dist/gestalt-datepicker.js',
       format: 'umd',
-      name: 'gestalt',
+      name: 'gestalt-datepicker',
       exports: 'named',
       globals: {
         react: 'React',
@@ -163,9 +163,9 @@ export default {
       sourcemap: 'inline',
     },
     {
-      file: 'dist/gestalt.es.js',
+      file: 'dist/gestalt-datepicker.es.js',
       format: 'es',
-      name: 'gestalt',
+      name: 'gestalt-datepicker',
       exports: 'named',
       globals: {
         react: 'React',
@@ -189,7 +189,7 @@ export default {
   ],
   plugins: [
     cssModules({
-      output: 'dist/gestalt.css',
+      output: 'dist/gestalt-datepicker.css',
       stats,
     }),
     nodeResolve(),
