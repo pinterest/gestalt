@@ -8,12 +8,34 @@ import colors from './Colors.css';
 type Props = {|
   position?: 'middle' | 'top',
   text: string,
+  color?:
+    | 'blue'
+    | 'darkGray'
+    | 'darkWash'
+    | 'eggplant'
+    | 'gray'
+    | 'green'
+    | 'lightGray'
+    | 'lightWash'
+    | 'maroon'
+    | 'midnight'
+    | 'navy'
+    | 'olive'
+    | 'orange'
+    | 'orchid'
+    | 'pine'
+    | 'purple'
+    | 'red'
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'watermelon'
+    | 'white',
 |};
 
 export default function Badge(props: Props) {
-  const { position = 'middle', text } = props;
+  const { position = 'middle', text, color = 'red' } = props;
 
-  const cs = cx(styles.Badge, styles[position], colors.blueBg);
+  const cs = cx(styles.Badge, styles[position], colors[color]);
 
   return <span className={cs}>{text}</span>;
 }
@@ -21,4 +43,27 @@ export default function Badge(props: Props) {
 Badge.propTypes = {
   position: PropTypes.oneOf(['middle', 'top']),
   text: PropTypes.string.isRequired,
+  color: PropTypes.oneOf([
+    'blue',
+    'darkGray',
+    'darkWash',
+    'eggplant',
+    'gray',
+    'green',
+    'lightGray',
+    'lightWash',
+    'maroon',
+    'midnight',
+    'navy',
+    'olive',
+    'orange',
+    'orchid',
+    'pine',
+    'purple',
+    'red',
+    'transparent',
+    'transparentDarkGray',
+    'watermelon',
+    'white',
+  ]),
 };
