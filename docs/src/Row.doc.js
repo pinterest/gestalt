@@ -112,7 +112,6 @@ card(
   `}
     id="layout"
     name="Layout"
-    // alignContent={['start', 'end', 'center', 'between', 'around', 'stretch']}
     justifyContent={['start', 'end', 'center', 'between', 'around']}
     alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
   >
