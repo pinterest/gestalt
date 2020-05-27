@@ -33,9 +33,9 @@ type Props = {|
 |};
 
 export default function Badge(props: Props) {
-  const { position = 'middle', text, color = 'red' } = props;
+  const { position = 'middle', text, color = 'blue' } = props;
 
-  const cs = cx(styles.Badge, styles[position], colors[color]);
+  const cs = cx(styles.Badge, styles[position], colors[`${color}Bg`]);
 
   return <span className={cs}>{text}</span>;
 }
