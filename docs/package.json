@@ -11,7 +11,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "date-fns": "^2.12.0",
     "gestalt": ">0.0.0",
+    "gestalt-datepicker":  ">0.0.0",
     "highlight.js": "^9.18.1",
     "history": "^4.10.1",
     "lz-string": "^1.4.4",

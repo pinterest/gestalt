@@ -3,6 +3,7 @@ set -euo pipefail
 
 echo "build"
 (cd packages/gestalt && yarn build)
+(cd packages/gestalt-datepicker && yarn build)
 
 echo "eslint"
 yarn eslint .
@@ -25,7 +26,7 @@ then
   echo "CSS Flow types need to be updated."
   echo "Run \`yarn run flow-generate:css\` and commit your changes."
   echo "----"
-  echo "Folowing files require changes:"
+  echo "Following files require changes:"
   git diff -- '*.flow'
   exit 1
 fi

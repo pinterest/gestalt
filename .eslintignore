@@ -3,3 +3,4 @@ docs/build
 flow-typed
 node_modules
 packages/gestalt/dist
+packages/gestalt-datepicker/dist
