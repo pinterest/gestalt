@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict-local
 import Avatar from './Avatar.js';
 import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
@@ -10,6 +10,7 @@ import Collage from './Collage.js';
 import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
+import DatePicker from './DatePicker.js';
 import Divider from './Divider.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
@@ -60,6 +61,7 @@ export {
   Collection,
   Column,
   Container,
+  DatePicker,
   Divider,
   Flyout,
   GroupAvatar,

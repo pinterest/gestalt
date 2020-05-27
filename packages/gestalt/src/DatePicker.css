@@ -1,0 +1,309 @@
+:root {
+  --color-darkGray: #111;
+  --color-gray: #767676;
+  --color-hover-lightGray: rgba(0, 0, 0, 0.06);
+  --color-white: #fff;
+  --borderRadius-circle: 50%;
+  --borderRadius-halfCircle-End: 0 50% 50% 0;
+  --borderRadius-halfCircle-Start: 50% 0 0 50%;
+  --day-dimensions: 40px;
+  --empty-content: "";
+  --focus: 0 0 0 4px rgba(0, 132, 255, 0.5);
+}
+
+.react-datepicker {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  color: var(--color-darkGray);
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
+    Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 16px;
+  position: relative;
+}
+
+:global(._gestalt .react-datepicker__current-month) {
+  color: var(--color-darkGray);
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.react-datepicker__day {
+  border-radius: var(--borderRadius-circle);
+  color: var(--color-darkGray);
+  cursor: pointer;
+  display: inline-block;
+  line-height: var(--day-dimensions);
+  text-align: center;
+  width: var(--day-dimensions);
+}
+
+.react-datepicker__day:focus {
+  box-shadow: var(--focus);
+  outline: none;
+}
+
+.react-datepicker__day:hover {
+  background-color: var(--color-hover-lightGray);
+  color: var(--color-darkGray);
+}
+
+:global(._gestalt .react-datepicker__day--disabled) {
+  color: var(--color-gray);
+  cursor: default;
+}
+
+:global(._gestalt .react-datepicker__day--disabled:hover) {
+  background-color: var(--color-white);
+  color: var(--color-gray);
+}
+
+:global(._gestalt .react-datepicker__day--selected) {
+  background-color: var(--color-darkGray);
+  color: var(--color-white);
+}
+
+:global(._gestalt .react-datepicker__day--selected:hover) {
+  background-color: var(--color-hover-lightGray);
+  color: var(--color-darkGray);
+}
+
+:global(._gestalt .react-datepicker__day--in-range) {
+  background-color: var(--color-hover-lightGray);
+  border-radius: 0;
+}
+
+:global(._gestalt .react-datepicker__day--in-range:hover) {
+  border-radius: 0;
+  position: relative;
+}
+
+:global(._gestalt .react-datepicker__day--in-range:first-child) {
+  border-bottom-left-radius: var(--borderRadius-circle);
+  border-top-left-radius: var(--borderRadius-circle);
+}
+
+:global(._gestalt .react-datepicker__day--in-range:last-child) {
+  border-bottom-right-radius: var(--borderRadius-circle);
+  border-top-right-radius: var(--borderRadius-circle);
+}
+
+:global(._gestalt .react-datepicker__day--in-range:first-child:hover) {
+  border-bottom-left-radius: var(--borderRadius-circle);
+  border-top-left-radius: var(--borderRadius-circle);
+}
+
+:global(._gestalt .react-datepicker__day--in-range:last-child:hover) {
+  border-bottom-right-radius: var(--borderRadius-circle);
+  border-top-right-radius: var(--borderRadius-circle);
+}
+
+:global(._gestalt .react-datepicker__day--in-range:hover::after) {
+  background: var(--color-hover-lightGray);
+  border-radius: var(--borderRadius-circle);
+  content: var(--empty-content);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:global(._gestalt .react-datepicker__day--range-start) {
+  background-color: var(--color-darkGray);
+  border-radius: var(--borderRadius-circle);
+  color: var(--color-white);
+  position: relative;
+}
+
+:global(._gestalt
+    .react-datepicker__day--range-start:not(:last-child):not(.react-datepicker__day--range-end)::before) {
+  background: var(--color-hover-lightGray);
+  border-radius: var(--borderRadius-halfCircle-Start);
+  content: var(--empty-content);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:global(._gestalt .react-datepicker__day--range-start:hover) {
+  background-color: inherit;
+  border-radius: var(--borderRadius-halfCircle-Start);
+  color: var(--color-darkGray);
+  position: relative;
+}
+
+:global(._gestalt .react-datepicker__day--range-start:hover::after) {
+  background: var(--color-hover-lightGray);
+  border-radius: var(--borderRadius-circle);
+  content: var(--empty-content);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:global(._gestalt .react-datepicker__day--range-end) {
+  background-color: var(--color-darkGray);
+  border-radius: var(--borderRadius-circle);
+  color: var(--color-white);
+  position: relative;
+}
+
+:global(._gestalt
+    .react-datepicker__day--range-end:not(:first-child):not(.react-datepicker__day--range-start)::before) {
+  background: var(--color-hover-lightGray);
+  border-radius: var(--borderRadius-halfCircle-End);
+  content: var(--empty-content);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:global(._gestalt .react-datepicker__day--range-end:hover) {
+  background-color: inherit;
+  border-radius: var(--borderRadius-halfCircle-Start);
+  color: var(--color-darkGray);
+  position: relative;
+}
+
+:global(._gestalt .react-datepicker__day--range-end:hover::after) {
+  background: var(--color-hover-lightGray);
+  border-radius: var(--borderRadius-circle);
+  content: var(--empty-content);
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:global(._gestalt .react-datepicker__day--selecting-range-start:not(.react-datepicker__day--in-range)),
+:global(._gestalt .react-datepicker__day--selecting-range-end:not(.react-datepicker__day--in-range)) {
+  background-color: var(--color-hover-lightGray);
+}
+
+:global(._gestalt .react-datepicker__day--outside-month) {
+  visibility: hidden;
+}
+
+:global(._gestalt .react-datepicker__day-name) {
+  color: var(--color-gray);
+  display: inline-block;
+  font-size: 16px;
+  line-height: var(--day-dimensions);
+  margin: 0;
+  text-align: center;
+  width: var(--day-dimensions);
+}
+
+:global(._gestalt .react-datepicker__day-names) {
+  display: flex;
+  white-space: nowrap;
+}
+
+:global(._gestalt .react-datepicker__header) {
+  position: relative;
+  text-align: center;
+}
+
+:global(._gestalt .react-datepicker__input-container) {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+:global(._gestalt .react-datepicker__input-container input) {
+  padding-right: 38px;
+}
+
+:global(._gestalt .react-datepicker__month) {
+  color: var(--color-white);
+  text-align: center;
+}
+
+:global(._gestalt .react-datepicker__week) {
+  display: flex;
+  white-space: nowrap;
+}
+
+:global(._gestalt .react-datepicker__month-container) {
+  float: left;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+:global(._gestalt .react-datepicker__navigation) {
+  background: none;
+  border: none;
+  border-radius: var(--borderRadius-circle);
+  cursor: pointer;
+  height: auto;
+  outline: none;
+  overflow: visible;
+  padding: 6px;
+  position: absolute;
+  top: 14px;
+  width: auto;
+  z-index: 1;
+}
+
+:global(._gestalt .react-datepicker__navigation--previous) {
+  left: 8px;
+}
+
+:global(._gestalt .react-datepicker__navigation--previous--disabled),
+:global(._gestalt .react-datepicker__navigation--previous--disabled:hover) {
+  cursor: default;
+}
+
+:global(._gestalt .react-datepicker__navigation--next) {
+  right: 8px;
+}
+
+:global(._gestalt .react-datepicker__navigation--next--disabled),
+:global(._gestalt .react-datepicker__navigation--next--disabled:hover) {
+  cursor: default;
+}
+
+:global(._gestalt .react-datepicker__navigation:focus) {
+  box-shadow: var(--focus);
+}
+
+.react-datepicker-popper {
+  z-index: 1;
+}
+
+.react-datepicker-popper[data-placement^="bottom"] {
+  margin-top: 6px;
+}
+
+.react-datepicker-popper[data-placement^="top"] {
+  /* !important is required to keep same distance from Textfield
+     when popper flips from top to bottom */
+  top: -4px !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.react-datepicker-popper[data-placement^="right"] {
+  margin-left: 8px;
+}
+
+.react-datepicker-popper[data-placement^="left"] {
+  margin-right: 8px;
+}
+
+/* Override the textfield container since gestalt has block not inline block */
+
+:global(._gestalt .reactDatepickerWrapper) {
+  display: block;
+}
