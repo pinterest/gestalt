@@ -15,3 +15,10 @@ it('should render with white text and blue background', () => {
 
   expect(className).toContain('blueBg');
 });
+
+it('should render with white text and red background', () => {
+  const instance = create(<Badge text="Badge" color="red" />).root;
+  const { className } = instance.find(element => element.type === 'span').props;
+
+  expect(className).toContain('redBg');
+});
