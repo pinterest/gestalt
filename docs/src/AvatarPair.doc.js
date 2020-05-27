@@ -30,9 +30,6 @@ card(
 
 card(
   <Example
-    description={`
-    The size of the avatars is defined by their container. In this case the container is 64px wide & tall and each avatar is 48px.
-  `}
     name="Example: Basic"
     defaultCode={`
 <AvatarPair size="md"
