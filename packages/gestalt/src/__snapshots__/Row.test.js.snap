@@ -5,8 +5,8 @@ exports[`Row aligns items 1`] = `
   className="box"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -14,8 +14,8 @@ exports[`Row aligns items 1`] = `
     className="box itemsEnd xsDirectionRow xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
@@ -48,8 +48,8 @@ exports[`Row justifies content 1`] = `
   className="box"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -57,8 +57,8 @@ exports[`Row justifies content 1`] = `
     className="box itemsCenter justifyAround xsDirectionRow xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
@@ -91,8 +91,8 @@ exports[`Row renders 1`] = `
   className="box"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -100,8 +100,8 @@ exports[`Row renders 1`] = `
     className="box itemsCenter xsDirectionRow xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
@@ -134,8 +134,8 @@ exports[`Row renders with specified gap 1`] = `
   className="box marginEndN4 marginStartN4"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -143,8 +143,8 @@ exports[`Row renders with specified gap 1`] = `
     className="box itemsCenter xsDirectionRow xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >

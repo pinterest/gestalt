@@ -5,8 +5,8 @@ exports[`Stack aligns items 1`] = `
   className="box"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -14,8 +14,8 @@ exports[`Stack aligns items 1`] = `
     className="box itemsEnd justifyCenter xsDirectionColumn xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
@@ -48,8 +48,8 @@ exports[`Stack justifies content 1`] = `
   className="box"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -57,8 +57,8 @@ exports[`Stack justifies content 1`] = `
     className="box itemsStart justifyAround xsDirectionColumn xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
@@ -91,8 +91,8 @@ exports[`Stack renders 1`] = `
   className="box"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -100,8 +100,8 @@ exports[`Stack renders 1`] = `
     className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
@@ -134,8 +134,8 @@ exports[`Stack renders with specified gap 1`] = `
   className="box marginBottomN4 marginTopN4"
   style={
     Object {
-      "height": "100%",
-      "width": "100%",
+      "height": undefined,
+      "width": undefined,
     }
   }
 >
@@ -143,8 +143,8 @@ exports[`Stack renders with specified gap 1`] = `
     className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
     style={
       Object {
-        "height": "100%",
-        "width": "100%",
+        "height": undefined,
+        "width": undefined,
       }
     }
   >
