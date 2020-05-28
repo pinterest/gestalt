@@ -14,22 +14,14 @@ exports[`Controller renders 1`] = `
     }
   >
     <div
-      className="border darkGrayBg darkGray contents maxDimensions minDimensions"
+      className="contents maxDimensions minDimensions"
       tabIndex={-1}
     >
-      <div
-        className="innerContents maxDimensions minDimensions"
-        style={
-          Object {
-            "maxWidth": 230,
-          }
-        }
-      />
       <div
         className="darkGray caret"
         style={
           Object {
-            "bottom": null,
+            "bottom": -24,
             "left": 8,
             "right": null,
             "top": null,
@@ -45,6 +37,14 @@ exports[`Controller renders 1`] = `
           />
         </svg>
       </div>
+      <div
+        className="border darkGrayBg darkGray innerContents maxDimensions minDimensions"
+        style={
+          Object {
+            "maxWidth": 230,
+          }
+        }
+      />
     </div>
   </div>
 </div>

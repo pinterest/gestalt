@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarPair Renders only the first 2 collobarators when multiple are passed in 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "75%",
+        "left": 0,
+        "top": 0,
+        "width": "75%",
+      }
+    }
+  >
+    <div
+      className="box circle relative whiteBg"
+      style={
+        Object {
+          "boxShadow": "0 0 0 1px #fff",
+          "height": "",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="Mask circle willChangeTransform"
+        style={
+          Object {
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box relative"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "paddingBottom": "100%",
+            }
+          }
+        >
+          <img
+            alt="Keerthi"
+            className="img"
+            importance="auto"
+            loading="auto"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+          />
+        </div>
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "75%",
+        "left": "25%",
+        "top": "25%",
+        "width": "75%",
+      }
+    }
+  >
+    <div
+      className="box circle relative whiteBg"
+      style={
+        Object {
+          "boxShadow": "0 0 0 1px #fff",
+          "height": "",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="Mask circle willChangeTransform"
+        style={
+          Object {
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box relative"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "paddingBottom": "100%",
+            }
+          }
+        >
+          <img
+            alt="Shanice"
+            className="img"
+            importance="auto"
+            loading="auto"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="https://i.ibb.co/7tGKGvb/shanice.jpg"
+          />
+        </div>
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarPair Renders renders 2 collaborators 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "75%",
+        "left": 0,
+        "top": 0,
+        "width": "75%",
+      }
+    }
+  >
+    <div
+      className="box circle relative whiteBg"
+      style={
+        Object {
+          "boxShadow": "0 0 0 1px #fff",
+          "height": "",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="Mask circle willChangeTransform"
+        style={
+          Object {
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box relative"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "paddingBottom": "100%",
+            }
+          }
+        >
+          <img
+            alt="Keerthi"
+            className="img"
+            importance="auto"
+            loading="auto"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+          />
+        </div>
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "75%",
+        "left": "25%",
+        "top": "25%",
+        "width": "75%",
+      }
+    }
+  >
+    <div
+      className="box circle relative whiteBg"
+      style={
+        Object {
+          "boxShadow": "0 0 0 1px #fff",
+          "height": "",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="Mask circle willChangeTransform"
+        style={
+          Object {
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box relative"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "paddingBottom": "100%",
+            }
+          }
+        >
+          <img
+            alt="Shanice"
+            className="img"
+            importance="auto"
+            loading="auto"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="https://i.ibb.co/7tGKGvb/shanice.jpg"
+          />
+        </div>
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarPair Renders renders the avatar with text when no image is provided 1`] = `
+<div
+  className="box relative"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="absolute box"
+    style={
+      Object {
+        "height": "75%",
+        "left": 0,
+        "top": 0,
+        "width": "75%",
+      }
+    }
+  >
+    <div
+      className="box circle relative whiteBg"
+      style={
+        Object {
+          "boxShadow": "0 0 0 1px #fff",
+          "height": "",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="Mask circle willChangeTransform"
+        style={
+          Object {
+            "height": undefined,
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box relative"
+          style={
+            Object {
+              "backgroundColor": "#EFEFEF",
+              "paddingBottom": "100%",
+            }
+          }
+        >
+          <img
+            alt="Keerthi"
+            className="img"
+            importance="auto"
+            loading="auto"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+          />
+        </div>
+        <div
+          className="wash"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

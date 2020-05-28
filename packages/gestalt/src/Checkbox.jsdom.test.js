@@ -17,7 +17,7 @@ test('Checkbox handles click', () => {
       />
     </form>
   );
-  getByLabelText('Label').click({ currentTarget: { checked: true } });
+  getByLabelText('Label').click();
   expect(mockOnClick).toHaveBeenCalled();
   expect(mockOnChange).toHaveBeenCalled();
 });

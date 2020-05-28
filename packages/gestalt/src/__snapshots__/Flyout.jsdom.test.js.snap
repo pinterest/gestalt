@@ -16,11 +16,11 @@ exports[`Flyout renders 1`] = `
     }
   >
     <div
-      className="border whiteBg white rounding4 contents maxDimensions minDimensions"
+      className="rounding4 contents maxDimensions minDimensions"
       tabIndex={-1}
     >
       <div
-        className="innerContents maxDimensions minDimensions"
+        className="border whiteBg white rounding4 innerContents maxDimensions minDimensions"
         style={
           Object {
             "maxWidth": 230,
@@ -46,11 +46,11 @@ exports[`Flyout renders as blue 1`] = `
     }
   >
     <div
-      className="border blueBg blue rounding4 contents maxDimensions minDimensions"
+      className="rounding4 contents maxDimensions minDimensions"
       tabIndex={-1}
     >
       <div
-        className="innerContents maxDimensions minDimensions"
+        className="border blueBg blue rounding4 innerContents maxDimensions minDimensions"
         style={
           Object {
             "maxWidth": 230,
@@ -76,11 +76,11 @@ exports[`Flyout renders as error 1`] = `
     }
   >
     <div
-      className="border redBg red rounding4 contents maxDimensions minDimensions"
+      className="rounding4 contents maxDimensions minDimensions"
       tabIndex={-1}
     >
       <div
-        className="innerContents maxDimensions minDimensions"
+        className="border redBg red rounding4 innerContents maxDimensions minDimensions"
         style={
           Object {
             "maxWidth": 230,

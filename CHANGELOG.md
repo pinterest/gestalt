@@ -1,3 +1,75 @@
+## 1.57.0 (May 27, 2020)
+
+### Minor
+
+- AvatarPair: add component (#880)
+
+## 1.56.0 (May 27, 2020)
+
+### Minor
+
+- Table: Add sortable header cells (#878)
+
+## 1.55.5 (May 26, 2020)
+
+### Patch
+
+- Icon: update check-circle (#881)
+
+## 1.55.4 (May 22, 2020)
+
+### Patch
+
+- Internal: fix yarn watch keeps appending CSS (#877)
+
+## 1.55.3 (May 21, 2020)
+
+### Patch
+
+- Modal: make focus state more specific (#875)
+
+## 1.55.2 (May 19, 2020)
+
+### Patch
+
+- Flyout: shift caret left/right towards flyout to align with rounded corners (#844)
+
+## 1.55.1 (May 19, 2020)
+
+### Patch
+
+- Internal: update flow-typed definitions (#873)
+
+## 1.55.0 (May 19, 2020)
+
+### Minor
+
+- Internal: update devdependencies (Jest / Babel / StyleLint) (#872)
+
+## 1.54.0 (May 18, 2020)
+
+### Minor
+
+- Modal: Fix shadows on scroll (#859)
+
+## 1.53.0 (May 18, 2020)
+
+### Minor
+
+- Icon: Update star icon (#858)
+
+## 1.52.3 (May 18, 2020)
+
+### Patch
+
+- Internal: Remove unused boxperf.js (#868)
+
+## 1.52.2 (May 18, 2020)
+
+### Patch
+
+- Video: Fix for `n.video.load is not a function` in Safari #870
+
 ## 1.52.1 (May 18, 2020)
 
 ### Patch

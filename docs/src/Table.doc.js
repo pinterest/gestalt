@@ -190,4 +190,90 @@ card(
   />
 );
 
+card(
+  <Card
+    name="Table.SortableHeaderCell"
+    description="Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column."
+  />
+);
+
+card(
+  <PropTable
+    Component={Table.SortableHeaderCell}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'scope',
+        defaultValue: 'col',
+        type: '"col" | "row" | "colgroup" | "rowgroup"',
+      },
+      {
+        name: 'colSpan',
+        type: 'number',
+        defaultValue: 1,
+      },
+      {
+        name: 'rowSpan',
+        type: 'number',
+        defaultValue: 1,
+      },
+      {
+        name: 'onSortChange',
+        required: true,
+        type:
+          '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
+      },
+      {
+        name: 'sortOrder',
+        required: true,
+        type: '"asc" | "desc"',
+      },
+      {
+        name: 'status',
+        required: true,
+        type: '"active" | "inactive"',
+      },
+    ]}
+  />
+);
+
+card(
+  <Example
+    name="Example: Sortable header cells"
+    defaultCode={`
+    function SortableHeaderExample() {
+      const [sortOrder, setSortOrder] = React.useState('desc');
+      const [sortCol, setSortCol] = React.useState('name');
+    
+      const onSortChange = (col) => {
+        if (sortCol !== col) {
+          setSortCol(col);
+          setSortOrder('desc');
+        } else {
+          setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+        }
+      }
+    
+      return (
+        <Table>
+          <Table.Header>
+            <Table.Row>
+              <Table.SortableHeaderCell onSortChange={() => onSortChange('name')} sortOrder={sortOrder} status={sortCol === 'name' ? 'active' : 'inactive'}>
+                <Text weight="bold">Name</Text>
+              </Table.SortableHeaderCell>
+              <Table.SortableHeaderCell onSortChange={() => onSortChange('id')} sortOrder={sortOrder} status={sortCol === 'id' ? 'active' : 'inactive'}>
+                <Text weight="bold">Id</Text>
+              </Table.SortableHeaderCell>
+            </Table.Row>
+          </Table.Header>
+        </Table>
+      );
+    }
+`}
+  />
+);
+
 export default cards;

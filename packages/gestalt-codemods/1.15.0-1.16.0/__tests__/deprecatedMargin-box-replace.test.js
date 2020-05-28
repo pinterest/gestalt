@@ -1,12 +1,9 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../deprecatedMargin-box-replace', () => {
-  return Object.assign(
-    require.requireActual('../deprecatedMargin-box-replace'),
-    {
-      parser: 'flow',
-    }
-  );
+  return Object.assign(jest.requireActual('../deprecatedMargin-box-replace'), {
+    parser: 'flow',
+  });
 });
 
 describe('deprecatedMargin-box-replace', () => {

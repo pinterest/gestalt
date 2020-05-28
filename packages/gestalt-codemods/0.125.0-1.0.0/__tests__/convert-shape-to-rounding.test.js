@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../convert-shape-to-rounding', () => {
-  return Object.assign(require.requireActual('../convert-shape-to-rounding'), {
+  return Object.assign(jest.requireActual('../convert-shape-to-rounding'), {
     parser: 'flow',
   });
 });
