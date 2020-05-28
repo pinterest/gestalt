@@ -1,3 +1,9 @@
+## 1.57.1 (May 28, 2020)
+
+### Patch
+
+- Table: Only show scrollbar when necessary (#887)
+
 ## 1.57.0 (May 27, 2020)
 
 ### Minor
