@@ -20,7 +20,7 @@ export default function Table(props: Props) {
 
   return (
     <Box
-      overflow="scrollX"
+      overflow="auto"
       {...(borderSize === 'sm' ? { borderSize: 'sm', rounding: 1 } : {})}
     >
       <table className={styles.table}>{children}</table>
