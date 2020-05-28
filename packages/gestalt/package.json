@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "1.52.1",
+  "version": "1.57.0",
   "license": "Apache-2.0",
   "homepage": "https://pinterest.github.io/gestalt",
   "description": "A set of React UI components which enforce Pinterest’s design language",
@@ -25,14 +25,14 @@
     "postpack": "rm README.md",
     "prepack": "cp ../../README.md .",
     "prepublish": "rollup -c rollup.config.js",
-    "watch": "rollup -c rollup.config.js --watch"
+    "watch": "sane 'rollup -c rollup.config.js' src"
   },
   "devDependencies": {
-    "blueimp-md5": "^2.12.0",
-    "caniuse-lite": "^1.0.30001035",
+    "blueimp-md5": "^2.16.0",
+    "caniuse-lite": "^1.0.30001062",
     "cssnano": "^4.1.10",
     "gzip-size": "^5.1.1",
-    "postcss": "^7.0.27",
+    "postcss": "^7.0.30",
     "postcss-cssnext": "^3.1.0",
     "postcss-modules": "^1.5.0",
     "rollup": "^1.31.1",
@@ -42,7 +42,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-visualizer": "^3.3.2",
-    "rollup-watch": "^4.3.1",
     "xml2js": "^0.4.23"
   },
   "browserslist": [

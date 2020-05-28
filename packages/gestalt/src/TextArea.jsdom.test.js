@@ -49,10 +49,15 @@ describe('TextArea', () => {
       <TextArea id="test" onChange={mockChange} value="TextArea Text" />
     );
 
-    fireEvent.change(container.querySelector('textarea'), {
-      target: { value: 'panda' },
-    });
-    expect(mockChange).toHaveBeenCalled();
+    const textarea = container.querySelector('textarea');
+    expect(textarea).not.toBe(null);
+
+    if (textarea) {
+      fireEvent.change(textarea, {
+        target: { value: 'panda' },
+      });
+      expect(mockChange).toHaveBeenCalled();
+    }
   });
   it('handles focus events', () => {
     const mockFocus = jest.fn();
@@ -79,10 +84,15 @@ describe('TextArea', () => {
       />
     );
 
-    fireEvent.keyDown(container.querySelector('textarea'), {
-      target: { value: 'panda' },
-    });
-    expect(mockKeyDown).toHaveBeenCalled();
+    const textarea = container.querySelector('textarea');
+    expect(textarea).not.toBe(null);
+
+    if (textarea) {
+      fireEvent.keyDown(textarea, {
+        target: { value: 'panda' },
+      });
+      expect(mockKeyDown).toHaveBeenCalled();
+    }
   });
 
   it('shows a label for the text area', () => {

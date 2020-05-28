@@ -3,6 +3,7 @@
 declare module.exports: {|
   +'backdrop': string,
   +'container': string,
-  +'content': string,
+  +'shadow': string,
+  +'shadowContainer': string,
   +'wrapper': string,
 |};

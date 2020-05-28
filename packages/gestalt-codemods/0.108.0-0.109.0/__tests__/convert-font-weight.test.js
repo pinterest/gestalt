@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../convert-font-weight', () => {
-  return Object.assign(require.requireActual('../convert-font-weight'), {
+  return Object.assign(jest.requireActual('../convert-font-weight'), {
     parser: 'flow',
   });
 });

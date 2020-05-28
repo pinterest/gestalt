@@ -1,7 +1,7 @@
 import { defineTest } from 'jscodeshift/dist/testUtils.js';
 
 jest.mock('../leading-text-remove', () => {
-  return Object.assign(require.requireActual('../leading-text-remove'), {
+  return Object.assign(jest.requireActual('../leading-text-remove'), {
     parser: 'flow',
   });
 });

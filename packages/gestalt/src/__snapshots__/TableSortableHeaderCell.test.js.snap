@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when active 1`] = `
+<th
+  className="th"
+  scope="col"
+>
+  <div
+    className="touchable pointer rounding0 fullWidth"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <div
+      className="box xsDisplayFlex"
+    >
+      column name
+      <div
+        className="box marginLeft2"
+        style={
+          Object {
+            "visibility": "visible",
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</th>
+`;
+
+exports[`renders correctly when inactive 1`] = `
+<th
+  className="th"
+  scope="col"
+>
+  <div
+    className="touchable pointer rounding0 fullWidth"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    role="button"
+    tabIndex="0"
+  >
+    <div
+      className="box xsDisplayFlex"
+    >
+      column name
+      <div
+        className="box marginLeft2"
+        style={
+          Object {
+            "visibility": "hidden",
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon gray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</th>
+`;
