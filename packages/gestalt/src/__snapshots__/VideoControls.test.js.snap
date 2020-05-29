@@ -8,7 +8,8 @@ exports[`VideoControls for double digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -131,7 +132,8 @@ exports[`VideoControls for double digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -167,7 +169,8 @@ exports[`VideoControls for double digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -290,7 +293,8 @@ exports[`VideoControls for double digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -326,7 +330,8 @@ exports[`VideoControls for single digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -449,7 +454,8 @@ exports[`VideoControls for single digit minutes 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -485,7 +491,8 @@ exports[`VideoControls for single digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -608,7 +615,8 @@ exports[`VideoControls for single digit seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -644,7 +652,8 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -767,7 +776,8 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     className="box paddingX2 paddingY2"
   >
     <div
-      className="touchable pointer rounding0"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

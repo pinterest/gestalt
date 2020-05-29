@@ -19,7 +19,12 @@ type MouseCursor =
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 type Props = {|
+  accessibilityControls?: string,
+  accessibilityExpanded?: boolean,
+  accessibilityHaspopup?: boolean,
+  accessibilityLabel?: string,
   children?: React.Node,
+  disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,
@@ -70,7 +75,12 @@ const getRoundingStyle = (r: Rounding): Style => {
 
 export default class Touchable extends React.Component<Props> {
   static propTypes = {
+    accessibilityControls: PropTypes.string,
+    accessibilityExpanded: PropTypes.bool,
+    accessibilityHaspopup: PropTypes.bool,
+    accessibilityLabel: PropTypes.string,
     children: PropTypes.node,
+    disabled: PropTypes.bool,
     fullHeight: PropTypes.bool,
     fullWidth: PropTypes.bool,
     mouseCursor: PropTypes.oneOf([
@@ -92,9 +102,9 @@ export default class Touchable extends React.Component<Props> {
   };
 
   handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
-    const { onTouch } = this.props;
+    const { disabled, onTouch } = this.props;
     // Check to see if space or enter were pressed
-    if (
+    if (!disabled &&
       onTouch &&
       (event.charCode === SPACE_CHAR_CODE || event.charCode === ENTER_CHAR_CODE)
     ) {
@@ -105,43 +115,48 @@ export default class Touchable extends React.Component<Props> {
   };
 
   handleBlur = (event: SyntheticFocusEvent<HTMLDivElement>) => {
-    const { onBlur } = this.props;
-    if (onBlur) {
+    const { disabled, onBlur } = this.props;
+    if (!disabled && onBlur) {
       onBlur({ event });
     }
   };
 
   handleFocus = (event: SyntheticFocusEvent<HTMLDivElement>) => {
-    const { onFocus } = this.props;
-    if (onFocus) {
+    const { disabled, onFocus } = this.props;
+    if (!disabled && onFocus) {
       onFocus({ event });
     }
   };
 
   handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
-    const { onMouseEnter } = this.props;
-    if (onMouseEnter) {
+    const { disabled, onMouseEnter } = this.props;
+    if (!disabled && onMouseEnter) {
       onMouseEnter({ event });
     }
   };
 
   handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
-    const { onMouseLeave } = this.props;
-    if (onMouseLeave) {
+    const { disabled, onMouseLeave } = this.props;
+    if (!disabled && onMouseLeave) {
       onMouseLeave({ event });
     }
   };
 
   handleClick = (event: SyntheticMouseEvent<HTMLDivElement>) => {
-    const { onTouch } = this.props;
-    if (onTouch) {
+    const { disabled, onTouch } = this.props;
+    if (!disabled && onTouch) {
       onTouch({ event });
     }
   };
 
   render() {
     const {
+      accessibilityControls,
+      accessibilityExpanded,
+      accessibilityHaspopup,
+      accessibilityLabel,
       children,
+      disabled = false,
       fullWidth = true,
       fullHeight,
       mouseCursor = 'pointer',
@@ -150,16 +165,21 @@ export default class Touchable extends React.Component<Props> {
 
     const classes = classnames(
       styles.touchable,
-      styles[mouseCursor],
       toProps(getRoundingStyle(rounding)).className,
       {
         [styles.fullHeight]: fullHeight,
         [styles.fullWidth]: fullWidth,
+        [styles[mouseCursor]]: !disabled,
       }
     );
 
     return (
       <div
+        aria-controls={accessibilityControls}
+        aria-disabled={disabled}
+        aria-expanded={accessibilityExpanded}
+        aria-haspopup={accessibilityHaspopup}
+        aria-label={accessibilityLabel}
         className={classes}
         onClick={this.handleClick}
         onBlur={this.handleBlur}
@@ -168,7 +188,7 @@ export default class Touchable extends React.Component<Props> {
         onMouseLeave={this.handleMouseLeave}
         onKeyPress={this.handleKeyPress}
         role="button"
-        tabIndex="0"
+        tabIndex={disabled ? null : "0"}
       >
         {children}
       </div>

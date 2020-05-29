@@ -6,7 +6,8 @@ exports[`renders correctly when active 1`] = `
   scope="col"
 >
   <div
-    className="touchable pointer rounding0 fullWidth"
+    aria-disabled={false}
+    className="touchable rounding0 fullWidth pointer"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -53,7 +54,8 @@ exports[`renders correctly when inactive 1`] = `
   scope="col"
 >
   <div
-    className="touchable pointer rounding0 fullWidth"
+    aria-disabled={false}
+    className="touchable rounding0 fullWidth pointer"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

@@ -2,7 +2,8 @@
 
 exports[`Touchable renders 1`] = `
 <div
-  className="touchable pointer rounding0 fullWidth"
+  aria-disabled={false}
+  className="touchable rounding0 fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -18,7 +19,8 @@ exports[`Touchable renders 1`] = `
 
 exports[`Touchable sets correct mouse cursor 1`] = `
 <div
-  className="touchable zoomIn rounding0 fullWidth"
+  aria-disabled={false}
+  className="touchable rounding0 fullWidth zoomIn"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -34,7 +36,8 @@ exports[`Touchable sets correct mouse cursor 1`] = `
 
 exports[`Touchable sets correct rounding 1`] = `
 <div
-  className="touchable pointer circle fullWidth"
+  aria-disabled={false}
+  className="touchable circle fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -50,7 +53,8 @@ exports[`Touchable sets correct rounding 1`] = `
 
 exports[`Touchable sets fullHeight correctly 1`] = `
 <div
-  className="touchable pointer rounding0 fullHeight fullWidth"
+  aria-disabled={false}
+  className="touchable rounding0 fullHeight fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -66,7 +70,8 @@ exports[`Touchable sets fullHeight correctly 1`] = `
 
 exports[`Touchable sets fullWidth correctly 1`] = `
 <div
-  className="touchable pointer rounding0"
+  aria-disabled={false}
+  className="touchable rounding0 pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
