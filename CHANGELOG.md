@@ -1,3 +1,9 @@
+## 1.58.0 (May 29, 2020)
+
+### Minor
+
+- [Box, Flexbox, Row, Stack] Create Flexbox, Row, Stack components, DRY out Box types (#803)
+
 ## 1.57.1 (May 28, 2020)
 
 ### Patch
