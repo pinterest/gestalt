@@ -38,4 +38,40 @@ describe('<Button />', () => {
     ).root;
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
+
+  test('accessibilityControls', () => {
+    const instance = create(
+      <Button text="Hello World" accessibilityControls="another-element" />
+    ).root;
+    expect(
+      instance.find(element => element.type === 'button').props['aria-controls']
+    ).toContain('another-element');
+  });
+
+  test('accessibilityExpanded', () => {
+    const instance = create(
+      <Button text="Hello World" accessibilityExpanded />
+    ).root;
+    expect(
+      instance.find(element => element.type === 'button').props['aria-expanded']
+    ).toBe(true);
+  });
+
+  test('accessibilityHaspopup', () => {
+    const instance = create(
+      <Button text="Hello World" accessibilityHaspopup />
+    ).root;
+    expect(
+      instance.find(element => element.type === 'button').props['aria-haspopup']
+    ).toBe(true);
+  });
+  
+  test('accessibilityLabel', () => {
+    const instance = create(
+      <Button text="Hello World" accessibilityLabel="hello" />
+    ).root;
+    expect(
+      instance.find(element => element.type === 'button').props['aria-label']
+    ).toContain('hello');
+  });  
 });

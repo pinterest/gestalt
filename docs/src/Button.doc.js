@@ -22,23 +22,32 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilityControls',
+        type: 'string',
+        description:
+          'Identifies the element whose contents or presence are controlled by the current element. Populates aria-controls.',
+        href: 'accessibility-disclosure',
+      },
+      {
         name: 'accessibilityExpanded',
         type: 'boolean',
         description:
-          'Use this property on elements that can expand to reveal additional information',
+          'Use this property on elements that can expand to reveal additional information. Populates aria-expanded.',
+        href: 'accessibility-disclosure',
       },
       {
         name: 'accessibilityHaspopup',
         type: 'boolean',
         description:
-          'Indicates that the element has a popup context menu or sub-level menu.',
+          'Indicates that the element has a popup context menu or sub-level menu. Populates aria-haspopup.',
+        href: 'accessibility-popup',
       },
       {
         name: 'accessibilityLabel',
         type: 'string',
         description:
-          'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
-        href: 'accessibilityLabel',
+          'String that clients such as VoiceOver will read to describe the element. Always localize the label. Populates aria-label.',
+        href: 'accessibility-popup',
       },
       {
         name: 'color',
@@ -315,23 +324,80 @@ function MenuButtonExample() {
 
 card(
   <Example
+    id="accessibility-popup"
     description={`
-    We want to make sure every button on the page is unique when being read by screenreader.
-    \`accessibilityLabel\` allows us to update the spoken text.
+      We want to make sure every button on the page is unique when being read by screenreader.
+      - \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
+      - \`accessibilityLabel\` allows us to update the spoken text.
 
-    Be sure to internationalize your \`accessibilityLabel\`!
+      Be sure to internationalize your \`accessibilityLabel\`.
   `}
-    id="accessibilityLabel"
-    name="Accessibility Label"
+    name="Example: Accessibility (Popup)"
     defaultCode={`
-<Box margin={-2} display="flex">
-  <Box padding={2}>
-    <Button accessibilityLabel="Add James" text="Add" inline />
-  </Box>
-  <Box padding={2}>
-    <Button accessibilityLabel="Add Irene" text="Add" inline />
-  </Box>
-</Box>
+function A11yExPopup() {
+  const [isOpen, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  return (
+    <Box>
+      <Box display="inlineBlock" ref={anchorRef} rounding="pill" color="lightGray">
+        <Button
+          accessibilityHaspopup
+          accessibilityLabel="see more"
+          onClick={() => setOpen(!isOpen)}
+          inline
+          text="See more"
+        />
+      </Box>
+      {isOpen && (
+        <Flyout anchor={anchorRef && anchorRef.current} onDismiss={() => undefined} idealDirection="right">
+          <Box padding={2}>
+            <Text>I am a popup.</Text>
+          </Box>
+        </Flyout>
+      )}
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="accessibility-disclosure"
+    description={`
+      We want to make sure every button on the page is unique when being read by screenreader.
+      - \`accessibilityControls\` allows us to specify the reference for an associated content (i.e. Accordion panel) which is controlled by this icon button.
+      - \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Accordion panel) is open.
+      - \`accessibilityLabel\` allows us to update the spoken text.
+
+      Be sure to internationalize your \`accessibilityLabel\`.
+  `}
+    name="Example: Accessibility (Disclosure)"
+    defaultCode={`
+function A11yExDisclosure() {
+  const [isOpen, setOpen] = React.useState(false);
+
+  return (
+    <Box>
+      <Box display="inlineBlock" rounding="pill" color="lightGray" width={200}>
+        <Button
+          accessibilityControls="accordion-panel"
+          accessibilityExpanded={isOpen}
+          accessibilityLabel="see more"
+          text={isOpen ? 'Collapse' : 'Expand'}
+          onClick={() => setOpen(!isOpen)}
+        />
+      </Box>
+      {isOpen && (
+        <Box id="accordion-panel" role="region" padding={2}>
+          <Text>I am an accordion panel.</Text>
+        </Box>
+      )}
+    </Box>
+  );
+}
 `}
   />
 );
