@@ -49,23 +49,21 @@ describe('<Button />', () => {
   });
 
   test('accessibilityExpanded', () => {
-    const instance = create(
-      <Button text="Hello World" accessibilityExpanded />
-    ).root;
+    const instance = create(<Button text="Hello World" accessibilityExpanded />)
+      .root;
     expect(
       instance.find(element => element.type === 'button').props['aria-expanded']
     ).toBe(true);
   });
 
   test('accessibilityHaspopup', () => {
-    const instance = create(
-      <Button text="Hello World" accessibilityHaspopup />
-    ).root;
+    const instance = create(<Button text="Hello World" accessibilityHaspopup />)
+      .root;
     expect(
       instance.find(element => element.type === 'button').props['aria-haspopup']
     ).toBe(true);
   });
-  
+
   test('accessibilityLabel', () => {
     const instance = create(
       <Button text="Hello World" accessibilityLabel="hello" />
@@ -73,5 +71,5 @@ describe('<Button />', () => {
     expect(
       instance.find(element => element.type === 'button').props['aria-label']
     ).toContain('hello');
-  });  
+  });
 });

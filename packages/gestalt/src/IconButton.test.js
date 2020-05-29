@@ -58,10 +58,8 @@ test('accessibilityHaspopup', () => {
 });
 
 test('accessibilityLabel', () => {
-  const instance = create(
-    <IconButton accessibilityLabel="hello" />
-  ).root;
+  const instance = create(<IconButton accessibilityLabel="hello" />).root;
   expect(
     instance.find(element => element.type === 'button').props['aria-label']
   ).toContain('hello');
-});  
+});

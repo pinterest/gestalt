@@ -53,7 +53,9 @@ test('accessibilityControls', () => {
     </Touchable>
   ).root;
   expect(
-    instance.find(element => element.type === 'div' && element.props.role === 'button').props['aria-controls']
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-controls']
   ).toContain('another-element');
 });
 
@@ -64,7 +66,9 @@ test('accessibilityExpanded', () => {
     </Touchable>
   ).root;
   expect(
-    instance.find(element => element.type === 'div' && element.props.role === 'button').props['aria-expanded']
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-expanded']
   ).toBe(true);
 });
 
@@ -75,7 +79,9 @@ test('accessibilityHaspopup', () => {
     </Touchable>
   ).root;
   expect(
-    instance.find(element => element.type === 'div' && element.props.role === 'button').props['aria-haspopup']
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-haspopup']
   ).toBe(true);
 });
 
@@ -86,6 +92,8 @@ test('accessibilityLabel', () => {
     </Touchable>
   ).root;
   expect(
-    instance.find(element => element.type === 'div' && element.props.role === 'button').props['aria-label']
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-label']
   ).toContain('hello');
-});  
+});

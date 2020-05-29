@@ -104,7 +104,8 @@ export default class Touchable extends React.Component<Props> {
   handleKeyPress = (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
     const { disabled, onTouch } = this.props;
     // Check to see if space or enter were pressed
-    if (!disabled &&
+    if (
+      !disabled &&
       onTouch &&
       (event.charCode === SPACE_CHAR_CODE || event.charCode === ENTER_CHAR_CODE)
     ) {
@@ -188,7 +189,7 @@ export default class Touchable extends React.Component<Props> {
         onMouseLeave={this.handleMouseLeave}
         onKeyPress={this.handleKeyPress}
         role="button"
-        tabIndex={disabled ? null : "0"}
+        tabIndex={disabled ? null : '0'}
       >
         {children}
       </div>
