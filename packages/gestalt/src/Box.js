@@ -42,20 +42,53 @@ import {
 
 /*
 
-# ProTypes
+# PropTypes
 
-Box's type definition is exhaustive. With the exception of `dangerouslySetInlineStyle`, values shouldn't be ambigious. That means that we have to type out things like boints, but that's also where Box's magic lies. Also, by putting in extra effort around type definitions here, we can skip extra runtime typechecks in the transformers for performance.
+Box's type definition is exhaustive. With the exception of `dangerouslySetInlineStyle`, values
+shouldn't be ambigious. That means that we have to type out things like boints, but that's also
+where Box's magic lies. Also, by putting in extra effort around type definitions here, we can skip
+extra runtime typechecks in the transformers for performance.
 
 */
 
-type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
-type Direction = 'row' | 'column';
+export type AlignContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'evenly'
+  | 'stretch';
+
+export type AlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+
+export type AlignSelf =
+  | 'auto'
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'baseline'
+  | 'stretch';
+
 type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
-type ResponsiveProps = {
-  column?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  display?: boolean | 'flex' | 'flexColumn' | 'inlineBlock',
-};
-type Margin =
+
+export type Dimension = number | string;
+
+type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
+
+export type Direction = 'row' | 'column';
+
+export type Flex = 'grow' | 'shrink' | 'none';
+
+export type JustifyContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'evenly';
+
+export type Margin =
   | -12
   | -11
   | -10
@@ -82,8 +115,24 @@ type Margin =
   | 11
   | 12
   | 'auto';
-type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+export type Overflow =
+  | 'visible'
+  | 'hidden'
+  | 'scroll'
+  | 'scrollX'
+  | 'scrollY'
+  | 'auto';
+
+export type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+type ResponsiveProps = {
+  column?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
+  display?: boolean | 'flex' | 'flexColumn' | 'inlineBlock',
+};
+
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
+
 type PropType = {
   children?: React.Node,
   dangerouslySetInlineStyle?: {
@@ -108,16 +157,9 @@ type PropType = {
   lgColumn?: Column,
   lgDirection?: Direction,
 
-  alignContent?:
-    | 'start'
-    | 'end'
-    | 'center'
-    | 'between'
-    | 'around'
-    | 'evenly'
-    | 'stretch',
-  alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch',
-  alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch',
+  alignContent?: AlignContent,
+  alignItems?: AlignItems,
+  alignSelf?: AlignSelf,
   bottom?: boolean,
   borderSize?: 'sm' | 'md' | 'none',
   color?:
@@ -143,9 +185,9 @@ type PropType = {
     | 'watermelon'
     | 'white',
   fit?: boolean,
-  flex?: 'grow' | 'shrink' | 'none',
-  height?: number | string,
-  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly',
+  flex?: Flex,
+  height?: Dimension,
+  justifyContent?: JustifyContent,
   left?: boolean,
 
   marginStart?: Margin,
@@ -175,14 +217,14 @@ type PropType = {
   lgMarginBottom?: Margin,
   lgMarginLeft?: Margin,
 
-  maxHeight?: number | string,
-  maxWidth?: number | string,
-  minHeight?: number | string,
-  minWidth?: number | string,
+  maxHeight?: Dimension,
+  maxWidth?: Dimension,
+  minHeight?: Dimension,
+  minWidth?: Dimension,
 
   opacity?: 0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1,
 
-  overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto',
+  overflow?: Overflow,
 
   padding?: Padding,
   smPadding?: Padding,
@@ -202,9 +244,8 @@ type PropType = {
   position?: 'static' | 'absolute' | 'relative' | 'fixed',
   right?: boolean,
   rounding?: Rounding,
-  shrink?: boolean,
   top?: boolean,
-  width?: number | string,
+  width?: Dimension,
   wrap?: boolean,
 };
 
@@ -678,6 +719,33 @@ And we're done here :)
 
 */
 
+export const AlignContentPropType = PropTypes.oneOf([
+  'start',
+  'end',
+  'center',
+  'between',
+  'around',
+  'evenly',
+  'stretch',
+]);
+
+export const AlignItemsPropType = PropTypes.oneOf([
+  'start',
+  'end',
+  'center',
+  'baseline',
+  'stretch',
+]);
+
+export const AlignSelfPropType = PropTypes.oneOf([
+  'auto',
+  'start',
+  'end',
+  'center',
+  'baseline',
+  'stretch',
+]);
+
 const ColumnPropType = PropTypes.oneOf([
   0,
   1,
@@ -694,7 +762,33 @@ const ColumnPropType = PropTypes.oneOf([
   12,
 ]);
 
-const MarginPropType = PropTypes.oneOf([
+export const DimensionPropType = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+]);
+
+export const DirectionPropType = PropTypes.oneOf(['row', 'column']);
+
+const DisplayPropType = PropTypes.oneOf([
+  'none',
+  'flex',
+  'block',
+  'inlineBlock',
+  'visuallyHidden',
+]);
+
+export const FlexPropType = PropTypes.oneOf(['grow', 'shrink', 'none']);
+
+export const JustifyContentPropType = PropTypes.oneOf([
+  'start',
+  'end',
+  'center',
+  'between',
+  'around',
+  'evenly',
+]);
+
+export const MarginPropType = PropTypes.oneOf([
   -12,
   -11,
   -10,
@@ -723,7 +817,16 @@ const MarginPropType = PropTypes.oneOf([
   'auto',
 ]);
 
-const PaddingPropType = PropTypes.oneOf([
+export const OverflowPropType = PropTypes.oneOf([
+  'visible',
+  'hidden',
+  'scroll',
+  'scrollX',
+  'scrollY',
+  'auto',
+]);
+
+export const PaddingPropType = PropTypes.oneOf([
   0,
   1,
   2,
@@ -753,6 +856,12 @@ const RoundingPropType = PropTypes.oneOf([
   'pill',
 ]);
 
+const SizeDisplayPropType = PropTypes.oneOf([
+  'flex',
+  'flexColumn',
+  'inlineBlock',
+]);
+
 // $FlowIssue https://github.com/facebook/flow/issues/7484
 Box.propTypes = {
   children: PropTypes.node,
@@ -761,98 +870,41 @@ Box.propTypes = {
   }),
 
   xs: PropTypes.exact({
-    display: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
-    ]),
+    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
     column: PropTypes.number,
   }),
   sm: PropTypes.exact({
-    display: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
-    ]),
+    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
     column: PropTypes.number,
   }),
   md: PropTypes.exact({
-    display: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
-    ]),
+    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
     column: PropTypes.number,
   }),
   lg: PropTypes.exact({
-    display: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.oneOf(['flex', 'flexColumn', 'inlineBlock']),
-    ]),
+    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
     column: PropTypes.number,
   }),
 
-  display: PropTypes.oneOf([
-    'none',
-    'flex',
-    'block',
-    'inlineBlock',
-    'visuallyHidden',
-  ]),
-  direction: PropTypes.oneOf(['row', 'column']),
+  display: DisplayPropType,
+  direction: DirectionPropType,
   column: ColumnPropType,
 
-  smDisplay: PropTypes.oneOf([
-    'none',
-    'flex',
-    'block',
-    'inlineBlock',
-    'visuallyHidden',
-  ]),
-  smDirection: PropTypes.oneOf(['row', 'column']),
+  smDisplay: DisplayPropType,
+  smDirection: DirectionPropType,
   smColumn: ColumnPropType,
 
-  mdDisplay: PropTypes.oneOf([
-    'none',
-    'flex',
-    'block',
-    'inlineBlock',
-    'visuallyHidden',
-  ]),
-  mdDirection: PropTypes.oneOf(['row', 'column']),
+  mdDisplay: DisplayPropType,
+  mdDirection: DirectionPropType,
   mdColumn: ColumnPropType,
 
-  lgDisplay: PropTypes.oneOf([
-    'none',
-    'flex',
-    'block',
-    'inlineBlock',
-    'visuallyHidden',
-  ]),
-  lgDirection: PropTypes.oneOf(['row', 'column']),
+  lgDisplay: DisplayPropType,
+  lgDirection: DirectionPropType,
   lgColumn: ColumnPropType,
 
-  alignContent: PropTypes.oneOf([
-    'start',
-    'end',
-    'center',
-    'between',
-    'around',
-    'evenly',
-    'stretch',
-  ]),
-  alignItems: PropTypes.oneOf([
-    'start',
-    'end',
-    'center',
-    'baseline',
-    'stretch',
-  ]),
-  alignSelf: PropTypes.oneOf([
-    'auto',
-    'start',
-    'end',
-    'center',
-    'baseline',
-    'stretch',
-  ]),
+  alignContent: AlignContentPropType,
+  alignItems: AlignItemsPropType,
+  alignSelf: AlignSelfPropType,
   bottom: PropTypes.bool,
   borderSize: PropTypes.oneOf(['sm', 'lg', 'none']),
   color: PropTypes.oneOf([
@@ -879,17 +931,9 @@ Box.propTypes = {
     'white',
   ]),
   fit: PropTypes.bool,
-  flex: PropTypes.oneOf(['grow', 'shrink', 'none']),
-  grow: PropTypes.bool,
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  justifyContent: PropTypes.oneOf([
-    'start',
-    'end',
-    'center',
-    'between',
-    'around',
-    'evenly',
-  ]),
+  flex: FlexPropType,
+  height: DimensionPropType,
+  justifyContent: JustifyContentPropType,
   left: PropTypes.bool,
 
   marginStart: MarginPropType,
@@ -919,21 +963,14 @@ Box.propTypes = {
   lgMarginBottom: MarginPropType,
   lgMarginLeft: MarginPropType,
 
-  maxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  maxWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  minHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  minWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  maxHeight: DimensionPropType,
+  maxWidth: DimensionPropType,
+  minHeight: DimensionPropType,
+  minWidth: DimensionPropType,
 
   opacity: PropTypes.oneOf([0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]),
 
-  overflow: PropTypes.oneOf([
-    'visible',
-    'hidden',
-    'scroll',
-    'scrollX',
-    'scrollY',
-    'auto',
-  ]),
+  overflow: OverflowPropType,
 
   padding: PaddingPropType,
   paddingX: PaddingPropType,
@@ -955,6 +992,6 @@ Box.propTypes = {
   right: PropTypes.bool,
   rounding: RoundingPropType,
   top: PropTypes.bool,
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  width: DimensionPropType,
   wrap: PropTypes.bool,
 };

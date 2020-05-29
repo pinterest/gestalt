@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row aligns items 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="box itemsEnd xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Row justifies content 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="box itemsCenter justifyAround xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Row renders 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+    <div
+      className="box"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Row renders with specified gap 1`] = `
+<div
+  className="box marginEndN4 marginStartN4"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box paddingX4"
+    >
+      <div />
+    </div>
+    <div
+      className="box paddingX4"
+    >
+      <div />
+    </div>
+    <div
+      className="box paddingX4"
+    >
+      <div />
+    </div>
+    <div
+      className="box paddingX4"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
