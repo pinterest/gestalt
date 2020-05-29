@@ -6,42 +6,51 @@ exports[`renders correctly when active 1`] = `
   scope="col"
 >
   <div
-    aria-disabled={false}
-    className="touchable rounding0 fullWidth pointer"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyPress={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    role="button"
-    tabIndex="0"
+    className="box"
+    style={
+      Object {
+        "width": "fit-content",
+      }
+    }
   >
     <div
-      className="box xsDisplayFlex"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="button"
+      tabIndex="0"
     >
-      column name
       <div
-        className="box marginLeft2"
-        style={
-          Object {
-            "visibility": "visible",
-          }
-        }
+        className="box xsDisplayFlex"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        column name
+        <div
+          className="box marginLeft2"
+          style={
+            Object {
+              "visibility": "visible",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon darkGray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -54,42 +63,51 @@ exports[`renders correctly when inactive 1`] = `
   scope="col"
 >
   <div
-    aria-disabled={false}
-    className="touchable rounding0 fullWidth pointer"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyPress={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    role="button"
-    tabIndex="0"
+    className="box"
+    style={
+      Object {
+        "width": "fit-content",
+      }
+    }
   >
     <div
-      className="box xsDisplayFlex"
+      aria-disabled={false}
+      className="touchable rounding0 pointer"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="button"
+      tabIndex="0"
     >
-      column name
       <div
-        className="box marginLeft2"
-        style={
-          Object {
-            "visibility": "hidden",
-          }
-        }
+        className="box xsDisplayFlex"
       >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon gray iconBlock"
-          height={16}
-          role="img"
-          viewBox="0 0 24 24"
-          width={16}
+        column name
+        <div
+          className="box marginLeft2"
+          style={
+            Object {
+              "visibility": "hidden",
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="icon gray iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
