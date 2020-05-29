@@ -31,7 +31,8 @@ then
 fi
 
 echo "Flowtyped definitions"
-npx flow-typed install --skip
+git clone --depth=1 --branch=master http://github.com/flowtype/flow-typed.git ~/.flow-typed/repo
+npx flow-typed install --skip --verbose
 FILES=$(git diff --name-only)
 if [[ "$FILES" ]]
 then
