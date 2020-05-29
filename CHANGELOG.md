@@ -1,3 +1,9 @@
+## 1.58.1 (May 29, 2020)
+
+### Patch
+
+- [Row, Stack] Add missing props to docs (#891)
+
 ## 1.58.0 (May 29, 2020)
 
 ### Minor
