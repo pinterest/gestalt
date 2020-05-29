@@ -7,6 +7,7 @@ import icons from './icons/index.js';
 import Pog from './Pog.js';
 
 type Props = {|
+  accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel: string,
@@ -28,6 +29,7 @@ type Props = {|
 |};
 
 export default function IconButton({
+  accessibilityControls,
   accessibilityExpanded,
   accessibilityHaspopup,
   accessibilityLabel,
@@ -46,6 +48,7 @@ export default function IconButton({
 
   return (
     <button
+      aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
@@ -82,6 +85,7 @@ export default function IconButton({
 }
 
 IconButton.propTypes = {
+  accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string.isRequired,
