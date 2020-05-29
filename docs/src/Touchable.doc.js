@@ -42,7 +42,7 @@ card(
         name: 'accessibilityLabel',
         type: 'string',
         description:
-          'String that clients such as VoiceOver will read to describe the element. Always localize the label. Populates aria-label.',
+          'String that clients such as VoiceOver will read to describe the element. Populates aria-label.',
         href: 'accessibility-popup',
       },
       {
@@ -197,8 +197,6 @@ card(
       We want to make sure every touchable on the page is unique when being read by screenreader.
       - \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
       - \`accessibilityLabel\` allows us to update the spoken text.
-
-      Be sure to internationalize your \`accessibilityLabel\`.
   `}
     name="Example: Accessibility (Popup)"
     defaultCode={`
@@ -214,18 +212,28 @@ function A11yExPopup() {
           accessibilityLabel="see more"
           onTouch={() => setOpen(!isOpen)}
         >
-        <Box display="flex" padding={2} rounding="pill" alignItems="center" borderSize="sm" >
+        <Box 
+          alignItems="center" 
+          borderSize="sm"
+          display="flex" 
+          padding={2} 
+          rounding="pill" 
+        >
             <Box paddingX={1}>
               <Text weight="bold">See more</Text>
             </Box>
             <Box paddingX={1}>
-              <Icon icon="ellipsis" color="darkGray" accessibilityLabel="" />
+              <Icon accessibilityLabel="" color="darkGray" icon="ellipsis" />
             </Box>
             </Box>
         </Touchable>
       </Box>
       {isOpen && (
-        <Flyout anchor={anchorRef && anchorRef.current} onDismiss={() => undefined} idealDirection="right">
+        <Flyout 
+          anchor={anchorRef && anchorRef.current} 
+          idealDirection="right"
+          onDismiss={() => undefined} 
+        >
           <Box padding={2}>
             <Text>I am a popup.</Text>
           </Box>
@@ -242,8 +250,8 @@ card(
   <Example
     id="accessibility-disclosure"
     description={`
-      We want to make sure every touchable on the page is unique when being read by screenreader.
-      - \`accessibilityControls\` allows us to specify the reference for an associated content (i.e. Accordion panel) which is controlled by this icon button.
+      We want to make sure every touchable area on the page is unique when being read by screenreader.
+      - \`accessibilityControls\` allows us to specify the \`id\` of an associated content element (i.e. Accordion panel) which is controlled by this touchable area.
       - \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Accordion panel) is open.
       - \`accessibilityLabel\` allows us to update the spoken text.
 
@@ -262,12 +270,19 @@ function A11yExDisclosure() {
           accessibilityExpanded={isOpen}
           onTouch={() => setOpen(!isOpen)}
         >
-          <Box display="flex" padding={2} rounding="pill" alignItems="center" justifyContent="between" borderSize="sm" >
+          <Box 
+            alignItems="center" 
+            borderSize="sm"
+            display="flex" 
+            justifyContent="between" 
+            padding={2} 
+            rounding="pill" 
+          >
             <Box paddingX={1}>
               <Text weight="bold">{isOpen ? 'Collapse' : 'Expand'}</Text>
             </Box>
             <Box paddingX={1}>
-              <Icon icon={isOpen ? 'arrow-up' : 'arrow-down'} color="darkGray" accessibilityLabel="" />
+              <Icon accessibilityLabel="" icon={isOpen ? 'arrow-up' : 'arrow-down'} color="darkGray" />
             </Box>
           </Box>
         </Touchable>
@@ -298,18 +313,26 @@ function DisabledEx() {
 
   return (
     <Box>
-      <Box display="inlineBlock" width={200} rounding="pill">
+      <Box display="inlineBlock" width={200}>
         <Touchable
           accessibilityControls="count-panel"
           disabled={hasReachedLimit}
           onTouch={() => setClickCount(clickCount + 1)}
         >
-          <Box display="flex" padding={2} rounding="pill" alignItems="center" justifyContent="between" borderSize="sm" color={bgColor}>
+          <Box
+            alignItems="center"
+            borderSize="sm"
+            color={bgColor}
+            display="flex"
+            justifyContent="between"
+            padding={2}
+            rounding="pill"
+          >
             <Box paddingX={1}>
               <Text weight="bold">Click me</Text>
             </Box>
             <Box paddingX={1}>
-              <Icon icon={icon} color="darkGray" accessibilityLabel="" />
+              <Icon accessibilityLabel="" icon={icon} color="darkGray" />
             </Box>
           </Box>
         </Touchable>

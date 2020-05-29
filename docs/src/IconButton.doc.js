@@ -44,7 +44,7 @@ card(
         name: 'accessibilityLabel',
         type: 'string',
         description:
-          'String that clients such as VoiceOver will read to describe the element. Always localize the label. Populates aria-label.',
+          'String that clients such as VoiceOver will read to describe the element. Populates aria-label.',
         href: 'accessibility-popup',
       },
       {
@@ -121,8 +121,6 @@ card(
       We want to make sure every button on the page is unique when being read by screenreader.
       - \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
       - \`accessibilityLabel\` allows us to update the spoken text.
-
-      Be sure to internationalize your \`accessibilityLabel\`.
   `}
     name="Example: Accessibility (Popup)"
     defaultCode={`
@@ -142,7 +140,11 @@ function A11yExPopup() {
         />
       </Box>
       {isOpen && (
-        <Flyout anchor={anchorRef && anchorRef.current} onDismiss={() => undefined} idealDirection="right">
+        <Flyout 
+          anchor={anchorRef && anchorRef.current} 
+          idealDirection="right"
+          onDismiss={() => undefined} 
+        >
           <Box padding={2}>
             <Text>I am a popup.</Text>
           </Box>
@@ -160,7 +162,7 @@ card(
     id="accessibility-disclosure"
     description={`
       We want to make sure every button on the page is unique when being read by screenreader.
-      - \`accessibilityControls\` allows us to specify the reference for an associated content (i.e. Accordion panel) which is controlled by this icon button.
+      - \`accessibilityControls\` allows us to specify the \`id\` of an associated content element (i.e. Accordion panel) which is controlled by this icon button.
       - \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Accordion panel) is open.
       - \`accessibilityLabel\` allows us to update the spoken text.
 
@@ -184,7 +186,12 @@ function A11yExDisclosure() {
         />
       </Box>
       {isOpen && (
-        <Box id="accordion-panel" role="region" aria-label="see more" padding={2}>
+        <Box 
+          aria-label="see more" 
+          id="accordion-panel" 
+          padding={2}
+          role="region" 
+        >
           <Text>I am an accordion panel.</Text>
         </Box>
       )}
