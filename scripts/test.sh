@@ -30,5 +30,18 @@ then
   exit 1
 fi
 
+echo "Flowtyped definitions"
+npx flow-typed install --skip
+FILES=$(git diff --name-only)
+if [[ "$FILES" ]]
+then
+  echo "Flowtyped definitions need to be updated."
+  echo "Run \`npx flow-typed install --skip\` and commit your changes."
+  echo "----"
+  echo "Folowing files require changes:"
+  echo "$FILES"
+  exit 1
+fi
+
 echo "👌 Looks good to me!"
 echo "📑 Done!"
