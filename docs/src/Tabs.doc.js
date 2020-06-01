@@ -26,7 +26,7 @@ card(
       },
       {
         name: 'tabs',
-        type: `Array<{| text: React.Node, href: string |}>`,
+        type: `Array<{| text: React.Node, href: string, id?: string |}>`,
         required: true,
       },
       {
