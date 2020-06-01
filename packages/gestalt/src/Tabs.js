@@ -20,8 +20,9 @@ export default function Tabs({
   }) => void,
   size?: 'md' | 'lg',
   tabs: Array<{|
-    text: React.Node,
     href: string,
+    id?: string,
+    text: React.Node,
   |}>,
   wrap?: boolean,
 |}) {
@@ -37,7 +38,7 @@ export default function Tabs({
       )}
       role="tablist"
     >
-      {tabs.map(({ text, href }, i) => {
+      {tabs.map(({ href, id, text }, i) => {
         const isActive = i === activeTabIndex;
         const cs = classnames(styles.tab, {
           [styles.tabIsNotActive]: !isActive,
@@ -48,6 +49,7 @@ export default function Tabs({
             aria-selected={isActive}
             className={cs}
             href={href}
+            {...(id ? { id } : {})}
             key={`${i}${href}`}
             onClick={(e: SyntheticMouseEvent<>) => handleTabClick(i, e)}
             role="tab"
@@ -66,8 +68,9 @@ Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.exact({
-      text: PropTypes.node,
       href: PropTypes.string,
+      id: PropTypes.string,
+      text: PropTypes.node,
     })
   ).isRequired,
   onChange: PropTypes.func.isRequired,
