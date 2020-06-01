@@ -1,3 +1,9 @@
+## 1.60.0 (Jun 1, 2020)
+
+### Minor
+
+- Touchable, Button, Icon: Add props so all of them have accessibilityControls, accessibilityExpanded, accessibilityHaspopup, accessibilityLabel and disabled (#889)
+
 ## 1.59.0 (Jun 1, 2020)
 
 ### Minor
