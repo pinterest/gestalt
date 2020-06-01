@@ -1,3 +1,9 @@
+## 1.59.0 (Jun 1, 2020)
+
+### Minor
+
+- Tabs: Allow an id on tabs (#892)
+
 ## 1.58.1 (May 29, 2020)
 
 ### Patch
