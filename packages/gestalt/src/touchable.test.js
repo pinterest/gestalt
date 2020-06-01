@@ -45,3 +45,55 @@ test('Touchable sets fullHeight correctly', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('accessibilityControls', () => {
+  const instance = create(
+    <Touchable onTouch={() => {}} accessibilityControls="another-element">
+      Touchable
+    </Touchable>
+  ).root;
+  expect(
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-controls']
+  ).toContain('another-element');
+});
+
+test('accessibilityExpanded', () => {
+  const instance = create(
+    <Touchable onTouch={() => {}} accessibilityExpanded>
+      Touchable
+    </Touchable>
+  ).root;
+  expect(
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-expanded']
+  ).toBe(true);
+});
+
+test('accessibilityHaspopup', () => {
+  const instance = create(
+    <Touchable onTouch={() => {}} accessibilityHaspopup>
+      Touchable
+    </Touchable>
+  ).root;
+  expect(
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-haspopup']
+  ).toBe(true);
+});
+
+test('accessibilityLabel', () => {
+  const instance = create(
+    <Touchable onTouch={() => {}} accessibilityLabel="hello">
+      Touchable
+    </Touchable>
+  ).root;
+  expect(
+    instance.find(
+      element => element.type === 'div' && element.props.role === 'button'
+    ).props['aria-label']
+  ).toContain('hello');
+});

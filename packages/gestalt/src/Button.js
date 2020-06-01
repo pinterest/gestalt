@@ -24,6 +24,7 @@ const SIZE_NAME_TO_PIXEL = {
 };
 
 type Props = {|
+  accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel?: string,
@@ -42,6 +43,7 @@ type Props = {|
 
 export default function Button(props: Props) {
   const {
+    accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
     accessibilityLabel,
@@ -86,6 +88,7 @@ export default function Button(props: Props) {
   /* eslint-disable react/button-has-type */
   return (
     <button
+      aria-controls={accessibilityControls}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
@@ -117,6 +120,7 @@ export default function Button(props: Props) {
 }
 
 Button.propTypes = {
+  accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,

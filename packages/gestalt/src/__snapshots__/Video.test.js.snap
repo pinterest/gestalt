@@ -73,7 +73,8 @@ exports[`Video with children 1`] = `
       className="box paddingX2 paddingY2"
     >
       <div
-        className="touchable pointer rounding0"
+        aria-disabled={false}
+        className="touchable rounding0 pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -196,7 +197,8 @@ exports[`Video with children 1`] = `
       className="box paddingX2 paddingY2"
     >
       <div
-        className="touchable pointer rounding0"
+        aria-disabled={false}
+        className="touchable rounding0 pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
