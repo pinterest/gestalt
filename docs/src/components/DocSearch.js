@@ -6,13 +6,18 @@ export default function DocSearch() {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
-    if (window.docsearch) {
+    // Disable search locally and on GitHub pages
+    // Search results would otherwise always redirect to gestalt.netlify.app
+    if (
+      window.docsearch &&
+      window.location &&
+      window.location.host.includes('gestalt.netlify.app')
+    ) {
       window.docsearch({
         apiKey: 'a22bd809b2fb174c5defd3c0f44cab8c',
+        debug: false, // Set debug to true if you want to inspect the dropdown
         indexName: 'gestalt',
         inputSelector: '#algolia-doc-search',
-        // TODO update
-        debug: true, // Set debug to true if you want to inspect the dropdown
       });
     } else {
       setEnabled(false);
