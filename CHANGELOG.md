@@ -1,3 +1,9 @@
+## 1.60.1 (Jun 2, 2020)
+
+### Patch
+
+- Button, IconButton, Touchable: Update docs and examples (#894)
+
 ## 1.60.0 (Jun 1, 2020)
 
 ### Minor
