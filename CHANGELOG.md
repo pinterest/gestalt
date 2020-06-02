@@ -1,3 +1,9 @@
+## 1.60.2 (Jun 2, 2020)
+
+### Patch
+
+- Internal: Add Pinterest Favicon to docs (#893)
+
 ## 1.60.1 (Jun 2, 2020)
 
 ### Patch
