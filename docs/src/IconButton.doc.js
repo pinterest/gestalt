@@ -119,8 +119,8 @@ card(
     id="accessibility-popup"
     description={`
       We want to make sure every button on the page is unique when being read by screenreader.
-      - \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
-      - \`accessibilityLabel\` allows us to update the spoken text.
+      - \`accessibilityHaspopup\` specifies that the button has associated content (i.e. Flyout).
+      - \`accessibilityLabel\` updates the spoken text.
   `}
     name="Example: Accessibility (Popup)"
     defaultCode={`
@@ -162,9 +162,9 @@ card(
     id="accessibility-disclosure"
     description={`
       We want to make sure every button on the page is unique when being read by screenreader.
-      - \`accessibilityControls\` allows us to specify the \`id\` of an associated content element (i.e. Accordion panel) which is controlled by this icon button.
-      - \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Accordion panel) is open.
-      - \`accessibilityLabel\` allows us to update the spoken text.
+      - \`accessibilityControls\` specifies the \`id\` of an associated content element (i.e. Accordion panel) which is controlled by this icon button.
+      - \`accessibilityExpanded\` specifies that the associated content (i.e. Accordion panel) is open.
+      - \`accessibilityLabel\` updates the spoken text.
 
       Be sure to internationalize your \`accessibilityLabel\`.
   `}
@@ -179,7 +179,7 @@ function A11yExDisclosure() {
         <IconButton
           accessibilityControls="accordion-panel"
           accessibilityExpanded={isOpen}
-          accessibilityLabel="see more"
+          accessibilityLabel={isOpen ? 'See less': 'See more'}
           icon={isOpen ? 'arrow-up' : 'arrow-down'}
           iconColor="darkGray" 
           onClick={() => setOpen(!isOpen)}
@@ -187,7 +187,7 @@ function A11yExDisclosure() {
       </Box>
       {isOpen && (
         <Box 
-          aria-label="see more" 
+          aria-label={isOpen ? 'See less': 'See more'}
           id="accordion-panel" 
           padding={2}
           role="region" 
