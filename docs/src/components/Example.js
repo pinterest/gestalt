@@ -109,6 +109,7 @@ const Example = ({
   direction = 'column',
 }: Props) => {
   const code = defaultCode.trim();
+  console.log(gestalt);
   return (
     <Card
       name={name}

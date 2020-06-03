@@ -13,7 +13,7 @@ import visualizer from 'rollup-plugin-visualizer';
 import { parseString } from 'xml2js';
 import { readFileSync, writeFileSync } from 'fs';
 import { extname, relative } from 'path';
-
+import commonjs from '@rollup/plugin-commonjs';
 import classnameBuilder from './lib/classnameBuilder.js';
 
 const breakpoints = require('./src/breakpoints.json');
@@ -145,27 +145,11 @@ const cssModules = (options = {}) => {
 
 const stats = statsPlugin();
 export default {
-  input: 'src/index.js',
+  input: { gestalt: 'src/index.js' },
   output: [
     {
-      file: 'dist/gestalt.js',
-      format: 'umd',
-      name: 'gestalt',
-      exports: 'named',
-      globals: {
-        react: 'React',
-        'prop-types': 'PropTypes',
-        classnames: 'classnames',
-        'classnames/bind': 'classnames',
-        'react-dom': 'ReactDOM',
-        'react-datepicker': 'ReactDatePicker',
-      },
-      sourcemap: 'inline',
-    },
-    {
-      file: 'dist/gestalt.es.js',
+      dir: 'dist',
       format: 'es',
-      name: 'gestalt',
       exports: 'named',
       globals: {
         react: 'React',
@@ -193,6 +177,7 @@ export default {
       stats,
     }),
     nodeResolve(),
+    commonjs(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(
         process.env.NODE_ENV || 'development'
