@@ -1,3 +1,9 @@
+## 1.60.3 (Jun 3, 2020)
+
+### Patch
+
+- Docs: Add missing parameter for Toast (#896)
+
 ## 1.60.2 (Jun 2, 2020)
 
 ### Patch
