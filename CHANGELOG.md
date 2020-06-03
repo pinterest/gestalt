@@ -1,3 +1,9 @@
+## 1.61.0 (Jun 3, 2020)
+
+### Minor
+
+- Docs: Use netlify for docs hosting + remove GitHub pages push (#897)
+
 ## 1.60.3 (Jun 3, 2020)
 
 ### Patch
