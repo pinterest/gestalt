@@ -22,7 +22,3 @@ shell.exec(
 // Creates a new tag on GitHub for record keeping
 shell.exec(`git tag v${version}`);
 shell.exec(`git push upstream tags/v${version}`);
-
-// Script to publish the docs - must be run from the home directory
-shell.cd(path.join(__dirname, '..'));
-shell.exec('./scripts/ghpages.sh');

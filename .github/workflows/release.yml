@@ -85,13 +85,3 @@ jobs:
         run: |
           cd packages/gestalt
           yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${{ steps.release.outputs.VERSION }}
-      - name: Update GitHub pages branch
-        run: |
-          git config user.name "Gestalt Bot"
-          git config user.email "pinterest.gestalt@gmail.com"
-          git checkout -b tmp-deploy
-          (cd docs && NODE_ENV=production yarn build --output-public-path '/gestalt')
-          git add -f docs/build
-          git commit -m "Deployed to Github Pages" --no-verify
-          git subtree split --prefix docs/build -b tmp-gh-pages
-          git push -f https://github.com/pinterest/gestalt.git tmp-gh-pages:gh-pages
