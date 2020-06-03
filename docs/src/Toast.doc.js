@@ -29,7 +29,7 @@ card(
       {
         name: 'color',
         type: `'darkGray' | 'red'`,
-        href: 'redBackgroundColorExample',
+        href: 'redColorTextAlertExample',
       },
       {
         name: 'thumbnail',
@@ -104,8 +104,8 @@ function ToastExample() {
 
 card(
   <Example
-    id="redBackgroundColorExample"
-    name="Example: Red background color "
+    id="redColorTextAlertExample"
+    name="Example: Red background color"
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
@@ -134,12 +134,7 @@ function ToastExample() {
               color="red"
               text={
                 <>
-                  Saved to{' '}
-                  <Text inline color="white" weight="bold">
-                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
-                      Home decor
-                    </Link>
-                  </Text>
+                  Oops! Something went wrong. Please try again later.
                 </>
               }
             />
