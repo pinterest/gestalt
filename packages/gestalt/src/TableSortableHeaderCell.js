@@ -38,7 +38,7 @@ export default function TableSortableHeaderCell(props: Props) {
 
   return (
     <TableHeaderCell colSpan={colSpan} rowSpan={rowSpan} scope={scope}>
-      <Box width="fit-content">
+      <Box display="inlineBlock">
         <Touchable
           fullWidth={false}
           onTouch={onSortChange}
@@ -47,10 +47,10 @@ export default function TableSortableHeaderCell(props: Props) {
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
         >
-          <Box display="flex">
+          <Box display="flex" alignItems="center">
             {children}
             <Box
-              marginLeft={2}
+              marginStart={2}
               dangerouslySetInlineStyle={{
                 __style: { visibility },
               }}
