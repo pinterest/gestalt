@@ -526,16 +526,23 @@ const propToFn = {
     // default: auto
   }),
   bottom: toggle(layout.bottom0),
-  borderSize: value =>
-    concat([
+  borderSize: value => {
+    const borderProps =
+      value !== 'none'
+        ? [
+            fromClassName(borders.solid),
+            fromClassName(borders.borderColorLightGray),
+          ]
+        : [];
+    return concat([
       mapping({
         sm: borders.sizeSm,
         lg: borders.sizeLg,
         // default: none
       })(value),
-      fromClassName(borders.solid),
-      fromClassName(borders.borderColorLightGray),
-    ]),
+      ...borderProps,
+    ]);
+  },
   color: mapping({
     blue: colors.blueBg,
     darkGray: colors.darkGrayBg,
