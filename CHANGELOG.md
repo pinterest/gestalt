@@ -1,3 +1,9 @@
+## 1.62.0 (Jun 4, 2020)
+
+### Minor
+
+- Docs: Add search (#895)
+
 ## 1.61.1 (Jun 4, 2020)
 
 ### Patch
