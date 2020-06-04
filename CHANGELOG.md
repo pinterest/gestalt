@@ -1,3 +1,9 @@
+## 1.63.0 (Jun 4, 2020)
+
+### Minor
+
+- TableSortableHeaderCell: Change clickable area (#890)
+
 ## 1.62.0 (Jun 4, 2020)
 
 ### Minor
