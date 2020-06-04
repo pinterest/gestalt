@@ -3,6 +3,11 @@
 exports[`renders correctly 1`] = `
 <div
   className="box overflowAuto"
+  style={
+    Object {
+      "height": undefined,
+    }
+  }
 >
   <table
     className="table"
@@ -17,6 +22,11 @@ exports[`renders correctly 1`] = `
 exports[`renders correctly with border 1`] = `
 <div
   className="borderColorLightGray box overflowAuto rounding1 sizeSm solid"
+  style={
+    Object {
+      "height": undefined,
+    }
+  }
 >
   <table
     className="table"

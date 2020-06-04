@@ -13,15 +13,17 @@ import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 type Props = {|
   children: React.Node,
   borderSize?: 'sm' | 'none',
+  height?: number,
 |};
 
 export default function Table(props: Props) {
-  const { borderSize, children } = props;
+  const { borderSize, children, height } = props;
 
   return (
     <Box
       overflow="auto"
       {...(borderSize === 'sm' ? { borderSize: 'sm', rounding: 1 } : {})}
+      height={height}
     >
       <table className={styles.table}>{children}</table>
     </Box>
