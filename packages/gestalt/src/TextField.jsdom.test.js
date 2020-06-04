@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 import TextField from './TextField.js';
 
 describe('TextField', () => {
-  it('TextField with errorMessage prop change', () => {
+  it('renders error message on errorMessage prop change', () => {
     const { getByText, rerender } = render(
       <TextField
         id="test"
@@ -27,6 +27,38 @@ describe('TextField', () => {
       />
     );
     expect(getByText('Error message')).toBeVisible();
+  });
+
+  it('reads the error message on focus', () => {
+    const { getByDisplayValue } = render(
+      <TextField
+        errorMessage="Error message"
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+        value="TextField Text"
+      />
+    );
+    const input = getByDisplayValue('TextField Text');
+    fireEvent.focus(input);
+    expect(input).toHaveDescription('Error message');
+  });
+
+  it('forwards a ref to <input />', () => {
+    const ref = React.createRef();
+    render(
+      <TextField
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+        value="TextField Text"
+        ref={ref}
+      />
+    );
+    expect(ref.current instanceof HTMLInputElement).toEqual(true);
+    expect(ref.current?.value).toEqual('TextField Text');
   });
 
   it('handles blur events', () => {
