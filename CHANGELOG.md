@@ -1,3 +1,9 @@
+## 1.61.1 (Jun 4, 2020)
+
+### Patch
+
+- Box: don't add border properties for borderSize=none (#899)
+
 ## 1.61.0 (Jun 3, 2020)
 
 ### Minor
