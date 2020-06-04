@@ -38,33 +38,36 @@ export default function TableSortableHeaderCell(props: Props) {
 
   return (
     <TableHeaderCell colSpan={colSpan} rowSpan={rowSpan} scope={scope}>
-      <Touchable
-        onTouch={onSortChange}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-      >
-        <Box display="flex">
-          {children}
-          <Box
-            marginLeft={2}
-            dangerouslySetInlineStyle={{
-              __style: { visibility },
-            }}
-          >
-            <Icon
-              accessibilityLabel=""
-              icon={
-                status === 'active' && sortOrder === 'asc'
-                  ? 'sort-ascending'
-                  : 'sort-descending'
-              }
-              color={status === 'active' ? 'darkGray' : 'gray'}
-            />
+      <Box display="inlineBlock">
+        <Touchable
+          fullWidth={false}
+          onTouch={onSortChange}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+        >
+          <Box display="flex" alignItems="center">
+            {children}
+            <Box
+              marginStart={2}
+              dangerouslySetInlineStyle={{
+                __style: { visibility },
+              }}
+            >
+              <Icon
+                accessibilityLabel=""
+                icon={
+                  status === 'active' && sortOrder === 'asc'
+                    ? 'sort-ascending'
+                    : 'sort-descending'
+                }
+                color={status === 'active' ? 'darkGray' : 'gray'}
+              />
+            </Box>
           </Box>
-        </Box>
-      </Touchable>
+        </Touchable>
+      </Box>
     </TableHeaderCell>
   );
 }
