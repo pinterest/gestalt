@@ -32,8 +32,8 @@ card(
       },
       {
         name: 'height',
-        type: 'number',
-        description: 'Specify a height for the table',
+        type: `number | string`,
+        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
         href: 'stickyHeader',
       },
     ]}

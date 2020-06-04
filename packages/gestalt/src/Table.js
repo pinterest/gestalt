@@ -13,7 +13,7 @@ import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 type Props = {|
   children: React.Node,
   borderSize?: 'sm' | 'none',
-  height?: number,
+  height?: number | string,
 |};
 
 export default function Table(props: Props) {
