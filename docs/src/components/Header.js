@@ -1,6 +1,7 @@
 // @flow strict
 import React from 'react';
 import { Box, Text, Icon, IconButton, Link as GestaltLink } from 'gestalt';
+import DocSearch from './DocSearch.js';
 import Link from './Link.js';
 
 export default function Header() {
@@ -64,7 +65,13 @@ export default function Header() {
         direction="row"
         alignItems="center"
       >
-        <Box>
+        <DocSearch />
+        <Box
+          display="none"
+          smDisplay="flex"
+          direction="row"
+          alignItems="center"
+        >
           <IconButton
             size="md"
             accessibilityLabel="toggle page direction"
@@ -72,24 +79,23 @@ export default function Header() {
             dangerouslySetSvgPath={togglePageDirSvgPath}
             onClick={toggleRTL}
           />
+          <Text color="white">
+            <GestaltLink
+              href="https://codesandbox.io/s/k5plvp9v8v"
+              target="blank"
+            >
+              <Box padding={2}>Playground</Box>
+            </GestaltLink>
+          </Text>
+          <Text color="white">
+            <GestaltLink
+              href="https://github.com/pinterest/gestalt"
+              target="blank"
+            >
+              <Box padding={2}>GitHub</Box>
+            </GestaltLink>
+          </Text>
         </Box>
-        <Text color="white">
-          <GestaltLink
-            href="https://codesandbox.io/s/k5plvp9v8v"
-            target="blank"
-          >
-            <Box padding={2}>Playground</Box>
-          </GestaltLink>
-        </Text>
-
-        <Text color="white">
-          <GestaltLink
-            href="https://github.com/pinterest/gestalt"
-            target="blank"
-          >
-            <Box padding={2}>GitHub</Box>
-          </GestaltLink>
-        </Text>
       </Box>
     </Box>
   );
