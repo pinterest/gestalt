@@ -1,3 +1,9 @@
+## 2.0.1 (Jun 5, 2020)
+
+### Patch
+
+- TextField: fix forwardRef propType (#903)
+
 ## 2.0.0 (Jun 5, 2020)
 
 ### Major
