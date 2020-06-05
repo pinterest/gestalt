@@ -142,9 +142,12 @@ TextField.propTypes = {
   ]),
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
-  forwardedRef: PropTypes.shape({
-    current: PropTypes.any,
-  }),
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
