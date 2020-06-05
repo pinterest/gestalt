@@ -259,6 +259,7 @@ type DomTestingLibraryType = {
   // 5.x
   toHaveDisplayValue(value: string | string[]): void,
   toBeChecked(): void,
+  toHaveDescription(value: string | string[]): Result,
   ...
 };
 

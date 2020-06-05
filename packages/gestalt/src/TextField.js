@@ -18,6 +18,7 @@ type Props = {|
     | 'username',
   disabled?: boolean,
   errorMessage?: string,
+  forwardedRef?: React.Ref<'input'>,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -45,144 +46,123 @@ type Props = {|
   value?: string,
 |};
 
-type State = {|
-  focused: boolean,
-|};
+function TextField({
+  autoComplete,
+  disabled = false,
+  errorMessage,
+  forwardedRef,
+  hasError = false,
+  helperText,
+  id,
+  label,
+  name,
+  onBlur,
+  onChange,
+  onFocus,
+  onKeyDown,
+  placeholder,
+  size = 'md',
+  type = 'text',
+  value,
+}: Props) {
+  const [focused, setFocused] = React.useState(false);
 
-export default class TextField extends React.Component<Props, State> {
-  // NOTE: we cannot move to React createRef until we audit uses of callsites
-  // that reach into this component and use this instance variable
-  textfield: ?HTMLInputElement;
-
-  static propTypes = {
-    autoComplete: PropTypes.oneOf([
-      'current-password',
-      'new-password',
-      'on',
-      'off',
-      'username',
-    ]),
-    disabled: PropTypes.bool,
-    errorMessage: PropTypes.string,
-    hasError: PropTypes.bool,
-    helperText: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func.isRequired,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['md', 'lg']),
-    type: PropTypes.oneOf([
-      'date',
-      'email',
-      'number',
-      'password',
-      'text',
-      'url',
-    ]),
-    value: PropTypes.string,
-  };
-
-  static defaultProps = {
-    disabled: false,
-    hasError: false,
-    size: 'md',
-    type: 'text',
-  };
-
-  state = {
-    focused: false,
-  };
-
-  setTextFieldRef = (ref: ?HTMLInputElement) => {
-    this.textfield = ref;
-  };
-
-  handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    const { onChange } = this.props;
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({ event, value: event.currentTarget.value });
   };
 
-  handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    const { onBlur } = this.props;
+  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+    setFocused(false);
     if (onBlur) {
       onBlur({ event, value: event.currentTarget.value });
     }
   };
 
-  handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    const { onFocus } = this.props;
+  const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+    setFocused(true);
     if (onFocus) {
       onFocus({ event, value: event.currentTarget.value });
     }
   };
 
-  handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    const { onKeyDown } = this.props;
+  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (onKeyDown) {
       onKeyDown({ event, value: event.currentTarget.value });
     }
   };
 
-  render() {
-    const {
-      autoComplete,
-      disabled,
-      errorMessage,
-      hasError,
-      helperText,
-      id,
-      label,
-      name,
-      placeholder,
-      size,
-      type,
-      value,
-    } = this.props;
+  const classes = classnames(
+    styles.textField,
+    formElement.base,
+    disabled ? formElement.disabled : formElement.enabled,
+    hasError || errorMessage ? formElement.errored : formElement.normal,
+    size === 'md' ? layout.medium : layout.large
+  );
 
-    const { focused } = this.state;
+  // type='number' doesn't work on ios safari without a pattern
+  // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
+  const pattern = type === 'number' ? '\\d*' : undefined;
 
-    const classes = classnames(
-      styles.textField,
-      formElement.base,
-      disabled ? formElement.disabled : formElement.enabled,
-      hasError || errorMessage ? formElement.errored : formElement.normal,
-      size === 'md' ? layout.medium : layout.large
-    );
-
-    // type='number' doesn't work on ios safari without a pattern
-    // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
-    const pattern = type === 'number' ? '\\d*' : undefined;
-
-    return (
-      <span>
-        {label && <FormLabel id={id} label={label} />}
-        <input
-          aria-describedby={errorMessage && focused ? `${id}-error` : null}
-          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
-          autoComplete={autoComplete}
-          className={classes}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onKeyDown={this.handleKeyDown}
-          pattern={pattern}
-          placeholder={placeholder}
-          ref={this.setTextFieldRef}
-          type={type}
-          value={value}
-        />
-        {helperText && !errorMessage ? (
-          <FormHelperText text={helperText} />
-        ) : null}
-        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-      </span>
-    );
-  }
+  return (
+    <span>
+      {label && <FormLabel id={id} label={label} />}
+      <input
+        aria-describedby={errorMessage && focused ? `${id}-error` : null}
+        aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+        autoComplete={autoComplete}
+        className={classes}
+        disabled={disabled}
+        id={id}
+        name={name}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        pattern={pattern}
+        placeholder={placeholder}
+        ref={forwardedRef}
+        type={type}
+        value={value}
+      />
+      {helperText && !errorMessage ? (
+        <FormHelperText text={helperText} />
+      ) : null}
+      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+    </span>
+  );
 }
+
+TextField.propTypes = {
+  autoComplete: PropTypes.oneOf([
+    'current-password',
+    'new-password',
+    'on',
+    'off',
+    'username',
+  ]),
+  disabled: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  forwardedRef: PropTypes.shape({
+    current: PropTypes.any,
+  }),
+  hasError: PropTypes.bool,
+  helperText: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  placeholder: PropTypes.string,
+  size: PropTypes.oneOf(['md', 'lg']),
+  type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
+  value: PropTypes.string,
+};
+
+function forwardRef(props, ref) {
+  return <TextField {...props} forwardedRef={ref} />;
+}
+forwardRef.displayName = 'TextField';
+
+export default React.forwardRef<Props, HTMLInputElement>(forwardRef);

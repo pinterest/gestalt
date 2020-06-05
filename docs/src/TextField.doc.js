@@ -195,6 +195,47 @@ function Example(props) {
 );
 
 card(
+  <Example
+    id="ref example"
+    name="Example: ref"
+    description={`
+    A \`TextField\` with an anchor ref to a Flyout component
+  `}
+    defaultCode={`
+function TextFieldFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+  return (
+    <Box marginBottom={12}>
+      <TextField
+        ref={anchorRef}
+        label="Focus the TextField to show the Flyout"
+        id="my-example"
+        onChange={() => {}}
+        onBlur={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+      />
+      {open && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="down"
+          onDismiss={() => setOpen(false)}
+          shouldFocus={false}
+          size="md"
+        >
+          <Box padding={3}>
+            <Text weight="bold">Example with Flyout</Text>
+          </Box>
+        </Flyout>
+      )}
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
   <Card
     description={`
     \`TextField\` intentionally lacks support for autofocus. Generally speaking,
