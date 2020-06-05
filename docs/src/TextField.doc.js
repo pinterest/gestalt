@@ -221,4 +221,44 @@ card(
   />
 );
 
+card(
+  <Example
+    id="basicExample"
+    name="Ref Example"
+    description={`
+    A \`TextField\` with archor ref to a Flyout component
+  `}
+    defaultCode={`
+    function TextFieldFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+  return (
+    <Box>
+      <TextField ref={anchorRef} id="my-example" onChange={() => {}}  onFocus={() => setOpen(true)} />
+      {open &&
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            color="red"
+            idealDirection="down"
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            shouldFocus={false}
+            size="md"
+          >
+            <Box padding={3}>
+              <Text color="white" weight="bold">
+                Example with Flyout
+              </Text>
+            </Box>
+          </Flyout>
+        </Layer>
+      }
+    </Box>
+  );
+}
+`}
+  />
+);
+
 export default cards;

@@ -9,7 +9,7 @@ import FormLabel from './FormLabel.js';
 import layout from './Layout.css';
 import styles from './TextField.css';
 
-type Props = {|
+type OwnProps = {|
   autoComplete?:
     | 'current-password'
     | 'new-password'
@@ -45,11 +45,17 @@ type Props = {|
   value?: string,
 |};
 
+type HOCProps = {|
+  innerRef?: React.ElementRef<*>,
+|};
+
+type Props = {| ...OwnProps, ...HOCProps |};
+
 type State = {|
   focused: boolean,
 |};
 
-export default class TextField extends React.Component<Props, State> {
+class TextField extends React.Component<Props, State> {
   // NOTE: we cannot move to React createRef until we audit uses of callsites
   // that reach into this component and use this instance variable
   textfield: ?HTMLInputElement;
@@ -84,6 +90,9 @@ export default class TextField extends React.Component<Props, State> {
       'url',
     ]),
     value: PropTypes.string,
+    innerRef: PropTypes.shape({
+      current: PropTypes.instanceOf(React.ElementRef),
+    }),
   };
 
   static defaultProps = {
@@ -97,9 +106,9 @@ export default class TextField extends React.Component<Props, State> {
     focused: false,
   };
 
-  setTextFieldRef = (ref: ?HTMLInputElement) => {
-    this.textfield = ref;
-  };
+  componentDidMount() {
+    this.textfield = this.props.innerRef;
+  }
 
   handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     const { onChange } = this.props;
@@ -156,7 +165,6 @@ export default class TextField extends React.Component<Props, State> {
     // type='number' doesn't work on ios safari without a pattern
     // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
     const pattern = type === 'number' ? '\\d*' : undefined;
-
     return (
       <span>
         {label && <FormLabel id={id} label={label} />}
@@ -174,7 +182,7 @@ export default class TextField extends React.Component<Props, State> {
           onKeyDown={this.handleKeyDown}
           pattern={pattern}
           placeholder={placeholder}
-          ref={this.setTextFieldRef}
+          ref={this.props.innerRef}
           type={type}
           value={value}
         />
@@ -186,3 +194,7 @@ export default class TextField extends React.Component<Props, State> {
     );
   }
 }
+
+export default React.forwardRef<Props, React.ElementRef<*>>((props, ref) => {
+  return <TextField {...props} innerRef={ref} />;
+});
