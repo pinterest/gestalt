@@ -1,3 +1,9 @@
+## 2.0.0 (Jun 5, 2020)
+
+### Major
+
+- TextField: Add forward ref (BREAKING CHANGE) (#901)
+
 ## 1.63.0 (Jun 4, 2020)
 
 ### Minor
