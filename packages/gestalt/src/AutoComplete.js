@@ -163,7 +163,6 @@ const AutoComplete = (props: Props) => {
     setFocused(false);
     if (onSelect) onSelect(item);
   };
-
   return (
     <Box ref={componentRef}>
       {/* INPUT FIELD */}
