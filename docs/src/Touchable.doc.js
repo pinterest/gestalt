@@ -1,6 +1,8 @@
 // @flow strict
 import React from 'react';
+import { Box, Image, Mask, Touchable } from 'gestalt';
 import PropTable from './components/PropTable.js';
+import Combination from './components/Combination.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 
@@ -60,11 +62,13 @@ card(
       {
         name: 'fullHeight',
         type: 'boolean',
+        description: 'Expands to the full height of the parent.',
         href: 'fullHeightWidthExample',
       },
       {
         name: 'fullWidth',
         type: 'boolean',
+        description: 'Expands to the full width of the parent.',
         defaultValue: true,
         href: 'fullHeightWidthExample',
       },
@@ -94,8 +98,14 @@ card(
         name: 'onTouch',
         type:
           '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> }) => void',
-        required: true,
         href: 'basicExample',
+      },
+      {
+        name: 'pressStyle',
+        type: `"background" | "border" | "compress" | "compressBackground" | Array<"background" | "border" | "compress" | "compressBackground">`,
+        description: `Style when user presses on the Touchable on a touch device.
+          Possible values are: "background" (light gray background), "border" (box-shadow outline), "compress" (scale down slightly), and an array of any combinations`,
+        defaultValue: null,
       },
       {
         name: 'rounding',
@@ -117,14 +127,15 @@ card(
     name="Example"
     defaultCode={`
 function TouchableExample() {
-  const [clicks, setClicks] = React.useState(0);
+  const [touches, setTouches] = React.useState(0);
 
   return (
     <Box padding={2} width={150}>
       <Touchable
         mouseCursor="zoomIn"
-        onTouch={() => setClicks(clicks + 1)}
+        onTouch={() => setTouches(touches + 1)}
         rounding={2}
+        pressStyle="compress"
       >
         <Mask rounding={2}>
           <Image
@@ -145,9 +156,9 @@ function TouchableExample() {
       </Touchable>
       <Box paddingY={2}>
         <Text color="gray" align="center">
-          Clicked{' '}
-          {clicks}{' '}
-          {clicks === 1 ? 'time' : 'times'}
+          Touched{' '}
+          {touches}{' '}
+          {touches === 1 ? 'time' : 'times'}
         </Text>
       </Box>
     </Box>
@@ -212,27 +223,27 @@ function A11yExPopup() {
           accessibilityLabel="see more"
           onTouch={() => setOpen(!isOpen)}
         >
-        <Box 
-          alignItems="center" 
-          borderSize="sm"
-          display="flex" 
-          padding={2} 
-          rounding="pill" 
-        >
+          <Box
+            alignItems="center"
+            borderSize="sm"
+            display="flex"
+            padding={2}
+            rounding="pill"
+          >
             <Box paddingX={1}>
               <Text weight="bold">See more</Text>
             </Box>
             <Box paddingX={1}>
               <Icon accessibilityLabel="" color="darkGray" icon="ellipsis" />
             </Box>
-            </Box>
+          </Box>
         </Touchable>
       </Box>
       {isOpen && (
-        <Flyout 
-          anchor={anchorRef && anchorRef.current} 
+        <Flyout
+          anchor={anchorRef && anchorRef.current}
           idealDirection="right"
-          onDismiss={() => undefined} 
+          onDismiss={() => undefined}
         >
           <Box padding={2}>
             <Text>I am a popup.</Text>
@@ -270,13 +281,13 @@ function A11yExDisclosure() {
           accessibilityExpanded={isOpen}
           onTouch={() => setOpen(!isOpen)}
         >
-          <Box 
-            alignItems="center" 
+          <Box
+            alignItems="center"
             borderSize="sm"
-            display="flex" 
-            justifyContent="between" 
-            padding={2} 
-            rounding="pill" 
+            display="flex"
+            justifyContent="between"
+            padding={2}
+            rounding="pill"
           >
             <Box paddingX={1}>
               <Text weight="bold">{isOpen ? 'Collapse' : 'Expand'}</Text>
@@ -338,7 +349,74 @@ function DisabledEx() {
         </Touchable>
       </Box>
       <Box id="count-panel" role="region" padding={2}>
-        <Text>Number of clicks: {clickCount}</Text>
+        <Text>Number of touches: {clickCount}</Text>
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Combination
+    id="sizeCombinations"
+    name="Combinations: pressStyle"
+    pressStyle={[
+      'compress',
+      'background',
+      'border',
+      ['compress', 'background'],
+    ]}
+  >
+    {props => (
+      <Box padding={2} width={150}>
+        <Touchable {...props} rounding={2}>
+          <Mask rounding="circle">
+            <Image
+              alt="Antelope Canyon"
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.ibb.co/DwYrGy6/stock14.jpg"
+            />
+          </Mask>
+        </Touchable>
+      </Box>
+    )}
+  </Combination>
+);
+
+card(
+  <Example
+    id="ref example"
+    name="Example: ref"
+    description={`A \`Touchable\` can be focused via \`ref\``}
+    defaultCode={`
+function TouchableRefExample() {
+  const ref = React.useRef();
+  const [touches, setTouches] = React.useState(0);
+  return (
+    <Box>
+      <Button
+        inline
+        text="Focus the Touchable"
+        onClick={() => ref.current.focus()}
+      />
+      <Box display="inlineBlock">
+        <Touchable
+          ref={ref}
+          rounding="pill"
+          onTouch={() => setTouches(touches + 1)}
+        >
+          <Box
+            borderSize="sm"
+            display="flex"
+            padding={2}
+            rounding="pill"
+          >
+            <Text>Touchable is touched {touches} times</Text>
+          </Box>
+        </Touchable>
       </Box>
     </Box>
   );

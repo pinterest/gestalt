@@ -16,7 +16,15 @@ type MouseCursor =
   | 'pointer'
   | 'zoomIn'
   | 'zoomOut';
+
+type Coordinate = {|
+  +x: number,
+  +y: number,
+|};
+
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
+
+type PressStyle = 'background' | 'border' | 'compress';
 
 type Props = {|
   accessibilityControls?: string,
@@ -25,6 +33,7 @@ type Props = {|
   accessibilityLabel?: string,
   children?: React.Node,
   disabled?: boolean,
+  forwardedRef?: React.Ref<'div'>,
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?: MouseCursor,
@@ -37,9 +46,11 @@ type Props = {|
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => void,
+  pressStyle?: PressStyle | Array<PressStyle>,
   rounding?: Rounding,
 |};
 
+const SCROLL_DISTANCE = 10;
 const SPACE_CHAR_CODE = 32;
 const ENTER_CHAR_CODE = 13;
 
@@ -73,23 +84,34 @@ const getRoundingStyle = (r: Rounding): Style => {
   return identity();
 };
 
-export default function Touchable({
+function Touchable({
   accessibilityControls,
   accessibilityExpanded,
   accessibilityHaspopup,
   accessibilityLabel,
   children,
   disabled = false,
-  fullWidth = true,
+  forwardedRef,
   fullHeight,
+  fullWidth = true,
   mouseCursor = 'pointer',
   onBlur,
   onFocus,
   onMouseEnter,
   onMouseLeave,
   onTouch,
+  pressStyle = [],
   rounding = 0,
 }: Props) {
+  const [isFocused, setFocused] = React.useState<boolean>(false);
+  const [isPressed, setPressed] = React.useState<boolean>(false);
+  const [coordinate, setCoordinate] = React.useState<Coordinate>({
+    x: 0,
+    y: 0,
+  });
+  const ignoreNextFocusEventRef = React.useRef<boolean>(false);
+  const pressStyles = Array.isArray(pressStyle) ? pressStyle : [pressStyle];
+
   const classes = classnames(
     styles.touchable,
     toProps(getRoundingStyle(rounding)).className,
@@ -97,6 +119,14 @@ export default function Touchable({
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
+      [styles.pressScale]:
+        !disabled && pressStyles.includes('compress') && isPressed,
+      [styles.pressBackground]:
+        !disabled &&
+        pressStyles.includes('background') &&
+        (isPressed || isFocused),
+      [styles.pressShadow]:
+        !disabled && pressStyles.includes('border') && (isPressed || isFocused),
     }
   );
 
@@ -108,6 +138,7 @@ export default function Touchable({
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
       className={classes}
+      onContextMenu={event => event.preventDefault()}
       onClick={event => {
         if (!disabled && onTouch) {
           onTouch({ event });
@@ -117,11 +148,18 @@ export default function Touchable({
         if (!disabled && onBlur) {
           onBlur({ event });
         }
+        setFocused(false);
+        setPressed(false);
       }}
       onFocus={event => {
         if (!disabled && onFocus) {
           onFocus({ event });
         }
+        if (!isPressed && !ignoreNextFocusEventRef.current) {
+          setFocused(true);
+        }
+        ignoreNextFocusEventRef.current = false;
+        event.stopPropagation();
       }}
       onMouseEnter={event => {
         if (!disabled && onMouseEnter) {
@@ -146,6 +184,41 @@ export default function Touchable({
           onTouch({ event });
         }
       }}
+      onTouchStart={({ touches }) => {
+        setPressed(true);
+        const [touch] = touches;
+        if (touch) {
+          setCoordinate({
+            x: touch.clientX,
+            y: touch.clientY,
+          });
+        }
+      }}
+      onTouchMove={({ touches }) => {
+        const [touch] = touches;
+        if (isPressed && touch) {
+          const { x: startX, y: startY } = coordinate;
+          const { clientX, clientY } = touch;
+          if (
+            Math.abs(clientX - startX) > SCROLL_DISTANCE ||
+            Math.abs(clientY - startY) > SCROLL_DISTANCE
+          ) {
+            setFocused(false);
+            setPressed(false);
+          }
+        }
+      }}
+      onTouchCancel={() => {
+        setPressed(false);
+      }}
+      onTouchEnd={() => {
+        if (isPressed) {
+          setFocused(false);
+          setPressed(false);
+        }
+        ignoreNextFocusEventRef.current = true;
+      }}
+      ref={forwardedRef}
       role="button"
       tabIndex={disabled ? null : '0'}
     >
@@ -154,6 +227,8 @@ export default function Touchable({
   );
 }
 
+const PRESS_STYLE_OPTIONS = ['background', 'border', 'compress'];
+
 Touchable.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
@@ -161,6 +236,12 @@ Touchable.propTypes = {
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   disabled: PropTypes.bool,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
   mouseCursor: PropTypes.oneOf([
@@ -178,5 +259,14 @@ Touchable.propTypes = {
   onTouch: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
+  pressStyle: PropTypes.oneOfType([
+    PropTypes.oneOf(PRESS_STYLE_OPTIONS),
+    PropTypes.arrayOf(PropTypes.oneOf(PRESS_STYLE_OPTIONS)),
+  ]),
   rounding: RoundingPropType,
 };
+
+const forwardRef = (props, ref) => <Touchable {...props} forwardedRef={ref} />;
+forwardRef.displayName = 'Touchable';
+
+export default React.forwardRef<Props, HTMLDivElement>(forwardRef);

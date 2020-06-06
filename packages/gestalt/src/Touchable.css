@@ -1,5 +1,6 @@
 .touchable {
   composes: accessibilityOutline from "./Focus.css";
+  transition: transform .2s ease-out;
 }
 
 .fullHeight {
@@ -40,4 +41,21 @@
 
 .grabbing {
   composes: grabbing from "./Cursor.css";
+}
+
+.pressScale {
+  transform: scale(0.99);
+  transform-origin: center;
+}
+
+.pressBackground {
+  composes: lightGrayBg from "./Colors.css";
+}
+
+.pressShadow {
+  box-shadow: 0 0 0 1px #767676;
+}
+
+.inline {
+  composes: inlineBlock from "./Layout.css";
 }

@@ -6,10 +6,15 @@ exports[`Touchable renders 1`] = `
   className="touchable rounding0 fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -23,10 +28,15 @@ exports[`Touchable sets correct mouse cursor 1`] = `
   className="touchable rounding0 fullWidth zoomIn"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -40,10 +50,15 @@ exports[`Touchable sets correct rounding 1`] = `
   className="touchable circle fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -57,10 +72,15 @@ exports[`Touchable sets fullHeight correctly 1`] = `
   className="touchable rounding0 fullHeight fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
   role="button"
   tabIndex="0"
 >
@@ -74,10 +94,59 @@ exports[`Touchable sets fullWidth correctly 1`] = `
   className="touchable rounding0 pointer"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={[Function]}
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
+exports[`Touchable supports multiple press styles 1`] = `
+<div
+  aria-disabled={false}
+  className="touchable rounding0 fullWidth pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  Touchable
+</div>
+`;
+
+exports[`Touchable supports single press style 1`] = `
+<div
+  aria-disabled={false}
+  className="touchable rounding0 fullWidth pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
   role="button"
   tabIndex="0"
 >
