@@ -29,11 +29,13 @@ export default <T>({
   cache,
   columnWidth = 236,
   gutter = 14,
+  justify = 'start',
   minCols = 2,
   width,
 }: {|
   columnWidth?: number,
   gutter?: number,
+  justify?: 'center' | 'start',
   cache: Cache<T, number>,
   minCols?: number,
   width?: ?number,
@@ -47,12 +49,22 @@ export default <T>({
     Math.floor((width + gutter) / columnWidthAndGutter),
     minCols
   );
+
+  let centerOffset;
+  if (justify === 'center') {
+    const contentWidth =
+      Math.min(items.length, columnCount) * columnWidthAndGutter + gutter;
+
+    centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
+  } else {
+    centerOffset = Math.max(
+      Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
+      0
+    );
+  }
+
   // the total height of each column
   const heights = new Array(columnCount).fill(0);
-  const centerOffset = Math.max(
-    Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
-    0
-  );
 
   return items.reduce((acc, item) => {
     const positions = acc;
