@@ -1,0 +1,211 @@
+// @flow strict
+import React, { useState, forwardRef, useRef } from 'react';
+import PropTypes from 'prop-types';
+import Box from './Box.js';
+import TextField from './TextField.js';
+import Text from './Text.js';
+import Flyout from './Flyout.js';
+import Layer from './Layer.js';
+import Touchable from './Touchable.js';
+
+type Props = {|
+  errorMessage?: string,
+  disabled?: boolean,
+  helperText?: string,
+  id: string,
+  label?: string,
+  name?: string,
+  onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
+  data: Array<{
+    label: string,
+    value: string,
+  }>,
+  placeholder?: string,
+  size?: 'md' | 'lg',
+  value?: ?string,
+  field?: string,
+  searchField?: string,
+  valueField?: string,
+  onBlur?: () => void,
+  onBlur?: () => void,
+  onChange?: () => void,
+  onFocus?: () => void,
+  onSelect?: () => void,
+  onKeyDown?: () => void,
+  size?: () => void,
+  value?: () => void,
+  isFocused?: boolean,
+  selectedItem?: Object,
+|};
+
+const AutoComplete = (props: Props) => {
+  const {
+    onBlur,
+    onChange,
+    onFocus,
+    onSelect,
+    value = '',
+    data,
+    // Enable search on any object property
+    searchField = 'label',
+    isFocused = false,
+    selectedItem = null,
+  } = props;
+
+  // Store original data
+  const dataRef = useRef(data);
+
+  // Utility function for filtering data by value
+  const filterOriginalData = filterValue =>
+    dataRef.current.filter(item =>
+      item[searchField].toLowerCase().includes(filterValue.toLowerCase())
+    );
+
+  // Handle when input is in and out of focus
+  const componentRef = useRef();
+  const [focused, setFocused] = useState<boolean>(isFocused);
+
+  // Track input value
+  const [search, setSearch] = useState<string>(value);
+
+  // Track the selected item
+  // TODO: Don't know what I'm going to do with this but Im sure it'll be useful at some point.
+  const [selected, setSelected] = useState<object>(selectedItem);
+
+  const [options, setOptions] = useState<object[]>(filterOriginalData(value));
+
+  const handleFocus = () => {
+    // Internally set focus status
+    setFocused(componentRef.current.contains(document.activeElement));
+    // Run focus callback
+    if (onFocus) onFocus();
+  };
+
+  const handleBlur = () => {
+    // Internally set focus status
+    console.log(
+      document.activeElement,
+      componentRef.current,
+      document.activeElement.contains(componentRef.current),
+      componentRef.current.contains(document.activeElement)
+    );
+
+    // TODO: How do I lose focus AFTER the element is selected. Right now blur calls first, closes the selection box before the onSelected is triggered
+    // setFocused(document.activeElement === componentRef.current);
+    // Run blur callback
+    if (onBlur) onBlur();
+  };
+
+  // Handler for when text is typed
+  // This rule is stupid
+  // eslint-disable-next-line no-shadow
+  const handleInput = ({ event, value }) => {
+    // Filter the available options using original data
+    const updatedOptions = filterOriginalData(value);
+
+    // Update the avalble options
+    setOptions(updatedOptions);
+
+    // Update the search value
+    setSearch(value);
+
+    // Run onChange callback
+    if (onChange) onChange({ event, value });
+  };
+
+  // Handler for when an item is clicked
+  const handleOnSelect = item => {
+    setSelected(item);
+    setSearch(item[searchField]);
+    setFocused(false);
+    if (onSelect) onSelect(item);
+  };
+  const anchorRef = React.useRef();
+  return (
+    <Box ref={componentRef}>
+      {/* INPUT FIELD */}
+      <TextField
+        {...props}
+        value={search}
+        onChange={handleInput}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        ref={anchorRef}
+      />
+
+      {/* RESULTS CONTAINER */}
+      {focused && (
+        <Layer>
+          <Flyout
+            showCaret
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => {}}
+            positionRelativeToAnchor={false}
+            size="flexible"
+          >
+            <Box
+              padding={1}
+              maxHeight="50vh"
+              width={`${anchorRef.current.offsetWidth - 10}px`}
+              overflow="auto"
+            >
+              <Box
+                alignItems="center"
+                direction="column"
+                display="flex"
+                marginStart={-1}
+                marginEnd={-1}
+              >
+                {options &&
+                  options.map(option => (
+                    <Touchable
+                      key={option.value}
+                      onTouch={() => handleOnSelect(option)}
+                    >
+                      <Box
+                        marginStart={2}
+                        marginEnd={2}
+                        marginBottom={1}
+                        padding={2}
+                        color="white"
+                      >
+                        <Text>{`${option[searchField]}`}</Text>
+                      </Box>
+                    </Touchable>
+                  ))}
+              </Box>
+            </Box>
+          </Flyout>
+        </Layer>
+      )}
+    </Box>
+  );
+};
+
+AutoComplete.displayName = 'AutoComplete';
+
+AutoComplete.propTypes = {
+  disabled: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  helperText: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
+  placeholder: PropTypes.string,
+  size: PropTypes.oneOf(['md', 'lg']),
+  value: PropTypes.string,
+};
+
+function AutoCompleteForwardRef(props, ref) {
+  return <AutoComplete {...props} forwardedRef={ref} />;
+}
+
+export default forwardRef<Props, HTMLInputElement>(AutoCompleteForwardRef);
