@@ -56,7 +56,7 @@ const AutoComplete = (props: Props) => {
     resultHeight = '50vh',
     searchField = 'label',
     defaultItem = null,
-    caret = true,
+    caret = false,
     noResultText = 'No Results',
     noResultTextColor = 'red',
     hoverColor = 'lightGray',
