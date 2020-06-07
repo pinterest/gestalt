@@ -68,8 +68,7 @@ const AutoComplete = (props: Props) => {
   // Track input value
   const [search, setSearch] = useState<string>(value);
 
-  // Track the selected item
-  // TODO: Don't know what I'm going to do with this but Im sure it'll be useful at some point.
+  // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<object>(selectedItem);
 
   const [options, setOptions] = useState<object[]>(filterOriginalData(value));
@@ -159,20 +158,12 @@ const AutoComplete = (props: Props) => {
               >
                 {options &&
                   options.map(option => (
-                    <Touchable
-                      key={option.value}
-                      onTouch={() => handleOnSelect(option)}
-                    >
-                      <Box
-                        marginStart={2}
-                        marginEnd={2}
-                        marginBottom={1}
-                        padding={2}
-                        color="white"
-                      >
-                        <Text>{`${option[searchField]}`}</Text>
-                      </Box>
-                    </Touchable>
+                    <Option
+                      key={option[searchField]}
+                      option={option}
+                      searchField={searchField}
+                      handleOnSelect={handleOnSelect}
+                    />
                   ))}
               </Box>
             </Box>
@@ -180,6 +171,35 @@ const AutoComplete = (props: Props) => {
         </Layer>
       )}
     </Box>
+  );
+};
+
+type OptionProps = {|
+  option: object,
+  searchField: text,
+  handleOnSelect: () => void,
+|};
+
+const Option = ({ option, searchField, handleOnSelect }: OptionProps) => {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <Touchable
+      key={option[searchField]}
+      onTouch={() => handleOnSelect(option)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <Box
+        marginStart={2}
+        marginEnd={2}
+        marginBottom={1}
+        padding={2}
+        color={hover ? 'lightGray' : 'white'}
+      >
+        <Text>{`${option[searchField]}`}</Text>
+      </Box>
+    </Touchable>
   );
 };
 
