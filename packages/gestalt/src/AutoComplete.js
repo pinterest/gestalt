@@ -162,6 +162,7 @@ const AutoComplete = (props: Props) => {
                       key={option[searchField]}
                       option={option}
                       searchField={searchField}
+                      selected={selected}
                       handleOnSelect={handleOnSelect}
                     />
                   ))}
@@ -176,12 +177,22 @@ const AutoComplete = (props: Props) => {
 
 type OptionProps = {|
   option: object,
+  selected: object,
   searchField: text,
   handleOnSelect: () => void,
 |};
 
-const Option = ({ option, searchField, handleOnSelect }: OptionProps) => {
-  const [hover, setHover] = useState(false);
+const Option = ({
+  option,
+  selected,
+  searchField,
+  handleOnSelect,
+}: OptionProps) => {
+  // Determine if the option is the current selected item
+  const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
+  // Highlight the current selected item
+  // The rest will all be false and will toggle on mouse events
+  const [hover, setHover] = useState(isSelectedItem);
 
   return (
     <Touchable
@@ -195,7 +206,7 @@ const Option = ({ option, searchField, handleOnSelect }: OptionProps) => {
         marginEnd={2}
         marginBottom={1}
         padding={2}
-        color={hover ? 'lightGray' : 'white'}
+        color={isSelectedItem || hover ? 'lightGray' : 'white'}
       >
         <Text>{`${option[searchField]}`}</Text>
       </Box>
