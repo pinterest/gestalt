@@ -157,9 +157,9 @@ const AutoComplete = (props: Props) => {
                 marginEnd={-1}
               >
                 {options &&
-                  options.map(option => (
+                  options.map((option, index) => (
                     <Option
-                      key={option[searchField]}
+                      key={`${option[searchField] + index}`}
                       option={option}
                       searchField={searchField}
                       selected={selected}
