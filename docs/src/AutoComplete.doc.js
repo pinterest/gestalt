@@ -101,7 +101,7 @@ card(
         type: 'string',
         description: 'Control flyout caret',
         href: 'basicExample',
-        defaultValue: true,
+        defaultValue: false,
       },
       {
         name: 'placeholder',
@@ -226,6 +226,7 @@ card(
           <AutoComplete
             id="color"
             name="color"
+            caret
             onChange={handleOnChange}
             onSelect={handleSelect}
             onFocus={()=> console.log("FOCUSED")}
