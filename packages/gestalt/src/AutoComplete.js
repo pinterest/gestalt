@@ -239,7 +239,10 @@ const Option = ({
         color={isSelectedItem || hover ? hoverColor : backgroundColor}
       >
         {/* TODO: It'd be cool to render whatever here */}
-        <Text color={textColor}>{`${option[searchField]}`}</Text>
+        <Text
+          color={textColor}
+          weight={hover ? 'bold' : 'normal'}
+        >{`${option[searchField]}`}</Text>
       </Box>
     </Touchable>
   );
