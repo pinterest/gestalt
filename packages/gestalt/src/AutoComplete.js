@@ -103,7 +103,9 @@ const AutoComplete = (props: Props) => {
     );
 
     // TODO: How do I lose focus AFTER the element is selected. Right now blur calls first, closes the selection box before the onSelected is triggered
-    // setFocused(document.activeElement === componentRef.current);
+    setTimeout(() => {
+      setFocused(document.activeElement === componentRef.current);
+    }, 100);
     // Run blur callback
     if (onBlur) onBlur();
   };
