@@ -34,8 +34,15 @@ type Props = {|
   onKeyDown?: () => void,
   size?: () => void,
   value?: () => void,
-  isFocused?: boolean,
-  selectedItem?: Object,
+  caret?: boolean,
+  defaultItem?: Object,
+  noResultText?: string,
+  noResultTextColor?: string,
+  resultHeight?: string,
+  hoverColor?: string,
+  textColor?: string,
+  backgroundColor?: string,
+  containerColor?: string,
 |};
 
 const AutoComplete = (props: Props) => {
@@ -46,10 +53,16 @@ const AutoComplete = (props: Props) => {
     onSelect,
     value = '',
     data,
-    // Enable search on any object property
+    resultHeight = '50vh',
     searchField = 'label',
-    isFocused = false,
-    selectedItem = null,
+    defaultItem = null,
+    caret = true,
+    noResultText = 'No Results',
+    noResultTextColor = 'red',
+    hoverColor = 'lightGray',
+    textColor = 'darkGray',
+    backgroundColor = 'white',
+    containerColor = 'white',
   } = props;
 
   // Store original data
@@ -63,13 +76,13 @@ const AutoComplete = (props: Props) => {
 
   // Handle when input is in and out of focus
   const componentRef = useRef();
-  const [focused, setFocused] = useState<boolean>(isFocused);
+  const [focused, setFocused] = useState<boolean>(false);
 
   // Track input value
   const [search, setSearch] = useState<string>(value);
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
-  const [selected, setSelected] = useState<object>(selectedItem);
+  const [selected, setSelected] = useState<object>(defaultItem);
 
   const [options, setOptions] = useState<object[]>(filterOriginalData(value));
 
@@ -136,7 +149,7 @@ const AutoComplete = (props: Props) => {
       {focused && (
         <Layer>
           <Flyout
-            showCaret
+            showCaret={caret}
             anchor={anchorRef.current}
             idealDirection="down"
             onDismiss={() => {}}
@@ -145,9 +158,10 @@ const AutoComplete = (props: Props) => {
           >
             <Box
               padding={1}
-              maxHeight="50vh"
+              maxHeight={resultHeight}
               width={`${anchorRef.current.offsetWidth - 10}px`}
               overflow="auto"
+              color={containerColor}
             >
               <Box
                 alignItems="center"
@@ -156,16 +170,26 @@ const AutoComplete = (props: Props) => {
                 marginStart={-1}
                 marginEnd={-1}
               >
-                {options &&
-                  options.map((option, index) => (
-                    <Option
-                      key={`${option[searchField] + index}`}
-                      option={option}
-                      searchField={searchField}
-                      selected={selected}
-                      handleOnSelect={handleOnSelect}
-                    />
-                  ))}
+                {/* Handle when no results */}
+                {options.length === 0 && (
+                  <Box margin={2}>
+                    <Text color={noResultTextColor}>{noResultText}</Text>
+                  </Box>
+                )}
+
+                {/* Return options */}
+                {options.map((option, index) => (
+                  <Option
+                    key={`${option[searchField] + index}`}
+                    option={option}
+                    searchField={searchField}
+                    selected={selected}
+                    handleOnSelect={handleOnSelect}
+                    hoverColor={hoverColor}
+                    textColor={textColor}
+                    backgroundColor={backgroundColor}
+                  />
+                ))}
               </Box>
             </Box>
           </Flyout>
@@ -178,7 +202,10 @@ const AutoComplete = (props: Props) => {
 type OptionProps = {|
   option: object,
   selected: object,
-  searchField: text,
+  searchField: string,
+  hoverColor: string,
+  textColor: string,
+  backgroundColor: string,
   handleOnSelect: () => void,
 |};
 
@@ -187,6 +214,9 @@ const Option = ({
   selected,
   searchField,
   handleOnSelect,
+  hoverColor,
+  textColor,
+  backgroundColor,
 }: OptionProps) => {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
@@ -206,9 +236,10 @@ const Option = ({
         marginEnd={2}
         marginBottom={1}
         padding={2}
-        color={isSelectedItem || hover ? 'lightGray' : 'white'}
+        color={isSelectedItem || hover ? hoverColor : backgroundColor}
       >
-        <Text>{`${option[searchField]}`}</Text>
+        {/* TODO: It'd be cool to render whatever here */}
+        <Text color={textColor}>{`${option[searchField]}`}</Text>
       </Box>
     </Touchable>
   );
