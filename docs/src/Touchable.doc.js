@@ -105,7 +105,8 @@ card(
         type: `"background" | "border" | "compress" | "compressBackground" | Array<"background" | "border" | "compress" | "compressBackground">`,
         description: `Style when user presses on the Touchable on a touch device.
           Possible values are: "background" (light gray background), "border" (box-shadow outline), "compress" (scale down slightly), and an array of any combinations`,
-        defaultValue: null,
+        defaultValue: [],
+        href: 'pressStyleCombinations',
       },
       {
         name: 'rounding',
@@ -360,9 +361,11 @@ function DisabledEx() {
 
 card(
   <Combination
-    id="sizeCombinations"
+    id="pressStyleCombinations"
     name="Combinations: pressStyle"
+    description={`\`pressStyle\` prop enables touch feedback on a touch device.`}
     pressStyle={[
+      [],
       'compress',
       'background',
       'border',
