@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, forwardRef, useRef } from 'react';
+import React, { useState, forwardRef, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TextField from './TextField.js';
@@ -74,10 +74,6 @@ const AutoComplete = (props: Props) => {
       item[searchField].toLowerCase().includes(filterValue.toLowerCase())
     );
 
-  // Handle when input is in and out of focus
-  const componentRef = useRef();
-  const [focused, setFocused] = useState<boolean>(false);
-
   // Track input value
   const [search, setSearch] = useState<string>(value);
 
@@ -86,9 +82,40 @@ const AutoComplete = (props: Props) => {
 
   const [options, setOptions] = useState<object[]>(filterOriginalData(value));
 
+  // Ref to the input
+  const inputRef = useRef();
+
+  // Reference to selected option
+  let optionRef;
+  const getOptionRef = ref => {
+    optionRef = ref;
+  };
+
+  // Option Container ref
+  let containerRef;
+  const getContainerRef = ref => {
+    containerRef = ref;
+  };
+
+  // Handle when input is in and out of focus
+  const componentRef = useRef();
+  const [focused, setFocused] = useState<boolean>(false);
+
+  // When the menu item opens, scroll to selected item
+  useEffect(() => {
+    // Scroll to selected
+    setTimeout(() => {
+      if (selected !== null && containerRef && optionRef)
+        scrollIntoView(containerRef?.current, getOptionRef?.current);
+    }, 100);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focused]);
+
   const handleFocus = () => {
     // Internally set focus status
     setFocused(componentRef.current.contains(document.activeElement));
+
     // Run focus callback
     if (onFocus) onFocus();
   };
@@ -128,13 +155,15 @@ const AutoComplete = (props: Props) => {
   };
 
   // Handler for when an item is clicked
-  const handleOnSelect = item => {
+  const handleOnSelect = (item, itemRef) => {
+    console.log('item', item, itemRef);
     setSelected(item);
+
     setSearch(item[searchField]);
     setFocused(false);
     if (onSelect) onSelect(item);
   };
-  const anchorRef = React.useRef();
+
   return (
     <Box ref={componentRef}>
       {/* INPUT FIELD */}
@@ -144,7 +173,7 @@ const AutoComplete = (props: Props) => {
         onChange={handleInput}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        ref={anchorRef}
+        ref={inputRef}
       />
 
       {/* RESULTS CONTAINER */}
@@ -152,16 +181,17 @@ const AutoComplete = (props: Props) => {
         <Layer>
           <Flyout
             showCaret={caret}
-            anchor={anchorRef.current}
+            anchor={inputRef.current}
             idealDirection="down"
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="flexible"
           >
             <Box
+              ref={getContainerRef}
               padding={1}
               maxHeight={resultHeight}
-              width={`${anchorRef.current.offsetWidth - 10}px`}
+              width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
               overflow="auto"
               color={containerColor}
             >
@@ -183,6 +213,7 @@ const AutoComplete = (props: Props) => {
                 {options.map((option, index) => (
                   <Option
                     key={`${option[searchField] + index}`}
+                    index={index}
                     option={option}
                     searchField={searchField}
                     selected={selected}
@@ -190,6 +221,7 @@ const AutoComplete = (props: Props) => {
                     hoverColor={hoverColor}
                     textColor={textColor}
                     backgroundColor={backgroundColor}
+                    getOptionRef={getOptionRef}
                   />
                 ))}
               </Box>
@@ -209,15 +241,19 @@ type OptionProps = {|
   textColor: string,
   backgroundColor: string,
   handleOnSelect: () => void,
+  getOptionRef: any => void,
+  index: number,
 |};
 
 const Option = ({
+  index,
   option,
   selected,
   searchField,
   handleOnSelect,
   hoverColor,
   textColor,
+  getOptionRef,
   backgroundColor,
 }: OptionProps) => {
   // Determine if the option is the current selected item
@@ -226,27 +262,42 @@ const Option = ({
   // The rest will all be false and will toggle on mouse events
   const [hover, setHover] = useState(isSelectedItem);
 
+  const handleOnKeyPress = () => {
+    console.log('keypress');
+  };
+
   return (
-    <Touchable
-      key={option[searchField]}
-      onTouch={() => handleOnSelect(option)}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+    <Box
+      ref={getOptionRef()}
+      display="flex"
+      direction="row"
+      role="option"
+      aria-selected={false}
+      tabIndex={index}
+      onKeyPress={handleOnKeyPress}
     >
-      <Box
-        marginStart={2}
-        marginEnd={2}
-        marginBottom={1}
-        padding={2}
-        color={isSelectedItem || hover ? hoverColor : backgroundColor}
+      <Touchable
+        key={option[searchField]}
+        onTouch={() => handleOnSelect(option, getOptionRef())}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       >
-        {/* TODO: It'd be cool to render whatever here */}
-        <Text
-          color={textColor}
-          weight={hover ? 'bold' : 'normal'}
-        >{`${option[searchField]}`}</Text>
-      </Box>
-    </Touchable>
+        <Box
+          marginStart={2}
+          marginEnd={2}
+          marginBottom={1}
+          padding={2}
+          flex="grow"
+          color={isSelectedItem || hover ? hoverColor : backgroundColor}
+        >
+          {/* TODO: It'd be cool to render whatever here */}
+          <Text
+            color={textColor}
+            weight={hover ? 'bold' : 'normal'}
+          >{`${option[searchField]}`}</Text>
+        </Box>
+      </Touchable>
+    </Box>
   );
 };
 
@@ -273,6 +324,35 @@ AutoComplete.propTypes = {
 
 function AutoCompleteForwardRef(props, ref) {
   return <AutoComplete {...props} forwardedRef={ref} />;
+}
+
+// ------------------------------
+// Scroll Into View
+// https://github.com/JedWatson/react-select/blob/master/packages/react-select/src/utils.js
+// ------------------------------
+
+export function scrollIntoView(
+  menuEl: HTMLElement,
+  focusedEl: HTMLElement
+): void {
+  const menuRect = menuEl.getBoundingClientRect();
+  const focusedRect = focusedEl.getBoundingClientRect();
+  const overScroll = focusedEl.offsetHeight / 3;
+
+  if (focusedRect.bottom + overScroll > menuRect.bottom) {
+    window.scrollTo(
+      menuEl,
+      Math.min(
+        focusedEl.offsetTop +
+          focusedEl.clientHeight -
+          menuEl.offsetHeight +
+          overScroll,
+        menuEl.scrollHeight
+      )
+    );
+  } else if (focusedRect.top - overScroll < menuRect.top) {
+    window.scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
+  }
 }
 
 export default forwardRef<Props, HTMLInputElement>(AutoCompleteForwardRef);
