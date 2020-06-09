@@ -8,6 +8,11 @@ test('Pog renders with icon', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Pog renders with size and padding', () => {
+  const tree = create(<Pog icon="heart" size="xl" padding="xs" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Pog renders with svg', () => {
   const tree = create(
     <Pog dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }} />
