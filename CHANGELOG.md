@@ -1,3 +1,9 @@
+## 2.0.3 (Jun 9, 2020)
+
+### Patch
+
+- Bump websocket-extensions from 0.1.3 to 0.1.4 (#904)
+
 ## 2.0.2 (Jun 9, 2020)
 
 ### Patch
