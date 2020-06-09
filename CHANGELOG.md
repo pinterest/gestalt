@@ -1,3 +1,9 @@
+## 2.1.0 (Jun 9, 2020)
+
+### Minor
+
+- TableHeader: Add optional sticky header (#900)
+
 ## 2.0.3 (Jun 9, 2020)
 
 ### Patch
