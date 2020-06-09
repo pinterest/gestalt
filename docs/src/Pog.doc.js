@@ -36,6 +36,11 @@ card(
         href: 'colorCombinations',
       },
       {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+      },
+      {
         name: 'focused',
         type: 'boolean',
         defaultValue: false,
@@ -60,9 +65,10 @@ card(
         Icon`,
       },
       {
-        name: 'dangerouslySetSvgPath',
-        type: `{ __path: string }`,
-        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+        name: 'padding',
+        type: `"xs" | "sm" | "md" | "lg" | "xl" | 4 | 12 | 20`,
+        description: `Available padding are "xs" (6px), "sm" (8px), "md" (11px), "lg" (14px), "xl" (16px), 4 (px), 12 (px), and 20 (px). By default, this value is the same as the \`size\` prop.`,
+        href: 'paddingCombinations',
       },
       {
         name: 'selected',
@@ -73,7 +79,7 @@ card(
       {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
+        description: `This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If the default padding is used, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px)`,
         defaultValue: 'md',
         href: 'sizeCombinations',
       },
@@ -110,6 +116,17 @@ card(
     id="sizeCombinations"
     name="Combinations: Size"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
+    {props => <Pog icon="heart" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="paddingCombinations"
+    name="Combinations: Padding"
+    size={['xs', 'xl']}
+    padding={[4, 'xs', 'sm', 'md', 12, 'lg', 'xl', 20]}
   >
     {props => <Pog icon="heart" {...props} />}
   </Combination>
