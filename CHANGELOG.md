@@ -1,3 +1,9 @@
+## 2.0.2 (Jun 9, 2020)
+
+### Patch
+
+- Pulsar: change Flyout direction in docs (#908)
+
 ## 2.0.1 (Jun 5, 2020)
 
 ### Patch
