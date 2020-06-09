@@ -111,7 +111,7 @@ class FlyoutExample extends React.Component {
           <Flyout
             anchor={this.anchorRef.current}
             color="darkGray"
-            idealDirection="down"
+            idealDirection="right"
             onDismiss={this.handleDismiss}
             shouldFocus={false}
           >
