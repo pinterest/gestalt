@@ -31,9 +31,9 @@ card(
         defaultValue: 'none',
       },
       {
-        name: 'height',
+        name: 'maxHeight',
         type: `number | string`,
-        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
+        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
         href: 'stickyHeader',
       },
     ]}
@@ -166,7 +166,7 @@ card(
     id="stickyHeader"
     name="Example: Sticky header"
     defaultCode={`
-<Table height={110}>
+<Table maxHeight={110}>
   <Table.Header sticky>
     <Table.Row>
       <Table.HeaderCell>
