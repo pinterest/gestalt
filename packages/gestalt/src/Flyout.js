@@ -62,7 +62,7 @@ Flyout.propTypes = {
   color: PropTypes.oneOf(['blue', 'orange', 'red', 'white', 'darkGray']),
   size: PropTypes.oneOfType([
     PropTypes.number,
-    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
+    PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'flexible']), // default: sm
   ]),
   showCaret: PropTypes.bool,
 };
