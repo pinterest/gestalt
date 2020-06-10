@@ -1,3 +1,9 @@
+## 2.2.0 (Jun 10, 2020)
+
+### Minor
+
+- Tooltip: fix state update on unmounted component warning (#912)
+
 ## 2.1.0 (Jun 9, 2020)
 
 ### Minor
