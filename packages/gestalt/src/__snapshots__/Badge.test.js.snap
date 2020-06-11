@@ -2,7 +2,7 @@
 
 exports[`Badge renders 1`] = `
 <span
-  className="Badge middle blueBg"
+  className="Badge"
 >
   Badge
 </span>

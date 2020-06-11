@@ -25,12 +25,6 @@ card(
         description:
           'Text displayed inside of the Badge. Sentence case is best.',
       },
-      {
-        name: 'position',
-        type: `"middle" | "top"`,
-        defaultValue: 'middle',
-        description: 'Badge position relative to its parent element.',
-      },
     ]}
   />
 );
@@ -49,10 +43,10 @@ card(
 card(
   <Example
     description="
-    Larger text example rendered with a top positioned `Badge`."
-    name="Example: positioning"
+    Larger text example rendered with a `Badge`."
+    name="Example: large text"
     defaultCode={`
-  <Heading>Heading <Badge text="Beta" position="top"/></Heading>
+  <Heading>Heading <Badge text="Beta"/></Heading>
 `}
   />
 );

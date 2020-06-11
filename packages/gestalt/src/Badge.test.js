@@ -8,10 +8,3 @@ it('Badge renders', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-it('should render with white text and blue background', () => {
-  const instance = create(<Badge text="Badge" />).root;
-  const { className } = instance.find(element => element.type === 'span').props;
-
-  expect(className).toContain('blueBg');
-});
