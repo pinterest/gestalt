@@ -24,7 +24,7 @@ type Coordinate = {|
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
-type PressStyle = 'background' | 'compress';
+type TouchStyle = 'none' | 'compress';
 
 type Props = {|
   accessibilityControls?: string,
@@ -46,7 +46,7 @@ type Props = {|
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => void,
-  pressStyle?: PressStyle | Array<PressStyle>,
+  touchStyle?: TouchStyle,
   rounding?: Rounding,
 |};
 
@@ -100,17 +100,14 @@ function Touchable({
   onMouseEnter,
   onMouseLeave,
   onTouch,
-  pressStyle = [],
+  touchStyle = 'none',
   rounding = 0,
 }: Props) {
-  const [isFocused, setFocused] = React.useState<boolean>(false);
-  const [isPressed, setPressed] = React.useState<boolean>(false);
+  const [isTouched, setTouched] = React.useState<boolean>(false);
   const [coordinate, setCoordinate] = React.useState<Coordinate>({
     x: 0,
     y: 0,
   });
-  const ignoreNextFocusEventRef = React.useRef<boolean>(false);
-  const pressStyles = Array.isArray(pressStyle) ? pressStyle : [pressStyle];
 
   const classes = classnames(
     styles.touchable,
@@ -119,12 +116,8 @@ function Touchable({
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
-      [styles.pressCompress]:
-        !disabled && pressStyles.includes('compress') && isPressed,
-      [styles.pressBackground]:
-        !disabled &&
-        pressStyles.includes('background') &&
-        (isPressed || isFocused),
+      [styles.touchCompress]:
+        !disabled && touchStyle === 'compress' && isTouched,
     }
   );
 
@@ -146,17 +139,12 @@ function Touchable({
         if (!disabled && onBlur) {
           onBlur({ event });
         }
-        setFocused(false);
-        setPressed(false);
+        setTouched(false);
       }}
       onFocus={event => {
         if (!disabled && onFocus) {
           onFocus({ event });
         }
-        if (!isPressed && !ignoreNextFocusEventRef.current) {
-          setFocused(true);
-        }
-        ignoreNextFocusEventRef.current = false;
         event.stopPropagation();
       }}
       onMouseEnter={event => {
@@ -183,7 +171,7 @@ function Touchable({
         }
       }}
       onTouchStart={({ touches }) => {
-        setPressed(true);
+        setTouched(true);
         const [touch] = touches;
         if (touch) {
           setCoordinate({
@@ -194,27 +182,24 @@ function Touchable({
       }}
       onTouchMove={({ touches }) => {
         const [touch] = touches;
-        if (isPressed && touch) {
+        if (isTouched && touch) {
           const { x: startX, y: startY } = coordinate;
           const { clientX, clientY } = touch;
           if (
             Math.abs(clientX - startX) > SCROLL_DISTANCE ||
             Math.abs(clientY - startY) > SCROLL_DISTANCE
           ) {
-            setFocused(false);
-            setPressed(false);
+            setTouched(false);
           }
         }
       }}
       onTouchCancel={() => {
-        setPressed(false);
+        setTouched(false);
       }}
       onTouchEnd={() => {
-        if (isPressed) {
-          setFocused(false);
-          setPressed(false);
+        if (isTouched) {
+          setTouched(false);
         }
-        ignoreNextFocusEventRef.current = true;
       }}
       ref={forwardedRef}
       role="button"
@@ -224,8 +209,6 @@ function Touchable({
     </div>
   );
 }
-
-const PRESS_STYLE_OPTIONS = ['background', 'border', 'compress'];
 
 Touchable.propTypes = {
   accessibilityControls: PropTypes.string,
@@ -257,10 +240,7 @@ Touchable.propTypes = {
   onTouch: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  pressStyle: PropTypes.oneOfType([
-    PropTypes.oneOf(PRESS_STYLE_OPTIONS),
-    PropTypes.arrayOf(PropTypes.oneOf(PRESS_STYLE_OPTIONS)),
-  ]),
+  touchStyle: PropTypes.oneOf(['none', 'compress']),
   rounding: RoundingPropType,
 };
 

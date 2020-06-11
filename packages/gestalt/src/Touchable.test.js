@@ -46,18 +46,9 @@ test('Touchable sets fullHeight correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Touchable supports single press style', () => {
+test('Touchable supports press style', () => {
   const tree = create(
     <Touchable onTouch={() => {}} pressStyle="compress">
-      Touchable
-    </Touchable>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('Touchable supports multiple press styles', () => {
-  const tree = create(
-    <Touchable onTouch={() => {}} pressStyle={['compress', 'background']}>
       Touchable
     </Touchable>
   ).toJSON();

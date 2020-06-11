@@ -101,12 +101,11 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'pressStyle',
-        type: `"background" | "compress" | Array<"background" | "compress">`,
-        description: `Style when user presses on the Touchable on a touch device.
-          Possible values are: "background" (light gray background), "compress" (scale down slightly), neither, or both`,
-        defaultValue: [],
-        href: 'pressStyleCombinations',
+        name: 'touchStyle',
+        type: `"none" | "compress"`,
+        description: `Style when user presses on the Touchable on a touch device. Value "compress" scales down by 1%.`,
+        defaultValue: 'none',
+        href: 'touchStyleCombinations',
       },
       {
         name: 'rounding',
@@ -136,7 +135,7 @@ function TouchableExample() {
         mouseCursor="zoomIn"
         onTouch={() => setTouches(touches + 1)}
         rounding={2}
-        pressStyle="compress"
+        touchStyle="compress"
       >
         <Mask rounding={2}>
           <Image
@@ -361,10 +360,10 @@ function DisabledEx() {
 
 card(
   <Combination
-    id="pressStyleCombinations"
-    name="Combinations: pressStyle"
-    description={`\`pressStyle\` prop enables touch feedback on a touch device.`}
-    pressStyle={[[], 'compress', 'background', ['compress', 'background']]}
+    id="touchStyleCombinations"
+    name="Combinations: touchStyle"
+    description={`\`touchStyle\` "compress" scales down by 1% on touch on a touch device.`}
+    touchStyle={['none', 'compress']}
   >
     {props => (
       <Box padding={2} width={150}>

@@ -43,13 +43,9 @@
   composes: grabbing from "./Cursor.css";
 }
 
-.pressCompress {
+.touchCompress {
   transform: scale(0.99);
   transform-origin: center;
-}
-
-.pressBackground {
-  composes: lightGrayBg from "./Colors.css";
 }
 
 .inline {
