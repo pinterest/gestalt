@@ -102,9 +102,9 @@ card(
       },
       {
         name: 'pressStyle',
-        type: `"background" | "border" | "compress" | "compressBackground" | Array<"background" | "border" | "compress" | "compressBackground">`,
+        type: `"background" | "compress" | Array<"background" | "compress">`,
         description: `Style when user presses on the Touchable on a touch device.
-          Possible values are: "background" (light gray background), "border" (box-shadow outline), "compress" (scale down slightly), and an array of any combinations`,
+          Possible values are: "background" (light gray background), "compress" (scale down slightly), neither, or both`,
         defaultValue: [],
         href: 'pressStyleCombinations',
       },
@@ -364,13 +364,7 @@ card(
     id="pressStyleCombinations"
     name="Combinations: pressStyle"
     description={`\`pressStyle\` prop enables touch feedback on a touch device.`}
-    pressStyle={[
-      [],
-      'compress',
-      'background',
-      'border',
-      ['compress', 'background'],
-    ]}
+    pressStyle={[[], 'compress', 'background', ['compress', 'background']]}
   >
     {props => (
       <Box padding={2} width={150}>

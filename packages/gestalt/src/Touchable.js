@@ -24,7 +24,7 @@ type Coordinate = {|
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
-type PressStyle = 'background' | 'border' | 'compress';
+type PressStyle = 'background' | 'compress';
 
 type Props = {|
   accessibilityControls?: string,
@@ -119,14 +119,12 @@ function Touchable({
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
-      [styles.pressScale]:
+      [styles.pressCompress]:
         !disabled && pressStyles.includes('compress') && isPressed,
       [styles.pressBackground]:
         !disabled &&
         pressStyles.includes('background') &&
         (isPressed || isFocused),
-      [styles.pressShadow]:
-        !disabled && pressStyles.includes('border') && (isPressed || isFocused),
     }
   );
 

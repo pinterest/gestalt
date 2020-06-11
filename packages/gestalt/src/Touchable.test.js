@@ -48,7 +48,7 @@ test('Touchable sets fullHeight correctly', () => {
 
 test('Touchable supports single press style', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} pressStyle="border">
+    <Touchable onTouch={() => {}} pressStyle="compress">
       Touchable
     </Touchable>
   ).toJSON();
