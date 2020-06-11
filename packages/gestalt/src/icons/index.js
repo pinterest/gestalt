@@ -133,6 +133,7 @@ import smileyOutline from './smiley-outline.svg';
 import sound from './sound.svg';
 import sortAscending from './sort-ascending.svg';
 import sortDescending from './sort-descending.svg';
+import sparkle from './sparkle.svg';
 import speech from './speech.svg';
 import speechEllipsis from './speech-ellipsis.svg';
 import star from './star.svg';
@@ -302,6 +303,7 @@ export default {
   sound,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
+  sparkle,
   speech,
   'speech-ellipsis': speechEllipsis,
   star,
