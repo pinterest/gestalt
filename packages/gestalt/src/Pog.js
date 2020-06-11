@@ -32,7 +32,10 @@ type Props = {|
     | 'gray'
     | 'lightGray'
     | 'white'
-    | 'red',
+    | 'red'
+    | 'blue'
+    | 'green'
+    | 'pine',
   dangerouslySetSvgPath?: { __path: string },
   focused?: boolean,
   hovered?: boolean,
@@ -50,6 +53,9 @@ const defaultIconButtonIconColors = {
   red: 'white',
   transparentDarkGray: 'white',
   white: 'gray',
+  blue: 'white',
+  green: 'white',
+  pine: 'white',
 };
 
 export default function Pog(props: Props) {
@@ -113,6 +119,9 @@ Pog.propTypes = {
     'gray',
     'lightGray',
     'white',
+    'blue',
+    'green',
+    'pine',
   ]),
   dangerouslySetSvgPath: PropTypes.shape({
     __path: PropTypes.string,

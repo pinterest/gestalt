@@ -101,3 +101,15 @@
 .red.active {
   background-color: #a3081a;
 }
+
+.blue {
+  composes: blueBg from "./Colors.css";
+}
+
+.green {
+  composes: greenBg from "./Colors.css";
+}
+
+.pine {
+  composes: pineBg from "./Colors.css";
+}

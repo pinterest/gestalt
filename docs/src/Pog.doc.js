@@ -31,7 +31,7 @@ card(
       },
       {
         name: 'bgColor',
-        type: `"transparent" | "transparentDarkGray" | "darkGray" | "gray" | "lightGray" | "white" | "red"`,
+        type: `"transparent" | "transparentDarkGray" | "darkGray" | "gray" | "lightGray" | "white" | "red" | "blue" | "green" | "pine"`,
         defaultValue: 'transparent',
         href: 'colorCombinations',
       },
@@ -136,6 +136,9 @@ card(
       'white',
       'lightGray',
       'gray',
+      'blue',
+      'green',
+      'pine',
     ]}
   >
     {props => <Pog icon="heart" {...props} />}
