@@ -1,3 +1,9 @@
+## 2.3.0 (Jun 11, 2020)
+
+### Minor
+
+- Tabs: remove underline on hover/focus (#918)
+
 ## 2.2.1 (Jun 10, 2020)
 
 ### Patch
