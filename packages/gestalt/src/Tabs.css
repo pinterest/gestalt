@@ -22,11 +22,6 @@
   composes: whiteBg from "./Colors.css";
 }
 
-.tab:focus,
-.tab:hover {
-  text-decoration: underline;
-}
-
 .tabIsNotActive:focus,
 .tabIsNotActive:hover {
   background-color: #f1f1f1;
