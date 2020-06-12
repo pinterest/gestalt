@@ -239,7 +239,10 @@ Touchable.propTypes = {
   rounding: RoundingPropType,
 };
 
-const forwardRef = (props, ref) => <Touchable {...props} forwardedRef={ref} />;
-forwardRef.displayName = 'Touchable';
+const TouchableWithForwardRef = React.forwardRef<Props, HTMLDivElement>(
+  (props, ref) => <Touchable {...props} forwardedRef={ref} />
+);
 
-export default React.forwardRef<Props, HTMLDivElement>(forwardRef);
+TouchableWithForwardRef.displayName = 'Touchable';
+
+export default TouchableWithForwardRef;
