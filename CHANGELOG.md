@@ -1,3 +1,9 @@
+## 2.4.1 (Jun 12, 2020)
+
+### Patch
+
+- Internal: Flow - enable exact_by_default (#920)
+
 ## 2.4.0 (Jun 12, 2020)
 
 ### Minor
