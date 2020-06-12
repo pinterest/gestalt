@@ -1,3 +1,9 @@
+## 2.5.0 (Jun 12, 2020)
+
+### Minor
+
+- Pog: Add padding prop (#911)
+
 ## 2.4.1 (Jun 12, 2020)
 
 ### Patch
