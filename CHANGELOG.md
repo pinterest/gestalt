@@ -1,3 +1,9 @@
+## 3.0.1 (Jun 12, 2020)
+
+### Patch
+
+- Touchable: displayName should still be Touchable (#922)
+
 ## 3.0.0 (Jun 12, 2020)
 
 ### Major
