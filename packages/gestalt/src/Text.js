@@ -7,7 +7,7 @@ import colors from './Colors.css';
 import styles from './Text.css';
 import typography from './Typography.css';
 
-const SIZE_SCALE: { [size: ?string]: number } = {
+const SIZE_SCALE = {
   sm: 1,
   md: 2,
   lg: 3,

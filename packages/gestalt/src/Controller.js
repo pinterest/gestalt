@@ -35,6 +35,7 @@ type ClientRect = {
   right: number,
   top: number,
   width: number,
+  ...
 };
 
 type State = {|

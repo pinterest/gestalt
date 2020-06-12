@@ -7,8 +7,9 @@
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
 
 [options]
-include_warnings=true
 esproposal.optional_chaining=enable
+exact_by_default=true
+include_warnings=true
 
 suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
 suppress_comment=\\(.\\|\n\\)*\\$FlowIssue

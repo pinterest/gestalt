@@ -40,7 +40,7 @@ const defaultHeadingLevels = {
   lg: 1,
 };
 
-const SIZE_SCALE: { [size: ?string]: number } = {
+const SIZE_SCALE = {
   sm: 1,
   md: 2,
   lg: 3,
