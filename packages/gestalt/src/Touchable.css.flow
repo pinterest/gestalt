@@ -9,6 +9,7 @@ declare module.exports: {|
   +'move': string,
   +'noDrop': string,
   +'pointer': string,
+  +'tapCompress': string,
   +'touchable': string,
   +'zoomIn': string,
   +'zoomOut': string,

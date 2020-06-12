@@ -46,6 +46,15 @@ test('Touchable sets fullHeight correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Touchable supports press style', () => {
+  const tree = create(
+    <Touchable onTouch={() => {}} tapStyle="compress">
+      Touchable
+    </Touchable>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('accessibilityControls', () => {
   const instance = create(
     <Touchable onTouch={() => {}} accessibilityControls="another-element">
