@@ -1,3 +1,9 @@
+## 3.0.0 (Jun 12, 2020)
+
+### Major
+
+- Touchable: forward ref, touch feedback, and more (BREAKING CHANGE) (#906)
+
 ## 2.5.0 (Jun 12, 2020)
 
 ### Minor
