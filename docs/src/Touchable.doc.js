@@ -101,11 +101,11 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'touchStyle',
+        name: 'tapStyle',
         type: `"none" | "compress"`,
-        description: `Style when user presses on the Touchable on a touch device. Value "compress" scales down by 1%.`,
+        description: `Style when the Touchable is clicked / touched. Value "compress" scales down by 1%.`,
         defaultValue: 'none',
-        href: 'touchStyleCombinations',
+        href: 'tapStyleCombinations',
       },
       {
         name: 'rounding',
@@ -135,7 +135,6 @@ function TouchableExample() {
         mouseCursor="zoomIn"
         onTouch={() => setTouches(touches + 1)}
         rounding={2}
-        touchStyle="compress"
       >
         <Mask rounding={2}>
           <Image
@@ -360,10 +359,10 @@ function DisabledEx() {
 
 card(
   <Combination
-    id="touchStyleCombinations"
-    name="Combinations: touchStyle"
-    description={`\`touchStyle\` "compress" scales down by 1% on touch on a touch device.`}
-    touchStyle={['none', 'compress']}
+    id="tapStyleCombinations"
+    name="Combinations: tapStyle"
+    description={`\`tapStyle\` "compress" scales down by 1% on click / touch.`}
+    tapStyle={['none', 'compress']}
   >
     {props => (
       <Box padding={2} width={150}>

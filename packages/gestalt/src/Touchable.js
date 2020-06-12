@@ -24,7 +24,7 @@ type Coordinate = {|
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
-type TouchStyle = 'none' | 'compress';
+type TapStyle = 'none' | 'compress';
 
 type Props = {|
   accessibilityControls?: string,
@@ -46,7 +46,7 @@ type Props = {|
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
   }) => void,
-  touchStyle?: TouchStyle,
+  tapStyle?: TapStyle,
   rounding?: Rounding,
 |};
 
@@ -100,10 +100,10 @@ function Touchable({
   onMouseEnter,
   onMouseLeave,
   onTouch,
-  touchStyle = 'none',
+  tapStyle = 'none',
   rounding = 0,
 }: Props) {
-  const [isTouched, setTouched] = React.useState<boolean>(false);
+  const [isTapping, setTapping] = React.useState<boolean>(false);
   const [coordinate, setCoordinate] = React.useState<Coordinate>({
     x: 0,
     y: 0,
@@ -116,8 +116,7 @@ function Touchable({
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
-      [styles.touchCompress]:
-        !disabled && touchStyle === 'compress' && isTouched,
+      [styles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
     }
   );
 
@@ -139,7 +138,7 @@ function Touchable({
         if (!disabled && onBlur) {
           onBlur({ event });
         }
-        setTouched(false);
+        setTapping(false);
       }}
       onFocus={event => {
         if (!disabled && onFocus) {
@@ -157,6 +156,8 @@ function Touchable({
           onMouseLeave({ event });
         }
       }}
+      onMouseDown={() => setTapping(true)}
+      onMouseUp={() => setTapping(false)}
       onKeyPress={event => {
         // Check to see if space or enter were pressed
         if (
@@ -171,7 +172,7 @@ function Touchable({
         }
       }}
       onTouchStart={({ touches }) => {
-        setTouched(true);
+        setTapping(true);
         const [touch] = touches;
         if (touch) {
           setCoordinate({
@@ -182,25 +183,19 @@ function Touchable({
       }}
       onTouchMove={({ touches }) => {
         const [touch] = touches;
-        if (isTouched && touch) {
+        if (isTapping && touch) {
           const { x: startX, y: startY } = coordinate;
           const { clientX, clientY } = touch;
           if (
             Math.abs(clientX - startX) > SCROLL_DISTANCE ||
             Math.abs(clientY - startY) > SCROLL_DISTANCE
           ) {
-            setTouched(false);
+            setTapping(false);
           }
         }
       }}
-      onTouchCancel={() => {
-        setTouched(false);
-      }}
-      onTouchEnd={() => {
-        if (isTouched) {
-          setTouched(false);
-        }
-      }}
+      onTouchCancel={() => setTapping(false)}
+      onTouchEnd={() => setTapping(false)}
       ref={forwardedRef}
       role="button"
       tabIndex={disabled ? null : '0'}
@@ -240,7 +235,7 @@ Touchable.propTypes = {
   onTouch: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  touchStyle: PropTypes.oneOf(['none', 'compress']),
+  tapStyle: PropTypes.oneOf(['none', 'compress']),
   rounding: RoundingPropType,
 };
 

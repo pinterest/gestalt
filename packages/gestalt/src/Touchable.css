@@ -43,7 +43,7 @@
   composes: grabbing from "./Cursor.css";
 }
 
-.touchCompress {
+.tapCompress {
   transform: scale(0.99);
   transform-origin: center;
 }
