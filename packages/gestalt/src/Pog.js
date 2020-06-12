@@ -6,7 +6,7 @@ import Icon from './Icon.js';
 import icons from './icons/index.js';
 import styles from './Pog.css';
 
-const PADDING_NAME_TO_PADDING_PIXEL = {
+const SIZE_NAME_TO_PADDING_PIXEL = {
   xs: 6,
   sm: 8,
   md: 11,
@@ -37,7 +37,7 @@ type Props = {|
   hovered?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  padding?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 4 | 12 | 20,
+  padding?: 1 | 2 | 3 | 4 | 5,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
@@ -67,10 +67,7 @@ export default function Pog(props: Props) {
   } = props;
 
   const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
-  const paddingInPx =
-    typeof padding === 'number'
-      ? padding
-      : PADDING_NAME_TO_PADDING_PIXEL[padding || size];
+  const paddingInPx = padding || SIZE_NAME_TO_PADDING_PIXEL[size];
 
   const color =
     (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
@@ -109,8 +106,6 @@ export default function Pog(props: Props) {
   );
 }
 
-const SIZE_NAMES = ['xs', 'sm', 'md', 'lg', 'xl'];
-
 Pog.propTypes = {
   active: PropTypes.bool,
   bgColor: PropTypes.oneOf([
@@ -128,7 +123,7 @@ Pog.propTypes = {
   hovered: PropTypes.bool,
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
-  padding: PropTypes.oneOf(SIZE_NAMES.concat([4, 12, 20])),
+  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
   selected: PropTypes.bool,
-  size: PropTypes.oneOf(SIZE_NAMES),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
 };

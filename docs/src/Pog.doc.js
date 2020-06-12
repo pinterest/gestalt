@@ -66,8 +66,8 @@ card(
       },
       {
         name: 'padding',
-        type: `"xs" | "sm" | "md" | "lg" | "xl" | 4 | 12 | 20`,
-        description: `Available padding are "xs" (6px), "sm" (8px), "md" (11px), "lg" (14px), "xl" (16px), 4 (px), 12 (px), and 20 (px). By default, this value is the same as the \`size\` prop.`,
+        type: `1 | 2 | 3 | 4 | 5`,
+        description: `Padding in boints. If omitted, padding is derived from the \`size\` prop.`,
         href: 'paddingCombinations',
       },
       {
@@ -79,7 +79,7 @@ card(
       {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If the default padding is used, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px)`,
+        description: `This controls the icon size and the default padding size. Available sizes are "xs" (12px), "sm" (16px), "md" (18px), "lg" (20px), and "xl" (24px). If padding is omitted, button sizes are "xs" (24px), "sm" (32px), "md" (40px), "lg" (48px), and "xl" (56px)`,
         defaultValue: 'md',
         href: 'sizeCombinations',
       },
@@ -114,7 +114,7 @@ card(
 card(
   <Combination
     id="sizeCombinations"
-    name="Combinations: Size"
+    name="Combinations: Size with default padding"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
     {props => <Pog icon="heart" {...props} />}
@@ -124,9 +124,9 @@ card(
 card(
   <Combination
     id="paddingCombinations"
-    name="Combinations: Padding"
-    size={['xs', 'xl']}
-    padding={[4, 'xs', 'sm', 'md', 12, 'lg', 'xl', 20]}
+    name="Combinations: Size with custom padding"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+    padding={[1, 2, 3, 4, 5]}
   >
     {props => <Pog icon="heart" {...props} />}
   </Combination>

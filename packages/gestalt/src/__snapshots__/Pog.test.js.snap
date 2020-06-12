@@ -104,13 +104,39 @@ exports[`Pog renders with icon 1`] = `
 </div>
 `;
 
-exports[`Pog renders with size and padding 1`] = `
+exports[`Pog renders with size and custom padding 1`] = `
 <div
   className="pog transparent"
   style={
     Object {
-      "height": 36,
-      "width": 36,
+      "height": 26,
+      "width": 26,
+    }
+  }
+>
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={24}
+    role="img"
+    viewBox="0 0 24 24"
+    width={24}
+  >
+    <path
+      d="test-file-stub"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Pog renders with size and default padding 1`] = `
+<div
+  className="pog transparent"
+  style={
+    Object {
+      "height": 56,
+      "width": 56,
     }
   }
 >
