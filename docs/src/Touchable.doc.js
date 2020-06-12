@@ -69,6 +69,10 @@ card(
         href: 'fullHeightWidthExample',
       },
       {
+        name: 'inline',
+        type: 'boolean',
+      },
+      {
         name: 'mouseCursor',
         type: `"copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut"`,
         defaultValue: 'pointer',
@@ -212,12 +216,12 @@ function A11yExPopup() {
           accessibilityLabel="see more"
           onTouch={() => setOpen(!isOpen)}
         >
-        <Box 
-          alignItems="center" 
+        <Box
+          alignItems="center"
           borderSize="sm"
-          display="flex" 
-          padding={2} 
-          rounding="pill" 
+          display="flex"
+          padding={2}
+          rounding="pill"
         >
             <Box paddingX={1}>
               <Text weight="bold">See more</Text>
@@ -229,10 +233,10 @@ function A11yExPopup() {
         </Touchable>
       </Box>
       {isOpen && (
-        <Flyout 
-          anchor={anchorRef && anchorRef.current} 
+        <Flyout
+          anchor={anchorRef && anchorRef.current}
           idealDirection="right"
-          onDismiss={() => undefined} 
+          onDismiss={() => undefined}
         >
           <Box padding={2}>
             <Text>I am a popup.</Text>
@@ -270,13 +274,13 @@ function A11yExDisclosure() {
           accessibilityExpanded={isOpen}
           onTouch={() => setOpen(!isOpen)}
         >
-          <Box 
-            alignItems="center" 
+          <Box
+            alignItems="center"
             borderSize="sm"
-            display="flex" 
-            justifyContent="between" 
-            padding={2} 
-            rounding="pill" 
+            display="flex"
+            justifyContent="between"
+            padding={2}
+            rounding="pill"
           >
             <Box paddingX={1}>
               <Text weight="bold">{isOpen ? 'Collapse' : 'Expand'}</Text>

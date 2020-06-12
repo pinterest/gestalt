@@ -41,3 +41,7 @@
 .grabbing {
   composes: grabbing from "./Cursor.css";
 }
+
+.inline {
+  composes: inline from "./Layout.css";
+}

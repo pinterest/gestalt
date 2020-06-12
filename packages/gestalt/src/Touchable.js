@@ -27,6 +27,7 @@ type Props = {|
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
+  inline?: boolean,
   mouseCursor?: MouseCursor,
   onBlur?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
   onFocus?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
@@ -83,6 +84,7 @@ export default class Touchable extends React.Component<Props> {
     disabled: PropTypes.bool,
     fullHeight: PropTypes.bool,
     fullWidth: PropTypes.bool,
+    inline: PropTypes.bool,
     mouseCursor: PropTypes.oneOf([
       'copy',
       'grab',
@@ -160,6 +162,7 @@ export default class Touchable extends React.Component<Props> {
       disabled = false,
       fullWidth = true,
       fullHeight,
+      inline = false,
       mouseCursor = 'pointer',
       rounding = 0,
     } = this.props;
@@ -170,6 +173,7 @@ export default class Touchable extends React.Component<Props> {
       {
         [styles.fullHeight]: fullHeight,
         [styles.fullWidth]: fullWidth,
+        [styles.inline]: inline,
         [styles[mouseCursor]]: !disabled,
       }
     );
