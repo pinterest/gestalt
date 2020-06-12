@@ -23,23 +23,19 @@ exports[`IconButton renders with disabled state 1`] = `
       }
     }
   >
-    <div
-      className="box circle"
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={18}
+      role="img"
+      viewBox="0 0 24 24"
+      width={18}
     >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="icon gray iconBlock"
-        height={18}
-        role="img"
-        viewBox="0 0 24 24"
-        width={18}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
 </button>
 `;
@@ -66,23 +62,19 @@ exports[`IconButton renders with icon 1`] = `
       }
     }
   >
-    <div
-      className="box circle"
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={18}
+      role="img"
+      viewBox="0 0 24 24"
+      width={18}
     >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="icon gray iconBlock"
-        height={18}
-        role="img"
-        viewBox="0 0 24 24"
-        width={18}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
 </button>
 `;
@@ -109,23 +101,19 @@ exports[`IconButton renders with svg 1`] = `
       }
     }
   >
-    <div
-      className="box circle"
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon gray iconBlock"
+      height={18}
+      role="img"
+      viewBox="0 0 24 24"
+      width={18}
     >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="icon gray iconBlock"
-        height={18}
-        role="img"
-        viewBox="0 0 24 24"
-        width={18}
-      >
-        <path
-          d="M13.00,20.00"
-        />
-      </svg>
-    </div>
+      <path
+        d="M13.00,20.00"
+      />
+    </svg>
   </div>
 </button>
 `;
