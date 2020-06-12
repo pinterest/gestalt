@@ -1,3 +1,9 @@
+## 2.4.0 (Jun 12, 2020)
+
+### Minor
+
+- Icon: add sparkle icon (#916)
+
 ## 2.3.0 (Jun 11, 2020)
 
 ### Minor
