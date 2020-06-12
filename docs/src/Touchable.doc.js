@@ -366,7 +366,7 @@ card(
   >
     {props => (
       <Box padding={2} width={150}>
-        <Touchable {...props} rounding={2}>
+        <Touchable {...props} rounding="circle">
           <Mask rounding="circle">
             <Image
               alt="Antelope Canyon"

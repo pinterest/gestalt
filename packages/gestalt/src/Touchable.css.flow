@@ -6,7 +6,6 @@ declare module.exports: {|
   +'fullWidth': string,
   +'grab': string,
   +'grabbing': string,
-  +'inline': string,
   +'move': string,
   +'noDrop': string,
   +'pointer': string,

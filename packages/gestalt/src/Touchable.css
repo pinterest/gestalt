@@ -47,7 +47,3 @@
   transform: scale(0.99);
   transform-origin: center;
 }
-
-.inline {
-  composes: inlineBlock from "./Layout.css";
-}
