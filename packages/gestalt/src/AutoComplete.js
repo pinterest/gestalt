@@ -41,7 +41,6 @@ type Props = {|
   hoverColor?: string,
   textColor?: string,
   backgroundColor?: string,
-  containerColor?: string,
 |};
 
 const AutoComplete = (props: Props) => {
@@ -61,7 +60,6 @@ const AutoComplete = (props: Props) => {
     hoverColor = 'lightGray',
     textColor = 'darkGray',
     backgroundColor = 'white',
-    containerColor = 'white',
   } = props;
 
   // Store original data
@@ -79,7 +77,7 @@ const AutoComplete = (props: Props) => {
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<object>(defaultItem);
 
-  const [options, setOptions] = useState<object[]>(filterOriginalData(value));
+  const [options, setOptions] = useState<object[]>(filterOriginalData(search));
 
   // Ref to the input
   const inputRef = useRef();
@@ -194,7 +192,7 @@ const AutoComplete = (props: Props) => {
               maxHeight={resultHeight}
               width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
               overflow="auto"
-              color={containerColor}
+              color={backgroundColor}
             >
               <Box
                 alignItems="center"

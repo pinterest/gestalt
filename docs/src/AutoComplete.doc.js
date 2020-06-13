@@ -31,13 +31,6 @@ card(
         defaultValue: 'No Results',
       },
       {
-        name: 'noResultTextColor',
-        description: 'See Text component for available colors',
-        type: 'string',
-        href: 'basicExample',
-        defaultValue: 'red',
-      },
-      {
         name: 'id',
         type: 'string',
         required: true,
@@ -97,13 +90,6 @@ card(
         defaultValue: 'label',
       },
       {
-        name: 'caret',
-        type: 'string',
-        description: 'Control flyout caret',
-        href: 'basicExample',
-        defaultValue: false,
-      },
-      {
         name: 'placeholder',
         type: 'string',
         href: 'basicExample',
@@ -114,46 +100,6 @@ card(
         required: false,
         description: 'md: 40px, lg: 48px',
         defaultValue: 'md',
-      },
-      {
-        name: 'value',
-        type: 'string',
-        description: 'The default text on the input',
-        href: 'basicExample',
-      },
-      {
-        name: 'defaultItem',
-        type: 'object',
-        description: 'The default object within data you want to be selected',
-        href: 'basicExample',
-      },
-      {
-        name: 'hoverColor',
-        type: 'string',
-        description:
-          'The color used when you hover an item. See <Box/> component for color options.',
-        href: 'basicExample',
-      },
-      {
-        name: 'backgroundColor',
-        type: 'string',
-        description:
-          'The background color for options in the results. See <Box/> component for color options.',
-        href: 'basicExample',
-      },
-      {
-        name: 'textColor',
-        type: 'string',
-        description:
-          'The text color for options in the results. See <Text/> component for color options.',
-        href: 'basicExample',
-      },
-      {
-        name: 'containerColor',
-        type: 'string',
-        description:
-          'The result box container color for options in the results. See <Box/> component for color options.',
-        href: 'basicExample',
       },
     ]}
   />
@@ -183,63 +129,16 @@ card(
 
         return (
           <AutoComplete
-            id="city"
-            name="city"
+            id="autocomplete-example"
+            name="autocomplete-example"
+            data={options}
+            placeholder="Select a Label"
             onChange={handleOnChange}
+            value={item}
             onSelect={handleSelect}
             onFocus={()=> console.log("FOCUSED")}
             onBlur={()=> console.log("BLUR")}
-            data={options}
-            placeholder="Select a Label"
             label="AutoComplete Example"
-            value={item}
-          />
-        );
-      }
-    `}
-  />
-);
-
-card(
-  <Example
-    id="colorExample"
-    name="Color Example"
-    description="Different colors to the results container"
-    defaultCode={`
-      function ColorExample(props) {
-        const [item, setItem] = React.useState('')
-
-        const options = Array.from(Array(1000).keys()).map(item => ({value: "value-" + item, label: "label-" + item}))
-
-        const handleOnChange = ({value}) => {
-          setItem(value);
-
-          console.log("onchange", value)
-
-        }
-
-        const handleSelect = item => {
-          console.log("Selected Item:", item)
-        }
-
-        return (
-          <AutoComplete
-            id="color"
-            name="color"
-            caret
-            onChange={handleOnChange}
-            onSelect={handleSelect}
-            onFocus={()=> console.log("FOCUSED")}
-            onBlur={()=> console.log("BLUR")}
-            data={options}
-            placeholder="Select a Label"
-            label="AutoComplete Color Example"
-            value={item}
-            hoverColor="transparentDarkGray"
-            textColor="white"
-            backgroundColor="watermelon"
-            containerColor="watermelon"
-            noResultTextColor="lightGray"
           />
         );
       }
