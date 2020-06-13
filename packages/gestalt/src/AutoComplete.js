@@ -54,7 +54,7 @@ const AutoComplete = (props: Props) => {
     resultHeight = '50vh',
     searchField = 'label',
     defaultItem = null,
-    caret = false,
+    caret = true,
     noResultText = 'No Results',
     noResultTextColor = 'red',
     hoverColor = 'lightGray',
@@ -83,9 +83,9 @@ const AutoComplete = (props: Props) => {
   const inputRef = useRef();
 
   // Reference to selected option
-  let optionRef;
+  let selectedOptionRef;
   const getOptionRef = ref => {
-    optionRef = ref;
+    selectedOptionRef = ref;
   };
 
   // Option Container ref
@@ -100,15 +100,15 @@ const AutoComplete = (props: Props) => {
 
   // When the menu item opens, scroll to selected item
   useEffect(() => {
-    // Scroll to selected
     setTimeout(() => {
-      if (selected !== null && containerRef && optionRef)
+      if (selected !== null && containerRef && selectedOptionRef)
         // eslint-disable-next-line no-use-before-define
-        scrollIntoView(containerRef?.current, getOptionRef?.current);
+        // TODO: Get scrolling calculation right
+        // scrollIntoView(containerRef, selectedOptionRef);
     }, 100);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focused]);
+  }, [focused, selectedOptionRef]);
 
   const handleFocus = () => {
     // Internally set focus status
@@ -151,8 +151,7 @@ const AutoComplete = (props: Props) => {
   };
 
   // Handler for when an item is clicked
-  const handleOnSelect = (item, itemRef) => {
-    console.log('item', item, itemRef);
+  const handleOnSelect = item => {
     setSelected(item);
 
     setSearch(item[searchField]);
@@ -188,6 +187,8 @@ const AutoComplete = (props: Props) => {
           >
             <Box
               ref={getContainerRef}
+              position="relative"
+              display="block"
               padding={1}
               maxHeight={resultHeight}
               width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
@@ -257,17 +258,24 @@ const Option = ({
 }: OptionProps) => {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
+
   // Highlight the current selected item
-  // The rest will all be false and will toggle on mouse events
   const [hover, setHover] = useState(isSelectedItem);
 
   const handleOnKeyPress = () => {
     console.log('keypress');
   };
 
+  const handleOnTouch = () => {
+    if (handleOnSelect) handleOnSelect(option);
+  };
+
   return (
     <Box
-      ref={getOptionRef()}
+      ref={ref => {
+        // Only send ref of selected item
+        if (selected) getOptionRef(ref);
+      }}
       width="100%"
       display="flex"
       direction="row"
@@ -278,7 +286,7 @@ const Option = ({
     >
       <Touchable
         key={option[searchField]}
-        onTouch={() => handleOnSelect(option, getOptionRef())}
+        onTouch={handleOnTouch}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -340,8 +348,8 @@ export function scrollIntoView(
   const overScroll = focusedEl.offsetHeight / 3;
 
   if (focusedRect.bottom + overScroll > menuRect.bottom) {
-    window.scrollTo(
-      menuEl,
+    menuEl.scrollTo(
+      0,
       Math.min(
         focusedEl.offsetTop +
           focusedEl.clientHeight -
