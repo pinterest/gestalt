@@ -106,6 +106,7 @@ const AutoComplete = (props: Props) => {
     // Scroll to selected
     setTimeout(() => {
       if (selected !== null && containerRef && optionRef)
+        // eslint-disable-next-line no-use-before-define
         scrollIntoView(containerRef?.current, getOptionRef?.current);
     }, 100);
 
@@ -272,6 +273,7 @@ const Option = ({
   return (
     <Box
       ref={getOptionRef()}
+      width="100%"
       display="flex"
       direction="row"
       role="option"
