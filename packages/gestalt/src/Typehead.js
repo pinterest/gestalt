@@ -43,7 +43,7 @@ type Props = {|
   backgroundColor?: string,
 |};
 
-const AutoComplete = (props: Props) => {
+const Typehead = (props: Props) => {
   const {
     onBlur,
     onChange,
@@ -101,10 +101,10 @@ const AutoComplete = (props: Props) => {
   // When the menu item opens, scroll to selected item
   useEffect(() => {
     setTimeout(() => {
-      if (selected !== null && containerRef && selectedOptionRef)
-        // eslint-disable-next-line no-use-before-define
-        // TODO: Get scrolling calculation right
-        // scrollIntoView(containerRef, selectedOptionRef);
+      // TODO: Fix scrolling calcultation
+      // if (selected !== null && containerRef && selectedOptionRef)
+      // eslint-disable-next-line no-use-before-define
+      // scrollIntoView(containerRef, selectedOptionRef);
     }, 100);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -158,10 +158,7 @@ const AutoComplete = (props: Props) => {
     setFocused(false);
     if (onSelect) onSelect(item);
   };
-<<<<<<< HEAD
-=======
 
->>>>>>> Working on key navigation
   return (
     <Box ref={componentRef}>
       {/* INPUT FIELD */}
@@ -299,19 +296,16 @@ const Option = ({
           color={isSelectedItem || hover ? hoverColor : backgroundColor}
         >
           {/* TODO: It'd be cool to render whatever here */}
-          <Text
-            color={textColor}
-            weight={hover ? 'bold' : 'normal'}
-          >{`${option[searchField]}`}</Text>
+          <Text color={textColor}>{`${option[searchField]}`}</Text>
         </Box>
       </Touchable>
     </Box>
   );
 };
 
-AutoComplete.displayName = 'AutoComplete';
+Typehead.displayName = 'Typehead';
 
-AutoComplete.propTypes = {
+Typehead.propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
   helperText: PropTypes.string,
@@ -330,8 +324,8 @@ AutoComplete.propTypes = {
   value: PropTypes.string,
 };
 
-function AutoCompleteForwardRef(props, ref) {
-  return <AutoComplete {...props} forwardedRef={ref} />;
+function TypeheadForwardRef(props, ref) {
+  return <Typehead {...props} forwardedRef={ref} />;
 }
 
 // ------------------------------
@@ -363,4 +357,4 @@ export function scrollIntoView(
   }
 }
 
-export default forwardRef<Props, HTMLInputElement>(AutoCompleteForwardRef);
+export default forwardRef<Props, HTMLInputElement>(TypeheadForwardRef);

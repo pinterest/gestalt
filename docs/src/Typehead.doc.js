@@ -9,8 +9,8 @@ const card = c => cards.push(c);
 
 card(
   <PageHeader
-    name="AutoComplete"
-    description={`Use a \`AutoComplete\` when you want to let the user filter a list when selecting.`}
+    name="Typehead"
+    description={`Use a \`Typehead\` when you want to let the user filter a list when selecting.`}
   />
 );
 
@@ -128,9 +128,9 @@ card(
         }
 
         return (
-          <AutoComplete
-            id="autocomplete-example"
-            name="autocomplete-example"
+          <Typehead
+            id="Typehead-example"
+            name="Typehead-example"
             data={options}
             placeholder="Select a Label"
             onChange={handleOnChange}
@@ -138,7 +138,7 @@ card(
             onSelect={handleSelect}
             onFocus={()=> console.log("FOCUSED")}
             onBlur={()=> console.log("BLUR")}
-            label="AutoComplete Example"
+            label="Typehead Example"
           />
         );
       }

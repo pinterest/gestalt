@@ -47,7 +47,7 @@ import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
-import AutoComplete from './AutoComplete.js';
+import Typehead from './Typehead.js';
 
 export {
   Avatar,
@@ -98,5 +98,4 @@ export {
   Toast,
   Tooltip,
   Video,
-  AutoComplete,
 };
