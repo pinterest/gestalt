@@ -114,7 +114,7 @@ card(
       function Example(props) {
         const [item, setItem] = React.useState('')
 
-        const options = Array.from(Array(1000).keys()).map(item => ({value: "value-" + item, label: "label-" + item}))
+        const options = Array.from(Array(100).keys()).map(item => ({value: "value-" + item, label: "label-" + item}))
 
         const handleOnChange = ({value}) => {
           setItem(value);
