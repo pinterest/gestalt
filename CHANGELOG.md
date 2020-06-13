@@ -1,3 +1,9 @@
+## 3.0.2 (Jun 13, 2020)
+
+### Patch
+
+- Internal: Request a Pinterest designer for design changes (#921)
+
 ## 3.0.1 (Jun 12, 2020)
 
 ### Patch
