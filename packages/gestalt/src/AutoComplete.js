@@ -27,7 +27,6 @@ type Props = {|
   searchField?: string,
   valueField?: string,
   onBlur?: () => void,
-  onBlur?: () => void,
   onChange?: () => void,
   onFocus?: () => void,
   onSelect?: () => void,
@@ -122,15 +121,13 @@ const AutoComplete = (props: Props) => {
   };
 
   const handleBlur = () => {
-    // Internally set focus status
-    console.log(
-      document.activeElement,
-      componentRef.current,
-      document.activeElement.contains(componentRef.current),
-      componentRef.current.contains(document.activeElement)
-    );
+    // Clear input and reset options
+    if (options.length === 0) {
+      setSearch('');
+      setOptions(dataRef.current);
+    }
 
-    // TODO: How do I lose focus AFTER the element is selected. Right now blur calls first, closes the selection box before the onSelected is triggered
+    // TODO: Is this the best way to hide the results on blur
     setTimeout(() => {
       setFocused(document.activeElement === componentRef.current);
     }, 100);
