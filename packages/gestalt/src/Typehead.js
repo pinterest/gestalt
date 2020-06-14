@@ -281,7 +281,7 @@ type OptionProps = {|
   textColor: TextColors,
   backgroundColor: string,
   handleOnSelect: OptionObject => void,
-  getOptionRef: (HTMLElement | null) => void,
+  // getOptionRef: (HTMLElement | null) => void,
 |};
 
 const Option = ({
@@ -291,7 +291,7 @@ const Option = ({
   handleOnSelect,
   hoverColor,
   textColor,
-  getOptionRef,
+  // getOptionRef,
   backgroundColor,
 }: OptionProps) => {
   // Determine if the option is the current selected item
@@ -306,10 +306,10 @@ const Option = ({
 
   return (
     <Box
-      ref={ref => {
-        // Only send ref of selected item
-        if (selected) getOptionRef(ref);
-      }}
+      // ref={ref => {
+      //   // Only send ref of selected item
+      //   if (selected) getOptionRef(ref);
+      // }}
       width="100%"
       marginBottom={1}
       display="flex"
