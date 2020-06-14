@@ -102,9 +102,9 @@ const Typehead = (props: Props) => {
   useEffect(() => {
     setTimeout(() => {
       // TODO: Fix scrolling calcultation
-      // if (selected !== null && containerRef && selectedOptionRef)
-      // eslint-disable-next-line no-use-before-define
-      // scrollIntoView(containerRef, selectedOptionRef);
+      if (selected !== null && containerRef && selectedOptionRef)
+        // eslint-disable-next-line no-use-before-define
+        scrollIntoView(containerRef, selectedOptionRef);
     }, 100);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -126,9 +126,11 @@ const Typehead = (props: Props) => {
     }
 
     // TODO: Is this the best way to hide the results on blur
-    setTimeout(() => {
-      setFocused(document.activeElement === componentRef.current);
-    }, 100);
+    if (document.activeElement && componentRef.current) {
+      setTimeout(() => {
+        setFocused(document.activeElement === componentRef.current);
+      }, 100);
+    }
     // Run blur callback
     if (onBlur) onBlur();
   };
