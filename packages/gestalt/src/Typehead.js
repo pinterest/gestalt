@@ -253,7 +253,6 @@ const Typehead = (props: Props) => {
                 {options.map((option, index) => (
                   <Option
                     key={`${option[searchField] + index}`}
-                    index={index}
                     option={option}
                     searchField={searchField}
                     selected={selected}
