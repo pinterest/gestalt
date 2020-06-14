@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, forwardRef, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TextField from './TextField.js';
@@ -7,6 +7,30 @@ import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import Touchable from './Touchable.js';
+
+type TextColors =
+  | 'green'
+  | 'pine'
+  | 'olive'
+  | 'blue'
+  | 'navy'
+  | 'midnight'
+  | 'purple'
+  | 'orchid'
+  | 'eggplant'
+  | 'maroon'
+  | 'watermelon'
+  | 'orange'
+  | 'darkGray'
+  | 'gray'
+  | 'lightGray'
+  | 'red'
+  | 'white';
+
+type OptionObject = {
+  label: string,
+  value: string,
+};
 
 type Props = {|
   errorMessage?: string,
@@ -23,34 +47,41 @@ type Props = {|
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: ?string,
-  field?: string,
   searchField?: string,
-  valueField?: string,
   onBlur?: () => void,
-  onChange?: () => void,
+  onChange?: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
+  }) => void => void,
   onFocus?: () => void,
-  onSelect?: () => void,
-  onKeyDown?: () => void,
-  size?: () => void,
-  value?: () => void,
+  onSelect?: OptionObject => void,
+  value?: string,
   caret?: boolean,
-  defaultItem?: Object,
+  defaultItem?: OptionObject,
   noResultText?: string,
-  noResultTextColor?: string,
+  noResultTextColor?: TextColors,
   resultHeight?: string,
-  hoverColor?: string,
-  textColor?: string,
-  backgroundColor?: string,
+  hoverColor?: TextColors,
+  textColor?: TextColors,
+  backgroundColor?: TextColors,
 |};
 
 const Typehead = (props: Props) => {
   const {
+    id,
     onBlur,
     onChange,
     onFocus,
     onSelect,
     value = '',
     data,
+    disabled = false,
+    errorMessage,
+    helperText,
+    label,
+    name,
+    placeholder,
+    size,
     resultHeight = '50vh',
     searchField = 'label',
     defaultItem = null,
@@ -75,9 +106,11 @@ const Typehead = (props: Props) => {
   const [search, setSearch] = useState<string>(value);
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
-  const [selected, setSelected] = useState<object>(defaultItem);
+  const [selected, setSelected] = useState<OptionObject | null>(defaultItem);
 
-  const [options, setOptions] = useState<object[]>(filterOriginalData(search));
+  const [options, setOptions] = useState<OptionObject[]>(
+    filterOriginalData(search)
+  );
 
   // Ref to the input
   const inputRef = useRef();
@@ -112,7 +145,8 @@ const Typehead = (props: Props) => {
 
   const handleFocus = () => {
     // Internally set focus status
-    setFocused(componentRef.current.contains(document.activeElement));
+    if (componentRef.current)
+      setFocused(componentRef.current.contains(document.activeElement));
 
     // Run focus callback
     if (onFocus) onFocus();
@@ -165,8 +199,15 @@ const Typehead = (props: Props) => {
     <Box ref={componentRef}>
       {/* INPUT FIELD */}
       <TextField
-        {...props}
+        id={id}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        label={label}
+        name={name}
         value={search}
+        placeholder={placeholder}
+        size={size}
         onChange={handleInput}
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -233,14 +274,14 @@ const Typehead = (props: Props) => {
 };
 
 type OptionProps = {|
-  option: object,
-  selected: object,
+  option: OptionObject,
+  selected?: OptionObject | null,
   searchField: string,
   hoverColor: string,
-  textColor: string,
+  textColor: TextColors,
   backgroundColor: string,
-  handleOnSelect: () => void,
-  getOptionRef: any => void,
+  handleOnSelect: OptionObject => void,
+  getOptionRef: (HTMLElement | null) => void,
   index: number,
 |};
 
@@ -315,20 +356,12 @@ Typehead.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.exact({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    })
-  ),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
 };
 
-function TypeheadForwardRef(props, ref) {
-  return <Typehead {...props} forwardedRef={ref} />;
-}
+export default Typehead;
 
 // ------------------------------
 // Scroll Into View
@@ -358,5 +391,3 @@ export function scrollIntoView(
     window.scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
   }
 }
-
-export default forwardRef<Props, HTMLInputElement>(TypeheadForwardRef);
