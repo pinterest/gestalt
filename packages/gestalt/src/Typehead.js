@@ -361,7 +361,12 @@ Typehead.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,
-  data: PropTypes.arrayOf,
+  data: PropTypes.arrayOf(
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
@@ -370,7 +375,10 @@ Typehead.propTypes = {
   onFocus: PropTypes.func,
   onSelect: PropTypes.func,
   caret: PropTypes.bool,
-  defaultItem: PropTypes.objectOf,
+  defaultItem: PropTypes.exact({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  }),
   noResultText: PropTypes.string,
   noResultTextColor: PropTypes.oneOf(TEXT_COLORS),
   resultHeight: PropTypes.string,
