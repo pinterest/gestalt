@@ -116,32 +116,32 @@ const Typehead = (props: Props) => {
   const inputRef = useRef();
 
   // Reference to selected option
-  let selectedOptionRef;
-  const getOptionRef = ref => {
-    selectedOptionRef = ref;
-  };
+  // let selectedOptionRef;
+  // const getOptionRef = ref => {
+  //   selectedOptionRef = ref;
+  // };
 
   // Option Container ref
-  let containerRef;
-  const getContainerRef = ref => {
-    containerRef = ref;
-  };
+  // let containerRef;
+  // const getContainerRef = ref => {
+  //   containerRef = ref;
+  // };
 
   // Handle when input is in and out of focus
   const componentRef = useRef();
   const [focused, setFocused] = useState<boolean>(false);
 
   // When the menu item opens, scroll to selected item
-  useEffect(() => {
-    setTimeout(() => {
-      // TODO: Fix scrolling calcultation
-      // if (selected !== null && containerRef && selectedOptionRef)
-      // eslint-disable-next-line no-use-before-define
-      // scrollIntoView(containerRef, selectedOptionRef);
-    }, 100);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     // TODO: Fix scrolling calcultation
+  //     // if (selected !== null && containerRef && selectedOptionRef)
+  //     // eslint-disable-next-line no-use-before-define
+  //     // scrollIntoView(containerRef, selectedOptionRef);
+  //   }, 100);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focused, selectedOptionRef]);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [focused, selectedOptionRef]);
 
   const handleFocus = () => {
     // Internally set focus status
@@ -226,7 +226,7 @@ const Typehead = (props: Props) => {
             size="flexible"
           >
             <Box
-              ref={getContainerRef}
+              // ref={getContainerRef}
               position="relative"
               display="block"
               padding={1}
@@ -261,7 +261,7 @@ const Typehead = (props: Props) => {
                     hoverColor={hoverColor}
                     textColor={textColor}
                     backgroundColor={backgroundColor}
-                    getOptionRef={getOptionRef}
+                    // getOptionRef={getOptionRef}
                   />
                 ))}
               </Box>
@@ -282,11 +282,9 @@ type OptionProps = {|
   backgroundColor: string,
   handleOnSelect: OptionObject => void,
   getOptionRef: (HTMLElement | null) => void,
-  index: number,
 |};
 
 const Option = ({
-  index,
   option,
   selected,
   searchField,
@@ -302,10 +300,6 @@ const Option = ({
   // Highlight the current selected item
   const [hover, setHover] = useState(isSelectedItem);
 
-  const handleOnKeyPress = () => {
-    console.log('keypress');
-  };
-
   const handleOnTouch = () => {
     if (handleOnSelect) handleOnSelect(option);
   };
@@ -317,12 +311,11 @@ const Option = ({
         if (selected) getOptionRef(ref);
       }}
       width="100%"
+      marginBottom={1}
       display="flex"
-      direction="row"
       role="option"
-      aria-selected={false}
-      tabIndex={index}
-      onKeyPress={handleOnKeyPress}
+      aria-selected={isSelectedItem}
+      color={isSelectedItem || hover ? hoverColor : backgroundColor}
     >
       <Touchable
         key={option[searchField]}
@@ -330,14 +323,7 @@ const Option = ({
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <Box
-          marginStart={2}
-          marginEnd={2}
-          marginBottom={1}
-          padding={2}
-          flex="grow"
-          color={isSelectedItem || hover ? hoverColor : backgroundColor}
-        >
+        <Box marginStart={2} marginEnd={2} marginBottom={1} padding={2}>
           {/* TODO: It'd be cool to render whatever here */}
           <Text color={textColor}>{`${option[searchField]}`}</Text>
         </Box>
@@ -348,17 +334,49 @@ const Option = ({
 
 Typehead.displayName = 'Typehead';
 
+const TEXT_COLORS = [
+  'green',
+  'pine',
+  'olive',
+  'blue',
+  'navy',
+  'midnight',
+  'purple',
+  'orchid',
+  'eggplant',
+  'maroon',
+  'watermelon',
+  'orange',
+  'darkGray',
+  'gray',
+  'lightGray',
+  'red',
+  'white',
+];
 Typehead.propTypes = {
-  disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
+  disabled: PropTypes.bool,
   helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
+  data: PropTypes.arrayOf,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
+  searchField: PropTypes.string,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onSelect: PropTypes.func,
+  caret: PropTypes.bool,
+  defaultItem: PropTypes.objectOf,
+  noResultText: PropTypes.string,
+  noResultTextColor: PropTypes.oneOf(TEXT_COLORS),
+  resultHeight: PropTypes.string,
+  hoverColor: PropTypes.oneOf(TEXT_COLORS),
+  textColor: PropTypes.oneOf(TEXT_COLORS),
+  backgroundColor: PropTypes.oneOf(TEXT_COLORS),
 };
 
 export default Typehead;
@@ -366,28 +384,28 @@ export default Typehead;
 // ------------------------------
 // Scroll Into View
 // https://github.com/JedWatson/react-select/blob/master/packages/react-select/src/utils.js
-// ------------------------------
+// // ------------------------------
 
-export function scrollIntoView(
-  menuEl: HTMLElement,
-  focusedEl: HTMLElement
-): void {
-  const menuRect = menuEl.getBoundingClientRect();
-  const focusedRect = focusedEl.getBoundingClientRect();
-  const overScroll = focusedEl.offsetHeight / 3;
+// export function scrollIntoView(
+//   menuEl: HTMLElement,
+//   focusedEl: HTMLElement
+// ): void {
+//   const menuRect = menuEl.getBoundingClientRect();
+//   const focusedRect = focusedEl.getBoundingClientRect();
+//   const overScroll = focusedEl.offsetHeight / 3;
 
-  if (focusedRect.bottom + overScroll > menuRect.bottom) {
-    menuEl.scrollTo(
-      0,
-      Math.min(
-        focusedEl.offsetTop +
-          focusedEl.clientHeight -
-          menuEl.offsetHeight +
-          overScroll,
-        menuEl.scrollHeight
-      )
-    );
-  } else if (focusedRect.top - overScroll < menuRect.top) {
-    window.scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
-  }
-}
+//   if (focusedRect.bottom + overScroll > menuRect.bottom) {
+//     menuEl.scrollTo(
+//       0,
+//       Math.min(
+//         focusedEl.offsetTop +
+//           focusedEl.clientHeight -
+//           menuEl.offsetHeight +
+//           overScroll,
+//         menuEl.scrollHeight
+//       )
+//     );
+//   } else if (focusedRect.top - overScroll < menuRect.top) {
+//     window.scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
+//   }
+// }
