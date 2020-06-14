@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TextField from './TextField.js';
