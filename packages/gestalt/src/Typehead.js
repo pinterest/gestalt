@@ -135,9 +135,9 @@ const Typehead = (props: Props) => {
   useEffect(() => {
     setTimeout(() => {
       // TODO: Fix scrolling calcultation
-      if (selected !== null && containerRef && selectedOptionRef)
-        // eslint-disable-next-line no-use-before-define
-        scrollIntoView(containerRef, selectedOptionRef);
+      // if (selected !== null && containerRef && selectedOptionRef)
+      // eslint-disable-next-line no-use-before-define
+      // scrollIntoView(containerRef, selectedOptionRef);
     }, 100);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
