@@ -39,6 +39,7 @@ import {
   mapping,
   rangeWithoutZero,
 } from './transforms.js';
+import { getRoundingStyle } from './getRoundingClassName.js';
 
 /*
 
@@ -270,21 +271,6 @@ const transformNumberOrPassthrough = (selector: string) => (
 
   if (m === 'auto') {
     return fromClassName(whitespace[`${selector}Auto`]);
-  }
-
-  return identity();
-};
-const rounding = (r: Rounding): Style => {
-  if (typeof r === 'number') {
-    return bind(range('rounding'), borders)(r);
-  }
-
-  if (r === 'circle') {
-    return fromClassName(borders.circle);
-  }
-
-  if (r === 'pill') {
-    return fromClassName(borders.pill);
   }
 
   return identity();
@@ -636,7 +622,7 @@ const propToFn = {
     // default: static
   }),
   right: toggle(layout.right0),
-  rounding,
+  rounding: getRoundingStyle,
   top: toggle(layout.top0),
   width: width => fromInlineStyle({ width }),
   wrap: toggle(layout.flexWrap),

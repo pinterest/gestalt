@@ -3,9 +3,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Mask.css';
-import borders from './Borders.css';
-import { fromClassName, identity, toProps, type Style } from './style.js';
-import { bind, range } from './transforms.js';
+import getRoundingClassName from './getRoundingClassName.js';
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle';
 
@@ -18,18 +16,6 @@ type Props = {|
   wash?: boolean,
 |};
 
-const getRoundingStyle = (r: Rounding): Style => {
-  if (typeof r === 'number') {
-    return bind(range('rounding'), borders)(r);
-  }
-
-  if (r === 'circle') {
-    return fromClassName(borders.circle);
-  }
-
-  return identity();
-};
-
 export default function Mask(props: Props) {
   const {
     children,
@@ -41,13 +27,9 @@ export default function Mask(props: Props) {
   } = props;
   return (
     <div
-      className={cx(
-        styles.Mask,
-        toProps(getRoundingStyle(rounding)).className,
-        {
-          [styles.willChangeTransform]: willChangeTransform,
-        }
-      )}
+      className={cx(styles.Mask, getRoundingClassName(rounding), {
+        [styles.willChangeTransform]: willChangeTransform,
+      })}
       style={{ width, height }}
     >
       {children}

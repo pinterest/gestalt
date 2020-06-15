@@ -96,9 +96,9 @@ class FlyoutExample extends React.Component {
             top: 10,
             left: 10,
             pointerEvents: "none", }}>
-            <Touchable onTouch={({ event }) => this.handleClick(event)} rounding="circle" fullWidth={false}>
+            <TapArea onTap={({ event }) => this.handleClick(event)} rounding="circle" fullWidth={false}>
               <Pulsar paused={this.state.open} />
-            </Touchable>
+            </TapArea>
           </div>
           <Button
             accessibilityExpanded={!!this.state.open}

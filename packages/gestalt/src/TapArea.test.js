@@ -1,65 +1,63 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Touchable from './Touchable.js';
+import TapArea from './TapArea.js';
 
-test('Touchable renders', () => {
+test('TapArea renders', () => {
+  const tree = create(<TapArea onTap={() => {}}>TapArea</TapArea>).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('TapArea sets correct mouse cursor', () => {
   const tree = create(
-    <Touchable onTouch={() => {}}>Touchable</Touchable>
+    <TapArea onTap={() => {}} mouseCursor="zoomIn">
+      TapArea
+    </TapArea>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Touchable sets correct mouse cursor', () => {
+test('TapArea sets correct rounding', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} mouseCursor="zoomIn">
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} rounding="circle">
+      TapArea
+    </TapArea>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Touchable sets correct rounding', () => {
+test('TapArea sets fullWidth correctly', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} rounding="circle">
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} fullWidth={false}>
+      TapArea
+    </TapArea>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Touchable sets fullWidth correctly', () => {
+test('TapArea sets fullHeight correctly', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} fullWidth={false}>
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} fullHeight>
+      TapArea
+    </TapArea>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Touchable sets fullHeight correctly', () => {
+test('TapArea supports press style', () => {
   const tree = create(
-    <Touchable onTouch={() => {}} fullHeight>
-      Touchable
-    </Touchable>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('Touchable supports press style', () => {
-  const tree = create(
-    <Touchable onTouch={() => {}} tapStyle="compress">
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} tapStyle="compress">
+      TapArea
+    </TapArea>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('accessibilityControls', () => {
   const instance = create(
-    <Touchable onTouch={() => {}} accessibilityControls="another-element">
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} accessibilityControls="another-element">
+      TapArea
+    </TapArea>
   ).root;
   expect(
     instance.find(
@@ -70,9 +68,9 @@ test('accessibilityControls', () => {
 
 test('accessibilityExpanded', () => {
   const instance = create(
-    <Touchable onTouch={() => {}} accessibilityExpanded>
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} accessibilityExpanded>
+      TapArea
+    </TapArea>
   ).root;
   expect(
     instance.find(
@@ -83,9 +81,9 @@ test('accessibilityExpanded', () => {
 
 test('accessibilityHaspopup', () => {
   const instance = create(
-    <Touchable onTouch={() => {}} accessibilityHaspopup>
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} accessibilityHaspopup>
+      TapArea
+    </TapArea>
   ).root;
   expect(
     instance.find(
@@ -96,9 +94,9 @@ test('accessibilityHaspopup', () => {
 
 test('accessibilityLabel', () => {
   const instance = create(
-    <Touchable onTouch={() => {}} accessibilityLabel="hello">
-      Touchable
-    </Touchable>
+    <TapArea onTap={() => {}} accessibilityLabel="hello">
+      TapArea
+    </TapArea>
   ).root;
   expect(
     instance.find(

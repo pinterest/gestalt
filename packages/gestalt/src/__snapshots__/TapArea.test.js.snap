@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Touchable renders 1`] = `
+exports[`TapArea renders 1`] = `
 <div
   aria-disabled={false}
   className="touchable rounding0 fullWidth pointer"
@@ -20,11 +20,11 @@ exports[`Touchable renders 1`] = `
   role="button"
   tabIndex="0"
 >
-  Touchable
+  TapArea
 </div>
 `;
 
-exports[`Touchable sets correct mouse cursor 1`] = `
+exports[`TapArea sets correct mouse cursor 1`] = `
 <div
   aria-disabled={false}
   className="touchable rounding0 fullWidth zoomIn"
@@ -44,11 +44,11 @@ exports[`Touchable sets correct mouse cursor 1`] = `
   role="button"
   tabIndex="0"
 >
-  Touchable
+  TapArea
 </div>
 `;
 
-exports[`Touchable sets correct rounding 1`] = `
+exports[`TapArea sets correct rounding 1`] = `
 <div
   aria-disabled={false}
   className="touchable circle fullWidth pointer"
@@ -68,11 +68,11 @@ exports[`Touchable sets correct rounding 1`] = `
   role="button"
   tabIndex="0"
 >
-  Touchable
+  TapArea
 </div>
 `;
 
-exports[`Touchable sets fullHeight correctly 1`] = `
+exports[`TapArea sets fullHeight correctly 1`] = `
 <div
   aria-disabled={false}
   className="touchable rounding0 fullHeight fullWidth pointer"
@@ -92,11 +92,11 @@ exports[`Touchable sets fullHeight correctly 1`] = `
   role="button"
   tabIndex="0"
 >
-  Touchable
+  TapArea
 </div>
 `;
 
-exports[`Touchable sets fullWidth correctly 1`] = `
+exports[`TapArea sets fullWidth correctly 1`] = `
 <div
   aria-disabled={false}
   className="touchable rounding0 pointer"
@@ -116,11 +116,11 @@ exports[`Touchable sets fullWidth correctly 1`] = `
   role="button"
   tabIndex="0"
 >
-  Touchable
+  TapArea
 </div>
 `;
 
-exports[`Touchable supports press style 1`] = `
+exports[`TapArea supports press style 1`] = `
 <div
   aria-disabled={false}
   className="touchable rounding0 fullWidth pointer"
@@ -140,6 +140,6 @@ exports[`Touchable supports press style 1`] = `
   role="button"
   tabIndex="0"
 >
-  Touchable
+  TapArea
 </div>
 `;

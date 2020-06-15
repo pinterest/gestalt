@@ -1,33 +1,19 @@
 // @flow strict
-
-// Touchable is deprecated and is being replaced by TapArea.
-
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import borders from './Borders.css';
 import styles from './Touchable.css';
-import { fromClassName, identity, toProps, type Style } from './style.js';
-import { bind, range } from './transforms.js';
-
-type MouseCursor =
-  | 'copy'
-  | 'grab'
-  | 'grabbing'
-  | 'move'
-  | 'noDrop'
-  | 'pointer'
-  | 'zoomIn'
-  | 'zoomOut';
-
-type Coordinate = {|
-  +x: number,
-  +y: number,
-|};
-
-type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
+import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
+import getRoundingClassName, {
+  RoundingPropType,
+  type Rounding,
+} from './getRoundingClassName.js';
 
 type TapStyle = 'none' | 'compress';
+
+type TapEvent =
+  | SyntheticMouseEvent<HTMLDivElement>
+  | SyntheticKeyboardEvent<HTMLDivElement>;
 
 type Props = {|
   accessibilityControls?: string,
@@ -39,55 +25,25 @@ type Props = {|
   forwardedRef?: React.Ref<'div'>,
   fullHeight?: boolean,
   fullWidth?: boolean,
-  mouseCursor?: MouseCursor,
+  mouseCursor?:
+    | 'copy'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut',
   onBlur?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
   onFocus?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
   onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
   onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onTouch?: ({
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => void,
+  onTap?: ({ event: TapEvent }) => void,
   tapStyle?: TapStyle,
   rounding?: Rounding,
 |};
 
-const SCROLL_DISTANCE = 10;
-const SPACE_CHAR_CODE = 32;
-const ENTER_CHAR_CODE = 13;
-
-const RoundingPropType = PropTypes.oneOf([
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  'circle',
-  'pill',
-]);
-
-const getRoundingStyle = (r: Rounding): Style => {
-  if (typeof r === 'number') {
-    return bind(range('rounding'), borders)(r);
-  }
-
-  if (r === 'circle') {
-    return fromClassName(borders.circle);
-  }
-
-  if (r === 'pill') {
-    return fromClassName(borders.pill);
-  }
-
-  return identity();
-};
-
-function Touchable({
+function TapArea({
   accessibilityControls,
   accessibilityExpanded,
   accessibilityHaspopup,
@@ -102,19 +58,24 @@ function Touchable({
   onFocus,
   onMouseEnter,
   onMouseLeave,
-  onTouch,
+  onTap,
   tapStyle = 'none',
   rounding = 0,
 }: Props) {
-  const [isTapping, setTapping] = React.useState<boolean>(false);
-  const [coordinate, setCoordinate] = React.useState<Coordinate>({
-    x: 0,
-    y: 0,
-  });
+  const {
+    isTapping,
+    handleBlur,
+    handleMouseDown,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchCancel,
+    handleTouchEnd,
+  } = useTapFeedback();
 
-  const classes = classnames(
+  const className = classnames(
     styles.touchable,
-    toProps(getRoundingStyle(rounding)).className,
+    getRoundingClassName(rounding),
     {
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
@@ -130,18 +91,18 @@ function Touchable({
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={classes}
+      className={className}
       onContextMenu={event => event.preventDefault()}
       onClick={event => {
-        if (!disabled && onTouch) {
-          onTouch({ event });
+        if (!disabled && onTap) {
+          onTap({ event });
         }
       }}
       onBlur={event => {
         if (!disabled && onBlur) {
           onBlur({ event });
         }
-        setTapping(false);
+        handleBlur();
       }}
       onFocus={event => {
         if (!disabled && onFocus) {
@@ -159,46 +120,20 @@ function Touchable({
           onMouseLeave({ event });
         }
       }}
-      onMouseDown={() => setTapping(true)}
-      onMouseUp={() => setTapping(false)}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
       onKeyPress={event => {
         // Check to see if space or enter were pressed
-        if (
-          !disabled &&
-          onTouch &&
-          (event.charCode === SPACE_CHAR_CODE ||
-            event.charCode === ENTER_CHAR_CODE)
-        ) {
+        if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
           // Prevent the default action to stop scrolling when space is pressed
           event.preventDefault();
-          onTouch({ event });
+          onTap({ event });
         }
       }}
-      onTouchStart={({ touches }) => {
-        setTapping(true);
-        const [touch] = touches;
-        if (touch) {
-          setCoordinate({
-            x: touch.clientX,
-            y: touch.clientY,
-          });
-        }
-      }}
-      onTouchMove={({ touches }) => {
-        const [touch] = touches;
-        if (isTapping && touch) {
-          const { x: startX, y: startY } = coordinate;
-          const { clientX, clientY } = touch;
-          if (
-            Math.abs(clientX - startX) > SCROLL_DISTANCE ||
-            Math.abs(clientY - startY) > SCROLL_DISTANCE
-          ) {
-            setTapping(false);
-          }
-        }
-      }}
-      onTouchCancel={() => setTapping(false)}
-      onTouchEnd={() => setTapping(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
       ref={forwardedRef}
       role="button"
       tabIndex={disabled ? null : '0'}
@@ -208,7 +143,7 @@ function Touchable({
   );
 }
 
-Touchable.propTypes = {
+export const TapAreaPropTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
@@ -235,17 +170,19 @@ Touchable.propTypes = {
   ]),
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
-  onTouch: PropTypes.func,
+  onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   tapStyle: PropTypes.oneOf(['none', 'compress']),
   rounding: RoundingPropType,
 };
 
-const TouchableWithForwardRef = React.forwardRef<Props, HTMLDivElement>(
-  (props, ref) => <Touchable {...props} forwardedRef={ref} />
+TapArea.propTypes = TapAreaPropTypes;
+
+const TapAreaWithForwardRef = React.forwardRef<Props, HTMLDivElement>(
+  (props, ref) => <TapArea {...props} forwardedRef={ref} />
 );
 
-TouchableWithForwardRef.displayName = 'Touchable';
+TapAreaWithForwardRef.displayName = 'TapArea';
 
-export default TouchableWithForwardRef;
+export default TapAreaWithForwardRef;
