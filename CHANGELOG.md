@@ -1,3 +1,9 @@
+## 3.1.0 (Jun 15, 2020)
+
+### Minor
+
+- Internal: upgrade to flow 0.127.0 (#924)
+
 ## 3.0.2 (Jun 13, 2020)
 
 ### Patch
