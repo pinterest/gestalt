@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Typeahead renders Typeahead normal 1`] = `
+<div
+  className="box"
+>
+  <span>
+    <label
+      className="label"
+      htmlFor="Typeahead"
+    >
+      <div
+        className="formLabel"
+      >
+        <div
+          className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Typeahead Example
+        </div>
+      </div>
+    </label>
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField base enabled normal medium"
+      disabled={false}
+      id="Typeahead"
+      name="Typeahead"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Select a Label"
+      type="text"
+      value=""
+    />
+  </span>
+</div>
+`;
