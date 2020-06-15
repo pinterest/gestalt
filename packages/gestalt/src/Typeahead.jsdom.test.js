@@ -2,7 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import Typehead from './Typehead.js';
+import Typeahead from './Typeahead.js';
 
 const TOTAL_OPTIONS = 10;
 
@@ -11,27 +11,27 @@ const FAKE_OPTIONS = Array.from(Array(TOTAL_OPTIONS).keys()).map(item => ({
   label: `label-${item}`,
 }));
 
-describe('Typehead', () => {
+describe('Typeahead', () => {
   const onBlurMock = jest.fn();
   const onFocusMock = jest.fn();
   const onChangeMock = jest.fn();
   const onSelectMock = jest.fn();
 
   const Component = (
-    <Typehead
-      id="typehead"
-      name="typehead"
+    <Typeahead
+      id="Typeahead"
+      name="Typeahead"
       data={FAKE_OPTIONS}
       placeholder="Select a Label"
       onChange={onChangeMock}
       onFocus={onFocusMock}
       onBlur={onBlurMock}
       onSelect={onSelectMock}
-      label="Typehead Example"
+      label="Typeahead Example"
     />
   );
 
-  it('renders Typehead normal', () => {
+  it('renders Typeahead normal', () => {
     const tree = create(Component).toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe('Typehead', () => {
 
   it('shows menu with data on focus', () => {
     render(Component);
-    const textField = screen.getByRole('textbox', { id: 'typehead' });
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
     textField.focus();
     const resultsContainer = screen.getAllByText(/label/i);
     expect(resultsContainer.length).toBe(TOTAL_OPTIONS);
@@ -49,7 +49,7 @@ describe('Typehead', () => {
 
   it('clears menu on blur', () => {
     render(Component);
-    const textField = screen.getByRole('textbox', { id: 'typehead' });
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
     textField.focus();
     const resultsContainer = screen.getAllByText(/label/i);
     expect(resultsContainer.length).toBe(TOTAL_OPTIONS);
@@ -64,7 +64,7 @@ describe('Typehead', () => {
 
   it('filters menu on search', () => {
     render(Component);
-    const textField = screen.getByRole('textbox', { id: 'typehead' });
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
     textField.focus();
 
     fireEvent.change(textField, { target: { value: 'label-3' } });
@@ -75,7 +75,7 @@ describe('Typehead', () => {
 
   it('shows no results when no options', () => {
     render(Component);
-    const textField = screen.getByRole('textbox', { id: 'typehead' });
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
     textField.focus();
 
     fireEvent.change(textField, { target: { value: 'No Result' } });
@@ -86,7 +86,7 @@ describe('Typehead', () => {
 
   it('calls onChange when typing', () => {
     render(Component);
-    const textField = screen.getByRole('textbox', { id: 'typehead' });
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
     textField.focus();
 
     fireEvent.change(textField, { target: { value: 'label' } });
@@ -96,7 +96,7 @@ describe('Typehead', () => {
 
   it('calls onSelect when option is selected', () => {
     render(Component);
-    const textField = screen.getByRole('textbox', { id: 'typehead' });
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
     textField.focus();
 
     fireEvent.change(textField, { target: { value: 'label-6' } });

@@ -47,7 +47,7 @@ import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
-import Typehead from './Typehead.js';
+import Typeahead from './Typeahead.js';
 
 export {
   Avatar,
