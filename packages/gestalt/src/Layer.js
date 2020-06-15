@@ -1,5 +1,6 @@
 // @flow strict
 import * as React from 'react';
+// flowlint-next-line untyped-import:off
 import { createPortal } from 'react-dom';
 
 type Props = {|

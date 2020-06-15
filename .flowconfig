@@ -1,5 +1,5 @@
 [version]
-0.116.1
+0.127.0
 
 [ignore]
 # Tracking https://github.com/facebook/flow/issues/4015
@@ -10,9 +10,6 @@
 esproposal.optional_chaining=enable
 exact_by_default=true
 include_warnings=true
-
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 
 [libs]
 flow-typed
