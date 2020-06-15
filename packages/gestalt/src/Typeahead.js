@@ -66,7 +66,7 @@ type Props = {|
   backgroundColor?: TextColors,
 |};
 
-const Typehead = (props: Props) => {
+const Typeahead = (props: Props) => {
   const {
     id,
     onBlur,
@@ -331,7 +331,7 @@ const Option = ({
   );
 };
 
-Typehead.displayName = 'Typehead';
+Typeahead.displayName = 'Typeahead';
 
 const TEXT_COLORS = [
   'green',
@@ -352,7 +352,7 @@ const TEXT_COLORS = [
   'red',
   'white',
 ];
-Typehead.propTypes = {
+Typeahead.propTypes = {
   errorMessage: PropTypes.string,
   disabled: PropTypes.bool,
   helperText: PropTypes.string,
@@ -386,7 +386,7 @@ Typehead.propTypes = {
   backgroundColor: PropTypes.oneOf(TEXT_COLORS),
 };
 
-export default Typehead;
+export default Typeahead;
 
 // ------------------------------
 // Scroll Into View

@@ -9,8 +9,8 @@ const card = c => cards.push(c);
 
 card(
   <PageHeader
-    name="Typehead"
-    description={`Use a \`Typehead\` when you want to let the user filter a list when selecting.`}
+    name="Typeahead"
+    description={`Use a \`Typeahead\` when you want to let the user filter a list when selecting.`}
   />
 );
 
@@ -128,9 +128,9 @@ card(
         }
 
         return (
-          <Typehead
-            id="Typehead-example"
-            name="Typehead-example"
+          <Typeahead
+            id="Typeahead-example"
+            name="Typeahead-example"
             data={options}
             placeholder="Select a Label"
             onChange={handleOnChange}
@@ -138,7 +138,7 @@ card(
             onSelect={handleSelect}
             onFocus={()=> console.log("FOCUSED")}
             onBlur={()=> console.log("BLUR")}
-            label="Typehead Example"
+            label="Typeahead Example"
           />
         );
       }
