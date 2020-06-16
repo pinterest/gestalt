@@ -39,7 +39,7 @@ type OptionProps = {|
   hoverColor: string,
   textColor: TextColors,
   backgroundColor: string,
-  handle: OptionObject => void,
+  handleSelect: OptionObject => void,
   // getOptionRef: (HTMLElement | null) => void,
 |};
 
@@ -47,7 +47,7 @@ const Option = ({
   option,
   selected,
   searchField,
-  handle,
+  handleSelect,
   hoverColor,
   textColor,
   // getOptionRef,
@@ -60,7 +60,7 @@ const Option = ({
   const [hover, setHover] = useState(isSelectedItem);
 
   const handleOnTouch = () => {
-    if (handle) handle(option);
+    if (handleSelect) handleSelect(option);
   };
 
   return (
@@ -70,7 +70,6 @@ const Option = ({
       //   if (selected) getOptionRef(ref);
       // }}
       width="100%"
-      marginBottom={1}
       display="flex"
       role="option"
       aria-selected={isSelectedItem}
@@ -82,8 +81,7 @@ const Option = ({
         onMouseLeave={() => setHover(false)}
       >
         <Box
-          marginStart={2}
-          marginEnd={2}
+          margin={1}
           padding={2}
           color={isSelectedItem || hover ? hoverColor : backgroundColor}
           rounding={2}
