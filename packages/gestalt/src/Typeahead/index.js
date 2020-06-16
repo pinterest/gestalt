@@ -181,7 +181,6 @@ const Typeahead = (props: Props) => {
   };
 
   const handleClear = () => {
-    console.log('cleared');
     setSelected(null);
     setSearch('');
     setFocused(false);
@@ -228,6 +227,8 @@ const Typeahead = (props: Props) => {
               position="relative"
               display="block"
               padding={1}
+              marginTop={2}
+              marginBottom={2}
               maxHeight={resultHeight}
               width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
               overflow="auto"
