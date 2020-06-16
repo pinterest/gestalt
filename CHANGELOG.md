@@ -1,3 +1,9 @@
+## 4.0.1 (Jun 16, 2020)
+
+### Patch
+
+- [Video] Remove unused Flow suppression comment. (#928)
+
 ## 4.0.0 (Jun 16, 2020)
 
 ### Major
