@@ -114,7 +114,7 @@ card(
       function Example(props) {
         const [item, setItem] = React.useState('')
 
-        const options = Array.from(Array(100).keys()).map(item => ({value: "value-" + item, label: "label-" + item}))
+        const options = Array.from(Array(100).keys()).map(item => ({value: "value-" + item, label: "Label-" + item}))
 
         const handleOnChange = ({value}) => {
           setItem(value);
@@ -130,7 +130,6 @@ card(
         return (
           <Typeahead
             id="Typeahead-example"
-            name="Typeahead-example"
             data={options}
             placeholder="Select a Label"
             onChange={handleOnChange}
@@ -138,7 +137,6 @@ card(
             onSelect={handleSelect}
             onFocus={()=> console.log("FOCUSED")}
             onBlur={()=> console.log("BLUR")}
-            label="Typeahead Example"
           />
         );
       }

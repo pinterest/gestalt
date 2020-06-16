@@ -47,7 +47,8 @@ import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
-import Typeahead from './Typeahead.js';
+// eslint-disable-next-line import/extensions
+import Typeahead from './Typeahead';
 
 export {
   Avatar,
