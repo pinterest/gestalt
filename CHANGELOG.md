@@ -1,3 +1,9 @@
+## 3.2.0 (Jun 16, 2020)
+
+### Minor
+
+- Row, Stack: Fix nullish child gap bug (#925)
+
 ## 3.1.0 (Jun 15, 2020)
 
 ### Minor
