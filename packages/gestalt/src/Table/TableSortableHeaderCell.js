@@ -1,9 +1,11 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable import/no-relative-parent-imports */
 // @flow strict
 import * as React from 'react';
-import Box from './Box.js';
-import Icon from './Icon.js';
+import Box from '../Box.js';
+import Icon from '../Icon.js';
 import TableHeaderCell from './TableHeaderCell.js';
-import Touchable from './Touchable.js';
+import Touchable from '../Touchable.js';
 
 type Props = {|
   children: React.Node,

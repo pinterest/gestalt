@@ -1,6 +1,8 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable import/no-relative-parent-imports */
 // @flow strict
 import * as React from 'react';
-import Box from './Box.js';
+import Box from '../Box.js';
 import styles from './Table.css';
 import TableCell from './TableCell.js';
 import TableBody from './TableBody.js';
