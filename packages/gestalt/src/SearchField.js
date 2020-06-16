@@ -155,8 +155,6 @@ const SearchField = ({
   );
 };
 
-SearchField.displayName = SearchField;
-
 SearchField.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
