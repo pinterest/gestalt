@@ -1,3 +1,9 @@
+## 4.0.0 (Jun 16, 2020)
+
+### Major
+
+- SearchField: Convert to Functional and Add ForwardRef  (#926)
+
 ## 3.2.0 (Jun 16, 2020)
 
 ### Minor
