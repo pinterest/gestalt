@@ -38,8 +38,7 @@ import Spinner from './Spinner.js';
 import Stack from './Stack.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
-// eslint-disable-next-line import/extensions
-import Table from './Table';
+import Table from './Table.js';
 import Tabs from './Tabs.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
