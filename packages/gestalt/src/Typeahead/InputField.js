@@ -9,6 +9,7 @@ import layout from '../Layout.css';
 import styles from './InputField.css';
 import Box from '../Box.js';
 import Icon from '../Icon.js';
+import FormLabel from '../FormLabel.js';
 
 type Props = {|
   accessibilityLabel: string,
@@ -26,12 +27,14 @@ type Props = {|
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
+  label?: string,
   forwardedRef?: React.Ref<'input'>,
 |};
 
 const InputField = ({
   accessibilityLabel,
   id,
+  label = id,
   onBlur,
   onChange,
   onClear,
@@ -87,53 +90,57 @@ const InputField = ({
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <Box
-      alignItems="center"
-      display="flex"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      position="relative"
-    >
-      <input
-        ref={forwardedRef}
-        aria-label={accessibilityLabel}
-        className={className}
-        id={id}
-        onChange={handleChange}
-        placeholder={placeholder}
-        role="searchbox"
-        type="search"
-        value={value}
-      />
-
-      {/* INPUT ICON AND CLEAR BUTTON */}
-      <button
-        disabled={!hasValue}
-        className={styles[hasValue ? 'clear' : 'icon']}
-        onClick={handleClear}
-        tabIndex={-1}
-        type="button"
+    <span>
+      {' '}
+      {label && <FormLabel id={id} label={label} />}
+      <Box
+        alignItems="center"
+        display="flex"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        position="relative"
       >
-        <Box
-          alignItems="center"
-          color="transparent"
-          display="flex"
-          height={clearButtonSize}
-          justifyContent="center"
-          rounding="circle"
-          width={clearButtonSize}
+        <input
+          ref={forwardedRef}
+          aria-label={accessibilityLabel}
+          className={className}
+          id={id}
+          onChange={handleChange}
+          placeholder={placeholder}
+          role="searchbox"
+          type="search"
+          value={value}
+        />
+
+        {/* INPUT ICON AND CLEAR BUTTON */}
+        <button
+          disabled={!hasValue}
+          className={styles[hasValue ? 'clear' : 'icon']}
+          onClick={handleClear}
+          tabIndex={-1}
+          type="button"
         >
-          <Icon
-            accessibilityLabel=""
-            color="darkGray"
-            icon={!hasValue ? 'arrow-down' : 'cancel'}
-            size={clearIconSize}
-          />
-        </Box>
-      </button>
-    </Box>
+          <Box
+            alignItems="center"
+            color="transparent"
+            display="flex"
+            height={clearButtonSize}
+            justifyContent="center"
+            rounding="circle"
+            width={clearButtonSize}
+          >
+            <Icon
+              accessibilityLabel=""
+              color="darkGray"
+              icon={!hasValue ? 'arrow-down' : 'cancel'}
+              size={clearIconSize}
+            />
+          </Box>
+        </button>
+      </Box>
+    </span>
   );
 };
 
