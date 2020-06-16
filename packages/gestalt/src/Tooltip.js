@@ -1,6 +1,7 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { type Node } from 'react';
+import useDebouncedCallback from './useDebouncedCallback.js';
 import Controller from './Controller.js';
 import Text from './Text.js';
 import Box from './Box.js';
@@ -10,8 +11,8 @@ const noop = () => {};
 const TIMEOUT = 100;
 
 type Props = {|
-  children: React.Node,
-  link?: React.Node,
+  children: Node,
+  link?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
   text: string,
@@ -67,21 +68,17 @@ export default function Tooltip({
     dispatch({ type: 'hoverInIcon' });
   };
 
-  const handleIconMouseLeave = () => {
-    setTimeout(() => {
-      dispatch({ type: 'hoverOutIcon' });
-    }, TIMEOUT);
-  };
+  const handleIconMouseLeave = useDebouncedCallback(() => {
+    dispatch({ type: 'hoverOutIcon' });
+  }, TIMEOUT);
 
   const handleTextMouseEnter = () => {
     dispatch({ type: 'hoverInText' });
   };
 
-  const handleTextMouseLeave = () => {
-    setTimeout(() => {
-      dispatch({ type: 'hoverOutText' });
-    }, TIMEOUT);
-  };
+  const handleTextMouseLeave = useDebouncedCallback(() => {
+    dispatch({ type: 'hoverOutText' });
+  }, TIMEOUT);
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>

@@ -1,3 +1,87 @@
+## 3.2.0 (Jun 16, 2020)
+
+### Minor
+
+- Row, Stack: Fix nullish child gap bug (#925)
+
+## 3.1.0 (Jun 15, 2020)
+
+### Minor
+
+- Internal: upgrade to flow 0.127.0 (#924)
+
+## 3.0.2 (Jun 13, 2020)
+
+### Patch
+
+- Internal: Request a Pinterest designer for design changes (#921)
+
+## 3.0.1 (Jun 12, 2020)
+
+### Patch
+
+- Touchable: displayName should still be Touchable (#922)
+
+## 3.0.0 (Jun 12, 2020)
+
+### Major
+
+- Touchable: forward ref, touch feedback, and more (BREAKING CHANGE) (#906)
+
+## 2.5.0 (Jun 12, 2020)
+
+### Minor
+
+- Pog: Add padding prop (#911)
+
+## 2.4.1 (Jun 12, 2020)
+
+### Patch
+
+- Internal: Flow - enable exact_by_default (#920)
+
+## 2.4.0 (Jun 12, 2020)
+
+### Minor
+
+- Icon: add sparkle icon (#916)
+
+## 2.3.0 (Jun 11, 2020)
+
+### Minor
+
+- Tabs: remove underline on hover/focus (#918)
+
+## 2.2.1 (Jun 10, 2020)
+
+### Patch
+
+- Fix proptype (#914)
+
+## 2.2.0 (Jun 10, 2020)
+
+### Minor
+
+- Tooltip: fix state update on unmounted component warning (#912)
+
+## 2.1.0 (Jun 9, 2020)
+
+### Minor
+
+- TableHeader: Add optional sticky header (#900)
+
+## 2.0.3 (Jun 9, 2020)
+
+### Patch
+
+- Bump websocket-extensions from 0.1.3 to 0.1.4 (#904)
+
+## 2.0.2 (Jun 9, 2020)
+
+### Patch
+
+- Pulsar: change Flyout direction in docs (#908)
+
 ## 2.0.1 (Jun 5, 2020)
 
 ### Patch

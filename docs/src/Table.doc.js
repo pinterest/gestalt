@@ -12,7 +12,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Table"
-    description="The Table contains the following composable elements: Table, Table.Body, Table.Cell, Table.Footer, Table.Header, Table.HeaderCell, Table.Row."
+    description="The Table contains the following composable elements: Table, Table.Body, Table.Cell, Table.Footer, Table.Header, Table.HeaderCell, Table.Row, Table.SortableHeaderCell."
   />
 );
 
@@ -29,6 +29,12 @@ card(
         type: `"sm" | "none"`,
         description: 'Specify a border width for table: "sm" is 1px',
         defaultValue: 'none',
+      },
+      {
+        name: 'maxHeight',
+        type: `number | string`,
+        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
+        href: 'stickyHeader',
       },
     ]}
   />
@@ -143,7 +149,50 @@ card(
         name: 'children',
         type: 'React.Node',
       },
+      {
+        name: 'sticky',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'stickyHeader',
+        description:
+          'If true, the table header will be sticky and the table body will be scrollable',
+      },
     ]}
+  />
+);
+
+card(
+  <Example
+    id="stickyHeader"
+    name="Example: Sticky header"
+    defaultCode={`
+<Table maxHeight={110}>
+  <Table.Header sticky>
+    <Table.Row>
+      <Table.HeaderCell>
+        <Text weight="bold">Name</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">House</Text>
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell><Text>Luna Lovegood</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><Text>Draco Malfoy</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell><Text>Neville Longbottom</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+`}
   />
 );
 
@@ -225,16 +274,19 @@ card(
         required: true,
         type:
           '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
+        href: 'sortableExample',
       },
       {
         name: 'sortOrder',
         required: true,
         type: '"asc" | "desc"',
+        href: 'sortableExample',
       },
       {
         name: 'status',
         required: true,
         type: '"active" | "inactive"',
+        href: 'sortableExample',
       },
     ]}
   />
@@ -242,6 +294,7 @@ card(
 
 card(
   <Example
+    id="sortableExample"
     name="Example: Sortable header cells"
     defaultCode={`
     function SortableHeaderExample() {

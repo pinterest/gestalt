@@ -9,3 +9,13 @@ exports[`renders correctly 1`] = `
   </div>
 </thead>
 `;
+
+exports[`sticky header renders correctly 1`] = `
+<thead
+  className="thead sticky"
+>
+  <div>
+    row with column names
+  </div>
+</thead>
+`;

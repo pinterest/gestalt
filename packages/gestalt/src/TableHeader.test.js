@@ -13,3 +13,14 @@ test('renders correctly', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('sticky header renders correctly', () => {
+  const tree = renderer
+    .create(
+      <TableHeader sticky>
+        <div>row with column names</div>
+      </TableHeader>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});

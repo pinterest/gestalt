@@ -24,3 +24,14 @@ test('renders correctly with border', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('renders correctly with maxHeight', () => {
+  const tree = renderer
+    .create(
+      <Table maxHeight={100}>
+        <div>rest of table</div>
+      </Table>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});

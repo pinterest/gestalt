@@ -1,5 +1,5 @@
 .table {
-  border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
   width: 100%;
 }
@@ -15,6 +15,12 @@
   composes: paddingX3 from "./boxWhitespace.css";
 }
 
-.thead {
-  composes: borderBottom from "./Borders.css";
+.sticky tr th {
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.thead tr:last-child th {
+  border-bottom: 1px solid #ddd;
 }

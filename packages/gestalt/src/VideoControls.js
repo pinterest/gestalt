@@ -32,11 +32,11 @@ type Props = {|
 
 const fullscreenEnabled = () =>
   document.fullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
+  // $FlowFixMe[prop-missing]
   document.webkitFullscreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
+  // $FlowFixMe[prop-missing]
   document.mozFullScreenEnabled ||
-  // $FlowIssue - vendor prefix missing from Flow
+  // $FlowFixMe[prop-missing]
   document.msFullscreenEnabled;
 
 const timeToString = (time?: number) => {

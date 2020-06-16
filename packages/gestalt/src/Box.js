@@ -670,7 +670,7 @@ const omit = (keys, obj) =>
 // (className, style) or accessibility (onClick).
 const blacklistProps = ['onClick', 'className', 'style'];
 
-// $FlowIssue https://github.com/facebook/flow/issues/6103
+// $FlowFixMe[missing-annot]
 const Box = React.forwardRef(
   ({ children, ...props }: PropType, ref: React.ElementRef<*>) => {
     // Flow can't reason about the constant nature of Object.keys so we can't use
@@ -869,7 +869,7 @@ const SizeDisplayPropType = PropTypes.oneOf([
   'inlineBlock',
 ]);
 
-// $FlowIssue https://github.com/facebook/flow/issues/7484
+// $FlowFixMe[prop-missing]
 Box.propTypes = {
   children: PropTypes.node,
   dangerouslySetInlineStyle: PropTypes.exact({

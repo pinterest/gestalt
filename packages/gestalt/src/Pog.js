@@ -2,17 +2,16 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Box from './Box.js';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
 import styles from './Pog.css';
 
-const SIZE_NAME_TO_PIXEL = {
-  xs: 24,
-  sm: 32,
-  md: 40,
-  lg: 48,
-  xl: 56,
+const SIZE_NAME_TO_PADDING_PIXEL = {
+  xs: 6,
+  sm: 8,
+  md: 11,
+  lg: 14,
+  xl: 16,
 };
 
 const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
@@ -36,10 +35,11 @@ type Props = {|
   dangerouslySetSvgPath?: { __path: string },
   focused?: boolean,
   hovered?: boolean,
-  selected?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  size?: $Keys<typeof SIZE_NAME_TO_PIXEL>,
+  padding?: 1 | 2 | 3 | 4 | 5,
+  selected?: boolean,
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
 const defaultIconButtonIconColors = {
@@ -61,18 +61,22 @@ export default function Pog(props: Props) {
     hovered = false,
     icon,
     iconColor,
+    padding,
     selected = false,
     size = 'md',
   } = props;
 
-  const iconSize = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
+  const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
+  const paddingInPx = padding || SIZE_NAME_TO_PADDING_PIXEL[size];
 
   const color =
     (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
 
+  const sizeInPx = iconSizeInPx + paddingInPx * 2;
+
   const inlineStyle = {
-    height: SIZE_NAME_TO_PIXEL[size],
-    width: SIZE_NAME_TO_PIXEL[size],
+    height: sizeInPx,
+    width: sizeInPx,
   };
 
   const classes = classnames(styles.pog, {
@@ -85,21 +89,19 @@ export default function Pog(props: Props) {
 
   return (
     <div className={classes} style={inlineStyle}>
-      <Box rounding="circle">
-        {/*
-          We're explicitly setting an empty string as a label on the Icon since we
-          already have an aria-label on the button container.
-          This is similar to having empty `alt` attributes:
-          https://davidwalsh.name/accessibility-tip-empty-alt-attributes
-        */}
-        <Icon
-          accessibilityLabel=""
-          color={color}
-          dangerouslySetSvgPath={dangerouslySetSvgPath}
-          icon={icon}
-          size={iconSize}
-        />
-      </Box>
+      {/*
+        We're explicitly setting an empty string as a label on the Icon since we
+        already have an aria-label on the button container.
+        This is similar to having empty `alt` attributes:
+        https://davidwalsh.name/accessibility-tip-empty-alt-attributes
+      */}
+      <Icon
+        accessibilityLabel=""
+        color={color}
+        dangerouslySetSvgPath={dangerouslySetSvgPath}
+        icon={icon}
+        size={iconSizeInPx}
+      />
     </div>
   );
 }
@@ -121,6 +123,7 @@ Pog.propTypes = {
   hovered: PropTypes.bool,
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
+  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
   selected: PropTypes.bool,
-  size: PropTypes.oneOf(Object.keys(SIZE_NAME_TO_PIXEL)),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
 };

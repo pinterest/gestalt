@@ -10,23 +10,19 @@ exports[`Pog active renders 1`] = `
     }
   }
 >
-  <div
-    className="box circle"
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={18}
+    role="img"
+    viewBox="0 0 24 24"
+    width={18}
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
-    >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
-  </div>
+    <path
+      d="test-file-stub"
+    />
+  </svg>
 </div>
 `;
 
@@ -40,23 +36,19 @@ exports[`Pog focused renders 1`] = `
     }
   }
 >
-  <div
-    className="box circle"
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={18}
+    role="img"
+    viewBox="0 0 24 24"
+    width={18}
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
-    >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
-  </div>
+    <path
+      d="test-file-stub"
+    />
+  </svg>
 </div>
 `;
 
@@ -70,23 +62,19 @@ exports[`Pog hovered renders 1`] = `
     }
   }
 >
-  <div
-    className="box circle"
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={18}
+    role="img"
+    viewBox="0 0 24 24"
+    width={18}
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
-    >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
-  </div>
+    <path
+      d="test-file-stub"
+    />
+  </svg>
 </div>
 `;
 
@@ -100,23 +88,71 @@ exports[`Pog renders with icon 1`] = `
     }
   }
 >
-  <div
-    className="box circle"
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={18}
+    role="img"
+    viewBox="0 0 24 24"
+    width={18}
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
-    >
-      <path
-        d="test-file-stub"
-      />
-    </svg>
-  </div>
+    <path
+      d="test-file-stub"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Pog renders with size and custom padding 1`] = `
+<div
+  className="pog transparent"
+  style={
+    Object {
+      "height": 26,
+      "width": 26,
+    }
+  }
+>
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={24}
+    role="img"
+    viewBox="0 0 24 24"
+    width={24}
+  >
+    <path
+      d="test-file-stub"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Pog renders with size and default padding 1`] = `
+<div
+  className="pog transparent"
+  style={
+    Object {
+      "height": 56,
+      "width": 56,
+    }
+  }
+>
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={24}
+    role="img"
+    viewBox="0 0 24 24"
+    width={24}
+  >
+    <path
+      d="test-file-stub"
+    />
+  </svg>
 </div>
 `;
 
@@ -130,22 +166,18 @@ exports[`Pog renders with svg 1`] = `
     }
   }
 >
-  <div
-    className="box circle"
+  <svg
+    aria-hidden={true}
+    aria-label=""
+    className="icon gray iconBlock"
+    height={18}
+    role="img"
+    viewBox="0 0 24 24"
+    width={18}
   >
-    <svg
-      aria-hidden={true}
-      aria-label=""
-      className="icon gray iconBlock"
-      height={18}
-      role="img"
-      viewBox="0 0 24 24"
-      width={18}
-    >
-      <path
-        d="M13.00,20.00"
-      />
-    </svg>
-  </div>
+    <path
+      d="M13.00,20.00"
+    />
+  </svg>
 </div>
 `;

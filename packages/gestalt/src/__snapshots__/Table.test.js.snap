@@ -3,6 +3,11 @@
 exports[`renders correctly 1`] = `
 <div
   className="box overflowAuto"
+  style={
+    Object {
+      "maxHeight": undefined,
+    }
+  }
 >
   <table
     className="table"
@@ -17,6 +22,30 @@ exports[`renders correctly 1`] = `
 exports[`renders correctly with border 1`] = `
 <div
   className="borderColorLightGray box overflowAuto rounding1 sizeSm solid"
+  style={
+    Object {
+      "maxHeight": undefined,
+    }
+  }
+>
+  <table
+    className="table"
+  >
+    <div>
+      rest of table
+    </div>
+  </table>
+</div>
+`;
+
+exports[`renders correctly with maxHeight 1`] = `
+<div
+  className="box overflowAuto"
+  style={
+    Object {
+      "maxHeight": 100,
+    }
+  }
 >
   <table
     className="table"

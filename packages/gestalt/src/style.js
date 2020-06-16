@@ -16,7 +16,7 @@ order in which you do so doesn't really matter.
 
 */
 
-type InlineStyle = { [key: string]: string | number | void };
+type InlineStyle = { [key: string]: string | number | void, ... };
 
 // TODO: This type should be opaque, however the Babel parser doesn't support
 //       the opaque syntax yet.
@@ -63,7 +63,7 @@ export const mapClassName = (fn: (x: string) => string) => ({
 export const toProps = ({
   className,
   inlineStyle,
-}: Style): { className: string, style: InlineStyle } => {
+}: Style): { className: string, style: InlineStyle, ... } => {
   const props = {};
 
   if (className.size > 0) {
