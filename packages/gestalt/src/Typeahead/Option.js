@@ -27,6 +27,11 @@ type TextColors =
   | 'red'
   | 'white';
 
+type OptionObject = {
+  label: string,
+  value: string,
+};
+
 type OptionProps = {|
   option: OptionObject,
   selected?: OptionObject | null,
