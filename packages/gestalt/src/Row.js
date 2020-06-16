@@ -63,9 +63,11 @@ export default function Row({
         width={width}
         {...rest}
       >
-        {React.Children.map(children, child => (
-          <Box paddingX={gap}>{child}</Box>
-        ))}
+        {React.Children.map(children, child =>
+          child !== null && child !== undefined ? (
+            <Box paddingX={gap}>{child}</Box>
+          ) : null
+        )}
       </FlexBox>
     </Box>
   );

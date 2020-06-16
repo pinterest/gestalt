@@ -63,9 +63,11 @@ export default function Stack({
         width={width}
         {...rest}
       >
-        {React.Children.map(children, child => (
-          <Box paddingY={gap}>{child}</Box>
-        ))}
+        {React.Children.map(children, child =>
+          child !== null && child !== undefined ? (
+            <Box paddingY={gap}>{child}</Box>
+          ) : null
+        )}
       </FlexBox>
     </Box>
   );
