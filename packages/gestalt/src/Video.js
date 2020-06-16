@@ -103,7 +103,6 @@ const exitFullscreen = () => {
 // Normally document.fullscreen suffices here as a flag, but IE11 does not
 // have a vendor specific version so we must instead use the actual element
 const isFullscreen = () =>
-  // $FlowFixMe[unsafe-addition]
   document.fullscreenElement ||
   // $FlowFixMe[prop-missing]
   document.webkitFullscreenElement ||
