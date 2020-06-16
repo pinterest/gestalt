@@ -129,7 +129,7 @@ Option.propTypes = {
   hoverColor: PropTypes.string,
   textColor: PropTypes.oneOf(TEXT_COLORS),
   backgroundColor: PropTypes.string,
-  handle: PropTypes.func,
+  handleSelect: PropTypes.func,
 };
 
 export default Option;
