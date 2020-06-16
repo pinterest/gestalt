@@ -1,0 +1,165 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-relative-parent-imports */
+// @flow strict
+
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import layout from '../Layout.css';
+import styles from './InputField.css';
+import Box from '../Box.js';
+import Icon from '../Icon.js';
+
+type Props = {|
+  accessibilityLabel: string,
+  id: string,
+  onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
+  onChange: ({
+    value: string,
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+  }) => void,
+  onClear?: () => void,
+  onFocus?: ({
+    value: string,
+    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+  }) => void,
+  placeholder?: string,
+  size?: 'md' | 'lg',
+  value?: string,
+  forwardedRef?: React.Ref<'input'>,
+|};
+
+const InputField = ({
+  accessibilityLabel,
+  id,
+  onBlur,
+  onChange,
+  onClear,
+  onFocus,
+  placeholder,
+  size = 'md',
+  value,
+  forwardedRef,
+}: Props) => {
+  const [hovered, setHovered] = useState<boolean>(false);
+
+  const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    onChange({
+      value: event.currentTarget.value,
+      syntheticEvent: event,
+    });
+  };
+
+  const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
+    onChange({ value: '', syntheticEvent: event });
+
+    if (onClear) onClear();
+  };
+  const handleMouseEnter = () => setHovered(true);
+
+  const handleMouseLeave = () => setHovered(false);
+
+  const handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
+    if (onFocus) {
+      onFocus({
+        value: event.currentTarget.value,
+        syntheticEvent: event,
+      });
+    }
+  };
+
+  const handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      onBlur({ event });
+    }
+  };
+
+  const hasValue = value && value?.length > 0;
+
+  const className = classnames(styles.input, {
+    [layout.medium]: size === 'md',
+    [layout.large]: size === 'lg',
+    [styles.inputActive]: true,
+    [styles.inputHovered]: hovered,
+  });
+
+  const clearButtonSize = size === 'lg' ? 24 : 20;
+  const clearIconSize = size === 'lg' ? 12 : 10;
+
+  return (
+    <Box
+      alignItems="center"
+      display="flex"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      position="relative"
+    >
+      <input
+        ref={forwardedRef}
+        aria-label={accessibilityLabel}
+        className={className}
+        id={id}
+        onChange={handleChange}
+        placeholder={placeholder}
+        role="searchbox"
+        type="search"
+        value={value}
+      />
+
+      {/* INPUT ICON AND CLEAR BUTTON */}
+      <button
+        disabled={!hasValue}
+        className={styles[hasValue ? 'clear' : 'icon']}
+        onClick={handleClear}
+        tabIndex={-1}
+        type="button"
+      >
+        <Box
+          alignItems="center"
+          color="transparent"
+          display="flex"
+          height={clearButtonSize}
+          justifyContent="center"
+          rounding="circle"
+          width={clearButtonSize}
+        >
+          <Icon
+            accessibilityLabel=""
+            color="darkGray"
+            icon={!hasValue ? 'arrow-down' : 'cancel'}
+            size={clearIconSize}
+          />
+        </Box>
+      </button>
+    </Box>
+  );
+};
+
+InputField.displayName = InputField;
+
+InputField.propTypes = {
+  accessibilityLabel: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onClear: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  placeholder: PropTypes.string,
+  size: PropTypes.oneOf(['md', 'lg']),
+  value: PropTypes.string,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
+};
+
+function forwardRefInputField(props, ref) {
+  return <InputField {...props} forwardedRef={ref} />;
+}
+forwardRefInputField.displayName = 'InputField';
+
+export default React.forwardRef<Props, HTMLInputElement>(forwardRefInputField);

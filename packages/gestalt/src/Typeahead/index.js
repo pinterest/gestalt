@@ -1,12 +1,14 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-relative-parent-imports */
 // @flow strict
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box.js';
-import TextField from './TextField.js';
-import Text from './Text.js';
-import Flyout from './Flyout.js';
-import Layer from './Layer.js';
-import Touchable from './Touchable.js';
+import InputField from './InputField.js';
+import Option from './Option.js';
+import Box from '../Box.js';
+import Text from '../Text.js';
+import Flyout from '../Flyout.js';
+import Layer from '../Layer.js';
 
 type TextColors =
   | 'green'
@@ -33,12 +35,8 @@ type OptionObject = {
 };
 
 type Props = {|
-  errorMessage?: string,
-  disabled?: boolean,
-  helperText?: string,
+  accessibilityLabel: string,
   id: string,
-  label?: string,
-  name?: string,
   onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
   data: Array<{
     label: string,
@@ -50,7 +48,7 @@ type Props = {|
   searchField?: string,
   onBlur?: () => void,
   onChange?: ({
-    event: SyntheticInputEvent<HTMLInputElement>,
+    event: SyntheticEvent<HTMLInputElement>,
     value: string,
   }) => void => void,
   onFocus?: () => void,
@@ -68,6 +66,7 @@ type Props = {|
 
 const Typeahead = (props: Props) => {
   const {
+    accessibilityLabel = 'Demo Search Field',
     id,
     onBlur,
     onChange,
@@ -75,19 +74,14 @@ const Typeahead = (props: Props) => {
     onSelect,
     value = '',
     data,
-    disabled = false,
-    errorMessage,
-    helperText,
-    label,
-    name,
     placeholder,
     size,
     resultHeight = '50vh',
     searchField = 'label',
     defaultItem = null,
-    caret = true,
+    caret = false,
     noResultText = 'No Results',
-    noResultTextColor = 'red',
+    noResultTextColor = 'gray',
     hoverColor = 'lightGray',
     textColor = 'darkGray',
     backgroundColor = 'white',
@@ -172,7 +166,7 @@ const Typeahead = (props: Props) => {
   // Handler for when text is typed
   // This rule is stupid
   // eslint-disable-next-line no-shadow
-  const handleInput = ({ event, value }) => {
+  const handleChange = ({ syntheticEvent: event, value }) => {
     // Filter the available options using original data
     const updatedOptions = filterOriginalData(value);
 
@@ -186,8 +180,15 @@ const Typeahead = (props: Props) => {
     if (onChange) onChange({ event, value });
   };
 
+  const handleClear = () => {
+    console.log('cleared');
+    setSelected(null);
+    setSearch('');
+    setFocused(false);
+  };
+
   // Handler for when an item is clicked
-  const handleOnSelect = item => {
+  const handle = item => {
     setSelected(item);
 
     setSearch(item[searchField]);
@@ -198,19 +199,16 @@ const Typeahead = (props: Props) => {
   return (
     <Box ref={componentRef}>
       {/* INPUT FIELD */}
-      <TextField
+      <InputField
+        accessibilityLabel={accessibilityLabel}
         id={id}
-        disabled={disabled}
-        errorMessage={errorMessage}
-        helperText={helperText}
-        label={label}
-        name={name}
         value={search}
         placeholder={placeholder}
         size={size}
-        onChange={handleInput}
+        onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        onClear={handleClear}
         ref={inputRef}
       />
 
@@ -256,7 +254,7 @@ const Typeahead = (props: Props) => {
                     option={option}
                     searchField={searchField}
                     selected={selected}
-                    handleOnSelect={handleOnSelect}
+                    handle={handle}
                     hoverColor={hoverColor}
                     textColor={textColor}
                     backgroundColor={backgroundColor}
@@ -268,65 +266,6 @@ const Typeahead = (props: Props) => {
           </Flyout>
         </Layer>
       )}
-    </Box>
-  );
-};
-
-type OptionProps = {|
-  option: OptionObject,
-  selected?: OptionObject | null,
-  searchField: string,
-  hoverColor: string,
-  textColor: TextColors,
-  backgroundColor: string,
-  handleOnSelect: OptionObject => void,
-  // getOptionRef: (HTMLElement | null) => void,
-|};
-
-const Option = ({
-  option,
-  selected,
-  searchField,
-  handleOnSelect,
-  hoverColor,
-  textColor,
-  // getOptionRef,
-  backgroundColor,
-}: OptionProps) => {
-  // Determine if the option is the current selected item
-  const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
-
-  // Highlight the current selected item
-  const [hover, setHover] = useState(isSelectedItem);
-
-  const handleOnTouch = () => {
-    if (handleOnSelect) handleOnSelect(option);
-  };
-
-  return (
-    <Box
-      // ref={ref => {
-      //   // Only send ref of selected item
-      //   if (selected) getOptionRef(ref);
-      // }}
-      width="100%"
-      marginBottom={1}
-      display="flex"
-      role="option"
-      aria-selected={isSelectedItem}
-      color={isSelectedItem || hover ? hoverColor : backgroundColor}
-    >
-      <Touchable
-        key={option[searchField]}
-        onTouch={handleOnTouch}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <Box marginStart={2} marginEnd={2} marginBottom={1} padding={2}>
-          {/* TODO: It'd be cool to render whatever here */}
-          <Text color={textColor}>{`${option[searchField]}`}</Text>
-        </Box>
-      </Touchable>
     </Box>
   );
 };
@@ -353,12 +292,7 @@ const TEXT_COLORS = [
   'white',
 ];
 Typeahead.propTypes = {
-  errorMessage: PropTypes.string,
-  disabled: PropTypes.bool,
-  helperText: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string,
   onChange: PropTypes.func,
   data: PropTypes.arrayOf(
     PropTypes.exact({

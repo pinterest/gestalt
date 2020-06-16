@@ -2,7 +2,8 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, screen, fireEvent, act } from '@testing-library/react';
-import Typeahead from './Typeahead.js';
+// eslint-disable-next-line import/extensions
+import Typeahead from '.';
 
 const TOTAL_OPTIONS = 10;
 
@@ -20,14 +21,13 @@ describe('Typeahead', () => {
   const Component = (
     <Typeahead
       id="Typeahead"
-      name="Typeahead"
       data={FAKE_OPTIONS}
       placeholder="Select a Label"
       onChange={onChangeMock}
       onFocus={onFocusMock}
       onBlur={onBlurMock}
       onSelect={onSelectMock}
-      label="Typeahead Example"
+      accessibilityLabel="Typeahead Example"
     />
   );
 
