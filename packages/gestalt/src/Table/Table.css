@@ -1,0 +1,20 @@
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.th {
+  composes: alignLeft from "../Typography.css";
+  composes: paddingY3 from "../boxWhitespace.css";
+  composes: paddingX3 from "../boxWhitespace.css";
+}
+
+.td {
+  composes: paddingY3 from "../boxWhitespace.css";
+  composes: paddingX3 from "../boxWhitespace.css";
+}
+
+.thead {
+  composes: borderBottom from "../Borders.css";
+}
