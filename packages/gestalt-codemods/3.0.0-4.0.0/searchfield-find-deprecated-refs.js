@@ -1,6 +1,6 @@
 /*
  * Log an error when a `ref` is specified on `<SearchField />`
- * In 2.0.0 we added forwardRef functionality to SearchField which will break places which already set `ref` on SearchField
+ * In 4.0.0 we added forwardRef functionality to SearchField which will break places which already set `ref` on SearchField
  */
 
 export default function transformer(file, api) {
