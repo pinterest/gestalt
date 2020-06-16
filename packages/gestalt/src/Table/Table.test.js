@@ -1,7 +1,7 @@
 // @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Table from './Table.js';
+import Table from './index.js';
 
 test('renders correctly', () => {
   const tree = renderer
