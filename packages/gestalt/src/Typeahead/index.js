@@ -157,7 +157,7 @@ const Typeahead = (props: Props) => {
     if (document.activeElement && componentRef.current) {
       setTimeout(() => {
         setFocused(document.activeElement === componentRef.current);
-      }, 100);
+      }, 200);
     }
     // Run blur callback
     if (onBlur) onBlur();
@@ -187,7 +187,7 @@ const Typeahead = (props: Props) => {
   };
 
   // Handler for when an item is clicked
-  const handle = item => {
+  const handleSelect = item => {
     setSelected(item);
 
     setSearch(item[searchField]);
@@ -255,7 +255,7 @@ const Typeahead = (props: Props) => {
                     option={option}
                     searchField={searchField}
                     selected={selected}
-                    handle={handle}
+                    handleSelect={handleSelect}
                     hoverColor={hoverColor}
                     textColor={textColor}
                     backgroundColor={backgroundColor}
