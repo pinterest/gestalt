@@ -46,7 +46,6 @@ import TextArea from './TextArea.js';
 import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
-import Touchable from './Touchable.js';
 import Video from './Video.js';
 
 export {
@@ -97,6 +96,5 @@ export {
   TextField,
   Toast,
   Tooltip,
-  Touchable,
   Video,
 };

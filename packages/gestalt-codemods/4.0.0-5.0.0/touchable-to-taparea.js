@@ -26,7 +26,7 @@ export default function transformer(file, api) {
       touchableSpecifier && touchableSpecifier.local.name;
 
     const newSpecifiers = [
-      // Strip out Tooltip import
+      // Strip out Touchable import
       ...decl.specifiers.filter(node => node.imported.name !== 'Touchable'),
       // Only add the new TapArea import if it is not already imported
       decl.specifiers.every(node => node.imported.name !== 'TapArea') &&
