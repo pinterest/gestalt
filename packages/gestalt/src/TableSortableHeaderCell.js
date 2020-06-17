@@ -3,7 +3,7 @@ import * as React from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import TableHeaderCell from './TableHeaderCell.js';
-import Touchable from './Touchable.js';
+import TapArea from './TapArea.js';
 
 type Props = {|
   children: React.Node,
@@ -39,9 +39,9 @@ export default function TableSortableHeaderCell(props: Props) {
   return (
     <TableHeaderCell colSpan={colSpan} rowSpan={rowSpan} scope={scope}>
       <Box display="inlineBlock">
-        <Touchable
+        <TapArea
           fullWidth={false}
-          onTouch={onSortChange}
+          onTap={onSortChange}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onFocus={() => setFocused(true)}
@@ -66,7 +66,7 @@ export default function TableSortableHeaderCell(props: Props) {
               />
             </Box>
           </Box>
-        </Touchable>
+        </TapArea>
       </Box>
     </TableHeaderCell>
   );

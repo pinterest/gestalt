@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
-import Touchable from './Touchable.js';
+import TapArea from './TapArea.js';
 import VideoPlayhead from './VideoPlayhead.js';
 import styles from './Video.css';
 
@@ -131,7 +131,7 @@ class VideoControls extends React.Component<Props> {
     return (
       <div className={styles.controls}>
         <Box padding={2}>
-          <Touchable onTouch={this.handlePlayingChange} fullWidth={false}>
+          <TapArea onTap={this.handlePlayingChange} fullWidth={false}>
             <Icon
               accessibilityLabel={
                 playing ? accessibilityPauseLabel : accessibilityPlayLabel
@@ -140,7 +140,7 @@ class VideoControls extends React.Component<Props> {
               icon={playing ? 'pause' : 'play'}
               size={20}
             />
-          </Touchable>
+          </TapArea>
         </Box>
         <Box width={50} padding={2}>
           <Text align="right" color="white" overflow="normal" size="sm">
@@ -162,7 +162,7 @@ class VideoControls extends React.Component<Props> {
           </Text>
         </Box>
         <Box padding={2}>
-          <Touchable onTouch={this.handleVolumeChange} fullWidth={false}>
+          <TapArea onTap={this.handleVolumeChange} fullWidth={false}>
             <Icon
               accessibilityLabel={
                 muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
@@ -171,11 +171,11 @@ class VideoControls extends React.Component<Props> {
               icon={muted ? 'mute' : 'sound'}
               size={20}
             />
-          </Touchable>
+          </TapArea>
         </Box>
         {showFullscreenButton && (
           <Box padding={2}>
-            <Touchable onTouch={this.handleFullscreenChange} fullWidth={false}>
+            <TapArea onTap={this.handleFullscreenChange} fullWidth={false}>
               <Icon
                 accessibilityLabel={
                   fullscreen
@@ -186,7 +186,7 @@ class VideoControls extends React.Component<Props> {
                 icon={fullscreen ? 'minimize' : 'maximize'}
                 size={20}
               />
-            </Touchable>
+            </TapArea>
           </Box>
         )}
       </div>
