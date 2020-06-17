@@ -21,11 +21,14 @@ const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
 };
 
 test('empty', () => {
+  const items = [];
   const layout = defaultLayout({
     cache: stubCache(),
+    justify: 'start',
+    rawItemCount: items.length,
     width: 486,
   });
-  expect(layout([])).toEqual([]);
+  expect(layout(items)).toEqual([]);
 });
 
 test('one row', () => {
@@ -33,6 +36,8 @@ test('one row', () => {
   const items = ['a', 'b', 'c'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
+    justify: 'start',
+    rawItemCount: items.length,
     width: 736,
   });
   expect(layout(items)).toEqual([
@@ -47,6 +52,8 @@ test('wrapping items', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
+    justify: 'start',
+    rawItemCount: items.length,
     width: 486,
   });
   expect(layout(items)).toEqual([
@@ -62,8 +69,10 @@ test('centers grid within the viewport', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
-    width: 8000,
+    justify: 'start',
     minCols: 2,
+    rawItemCount: items.length,
+    width: 8000,
   });
   expect(layout(items)).toEqual([
     { top: 0, height: 100, left: 7, width: 236 },
@@ -78,6 +87,8 @@ test('floors values when centering', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
+    justify: 'start',
+    rawItemCount: items.length,
     width: 501,
   });
   expect(layout(items)).toEqual([
@@ -93,6 +104,8 @@ test('only centers when theres extra space', () => {
   const items = ['a', 'b', 'c', 'd'];
   const layout = defaultLayout({
     cache: stubCache(measurements),
+    justify: 'start',
+    rawItemCount: items.length,
     width: 200,
   });
   expect(layout(items)).toEqual([
