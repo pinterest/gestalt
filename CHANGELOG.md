@@ -1,3 +1,9 @@
+## 5.0.0 (Jun 17, 2020)
+
+### Major
+
+- Touchable/TapArea: replace Touchable with TapArea (#923)
+
 ## 4.0.1 (Jun 16, 2020)
 
 ### Patch
