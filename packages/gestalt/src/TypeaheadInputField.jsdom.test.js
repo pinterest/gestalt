@@ -1,7 +1,7 @@
 // @flow strict
 import React from 'react';
 import { render } from '@testing-library/react';
-import InputField from './InputField.js';
+import InputField from './TypeaheadInputField.js';
 
 describe('<InputField />', () => {
   it('adds a "medium" classname by default', () => {
