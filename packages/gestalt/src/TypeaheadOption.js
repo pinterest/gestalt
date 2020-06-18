@@ -75,6 +75,7 @@ const Option = ({
       <TapArea
         key={option[searchField]}
         onTap={handleOnTap}
+        rounding={2}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
