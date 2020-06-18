@@ -43,6 +43,11 @@ export default function transformer(file, api) {
     j(path).replaceWith(newNode);
   });
 
+  if (!touchableLocalIdentifierName) {
+    // not imported
+    return null;
+  }
+
   let hasModifications = false;
 
   const transform = src

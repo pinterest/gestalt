@@ -1,3 +1,9 @@
+## 5.0.1 (Jun 18, 2020)
+
+### Patch
+
+- TapArea: fix codemod for React.Fragment use case (#930)
+
 ## 5.0.0 (Jun 17, 2020)
 
 ### Major
