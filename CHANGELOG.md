@@ -1,3 +1,9 @@
+## 5.2.0 (Jun 18, 2020)
+
+### Minor
+
+- Masonry/defaultLayout: Add a layout `basicCentered` to center justify grid content (#929)
+
 ## 5.1.0 (Jun 18, 2020)
 
 ### Minor
