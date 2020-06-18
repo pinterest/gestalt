@@ -29,6 +29,7 @@ type Layout =
   | LegacyMasonryLayout
   | LegacyUniformRowLayout
   | 'basic'
+  | 'basicCentered'
   | 'flexible'
   | 'uniformRow';
 
@@ -490,7 +491,9 @@ export default class Masonry<T: {}> extends React.Component<
         cache: measurementStore,
         columnWidth,
         gutter,
+        justify: layout === 'basicCentered' ? 'center' : 'start',
         minCols,
+        rawItemCount: items.length,
         width,
       });
     }
