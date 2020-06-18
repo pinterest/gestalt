@@ -1,3 +1,9 @@
+## 5.1.0 (Jun 18, 2020)
+
+### Minor
+
+- [DatePicker] New DatePicker component in new gestalt-datepicker package (#913)
+
 ## 5.0.1 (Jun 18, 2020)
 
 ### Patch
