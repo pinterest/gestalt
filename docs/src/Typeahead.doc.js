@@ -109,7 +109,6 @@ card(
   <Example
     id="basicExample"
     name="Example"
-    description={`Make sure to attach a \`Label\` to every SelectList.`}
     defaultCode={`
       function Example(props) {
         const [item, setItem] = React.useState('')
