@@ -1,0 +1,80 @@
+:root {
+  --bt: 4px;
+  --gray: #767676;
+  --lightGray: #efefef;
+  --white: #fff;
+}
+
+.input {
+  composes: accessibilityOutline from "./Focus.css";
+  composes: border pill sizeLg from "./Borders.css";
+  composes: borderBox from "./Layout.css";
+  composes: darkGray from "./Colors.css";
+  composes: Text fontSize3 from "./Text.css";
+  composes: xsCol12 from "./Column.css";
+  appearance: none;
+  min-width: 180px;
+  padding: calc(2 * var(--bt)) calc(10 * var(--bt)) calc(2 * var(--bt)) calc(8px + calc(8 * var(--bt)));
+}
+
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-results-button,
+.input::-webkit-search-results-decoration {
+  appearance: none;
+}
+
+.input:focus {
+  background-color: var(--white);
+  cursor: text;
+}
+
+.input::-ms-clear {
+  display: none;
+}
+
+.input::placeholder {
+  color: var(--gray);
+}
+
+.inputActive {
+  padding: calc(2 * var(--bt)) calc(8 * var(--bt)) calc(2 * var(--bt)) calc(4 * var(--bt));
+}
+
+.inputHovered {
+  composes: borderColorLightGrayHovered from "./Borders.css";
+  composes: pointer from "./Cursor.css";
+}
+
+.icon {
+  composes: marginEnd2 from "./boxWhitespace.css";
+  composes: noBorder from "./Borders.css";
+  composes: paddingX1 from "./boxWhitespace.css";
+  composes: paddingY1 from "./boxWhitespace.css";
+  composes: pointer from "./Cursor.css";
+  composes: right0 from "./Layout.css";
+  composes: transparentBg from "./Colors.css";
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clear {
+  composes: marginEnd2 from "./boxWhitespace.css";
+  composes: noBorder from "./Borders.css";
+  composes: paddingX1 from "./boxWhitespace.css";
+  composes: paddingY1 from "./boxWhitespace.css";
+  composes: pointer from "./Cursor.css";
+  composes: right0 from "./Layout.css";
+  composes: transparentBg from "./Colors.css";
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clear:hover {
+  background-color: var(--lightGray);
+  border-radius: 50%;
+}

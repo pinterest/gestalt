@@ -1,15 +1,13 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable import/no-relative-parent-imports */
 // @flow strict
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import layout from '../Layout.css';
-import styles from './InputField.css';
-import Box from '../Box.js';
-import Icon from '../Icon.js';
-import FormLabel from '../FormLabel.js';
+import layout from './Layout.css';
+import styles from './TypeaheadInputField.css';
+import Box from './Box.js';
+import Icon from './Icon.js';
+import FormLabel from './FormLabel.js';
 
 type Props = {|
   accessibilityLabel: string,

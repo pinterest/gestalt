@@ -3,7 +3,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 // eslint-disable-next-line import/extensions
-import Typeahead from '.';
+import Typeahead from './Typeahead';
 
 const TOTAL_OPTIONS = 10;
 

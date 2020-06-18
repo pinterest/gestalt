@@ -1,14 +1,12 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable import/no-relative-parent-imports */
 // @flow strict
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import InputField from './InputField.js';
-import Option from './Option.js';
-import Box from '../Box.js';
-import Text from '../Text.js';
-import Flyout from '../Flyout.js';
-import Layer from '../Layer.js';
+import InputField from './TypeaheadInputField.js';
+import Option from './TypeaheadOption.js';
+import Box from './Box.js';
+import Text from './Text.js';
+import Flyout from './Flyout.js';
+import Layer from './Layer.js';
 
 type TextColors =
   | 'green'
