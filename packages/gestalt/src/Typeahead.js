@@ -232,13 +232,7 @@ const Typeahead = (props: Props) => {
               overflow="auto"
               color={backgroundColor}
             >
-              <Box
-                alignItems="center"
-                direction="column"
-                display="flex"
-                marginStart={-1}
-                marginEnd={-1}
-              >
+              <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
                 {options.length === 0 && (
                   <Box margin={2}>
