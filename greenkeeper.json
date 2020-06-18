@@ -4,7 +4,8 @@
       "packages": [
         "package.json",
         "docs/package.json",
-        "packages/gestalt/package.json"
+        "packages/gestalt/package.json",
+        "packages/gestalt-datepicker/package.json"
       ]
     }
   },

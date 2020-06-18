@@ -53,14 +53,14 @@
     "stylelint-order": "^4.0.0"
   },
   "scripts": {
-    "build": "cd packages/gestalt && yarn build",
+    "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
-    "flow-generate:css": "./node_modules/.bin/css-modules-flow-types packages/gestalt/src/ >/dev/null",
+    "flow-generate:css": "./node_modules/.bin/css-modules-flow-types packages/gestalt/src/ packages/gestalt-datepicker/src/ >/dev/null",
     "greenkeeper-lockfile-update": "greenkeeper-lockfile-update",
     "greenkeeper-lockfile-upload": "greenkeeper-lockfile-upload",
-    "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch)",
+    "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
     "test": "./scripts/test.sh",
     "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
     "precommit": "lint-staged"
@@ -91,7 +91,8 @@
         },
         "testPathIgnorePatterns": [
           "/node_modules/",
-          "<rootDir>/packages/gestalt-codemods"
+          "<rootDir>/packages/gestalt-codemods",
+          "<rootDir>/packages/gestalt-core"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"

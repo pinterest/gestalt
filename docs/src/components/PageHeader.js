@@ -1,14 +1,20 @@
 // @flow strict
 import React from 'react';
-import { Box, Text, Heading, Link } from 'gestalt';
+import { Badge, Box, Text, Tooltip, Heading, Link } from 'gestalt';
 import Markdown from './Markdown.js';
 
 type Props = {|
   name: string,
   description?: string,
+  beta?: boolean,
 |};
 
-const gestaltPath = component => `packages/gestalt/src/${component}.js`;
+const gestaltPath = component => {
+  if (component === 'DatePicker') {
+    return `packages/gestalt-datepicker/src/${component}.js`;
+  }
+  return `packages/gestalt/src/${component}.js`;
+};
 
 const githubUrl = component =>
   [
@@ -16,11 +22,22 @@ const githubUrl = component =>
     gestaltPath(component),
   ].join('/');
 
-export default function ComponentHeader({ name, description = '' }: Props) {
+export default function ComponentHeader({
+  beta,
+  name,
+  description = '',
+}: Props) {
   return (
     <Box marginBottom={6}>
       <Box marginBottom={4}>
-        <Heading>{name}</Heading>
+        <Heading>
+          {name}{' '}
+          {beta ? (
+            <Tooltip inline text="Do not use in production code">
+              <Badge text="Beta" position="top" />
+            </Tooltip>
+          ) : null}
+        </Heading>
         <Text color="gray">
           <Link href={githubUrl(name)} inline>
             Source

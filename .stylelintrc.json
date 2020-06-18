@@ -55,7 +55,10 @@
     ],
     "selector-max-id": 0,
     "selector-no-vendor-prefix": true,
-    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["global"] }
+    ],
     "unit-blacklist": ["em"],
     "value-no-vendor-prefix": true
   }
