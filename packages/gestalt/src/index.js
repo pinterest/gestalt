@@ -98,5 +98,6 @@ export {
   TextField,
   Toast,
   Tooltip,
+  Typeahead,
   Video,
 };

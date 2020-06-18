@@ -1,12 +1,10 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable import/no-relative-parent-imports */
 // @flow strict
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Box from '../Box.js';
-import Text from '../Text.js';
-import Touchable from '../Touchable.js';
+import Box from './Box.js';
+import Text from './Text.js';
+import TapArea from './TapArea.js';
 
 type TextColors =
   | 'green'
@@ -59,7 +57,7 @@ const Option = ({
   // Highlight the current selected item
   const [hover, setHover] = useState(isSelectedItem);
 
-  const handleOnTouch = () => {
+  const handleOnTap = () => {
     if (handleSelect) handleSelect(option);
   };
 
@@ -74,9 +72,9 @@ const Option = ({
       role="option"
       aria-selected={isSelectedItem}
     >
-      <Touchable
+      <TapArea
         key={option[searchField]}
-        onTouch={handleOnTouch}
+        onTap={handleOnTap}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -89,7 +87,7 @@ const Option = ({
           {/* TODO: It'd be cool to render whatever here */}
           <Text color={textColor}>{`${option[searchField]}`}</Text>
         </Box>
-      </Touchable>
+      </TapArea>
     </Box>
   );
 };
