@@ -189,9 +189,7 @@ card(
     defaultCode={`
 <Box>
   <Box marginBottom={2}>
-    <Text inline size="sm">
-      {'Small'}
-    </Text>{' '}
+    <Text inline size="sm">Small </Text>
     <span lang="ja">
       <Text inline size="sm">
         こんにちは
@@ -199,9 +197,7 @@ card(
     </span>
   </Box>
   <Box marginBottom={2}>
-    <Text inline size="md">
-      {'Medium (default size)'}
-    </Text>{' '}
+    <Text inline size="md">Medium (default size) </Text>
     <span lang="ja">
       <Text inline size="md">
         こんにちは
@@ -209,9 +205,7 @@ card(
     </span>
   </Box>
   <Box marginBottom={2}>
-    <Text inline size="lg">
-      {'Large'}
-    </Text>{' '}
+    <Text inline size="lg">Large </Text>
     <span lang="ja">
       <Text inline size="lg">
         こんにちは
