@@ -136,6 +136,12 @@ const Typeahead = (props: Props) => {
   // }, [focused, selectedOptionRef]);
 
   const handleFocus = () => {
+    const activeElement = document.activeElement.tagName.toLowerCase();
+    const isButtonClick = activeElement === 'button';
+
+    // Prevent focus actions when clear button is clicked
+    if (isButtonClick) return;
+
     // Internally set focus status
     if (componentRef.current)
       setFocused(componentRef.current.contains(document.activeElement));
