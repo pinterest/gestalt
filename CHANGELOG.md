@@ -1,3 +1,9 @@
+## 5.2.3 (Jun 19, 2020)
+
+### Patch
+
+- Docs: provide more layouts for <Combinantion /> (#934)
+
 ## 5.2.2 (Jun 19, 2020)
 
 ### Patch
