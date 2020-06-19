@@ -431,6 +431,26 @@ function DatePickerExample() {
 
 card(
   <Combination
+    id="idealDirection"
+    name="Example: Ideal Direction"
+    description="Define the preferred direction for the DatePicker flyout to open. If that placement doesn't fit, the opposite direction will be used."
+    layout="4column"
+    idealDirection={['down', 'left', 'right', 'up']}
+  >
+    {({ idealDirection }) => {
+      return (
+        <DatePicker
+          id={`example-idealDirection-${idealDirection}`}
+          onChange={() => {}}
+          idealDirection={idealDirection}
+        />
+      );
+    }}
+  </Combination>
+);
+
+card(
+  <Combination
     id="localeData"
     name="Example: Locales"
     description="
@@ -443,7 +463,7 @@ import { it } from 'date-fns/locale';
 <DatePicker localeData={it}/>
 ~~~
   "
-    fullWidth
+    layout="4column"
     localeDataCode={Object.keys(localeMap)}
   >
     {({ localeDataCode }) => {
@@ -456,26 +476,6 @@ import { it } from 'date-fns/locale';
           onChange={({ value }) => setDate(value)}
           value={date}
           localeData={localeMap[localeDataCode].localeData}
-        />
-      );
-    }}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="idealDirection"
-    name="Example: Ideal Direction"
-    description="Define the preferred direction for the DatePicker flyout to open. If that placement doesn't fit, the opposite direction will be used."
-    fullWidth
-    idealDirection={['down', 'left', 'right', 'up']}
-  >
-    {({ idealDirection }) => {
-      return (
-        <DatePicker
-          id={`example-idealDirection-${idealDirection}`}
-          onChange={() => {}}
-          idealDirection={idealDirection}
         />
       );
     }}

@@ -265,8 +265,8 @@ function ToastExample() {
 card(
   <Combination
     id="combinations"
+    layout="12column"
     name="Combinations: Overview"
-    fullWidth
     showValues={false}
     text={[
       'Section created!',
@@ -302,8 +302,8 @@ card(
 card(
   <Combination
     id="combinations"
+    layout="12column"
     name="Combinations: Thumbnail shapes"
-    fullWidth
     showValues={false}
     thumbnailShape={['circle', 'rectangle', 'square']}
   >
