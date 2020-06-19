@@ -1,3 +1,9 @@
+## 5.2.2 (Jun 19, 2020)
+
+### Patch
+
+- TapArea: Docs - Fix weird rounding on example (#935)
+
 ## 5.2.1 (Jun 19, 2020)
 
 ### Patch
