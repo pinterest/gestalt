@@ -57,7 +57,7 @@
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"packages/**/*.css\"",
-    "flow-generate:css": "./node_modules/.bin/css-modules-flow-types packages/gestalt/src/ packages/gestalt-datepicker/src/ >/dev/null",
+    "flow-generate:css": "(css-modules-flow-types packages/gestalt/src/ >/dev/null) && (css-modules-flow-types packages/gestalt-datepicker/src/ >/dev/null)",
     "greenkeeper-lockfile-update": "greenkeeper-lockfile-update",
     "greenkeeper-lockfile-upload": "greenkeeper-lockfile-upload",
     "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
