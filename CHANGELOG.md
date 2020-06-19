@@ -1,3 +1,9 @@
+## 5.2.1 (Jun 19, 2020)
+
+### Patch
+
+- DatePicker: fix yarn flow-generate:css (#932)
+
 ## 5.2.0 (Jun 18, 2020)
 
 ### Minor
