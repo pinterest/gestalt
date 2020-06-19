@@ -207,7 +207,7 @@ type PropType = {
   smMarginLeft?: Margin,
 
   mdMargin?: Margin,
-  mdMarginTop?: Margin,
+  mdMarginTop: Margin,
   mdMarginRight?: Margin,
   mdMarginBottom?: Margin,
   mdMarginLeft?: Margin,
