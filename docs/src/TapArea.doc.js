@@ -210,7 +210,7 @@ card(
   `}
     name="Example: Accessibility (Popup)"
     defaultCode={`
-function A11yExPopup() {
+function AccessibilityExamplePopup() {
   const [isOpen, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -221,6 +221,7 @@ function A11yExPopup() {
           accessibilityHaspopup
           accessibilityLabel="see more"
           onTap={() => setOpen(!isOpen)}
+          rounding="pill"
         >
           <Box
             alignItems="center"
@@ -269,7 +270,7 @@ card(
   `}
     name="Example: Accessibility (Disclosure)"
     defaultCode={`
-function A11yExDisclosure() {
+function AccessibilityExampleDisclosure() {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
@@ -279,6 +280,7 @@ function A11yExDisclosure() {
           accessibilityControls="accordion-panel"
           accessibilityExpanded={isOpen}
           onTap={() => setOpen(!isOpen)}
+          rounding="pill"
         >
           <Box
             alignItems="center"
@@ -312,10 +314,10 @@ function A11yExDisclosure() {
 card(
   <Example
     id="disabled"
-    description={`Disabled will reimplement the button's disabled behavior.`}
+    description={`Set \`disable\` on a \`TapArea\` to prevent event propagation, remove the element from tab order, and populate \`aria-label\`.`}
     name="Example: Disabled"
     defaultCode={`
-function DisabledEx() {
+function DisabledExample() {
   const [clickCount, setClickCount] = React.useState(0);
   const hasReachedLimit = clickCount === 5;
   const bgColor = hasReachedLimit ? 'lightGray' : 'white';
@@ -328,6 +330,7 @@ function DisabledEx() {
           accessibilityControls="count-panel"
           disabled={hasReachedLimit}
           onTap={() => setClickCount(clickCount + 1)}
+          rounding="pill"
         >
           <Box
             alignItems="center"
