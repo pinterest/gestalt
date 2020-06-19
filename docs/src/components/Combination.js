@@ -9,8 +9,8 @@ type Props = {
   description?: string,
   heading?: boolean,
   id?: string,
+  layout?: '2column' | '4column' | '12column',
   name?: string,
-  fullWidth?: boolean,
   showValues?: boolean,
   stacked?: boolean,
 };
@@ -55,17 +55,43 @@ const toReactAttribute = (key, value) => {
   }
 };
 
+function layoutReducer(layout) {
+  switch (layout) {
+    case '2column':
+      return {
+        column: 6,
+        mdColumn: 3,
+        lgColumn: 2,
+      };
+    case '4column':
+      return {
+        column: 12,
+        mdColumn: 6,
+        lgColumn: 4,
+      };
+    case '12column':
+      return {
+        column: 12,
+        mdColumn: 12,
+        lgColumn: 12,
+      };
+    default:
+      throw new Error(`Layout ${layout} not implemented`);
+  }
+}
+
 export default function Combination({
   name = '',
   description = '',
+  layout = '2column',
   id,
   showValues = true,
   stacked = false,
-  fullWidth = false,
   heading = true,
   children,
   ...props
 }: Props) {
+  const { column, mdColumn, lgColumn } = layoutReducer(layout);
   return (
     <Card
       name={name}
@@ -77,9 +103,9 @@ export default function Combination({
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => (
           <Box
-            column={fullWidth ? 12 : 4}
-            mdColumn={fullWidth ? 12 : 3}
-            lgColumn={fullWidth ? 12 : 2}
+            column={column}
+            mdColumn={mdColumn}
+            lgColumn={lgColumn}
             key={i}
             padding={4}
             display="flex"
