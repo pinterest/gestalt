@@ -8,25 +8,6 @@ import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 
-type TextColors =
-  | 'green'
-  | 'pine'
-  | 'olive'
-  | 'blue'
-  | 'navy'
-  | 'midnight'
-  | 'purple'
-  | 'orchid'
-  | 'eggplant'
-  | 'maroon'
-  | 'watermelon'
-  | 'orange'
-  | 'darkGray'
-  | 'gray'
-  | 'lightGray'
-  | 'red'
-  | 'white';
-
 type OptionObject = {
   label: string,
   value: string,
@@ -55,10 +36,6 @@ type Props = {|
   caret?: boolean,
   defaultItem?: OptionObject,
   noResultText?: string,
-  noResultTextColor?: TextColors,
-  hoverColor?: TextColors,
-  textColor?: TextColors,
-  backgroundColor?: TextColors,
 |};
 
 const Typeahead = (props: Props) => {
@@ -77,10 +54,6 @@ const Typeahead = (props: Props) => {
     defaultItem = null,
     caret = false,
     noResultText = 'No Results',
-    noResultTextColor = 'gray',
-    hoverColor = 'lightGray',
-    textColor = 'darkGray',
-    backgroundColor = 'white',
   } = props;
 
   // Store original data
@@ -234,16 +207,15 @@ const Typeahead = (props: Props) => {
               maxHeight="50vh"
               width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
               overflow="auto"
-              color={backgroundColor}
+              color="white"
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
                 {options.length === 0 && (
                   <Box margin={2}>
-                    <Text color={noResultTextColor}>{noResultText}</Text>
+                    <Text color="gray">{noResultText}</Text>
                   </Box>
                 )}
-
                 {/* Return options */}
                 {options.map((option, index) => (
                   <Option
@@ -252,9 +224,9 @@ const Typeahead = (props: Props) => {
                     searchField={searchField}
                     selected={selected}
                     handleSelect={handleSelect}
-                    hoverColor={hoverColor}
-                    textColor={textColor}
-                    backgroundColor={backgroundColor}
+                    hoverColor="lightGray"
+                    textColor="darkGray"
+                    backgroundColor="white"
                     // getOptionRef={getOptionRef}
                   />
                 ))}
@@ -269,25 +241,6 @@ const Typeahead = (props: Props) => {
 
 Typeahead.displayName = 'Typeahead';
 
-const TEXT_COLORS = [
-  'green',
-  'pine',
-  'olive',
-  'blue',
-  'navy',
-  'midnight',
-  'purple',
-  'orchid',
-  'eggplant',
-  'maroon',
-  'watermelon',
-  'orange',
-  'darkGray',
-  'gray',
-  'lightGray',
-  'red',
-  'white',
-];
 Typeahead.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func,
@@ -310,10 +263,6 @@ Typeahead.propTypes = {
     value: PropTypes.string.isRequired,
   }),
   noResultText: PropTypes.string,
-  noResultTextColor: PropTypes.oneOf(TEXT_COLORS),
-  hoverColor: PropTypes.oneOf(TEXT_COLORS),
-  textColor: PropTypes.oneOf(TEXT_COLORS),
-  backgroundColor: PropTypes.oneOf(TEXT_COLORS),
 };
 
 export default Typeahead;
