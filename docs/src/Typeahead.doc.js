@@ -46,7 +46,8 @@ card(
         name: 'noResultText',
         type: 'string',
         href: 'basicExample',
-        defaultValue: 'No Results',
+        required: false,
+        description: 'The text shown when the input value returns no matches',
       },
       {
         name: 'onBlur',
