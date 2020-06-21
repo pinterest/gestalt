@@ -67,7 +67,7 @@ const Typeahead = (props: Props) => {
     );
 
   // Track input value
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState<string>(defaultItem?.label || '');
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<OptionObject | null>(defaultItem);

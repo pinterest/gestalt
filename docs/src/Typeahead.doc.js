@@ -19,19 +19,18 @@ card(
     props={[
       {
         name: 'data',
-        type: 'Array<{ label: string }>',
+        type: 'Array<{ label: string, value: string }>',
         description:
-          'The object can contain anything, the default display value will be label. Use searchField prop if you want to change the searchable field',
+          'The data much be an array with objects containing only label and value properties',
         required: true,
         href: 'basicExample',
       },
       {
         name: 'defaultItem',
         type: '{ label: string, value: string }',
-        description:
-          'The object can contain anything, the default display value will be label. Use searchField prop if you want to change the searchable field',
+        description: 'The default item set in the Typeahead',
         required: true,
-        href: 'basicExample',
+        href: 'defaultItemExample',
       },
       {
         name: 'id',
@@ -136,8 +135,47 @@ card(
               onChange={handleOnChange}
               value={item}
               onSelect={handleSelect}
-              onFocus={()=> console.log("FOCUSED")}
-              onBlur={()=> console.log("BLUR")}
+            />
+          </>
+        );
+      }
+    `}
+  />
+);
+
+card(
+  <Example
+    id="defaultItemExample"
+    name="Default Item Example"
+    defaultCode={`
+      function Example(props) {
+        const [item, setItem] = React.useState('');
+        const [selected, setSelected] = React.useState(null);
+
+        const options = Array
+                          .from(Array(100).keys())
+                          .map(item => ({value: "value-" + item, label: "Label-" + item}))
+
+        const handleOnChange = ({value}) => {
+          setItem(value);
+        }
+
+        const handleSelect = item => {
+          setSelected(item)
+        }
+
+        return (
+          <>
+            <Box marginBottom={2}><Text>Selected Item: {selected && selected.label || ""}</Text></Box>
+
+            <Typeahead
+              id="Typeahead-example-defaultItem"
+              data={options}
+              defaultItem={options[3]}
+              placeholder="Select a Label"
+              onChange={handleOnChange}
+              value={item}
+              onSelect={handleSelect}
             />
           </>
         );
