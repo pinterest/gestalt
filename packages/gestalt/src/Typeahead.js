@@ -189,7 +189,7 @@ const Typeahead = (props: Props) => {
       {focused && (
         <Layer>
           <Flyout
-            showCaret
+            showCaret={false}
             anchor={inputRef.current}
             idealDirection="down"
             onDismiss={() => {}}
