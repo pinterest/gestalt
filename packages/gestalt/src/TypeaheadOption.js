@@ -6,10 +6,10 @@ import Box from './Box.js';
 import Text from './Text.js';
 import TapArea from './TapArea.js';
 
-type OptionObject = {
+type OptionObject = {|
   label: string,
   value: string,
-};
+|};
 
 type OptionProps = {|
   option: OptionObject,
