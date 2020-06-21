@@ -86,7 +86,7 @@ const InputField = ({
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <span>
+    <>
       {label && <FormLabel id={id} label={label} />}
       <Box
         alignItems="center"
@@ -99,6 +99,7 @@ const InputField = ({
       >
         <input
           ref={forwardedRef}
+          autoComplete="off"
           aria-label={label}
           className={className}
           id={id}
@@ -132,7 +133,7 @@ const InputField = ({
           </Box>
         </button>
       </Box>
-    </span>
+    </>
   );
 };
 

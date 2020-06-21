@@ -60,7 +60,6 @@ OptionProps) => {
           color={isSelectedItem || hover ? 'lightGray' : 'white'}
           rounding={2}
         >
-          {/* TODO: It'd be cool to render whatever here */}
           <Text color="darkGray">{`${option[searchField]}`}</Text>
         </Box>
       </TapArea>
