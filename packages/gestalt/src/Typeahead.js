@@ -139,7 +139,6 @@ const Typeahead = (props: Props) => {
   };
 
   // Handler for when text is typed
-  // This rule is stupid
   const handleChange = ({ syntheticEvent: event, value }) => {
     // Filter the available options using original data
     const updatedOptions = filterOriginalData(value);
