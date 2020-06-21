@@ -131,6 +131,7 @@ card(
 
             <Typeahead
               id="Typeahead-example"
+              noResultText="No Results"
               data={options}
               placeholder="Select a Label"
               onChange={handleOnChange}
@@ -171,6 +172,7 @@ card(
 
             <Typeahead
               id="Typeahead-example-defaultItem"
+              noResultText="No Results"
               data={options}
               defaultItem={options[3]}
               placeholder="Select a Label"
