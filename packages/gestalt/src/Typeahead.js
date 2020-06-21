@@ -21,7 +21,7 @@ type Props = {|
   defaultItem?: OptionObject,
   id: string,
   label: string,
-  noResultText?: string,
+  noResultText: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
@@ -46,7 +46,7 @@ const Typeahead = (props: Props) => {
     defaultItem = null,
     id,
     label = '',
-    noResultText = 'No Results',
+    noResultText,
     onBlur,
     onChange,
     onFocus,
