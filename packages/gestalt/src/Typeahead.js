@@ -24,7 +24,6 @@ type Props = {|
   noResultText: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
-    value: string,
   }) => void,
   onChange?: ({
     event: SyntheticInputEvent<HTMLInputElement>,
@@ -106,8 +105,8 @@ const Typeahead = (props: Props) => {
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [focused, selectedOptionRef]);
 
-  const handleFocus = () => {
-    const activeElement = document.activeElement.tagName.toLowerCase();
+  const handleFocus = ({ event, value }) => {
+    const activeElement = document?.activeElement?.tagName?.toLowerCase();
     const isButtonClick = activeElement === 'button';
 
     // Prevent focus actions when clear button is clicked
@@ -118,10 +117,10 @@ const Typeahead = (props: Props) => {
       setContainerOpen(componentRef.current.contains(document.activeElement));
 
     // Run focus callback
-    if (onFocus) onFocus();
+    if (onFocus) onFocus({ event, value });
   };
 
-  const handleBlur = () => {
+  const handleBlur = ({ event }) => {
     // Clear input and reset options
     if (options.length === 0) {
       setSearch('');
@@ -132,14 +131,14 @@ const Typeahead = (props: Props) => {
     if (document.activeElement && componentRef.current) {
       setTimeout(() => {
         setContainerOpen(document.activeElement === componentRef.current);
-      }, 200);
+      }, 100);
     }
     // Run blur callback
-    if (onBlur) onBlur();
+    if (onBlur) onBlur({ event });
   };
 
   // Handler for when text is typed
-  const handleChange = ({ syntheticEvent: event, value }) => {
+  const handleChange = ({ event, value }) => {
     if (containerOpen === false) setContainerOpen(true);
 
     // Filter the available options using original data
@@ -159,7 +158,7 @@ const Typeahead = (props: Props) => {
     setSelected(null);
     setSearch('');
     setContainerOpen(false);
-    inputRef.current.focus();
+    if (inputRef.current) inputRef.current.focus();
   };
 
   // Handler for when an item is clicked
@@ -168,7 +167,7 @@ const Typeahead = (props: Props) => {
 
     setSearch(item[searchField]);
     setContainerOpen(false);
-    inputRef.current.focus();
+    if (inputRef.current) inputRef.current.focus();
     if (onSelect) onSelect(item);
   };
 
@@ -188,7 +187,7 @@ const Typeahead = (props: Props) => {
         ref={inputRef}
       />
 
-      {containerOpen && (
+      {containerOpen && inputRef.current && (
         <Layer>
           <Flyout
             showCaret={false}
