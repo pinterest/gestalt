@@ -56,7 +56,6 @@ type Props = {|
   defaultItem?: OptionObject,
   noResultText?: string,
   noResultTextColor?: TextColors,
-  resultHeight?: string,
   hoverColor?: TextColors,
   textColor?: TextColors,
   backgroundColor?: TextColors,
@@ -74,7 +73,6 @@ const Typeahead = (props: Props) => {
     data,
     placeholder,
     size,
-    resultHeight = '50vh',
     searchField = 'label',
     defaultItem = null,
     caret = false,
@@ -233,7 +231,7 @@ const Typeahead = (props: Props) => {
               padding={1}
               marginTop={2}
               marginBottom={2}
-              maxHeight={resultHeight}
+              maxHeight="50vh"
               width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
               overflow="auto"
               color={backgroundColor}
@@ -313,7 +311,6 @@ Typeahead.propTypes = {
   }),
   noResultText: PropTypes.string,
   noResultTextColor: PropTypes.oneOf(TEXT_COLORS),
-  resultHeight: PropTypes.string,
   hoverColor: PropTypes.oneOf(TEXT_COLORS),
   textColor: PropTypes.oneOf(TEXT_COLORS),
   backgroundColor: PropTypes.oneOf(TEXT_COLORS),

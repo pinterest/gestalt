@@ -18,13 +18,6 @@ card(
   <PropTable
     props={[
       {
-        name: 'resultHeight',
-        type: 'string',
-        description: 'Set the height of results box',
-        href: 'basicExample',
-        defaultValue: '50vh',
-      },
-      {
         name: 'noResultText',
         type: 'string',
         href: 'basicExample',
