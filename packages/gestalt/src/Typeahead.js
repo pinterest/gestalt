@@ -8,10 +8,10 @@ import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 
-type OptionObject = {
+type OptionObject = {|
   label: string,
   value: string,
-};
+|};
 
 type Props = {|
   accessibilityLabel: string,
