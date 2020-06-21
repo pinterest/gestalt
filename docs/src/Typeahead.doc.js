@@ -47,14 +47,14 @@ card(
       },
       {
         name: 'onBlur',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
         required: false,
         description: 'Callback when you focus outside the component ',
         href: 'basicExample',
       },
       {
         name: 'onFocus',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
         required: false,
         description: 'Callback when you focus on the component',
         href: 'basicExample',

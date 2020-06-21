@@ -15,27 +15,32 @@ type OptionObject = {|
 
 type Props = {|
   accessibilityLabel: string,
-  id: string,
-  onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
+  caret?: boolean,
   data: Array<{
     label: string,
     value: string,
   }>,
+  defaultItem?: OptionObject,
+  id: string,
+  noResultText?: string,
+  onBlur?: ({
+    event: SyntheticFocusEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
+  onChange?: ({
+    event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
+  onFocus?: ({
+    event: SyntheticFocusEvent<HTMLInputElement>,
+    value: string,
+  }) => void,
+  onSelect?: OptionObject => void,
   placeholder?: string,
+  searchField?: string,
   size?: 'md' | 'lg',
   value?: ?string,
-  searchField?: string,
-  onBlur?: () => void,
-  onChange?: ({
-    event: SyntheticEvent<HTMLInputElement>,
-    value: string,
-  }) => void => void,
-  onFocus?: () => void,
-  onSelect?: OptionObject => void,
   value?: string,
-  caret?: boolean,
-  defaultItem?: OptionObject,
-  noResultText?: string,
 |};
 
 const Typeahead = (props: Props) => {
