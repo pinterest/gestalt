@@ -6,25 +6,6 @@ import Box from './Box.js';
 import Text from './Text.js';
 import TapArea from './TapArea.js';
 
-type TextColors =
-  | 'green'
-  | 'pine'
-  | 'olive'
-  | 'blue'
-  | 'navy'
-  | 'midnight'
-  | 'purple'
-  | 'orchid'
-  | 'eggplant'
-  | 'maroon'
-  | 'watermelon'
-  | 'orange'
-  | 'darkGray'
-  | 'gray'
-  | 'lightGray'
-  | 'red'
-  | 'white';
-
 type OptionObject = {
   label: string,
   value: string,
@@ -34,9 +15,6 @@ type OptionProps = {|
   option: OptionObject,
   selected?: OptionObject | null,
   searchField: string,
-  hoverColor: string,
-  textColor: TextColors,
-  backgroundColor: string,
   handleSelect: OptionObject => void,
   // getOptionRef: (HTMLElement | null) => void,
 |};
@@ -46,11 +24,8 @@ const Option = ({
   selected,
   searchField,
   handleSelect,
-  hoverColor,
-  textColor,
-  // getOptionRef,
-  backgroundColor,
-}: OptionProps) => {
+}: // getOptionRef,
+OptionProps) => {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
@@ -82,11 +57,11 @@ const Option = ({
         <Box
           margin={1}
           padding={2}
-          color={isSelectedItem || hover ? hoverColor : backgroundColor}
+          color={isSelectedItem || hover ? 'lightGray' : 'white'}
           rounding={2}
         >
           {/* TODO: It'd be cool to render whatever here */}
-          <Text color={textColor}>{`${option[searchField]}`}</Text>
+          <Text color="darkGray">{`${option[searchField]}`}</Text>
         </Box>
       </TapArea>
     </Box>
@@ -94,26 +69,6 @@ const Option = ({
 };
 
 Option.displayName = 'Option';
-
-const TEXT_COLORS = [
-  'green',
-  'pine',
-  'olive',
-  'blue',
-  'navy',
-  'midnight',
-  'purple',
-  'orchid',
-  'eggplant',
-  'maroon',
-  'watermelon',
-  'orange',
-  'darkGray',
-  'gray',
-  'lightGray',
-  'red',
-  'white',
-];
 
 Option.propTypes = {
   option: PropTypes.exact({
@@ -125,9 +80,6 @@ Option.propTypes = {
     value: PropTypes.string.isRequired,
   }),
   searchField: PropTypes.string,
-  hoverColor: PropTypes.string,
-  textColor: PropTypes.oneOf(TEXT_COLORS),
-  backgroundColor: PropTypes.string,
   handleSelect: PropTypes.func,
 };
 
