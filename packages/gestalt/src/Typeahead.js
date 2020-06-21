@@ -14,7 +14,6 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  caret?: boolean,
   data: Array<{
     label: string,
     value: string,
@@ -253,7 +252,6 @@ Typeahead.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onSelect: PropTypes.func,
-  caret: PropTypes.bool,
   defaultItem: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
