@@ -92,7 +92,7 @@ const Typeahead = (props: Props) => {
 
   // Handle when input is in and out of focus
   const componentRef = useRef();
-  const [focused, setFocused] = useState<boolean>(false);
+  const [containerOpen, setContainerOpen] = useState<boolean>(false);
 
   // When the menu item opens, scroll to selected item
   // useEffect(() => {
@@ -115,7 +115,7 @@ const Typeahead = (props: Props) => {
 
     // Internally set focus status
     if (componentRef.current)
-      setFocused(componentRef.current.contains(document.activeElement));
+      setContainerOpen(componentRef.current.contains(document.activeElement));
 
     // Run focus callback
     if (onFocus) onFocus();
@@ -131,7 +131,7 @@ const Typeahead = (props: Props) => {
     // TODO: Is this the best way to hide the results on blur
     if (document.activeElement && componentRef.current) {
       setTimeout(() => {
-        setFocused(document.activeElement === componentRef.current);
+        setContainerOpen(document.activeElement === componentRef.current);
       }, 200);
     }
     // Run blur callback
@@ -140,6 +140,8 @@ const Typeahead = (props: Props) => {
 
   // Handler for when text is typed
   const handleChange = ({ syntheticEvent: event, value }) => {
+    if (containerOpen === false) setContainerOpen(true);
+
     // Filter the available options using original data
     const updatedOptions = filterOriginalData(value);
 
@@ -156,7 +158,7 @@ const Typeahead = (props: Props) => {
   const handleClear = () => {
     setSelected(null);
     setSearch('');
-    setFocused(false);
+    setContainerOpen(false);
     inputRef.current.focus();
   };
 
@@ -165,7 +167,8 @@ const Typeahead = (props: Props) => {
     setSelected(item);
 
     setSearch(item[searchField]);
-    setFocused(false);
+    setContainerOpen(false);
+    inputRef.current.focus();
     if (onSelect) onSelect(item);
   };
 
@@ -181,10 +184,11 @@ const Typeahead = (props: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClear={handleClear}
+        onClick={setContainerOpen}
         ref={inputRef}
       />
 
-      {focused && (
+      {containerOpen && (
         <Layer>
           <Flyout
             showCaret={false}
