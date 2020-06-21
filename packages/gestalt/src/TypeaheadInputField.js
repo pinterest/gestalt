@@ -12,16 +12,16 @@ import FormLabel from './FormLabel.js';
 
 type Props = {|
   id: string,
-  onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
+  onBlur?: ({ event: SyntheticFocusEvent<HTMLInputElement> }) => void,
   onChange: ({
     value: string,
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+    event: SyntheticInputEvent<HTMLInputElement>,
   }) => void,
   onClick: boolean => void,
   onClear: () => void,
   onFocus: ({
     value: string,
-    syntheticEvent: SyntheticEvent<HTMLInputElement>,
+    event: SyntheticFocusEvent<HTMLInputElement>,
   }) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
@@ -45,15 +45,15 @@ const InputField = ({
 }: Props) => {
   const [hovered, setHovered] = React.useState<boolean>(false);
 
-  const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+  const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({
       value: event.currentTarget.value,
-      syntheticEvent: event,
+      event,
     });
   };
 
-  const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
-    onChange({ value: '', syntheticEvent: event });
+  const handleClear = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    onChange({ value: '', event });
 
     if (onClear) onClear();
   };
@@ -61,16 +61,16 @@ const InputField = ({
 
   const handleMouseLeave = () => setHovered(false);
 
-  const handleFocus = (event: SyntheticEvent<HTMLInputElement>) => {
+  const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     if (onFocus) {
       onFocus({
         value: event.currentTarget.value,
-        syntheticEvent: event,
+        event,
       });
     }
   };
 
-  const handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
+  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     if (onBlur) {
       onBlur({ event });
     }

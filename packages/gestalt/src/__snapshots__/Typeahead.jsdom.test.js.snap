@@ -4,70 +4,68 @@ exports[`Typeahead renders Typeahead normal 1`] = `
 <div
   className="box"
 >
-  <span>
-     
-    <label
-      className="label"
-      htmlFor="Typeahead"
+  <label
+    className="label"
+    htmlFor="Typeahead"
+  >
+    <div
+      className="formLabel"
     >
       <div
-        className="formLabel"
+        className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
       >
-        <div
-          className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Typeahead
-        </div>
+        Typeahead Example
       </div>
-    </label>
-    <div
-      className="box itemsCenter relative xsDisplayFlex"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <input
-        aria-label="Typeahead Example"
-        className="input medium inputActive"
-        id="Typeahead"
-        onChange={[Function]}
-        placeholder="Select a Label"
-        type="text"
-        value=""
-      />
-      <button
-        className="icon"
-        disabled={true}
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
-      >
-        <div
-          className="box circle itemsCenter justifyCenter xsDisplayFlex"
-          style={
-            Object {
-              "height": 20,
-              "width": 20,
-            }
-          }
-        >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="icon darkGray iconBlock"
-            height={10}
-            role="img"
-            viewBox="0 0 24 24"
-            width={10}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
-      </button>
     </div>
-  </span>
+  </label>
+  <div
+    className="box itemsCenter relative xsDisplayFlex"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <input
+      aria-label="Typeahead Example"
+      autoComplete="off"
+      className="input medium inputActive"
+      id="Typeahead"
+      onChange={[Function]}
+      onClick={[Function]}
+      placeholder="Select a Label"
+      type="text"
+      value=""
+    />
+    <button
+      className="icon"
+      onClick={[Function]}
+      tabIndex={-1}
+      type="button"
+    >
+      <div
+        className="box circle itemsCenter justifyCenter xsDisplayFlex"
+        style={
+          Object {
+            "height": 20,
+            "width": 20,
+          }
+        }
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="typeahead clear button"
+          className="icon darkGray iconBlock"
+          height={10}
+          role="img"
+          viewBox="0 0 24 24"
+          width={10}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </div>
 </div>
 `;
