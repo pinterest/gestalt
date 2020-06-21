@@ -170,7 +170,6 @@ const Typeahead = (props: Props) => {
 
   return (
     <Box ref={componentRef}>
-      {/* INPUT FIELD */}
       <InputField
         label={label}
         id={id}
@@ -184,7 +183,6 @@ const Typeahead = (props: Props) => {
         ref={inputRef}
       />
 
-      {/* RESULTS CONTAINER */}
       {focused && (
         <Layer>
           <Flyout
@@ -198,12 +196,11 @@ const Typeahead = (props: Props) => {
             <Box
               // ref={getContainerRef}
               position="relative"
-              display="block"
               padding={1}
               marginTop={2}
               marginBottom={2}
               maxHeight="50vh"
-              width={`${inputRef?.current?.offsetWidth || 300 - 10}px`}
+              width={`${inputRef?.current?.offsetWidth}px`}
               overflow="auto"
               color="white"
             >
