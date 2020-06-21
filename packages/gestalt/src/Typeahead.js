@@ -157,6 +157,7 @@ const Typeahead = (props: Props) => {
     setSelected(null);
     setSearch('');
     setFocused(false);
+    inputRef.current.focus();
   };
 
   // Handler for when an item is clicked
