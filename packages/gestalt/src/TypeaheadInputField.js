@@ -4,7 +4,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
-import styles from './TypeaheadInputField.css';
+import styles from './SearchField.css';
+import iconStyle from './TypeaheadInputField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
@@ -110,7 +111,7 @@ const InputField = ({
         />
 
         <button
-          className={styles[hasValue ? 'clear' : 'icon']}
+          className={hasValue ? styles.clear : iconStyle.icon}
           onClick={!hasValue ? handleFocus : handleClear}
           tabIndex={-1}
           type="button"
