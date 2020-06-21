@@ -104,32 +104,36 @@ card(
     name="Example"
     defaultCode={`
       function Example(props) {
-        const [item, setItem] = React.useState('')
+        const [item, setItem] = React.useState('');
+        const [selected, setSelected] = React.useState(null);
 
-        const options = Array.from(Array(100).keys()).map(item => ({value: "value-" + item, label: "Label-" + item}))
+        const options = Array
+                          .from(Array(100).keys())
+                          .map(item => ({value: "value-" + item, label: "Label-" + item}))
 
         const handleOnChange = ({value}) => {
           setItem(value);
-
-          console.log("onchange", value)
-
         }
 
         const handleSelect = item => {
-          console.log("Selected Item:", item)
+          setSelected(item)
         }
 
         return (
-          <Typeahead
-            id="Typeahead-example"
-            data={options}
-            placeholder="Select a Label"
-            onChange={handleOnChange}
-            value={item}
-            onSelect={handleSelect}
-            onFocus={()=> console.log("FOCUSED")}
-            onBlur={()=> console.log("BLUR")}
-          />
+          <>
+            <Box marginBottom={2}><Text>Selected Item: {selected && selected.label || ""}</Text></Box>
+
+            <Typeahead
+              id="Typeahead-example"
+              data={options}
+              placeholder="Select a Label"
+              onChange={handleOnChange}
+              value={item}
+              onSelect={handleSelect}
+              onFocus={()=> console.log("FOCUSED")}
+              onBlur={()=> console.log("BLUR")}
+            />
+          </>
         );
       }
     `}
