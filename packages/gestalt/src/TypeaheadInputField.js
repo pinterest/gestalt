@@ -89,7 +89,6 @@ const InputField = ({
 
   return (
     <span>
-      {' '}
       {label && <FormLabel id={id} label={label} />}
       <Box
         alignItems="center"
@@ -111,11 +110,9 @@ const InputField = ({
           value={value}
         />
 
-        {/* INPUT ICON AND CLEAR BUTTON */}
         <button
-          disabled={!hasValue}
           className={styles[hasValue ? 'clear' : 'icon']}
-          onClick={handleClear}
+          onClick={!hasValue ? handleFocus : handleClear}
           tabIndex={-1}
           type="button"
         >
