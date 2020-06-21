@@ -18,10 +18,20 @@ card(
   <PropTable
     props={[
       {
-        name: 'noResultText',
-        type: 'string',
+        name: 'data',
+        type: 'Array<{ label: string }>',
+        description:
+          'The object can contain anything, the default display value will be label. Use searchField prop if you want to change the searchable field',
+        required: true,
         href: 'basicExample',
-        defaultValue: 'No Results',
+      },
+      {
+        name: 'defaultItem',
+        type: '{ label: string, value: string }',
+        description:
+          'The object can contain anything, the default display value will be label. Use searchField prop if you want to change the searchable field',
+        required: true,
+        href: 'basicExample',
       },
       {
         name: 'id',
@@ -34,16 +44,10 @@ card(
         type: 'string',
       },
       {
-        name: 'name',
+        name: 'noResultText',
         type: 'string',
         href: 'basicExample',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
-        description: 'Callback when user types into the control input field',
-        href: 'basicExample',
+        defaultValue: 'No Results',
       },
       {
         name: 'onBlur',
@@ -52,6 +56,15 @@ card(
         description: 'Callback when you focus outside the component ',
         href: 'basicExample',
       },
+
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        required: false,
+        description: 'Callback when user types into the control input field',
+        href: 'basicExample',
+      },
+
       {
         name: 'onFocus',
         type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
@@ -67,11 +80,8 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'data',
-        type: 'Array<{ label: string }>',
-        description:
-          'The object can contain anything, the default display value will be label. Use searchField prop if you want to change the searchable field',
-        required: true,
+        name: 'placeholder',
+        type: 'string',
         href: 'basicExample',
       },
       {
@@ -82,11 +92,7 @@ card(
         href: 'basicExample',
         defaultValue: 'label',
       },
-      {
-        name: 'placeholder',
-        type: 'string',
-        href: 'basicExample',
-      },
+
       {
         name: 'size',
         type: '"md" | "lg"',

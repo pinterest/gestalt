@@ -14,7 +14,6 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  accessibilityLabel: string,
   caret?: boolean,
   data: Array<{
     label: string,
@@ -22,6 +21,7 @@ type Props = {|
   }>,
   defaultItem?: OptionObject,
   id: string,
+  label: string,
   noResultText?: string,
   onBlur?: ({
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -39,26 +39,22 @@ type Props = {|
   placeholder?: string,
   searchField?: string,
   size?: 'md' | 'lg',
-  value?: ?string,
-  value?: string,
 |};
 
 const Typeahead = (props: Props) => {
   const {
-    accessibilityLabel = 'Demo Search Field',
+    data,
+    defaultItem = null,
     id,
+    label = '',
+    noResultText = 'No Results',
     onBlur,
     onChange,
     onFocus,
     onSelect,
-    value = '',
-    data,
     placeholder,
-    size,
     searchField = 'label',
-    defaultItem = null,
-    caret = false,
-    noResultText = 'No Results',
+    size,
   } = props;
 
   // Store original data
@@ -71,7 +67,7 @@ const Typeahead = (props: Props) => {
     );
 
   // Track input value
-  const [search, setSearch] = useState<string>(value);
+  const [search, setSearch] = useState<string>('');
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<OptionObject | null>(defaultItem);
@@ -145,7 +141,6 @@ const Typeahead = (props: Props) => {
 
   // Handler for when text is typed
   // This rule is stupid
-  // eslint-disable-next-line no-shadow
   const handleChange = ({ syntheticEvent: event, value }) => {
     // Filter the available options using original data
     const updatedOptions = filterOriginalData(value);
@@ -179,7 +174,7 @@ const Typeahead = (props: Props) => {
     <Box ref={componentRef}>
       {/* INPUT FIELD */}
       <InputField
-        accessibilityLabel={accessibilityLabel}
+        label={label}
         id={id}
         value={search}
         placeholder={placeholder}
@@ -195,7 +190,7 @@ const Typeahead = (props: Props) => {
       {focused && (
         <Layer>
           <Flyout
-            showCaret={caret}
+            showCaret
             anchor={inputRef.current}
             idealDirection="down"
             onDismiss={() => {}}
@@ -254,7 +249,6 @@ Typeahead.propTypes = {
   ),
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
-  value: PropTypes.string,
   searchField: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
