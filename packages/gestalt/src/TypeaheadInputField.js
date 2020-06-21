@@ -10,7 +10,6 @@ import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
 
 type Props = {|
-  accessibilityLabel: string,
   id: string,
   onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
   onChange: ({
@@ -30,7 +29,6 @@ type Props = {|
 |};
 
 const InputField = ({
-  accessibilityLabel,
   id,
   label = id,
   onBlur,
@@ -101,7 +99,7 @@ const InputField = ({
       >
         <input
           ref={forwardedRef}
-          aria-label={accessibilityLabel}
+          aria-label={label}
           className={className}
           id={id}
           onChange={handleChange}
@@ -126,7 +124,7 @@ const InputField = ({
             width={clearButtonSize}
           >
             <Icon
-              accessibilityLabel=""
+              accessibilityLabel="typeahead clear button"
               color="darkGray"
               icon={!hasValue ? 'arrow-down' : 'cancel'}
               size={clearIconSize}
@@ -141,7 +139,7 @@ const InputField = ({
 InputField.displayName = InputField;
 
 InputField.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onClear: PropTypes.func,
