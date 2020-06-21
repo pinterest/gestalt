@@ -17,8 +17,9 @@ type Props = {|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
-  onClear?: () => void,
-  onFocus?: ({
+  onClick: boolean => void,
+  onClear: () => void,
+  onFocus: ({
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   }) => void,
@@ -36,6 +37,7 @@ const InputField = ({
   onChange,
   onClear,
   onFocus,
+  onClick,
   placeholder,
   size = 'md',
   value,
@@ -104,6 +106,7 @@ const InputField = ({
           aria-label={label}
           className={className}
           id={id}
+          onClick={() => onClick(true)}
           onChange={handleChange}
           placeholder={placeholder}
           type="text"
