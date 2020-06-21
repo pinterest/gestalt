@@ -224,9 +224,6 @@ const Typeahead = (props: Props) => {
                     searchField={searchField}
                     selected={selected}
                     handleSelect={handleSelect}
-                    hoverColor="lightGray"
-                    textColor="darkGray"
-                    backgroundColor="white"
                     // getOptionRef={getOptionRef}
                   />
                 ))}
