@@ -205,6 +205,7 @@ const Typeahead = (props: Props) => {
                 {/* Return options */}
                 {options.map((option, index) => (
                   <Option
+                    index={index}
                     key={`${option[searchField] + index}`}
                     option={option}
                     searchField={searchField}

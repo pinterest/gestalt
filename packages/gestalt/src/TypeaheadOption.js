@@ -12,6 +12,7 @@ type OptionObject = {|
 |};
 
 type OptionProps = {|
+  index: number,
   option: OptionObject,
   selected?: OptionObject | null,
   searchField: string,
@@ -20,6 +21,7 @@ type OptionProps = {|
 |};
 
 const Option = ({
+  index,
   option,
   selected,
   searchField,
@@ -35,7 +37,6 @@ OptionProps) => {
   const handleOnTap = () => {
     if (handleSelect) handleSelect(option);
   };
-
   return (
     <TapArea
       // ref={ref => {
@@ -49,6 +50,7 @@ OptionProps) => {
       onMouseLeave={() => setHover(false)}
       role="option"
       aria-selected={isSelectedItem}
+      tabIndex={index}
     >
       <Box
         margin={1}
