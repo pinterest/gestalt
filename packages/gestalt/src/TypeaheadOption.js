@@ -37,33 +37,28 @@ OptionProps) => {
   };
 
   return (
-    <Box
+    <TapArea
       // ref={ref => {
       //   // Only send ref of selected item
       //   if (selected) getOptionRef(ref);
       // }}
-      width="100%"
-      display="flex"
+      key={option[searchField]}
+      onTap={handleOnTap}
+      rounding={2}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       role="option"
       aria-selected={isSelectedItem}
     >
-      <TapArea
-        key={option[searchField]}
-        onTap={handleOnTap}
+      <Box
+        margin={1}
+        padding={2}
+        color={isSelectedItem || hover ? 'lightGray' : 'white'}
         rounding={2}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
       >
-        <Box
-          margin={1}
-          padding={2}
-          color={isSelectedItem || hover ? 'lightGray' : 'white'}
-          rounding={2}
-        >
-          <Text color="darkGray">{`${option[searchField]}`}</Text>
-        </Box>
-      </TapArea>
-    </Box>
+        <Text color="darkGray">{`${option[searchField]}`}</Text>
+      </Box>
+    </TapArea>
   );
 };
 

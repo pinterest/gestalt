@@ -17,7 +17,7 @@ type Props = {|
     value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
   }) => void,
-  onClick: boolean => void,
+  setContainer: boolean => void,
   onClear: () => void,
   onFocus: ({
     value: string,
@@ -37,7 +37,7 @@ const InputField = ({
   onChange,
   onClear,
   onFocus,
-  onClick,
+  setContainer,
   placeholder,
   size = 'md',
   value,
@@ -76,6 +76,11 @@ const InputField = ({
     }
   };
 
+  const handleClick = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+    handleFocus(event);
+    setContainer(true);
+  };
+
   const hasValue = value && value?.length > 0;
 
   const className = classnames(styles.input, {
@@ -96,8 +101,6 @@ const InputField = ({
         display="flex"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         position="relative"
       >
         <input
@@ -106,7 +109,9 @@ const InputField = ({
           aria-label={label}
           className={className}
           id={id}
-          onClick={() => onClick(true)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onClick={() => setContainer(true)}
           onChange={handleChange}
           placeholder={placeholder}
           type="text"
@@ -115,7 +120,7 @@ const InputField = ({
 
         <button
           className={hasValue ? styles.clear : iconStyle.icon}
-          onClick={!hasValue ? handleFocus : handleClear}
+          onClick={!hasValue ? handleClick : handleClear}
           tabIndex={-1}
           type="button"
         >
