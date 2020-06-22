@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Box from './Box.js';
 import Text from './Text.js';
-import TapArea from './TapArea.js';
+import styles from './Touchable.css';
+import getRoundingClassName from './getRoundingClassName.js';
 
 type OptionObject = {|
   label: string,
@@ -37,14 +39,27 @@ OptionProps) => {
   const handleOnTap = () => {
     if (handleSelect) handleSelect(option);
   };
+
+  const className = classnames(styles.touchable, getRoundingClassName(2), {
+    [styles.fullWidth]: true,
+    [styles.pointer]: true,
+  });
+
   return (
-    <TapArea
+    <div
       // ref={ref => {
       //   // Only send ref of selected item
       //   if (selected) getOptionRef(ref);
       // }}
+      className={className}
       key={option[searchField]}
-      onTap={handleOnTap}
+      onClick={handleOnTap}
+      onMouseDown={event => {
+        event.preventDefault();
+      }}
+      onKeyPress={event => {
+        event.preventDefault();
+      }}
       rounding={2}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -60,7 +75,7 @@ OptionProps) => {
       >
         <Text color="darkGray">{`${option[searchField]}`}</Text>
       </Box>
-    </TapArea>
+    </div>
   );
 };
 

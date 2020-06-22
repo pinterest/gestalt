@@ -158,6 +158,36 @@ const Typeahead = (props: Props) => {
     if (onSelect) onSelect(item);
   };
 
+  const handleNav = (direction: number) => {
+    let selectedIndex;
+    let cursorIndex;
+    let newItem = options[0];
+    const optionsCount = options.length - 1;
+
+    // If there's an existing item, navigate from that position
+    if (selected) {
+      selectedIndex = options.findIndex(item => item.value === selected.value);
+      const newIndex = selectedIndex + direction;
+
+      // If we've reached the end, start at the top
+      if (newIndex > optionsCount) {
+        cursorIndex = 0;
+      }
+      // If we're at the top going backwards, start at the last item
+      else if (newIndex < 0) {
+        cursorIndex = optionsCount;
+      }
+      // Carry-on otherwise
+      else {
+        cursorIndex = newIndex;
+      }
+      newItem = options[cursorIndex];
+    }
+    setSelected(newItem);
+    setSearch(newItem[searchField]);
+    if (onSelect) onSelect(newItem);
+  };
+
   return (
     <Box ref={componentRef}>
       <InputField
@@ -170,6 +200,8 @@ const Typeahead = (props: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClear={handleClear}
+        onNav={handleNav}
+        onSelect={handleSelect}
         setContainer={setContainerOpen}
         ref={inputRef}
       />

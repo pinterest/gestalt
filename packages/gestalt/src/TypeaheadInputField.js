@@ -23,6 +23,7 @@ type Props = {|
     value: string,
     event: SyntheticFocusEvent<HTMLInputElement>,
   }) => void,
+  onNav: number => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
@@ -36,6 +37,7 @@ const InputField = ({
   onBlur,
   onChange,
   onClear,
+  onNav,
   onFocus,
   setContainer,
   placeholder,
@@ -81,6 +83,20 @@ const InputField = ({
     setContainer(true);
   };
 
+  const handleKeyNavigation = (
+    event: SyntheticKeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.keyCode === 38) {
+      // up arrow
+      onNav(-1);
+    } else if (event.keyCode === 40) {
+      // down arrow
+      onNav(1);
+    } else if (event.keyCode === 13) {
+      setContainer(false);
+    }
+  };
+
   const hasValue = value && value?.length > 0;
 
   const className = classnames(styles.input, {
@@ -117,6 +133,7 @@ const InputField = ({
           placeholder={placeholder}
           type="text"
           value={value}
+          onKeyDown={handleKeyNavigation}
         />
 
         <button
