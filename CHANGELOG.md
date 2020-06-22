@@ -1,3 +1,9 @@
+## 5.4.0 (Jun 22, 2020)
+
+### Minor
+
+- Internal: Enable flow types-first (#940)
+
 ## 5.3.0 (Jun 22, 2020)
 
 ### Minor
