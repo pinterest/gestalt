@@ -151,12 +151,15 @@ card(
     name="Default Item Example"
     defaultCode={`
       function Example(props) {
-        const [item, setItem] = React.useState('');
-        const [selected, setSelected] = React.useState(null);
-
         const options = Array
                           .from(Array(100).keys())
                           .map(item => ({value: "value-" + item, label: "Label-" + item}))
+
+        const defaultOption = options[3]
+        const [item, setItem] = React.useState(defaultOption.label);
+        const [selected, setSelected] = React.useState(defaultOption);
+
+
 
         const handleOnChange = ({value}) => {
           setItem(value);
@@ -174,7 +177,7 @@ card(
               id="Typeahead-example-defaultItem"
               noResultText="No Results"
               data={options}
-              defaultItem={options[3]}
+              defaultItem={defaultOption}
               placeholder="Select a Label"
               onChange={handleOnChange}
               value={item}

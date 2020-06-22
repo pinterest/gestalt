@@ -141,9 +141,9 @@ const Typeahead = (props: Props) => {
   };
 
   const handleClear = () => {
-    console.log('handleClear');
     setSelected(null);
     setSearch('');
+    if (onSelect) onSelect(null);
     setContainerOpen(false);
     if (inputRef.current) inputRef.current.focus();
   };
