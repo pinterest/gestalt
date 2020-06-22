@@ -122,7 +122,7 @@ function TapArea({
       }}
       onMouseDown={event => {
         event.preventDefault();
-        handleMouseDown(event);
+        handleMouseDown();
       }}
       onMouseUp={handleMouseUp}
       onKeyPress={event => {
