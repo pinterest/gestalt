@@ -94,6 +94,8 @@ function TapArea({
       className={className}
       onContextMenu={event => event.preventDefault()}
       onClick={event => {
+        console.log('handleOnClick');
+
         if (!disabled && onTap) {
           onTap({ event });
         }
