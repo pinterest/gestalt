@@ -120,10 +120,7 @@ function TapArea({
           onMouseLeave({ event });
         }
       }}
-      onMouseDown={event => {
-        event.preventDefault();
-        handleMouseDown();
-      }}
+      onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onKeyPress={event => {
         // Check to see if space or enter were pressed
