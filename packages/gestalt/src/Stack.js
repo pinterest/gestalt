@@ -47,7 +47,7 @@ export default function Stack({
   justifyContent = 'center',
   width,
   ...rest
-}: Props) {
+}: Props): React.Node {
   return (
     <Box
       height={height}

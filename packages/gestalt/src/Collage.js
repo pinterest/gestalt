@@ -155,7 +155,7 @@ type Props = {|
   width: number,
 |};
 
-export default function Collage(props: Props) {
+export default function Collage(props: Props): React.Node {
   const {
     columns,
     cover,

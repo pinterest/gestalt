@@ -52,7 +52,7 @@ export const concat = (styles: Array<Style>): Style =>
     identity()
   );
 
-export const mapClassName = (fn: (x: string) => string) => ({
+export const mapClassName = (fn: (x: string) => string): (Style => Style) => ({
   className,
   inlineStyle,
 }: Style): Style => ({

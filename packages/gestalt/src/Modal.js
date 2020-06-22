@@ -76,7 +76,7 @@ export default function Modal({
   heading,
   role = 'dialog',
   size = 'sm',
-}: Props) {
+}: Props): React.Node {
   const [showTopShadow, setShowTopShadow] = React.useState(false);
   const [showBottomShadow, setShowBottomShadow] = React.useState(false);
   const content = React.useRef<?HTMLDivElement>(null);

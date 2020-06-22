@@ -16,7 +16,7 @@ type Props = {|
   maxHeight?: number | string,
 |};
 
-export default function Table(props: Props) {
+export default function Table(props: Props): React.Node {
   const { borderSize, children, maxHeight } = props;
 
   return (

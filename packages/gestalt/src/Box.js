@@ -657,6 +657,7 @@ const omit = (keys, obj) =>
 const blacklistProps = ['onClick', 'className', 'style'];
 
 // $FlowFixMe[missing-annot]
+// $FlowFixMe[signature-verification-failure]
 const Box = React.forwardRef(
   ({ children, ...props }: PropType, ref: React.ElementRef<*>) => {
     // Flow can't reason about the constant nature of Object.keys so we can't use
@@ -712,7 +713,9 @@ And we're done here :)
 
 */
 
-export const AlignContentPropType = PropTypes.oneOf([
+export const AlignContentPropType: React$PropType$Primitive<
+  'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch'
+> = PropTypes.oneOf([
   'start',
   'end',
   'center',
@@ -722,22 +725,13 @@ export const AlignContentPropType = PropTypes.oneOf([
   'stretch',
 ]);
 
-export const AlignItemsPropType = PropTypes.oneOf([
-  'start',
-  'end',
-  'center',
-  'baseline',
-  'stretch',
-]);
+export const AlignItemsPropType: React$PropType$Primitive<
+  'start' | 'end' | 'center' | 'baseline' | 'stretch'
+> = PropTypes.oneOf(['start', 'end', 'center', 'baseline', 'stretch']);
 
-export const AlignSelfPropType = PropTypes.oneOf([
-  'auto',
-  'start',
-  'end',
-  'center',
-  'baseline',
-  'stretch',
-]);
+export const AlignSelfPropType: React$PropType$Primitive<
+  'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch'
+> = PropTypes.oneOf(['auto', 'start', 'end', 'center', 'baseline', 'stretch']);
 
 const ColumnPropType = PropTypes.oneOf([
   0,
@@ -755,12 +749,13 @@ const ColumnPropType = PropTypes.oneOf([
   12,
 ]);
 
-export const DimensionPropType = PropTypes.oneOfType([
-  PropTypes.number,
-  PropTypes.string,
-]);
+export const DimensionPropType: React$PropType$Primitive<
+  number | string
+> = PropTypes.oneOfType([PropTypes.number, PropTypes.string]);
 
-export const DirectionPropType = PropTypes.oneOf(['row', 'column']);
+export const DirectionPropType: React$PropType$Primitive<
+  'row' | 'column'
+> = PropTypes.oneOf(['row', 'column']);
 
 const DisplayPropType = PropTypes.oneOf([
   'none',
@@ -770,18 +765,42 @@ const DisplayPropType = PropTypes.oneOf([
   'visuallyHidden',
 ]);
 
-export const FlexPropType = PropTypes.oneOf(['grow', 'shrink', 'none']);
+export const FlexPropType: React$PropType$Primitive<
+  'grow' | 'shrink' | 'none'
+> = PropTypes.oneOf(['grow', 'shrink', 'none']);
 
-export const JustifyContentPropType = PropTypes.oneOf([
-  'start',
-  'end',
-  'center',
-  'between',
-  'around',
-  'evenly',
-]);
+export const JustifyContentPropType: React$PropType$Primitive<
+  'start' | 'end' | 'center' | 'between' | 'around' | 'evenly'
+> = PropTypes.oneOf(['start', 'end', 'center', 'between', 'around', 'evenly']);
 
-export const MarginPropType = PropTypes.oneOf([
+export const MarginPropType: React$PropType$Primitive<
+  | -12
+  | -11
+  | -10
+  | -9
+  | -8
+  | -7
+  | -6
+  | -5
+  | -4
+  | -3
+  | -2
+  | -1
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 'auto'
+> = PropTypes.oneOf([
   -12,
   -11,
   -10,
@@ -810,7 +829,9 @@ export const MarginPropType = PropTypes.oneOf([
   'auto',
 ]);
 
-export const OverflowPropType = PropTypes.oneOf([
+export const OverflowPropType: React$PropType$Primitive<
+  'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto'
+> = PropTypes.oneOf([
   'visible',
   'hidden',
   'scroll',
@@ -819,21 +840,9 @@ export const OverflowPropType = PropTypes.oneOf([
   'auto',
 ]);
 
-export const PaddingPropType = PropTypes.oneOf([
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-]);
+export const PaddingPropType: React$PropType$Primitive<
+  0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+> = PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
 
 const RoundingPropType = PropTypes.oneOf([
   0,

@@ -25,7 +25,7 @@ export default function Tabs({
     text: React.Node,
   |}>,
   wrap?: boolean,
-|}) {
+|}): React.Node {
   const handleTabClick = (i: number, e: SyntheticMouseEvent<>) =>
     onChange({ activeTabIndex: i, event: e });
 

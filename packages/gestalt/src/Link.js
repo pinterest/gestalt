@@ -36,7 +36,7 @@ function Link({
   hoverStyle = 'underline',
   tapStyle = 'none',
   target = null,
-}: Props) {
+}: Props): React.Node {
   const {
     isTapping,
     handleBlur,
@@ -97,14 +97,22 @@ function Link({
 
 const LinkPropTypes = {
   children: PropTypes.node,
-  hoverStyle: PropTypes.oneOf(['none', 'underline']),
+  hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
+    'none' | 'underline'
+  >),
   href: PropTypes.string.isRequired,
   inline: PropTypes.bool,
   onClick: PropTypes.func,
-  rel: PropTypes.oneOf(['none', 'nofollow']),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
+    'none' | 'nofollow'
+  >),
   rounding: RoundingPropType,
-  tapStyle: PropTypes.oneOf(['none', 'compress']),
-  target: PropTypes.oneOf([null, 'self', 'blank']),
+  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
+    'none' | 'compress'
+  >),
+  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
+    null | 'self' | 'blank'
+  >),
 };
 
 Link.propTypes = LinkPropTypes;

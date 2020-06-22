@@ -52,7 +52,7 @@ const defaultIconButtonIconColors = {
   white: 'gray',
 };
 
-export default function Pog(props: Props) {
+export default function Pog(props: Props): React.Node {
   const {
     active = false,
     bgColor = 'transparent',

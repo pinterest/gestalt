@@ -52,7 +52,7 @@ export default function Text({
   size = 'lg',
   truncate = false,
   weight = 'normal',
-}: Props) {
+}: Props): React.Node {
   const scale = SIZE_SCALE[size];
 
   const cs = cx(

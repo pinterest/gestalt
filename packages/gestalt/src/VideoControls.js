@@ -70,7 +70,11 @@ class VideoControls extends React.Component<Props> {
     volume: PropTypes.number.isRequired,
   };
 
-  handleFullscreenChange = ({
+  handleFullscreenChange: ({
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  }) => void = ({
     event,
   }: {
     event:
@@ -82,7 +86,11 @@ class VideoControls extends React.Component<Props> {
     onFullscreenChange();
   };
 
-  handlePlayingChange = ({
+  handlePlayingChange: ({
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  }) => void = ({
     event,
   }: {
     event:
@@ -97,7 +105,11 @@ class VideoControls extends React.Component<Props> {
     }
   };
 
-  handleVolumeChange = ({
+  handleVolumeChange: ({
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  }) => void = ({
     event,
   }: {
     event:
@@ -108,7 +120,7 @@ class VideoControls extends React.Component<Props> {
     onVolumeChange(event);
   };
 
-  render() {
+  render(): React.Node {
     const {
       accessibilityMaximizeLabel,
       accessibilityMinimizeLabel,

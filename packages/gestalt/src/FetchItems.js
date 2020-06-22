@@ -41,7 +41,7 @@ export default class FetchItems extends React.PureComponent<Props> {
     this.check();
   }
 
-  check = () => {
+  check: () => void = () => {
     const {
       containerHeight,
       isAtEnd,
@@ -61,7 +61,7 @@ export default class FetchItems extends React.PureComponent<Props> {
     }
   };
 
-  render() {
+  render(): null {
     return null;
   }
 }

@@ -16,7 +16,7 @@ type Props = {|
   wash?: boolean,
 |};
 
-export default function Mask(props: Props) {
+export default function Mask(props: Props): React.Node {
   const {
     children,
     rounding = 0,

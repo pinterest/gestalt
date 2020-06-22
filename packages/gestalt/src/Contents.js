@@ -96,7 +96,7 @@ export function getMainDir(
   idealDirection: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-) {
+): 'down' | 'left' | 'right' | 'up' {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
   let up = triggerRect.top - flyoutSize.height - CARET_HEIGHT;
@@ -150,7 +150,7 @@ export function getSubDir(
   mainDir: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-) {
+): SubDir {
   // Now that we have the main direction, chose from 3 caret placements for that direction
   let offset;
   let triggerMid;
@@ -190,7 +190,7 @@ export function calcEdgeShifts(
   subDir: SubDir,
   triggerRect: ClientRect,
   windowSize: Window
-) {
+): { caret: Shift, flyout: Shift } {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift =
     CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
@@ -240,7 +240,15 @@ export function adjustOffsets(
   mainDir: MainDir,
   subDir: SubDir,
   triggerRect: ClientRect
-) {
+): {
+  caretOffset: {
+    bottom: null | number,
+    left: null | number,
+    right: null | number,
+    top: null | number,
+  },
+  flyoutOffset: { left: number, top: number },
+} {
   let flyoutLeft = base.left;
   let flyoutTop = base.top;
 
@@ -298,7 +306,7 @@ export function baseOffsets(
   mainDir: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-) {
+): { left: number, top: number } {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT / 2 : 8;
   // TOP OFFSET
   let top;
@@ -359,12 +367,12 @@ export default class Contents extends React.Component<Props, State> {
     width: PropTypes.number,
   };
 
-  static defaultProps = {
+  static defaultProps: { border: boolean, caret: boolean } = {
     border: true,
     caret: true,
   };
 
-  state = {
+  state: State = {
     flyoutOffset: {
       top: undefined,
       left: undefined,
@@ -414,7 +422,16 @@ export default class Contents extends React.Component<Props, State> {
       width,
     }: Props,
     { flyoutRef }: State
-  ) {
+  ): {
+    caretOffset: {
+      bottom: null | number,
+      left: null | number,
+      right: null | number,
+      top: null | number,
+    },
+    flyoutOffset: { left: number, top: number },
+    mainDir: 'down' | 'left' | 'right' | 'up',
+  } {
     // Scroll not needed for relative elements
     // We can't use window.scrollX / window.scrollY since it's not supported by IE11
     const scrollX = positionRelativeToAnchor
@@ -485,13 +502,15 @@ export default class Contents extends React.Component<Props, State> {
   // derive the flyout location from it in getDerivedStateFromProps, and because
   // this method is static, it doesn't have access to the component instance.
   // Instead, we rely on React passing the state values into that method.
-  setFlyoutRef = (flyoutRef: ?HTMLElement) => {
+  setFlyoutRef: (flyoutRef: ?HTMLElement) => void = (
+    flyoutRef: ?HTMLElement
+  ) => {
     if (!this.state.flyoutRef) {
       this.setState({ flyoutRef });
     }
   };
 
-  render() {
+  render(): React.Node {
     const { bgColor, border, caret, children, rounding, width } = this.props;
     const { caretOffset, flyoutOffset, mainDir } = this.state;
 

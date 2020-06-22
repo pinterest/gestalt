@@ -168,4 +168,6 @@ function forwardRef(props, ref) {
 }
 forwardRef.displayName = 'TextField';
 
-export default React.forwardRef<Props, HTMLInputElement>(forwardRef);
+export default (React.forwardRef<Props, HTMLInputElement>(
+  forwardRef
+): React$AbstractComponent<Props, HTMLInputElement>);

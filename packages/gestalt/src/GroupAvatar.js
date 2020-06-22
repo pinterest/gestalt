@@ -168,7 +168,7 @@ const DefaultAvatar = (props: {|
   }
 };
 
-export default function GroupAvatar(props: Props) {
+export default function GroupAvatar(props: Props): React.Node {
   const { collaborators, outline, size = 'fit' } = props;
   const avatarWidth = size === 'fit' ? '100%' : AVATAR_SIZES[size];
   const avatarHeight = size === 'fit' ? '' : AVATAR_SIZES[size];

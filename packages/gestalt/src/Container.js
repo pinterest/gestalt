@@ -7,7 +7,7 @@ type Props = {|
   children?: React.Node,
 |};
 
-export default function Container(props: Props) {
+export default function Container(props: Props): React.Node {
   const { children } = props;
   return (
     <Box justifyContent="center" display="flex">
