@@ -6,8 +6,9 @@ import InputField from './TypeaheadInputField.js';
 describe('<InputField />', () => {
   const onClearMock = jest.fn();
   const onChangeMock = jest.fn();
-  const onClickMock = jest.fn();
+  const setContainerMock = jest.fn();
   const onFocusMock = jest.fn();
+  const onKeyNavigationMock = jest.fn();
   it('adds a "medium" classname by default', () => {
     const { container } = render(
       <InputField
@@ -15,8 +16,9 @@ describe('<InputField />', () => {
         id="InputField"
         onChange={onChangeMock}
         onClear={onClearMock}
-        onClick={onClickMock}
+        setContainer={setContainerMock}
         onFocus={onFocusMock}
+        onKeyNavigation={onKeyNavigationMock}
         placeholder="Search and explore"
         value="Search"
       />
@@ -31,8 +33,9 @@ describe('<InputField />', () => {
         id="InputField"
         onChange={onChangeMock}
         onClear={onClearMock}
-        onClick={onClickMock}
+        setContainer={setContainerMock}
         onFocus={onFocusMock}
+        onKeyNavigation={onKeyNavigationMock}
         placeholder="Search and explore"
         size="lg"
         value="Search"

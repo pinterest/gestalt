@@ -13,7 +13,7 @@ const FAKE_OPTIONS = Array.from(Array(TOTAL_OPTIONS).keys()).map(item => ({
 
 describe('Typeahead', () => {
   const onBlurMock = jest.fn();
-  const onFocusMock = jest.fn();
+  const onClickMock = jest.fn();
   const onChangeMock = jest.fn();
   const onSelectMock = jest.fn();
 
@@ -24,7 +24,7 @@ describe('Typeahead', () => {
       data={FAKE_OPTIONS}
       placeholder="Select a Label"
       onChange={onChangeMock}
-      onFocus={onFocusMock}
+      onClick={onClickMock}
       onBlur={onBlurMock}
       onSelect={onSelectMock}
       label="Typeahead Example"
@@ -40,16 +40,15 @@ describe('Typeahead', () => {
   it('shows menu with data on focus', () => {
     render(Component);
     const textField = screen.getByRole('textbox', { id: 'Typeahead' });
-    textField.focus();
+    fireEvent.click(textField);
     const resultsContainer = screen.getAllByText(/label/i);
     expect(resultsContainer.length).toBe(TOTAL_OPTIONS);
-    expect(onFocusMock).toHaveBeenCalled();
-    expect(onFocusMock.mock.calls.length).toBe(1);
   });
 
   it('clears menu on blur', () => {
     render(Component);
     const textField = screen.getByRole('textbox', { id: 'Typeahead' });
+    textField.click();
     textField.focus();
     const resultsContainer = screen.getAllByText(/label/i);
     expect(resultsContainer.length).toBe(TOTAL_OPTIONS);
@@ -65,7 +64,7 @@ describe('Typeahead', () => {
   it('filters menu on search', () => {
     render(Component);
     const textField = screen.getByRole('textbox', { id: 'Typeahead' });
-    textField.focus();
+    textField.click();
 
     fireEvent.change(textField, { target: { value: 'label-3' } });
 

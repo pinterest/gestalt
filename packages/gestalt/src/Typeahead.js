@@ -33,7 +33,7 @@ type Props = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   }) => void,
-  onSelect?: OptionObject => void,
+  onSelect?: (?OptionObject) => void,
   placeholder?: string,
   searchField?: string,
   size?: 'md' | 'lg',
@@ -158,10 +158,10 @@ const Typeahead = (props: Props) => {
     if (onSelect) onSelect(item);
   };
 
-  const handleNav = (direction: number) => {
+  const handleKeyNavigation = (direction: number) => {
     let selectedIndex;
     let cursorIndex;
-    let newItem = options[0];
+    let newItem: OptionObject = options[0];
     const optionsCount = options.length - 1;
 
     // If there's an existing item, navigate from that position
@@ -200,8 +200,7 @@ const Typeahead = (props: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClear={handleClear}
-        onNav={handleNav}
-        onSelect={handleSelect}
+        onKeyNavigation={handleKeyNavigation}
         setContainer={setContainerOpen}
         ref={inputRef}
       />

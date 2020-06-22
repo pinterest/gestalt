@@ -23,7 +23,7 @@ type Props = {|
     value: string,
     event: SyntheticFocusEvent<HTMLInputElement>,
   }) => void,
-  onNav: number => void,
+  onKeyNavigation: number => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
@@ -37,7 +37,7 @@ const InputField = ({
   onBlur,
   onChange,
   onClear,
-  onNav,
+  onKeyNavigation,
   onFocus,
   setContainer,
   placeholder,
@@ -88,10 +88,10 @@ const InputField = ({
   ) => {
     if (event.keyCode === 38) {
       // up arrow
-      onNav(-1);
+      onKeyNavigation(-1);
     } else if (event.keyCode === 40) {
       // down arrow
-      onNav(1);
+      onKeyNavigation(1);
     } else if (event.keyCode === 13) {
       setContainer(false);
     }

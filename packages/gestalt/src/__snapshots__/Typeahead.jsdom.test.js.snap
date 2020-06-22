@@ -20,18 +20,19 @@ exports[`Typeahead renders Typeahead normal 1`] = `
   </label>
   <div
     className="box itemsCenter relative xsDisplayFlex"
-    onBlur={[Function]}
-    onFocus={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
     <input
       aria-label="Typeahead Example"
       autoComplete="off"
-      className="input medium inputActive"
+      className="input medium inputActive inputRadius"
       id="Typeahead"
+      onBlur={[Function]}
       onChange={[Function]}
       onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
       placeholder="Select a Label"
       type="text"
       value=""
