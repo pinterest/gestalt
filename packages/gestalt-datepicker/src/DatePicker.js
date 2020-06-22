@@ -22,10 +22,10 @@ type Props = {|
   maxDate?: Date,
   minDate?: Date,
   nextRef?: React.ElementRef<*>,
-  onChange: ({
+  onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: Date,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   rangeEndDate?: Date,
   rangeSelector?: 'start' | 'end',
