@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
-import iconStyle from './TypeaheadInputField.css';
+import typeaheadStyle from './TypeaheadInputField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
@@ -88,6 +88,7 @@ const InputField = ({
     [layout.large]: size === 'lg',
     [styles.inputActive]: true,
     [styles.inputHovered]: hovered,
+    [typeaheadStyle.inputRadius]: true,
   });
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
@@ -119,7 +120,7 @@ const InputField = ({
         />
 
         <button
-          className={hasValue ? styles.clear : iconStyle.icon}
+          className={hasValue ? styles.clear : typeaheadStyle.icon}
           onClick={!hasValue ? handleClick : handleClear}
           tabIndex={-1}
           type="button"

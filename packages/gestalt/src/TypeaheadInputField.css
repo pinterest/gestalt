@@ -12,3 +12,7 @@
   top: 50%;
   transform: translateY(-50%);
 }
+
+.inputRadius {
+  border-radius: 16px;
+}
