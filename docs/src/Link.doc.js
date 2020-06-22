@@ -153,18 +153,17 @@ function AdvancedExample() {
 
   return (
     <Box>
-      <Row gap={2} padding={1}>
-        <Box paddingX={2}>
-          <Label htmlFor="preventDefault">
-            <Text>Prevent default on tap</Text>
-          </Label>
-        </Box>
+      <Row gap={2} padding={2}>
+        <Label htmlFor="preventDefault">
+          <Text>Prevent default on tap</Text>
+        </Label>
         <Switch
           id="preventDefault"
           onChange={() => setPreventDefault(!preventDefault)}
           switched={preventDefault}
         />
       </Row>
+      <Divider />
       <Box padding={2}>
         <Link href="https://pinterest.com" onClick={onClick}>
           <Text>Link with default options</Text>
