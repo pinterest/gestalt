@@ -1,3 +1,9 @@
+## 5.2.4 (Jun 22, 2020)
+
+### Patch
+
+- DatePicker: Fix onChange flowtype (#939)
+
 ## 5.2.3 (Jun 19, 2020)
 
 ### Patch
