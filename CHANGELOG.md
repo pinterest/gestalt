@@ -1,3 +1,9 @@
+## 5.3.0 (Jun 22, 2020)
+
+### Minor
+
+- Link: add TapArea-like feedback (#933)
+
 ## 5.2.5 (Jun 22, 2020)
 
 ### Patch
