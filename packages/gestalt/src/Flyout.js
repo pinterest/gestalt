@@ -15,7 +15,7 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number,
 |};
 
-export default function Flyout(props: Props) {
+export default function Flyout(props: Props): null | React.Node {
   const {
     anchor,
     children,

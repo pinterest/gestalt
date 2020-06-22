@@ -64,47 +64,61 @@ export default class TextArea extends React.Component<Props, State> {
     value: PropTypes.string,
   };
 
-  static defaultProps = {
+  static defaultProps: {
+    disabled: boolean,
+    hasError: boolean,
+    rows: number,
+  } = {
     disabled: false,
     hasError: false,
     rows: 3,
   };
 
-  state = {
+  state: State = {
     focused: false,
   };
 
-  setTextAreaRef = (ref: ?HTMLTextAreaElement) => {
+  setTextAreaRef: (ref: ?HTMLTextAreaElement) => void = (
+    ref: ?HTMLTextAreaElement
+  ) => {
     this.textarea = ref;
   };
 
-  handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {
+  handleChange: (
+    event: SyntheticInputEvent<HTMLTextAreaElement>
+  ) => void = event => {
     const { onChange } = this.props;
     onChange({ event, value: event.currentTarget.value });
   };
 
-  handleBlur = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
+  handleBlur: (
+    event: SyntheticFocusEvent<HTMLTextAreaElement>
+  ) => void = event => {
     const { onBlur } = this.props;
     if (onBlur) {
       onBlur({ event, value: event.currentTarget.value });
     }
   };
 
-  handleFocus = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
+  handleFocus: (
+    event: SyntheticFocusEvent<HTMLTextAreaElement>
+  ) => void = event => {
     const { onFocus } = this.props;
     if (onFocus) {
       onFocus({ event, value: event.currentTarget.value });
     }
   };
 
-  handleKeyDown = (event: SyntheticKeyboardEvent<HTMLTextAreaElement>) => {
+  handleKeyDown: (
+    event: SyntheticKeyboardEvent<HTMLTextAreaElement>
+  ) => void = event => {
     const { onKeyDown } = this.props;
     if (onKeyDown) {
       onKeyDown({ event, value: event.currentTarget.value });
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       disabled,
       errorMessage,

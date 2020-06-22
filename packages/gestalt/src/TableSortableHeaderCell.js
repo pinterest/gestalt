@@ -19,7 +19,7 @@ type Props = {|
   status: 'active' | 'inactive',
 |};
 
-export default function TableSortableHeaderCell(props: Props) {
+export default function TableSortableHeaderCell(props: Props): React.Node {
   const {
     children,
     colSpan,

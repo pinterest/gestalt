@@ -189,7 +189,9 @@ function datePickerForwardRef(props, ref) {
 
 datePickerForwardRef.displayName = 'DatePickerForwardRef';
 
-export default React.forwardRef<Props, HTMLInputElement>(datePickerForwardRef);
+export default (React.forwardRef<Props, HTMLInputElement>(
+  datePickerForwardRef
+): React$AbstractComponent<Props, HTMLInputElement>);
 
 DatePicker.propTypes = {
   disabled: PropTypes.bool,

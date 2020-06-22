@@ -24,7 +24,7 @@ type Props = {|
   ...Threshold,
 |};
 
-export default function Sticky(props: Props) {
+export default function Sticky(props: Props): React.Node {
   const { dangerouslySetZIndex = { __zIndex: 1 }, children } = props;
   const style = {
     top: props.top != null ? props.top : undefined,

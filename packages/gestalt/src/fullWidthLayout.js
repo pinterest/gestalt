@@ -25,9 +25,21 @@ export default <T>({
   minCols?: number,
   idealColumnWidth?: number,
   width?: ?number,
-|}) => {
+|}):
+  | ((items: Array<string>) => Array<Position>)
+  | ((
+      items: Array<T>
+    ) => Array<
+      | { height: number, left: number, top: number, width: number }
+      | {
+          height: number,
+          left: number,
+          top: number,
+          width: number,
+        }
+    >) => {
   if (width == null) {
-    return (items: Array<mixed>): Array<Position> =>
+    return (items: Array<string>): Array<Position> =>
       items.map(() => ({
         top: Infinity,
         left: Infinity,

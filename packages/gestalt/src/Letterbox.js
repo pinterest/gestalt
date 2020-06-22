@@ -26,7 +26,7 @@ export default function Letterbox({
   contentAspectRatio,
   height,
   width,
-}: Props) {
+}: Props): React.Node {
   const viewportAspectRatio = aspectRatio(width, height);
 
   let contentHeight;

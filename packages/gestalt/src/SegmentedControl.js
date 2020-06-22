@@ -15,7 +15,7 @@ type Props = {|
   size?: 'md' | 'lg',
 |};
 
-export default function SegmentedControl(props: Props) {
+export default function SegmentedControl(props: Props): React.Node {
   const { items, onChange, responsive, selectedItemIndex, size = 'md' } = props;
   const buttonWidth = responsive
     ? undefined

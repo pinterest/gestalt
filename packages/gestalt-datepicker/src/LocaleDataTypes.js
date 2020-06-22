@@ -35,8 +35,8 @@ export type LocaleData = {
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   },
 };
-// flowlint unclear-type:error
 
+// $FlowFixMe[signature-verification-failure]
 export const LocaleDataPropTypes = PropTypes.shape({
   code: PropTypes.string,
   formatDistance: PropTypes.func,

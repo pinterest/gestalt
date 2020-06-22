@@ -1,5 +1,4 @@
 // @flow strict
-
 import React, { type Node } from 'react';
 import useDebouncedCallback from './useDebouncedCallback.js';
 import Controller from './Controller.js';
@@ -57,7 +56,7 @@ export default function Tooltip({
   idealDirection = 'down',
   inline,
   text,
-}: Props) {
+}: Props): Node {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { isOpen } = state;
 

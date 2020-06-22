@@ -28,6 +28,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
   /**
    * Fetches additional items if needed.
    */
+  // $FlowFixMe[signature-verification-failure]
   updatePosition = throttle(() => {
     this.setState(this.getScrollState());
   });
@@ -46,11 +47,11 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     fetchMore: PropTypes.func,
   };
 
-  static defaultProps = {
+  static defaultProps: { container?: HTMLElement } = {
     container: typeof window !== 'undefined' ? window : undefined,
   };
 
-  state = {
+  state: State = {
     containerHeight: 0,
     scrollHeight: 0,
     scrollTop: 0,
@@ -83,7 +84,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
   /**
    * Returns the scrollable content height.
    */
-  getScrollHeight = () => {
+  getScrollHeight: () => number = () => {
     const { container } = this.props;
     if (!container) {
       return 0;
@@ -91,7 +92,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     return getScrollHeight(container);
   };
 
-  getScrollState() {
+  getScrollState(): null | { scrollHeight: number, scrollTop: number } {
     const { container, renderHeight } = this.props;
     if (!container) {
       return null;
@@ -104,7 +105,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     };
   }
 
-  render() {
+  render(): null | React.Node {
     const { containerHeight, scrollHeight, scrollTop } = this.state;
     const { container, fetchMore, isAtEnd, isFetching } = this.props;
 

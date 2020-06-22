@@ -54,21 +54,28 @@ export default class SelectList extends React.Component<Props, State> {
     value: PropTypes.string,
   };
 
-  static defaultProps = {
+  static defaultProps: {
+    disabled: boolean,
+    options: Array<{
+      label: string,
+      value: string,
+    }>,
+    size?: 'md' | 'lg',
+  } = {
     disabled: false,
     size: 'md',
     options: [],
   };
 
-  state = {
+  state: State = {
     focused: false,
   };
 
-  setSelectListRef = (ref: ?HTMLSelectElement) => {
+  setSelectListRef: (ref: ?HTMLSelectElement) => void = ref => {
     this.select = ref;
   };
 
-  handleOnChange = (event: SyntheticInputEvent<>) => {
+  handleOnChange: (event: SyntheticInputEvent<>) => void = event => {
     const { onChange, value } = this.props;
     if (
       event.target instanceof HTMLSelectElement &&
@@ -78,7 +85,7 @@ export default class SelectList extends React.Component<Props, State> {
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       disabled,
       errorMessage,

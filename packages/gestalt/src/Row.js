@@ -47,7 +47,7 @@ export default function Row({
   justifyContent = 'start',
   width,
   ...rest
-}: Props) {
+}: Props): React.Node {
   return (
     <Box
       height={height}

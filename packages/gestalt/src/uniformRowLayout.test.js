@@ -25,7 +25,7 @@ test('empty', () => {
     cache: stubCache(),
     width: 500,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
+
   expect(layout([])).toEqual([]);
 });
 
@@ -39,7 +39,6 @@ test('one row, equal heights', () => {
     width: 500,
   });
 
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
   expect(layout(['a', 'b', 'c'])).toEqual([
     { top: 0, left: 0, width: 236, height: 100 },
     { top: 0, left: 250, width: 236, height: 100 },
@@ -57,7 +56,7 @@ test('one column, equal heights', () => {
     width: 250,
     minCols: 1,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
+
   expect(layout(['a', 'b', 'c'])).toEqual([
     { top: 0, left: 0, width: 236, height: 100 },
     { top: 114, left: 0, width: 236, height: 100 },
@@ -74,7 +73,7 @@ test('one row, unequal heights', () => {
     }),
     width: 500,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
+
   expect(layout(['a', 'b', 'c'])).toEqual([
     { top: 0, left: 0, width: 236, height: 100 },
     { top: 0, left: 250, width: 236, height: 120 },
@@ -92,7 +91,7 @@ test('multiple rows, unequal heights', () => {
     }),
     width: 750,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
+
   expect(layout(['a', 'b', 'c', 'd'])).toEqual([
     { top: 0, left: 0, width: 236, height: 100 },
     { top: 0, left: 250, width: 236, height: 120 },

@@ -19,7 +19,7 @@ export default function Toast({
   text,
   thumbnail,
   thumbnailShape = 'square',
-}: Props) {
+}: Props): React.Node {
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
       <Box color={color} fit padding={6} rounding="pill">

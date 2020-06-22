@@ -12,7 +12,7 @@ export default function FormLabel({
 }: {|
   id: string,
   label: string,
-|}) {
+|}): React.Node {
   return (
     <Label htmlFor={id}>
       <div className={styles.formLabel}>
