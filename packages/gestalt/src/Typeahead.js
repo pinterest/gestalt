@@ -106,33 +106,19 @@ const Typeahead = (props: Props) => {
   // }, [focused, selectedOptionRef]);
 
   const handleFocus = ({ event, value }) => {
-    const activeElement = document?.activeElement?.tagName?.toLowerCase();
-    const isButtonClick = activeElement === 'button';
-
-    // Prevent focus actions when clear button is clicked
-    if (isButtonClick) return;
-
-    // Internally set focus status
-    if (componentRef.current)
-      setContainerOpen(componentRef.current.contains(document.activeElement));
-
     // Run focus callback
     if (onFocus) onFocus({ event, value });
   };
 
   const handleBlur = ({ event }) => {
-    // Clear input and reset options
+    // Clear input and reset options when no results
     if (options.length === 0) {
       setSearch('');
       setOptions(dataRef.current);
     }
 
-    // TODO: Is this the best way to hide the results on blur
-    if (document.activeElement && componentRef.current) {
-      setTimeout(() => {
-        setContainerOpen(document.activeElement === componentRef.current);
-      }, 100);
-    }
+    setContainerOpen(false);
+
     // Run blur callback
     if (onBlur) onBlur({ event });
   };
@@ -155,6 +141,7 @@ const Typeahead = (props: Props) => {
   };
 
   const handleClear = () => {
+    console.log('handleClear');
     setSelected(null);
     setSearch('');
     setContainerOpen(false);
@@ -183,7 +170,7 @@ const Typeahead = (props: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClear={handleClear}
-        onClick={setContainerOpen}
+        setContainer={setContainerOpen}
         ref={inputRef}
       />
 
