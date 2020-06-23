@@ -3,4 +3,5 @@
 declare module.exports: {|
   +'icon': string,
   +'inputRadius': string,
+  +'typeaheadOptionFocus': string,
 |};

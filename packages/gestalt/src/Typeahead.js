@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { useState, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
-import InputField from './TypeaheadInputField.js';
+import TypeaheadInputField from './TypeaheadInputField.js';
 import Option from './TypeaheadOption.js';
 import Box from './Box.js';
 import Text from './Text.js';
@@ -199,7 +199,7 @@ const Typeahead = (props: Props): Node => {
 
   return (
     <Box ref={forwardedRef}>
-      <InputField
+      <TypeaheadInputField
         label={label}
         id={id}
         value={search}
