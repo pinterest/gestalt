@@ -86,7 +86,7 @@ const sizes = {
   xl: 120,
 };
 
-export default function Avatar(props: Props) {
+export default function Avatar(props: Props): React.Node {
   const [isImageLoaded, setIsImageLoaded] = React.useState(true);
   const {
     name,

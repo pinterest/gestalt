@@ -10,7 +10,7 @@ type Props = {|
   text: string,
 |};
 
-export default function Badge(props: Props) {
+export default function Badge(props: Props): React.Node {
   const { position = 'middle', text } = props;
 
   const cs = cx(styles.Badge, styles[position], colors.blueBg);

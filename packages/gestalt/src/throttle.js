@@ -8,6 +8,7 @@
 export default function throttle(
   fn: (...args: *) => void,
   threshhold: number = 100
+  // $FlowFixMe[signature-verification-failure]
 ) {
   let last: number | void;
   let deferTimer: TimeoutID | void;

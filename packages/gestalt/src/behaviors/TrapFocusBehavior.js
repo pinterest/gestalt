@@ -50,13 +50,13 @@ export default class TrapFocusBehavior extends React.Component<Props> {
     }
   }
 
-  setElRef = (el: ?HTMLDivElement) => {
+  setElRef: (el: ?HTMLDivElement) => void = (el: ?HTMLDivElement) => {
     if (el) {
       this.el = el;
     }
   };
 
-  handleFocus = (event: FocusEvent) => {
+  handleFocus: (event: FocusEvent) => void = (event: FocusEvent) => {
     if (
       !this.el ||
       (event.target instanceof Node && this.el.contains(event.target))
@@ -76,7 +76,7 @@ export default class TrapFocusBehavior extends React.Component<Props> {
     }
   }
 
-  render() {
+  render(): React.Node {
     return <div ref={this.setElRef}>{this.props.children}</div>;
   }
 }

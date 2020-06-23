@@ -40,7 +40,7 @@ export default function Checkbox({
   onChange,
   onClick,
   size = 'md',
-}: Props) {
+}: Props): React.Node {
   const inputElement = React.useRef<?HTMLInputElement>(null);
   const [focused, setFocused] = React.useState(false);
   const [hovered, setHover] = React.useState(false);

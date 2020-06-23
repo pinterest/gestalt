@@ -9,7 +9,7 @@ export function getElementHeight(element: HTMLElement): number {
   return element === window ? window.innerHeight : element.clientHeight;
 }
 
-export function getWindowScrollPos() {
+export function getWindowScrollPos(): number {
   if (window.scrollY !== undefined) {
     // Modern browser
     return window.scrollY;

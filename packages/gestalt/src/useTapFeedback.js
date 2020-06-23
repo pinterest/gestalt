@@ -14,9 +14,18 @@ type TapTargetHTMLElement = HTMLDivElement;
 
 export const keyPressShouldTriggerTap = (
   event: SyntheticKeyboardEvent<TapTargetHTMLElement>
-) => [SPACE_CHAR_CODE, ENTER_CHAR_CODE].includes(event.charCode);
+): boolean => [SPACE_CHAR_CODE, ENTER_CHAR_CODE].includes(event.charCode);
 
-export default function useTapFeedback() {
+export default function useTapFeedback(): {
+  handleBlur: () => void,
+  handleMouseDown: () => void,
+  handleMouseUp: () => void,
+  handleTouchCancel: () => void,
+  handleTouchEnd: () => void,
+  handleTouchMove: (SyntheticTouchEvent<TapTargetHTMLElement>) => void,
+  handleTouchStart: (SyntheticTouchEvent<TapTargetHTMLElement>) => void,
+  isTapping: boolean,
+} {
   const [isTapping, setTapping] = React.useState<boolean>(false);
   const [coordinate, setCoordinate] = React.useState<Coordinate>({
     x: 0,

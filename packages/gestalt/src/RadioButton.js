@@ -39,32 +39,38 @@ export default class RadioButton extends React.Component<Props, State> {
     size: PropTypes.oneOf(['sm', 'md']),
   };
 
-  static defaultProps = {
+  static defaultProps: {
+    checked: boolean,
+    disabled: boolean,
+    size?: 'sm' | 'md',
+  } = {
     checked: false,
     disabled: false,
     size: 'md',
   };
 
-  state = {
+  state: State = {
     focused: false,
     hovered: false,
   };
 
-  handleChange = (event: SyntheticInputEvent<>) => {
+  handleChange: (event: SyntheticInputEvent<>) => void = (
+    event: SyntheticInputEvent<>
+  ) => {
     const { onChange } = this.props;
     const { checked } = event.target;
     onChange({ checked, event });
   };
 
-  handleBlur = () => this.setState({ focused: false });
+  handleBlur: () => void = () => this.setState({ focused: false });
 
-  handleFocus = () => this.setState({ focused: true });
+  handleFocus: () => void = () => this.setState({ focused: true });
 
-  handleHover = (hovered: boolean) => {
+  handleHover: (hovered: boolean) => void = (hovered: boolean) => {
     this.setState({ hovered });
   };
 
-  render() {
+  render(): React.Node {
     const { checked, disabled, id, label, name, size, value } = this.props;
     const { focused, hovered } = this.state;
 

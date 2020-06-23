@@ -1,3 +1,27 @@
+## 5.4.0 (Jun 22, 2020)
+
+### Minor
+
+- Internal: Enable flow types-first (#940)
+
+## 5.3.0 (Jun 22, 2020)
+
+### Minor
+
+- Link: add TapArea-like feedback (#933)
+
+## 5.2.5 (Jun 22, 2020)
+
+### Patch
+
+- DatePicker: Fix "locale object was not found for the provided string" warning (#941)
+
+## 5.2.4 (Jun 22, 2020)
+
+### Patch
+
+- DatePicker: Fix onChange flowtype (#939)
+
 ## 5.2.3 (Jun 19, 2020)
 
 ### Patch
