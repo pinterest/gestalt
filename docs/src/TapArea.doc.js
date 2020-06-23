@@ -224,18 +224,15 @@ function AccessibilityExamplePopup() {
           rounding="pill"
         >
           <Box
-            alignItems="center"
             borderSize="sm"
-            display="flex"
-            padding={2}
+            paddingY={2}
+            paddingX={3}
             rounding="pill"
           >
-            <Box paddingX={1}>
+            <Row gap={1}>
               <Text weight="bold">See more</Text>
-            </Box>
-            <Box paddingX={1}>
               <Icon accessibilityLabel="" color="darkGray" icon="ellipsis" />
-            </Box>
+            </Row>
           </Box>
         </TapArea>
       </Box>
