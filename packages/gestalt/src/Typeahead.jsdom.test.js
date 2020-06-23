@@ -13,7 +13,6 @@ const FAKE_OPTIONS = Array.from(Array(TOTAL_OPTIONS).keys()).map(item => ({
 
 describe('Typeahead', () => {
   const onBlurMock = jest.fn();
-  const onClickMock = jest.fn();
   const onChangeMock = jest.fn();
   const onSelectMock = jest.fn();
 
@@ -24,7 +23,6 @@ describe('Typeahead', () => {
       data={FAKE_OPTIONS}
       placeholder="Select a Label"
       onChange={onChangeMock}
-      onClick={onClickMock}
       onBlur={onBlurMock}
       onSelect={onSelectMock}
       label="Typeahead Example"

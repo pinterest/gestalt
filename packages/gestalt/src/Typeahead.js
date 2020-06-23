@@ -39,6 +39,10 @@ type Props = {|
   size?: 'md' | 'lg',
 |};
 
+type ElementOverride = Element & {
+  offsetHeight: number,
+};
+
 const Typeahead = (props: Props) => {
   const {
     data,
@@ -77,33 +81,9 @@ const Typeahead = (props: Props) => {
   // Ref to the input
   const inputRef = useRef();
 
-  // Reference to selected option
-  // let selectedOptionRef;
-  // const getOptionRef = ref => {
-  //   selectedOptionRef = ref;
-  // };
-
-  // Option Container ref
-  // let containerRef;
-  // const getContainerRef = ref => {
-  //   containerRef = ref;
-  // };
-
   // Handle when input is in and out of focus
   const componentRef = useRef();
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
-
-  // When the menu item opens, scroll to selected item
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     // TODO: Fix scrolling calcultation
-  //     // if (selected !== null && containerRef && selectedOptionRef)
-  //     // eslint-disable-next-line no-use-before-define
-  //     // scrollIntoView(containerRef, selectedOptionRef);
-  //   }, 100);
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [focused, selectedOptionRef]);
 
   const handleFocus = ({ event, value }) => {
     // Run focus callback
@@ -158,6 +138,32 @@ const Typeahead = (props: Props) => {
     if (onSelect) onSelect(item);
   };
 
+  const handleScrolling = item => {
+    const selectedNode = [
+      ...document.querySelectorAll('div.typeahead-option'),
+    ].find(i => {
+      if (i.innerText && item.label) {
+        return i.innerText.toLowerCase() === item.label.toLowerCase();
+      }
+      return false;
+    });
+
+    const container = selectedNode?.parentElement?.parentElement;
+
+    if (!container || !selectedNode) return;
+
+    const containerHeight: number = container.getClientRects()[0].height;
+    const overScroll = selectedNode.offsetHeight / 3;
+
+    const scrollPos =
+      selectedNode.offsetTop +
+      selectedNode.clientHeight -
+      containerHeight +
+      overScroll;
+
+    container.scrollTop = scrollPos;
+  };
+
   const handleKeyNavigation = (direction: number) => {
     let selectedIndex;
     let cursorIndex;
@@ -185,6 +191,10 @@ const Typeahead = (props: Props) => {
     }
     setSelected(newItem);
     setSearch(newItem[searchField]);
+
+    // Scrolling
+    handleScrolling(newItem);
+
     if (onSelect) onSelect(newItem);
   };
 
@@ -216,7 +226,6 @@ const Typeahead = (props: Props) => {
             size="flexible"
           >
             <Box
-              // ref={getContainerRef}
               position="relative"
               padding={1}
               marginTop={2}
@@ -226,7 +235,12 @@ const Typeahead = (props: Props) => {
               overflow="auto"
               color="white"
             >
-              <Box alignItems="center" direction="column" display="flex">
+              <Box
+                alignItems="center"
+                direction="column"
+                display="flex"
+                position="relative"
+              >
                 {/* Handle when no results */}
                 {options.length === 0 && (
                   <Box margin={2}>
@@ -279,32 +293,3 @@ Typeahead.propTypes = {
 };
 
 export default Typeahead;
-
-// ------------------------------
-// Scroll Into View
-// https://github.com/JedWatson/react-select/blob/master/packages/react-select/src/utils.js
-// // ------------------------------
-
-// export function scrollIntoView(
-//   menuEl: HTMLElement,
-//   focusedEl: HTMLElement
-// ): void {
-//   const menuRect = menuEl.getBoundingClientRect();
-//   const focusedRect = focusedEl.getBoundingClientRect();
-//   const overScroll = focusedEl.offsetHeight / 3;
-
-//   if (focusedRect.bottom + overScroll > menuRect.bottom) {
-//     menuEl.scrollTo(
-//       0,
-//       Math.min(
-//         focusedEl.offsetTop +
-//           focusedEl.clientHeight -
-//           menuEl.offsetHeight +
-//           overScroll,
-//         menuEl.scrollHeight
-//       )
-//     );
-//   } else if (focusedRect.top - overScroll < menuRect.top) {
-//     window.scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
-//   }
-// }

@@ -19,7 +19,6 @@ type OptionProps = {|
   selected?: OptionObject | null,
   searchField: string,
   handleSelect: OptionObject => void,
-  // getOptionRef: (HTMLElement | null) => void,
 |};
 
 const Option = ({
@@ -28,8 +27,7 @@ const Option = ({
   selected,
   searchField,
   handleSelect,
-}: // getOptionRef,
-OptionProps) => {
+}: OptionProps) => {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
@@ -47,11 +45,7 @@ OptionProps) => {
 
   return (
     <div
-      // ref={ref => {
-      //   // Only send ref of selected item
-      //   if (selected) getOptionRef(ref);
-      // }}
-      className={className}
+      className={`${className} typeahead-option`}
       key={option[searchField]}
       onClick={handleOnTap}
       onMouseDown={event => {
