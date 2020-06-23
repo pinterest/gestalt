@@ -39,10 +39,6 @@ type Props = {|
   size?: 'md' | 'lg',
 |};
 
-type ElementOverride = Element & {
-  offsetHeight: number,
-};
-
 const Typeahead = (props: Props) => {
   const {
     data,
