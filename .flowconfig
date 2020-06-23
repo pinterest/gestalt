@@ -10,6 +10,8 @@
 esproposal.optional_chaining=enable
 exact_by_default=true
 include_warnings=true
+types_first=true
+well_formed_exports=true
 
 [libs]
 flow-typed

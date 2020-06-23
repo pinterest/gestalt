@@ -10,7 +10,7 @@ import { useEffect, useRef } from 'react';
 export default function useDebouncedCallback(
   callback: () => void,
   wait: number
-) {
+): () => void {
   const timeout = useRef();
 
   function cleanup() {

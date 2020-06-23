@@ -88,6 +88,7 @@ export default class Masonry<T: {}> extends React.Component<
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
+  // $FlowFixMe[signature-verification-failure]
   handleResize = debounce(() => {
     if (this.gridWrapper) {
       this.setState({ width: this.gridWrapper.clientWidth });
@@ -96,6 +97,7 @@ export default class Masonry<T: {}> extends React.Component<
 
   // Using throttle here to schedule the handler async, outside of the event
   // loop that produced the event.
+  // $FlowFixMe[signature-verification-failure]
   updateScrollPosition = throttle(() => {
     if (!this.scrollContainer) {
       return;
@@ -111,6 +113,7 @@ export default class Masonry<T: {}> extends React.Component<
     });
   });
 
+  // $FlowFixMe[signature-verification-failure]
   measureContainerAsync = debounce(() => {
     this.measureContainer();
   }, 0);
@@ -195,7 +198,13 @@ export default class Masonry<T: {}> extends React.Component<
     virtualize: PropTypes.bool,
   };
 
-  static defaultProps = {
+  static defaultProps: {
+    columnWidth: number,
+    layout: string,
+    loadItems: () => void,
+    minCols: number,
+    virtualize: boolean,
+  } = {
     columnWidth: 236,
     minCols: 3,
     layout: 'basic',
@@ -289,7 +298,13 @@ export default class Masonry<T: {}> extends React.Component<
     window.removeEventListener('resize', this.handleResize);
   }
 
-  static getDerivedStateFromProps(props: Props<T>, state: State<T>) {
+  static getDerivedStateFromProps(
+    props: Props<T>,
+    state: State<T>
+  ):
+    | null
+    | { hasPendingMeasurements: boolean, isFetching: boolean, items: Array<T> }
+    | { hasPendingMeasurements: boolean, items: Array<T> } {
     const { items } = props;
     const { measurementStore } = state;
 
@@ -346,15 +361,17 @@ export default class Masonry<T: {}> extends React.Component<
     return null;
   }
 
-  setGridWrapperRef = (ref: ?HTMLElement) => {
+  setGridWrapperRef: (ref: ?HTMLElement) => void = (ref: ?HTMLElement) => {
     this.gridWrapper = ref;
   };
 
-  setScrollContainerRef = (ref: ?ScrollContainer) => {
+  setScrollContainerRef: (ref: ?ScrollContainer) => void = (
+    ref: ?ScrollContainer
+  ) => {
     this.scrollContainer = ref;
   };
 
-  fetchMore = () => {
+  fetchMore: () => void = () => {
     const { loadItems, items } = this.props;
     if (loadItems && typeof loadItems === 'function') {
       this.setState(
@@ -399,6 +416,7 @@ export default class Masonry<T: {}> extends React.Component<
     this.forceUpdate();
   }
 
+  // $FlowFixMe[signature-verification-failure]
   renderMasonryComponent = (itemData: T, idx: number, position: *) => {
     const {
       comp: Component,
@@ -452,7 +470,7 @@ export default class Masonry<T: {}> extends React.Component<
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  render() {
+  render(): React.Node {
     const {
       columnWidth,
       comp: Component,
@@ -550,7 +568,9 @@ export default class Masonry<T: {}> extends React.Component<
         .filter(item => item && !measurementStore.has(item))
         .slice(0, minCols);
 
+      // $FlowFixMe[incompatible-call]
       const positions = getPositions(itemsToRender);
+      // $FlowFixMe[incompatible-call]
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -560,6 +580,7 @@ export default class Masonry<T: {}> extends React.Component<
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
             {itemsToRender.map((item, i) =>
+              // $FlowFixMe[incompatible-call]
               this.renderMasonryComponent(item, i, positions[i])
             )}
           </div>

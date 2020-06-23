@@ -8,7 +8,7 @@ type Props = {|
   sticky?: boolean,
 |};
 
-export default function TableHeader(props: Props) {
+export default function TableHeader(props: Props): React.Node {
   const cs = cx(styles.thead, props.sticky && styles.sticky);
   return <thead className={cs}>{props.children}</thead>;
 }

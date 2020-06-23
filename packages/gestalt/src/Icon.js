@@ -58,7 +58,7 @@ const flipOnRtlIconNames = [
   'text-size',
 ];
 
-export default function Icon(props: Props) {
+export default function Icon(props: Props): React.Node {
   const {
     accessibilityLabel,
     color = 'gray',

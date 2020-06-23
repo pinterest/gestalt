@@ -5,6 +5,6 @@ type Props = {|
   children: React.Node,
 |};
 
-export default function TableRow(props: Props) {
+export default function TableRow(props: Props): React.Node {
   return <tr>{props.children}</tr>;
 }

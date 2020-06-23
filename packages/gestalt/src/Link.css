@@ -4,13 +4,13 @@
   outline: none;
 }
 
-.link:hover,
-.link:focus {
+.hoverUnderline:hover,
+.hoverUnderline:focus {
   text-decoration: underline;
 }
 
-.accessibleFocusStyle {
-  composes: accessibilityOutline from "./Focus.css";
+.inlineBlock {
+  composes: inlineBlock from "./Layout.css";
 }
 
 .block {

@@ -17,7 +17,10 @@ const sizes = {
   lg: 64,
 };
 
-export default function AvatarPair({ collaborators, size = 'fit' }: Props) {
+export default function AvatarPair({
+  collaborators,
+  size = 'fit',
+}: Props): React.Node {
   const width = size === 'fit' ? '100%' : sizes[size];
   return (
     <Box position="relative" width={width}>

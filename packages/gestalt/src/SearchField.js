@@ -177,4 +177,6 @@ function forwardRefSearchField(props, ref) {
 }
 forwardRefSearchField.displayName = 'SearchField';
 
-export default React.forwardRef<Props, HTMLInputElement>(forwardRefSearchField);
+export default (React.forwardRef<Props, HTMLInputElement>(
+  forwardRefSearchField
+): React$AbstractComponent<Props, HTMLInputElement>);

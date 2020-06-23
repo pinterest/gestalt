@@ -41,7 +41,7 @@ export default function IconButton({
   selected,
   size,
   onClick,
-}: Props) {
+}: Props): React.Node {
   const [isActive, setActive] = React.useState(false);
   const [isFocused, setFocused] = React.useState(false);
   const [isHovered, setHovered] = React.useState(false);

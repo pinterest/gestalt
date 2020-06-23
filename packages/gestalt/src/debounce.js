@@ -8,6 +8,7 @@
 export default function debounce(
   fn: (...args: *) => void,
   threshhold: number = 100
+  // $FlowFixMe[signature-verification-failure]
 ) {
   let deferTimer: TimeoutID | null = null;
 

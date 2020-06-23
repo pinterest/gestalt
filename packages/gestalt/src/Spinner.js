@@ -23,7 +23,7 @@ export default function Spinner({
   delay = true,
   show,
   size = 'md',
-}: Props) {
+}: Props): React.Node {
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>

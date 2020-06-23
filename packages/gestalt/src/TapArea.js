@@ -150,15 +150,17 @@ export const TapAreaPropTypes = {
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   disabled: PropTypes.bool,
-  forwardedRef: PropTypes.oneOfType([
+  forwardedRef: (PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
       current: PropTypes.any,
     }),
-  ]),
+  ]): React$PropType$Primitive<
+    ((...a: Array<$FlowFixMe>) => mixed) | { current?: $FlowFixMe, ... }
+  >),
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
-  mouseCursor: PropTypes.oneOf([
+  mouseCursor: (PropTypes.oneOf([
     'copy',
     'grab',
     'grabbing',
@@ -167,21 +169,35 @@ export const TapAreaPropTypes = {
     'pointer',
     'zoomIn',
     'zoomOut',
-  ]),
+  ]): React$PropType$Primitive<
+    | 'copy'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut'
+  >),
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  tapStyle: PropTypes.oneOf(['none', 'compress']),
+  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
+    'none' | 'compress'
+  >),
   rounding: RoundingPropType,
 };
 
 TapArea.propTypes = TapAreaPropTypes;
 
-const TapAreaWithForwardRef = React.forwardRef<Props, HTMLDivElement>(
-  (props, ref) => <TapArea {...props} forwardedRef={ref} />
-);
+const TapAreaWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLDivElement
+> = React.forwardRef<Props, HTMLDivElement>((props, ref) => (
+  <TapArea {...props} forwardedRef={ref} />
+));
 
 TapAreaWithForwardRef.displayName = 'TapArea';
 

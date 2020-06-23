@@ -41,7 +41,7 @@ export default <T>({
   minCols?: number,
   rawItemCount: number,
   width?: ?number,
-|}) => (items: Array<*>): Array<Position> => {
+|}): ((items: Array<*>) => Array<Position>) => (items): Array<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }

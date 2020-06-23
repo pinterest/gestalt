@@ -23,7 +23,7 @@ type ColumnProps =
       lg?: DeprecatedColumns,
     |};
 
-export default function Column(props: ColumnProps) {
+export default function Column(props: ColumnProps): React.Node {
   const { children } = props;
   const cs = classnames(
     (props.xs !== undefined ||

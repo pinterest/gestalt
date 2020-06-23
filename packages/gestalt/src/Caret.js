@@ -6,7 +6,7 @@ type Props = {
   direction?: ?'up' | 'right' | 'down' | 'left',
 };
 
-export default function Caret(props: Props) {
+export default function Caret(props: Props): React.Node {
   const { direction } = props;
   let path;
   switch (direction) {
