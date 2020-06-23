@@ -1,6 +1,6 @@
 // @flow strict
-
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -21,13 +21,13 @@ type OptionProps = {|
   handleSelect: OptionObject => void,
 |};
 
-const Option = ({
+export default function Option({
   index,
   option,
   selected,
   searchField,
   handleSelect,
-}: OptionProps) => {
+}: OptionProps): React.Node {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
@@ -71,7 +71,7 @@ const Option = ({
       </Box>
     </div>
   );
-};
+}
 
 Option.displayName = 'Option';
 
@@ -87,5 +87,3 @@ Option.propTypes = {
   searchField: PropTypes.string,
   handleSelect: PropTypes.func,
 };
-
-export default Option;

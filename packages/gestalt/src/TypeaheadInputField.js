@@ -1,6 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -12,7 +13,11 @@ import FormLabel from './FormLabel.js';
 
 type Props = {|
   id: string,
-  onBlur?: ({ event: SyntheticFocusEvent<HTMLInputElement> }) => void,
+  onBlur?: ({
+    event:
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticKeyboardEvent<HTMLInputElement>,
+  }) => void,
   onChange: ({
     value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
@@ -44,7 +49,7 @@ const InputField = ({
   size = 'md',
   value,
   forwardedRef,
-}: Props) => {
+}: Props): Node => {
   const [hovered, setHovered] = React.useState<boolean>(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
@@ -72,7 +77,11 @@ const InputField = ({
     }
   };
 
-  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+  const handleBlur = (
+    event:
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticKeyboardEvent<HTMLInputElement>
+  ) => {
     if (onBlur) {
       onBlur({ event });
     }
@@ -86,14 +95,18 @@ const InputField = ({
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLInputElement>
   ) => {
+    setContainer(true);
+    // Up Arrow
     if (event.keyCode === 38) {
-      // up arrow
       onKeyNavigation(-1);
-    } else if (event.keyCode === 40) {
-      // down arrow
+    }
+    // Down Arrow
+    else if (event.keyCode === 40) {
       onKeyNavigation(1);
-    } else if (event.keyCode === 13) {
-      setContainer(false);
+    }
+    // Enter Key
+    else if (event.keyCode === 13) {
+      handleBlur(event);
     }
   };
 
@@ -184,9 +197,11 @@ InputField.propTypes = {
   ]),
 };
 
-function forwardRefInputField(props, ref) {
+const forwardRefInputField = (props, ref): Node => {
   return <InputField {...props} forwardedRef={ref} />;
-}
+};
 forwardRefInputField.displayName = 'InputField';
 
-export default React.forwardRef<Props, HTMLInputElement>(forwardRefInputField);
+export default (React.forwardRef<Props, HTMLInputElement>(
+  forwardRefInputField
+): React$AbstractComponent<Props, HTMLInputElement>);

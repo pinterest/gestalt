@@ -1,5 +1,6 @@
 // @flow strict
-import React, { useState, useRef } from 'react';
+import * as React from 'react';
+import { useState, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import InputField from './TypeaheadInputField.js';
 import Option from './TypeaheadOption.js';
@@ -23,7 +24,9 @@ type Props = {|
   label: string,
   noResultText: string,
   onBlur?: ({
-    event: SyntheticFocusEvent<HTMLInputElement>,
+    event:
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticEvent<HTMLInputElement>,
   }) => void,
   onChange?: ({
     event: SyntheticInputEvent<HTMLInputElement>,
@@ -37,9 +40,10 @@ type Props = {|
   placeholder?: string,
   searchField?: string,
   size?: 'md' | 'lg',
+  forwardedRef?: React.Ref<'input'>,
 |};
 
-const Typeahead = (props: Props) => {
+const Typeahead = (props: Props): Node => {
   const {
     data,
     defaultItem = null,
@@ -53,6 +57,7 @@ const Typeahead = (props: Props) => {
     placeholder,
     searchField = 'label',
     size,
+    forwardedRef,
   } = props;
 
   // Store original data
@@ -77,8 +82,6 @@ const Typeahead = (props: Props) => {
   // Ref to the input
   const inputRef = useRef();
 
-  // Handle when input is in and out of focus
-  const componentRef = useRef();
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
 
   const handleFocus = ({ event, value }) => {
@@ -195,7 +198,7 @@ const Typeahead = (props: Props) => {
   };
 
   return (
-    <Box ref={componentRef}>
+    <Box ref={forwardedRef}>
       <InputField
         label={label}
         id={id}
@@ -252,7 +255,6 @@ const Typeahead = (props: Props) => {
                     searchField={searchField}
                     selected={selected}
                     handleSelect={handleSelect}
-                    // getOptionRef={getOptionRef}
                   />
                 ))}
               </Box>
@@ -288,4 +290,12 @@ Typeahead.propTypes = {
   noResultText: PropTypes.string,
 };
 
-export default Typeahead;
+const forwardRefTypeaheadField = (props, ref): Node => {
+  return <Typeahead {...props} forwardedRef={ref} />;
+};
+
+forwardRefTypeaheadField.displayName = 'Typeahead';
+
+export default (React.forwardRef<Props, HTMLInputElement>(
+  forwardRefTypeaheadField
+): React$AbstractComponent<Props, HTMLInputElement>);
