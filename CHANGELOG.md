@@ -1,3 +1,9 @@
+## 5.8.0 (Jun 24, 2020)
+
+### Minor
+
+- Link: fix context menu not showing (#948)
+
 ## 5.7.0 (Jun 24, 2020)
 
 ### Minor
