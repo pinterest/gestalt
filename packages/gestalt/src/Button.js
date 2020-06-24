@@ -33,7 +33,7 @@ type Props = {|
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({| event: SyntheticMouseEvent<> |}) => void,
   selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   text: string,

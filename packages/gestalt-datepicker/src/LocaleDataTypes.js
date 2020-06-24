@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // flowlint unclear-type:off
 
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
+/* eslint-disable flowtype/require-exact-type */
 export type LocaleData = {
   code?: string,
   formatDistance?: (...args: Array<any>) => any,
@@ -35,6 +36,7 @@ export type LocaleData = {
     firstWeekContainsDate?: 1 | 2 | 3 | 4 | 5 | 6 | 7,
   },
 };
+/* eslint-enable flowtype/require-exact-type */
 
 // $FlowFixMe[signature-verification-failure]
 export const LocaleDataPropTypes = PropTypes.shape({

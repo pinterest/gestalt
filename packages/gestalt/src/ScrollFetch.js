@@ -10,19 +10,19 @@ import {
 } from './scrollUtils.js';
 import throttle from './throttle.js';
 
-type Props = {
+type Props = {|
   container?: HTMLElement,
   isAtEnd?: boolean,
   isFetching: boolean,
   fetchMore?: () => void,
   renderHeight?: () => number,
-};
+|};
 
-type State = {
+type State = {|
   containerHeight: number,
   scrollHeight: number,
   scrollTop: number,
-};
+|};
 
 export default class ScrollFetch extends React.PureComponent<Props, State> {
   /**
@@ -47,7 +47,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     fetchMore: PropTypes.func,
   };
 
-  static defaultProps: { container?: HTMLElement } = {
+  static defaultProps: {| container?: HTMLElement |} = {
     container: typeof window !== 'undefined' ? window : undefined,
   };
 
@@ -92,7 +92,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     return getScrollHeight(container);
   };
 
-  getScrollState(): null | { scrollHeight: number, scrollTop: number } {
+  getScrollState(): null | {| scrollHeight: number, scrollTop: number |} {
     const { container, renderHeight } = this.props;
     if (!container) {
       return null;

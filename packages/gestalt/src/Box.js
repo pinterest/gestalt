@@ -127,18 +127,19 @@ export type Overflow =
 
 export type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type ResponsiveProps = {
+type ResponsiveProps = {|
   column?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
   display?: boolean | 'flex' | 'flexColumn' | 'inlineBlock',
-};
+|};
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
+// eslint-disable-next-line flowtype/require-exact-type
 type PropType = {
   children?: React.Node,
-  dangerouslySetInlineStyle?: {
+  dangerouslySetInlineStyle?: {|
     __style: { [key: string]: string | number | void },
-  },
+  |},
 
   xs?: ResponsiveProps,
   sm?: ResponsiveProps,

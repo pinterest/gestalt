@@ -31,13 +31,13 @@ const Td = ({
   colspan = 1,
   shrink = false,
   color = 'darkGray',
-}: {
+}: {|
   border?: boolean,
   children?: React.Node,
   colspan?: number,
   shrink?: boolean,
   color?: 'darkGray' | 'gray',
-}) => (
+|}) => (
   <td
     style={{
       verticalAlign: 'top',
