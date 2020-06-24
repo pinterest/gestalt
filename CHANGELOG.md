@@ -1,3 +1,9 @@
+## 5.9.2 (Jun 24, 2020)
+
+### Patch
+
+- Internal: Update documentation link (#950)
+
 ## 5.9.1 (Jun 24, 2020)
 
 ### Patch
