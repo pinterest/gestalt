@@ -1,3 +1,9 @@
+## 5.5.0 (Jun 24, 2020)
+
+### Minor
+
+- DatePicker: Fixed CSS for same date selection in range (#943)
+
 ## 5.4.0 (Jun 22, 2020)
 
 ### Minor
