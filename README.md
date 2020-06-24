@@ -4,7 +4,7 @@
 
 Gestalt is a set of React UI components that enforces Pinterest’s design language. We use it to streamline communication between designers and developers by enforcing a bunch of fundamental UI components. This common set of components helps raise the bar for UX & accessibility across Pinterest.
 
-[View the full docs](https://pinterest.github.io/gestalt)
+[View the full docs](https://gestalt.netlify.app/)
 or
 [Check out the Gestalt playground](https://codesandbox.io/s/k5plvp9v8v)
 
