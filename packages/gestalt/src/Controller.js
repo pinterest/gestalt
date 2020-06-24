@@ -39,10 +39,10 @@ type ClientRect = {
 };
 
 type State = {|
-  relativeOffset: {
+  relativeOffset: {|
     x: number,
     y: number,
-  },
+  |},
   triggerBoundingRect: ClientRect,
 |};
 
@@ -90,9 +90,9 @@ export default class Controller extends React.Component<Props, State> {
     ]),
   };
 
-  static defaultProps: {
+  static defaultProps: {|
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
-  } = {
+  |} = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
     size: 'sm',
@@ -101,10 +101,10 @@ export default class Controller extends React.Component<Props, State> {
   static getDerivedStateFromProps({
     anchor,
     positionRelativeToAnchor,
-  }: Props): {
-    relativeOffset: void | { x: number, y: number },
+  }: Props): {|
+    relativeOffset: void | {| x: number, y: number |},
     triggerBoundingRect: void | ClientRect,
-  } {
+  |} {
     return getTriggerRect(anchor, positionRelativeToAnchor);
   }
 
@@ -127,7 +127,7 @@ export default class Controller extends React.Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  handleKeyDown: (event: { keyCode: number }) => void = event => {
+  handleKeyDown: (event: {| keyCode: number |}) => void = event => {
     const { onDismiss } = this.props;
     if (event.keyCode === ESCAPE_KEY_CODE) {
       onDismiss();

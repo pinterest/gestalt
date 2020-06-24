@@ -18,7 +18,8 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, value: string }) => void,
+  onChange: ({| event: SyntheticInputEvent<>, value: string |}) => void,
+  // eslint-disable-next-line flowtype/require-exact-type
   options: Array<{
     label: string,
     value: string,
@@ -54,14 +55,15 @@ export default class SelectList extends React.Component<Props, State> {
     value: PropTypes.string,
   };
 
-  static defaultProps: {
+  static defaultProps: {|
     disabled: boolean,
+    // eslint-disable-next-line flowtype/require-exact-type
     options: Array<{
       label: string,
       value: string,
     }>,
     size?: 'md' | 'lg',
-  } = {
+  |} = {
     disabled: false,
     size: 'md',
     options: [],

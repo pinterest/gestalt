@@ -19,11 +19,11 @@ type Props = {|
     | 'lightGray'
     | 'white'
     | 'red',
-  dangerouslySetSvgPath?: { __path: string },
+  dangerouslySetSvgPath?: {| __path: string |},
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({| event: SyntheticMouseEvent<> |}) => void,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};

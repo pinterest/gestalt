@@ -22,30 +22,30 @@ type Props = {|
   children?: React.Node,
   controls?: boolean,
   loop?: boolean,
-  onDurationChange?: ({
+  onDurationChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
-  }) => void,
-  onEnded?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
-  onLoadedChange?: ({
+  |}) => void,
+  onEnded?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
+  onLoadedChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     loaded: number,
-  }) => void,
-  onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
-  onPlayheadDown?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onPlayheadUp?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
-  onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onTimeChange?: ({
+  |}) => void,
+  onPlay?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
+  onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onPause?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
+  onReady?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onSeek?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onTimeChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     time: number,
-  }) => void,
-  onVolumeChange?: ({
+  |}) => void,
+  onVolumeChange?: ({|
     event: SyntheticEvent<HTMLDivElement>,
     volume: number,
-  }) => void,
+  |}) => void,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -196,12 +196,12 @@ export default class Video extends React.PureComponent<Props, State> {
     volume: PropTypes.number,
   };
 
-  static defaultProps: {
+  static defaultProps: {|
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
-  } = {
+  |} = {
     playbackRate: 1,
     playing: false,
     preload: 'auto',

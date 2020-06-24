@@ -195,7 +195,7 @@ class ExampleMasonry extends React.Component<Props, State> {
     });
   }
 
-  updateWidth = ({ target }: { target: HTMLInputElement }) => {
+  updateWidth = ({ target }: {| target: HTMLInputElement |}) => {
     this.setState({ width: Number(target.value) }, () => {
       if (this.grid) {
         this.grid.handleResize();

@@ -1,7 +1,7 @@
 // @flow strict
 import type { Cache } from './Cache.js';
 
-type Position = { top: number, left: number, width: number, height: number };
+type Position = {| top: number, left: number, width: number, height: number |};
 
 const mindex = arr => {
   let idx = 0;
@@ -29,15 +29,12 @@ export default <T>({
   | ((items: Array<string>) => Array<Position>)
   | ((
       items: Array<T>
-    ) => Array<
-      | { height: number, left: number, top: number, width: number }
-      | {
-          height: number,
-          left: number,
-          top: number,
-          width: number,
-        }
-    >) => {
+    ) => Array<{|
+      height: number,
+      left: number,
+      top: number,
+      width: number,
+    |}>) => {
   if (width == null) {
     return (items: Array<string>): Array<Position> =>
       items.map(() => ({

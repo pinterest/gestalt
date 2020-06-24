@@ -1,6 +1,7 @@
 // @flow strict
 import type { Cache } from './Cache.js';
 
+// eslint-disable-next-line flowtype/require-exact-type
 export default class MeasurementStore<T: {} | $ReadOnlyArray<mixed>, V>
   implements Cache<T, V> {
   map: WeakMap<T, V> = new WeakMap();

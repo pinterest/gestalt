@@ -14,10 +14,10 @@ export default function Tabs({
   wrap,
 }: {|
   activeTabIndex: number,
-  onChange: ({
+  onChange: ({|
     event: SyntheticMouseEvent<>,
     activeTabIndex: number,
-  }) => void,
+  |}) => void,
   size?: 'md' | 'lg',
   tabs: Array<{|
     href: string,

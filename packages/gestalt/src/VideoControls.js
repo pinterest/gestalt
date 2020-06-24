@@ -70,33 +70,33 @@ class VideoControls extends React.Component<Props> {
     volume: PropTypes.number.isRequired,
   };
 
-  handleFullscreenChange: ({
+  handleFullscreenChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => void = ({
+  |}) => void = ({
     event,
-  }: {
+  }: {|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => {
+  |}) => {
     const { onFullscreenChange } = this.props;
     event.stopPropagation();
     onFullscreenChange();
   };
 
-  handlePlayingChange: ({
+  handlePlayingChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => void = ({
+  |}) => void = ({
     event,
-  }: {
+  }: {|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => {
+  |}) => {
     const { playing, onPause, onPlay } = this.props;
     if (playing) {
       onPause(event);
@@ -105,17 +105,17 @@ class VideoControls extends React.Component<Props> {
     }
   };
 
-  handleVolumeChange: ({
+  handleVolumeChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => void = ({
+  |}) => void = ({
     event,
-  }: {
+  }: {|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => {
+  |}) => {
     const { onVolumeChange } = this.props;
     onVolumeChange(event);
   };

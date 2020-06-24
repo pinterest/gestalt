@@ -19,7 +19,7 @@ type Props = {|
   hoverStyle?: 'none' | 'underline',
   href: string,
   inline?: boolean,
-  onClick?: ({ event: TapEvent }) => void,
+  onClick?: ({| event: TapEvent |}) => void,
   rel?: 'none' | 'nofollow',
   rounding?: Rounding,
   tapStyle?: 'none' | 'compress',
