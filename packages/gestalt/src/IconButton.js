@@ -24,6 +24,7 @@ type Props = {|
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   onClick?: ({| event: SyntheticMouseEvent<> |}) => void,
+  padding?: 1 | 2 | 3 | 4 | 5,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
@@ -38,9 +39,10 @@ export default function IconButton({
   disabled,
   icon,
   iconColor,
+  onClick,
+  padding,
   selected,
   size,
-  onClick,
 }: Props): React.Node {
   const [isActive, setActive] = React.useState(false);
   const [isFocused, setFocused] = React.useState(false);
@@ -77,6 +79,7 @@ export default function IconButton({
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}
+        padding={padding}
         selected={selected}
         size={size}
       />
@@ -105,6 +108,7 @@ IconButton.propTypes = {
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
+  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
 };
