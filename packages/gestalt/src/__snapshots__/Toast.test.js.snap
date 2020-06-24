@@ -77,7 +77,6 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}
-            onContextMenu={[Function]}
             onKeyPress={[Function]}
             onMouseDown={[Function]}
             onMouseUp={[Function]}
@@ -160,7 +159,6 @@ exports[`<Toast /> Text + Image 1`] = `
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}
-            onContextMenu={[Function]}
             onKeyPress={[Function]}
             onMouseDown={[Function]}
             onMouseUp={[Function]}

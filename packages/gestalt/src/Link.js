@@ -63,7 +63,6 @@ function Link({
     <a
       className={className}
       href={href}
-      onContextMenu={event => event.preventDefault()}
       onClick={event => {
         if (onClick) {
           onClick({ event });
