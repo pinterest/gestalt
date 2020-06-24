@@ -1,3 +1,9 @@
+## 5.9.0 (Jun 24, 2020)
+
+### Minor
+
+- IconButton: add optional padding prop (#949)
+
 ## 5.8.0 (Jun 24, 2020)
 
 ### Minor
