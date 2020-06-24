@@ -1,3 +1,9 @@
+## 5.7.0 (Jun 24, 2020)
+
+### Minor
+
+- Internal: require flow exact types (#946)
+
 ## 5.6.0 (Jun 24, 2020)
 
 ### Minor
