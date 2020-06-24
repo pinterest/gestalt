@@ -1,3 +1,9 @@
+## 5.9.1 (Jun 24, 2020)
+
+### Patch
+
+- TapArea:Updated Doc Example: Accessibility (Popup) (#942)
+
 ## 5.9.0 (Jun 24, 2020)
 
 ### Minor
