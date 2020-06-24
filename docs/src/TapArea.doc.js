@@ -215,27 +215,24 @@ function AccessibilityExamplePopup() {
   const anchorRef = React.useRef(null);
 
   return (
-    <Box>
-      <Box display="inlineBlock" ref={anchorRef}>
-        <TapArea
-          accessibilityHaspopup
-          accessibilityLabel="see more"
-          onTap={() => setOpen(!isOpen)}
+    <Box display="inlineBlock" ref={anchorRef}>
+      <TapArea
+        accessibilityHaspopup
+        accessibilityLabel="see more"
+        onTap={() => setOpen(!isOpen)}
+        rounding="pill"
+      >
+        <Box
+          borderSize="sm"
+          padding={2}
           rounding="pill"
         >
-          <Box
-            borderSize="sm"
-            paddingY={2}
-            paddingX={3}
-            rounding="pill"
-          >
-            <Row gap={1}>
-              <Text weight="bold">See more</Text>
-              <Icon accessibilityLabel="" color="darkGray" icon="ellipsis" />
-            </Row>
-          </Box>
-        </TapArea>
-      </Box>
+          <Row gap={1}>
+            <Text weight="bold">See more</Text>
+            <Icon accessibilityLabel="ellipsis icon" color="darkGray" icon="ellipsis" />
+          </Row>
+        </Box>
+      </TapArea>
       {isOpen && (
         <Flyout
           anchor={anchorRef && anchorRef.current}
