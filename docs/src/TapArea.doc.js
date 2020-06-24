@@ -237,7 +237,7 @@ function AccessibilityExamplePopup() {
         <Flyout
           anchor={anchorRef && anchorRef.current}
           idealDirection="right"
-          onDismiss={() => undefined}
+          onDismiss={() => {}}
         >
           <Box padding={2}>
             <Text>I am a popup.</Text>
