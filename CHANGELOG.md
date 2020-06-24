@@ -1,3 +1,9 @@
+## 5.6.0 (Jun 24, 2020)
+
+### Minor
+
+- Internal: Upgrade dependencies (#944)
+
 ## 5.5.0 (Jun 24, 2020)
 
 ### Minor
