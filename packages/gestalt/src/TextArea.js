@@ -17,22 +17,22 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onBlur?: ({
+  onBlur?: ({|
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
-  onChange: ({
+  |}) => void,
+  onChange: ({|
     event: SyntheticInputEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
-  onFocus?: ({
+  |}) => void,
+  onFocus?: ({|
     event: SyntheticFocusEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
-  onKeyDown?: ({
+  |}) => void,
+  onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
     value: string,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   rows?: number /* default: 3 */,
   value?: string,
@@ -64,11 +64,11 @@ export default class TextArea extends React.Component<Props, State> {
     value: PropTypes.string,
   };
 
-  static defaultProps: {
+  static defaultProps: {|
     disabled: boolean,
     hasError: boolean,
     rows: number,
-  } = {
+  |} = {
     disabled: false,
     hasError: false,
     rows: 3,

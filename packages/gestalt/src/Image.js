@@ -39,12 +39,12 @@ export default class Image extends React.PureComponent<Props> {
     srcSet: PropTypes.string,
   };
 
-  static defaultProps: {
+  static defaultProps: {|
     color: string,
     fit?: 'contain' | 'cover' | 'none',
     importance?: 'high' | 'low' | 'auto',
     loading?: 'eager' | 'lazy' | 'auto',
-  } = {
+  |} = {
     color: 'transparent',
     fit: 'none',
     importance: 'auto',

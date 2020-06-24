@@ -34,11 +34,11 @@ type Props = {|
     | 'pointer'
     | 'zoomIn'
     | 'zoomOut',
-  onBlur?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
-  onFocus?: ({ event: SyntheticFocusEvent<HTMLDivElement> }) => void,
-  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onTap?: ({ event: TapEvent }) => void,
+  onBlur?: ({| event: SyntheticFocusEvent<HTMLDivElement> |}) => void,
+  onFocus?: ({| event: SyntheticFocusEvent<HTMLDivElement> |}) => void,
+  onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onTap?: ({| event: TapEvent |}) => void,
   tapStyle?: TapStyle,
   rounding?: Rounding,
 |};

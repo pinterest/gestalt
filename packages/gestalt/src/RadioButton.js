@@ -14,10 +14,10 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: ({
+  onChange: ({|
     event: SyntheticInputEvent<>,
     checked: boolean,
-  }) => void,
+  |}) => void,
   value: string,
   size?: 'sm' | 'md',
 |};
@@ -39,11 +39,11 @@ export default class RadioButton extends React.Component<Props, State> {
     size: PropTypes.oneOf(['sm', 'md']),
   };
 
-  static defaultProps: {
+  static defaultProps: {|
     checked: boolean,
     disabled: boolean,
     size?: 'sm' | 'md',
-  } = {
+  |} = {
     checked: false,
     disabled: false,
     size: 'md',

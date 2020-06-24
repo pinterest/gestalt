@@ -9,7 +9,7 @@ import styles from './SegmentedControl.css';
 
 type Props = {|
   items: Array<React.Node>,
-  onChange: ({ event: SyntheticMouseEvent<>, activeIndex: number }) => void,
+  onChange: ({| event: SyntheticMouseEvent<>, activeIndex: number |}) => void,
   responsive?: boolean,
   selectedItemIndex: number,
   size?: 'md' | 'lg',

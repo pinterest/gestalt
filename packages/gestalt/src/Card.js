@@ -9,8 +9,8 @@ type Props = {|
   active?: ?boolean,
   children?: React.Node,
   image?: React.Node,
-  onMouseEnter?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onMouseLeave?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
+  onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
 |};
 
 export default function Card(props: Props): React.Node {

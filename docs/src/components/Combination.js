@@ -4,7 +4,7 @@ import { Box, Text } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
 import Card from './Card.js';
 
-type Props = {
+type Props = {|
   children: (Object, number) => React.Node,
   description?: string,
   heading?: boolean,
@@ -13,7 +13,7 @@ type Props = {
   name?: string,
   showValues?: boolean,
   stacked?: boolean,
-};
+|};
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = variationsByField => {
