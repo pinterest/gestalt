@@ -1,3 +1,9 @@
+## 5.10.0 (Jun 25, 2020)
+
+### Minor
+
+- Button: Fix disabled state to prevent it to be interacted with and event bubbling (#951)
+
 ## 5.9.2 (Jun 24, 2020)
 
 ### Patch
