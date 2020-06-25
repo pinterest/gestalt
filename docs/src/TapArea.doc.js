@@ -418,3 +418,6 @@ function TapAreaRefExample() {
 );
 
 export default cards;
+
+const navRoute = { section: 'components', group: 'Utilities' };
+export { navRoute };

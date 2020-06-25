@@ -131,3 +131,6 @@ class FlyoutExample extends React.Component {
 );
 
 export default cards;
+
+const navRoute = { section: 'components', group: 'Feedback' };
+export { navRoute };

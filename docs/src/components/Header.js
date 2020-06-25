@@ -1,11 +1,24 @@
 // @flow strict
 import React from 'react';
-import { Box, Text, Icon, IconButton, Link as GestaltLink } from 'gestalt';
+import {
+  Box,
+  Text,
+  Icon,
+  IconButton,
+  Tooltip,
+  Link as GestaltLink,
+  Sticky,
+} from 'gestalt';
 import DocSearch from './DocSearch.js';
 import Link from './Link.js';
+import { useSidebarContext } from './SidebarContext.js';
 
 export default function Header() {
   const [isRTL, setIsRTL] = React.useState(false);
+  const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
+  const handleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   const toggleRTL = () => {
     if (document && document.documentElement) {
@@ -20,83 +33,89 @@ export default function Header() {
   };
 
   return (
-    <Box
-      paddingY={2}
-      paddingX={4}
-      mdPaddingX={6}
-      lgPaddingX={8}
-      color="pine"
-      display="flex"
-      direction="row"
-      alignItems="center"
-    >
-      <Box marginStart={-2} marginEnd={-2}>
-        <Text color="white" weight="bold">
-          <Link to="/">
-            <Box padding={2}>
-              <Box
-                display="flex"
-                direction="row"
-                alignItems="center"
-                marginLeft={-1}
-                marginRight={-1}
-              >
-                <Box paddingX={1}>
-                  <Icon
-                    icon="pinterest"
-                    color="white"
-                    size={24}
-                    accessibilityLabel="Pinterest Logo"
-                  />
-                </Box>
-                <Box paddingX={1}>Gestalt</Box>
-              </Box>
-            </Box>
-          </Link>
-        </Text>
-      </Box>
-
-      <Box flex="grow" />
-
+    <Sticky top={0}>
       <Box
-        marginStart={-2}
-        marginEnd={-2}
+        paddingY={2}
+        paddingX={4}
+        mdPaddingX={6}
+        lgPaddingX={8}
+        color="pine"
         display="flex"
         direction="row"
         alignItems="center"
       >
-        <DocSearch />
-        <Box
-          display="none"
-          smDisplay="flex"
-          direction="row"
-          alignItems="center"
-        >
-          <IconButton
-            size="md"
-            accessibilityLabel="toggle page direction"
-            iconColor="white"
-            dangerouslySetSvgPath={togglePageDirSvgPath}
-            onClick={toggleRTL}
-          />
-          <Text color="white">
-            <GestaltLink
-              href="https://codesandbox.io/s/k5plvp9v8v"
-              target="blank"
-            >
-              <Box padding={2}>Playground</Box>
-            </GestaltLink>
-          </Text>
-          <Text color="white">
-            <GestaltLink
-              href="https://github.com/pinterest/gestalt"
-              target="blank"
-            >
-              <Box padding={2}>GitHub</Box>
-            </GestaltLink>
+        <Box marginStart={-2} marginEnd={-2}>
+          <Text color="white" weight="bold">
+            <Link to="/">
+              <Box padding={2}>
+                <Box
+                  display="flex"
+                  direction="row"
+                  alignItems="center"
+                  marginLeft={-1}
+                  marginRight={-1}
+                >
+                  <Box paddingX={1}>
+                    <Icon
+                      icon="pinterest"
+                      color="white"
+                      size={24}
+                      accessibilityLabel="Pinterest Logo"
+                    />
+                  </Box>
+                  <Box paddingX={1}>Gestalt</Box>
+                </Box>
+              </Box>
+            </Link>
           </Text>
         </Box>
+        <Box flex="grow" />
+        <Box display="flex" mdDisplay="none" alignItems="center">
+          <DocSearch />
+          <IconButton
+            size="md"
+            accessibilityLabel="Gestalt Documentation Menu"
+            iconColor="white"
+            icon="menu"
+            onClick={handleSidebar}
+          />
+        </Box>
+        <Box marginStart={-2} marginEnd={-2} display="flex" alignItems="center">
+          <Box display="none" mdDisplay="flex" alignItems="center">
+            <DocSearch />
+            <Tooltip inline text="Right-To-Left View">
+              <IconButton
+                size="md"
+                accessibilityLabel="toggle page direction"
+                iconColor="white"
+                dangerouslySetSvgPath={togglePageDirSvgPath}
+                onClick={toggleRTL}
+              />
+            </Tooltip>
+            <Tooltip
+              inline
+              text="Opens Codesandbox ready to start coding with Gestalt"
+            >
+              <Text color="white">
+                <GestaltLink
+                  href="https://codesandbox.io/s/k5plvp9v8v"
+                  target="blank"
+                >
+                  <Box padding={2}>Playground</Box>
+                </GestaltLink>
+              </Text>
+            </Tooltip>
+            <Text color="white">
+              <GestaltLink
+                href="https://github.com/pinterest/gestalt"
+                target="blank"
+              >
+                <Box padding={2}>GitHub</Box>
+              </GestaltLink>
+            </Text>
+          </Box>
+        </Box>
       </Box>
-    </Box>
+    </Sticky>
   );
 }

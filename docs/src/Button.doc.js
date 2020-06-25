@@ -338,11 +338,11 @@ function A11yExPopup() {
 
   return (
     <Box>
-      <Box 
+      <Box
         color="lightGray"
-        display="inlineBlock" 
-        ref={anchorRef} 
-        rounding="pill" 
+        display="inlineBlock"
+        ref={anchorRef}
+        rounding="pill"
       >
         <Button
           accessibilityHaspopup
@@ -353,10 +353,10 @@ function A11yExPopup() {
         />
       </Box>
       {isOpen && (
-        <Flyout 
-          anchor={anchorRef && anchorRef.current} 
+        <Flyout
+          anchor={anchorRef && anchorRef.current}
           idealDirection="right"
-          onDismiss={() => undefined} 
+          onDismiss={() => undefined}
         >
           <Box padding={2}>
             <Text>I am a popup.</Text>
@@ -388,10 +388,10 @@ function A11yExDisclosure() {
 
   return (
     <Box>
-      <Box 
-        color="lightGray" 
-        display="inlineBlock" 
-        rounding="pill" 
+      <Box
+        color="lightGray"
+        display="inlineBlock"
+        rounding="pill"
         width={200}
       >
         <Button
@@ -435,3 +435,6 @@ card(
 );
 
 export default cards;
+
+const navRoute = { section: 'components', group: 'Forms' };
+export { navRoute };

@@ -513,3 +513,6 @@ card(
 );
 
 export default cards;
+
+const navRoute = { section: 'components', group: 'Layout' };
+export { navRoute };

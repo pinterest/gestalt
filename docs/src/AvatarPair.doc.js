@@ -74,3 +74,6 @@ card(
 );
 
 export default cards;
+
+const navRoute = { section: 'components', group: 'Data display' };
+export { navRoute };

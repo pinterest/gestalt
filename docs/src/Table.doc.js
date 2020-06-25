@@ -300,7 +300,7 @@ card(
     function SortableHeaderExample() {
       const [sortOrder, setSortOrder] = React.useState('desc');
       const [sortCol, setSortCol] = React.useState('name');
-    
+
       const onSortChange = (col) => {
         if (sortCol !== col) {
           setSortCol(col);
@@ -309,7 +309,7 @@ card(
           setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
         }
       }
-    
+
       return (
         <Table>
           <Table.Header>
@@ -330,3 +330,6 @@ card(
 );
 
 export default cards;
+
+const navRoute = { section: 'components', group: 'Data display' };
+export { navRoute };
