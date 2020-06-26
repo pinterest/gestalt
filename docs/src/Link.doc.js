@@ -20,6 +20,7 @@ card(
       {
         name: 'accessibilitySelected',
         type: 'boolean',
+        href: 'tab',
       },
       {
         name: 'children',
@@ -57,6 +58,7 @@ card(
       {
         name: 'role',
         type: `"tab"`,
+        href: 'tab',
       },
       {
         name: 'rounding',
@@ -148,6 +150,7 @@ card(
 
 card(
   <Example
+    id="tab"
     description={`
     Use accessibilitySelected and role when using it as a Tab.
   `}
@@ -165,6 +168,7 @@ function TabExample() {
           rounding="pill"
         >
           <Link
+            accessibilitySelected={index === activeIndex}
             hoverStyle="none"
             href="#"
             onClick={({ event }) => {
@@ -172,6 +176,7 @@ function TabExample() {
               setActiveIndex(index);
             }}
             rounding="pill"
+            role="tab"
           >
             <Box padding={3} rounding="pill">
               <Text color={index === activeIndex ? "white" : "darkGray"}>
