@@ -249,6 +249,8 @@ type PropType = {
   top?: boolean,
   width?: Dimension,
   wrap?: boolean,
+
+  role: string,
 };
 
 // --
@@ -997,4 +999,6 @@ Box.propTypes = {
   top: PropTypes.bool,
   width: DimensionPropType,
   wrap: PropTypes.bool,
+
+  role: PropTypes.string,
 };

@@ -18,6 +18,11 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilitySelected',
+        type: 'boolean',
+        href: 'tab',
+      },
+      {
         name: 'children',
         type: 'React.Node',
       },
@@ -49,6 +54,11 @@ card(
         name: 'rel',
         type: `"none" | "nofollow"`,
         defaultValue: 'none',
+      },
+      {
+        name: 'role',
+        type: `"tab"`,
+        href: 'tab',
       },
       {
         name: 'rounding',
@@ -103,7 +113,7 @@ card(
     description={`
     When providing the content for the link, avoid phrases like "click here" or "go to".
   `}
-    name="Accessibility"
+    name="Accessible Content"
     defaultCode={`
 <Box>
   <Heading>
@@ -134,6 +144,51 @@ card(
     </Text>
   </Box>
 </Box>
+`}
+  />
+);
+
+card(
+  <Example
+    id="tab"
+    description={`
+    Use accessibilitySelected and role when using it as a Tab.
+  `}
+    name="Accessible Tab Link"
+    defaultCode={`
+function TabExample() {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  return (
+    <Box display="flex" alignItems="center" role="tablist">
+      {['Boards', 'Pins'].map((text, index) => (
+        <Box
+          color={index === activeIndex ? "darkGray" : undefined}
+          display="inlineBlock"
+          key={text}
+          rounding="pill"
+        >
+          <Link
+            accessibilitySelected={index === activeIndex}
+            hoverStyle="none"
+            href="#"
+            onClick={({ event }) => {
+              event.preventDefault();
+              setActiveIndex(index);
+            }}
+            rounding="pill"
+            role="tab"
+          >
+            <Box padding={3} rounding="pill">
+              <Text color={index === activeIndex ? "white" : "darkGray"}>
+                {text}
+              </Text>
+            </Box>
+          </Link>
+        </Box>
+      ))}
+    </Box>
+  );
+}
 `}
   />
 );
