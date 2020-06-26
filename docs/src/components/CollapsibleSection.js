@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { Box, TapArea, Text } from 'gestalt';
 import { useLocation } from 'react-router-dom';
-import Collapsible from './Collapsible.js';
+import CollapsibleSubsection from './CollapsibleSubsection.js';
 
-export default function Section({
+export default function CollapsibleSection({
   section,
   groups,
 }: {|
@@ -29,15 +29,15 @@ export default function Section({
           setCollapsed(!collapsed);
         }}
       >
-        <Box paddingY={2}>
+        <Box paddingY={2} marginStart={2}>
           <Text size="lg" weight="bold">
-            {section.replace(/-/g, ' ').toUpperCase()}
+            {section}
           </Text>
         </Box>
       </TapArea>
       {collapsed &&
         Object.keys(groups).map(group => (
-          <Collapsible
+          <CollapsibleSubsection
             components={groups[group].sort()}
             group={group}
             key={group}

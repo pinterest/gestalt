@@ -1,7 +1,7 @@
 // @flow strict
 import React from 'react';
 import { Box } from 'gestalt';
-import Section from './Section.js';
+import CollapsibleSection from './CollapsibleSection.js';
 import routes from './routes.js';
 import { useSidebarContext } from './SidebarContext.js';
 
@@ -31,15 +31,18 @@ export default function Navigation() {
   return (
     <>
       {isSidebarOpen && (
-        <Box display="block" mdDisplay="none" marginTop={8} marginStart={8}>
-          <Section section="getting-started" groups={gettingStarted} />
-          <Section section="components" groups={groups} />
+        <Box display="block" mdDisplay="none" padding={4}>
+          <CollapsibleSection
+            section="getting-started"
+            groups={gettingStarted}
+          />
+          <CollapsibleSection section="components" groups={groups} />
         </Box>
       )}
 
-      <Box display="none" mdDisplay="block" marginTop={8} marginStart={8}>
-        <Section section="getting-started" groups={gettingStarted} />
-        <Section section="components" groups={groups} />
+      <Box display="none" mdDisplay="block" padding={4}>
+        <CollapsibleSection section="getting-started" groups={gettingStarted} />
+        <CollapsibleSection section="components" groups={groups} />
       </Box>
     </>
   );

@@ -4,7 +4,7 @@ import { Box, Text, TapArea } from 'gestalt';
 import { useLocation } from 'react-router-dom';
 import NavLink from './NavLink.js';
 
-export default function Navigation({
+export default function CollapsibleSubsection({
   components,
   group,
   section,
@@ -26,33 +26,33 @@ export default function Navigation({
     <>
       {group === 'none' ? (
         components.map((component, i) => (
-          <Box paddingY={1} role="listitem" key={i}>
-            <NavLink to={`/${section}/${component.substr(2)}`}>
-              <Box paddingY={1}>{component.substr(2)}</Box>
-            </NavLink>
-          </Box>
+          <NavLink to={`/${section}/${component.substr(2)}`} key={i}>
+            <Box marginStart={6} paddingY={2} role="listitem">
+              {component.substr(2)}
+            </Box>
+          </NavLink>
         ))
       ) : (
-        <Box direction="column" display="flex" paddingY={2}>
+        <Box direction="column" display="flex">
           <TapArea
             onTap={() => {
               setCollapsed(!collapsed);
             }}
           >
-            <Text size="lg" weight="bold">
-              {group}
-            </Text>
+            <Box marginStart={6} paddingY={2} role="listitem">
+              <Text size="lg" weight="bold">
+                {group}
+              </Text>
+            </Box>
           </TapArea>
           {collapsed && (
-            <Box paddingY={2} marginStart={4} role="list">
+            <Box role="list">
               {components.map((component, i) => (
-                <Box paddingY={1} role="listitem" key={i}>
-                  <NavLink to={`/${section}/${component}`}>
-                    <Box paddingY={1} marginStart={2}>
-                      {component}
-                    </Box>
-                  </NavLink>
-                </Box>
+                <NavLink key={i} to={`/${section}/${component}`}>
+                  <Box paddingY={2} marginStart={12} role="listitem">
+                    {component}
+                  </Box>
+                </NavLink>
               ))}
             </Box>
           )}
