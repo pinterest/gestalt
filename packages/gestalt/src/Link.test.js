@@ -94,3 +94,14 @@ it('with custom rounding, hoverStyle, and tapStyle', () =>
       )
       .toJSON()
   ).toMatchSnapshot());
+
+it('with accessibilitySelected and role', () =>
+  expect(
+    renderer
+      .create(
+        <Link href="https://example.com" accessibilitySelected role="tab">
+          Link
+        </Link>
+      )
+      .toJSON()
+  ).toMatchSnapshot());
