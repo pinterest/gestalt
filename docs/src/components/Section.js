@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, TapArea, Text } from 'gestalt';
 import { useLocation } from 'react-router-dom';
-import Collapsable from './Collapsable.js';
+import Collapsible from './Collapsible.js';
 
 export default function Section({
   section,
@@ -16,6 +16,8 @@ export default function Section({
     section === pathname.split('/')[1]
   );
 
+  // Check if section and pathname from react-router-dom equality same everytime URL changes.
+  // If both match, keep section in sidebar open.
   useEffect(() => {
     setCollapsed(section === pathname.split('/')[1]);
   }, [section, pathname]);
@@ -35,7 +37,7 @@ export default function Section({
       </TapArea>
       {collapsed &&
         Object.keys(groups).map(group => (
-          <Collapsable
+          <Collapsible
             components={groups[group].sort()}
             group={group}
             key={group}

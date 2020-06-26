@@ -1,6 +1,6 @@
 // @flow strict
 import React, { useState } from 'react';
-import { Box, Column, Divider, Link, Text } from 'gestalt';
+import { Box, Divider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import { SidebarContextProvider } from './SidebarContext.js';
@@ -23,15 +23,15 @@ export default function App(props: Props) {
       <Box minHeight="100vh">
         <Header />
         <Box mdDisplay="flex" direction="row">
-          <Column span={12} mdSpan={2}>
+          <Box minWidth={200}>
             <Navigation />
-          </Column>
+          </Box>
           <Divider />
-          <Column span={12} mdSpan={8}>
+          <Box width="auto">
             <Box padding={4} mdPadding={6} lgPadding={8}>
               {children}
             </Box>
-          </Column>
+          </Box>
         </Box>
         {document.location.href.includes('netlify') ? (
           <Box>

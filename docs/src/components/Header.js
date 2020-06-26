@@ -16,9 +16,6 @@ import { useSidebarContext } from './SidebarContext.js';
 export default function Header() {
   const [isRTL, setIsRTL] = React.useState(false);
   const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
-  const handleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
   const toggleRTL = () => {
     if (document && document.documentElement) {
@@ -77,7 +74,7 @@ export default function Header() {
             accessibilityLabel="Gestalt Documentation Menu"
             iconColor="white"
             icon="menu"
-            onClick={handleSidebar}
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           />
         </Box>
         <Box marginStart={-2} marginEnd={-2} display="flex" alignItems="center">
