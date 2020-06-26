@@ -1,3 +1,9 @@
+## 5.11.0 (Jun 26, 2020)
+
+### Minor
+
+- Box/Link: add role prop to both and accessibilitySelected prop to Link (#953)
+
 ## 5.10.0 (Jun 25, 2020)
 
 ### Minor
