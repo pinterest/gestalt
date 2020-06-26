@@ -159,7 +159,7 @@ card(
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" role="tablist">
       {['Boards', 'Pins'].map((text, index) => (
         <Box
           color={index === activeIndex ? "darkGray" : undefined}

@@ -184,6 +184,10 @@ card(
         href: 'absolutePositioning',
       },
       {
+        name: 'role',
+        type: 'string',
+      },
+      {
         name: 'rounding',
         type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
         href: 'rounding',
