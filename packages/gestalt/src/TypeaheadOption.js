@@ -6,7 +6,6 @@ import classnames from 'classnames';
 import Box from './Box.js';
 import Text from './Text.js';
 import styles from './Touchable.css';
-import focusStyle from './TypeaheadInputField.css';
 import getRoundingClassName from './getRoundingClassName.js';
 
 type OptionObject = {|
@@ -46,9 +45,7 @@ export default function Option({
 
   return (
     <div
-      className={`${className} typeahead-option ${
-        isSelectedItem ? focusStyle.typeaheadOptionFocus : ''
-      }`}
+      className={`${className}`}
       key={option[searchField]}
       onClick={handleOnTap}
       onMouseDown={event => {
