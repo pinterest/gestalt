@@ -123,7 +123,7 @@ exports[`target self 1`] = `
 exports[`with accessibilitySelected and role 1`] = `
 <a
   aria-selected={true}
-  className="link touchable block rounding0 hoverUnderline"
+  className="link touchable block rounding0 hoverUnderline tab tabIsActive"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}

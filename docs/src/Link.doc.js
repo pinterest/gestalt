@@ -39,6 +39,11 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'id',
+        type: 'string',
+        description: 'id attribute of the anchor tag',
+      },
+      {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
@@ -170,7 +175,7 @@ function TabExample() {
           <Link
             accessibilitySelected={index === activeIndex}
             hoverStyle="none"
-            href="#"
+            href="https://pinterest.com"
             onClick={({ event }) => {
               event.preventDefault();
               setActiveIndex(index);

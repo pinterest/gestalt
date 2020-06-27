@@ -19,6 +19,7 @@ type Props = {|
   children?: React.Node,
   hoverStyle?: 'none' | 'underline',
   href: string,
+  id?: string,
   inline?: boolean,
   onClick?: ({| event: TapEvent |}) => void,
   rel?: 'none' | 'nofollow',
@@ -32,6 +33,7 @@ function Link({
   accessibilitySelected,
   children,
   href,
+  id,
   inline = false,
   onClick,
   rel = 'none',
@@ -60,6 +62,9 @@ function Link({
     {
       [styles.hoverUnderline]: hoverStyle === 'underline',
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
+      [styles.tab]: role === 'tab',
+      [styles.tabIsActive]: role === 'tab' && accessibilitySelected,
+      [styles.tabIsNotActive]: role === 'tab' && !accessibilitySelected,
     }
   );
 
@@ -68,6 +73,7 @@ function Link({
       aria-selected={accessibilitySelected}
       className={className}
       href={href}
+      id={id}
       onClick={event => {
         if (onClick) {
           onClick({ event });
@@ -107,6 +113,7 @@ const LinkPropTypes = {
     'none' | 'underline'
   >),
   href: PropTypes.string.isRequired,
+  id: PropTypes.string,
   inline: PropTypes.bool,
   onClick: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<

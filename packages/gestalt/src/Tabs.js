@@ -1,22 +1,16 @@
 // @flow strict
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import Box from './Box.js';
+import Row from './Row.js';
+import Link from './Link.js';
 import Text from './Text.js';
-import styles from './Tabs.css';
-import layout from './Layout.css';
 
-export default function Tabs({
-  activeTabIndex,
-  onChange,
-  size = 'md',
-  tabs,
-  wrap,
-}: {|
+type Props = {|
   activeTabIndex: number,
   onChange: ({|
-    event: SyntheticMouseEvent<>,
-    activeTabIndex: number,
+    +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>,
+    +activeTabIndex: number,
   |}) => void,
   size?: 'md' | 'lg',
   tabs: Array<{|
@@ -25,54 +19,61 @@ export default function Tabs({
     text: React.Node,
   |}>,
   wrap?: boolean,
-|}): React.Node {
-  const handleTabClick = (i: number, e: SyntheticMouseEvent<>) =>
-    onChange({ activeTabIndex: i, event: e });
+|};
 
+export default function Tabs({
+  activeTabIndex,
+  onChange,
+  size = 'md',
+  tabs,
+  wrap,
+}: Props): React.Node {
   return (
-    <div
-      className={classnames(
-        styles.Tabs,
-        wrap && layout.flexWrap,
-        size === 'md' ? layout.medium : layout.large
-      )}
-      role="tablist"
-    >
-      {tabs.map(({ href, id, text }, i) => {
-        const isActive = i === activeTabIndex;
-        const cs = classnames(styles.tab, {
-          [styles.tabIsNotActive]: !isActive,
-          [styles.tabIsActive]: isActive,
-        });
-        return (
-          <a
-            aria-selected={isActive}
-            className={cs}
-            href={href}
-            {...(id ? { id } : {})}
-            key={`${i}${href}`}
-            onClick={(e: SyntheticMouseEvent<>) => handleTabClick(i, e)}
-            role="tab"
+    <Row wrap={wrap}>
+      {tabs.map(({ id, href, text }, index) => (
+        <Link
+          accessibilitySelected={activeTabIndex === index}
+          hoverStyle="none"
+          href={href}
+          id={id}
+          key={id || `${href}_${index}`}
+          onClick={({ event }) => onChange({ activeTabIndex: index, event })}
+          role="tab"
+          rounding="pill"
+        >
+          <Box
+            height={size === 'lg' ? 40 : 32}
+            paddingX={4}
+            paddingY={2}
+            alignItems="center"
+            justifyContent="center"
+            display="flex"
+            minWidth={60}
           >
-            <Text color={isActive ? 'white' : 'darkGray'} weight="bold">
+            <Text
+              color={activeTabIndex === index ? 'white' : 'darkGray'}
+              weight="bold"
+              size={size}
+            >
               {text}
             </Text>
-          </a>
-        );
-      })}
-    </div>
+          </Box>
+        </Link>
+      ))}
+    </Row>
   );
 }
 
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['md', 'lg']),
   tabs: PropTypes.arrayOf(
     PropTypes.exact({
-      href: PropTypes.string,
+      href: PropTypes.string.isRequired,
       id: PropTypes.string,
-      text: PropTypes.node,
+      text: PropTypes.node.isRequired,
     })
   ).isRequired,
-  onChange: PropTypes.func.isRequired,
   wrap: PropTypes.bool,
 };

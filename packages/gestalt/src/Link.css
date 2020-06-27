@@ -16,3 +16,31 @@
 .block {
   composes: block from "./Layout.css";
 }
+
+.tab {
+  composes: pointer from "./Cursor.css";
+  user-select: none;
+  white-space: nowrap;
+}
+
+.tab:focus {
+  position: relative;
+}
+
+.tabIsNotActive {
+  composes: whiteBg from "./Colors.css";
+}
+
+.tabIsNotActive:focus,
+.tabIsNotActive:hover {
+  background-color: #efefef;
+  color: #111;
+}
+
+.tabIsNotActive:active {
+  background-color: #e8e8e8;
+}
+
+.tabIsActive {
+  composes: darkGrayBg white from "./Colors.css";
+}

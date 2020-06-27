@@ -5,4 +5,7 @@ declare module.exports: {|
   +'hoverUnderline': string,
   +'inlineBlock': string,
   +'link': string,
+  +'tab': string,
+  +'tabIsActive': string,
+  +'tabIsNotActive': string,
 |};

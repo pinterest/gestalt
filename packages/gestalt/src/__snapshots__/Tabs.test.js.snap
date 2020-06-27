@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> matches snapshot with default props 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box"
+    >
+      <a
+        aria-selected={true}
+        className="link touchable block pill tab tabIsActive"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        role="tab"
+        target={null}
+      >
+        <div
+          className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
+          style={
+            Object {
+              "height": 32,
+              "minWidth": 60,
+            }
+          }
+        >
+          <div
+            className="Text fontSize2 white alignLeft breakWord fontWeightBold"
+          >
+            News
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="box"
+    >
+      <a
+        aria-selected={false}
+        className="link touchable block pill tab tabIsNotActive"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        role="tab"
+        target={null}
+      >
+        <div
+          className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
+          style={
+            Object {
+              "height": 32,
+              "minWidth": 60,
+            }
+          }
+        >
+          <div
+            className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+          >
+            You
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="box flexWrap itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box"
+    >
+      <a
+        aria-selected={true}
+        className="link touchable block pill tab tabIsActive"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        role="tab"
+        target={null}
+      >
+        <div
+          className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
+          style={
+            Object {
+              "height": 40,
+              "minWidth": 60,
+            }
+          }
+        >
+          <div
+            className="Text fontSize3 white alignLeft breakWord fontWeightBold"
+          >
+            News
+          </div>
+        </div>
+      </a>
+    </div>
+    <div
+      className="box"
+    >
+      <a
+        aria-selected={false}
+        className="link touchable block pill tab tabIsNotActive"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        role="tab"
+        target={null}
+      >
+        <div
+          className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
+          style={
+            Object {
+              "height": 40,
+              "minWidth": 60,
+            }
+          }
+        >
+          <div
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+          >
+            You
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
