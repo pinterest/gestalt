@@ -43,6 +43,12 @@ export default function Option({
     [styles.pointer]: true,
   });
 
+  // Default option color
+  let optionStateColor = 'white';
+  // Colors on changed states
+  if (hover) optionStateColor = 'lightGray';
+  if (isSelectedItem) optionStateColor = 'gray';
+
   return (
     <div
       className={`${className}`}
@@ -61,12 +67,7 @@ export default function Option({
       aria-selected={isSelectedItem}
       tabIndex={index}
     >
-      <Box
-        margin={1}
-        padding={2}
-        color={isSelectedItem || hover ? 'lightGray' : 'white'}
-        rounding={2}
-      >
+      <Box margin={1} padding={2} color={optionStateColor} rounding={2}>
         <Text color="darkGray">{`${option[searchField]}`}</Text>
       </Box>
     </div>
