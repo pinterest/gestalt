@@ -109,39 +109,41 @@ card(
     id="basicExample"
     name="Example"
     defaultCode={`
-      function Example(props) {
-        const [item, setItem] = React.useState('');
-        const [selected, setSelected] = React.useState(null);
+    function Example(props) {
+      const [item, setItem] = React.useState("");
+      const [selected, setSelected] = React.useState(null);
 
-        const options = Array
-                          .from(Array(100).keys())
-                          .map(item => ({value: "value-" + item, label: "Label-" + item}))
+      const options = Array.from(Array(100).keys()).map((item) => ({
+        value: "value-" + item,
+        label: "Label-" + item,
+      }));
 
-        const handleOnChange = ({value}) => {
-          setItem(value);
-        }
+      const handleOnChange = ({ value }) => {
+        setItem(value);
+      };
 
-        const handleSelect = item => {
-          setSelected(item)
-        }
+      const handleSelect = (item) => {
+        setSelected(item);
+      };
 
-        return (
-          <>
-            <Box marginBottom={2}><Text>Selected Item: {selected && selected.label || ""}</Text></Box>
+      return (
+        <>
+          <Box marginBottom={2}>
+            <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+          </Box>
 
-            <Typeahead
-              id="Typeahead-example"
-              noResultText="No Results"
-              data={options}
-              placeholder="Select a Label"
-              onChange={handleOnChange}
-              value={item}
-              onSelect={handleSelect}
-            />
-          </>
-        );
-      }
-    `}
+          <Typeahead
+            id="Typeahead-example"
+            noResultText="No Results"
+            data={options}
+            placeholder="Select a Label"
+            onChange={handleOnChange}
+            value={item}
+            onSelect={handleSelect}
+          />
+        </>
+      );
+    }`}
   />
 );
 
@@ -150,43 +152,43 @@ card(
     id="defaultItemExample"
     name="Default Item Example"
     defaultCode={`
-      function Example(props) {
-        const options = Array
-                          .from(Array(100).keys())
-                          .map(item => ({value: "value-" + item, label: "Label-" + item}))
+    function Example(props) {
+      const options = Array.from(Array(100).keys()).map((item) => ({
+        value: "value-" + item,
+        label: "Label-" + item,
+      }));
 
-        const defaultOption = options[3]
-        const [item, setItem] = React.useState(defaultOption.label);
-        const [selected, setSelected] = React.useState(defaultOption);
+      const defaultOption = options[3];
+      const [item, setItem] = React.useState(defaultOption.label);
+      const [selected, setSelected] = React.useState(defaultOption);
 
+      const handleOnChange = ({ value }) => {
+        setItem(value);
+      };
 
+      const handleSelect = (item) => {
+        setSelected(item);
+      };
 
-        const handleOnChange = ({value}) => {
-          setItem(value);
-        }
+      return (
+        <>
+          <Box marginBottom={2}>
+            <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+          </Box>
 
-        const handleSelect = item => {
-          setSelected(item)
-        }
-
-        return (
-          <>
-            <Box marginBottom={2}><Text>Selected Item: {selected && selected.label || ""}</Text></Box>
-
-            <Typeahead
-              id="Typeahead-example-defaultItem"
-              noResultText="No Results"
-              data={options}
-              defaultItem={defaultOption}
-              placeholder="Select a Label"
-              onChange={handleOnChange}
-              value={item}
-              onSelect={handleSelect}
-            />
-          </>
-        );
-      }
-    `}
+          <Typeahead
+            id="Typeahead-example-defaultItem"
+            noResultText="No Results"
+            data={options}
+            defaultItem={defaultOption}
+            placeholder="Select a Label"
+            onChange={handleOnChange}
+            value={item}
+            onSelect={handleSelect}
+          />
+        </>
+      );
+    }`}
   />
 );
 
