@@ -1,9 +1,7 @@
 
 .icon {
-  composes: marginEnd2 from "./boxWhitespace.css";
+  composes: marginEnd2 paddingX1 paddingY1 from "./boxWhitespace.css";
   composes: noBorder from "./Borders.css";
-  composes: paddingX1 from "./boxWhitespace.css";
-  composes: paddingY1 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
   composes: right0 from "./Layout.css";
   composes: transparentBg from "./Colors.css";
@@ -14,10 +12,5 @@
 }
 
 .inputRadius {
-  border-radius: 16px;
-}
-
-.typeaheadOptionFocus {
-  box-shadow: 0 0 0 4px rgba(0, 132, 255, 0.5);
-  outline: 0;
+  composes: rounding4 from './Borders.css'
 }
