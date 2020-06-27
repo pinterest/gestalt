@@ -254,6 +254,3 @@ yarn add @types/gestalt
 );
 
 export default cards;
-
-const navRoute = { section: 'getting-started', group: 'none' };
-export { navRoute };

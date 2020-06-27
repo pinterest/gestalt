@@ -11,7 +11,7 @@ import {
 } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import Link from './Link.js';
-import { useSidebarContext } from './SidebarContext.js';
+import { useSidebarContext } from './sidebarContext.js';
 
 export default function Header() {
   const [isRTL, setIsRTL] = React.useState(false);

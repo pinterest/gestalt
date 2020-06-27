@@ -436,6 +436,3 @@ function Example() {
 );
 
 export default cards;
-
-const navRoute = { section: 'components', group: 'Media' };
-export { navRoute };

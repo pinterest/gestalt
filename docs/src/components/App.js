@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Box, Divider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
-import { SidebarContextProvider } from './SidebarContext.js';
+import { SidebarContextProvider } from './sidebarContext.js';
 
 type Props = {|
   children?: React.Node,

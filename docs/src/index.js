@@ -8,8 +8,17 @@ import App from './components/App.js';
 import CardPage from './components/CardPage.js';
 import routes from './components/routes.js';
 import './reset.css';
+import sidebarIndex from './components/sidebarIndex.js';
 
 const container = document.getElementById('root');
+const mapRoutes = (pages, pathname) =>
+  pages.map((page, i) => (
+    <Route
+      path={`/${pathname}/${page}`}
+      key={i}
+      render={() => <CardPage cards={routes[page]} />}
+    />
+  ));
 
 if (container instanceof Element) {
   render(
@@ -22,16 +31,13 @@ if (container instanceof Element) {
               path="/"
               render={() => <Redirect to="/getting-started/Installation" />}
             />
-            {Object.keys(routes).map(pathname => {
-              const cleanPathname = pathname.replace(/\d-/g, '');
-              return (
-                <Route
-                  path={`/${routes[pathname].navRoute.section}/${cleanPathname}`}
-                  key={pathname}
-                  render={() => <CardPage cards={routes[pathname].cards} />}
-                />
-              );
-            })}
+            {sidebarIndex.map(section =>
+              section.pages
+                ? mapRoutes(section.pages, section.sectionPathname)
+                : section.subsections.map(subsection =>
+                    mapRoutes(subsection.pages, section.sectionPathname)
+                  )
+            )}
           </Switch>
         </App>
       </HashRouter>

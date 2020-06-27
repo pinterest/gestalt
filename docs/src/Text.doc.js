@@ -240,6 +240,3 @@ card(
 );
 
 export default cards;
-
-const navRoute = { section: 'components', group: 'Foundation' };
-export { navRoute };

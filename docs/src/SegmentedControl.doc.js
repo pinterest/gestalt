@@ -122,6 +122,3 @@ function SegmentedControlExample() {
 );
 
 export default cards;
-
-const navRoute = { section: 'components', group: 'Navigation' };
-export { navRoute };

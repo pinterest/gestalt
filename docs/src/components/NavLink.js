@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Link, Text } from 'gestalt';
 import { withRouter, Route } from 'react-router-dom';
 import { createLocation } from 'history';
-import { useSidebarContext } from './SidebarContext.js';
+import { useSidebarContext } from './sidebarContext.js';
 
 type Props = {|
   children?: React.Node,
