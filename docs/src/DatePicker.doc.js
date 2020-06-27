@@ -115,6 +115,7 @@ card(
         type: `'up'|'right'|'down'|'left'`,
         description: 'Preferred direction for the calendar flyout to open.',
         href: 'idealDirection',
+        defaultValue: 'down',
       },
       {
         name: 'includeDates',
