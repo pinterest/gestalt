@@ -1,3 +1,9 @@
+## 5.11.1 (Jun 29, 2020)
+
+### Patch
+
+- DatePicker/Tooltip: update idealDirection default value in docs (#954)
+
 ## 5.11.0 (Jun 26, 2020)
 
 ### Minor
