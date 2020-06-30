@@ -9,6 +9,13 @@
     <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/pinterest_favicon.png" />
+    <script type="text/javascript">
+      // Load polyfills for IE 11
+      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+        document.write(
+          '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"><\/script>'
+        );
+    </script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
