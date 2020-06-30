@@ -43,7 +43,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
           style={
             Object {
-              "height": 32,
+              "height": 40,
               "minWidth": 60,
             }
           }
@@ -80,7 +80,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
           style={
             Object {
-              "height": 32,
+              "height": 40,
               "minWidth": 60,
             }
           }
@@ -140,7 +140,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
           className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
           style={
             Object {
-              "height": 40,
+              "height": 48,
               "minWidth": 60,
             }
           }
@@ -177,7 +177,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
           className="box itemsCenter justifyCenter paddingX4 paddingY2 xsDisplayFlex"
           style={
             Object {
-              "height": 40,
+              "height": 48,
               "minWidth": 60,
             }
           }

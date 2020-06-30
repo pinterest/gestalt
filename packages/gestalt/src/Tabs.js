@@ -42,7 +42,7 @@ export default function Tabs({
           rounding="pill"
         >
           <Box
-            height={size === 'lg' ? 40 : 32}
+            height={size === 'lg' ? 48 : 40}
             paddingX={4}
             paddingY={2}
             alignItems="center"
