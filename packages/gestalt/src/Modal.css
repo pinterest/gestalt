@@ -14,7 +14,7 @@
 }
 
 .wrapper {
-  composes: relative overflowHidden flex from "./Layout.css";
+  composes: relative overflowAuto flex from "./Layout.css";
   composes: whiteBg from "./Colors.css";
   composes: rounding8 from "./Borders.css";
   composes: marginLeft4 marginRight4 from "./boxWhitespace.css";
