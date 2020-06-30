@@ -23,28 +23,30 @@ export default function CollapsibleSubsection({
 
   return (
     <Box direction="column" display="flex">
-      <TapArea
-        onTap={() => {
-          setIsSubsectionCollapsed(!isSubsectionCollapsed);
-        }}
-      >
-        <Box marginStart={6} paddingY={2} role="listitem">
-          <Row justifyContent="between">
-            <Text size="lg" weight="bold">
-              {subsection.subsectionName}
-            </Text>
-            <Icon
-              icon={isSubsectionCollapsed ? 'arrow-down' : 'arrow-forward'}
-              size={10}
-            />
-          </Row>
-        </Box>
-      </TapArea>
+      <Box marginStart={4}>
+        <TapArea
+          onTap={() => {
+            setIsSubsectionCollapsed(!isSubsectionCollapsed);
+          }}
+        >
+          <Box padding={2} role="listitem">
+            <Row justifyContent="between">
+              <Text size="lg" weight="bold">
+                {subsection.subsectionName}
+              </Text>
+              <Icon
+                icon={isSubsectionCollapsed ? 'arrow-down' : 'arrow-forward'}
+                size={10}
+              />
+            </Row>
+          </Box>
+        </TapArea>
+      </Box>
       {isSubsectionCollapsed && (
-        <Box role="list">
+        <Box role="list" marginStart={8}>
           {subsection.pages.map((component, i) => (
             <NavLink key={i} to={`/${sectionPathname}/${component}`}>
-              <Box paddingY={2} marginStart={12} role="listitem">
+              <Box padding={2} role="listitem">
                 {component}
               </Box>
             </NavLink>

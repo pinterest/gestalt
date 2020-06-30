@@ -21,11 +21,13 @@ export default function CollapsibleSection({ section }: sidebarIndexType) {
   const showSection = () =>
     section.pages
       ? section.pages.map((component, i) => (
-          <NavLink to={`/${section.sectionPathname}/${component}`} key={i}>
-            <Box marginStart={6} paddingY={2} role="listitem">
-              {component}
-            </Box>
-          </NavLink>
+          <Box marginStart={4} key={i}>
+            <NavLink to={`/${section.sectionPathname}/${component}`}>
+              <Box padding={2} role="listitem">
+                {component}
+              </Box>
+            </NavLink>
+          </Box>
         ))
       : section.subsections.map((subsection, i) => {
           return (
@@ -44,7 +46,7 @@ export default function CollapsibleSection({ section }: sidebarIndexType) {
           setIsSectionCollapsed(!isSectionCollapsed);
         }}
       >
-        <Box paddingY={2} marginStart={2} role="list">
+        <Box padding={2} role="list">
           <Row justifyContent="between">
             <Text size="lg" weight="bold">
               {section.sectionName}

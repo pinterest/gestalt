@@ -23,7 +23,7 @@ export default function App(props: Props) {
       <Box minHeight="100vh">
         <Header />
         <Box mdDisplay="flex" direction="row">
-          <Box minWidth={220}>
+          <Box minWidth={240}>
             <Navigation />
           </Box>
           <Divider />
