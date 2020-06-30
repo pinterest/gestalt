@@ -1,3 +1,9 @@
+## 5.12.1 (Jun 30, 2020)
+
+### Patch
+
+- Internal: Support GitHub Codespaces (#956)
+
 ## 5.12.0 (Jun 30, 2020)
 
 ### Minor
