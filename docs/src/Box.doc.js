@@ -193,6 +193,12 @@ card(
         href: 'rounding',
       },
       {
+        name: 'userSelect',
+        type: `"auto" | "none"`,
+        defaultValue: 'auto',
+        description: `controls whether or not user can select text`,
+      },
+      {
         name: 'wrap',
         type: 'boolean',
         defaultValue: false,

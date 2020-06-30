@@ -16,12 +16,3 @@
 .block {
   composes: block from "./Layout.css";
 }
-
-.tab {
-  user-select: none;
-  white-space: nowrap;
-}
-
-.tab:focus {
-  position: relative;
-}

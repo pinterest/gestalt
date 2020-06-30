@@ -250,6 +250,8 @@ type PropType = {
   width?: Dimension,
   wrap?: boolean,
 
+  userSelect?: 'auto' | 'none',
+
   role: string,
 };
 
@@ -627,6 +629,10 @@ const propToFn = {
   right: toggle(layout.right0),
   rounding: getRoundingStyle,
   top: toggle(layout.top0),
+  userSelect: mapping({
+    none: styles.userSelectNone,
+    // default: auto
+  }),
   width: width => fromInlineStyle({ width }),
   wrap: toggle(layout.flexWrap),
   dangerouslySetInlineStyle: value =>
@@ -999,6 +1005,8 @@ Box.propTypes = {
   top: PropTypes.bool,
   width: DimensionPropType,
   wrap: PropTypes.bool,
+
+  userSelect: PropTypes.oneOf(['auto', 'none']),
 
   role: PropTypes.string,
 };

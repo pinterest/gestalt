@@ -50,10 +50,18 @@ card(
         href: 'advancedExample',
       },
       {
+        name: 'onBlur',
+        type: '() => void',
+      },
+      {
         name: 'onClick',
         type:
           '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
         href: 'advancedExample',
+      },
+      {
+        name: 'onFocus',
+        type: '() => void',
       },
       {
         name: 'rel',

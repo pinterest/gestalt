@@ -22,80 +22,90 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     <div
       className="box"
     >
-      <a
-        aria-selected={true}
-        className="link touchable block pill tab"
-        href="#"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        rel=""
-        role="tab"
-        target={null}
+      <div
+        className="box"
       >
-        <div
-          className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill xsDisplayFlex"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          style={
-            Object {
-              "height": 40,
-              "minWidth": 60,
-            }
-          }
+        <a
+          aria-selected={true}
+          className="link touchable block pill"
+          href="#"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          role="tab"
+          target={null}
         >
           <div
-            className="Text fontSize2 white alignLeft breakWord fontWeightBold"
+            className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone xsDisplayFlex"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "height": 40,
+                "minWidth": 60,
+              }
+            }
           >
-            News
+            <div
+              className="Text fontSize2 white alignLeft noWrap fontWeightBold"
+            >
+              News
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
     <div
       className="box"
     >
-      <a
-        aria-selected={false}
-        className="link touchable block pill tab"
-        href="#"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        rel=""
-        role="tab"
-        target={null}
+      <div
+        className="box"
       >
-        <div
-          className="box itemsCenter justifyCenter paddingX4 paddingY2 pill whiteBg xsDisplayFlex"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          style={
-            Object {
-              "height": 40,
-              "minWidth": 60,
-            }
-          }
+        <a
+          aria-selected={false}
+          className="link touchable block pill"
+          href="#"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          role="tab"
+          target={null}
         >
           <div
-            className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+            className="box itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone whiteBg xsDisplayFlex"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "height": 40,
+                "minWidth": 60,
+              }
+            }
           >
-            You
+            <div
+              className="Text fontSize2 darkGray alignLeft noWrap fontWeightBold"
+            >
+              You
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -123,80 +133,90 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
     <div
       className="box"
     >
-      <a
-        aria-selected={true}
-        className="link touchable block pill tab"
-        href="#"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        rel=""
-        role="tab"
-        target={null}
+      <div
+        className="box"
       >
-        <div
-          className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill xsDisplayFlex"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          style={
-            Object {
-              "height": 48,
-              "minWidth": 60,
-            }
-          }
+        <a
+          aria-selected={true}
+          className="link touchable block pill"
+          href="#"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          role="tab"
+          target={null}
         >
           <div
-            className="Text fontSize3 white alignLeft breakWord fontWeightBold"
+            className="box darkGrayBg itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone xsDisplayFlex"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "height": 48,
+                "minWidth": 60,
+              }
+            }
           >
-            News
+            <div
+              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+            >
+              News
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
     <div
       className="box"
     >
-      <a
-        aria-selected={false}
-        className="link touchable block pill tab"
-        href="#"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        rel=""
-        role="tab"
-        target={null}
+      <div
+        className="box"
       >
-        <div
-          className="box itemsCenter justifyCenter paddingX4 paddingY2 pill whiteBg xsDisplayFlex"
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          style={
-            Object {
-              "height": 48,
-              "minWidth": 60,
-            }
-          }
+        <a
+          aria-selected={false}
+          className="link touchable block pill"
+          href="#"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          role="tab"
+          target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+            className="box itemsCenter justifyCenter paddingX4 paddingY2 pill userSelectNone whiteBg xsDisplayFlex"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            style={
+              Object {
+                "height": 48,
+                "minWidth": 60,
+              }
+            }
           >
-            You
+            <div
+              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+            >
+              You
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </div>

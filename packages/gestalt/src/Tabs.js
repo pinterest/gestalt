@@ -6,43 +6,76 @@ import Row from './Row.js';
 import Link from './Link.js';
 import Text from './Text.js';
 
+type OnChangeHandler = ({|
+  +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>,
+  +activeTabIndex: number,
+|}) => void;
+
 function Tab({
   children,
   size,
+  href,
+  id,
+  index,
   isActive,
+  onChange,
 }: {|
   children: React.Node,
   size: 'md' | 'lg',
   isActive: boolean,
+  href: string,
+  index: number,
+  id?: string,
+  onChange: OnChangeHandler,
 |}) {
   const [hovered, setHovered] = React.useState(false);
+  const [focused, setFocused] = React.useState(false);
   return (
-    <Box
-      alignItems="center"
-      color={(isActive && 'darkGray') || (hovered && 'lightGray') || 'white'}
-      display="flex"
-      height={size === 'lg' ? 48 : 40}
-      justifyContent="center"
-      minWidth={60}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      paddingX={4}
-      paddingY={2}
-      rounding="pill"
-    >
-      <Text color={isActive ? 'white' : 'darkGray'} weight="bold" size={size}>
-        {children}
-      </Text>
+    <Box position={focused ? 'relative' : undefined}>
+      <Link
+        accessibilitySelected={isActive}
+        hoverStyle="none"
+        href={href}
+        id={id}
+        onBlur={() => setFocused(false)}
+        onClick={({ event }) => onChange({ activeTabIndex: index, event })}
+        onFocus={() => setFocused(true)}
+        role="tab"
+        rounding="pill"
+      >
+        <Box
+          alignItems="center"
+          color={
+            (isActive && 'darkGray') || (hovered && 'lightGray') || 'white'
+          }
+          display="flex"
+          height={size === 'lg' ? 48 : 40}
+          justifyContent="center"
+          minWidth={60}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          paddingX={4}
+          paddingY={2}
+          rounding="pill"
+          userSelect="none"
+        >
+          <Text
+            color={isActive ? 'white' : 'darkGray'}
+            weight="bold"
+            size={size}
+            overflow="noWrap"
+          >
+            {children}
+          </Text>
+        </Box>
+      </Link>
     </Box>
   );
 }
 
 type Props = {|
   activeTabIndex: number,
-  onChange: ({|
-    +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>,
-    +activeTabIndex: number,
-  |}) => void,
+  onChange: OnChangeHandler,
   size?: 'md' | 'lg',
   tabs: Array<{|
     href: string,
@@ -62,20 +95,17 @@ export default function Tabs({
   return (
     <Row wrap={wrap}>
       {tabs.map(({ id, href, text }, index) => (
-        <Link
-          accessibilitySelected={activeTabIndex === index}
-          hoverStyle="none"
+        <Tab
+          key={id || `${href}_${index}`}
+          size={size}
+          onChange={onChange}
           href={href}
           id={id}
-          key={id || `${href}_${index}`}
-          onClick={({ event }) => onChange({ activeTabIndex: index, event })}
-          role="tab"
-          rounding="pill"
+          index={index}
+          isActive={activeTabIndex === index}
         >
-          <Tab size={size} isActive={activeTabIndex === index}>
-            {text}
-          </Tab>
-        </Link>
+          {text}
+        </Tab>
       ))}
     </Row>
   );
