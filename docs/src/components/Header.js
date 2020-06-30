@@ -35,7 +35,6 @@ export default function Header() {
         paddingY={2}
         paddingX={4}
         mdPaddingX={6}
-        lgPaddingX={8}
         color="pine"
         display="flex"
         direction="row"
@@ -67,19 +66,10 @@ export default function Header() {
           </Text>
         </Box>
         <Box flex="grow" />
-        <Box display="flex" mdDisplay="none" alignItems="center">
+        <Box display="flex" alignItems="center">
           <DocSearch />
-          <IconButton
-            size="md"
-            accessibilityLabel="Gestalt Documentation Menu"
-            iconColor="white"
-            icon="menu"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          />
-        </Box>
-        <Box marginStart={-2} marginEnd={-2} display="flex" alignItems="center">
+
           <Box display="none" mdDisplay="flex" alignItems="center">
-            <DocSearch />
             <Tooltip inline text="Right-To-Left View">
               <IconButton
                 size="md"
@@ -110,6 +100,15 @@ export default function Header() {
                 <Box padding={2}>GitHub</Box>
               </GestaltLink>
             </Text>
+          </Box>
+          <Box display="flex" mdDisplay="none" alignItems="center">
+            <IconButton
+              size="md"
+              accessibilityLabel={`${isSidebarOpen ? 'Hide' : 'Show'} Menu`}
+              iconColor="white"
+              icon="menu"
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            />
           </Box>
         </Box>
       </Box>

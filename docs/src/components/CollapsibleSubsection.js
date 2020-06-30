@@ -35,6 +35,7 @@ export default function CollapsibleSubsection({
                 {subsection.subsectionName}
               </Text>
               <Icon
+                accessibilityLabel=""
                 icon={isSubsectionCollapsed ? 'arrow-down' : 'arrow-forward'}
                 size={10}
               />

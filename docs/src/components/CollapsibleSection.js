@@ -52,6 +52,7 @@ export default function CollapsibleSection({ section }: sidebarIndexType) {
               {section.sectionName}
             </Text>
             <Icon
+              accessibilityLabel=""
               icon={isSectionCollapsed ? 'arrow-down' : 'arrow-forward'}
               size={10}
             />
