@@ -1,3 +1,9 @@
+## 5.12.0 (Jun 30, 2020)
+
+### Minor
+
+- Modal: fix scroll behavior in IE11 (#958)
+
 ## 5.11.2 (Jun 30, 2020)
 
 ### Patch
