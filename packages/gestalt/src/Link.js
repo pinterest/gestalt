@@ -63,8 +63,6 @@ function Link({
       [styles.hoverUnderline]: hoverStyle === 'underline',
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
       [styles.tab]: role === 'tab',
-      [styles.tabIsActive]: role === 'tab' && accessibilitySelected,
-      [styles.tabIsNotActive]: role === 'tab' && !accessibilitySelected,
     }
   );
 

@@ -6,6 +6,4 @@ declare module.exports: {|
   +'inlineBlock': string,
   +'link': string,
   +'tab': string,
-  +'tabIsActive': string,
-  +'tabIsNotActive': string,
 |};

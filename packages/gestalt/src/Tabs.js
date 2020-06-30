@@ -6,6 +6,37 @@ import Row from './Row.js';
 import Link from './Link.js';
 import Text from './Text.js';
 
+function Tab({
+  children,
+  size,
+  isActive,
+}: {|
+  children: React.Node,
+  size: 'md' | 'lg',
+  isActive: boolean,
+|}) {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <Box
+      alignItems="center"
+      color={(isActive && 'darkGray') || (hovered && 'lightGray') || 'white'}
+      display="flex"
+      height={size === 'lg' ? 48 : 40}
+      justifyContent="center"
+      minWidth={60}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      paddingX={4}
+      paddingY={2}
+      rounding="pill"
+    >
+      <Text color={isActive ? 'white' : 'darkGray'} weight="bold" size={size}>
+        {children}
+      </Text>
+    </Box>
+  );
+}
+
 type Props = {|
   activeTabIndex: number,
   onChange: ({|
@@ -41,23 +72,9 @@ export default function Tabs({
           role="tab"
           rounding="pill"
         >
-          <Box
-            height={size === 'lg' ? 48 : 40}
-            paddingX={4}
-            paddingY={2}
-            alignItems="center"
-            justifyContent="center"
-            display="flex"
-            minWidth={60}
-          >
-            <Text
-              color={activeTabIndex === index ? 'white' : 'darkGray'}
-              weight="bold"
-              size={size}
-            >
-              {text}
-            </Text>
-          </Box>
+          <Tab size={size} isActive={activeTabIndex === index}>
+            {text}
+          </Tab>
         </Link>
       ))}
     </Row>
