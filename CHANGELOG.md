@@ -1,3 +1,9 @@
+## 5.14.1 (Jul 1, 2020)
+
+### Patch
+
+- TapArea / Text: Refactored Docs examples for cleaner examples (#947)
+
 ## 5.14.0 (Jul 1, 2020)
 
 ### Minor
