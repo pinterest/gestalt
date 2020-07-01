@@ -1,3 +1,9 @@
+## 5.13.0 (Jul 1, 2020)
+
+### Minor
+
+- Tabs (and Box, Link, Text): force long tab label in one line with major refactor (#955)
+
 ## 5.12.1 (Jun 30, 2020)
 
 ### Patch
