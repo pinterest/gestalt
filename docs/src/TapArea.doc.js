@@ -175,7 +175,7 @@ card(
     name="Full width and full height"
     defaultCode={`
 <Box color="olive" display="flex" width={500} height={250}>
-  <Box borderSize='sm' margin={3} column={6}>
+  <Box borderSize="sm" margin={3} column={6}>
     <TapArea fullHeight>
       <Box height="100%" color="lightGray">
         <Text align="center">
@@ -184,7 +184,7 @@ card(
       </Box>
     </TapArea>
   </Box>
-  <Box borderSize='sm' margin={3} column={6}>
+  <Box borderSize="sm" margin={3} column={6}>
     <TapArea>
       <Box height="100%" color="lightGray">
         <Text align="center">
@@ -237,7 +237,7 @@ function AccessibilityExamplePopup() {
           idealDirection="right"
           onDismiss={() => {}}
         >
-          <Box alignItems="center" display='flex' padding={2}>
+          <Box alignItems="center" display="flex" padding={2}>
             <Text>I am a popup.</Text>
           </Box>
         </Flyout>
