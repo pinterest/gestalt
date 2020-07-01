@@ -1,3 +1,9 @@
+## 5.14.0 (Jul 1, 2020)
+
+### Minor
+
+- Docs: Refactored Gestalt Docs Sidebar Menu (#952)
+
 ## 5.13.0 (Jul 1, 2020)
 
 ### Minor
