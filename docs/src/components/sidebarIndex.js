@@ -7,6 +7,44 @@ export type sidebarIndexType = Array<{|
   subsections?: Array<{| [string]: Array<string> |}>,
 |}>;
 
+const componentSubSectionPages = {
+  displayDate: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Table'],
+  feedBack: ['Modal', 'Pulsar', 'Spinner', 'Toast'],
+  foundations: ['Heading', 'Icon', 'Text'],
+  forms: [
+    'Button',
+    'Checkbox',
+    'DatePicker',
+    'Flyout',
+    'IconButton',
+    'Label',
+    'Pog',
+    'RadioButton',
+    'SearchField',
+    'SelectList',
+    'Switch',
+    'TapArea',
+    'TextArea',
+    'TextField',
+    'Tooltip',
+  ],
+  layout: [
+    'Box',
+    'Card',
+    'Collage',
+    'Column',
+    'Container',
+    'Divider',
+    'Layer',
+    'Masonry',
+    'Row',
+    'Stack',
+    'Sticky',
+  ],
+  media: ['Image', 'Letterbox', 'Mask', 'Video'],
+  navigation: ['Link', 'SegmentedControl', 'Tabs'],
+};
+
 // sidebarIndex is the source of truth for the sidebar documentation menu.
 // sidebarIndex establishes the sidebar hierarchical menu order:
 // section 1
@@ -30,59 +68,37 @@ const sidebarIndex: sidebarIndexType = [
     subsections: [
       {
         subsectionName: 'Data Display',
-        pages: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Table'],
+        pages: componentSubSectionPages.displayDate,
       },
       {
         subsectionName: 'Feedback',
-        pages: ['Modal', 'Pulsar', 'Spinner', 'Toast'],
+        pages: componentSubSectionPages.feedBack,
       },
       {
         subsectionName: 'Foundation',
-        pages: ['Heading', 'Icon', 'Text'],
+        pages: componentSubSectionPages.foundations,
       },
       {
         subsectionName: 'Forms',
-        pages: [
-          'Button',
-          'Checkbox',
-          'DatePicker',
-          'Flyout',
-          'IconButton',
-          'Label',
-          'Pog',
-          'RadioButton',
-          'SearchField',
-          'SelectList',
-          'Switch',
-          'TapArea',
-          'TextArea',
-          'TextField',
-          'Tooltip',
-        ],
+        pages: componentSubSectionPages.forms,
       },
       {
         subsectionName: 'Layout',
-        pages: [
-          'Box',
-          'Card',
-          'Collage',
-          'Column',
-          'Container',
-          'Divider',
-          'Layer',
-          'Masonry',
-          'Row',
-          'Stack',
-          'Sticky',
-        ],
+        pages: componentSubSectionPages.layout,
       },
       {
         subsectionName: 'Media',
-        pages: ['Image', 'Letterbox', 'Mask', 'Video'],
+        pages: componentSubSectionPages.media,
       },
       {
         subsectionName: 'Navigation',
-        pages: ['Link', 'SegmentedControl', 'Tabs'],
+        pages: componentSubSectionPages.navigation,
+      },
+      {
+        subsectionName: 'All',
+        pages: [
+          ...new Set(Object.values(componentSubSectionPages).flat()),
+        ].sort(),
       },
     ],
   },
