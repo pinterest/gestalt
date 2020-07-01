@@ -47,7 +47,7 @@ card(
       },
       {
         name: 'overflow',
-        type: `"normal" | "breakWord"`,
+        type: `"normal" | "breakWord" | "noWrap"`,
         defaultValue: 'breakWord',
         href: 'overflow',
       },
@@ -164,11 +164,15 @@ card(
     </Text>
   </Box>
   <Box marginBottom={2}>
+    <Text weight="bold">noWrap:</Text>
+    <Text overflow="noWrap">
+      This is a long and Supercalifragilisticexpialidocious sentence.
+    </Text>
+  </Box>
+  <Box marginBottom={2}>
     <Text weight="bold">truncate:</Text>
     <Text truncate>
       This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
     </Text>
   </Box>
 </Box>

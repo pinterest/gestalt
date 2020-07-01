@@ -1,23 +1,80 @@
 // @flow strict
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import Box from './Box.js';
+import Row from './Row.js';
+import Link from './Link.js';
 import Text from './Text.js';
-import styles from './Tabs.css';
-import layout from './Layout.css';
 
-export default function Tabs({
-  activeTabIndex,
+type OnChangeHandler = ({|
+  +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>,
+  +activeTabIndex: number,
+|}) => void;
+
+function Tab({
+  children,
+  size,
+  href,
+  id,
+  index,
+  isActive,
   onChange,
-  size = 'md',
-  tabs,
-  wrap,
 }: {|
+  children: React.Node,
+  size: 'md' | 'lg',
+  isActive: boolean,
+  href: string,
+  index: number,
+  id?: string,
+  onChange: OnChangeHandler,
+|}) {
+  const [hovered, setHovered] = React.useState(false);
+  const [focused, setFocused] = React.useState(false);
+  return (
+    <Box position={focused ? 'relative' : undefined}>
+      <Link
+        accessibilitySelected={isActive}
+        hoverStyle="none"
+        href={href}
+        id={id}
+        onBlur={() => setFocused(false)}
+        onClick={({ event }) => onChange({ activeTabIndex: index, event })}
+        onFocus={() => setFocused(true)}
+        role="tab"
+        rounding="pill"
+      >
+        <Box
+          alignItems="center"
+          color={
+            (isActive && 'darkGray') || (hovered && 'lightGray') || 'white'
+          }
+          display="flex"
+          height={size === 'lg' ? 48 : 40}
+          justifyContent="center"
+          minWidth={60}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          paddingX={4}
+          paddingY={2}
+          rounding="pill"
+          userSelect="none"
+        >
+          <Text
+            color={isActive ? 'white' : 'darkGray'}
+            weight="bold"
+            overflow="noWrap"
+          >
+            {children}
+          </Text>
+        </Box>
+      </Link>
+    </Box>
+  );
+}
+
+type Props = {|
   activeTabIndex: number,
-  onChange: ({|
-    event: SyntheticMouseEvent<>,
-    activeTabIndex: number,
-  |}) => void,
+  onChange: OnChangeHandler,
   size?: 'md' | 'lg',
   tabs: Array<{|
     href: string,
@@ -25,54 +82,44 @@ export default function Tabs({
     text: React.Node,
   |}>,
   wrap?: boolean,
-|}): React.Node {
-  const handleTabClick = (i: number, e: SyntheticMouseEvent<>) =>
-    onChange({ activeTabIndex: i, event: e });
+|};
 
+export default function Tabs({
+  activeTabIndex,
+  onChange,
+  size = 'md',
+  tabs,
+  wrap,
+}: Props): React.Node {
   return (
-    <div
-      className={classnames(
-        styles.Tabs,
-        wrap && layout.flexWrap,
-        size === 'md' ? layout.medium : layout.large
-      )}
-      role="tablist"
-    >
-      {tabs.map(({ href, id, text }, i) => {
-        const isActive = i === activeTabIndex;
-        const cs = classnames(styles.tab, {
-          [styles.tabIsNotActive]: !isActive,
-          [styles.tabIsActive]: isActive,
-        });
-        return (
-          <a
-            aria-selected={isActive}
-            className={cs}
-            href={href}
-            {...(id ? { id } : {})}
-            key={`${i}${href}`}
-            onClick={(e: SyntheticMouseEvent<>) => handleTabClick(i, e)}
-            role="tab"
-          >
-            <Text color={isActive ? 'white' : 'darkGray'} weight="bold">
-              {text}
-            </Text>
-          </a>
-        );
-      })}
-    </div>
+    <Row wrap={wrap}>
+      {tabs.map(({ id, href, text }, index) => (
+        <Tab
+          key={id || `${href}_${index}`}
+          size={size}
+          onChange={onChange}
+          href={href}
+          id={id}
+          index={index}
+          isActive={activeTabIndex === index}
+        >
+          {text}
+        </Tab>
+      ))}
+    </Row>
   );
 }
 
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['md', 'lg']),
   tabs: PropTypes.arrayOf(
     PropTypes.exact({
-      href: PropTypes.string,
+      href: PropTypes.string.isRequired,
       id: PropTypes.string,
-      text: PropTypes.node,
+      text: PropTypes.node.isRequired,
     })
   ).isRequired,
-  onChange: PropTypes.func.isRequired,
   wrap: PropTypes.bool,
 };

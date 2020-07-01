@@ -19,8 +19,11 @@ type Props = {|
   children?: React.Node,
   hoverStyle?: 'none' | 'underline',
   href: string,
+  id?: string,
   inline?: boolean,
+  onBlur?: () => void,
   onClick?: ({| event: TapEvent |}) => void,
+  onFocus?: () => void,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,
@@ -32,8 +35,11 @@ function Link({
   accessibilitySelected,
   children,
   href,
+  id,
   inline = false,
+  onBlur,
   onClick,
+  onFocus,
   rel = 'none',
   role,
   rounding = 0,
@@ -68,12 +74,19 @@ function Link({
       aria-selected={accessibilitySelected}
       className={className}
       href={href}
+      id={id}
+      onBlur={() => {
+        handleBlur();
+        if (onBlur) {
+          onBlur();
+        }
+      }}
       onClick={event => {
         if (onClick) {
           onClick({ event });
         }
       }}
-      onBlur={handleBlur}
+      onFocus={onFocus}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onKeyPress={event => {
@@ -107,8 +120,11 @@ const LinkPropTypes = {
     'none' | 'underline'
   >),
   href: PropTypes.string.isRequired,
+  id: PropTypes.string,
   inline: PropTypes.bool,
+  onBlur: PropTypes.func,
   onClick: PropTypes.func,
+  onFocus: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),

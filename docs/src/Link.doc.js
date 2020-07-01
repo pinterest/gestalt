@@ -39,16 +39,29 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'id',
+        type: 'string',
+        description: 'id attribute of the anchor tag',
+      },
+      {
         name: 'inline',
         type: 'boolean',
         defaultValue: false,
         href: 'advancedExample',
       },
       {
+        name: 'onBlur',
+        type: '() => void',
+      },
+      {
         name: 'onClick',
         type:
           '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
         href: 'advancedExample',
+      },
+      {
+        name: 'onFocus',
+        type: '() => void',
       },
       {
         name: 'rel',
@@ -170,7 +183,7 @@ function TabExample() {
           <Link
             accessibilitySelected={index === activeIndex}
             hoverStyle="none"
-            href="#"
+            href="https://pinterest.com"
             onClick={({ event }) => {
               event.preventDefault();
               setActiveIndex(index);
