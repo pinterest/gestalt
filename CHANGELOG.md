@@ -1,3 +1,9 @@
+## 5.14.3 (Jul 1, 2020)
+
+### Patch
+
+- Tabs: lightgray background when tab is focussed (#960)
+
 ## 5.14.2 (Jul 1, 2020)
 
 ### Patch
