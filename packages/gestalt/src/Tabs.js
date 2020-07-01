@@ -46,7 +46,9 @@ function Tab({
         <Box
           alignItems="center"
           color={
-            (isActive && 'darkGray') || (hovered && 'lightGray') || 'white'
+            (isActive && 'darkGray') ||
+            ((hovered || focused) && 'lightGray') ||
+            'white'
           }
           display="flex"
           height={size === 'lg' ? 48 : 40}
