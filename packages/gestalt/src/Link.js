@@ -21,9 +21,9 @@ type Props = {|
   href: string,
   id?: string,
   inline?: boolean,
-  onBlur?: () => void,
+  onBlur?: ({| +event: SyntheticFocusEvent<> |}) => void,
   onClick?: ({| event: TapEvent |}) => void,
-  onFocus?: () => void,
+  onFocus?: ({| +event: SyntheticFocusEvent<> |}) => void,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,
@@ -75,10 +75,10 @@ function Link({
       className={className}
       href={href}
       id={id}
-      onBlur={() => {
+      onBlur={event => {
         handleBlur();
         if (onBlur) {
-          onBlur();
+          onBlur({ event });
         }
       }}
       onClick={event => {
@@ -86,7 +86,11 @@ function Link({
           onClick({ event });
         }
       }}
-      onFocus={onFocus}
+      onFocus={event => {
+        if (onFocus) {
+          onFocus({ event });
+        }
+      }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onKeyPress={event => {
