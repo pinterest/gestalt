@@ -55,7 +55,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             }
           >
             <div
-              className="Text fontSize2 white alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
             >
               News
             </div>
@@ -99,7 +99,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             }
           >
             <div
-              className="Text fontSize2 darkGray alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
             >
               You
             </div>

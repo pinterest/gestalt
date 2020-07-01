@@ -62,7 +62,6 @@ function Tab({
           <Text
             color={isActive ? 'white' : 'darkGray'}
             weight="bold"
-            size={size}
             overflow="noWrap"
           >
             {children}
