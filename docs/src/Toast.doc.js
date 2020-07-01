@@ -78,7 +78,7 @@ function ToastExample() {
             },
           }}
           paddingX={1}
-          position='fixed'
+          position="fixed"
         >
           {showToast && (
             <Toast
@@ -127,7 +127,7 @@ function ToastExample() {
             },
           }}
           paddingX={1}
-          position='fixed'
+          position="fixed"
         >
           {showToast && (
             <Toast
@@ -172,16 +172,16 @@ function ToastExample() {
             },
           }}
           paddingX={1}
-          position='fixed'
+          position="fixed"
         >
           {showToast && (
             <Toast
               thumbnail={
                 <Image
-                  alt='Saved to home decor board'
+                  alt="Saved to home decor board"
                   naturalHeight={564}
                   naturalWidth={564}
-                  src='https://i.ibb.co/Lx54BCT/stock1.jpg'
+                  src="https://i.ibb.co/Lx54BCT/stock1.jpg"
                 />
               }
               text={
@@ -229,16 +229,16 @@ function ToastExample() {
             },
           }}
           paddingX={1}
-          position='fixed'
+          position="fixed"
         >
           {showToast && (
             <Toast
               thumbnail={
                 <Image
-                  alt='Saved to home decor board'
+                  alt="Saved to home decor board"
                   naturalHeight={564}
                   naturalWidth={564}
-                  src='https://i.ibb.co/Lx54BCT/stock1.jpg'
+                  src="https://i.ibb.co/Lx54BCT/stock1.jpg"
                 />
               }
               text={
