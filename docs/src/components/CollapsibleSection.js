@@ -8,12 +8,6 @@ import NavLink from './NavLink.js';
 export default function CollapsibleSection({ section }: sidebarIndexType) {
   const [isSectionOpen, setIsSectionOpen] = useState(true);
 
-  // Check if section and pathname from react-router-dom equality same everytime URL changes.
-  // If both match, keep section in sidebar open.
-  // useEffect(() => {
-  //   setIsSectionOpen(section.sectionPathname === pathname.split('/')[1]);
-  // }, [section, pathname]);
-
   const showSection = () =>
     section.pages
       ? section.pages.map((component, i) => (
