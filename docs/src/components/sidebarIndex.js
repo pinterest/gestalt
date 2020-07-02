@@ -94,12 +94,6 @@ const sidebarIndex: sidebarIndexType = [
         subsectionName: 'Navigation',
         pages: componentSubSectionPages.navigation,
       },
-      {
-        subsectionName: 'All',
-        pages: [
-          ...new Set(Object.values(componentSubSectionPages).flat()),
-        ].sort(),
-      },
     ],
   },
 ];
