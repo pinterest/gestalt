@@ -1,3 +1,9 @@
+## 5.16.0 (Jul 2, 2020)
+
+### Minor
+
+- Docs: Expand Navigation subsections (#962)
+
 ## 5.15.0 (Jul 2, 2020)
 
 ### Minor
