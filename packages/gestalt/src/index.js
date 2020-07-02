@@ -47,6 +47,7 @@ import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
+import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 
 export {
   Avatar,
@@ -59,8 +60,10 @@ export {
   Collage,
   Collection,
   Column,
+  CompositeZIndex,
   Container,
   Divider,
+  FixedZIndex,
   Flyout,
   GroupAvatar,
   Heading,
