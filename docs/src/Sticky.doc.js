@@ -42,9 +42,9 @@ card(
         description: `Use numbers for pixels: top={100} and strings for percentages: top="100%"`,
       },
       {
-        name: 'dangerouslySetZIndex',
-        type: '{ __zIndex: number }',
-        defaultValue: '{ __zIndex: 1 }',
+        name: 'zIndex',
+        type: 'interface { index(): number; }',
+        description: `An object representing the zIndex value of the Sticky.`,
       },
     ]}
   />
