@@ -1,3 +1,9 @@
+## 5.15.0 (Jul 2, 2020)
+
+### Minor
+
+- Avatar: Add accessibilityLabel (#961)
+
 ## 5.14.3 (Jul 1, 2020)
 
 ### Patch
