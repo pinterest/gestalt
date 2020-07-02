@@ -1,3 +1,9 @@
+## 5.17.0 (Jul 2, 2020)
+
+### Minor
+
+- Styling: Prepare css for dark mode support (#963)
+
 ## 5.16.0 (Jul 2, 2020)
 
 ### Minor
