@@ -65,6 +65,7 @@ const statsPlugin = () => {
 const cssModules = (options = {}) => {
   const cssExportMap = {};
   const scopeNames = {};
+  let cssIE11 = ''; // CSS targeted toward IE11
   let css = '';
 
   const breakpoints = {
@@ -73,7 +74,31 @@ const cssModules = (options = {}) => {
     lg: '(min-width: 1312px)',
   };
 
-  const plugins = [
+  const modulesPlugin = postcssModules({
+    scopeBehavior: 'local',
+    generateScopedName: (name, filename) => {
+      const dir = relative(__dirname, filename);
+      const hash = `${dir}:${name}`;
+
+      if (!Object.prototype.hasOwnProperty.call(scopeNames, hash)) {
+        scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
+      }
+
+      return scopeNames[hash];
+    },
+    getJSON: (filePath, exportTokens) => {
+      Object.entries(exportTokens).forEach(([className, value]) => {
+        if (value.includes('undefined')) {
+          throw new Error(
+            `${filePath} / .${className} composes from an incorrect classname`
+          );
+        }
+      });
+      cssExportMap[filePath] = exportTokens;
+    },
+  });
+
+  const pluginsIE11 = [
     postcssCssnext({
       features: {
         customMedia: {
@@ -81,31 +106,22 @@ const cssModules = (options = {}) => {
         },
       },
     }),
-    postcssModules({
-      scopeBehavior: 'local',
-      generateScopedName: (name, filename) => {
-        const dir = relative(__dirname, filename);
-        const hash = `${dir}:${name}`;
-
-        if (!Object.prototype.hasOwnProperty.call(scopeNames, hash)) {
-          scopeNames[hash] = classnameBuilder.getMinifiedClassname(hash);
-        }
-
-        return scopeNames[hash];
-      },
-      getJSON: (filePath, exportTokens) => {
-        Object.entries(exportTokens).forEach(([className, value]) => {
-          if (value.includes('undefined')) {
-            throw new Error(
-              `${filePath} / .${className} composes from an incorrect classname`
-            );
-          }
-        });
-        cssExportMap[filePath] = exportTokens;
-      },
-    }),
+    modulesPlugin,
   ];
 
+  const plugins = [
+    postcssCssnext({
+      features: {
+        customProperties: false,
+        customMedia: {
+          extensions: breakpoints,
+        },
+      },
+    }),
+    modulesPlugin,
+  ];
+
+  const postcssParserIE11 = postcss(pluginsIE11);
   const postcssParser = postcss(plugins);
 
   return {
@@ -121,9 +137,10 @@ const cssModules = (options = {}) => {
         parser: options.parser,
       };
 
-      return postcssParser.process(code, opts).then(result => {
+      let transformResult;
+      const processIE11 = postcssParserIE11.process(code, opts).then(result => {
         // Append CSS to output
-        css += result.css;
+        cssIE11 += result.css;
 
         // We can't yet export consts because some selector names aren't
         // valid js variable names (anything with a hyphen "foo-bar").
@@ -131,14 +148,28 @@ const cssModules = (options = {}) => {
           export default ${JSON.stringify(cssExportMap[result.opts.from])};
           `;
         const map = { mappings: '' };
-        return { code: js, map };
+        transformResult = { code: js, map };
       });
+      const process = postcssParser.process(code, opts).then(result => {
+        // Append CSS to output
+        css += result.css;
+      });
+      return Promise.all([processIE11, process]).then(() => transformResult);
     },
 
     generateBundle: () => {
-      cssnano.process(css).then(result => {
-        writeFileSync(options.output, result.css);
-        options.stats.updateStats(result.css, options.output);
+      const opts = {
+        preset: ['default', { calc: false }],
+      };
+      cssnano.process(css, { from: undefined }, opts).then(result => {
+        const filename = `${options.output}-future.css`;
+        writeFileSync(filename, result.css);
+        options.stats.updateStats(result.css, filename);
+      });
+      cssnano.process(cssIE11).then(result => {
+        const filename = `${options.output}.css`;
+        writeFileSync(filename, result.css);
+        options.stats.updateStats(result.css, filename);
       });
     },
   };
@@ -146,7 +177,7 @@ const cssModules = (options = {}) => {
 
 const plugins = name => [
   cssModules({
-    output: `../${name}/dist/${name}.css`,
+    output: `../${name}/dist/${name}`,
     stats: statsPlugin(),
   }),
   nodeResolve(),

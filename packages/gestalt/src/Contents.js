@@ -516,7 +516,8 @@ export default class Contents extends React.Component<Props, State> {
 
     // Needed to prevent UI thrashing
     const visibility = mainDir === null ? 'hidden' : 'visible';
-    const background = `${bgColor}Bg`;
+    const background =
+      bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
     const stroke = bgColor === 'white' ? '#efefef' : null;
 
     return (
