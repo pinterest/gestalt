@@ -97,3 +97,13 @@ test('Box has correct classes when borderSize is lg', () => {
   const tree = create(<Box borderSize="lg" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Box has correct zIndex', () => {
+  const zIndexStub = {
+    index() {
+      return 100;
+    },
+  };
+  const tree = create(<Box zIndex={zIndexStub} />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
