@@ -1,7 +1,6 @@
 // @flow strict
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Icon, Row, Text, TapArea } from 'gestalt';
-import { useLocation } from 'react-router-dom';
 import NavLink from './NavLink.js';
 
 export default function CollapsibleSubsection({
@@ -11,22 +10,16 @@ export default function CollapsibleSubsection({
   subsection: any,
   sectionPathname: string,
 |}) {
-  const { pathname } = useLocation();
-  const [isSubsectionCollapsed, setIsSubsectionCollapsed] = useState(
-    subsection.pages?.includes(pathname.split('/')[2])
+  const [isSubsectionOpen, setIsSubsectionOpen] = useState(
+    subsection.subsectionName !== 'All'
   );
-  useEffect(() => {
-    setIsSubsectionCollapsed(
-      subsection.pages?.includes(pathname.split('/')[2])
-    );
-  }, [subsection, pathname]);
 
   return (
     <Box direction="column" display="flex">
       <Box marginStart={4}>
         <TapArea
           onTap={() => {
-            setIsSubsectionCollapsed(!isSubsectionCollapsed);
+            setIsSubsectionOpen(!isSubsectionOpen);
           }}
         >
           <Box padding={2} role="listitem">
@@ -36,14 +29,14 @@ export default function CollapsibleSubsection({
               </Text>
               <Icon
                 accessibilityLabel=""
-                icon={isSubsectionCollapsed ? 'arrow-down' : 'arrow-forward'}
+                icon={isSubsectionOpen ? 'arrow-down' : 'arrow-forward'}
                 size={10}
               />
             </Row>
           </Box>
         </TapArea>
       </Box>
-      {isSubsectionCollapsed && (
+      {isSubsectionOpen && (
         <Box role="list" marginStart={8}>
           {subsection.pages.map((component, i) => (
             <NavLink key={i} to={`/${sectionPathname}/${component}`}>

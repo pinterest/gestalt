@@ -1,22 +1,12 @@
 // @flow strict
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Icon, Row, TapArea, Text } from 'gestalt';
-import { useLocation } from 'react-router-dom';
 import CollapsibleSubsection from './CollapsibleSubsection.js';
 import { type sidebarIndexType } from './sidebarIndex.js';
 import NavLink from './NavLink.js';
 
 export default function CollapsibleSection({ section }: sidebarIndexType) {
-  const { pathname } = useLocation();
-  const [isSectionCollapsed, setIsSectionCollapsed] = useState(
-    section.sectionPathname === pathname.split('/')[1]
-  );
-
-  // Check if section and pathname from react-router-dom equality same everytime URL changes.
-  // If both match, keep section in sidebar open.
-  useEffect(() => {
-    setIsSectionCollapsed(section.sectionPathname === pathname.split('/')[1]);
-  }, [section, pathname]);
+  const [isSectionOpen, setIsSectionOpen] = useState(true);
 
   const showSection = () =>
     section.pages
@@ -43,7 +33,7 @@ export default function CollapsibleSection({ section }: sidebarIndexType) {
     <>
       <TapArea
         onTap={() => {
-          setIsSectionCollapsed(!isSectionCollapsed);
+          setIsSectionOpen(!isSectionOpen);
         }}
       >
         <Box padding={2} role="list">
@@ -53,13 +43,13 @@ export default function CollapsibleSection({ section }: sidebarIndexType) {
             </Text>
             <Icon
               accessibilityLabel=""
-              icon={isSectionCollapsed ? 'arrow-down' : 'arrow-forward'}
+              icon={isSectionOpen ? 'arrow-down' : 'arrow-forward'}
               size={10}
             />
           </Row>
         </Box>
       </TapArea>
-      {isSectionCollapsed && showSection()}
+      {isSectionOpen && showSection()}
     </>
   );
 }
