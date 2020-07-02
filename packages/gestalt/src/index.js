@@ -12,6 +12,7 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Flyout from './Flyout.js';
+import GestaltProvider from './GestaltProvider.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -48,6 +49,7 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
+import { useTheme } from './contexts/Theme.js';
 
 export {
   Avatar,
@@ -65,6 +67,7 @@ export {
   Divider,
   FixedZIndex,
   Flyout,
+  GestaltProvider,
   GroupAvatar,
   Heading,
   Icon,
@@ -99,5 +102,6 @@ export {
   TextField,
   Toast,
   Tooltip,
+  useTheme,
   Video,
 };
