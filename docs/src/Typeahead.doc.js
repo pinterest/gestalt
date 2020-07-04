@@ -29,7 +29,7 @@ card(
         name: 'defaultItem',
         type: '{ label: string, value: string }',
         description: 'The default item set in the Typeahead',
-        required: true,
+        required: false,
         href: 'defaultItemExample',
       },
       {
@@ -74,7 +74,7 @@ card(
       },
       {
         name: 'onSelect',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        type: '({ event: SyntheticInputEvent<>, item: Object }) => void',
         required: false,
         description: 'Callback when you select an item ',
         href: 'basicExample',
@@ -113,16 +113,16 @@ card(
       const [item, setItem] = React.useState("");
       const [selected, setSelected] = React.useState(null);
 
-      const options = Array.from(Array(100).keys()).map((item) => ({
-        value: "value-" + item,
-        label: "Label-" + item,
+      const options = Array.from(Array(20).keys()).map((item) => ({
+        value: "value-" + (item + 1),
+        label: "Label-" + (item + 1),
       }));
 
       const handleOnChange = ({ value }) => {
         setItem(value);
       };
 
-      const handleSelect = (item) => {
+      const handleSelect = ({item}) => {
         setSelected(item);
       };
 
@@ -153,9 +153,9 @@ card(
     name="Default Item Example"
     defaultCode={`
     function Example(props) {
-      const options = Array.from(Array(100).keys()).map((item) => ({
-        value: "value-" + item,
-        label: "Label-" + item,
+      const options = Array.from(Array(20).keys()).map((item) => ({
+        value: "value-" + (item + 1),
+        label: "Label-" + (item + 1),
       }));
 
       const defaultOption = options[3];
@@ -166,7 +166,7 @@ card(
         setItem(value);
       };
 
-      const handleSelect = (item) => {
+      const handleSelect = ({item}) => {
         setSelected(item);
       };
 

@@ -107,7 +107,9 @@ describe('Typeahead', () => {
     const selectedOption = FAKE_OPTIONS.find(option =>
       option.label.includes('6')
     );
-    expect(onSelectMock).toHaveBeenCalledWith(selectedOption);
+    expect(onSelectMock).toHaveBeenCalledWith(
+      expect.objectContaining({ item: selectedOption })
+    );
     expect(onSelectMock.mock.calls.length).toBe(1);
   });
 });

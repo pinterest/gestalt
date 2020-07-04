@@ -36,7 +36,12 @@ type Props = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   }) => void,
-  onSelect?: (?OptionObject) => void,
+  onSelect?: ({
+    event:
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticKeyboardEvent<HTMLInputElement>,
+    item: ?OptionObject,
+  }) => void,
   placeholder?: string,
   searchField?: string,
   size?: 'md' | 'lg',
@@ -74,6 +79,8 @@ const Typeahead = (props: Props): Node => {
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<OptionObject | null>(defaultItem);
+
+  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
   const [options, setOptions] = useState<OptionObject[]>(
     filterOriginalData(search)
@@ -122,79 +129,104 @@ const Typeahead = (props: Props): Node => {
   const handleClear = () => {
     setSelected(null);
     setSearch('');
-    if (onSelect) onSelect(null);
     setContainerOpen(false);
     if (inputRef.current) inputRef.current.focus();
   };
 
   // Handler for when an item is clicked
-  const handleSelect = item => {
+  const handleSelect = ({ event, item }) => {
     setSelected(item);
 
     setSearch(item[searchField]);
     setContainerOpen(false);
     if (inputRef.current) inputRef.current.focus();
-    if (onSelect) onSelect(item);
+    if (onSelect) onSelect({ event, item });
   };
 
-  const handleScrolling = item => {
-    const selectedNode = [
-      ...document.querySelectorAll('div.typeahead-option'),
-    ].find(i => {
-      if (i.innerText && item.label) {
-        return i.innerText.toLowerCase() === item.label.toLowerCase();
-      }
-      return false;
-    });
+  let selectedElement;
+  const setOptionRef = ref => {
+    selectedElement = ref;
+  };
 
-    const container = selectedNode?.parentElement?.parentElement;
+  const containerRef = useRef();
 
-    if (!container || !selectedNode) return;
+  const handleScrolling = (direction: number) => {
+    const container = containerRef.current;
 
-    const containerHeight: number = container.getClientRects()[0].height;
-    const overScroll = selectedNode.offsetHeight / 3;
+    // Based on keyboard navigation we get the next or previuos option
+    // When we reach the start or end of the list, move to the start or end of the list based on the direction
+    const nextOption =
+      direction > 0
+        ? selectedElement?.nextSibling
+        : selectedElement?.previousSibling;
+
+    // Handles which option to display once we've hit the end of the list range
+    const endRangeOption =
+      direction > 0
+        ? container?.firstChild?.firstChild
+        : container?.firstChild?.lastChild;
+
+    const selectedOption = nextOption || endRangeOption;
+
+    // If one of these nodes is missing exit early
+    if (!container || !selectedOption) return;
+
+    const containerHeight = container.getClientRects()[0].height;
+    const overScroll = selectedOption?.offsetHeight / 3;
 
     const scrollPos =
-      selectedNode.offsetTop +
-      selectedNode.clientHeight -
+      selectedOption.offsetTop +
+      selectedOption.clientHeight -
       containerHeight +
       overScroll;
 
     container.scrollTop = scrollPos;
   };
 
-  const handleKeyNavigation = (direction: number) => {
-    let selectedIndex;
+  const handleKeyNavigation = (
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    direction: number
+  ) => {
     let cursorIndex;
     let newItem: OptionObject = options[0];
     const optionsCount = options.length - 1;
 
+    const KEYS = {
+      ENTER: 0,
+    };
+
     // If there's an existing item, navigate from that position
-    if (selected) {
-      selectedIndex = options.findIndex(item => item.value === selected.value);
-      const newIndex = selectedIndex + direction;
 
-      // If we've reached the end, start at the top
-      if (newIndex > optionsCount) {
-        cursorIndex = 0;
-      }
-      // If we're at the top going backwards, start at the last item
-      else if (newIndex < 0) {
-        cursorIndex = optionsCount;
-      }
-      // Carry-on otherwise
-      else {
-        cursorIndex = newIndex;
-      }
-      newItem = options[cursorIndex];
+    const newIndex = direction + hoveredItem;
+
+    // If we've reached the end, start at the top
+    if (newIndex > optionsCount) {
+      cursorIndex = 0;
     }
-    setSelected(newItem);
-    setSearch(newItem[searchField]);
+    // If we're at the top going backwards, start at the last item
+    else if (newIndex < 0) {
+      cursorIndex = optionsCount;
+    }
+    // Carry-on otherwise
+    else {
+      cursorIndex = newIndex;
+    }
+    newItem = options[cursorIndex];
 
+    setHoveredItem(cursorIndex);
+
+    if (direction === KEYS.ENTER) {
+      setSelected(newItem);
+      setSearch(newItem[searchField]);
+      handleBlur({ event });
+      if (onSelect) onSelect({ event, item: newItem });
+    }
     // Scrolling
-    handleScrolling(newItem);
+    handleScrolling(direction);
+  };
 
-    if (onSelect) onSelect(newItem);
+  const handleHover = (ref, index) => {
+    setHoveredItem(index);
   };
 
   return (
@@ -225,21 +257,17 @@ const Typeahead = (props: Props): Node => {
             size="flexible"
           >
             <Box
+              ref={containerRef}
               position="relative"
+              overflow="auto"
               padding={1}
               marginTop={2}
               marginBottom={2}
               maxHeight="50vh"
-              width={`${inputRef?.current?.offsetWidth}px`}
-              overflow="auto"
+              width={inputRef?.current?.offsetWidth}
               color="white"
             >
-              <Box
-                alignItems="center"
-                direction="column"
-                display="flex"
-                position="relative"
-              >
+              <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
                 {options.length === 0 && (
                   <Box margin={2}>
@@ -254,7 +282,10 @@ const Typeahead = (props: Props): Node => {
                     option={option}
                     searchField={searchField}
                     selected={selected}
+                    hoveredItem={hoveredItem}
+                    setHoveredItem={handleHover}
                     handleSelect={handleSelect}
+                    setOptionRef={setOptionRef}
                   />
                 ))}
               </Box>

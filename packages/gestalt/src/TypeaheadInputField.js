@@ -14,9 +14,7 @@ import FormLabel from './FormLabel.js';
 type Props = {|
   id: string,
   onBlur?: ({
-    event:
-      | SyntheticFocusEvent<HTMLInputElement>
-      | SyntheticKeyboardEvent<HTMLInputElement>,
+    event: SyntheticFocusEvent<HTMLInputElement>,
   }) => void,
   onChange: ({
     value: string,
@@ -28,7 +26,7 @@ type Props = {|
     value: string,
     event: SyntheticFocusEvent<HTMLInputElement>,
   }) => void,
-  onKeyNavigation: number => void,
+  onKeyNavigation: (SyntheticKeyboardEvent<HTMLInputElement>, number) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
@@ -77,11 +75,7 @@ const InputField = ({
     }
   };
 
-  const handleBlur = (
-    event:
-      | SyntheticFocusEvent<HTMLInputElement>
-      | SyntheticKeyboardEvent<HTMLInputElement>
-  ) => {
+  const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     if (onBlur) {
       onBlur({ event });
     }
@@ -96,17 +90,22 @@ const InputField = ({
     event: SyntheticKeyboardEvent<HTMLInputElement>
   ) => {
     setContainer(true);
+    const KEYS = {
+      UP: -1,
+      DOWN: 1,
+      ENTER: 0,
+    };
     // Up Arrow
     if (event.keyCode === 38) {
-      onKeyNavigation(-1);
+      onKeyNavigation(event, KEYS.UP);
     }
     // Down Arrow
     else if (event.keyCode === 40) {
-      onKeyNavigation(1);
+      onKeyNavigation(event, KEYS.DOWN);
     }
     // Enter Key
     else if (event.keyCode === 13) {
-      handleBlur(event);
+      onKeyNavigation(event, KEYS.ENTER);
     }
   };
 
@@ -165,7 +164,7 @@ const InputField = ({
             width={clearButtonSize}
           >
             <Icon
-              accessibilityLabel="typeahead clear button"
+              accessibilityLabel=""
               color="darkGray"
               icon={!hasValue ? 'arrow-down' : 'cancel'}
               size={clearIconSize}

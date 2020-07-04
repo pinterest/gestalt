@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -18,7 +17,13 @@ type OptionProps = {|
   option: OptionObject,
   selected?: OptionObject | null,
   searchField: string,
-  handleSelect: OptionObject => void,
+  handleSelect: ({
+    item: OptionObject,
+    event: SyntheticFocusEvent<HTMLInputElement>,
+  }) => void,
+  hoveredItem: ?number,
+  setHoveredItem: (?React.Node, number) => void,
+  setOptionRef: (?HTMLElement) => void,
 |};
 
 export default function Option({
@@ -27,15 +32,15 @@ export default function Option({
   selected,
   searchField,
   handleSelect,
+  hoveredItem,
+  setHoveredItem,
+  setOptionRef,
 }: OptionProps): React.Node {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
-  // Highlight the current selected item
-  const [hover, setHover] = useState(isSelectedItem);
-
-  const handleOnTap = () => {
-    if (handleSelect) handleSelect(option);
+  const handleOnTap = event => {
+    if (handleSelect) handleSelect({ event, item: option });
   };
 
   const className = classnames(styles.touchable, getRoundingClassName(2), {
@@ -45,13 +50,17 @@ export default function Option({
 
   // Default option color
   let optionStateColor = 'white';
-  // Colors on changed states
-  if (hover) optionStateColor = 'lightGray';
-  if (isSelectedItem) optionStateColor = 'gray';
+  // Set color on item selected
+  if (isSelectedItem) optionStateColor = 'lightWash';
+  // Set color on item hover
+  if (index === hoveredItem) optionStateColor = 'lightGray';
 
   return (
     <div
-      className={`${className}`}
+      ref={ref => {
+        if (index === hoveredItem) setOptionRef(ref);
+      }}
+      className={className}
       key={option[searchField]}
       onClick={handleOnTap}
       onMouseDown={event => {
@@ -61,11 +70,10 @@ export default function Option({
         event.preventDefault();
       }}
       rounding={2}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      onMouseEnter={() => setHoveredItem(null, index)}
       role="option"
       aria-selected={isSelectedItem}
-      tabIndex={index}
+      tabIndex="-1"
     >
       <Box margin={1} padding={2} color={optionStateColor} rounding={2}>
         <Text color="darkGray">{`${option[searchField]}`}</Text>
