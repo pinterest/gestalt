@@ -27,6 +27,7 @@ const componentSubSectionPages = {
     'TextArea',
     'TextField',
     'Tooltip',
+    'Typeahead',
   ],
   layout: [
     'Box',
