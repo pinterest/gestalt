@@ -24,22 +24,22 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onBlur?: ({
+  onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  }) => void,
-  onChange: ({
+  |}) => void,
+  onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  }) => void,
-  onFocus?: ({
+  |}) => void,
+  onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  }) => void,
-  onKeyDown?: ({
+  |}) => void,
+  onKeyDown?: ({|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   size?: 'md' | 'lg',

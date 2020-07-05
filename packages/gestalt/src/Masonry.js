@@ -35,6 +35,7 @@ type Layout =
 
 type Props<T> = {|
   columnWidth?: number,
+  // eslint-disable-next-line flowtype/require-exact-type
   comp: React.ComponentType<{
     data: T,
     itemIdx: number,
@@ -51,9 +52,11 @@ type Props<T> = {|
   loadItems?:
     | false
     | ((
+        // eslint-disable-next-line flowtype/require-exact-type
         ?{
           from: number,
         }
+        // eslint-disable-next-line flowtype/require-exact-type
       ) => void | boolean | {}),
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
@@ -77,10 +80,12 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
+// eslint-disable-next-line flowtype/require-exact-type
 export default class Masonry<T: {}> extends React.Component<
   Props<T>,
   State<T>
 > {
+  // eslint-disable-next-line flowtype/require-exact-type
   static createMeasurementStore<T1: {}, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -198,13 +203,21 @@ export default class Masonry<T: {}> extends React.Component<
     virtualize: PropTypes.bool,
   };
 
-  static defaultProps: {
-    columnWidth: number,
-    layout: string,
-    loadItems: () => void,
+  static defaultProps: {|
+    columnWidth?: number,
+    layout?: Layout,
+    loadItems?:
+      | false
+      | ((
+          // eslint-disable-next-line flowtype/require-exact-type
+          ?{
+            from: number,
+          }
+          // eslint-disable-next-line flowtype/require-exact-type
+        ) => void | boolean | {}),
     minCols: number,
-    virtualize: boolean,
-  } = {
+    virtualize?: boolean,
+  |} = {
     columnWidth: 236,
     minCols: 3,
     layout: 'basic',
@@ -301,10 +314,11 @@ export default class Masonry<T: {}> extends React.Component<
   static getDerivedStateFromProps(
     props: Props<T>,
     state: State<T>
-  ):
-    | null
-    | { hasPendingMeasurements: boolean, isFetching: boolean, items: Array<T> }
-    | { hasPendingMeasurements: boolean, items: Array<T> } {
+  ): null | {|
+    hasPendingMeasurements: boolean,
+    isFetching?: boolean,
+    items: Array<T>,
+  |} {
     const { items } = props;
     const { measurementStore } = state;
 

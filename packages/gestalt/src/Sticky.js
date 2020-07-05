@@ -20,7 +20,7 @@ type Threshold =
 
 type Props = {|
   children: React.Node,
-  dangerouslySetZIndex?: { __zIndex: number },
+  dangerouslySetZIndex?: {| __zIndex: number |},
   ...Threshold,
 |};
 

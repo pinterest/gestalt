@@ -47,7 +47,7 @@ card(
       },
       {
         name: 'overflow',
-        type: `"normal" | "breakWord"`,
+        type: `"normal" | "breakWord" | "noWrap"`,
         defaultValue: 'breakWord',
         href: 'overflow',
       },
@@ -100,16 +100,14 @@ card(
     id="inline"
     name="Block vs inline"
     defaultCode={`
-<Box>
-  <Box marginBottom={2}>
-    <Text>Some content in a default block element. (default)</Text>
-  </Box>
-  <Box marginBottom={2}>
+<Stack gap={2}>
+  <Text>Some content in a default block element. (default)</Text>
+  <Box>
     <Text inline>Inline text with the inline prop.</Text>
     {' '}
     <Text inline>More inline text.</Text>
   </Box>
-</Box>
+</Stack>
 `}
   />
 );
@@ -120,23 +118,15 @@ card(
     id="color"
     name="Colors"
     defaultCode={`
-<Box>
-  <Box color="darkGray" marginBottom={2}>
+<Stack gap={2}>
+  <Box color="darkGray">
     <Text color="white">White</Text>
   </Box>
-  <Box marginBottom={2}>
-    <Text color="gray">Gray</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="darkGray">Dark Gray (default)</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="blue">Blue</Text>
-  </Box>
-  <Box marginBottom={2}>
-    <Text color="red">Red</Text>
-  </Box>
-</Box>
+  <Text color="gray">Gray</Text>
+  <Text color="darkGray">Dark Gray (default)</Text>
+  <Text color="blue">Blue</Text>
+  <Text color="red">Red</Text>
+</Stack>
 `}
   />
 );
@@ -164,11 +154,15 @@ card(
     </Text>
   </Box>
   <Box marginBottom={2}>
+    <Text weight="bold">noWrap:</Text>
+    <Text overflow="noWrap">
+      This is a long and Supercalifragilisticexpialidocious sentence.
+    </Text>
+  </Box>
+  <Box marginBottom={2}>
     <Text weight="bold">truncate:</Text>
     <Text truncate>
       This is a long and Supercalifragilisticexpialidocious sentence.
-      次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-      ｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗｗ&#39;
     </Text>
   </Box>
 </Box>
@@ -183,38 +177,32 @@ card(
     id="size"
     name="Sizes"
     defaultCode={`
-<Box>
-  <Box marginBottom={2}>
-    <Text inline size="sm">
-      {'Small'}
-    </Text>{' '}
+<Stack gap={1}>
+  <Row gap={1}>
+    <Text inline size="sm">Small</Text>
     <span lang="ja">
       <Text inline size="sm">
         こんにちは
       </Text>
     </span>
-  </Box>
-  <Box marginBottom={2}>
-    <Text inline size="md">
-      {'Medium (default size)'}
-    </Text>{' '}
+  </Row>
+  <Row gap={1}>
+    <Text inline size="md">Medium (default size)</Text>
     <span lang="ja">
       <Text inline size="md">
         こんにちは
       </Text>
     </span>
-  </Box>
-  <Box marginBottom={2}>
-    <Text inline size="lg">
-      {'Large'}
-    </Text>{' '}
+  </Row>
+  <Row gap={1}>
+    <Text inline size="lg">Large</Text>
     <span lang="ja">
       <Text inline size="lg">
         こんにちは
       </Text>
     </span>
-  </Box>
-</Box>
+  </Row>
+</Stack>
 `}
   />
 );

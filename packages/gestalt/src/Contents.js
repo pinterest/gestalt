@@ -41,18 +41,18 @@ type ClientRect = {
   ...
 };
 
-type Window = {
+type Window = {|
   height: number,
   width: number,
   scrollY: number,
   scrollX: number,
-};
+|};
 
-type Flyout = { height: number, width: number };
+type Flyout = {| height: number, width: number |};
 
-type Shift = { x: number, y: number };
+type Shift = {| x: number, y: number |};
 
-type EdgeShift = { caret: Shift, flyout: Shift };
+type EdgeShift = {| caret: Shift, flyout: Shift |};
 
 type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
@@ -60,13 +60,13 @@ type Props = {|
   caret?: boolean,
   children?: React.Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onKeyDown: (event: { keyCode: number }) => void,
+  onKeyDown: (event: {| keyCode: number |}) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
-  relativeOffset: {
+  relativeOffset: {|
     x: number,
     y: number,
-  },
+  |},
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   triggerRect: ClientRect,
@@ -78,12 +78,12 @@ type State = {|
     top: ?number,
     left: ?number,
   |},
-  caretOffset: {
+  caretOffset: {|
     top: ?number,
     right: ?number,
     bottom: ?number,
     left: ?number,
-  },
+  |},
   mainDir: ?MainDir,
   flyoutRef: ?HTMLElement,
 |};
@@ -190,7 +190,7 @@ export function calcEdgeShifts(
   subDir: SubDir,
   triggerRect: ClientRect,
   windowSize: Window
-): { caret: Shift, flyout: Shift } {
+): {| caret: Shift, flyout: Shift |} {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift =
     CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
@@ -234,21 +234,21 @@ export function calcEdgeShifts(
  * Calculates flyout and caret offsets for styling
  */
 export function adjustOffsets(
-  base: { top: number, left: number },
+  base: {| top: number, left: number |},
   edgeShift: EdgeShift,
   flyoutSize: Flyout,
   mainDir: MainDir,
   subDir: SubDir,
   triggerRect: ClientRect
-): {
-  caretOffset: {
+): {|
+  caretOffset: {|
     bottom: null | number,
     left: null | number,
     right: null | number,
     top: null | number,
-  },
-  flyoutOffset: { left: number, top: number },
-} {
+  |},
+  flyoutOffset: {| left: number, top: number |},
+|} {
   let flyoutLeft = base.left;
   let flyoutTop = base.top;
 
@@ -301,12 +301,12 @@ export function adjustOffsets(
 /* Calculates baseline top and left offset for flyout */
 export function baseOffsets(
   hasCaret: boolean,
-  relativeOffset: { x: number, y: number },
+  relativeOffset: {| x: number, y: number |},
   flyoutSize: Flyout,
   mainDir: MainDir,
   triggerRect: ClientRect,
   windowSize: Window
-): { left: number, top: number } {
+): {| left: number, top: number |} {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT / 2 : 8;
   // TOP OFFSET
   let top;
@@ -367,7 +367,7 @@ export default class Contents extends React.Component<Props, State> {
     width: PropTypes.number,
   };
 
-  static defaultProps: { border: boolean, caret: boolean } = {
+  static defaultProps: {| border: boolean, caret: boolean |} = {
     border: true,
     caret: true,
   };
@@ -422,16 +422,16 @@ export default class Contents extends React.Component<Props, State> {
       width,
     }: Props,
     { flyoutRef }: State
-  ): {
-    caretOffset: {
+  ): {|
+    caretOffset: {|
       bottom: null | number,
       left: null | number,
       right: null | number,
       top: null | number,
-    },
-    flyoutOffset: { left: number, top: number },
+    |},
+    flyoutOffset: {| left: number, top: number |},
     mainDir: 'down' | 'left' | 'right' | 'up',
-  } {
+  |} {
     // Scroll not needed for relative elements
     // We can't use window.scrollX / window.scrollY since it's not supported by IE11
     const scrollX = positionRelativeToAnchor
@@ -516,7 +516,8 @@ export default class Contents extends React.Component<Props, State> {
 
     // Needed to prevent UI thrashing
     const visibility = mainDir === null ? 'hidden' : 'visible';
-    const background = `${bgColor}Bg`;
+    const background =
+      bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
     const stroke = bgColor === 'white' ? '#efefef' : null;
 
     return (

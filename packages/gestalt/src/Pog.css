@@ -1,5 +1,5 @@
 :root {
-  --darkGray: #111;
+  --colorGray300: #111;
 }
 
 .pog {
@@ -39,11 +39,11 @@
 
 .transparentDarkGray.hovered,
 .transparentDarkGray.focused {
-  background-color: var(--darkGray);
+  background-color: var(--colorGray300);
 }
 
 .transparentDarkGray.active {
-  background-color: var(--darkGray);
+  background-color: var(--colorGray300);
 }
 
 .white {

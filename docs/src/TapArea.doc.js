@@ -130,7 +130,7 @@ function TapAreaExample() {
   const [touches, setTouches] = React.useState(0);
 
   return (
-    <Box padding={2} width={150}>
+    <Box width={130}>
       <TapArea
         mouseCursor="zoomIn"
         onTap={() => setTouches(touches + 1)}
@@ -155,9 +155,7 @@ function TapAreaExample() {
       </TapArea>
       <Box paddingY={2}>
         <Text color="gray" align="center">
-          Touched{' '}
-          {touches}{' '}
-          {touches === 1 ? 'time' : 'times'}
+          Touched {touches} {touches === 1 ? 'time' : 'times'}
         </Text>
       </Box>
     </Box>
@@ -176,8 +174,8 @@ card(
   `}
     name="Full width and full height"
     defaultCode={`
-<Box color="white" display="flex" width={500} height={250}>
-  <Box column={6}>
+<Box color="olive" display="flex" width={500} height={250}>
+  <Box borderSize="sm" margin={3} column={6}>
     <TapArea fullHeight>
       <Box height="100%" color="lightGray">
         <Text align="center">
@@ -186,7 +184,7 @@ card(
       </Box>
     </TapArea>
   </Box>
-  <Box column={6}>
+  <Box borderSize="sm" margin={3} column={6}>
     <TapArea>
       <Box height="100%" color="lightGray">
         <Text align="center">
@@ -215,37 +213,31 @@ function AccessibilityExamplePopup() {
   const anchorRef = React.useRef(null);
 
   return (
-    <Box>
-      <Box display="inlineBlock" ref={anchorRef}>
-        <TapArea
-          accessibilityHaspopup
-          accessibilityLabel="see more"
-          onTap={() => setOpen(!isOpen)}
+    <Box display="inlineBlock" ref={anchorRef}>
+      <TapArea
+        accessibilityHaspopup
+        accessibilityLabel="see more"
+        onTap={() => setOpen(!isOpen)}
+        rounding="pill"
+      >
+        <Box
+          borderSize="sm"
+          padding={2}
           rounding="pill"
         >
-          <Box
-            alignItems="center"
-            borderSize="sm"
-            display="flex"
-            padding={2}
-            rounding="pill"
-          >
-            <Box paddingX={1}>
-              <Text weight="bold">See more</Text>
-            </Box>
-            <Box paddingX={1}>
-              <Icon accessibilityLabel="" color="darkGray" icon="ellipsis" />
-            </Box>
-          </Box>
-        </TapArea>
-      </Box>
+          <Row gap={1}>
+            <Text weight="bold">See more</Text>
+            <Icon accessibilityLabel="ellipsis icon" color="darkGray" icon="ellipsis" />
+          </Row>
+        </Box>
+      </TapArea>
       {isOpen && (
         <Flyout
           anchor={anchorRef && anchorRef.current}
           idealDirection="right"
-          onDismiss={() => undefined}
+          onDismiss={() => {}}
         >
-          <Box padding={2}>
+          <Box alignItems="center" display="flex" padding={2}>
             <Text>I am a popup.</Text>
           </Box>
         </Flyout>
@@ -274,31 +266,24 @@ function AccessibilityExampleDisclosure() {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
-    <Box>
-      <Box display="inlineBlock" width={200}>
-        <TapArea
-          accessibilityControls="accordion-panel"
-          accessibilityExpanded={isOpen}
-          onTap={() => setOpen(!isOpen)}
-          rounding="pill"
-        >
-          <Box
-            alignItems="center"
-            borderSize="sm"
-            display="flex"
-            justifyContent="between"
-            padding={2}
-            rounding="pill"
-          >
-            <Box paddingX={1}>
-              <Text weight="bold">{isOpen ? 'Collapse' : 'Expand'}</Text>
-            </Box>
-            <Box paddingX={1}>
-              <Icon accessibilityLabel="" icon={isOpen ? 'arrow-up' : 'arrow-down'} color="darkGray" />
-            </Box>
-          </Box>
-        </TapArea>
-      </Box>
+    <Box width={200}>
+      <TapArea
+        accessibilityControls="accordion-panel"
+        accessibilityExpanded={isOpen}
+        onTap={() => setOpen(!isOpen)}
+        rounding="pill"
+      >
+        <Box borderSize="sm" padding={2} rounding="pill">
+          <Row justifyContent="between">
+            <Text weight="bold">{isOpen ? 'Collapse' : 'Expand'}</Text>
+            <Icon
+              accessibilityLabel=""
+              icon={isOpen ? 'arrow-up' : 'arrow-down'}
+              color="darkGray"
+            />
+          </Row>
+        </Box>
+      </TapArea>
       {isOpen && (
         <Box id="accordion-panel" role="region" padding={2}>
           <Text>I am an accordion panel.</Text>
@@ -306,8 +291,7 @@ function AccessibilityExampleDisclosure() {
       )}
     </Box>
   );
-}
-`}
+}`}
   />
 );
 
@@ -324,32 +308,24 @@ function DisabledExample() {
   const icon = hasReachedLimit ? 'face-sad' : 'face-happy';
 
   return (
-    <Box>
-      <Box display="inlineBlock" width={200}>
-        <TapArea
-          accessibilityControls="count-panel"
-          disabled={hasReachedLimit}
-          onTap={() => setClickCount(clickCount + 1)}
+    <Box width={200}>
+      <TapArea
+        accessibilityControls="count-panel"
+        disabled={hasReachedLimit}
+        onTap={() => setClickCount(clickCount + 1)}
+      >
+        <Box
+          borderSize="sm"
+          color={bgColor}
+          padding={2}
           rounding="pill"
         >
-          <Box
-            alignItems="center"
-            borderSize="sm"
-            color={bgColor}
-            display="flex"
-            justifyContent="between"
-            padding={2}
-            rounding="pill"
-          >
-            <Box paddingX={1}>
-              <Text weight="bold">Click me</Text>
-            </Box>
-            <Box paddingX={1}>
-              <Icon accessibilityLabel="" icon={icon} color="darkGray" />
-            </Box>
-          </Box>
-        </TapArea>
-      </Box>
+          <Row justifyContent="between">
+            <Text weight="bold">Click me</Text>
+            <Icon accessibilityLabel="" icon={icon} color="darkGray" />
+          </Row>
+        </Box>
+      </TapArea>
       <Box id="count-panel" role="region" padding={2}>
         <Text>Number of touches: {clickCount}</Text>
       </Box>
@@ -393,14 +369,13 @@ card(
 function TapAreaRefExample() {
   const ref = React.useRef();
   const [touches, setTouches] = React.useState(0);
+
   return (
-    <Box>
+    <Row gap={1}>
       <Button
-        inline
         text="Focus the TapArea"
         onClick={() => ref.current.focus()}
       />
-      <Box display="inlineBlock">
         <TapArea
           ref={ref}
           rounding="pill"
@@ -408,18 +383,15 @@ function TapAreaRefExample() {
         >
           <Box
             borderSize="sm"
-            display="flex"
             padding={2}
             rounding="pill"
           >
             <Text>TapArea is touched {touches} times</Text>
           </Box>
         </TapArea>
-      </Box>
-    </Box>
+    </Row>
   );
-}
-`}
+}`}
   />
 );
 

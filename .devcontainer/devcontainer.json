@@ -1,0 +1,25 @@
+{
+  "name": "Gestalt: Node.js 12",
+  // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:12",
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "flowtype.flow-for-vscode",
+    "orta.vscode-jest"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "yarn install"
+}

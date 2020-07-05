@@ -1,12 +1,12 @@
 // @flow strict
 import type { Cache } from './Cache.js';
 
-export type Position = {
+export type Position = {|
   top: number,
   left: number,
   width: number,
   height: number,
-};
+|};
 
 const mindex = arr => {
   let idx = 0;

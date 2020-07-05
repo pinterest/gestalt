@@ -105,7 +105,7 @@ to prevent conflict with another CSS module */
   border-top-right-radius: var(--borderRadius-circle);
 }
 
-:global ._gestalt .react-datepicker__day--in-range:hover::before {
+:global ._gestalt .react-datepicker__day--in-range:not(.react-datepicker__day--selected):hover::before {
   background: var(--color-hover-lightGray);
   border-radius: 0;
   content: "";

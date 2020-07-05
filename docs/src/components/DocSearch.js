@@ -6,7 +6,7 @@ export default function DocSearch() {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
-    // Disable search locally and on GitHub pages
+    // Disable search locally
     // Search results would otherwise always redirect to gestalt.netlify.app
     if (
       window.docsearch &&

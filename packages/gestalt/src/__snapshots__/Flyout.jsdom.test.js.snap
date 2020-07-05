@@ -20,7 +20,7 @@ exports[`Flyout renders 1`] = `
       tabIndex={-1}
     >
       <div
-        className="border whiteBg white rounding4 innerContents maxDimensions minDimensions"
+        className="border whiteBgElevated white rounding4 innerContents maxDimensions minDimensions"
         style={
           Object {
             "maxWidth": 230,
