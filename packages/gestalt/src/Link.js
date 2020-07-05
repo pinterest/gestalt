@@ -15,23 +15,33 @@ type TapEvent =
   | SyntheticKeyboardEvent<HTMLAnchorElement>;
 
 type Props = {|
+  accessibilitySelected?: boolean,
   children?: React.Node,
   hoverStyle?: 'none' | 'underline',
   href: string,
+  id?: string,
   inline?: boolean,
-  onClick?: ({ event: TapEvent }) => void,
+  onBlur?: ({| +event: SyntheticFocusEvent<> |}) => void,
+  onClick?: ({| event: TapEvent |}) => void,
+  onFocus?: ({| +event: SyntheticFocusEvent<> |}) => void,
   rel?: 'none' | 'nofollow',
+  role?: 'tab',
   rounding?: Rounding,
   tapStyle?: 'none' | 'compress',
   target?: null | 'self' | 'blank',
 |};
 
 function Link({
+  accessibilitySelected,
   children,
   href,
+  id,
   inline = false,
+  onBlur,
   onClick,
+  onFocus,
   rel = 'none',
+  role,
   rounding = 0,
   hoverStyle = 'underline',
   tapStyle = 'none',
@@ -61,15 +71,26 @@ function Link({
 
   return (
     <a
+      aria-selected={accessibilitySelected}
       className={className}
       href={href}
-      onContextMenu={event => event.preventDefault()}
+      id={id}
+      onBlur={event => {
+        handleBlur();
+        if (onBlur) {
+          onBlur({ event });
+        }
+      }}
       onClick={event => {
         if (onClick) {
           onClick({ event });
         }
       }}
-      onBlur={handleBlur}
+      onFocus={event => {
+        if (onFocus) {
+          onFocus({ event });
+        }
+      }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onKeyPress={event => {
@@ -88,6 +109,7 @@ function Link({
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      role={role}
       target={target ? `_${target}` : null}
     >
       {children}
@@ -96,16 +118,21 @@ function Link({
 }
 
 const LinkPropTypes = {
+  accessibilitySelected: PropTypes.bool,
   children: PropTypes.node,
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
     'none' | 'underline'
   >),
   href: PropTypes.string.isRequired,
+  id: PropTypes.string,
   inline: PropTypes.bool,
+  onBlur: PropTypes.func,
   onClick: PropTypes.func,
+  onFocus: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,
   tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
     'none' | 'compress'

@@ -4,7 +4,6 @@ docs/build/
 *.log
 stats.html
 screenshots
-.vscode
 
 packages/gestalt/dist/*
 packages/gestalt-datepicker/dist/*

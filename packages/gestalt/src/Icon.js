@@ -27,7 +27,7 @@ type Props = {|
     | 'watermelon'
     | 'white',
   icon?: $Keys<typeof icons>,
-  dangerouslySetSvgPath?: { __path: string },
+  dangerouslySetSvgPath?: {| __path: string |},
   inline?: boolean,
   size?: number | string,
 |};

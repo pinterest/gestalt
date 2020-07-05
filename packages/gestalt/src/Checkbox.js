@@ -20,11 +20,11 @@ type Props = {|
   indeterminate?: boolean,
   label?: string,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
-  onClick?: ({
+  onChange: ({| event: SyntheticInputEvent<>, checked: boolean |}) => void,
+  onClick?: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     checked: boolean,
-  }) => void,
+  |}) => void,
   size?: 'sm' | 'md',
 |};
 

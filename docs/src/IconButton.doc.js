@@ -56,6 +56,11 @@ card(
         href: 'backgroundColorCombinations',
       },
       {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+      },
+      {
         name: 'disabled',
         type: 'boolean',
         defaultValue: false,
@@ -74,9 +79,14 @@ card(
         Icon.`,
       },
       {
-        name: 'dangerouslySetSvgPath',
-        type: `{ __path: string }`,
-        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+        name: 'onClick',
+        type: '({ event: SyntheticMouseEvent<> }) => void',
+      },
+      {
+        name: 'padding',
+        type: `1 | 2 | 3 | 4 | 5`,
+        description: `Padding in boints. If omitted, padding is derived from the \`size\` prop.`,
+        href: 'paddingCombinations',
       },
       {
         name: 'selected',
@@ -90,10 +100,6 @@ card(
         description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
         defaultValue: 'md',
         href: 'sizeCombinations',
-      },
-      {
-        name: 'onClick',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
       },
     ]}
   />
@@ -135,15 +141,15 @@ function A11yExPopup() {
           accessibilityLabel="see more"
           accessibilityHaspopup
           icon="ellipsis"
-          iconColor="darkGray" 
+          iconColor="darkGray"
           onClick={() => setOpen(!isOpen)}
         />
       </Box>
       {isOpen && (
-        <Flyout 
-          anchor={anchorRef && anchorRef.current} 
+        <Flyout
+          anchor={anchorRef && anchorRef.current}
           idealDirection="right"
-          onDismiss={() => undefined} 
+          onDismiss={() => undefined}
         >
           <Box padding={2}>
             <Text>I am a popup.</Text>
@@ -181,16 +187,16 @@ function A11yExDisclosure() {
           accessibilityExpanded={isOpen}
           accessibilityLabel={isOpen ? 'See less': 'See more'}
           icon={isOpen ? 'arrow-up' : 'arrow-down'}
-          iconColor="darkGray" 
+          iconColor="darkGray"
           onClick={() => setOpen(!isOpen)}
         />
       </Box>
       {isOpen && (
-        <Box 
+        <Box
           aria-label={isOpen ? 'See less': 'See more'}
-          id="accordion-panel" 
+          id="accordion-panel"
           padding={2}
-          role="region" 
+          role="region"
         >
           <Text>I am an accordion panel.</Text>
         </Box>
@@ -205,8 +211,19 @@ function A11yExDisclosure() {
 card(
   <Combination
     id="sizeCombinations"
-    name="Combinations: Size"
+    name="Combinations: Size with default padding"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
+    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="paddingCombinations"
+    name="Combinations: Size with custom padding"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+    padding={[1, 2, 3, 4, 5]}
   >
     {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
   </Combination>

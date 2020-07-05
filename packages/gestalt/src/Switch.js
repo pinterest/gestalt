@@ -8,7 +8,7 @@ type Props = {|
   disabled?: boolean,
   id: string,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, value: boolean }) => void,
+  onChange: ({| event: SyntheticInputEvent<>, value: boolean |}) => void,
   switched?: boolean,
 |};
 
@@ -25,7 +25,7 @@ export default class Switch extends React.Component<Props, State> {
     switched: PropTypes.bool,
   };
 
-  static defaultProps: { disabled: boolean, switched: boolean } = {
+  static defaultProps: {| disabled: boolean, switched: boolean |} = {
     disabled: false,
     switched: false,
   };

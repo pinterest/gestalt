@@ -1,0 +1,11 @@
+{
+  "css.lint.validProperties": ["composes"],
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "editor.formatOnSave": true,
+  "eslint.packageManager": "yarn",
+  "grunt.autoDetect": "off",
+  "javascript.validate.enable": false,
+  "npm.packageManager": "yarn",
+  "prettier.packageManager": "yarn",
+  "typescript.validate.enable": false
+}

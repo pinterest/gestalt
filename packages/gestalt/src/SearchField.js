@@ -12,15 +12,15 @@ type Props = {|
   accessibilityLabel: string,
   autoComplete?: 'on' | 'off' | 'username' | 'name',
   id: string,
-  onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
-  onChange: ({
+  onBlur?: ({| event: SyntheticEvent<HTMLInputElement> |}) => void,
+  onChange: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  }) => void,
-  onFocus?: ({
+  |}) => void,
+  onFocus?: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,

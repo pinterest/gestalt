@@ -12,6 +12,7 @@ declare module.exports: {|
   +'fontWeightBold': string,
   +'fontWeightNormal': string,
   +'noUnderline': string,
+  +'noWrap': string,
   +'sansSerif': string,
   +'truncate': string,
   +'underline': string,

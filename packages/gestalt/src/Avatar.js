@@ -21,13 +21,17 @@ const Square = (props: *) => (
 );
 
 const DefaultAvatar = ({
+  accessibilityLabel,
   name,
   useDefaultIcon,
 }: {|
+  accessibilityLabel?: string,
   name: string,
   useDefaultIcon: boolean,
 |}) => {
   const firstInitial = name ? [...name][0].toUpperCase() : '';
+  const title = accessibilityLabel ?? name;
+
   return (
     <Square color="lightGray" rounding="circle" overflow="hidden">
       {useDefaultIcon || !firstInitial ? (
@@ -38,7 +42,7 @@ const DefaultAvatar = ({
           viewBox="-3 -8 30 100"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {name && <title>{name}</title>}
+          {title && <title>{title}</title>}
           <path d={PersonSvg} fill="#111" />
         </svg>
       ) : (
@@ -49,7 +53,7 @@ const DefaultAvatar = ({
           preserveAspectRatio="xMidYMid meet"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>{name}</title>
+          <title>{title}</title>
           <text
             fontSize="40px"
             fill="#111"
@@ -70,6 +74,7 @@ const DefaultAvatar = ({
 };
 
 type Props = {|
+  accessibilityLabel?: string,
   name: string,
   outline?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
@@ -89,6 +94,7 @@ const sizes = {
 export default function Avatar(props: Props): React.Node {
   const [isImageLoaded, setIsImageLoaded] = React.useState(true);
   const {
+    accessibilityLabel,
     name,
     outline,
     size = 'fit',
@@ -121,7 +127,7 @@ export default function Avatar(props: Props): React.Node {
       {src && isImageLoaded ? (
         <Mask rounding="circle" wash>
           <Image
-            alt={name}
+            alt={accessibilityLabel ?? name}
             color="#EFEFEF"
             naturalHeight={1}
             naturalWidth={1}
@@ -130,8 +136,13 @@ export default function Avatar(props: Props): React.Node {
           />
         </Mask>
       ) : (
-        <DefaultAvatar name={name} useDefaultIcon={useDefaultIcon} />
+        <DefaultAvatar
+          accessibilityLabel={accessibilityLabel}
+          name={name}
+          useDefaultIcon={useDefaultIcon}
+        />
       )}
+
       {verified && (
         <Box
           position="absolute"
@@ -161,6 +172,7 @@ export default function Avatar(props: Props): React.Node {
 }
 
 Avatar.propTypes = {
+  accessibilityLabel: PropTypes.string,
   name: PropTypes.string.isRequired,
   outline: PropTypes.bool,
   src: PropTypes.string,

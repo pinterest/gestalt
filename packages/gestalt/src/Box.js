@@ -127,18 +127,19 @@ export type Overflow =
 
 export type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type ResponsiveProps = {
+type ResponsiveProps = {|
   column?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
   display?: boolean | 'flex' | 'flexColumn' | 'inlineBlock',
-};
+|};
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
+// eslint-disable-next-line flowtype/require-exact-type
 type PropType = {
   children?: React.Node,
-  dangerouslySetInlineStyle?: {
+  dangerouslySetInlineStyle?: {|
     __style: { [key: string]: string | number | void },
-  },
+  |},
 
   xs?: ResponsiveProps,
   sm?: ResponsiveProps,
@@ -248,6 +249,10 @@ type PropType = {
   top?: boolean,
   width?: Dimension,
   wrap?: boolean,
+
+  userSelect?: 'auto' | 'none',
+
+  role: string,
 };
 
 // --
@@ -624,6 +629,10 @@ const propToFn = {
   right: toggle(layout.right0),
   rounding: getRoundingStyle,
   top: toggle(layout.top0),
+  userSelect: mapping({
+    none: styles.userSelectNone,
+    // default: auto
+  }),
   width: width => fromInlineStyle({ width }),
   wrap: toggle(layout.flexWrap),
   dangerouslySetInlineStyle: value =>
@@ -996,4 +1005,8 @@ Box.propTypes = {
   top: PropTypes.bool,
   width: DimensionPropType,
   wrap: PropTypes.bool,
+
+  userSelect: PropTypes.oneOf(['auto', 'none']),
+
+  role: PropTypes.string,
 };

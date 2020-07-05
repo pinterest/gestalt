@@ -2,9 +2,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-type Props = {
+type Props = {|
   direction?: ?'up' | 'right' | 'down' | 'left',
-};
+|};
 
 export default function Caret(props: Props): React.Node {
   const { direction } = props;

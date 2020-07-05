@@ -1,10 +1,13 @@
 :root {
   /* primary colors */
-  --red: #e60023;
-  --white: #fff;
-  --lightGray: #efefef;
-  --gray: #767676;
-  --darkGray: #111;
+  --colorRed0: #ff5247;
+  --colorRed100: #e60023;
+  --colorGray0: #fff;
+  --colorGray50: #fff;
+  --colorGray100: #efefef;
+  --colorGray200: #767676;
+  --colorGray300: #111;
+  --colorGray400: #000;
 
   /* secondary colors */
   --green: #0fa573;
@@ -30,51 +33,59 @@
 /* red */
 
 .red {
-  color: var(--red);
+  color: var(--colorRed100);
 }
 
 .redBg {
-  background-color: var(--red);
+  background-color: var(--colorRed100);
 }
 
 /* white */
 
 .white {
-  color: var(--white);
+  color: var(--colorGray0);
 }
 
 .whiteBg {
-  background-color: var(--white);
+  background-color: var(--colorGray0);
+}
+
+.whiteElevated {
+  color: var(--colorGray50);
+}
+
+.whiteBgElevated {
+  background-color: var(--colorGray50);
 }
 
 /* lightGray */
 
 .lightGray {
-  color: var(--lightGray);
+  color: var(--colorGray100);
 }
 
 .lightGrayBg {
-  background-color: var(--lightGray);
+  background-color: var(--colorGray100);
 }
 
 /* gray */
 
 .gray {
-  color: var(--gray);
+  color: var(--colorGray200);
 }
 
 .grayBg {
-  background-color: var(--gray);
+  background-color: var(--colorGray200);
 }
 
 /* darkGray */
 
 .darkGray {
-  color: var(--darkGray);
+  color: var(--colorGray300);
 }
 
 .darkGrayBg {
-  background-color: var(--darkGray);
+  background-color: var(--colorGray300);
 }
 
 /** SECONDARY COLORS **/
