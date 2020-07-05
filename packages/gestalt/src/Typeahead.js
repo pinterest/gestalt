@@ -157,9 +157,9 @@ const Typeahead = (props: Props): Node => {
     // When we reach the start or end of the list, move to the start or end of the list based on the direction
     const nextOption =
       direction > 0
-        ? // $FlowFixMe: This returns node which has missing props for offsetHeight, clientHeight, I don't know the fix.
+        ? // $FlowFixMe[prop-missing] - This returns node which has missing props for offsetHeight, clientHeight, I don't know the fix.
           (selectedElement?.nextSibling: ?HTMLElement)
-        : // $FlowFixMe: This returns node which has missing props for offsetHeight, clientHeight, I don't know the fix.
+        : // $FlowFixMe[prop-missing] - This returns node which has missing props for offsetHeight, clientHeight, I don't know the fix.
           (selectedElement?.previousSibling: ?HTMLElement);
 
     // Handles which option to display once we've hit the end of the list range
@@ -255,7 +255,7 @@ const Typeahead = (props: Props): Node => {
             anchor={inputRef.current}
             idealDirection="down"
             onDismiss={() => {}}
-            positionRelativeToAnchor={false}
+            positionRelativeToAnchor
             size="flexible"
           >
             <Box
