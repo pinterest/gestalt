@@ -46,12 +46,13 @@ card(
         name: 'noResultText',
         type: 'string',
         href: 'basicExample',
-        required: false,
+        required: true,
         description: 'The text shown when the input value returns no matches',
       },
       {
         name: 'onBlur',
-        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
         required: false,
         description: 'Callback when you focus outside the component ',
         href: 'basicExample',
