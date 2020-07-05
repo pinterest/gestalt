@@ -17,10 +17,10 @@ type OptionProps = {|
   option: OptionObject,
   selected?: OptionObject | null,
   searchField: string,
-  handleSelect: ({
+  handleSelect: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
-  }) => void,
+  |}) => void,
   hoveredItem: ?number,
   setHoveredItem: (?React.Node, number) => void,
   setOptionRef: (?HTMLElement) => void,

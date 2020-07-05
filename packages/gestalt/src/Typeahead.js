@@ -15,33 +15,33 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  data: Array<{
+  data: Array<{|
     label: string,
     value: string,
-  }>,
+  |}>,
   defaultItem?: OptionObject,
   id: string,
   label: string,
   noResultText: string,
-  onBlur?: ({
+  onBlur?: ({|
     event:
       | SyntheticFocusEvent<HTMLInputElement>
       | SyntheticEvent<HTMLInputElement>,
-  }) => void,
-  onChange?: ({
+  |}) => void,
+  onChange?: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
-  }) => void,
-  onFocus?: ({
+  |}) => void,
+  onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
-  }) => void,
-  onSelect?: ({
+  |}) => void,
+  onSelect?: ({|
     event:
       | SyntheticFocusEvent<HTMLInputElement>
       | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   searchField?: string,
   size?: 'md' | 'lg',
@@ -157,9 +157,9 @@ const Typeahead = (props: Props): Node => {
     // When we reach the start or end of the list, move to the start or end of the list based on the direction
     const nextOption =
       direction > 0
-        ? // $FlowFixMe[prop-missing] - This returns node which has missing props for offsetHeight, clientHeight, I don't know the fix.
+        ? // $FlowFixMe[incompatible-cast]
           (selectedElement?.nextSibling: ?HTMLElement)
-        : // $FlowFixMe[prop-missing] - This returns node which has missing props for offsetHeight, clientHeight, I don't know the fix.
+        : // $FlowFixMe[incompatible-cast]
           (selectedElement?.previousSibling: ?HTMLElement);
 
     // Handles which option to display once we've hit the end of the list range
@@ -255,7 +255,7 @@ const Typeahead = (props: Props): Node => {
             anchor={inputRef.current}
             idealDirection="down"
             onDismiss={() => {}}
-            positionRelativeToAnchor
+            positionRelativeToAnchor={false}
             size="flexible"
           >
             <Box

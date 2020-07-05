@@ -13,19 +13,19 @@ import FormLabel from './FormLabel.js';
 
 type Props = {|
   id: string,
-  onBlur?: ({
+  onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
-  }) => void,
-  onChange: ({
+  |}) => void,
+  onChange: ({|
     value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
-  }) => void,
+  |}) => void,
   setContainer: boolean => void,
   onClear: () => void,
-  onFocus: ({
+  onFocus: ({|
     value: string,
     event: SyntheticFocusEvent<HTMLInputElement>,
-  }) => void,
+  |}) => void,
   onKeyNavigation: (SyntheticKeyboardEvent<HTMLInputElement>, number) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
