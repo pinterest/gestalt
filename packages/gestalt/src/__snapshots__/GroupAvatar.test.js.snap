@@ -37,7 +37,7 @@ exports[`GroupAvatar renders an outline 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -63,7 +63,7 @@ exports[`GroupAvatar renders an outline 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -178,7 +178,7 @@ exports[`GroupAvatar renders avatars for 1 person 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -226,7 +226,7 @@ exports[`GroupAvatar renders avatars for 2 people 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -252,7 +252,7 @@ exports[`GroupAvatar renders avatars for 2 people 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -300,7 +300,7 @@ exports[`GroupAvatar renders avatars for 3 people 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -326,7 +326,7 @@ exports[`GroupAvatar renders avatars for 3 people 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -352,7 +352,7 @@ exports[`GroupAvatar renders avatars for 3 people 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -400,7 +400,7 @@ exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -426,7 +426,7 @@ exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -452,7 +452,7 @@ exports[`GroupAvatar renders avatars for more than 3 AVATAR_SIZES 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -795,7 +795,7 @@ exports[`GroupAvatar renders with container-based sizing 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
@@ -821,7 +821,7 @@ exports[`GroupAvatar renders with container-based sizing 1`] = `
       role="img"
       style={
         Object {
-          "backgroundColor": "#EFEFEF",
+          "backgroundColor": "#efefef",
           "backgroundImage": "url('foo.png')",
         }
       }
