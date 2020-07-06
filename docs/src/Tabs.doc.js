@@ -39,7 +39,7 @@ card(
       {
         name: 'icon',
         type: '"circle"',
-        description: `Adds an icon to indicate a tab that needs attention.`,
+        description: `Icon to indicate a tab that needs attention.`,
       },
       {
         name: 'size',
