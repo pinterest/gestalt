@@ -20,12 +20,12 @@ describe('Themeing', () => {
       expect(container.querySelectorAll('div')).toMatchInlineSnapshot(`
         NodeList [
           <div
-            class="gestaltTheme1"
+            class="__gestaltTheme1"
           >
             Child 1
           </div>,
           <div
-            class="gestaltTheme2"
+            class="__gestaltTheme2"
           >
             Child 2
           </div>,
@@ -37,7 +37,7 @@ describe('Themeing', () => {
       expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
         NodeList [
           <style>
-            .gestaltTheme3 {
+            .__gestaltTheme3 {
           --colorRed0: #ff5247;
           --colorRed100: #e60023;
           --colorGray0: #fff;
@@ -58,7 +58,7 @@ describe('Themeing', () => {
       expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
         NodeList [
           <style>
-            .gestaltTheme4 {
+            .__gestaltTheme4 {
           --colorRed0: #ff5247;
           --colorRed100: #e60023;
           --colorGray0: #fff;
@@ -79,7 +79,7 @@ describe('Themeing', () => {
       expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
         NodeList [
           <style>
-            .gestaltTheme5 {
+            .__gestaltTheme5 {
           --colorRed0: #e60023;
           --colorRed100: #ff5247;
           --colorGray0: #050505;
@@ -93,15 +93,15 @@ describe('Themeing', () => {
         ]
       `);
     });
-    it('renders styling with media query when userPref', () => {
+    it('renders styling with media query when userPreferance', () => {
       const { container } = render(
-        <ThemeProvider colorScheme="userPref">Content</ThemeProvider>
+        <ThemeProvider colorScheme="userPreferance">Content</ThemeProvider>
       );
       expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
         NodeList [
           <style>
             @media(prefers-color-scheme: dark) {
-          .gestaltTheme6 {
+          .__gestaltTheme6 {
           --colorRed0: #e60023;
           --colorRed100: #ff5247;
           --colorGray0: #050505;
@@ -138,7 +138,7 @@ describe('Themeing', () => {
       );
       expect(getByText('darkMode')).toBeTruthy();
     });
-    it('uses theme based on matchMedia when userPref', () => {
+    it('uses theme based on matchMedia when userPreferance', () => {
       let listener = jest.fn();
       window.matchMedia = () => ({
         addListener: cb => {
@@ -147,7 +147,7 @@ describe('Themeing', () => {
         removeListener: jest.fn(),
       });
       const { getByText } = render(
-        <ThemeProvider colorScheme="userPref">
+        <ThemeProvider colorScheme="userPreferance">
           <ThemeAwareComponent />
         </ThemeProvider>
       );

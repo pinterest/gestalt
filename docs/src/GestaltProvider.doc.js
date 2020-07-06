@@ -19,10 +19,10 @@ card(
     props={[
       {
         name: 'colorScheme',
-        type: `"light" | "dark" | "userPref"`,
+        type: `"light" | "dark" | "userPreferance"`,
         defaultValue: 'light',
         description:
-          'The color scheme for components inside the provider. Specify "userPref" to use "prefers-color-scheme" media query.',
+          'The color scheme for components inside the provider. Specify "userPreferance" to use "prefers-color-scheme" media query.',
         href: 'colorScheme',
       },
     ]}
@@ -47,7 +47,7 @@ function Example(props) {
       label: "Dark"
     },
     {
-      value: "userPref",
+      value: "userPreferance",
       label: "User Preference"
     }
   ];

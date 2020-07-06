@@ -2,10 +2,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-export type ColorScheme = 'light' | 'dark' | 'userPref';
+export type ColorScheme = 'light' | 'dark' | 'userPreferance';
 
 export const ColorSchemePropType: React$PropType$Primitive<ColorScheme> = PropTypes.oneOf(
-  ['light', 'dark', 'userPref']
+  ['light', 'dark', 'userPreferance']
 );
 
 type Theme = {|
@@ -71,8 +71,8 @@ const getThemeId = () => {
 
 const getTheme = (colorScheme: ?ColorScheme) =>
   colorScheme === 'dark' ||
-  (colorScheme === 'userPref' &&
-    window &&
+  (colorScheme === 'userPreferance' &&
+    typeof window !== 'undefined' &&
     window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)').matches)
     ? darkModeTheme
@@ -84,13 +84,13 @@ export function ThemeProvider({
 }: Props): React.Element<typeof ThemeContext.Provider> {
   const [theme, setTheme] = React.useState(getTheme(colorScheme));
   const themeIdRef = React.useRef(getThemeId());
-  const className = `gestaltTheme${themeIdRef.current}`;
+  const className = `__gestaltTheme${themeIdRef.current}`;
   const handlePrefChange = e => {
     setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
   React.useEffect(() => {
     setTheme(getTheme(colorScheme));
-    if (colorScheme === 'userPref' && window.matchMedia) {
+    if (colorScheme === 'userPreferance' && window.matchMedia) {
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .addListener(handlePrefChange);
@@ -99,7 +99,7 @@ export function ThemeProvider({
           .matchMedia('(prefers-color-scheme: dark)')
           .removeListener(handlePrefChange);
     }
-    return undefined; // Flow doesn't like that only userPref returns a clean up func
+    return undefined; // Flow doesn't like that only userPreferance returns a clean up func
   }, [colorScheme]);
   return (
     <ThemeContext.Provider value={theme}>
@@ -107,7 +107,7 @@ export function ThemeProvider({
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html:
-            colorScheme === 'userPref'
+            colorScheme === 'userPreferance'
               ? `@media(prefers-color-scheme: dark) {
   .${className} {
 ${themeToStyles(darkModeTheme)} }
