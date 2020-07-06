@@ -2,10 +2,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-export type ColorScheme = 'light' | 'dark' | 'userPreferance';
+export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
 export const ColorSchemePropType: React$PropType$Primitive<ColorScheme> = PropTypes.oneOf(
-  ['light', 'dark', 'userPreferance']
+  ['light', 'dark', 'userPreference']
 );
 
 type Theme = {|
@@ -71,7 +71,7 @@ const getThemeId = () => {
 
 const getTheme = (colorScheme: ?ColorScheme) =>
   colorScheme === 'dark' ||
-  (colorScheme === 'userPreferance' &&
+  (colorScheme === 'userPreference' &&
     typeof window !== 'undefined' &&
     window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -90,7 +90,7 @@ export function ThemeProvider({
   };
   React.useEffect(() => {
     setTheme(getTheme(colorScheme));
-    if (colorScheme === 'userPreferance' && window.matchMedia) {
+    if (colorScheme === 'userPreference' && window.matchMedia) {
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .addListener(handlePrefChange);
@@ -99,7 +99,7 @@ export function ThemeProvider({
           .matchMedia('(prefers-color-scheme: dark)')
           .removeListener(handlePrefChange);
     }
-    return undefined; // Flow doesn't like that only userPreferance returns a clean up func
+    return undefined; // Flow doesn't like that only userPreference returns a clean up func
   }, [colorScheme]);
   return (
     <ThemeContext.Provider value={theme}>
@@ -107,7 +107,7 @@ export function ThemeProvider({
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html:
-            colorScheme === 'userPreferance'
+            colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
   .${className} {
 ${themeToStyles(darkModeTheme)} }

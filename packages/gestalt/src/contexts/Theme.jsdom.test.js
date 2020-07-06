@@ -93,9 +93,9 @@ describe('Themeing', () => {
         ]
       `);
     });
-    it('renders styling with media query when userPreferance', () => {
+    it('renders styling with media query when userPreference', () => {
       const { container } = render(
-        <ThemeProvider colorScheme="userPreferance">Content</ThemeProvider>
+        <ThemeProvider colorScheme="userPreference">Content</ThemeProvider>
       );
       expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
         NodeList [
@@ -138,7 +138,7 @@ describe('Themeing', () => {
       );
       expect(getByText('darkMode')).toBeTruthy();
     });
-    it('uses theme based on matchMedia when userPreferance', () => {
+    it('uses theme based on matchMedia when userPreference', () => {
       let listener = jest.fn();
       window.matchMedia = () => ({
         addListener: cb => {
@@ -147,7 +147,7 @@ describe('Themeing', () => {
         removeListener: jest.fn(),
       });
       const { getByText } = render(
-        <ThemeProvider colorScheme="userPreferance">
+        <ThemeProvider colorScheme="userPreference">
           <ThemeAwareComponent />
         </ThemeProvider>
       );
