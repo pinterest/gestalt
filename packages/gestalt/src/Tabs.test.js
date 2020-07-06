@@ -68,4 +68,18 @@ describe('<Tabs />', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('matches snapshot with circle icons', () => {
+    const tree = create(
+      <Tabs
+        tabs={[
+          { text: 'News', href: '#', icon: 'circle' },
+          { text: 'You', href: '#', icon: 'circle' },
+        ]}
+        activeTabIndex={0}
+        onChange={() => {}}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -11,10 +11,24 @@ type OnChangeHandler = ({|
   +activeTabIndex: number,
 |}) => void;
 
+function Circle() {
+  return (
+    <Box
+      color="red"
+      dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
+      height={6}
+      marginStart={2}
+      rounding="circle"
+      width={6}
+    />
+  );
+}
+
 function Tab({
   children,
   size,
   href,
+  icon,
   id,
   index,
   isActive,
@@ -24,6 +38,7 @@ function Tab({
   size: 'md' | 'lg',
   isActive: boolean,
   href: string,
+  icon?: 'circle',
   index: number,
   id?: string,
   onChange: OnChangeHandler,
@@ -68,6 +83,7 @@ function Tab({
           >
             {children}
           </Text>
+          {icon && icon === 'circle' && <Circle />}
         </Box>
       </Link>
     </Box>
@@ -82,6 +98,7 @@ type Props = {|
     href: string,
     id?: string,
     text: React.Node,
+    icon?: 'circle',
   |}>,
   wrap?: boolean,
 |};
@@ -95,7 +112,7 @@ export default function Tabs({
 }: Props): React.Node {
   return (
     <Row wrap={wrap}>
-      {tabs.map(({ id, href, text }, index) => (
+      {tabs.map(({ id, href, text, icon }, index) => (
         <Tab
           key={id || `${href}_${index}`}
           size={size}
@@ -104,6 +121,7 @@ export default function Tabs({
           id={id}
           index={index}
           isActive={activeTabIndex === index}
+          icon={icon}
         >
           {text}
         </Tab>
