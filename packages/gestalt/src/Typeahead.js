@@ -218,10 +218,15 @@ const Typeahead = (props: Props): Node => {
     setHoveredItem(cursorIndex);
 
     if (direction === KEYS.ENTER) {
-      setSelected(newItem);
-      setSearch(newItem[searchField]);
+      // Only set state when there are options.
+      // handleBlur will take care of clear empty results
+      if (options.length > 0) {
+        setSelected(newItem);
+        setSearch(newItem[searchField]);
+        if (onSelect) onSelect({ event, item: newItem });
+      }
+
       handleBlur({ event });
-      if (onSelect) onSelect({ event, item: newItem });
     }
     // Scrolling
     handleScrolling(direction);
