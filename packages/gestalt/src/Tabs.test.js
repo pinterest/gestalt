@@ -68,4 +68,18 @@ describe('<Tabs />', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('matches snapshot with dot indicators', () => {
+    const tree = create(
+      <Tabs
+        tabs={[
+          { text: 'News', href: '#', indicator: 'dot' },
+          { text: 'You', href: '#', indicator: 'dot' },
+        ]}
+        activeTabIndex={0}
+        onChange={() => {}}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
