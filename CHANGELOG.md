@@ -1,3 +1,9 @@
+## 5.20.0 (Jul 7, 2020)
+
+### Minor
+
+- ZIndex: Add support for Fixed & Composite zIndexes (#966)
+
 ## 5.19.0 (Jul 7, 2020)
 
 ### Minor
