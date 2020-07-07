@@ -1,3 +1,9 @@
+## 5.21.0 (Jul 7, 2020)
+
+### Minor
+
+- Video: Test video state before calling play | Default volume to Muted (#969)
+
 ## 5.20.0 (Jul 7, 2020)
 
 ### Minor
