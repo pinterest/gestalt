@@ -205,7 +205,7 @@ export default class Video extends React.PureComponent<Props, State> {
     playbackRate: 1,
     playing: false,
     preload: 'auto',
-    volume: 1,
+    volume: 0,
   };
 
   state: State = {
@@ -314,7 +314,12 @@ export default class Video extends React.PureComponent<Props, State> {
   // Play the video
   play: () => void = () => {
     if (this.video) {
-      this.video.play();
+      const isPlaying =
+        this.video.currentTime > 0 &&
+        !this.video.paused &&
+        !this.video.ended &&
+        this.video.readyState > 2;
+      if (!isPlaying) this.video.play();
     }
   };
 
