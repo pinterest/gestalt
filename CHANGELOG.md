@@ -1,3 +1,27 @@
+## 5.22.0 (Jul 7, 2020)
+
+### Minor
+
+- GestaltProvider: Adding a provider for color scheme and other future context used by Gestalt (#968)
+
+## 5.21.0 (Jul 7, 2020)
+
+### Minor
+
+- Video: Test video state before calling play | Default volume to Muted (#969)
+
+## 5.20.0 (Jul 7, 2020)
+
+### Minor
+
+- ZIndex: Add support for Fixed & Composite zIndexes (#966)
+
+## 5.19.0 (Jul 7, 2020)
+
+### Minor
+
+- Tabs: Add optional dot indicator (#967)
+
 ## 5.18.0 (Jul 7, 2020)
 
 ### Minor

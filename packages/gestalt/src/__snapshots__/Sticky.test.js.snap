@@ -34,6 +34,23 @@ exports[`Sticky correctly sets thresholds for string values 1`] = `
 </div>
 `;
 
+exports[`Sticky correctly sets zIndex 1`] = `
+<div
+  className="sticky"
+  style={
+    Object {
+      "bottom": undefined,
+      "left": undefined,
+      "right": undefined,
+      "top": 1,
+      "zIndex": 100,
+    }
+  }
+>
+  Sticky
+</div>
+`;
+
 exports[`Sticky renders 1`] = `
 <div
   className="sticky"

@@ -11,10 +11,24 @@ type OnChangeHandler = ({|
   +activeTabIndex: number,
 |}) => void;
 
+function Circle() {
+  return (
+    <Box
+      color="red"
+      dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
+      height={6}
+      marginStart={2}
+      rounding="circle"
+      width={6}
+    />
+  );
+}
+
 function Tab({
   children,
   size,
   href,
+  indicator,
   id,
   index,
   isActive,
@@ -24,6 +38,7 @@ function Tab({
   size: 'md' | 'lg',
   isActive: boolean,
   href: string,
+  indicator?: 'dot',
   index: number,
   id?: string,
   onChange: OnChangeHandler,
@@ -68,6 +83,7 @@ function Tab({
           >
             {children}
           </Text>
+          {indicator === 'dot' && <Circle />}
         </Box>
       </Link>
     </Box>
@@ -81,6 +97,7 @@ type Props = {|
   tabs: Array<{|
     href: string,
     id?: string,
+    indicator?: 'dot',
     text: React.Node,
   |}>,
   wrap?: boolean,
@@ -95,7 +112,7 @@ export default function Tabs({
 }: Props): React.Node {
   return (
     <Row wrap={wrap}>
-      {tabs.map(({ id, href, text }, index) => (
+      {tabs.map(({ id, href, text, indicator }, index) => (
         <Tab
           key={id || `${href}_${index}`}
           size={size}
@@ -104,6 +121,7 @@ export default function Tabs({
           id={id}
           index={index}
           isActive={activeTabIndex === index}
+          indicator={indicator}
         >
           {text}
         </Tab>
@@ -120,6 +138,7 @@ Tabs.propTypes = {
     PropTypes.exact({
       href: PropTypes.string.isRequired,
       id: PropTypes.string,
+      indicator: PropTypes.string,
       text: PropTypes.node.isRequired,
     })
   ).isRequired,

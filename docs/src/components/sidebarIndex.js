@@ -10,7 +10,7 @@ export type sidebarIndexType = Array<{|
 const componentSubSectionPages = {
   displayDate: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Table'],
   feedBack: ['Modal', 'Pulsar', 'Spinner', 'Toast'],
-  foundations: ['Heading', 'Icon', 'Text'],
+  foundations: ['GestaltProvider', 'Heading', 'Icon', 'Text'],
   forms: [
     'Button',
     'Checkbox',

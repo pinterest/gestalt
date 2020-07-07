@@ -13,7 +13,7 @@ exports[`Video with callbacks 1`] = `
   <video
     autoPlay={false}
     className="video"
-    muted={false}
+    muted={true}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
     onEnded={[Function]}
@@ -44,7 +44,7 @@ exports[`Video with children 1`] = `
   <video
     autoPlay={false}
     className="video"
-    muted={false}
+    muted={true}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
     onEnded={[Function]}
@@ -224,8 +224,8 @@ exports[`Video with children 1`] = `
       >
         <svg
           aria-hidden={null}
-          aria-label="Mute"
-          className="rtlSupport icon white iconBlock"
+          aria-label="Unmute"
+          className="icon white iconBlock"
           height={20}
           role="img"
           viewBox="0 0 24 24"
@@ -286,7 +286,7 @@ exports[`Video with multiple sources 1`] = `
   <video
     autoPlay={false}
     className="video"
-    muted={false}
+    muted={true}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
     onEnded={[Function]}
@@ -324,7 +324,7 @@ exports[`Video with source 1`] = `
   <video
     autoPlay={false}
     className="video"
-    muted={false}
+    muted={true}
     onCanPlay={[Function]}
     onDurationChange={[Function]}
     onEnded={[Function]}

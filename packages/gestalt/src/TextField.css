@@ -1,5 +1,5 @@
 :root {
-  --colorGray200: #767676;
+  --gestalt-colorGray200: #767676;
 }
 
 .textField {
@@ -10,5 +10,5 @@
 }
 
 .textField::placeholder {
-  color: var(--colorGray200);
+  color: var(--gestalt-colorGray200);
 }

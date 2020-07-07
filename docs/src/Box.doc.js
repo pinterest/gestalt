@@ -204,6 +204,11 @@ card(
         defaultValue: false,
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        description: `An object representing the zIndex value of the Box.`,
+      },
     ]}
   />
 );
@@ -603,6 +608,23 @@ card(
       {props => <Box color="darkGray" width={60} height={60} {...props} />}
     </Combination>
   </Card>
+);
+
+card(
+  <Example
+    description={`
+It's possible to use box with external elements using the css \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it.
+  `}
+    id="zindex"
+    name="ZIndex"
+    defaultCode={`
+function Example() {
+  const HEADER_ZINDEX = new FixedZIndex(100);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+  return <Box color="blue" width={60} height={60} zIndex={zIndex} />
+}
+`}
+  />
 );
 
 export default cards;

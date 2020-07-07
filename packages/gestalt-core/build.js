@@ -69,9 +69,9 @@ const cssModules = (options = {}) => {
   let css = '';
 
   const breakpoints = {
-    sm: '(min-width: 576px)',
-    md: '(min-width: 768px)',
-    lg: '(min-width: 1312px)',
+    'gestalt-sm': '(min-width: 576px)',
+    'gestalt-md': '(min-width: 768px)',
+    'gestalt-lg': '(min-width: 1312px)',
   };
 
   const modulesPlugin = postcssModules({
