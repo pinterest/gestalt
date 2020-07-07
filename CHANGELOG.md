@@ -1,3 +1,9 @@
+## 5.22.1 (Jul 7, 2020)
+
+### Patch
+
+- SearchField/TapArea/TextField: add ref to list of props (#972)
+
 ## 5.22.0 (Jul 7, 2020)
 
 ### Minor
