@@ -1,6 +1,6 @@
 :root {
-  --size-sm: 16px;
-  --size-md: 24px;
+  --gestalt-size-sm: 16px;
+  --gestalt-size-md: 24px;
 }
 
 .input {
@@ -12,11 +12,11 @@
 }
 
 .sizeSm {
-  height: var(--size-sm);
-  width: var(--size-sm);
+  height: var(--gestalt-size-sm);
+  width: var(--gestalt-size-sm);
 }
 
 .sizeMd {
-  height: var(--size-md);
-  width: var(--size-md);
+  height: var(--gestalt-size-md);
+  width: var(--gestalt-size-md);
 }
