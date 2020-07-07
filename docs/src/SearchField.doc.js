@@ -53,6 +53,11 @@ card(
         type: 'string',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+      },
+      {
         name: 'size',
         type: '"md" | "lg"',
         required: false,
