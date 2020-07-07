@@ -101,6 +101,11 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description: 'Forward the ref to the underlying div element',
+      },
+      {
         name: 'tapStyle',
         type: `"none" | "compress"`,
         description: `Style when the TapArea is clicked / touched. Value "compress" scales down by 1%.`,
