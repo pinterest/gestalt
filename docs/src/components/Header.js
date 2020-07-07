@@ -7,13 +7,21 @@ import {
   IconButton,
   Tooltip,
   Link as GestaltLink,
+  SelectList,
   Sticky,
 } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import Link from './Link.js';
 import { useSidebarContext } from './sidebarContext.js';
 
-export default function Header() {
+type ColorScheme = 'light' | 'dark' | 'userPreference';
+
+type Props = {|
+  colorScheme: ColorScheme,
+  onChangeColorScheme: ColorScheme => void,
+|};
+
+export default function Header({ colorScheme, onChangeColorScheme }: Props) {
   const [isRTL, setIsRTL] = React.useState(false);
   const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
 
@@ -28,6 +36,20 @@ export default function Header() {
       ? 'M9 10v5h2V4h2v11h2V4h2V2H9C6.79 2 5 3.79 5 6s1.79 4 4 4zm12 8l-4-4v3H5v2h12v3l4-4z'
       : 'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
   };
+  const schemeOptions = [
+    {
+      value: 'light',
+      label: 'Light color scheme',
+    },
+    {
+      value: 'dark',
+      label: 'Dark color scheme',
+    },
+    {
+      value: 'userPreference',
+      label: 'User color scheme',
+    },
+  ];
 
   return (
     <Sticky top={0}>
@@ -77,6 +99,16 @@ export default function Header() {
                 iconColor="white"
                 dangerouslySetSvgPath={togglePageDirSvgPath}
                 onClick={toggleRTL}
+              />
+            </Tooltip>
+            <Tooltip inline text="Changes the component color scheme">
+              <SelectList
+                id="scheme"
+                name="scheme"
+                onChange={({ value }) => onChangeColorScheme(value)}
+                options={schemeOptions}
+                placeholder="Select color scheme"
+                value={colorScheme}
               />
             </Tooltip>
             <Tooltip
