@@ -1,3 +1,9 @@
+## 5.19.0 (Jul 7, 2020)
+
+### Minor
+
+- Tabs: Add optional dot indicator (#967)
+
 ## 5.18.0 (Jul 7, 2020)
 
 ### Minor
