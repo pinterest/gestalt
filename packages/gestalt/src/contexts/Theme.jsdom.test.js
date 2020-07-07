@@ -23,14 +23,14 @@ describe('Themeing', () => {
       expect(container.querySelector('style')).toMatchInlineSnapshot(`
         <style>
           :root {
-          --colorRed0: #ff5247;
-          --colorRed100: #e60023;
-          --colorGray0: #fff;
-          --colorGray50: #fff;
-          --colorGray100: #efefef;
-          --colorGray200: #767676;
-          --colorGray300: #111;
-          --colorGray400: #000;
+          --gestalt-colorRed0: #ff5247;
+          --gestalt-colorRed100: #e60023;
+          --gestalt-colorGray0: #fff;
+          --gestalt-colorGray50: #fff;
+          --gestalt-colorGray100: #efefef;
+          --gestalt-colorGray200: #767676;
+          --gestalt-colorGray300: #111;
+          --gestalt-colorGray400: #000;
          }
         </style>
       `);
@@ -42,14 +42,14 @@ describe('Themeing', () => {
       expect(container.querySelector('style')).toMatchInlineSnapshot(`
         <style>
           :root {
-          --colorRed0: #ff5247;
-          --colorRed100: #e60023;
-          --colorGray0: #fff;
-          --colorGray50: #fff;
-          --colorGray100: #efefef;
-          --colorGray200: #767676;
-          --colorGray300: #111;
-          --colorGray400: #000;
+          --gestalt-colorRed0: #ff5247;
+          --gestalt-colorRed100: #e60023;
+          --gestalt-colorGray0: #fff;
+          --gestalt-colorGray50: #fff;
+          --gestalt-colorGray100: #efefef;
+          --gestalt-colorGray200: #767676;
+          --gestalt-colorGray300: #111;
+          --gestalt-colorGray400: #000;
          }
         </style>
       `);
@@ -61,14 +61,14 @@ describe('Themeing', () => {
       expect(container.querySelector('style')).toMatchInlineSnapshot(`
         <style>
           :root {
-          --colorRed0: #e60023;
-          --colorRed100: #ff5247;
-          --colorGray0: #050505;
-          --colorGray50: #272727;
-          --colorGray100: #494949;
-          --colorGray200: #b8b8b8;
-          --colorGray300: #efefef;
-          --colorGray400: #fff;
+          --gestalt-colorRed0: #e60023;
+          --gestalt-colorRed100: #ff5247;
+          --gestalt-colorGray0: #050505;
+          --gestalt-colorGray50: #272727;
+          --gestalt-colorGray100: #494949;
+          --gestalt-colorGray200: #b8b8b8;
+          --gestalt-colorGray300: #efefef;
+          --gestalt-colorGray400: #fff;
          }
         </style>
       `);
@@ -81,14 +81,14 @@ describe('Themeing', () => {
         <style>
           @media(prefers-color-scheme: dark) {
           :root {
-          --colorRed0: #e60023;
-          --colorRed100: #ff5247;
-          --colorGray0: #050505;
-          --colorGray50: #272727;
-          --colorGray100: #494949;
-          --colorGray200: #b8b8b8;
-          --colorGray300: #efefef;
-          --colorGray400: #fff;
+          --gestalt-colorRed0: #e60023;
+          --gestalt-colorRed100: #ff5247;
+          --gestalt-colorGray0: #050505;
+          --gestalt-colorGray50: #272727;
+          --gestalt-colorGray100: #494949;
+          --gestalt-colorGray200: #b8b8b8;
+          --gestalt-colorGray300: #efefef;
+          --gestalt-colorGray400: #fff;
          }
         }
         </style>
@@ -102,14 +102,14 @@ describe('Themeing', () => {
       expect(container.querySelector('style')).toMatchInlineSnapshot(`
         <style>
           .__gestaltThemetestId {
-          --colorRed0: #ff5247;
-          --colorRed100: #e60023;
-          --colorGray0: #fff;
-          --colorGray50: #fff;
-          --colorGray100: #efefef;
-          --colorGray200: #767676;
-          --colorGray300: #111;
-          --colorGray400: #000;
+          --gestalt-colorRed0: #ff5247;
+          --gestalt-colorRed100: #e60023;
+          --gestalt-colorGray0: #fff;
+          --gestalt-colorGray50: #fff;
+          --gestalt-colorGray100: #efefef;
+          --gestalt-colorGray200: #767676;
+          --gestalt-colorGray300: #111;
+          --gestalt-colorGray400: #000;
          }
         </style>
       `);

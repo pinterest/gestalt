@@ -58,7 +58,7 @@ const themeToStyles = theme => {
   let styles = '';
   Object.keys(theme).forEach(key => {
     if (key.startsWith('color')) {
-      styles += `  --${key}: ${theme[key]};\n`;
+      styles += `  --gestalt-${key}: ${theme[key]};\n`;
     }
   });
   return styles;
