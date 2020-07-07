@@ -44,7 +44,7 @@ import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
 type Props = {|
-  Item: ({ idx: number }) => React.Node,
+  Item: ({| idx: number |}) => React.Node,
   layout: Array<{|
     top: number,
     left: number,
@@ -75,13 +75,22 @@ export default class Collection extends React.PureComponent<Props, void> {
     viewportWidth: PropTypes.number,
   };
 
-  static defaultProps = {
+  static defaultProps: {|
+    layout: Array<{|
+      top: number,
+      left: number,
+      width: number,
+      height: number,
+    |}>,
+    viewportLeft: number,
+    viewportTop: number,
+  |} = {
     layout: [],
     viewportLeft: 0,
     viewportTop: 0,
   };
 
-  render() {
+  render(): React.Node {
     const { Item, layout, viewportTop = 0, viewportLeft = 0 } = this.props;
 
     // Calculate the full dimensions of the item layer

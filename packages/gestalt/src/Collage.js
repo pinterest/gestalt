@@ -72,14 +72,14 @@ function getCollageLayout({
   height: h,
   width: w,
   layoutKey,
-}: {
+}: {|
   gutter: number,
   cover: boolean,
   columns: Column,
   height: number,
   width: number,
   layoutKey: number,
-}) {
+|}) {
   let positions = [];
   const width = w + gutter;
   const height = h + gutter;
@@ -155,7 +155,7 @@ type Props = {|
   width: number,
 |};
 
-export default function Collage(props: Props) {
+export default function Collage(props: Props): React.Node {
   const {
     columns,
     cover,

@@ -8,7 +8,7 @@ type Props = {|
   htmlFor: string,
 |};
 
-export default function Label(props: Props) {
+export default function Label(props: Props): React.Node {
   const { children, htmlFor } = props;
 
   return (

@@ -14,14 +14,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-type Props = {
+type Props = {|
   containerHeight: number,
   isAtEnd?: boolean,
   isFetching: boolean,
   fetchMore?: () => void,
   scrollHeight: number,
   scrollTop: number,
-};
+|};
 
 export default class FetchItems extends React.PureComponent<Props> {
   static propTypes = {
@@ -41,7 +41,7 @@ export default class FetchItems extends React.PureComponent<Props> {
     this.check();
   }
 
-  check = () => {
+  check: () => void = () => {
     const {
       containerHeight,
       isAtEnd,
@@ -61,7 +61,7 @@ export default class FetchItems extends React.PureComponent<Props> {
     }
   };
 
-  render() {
+  render(): null {
     return null;
   }
 }

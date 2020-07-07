@@ -22,30 +22,30 @@ type Props = {|
   children?: React.Node,
   controls?: boolean,
   loop?: boolean,
-  onDurationChange?: ({
+  onDurationChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
-  }) => void,
-  onEnded?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onFullscreenChange?: ({ event: Event, fullscreen: boolean }) => void,
-  onLoadedChange?: ({
+  |}) => void,
+  onEnded?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
+  onLoadedChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     loaded: number,
-  }) => void,
-  onPlay?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
-  onPlayheadDown?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onPlayheadUp?: ({ event: SyntheticMouseEvent<HTMLDivElement> }) => void,
-  onPause?: ({ event: SyntheticEvent<HTMLDivElement> }) => void,
-  onReady?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onSeek?: ({ event: SyntheticEvent<HTMLVideoElement> }) => void,
-  onTimeChange?: ({
+  |}) => void,
+  onPlay?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
+  onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onPause?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
+  onReady?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onSeek?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
+  onTimeChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     time: number,
-  }) => void,
-  onVolumeChange?: ({
+  |}) => void,
+  onVolumeChange?: ({|
     event: SyntheticEvent<HTMLDivElement>,
     volume: number,
-  }) => void,
+  |}) => void,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -196,14 +196,19 @@ export default class Video extends React.PureComponent<Props, State> {
     volume: PropTypes.number,
   };
 
-  static defaultProps = {
+  static defaultProps: {|
+    playbackRate: number,
+    playing: boolean,
+    preload: 'auto' | 'metadata' | 'none',
+    volume: number,
+  |} = {
     playbackRate: 1,
     playing: false,
     preload: 'auto',
     volume: 0,
   };
 
-  state = {
+  state: State = {
     currentTime: 0,
     duration: 0,
     fullscreen: false,
@@ -265,12 +270,12 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // The player element encapsulates the actual video DOM
   // element as well as the controls to bring both fullscreen
-  setPlayerRef = (ref: ?HTMLDivElement) => {
+  setPlayerRef: (ref: ?HTMLDivElement) => void = ref => {
     this.player = ref;
   };
 
   // The actual reference to the video HTML DOM element
-  setVideoRef = (ref: ?HTMLVideoElement) => {
+  setVideoRef: (ref: ?HTMLVideoElement) => void = ref => {
     this.video = ref;
   };
 
@@ -279,35 +284,35 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   // Set the video to the desired playback rate: 1 (normal)
-  setPlaybackRate = (playbackRate: number) => {
+  setPlaybackRate: (playbackRate: number) => void = playbackRate => {
     if (this.video) {
       this.video.playbackRate = playbackRate;
     }
   };
 
   // Set the video to the desired volume: 0 (muted) -> 1 (max)
-  setVolume = (volume: number) => {
+  setVolume: (volume: number) => void = volume => {
     if (this.video) {
       this.video.volume = volume;
     }
   };
 
   // Change the video source and re-load the video
-  load = () => {
+  load: () => void = () => {
     if (this.video && this.video.load) {
       this.video.load();
     }
   };
 
   // Pause the video
-  pause = () => {
+  pause: () => void = () => {
     if (this.video) {
       this.video.pause();
     }
   };
 
   // Play the video
-  play = () => {
+  play: () => void = () => {
     if (this.video) {
       const isPlaying =
         this.video.currentTime > 0 &&
@@ -319,14 +324,14 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Seek the video to the desired time
-  seek = (time: number) => {
+  seek: (time: number) => void = time => {
     if (this.video) {
       this.video.currentTime = time;
     }
   };
 
   // Enter/exit fullscreen video player mode
-  toggleFullscreen = () => {
+  toggleFullscreen: () => void = () => {
     if (isFullscreen()) {
       exitFullscreen();
     } else if (this.player) {
@@ -339,7 +344,7 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   // Sent when enough data is available that the media can be played
-  handleCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleCanPlay: (event: SyntheticEvent<HTMLVideoElement>) => void = event => {
     const { onReady } = this.props;
 
     if (onReady) {
@@ -349,7 +354,9 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
-  handleDurationChange = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleDurationChange: (
+    event: SyntheticEvent<HTMLVideoElement>
+  ) => void = event => {
     const { onDurationChange } = this.props;
     const duration = (this.video && this.video.duration) || 0;
     this.setState({ duration });
@@ -360,7 +367,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when playback completes.
-  handleEnded = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleEnded: (event: SyntheticEvent<HTMLVideoElement>) => void = event => {
     const { onEnded } = this.props;
 
     if (onEnded) {
@@ -369,7 +376,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullscreenChange = (event: Event) => {
+  handleFullscreenChange: (event: Event) => void = event => {
     const { onFullscreenChange } = this.props;
     const fullscreen = !!isFullscreen();
     this.setState({ fullscreen });
@@ -380,7 +387,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when playback of the media starts after having been paused.
-  handlePlay = (event: SyntheticEvent<HTMLDivElement>) => {
+  handlePlay: (event: SyntheticEvent<HTMLDivElement>) => void = event => {
     const { onPlay } = this.props;
 
     if (onPlay) {
@@ -389,7 +396,9 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when mouse down event happens on playhead
-  handlePlayheadDown = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+  handlePlayheadDown: (
+    event: SyntheticMouseEvent<HTMLDivElement>
+  ) => void = event => {
     const { onPlayheadDown } = this.props;
 
     if (onPlayheadDown) {
@@ -398,7 +407,9 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when mouse up event happens on playhead
-  handlePlayheadUp = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+  handlePlayheadUp: (
+    event: SyntheticMouseEvent<HTMLDivElement>
+  ) => void = event => {
     const { onPlayheadUp } = this.props;
 
     if (onPlayheadUp) {
@@ -407,7 +418,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when playback is paused.
-  handlePause = (event: SyntheticEvent<HTMLDivElement>) => {
+  handlePause: (event: SyntheticEvent<HTMLDivElement>) => void = event => {
     const { onPause } = this.props;
 
     if (onPause) {
@@ -416,7 +427,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent periodically to inform interested parties of progress downloading the media
-  handleProgress = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = event => {
     const { onLoadedChange } = this.props;
     const { buffered } = this.video || {};
     const loaded =
@@ -428,7 +439,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when a seek operation completes.
-  handleSeek = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleSeek: (event: SyntheticEvent<HTMLVideoElement>) => void = event => {
     const { onSeek } = this.props;
 
     if (onSeek) {
@@ -437,7 +448,9 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // The time indicated by the element's currentTime attribute has changed
-  handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
+  handleTimeUpdate: (
+    event: SyntheticEvent<HTMLVideoElement>
+  ) => void = event => {
     const { onTimeChange } = this.props;
     const currentTime = (this.video && this.video.currentTime) || 0;
     this.setState({ currentTime });
@@ -448,7 +461,9 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the audio volume changes
-  handleVolumeChange = (event: SyntheticEvent<HTMLDivElement>) => {
+  handleVolumeChange: (
+    event: SyntheticEvent<HTMLDivElement>
+  ) => void = event => {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
 
@@ -457,7 +472,7 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  render() {
+  render(): React.Node {
     const {
       aspectRatio,
       captions,

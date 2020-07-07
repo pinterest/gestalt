@@ -3,6 +3,10 @@
   composes: borderBox from "./Layout.css";
 }
 
+.userSelectNone {
+  user-select: none;
+}
+
 /* Display */
 
 .xsDisplayNone {

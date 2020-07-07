@@ -30,10 +30,10 @@ const ESCAPE_KEY_CODE = 27;
 function Backdrop({
   children,
   onClick,
-}: {
+}: {|
   children?: React.Node,
   onClick?: (event: MouseEvent) => void,
-}) {
+|}) {
   const handleClick = event => {
     if (event.target !== event.currentTarget) {
       return;
@@ -76,13 +76,13 @@ export default function Modal({
   heading,
   role = 'dialog',
   size = 'sm',
-}: Props) {
+}: Props): React.Node {
   const [showTopShadow, setShowTopShadow] = React.useState(false);
   const [showBottomShadow, setShowBottomShadow] = React.useState(false);
   const content = React.useRef<?HTMLDivElement>(null);
 
   React.useEffect(() => {
-    function handleKeyUp(event: { keyCode: number }) {
+    function handleKeyUp(event: {| keyCode: number |}) {
       if (event.keyCode === ESCAPE_KEY_CODE) {
         onDismiss();
       }

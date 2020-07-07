@@ -31,7 +31,7 @@ card(
       },
       {
         name: 'onChange',
-        type: `({ event: SyntheticMouseEvent<>, activeTabIndex: number }) => void`,
+        type: `({ +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number }) => void`,
         required: true,
         description:
           'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
@@ -55,33 +55,49 @@ card(
 card(
   <Example
     name="Example"
-    direction="row"
     defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [wrap, setWrap] = React.useState(false);
   const handleChange = ({ activeTabIndex, event }) => {
     event.preventDefault();
     setActiveIndex(activeTabIndex)
-  }
+  };
+  const TABS = [
+    { href: "https://pinterest.com", text: "Boards for You" },
+    { href: "https://pinterest.com", text: "Pins for You" },
+    { href: "https://pinterest.com", text: "1" },
+    { href: "https://pinterest.com", text: "❤" },
+    { href: "https://pinterest.com", text: "Following" },
+    { href: "https://pinterest.com", text: "People to Follow" },
+  ];
   return (
-    <Tabs
-      tabs={[
-        {
-          text: "Boards",
-          href: "#"
-        },
-        {
-          text: "Pins",
-          href: "#"
-        },
-        {
-          text: "Topics",
-          href: "#"
-        }
-      ]}
-      activeTabIndex={activeIndex}
-      onChange={handleChange}
-    />
+    <Stack gap={2}>
+      <Row gap={2} padding={2}>
+        <Label htmlFor="wrap">
+          <Text>Wrap</Text>
+        </Label>
+        <Switch
+          id="wrap"
+          onChange={() => setWrap(!wrap)}
+          switched={wrap}
+        />
+      </Row>
+      {['md', 'lg'].map((size) => (
+        <Box key={size}>
+          <Heading size="sm">size = {size}</Heading>
+          <Box maxWidth={500} overflow="auto" borderSize="sm" padding={1}>
+            <Tabs
+              activeTabIndex={activeIndex}
+              onChange={handleChange}
+              size={size}
+              tabs={TABS}
+              wrap={wrap}
+            />
+          </Box>
+        </Box>
+      ))}
+    </Stack>
   );
 }
   `}

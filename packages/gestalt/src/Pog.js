@@ -32,7 +32,7 @@ type Props = {|
     | 'lightGray'
     | 'white'
     | 'red',
-  dangerouslySetSvgPath?: { __path: string },
+  dangerouslySetSvgPath?: {| __path: string |},
   focused?: boolean,
   hovered?: boolean,
   icon?: $Keys<typeof icons>,
@@ -52,7 +52,7 @@ const defaultIconButtonIconColors = {
   white: 'gray',
 };
 
-export default function Pog(props: Props) {
+export default function Pog(props: Props): React.Node {
   const {
     active = false,
     bgColor = 'transparent',

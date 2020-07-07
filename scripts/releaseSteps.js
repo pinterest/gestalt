@@ -6,7 +6,7 @@ const semver = require('semver');
 const fsPromises = require('fs').promises;
 
 const core = require('@actions/core');
-const { GitHub, context } = require('@actions/github');
+const { getOctokit, context } = require('@actions/github');
 
 const packageJSON = path.join(
   __dirname,
@@ -91,10 +91,10 @@ async function commitChanges({ newVersion }) {
 }
 
 async function createGitHubRelease({ newVersion, releaseNotes }) {
-  const github = new GitHub(process.env.GITHUB_TOKEN);
+  const octokit = getOctokit(process.env.GITHUB_TOKEN);
   const { owner, repo } = context.repo;
 
-  const createReleaseResponse = await github.repos.createRelease({
+  const createReleaseResponse = await octokit.repos.createRelease({
     owner,
     repo,
     tag_name: `v${newVersion}`,

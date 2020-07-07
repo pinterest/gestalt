@@ -10,7 +10,7 @@ type Props = {|
   alt: string,
   children?: React.Node,
   color: string,
-  fit: 'contain' | 'cover' | 'none',
+  fit?: 'contain' | 'cover' | 'none',
   importance?: 'high' | 'low' | 'auto',
   loading?: 'eager' | 'lazy' | 'auto',
   naturalHeight: number,
@@ -39,7 +39,12 @@ export default class Image extends React.PureComponent<Props> {
     srcSet: PropTypes.string,
   };
 
-  static defaultProps = {
+  static defaultProps: {|
+    color: string,
+    fit?: 'contain' | 'cover' | 'none',
+    importance?: 'high' | 'low' | 'auto',
+    loading?: 'eager' | 'lazy' | 'auto',
+  |} = {
     color: 'transparent',
     fit: 'none',
     importance: 'auto',
@@ -59,13 +64,13 @@ export default class Image extends React.PureComponent<Props> {
     }
   }
 
-  handleLoad = () => {
+  handleLoad: () => void = () => {
     if (this.props.onLoad) {
       this.props.onLoad();
     }
   };
 
-  handleError = () => {
+  handleError: () => void = () => {
     if (this.props.onError) {
       this.props.onError();
     }
@@ -80,7 +85,7 @@ export default class Image extends React.PureComponent<Props> {
     }
   }
 
-  render() {
+  render(): React.Node {
     const {
       alt,
       color,

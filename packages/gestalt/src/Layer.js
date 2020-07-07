@@ -12,7 +12,7 @@ type State = {|
 |};
 
 export default class Layer extends React.Component<Props, State> {
-  state = {
+  state: State = {
     mounted: false,
   };
 
@@ -43,7 +43,7 @@ export default class Layer extends React.Component<Props, State> {
     }
   }
 
-  render() {
+  render(): boolean {
     const { children } = this.props;
     return this.state.mounted && createPortal(children, this.el);
   }

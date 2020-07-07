@@ -1,7 +1,7 @@
 // @flow strict
 import fullWidthLayout from './fullWidthLayout.js';
 
-const stubCache = (measurements?: { [item: string]: number, ... } = {}) => {
+const stubCache = (measurements?: { [item: string]: number } = {}) => {
   let cache = measurements;
 
   return {
@@ -25,7 +25,6 @@ test('empty', () => {
     cache: stubCache(),
     width: 500,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
   expect(layout([])).toEqual([]);
 });
 
@@ -36,7 +35,6 @@ test('one row', () => {
     cache: stubCache(measurements),
     width: 900,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
   expect(layout(items)).toEqual([
     { top: 0, height: 100, left: 0, width: 300 },
     { top: 0, height: 120, left: 300, width: 300 },
@@ -51,7 +49,6 @@ test('wrapping items', () => {
     cache: stubCache(measurements),
     width: 500,
   });
-  // $FlowFixMe: new errors found from flow 0.96 upgrade
   expect(layout(items)).toEqual([
     { top: 0, height: 100, left: 0, width: 250 },
     { top: 0, height: 120, left: 250, width: 250 },

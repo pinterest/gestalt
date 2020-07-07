@@ -22,10 +22,10 @@ type Props = {|
   maxDate?: Date,
   minDate?: Date,
   nextRef?: React.ElementRef<*>,
-  onChange: ({
+  onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: Date,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   rangeEndDate?: Date,
   rangeSelector?: 'start' | 'end',
@@ -61,6 +61,7 @@ function DatePicker(props: Props) {
   const [selected, setSelected] = React.useState<?Date>(dateValue);
   const [, setMonth] = React.useState<?number>();
   const [dateFormat, setDateFormat] = React.useState<?string>();
+  const [updatedLocale, setUpdatedLocale] = React.useState<?string>();
   const [initRangeHighlight, setInitRangeHighlight] = React.useState<?Date>();
 
   React.useEffect(() => {
@@ -72,6 +73,7 @@ function DatePicker(props: Props) {
   React.useEffect(() => {
     if (localeData && localeData.code) {
       registerLocale(localeData.code, localeData);
+      setUpdatedLocale(localeData.code);
       setDateFormat(
         localeData.formatLong && localeData.formatLong.date({ width: 'short' })
       );
@@ -116,7 +118,7 @@ function DatePicker(props: Props) {
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
         id={id}
         includeDates={includeDates}
-        locale={localeData?.code}
+        locale={updatedLocale}
         maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
         minDate={
           rangeSelector === 'start' ? minDate : rangeStartDate || minDate
@@ -187,7 +189,9 @@ function datePickerForwardRef(props, ref) {
 
 datePickerForwardRef.displayName = 'DatePickerForwardRef';
 
-export default React.forwardRef<Props, HTMLInputElement>(datePickerForwardRef);
+export default (React.forwardRef<Props, HTMLInputElement>(
+  datePickerForwardRef
+): React$AbstractComponent<Props, HTMLInputElement>);
 
 DatePicker.propTypes = {
   disabled: PropTypes.bool,

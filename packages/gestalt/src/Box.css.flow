@@ -73,6 +73,7 @@ declare module.exports: {|
   +'smDisplayInlineBlock': string,
   +'smDisplayNone': string,
   +'smDisplayVisuallyHidden': string,
+  +'userSelectNone': string,
   +'xsCol0': string,
   +'xsCol1': string,
   +'xsCol10': string,

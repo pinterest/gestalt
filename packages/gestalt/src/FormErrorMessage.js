@@ -11,7 +11,7 @@ export default function FormErrorMessage({
 }: {|
   id: string,
   text?: string,
-|}) {
+|}): React.Node {
   return (
     <Box marginTop={2}>
       <Text color="red" size="sm">

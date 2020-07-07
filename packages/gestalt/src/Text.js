@@ -36,7 +36,7 @@ type Props = {|
     | 'white',
   inline?: boolean,
   italic?: boolean,
-  overflow?: 'normal' | 'breakWord',
+  overflow?: 'normal' | 'breakWord' | 'noWrap',
   size?: 'sm' | 'md' | 'lg',
   truncate?: boolean,
   weight?: 'bold' | 'normal',
@@ -52,7 +52,7 @@ export default function Text({
   size = 'lg',
   truncate = false,
   weight = 'normal',
-}: Props) {
+}: Props): React.Node {
   const scale = SIZE_SCALE[size];
 
   const cs = cx(
@@ -80,6 +80,7 @@ export default function Text({
     align === 'left' && typography.alignLeft,
     align === 'right' && typography.alignRight,
     overflow === 'breakWord' && typography.breakWord,
+    overflow === 'noWrap' && typography.noWrap,
     italic && typography.fontStyleItalic,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
@@ -123,7 +124,7 @@ Text.propTypes = {
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
-  overflow: PropTypes.oneOf(['normal', 'breakWord']),
+  overflow: PropTypes.oneOf(['normal', 'breakWord', 'noWrap']),
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   truncate: PropTypes.bool,
   weight: PropTypes.oneOf(['bold', 'normal']),

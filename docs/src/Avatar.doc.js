@@ -18,6 +18,12 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilityLabel',
+        type: 'string',
+        description:
+          'String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.',
+      },
+      {
         name: 'name',
         type: 'string',
         required: true,

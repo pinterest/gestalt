@@ -42,6 +42,7 @@
 .disabled {
   composes: lightGrayBg from "./Colors.css";
   cursor: default;
+  pointer-events: none;
 }
 
 .selected {
