@@ -10,34 +10,19 @@ function ThemeAwareComponent() {
 
 describe('Themeing', () => {
   describe('ThemeProvider', () => {
-    it('renders child content in a div with a unique className', () => {
-      const { container } = render(
-        <>
-          <ThemeProvider>Child 1</ThemeProvider>
-          <ThemeProvider>Child 2</ThemeProvider>
-        </>
-      );
-      expect(container.querySelectorAll('div')).toMatchInlineSnapshot(`
-        NodeList [
-          <div
-            class="__gestaltTheme1"
-          >
-            Child 1
-          </div>,
-          <div
-            class="__gestaltTheme2"
-          >
-            Child 2
-          </div>,
-        ]
+    it('renders child content in a div', () => {
+      const { container } = render(<ThemeProvider>Child 1</ThemeProvider>);
+      expect(container.querySelector('div')).toMatchInlineSnapshot(`
+        <div>
+          Child 1
+        </div>
       `);
     });
     it('renders styling for light mode when no color scheme specified', () => {
       const { container } = render(<ThemeProvider>Content</ThemeProvider>);
-      expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
-        NodeList [
-          <style>
-            .__gestaltTheme3 {
+      expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          :root {
           --colorRed0: #ff5247;
           --colorRed100: #e60023;
           --colorGray0: #fff;
@@ -47,18 +32,16 @@ describe('Themeing', () => {
           --colorGray300: #111;
           --colorGray400: #000;
          }
-          </style>,
-        ]
+        </style>
       `);
     });
     it('renders styling for light mode when specified', () => {
       const { container } = render(
         <ThemeProvider colorScheme="light">Content</ThemeProvider>
       );
-      expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
-        NodeList [
-          <style>
-            .__gestaltTheme4 {
+      expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          :root {
           --colorRed0: #ff5247;
           --colorRed100: #e60023;
           --colorGray0: #fff;
@@ -68,18 +51,16 @@ describe('Themeing', () => {
           --colorGray300: #111;
           --colorGray400: #000;
          }
-          </style>,
-        ]
+        </style>
       `);
     });
     it('renders styling for dark mode when specified', () => {
       const { container } = render(
         <ThemeProvider colorScheme="dark">Content</ThemeProvider>
       );
-      expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
-        NodeList [
-          <style>
-            .__gestaltTheme5 {
+      expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          :root {
           --colorRed0: #e60023;
           --colorRed100: #ff5247;
           --colorGray0: #050505;
@@ -89,19 +70,17 @@ describe('Themeing', () => {
           --colorGray300: #efefef;
           --colorGray400: #fff;
          }
-          </style>,
-        ]
+        </style>
       `);
     });
     it('renders styling with media query when userPreference', () => {
       const { container } = render(
         <ThemeProvider colorScheme="userPreference">Content</ThemeProvider>
       );
-      expect(container.querySelectorAll('style')).toMatchInlineSnapshot(`
-        NodeList [
-          <style>
-            @media(prefers-color-scheme: dark) {
-          .__gestaltTheme6 {
+      expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          @media(prefers-color-scheme: dark) {
+          :root {
           --colorRed0: #e60023;
           --colorRed100: #ff5247;
           --colorGray0: #050505;
@@ -112,8 +91,27 @@ describe('Themeing', () => {
           --colorGray400: #fff;
          }
         }
-          </style>,
-        ]
+        </style>
+      `);
+    });
+    it('renders styling with a custom class if has an id', () => {
+      const { container } = render(
+        <ThemeProvider id="testId">Content</ThemeProvider>
+      );
+      expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
+      expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          .__gestaltThemetestId {
+          --colorRed0: #ff5247;
+          --colorRed100: #e60023;
+          --colorGray0: #fff;
+          --colorGray50: #fff;
+          --colorGray100: #efefef;
+          --colorGray200: #767676;
+          --colorGray300: #111;
+          --colorGray400: #000;
+         }
+        </style>
       `);
     });
   });

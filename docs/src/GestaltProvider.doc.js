@@ -25,6 +25,12 @@ card(
           'The color scheme for components inside the provider. Specify "userPreference" to use "prefers-color-scheme" media query.',
         href: 'colorScheme',
       },
+      {
+        name: 'id',
+        type: 'string',
+        description:
+          'An optional id for your provider. If not passed in, settings will be applied as globally as possible (example: it sets color scheme variables at :root).',
+      },
     ]}
   />
 );
@@ -52,7 +58,7 @@ function Example(props) {
     }
   ];
   return (
-    <GestaltProvider colorScheme={scheme}>
+    <GestaltProvider colorScheme={scheme} id="docsExample">
       <Box color="white" padding={2}>
         <SelectList
           id="scheme"

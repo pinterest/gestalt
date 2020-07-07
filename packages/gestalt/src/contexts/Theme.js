@@ -23,6 +23,7 @@ type Theme = {|
 type Props = {|
   children: React.Node,
   colorScheme?: ColorScheme,
+  id?: ?string,
 |};
 
 const lightModeTheme = {
@@ -63,12 +64,6 @@ const themeToStyles = theme => {
   return styles;
 };
 
-let themeId = 0;
-const getThemeId = () => {
-  themeId += 1;
-  return themeId;
-};
-
 const getTheme = (colorScheme: ?ColorScheme) =>
   colorScheme === 'dark' ||
   (colorScheme === 'userPreference' &&
@@ -81,10 +76,11 @@ const getTheme = (colorScheme: ?ColorScheme) =>
 export function ThemeProvider({
   children,
   colorScheme,
+  id,
 }: Props): React.Element<typeof ThemeContext.Provider> {
   const [theme, setTheme] = React.useState(getTheme(colorScheme));
-  const themeIdRef = React.useRef(getThemeId());
-  const className = `__gestaltTheme${themeIdRef.current}`;
+  const className = id ? `__gestaltTheme${id}` : undefined;
+  const selector = className ? `.${className}` : ':root';
   const handlePrefChange = e => {
     setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
@@ -109,10 +105,10 @@ export function ThemeProvider({
           __html:
             colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
-  .${className} {
+  ${selector} {
 ${themeToStyles(darkModeTheme)} }
 }`
-              : `.${className} {
+              : `${selector} {
 ${themeToStyles(theme)} }`,
         }}
       />
