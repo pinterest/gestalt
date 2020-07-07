@@ -25,8 +25,8 @@ export default function App(props: Props) {
         <Box minHeight="100vh" color="white">
           <Header
             colorScheme={colorScheme}
-            onChangeColorScheme={newColorScheme =>
-              setColorScheme(newColorScheme)
+            onChangeColorScheme={() =>
+              setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
             }
           />
           <Box mdDisplay="flex" direction="row">
