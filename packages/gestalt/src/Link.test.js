@@ -7,10 +7,12 @@ it('default', () =>
   expect(
     renderer.create(<Link href="https://example.com">Link</Link>).toJSON()
   ).toMatchSnapshot());
+
 it('regular', () =>
   expect(
     renderer.create(<Link href="https://example.com">Link</Link>).toJSON()
   ).toMatchSnapshot());
+
 it('inline', () =>
   expect(
     renderer
@@ -55,11 +57,49 @@ it('target blank', () =>
       .toJSON()
   ).toMatchSnapshot());
 
-it('with onClick', () =>
+it('with nofollow', () =>
+  expect(
+    renderer
+      .create(
+        <Link href="https://example.com" rel="nofollow">
+          Link
+        </Link>
+      )
+      .toJSON()
+  ).toMatchSnapshot());
+
+it('with onTap', () =>
   expect(
     renderer
       .create(
         <Link href="https://example.com" onClick={() => {}}>
+          Link
+        </Link>
+      )
+      .toJSON()
+  ).toMatchSnapshot());
+
+it('with custom rounding, hoverStyle, and tapStyle', () =>
+  expect(
+    renderer
+      .create(
+        <Link
+          href="https://example.com"
+          rounding="pill"
+          hoverStyle="none"
+          tapStyle="compress"
+        >
+          Link
+        </Link>
+      )
+      .toJSON()
+  ).toMatchSnapshot());
+
+it('with accessibilitySelected and role', () =>
+  expect(
+    renderer
+      .create(
+        <Link href="https://example.com" accessibilitySelected role="tab">
           Link
         </Link>
       )

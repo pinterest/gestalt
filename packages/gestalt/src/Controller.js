@@ -39,10 +39,10 @@ type ClientRect = {
 };
 
 type State = {|
-  relativeOffset: {
+  relativeOffset: {|
     x: number,
     y: number,
-  },
+  |},
   triggerBoundingRect: ClientRect,
 |};
 
@@ -90,17 +90,25 @@ export default class Controller extends React.Component<Props, State> {
     ]),
   };
 
-  static defaultProps = {
+  static defaultProps: {|
+    size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
+  |} = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
     size: 'sm',
   };
 
-  static getDerivedStateFromProps({ anchor, positionRelativeToAnchor }: Props) {
+  static getDerivedStateFromProps({
+    anchor,
+    positionRelativeToAnchor,
+  }: Props): {|
+    relativeOffset: void | {| x: number, y: number |},
+    triggerBoundingRect: void | ClientRect,
+  |} {
     return getTriggerRect(anchor, positionRelativeToAnchor);
   }
 
-  state = {
+  state: State = {
     relativeOffset: {
       x: 0,
       y: 0,
@@ -119,25 +127,28 @@ export default class Controller extends React.Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  handleKeyDown = (event: { keyCode: number }) => {
+  handleKeyDown: (event: {| keyCode: number |}) => void = event => {
     const { onDismiss } = this.props;
     if (event.keyCode === ESCAPE_KEY_CODE) {
       onDismiss();
     }
   };
 
-  handlePageClick = (event: Event) => {
+  handlePageClick: (event: Event) => void = event => {
     const { anchor, onDismiss } = this.props;
     if (event.target instanceof Node && !anchor.contains(event.target)) {
       onDismiss();
     }
   };
 
-  handleResize = () => {
+  handleResize: () => void = () => {
     this.updateTriggerRect(this.props);
   };
 
-  updateTriggerRect = ({ anchor, positionRelativeToAnchor }: Props) => {
+  updateTriggerRect: Props => void = ({
+    anchor,
+    positionRelativeToAnchor,
+  }: Props) => {
     const { relativeOffset, triggerBoundingRect } = getTriggerRect(
       anchor,
       positionRelativeToAnchor
@@ -145,7 +156,7 @@ export default class Controller extends React.Component<Props, State> {
     this.setState({ relativeOffset, triggerBoundingRect });
   };
 
-  render() {
+  render(): React.Node {
     const {
       bgColor,
       border,

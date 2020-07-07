@@ -8,7 +8,7 @@ type Props = {|
   rowSpan?: number,
 |};
 
-export default function TableCell(props: Props) {
+export default function TableCell(props: Props): React.Node {
   const { children, colSpan, rowSpan } = props;
 
   return (

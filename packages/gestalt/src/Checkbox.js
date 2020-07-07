@@ -20,11 +20,11 @@ type Props = {|
   indeterminate?: boolean,
   label?: string,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, checked: boolean }) => void,
-  onClick?: ({
+  onChange: ({| event: SyntheticInputEvent<>, checked: boolean |}) => void,
+  onClick?: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     checked: boolean,
-  }) => void,
+  |}) => void,
   size?: 'sm' | 'md',
 |};
 
@@ -40,7 +40,7 @@ export default function Checkbox({
   onChange,
   onClick,
   size = 'md',
-}: Props) {
+}: Props): React.Node {
   const inputElement = React.useRef<?HTMLInputElement>(null);
   const [focused, setFocused] = React.useState(false);
   const [hovered, setHover] = React.useState(false);

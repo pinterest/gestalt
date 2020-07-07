@@ -27,6 +27,7 @@
   ],
   "rules": {
     "eslint-comments/no-unused-disable": "error",
+    "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [
       "error",
       "always",
@@ -72,6 +73,7 @@
     {
       "files": ["packages/gestalt-codemods/**/*.js", "scripts/**/*.js"],
       "rules": {
+        "flowtype/require-exact-type": "off",
         "flowtype/require-valid-file-annotation": "off"
       }
     },

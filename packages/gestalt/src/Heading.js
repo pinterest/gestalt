@@ -46,7 +46,7 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
-export default function Heading(props: Props) {
+export default function Heading(props: Props): React.Node {
   const {
     accessibilityLevel,
     align = 'left',

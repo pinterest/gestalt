@@ -9,7 +9,7 @@ type Props = {|
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
 |};
 
-export default function TableHeaderCell(props: Props) {
+export default function TableHeaderCell(props: Props): React.Node {
   const { children, colSpan, scope, rowSpan } = props;
 
   return (

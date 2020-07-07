@@ -12,15 +12,15 @@ type Props = {|
   accessibilityLabel: string,
   autoComplete?: 'on' | 'off' | 'username' | 'name',
   id: string,
-  onBlur?: ({ event: SyntheticEvent<HTMLInputElement> }) => void,
-  onChange: ({
+  onBlur?: ({| event: SyntheticEvent<HTMLInputElement> |}) => void,
+  onChange: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  }) => void,
-  onFocus?: ({
+  |}) => void,
+  onFocus?: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
-  }) => void,
+  |}) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
@@ -177,4 +177,6 @@ function forwardRefSearchField(props, ref) {
 }
 forwardRefSearchField.displayName = 'SearchField';
 
-export default React.forwardRef<Props, HTMLInputElement>(forwardRefSearchField);
+export default (React.forwardRef<Props, HTMLInputElement>(
+  forwardRefSearchField
+): React$AbstractComponent<Props, HTMLInputElement>);

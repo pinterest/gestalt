@@ -60,6 +60,10 @@
   word-wrap: break-word;
 }
 
+.noWrap {
+  white-space: nowrap;
+}
+
 .truncate {
   max-width: 100%;
   overflow: hidden;

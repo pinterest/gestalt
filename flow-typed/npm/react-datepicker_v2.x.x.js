@@ -74,7 +74,7 @@ declare module 'react-datepicker' {
     injectTimes?: Array<Date>,
     inline?: boolean,
     isClearable?: boolean,
-    locale?: string | { locale: any },
+    locale?: ?string,
     maxDate?: Date,
     minDate?: Date,
     monthsShown?: number,

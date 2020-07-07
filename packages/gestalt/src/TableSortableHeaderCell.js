@@ -8,18 +8,18 @@ import TapArea from './TapArea.js';
 type Props = {|
   children: React.Node,
   colSpan?: number,
-  onSortChange: ({
+  onSortChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => void,
+  |}) => void,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
   sortOrder: 'asc' | 'desc',
   status: 'active' | 'inactive',
 |};
 
-export default function TableSortableHeaderCell(props: Props) {
+export default function TableSortableHeaderCell(props: Props): React.Node {
   const {
     children,
     colSpan,

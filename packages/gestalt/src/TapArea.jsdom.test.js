@@ -3,7 +3,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TapArea from './TapArea.js';
 
-test('TapArea handles onTouch callback', () => {
+test('TapArea handles onTap callback', () => {
   const mockOnTap = jest.fn();
   const { getByText } = render(<TapArea onTap={mockOnTap}>TapArea</TapArea>);
   getByText('TapArea').click();

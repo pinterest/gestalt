@@ -1,12 +1,12 @@
 // @flow strict
 import type { Cache } from './Cache.js';
 
-export type Position = {
+export type Position = {|
   top: number,
   left: number,
   width: number,
   height: number,
-};
+|};
 
 const mindex = arr => {
   let idx = 0;
@@ -41,7 +41,7 @@ export default <T>({
   minCols?: number,
   rawItemCount: number,
   width?: ?number,
-|}) => (items: Array<*>): Array<Position> => {
+|}): ((items: Array<*>) => Array<Position>) => (items): Array<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }

@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import React, { type Element } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -33,7 +33,7 @@ type Props = {|
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
-  onClick?: ({ event: SyntheticMouseEvent<> }) => void,
+  onClick?: ({| event: SyntheticMouseEvent<> |}) => void,
   selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   text: string,
@@ -41,7 +41,7 @@ type Props = {|
   type?: 'submit' | 'button',
 |};
 
-export default function Button(props: Props) {
+export default function Button(props: Props): Element<'button'> {
   const {
     accessibilityControls,
     accessibilityExpanded,

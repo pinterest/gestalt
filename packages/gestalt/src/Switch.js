@@ -8,7 +8,7 @@ type Props = {|
   disabled?: boolean,
   id: string,
   name?: string,
-  onChange: ({ event: SyntheticInputEvent<>, value: boolean }) => void,
+  onChange: ({| event: SyntheticInputEvent<>, value: boolean |}) => void,
   switched?: boolean,
 |};
 
@@ -25,26 +25,28 @@ export default class Switch extends React.Component<Props, State> {
     switched: PropTypes.bool,
   };
 
-  static defaultProps = {
+  static defaultProps: {| disabled: boolean, switched: boolean |} = {
     disabled: false,
     switched: false,
   };
 
-  state = {
+  state: State = {
     focused: false,
   };
 
-  handleBlur = () => this.setState({ focused: false });
+  handleBlur: () => void = () => this.setState({ focused: false });
 
-  handleFocus = () => this.setState({ focused: true });
+  handleFocus: () => void = () => this.setState({ focused: true });
 
-  handleChange = (event: SyntheticInputEvent<>) => {
+  handleChange: (event: SyntheticInputEvent<>) => void = (
+    event: SyntheticInputEvent<>
+  ) => {
     const { onChange } = this.props;
     const { checked } = event.target;
     onChange({ event, value: checked });
   };
 
-  render() {
+  render(): React.Node {
     const { disabled, id, name, switched } = this.props;
 
     const switchStyles = classnames(

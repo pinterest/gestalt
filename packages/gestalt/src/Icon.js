@@ -27,7 +27,7 @@ type Props = {|
     | 'watermelon'
     | 'white',
   icon?: $Keys<typeof icons>,
-  dangerouslySetSvgPath?: { __path: string },
+  dangerouslySetSvgPath?: {| __path: string |},
   inline?: boolean,
   size?: number | string,
 |};
@@ -58,7 +58,7 @@ const flipOnRtlIconNames = [
   'text-size',
 ];
 
-export default function Icon(props: Props) {
+export default function Icon(props: Props): React.Node {
   const {
     accessibilityLabel,
     color = 'gray',

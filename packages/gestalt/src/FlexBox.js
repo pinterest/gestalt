@@ -59,7 +59,7 @@ type Props = {|
   wrap?: boolean,
 |};
 
-export default function FlexBox(props: Props) {
+export default function FlexBox(props: Props): React.Node {
   return <Box display="flex" {...props} />;
 }
 

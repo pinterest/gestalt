@@ -70,25 +70,33 @@ class VideoControls extends React.Component<Props> {
     volume: PropTypes.number.isRequired,
   };
 
-  handleFullscreenChange = ({
-    event,
-  }: {
+  handleFullscreenChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => {
+  |}) => void = ({
+    event,
+  }: {|
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => {
     const { onFullscreenChange } = this.props;
     event.stopPropagation();
     onFullscreenChange();
   };
 
-  handlePlayingChange = ({
-    event,
-  }: {
+  handlePlayingChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => {
+  |}) => void = ({
+    event,
+  }: {|
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => {
     const { playing, onPause, onPlay } = this.props;
     if (playing) {
       onPause(event);
@@ -97,18 +105,22 @@ class VideoControls extends React.Component<Props> {
     }
   };
 
-  handleVolumeChange = ({
-    event,
-  }: {
+  handleVolumeChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,
-  }) => {
+  |}) => void = ({
+    event,
+  }: {|
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => {
     const { onVolumeChange } = this.props;
     onVolumeChange(event);
   };
 
-  render() {
+  render(): React.Node {
     const {
       accessibilityMaximizeLabel,
       accessibilityMinimizeLabel,

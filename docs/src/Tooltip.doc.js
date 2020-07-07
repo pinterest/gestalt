@@ -29,6 +29,7 @@ card(
         name: 'idealDirection',
         type: `'up' | 'right' | 'down' | 'left'`,
         description: 'Preferred direction for the Tooltip to open',
+        defaultValue: 'down',
       },
       {
         name: 'inline',

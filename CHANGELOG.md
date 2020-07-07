@@ -1,3 +1,153 @@
+## 5.17.0 (Jul 2, 2020)
+
+### Minor
+
+- Styling: Prepare css for dark mode support (#963)
+
+## 5.16.0 (Jul 2, 2020)
+
+### Minor
+
+- Docs: Expand Navigation subsections (#962)
+
+## 5.15.0 (Jul 2, 2020)
+
+### Minor
+
+- Avatar: Add accessibilityLabel (#961)
+
+## 5.14.3 (Jul 1, 2020)
+
+### Patch
+
+- Tabs: lightgray background when tab is focussed (#960)
+
+## 5.14.2 (Jul 1, 2020)
+
+### Patch
+
+- Link: add event to onFocus + onBlur (#959)
+
+## 5.14.1 (Jul 1, 2020)
+
+### Patch
+
+- TapArea / Text: Refactored Docs examples for cleaner examples (#947)
+
+## 5.14.0 (Jul 1, 2020)
+
+### Minor
+
+- Docs: Refactored Gestalt Docs Sidebar Menu (#952)
+
+## 5.13.0 (Jul 1, 2020)
+
+### Minor
+
+- Tabs (and Box, Link, Text): force long tab label in one line with major refactor (#955)
+
+## 5.12.1 (Jun 30, 2020)
+
+### Patch
+
+- Internal: Support GitHub Codespaces (#956)
+
+## 5.12.0 (Jun 30, 2020)
+
+### Minor
+
+- Modal: fix scroll behavior in IE11 (#958)
+
+## 5.11.2 (Jun 30, 2020)
+
+### Patch
+
+- Docs: support IE11 (#957)
+
+## 5.11.1 (Jun 29, 2020)
+
+### Patch
+
+- DatePicker/Tooltip: update idealDirection default value in docs (#954)
+
+## 5.11.0 (Jun 26, 2020)
+
+### Minor
+
+- Box/Link: add role prop to both and accessibilitySelected prop to Link (#953)
+
+## 5.10.0 (Jun 25, 2020)
+
+### Minor
+
+- Button: Fix disabled state to prevent it to be interacted with and event bubbling (#951)
+
+## 5.9.2 (Jun 24, 2020)
+
+### Patch
+
+- Internal: Update documentation link (#950)
+
+## 5.9.1 (Jun 24, 2020)
+
+### Patch
+
+- TapArea:Updated Doc Example: Accessibility (Popup) (#942)
+
+## 5.9.0 (Jun 24, 2020)
+
+### Minor
+
+- IconButton: add optional padding prop (#949)
+
+## 5.8.0 (Jun 24, 2020)
+
+### Minor
+
+- Link: fix context menu not showing (#948)
+
+## 5.7.0 (Jun 24, 2020)
+
+### Minor
+
+- Internal: require flow exact types (#946)
+
+## 5.6.0 (Jun 24, 2020)
+
+### Minor
+
+- Internal: Upgrade dependencies (#944)
+
+## 5.5.0 (Jun 24, 2020)
+
+### Minor
+
+- DatePicker: Fixed CSS for same date selection in range (#943)
+
+## 5.4.0 (Jun 22, 2020)
+
+### Minor
+
+- Internal: Enable flow types-first (#940)
+
+## 5.3.0 (Jun 22, 2020)
+
+### Minor
+
+- Link: add TapArea-like feedback (#933)
+
+## 5.2.5 (Jun 22, 2020)
+
+### Patch
+
+- DatePicker: Fix "locale object was not found for the provided string" warning (#941)
+
+## 5.2.4 (Jun 22, 2020)
+
+### Patch
+
+- DatePicker: Fix onChange flowtype (#939)
+
 ## 5.2.3 (Jun 19, 2020)
 
 ### Patch

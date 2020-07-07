@@ -1,8 +1,8 @@
 :root {
   --bt: 4px;
-  --gray: #767676;
-  --lightGray: #efefef;
-  --white: #fff;
+  --colorGray0: #fff;
+  --colorGray100: #efefef;
+  --colorGray200: #767676;
 }
 
 .input {
@@ -10,6 +10,7 @@
   composes: border pill sizeLg from "./Borders.css";
   composes: borderBox from "./Layout.css";
   composes: darkGray from "./Colors.css";
+  composes: whiteBg from "./Colors.css";
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
   appearance: none;
@@ -25,7 +26,7 @@
 }
 
 .input:focus {
-  background-color: var(--white);
+  background-color: var(--colorGray0);
   cursor: text;
 }
 
@@ -34,7 +35,7 @@
 }
 
 .input::placeholder {
-  color: var(--gray);
+  color: var(--colorGray200);
 }
 
 .inputActive {
@@ -61,6 +62,6 @@
 }
 
 .clear:hover {
-  background-color: var(--lightGray);
+  background-color: var(--colorGray100);
   border-radius: 50%;
 }
