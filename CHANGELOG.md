@@ -1,3 +1,9 @@
+## 5.22.2 (Jul 7, 2020)
+
+### Patch
+
+- Dark Mode: update toggle in docs (#974)
+
 ## 5.22.1 (Jul 7, 2020)
 
 ### Patch
