@@ -257,6 +257,8 @@ const Typeahead = (props: Props): Node => {
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="flexible"
+            // Forces the flyout to re-render and adjust it's position correctly
+            key={options.length}
           >
             <Box
               ref={containerRef}
