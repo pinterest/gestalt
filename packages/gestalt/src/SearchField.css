@@ -38,8 +38,12 @@
   color: var(--colorGray200);
 }
 
-.inputActive {
-  padding: calc(2 * var(--bt)) calc(8 * var(--bt)) calc(2 * var(--bt)) calc(4 * var(--bt));
+html:not([dir="rtl"]) .inputActive {
+  padding: 8px 32px 8px 16px;
+}
+
+html[dir="rtl"] .inputActive {
+  padding: 8px 16px 8px 32px;
 }
 
 .inputHovered {
@@ -53,7 +57,6 @@
   composes: paddingX1 from "./boxWhitespace.css";
   composes: paddingY1 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
-  composes: right0 from "./Layout.css";
   composes: transparentBg from "./Colors.css";
   outline: none;
   position: absolute;
@@ -65,3 +68,12 @@
   background-color: var(--colorGray100);
   border-radius: 50%;
 }
+
+html:not([dir="rtl"]) .clear {
+  right: 0;
+}
+
+html[dir="rtl"] .clear {
+  left: 0;
+}
+

@@ -108,6 +108,7 @@ const SearchField = ({
             },
           }}
           left
+          right
           paddingX={4}
           position="absolute"
         >
