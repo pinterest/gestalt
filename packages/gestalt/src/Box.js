@@ -40,6 +40,7 @@ import {
   rangeWithoutZero,
 } from './transforms.js';
 import { getRoundingStyle } from './getRoundingClassName.js';
+import { type Indexable } from './zIndex.js';
 
 /*
 
@@ -253,6 +254,8 @@ type PropType = {
   userSelect?: 'auto' | 'none',
 
   role: string,
+
+  zIndex: Indexable,
 };
 
 // --
@@ -635,9 +638,16 @@ const propToFn = {
   }),
   width: width => fromInlineStyle({ width }),
   wrap: toggle(layout.flexWrap),
-  dangerouslySetInlineStyle: value =>
-    /* eslint-disable-next-line no-underscore-dangle */
-    value && value.__style ? fromInlineStyle(value.__style) : identity(),
+  dangerouslySetInlineStyle: value => {
+    // eslint-disable-next-line no-underscore-dangle
+    return value && value.__style ? fromInlineStyle(value.__style) : identity();
+  },
+  zIndex: (value: ?Indexable) => {
+    if (!value) {
+      return identity();
+    }
+    return fromInlineStyle({ zIndex: value.index() });
+  },
 };
 
 /*
@@ -1009,4 +1019,7 @@ Box.propTypes = {
   userSelect: PropTypes.oneOf(['auto', 'none']),
 
   role: PropTypes.string,
+
+  // eslint-disable-next-line react/forbid-prop-types
+  zIndex: PropTypes.any,
 };
