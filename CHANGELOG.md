@@ -1,3 +1,9 @@
+## 5.22.0 (Jul 7, 2020)
+
+### Minor
+
+- GestaltProvider: Adding a provider for color scheme and other future context used by Gestalt (#968)
+
 ## 5.21.0 (Jul 7, 2020)
 
 ### Minor
