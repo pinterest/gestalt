@@ -1,3 +1,9 @@
+## 5.18.0 (Jul 7, 2020)
+
+### Minor
+
+- SearchField: RTL support (#970)
+
 ## 5.17.0 (Jul 2, 2020)
 
 ### Minor
