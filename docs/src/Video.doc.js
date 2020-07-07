@@ -214,7 +214,7 @@ card(
         type: 'number',
         description:
           'Specifies the volume of the video audio: 0 for muted, 1 for max',
-        defaultValue: 1,
+        defaultValue: 0,
         href: 'nativeVideoAttributesExample',
       },
     ]}
@@ -252,7 +252,6 @@ card(
   aspectRatio={426 / 240}
   captions=""
   playing
-  volume={0}
   src={[
     {
       type: "video/mp4",
@@ -283,7 +282,6 @@ card(
   loop
   playing
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-  volume={0}
 />
 `}
   />
