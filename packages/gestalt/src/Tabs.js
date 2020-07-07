@@ -28,7 +28,7 @@ function Tab({
   children,
   size,
   href,
-  icon,
+  indicator,
   id,
   index,
   isActive,
@@ -38,7 +38,7 @@ function Tab({
   size: 'md' | 'lg',
   isActive: boolean,
   href: string,
-  icon?: 'circle',
+  indicator?: 'dot',
   index: number,
   id?: string,
   onChange: OnChangeHandler,
@@ -83,7 +83,7 @@ function Tab({
           >
             {children}
           </Text>
-          {icon && icon === 'circle' && <Circle />}
+          {indicator === 'dot' && <Circle />}
         </Box>
       </Link>
     </Box>
@@ -97,8 +97,8 @@ type Props = {|
   tabs: Array<{|
     href: string,
     id?: string,
+    indicator?: 'dot',
     text: React.Node,
-    icon?: 'circle',
   |}>,
   wrap?: boolean,
 |};
@@ -112,7 +112,7 @@ export default function Tabs({
 }: Props): React.Node {
   return (
     <Row wrap={wrap}>
-      {tabs.map(({ id, href, text, icon }, index) => (
+      {tabs.map(({ id, href, text, indicator }, index) => (
         <Tab
           key={id || `${href}_${index}`}
           size={size}
@@ -121,7 +121,7 @@ export default function Tabs({
           id={id}
           index={index}
           isActive={activeTabIndex === index}
-          icon={icon}
+          indicator={indicator}
         >
           {text}
         </Tab>
@@ -138,6 +138,7 @@ Tabs.propTypes = {
     PropTypes.exact({
       href: PropTypes.string.isRequired,
       id: PropTypes.string,
+      indicator: PropTypes.string,
       text: PropTypes.node.isRequired,
     })
   ).isRequired,

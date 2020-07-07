@@ -69,12 +69,12 @@ describe('<Tabs />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('matches snapshot with circle icons', () => {
+  test('matches snapshot with dot indicators', () => {
     const tree = create(
       <Tabs
         tabs={[
-          { text: 'News', href: '#', icon: 'circle' },
-          { text: 'You', href: '#', icon: 'circle' },
+          { text: 'News', href: '#', indicator: 'dot' },
+          { text: 'You', href: '#', indicator: 'dot' },
         ]}
         activeTabIndex={0}
         onChange={() => {}}

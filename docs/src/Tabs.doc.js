@@ -37,9 +37,9 @@ card(
           'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
       },
       {
-        name: 'icon',
-        type: '"circle"',
-        description: `Icon to indicate a tab that needs attention.`,
+        name: 'indicator',
+        type: '"dot"',
+        description: `Indicate that a tab needs attention.`,
       },
       {
         name: 'size',
@@ -69,7 +69,7 @@ function TabExample() {
     setActiveIndex(activeTabIndex)
   };
   const TABS = [
-    { href: "https://pinterest.com", text: "Boards for You", icon: "circle" },
+    { href: "https://pinterest.com", text: "Boards for You", indicator: "dot" },
     { href: "https://pinterest.com", text: "Pins for You" },
     { href: "https://pinterest.com", text: "1" },
     { href: "https://pinterest.com", text: "❤" },
