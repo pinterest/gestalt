@@ -206,7 +206,7 @@ card(
       },
       {
         name: 'zIndex',
-        type: 'interface { index(): number; }',
+        type: 'interface Indexable { index(): number; }',
         description: `An object representing the zIndex value of the Box.`,
       },
     ]}
