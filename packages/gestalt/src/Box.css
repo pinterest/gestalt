@@ -37,7 +37,7 @@
   width: 1px;
 }
 
-@media (--sm) {
+@media (--gestalt-sm) {
   .smDisplayNone {
     display: none;
   }
@@ -67,7 +67,7 @@
   }
 }
 
-@media (--md) {
+@media (--gestalt-md) {
   .mdDisplayNone {
     display: none;
   }
@@ -97,7 +97,7 @@
   }
 }
 
-@media (--lg) {
+@media (--gestalt-lg) {
   .lgDisplayNone {
     display: none;
   }
@@ -137,7 +137,7 @@
   flex-direction: column;
 }
 
-@media (--sm) {
+@media (--gestalt-sm) {
   .smDirectionRow {
     flex-direction: row;
   }
@@ -147,7 +147,7 @@
   }
 }
 
-@media (--md) {
+@media (--gestalt-md) {
   .mdDirectionRow {
     flex-direction: row;
   }
@@ -157,7 +157,7 @@
   }
 }
 
-@media (--lg) {
+@media (--gestalt-lg) {
   .lgDirectionRow {
     flex-direction: row;
   }
@@ -221,7 +221,7 @@
   composes: xsCol12 from "./Column.css";
 }
 
-@media (--sm) {
+@media (--gestalt-sm) {
   .smCol0 {
     width: 0;
   }
@@ -275,7 +275,7 @@
   }
 }
 
-@media (--md) {
+@media (--gestalt-md) {
   .mdCol0 {
     width: 0;
   }
@@ -329,7 +329,7 @@
   }
 }
 
-@media (--lg) {
+@media (--gestalt-lg) {
   .lgCol0 {
     width: 0;
   }

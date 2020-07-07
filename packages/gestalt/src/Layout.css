@@ -111,19 +111,19 @@
   display: flex;
 }
 
-@media (--sm) {
+@media (--gestalt-sm) {
   .smFlex {
     display: flex;
   }
 }
 
-@media (--md) {
+@media (--gestalt-md) {
   .mdFlex {
     display: flex;
   }
 }
 
-@media (--lg) {
+@media (--gestalt-lg) {
   .lgFlex {
     display: flex;
   }

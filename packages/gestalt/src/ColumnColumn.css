@@ -57,7 +57,7 @@
   composes: xsCol12 from "./Column.css";
 }
 
-@media (--sm) {
+@media (--gestalt-sm) {
   .smCol0 {
     width: 0;
   }
@@ -111,7 +111,7 @@
   }
 }
 
-@media (--md) {
+@media (--gestalt-md) {
   .mdCol0 {
     width: 0;
   }
@@ -165,7 +165,7 @@
   }
 }
 
-@media (--lg) {
+@media (--gestalt-lg) {
   .lgCol0 {
     width: 0;
   }
