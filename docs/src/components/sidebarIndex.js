@@ -8,7 +8,7 @@ export type sidebarIndexType = Array<{|
 |}>;
 
 const componentSubSectionPages = {
-  displayDate: ['Badge', 'GroupAvatar', 'Table'],
+  displayDate: ['Badge', 'Table'],
   feedBack: ['Modal', 'Pulsar', 'Spinner', 'Toast'],
   foundations: ['GestaltProvider', 'Text', 'Heading', 'Icon'],
   forms: [
@@ -41,7 +41,15 @@ const componentSubSectionPages = {
     'Stack',
     'Sticky',
   ],
-  media: ['Avatar', 'AvatarPair', 'Image', 'Letterbox', 'Mask', 'Video'],
+  media: [
+    'Avatar',
+    'AvatarPair',
+    'GroupAvatar',
+    'Image',
+    'Letterbox',
+    'Mask',
+    'Video',
+  ],
   navigation: ['Link', 'SegmentedControl', 'Tabs'],
 };
 
