@@ -1,0 +1,9 @@
+pull_request_rules:
+  - name: Automatic merge
+    conditions:
+      - "-draft"
+      - "#approved-reviews-by>=1"
+      - "#status-failure=0"
+    actions:
+      merge:
+        method: merge
