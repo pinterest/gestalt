@@ -1,3 +1,9 @@
+## 5.24.0 (Jul 8, 2020)
+
+### Minor
+
+- Rename Theme -> ColorScheme (#993)
+
 ## 5.23.1 (Jul 8, 2020)
 
 ### Patch
