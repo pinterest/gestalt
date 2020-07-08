@@ -8,9 +8,9 @@ export type sidebarIndexType = Array<{|
 |}>;
 
 const componentSubSectionPages = {
-  displayDate: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Table'],
+  displayDate: ['Badge', 'GroupAvatar', 'Table'],
   feedBack: ['Modal', 'Pulsar', 'Spinner', 'Toast'],
-  foundations: ['GestaltProvider', 'Heading', 'Icon', 'Text'],
+  foundations: ['GestaltProvider', 'Text', 'Heading', 'Icon'],
   forms: [
     'Button',
     'Checkbox',
@@ -41,7 +41,7 @@ const componentSubSectionPages = {
     'Stack',
     'Sticky',
   ],
-  media: ['Image', 'Letterbox', 'Mask', 'Video'],
+  media: ['Avatar', 'AvatarPair', 'Image', 'Letterbox', 'Mask', 'Video'],
   navigation: ['Link', 'SegmentedControl', 'Tabs'],
 };
 
@@ -67,32 +67,32 @@ const sidebarIndex: sidebarIndexType = [
     sectionName: 'Components',
     subsections: [
       {
-        subsectionName: 'Data Display',
-        pages: componentSubSectionPages.displayDate,
-      },
-      {
-        subsectionName: 'Feedback',
-        pages: componentSubSectionPages.feedBack,
-      },
-      {
-        subsectionName: 'Foundation',
+        subsectionName: 'Basics',
         pages: componentSubSectionPages.foundations,
-      },
-      {
-        subsectionName: 'Forms',
-        pages: componentSubSectionPages.forms,
       },
       {
         subsectionName: 'Layout',
         pages: componentSubSectionPages.layout,
       },
       {
+        subsectionName: 'Navigation',
+        pages: componentSubSectionPages.navigation,
+      },
+      {
         subsectionName: 'Media',
         pages: componentSubSectionPages.media,
       },
       {
-        subsectionName: 'Navigation',
-        pages: componentSubSectionPages.navigation,
+        subsectionName: 'Forms',
+        pages: componentSubSectionPages.forms,
+      },
+      {
+        subsectionName: 'Data',
+        pages: componentSubSectionPages.displayDate,
+      },
+      {
+        subsectionName: 'Feedback',
+        pages: componentSubSectionPages.feedBack,
       },
     ],
   },
