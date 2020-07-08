@@ -73,7 +73,7 @@ const getTheme = (colorScheme: ?ColorScheme) =>
     ? darkModeTheme
     : lightModeTheme;
 
-export function ThemeProvider({
+export function ColorSchemeProvider({
   children,
   colorScheme,
   id,
@@ -117,12 +117,12 @@ ${themeToStyles(theme)} }`,
   );
 }
 
-ThemeProvider.propTypes = {
+ColorSchemeProvider.propTypes = {
   children: PropTypes.node,
   colorScheme: ColorSchemePropType,
 };
 
-export function useTheme(): Theme {
+export function useColorScheme(): Theme {
   const theme = React.useContext(ThemeContext);
   return theme || lightModeTheme;
 }

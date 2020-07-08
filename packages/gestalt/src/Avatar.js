@@ -7,7 +7,7 @@ import Image from './Image.js';
 import Mask from './Mask.js';
 import PersonSvg from './icons/person.svg';
 import typography from './Typography.css';
-import { useTheme } from './contexts/Theme.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 const Square = (props: *) => (
   <Box {...props} position="relative">
@@ -30,7 +30,7 @@ const DefaultAvatar = ({
   name: string,
   useDefaultIcon: boolean,
 |}) => {
-  const { colorGray300 } = useTheme();
+  const { colorGray300 } = useColorScheme();
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   const title = accessibilityLabel ?? name;
 

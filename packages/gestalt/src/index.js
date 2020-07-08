@@ -49,7 +49,7 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
-import { useTheme } from './contexts/Theme.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 export {
   Avatar,
@@ -102,6 +102,6 @@ export {
   TextField,
   Toast,
   Tooltip,
-  useTheme,
+  useColorScheme,
   Video,
 };

@@ -2,10 +2,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
-  ThemeProvider,
+  ColorSchemeProvider,
   type ColorScheme,
   ColorSchemePropType,
-} from './contexts/Theme.js';
+} from './contexts/ColorScheme.js';
 
 type Props = {|
   children: React.Node,
@@ -19,9 +19,9 @@ export default function GestaltProvider({
   id,
 }: Props): React.Node {
   return (
-    <ThemeProvider colorScheme={colorScheme} id={id}>
+    <ColorSchemeProvider colorScheme={colorScheme} id={id}>
       {children}
-    </ThemeProvider>
+    </ColorSchemeProvider>
   );
 }
 
