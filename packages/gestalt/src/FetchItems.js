@@ -23,7 +23,6 @@ type Props = {|
 |};
 
 export default class FetchItems extends React.PureComponent<Props> {
-
   componentDidMount() {
     setTimeout(this.check);
   }

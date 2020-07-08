@@ -66,6 +66,8 @@
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
     "react/require-default-props": "off",
+    "react/default-props-match-prop-types": "off",
+    "react/prop-types": "off",
     "react/state-in-constructor": ["error", "never"],
     "react/static-property-placement": ["error", "static public field"]
   },

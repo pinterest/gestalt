@@ -69,10 +69,7 @@ function getTriggerRect(
 }
 
 export default class Controller extends React.Component<Props, State> {
-
-  static defaultProps: {|
-    size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
-  |} = {
+  static defaultProps: Props = {
     // Default size only applies when size is omitted,
     // if passed as null it will remain null
     size: 'sm',

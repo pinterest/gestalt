@@ -3,9 +3,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, {
-  type Rounding,
-} from './getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 
 type TapStyle = 'none' | 'compress';
 

@@ -4,9 +4,7 @@ import classnames from 'classnames';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, {
-  type Rounding,
-} from './getRoundingClassName.js';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName.js';
 
 type TapEvent =
   | SyntheticMouseEvent<HTMLAnchorElement>

@@ -1,9 +1,6 @@
 // @flow strict
 import * as React from 'react';
-import {
-  ThemeProvider,
-  type ColorScheme,
-} from './contexts/Theme.js';
+import { ThemeProvider, type ColorScheme } from './contexts/Theme.js';
 
 type Props = {|
   children: React.Node,
