@@ -1,11 +1,13 @@
 // @flow strict
 import React from 'react';
+import { useTheme } from 'gestalt';
 
 type Props = {|
   size?: number,
 |};
 
 export default function Checkerboard({ size = 8 }: Props) {
+  const { colorGray400 } = useTheme();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,14 +26,16 @@ export default function Checkerboard({ size = 8 }: Props) {
         patternUnits="userSpaceOnUse"
       >
         <rect
-          fill="rgba(0, 0, 0, 0.06)"
+          fill={colorGray400}
+          fillOpacity="0.1"
           x={0}
           width={size}
           height={size}
           y={0}
         />
         <rect
-          fill="rgba(0, 0, 0, 0.06)"
+          fill={colorGray400}
+          fillOpacity="0.1"
           x={size}
           width={size}
           height={size}
