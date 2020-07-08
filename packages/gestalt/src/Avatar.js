@@ -6,6 +6,7 @@ import Image from './Image.js';
 import Mask from './Mask.js';
 import PersonSvg from './icons/person.svg';
 import typography from './Typography.css';
+import { useTheme } from './contexts/Theme.js';
 
 const Square = (props: *) => (
   <Box {...props} position="relative">
@@ -28,6 +29,7 @@ const DefaultAvatar = ({
   name: string,
   useDefaultIcon: boolean,
 |}) => {
+  const { colorGray300 } = useTheme();
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   const title = accessibilityLabel ?? name;
 
@@ -42,7 +44,7 @@ const DefaultAvatar = ({
           xmlns="http://www.w3.org/2000/svg"
         >
           {title && <title>{title}</title>}
-          <path d={PersonSvg} fill="#111" />
+          <path d={PersonSvg} fill={colorGray300} />
         </svg>
       ) : (
         <svg
@@ -55,7 +57,7 @@ const DefaultAvatar = ({
           <title>{title}</title>
           <text
             fontSize="40px"
-            fill="#111"
+            fill={colorGray300}
             dy="0.35em"
             textAnchor="middle"
             className={[
