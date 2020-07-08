@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import styles from './GroupAvatar.css';
 import Box from './Box.js';
 import Image from './Image.js';
@@ -230,14 +229,3 @@ export default function GroupAvatar(props: Props): React.Node {
     </Box>
   );
 }
-
-GroupAvatar.propTypes = {
-  collaborators: PropTypes.arrayOf(
-    PropTypes.exact({
-      name: PropTypes.string.isRequired,
-      src: PropTypes.string,
-    })
-  ).isRequired,
-  outline: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
-};

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import colors from './Colors.css';
 import styles from './Checkbox.css';
@@ -165,17 +164,3 @@ export default function Checkbox({
     </Box>
   );
 }
-
-Checkbox.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  hasError: PropTypes.bool,
-  id: PropTypes.string.isRequired,
-  indeterminate: PropTypes.bool,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['sm', 'md']),
-};

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
@@ -170,12 +169,3 @@ export default function Avatar(props: Props): React.Node {
     </Box>
   );
 }
-
-Avatar.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  outline: PropTypes.bool,
-  src: PropTypes.string,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
-  verified: PropTypes.bool,
-};

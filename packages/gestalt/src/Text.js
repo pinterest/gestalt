@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Text.css';
@@ -99,33 +98,3 @@ export default function Text({
     </Tag>
   );
 }
-
-Text.propTypes = {
-  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
-  children: PropTypes.node,
-  color: PropTypes.oneOf([
-    'green',
-    'pine',
-    'olive',
-    'blue',
-    'navy',
-    'midnight',
-    'purple',
-    'orchid',
-    'eggplant',
-    'maroon',
-    'watermelon',
-    'orange',
-    'darkGray',
-    'gray',
-    'lightGray',
-    'red',
-    'white',
-  ]),
-  inline: PropTypes.bool,
-  italic: PropTypes.bool,
-  overflow: PropTypes.oneOf(['normal', 'breakWord', 'noWrap']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  truncate: PropTypes.bool,
-  weight: PropTypes.oneOf(['bold', 'normal']),
-};

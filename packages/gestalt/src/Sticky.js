@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import layout from './Layout.css';
 import { type Indexable, FixedZIndex } from './zIndex.js';
 
@@ -50,16 +49,3 @@ export default function Sticky(props: Props): React.Node {
     </div>
   );
 }
-
-Sticky.propTypes = {
-  children: PropTypes.node,
-  dangerouslySetZIndex: PropTypes.exact({
-    __zIndex: PropTypes.number,
-  }),
-  top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // eslint-disable-next-line react/forbid-prop-types
-  zIndex: PropTypes.any,
-};

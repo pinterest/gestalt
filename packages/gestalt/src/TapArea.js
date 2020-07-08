@@ -1,11 +1,9 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, {
-  RoundingPropType,
   type Rounding,
 } from './getRoundingClassName.js';
 
@@ -142,55 +140,6 @@ function TapArea({
     </div>
   );
 }
-
-export const TapAreaPropTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string,
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  forwardedRef: (PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]): React$PropType$Primitive<
-    ((...a: Array<$FlowFixMe>) => mixed) | { current?: $FlowFixMe, ... }
-  >),
-  fullHeight: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  mouseCursor: (PropTypes.oneOf([
-    'copy',
-    'grab',
-    'grabbing',
-    'move',
-    'noDrop',
-    'pointer',
-    'zoomIn',
-    'zoomOut',
-  ]): React$PropType$Primitive<
-    | 'copy'
-    | 'grab'
-    | 'grabbing'
-    | 'move'
-    | 'noDrop'
-    | 'pointer'
-    | 'zoomIn'
-    | 'zoomOut'
-  >),
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onTap: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
-    'none' | 'compress'
-  >),
-  rounding: RoundingPropType,
-};
-
-TapArea.propTypes = TapAreaPropTypes;
 
 const TapAreaWithForwardRef: React$AbstractComponent<
   Props,

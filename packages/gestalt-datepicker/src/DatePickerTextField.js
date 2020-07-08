@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from 'react';
 import { Box, Icon, Label, TextField } from 'gestalt';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './DatePicker.css';
 
@@ -90,21 +89,3 @@ textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 export default (React.forwardRef<Props, HTMLInputElement>(
   textFieldForwardRef
 ): React$AbstractComponent<Props, HTMLInputElement>);
-
-DatePickerTextField.propTypes = {
-  disabled: PropTypes.bool,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
-  id: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-};

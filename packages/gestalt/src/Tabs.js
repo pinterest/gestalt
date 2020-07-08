@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Row from './Row.js';
 import Link from './Link.js';
@@ -129,18 +128,3 @@ export default function Tabs({
     </Row>
   );
 }
-
-Tabs.propTypes = {
-  activeTabIndex: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
-  size: PropTypes.oneOf(['md', 'lg']),
-  tabs: PropTypes.arrayOf(
-    PropTypes.exact({
-      href: PropTypes.string.isRequired,
-      id: PropTypes.string,
-      indicator: PropTypes.string,
-      text: PropTypes.node.isRequired,
-    })
-  ).isRequired,
-  wrap: PropTypes.bool,
-};

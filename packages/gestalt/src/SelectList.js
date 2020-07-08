@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import formElement from './FormElement.css';
@@ -35,25 +34,6 @@ type State = {|
 
 export default class SelectList extends React.Component<Props, State> {
   select: ?HTMLSelectElement;
-
-  static propTypes = {
-    disabled: PropTypes.bool,
-    errorMessage: PropTypes.string,
-    helperText: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(
-      PropTypes.exact({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-      })
-    ),
-    placeholder: PropTypes.string,
-    size: PropTypes.oneOf(['md', 'lg']),
-    value: PropTypes.string,
-  };
 
   static defaultProps: {|
     disabled: boolean,

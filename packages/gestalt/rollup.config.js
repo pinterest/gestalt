@@ -11,7 +11,6 @@ export default {
       exports: 'named',
       globals: {
         react: 'React',
-        'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
@@ -25,7 +24,6 @@ export default {
       exports: 'named',
       globals: {
         react: 'React',
-        'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
         'react-dom': 'ReactDOM',
@@ -35,7 +33,6 @@ export default {
   ],
   external: [
     'react',
-    'prop-types',
     'classnames/bind',
     'classnames',
     'react-dom',

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
@@ -105,25 +104,3 @@ export default function Pog(props: Props): React.Node {
     </div>
   );
 }
-
-Pog.propTypes = {
-  active: PropTypes.bool,
-  bgColor: PropTypes.oneOf([
-    'transparent',
-    'darkGray',
-    'transparentDarkGray',
-    'gray',
-    'lightGray',
-    'white',
-  ]),
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  focused: PropTypes.bool,
-  hovered: PropTypes.bool,
-  icon: PropTypes.oneOf(Object.keys(icons)),
-  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
-  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-};

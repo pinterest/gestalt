@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Video.css';
 
@@ -19,14 +18,6 @@ type State = {|
 
 export default class VideoPlayhead extends React.PureComponent<Props, State> {
   playhead: ?HTMLDivElement;
-
-  static propTypes = {
-    currentTime: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired,
-    onPlayheadDown: PropTypes.func.isRequired,
-    onPlayheadUp: PropTypes.func.isRequired,
-    seek: PropTypes.func.isRequired,
-  };
 
   state: State = {
     seeking: false,

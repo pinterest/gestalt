@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Pulsar.css';
 
@@ -30,8 +29,3 @@ export default function Pulsar({ paused, size = 135 }: Props): React.Node {
     </Box>
   );
 }
-
-Pulsar.propTypes = {
-  paused: PropTypes.bool,
-  size: PropTypes.number,
-};

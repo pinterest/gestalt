@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
@@ -46,23 +45,6 @@ export default class TextArea extends React.Component<Props, State> {
   // NOTE: we cannot move to React createRef until we audit uses of callsites
   // that reach into this component and use this instance variable
   textarea: ?HTMLElement;
-
-  static propTypes = {
-    disabled: PropTypes.bool,
-    errorMessage: PropTypes.string,
-    hasError: PropTypes.bool,
-    helperText: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string,
-    label: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func.isRequired,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    placeholder: PropTypes.string,
-    rows: PropTypes.number,
-    value: PropTypes.string,
-  };
 
   static defaultProps: {|
     disabled: boolean,

@@ -40,7 +40,6 @@
 
 */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
 type Props = {|
@@ -58,23 +57,6 @@ type Props = {|
 |};
 
 export default class Collection extends React.PureComponent<Props, void> {
-  static propTypes = {
-    // eslint-disable-next-line react/forbid-prop-types
-    Item: PropTypes.any,
-    layout: PropTypes.arrayOf(
-      PropTypes.exact({
-        top: PropTypes.number.isRequired,
-        left: PropTypes.number.isRequired,
-        width: PropTypes.number.isRequired,
-        height: PropTypes.number.isRequired,
-      }).isRequired
-    ),
-    viewportHeight: PropTypes.number,
-    viewportLeft: PropTypes.number,
-    viewportTop: PropTypes.number,
-    viewportWidth: PropTypes.number,
-  };
-
   static defaultProps: {|
     layout: Array<{|
       top: number,

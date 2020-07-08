@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
@@ -17,8 +16,3 @@ export default function Badge(props: Props): React.Node {
 
   return <span className={cs}>{text}</span>;
 }
-
-Badge.propTypes = {
-  position: PropTypes.oneOf(['middle', 'top']),
-  text: PropTypes.string.isRequired,
-};

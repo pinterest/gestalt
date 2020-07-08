@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Caret from './Caret.js';
 import styles from './Contents.css';
@@ -341,32 +340,6 @@ export function baseOffsets(
 }
 
 export default class Contents extends React.Component<Props, State> {
-  static propTypes = {
-    bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-    border: PropTypes.bool,
-    caret: PropTypes.bool,
-    children: PropTypes.node,
-    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-    onKeyDown: PropTypes.func.isRequired,
-    onResize: PropTypes.func.isRequired,
-    relativeOffset: PropTypes.exact({
-      x: PropTypes.number,
-      y: PropTypes.number,
-    }),
-    positionRelativeToAnchor: PropTypes.bool,
-    rounding: PropTypes.oneOf([2, 4]),
-    shouldFocus: PropTypes.bool,
-    triggerRect: PropTypes.exact({
-      bottom: PropTypes.number,
-      height: PropTypes.number,
-      left: PropTypes.number,
-      right: PropTypes.number,
-      top: PropTypes.number,
-      width: PropTypes.number,
-    }),
-    width: PropTypes.number,
-  };
-
   static defaultProps: {| border: boolean, caret: boolean |} = {
     border: true,
     caret: true,

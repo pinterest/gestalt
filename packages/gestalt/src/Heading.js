@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
 import styles from './Heading.css';
@@ -80,32 +79,3 @@ export default function Heading(props: Props): React.Node {
   }
   return React.createElement(`h${headingLevel}`, newProps, children);
 }
-
-Heading.propTypes = {
-  accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
-  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
-  children: PropTypes.node,
-  color: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'eggplant',
-    'gray',
-    'green',
-    'lightGray',
-    'maroon',
-    'midnight',
-    'navy',
-    'olive',
-    'orange',
-    'orchid',
-    'pine',
-    'purple',
-    'red',
-    'watermelon',
-    'white',
-  ]),
-  id: PropTypes.string,
-  overflow: PropTypes.oneOf(['normal', 'breakWord']),
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  truncate: PropTypes.bool,
-};

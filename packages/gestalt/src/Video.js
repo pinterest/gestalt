@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import styles from './Video.css';
 import Box from './Box.js';
@@ -155,46 +154,6 @@ export default class Video extends React.PureComponent<Props, State> {
   video: ?HTMLVideoElement;
 
   player: ?HTMLDivElement;
-
-  static propTypes = {
-    accessibilityMaximizeLabel: PropTypes.string,
-    accessibilityMinimizeLabel: PropTypes.string,
-    accessibilityMuteLabel: PropTypes.string,
-    accessibilityPauseLabel: PropTypes.string,
-    accessibilityPlayLabel: PropTypes.string,
-    accessibilityUnmuteLabel: PropTypes.string,
-    aspectRatio: PropTypes.number.isRequired,
-    captions: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    controls: PropTypes.bool,
-    loop: PropTypes.bool,
-    onDurationChange: PropTypes.func,
-    onEnded: PropTypes.func,
-    onFullscreenChange: PropTypes.func,
-    onLoadedChange: PropTypes.func,
-    onPlay: PropTypes.func,
-    onPause: PropTypes.func,
-    onReady: PropTypes.func,
-    onSeek: PropTypes.func,
-    onTimeChange: PropTypes.func,
-    onVolumeChange: PropTypes.func,
-    playbackRate: PropTypes.number,
-    playing: PropTypes.bool,
-    playsInline: PropTypes.bool,
-    poster: PropTypes.string,
-    preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
-    src: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.arrayOf(
-        PropTypes.shape({
-          type: PropTypes.oneOf(['video/m3u8', 'video/mp4', 'video/ogg'])
-            .isRequired,
-          src: PropTypes.string.isRequired,
-        })
-      ),
-    ]).isRequired,
-    volume: PropTypes.number,
-  };
 
   static defaultProps: {|
     playbackRate: number,

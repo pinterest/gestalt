@@ -1,10 +1,8 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {
   ThemeProvider,
   type ColorScheme,
-  ColorSchemePropType,
 } from './contexts/Theme.js';
 
 type Props = {|
@@ -24,8 +22,3 @@ export default function GestaltProvider({
     </ThemeProvider>
   );
 }
-
-GestaltProvider.propTypes = {
-  children: PropTypes.node,
-  colorScheme: ColorSchemePropType,
-};

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Label.css';
 
 type Props = {|
@@ -17,8 +16,3 @@ export default function Label(props: Props): React.Node {
     </label>
   );
 }
-
-Label.propTypes = {
-  children: PropTypes.node,
-  htmlFor: PropTypes.string.isRequired,
-};

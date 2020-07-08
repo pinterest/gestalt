@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 
@@ -70,25 +69,6 @@ function getTriggerRect(
 }
 
 export default class Controller extends React.Component<Props, State> {
-  static propTypes = {
-    anchor: PropTypes.shape({
-      contains: PropTypes.func,
-      getBoundingClientRect: PropTypes.func,
-    }),
-    bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-    border: PropTypes.bool,
-    caret: PropTypes.bool,
-    children: PropTypes.node,
-    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-    onDismiss: PropTypes.func.isRequired,
-    positionRelativeToAnchor: PropTypes.bool,
-    rounding: PropTypes.oneOf([2, 4]),
-    shouldFocus: PropTypes.bool,
-    size: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']), // default: sm
-    ]),
-  };
 
   static defaultProps: {|
     size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,

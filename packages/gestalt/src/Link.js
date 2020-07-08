@@ -1,12 +1,10 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, {
-  RoundingPropType,
   type Rounding,
 } from './getRoundingClassName.js';
 
@@ -31,7 +29,7 @@ type Props = {|
   target?: null | 'self' | 'blank',
 |};
 
-function Link({
+export default function Link({
   accessibilitySelected,
   children,
   href,
@@ -116,32 +114,3 @@ function Link({
     </a>
   );
 }
-
-const LinkPropTypes = {
-  accessibilitySelected: PropTypes.bool,
-  children: PropTypes.node,
-  hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
-    'none' | 'underline'
-  >),
-  href: PropTypes.string.isRequired,
-  id: PropTypes.string,
-  inline: PropTypes.bool,
-  onBlur: PropTypes.func,
-  onClick: PropTypes.func,
-  onFocus: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
-    'none' | 'nofollow'
-  >),
-  role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
-  rounding: RoundingPropType,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
-    'none' | 'compress'
-  >),
-  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank'
-  >),
-};
-
-Link.propTypes = LinkPropTypes;
-
-export default Link;

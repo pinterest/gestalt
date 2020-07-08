@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 
@@ -44,13 +43,3 @@ export default function AvatarPair({
     </Box>
   );
 }
-
-AvatarPair.propTypes = {
-  collaborators: PropTypes.arrayOf(
-    PropTypes.exact({
-      name: PropTypes.string.isRequired,
-      src: PropTypes.string,
-    })
-  ).isRequired,
-  size: PropTypes.oneOf(['md', 'lg', 'fit']),
-};

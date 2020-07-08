@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
@@ -177,17 +176,3 @@ export default function Modal({
     </StopScrollBehavior>
   );
 }
-
-Modal.propTypes = {
-  accessibilityModalLabel: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  closeOnOutsideClick: PropTypes.bool,
-  footer: PropTypes.node,
-  heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onDismiss: PropTypes.func,
-  role: PropTypes.oneOf(['alertdialog', 'dialog']),
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['sm', 'md', 'lg']),
-  ]),
-};

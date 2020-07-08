@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
 import styles from './Masonry.css';
@@ -134,74 +133,6 @@ export default class Masonry<T: {}> extends React.Component<
   measureTimeout: TimeoutID;
 
   scrollContainer: ?ScrollContainer;
-
-  static propTypes = {
-    /**
-     * The preferred/target item width. If `flexible` is set, the item width will
-     * grow to fill column space, and shrink to fit if below min columns.
-     */
-    columnWidth: PropTypes.number,
-
-    /**
-     * The component to render.
-     */
-    /* eslint react/no-unused-prop-types: 0 */
-    comp: PropTypes.func.isRequired,
-
-    /**
-     * The preferred/target item width. Item width will grow to fill
-     * column space, and shrink to fit if below min columns.
-     */
-    flexible: PropTypes.bool,
-
-    /**
-     * The amount of space between each item.
-     */
-    gutterWidth: PropTypes.number,
-
-    /**
-     * An array of all objects to display in the grid.
-     */
-    items: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-
-    /**
-     * Measurement Store
-     */
-    measurementStore: PropTypes.instanceOf(MeasurementStore),
-
-    /**
-     * Layout system to use for items
-     */
-    layout: PropTypes.oneOfType([
-      PropTypes.instanceOf(LegacyMasonryLayout),
-      PropTypes.instanceOf(LegacyUniformRowLayout),
-      PropTypes.symbol,
-      PropTypes.string,
-    ]),
-
-    /**
-     * A callback which the grid calls when we need to load more items as the user scrolls.
-     * The callback should update the state of the items, and pass those in as props
-     * to this component.
-     */
-    loadItems: PropTypes.func,
-
-    /**
-     * Minimum number of columns to display.
-     */
-    minCols: PropTypes.number,
-
-    /**
-     * Function that the grid calls to get the scroll container.
-     * This is required if the grid is expected to be scrollable.
-     */
-    scrollContainer: PropTypes.func,
-
-    /**
-     * Whether or not to use actual virtualization
-     */
-    virtualize: PropTypes.bool,
-  };
 
   static defaultProps: {|
     columnWidth?: number,

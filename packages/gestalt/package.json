@@ -13,8 +13,7 @@
     "src"
   ],
   "dependencies": {
-    "classnames": "^2.2.6",
-    "prop-types": "^15.7.2"
+    "classnames": "^2.2.6"
   },
   "peerDependencies": {
     "react": "^16.13.1",

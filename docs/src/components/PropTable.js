@@ -12,7 +12,6 @@ type Props = {|
     responsive?: boolean,
     type: string,
   |}>,
-  Component?: React.ComponentType<any>,
 |};
 
 const Th = ({ children }: {| children?: React.Node |}) => (
@@ -58,27 +57,8 @@ const Td = ({
 const upcase = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
-export default function PropTable({ props: properties, Component }: Props) {
+export default function PropTable({ props: properties }: Props) {
   const hasRequired = properties.some(prop => prop.required);
-
-  if (process.env.NODE_ENV === 'development' && Component) {
-    // eslint-disable-next-line react/forbid-foreign-prop-types
-    const { displayName, propTypes } = Component;
-    const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
-      if (!properties.find(p => p.name === prop)) {
-        return acc.concat(prop);
-      }
-      return acc;
-    }, []);
-    if (missingProps.length > 0) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        `${displayName || ''} is missing ${
-          missingProps.length
-        } PropTable definitions ${missingProps.join(', ')}`
-      );
-    }
-  }
 
   return (
     <Box overflow="auto">

@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
@@ -154,23 +153,6 @@ const SearchField = ({
       )}
     </Box>
   );
-};
-
-SearchField.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  value: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
 };
 
 function forwardRefSearchField(props, ref) {

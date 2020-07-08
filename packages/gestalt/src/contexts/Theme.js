@@ -1,12 +1,7 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
-
-export const ColorSchemePropType: React$PropType$Primitive<ColorScheme> = PropTypes.oneOf(
-  ['light', 'dark', 'userPreference']
-);
 
 type Theme = {|
   name: string,
@@ -116,11 +111,6 @@ ${themeToStyles(theme)} }`,
     </ThemeContext.Provider>
   );
 }
-
-ThemeProvider.propTypes = {
-  children: PropTypes.node,
-  colorScheme: ColorSchemePropType,
-};
 
 export function useTheme(): Theme {
   const theme = React.useContext(ThemeContext);

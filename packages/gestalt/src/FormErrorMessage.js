@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
 
@@ -20,8 +19,3 @@ export default function FormErrorMessage({
     </Box>
   );
 }
-
-FormErrorMessage.propTypes = {
-  id: PropTypes.string.isRequired,
-  text: PropTypes.string,
-};

@@ -1,7 +1,6 @@
 // @flow strict
 import * as React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
@@ -131,37 +130,6 @@ function TextField({
     </span>
   );
 }
-
-TextField.propTypes = {
-  autoComplete: PropTypes.oneOf([
-    'current-password',
-    'new-password',
-    'on',
-    'off',
-    'username',
-  ]),
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
-  hasError: PropTypes.bool,
-  helperText: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
-  type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
-  value: PropTypes.string,
-};
 
 function forwardRef(props, ref) {
   return <TextField {...props} forwardedRef={ref} />;

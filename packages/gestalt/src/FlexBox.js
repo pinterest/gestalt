@@ -1,16 +1,6 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box, {
-  AlignContentPropType,
-  AlignItemsPropType,
-  AlignSelfPropType,
-  DimensionPropType,
-  DirectionPropType,
-  FlexPropType,
-  JustifyContentPropType,
-  OverflowPropType,
-  PaddingPropType,
   type AlignContent,
   type AlignItems,
   type AlignSelf,
@@ -62,41 +52,3 @@ type Props = {|
 export default function FlexBox(props: Props): React.Node {
   return <Box display="flex" {...props} />;
 }
-
-FlexBox.propTypes = {
-  alignContent: AlignContentPropType,
-  alignItems: AlignItemsPropType,
-  alignSelf: AlignSelfPropType,
-  children: PropTypes.node,
-  direction: DirectionPropType,
-  fit: PropTypes.bool,
-  flex: FlexPropType,
-  height: DimensionPropType,
-  justifyContent: JustifyContentPropType,
-
-  maxHeight: DimensionPropType,
-  maxWidth: DimensionPropType,
-  minHeight: DimensionPropType,
-  minWidth: DimensionPropType,
-
-  overflow: OverflowPropType,
-
-  padding: PaddingPropType,
-  paddingX: PaddingPropType,
-  paddingY: PaddingPropType,
-
-  smPadding: PaddingPropType,
-  smPaddingX: PaddingPropType,
-  smPaddingY: PaddingPropType,
-
-  mdPadding: PaddingPropType,
-  mdPaddingX: PaddingPropType,
-  mdPaddingY: PaddingPropType,
-
-  lgPadding: PaddingPropType,
-  lgPaddingX: PaddingPropType,
-  lgPaddingY: PaddingPropType,
-
-  width: DimensionPropType,
-  wrap: PropTypes.bool,
-};

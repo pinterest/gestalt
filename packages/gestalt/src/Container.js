@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 
 type Props = {|
@@ -17,7 +16,3 @@ export default function Container(props: Props): React.Node {
     </Box>
   );
 }
-
-Container.propTypes = {
-  children: PropTypes.node,
-};

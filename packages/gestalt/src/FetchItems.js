@@ -12,7 +12,6 @@
 
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 type Props = {|
   containerHeight: number,
@@ -24,14 +23,6 @@ type Props = {|
 |};
 
 export default class FetchItems extends React.PureComponent<Props> {
-  static propTypes = {
-    containerHeight: PropTypes.number.isRequired,
-    isAtEnd: PropTypes.bool,
-    isFetching: PropTypes.bool.isRequired,
-    fetchMore: PropTypes.func,
-    scrollHeight: PropTypes.number.isRequired,
-    scrollTop: PropTypes.number.isRequired,
-  };
 
   componentDidMount() {
     setTimeout(this.check);

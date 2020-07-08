@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Image.css';
 
@@ -23,22 +22,6 @@ type Props = {|
 |};
 
 export default class Image extends React.PureComponent<Props> {
-  static propTypes = {
-    alt: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    color: PropTypes.string,
-    fit: PropTypes.oneOf(['contain', 'cover', 'none']),
-    importance: PropTypes.oneOf(['high', 'low', 'auto']),
-    loading: PropTypes.oneOf(['eager', 'lazy', 'auto']),
-    naturalHeight: PropTypes.number.isRequired,
-    naturalWidth: PropTypes.number.isRequired,
-    onError: PropTypes.func,
-    onLoad: PropTypes.func,
-    sizes: PropTypes.string,
-    src: PropTypes.string.isRequired,
-    srcSet: PropTypes.string,
-  };
-
   static defaultProps: {|
     color: string,
     fit?: 'contain' | 'cover' | 'none',

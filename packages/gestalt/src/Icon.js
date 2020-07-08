@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index.js';
@@ -99,32 +98,3 @@ export default function Icon(props: Props): React.Node {
 }
 
 Icon.icons = IconNames;
-
-Icon.propTypes = {
-  accessibilityLabel: PropTypes.string.isRequired,
-  color: PropTypes.oneOf([
-    'blue',
-    'darkGray',
-    'eggplant',
-    'gray',
-    'green',
-    'lightGray',
-    'maroon',
-    'midnight',
-    'navy',
-    'olive',
-    'orange',
-    'orchid',
-    'pine',
-    'purple',
-    'red',
-    'watermelon',
-    'white',
-  ]),
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  icon: PropTypes.oneOf(IconNames),
-  inline: PropTypes.bool,
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-};

@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
 import styles from './RadioButton.css';
@@ -28,17 +27,6 @@ type State = {|
 |};
 
 export default class RadioButton extends React.Component<Props, State> {
-  static propTypes = {
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
-    size: PropTypes.oneOf(['sm', 'md']),
-  };
-
   static defaultProps: {|
     checked: boolean,
     disabled: boolean,

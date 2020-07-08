@@ -1,6 +1,5 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
@@ -86,29 +85,3 @@ export default function IconButton({
     </button>
   );
 }
-
-IconButton.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string.isRequired,
-  bgColor: PropTypes.oneOf([
-    'transparent',
-    'darkGray',
-    'transparentDarkGray',
-    'gray',
-    'lightGray',
-    'white',
-    'red',
-  ]),
-  dangerouslySetSvgPath: PropTypes.shape({
-    __path: PropTypes.string,
-  }),
-  disabled: PropTypes.bool,
-  icon: PropTypes.oneOf(Object.keys(icons)),
-  iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
-  onClick: PropTypes.func,
-  padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
-};

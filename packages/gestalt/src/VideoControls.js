@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
@@ -49,27 +48,6 @@ const timeToString = (time?: number) => {
 };
 
 class VideoControls extends React.Component<Props> {
-  static propTypes = {
-    accessibilityMaximizeLabel: PropTypes.string.isRequired,
-    accessibilityMinimizeLabel: PropTypes.string.isRequired,
-    accessibilityMuteLabel: PropTypes.string.isRequired,
-    accessibilityPauseLabel: PropTypes.string.isRequired,
-    accessibilityPlayLabel: PropTypes.string.isRequired,
-    accessibilityUnmuteLabel: PropTypes.string.isRequired,
-    currentTime: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired,
-    fullscreen: PropTypes.bool.isRequired,
-    onFullscreenChange: PropTypes.func.isRequired,
-    onPause: PropTypes.func.isRequired,
-    onPlay: PropTypes.func.isRequired,
-    onPlayheadDown: PropTypes.func.isRequired,
-    onPlayheadUp: PropTypes.func.isRequired,
-    onVolumeChange: PropTypes.func.isRequired,
-    playing: PropTypes.bool.isRequired,
-    seek: PropTypes.func.isRequired,
-    volume: PropTypes.number.isRequired,
-  };
-
   handleFullscreenChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>

@@ -14,7 +14,6 @@
 
 // @flow strict
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 type Props = {|
   children?: React.Node,
@@ -30,13 +29,6 @@ function getScrollContainer(scrollContainer) {
 
 export default class ScrollContainer extends React.Component<Props> {
   scrollContainer: ?HTMLElement;
-
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    onScroll: PropTypes.func.isRequired,
-    scrollContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-      .isRequired,
-  };
 
   componentDidMount() {
     const scrollContainer = getScrollContainer(this.props.scrollContainer);
