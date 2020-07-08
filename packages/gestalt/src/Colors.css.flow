@@ -32,6 +32,8 @@ declare module.exports: {|
   +'purple': string,
   +'purpleBg': string,
   +'red': string,
+  +'red0': string,
+  +'red0Bg': string,
   +'redBg': string,
   +'transparentBg': string,
   +'transparentDarkGray': string,
