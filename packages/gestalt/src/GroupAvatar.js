@@ -5,7 +5,7 @@ import styles from './GroupAvatar.css';
 import Box from './Box.js';
 import Image from './Image.js';
 import typography from './Typography.css';
-import { useTheme } from './contexts/Theme.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 function zip(a, b) {
   return a.map((item, idx) => [item, b[idx]]);
@@ -89,7 +89,7 @@ const DefaultAvatar = (props: {|
   textLayout: 'center' | 'topLeft' | 'bottomLeft',
 |}) => {
   const { size, name, textLayout } = props;
-  const { colorGray300 } = useTheme();
+  const { colorGray300 } = useColorScheme();
 
   const quarterPadding = `calc(${Math.sin(degToRad(45))} * (${size}) / 2)`;
 
@@ -172,7 +172,7 @@ const DefaultAvatar = (props: {|
 
 export default function GroupAvatar(props: Props): React.Node {
   const { collaborators, outline, size = 'fit' } = props;
-  const { colorGray100 } = useTheme();
+  const { colorGray100 } = useColorScheme();
   const avatarWidth = size === 'fit' ? '100%' : AVATAR_SIZES[size];
   const avatarHeight = size === 'fit' ? '' : AVATAR_SIZES[size];
   const positions = avatarLayout(collaborators.length, avatarWidth);

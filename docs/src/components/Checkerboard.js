@@ -1,13 +1,13 @@
 // @flow strict
 import React from 'react';
-import { useTheme } from 'gestalt';
+import { useColorScheme } from 'gestalt';
 
 type Props = {|
   size?: number,
 |};
 
 export default function Checkerboard({ size = 8 }: Props) {
-  const { colorGray400 } = useTheme();
+  const { colorGray400 } = useColorScheme();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
