@@ -51,7 +51,7 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
           className="box relative"
           style={
             Object {
-              "backgroundColor": "#EFEFEF",
+              "backgroundColor": "#efefef",
               "paddingBottom": "100%",
             }
           }
@@ -106,7 +106,7 @@ exports[`AvatarPair Renders only the first 2 collobarators when multiple are pas
           className="box relative"
           style={
             Object {
-              "backgroundColor": "#EFEFEF",
+              "backgroundColor": "#efefef",
               "paddingBottom": "100%",
             }
           }
@@ -181,7 +181,7 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
           className="box relative"
           style={
             Object {
-              "backgroundColor": "#EFEFEF",
+              "backgroundColor": "#efefef",
               "paddingBottom": "100%",
             }
           }
@@ -236,7 +236,7 @@ exports[`AvatarPair Renders renders 2 collaborators 1`] = `
           className="box relative"
           style={
             Object {
-              "backgroundColor": "#EFEFEF",
+              "backgroundColor": "#efefef",
               "paddingBottom": "100%",
             }
           }
@@ -311,7 +311,7 @@ exports[`AvatarPair Renders renders the avatar with text when no image is provid
           className="box relative"
           style={
             Object {
-              "backgroundColor": "#EFEFEF",
+              "backgroundColor": "#efefef",
               "paddingBottom": "100%",
             }
           }
