@@ -1,3 +1,15 @@
+## 5.23.1 (Jul 8, 2020)
+
+### Patch
+
+- [Header] Reworded tooltips (#981)
+
+## 5.23.0 (Jul 8, 2020)
+
+### Minor
+
+- [Box] Fix types (#986)
+
 ## 5.22.3 (Jul 8, 2020)
 
 ### Patch
