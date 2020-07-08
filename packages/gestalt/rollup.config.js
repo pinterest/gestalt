@@ -31,11 +31,6 @@ export default {
       sourcemap: 'inline',
     },
   ],
-  external: [
-    'react',
-    'classnames/bind',
-    'classnames',
-    'react-dom',
-  ],
+  external: ['react', 'classnames/bind', 'classnames', 'react-dom'],
   plugins: plugins('gestalt'),
 };
