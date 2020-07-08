@@ -256,6 +256,7 @@ type PropType = {
   role?: string,
 
   zIndex?: Indexable,
+  ...
 };
 
 // --
