@@ -1,3 +1,9 @@
+## 5.24.1 (Jul 8, 2020)
+
+### Patch
+
+- [Docs: Link] Fixed/Improved examples (#1014)
+
 ## 5.24.0 (Jul 8, 2020)
 
 ### Minor
