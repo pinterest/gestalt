@@ -14,10 +14,11 @@ import Link from './Link.js';
 import { useSidebarContext } from './sidebarContext.js';
 
 type Props = {|
+  colorScheme: string,
   onChangeColorScheme: () => void,
 |};
 
-export default function Header({ onChangeColorScheme }: Props) {
+export default function Header({ colorScheme, onChangeColorScheme }: Props) {
   const [isRTL, setIsRTL] = React.useState(false);
   const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
 
@@ -74,19 +75,27 @@ export default function Header({ onChangeColorScheme }: Props) {
           <DocSearch />
 
           <Box display="none" mdDisplay="flex" alignItems="center">
-            <Tooltip inline text="Right-To-Left View">
+            <Tooltip
+              inline
+              text={isRTL ? 'Left-To-Right View' : 'Right-To-Left View'}
+            >
               <IconButton
                 size="md"
-                accessibilityLabel="toggle page direction"
+                accessibilityLabel="toggle page direction: Left-To-Right / Right-To-Left View"
                 iconColor="white"
                 dangerouslySetSvgPath={togglePageDirSvgPath}
                 onClick={toggleRTL}
               />
             </Tooltip>
-            <Tooltip inline text="Toggle color scheme">
+            <Tooltip
+              inline
+              text={
+                colorScheme === 'light' ? 'Dark-Mode View' : 'Light-Mode View'
+              }
+            >
               <IconButton
                 size="md"
-                accessibilityLabel="Toggle color scheme"
+                accessibilityLabel="toggle color scheme: light / dark mode views"
                 iconColor="white"
                 icon="workflow-status-in-progress"
                 onClick={() => onChangeColorScheme()}
