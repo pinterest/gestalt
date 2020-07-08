@@ -1,3 +1,15 @@
+## 5.23.0 (Jul 8, 2020)
+
+### Minor
+
+- [Box] Fix types (#986)
+
+## 5.22.3 (Jul 8, 2020)
+
+### Patch
+
+- Avatar: Update hardcoded svg fills to use theme colors (#975)
+
 ## 5.22.2 (Jul 7, 2020)
 
 ### Patch
