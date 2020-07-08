@@ -66,12 +66,19 @@
   composes: redBg from "./Colors.css";
 }
 
+.darkModeRed {
+  composes: red0Bg from "./Colors.css";
+}
+
 .red:hover,
-.red:focus {
+.red:focus,
+.darkModeRed:hover,
+.darkModeRed:focus {
   background-color: #ad081b;
 }
 
-.red:active {
+.red:active,
+.darkModeRed:active {
   background-color: #a3081a;
 }
 
