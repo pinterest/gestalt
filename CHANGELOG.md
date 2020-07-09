@@ -20,7 +20,7 @@
 
 ### Patch
 
-- fix (#1033)
+- Switch: Fix darkMode border colors by adhering to color scheme convention names (#1033)
 
 ## 5.28.3 (Jul 9, 2020)
 
@@ -32,7 +32,7 @@
 
 ### Patch
 
-- asdf (#988)
+- Internal: Update Pull Request template (#988)
 
 ## 5.28.1 (Jul 9, 2020)
 
@@ -98,7 +98,7 @@
 
 ### Patch
 
-- [Borders.css][DarkMode] Replaced naming in Borders.css to scheme standard (#978)
+- [Borders.css][darkmode] Replaced naming in Borders.css to scheme standard (#978)
 
 ## 5.24.2 (Jul 9, 2020)
 
@@ -380,7 +380,7 @@
 
 ### Major
 
-- SearchField: Convert to Functional and Add ForwardRef  (#926)
+- SearchField: Convert to Functional and Add ForwardRef (#926)
 
 ## 3.2.0 (Jun 16, 2020)
 
