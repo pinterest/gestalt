@@ -1,3 +1,9 @@
+## 5.27.0 (Jul 9, 2020)
+
+### Minor
+
+- Box: fix flowtype for borderSize (#1026)
+
 ## 5.26.1 (Jul 9, 2020)
 
 ### Patch
