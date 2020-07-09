@@ -115,7 +115,7 @@ import pin from './pin.svg';
 import pinHide from './pin-hide.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
-import protected from './protected.svg';
+import protect from './protect.svg';
 import questionMark from './question-mark.svg';
 import refresh from './refresh.svg';
 import remove from './remove.svg';
@@ -286,7 +286,7 @@ export default {
   'pin-hide': pinHide,
   pinterest,
   play,
-  protected,
+  protect,
   refresh,
   'question-mark': questionMark,
   remove,
