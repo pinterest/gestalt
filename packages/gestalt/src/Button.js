@@ -63,14 +63,14 @@ export default function Button(props: Props): Element<'button'> {
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkModeRed = colorSchemeName === 'darkMode' && color === 'red';
+  const colorClass = isDarkModeRed ? 'darkModeRed' : color;
 
   const classes = classnames(styles.button, {
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
     [styles.solid]: color !== 'transparent',
-    [styles[color]]: !disabled && !selected && !isDarkModeRed,
-    [styles.darkModeRed]: isDarkModeRed,
+    [styles[colorClass]]: !disabled && !selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
