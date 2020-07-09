@@ -62,13 +62,20 @@
   background-color: #e2e2e2;
 }
 
-.darkModeGray:hover {
-  background-color: var(--gestalt-colorGray50)
-}
-
 .gray:active {
   background-color: #dadada;
 }
+
+.darkModeGray:hover,
+.darkModeGray:focus{
+  background-color: var(--gestalt-colorGray50)
+
+}
+.darkModeGray:active {
+  background-color: var(--gestalt-colorGray100)
+}
+
+
 
 .red {
   composes: redBg from "./Colors.css";
