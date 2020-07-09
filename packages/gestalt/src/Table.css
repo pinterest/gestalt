@@ -1,6 +1,7 @@
 :root {
   /* primary colors */
   --gestalt-colorGray0: #fff;
+  --gestalt-colorGray150: #ddd;
 }
 
 .table {
@@ -27,5 +28,5 @@
 }
 
 .thead tr:last-child th {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--gestalt-colorGray150);
 }

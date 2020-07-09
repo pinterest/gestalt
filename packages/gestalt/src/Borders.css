@@ -4,21 +4,21 @@
   --gestalt-boint: 4px;
 
   /* primary colors */
-  --gestalt-colorRed100: #e60023;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
+  --gestalt-colorRed100: #e60023;
 
-  /* remanent lightGray colors */
-  --gestalt-border-color-lightGray: #ddd;
-  --gestalt-border-color-lightGrayHovered: #d0d0d0;
+  /* hover colors */
+  --gestalt-colorGray150Hovered: #d0d0d0;
 }
 
 
 /* Border lines */
 
 .border {
-  border: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 .borderColorGray {
@@ -30,7 +30,7 @@
 }
 
 .borderColorLightGray {
-  border-color: var(--gestalt-border-color-lightGray);
+  border-color: var(--gestalt-colorGray150);
 }
 
 .borderColorRed {
@@ -38,7 +38,7 @@
 }
 
 .borderColorLightGrayHovered {
-  border-color: var(--gestalt-border-color-lightGrayHovered);
+  border-color: var(--gestalt-colorGray150Hovered);
 }
 
 .borderColorLightGrayDisabled {
@@ -46,27 +46,27 @@
 }
 
 .borderTop {
-  border-top: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border-top: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 html:not([dir="rtl"]) .borderRight {
-  border-right: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border-right: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 html[dir="rtl"] .borderRight {
-  border-left: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border-left: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 .borderBottom {
-  border-bottom: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border-bottom: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 html:not([dir="rtl"]) .borderLeft {
-  border-left: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border-left: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 html[dir="rtl"] .borderLeft {
-  border-right: var(--gestalt-border-width) solid var(--gestalt-border-color-lightGray);
+  border-right: var(--gestalt-border-width) solid var(--gestalt-colorGray150);
 }
 
 /* Border radius */
