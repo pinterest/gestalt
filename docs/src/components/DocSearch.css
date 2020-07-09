@@ -30,10 +30,12 @@
 
 .searchbox__input {
   appearance: none;
-  background: #fff;
+  background: var(--gestalt-colorGray0);
   border: 0;
   border-radius: 999px;
   box-sizing: border-box;
+  caret-color: var(--gestalt-colorGray300);
+  color: var(--gestalt-colorGray300);
   display: inline-block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -62,7 +64,7 @@
 }
 
 .searchbox__input::placeholder {
-  color: #767676;
+  color: var(--gestalt-colorGray200);
 }
 
 .searchbox__submit {
@@ -171,7 +173,7 @@
   background: transparent;
   border: none;
   border-radius: 16px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px var(--gestalt-colorTransparentGray100);
   height: auto;
   margin: 6px 0 0;
   max-width: 600px;
@@ -191,7 +193,7 @@
 }
 
 .algolia-autocomplete .ds-dropdown-menu::before {
-  background: #fff;
+  background: var(--gestalt-colorGray50);
   border-radius: 2px;
   content: "";
   display: block;
@@ -240,7 +242,7 @@
 }
 
 .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
-  background: #fff;
+  background: var(--gestalt-colorGray50);
   border-radius: 4px;
   overflow: auto;
   padding: 0 8px 8px;
@@ -252,8 +254,8 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion {
-  background: #fff;
-  color: #111;
+  background: var(--gestalt-colorGray50);
+  color: var(--gestalt-colorGray300);
   display: block;
   overflow: hidden;
   padding: 0 8px;
@@ -262,8 +264,9 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-  background: rgba(143, 187, 237, 0.1);
-  color: #174d8c;
+  background: var(--gestalt-colorTransparentGray60);
+  color: #111;
+
   /* stylelint-disable-next-line unit-blacklist */
   padding: 0 0.05em;
 }
@@ -308,12 +311,13 @@
 }
 
 .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content {
-  background-color: rgba(69, 142, 225, 0.05);
+  background-color: var(--gestalt-colorTransparentGray60);
+  color: #111;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
   border-bottom: 1px solid #ddd;
-  color: #111;
+  color: var(--gestalt-colorGray300);
   display: none;
   /* stylelint-disable-next-line unit-blacklist */
   font-size: 1em;
@@ -329,7 +333,7 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
-  color: #767676;
+  color: var(--gestalt-colorGray200);
   float: left;
   /* stylelint-disable-next-line unit-blacklist */
   font-size: 0.9em;
@@ -355,8 +359,12 @@
   display: none;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--title {
-  color: #111;
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results .algolia-docsearch-suggestion--title {
+  font-weight: normal;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--title:not(.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content) {
+  color: var(--gestalt-colorGray300);
   /* stylelint-disable-next-line unit-blacklist */
   font-size: 0.9em;
   font-weight: bold;
@@ -364,7 +372,6 @@
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--text {
-  color: #767676;
   display: block;
   /* stylelint-disable-next-line unit-blacklist */
   font-size: 0.85em;
@@ -380,9 +387,7 @@
   width: 100%;
 }
 
-.algolia-autocomplete .algolia-docsearch-suggestion--no-results .algolia-docsearch-suggestion--title {
-  font-weight: normal;
-}
+
 
 .algolia-autocomplete .algolia-docsearch-suggestion--no-results::before {
   display: none;
@@ -392,7 +397,7 @@
   background-color: #ebebeb;
   border: none;
   border-radius: 3px;
-  color: #222;
+  color: var(--gestalt-colorGray300);
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 90%;
   padding: 1px 5px;
@@ -414,7 +419,7 @@
 
 @media all and (max-width: 768px) {
   .algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
-    color: #111;
+    color: var(--gestalt-colorGray300);
     display: inline-block;
     float: left;
     /* stylelint-disable-next-line unit-blacklist */
@@ -422,7 +427,6 @@
     font-weight: bold;
     opacity: 0.5;
     padding: 0;
-    text-align: left;
     text-align: left;
     width: auto;
   }
