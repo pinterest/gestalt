@@ -5,6 +5,7 @@ pull_request_rules:
       - '#approved-reviews-by>=1'
       - 'approved-reviews-by=@gestalt-core'
       - 'status-success~=^Tests'
+      - '#status-failure=0'
       - 'base=master'
     actions:
       merge:
