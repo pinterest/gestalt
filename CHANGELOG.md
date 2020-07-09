@@ -1,3 +1,9 @@
+## 5.26.1 (Jul 9, 2020)
+
+### Patch
+
+- Badge: set text color to always be white (#1022)
+
 ## 5.26.0 (Jul 9, 2020)
 
 ### Minor
