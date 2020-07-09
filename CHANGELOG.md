@@ -1,3 +1,9 @@
+## 5.26.0 (Jul 9, 2020)
+
+### Minor
+
+- Icon: add protect icon (#1024)
+
 ## 5.25.0 (Jul 9, 2020)
 
 ### Minor
