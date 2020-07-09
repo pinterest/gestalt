@@ -3,6 +3,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
+import { ColorSchemeProvider } from './contexts/ColorScheme.js';
 import styles from './Video.css';
 import Box from './Box.js';
 
@@ -495,57 +496,59 @@ export default class Video extends React.PureComponent<Props, State> {
         className={styles.player}
         style={{ paddingBottom, height: fullscreen ? '100%' : 0 }}
       >
-        <video
-          autoPlay={playing}
-          loop={loop}
-          muted={volume === 0}
-          playsInline={playsInline}
-          poster={poster}
-          preload={preload}
-          src={typeof src === 'string' ? src : undefined}
-          ref={this.setVideoRef}
-          className={styles.video}
-          onCanPlay={this.handleCanPlay}
-          onDurationChange={this.handleDurationChange}
-          onEnded={this.handleEnded}
-          onSeeked={this.handleSeek}
-          onTimeUpdate={this.handleTimeUpdate}
-          onProgress={this.handleProgress}
-        >
-          {Array.isArray(src) &&
-            src.map(source => (
-              <source key={source.src} src={source.src} type={source.type} />
-            ))}
-          <track kind="captions" src={captions} />
-        </video>
-        {children && (
-          <Box position="absolute" top left bottom right overflow="hidden">
-            {children}
-          </Box>
-        )}
-        {/* Need to use full path for these props so Flow can infer correct subtype */}
-        {this.props.controls && (
-          <VideoControls
-            accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
-            accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
-            accessibilityMuteLabel={this.props.accessibilityMuteLabel}
-            accessibilityPauseLabel={this.props.accessibilityPauseLabel}
-            accessibilityPlayLabel={this.props.accessibilityPlayLabel}
-            accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
-            currentTime={currentTime}
-            duration={duration}
-            fullscreen={fullscreen}
-            onPlay={this.handlePlay}
-            onPlayheadDown={this.handlePlayheadDown}
-            onPlayheadUp={this.handlePlayheadUp}
-            onPause={this.handlePause}
-            onFullscreenChange={this.toggleFullscreen}
-            onVolumeChange={this.handleVolumeChange}
-            playing={playing}
-            seek={this.seek}
-            volume={volume}
-          />
-        )}
+        <ColorSchemeProvider id="Video" colorScheme="light">
+          <video
+            autoPlay={playing}
+            loop={loop}
+            muted={volume === 0}
+            playsInline={playsInline}
+            poster={poster}
+            preload={preload}
+            src={typeof src === 'string' ? src : undefined}
+            ref={this.setVideoRef}
+            className={styles.video}
+            onCanPlay={this.handleCanPlay}
+            onDurationChange={this.handleDurationChange}
+            onEnded={this.handleEnded}
+            onSeeked={this.handleSeek}
+            onTimeUpdate={this.handleTimeUpdate}
+            onProgress={this.handleProgress}
+          >
+            {Array.isArray(src) &&
+              src.map(source => (
+                <source key={source.src} src={source.src} type={source.type} />
+              ))}
+            <track kind="captions" src={captions} />
+          </video>
+          {children && (
+            <Box position="absolute" top left bottom right overflow="hidden">
+              {children}
+            </Box>
+          )}
+          {/* Need to use full path for these props so Flow can infer correct subtype */}
+          {this.props.controls && (
+            <VideoControls
+              accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
+              accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
+              accessibilityMuteLabel={this.props.accessibilityMuteLabel}
+              accessibilityPauseLabel={this.props.accessibilityPauseLabel}
+              accessibilityPlayLabel={this.props.accessibilityPlayLabel}
+              accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
+              currentTime={currentTime}
+              duration={duration}
+              fullscreen={fullscreen}
+              onPlay={this.handlePlay}
+              onPlayheadDown={this.handlePlayheadDown}
+              onPlayheadUp={this.handlePlayheadUp}
+              onPause={this.handlePause}
+              onFullscreenChange={this.toggleFullscreen}
+              onVolumeChange={this.handleVolumeChange}
+              playing={playing}
+              seek={this.seek}
+              volume={volume}
+            />
+          )}
+        </ColorSchemeProvider>
       </div>
     );
   }
