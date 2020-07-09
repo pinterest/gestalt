@@ -1,3 +1,9 @@
+## 5.29.0 (Jul 9, 2020)
+
+### Minor
+
+- Colors: Adding #colorGray150 + hover colors, and replacing inline colors to standard color var names (#1034)
+
 ## 5.28.5 (Jul 9, 2020)
 
 ### Patch
