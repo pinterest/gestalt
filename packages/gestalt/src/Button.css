@@ -1,3 +1,7 @@
+:root {
+  --gestalt-colorGray200: #767676;
+}
+
 .button {
   composes: borderBox minWidth60 from "./Layout.css";
   border-radius: 24px;
@@ -56,6 +60,10 @@
 .gray:hover,
 .gray:focus {
   background-color: #e2e2e2;
+}
+
+.darkModeGray:hover {
+  background-color: var(--gestalt-colorGray50)
 }
 
 .gray:active {

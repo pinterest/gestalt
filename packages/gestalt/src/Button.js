@@ -1,7 +1,6 @@
 // @flow strict
 
 import React, { type Element } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -62,7 +61,8 @@ export default function Button(props: Props): Element<'button'> {
   } = props;
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
-  const isDarkModeRed = colorSchemeName === 'darkMode' && color === 'red';
+  const DARK_MODE = colorSchemeName === 'darkMode';
+  const isDarkModeRed = DARK_MODE && color === 'red';
   const colorClass = isDarkModeRed ? 'darkModeRed' : color;
 
   const classes = classnames(styles.button, {
@@ -76,6 +76,7 @@ export default function Button(props: Props): Element<'button'> {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
+    [styles.darkModeGray]: DARK_MODE && color === 'gray',
   });
 
   const textColor =
@@ -124,21 +125,3 @@ export default function Button(props: Props): Element<'button'> {
   );
   /* eslint-enable react/button-has-type */
 }
-
-Button.propTypes = {
-  accessibilityControls: PropTypes.string,
-  accessibilityExpanded: PropTypes.bool,
-  accessibilityHaspopup: PropTypes.bool,
-  accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
-  disabled: PropTypes.bool,
-  iconEnd: PropTypes.oneOf(Object.keys(icons)),
-  inline: PropTypes.bool,
-  name: PropTypes.string,
-  onClick: PropTypes.func,
-  selected: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  text: PropTypes.string.isRequired,
-  textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
-  type: PropTypes.oneOf(['button', 'submit']),
-};
