@@ -71,9 +71,9 @@ exports[`Box has correct class when rounding is circle 1`] = `
 />
 `;
 
-exports[`Box has correct classes when borderSize is md 1`] = `
+exports[`Box has correct classes when borderSize is lg 1`] = `
 <div
-  className="borderColorLightGray box solid"
+  className="borderColorLightGray box sizeLg solid"
 />
 `;
 

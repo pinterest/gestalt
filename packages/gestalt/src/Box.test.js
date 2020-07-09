@@ -93,8 +93,8 @@ test('Box has correct class when rounding is circle', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Box has correct classes when borderSize is md', () => {
-  const tree = create(<Box borderSize="md" />).toJSON();
+test('Box has correct classes when borderSize is lg', () => {
+  const tree = create(<Box borderSize="lg" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
