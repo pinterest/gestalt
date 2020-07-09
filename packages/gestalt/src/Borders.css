@@ -30,7 +30,7 @@
 }
 
 .borderColorLightGray {
-  border-color: var(--gestalt-border-color-lightGray);
+  border-color: var(--gestalt-colorGray100);
 }
 
 .borderColorRed {
