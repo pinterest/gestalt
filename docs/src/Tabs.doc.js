@@ -26,7 +26,7 @@ card(
       },
       {
         name: 'tabs',
-        type: `Array<{| text: React.Node, href: string, id?: string |}>`,
+        type: `Array<{| text: React.Node, href: string, id?: string, indicator?: 'dot' |}>`,
         required: true,
       },
       {
@@ -35,11 +35,6 @@ card(
         required: true,
         description:
           'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
-      },
-      {
-        name: 'indicator',
-        type: '"dot"',
-        description: `Indicate that a tab needs attention.`,
       },
       {
         name: 'size',
