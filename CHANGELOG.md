@@ -1,3 +1,9 @@
+## 5.28.1 (Jul 9, 2020)
+
+### Patch
+
+- Tabs: Fix indicator flowtype in docs (#1031)
+
 ## 5.28.0 (Jul 9, 2020)
 
 ### Minor
