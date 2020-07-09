@@ -1,3 +1,9 @@
+## 5.24.6 (Jul 9, 2020)
+
+### Patch
+
+- [Table] Fix sticky header in darkMode #1019
+
 ## 5.24.5 (Jul 9, 2020)
 
 ### Patch
