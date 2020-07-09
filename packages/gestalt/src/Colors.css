@@ -5,6 +5,7 @@
   --gestalt-colorGray0: #fff;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
@@ -22,6 +23,10 @@
   --gestalt-maroon: #6e0f3c;
   --gestalt-watermelon: #f13535;
   --gestalt-orange: #e3780c;
+
+  /* hover colors */
+  --gestalt-colorGray150Hovered: #d0d0d0;
+  --gestalt-colorRed100Hovered: #d80021;
 
   /* transparent colors */
   --gestalt-transparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -90,6 +95,10 @@
 
 .darkGrayBg {
   background-color: var(--gestalt-colorGray300);
+}
+
+.blackBg {
+  background-color: var(--gestalt-colorGray400);
 }
 
 /** SECONDARY COLORS **/

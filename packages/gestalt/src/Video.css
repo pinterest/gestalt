@@ -8,7 +8,7 @@
 .player {
   composes: relative from "./Layout.css";
   composes: xsCol12 from "./Column.css";
-  background-color: #000;
+  composes: blackBg from "./Colors.css";
 }
 
 .playhead {

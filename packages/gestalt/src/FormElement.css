@@ -1,3 +1,12 @@
+:root {
+  /* primary colors */
+  --gestalt-colorGray150: #ddd;
+
+  /* hover colors */
+  --gestalt-colorGray150Hovered: #d0d0d0;
+  --gestalt-colorRed100Hovered: #d80021;
+}
+
 .base {
   composes: accessibilityOutline from "./Focus.css";
   appearance: none;
@@ -7,24 +16,24 @@
 }
 
 .normal {
-  border-color: #ddd;
+  composes: borderColorLightGray from "./Borders.css";
 }
 
 .normal:hover:not(:focus):not(.disabled) {
-  border-color: #d0d0d0;
+  border-color: var(--gestalt-colorGray150Hovered);
 }
 
 .errored {
-  border-color: #e60023;
+  composes: borderColorRed from "./Borders.css";
   outline: none;
 }
 
 .errored:focus {
-  border-color: #ddd;
+  border-color: var(--gestalt-colorGray150);
 }
 
 .errored:hover:not(:focus) {
-  border-color: #d80021;
+  border-color: var(--gestalt-colorRed100Hovered);
 }
 
 .enabled {
@@ -35,5 +44,5 @@
 .disabled {
   composes: gray from "./Colors.css";
   composes: lightGrayBg from "./Colors.css";
-  border-color: #efefef;
+  composes: borderColorLightGrayDisabled from "./Borders.css";
 }
