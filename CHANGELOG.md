@@ -1,3 +1,39 @@
+## 5.26.0 (Jul 9, 2020)
+
+### Minor
+
+- Icon: add protect icon (#1024)
+
+## 5.25.0 (Jul 9, 2020)
+
+### Minor
+
+- Flyout: Fix caret appearance in dark mode (#1017)
+
+## 5.24.7 (Jul 9, 2020)
+
+### Patch
+
+- Mergify: configuration update (#1016)
+
+## 5.24.6 (Jul 9, 2020)
+
+### Patch
+
+- [Table] Fix sticky header in darkMode #1019
+
+## 5.24.5 (Jul 9, 2020)
+
+### Patch
+
+- Button: Use accessible colors for darkMode red button (#1009)
+
+## 5.24.4 (Jul 9, 2020)
+
+### Patch
+
+- Avatar and GroupAvatar: Use correct outline for dark mode (#1011)
+
 ## 5.24.3 (Jul 9, 2020)
 
 ### Patch
