@@ -163,7 +163,7 @@ type PropType = {
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
   bottom?: boolean,
-  borderSize?: 'sm' | 'md' | 'none',
+  borderSize?: 'sm' | 'lg' | 'none',
   color?:
     | 'blue'
     | 'darkGray'
