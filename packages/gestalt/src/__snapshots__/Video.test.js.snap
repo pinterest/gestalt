@@ -19,6 +19,7 @@ exports[`Video with callbacks 1`] = `
   --gestalt-colorGray0: #fff;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
@@ -70,6 +71,7 @@ exports[`Video with children 1`] = `
   --gestalt-colorGray0: #fff;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
@@ -300,6 +302,7 @@ exports[`Video with media attributes 1`] = `
   --gestalt-colorGray0: #fff;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
@@ -352,6 +355,7 @@ exports[`Video with multiple sources 1`] = `
   --gestalt-colorGray0: #fff;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
@@ -410,6 +414,7 @@ exports[`Video with source 1`] = `
   --gestalt-colorGray0: #fff;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;

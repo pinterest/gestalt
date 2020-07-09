@@ -3,7 +3,7 @@
   composes: inlineBlock from "./Layout.css";
   composes: rounding1 from "./Borders.css";
   composes: fontWeightBold from './Typography.css';
-  color: #fff;
+  composes: white from './Colors.css';
   font-size: 10px;
   margin-top: -4px;
   padding: 2px;
