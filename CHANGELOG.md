@@ -1,3 +1,9 @@
+## 5.24.7 (Jul 9, 2020)
+
+### Patch
+
+- Mergify: configuration update (#1016)
+
 ## 5.24.6 (Jul 9, 2020)
 
 ### Patch
