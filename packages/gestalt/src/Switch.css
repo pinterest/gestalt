@@ -28,7 +28,7 @@ html[dir="rtl"] .switch {
 
 .switchDarkGray {
   composes: darkGrayBg from "./Colors.css";
-  border-color: #111;
+  composes: borderColorDarkGray from "./Borders.css";
 }
 
 .switchGray {
@@ -67,7 +67,7 @@ html[dir="rtl"] .switch {
 }
 
 .sliderDark {
-  border-color: #111;
+  composes: borderColorDarkGray from "./Borders.css";
 }
 
 .sliderLight {
