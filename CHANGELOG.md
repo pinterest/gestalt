@@ -1,3 +1,9 @@
+## 5.24.2 (Jul 9, 2020)
+
+### Patch
+
+- [Video] No darkMode changes in video controls
+
 ## 5.24.1 (Jul 8, 2020)
 
 ### Patch
