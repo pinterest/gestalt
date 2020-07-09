@@ -1,3 +1,9 @@
+## 5.24.3 (Jul 9, 2020)
+
+### Patch
+
+- [Borders.css][DarkMode] Replaced naming in Borders.css to scheme standard (#978)
+
 ## 5.24.2 (Jul 9, 2020)
 
 ### Patch
