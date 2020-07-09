@@ -6,6 +6,8 @@
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
+  /* composes: lightGray from "./Colors.css"; */
+  color: red;
   line-height: 1.5;
   padding: 8px 16px;
   resize: none;

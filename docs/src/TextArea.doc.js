@@ -146,7 +146,7 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('')
   return (
-    <Box padding={2} color="white">
+    <Box padding={2}>
       <TextArea
         id="aboutmemore"
         onChange={({value}) => setValue(value)}

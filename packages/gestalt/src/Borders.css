@@ -12,6 +12,7 @@
   /* remanent lightGray colors */
   --gestalt-border-color-lightGray: #ddd;
   --gestalt-border-color-lightGrayHovered: #d0d0d0;
+  --gestalt-border-color-redHovered: #d80021;
 }
 
 
@@ -36,6 +37,11 @@
 .borderColorRed {
   border-color: var(--gestalt-colorRed100);
 }
+
+.borderColorRedHovered {
+  border-color: var(--gestalt-border-color-redHovered);
+}
+
 
 .borderColorLightGrayHovered {
   border-color: var(--gestalt-border-color-lightGrayHovered);
