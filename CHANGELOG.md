@@ -1,3 +1,9 @@
+## 5.28.3 (Jul 9, 2020)
+
+### Patch
+
+- Colors: Update dark mode gray values to latest from design (#1030)
+
 ## 5.28.2 (Jul 9, 2020)
 
 ### Patch
