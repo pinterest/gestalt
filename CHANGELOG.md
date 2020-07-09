@@ -1,3 +1,21 @@
+## 5.24.3 (Jul 9, 2020)
+
+### Patch
+
+- [Borders.css][DarkMode] Replaced naming in Borders.css to scheme standard (#978)
+
+## 5.24.2 (Jul 9, 2020)
+
+### Patch
+
+- [Video] No darkMode changes in video controls
+
+## 5.24.1 (Jul 8, 2020)
+
+### Patch
+
+- [Docs: Link] Fixed/Improved examples (#1014)
+
 ## 5.24.0 (Jul 8, 2020)
 
 ### Minor
