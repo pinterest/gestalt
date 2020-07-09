@@ -1,14 +1,19 @@
 :root {
   --gestalt-border-width: 1px;
   --gestalt-border-width-lg: 2px;
-  --gestalt-border-color-gray: #767676;
-  --gestalt-border-color-darkGray: #111;
-  --gestalt-border-color-lightGray: #ddd;
-  --gestalt-border-color-lightGrayDisabled: #efefef;
-  --gestalt-border-color-red: #e60023;
-  --gestalt-border-color-lightGrayHovered: #d0d0d0;
   --gestalt-boint: 4px;
+
+  /* primary colors */
+  --gestalt-colorRed100: #e60023;
+  --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray200: #767676;
+  --gestalt-colorGray300: #111;
+
+  /* remanent lightGray colors */
+  --gestalt-border-color-lightGray: #ddd;
+  --gestalt-border-color-lightGrayHovered: #d0d0d0;
 }
+
 
 /* Border lines */
 
@@ -17,11 +22,11 @@
 }
 
 .borderColorGray {
-  border-color: var(--gestalt-border-color-gray);
+  border-color: var(--gestalt-colorGray200);
 }
 
 .borderColorDarkGray {
-  border-color: var(--gestalt-border-color-darkGray);
+  border-color: var(--gestalt-colorGray300);
 }
 
 .borderColorLightGray {
@@ -29,7 +34,7 @@
 }
 
 .borderColorRed {
-  border-color: var(--gestalt-border-color-red);
+  border-color: var(--gestalt-colorRed100);
 }
 
 .borderColorLightGrayHovered {
@@ -37,7 +42,7 @@
 }
 
 .borderColorLightGrayDisabled {
-  border-color: var(--gestalt-border-color-lightGrayDisabled);
+  border-color: var(--gestalt-colorGray100);
 }
 
 .borderTop {
