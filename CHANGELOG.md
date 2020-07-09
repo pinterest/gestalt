@@ -1,3 +1,9 @@
+## 5.28.5 (Jul 9, 2020)
+
+### Patch
+
+- Merge: Better titles and obey branch protections (#1035)
+
 ## 5.28.4 (Jul 9, 2020)
 
 ### Patch
