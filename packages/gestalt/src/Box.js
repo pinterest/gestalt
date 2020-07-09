@@ -135,7 +135,6 @@ type ResponsiveProps = {|
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
-// eslint-disable-next-line flowtype/require-exact-type
 type PropType = {
   children?: React.Node,
   dangerouslySetInlineStyle?: {|
@@ -164,7 +163,7 @@ type PropType = {
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
   bottom?: boolean,
-  borderSize?: 'sm' | 'md' | 'none',
+  borderSize?: 'sm' | 'lg' | 'none',
   color?:
     | 'blue'
     | 'darkGray'
@@ -253,9 +252,10 @@ type PropType = {
 
   userSelect?: 'auto' | 'none',
 
-  role: string,
+  role?: string,
 
-  zIndex: Indexable,
+  zIndex?: Indexable,
+  ...
 };
 
 // --
@@ -675,54 +675,49 @@ const omit = (keys, obj) =>
 // (className, style) or accessibility (onClick).
 const blacklistProps = ['onClick', 'className', 'style'];
 
-// $FlowFixMe[missing-annot]
-// $FlowFixMe[signature-verification-failure]
-const Box = React.forwardRef(
-  ({ children, ...props }: PropType, ref: React.ElementRef<*>) => {
-    // Flow can't reason about the constant nature of Object.keys so we can't use
-    // a functional (reduce) style here.
+const BoxWithRef: React.AbstractComponent<
+  PropType,
+  HTMLDivElement
+> = React.forwardRef<PropType, HTMLDivElement>(function Box(props, ref) {
+  // Flow can't reason about the constant nature of Object.keys so we can't use
+  // a functional (reduce) style here.
 
-    // All Box's are box-sized by default, so we start off building up the styles
-    // to be applied with a Box base class.
-    let s = fromClassName(styles.box);
+  // All Box's are box-sized by default, so we start off building up the styles
+  // to be applied with a Box base class.
+  let s = fromClassName(styles.box);
 
-    // Init the list of props we'll omit from passthrough. We'll add to this
-    // list as we match props against the transforms list.
-    const omitProps = [...blacklistProps];
+  // Init the list of props we'll omit from passthrough. We'll add to this
+  // list as we match props against the transforms list.
+  const omitProps = [...blacklistProps];
 
-    // This loops through each property and if it exists in the previously
-    // defined transform map, concatentes the resulting styles to the base
-    // styles. If there's a match, we also don't pass through that property. This
-    // means Box's runtime is only dependent on the number of properties passed
-    // to it (which is typically small) instead of the total number of possible
-    // properties (~30 or so). While it may ~feel~ like Box is innefficient, its
-    // biggest performance impact is on startup time because there's so much code
-    // here.
+  // This loops through each property and if it exists in the previously
+  // defined transform map, concatentes the resulting styles to the base
+  // styles. If there's a match, we also don't pass through that property. This
+  // means Box's runtime is only dependent on the number of properties passed
+  // to it (which is typically small) instead of the total number of possible
+  // properties (~30 or so). While it may ~feel~ like Box is innefficient, its
+  // biggest performance impact is on startup time because there's so much code
+  // here.
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const prop in props) {
-      if (Object.prototype.hasOwnProperty.call(propToFn, prop)) {
-        const fn = propToFn[prop];
-        const value = props[prop];
-        omitProps.push(prop);
-        s = concat([s, fn(value)]);
-      }
+  // eslint-disable-next-line no-restricted-syntax
+  for (const prop in props) {
+    if (Object.prototype.hasOwnProperty.call(propToFn, prop)) {
+      const fn = propToFn[prop];
+      const value = props[prop];
+      omitProps.push(prop);
+      s = concat([s, fn(value)]);
     }
-
-    // And... magic!
-    return (
-      <div {...omit(omitProps, props)} {...toProps(s)} ref={ref}>
-        {children}
-      </div>
-    );
   }
-);
 
-//  NOTE: This is needed in order to override the ForwardRef display name that is
-//  used in dev tools and in snapshot testing.
-Box.displayName = 'Box';
+  // And... magic!
+  return <div {...omit(omitProps, props)} {...toProps(s)} ref={ref} />;
+});
 
-export default Box;
+// This is a legacy backport around tools external to Gestalt (*waves hands*)
+// expecting Boxes' displayName to be just "Box" and not "ForwardRef(Box)".
+BoxWithRef.displayName = 'Box';
+
+export default BoxWithRef;
 
 /*
 
@@ -883,8 +878,8 @@ const SizeDisplayPropType = PropTypes.oneOf([
   'inlineBlock',
 ]);
 
-// $FlowFixMe[prop-missing]
-Box.propTypes = {
+// $FlowFixMe
+BoxWithRef.propTypes = {
   children: PropTypes.node,
   dangerouslySetInlineStyle: PropTypes.exact({
     __style: PropTypes.object,

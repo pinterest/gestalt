@@ -1,3 +1,8 @@
+:root {
+  /* primary colors */
+  --gestalt-colorGray0: #fff;
+}
+
 .table {
   border-collapse: separate;
   border-spacing: 0;
@@ -16,7 +21,7 @@
 }
 
 .sticky tr th {
-  background-color: #fff;
+  background-color: var(--gestalt-colorGray0);
   position: sticky;
   top: 0;
 }

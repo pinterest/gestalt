@@ -1,3 +1,105 @@
+## 5.28.1 (Jul 9, 2020)
+
+### Patch
+
+- Tabs: Fix indicator flowtype in docs (#1031)
+
+## 5.28.0 (Jul 9, 2020)
+
+### Minor
+
+- Box: Set display name #1028
+
+## 5.27.0 (Jul 9, 2020)
+
+### Minor
+
+- Box: fix flowtype for borderSize (#1026)
+
+## 5.26.1 (Jul 9, 2020)
+
+### Patch
+
+- Badge: set text color to always be white (#1022)
+
+## 5.26.0 (Jul 9, 2020)
+
+### Minor
+
+- Icon: add protect icon (#1024)
+
+## 5.25.0 (Jul 9, 2020)
+
+### Minor
+
+- Flyout: Fix caret appearance in dark mode (#1017)
+
+## 5.24.7 (Jul 9, 2020)
+
+### Patch
+
+- Mergify: configuration update (#1016)
+
+## 5.24.6 (Jul 9, 2020)
+
+### Patch
+
+- [Table] Fix sticky header in darkMode #1019
+
+## 5.24.5 (Jul 9, 2020)
+
+### Patch
+
+- Button: Use accessible colors for darkMode red button (#1009)
+
+## 5.24.4 (Jul 9, 2020)
+
+### Patch
+
+- Avatar and GroupAvatar: Use correct outline for dark mode (#1011)
+
+## 5.24.3 (Jul 9, 2020)
+
+### Patch
+
+- [Borders.css][DarkMode] Replaced naming in Borders.css to scheme standard (#978)
+
+## 5.24.2 (Jul 9, 2020)
+
+### Patch
+
+- [Video] No darkMode changes in video controls
+
+## 5.24.1 (Jul 8, 2020)
+
+### Patch
+
+- [Docs: Link] Fixed/Improved examples (#1014)
+
+## 5.24.0 (Jul 8, 2020)
+
+### Minor
+
+- Rename Theme -> ColorScheme (#993)
+
+## 5.23.1 (Jul 8, 2020)
+
+### Patch
+
+- [Header] Reworded tooltips (#981)
+
+## 5.23.0 (Jul 8, 2020)
+
+### Minor
+
+- [Box] Fix types (#986)
+
+## 5.22.3 (Jul 8, 2020)
+
+### Patch
+
+- Avatar: Update hardcoded svg fills to use theme colors (#975)
+
 ## 5.22.2 (Jul 7, 2020)
 
 ### Patch

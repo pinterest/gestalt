@@ -1,0 +1,161 @@
+// @flow strict
+import React from 'react';
+import { act, render } from '@testing-library/react';
+import { ColorSchemeProvider, useColorScheme } from './ColorScheme.js';
+
+function ThemeAwareComponent() {
+  const theme = useColorScheme();
+  return <div>{theme.name}</div>;
+}
+
+describe('ColorSchemeProvider', () => {
+  it('renders child content in a div', () => {
+    const { container } = render(
+      <ColorSchemeProvider>Child 1</ColorSchemeProvider>
+    );
+    expect(container.querySelector('div')).toMatchInlineSnapshot(`
+        <div>
+          Child 1
+        </div>
+      `);
+  });
+  it('renders styling for light mode when no color scheme specified', () => {
+    const { container } = render(
+      <ColorSchemeProvider>Content</ColorSchemeProvider>
+    );
+    expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          :root {
+          --gestalt-colorRed0: #ff5247;
+          --gestalt-colorRed100: #e60023;
+          --gestalt-colorGray0: #fff;
+          --gestalt-colorGray50: #fff;
+          --gestalt-colorGray100: #efefef;
+          --gestalt-colorGray200: #767676;
+          --gestalt-colorGray300: #111;
+          --gestalt-colorGray400: #000;
+         }
+        </style>
+      `);
+  });
+  it('renders styling for light mode when specified', () => {
+    const { container } = render(
+      <ColorSchemeProvider colorScheme="light">Content</ColorSchemeProvider>
+    );
+    expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          :root {
+          --gestalt-colorRed0: #ff5247;
+          --gestalt-colorRed100: #e60023;
+          --gestalt-colorGray0: #fff;
+          --gestalt-colorGray50: #fff;
+          --gestalt-colorGray100: #efefef;
+          --gestalt-colorGray200: #767676;
+          --gestalt-colorGray300: #111;
+          --gestalt-colorGray400: #000;
+         }
+        </style>
+      `);
+  });
+  it('renders styling for dark mode when specified', () => {
+    const { container } = render(
+      <ColorSchemeProvider colorScheme="dark">Content</ColorSchemeProvider>
+    );
+    expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          :root {
+          --gestalt-colorRed0: #e60023;
+          --gestalt-colorRed100: #ff5247;
+          --gestalt-colorGray0: #050505;
+          --gestalt-colorGray50: #272727;
+          --gestalt-colorGray100: #494949;
+          --gestalt-colorGray200: #b8b8b8;
+          --gestalt-colorGray300: #efefef;
+          --gestalt-colorGray400: #fff;
+         }
+        </style>
+      `);
+  });
+  it('renders styling with media query when userPreference', () => {
+    const { container } = render(
+      <ColorSchemeProvider colorScheme="userPreference">
+        Content
+      </ColorSchemeProvider>
+    );
+    expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          @media(prefers-color-scheme: dark) {
+          :root {
+          --gestalt-colorRed0: #e60023;
+          --gestalt-colorRed100: #ff5247;
+          --gestalt-colorGray0: #050505;
+          --gestalt-colorGray50: #272727;
+          --gestalt-colorGray100: #494949;
+          --gestalt-colorGray200: #b8b8b8;
+          --gestalt-colorGray300: #efefef;
+          --gestalt-colorGray400: #fff;
+         }
+        }
+        </style>
+      `);
+  });
+  it('renders styling with a custom class if has an id', () => {
+    const { container } = render(
+      <ColorSchemeProvider id="testId">Content</ColorSchemeProvider>
+    );
+    expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
+    expect(container.querySelector('style')).toMatchInlineSnapshot(`
+        <style>
+          .__gestaltThemetestId {
+          --gestalt-colorRed0: #ff5247;
+          --gestalt-colorRed100: #e60023;
+          --gestalt-colorGray0: #fff;
+          --gestalt-colorGray50: #fff;
+          --gestalt-colorGray100: #efefef;
+          --gestalt-colorGray200: #767676;
+          --gestalt-colorGray300: #111;
+          --gestalt-colorGray400: #000;
+         }
+        </style>
+      `);
+  });
+});
+describe('useColorScheme', () => {
+  it('uses light mode theme when not in theme provider', () => {
+    const { getByText } = render(<ThemeAwareComponent />);
+    expect(getByText('lightMode')).toBeTruthy();
+  });
+  it('uses light mode theme when specified', () => {
+    const { getByText } = render(
+      <ColorSchemeProvider colorScheme="light">
+        <ThemeAwareComponent />
+      </ColorSchemeProvider>
+    );
+    expect(getByText('lightMode')).toBeTruthy();
+  });
+  it('uses dark mode theme when specified', () => {
+    const { getByText } = render(
+      <ColorSchemeProvider colorScheme="dark">
+        <ThemeAwareComponent />
+      </ColorSchemeProvider>
+    );
+    expect(getByText('darkMode')).toBeTruthy();
+  });
+  it('uses theme based on matchMedia when userPreference', () => {
+    let listener = jest.fn();
+    window.matchMedia = () => ({
+      addListener: cb => {
+        listener = cb;
+      },
+      removeListener: jest.fn(),
+    });
+    const { getByText } = render(
+      <ColorSchemeProvider colorScheme="userPreference">
+        <ThemeAwareComponent />
+      </ColorSchemeProvider>
+    );
+    expect(getByText('lightMode')).toBeTruthy();
+    act(() => listener({ matches: true }));
+    expect(getByText('darkMode')).toBeTruthy();
+  });
+});
