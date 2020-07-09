@@ -66,10 +66,10 @@ describe('ColorSchemeProvider', () => {
           :root {
           --gestalt-colorRed0: #e60023;
           --gestalt-colorRed100: #ff5247;
-          --gestalt-colorGray0: #050505;
-          --gestalt-colorGray50: #272727;
-          --gestalt-colorGray100: #494949;
-          --gestalt-colorGray200: #b8b8b8;
+          --gestalt-colorGray0: #030303;
+          --gestalt-colorGray50: #212121;
+          --gestalt-colorGray100: #404040;
+          --gestalt-colorGray200: #ababab;
           --gestalt-colorGray300: #efefef;
           --gestalt-colorGray400: #fff;
          }
@@ -88,10 +88,10 @@ describe('ColorSchemeProvider', () => {
           :root {
           --gestalt-colorRed0: #e60023;
           --gestalt-colorRed100: #ff5247;
-          --gestalt-colorGray0: #050505;
-          --gestalt-colorGray50: #272727;
-          --gestalt-colorGray100: #494949;
-          --gestalt-colorGray200: #b8b8b8;
+          --gestalt-colorGray0: #030303;
+          --gestalt-colorGray50: #212121;
+          --gestalt-colorGray100: #404040;
+          --gestalt-colorGray200: #ababab;
           --gestalt-colorGray300: #efefef;
           --gestalt-colorGray400: #fff;
          }
