@@ -95,6 +95,7 @@ const sizes = {
 
 export default function Avatar(props: Props): React.Node {
   const [isImageLoaded, setIsImageLoaded] = React.useState(true);
+  const { colorGray0, colorGray100 } = useColorScheme();
   const {
     accessibilityLabel,
     name,
@@ -116,7 +117,7 @@ export default function Avatar(props: Props): React.Node {
         ? {
             dangerouslySetInlineStyle: {
               __style: {
-                boxShadow: '0 0 0 1px #fff',
+                boxShadow: `0 0 0 1px ${colorGray0}`,
               },
             },
           }
@@ -130,7 +131,7 @@ export default function Avatar(props: Props): React.Node {
         <Mask rounding="circle" wash>
           <Image
             alt={accessibilityLabel ?? name}
-            color="#EFEFEF"
+            color={colorGray100}
             naturalHeight={1}
             naturalWidth={1}
             src={src}

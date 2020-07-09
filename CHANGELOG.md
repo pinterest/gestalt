@@ -1,3 +1,15 @@
+## 5.24.5 (Jul 9, 2020)
+
+### Patch
+
+- Button: Use accessible colors for darkMode red button (#1009)
+
+## 5.24.4 (Jul 9, 2020)
+
+### Patch
+
+- Avatar and GroupAvatar: Use correct outline for dark mode (#1011)
+
 ## 5.24.3 (Jul 9, 2020)
 
 ### Patch
