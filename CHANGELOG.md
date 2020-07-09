@@ -1,3 +1,9 @@
+## 5.25.0 (Jul 9, 2020)
+
+### Minor
+
+- Flyout: Fix caret appearance in dark mode (#1017)
+
 ## 5.24.7 (Jul 9, 2020)
 
 ### Patch
