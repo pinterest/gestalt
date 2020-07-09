@@ -1,3 +1,9 @@
+## 5.29.1 (Jul 9, 2020)
+
+### Patch
+
+- Merge: Remove status-check=0 check (#1040)
+
 ## 5.29.0 (Jul 9, 2020)
 
 ### Minor
