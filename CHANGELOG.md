@@ -1,3 +1,9 @@
+## 5.28.0 (Jul 9, 2020)
+
+### Minor
+
+- Box: Set display name #1028
+
 ## 5.27.0 (Jul 9, 2020)
 
 ### Minor
