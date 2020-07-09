@@ -1,0 +1,13 @@
+pull_request_rules:
+  - name: Automatic merge
+    conditions:
+      - "-draft"
+      - "#approved-reviews-by>=1"
+      - "approved-reviews-by=@gestalt-core"
+      - "status-success~=^Tests"
+      - "#status-failure=0"
+    actions:
+      merge:
+        strict: true
+        strict_method: rebase
+        method: squash
