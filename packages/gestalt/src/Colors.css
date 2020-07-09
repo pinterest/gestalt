@@ -40,6 +40,10 @@
   background-color: var(--gestalt-colorRed100);
 }
 
+.red0Bg {
+  background-color: var(--gestalt-colorRed0);
+}
+
 /* white */
 
 .white {
