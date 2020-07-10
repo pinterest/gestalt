@@ -68,13 +68,17 @@
   background-color: #dadada;
 }
 
+.darkModeGray {
+  background-color: var(--gestalt-colorGray50);
+}
+
 .darkModeGray:hover,
 .darkModeGray:focus{
-  background-color: var(--gestalt-colorGray50)
+  background-color: var(--gestalt-colorGray100);
 
 }
 .darkModeGray:active {
-  background-color: var(--gestalt-colorGray100)
+  filter: brightness(200%);
 }
 
 
