@@ -1,6 +1,7 @@
 // @flow strict
 import React, { useState } from 'react';
 import { Box, Divider, GestaltProvider, Link, Text } from 'gestalt';
+import Head from 'next/head';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import { SidebarContextProvider } from './sidebarContext.js';
@@ -22,6 +23,36 @@ export default function App(props: Props) {
       }}
     >
       <GestaltProvider colorScheme={colorScheme}>
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <meta name="theme-color" content="#000000" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" href="/pinterest_favicon.png" />
+          <script
+            type="text/javascript"
+            dangerouslySetInlineHtml={{
+              __html: `
+          <script type="text/javascript">
+          // Load polyfills for IE 11
+          if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent))
+            document.write(
+              '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>' +
+              '<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"></script>'
+            );
+        </script>
+          `,
+            }}
+          />
+          <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
+          />
+          <title>Gestalt</title>
+        </Head>
         <Box minHeight="100vh" color="white">
           <Header
             colorScheme={colorScheme}
