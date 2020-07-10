@@ -1,3 +1,9 @@
+## 5.30.2 (Jul 10, 2020)
+
+### Patch
+
+- Button: Default hover state color (#1025)
+
 ## 5.30.1 (Jul 10, 2020)
 
 ### Patch
