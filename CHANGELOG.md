@@ -1,3 +1,9 @@
+## 5.30.1 (Jul 10, 2020)
+
+### Patch
+
+- ColorScheme: Set transparent colors in dark mode (#1042)
+
 ## 5.30.0 (Jul 10, 2020)
 
 ### Minor
