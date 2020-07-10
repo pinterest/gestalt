@@ -31,22 +31,28 @@ type Props = {|
   target?: null | 'self' | 'blank',
 |};
 
-function Link({
-  accessibilitySelected,
-  children,
-  href,
-  id,
-  inline = false,
-  onBlur,
-  onClick,
-  onFocus,
-  rel = 'none',
-  role,
-  rounding = 0,
-  hoverStyle = 'underline',
-  tapStyle = 'none',
-  target = null,
-}: Props): React.Node {
+const LinkWithRef: React.AbstractComponent<
+  Props,
+  HTMLAnchorElement
+> = React.forwardRef<Props, HTMLAnchorElement>(function Link(
+  {
+    accessibilitySelected,
+    children,
+    href,
+    id,
+    inline = false,
+    onBlur,
+    onClick,
+    onFocus,
+    rel = 'none',
+    role,
+    rounding = 0,
+    hoverStyle = 'underline',
+    tapStyle = 'none',
+    target = null,
+  },
+  ref
+): React.Node {
   const {
     isTapping,
     handleBlur,
@@ -105,6 +111,7 @@ function Link({
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
+      ref={ref}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
@@ -115,7 +122,7 @@ function Link({
       {children}
     </a>
   );
-}
+});
 
 const LinkPropTypes = {
   accessibilitySelected: PropTypes.bool,
@@ -142,6 +149,7 @@ const LinkPropTypes = {
   >),
 };
 
-Link.propTypes = LinkPropTypes;
+// $FlowFixMe[prop-missing]
+LinkWithRef.propTypes = LinkPropTypes;
 
-export default Link;
+export default LinkWithRef;
