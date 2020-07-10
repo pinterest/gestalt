@@ -230,15 +230,15 @@
 }
 
 .transparentDarkGray {
-  color: var(--gestalt-transparentDarkGray);
+  color: var(--gestalt-colorTransparentDarkGray);
 }
 
 .transparentDarkGrayBg {
-  background-color: var(--gestalt-transparentDarkGray);
+  background-color: var(--gestalt-colorTransparentDarkGray);
 }
 
 .transparentWhiteBg {
-  background-color: var(--gestalt-transparentWhite);
+  background-color: var(--gestalt-colorTransparentWhite);
 }
 
 /* light wash */
