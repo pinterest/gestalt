@@ -78,7 +78,7 @@
 
 }
 .darkModeGray:active {
-  filter: brightness(200%);
+  filter: brightness(150%);
 }
 
 
