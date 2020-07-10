@@ -20,7 +20,6 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
-  children?: React.Node,
   controls?: boolean,
   loop?: boolean,
   onDurationChange?: ({|
@@ -60,6 +59,7 @@ type State = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
+  captionsButton: 'enabled' | 'disabled' | null,
 |};
 
 // For more information on fullscreen and vendor prefixes see
@@ -213,6 +213,7 @@ export default class Video extends React.PureComponent<Props, State> {
     currentTime: 0,
     duration: 0,
     fullscreen: false,
+    captionsButton: this.props.captions ? 'enabled' : null,
   };
 
   /**
@@ -235,6 +236,10 @@ export default class Video extends React.PureComponent<Props, State> {
     // Simulate an autoplay effect if the component
     if (playing) {
       this.play();
+    }
+
+    if (this.video && this.video.textTracks && this.video.textTracks[0]) {
+      this.video.textTracks[0].mode = 'showing';
     }
   }
 
@@ -328,6 +333,25 @@ export default class Video extends React.PureComponent<Props, State> {
   seek: (time: number) => void = time => {
     if (this.video) {
       this.video.currentTime = time;
+    }
+  };
+
+  // Toggle captions on/off
+  toggleCaptions: () => void = () => {
+    if (this.video && this.video.textTracks && this.video.textTracks[0]) {
+      const isShowing = this.video.textTracks[0].mode === 'showing';
+      if (isShowing) {
+        this.video.textTracks[0].mode = 'disabled';
+        this.setState({
+          captionsButton: 'disabled',
+        });
+        return;
+      }
+
+      this.video.textTracks[0].mode = 'showing';
+      this.setState({
+        captionsButton: 'enabled',
+      });
     }
   };
 
@@ -486,7 +510,7 @@ export default class Video extends React.PureComponent<Props, State> {
       src,
       volume,
     } = this.props;
-    const { currentTime, duration, fullscreen } = this.state;
+    const { currentTime, duration, fullscreen, captionsButton } = this.state;
 
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
 
@@ -534,9 +558,11 @@ export default class Video extends React.PureComponent<Props, State> {
               accessibilityPauseLabel={this.props.accessibilityPauseLabel}
               accessibilityPlayLabel={this.props.accessibilityPlayLabel}
               accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
+              captionsButton={captionsButton}
               currentTime={currentTime}
               duration={duration}
               fullscreen={fullscreen}
+              onCaptionsChange={this.toggleCaptions}
               onPlay={this.handlePlay}
               onPlayheadDown={this.handlePlayheadDown}
               onPlayheadUp={this.handlePlayheadUp}

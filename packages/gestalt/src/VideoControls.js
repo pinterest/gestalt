@@ -16,9 +16,11 @@ type Props = {|
   accessibilityPauseLabel: string,
   accessibilityPlayLabel: string,
   accessibilityUnmuteLabel: string,
+  captionsButton: 'enabled' | 'disabled' | null,
   currentTime: number,
   duration: number,
   fullscreen: boolean,
+  onCaptionsChange: (event: SyntheticEvent<HTMLDivElement>) => void,
   onFullscreenChange: () => void,
   onPause: (event: SyntheticEvent<HTMLDivElement>) => void,
   onPlay: (event: SyntheticEvent<HTMLDivElement>) => void,
@@ -56,6 +58,7 @@ class VideoControls extends React.Component<Props> {
     accessibilityPauseLabel: PropTypes.string.isRequired,
     accessibilityPlayLabel: PropTypes.string.isRequired,
     accessibilityUnmuteLabel: PropTypes.string.isRequired,
+    captionsButton: PropTypes.string,
     currentTime: PropTypes.number.isRequired,
     duration: PropTypes.number.isRequired,
     fullscreen: PropTypes.bool.isRequired,
@@ -105,6 +108,21 @@ class VideoControls extends React.Component<Props> {
     }
   };
 
+  handleCaptionsChange: ({|
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => void = ({
+    event,
+  }: {|
+    event:
+      | SyntheticMouseEvent<HTMLDivElement>
+      | SyntheticKeyboardEvent<HTMLDivElement>,
+  |}) => {
+    event.stopPropagation();
+    this.props.onCaptionsChange(event);
+  };
+
   handleVolumeChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
@@ -128,6 +146,7 @@ class VideoControls extends React.Component<Props> {
       accessibilityPauseLabel,
       accessibilityPlayLabel,
       accessibilityUnmuteLabel,
+      captionsButton,
       currentTime,
       duration,
       fullscreen,
@@ -140,6 +159,7 @@ class VideoControls extends React.Component<Props> {
     const muted = volume === 0;
     const showFullscreenButton =
       typeof document !== 'undefined' && !!fullscreenEnabled();
+
     return (
       <div className={styles.controls}>
         <Box padding={2}>
@@ -154,6 +174,20 @@ class VideoControls extends React.Component<Props> {
             />
           </TapArea>
         </Box>
+        {captionsButton && (
+          <Box padding={2}>
+            <TapArea onTap={this.handleCaptionsChange} fullWidth={false}>
+              <Icon
+                accessibilityLabel="closed-captions"
+                color="white"
+                icon={
+                  captionsButton === 'enabled' ? 'speech-ellipsis' : 'speech'
+                }
+                size={20}
+              />
+            </TapArea>
+          </Box>
+        )}
         <Box width={50} padding={2}>
           <Text align="right" color="white" overflow="normal" size="sm">
             {timeToString(currentTime)}
