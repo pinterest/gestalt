@@ -4,6 +4,7 @@ docs/build/
 *.log
 stats.html
 screenshots
+.next
 
 packages/gestalt/dist/*
 packages/gestalt-datepicker/dist/*

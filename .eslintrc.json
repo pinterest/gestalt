@@ -94,6 +94,12 @@
         "markdown": true,
         "warn": true
       }
+    },
+    {
+      "files": ["docs/pages/**/*.js"],
+      "rules": {
+        "import/no-relative-parent-imports": "off"
+      }
     }
   ]
 }
