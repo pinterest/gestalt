@@ -77,11 +77,10 @@
   background-color: var(--gestalt-colorGray100);
 
 }
+
 .darkModeGray:active {
   filter: brightness(150%);
 }
-
-
 
 .red {
   composes: redBg from "./Colors.css";
