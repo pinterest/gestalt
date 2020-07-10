@@ -20,6 +20,7 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
+  children?: React.Node,
   controls?: boolean,
   loop?: boolean,
   onDurationChange?: ({|
