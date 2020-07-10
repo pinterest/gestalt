@@ -25,6 +25,8 @@ exports[`Video with callbacks 1`] = `
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
  }",
       }
     }
@@ -79,6 +81,8 @@ exports[`Video with children 1`] = `
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
  }",
       }
     }
@@ -312,6 +316,8 @@ exports[`Video with media attributes 1`] = `
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
  }",
       }
     }
@@ -367,6 +373,8 @@ exports[`Video with multiple sources 1`] = `
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
  }",
       }
     }
@@ -428,6 +436,8 @@ exports[`Video with source 1`] = `
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
  }",
       }
     }

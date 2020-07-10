@@ -21,6 +21,8 @@ type Theme = {|
   colorGray400: string,
   colorTransparentGray60: string,
   colorTransparentGray100: string,
+  colorTransparentDarkGray: string,
+  colorTransparentWhite: string,
 |};
 
 type Props = {|
@@ -42,6 +44,8 @@ const lightModeTheme = {
   colorGray400: '#000',
   colorTransparentGray60: 'rgba(0, 0, 0, 0.06)',
   colorTransparentGray100: 'rgba(0, 0, 0, 0.1)',
+  colorTransparentDarkGray: 'rgba(51, 51, 51, 0.8)',
+  colorTransparentWhite: 'rgba(255, 255, 255, 0.8)',
 };
 
 const darkModeTheme = {
@@ -57,6 +61,8 @@ const darkModeTheme = {
   colorGray400: '#fff',
   colorTransparentGray60: 'rgba(255, 255, 255, 0.5)',
   colorTransparentGray100: 'rgba(255, 255, 255, 0.5)',
+  colorTransparentDarkGray: 'rgba(255, 255, 255, 0.8)',
+  colorTransparentWhite: 'rgba(51, 51, 51, 0.8)',
 };
 
 const ThemeContext: React.Context<Theme> = React.createContext<Theme>(

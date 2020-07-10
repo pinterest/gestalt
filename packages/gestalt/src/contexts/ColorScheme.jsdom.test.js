@@ -37,6 +37,8 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray400: #000;
         --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
         --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+        --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
     `);
@@ -59,6 +61,8 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray400: #000;
         --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
         --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+        --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
     `);
@@ -81,6 +85,8 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray400: #fff;
         --gestalt-colorTransparentGray60: rgba(255, 255, 255, 0.5);
         --gestalt-colorTransparentGray100: rgba(255, 255, 255, 0.5);
+        --gestalt-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
+        --gestalt-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       </style>
     `);
@@ -106,6 +112,8 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray400: #fff;
         --gestalt-colorTransparentGray60: rgba(255, 255, 255, 0.5);
         --gestalt-colorTransparentGray100: rgba(255, 255, 255, 0.5);
+        --gestalt-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
+        --gestalt-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       }
       </style>
@@ -130,6 +138,8 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray400: #000;
         --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
         --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+        --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
     `);

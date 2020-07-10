@@ -29,8 +29,8 @@
   --gestalt-colorRed100Hovered: #d80021;
 
   /* transparent colors */
-  --gestalt-transparentDarkGray: rgba(51, 51, 51, 0.8);
-  --gestalt-transparentWhite: rgba(255, 255, 255, 0.8);
+  --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
 }
 
 /** PRIMARY COLORS **/
@@ -230,15 +230,15 @@
 }
 
 .transparentDarkGray {
-  color: var(--gestalt-transparentDarkGray);
+  color: var(--gestalt-colorTransparentDarkGray);
 }
 
 .transparentDarkGrayBg {
-  background-color: var(--gestalt-transparentDarkGray);
+  background-color: var(--gestalt-f);
 }
 
 .transparentWhiteBg {
-  background-color: var(--gestalt-transparentWhite);
+  background-color: var(--gestalt-colorTransparentWhite);
 }
 
 /* light wash */
