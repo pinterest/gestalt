@@ -1,7 +1,7 @@
 // @flow strict
 import * as React from 'react';
 import { Link, Text } from 'gestalt';
-import { useSidebarContext } from './sidebarContext.js';
+import { useRouter } from 'next/router';
 
 type Props = {|
   children?: React.Node,
@@ -9,11 +9,9 @@ type Props = {|
 |};
 
 export default function NavLink({ children, to }: Props): React.Node {
-  // const location = '/';
-  // const href = '/';
-  // const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
+  const router = useRouter();
   return (
-    <Text weight="normal">
+    <Text weight={router.pathname === to ? 'bold' : 'normal'}>
       <Link href={to}>{children}</Link>
     </Text>
   );
