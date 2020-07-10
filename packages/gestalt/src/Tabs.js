@@ -92,7 +92,9 @@ function Tab({
 
 type Props = {|
   activeTabIndex: number,
+  /** If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href */
   onChange: OnChangeHandler,
+  /** md: 40px, lg: 48px */
   size?: 'md' | 'lg',
   tabs: Array<{|
     href: string,
@@ -100,13 +102,17 @@ type Props = {|
     indicator?: 'dot',
     text: React.Node,
   |}>,
+  /** By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom. */
   wrap?: boolean,
 |};
 
-export default function Tabs({
+/**
+Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.
+*/
+function Tabs({
   activeTabIndex,
   onChange,
-  size = 'md',
+  size,
   tabs,
   wrap,
 }: Props): React.Node {
@@ -129,6 +135,12 @@ export default function Tabs({
     </Row>
   );
 }
+
+Tabs.defaultProps = {
+  size: 'md',
+};
+
+export default Tabs;
 
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,

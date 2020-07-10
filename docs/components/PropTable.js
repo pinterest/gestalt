@@ -175,11 +175,7 @@ export default function PropTable({ props: properties, Component }: Props) {
                       color={defaultValue != null ? 'darkGray' : 'gray'}
                       border={!description}
                     >
-                      {defaultValue != null ? (
-                        <code>{JSON.stringify(defaultValue)}</code>
-                      ) : (
-                        '-'
-                      )}
+                      {defaultValue != null ? <code>{defaultValue}</code> : '-'}
                     </Td>
                   </tr>
                 );

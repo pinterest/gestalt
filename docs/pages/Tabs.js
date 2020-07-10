@@ -1,63 +1,37 @@
 // @flow strict
 import * as React from 'react';
-import { Tabs } from 'gestalt';
-import PropTable from '../components/PropTable.js';
+import { basename, join } from 'path';
+import fs from 'fs';
+import * as ReactDocgen from 'react-docgen';
+import { promisify } from 'util';
 import Example from '../components/Example.js';
-import PageHeader from '../components/PageHeader.js';
+import Component from '../components/Component.js';
 
-import CardPage from '../components/CardPage';
+const COMPONENT_PATH = 'packages/gestalt/src/Tabs.js';
 
-const cards = [];
-const card = c => cards.push(c);
+const asyncReadFile = promisify(fs.readFile);
 
-card(
-  <PageHeader
-    name="Tabs"
-    description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`}
-  />
-);
+export async function getStaticProps() {
+  const dir = process.cwd();
+  const root = join(dir, '..');
+  const path = join(root, COMPONENT_PATH);
+  const src = await asyncReadFile(path, 'utf8');
+  const props = ReactDocgen.parse(
+    src,
+    ReactDocgen.resolver.findExportedComponentDefinition,
+    ReactDocgen.defaultHandlers,
+    { filename: basename(path), root }
+  );
+  return { props };
+}
 
-card(
-  <PropTable
-    Component={Tabs}
-    props={[
-      {
-        name: 'activeTabIndex',
-        type: 'number',
-        required: true,
-      },
-      {
-        name: 'tabs',
-        type: `Array<{| text: React.Node, href: string, id?: string, indicator?: 'dot' |}>`,
-        required: true,
-      },
-      {
-        name: 'onChange',
-        type: `({ +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number }) => void`,
-        required: true,
-        description:
-          'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
-        name: 'wrap',
-        type: 'boolean',
-        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
-      },
-    ]}
-  />
-);
-
-card(
-  <Example
-    name="Example"
-    defaultCode={`
+export default function TabsPage(props) {
+  return (
+    <>
+      <Component {...props} />
+      <Example
+        name="Example"
+        defaultCode={`
 function TabExample() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [wrap, setWrap] = React.useState(false);
@@ -103,9 +77,7 @@ function TabExample() {
   );
 }
   `}
-  />
-);
-
-export default function TabsPage() {
-  return <CardPage cards={cards} />;
+      />
+    </>
+  );
 }
