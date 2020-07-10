@@ -1,5 +1,7 @@
 :root {
   --gestalt-colorGray200: #767676;
+  --gestalt-colorGray50: #fff;
+  --gestalt-colorGray100: #efefef;
 }
 
 .button {

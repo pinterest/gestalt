@@ -64,7 +64,14 @@ export default function Button(props: Props): Element<'button'> {
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
-  const colorClass = isDarkModeRed ? 'darkModeRed' : color;
+
+  let colorClass = color;
+
+  if (isDarkModeRed) {
+    colorClass = 'isDarkModeRed';
+  } else if (isDarkMode && color === 'gray') {
+    colorClass = 'darkModeGray';
+  }
 
   const classes = classnames(styles.button, {
     [styles.sm]: size === 'sm',
@@ -77,7 +84,6 @@ export default function Button(props: Props): Element<'button'> {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
-    [styles.darkModeGray]: isDarkMode && color === 'gray',
   });
 
   const textColor =
