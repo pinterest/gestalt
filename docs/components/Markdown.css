@@ -10,4 +10,7 @@
 
 .Markdown pre {
   overflow: auto;
+  background-color: #EFEFEF;
+  border-radius: 4px;
+  padding: 8px;
 }
