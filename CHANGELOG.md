@@ -1,3 +1,9 @@
+## 5.30.0 (Jul 10, 2020)
+
+### Minor
+
+- Internal: Add CSS variables CI checks (#1041)
+
 ## 5.29.1 (Jul 9, 2020)
 
 ### Patch
