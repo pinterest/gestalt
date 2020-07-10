@@ -1,8 +1,8 @@
 // @flow strict
 
 import React, { type Element } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
@@ -62,8 +62,16 @@ export default function Button(props: Props): Element<'button'> {
   } = props;
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
-  const isDarkModeRed = colorSchemeName === 'darkMode' && color === 'red';
-  const colorClass = isDarkModeRed ? 'darkModeRed' : color;
+  const isDarkMode = colorSchemeName === 'darkMode';
+  const isDarkModeRed = isDarkMode && color === 'red';
+
+  let colorClass = color;
+
+  if (isDarkModeRed) {
+    colorClass = 'darkModeRed';
+  } else if (isDarkMode && color === 'gray') {
+    colorClass = 'darkModeGray';
+  }
 
   const classes = classnames(styles.button, {
     [styles.sm]: size === 'sm',
