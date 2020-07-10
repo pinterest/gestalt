@@ -55,15 +55,16 @@
   "scripts": {
     "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
-    "lint:js": "eslint .",
-    "lint:css": "stylelint \"packages/**/*.css\"",
+    "css:validate": "./scripts/cssValidate.js",
     "flow-generate:css": "(css-modules-flow-types packages/gestalt/src/ >/dev/null) && (css-modules-flow-types packages/gestalt-datepicker/src/ >/dev/null)",
+    "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
     "greenkeeper-lockfile-update": "greenkeeper-lockfile-update",
     "greenkeeper-lockfile-upload": "greenkeeper-lockfile-upload",
+    "lint:css": "stylelint \"packages/**/*.css\"",
+    "lint:js": "eslint .",
+    "precommit": "lint-staged",
     "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
-    "test": "./scripts/test.sh",
-    "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
-    "precommit": "lint-staged"
+    "test": "./scripts/test.sh"
   },
   "jest": {
     "projects": [

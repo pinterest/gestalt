@@ -20,6 +20,9 @@ yarn flow check
 echo "CSS: flow types"
 yarn run flow-generate:css
 
+echo "CSS: variables"
+yarn run css:validate
+
 FILES=$(git diff --name-only -- '*.flow')
 if [[ "$FILES" ]]
 then
