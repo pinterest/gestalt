@@ -8,6 +8,7 @@ import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
 import styles from './TextArea.css';
+import { type AbstractEvent } from './AbstractEvent.js';
 
 type Props = {|
   errorMessage?: string,
@@ -17,22 +18,22 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onBlur?: ({|
-    event: SyntheticFocusEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
-  onChange: ({|
-    event: SyntheticInputEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
-  onFocus?: ({|
-    event: SyntheticFocusEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
-  onKeyDown?: ({|
-    event: SyntheticKeyboardEvent<HTMLTextAreaElement>,
-    value: string,
-  |}) => void,
+  onBlur?: AbstractEvent<
+    SyntheticFocusEvent<HTMLTextAreaElement>,
+    {| value: string |}
+  >,
+  onChange: AbstractEvent<
+    SyntheticInputEvent<HTMLTextAreaElement>,
+    {| value: string |}
+  >,
+  onFocus?: AbstractEvent<
+    SyntheticFocusEvent<HTMLTextAreaElement>,
+    {| value: string |}
+  >,
+  onKeyDown?: AbstractEvent<
+    SyntheticKeyboardEvent<HTMLTextAreaElement>,
+    {| value: string |}
+  >,
   placeholder?: string,
   rows?: number /* default: 3 */,
   value?: string,

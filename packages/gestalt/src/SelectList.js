@@ -10,6 +10,7 @@ import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
 import Icon from './Icon.js';
 import styles from './SelectList.css';
+import { type AbstractEvent } from './AbstractEvent.js';
 
 type Props = {|
   errorMessage?: string,
@@ -18,7 +19,10 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: ({| event: SyntheticInputEvent<>, value: string |}) => void,
+  onChange: AbstractEvent<
+    SyntheticInputEvent<HTMLSelectElement>,
+    {| value: string |}
+  >,
   // eslint-disable-next-line flowtype/require-exact-type
   options: Array<{
     label: string,
@@ -77,12 +81,11 @@ export default class SelectList extends React.Component<Props, State> {
     this.select = ref;
   };
 
-  handleOnChange: (event: SyntheticInputEvent<>) => void = event => {
+  handleOnChange: (
+    event: SyntheticInputEvent<HTMLSelectElement>
+  ) => void = event => {
     const { onChange, value } = this.props;
-    if (
-      event.target instanceof HTMLSelectElement &&
-      value !== event.target.value
-    ) {
+    if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
     }
   };
