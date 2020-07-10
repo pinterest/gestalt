@@ -13,9 +13,11 @@ test('VideoControls handles play events', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={mockOnPlay}
@@ -41,9 +43,11 @@ test('VideoControls handles pause events', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={mockOnPause}
       onPlay={() => {}}
@@ -69,9 +73,11 @@ test('VideoControls handles volume events', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}

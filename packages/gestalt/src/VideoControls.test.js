@@ -12,9 +12,11 @@ test('VideoControls for single digit seconds', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={5}
       duration={5}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
@@ -38,9 +40,11 @@ test('VideoControls for double digit seconds', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={15}
       duration={15}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
@@ -64,9 +68,11 @@ test('VideoControls for single digit minutes', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={65}
       duration={65}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
@@ -90,9 +96,11 @@ test('VideoControls for double digit minutes', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={905}
       duration={905}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
@@ -116,9 +124,11 @@ test('VideoControls rounds for partial seconds', () => {
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}
