@@ -3,7 +3,7 @@ import * as React from 'react';
 import PropTable from '../components/PropTable.js';
 import Example from '../components/Example.js';
 import PageHeader from '../components/PageHeader.js';
-import CardPage from '../components/CardPage';
+import CardPage from '../components/CardPage.js';
 
 const cards = [];
 const card = c => cards.push(c);

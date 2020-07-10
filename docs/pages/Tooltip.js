@@ -3,8 +3,7 @@ import React from 'react';
 import Example from '../components/Example.js';
 import PropTable from '../components/PropTable.js';
 import PageHeader from '../components/PageHeader.js';
-
-import CardPage from '../components/CardPage';
+import CardPage from '../components/CardPage.js';
 
 const cards = [];
 const card = c => cards.push(c);
@@ -159,7 +158,6 @@ card(
   />
 );
 
-import CardPage from '../components/CardPage';
 export default function TooltipPage() {
   return <CardPage cards={cards} />;
 }
