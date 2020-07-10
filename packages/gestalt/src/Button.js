@@ -68,7 +68,7 @@ export default function Button(props: Props): Element<'button'> {
   let colorClass = color;
 
   if (isDarkModeRed) {
-    colorClass = 'isDarkModeRed';
+    colorClass = 'darkModeRed';
   } else if (isDarkMode && color === 'gray') {
     colorClass = 'darkModeGray';
   }
