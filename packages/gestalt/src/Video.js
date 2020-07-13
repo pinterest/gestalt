@@ -558,7 +558,7 @@ export default class Video extends React.PureComponent<Props, State> {
                 this.props.accessibilityHideCaptionsLabel || ''
               }
               accessibilityShowCaptionsLabel={
-                this.props.accessibilityHideCaptionsLabel || ''
+                this.props.accessibilityShowCaptionsLabel || ''
               }
               accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
               accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
