@@ -180,8 +180,8 @@ exports[`Video with children 1`] = `
           tabIndex="0"
         >
           <svg
-            aria-hidden={null}
-            aria-label="closed-captions"
+            aria-hidden={true}
+            aria-label=""
             className="rtlSupport icon white iconBlock"
             height={20}
             role="img"
