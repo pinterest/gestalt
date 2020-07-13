@@ -1,3 +1,9 @@
+## 5.32.1 (Jul 13, 2020)
+
+### Patch
+
+- Fix transparent dark gray background color (#1048)
+
 ## 5.32.0 (Jul 13, 2020)
 
 ### Minor
