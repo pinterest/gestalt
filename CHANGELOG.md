@@ -1,3 +1,9 @@
+## 5.31.0 (Jul 13, 2020)
+
+### Minor
+
+- IconButton, Pog: fix padding prop (#1047)
+
 ## 5.30.2 (Jul 10, 2020)
 
 ### Patch
