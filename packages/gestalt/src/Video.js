@@ -222,7 +222,7 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   componentDidMount() {
-    const { playbackRate, playing, volume } = this.props;
+    const { captions, playbackRate, playing, volume } = this.props;
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
@@ -239,7 +239,12 @@ export default class Video extends React.PureComponent<Props, State> {
       this.play();
     }
 
-    if (this.video && this.video.textTracks && this.video.textTracks[0]) {
+    if (
+      captions &&
+      this.video &&
+      this.video.textTracks &&
+      this.video.textTracks[0]
+    ) {
       this.video.textTracks[0].mode = 'showing';
     }
   }
@@ -339,20 +344,11 @@ export default class Video extends React.PureComponent<Props, State> {
 
   // Toggle captions on/off
   toggleCaptions: () => void = () => {
-    if (this.video && this.video.textTracks && this.video.textTracks[0]) {
-      const isShowing = this.video.textTracks[0].mode === 'showing';
-      if (isShowing) {
-        this.video.textTracks[0].mode = 'disabled';
-        this.setState({
-          captionsButton: 'disabled',
-        });
-        return;
-      }
-
-      this.video.textTracks[0].mode = 'showing';
-      this.setState({
-        captionsButton: 'enabled',
-      });
+    const [videoTrack] = this.video?.textTracks || [];
+    if (videoTrack) {
+      const isShowing = videoTrack.mode === 'showing';
+      videoTrack.mode = isShowing ? 'disabled' : 'showing';
+      this.setState({ captionsButton: isShowing ? 'disabled' : 'enabled' });
     }
   };
 
