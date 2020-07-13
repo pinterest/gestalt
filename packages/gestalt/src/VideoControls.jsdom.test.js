@@ -7,6 +7,8 @@ test('VideoControls handles play events', () => {
   const mockOnPlay = jest.fn();
   const { getByLabelText } = render(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
@@ -37,6 +39,8 @@ test('VideoControls handles pause events', () => {
   const mockOnPause = jest.fn();
   const { getByLabelText } = render(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
@@ -67,6 +71,8 @@ test('VideoControls handles volume events', () => {
   const mockOnVolumeChange = jest.fn();
   const { getByLabelText } = render(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"

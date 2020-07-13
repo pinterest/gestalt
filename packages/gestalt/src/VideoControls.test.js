@@ -6,6 +6,8 @@ import VideoControls from './VideoControls.js';
 test('VideoControls for single digit seconds', () => {
   const tree = create(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
@@ -34,6 +36,8 @@ test('VideoControls for single digit seconds', () => {
 test('VideoControls for double digit seconds', () => {
   const tree = create(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
@@ -62,6 +66,8 @@ test('VideoControls for double digit seconds', () => {
 test('VideoControls for single digit minutes', () => {
   const tree = create(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
@@ -90,6 +96,8 @@ test('VideoControls for single digit minutes', () => {
 test('VideoControls for double digit minutes', () => {
   const tree = create(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
@@ -118,6 +126,8 @@ test('VideoControls for double digit minutes', () => {
 test('VideoControls rounds for partial seconds', () => {
   const tree = create(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"

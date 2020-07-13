@@ -10,6 +10,8 @@ import VideoPlayhead from './VideoPlayhead.js';
 import styles from './Video.css';
 
 type Props = {|
+  accessibilityHideCaptionsLabel: string,
+  accessibilityShowCaptionsLabel: string,
   accessibilityMaximizeLabel: string,
   accessibilityMinimizeLabel: string,
   accessibilityMuteLabel: string,
@@ -52,6 +54,8 @@ const timeToString = (time?: number) => {
 
 class VideoControls extends React.Component<Props> {
   static propTypes = {
+    accessibilityHideCaptionsLabel: PropTypes.string,
+    accessibilityShowCaptionsLabel: PropTypes.string,
     accessibilityMaximizeLabel: PropTypes.string.isRequired,
     accessibilityMinimizeLabel: PropTypes.string.isRequired,
     accessibilityMuteLabel: PropTypes.string.isRequired,
@@ -140,6 +144,8 @@ class VideoControls extends React.Component<Props> {
 
   render(): React.Node {
     const {
+      accessibilityHideCaptionsLabel,
+      accessibilityShowCaptionsLabel,
       accessibilityMaximizeLabel,
       accessibilityMinimizeLabel,
       accessibilityMuteLabel,
@@ -178,7 +184,11 @@ class VideoControls extends React.Component<Props> {
           <Box padding={2}>
             <TapArea onTap={this.handleCaptionsChange} fullWidth={false}>
               <Icon
-                accessibilityLabel="closed-captions"
+                accessibilityLabel={
+                  captionsButton === 'enabled'
+                    ? accessibilityHideCaptionsLabel
+                    : accessibilityShowCaptionsLabel
+                }
                 color="white"
                 icon={
                   captionsButton === 'enabled' ? 'speech-ellipsis' : 'speech'

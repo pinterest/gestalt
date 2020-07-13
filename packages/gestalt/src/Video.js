@@ -12,6 +12,8 @@ type Source =
   | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
 
 type Props = {|
+  accessibilityHideCaptionsLabel?: string,
+  accessibilityShowCaptionsLabel?: string,
   accessibilityMaximizeLabel: string,
   accessibilityMinimizeLabel: string,
   accessibilityMuteLabel: string,
@@ -159,6 +161,8 @@ export default class Video extends React.PureComponent<Props, State> {
   player: ?HTMLDivElement;
 
   static propTypes = {
+    accessibilityHideCaptionsLabel: PropTypes.string,
+    accessibilityShowCaptionsLabel: PropTypes.string,
     accessibilityMaximizeLabel: PropTypes.string,
     accessibilityMinimizeLabel: PropTypes.string,
     accessibilityMuteLabel: PropTypes.string,
@@ -550,6 +554,12 @@ export default class Video extends React.PureComponent<Props, State> {
           {/* Need to use full path for these props so Flow can infer correct subtype */}
           {this.props.controls && (
             <VideoControls
+              accessibilityHideCaptionsLabel={
+                this.props.accessibilityHideCaptionsLabel || ''
+              }
+              accessibilityShowCaptionsLabel={
+                this.props.accessibilityHideCaptionsLabel || ''
+              }
               accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
               accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
               accessibilityMuteLabel={this.props.accessibilityMuteLabel}
