@@ -19,9 +19,9 @@ type Theme = {|
   colorGray200: string,
   colorGray300: string,
   colorGray400: string,
+  colorTransparentDarkGray: string,
   colorTransparentGray60: string,
   colorTransparentGray100: string,
-  colorTransparentDarkGray: string,
   colorTransparentWhite: string,
 |};
 
@@ -42,9 +42,9 @@ const lightModeTheme = {
   colorGray200: '#767676',
   colorGray300: '#111',
   colorGray400: '#000',
+  colorTransparentDarkGray: 'rgba(51, 51, 51, 0.8)',
   colorTransparentGray60: 'rgba(0, 0, 0, 0.06)',
   colorTransparentGray100: 'rgba(0, 0, 0, 0.1)',
-  colorTransparentDarkGray: 'rgba(51, 51, 51, 0.8)',
   colorTransparentWhite: 'rgba(255, 255, 255, 0.8)',
 };
 
@@ -59,9 +59,9 @@ const darkModeTheme = {
   colorGray200: '#ababab',
   colorGray300: '#efefef',
   colorGray400: '#fff',
-  colorTransparentGray60: 'rgba(255, 255, 255, 0.5)',
-  colorTransparentGray100: 'rgba(255, 255, 255, 0.5)',
   colorTransparentDarkGray: 'rgba(255, 255, 255, 0.8)',
+  colorTransparentGray60: 'rgba(250, 250, 250, 0.5)',
+  colorTransparentGray100: 'rgba(0, 0, 0, 0.5)',
   colorTransparentWhite: 'rgba(51, 51, 51, 0.8)',
 };
 

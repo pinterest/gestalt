@@ -1,7 +1,7 @@
 :root {
   --gestalt-colorGray300: #111;
-  --gestalt-colorTransparentGray60: 'rgba(0, 0, 0, 0.06)';
-  --gestalt-colorTransparentGray100: 'rgba(0, 0, 0, 0.1)';
+  --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
 }
 
 .pog {
