@@ -109,8 +109,8 @@ exports[`Pog renders with size and custom padding 1`] = `
   className="pog transparent"
   style={
     Object {
-      "height": 26,
-      "width": 26,
+      "height": 32,
+      "width": 32,
     }
   }
 >
