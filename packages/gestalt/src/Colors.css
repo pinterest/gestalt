@@ -234,7 +234,7 @@
 }
 
 .transparentDarkGrayBg {
-  background-color: var(--gestalt-f);
+  background-color: var(--gestalt-colorTransparentDarkGray);
 }
 
 .transparentWhiteBg {
