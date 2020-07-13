@@ -1,3 +1,9 @@
+## 5.32.0 (Jul 13, 2020)
+
+### Minor
+
+- DatePicker: Implementing DarkMode color scheme (#1008)
+
 ## 5.31.0 (Jul 13, 2020)
 
 ### Minor
