@@ -1,3 +1,9 @@
+## 6.0.0 (Jul 14, 2020)
+
+### Major
+
+- Link: add React.forwardRef (#1050)
+
 ## 5.33.0 (Jul 14, 2020)
 
 ### Minor
