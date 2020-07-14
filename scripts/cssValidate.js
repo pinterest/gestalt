@@ -44,10 +44,20 @@ const noVarInLegacyCSS = async () => {
 
   const astRoot = postcss.parse(combined);
 
+  // Define a CSS variable
   astRoot.walkDecls(/^--gestalt/, ({ prop, value }) => {
     throw new Error(
       `CSS Validate error: ${prop} CSS variable with value ${value} is defined in the legacy CSS - this will break IE and older browsers`
     );
+  });
+
+  // Use a CSS variable
+  astRoot.walkDecls(({ prop, value }) => {
+    if (value.startsWith('var(')) {
+      throw new Error(
+        `CSS Validate error: ${prop} property with CSS variable ${value} is used in the legacy CSS - this will break IE and older browsers`
+      );
+    }
   });
 };
 
