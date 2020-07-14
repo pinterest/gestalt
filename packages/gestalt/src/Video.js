@@ -12,6 +12,8 @@ type Source =
   | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
 
 type Props = {|
+  accessibilityHideCaptionsLabel?: string,
+  accessibilityShowCaptionsLabel?: string,
   accessibilityMaximizeLabel: string,
   accessibilityMinimizeLabel: string,
   accessibilityMuteLabel: string,
@@ -60,6 +62,7 @@ type State = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
+  captionsButton: 'enabled' | 'disabled' | null,
 |};
 
 // For more information on fullscreen and vendor prefixes see
@@ -158,6 +161,8 @@ export default class Video extends React.PureComponent<Props, State> {
   player: ?HTMLDivElement;
 
   static propTypes = {
+    accessibilityHideCaptionsLabel: PropTypes.string,
+    accessibilityShowCaptionsLabel: PropTypes.string,
     accessibilityMaximizeLabel: PropTypes.string,
     accessibilityMinimizeLabel: PropTypes.string,
     accessibilityMuteLabel: PropTypes.string,
@@ -213,6 +218,7 @@ export default class Video extends React.PureComponent<Props, State> {
     currentTime: 0,
     duration: 0,
     fullscreen: false,
+    captionsButton: this.props.captions ? 'enabled' : null,
   };
 
   /**
@@ -220,7 +226,7 @@ export default class Video extends React.PureComponent<Props, State> {
    */
 
   componentDidMount() {
-    const { playbackRate, playing, volume } = this.props;
+    const { captions, playbackRate, playing, volume } = this.props;
     // Set up event listeners to catch backdoors in fullscreen
     // changes such as using the ESC key to exit
     if (typeof document !== 'undefined') {
@@ -235,6 +241,15 @@ export default class Video extends React.PureComponent<Props, State> {
     // Simulate an autoplay effect if the component
     if (playing) {
       this.play();
+    }
+
+    if (
+      captions &&
+      this.video &&
+      this.video.textTracks &&
+      this.video.textTracks[0]
+    ) {
+      this.video.textTracks[0].mode = 'showing';
     }
   }
 
@@ -328,6 +343,16 @@ export default class Video extends React.PureComponent<Props, State> {
   seek: (time: number) => void = time => {
     if (this.video) {
       this.video.currentTime = time;
+    }
+  };
+
+  // Toggle captions on/off
+  toggleCaptions: () => void = () => {
+    const [videoTrack] = this.video?.textTracks || [];
+    if (videoTrack) {
+      const isShowing = videoTrack.mode === 'showing';
+      videoTrack.mode = isShowing ? 'disabled' : 'showing';
+      this.setState({ captionsButton: isShowing ? 'disabled' : 'enabled' });
     }
   };
 
@@ -486,7 +511,7 @@ export default class Video extends React.PureComponent<Props, State> {
       src,
       volume,
     } = this.props;
-    const { currentTime, duration, fullscreen } = this.state;
+    const { currentTime, duration, fullscreen, captionsButton } = this.state;
 
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
 
@@ -499,6 +524,7 @@ export default class Video extends React.PureComponent<Props, State> {
         <ColorSchemeProvider id="Video" colorScheme="light">
           <video
             autoPlay={playing}
+            crossOrigin="anonymous"
             loop={loop}
             muted={volume === 0}
             playsInline={playsInline}
@@ -528,15 +554,23 @@ export default class Video extends React.PureComponent<Props, State> {
           {/* Need to use full path for these props so Flow can infer correct subtype */}
           {this.props.controls && (
             <VideoControls
+              accessibilityHideCaptionsLabel={
+                this.props.accessibilityHideCaptionsLabel || ''
+              }
+              accessibilityShowCaptionsLabel={
+                this.props.accessibilityShowCaptionsLabel || ''
+              }
               accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
               accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
               accessibilityMuteLabel={this.props.accessibilityMuteLabel}
               accessibilityPauseLabel={this.props.accessibilityPauseLabel}
               accessibilityPlayLabel={this.props.accessibilityPlayLabel}
               accessibilityUnmuteLabel={this.props.accessibilityUnmuteLabel}
+              captionsButton={captionsButton}
               currentTime={currentTime}
               duration={duration}
               fullscreen={fullscreen}
+              onCaptionsChange={this.toggleCaptions}
               onPlay={this.handlePlay}
               onPlayheadDown={this.handlePlayheadDown}
               onPlayheadUp={this.handlePlayheadUp}

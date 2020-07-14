@@ -7,15 +7,19 @@ test('VideoControls handles play events', () => {
   const mockOnPlay = jest.fn();
   const { getByLabelText } = render(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={mockOnPlay}
@@ -35,15 +39,19 @@ test('VideoControls handles pause events', () => {
   const mockOnPause = jest.fn();
   const { getByLabelText } = render(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={mockOnPause}
       onPlay={() => {}}
@@ -63,15 +71,19 @@ test('VideoControls handles volume events', () => {
   const mockOnVolumeChange = jest.fn();
   const { getByLabelText } = render(
     <VideoControls
+      accessibilityHideCaptionsLabel="Hide captions"
+      accessibilityShowCaptionsLabel="Show captions"
       accessibilityMaximizeLabel="Maximize"
       accessibilityMinimizeLabel="Minimize"
       accessibilityMuteLabel="Mute"
       accessibilityPauseLabel="Pause"
       accessibilityPlayLabel="Play"
       accessibilityUnmuteLabel="Unmute"
+      captionsButton={null}
       currentTime={67.3}
       duration={67.3}
       fullscreen={false}
+      onCaptionsChange={() => {}}
       onFullscreenChange={() => {}}
       onPause={() => {}}
       onPlay={() => {}}

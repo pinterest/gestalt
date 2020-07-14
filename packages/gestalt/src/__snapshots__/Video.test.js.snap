@@ -37,6 +37,7 @@ exports[`Video with callbacks 1`] = `
     <video
       autoPlay={false}
       className="video"
+      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
@@ -93,6 +94,7 @@ exports[`Video with children 1`] = `
     <video
       autoPlay={false}
       className="video"
+      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
@@ -144,6 +146,43 @@ exports[`Video with children 1`] = `
             aria-hidden={null}
             aria-label="Play"
             className="icon white iconBlock"
+            height={20}
+            role="img"
+            viewBox="0 0 24 24"
+            width={20}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="box paddingX2 paddingY2"
+      >
+        <div
+          aria-disabled={false}
+          className="touchable rounding0 pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex="0"
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="rtlSupport icon white iconBlock"
             height={20}
             role="img"
             viewBox="0 0 24 24"
@@ -328,6 +367,7 @@ exports[`Video with media attributes 1`] = `
     <video
       autoPlay={false}
       className="video"
+      crossOrigin="anonymous"
       loop={true}
       muted={true}
       onCanPlay={[Function]}
@@ -385,6 +425,7 @@ exports[`Video with multiple sources 1`] = `
     <video
       autoPlay={false}
       className="video"
+      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
@@ -448,6 +489,7 @@ exports[`Video with source 1`] = `
     <video
       autoPlay={false}
       className="video"
+      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
