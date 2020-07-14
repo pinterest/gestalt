@@ -1,3 +1,9 @@
+## 6.2.0 (Jul 14, 2020)
+
+### Minor
+
+- Docs: Added darkMode to Algolia's DocsSearch feature (#1038)
+
 ## 6.1.0 (Jul 14, 2020)
 
 ### Minor
