@@ -1,3 +1,9 @@
+## 5.33.0 (Jul 14, 2020)
+
+### Minor
+
+- Video: Add captions + controls (#1046)
+
 ## 5.32.2 (Jul 14, 2020)
 
 ### Patch
