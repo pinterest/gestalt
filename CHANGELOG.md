@@ -1,3 +1,9 @@
+## 5.32.2 (Jul 14, 2020)
+
+### Patch
+
+- Internal: Catch CSS variable usage in legacy build (#1049)
+
 ## 5.32.1 (Jul 13, 2020)
 
 ### Patch
