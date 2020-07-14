@@ -154,8 +154,12 @@ Link.propTypes = {
 function LinkWithRef(props, ref) {
   return <Link {...props} forwardedRef={ref} />;
 }
-LinkWithRef.displayName = 'Link';
 
-export default (React.forwardRef<Props, HTMLAnchorElement>(
-  LinkWithRef
-): React$AbstractComponent<Props, HTMLAnchorElement>);
+const LinkWithForwardRef: React.AbstractComponent<
+  Props,
+  HTMLAnchorElement
+> = React.forwardRef<Props, HTMLAnchorElement>(LinkWithRef);
+
+LinkWithForwardRef.displayName = 'Link';
+
+export default LinkWithForwardRef;
