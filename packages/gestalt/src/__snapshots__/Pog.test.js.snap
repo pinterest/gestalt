@@ -78,6 +78,32 @@ exports[`Pog hovered renders 1`] = `
 </div>
 `;
 
+exports[`Pog renders with accessibilityLabel 1`] = `
+<div
+  className="pog transparent"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
+>
+  <svg
+    aria-hidden={null}
+    aria-label="Following"
+    className="icon gray iconBlock"
+    height={18}
+    role="img"
+    viewBox="0 0 24 24"
+    width={18}
+  >
+    <path
+      d="test-file-stub"
+    />
+  </svg>
+</div>
+`;
+
 exports[`Pog renders with icon 1`] = `
 <div
   className="pog transparent"

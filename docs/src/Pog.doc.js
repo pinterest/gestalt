@@ -24,6 +24,12 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilityLabel',
+        type: 'string',
+        defaultValue: '',
+        description: `Omit if and only if an ancestor element already has the aria-label set.`,
+      },
+      {
         name: 'active',
         type: 'boolean',
         defaultValue: false,

@@ -18,6 +18,13 @@ test('Pog renders with size and custom padding', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Pog renders with accessibilityLabel', () => {
+  const tree = create(
+    <Pog icon="people" accessibilityLabel="Following" />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Pog renders with svg', () => {
   const tree = create(
     <Pog dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }} />
