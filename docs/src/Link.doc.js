@@ -64,6 +64,11 @@ card(
         type: '() => void',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'a'>",
+        description: 'Forward the ref to the underlying anchor element',
+      },
+      {
         name: 'rel',
         type: `"none" | "nofollow"`,
         defaultValue: 'none',
