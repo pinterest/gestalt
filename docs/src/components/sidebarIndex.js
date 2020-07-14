@@ -9,8 +9,7 @@ export type sidebarIndexType = Array<{|
 
 const componentSubSectionPages = {
   displayDate: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Table'],
-  feedBack: ['Modal', 'Pulsar', 'Spinner', 'Toast'],
-  foundations: ['GestaltProvider', 'Heading', 'Icon', 'Text'],
+  feedBack: ['Modal', 'Pulsar', 'Spinner', 'Toast', 'Tooltip'],
   forms: [
     'Button',
     'Checkbox',
@@ -26,8 +25,8 @@ const componentSubSectionPages = {
     'TapArea',
     'TextArea',
     'TextField',
-    'Tooltip',
   ],
+  foundation: ['Heading', 'Icon', 'Text'],
   layout: [
     'Box',
     'Card',
@@ -43,6 +42,7 @@ const componentSubSectionPages = {
   ],
   media: ['Image', 'Letterbox', 'Mask', 'Video'],
   navigation: ['Link', 'SegmentedControl', 'Tabs'],
+  setup: ['GestaltProvider'],
 };
 
 // sidebarIndex is the source of truth for the sidebar documentation menu.
@@ -62,10 +62,19 @@ const sidebarIndex: sidebarIndexType = [
     sectionName: 'Getting Started',
     pages: ['Installation'],
   },
+
   {
     sectionPathname: 'components',
     sectionName: 'Components',
     subsections: [
+      {
+        subsectionName: 'Foundation',
+        pages: componentSubSectionPages.foundation,
+      },
+      {
+        subsectionName: 'Setup',
+        pages: componentSubSectionPages.setup,
+      },
       {
         subsectionName: 'Data Display',
         pages: componentSubSectionPages.displayDate,
@@ -74,10 +83,7 @@ const sidebarIndex: sidebarIndexType = [
         subsectionName: 'Feedback',
         pages: componentSubSectionPages.feedBack,
       },
-      {
-        subsectionName: 'Foundation',
-        pages: componentSubSectionPages.foundations,
-      },
+
       {
         subsectionName: 'Forms',
         pages: componentSubSectionPages.forms,
