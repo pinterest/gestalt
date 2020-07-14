@@ -1,3 +1,9 @@
+## 6.1.0 (Jul 14, 2020)
+
+### Minor
+
+- Docs: restructure sidebar display order (#1051)
+
 ## 6.0.0 (Jul 14, 2020)
 
 ### Major
