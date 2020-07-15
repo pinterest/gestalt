@@ -7,6 +7,7 @@ import Image from './Image.js';
 import Mask from './Mask.js';
 import PersonSvg from './icons/person.svg';
 import typography from './Typography.css';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 const Square = (props: *) => (
   <Box {...props} position="relative">
@@ -29,6 +30,7 @@ const DefaultAvatar = ({
   name: string,
   useDefaultIcon: boolean,
 |}) => {
+  const { colorGray300 } = useColorScheme();
   const firstInitial = name ? [...name][0].toUpperCase() : '';
   const title = accessibilityLabel ?? name;
 
@@ -43,7 +45,7 @@ const DefaultAvatar = ({
           xmlns="http://www.w3.org/2000/svg"
         >
           {title && <title>{title}</title>}
-          <path d={PersonSvg} fill="#111" />
+          <path d={PersonSvg} fill={colorGray300} />
         </svg>
       ) : (
         <svg
@@ -56,7 +58,7 @@ const DefaultAvatar = ({
           <title>{title}</title>
           <text
             fontSize="40px"
-            fill="#111"
+            fill={colorGray300}
             dy="0.35em"
             textAnchor="middle"
             className={[
@@ -93,6 +95,7 @@ const sizes = {
 
 export default function Avatar(props: Props): React.Node {
   const [isImageLoaded, setIsImageLoaded] = React.useState(true);
+  const { colorGray0, colorGray100 } = useColorScheme();
   const {
     accessibilityLabel,
     name,
@@ -114,7 +117,7 @@ export default function Avatar(props: Props): React.Node {
         ? {
             dangerouslySetInlineStyle: {
               __style: {
-                boxShadow: '0 0 0 1px #fff',
+                boxShadow: `0 0 0 1px ${colorGray0}`,
               },
             },
           }
@@ -128,7 +131,7 @@ export default function Avatar(props: Props): React.Node {
         <Mask rounding="circle" wash>
           <Image
             alt={accessibilityLabel ?? name}
-            color="#EFEFEF"
+            color={colorGray100}
             naturalHeight={1}
             naturalWidth={1}
             src={src}

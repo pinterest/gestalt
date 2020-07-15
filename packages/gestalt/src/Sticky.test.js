@@ -25,3 +25,17 @@ test('Sticky correctly sets thresholds for string values', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Sticky correctly sets zIndex', () => {
+  const zIndexStub = {
+    index() {
+      return 100;
+    },
+  };
+  const tree = create(
+    <Sticky top={1} zIndex={zIndexStub}>
+      Sticky
+    </Sticky>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

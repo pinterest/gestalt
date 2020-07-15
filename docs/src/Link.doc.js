@@ -30,7 +30,7 @@ card(
         name: 'hoverStyle',
         type: `'none' | 'underline'`,
         defaultValue: 'underline',
-        href: 'advancedExample',
+        href: 'Permutations',
       },
       {
         name: 'href',
@@ -57,11 +57,16 @@ card(
         name: 'onClick',
         type:
           '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
-        href: 'advancedExample',
+        href: 'PreventDefault',
       },
       {
         name: 'onFocus',
         type: '() => void',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'a'>",
+        description: 'Forward the ref to the underlying anchor element',
       },
       {
         name: 'rel',
@@ -83,12 +88,13 @@ card(
         name: 'tapStyle',
         type: `"none" | "compress"`,
         defaultValue: 'none',
-        href: 'advancedExample',
+        href: 'Permutations',
       },
       {
         name: 'target',
         type: `"null" | "self" | "blank"`,
         defaultValue: 'null',
+        href: 'PreventDefault',
       },
     ]}
   />
@@ -104,20 +110,17 @@ card(
 <Box>
   <Link href="https://pinterest.com">
     <Box padding={2}>
-      <Text weight="bold">Pinterest.com</Text>
+      <Text color='red' weight="bold">Incorrect underline color: Pinterest.com</Text>
     </Box>
   </Link>
-  <Box color="darkGray">
-    <Text color="white" weight="bold">
+    <Text color="red" weight="bold">
       <Link href="https://pinterest.com">
         <Box padding={2}>
-          Pinterest.com
+          Correct underline color: Pinterest.com
         </Box>
       </Link>
     </Text>
-  </Box>
-</Box>
-`}
+</Box>`}
   />
 );
 
@@ -208,10 +211,49 @@ function TabExample() {
 
 card(
   <Example
-    id="advancedExample"
-    name="Advanced Example"
+    id="Permutations"
+    name="Permutations: tapStyle and hoverStyle"
     defaultCode={`
-function AdvancedExample() {
+function PermutationsExample() {
+  return (
+    <Box>
+      {
+        [
+          { text: 'Link without compress nor underline', hoverStyle: 'none', tapStyle: 'none' },
+          { text: 'Link with compress only', hoverStyle: 'none', tapStyle: 'compress' },
+          { text: 'Link with underline only', hoverStyle: 'underline', tapStyle: 'none' },
+          { text: 'Link with compress and underline', hoverStyle: 'underline', tapStyle: 'compress' },
+        ]
+        .map(
+          ({ text, hoverStyle, tapStyle }) => (
+            <Box key={text} padding={2}>
+              <Text>
+              <Link
+                hoverStyle={hoverStyle}
+                href="https://pinterest.com"
+                onClick={ ({ event }) => { event.preventDefault() }}
+                tapStyle={tapStyle}
+                target="blank"
+              >
+               {text}
+               </Link>
+             </Text>
+            </Box>
+          )
+        )}
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="PreventDefault"
+    name="Prevent default"
+    defaultCode={`
+function PreventDefaultExample() {
   const [preventDefault, setPreventDefault] = React.useState(true);
   const onClick = ({ event }) => {
     if (preventDefault) {
@@ -233,35 +275,12 @@ function AdvancedExample() {
       </Row>
       <Divider />
       <Box padding={2}>
-        <Link href="https://pinterest.com" onClick={onClick}>
-          <Text>Link with default options</Text>
-        </Link>
+        <Text>
+          <Link href="https://pinterest.com" onClick={onClick} target='blank'>
+            https://pinterest.com
+          </Link>
+        </Text>
       </Box>
-      {
-        [
-          { text: 'Link without compress nor underline', hoverStyle: 'none', tapStyle: 'none' },
-          { text: 'Link with compress only', hoverStyle: 'none', tapStyle: 'compress' },
-          { text: 'Link with underline only', hoverStyle: 'underline', tapStyle: 'none' },
-          { text: 'Link with compress and underline', hoverStyle: 'underline', tapStyle: 'compress' },
-        ]
-        .map(
-          ({ text, hoverStyle, tapStyle }) => (
-            <Box key={text} padding={2}>
-              <Text inline>Inline</Text>
-              {' '}
-              <Link
-                hoverStyle={hoverStyle}
-                href="https://pinterest.com"
-                inline
-                onClick={onClick}
-                tapStyle={tapStyle}
-                target="blank"
-              >
-                <Text>{text}</Text>
-              </Link>
-            </Box>
-          )
-        )}
     </Box>
   );
 }

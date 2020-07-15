@@ -12,6 +12,7 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Flyout from './Flyout.js';
+import GestaltProvider from './GestaltProvider.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -48,6 +49,8 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
 import Typeahead from './Typeahead.js';
+import { FixedZIndex, CompositeZIndex } from './zIndex.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 export {
   Avatar,
@@ -60,9 +63,12 @@ export {
   Collage,
   Collection,
   Column,
+  CompositeZIndex,
   Container,
   Divider,
+  FixedZIndex,
   Flyout,
+  GestaltProvider,
   GroupAvatar,
   Heading,
   Icon,
@@ -97,6 +103,10 @@ export {
   TextField,
   Toast,
   Tooltip,
+<<<<<<< HEAD
   Typeahead,
+=======
+  useColorScheme,
+>>>>>>> master
   Video,
 };

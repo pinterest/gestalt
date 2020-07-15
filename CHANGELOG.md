@@ -1,3 +1,249 @@
+## 6.2.0 (Jul 14, 2020)
+
+### Minor
+
+- Docs: Added darkMode to Algolia's DocsSearch feature (#1038)
+
+## 6.1.0 (Jul 14, 2020)
+
+### Minor
+
+- Docs: restructure sidebar display order (#1051)
+
+## 6.0.0 (Jul 14, 2020)
+
+### Major
+
+- Link: add React.forwardRef (#1050)
+
+## 5.33.0 (Jul 14, 2020)
+
+### Minor
+
+- Video: Add captions + controls (#1046)
+
+## 5.32.2 (Jul 14, 2020)
+
+### Patch
+
+- Internal: Catch CSS variable usage in legacy build (#1049)
+
+## 5.32.1 (Jul 13, 2020)
+
+### Patch
+
+- Fix transparent dark gray background color (#1048)
+
+## 5.32.0 (Jul 13, 2020)
+
+### Minor
+
+- DatePicker: Implementing DarkMode color scheme (#1008)
+
+## 5.31.0 (Jul 13, 2020)
+
+### Minor
+
+- IconButton, Pog: fix padding prop (#1047)
+
+## 5.30.2 (Jul 10, 2020)
+
+### Patch
+
+- Button: Default hover state color (#1025)
+
+## 5.30.1 (Jul 10, 2020)
+
+### Patch
+
+- ColorScheme: Set transparent colors in dark mode (#1042)
+
+## 5.30.0 (Jul 10, 2020)
+
+### Minor
+
+- Internal: Add CSS variables CI checks (#1041)
+
+## 5.29.1 (Jul 9, 2020)
+
+### Patch
+
+- Merge: Remove status-check=0 check (#1040)
+
+## 5.29.0 (Jul 9, 2020)
+
+### Minor
+
+- Colors: Adding #colorGray150 + hover colors, and replacing inline colors to standard color var names (#1034)
+
+## 5.28.5 (Jul 9, 2020)
+
+### Patch
+
+- Merge: Better titles and obey branch protections (#1035)
+
+## 5.28.4 (Jul 9, 2020)
+
+### Patch
+
+- Switch: Fix darkMode border colors by adhering to color scheme convention names (#1033)
+
+## 5.28.3 (Jul 9, 2020)
+
+### Patch
+
+- Colors: Update dark mode gray values to latest from design (#1030)
+
+## 5.28.2 (Jul 9, 2020)
+
+### Patch
+
+- Internal: Update Pull Request template (#988)
+
+## 5.28.1 (Jul 9, 2020)
+
+### Patch
+
+- Tabs: Fix indicator flowtype in docs (#1031)
+
+## 5.28.0 (Jul 9, 2020)
+
+### Minor
+
+- Box: Set display name #1028
+
+## 5.27.0 (Jul 9, 2020)
+
+### Minor
+
+- Box: fix flowtype for borderSize (#1026)
+
+## 5.26.1 (Jul 9, 2020)
+
+### Patch
+
+- Badge: set text color to always be white (#1022)
+
+## 5.26.0 (Jul 9, 2020)
+
+### Minor
+
+- Icon: add protect icon (#1024)
+
+## 5.25.0 (Jul 9, 2020)
+
+### Minor
+
+- Flyout: Fix caret appearance in dark mode (#1017)
+
+## 5.24.7 (Jul 9, 2020)
+
+### Patch
+
+- Mergify: configuration update (#1016)
+
+## 5.24.6 (Jul 9, 2020)
+
+### Patch
+
+- [Table] Fix sticky header in darkMode #1019
+
+## 5.24.5 (Jul 9, 2020)
+
+### Patch
+
+- Button: Use accessible colors for darkMode red button (#1009)
+
+## 5.24.4 (Jul 9, 2020)
+
+### Patch
+
+- Avatar and GroupAvatar: Use correct outline for dark mode (#1011)
+
+## 5.24.3 (Jul 9, 2020)
+
+### Patch
+
+- [Borders.css][darkmode] Replaced naming in Borders.css to scheme standard (#978)
+
+## 5.24.2 (Jul 9, 2020)
+
+### Patch
+
+- [Video] No darkMode changes in video controls
+
+## 5.24.1 (Jul 8, 2020)
+
+### Patch
+
+- [Docs: Link] Fixed/Improved examples (#1014)
+
+## 5.24.0 (Jul 8, 2020)
+
+### Minor
+
+- Rename Theme -> ColorScheme (#993)
+
+## 5.23.1 (Jul 8, 2020)
+
+### Patch
+
+- [Header] Reworded tooltips (#981)
+
+## 5.23.0 (Jul 8, 2020)
+
+### Minor
+
+- [Box] Fix types (#986)
+
+## 5.22.3 (Jul 8, 2020)
+
+### Patch
+
+- Avatar: Update hardcoded svg fills to use theme colors (#975)
+
+## 5.22.2 (Jul 7, 2020)
+
+### Patch
+
+- Dark Mode: update toggle in docs (#974)
+
+## 5.22.1 (Jul 7, 2020)
+
+### Patch
+
+- SearchField/TapArea/TextField: add ref to list of props (#972)
+
+## 5.22.0 (Jul 7, 2020)
+
+### Minor
+
+- GestaltProvider: Adding a provider for color scheme and other future context used by Gestalt (#968)
+
+## 5.21.0 (Jul 7, 2020)
+
+### Minor
+
+- Video: Test video state before calling play | Default volume to Muted (#969)
+
+## 5.20.0 (Jul 7, 2020)
+
+### Minor
+
+- ZIndex: Add support for Fixed & Composite zIndexes (#966)
+
+## 5.19.0 (Jul 7, 2020)
+
+### Minor
+
+- Tabs: Add optional dot indicator (#967)
+
+## 5.18.0 (Jul 7, 2020)
+
+### Minor
+
+- SearchField: RTL support (#970)
+
 ## 5.17.0 (Jul 2, 2020)
 
 ### Minor
@@ -200,7 +446,7 @@
 
 ### Major
 
-- SearchField: Convert to Functional and Add ForwardRef  (#926)
+- SearchField: Convert to Functional and Add ForwardRef (#926)
 
 ## 3.2.0 (Jun 16, 2020)
 

@@ -15,7 +15,7 @@ export default function DocSearch() {
     ) {
       window.docsearch({
         apiKey: 'a22bd809b2fb174c5defd3c0f44cab8c',
-        debug: false, // Set debug to true if you want to inspect the dropdown
+        debug: false, // Set debug to true if you want to keep open and inspect the dropdown
         indexName: 'gestalt',
         inputSelector: '#algolia-doc-search',
       });

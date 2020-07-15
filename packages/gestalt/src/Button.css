@@ -1,3 +1,8 @@
+:root {
+  --gestalt-colorGray50: #fff;
+  --gestalt-colorGray100: #efefef;
+}
+
 .button {
   composes: borderBox minWidth60 from "./Layout.css";
   border-radius: 24px;
@@ -62,16 +67,37 @@
   background-color: #dadada;
 }
 
+.darkModeGray {
+  background-color: var(--gestalt-colorGray50);
+}
+
+.darkModeGray:hover,
+.darkModeGray:focus{
+  background-color: var(--gestalt-colorGray100);
+
+}
+
+.darkModeGray:active {
+  filter: brightness(150%);
+}
+
 .red {
   composes: redBg from "./Colors.css";
 }
 
+.darkModeRed {
+  composes: red0Bg from "./Colors.css";
+}
+
 .red:hover,
-.red:focus {
+.red:focus,
+.darkModeRed:hover,
+.darkModeRed:focus {
   background-color: #ad081b;
 }
 
-.red:active {
+.red:active,
+.darkModeRed:active {
   background-color: #a3081a;
 }
 

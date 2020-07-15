@@ -23,6 +23,10 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
 };
 
 type Props = {|
+  // Omit accessibilityLabel if and only if an ancestor element already has the aria-label set.
+  // This is similar to having empty `alt` attributes:
+  // https://davidwalsh.name/accessibility-tip-empty-alt-attributes
+  accessibilityLabel?: string,
   active?: boolean,
   bgColor?:
     | 'transparent'
@@ -54,6 +58,7 @@ const defaultIconButtonIconColors = {
 
 export default function Pog(props: Props): React.Node {
   const {
+    accessibilityLabel = '',
     active = false,
     bgColor = 'transparent',
     dangerouslySetSvgPath,
@@ -67,7 +72,7 @@ export default function Pog(props: Props): React.Node {
   } = props;
 
   const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
-  const paddingInPx = padding || SIZE_NAME_TO_PADDING_PIXEL[size];
+  const paddingInPx = padding ? padding * 4 : SIZE_NAME_TO_PADDING_PIXEL[size];
 
   const color =
     (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
@@ -89,14 +94,8 @@ export default function Pog(props: Props): React.Node {
 
   return (
     <div className={classes} style={inlineStyle}>
-      {/*
-        We're explicitly setting an empty string as a label on the Icon since we
-        already have an aria-label on the button container.
-        This is similar to having empty `alt` attributes:
-        https://davidwalsh.name/accessibility-tip-empty-alt-attributes
-      */}
       <Icon
-        accessibilityLabel=""
+        accessibilityLabel={accessibilityLabel || ''}
         color={color}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
@@ -107,6 +106,7 @@ export default function Pog(props: Props): React.Node {
 }
 
 Pog.propTypes = {
+  accessibilityLabel: PropTypes.string,
   active: PropTypes.bool,
   bgColor: PropTypes.oneOf([
     'transparent',

@@ -95,6 +95,17 @@ exports[`Box has correct marginStart and marginEnd when marginStart equals 1 and
 />
 `;
 
+exports[`Box has correct zIndex 1`] = `
+<div
+  className="box"
+  style={
+    Object {
+      "zIndex": 100,
+    }
+  }
+/>
+`;
+
 exports[`Box renders 1`] = `
 <div
   className="box"

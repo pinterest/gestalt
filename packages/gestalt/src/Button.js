@@ -1,13 +1,14 @@
 // @flow strict
 
 import React, { type Element } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -59,13 +60,25 @@ export default function Button(props: Props): Element<'button'> {
     textColor: textColorProp,
     type = 'button',
   } = props;
+  const { name: colorSchemeName } = useColorScheme();
+  // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
+  const isDarkMode = colorSchemeName === 'darkMode';
+  const isDarkModeRed = isDarkMode && color === 'red';
+
+  let colorClass = color;
+
+  if (isDarkModeRed) {
+    colorClass = 'darkModeRed';
+  } else if (isDarkMode && color === 'gray') {
+    colorClass = 'darkModeGray';
+  }
 
   const classes = classnames(styles.button, {
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
     [styles.solid]: color !== 'transparent',
-    [styles[color]]: !disabled && !selected,
+    [styles[colorClass]]: !disabled && !selected,
     [styles.selected]: !disabled && selected,
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
@@ -76,6 +89,7 @@ export default function Button(props: Props): Element<'button'> {
   const textColor =
     (disabled && 'gray') ||
     (selected && 'white') ||
+    (isDarkModeRed && 'darkGray') ||
     textColorProp ||
     DEFAULT_TEXT_COLORS[color];
 

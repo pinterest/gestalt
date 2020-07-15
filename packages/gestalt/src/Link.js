@@ -17,6 +17,7 @@ type TapEvent =
 type Props = {|
   accessibilitySelected?: boolean,
   children?: React.Node,
+  forwardedRef?: React.Ref<'a'>,
   hoverStyle?: 'none' | 'underline',
   href: string,
   id?: string,
@@ -34,6 +35,7 @@ type Props = {|
 function Link({
   accessibilitySelected,
   children,
+  forwardedRef,
   href,
   id,
   inline = false,
@@ -105,6 +107,7 @@ function Link({
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
+      ref={forwardedRef}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
@@ -117,9 +120,15 @@ function Link({
   );
 }
 
-const LinkPropTypes = {
+Link.propTypes = {
   accessibilitySelected: PropTypes.bool,
   children: PropTypes.node,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
     'none' | 'underline'
   >),
@@ -142,6 +151,15 @@ const LinkPropTypes = {
   >),
 };
 
-Link.propTypes = LinkPropTypes;
+function LinkWithRef(props, ref) {
+  return <Link {...props} forwardedRef={ref} />;
+}
 
-export default Link;
+const LinkWithForwardRef: React.AbstractComponent<
+  Props,
+  HTMLAnchorElement
+> = React.forwardRef<Props, HTMLAnchorElement>(LinkWithRef);
+
+LinkWithForwardRef.displayName = 'Link';
+
+export default LinkWithForwardRef;

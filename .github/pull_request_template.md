@@ -1,7 +1,18 @@
-## TODO
+<!--
+What is the purpose of this PR?
 
-- [ ] Accessibility checkup
-- [ ] Update documentation
-- [ ] Add/update Tests
-- [ ] Pinterest Designer (for design changes)
-- [ ] [Format PR title](https://github.com/pinterest/gestalt/#releasing): `ComponentName: Description`.
+* What is the context surrounding this PR? Include links if possible.
+* What kind of feedback do you want?
+* Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasing)? `ComponentName: Description`
+-->
+
+## Test Plan
+
+<!--
+How can reviewers verify this is good to merge?
+
+* Is it tested?
+* Is it accessible?
+* Is it documented?
+* Have you involved other stakeholders (such as a Pinterest Designer)?
+-->

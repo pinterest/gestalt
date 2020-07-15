@@ -6,6 +6,7 @@ import Caret from './Caret.js';
 import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 /* Needed until this Flow issue is fixed: https://github.com/facebook/flow/issues/380 */
 /* eslint quote-props: 0 */
@@ -54,7 +55,7 @@ type Shift = {| x: number, y: number |};
 
 type EdgeShift = {| caret: Shift, flyout: Shift |};
 
-type Props = {|
+type OwnProps = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
@@ -72,6 +73,13 @@ type Props = {|
   triggerRect: ClientRect,
   width: ?number,
 |};
+
+type ColorSchemeProps = {|
+  colorGray100: string,
+  isDarkMode: boolean,
+|};
+
+type Props = {| ...OwnProps, ...ColorSchemeProps |};
 
 type State = {|
   flyoutOffset: {|
@@ -340,7 +348,7 @@ export function baseOffsets(
   return { top, left };
 }
 
-export default class Contents extends React.Component<Props, State> {
+class WrappedContents extends React.Component<Props, State> {
   static propTypes = {
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
     border: PropTypes.bool,
@@ -511,14 +519,24 @@ export default class Contents extends React.Component<Props, State> {
   };
 
   render(): React.Node {
-    const { bgColor, border, caret, children, rounding, width } = this.props;
+    const {
+      bgColor,
+      border,
+      caret,
+      children,
+      colorGray100,
+      isDarkMode,
+      rounding,
+      width,
+    } = this.props;
     const { caretOffset, flyoutOffset, mainDir } = this.state;
 
     // Needed to prevent UI thrashing
     const visibility = mainDir === null ? 'hidden' : 'visible';
     const background =
       bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
-    const stroke = bgColor === 'white' ? '#efefef' : null;
+    const stroke = bgColor === 'white' && !isDarkMode ? colorGray100 : null;
+    const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
 
     return (
       <div
@@ -538,7 +556,7 @@ export default class Contents extends React.Component<Props, State> {
         >
           {caret && (
             <div
-              className={classnames(colors[bgColor], styles.caret)}
+              className={classnames(colors[bgColorElevated], styles.caret)}
               style={{ ...caretOffset }}
             >
               <Caret direction={mainDir} />
@@ -548,7 +566,7 @@ export default class Contents extends React.Component<Props, State> {
             className={classnames(
               border && styles.border,
               colors[background],
-              colors[bgColor],
+              colors[bgColorElevated],
               rounding === 2 && borders.rounding2,
               rounding === 4 && borders.rounding4,
               styles.innerContents,
@@ -563,4 +581,15 @@ export default class Contents extends React.Component<Props, State> {
       </div>
     );
   }
+}
+
+export default function Contents(props: OwnProps): React.Node {
+  const { colorGray100, name: colorSchemeName } = useColorScheme();
+  return (
+    <WrappedContents
+      {...props}
+      colorGray100={colorGray100}
+      isDarkMode={colorSchemeName === 'darkMode'}
+    />
+  );
 }

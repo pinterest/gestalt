@@ -1,8 +1,6 @@
 :root {
-  --border-sm: 6px;
-  --border-md: 8px;
-  --size-sm: 16px;
-  --size-md: 24px;
+  --gestalt-border-sm: 6px;
+  --gestalt-border-md: 8px;
 }
 
 .RadioButton {
@@ -25,11 +23,11 @@
 }
 
 .BorderCheckedSm {
-  border-width: var(--border-sm);
+  border-width: var(--gestalt-border-sm);
 }
 
 .BorderCheckedMd {
-  border-width: var(--border-md);
+  border-width: var(--gestalt-border-md);
 }
 
 .BorderDarkGray {

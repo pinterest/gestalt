@@ -26,7 +26,7 @@ card(
       },
       {
         name: 'tabs',
-        type: `Array<{| text: React.Node, href: string, id?: string |}>`,
+        type: `Array<{| text: React.Node, href: string, id?: string, indicator?: 'dot' |}>`,
         required: true,
       },
       {
@@ -64,7 +64,7 @@ function TabExample() {
     setActiveIndex(activeTabIndex)
   };
   const TABS = [
-    { href: "https://pinterest.com", text: "Boards for You" },
+    { href: "https://pinterest.com", text: "Boards for You", indicator: "dot" },
     { href: "https://pinterest.com", text: "Pins for You" },
     { href: "https://pinterest.com", text: "1" },
     { href: "https://pinterest.com", text: "❤" },
