@@ -141,12 +141,17 @@ TextArea.propTypes = {
   value: PropTypes.string,
 };
 
-function forwardRef(props, ref) {
+function TextAreaWithRef(props, ref) {
   return <TextArea {...props} forwardedRef={ref} />;
 }
 
-forwardRef.displayName = 'TextArea';
+TextAreaWithRef.displayName = 'ForwardRef(TextArea)';
 
-export default (React.forwardRef<Props, HTMLTextAreaElement>(
-  forwardRef
-): React$AbstractComponent<Props, HTMLTextAreaElement>);
+const TextAreaWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLTextAreaElement
+> = React.forwardRef<Props, HTMLTextAreaElement>(TextAreaWithRef);
+
+TextAreaWithForwardRef.displayName = 'TextArea';
+
+export default TextAreaWithForwardRef;
