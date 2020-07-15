@@ -75,6 +75,7 @@ describe('TextField', () => {
     fireEvent.blur(getByDisplayValue('TextField Text'));
     expect(mockBlur).toHaveBeenCalled();
   });
+
   it('handles change events', () => {
     const mockChange = jest.fn();
     const { container } = render(
@@ -91,6 +92,7 @@ describe('TextField', () => {
       expect(mockChange).toHaveBeenCalled();
     }
   });
+
   it('handles focus events', () => {
     const mockFocus = jest.fn();
     const { getByDisplayValue } = render(
@@ -105,6 +107,7 @@ describe('TextField', () => {
     fireEvent.focus(getByDisplayValue('TextField Text'));
     expect(mockFocus).toHaveBeenCalled();
   });
+
   it('handles key down events', () => {
     const mockKeyDown = jest.fn();
     const { container } = render(

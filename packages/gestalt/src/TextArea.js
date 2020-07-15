@@ -12,6 +12,7 @@ import styles from './TextArea.css';
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
+  forwardedRef?: React.Ref<'textarea'>,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -34,137 +35,118 @@ type Props = {|
     value: string,
   |}) => void,
   placeholder?: string,
-  rows?: number /* default: 3 */,
+  rows?: number,
   value?: string,
 |};
 
-type State = {|
-  focused: boolean,
-|};
+function TextArea({
+  errorMessage,
+  disabled = false,
+  forwardedRef,
+  hasError = false,
+  helperText,
+  id,
+  label,
+  name,
+  onBlur,
+  onChange,
+  onFocus,
+  onKeyDown,
+  placeholder,
+  rows = 3,
+  value,
+}: Props) {
+  const [focused, setFocused] = React.useState(false);
 
-export default class TextArea extends React.Component<Props, State> {
-  // NOTE: we cannot move to React createRef until we audit uses of callsites
-  // that reach into this component and use this instance variable
-  textarea: ?HTMLElement;
-
-  static propTypes = {
-    disabled: PropTypes.bool,
-    errorMessage: PropTypes.string,
-    hasError: PropTypes.bool,
-    helperText: PropTypes.string,
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string,
-    label: PropTypes.string,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func.isRequired,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    placeholder: PropTypes.string,
-    rows: PropTypes.number,
-    value: PropTypes.string,
-  };
-
-  static defaultProps: {|
-    disabled: boolean,
-    hasError: boolean,
-    rows: number,
-  |} = {
-    disabled: false,
-    hasError: false,
-    rows: 3,
-  };
-
-  state: State = {
-    focused: false,
-  };
-
-  setTextAreaRef: (ref: ?HTMLTextAreaElement) => void = (
-    ref: ?HTMLTextAreaElement
-  ) => {
-    this.textarea = ref;
-  };
-
-  handleChange: (
-    event: SyntheticInputEvent<HTMLTextAreaElement>
-  ) => void = event => {
-    const { onChange } = this.props;
+  const handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {
     onChange({ event, value: event.currentTarget.value });
   };
 
-  handleBlur: (
-    event: SyntheticFocusEvent<HTMLTextAreaElement>
-  ) => void = event => {
-    const { onBlur } = this.props;
+  const handleBlur = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
+    setFocused(false);
     if (onBlur) {
       onBlur({ event, value: event.currentTarget.value });
     }
   };
 
-  handleFocus: (
-    event: SyntheticFocusEvent<HTMLTextAreaElement>
-  ) => void = event => {
-    const { onFocus } = this.props;
+  const handleFocus = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
+    setFocused(false);
     if (onFocus) {
       onFocus({ event, value: event.currentTarget.value });
     }
   };
 
-  handleKeyDown: (
+  const handleKeyDown = (
     event: SyntheticKeyboardEvent<HTMLTextAreaElement>
-  ) => void = event => {
-    const { onKeyDown } = this.props;
+  ) => {
     if (onKeyDown) {
       onKeyDown({ event, value: event.currentTarget.value });
     }
   };
 
-  render(): React.Node {
-    const {
-      disabled,
-      errorMessage,
-      hasError,
-      helperText,
-      id,
-      label,
-      name,
-      placeholder,
-      rows,
-      value,
-    } = this.props;
+  const classes = classnames(
+    styles.textArea,
+    formElement.base,
+    disabled ? formElement.disabled : formElement.enabled,
+    hasError || errorMessage ? formElement.errored : formElement.normal
+  );
 
-    const { focused } = this.state;
-
-    const classes = classnames(
-      styles.textArea,
-      formElement.base,
-      disabled ? formElement.disabled : formElement.enabled,
-      hasError || errorMessage ? formElement.errored : formElement.normal
-    );
-
-    return (
-      <span>
-        {label && <FormLabel id={id} label={label} />}
-        <textarea
-          aria-describedby={errorMessage && focused ? `${id}-error` : null}
-          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
-          className={classes}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          onKeyDown={this.handleKeyDown}
-          placeholder={placeholder}
-          ref={this.setTextAreaRef}
-          rows={rows}
-          value={value}
-        />
-        {helperText && !errorMessage ? (
-          <FormHelperText text={helperText} />
-        ) : null}
-        {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-      </span>
-    );
-  }
+  return (
+    <span>
+      {label && <FormLabel id={id} label={label} />}
+      <textarea
+        aria-describedby={errorMessage && focused ? `${id}-error` : null}
+        aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+        className={classes}
+        disabled={disabled}
+        id={id}
+        name={name}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        placeholder={placeholder}
+        ref={forwardedRef}
+        rows={rows}
+        value={value}
+      />
+      {helperText && !errorMessage ? (
+        <FormHelperText text={helperText} />
+      ) : null}
+      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+    </span>
+  );
 }
+
+TextArea.propTypes = {
+  disabled: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
+  hasError: PropTypes.bool,
+  helperText: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  placeholder: PropTypes.string,
+  rows: PropTypes.number,
+  value: PropTypes.string,
+};
+
+function forwardRef(props, ref) {
+  return <TextArea {...props} forwardedRef={ref} />;
+}
+
+forwardRef.displayName = 'TextArea';
+
+export default (React.forwardRef<Props, HTMLTextAreaElement>(
+  forwardRef
+): React$AbstractComponent<Props, HTMLTextAreaElement>);
