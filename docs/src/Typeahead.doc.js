@@ -110,41 +110,44 @@ card(
     id="basicExample"
     name="Example"
     defaultCode={`
-    function Example(props) {
-      const [item, setItem] = React.useState("");
-      const [selected, setSelected] = React.useState(null);
+function Example(props) {
+  const [item, setItem] = React.useState("");
+  const [selected, setSelected] = React.useState(null);
 
-      const options = Array.from(Array(20).keys()).map((item) => ({
-        value: "value-" + (item + 1),
-        label: "Label-" + (item + 1),
-      }));
+  const options = Array.from(Array(20).keys()).map((item) => ({
+    value: "value-" + (item + 1),
+    label: "Label-" + (item + 1),
+  }));
 
-      const handleOnChange = ({ value }) => {
-        setItem(value);
-      };
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
 
-      const handleSelect = ({item}) => {
-        setSelected(item);
-      };
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
 
-      return (
-        <>
-          <Box marginBottom={2}>
-            <Text>Selected Item: {(selected && selected.label) || ""}</Text>
-          </Box>
+  const label = "Selected Item: " + (selected && selected.label || '');
 
-          <Typeahead
-            id="Typeahead-example"
-            noResultText="No Results"
-            data={options}
-            placeholder="Select a Label"
-            onChange={handleOnChange}
-            value={item}
-            onSelect={handleSelect}
-          />
-        </>
-      );
-    }`}
+  return (
+    <>
+      <Box marginBottom={2}>
+        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      </Box>
+
+      <Typeahead
+        label="Typeahead Example 1"
+        id="Typeahead-example"
+        noResultText="No Results"
+        data={options}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        value={item}
+        onSelect={handleSelect}
+      />
+    </>
+  );
+}`}
   />
 );
 
@@ -153,43 +156,44 @@ card(
     id="defaultItemExample"
     name="Default Item Example"
     defaultCode={`
-    function Example(props) {
-      const options = Array.from(Array(20).keys()).map((item) => ({
-        value: "value-" + (item + 1),
-        label: "Label-" + (item + 1),
-      }));
+function Example(props) {
+  const options = Array.from(Array(20).keys()).map((item) => ({
+    value: "value-" + (item + 1),
+    label: "Label-" + (item + 1),
+  }));
 
-      const defaultOption = options[3];
-      const [item, setItem] = React.useState(defaultOption.label);
-      const [selected, setSelected] = React.useState(defaultOption);
+  const defaultOption = options[3];
+  const [item, setItem] = React.useState(defaultOption.label);
+  const [selected, setSelected] = React.useState(defaultOption);
 
-      const handleOnChange = ({ value }) => {
-        setItem(value);
-      };
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
 
-      const handleSelect = ({item}) => {
-        setSelected(item);
-      };
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
 
-      return (
-        <>
-          <Box marginBottom={2}>
-            <Text>Selected Item: {(selected && selected.label) || ""}</Text>
-          </Box>
+  return (
+    <>
+      <Box marginBottom={2}>
+        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      </Box>
 
-          <Typeahead
-            id="Typeahead-example-defaultItem"
-            noResultText="No Results"
-            data={options}
-            defaultItem={defaultOption}
-            placeholder="Select a Label"
-            onChange={handleOnChange}
-            value={item}
-            onSelect={handleSelect}
-          />
-        </>
-      );
-    }`}
+      <Typeahead
+        label="Typeahead Example 2"
+        id="Typeahead-example-defaultItem"
+        noResultText="No Results"
+        data={options}
+        defaultItem={defaultOption}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        value={item}
+        onSelect={handleSelect}
+      />
+    </>
+  );
+}`}
   />
 );
 

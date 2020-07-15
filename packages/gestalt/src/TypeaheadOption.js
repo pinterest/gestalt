@@ -85,14 +85,18 @@ export default function Option({
 Option.displayName = 'Option';
 
 Option.propTypes = {
+  index: PropTypes.number.isRequired,
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   selected: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }),
   searchField: PropTypes.string,
   handleSelect: PropTypes.func,
+  hoveredItem: PropTypes.number,
+  setHoveredItem: PropTypes.func,
+  setOptionRef: PropTypes.func,
 };

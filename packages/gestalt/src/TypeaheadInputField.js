@@ -11,6 +11,8 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
 
+type DirectionOptionType = -1 | 0 | 1;
+
 type Props = {|
   id: string,
   onBlur?: ({|
@@ -26,7 +28,10 @@ type Props = {|
     value: string,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
-  onKeyNavigation: (SyntheticKeyboardEvent<HTMLInputElement>, number) => void,
+  onKeyNavigation: (
+    SyntheticKeyboardEvent<HTMLInputElement>,
+    DirectionOptionType
+  ) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
@@ -162,6 +167,8 @@ const InputField = ({
             justifyContent="center"
             rounding="circle"
             width={clearButtonSize}
+            left
+            right
           >
             <Icon
               accessibilityLabel=""

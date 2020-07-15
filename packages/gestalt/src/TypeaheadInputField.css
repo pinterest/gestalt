@@ -1,9 +1,7 @@
-
 .icon {
   composes: marginEnd2 paddingX1 paddingY1 from "./boxWhitespace.css";
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
-  composes: right0 from "./Layout.css";
   composes: transparentBg from "./Colors.css";
   outline: none;
   position: absolute;
@@ -13,4 +11,20 @@
 
 .inputRadius {
   composes: rounding4 from './Borders.css'
+}
+
+html:not([dir="rtl"]) .inputActive {
+ padding: 8px 32px 8px 16px;
+}
+
+html[dir="rtl"] .inputActive {
+  padding: 8px 16px 8px 32px;
+}
+
+html:not([dir="rtl"]) .icon {
+  right: 0;
+}
+
+html[dir="rtl"] .icon {
+  left: 0;
 }

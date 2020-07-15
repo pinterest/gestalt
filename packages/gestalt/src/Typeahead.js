@@ -187,7 +187,7 @@ const Typeahead = (props: Props): Node => {
 
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLInputElement>,
-    direction: number
+    direction: -1 | 0 | 1
   ) => {
     let cursorIndex;
     let newItem: OptionObject = options[0];
@@ -309,14 +309,15 @@ const Typeahead = (props: Props): Node => {
 Typeahead.displayName = 'Typeahead';
 
 Typeahead.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onChange: PropTypes.func,
   data: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   searchField: PropTypes.string,
@@ -327,7 +328,7 @@ Typeahead.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }),
-  noResultText: PropTypes.string,
+  noResultText: PropTypes.string.isRequired,
 };
 
 const forwardRefTypeaheadField = (props, ref): Node => {
