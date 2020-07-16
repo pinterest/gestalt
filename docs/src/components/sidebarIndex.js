@@ -25,6 +25,8 @@ const componentSubSectionPages = {
     'TapArea',
     'TextArea',
     'TextField',
+    'Tooltip',
+    'Typeahead',
   ],
   foundation: ['Heading', 'Icon', 'Text'],
   layout: [
