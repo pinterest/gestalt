@@ -1,3 +1,9 @@
+## 7.0.0 (Jul 16, 2020)
+
+### Major
+
+- TextArea: Add forward ref (BREAKING CHANGE) (#1053)
+
 ## 6.3.0 (Jul 16, 2020)
 
 ### Minor
