@@ -129,7 +129,7 @@ card(
 card(
   <Example
     description={`
-    There are two different width options for buttons. The inline buttons are
+    There are two different width options for buttons. The inline buttons
     are sized by the text within the button, whereas the default block buttons
     expand to the full width of their container. The default \`inline\` is false.
   `}

@@ -74,6 +74,7 @@ function TapArea({
   } = useTapFeedback();
 
   const className = classnames(
+    styles.tapTransition,
     styles.touchable,
     getRoundingClassName(rounding),
     {

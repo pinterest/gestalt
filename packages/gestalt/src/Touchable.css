@@ -1,6 +1,5 @@
 .touchable {
   composes: accessibilityOutline from "./Focus.css";
-  transition: transform 85ms ease-out;
 }
 
 .fullHeight {
@@ -43,7 +42,11 @@
   composes: grabbing from "./Cursor.css";
 }
 
+.tapTransition {
+  transition: transform 85ms ease-out;
+}
+
 .tapCompress {
-  transform: scale(0.99);
+  transform: scale(0.98);
   transform-origin: center;
 }
