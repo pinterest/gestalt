@@ -3,7 +3,7 @@
 exports[`IconButton renders with disabled state 1`] = `
 <button
   aria-label="Pinterest"
-  className="button tapTransition disabled"
+  className="button disabled"
   disabled={true}
   onBlur={[Function]}
   onClick={[Function]}
@@ -12,10 +12,6 @@ exports[`IconButton renders with disabled state 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
   type="button"
 >
   <div
@@ -47,7 +43,7 @@ exports[`IconButton renders with disabled state 1`] = `
 exports[`IconButton renders with icon 1`] = `
 <button
   aria-label="Pinterest"
-  className="button tapTransition enabled"
+  className="button enabled"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -55,10 +51,6 @@ exports[`IconButton renders with icon 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
   type="button"
 >
   <div
@@ -90,7 +82,7 @@ exports[`IconButton renders with icon 1`] = `
 exports[`IconButton renders with svg 1`] = `
 <button
   aria-label="Pinterest"
-  className="button tapTransition enabled"
+  className="button enabled"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -98,10 +90,6 @@ exports[`IconButton renders with svg 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
   type="button"
 >
   <div
