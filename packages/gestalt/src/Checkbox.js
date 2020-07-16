@@ -16,6 +16,7 @@ type Props = {|
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
+  forwardedRef?: React.Ref<'div'>,
   hasError?: boolean,
   id: string,
   indeterminate?: boolean,
@@ -32,10 +33,11 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-export default function Checkbox({
+function Checkbox({
   checked = false,
   disabled = false,
   errorMessage,
+  forwardedRef,
   hasError = false,
   id,
   indeterminate = false,
@@ -104,7 +106,7 @@ export default function Checkbox({
         marginRight={-1}
       >
         <Label htmlFor={id}>
-          <Box paddingX={1} position="relative">
+          <Box ref={forwardedRef} paddingX={1} position="relative">
             <input
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
@@ -174,6 +176,12 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   hasError: PropTypes.bool,
   id: PropTypes.string.isRequired,
   indeterminate: PropTypes.bool,
@@ -183,3 +191,18 @@ Checkbox.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md']),
 };
+
+function CheckboxWithRef(props, ref) {
+  return <Checkbox {...props} forwardedRef={ref} />;
+}
+
+CheckboxWithRef.displayName = 'ForwardRef(Checkbox)';
+
+const CheckboxWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLDivElement
+> = React.forwardRef<Props, HTMLDivElement>(CheckboxWithRef);
+
+CheckboxWithForwardRef.displayName = 'Checkbox';
+
+export default CheckboxWithForwardRef;
