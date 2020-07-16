@@ -14,7 +14,7 @@
 }
 
 html:not([dir="rtl"]) .inputActive {
- padding: 8px 32px 8px 16px;
+  padding: 8px 32px 8px 16px;
 }
 
 html[dir="rtl"] .inputActive {
