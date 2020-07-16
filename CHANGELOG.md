@@ -1,3 +1,9 @@
+## 6.3.0 (Jul 16, 2020)
+
+### Minor
+
+- Typeahead: Add New Component (#907)
+
 ## 6.2.0 (Jul 14, 2020)
 
 ### Minor
