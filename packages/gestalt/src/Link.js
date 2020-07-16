@@ -62,6 +62,7 @@ function Link({
 
   const className = classnames(
     styles.link,
+    touchableStyles.tapTransition,
     touchableStyles.touchable,
     inline ? styles.inlineBlock : styles.block,
     getRoundingClassName(rounding),

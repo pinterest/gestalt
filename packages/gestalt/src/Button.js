@@ -9,6 +9,8 @@ import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
+import useTapFeedback from './useTapFeedback.js';
+import touchableStyles from './Touchable.css';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -60,6 +62,17 @@ export default function Button(props: Props): Element<'button'> {
     textColor: textColorProp,
     type = 'button',
   } = props;
+  const {
+    isTapping,
+    handleBlur,
+    handleMouseDown,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchCancel,
+    handleTouchEnd,
+  } = useTapFeedback();
+
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -73,7 +86,7 @@ export default function Button(props: Props): Element<'button'> {
     colorClass = 'darkModeGray';
   }
 
-  const classes = classnames(styles.button, {
+  const classes = classnames(styles.button, touchableStyles.tapTransition, {
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
@@ -84,6 +97,7 @@ export default function Button(props: Props): Element<'button'> {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
+    [touchableStyles.tapCompress]: isTapping,
   });
 
   const textColor =
@@ -109,7 +123,14 @@ export default function Button(props: Props): Element<'button'> {
       className={classes}
       disabled={disabled}
       name={name}
+      onBlur={handleBlur}
       onClick={event => onClick && onClick({ event })}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
       type={type}
     >
       {iconEnd ? (
