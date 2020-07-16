@@ -101,6 +101,13 @@ card(
         description: 'md: 40px, lg: 48px',
         defaultValue: 'md',
       },
+      {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description:
+          'Forward the ref to the underlying component container element',
+        href: 'refExample',
+      },
     ]}
   />
 );
