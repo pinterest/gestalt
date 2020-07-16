@@ -44,7 +44,7 @@ exports[`Typeahead renders Typeahead normal 1`] = `
       type="button"
     >
       <div
-        className="box circle itemsCenter justifyCenter xsDisplayFlex"
+        className="box circle itemsCenter justifyCenter left0 right0 xsDisplayFlex"
         style={
           Object {
             "height": 20,
