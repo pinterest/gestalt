@@ -131,8 +131,8 @@ function Example(props) {
 
   return (
     <>
-      <Box marginBottom={2}>
-        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      <Box marginBottom={4}>
+       <Text>Selected Item: {(selected && selected.label) || ""}</Text>
       </Box>
 
       <Typeahead
@@ -176,8 +176,8 @@ function Example(props) {
 
   return (
     <>
-      <Box marginBottom={2}>
-        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      <Box marginBottom={4}>
+       <Text>Selected Item: {(selected && selected.label) || ""}</Text>
       </Box>
 
       <Typeahead

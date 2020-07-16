@@ -103,10 +103,7 @@ export {
   TextField,
   Toast,
   Tooltip,
-<<<<<<< HEAD
   Typeahead,
-=======
   useColorScheme,
->>>>>>> master
   Video,
 };

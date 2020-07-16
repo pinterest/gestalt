@@ -45,7 +45,7 @@ type Props = {|
   placeholder?: string,
   searchField?: string,
   size?: 'md' | 'lg',
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: React.Ref<'div'>,
 |};
 
 const Typeahead = (props: Props): Node => {
@@ -157,9 +157,11 @@ const Typeahead = (props: Props): Node => {
     // When we reach the start or end of the list, move to the start or end of the list based on the direction
     const nextOption =
       direction > 0
-        ? // $FlowFixMe[incompatible-cast]
+        ? // .nextSibling returns a Node element which is not compatible with HTMLElement
+          // $FlowFixMe[incompatible-cast]
           (selectedElement?.nextSibling: ?HTMLElement)
-        : // $FlowFixMe[incompatible-cast]
+        : // .nextSibling returns a Node element which is not compatible with HTMLElement
+          // $FlowFixMe[incompatible-cast]
           (selectedElement?.previousSibling: ?HTMLElement);
 
     // Handles which option to display once we've hit the end of the list range
@@ -266,6 +268,8 @@ const Typeahead = (props: Props): Node => {
             key={options.length}
           >
             <Box
+              // The returned element is Node which is incompatible with HTMLElement type
+              // $FlowFixMe[incompatible-type]
               ref={containerRef}
               position="relative"
               overflow="auto"
@@ -274,7 +278,6 @@ const Typeahead = (props: Props): Node => {
               marginBottom={2}
               maxHeight="50vh"
               width={inputRef?.current?.offsetWidth}
-              color="white"
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
@@ -337,6 +340,6 @@ const forwardRefTypeaheadField = (props, ref): Node => {
 
 forwardRefTypeaheadField.displayName = 'Typeahead';
 
-export default (React.forwardRef<Props, HTMLInputElement>(
+export default (React.forwardRef<Props, HTMLDivElement>(
   forwardRefTypeaheadField
-): React$AbstractComponent<Props, HTMLInputElement>);
+): React$AbstractComponent<Props, HTMLDivElement>);

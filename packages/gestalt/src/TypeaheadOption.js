@@ -6,6 +6,8 @@ import Box from './Box.js';
 import Text from './Text.js';
 import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
+import Icon from './Icon.js';
 
 type OptionObject = {|
   label: string,
@@ -26,7 +28,7 @@ type OptionProps = {|
   setOptionRef: (?HTMLElement) => void,
 |};
 
-export default function Option({
+export default function TypeaheadOption({
   index,
   option,
   selected,
@@ -48,12 +50,15 @@ export default function Option({
     [styles.pointer]: true,
   });
 
+  const { name: themeName } = useColorScheme();
+
   // Default option color
-  let optionStateColor = 'white';
-  // Set color on item selected
-  if (isSelectedItem) optionStateColor = 'lightWash';
+  let optionStateColor = 'transparent';
+
   // Set color on item hover
   if (index === hoveredItem) optionStateColor = 'lightGray';
+
+  const textColor = themeName !== 'lightTheme' ? 'darkGray' : 'white';
 
   return (
     <div
@@ -75,16 +80,40 @@ export default function Option({
       aria-selected={isSelectedItem}
       tabIndex="-1"
     >
-      <Box margin={1} padding={2} color={optionStateColor} rounding={2}>
-        <Text color="darkGray">{`${option[searchField]}`}</Text>
+      <Box
+        margin={1}
+        padding={2}
+        color={optionStateColor}
+        rounding={2}
+        display="flex"
+        direction="row"
+      >
+        <Box flex="grow">
+          <Text color={textColor}>{`${option[searchField]}`}</Text>
+        </Box>
+        {isSelectedItem && (
+          <Box
+            display="flex"
+            color="transparent"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Icon
+              accessibilityLabel="selected-icon"
+              color="darkGray"
+              icon="check"
+              size={12}
+            />
+          </Box>
+        )}
       </Box>
     </div>
   );
 }
 
-Option.displayName = 'Option';
+TypeaheadOption.displayName = 'TypeaheadOption';
 
-Option.propTypes = {
+TypeaheadOption.propTypes = {
   index: PropTypes.number.isRequired,
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
