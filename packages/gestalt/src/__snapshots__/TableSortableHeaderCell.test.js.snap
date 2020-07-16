@@ -10,7 +10,7 @@ exports[`renders correctly when active 1`] = `
   >
     <div
       aria-disabled={false}
-      className="touchable rounding0 pointer"
+      className="tapTransition touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={[Function]}
@@ -69,7 +69,7 @@ exports[`renders correctly when inactive 1`] = `
   >
     <div
       aria-disabled={false}
-      className="touchable rounding0 pointer"
+      className="tapTransition touchable rounding0 pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onContextMenu={[Function]}

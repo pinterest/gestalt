@@ -16,7 +16,9 @@ export const keyPressShouldTriggerTap = (
   event: SyntheticKeyboardEvent<TapTargetHTMLElement>
 ): boolean => [SPACE_CHAR_CODE, ENTER_CHAR_CODE].includes(event.charCode);
 
-export default function useTapFeedback(): {|
+export default function useTapFeedback(ref: {|
+  current: null | React$ElementRef<string>,
+|}): {|
   handleBlur: () => void,
   handleMouseDown: () => void,
   handleMouseUp: () => void,
@@ -31,6 +33,20 @@ export default function useTapFeedback(): {|
     x: 0,
     y: 0,
   });
+
+  React.useEffect(() => {
+    if (ref && ref.current) {
+      if (isTapping) {
+        // eslint-disable-next-line no-param-reassign
+        ref.current.style.transform = `scale(${(ref.current.clientWidth - 4) /
+          ref.current.clientWidth})`;
+      } else {
+        // eslint-disable-next-line no-param-reassign
+        ref.current.style.transform = '';
+      }
+    }
+  }, [ref, isTapping]);
+
   return {
     isTapping,
     handleBlur: () => setTapping(false),
