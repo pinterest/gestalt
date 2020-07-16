@@ -16,7 +16,14 @@ export const keyPressShouldTriggerTap = (
   event: SyntheticKeyboardEvent<TapTargetHTMLElement>
 ): boolean => [SPACE_CHAR_CODE, ENTER_CHAR_CODE].includes(event.charCode);
 
-export default function useTapFeedback(): {|
+export default function useTapFeedback({
+  height,
+  width,
+}: {|
+  height: ?number,
+  width: ?number,
+|}): {|
+  compressStyle: ?{| transform: string |},
   handleBlur: () => void,
   handleMouseDown: () => void,
   handleMouseUp: () => void,
@@ -31,7 +38,20 @@ export default function useTapFeedback(): {|
     x: 0,
     y: 0,
   });
+
+  const [compressStyle, setCompressStyle] = React.useState(null);
+
+  React.useEffect(() => {
+    if (height != null && width != null) {
+      const largestSize = width > height ? width : height;
+      setCompressStyle({
+        transform: isTapping ? `scale(${(largestSize - 4) / largestSize})` : '',
+      });
+    }
+  }, [height, width, isTapping]);
+
   return {
+    compressStyle,
     isTapping,
     handleBlur: () => setTapping(false),
     handleMouseDown: () => setTapping(true),

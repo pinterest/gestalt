@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { type Element } from 'react';
+import React, { useRef, type Element } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -62,7 +62,10 @@ export default function Button(props: Props): Element<'button'> {
     textColor: textColorProp,
     type = 'button',
   } = props;
+  const buttonElement = useRef(null);
+
   const {
+    compressStyle,
     isTapping,
     handleBlur,
     handleMouseDown,
@@ -71,7 +74,10 @@ export default function Button(props: Props): Element<'button'> {
     handleTouchMove,
     handleTouchCancel,
     handleTouchEnd,
-  } = useTapFeedback();
+  } = useTapFeedback({
+    height: buttonElement?.current?.clientHeight,
+    width: buttonElement?.current?.clientWidth,
+  });
 
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
@@ -97,7 +103,7 @@ export default function Button(props: Props): Element<'button'> {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
-    [touchableStyles.tapCompress]: isTapping,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
   const textColor =
@@ -132,6 +138,8 @@ export default function Button(props: Props): Element<'button'> {
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       type={type}
+      ref={buttonElement}
+      {...(compressStyle ? { style: compressStyle } : {})}
     >
       {iconEnd ? (
         <Box alignItems="center" display="flex">

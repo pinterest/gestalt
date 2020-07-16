@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
@@ -45,8 +45,11 @@ export default function IconButton({
   padding,
   selected,
   size,
-}: Props): React.Node {
+}: Props): Node {
+  const buttonElement = useRef(null);
+
   const {
+    compressStyle,
     isTapping,
     handleBlur,
     handleMouseDown,
@@ -55,7 +58,10 @@ export default function IconButton({
     handleTouchMove,
     handleTouchCancel,
     handleTouchEnd,
-  } = useTapFeedback();
+  } = useTapFeedback({
+    height: buttonElement?.current?.clientHeight,
+    width: buttonElement?.current?.clientWidth,
+  });
 
   const [isActive, setActive] = React.useState(false);
   const [isFocused, setFocused] = React.useState(false);
@@ -64,7 +70,7 @@ export default function IconButton({
   const classes = classnames(styles.button, touchableStyles.tapTransition, {
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: isTapping,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
   return (
@@ -98,6 +104,8 @@ export default function IconButton({
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
+      ref={buttonElement}
+      {...(compressStyle ? { style: compressStyle } : {})}
       type="button"
     >
       <Pog
