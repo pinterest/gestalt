@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   accessibilityControls?: string,
@@ -24,7 +24,7 @@ type Props = {|
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  onClick?: AbstractEvent<SyntheticMouseEvent<HTMLButtonElement>>,
+  onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
   padding?: 1 | 2 | 3 | 4 | 5,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',

@@ -5,9 +5,9 @@ import Box from './Box.js';
 import Row from './Row.js';
 import Link from './Link.js';
 import Text from './Text.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type OnChangeHandler = AbstractEvent<
+type OnChangeHandler = AbstractEventHandler<
   | SyntheticMouseEvent<HTMLAnchorElement>
   | SyntheticKeyboardEvent<HTMLAnchorElement>,
   {| +activeTabIndex: number |}

@@ -6,7 +6,7 @@ import VideoControls from './VideoControls.js';
 import { ColorSchemeProvider } from './contexts/ColorScheme.js';
 import styles from './Video.css';
 import Box from './Box.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Source =
   | string
@@ -30,23 +30,23 @@ type Props = {|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   |}) => void,
-  onEnded?: AbstractEvent<SyntheticEvent<HTMLVideoElement>>,
-  onFullscreenChange?: AbstractEvent<Event, {| fullscreen: boolean |}>,
-  onLoadedChange?: AbstractEvent<
+  onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
+  onLoadedChange?: AbstractEventHandler<
     SyntheticEvent<HTMLVideoElement>,
     {| loaded: number |}
   >,
-  onPlay?: AbstractEvent<SyntheticEvent<HTMLDivElement>>,
-  onPlayheadDown?: AbstractEvent<SyntheticMouseEvent<HTMLDivElement>>,
-  onPlayheadUp?: AbstractEvent<SyntheticMouseEvent<HTMLDivElement>>,
-  onPause?: AbstractEvent<SyntheticEvent<HTMLDivElement>>,
-  onReady?: AbstractEvent<SyntheticEvent<HTMLVideoElement>>,
-  onSeek?: AbstractEvent<SyntheticEvent<HTMLVideoElement>>,
-  onTimeChange?: AbstractEvent<
+  onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement>>,
+  onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onPause?: AbstractEventHandler<SyntheticEvent<HTMLDivElement>>,
+  onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onTimeChange?: AbstractEventHandler<
     SyntheticEvent<HTMLVideoElement>,
     {| time: number |}
   >,
-  onVolumeChange?: AbstractEvent<
+  onVolumeChange?: AbstractEventHandler<
     SyntheticEvent<HTMLDivElement>,
     {| volume: number |}
   >,

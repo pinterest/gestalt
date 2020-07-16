@@ -9,7 +9,7 @@ import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -35,7 +35,7 @@ type Props = {|
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
-  onClick?: AbstractEvent<SyntheticMouseEvent<HTMLButtonElement>>,
+  onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
   selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   text: string,

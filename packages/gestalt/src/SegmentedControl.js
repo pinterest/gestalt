@@ -6,11 +6,11 @@ import Box from './Box.js';
 import Text from './Text.js';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   items: Array<React.Node>,
-  onChange: AbstractEvent<
+  onChange: AbstractEventHandler<
     SyntheticMouseEvent<HTMLButtonElement>,
     {| activeIndex: number |}
   >,

@@ -8,7 +8,7 @@ import getRoundingClassName, {
   RoundingPropType,
   type Rounding,
 } from './getRoundingClassName.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type TapStyle = 'none' | 'compress';
 
@@ -31,11 +31,11 @@ type Props = {|
     | 'pointer'
     | 'zoomIn'
     | 'zoomOut',
-  onBlur?: AbstractEvent<SyntheticFocusEvent<HTMLDivElement>>,
-  onFocus?: AbstractEvent<SyntheticFocusEvent<HTMLDivElement>>,
-  onMouseEnter?: AbstractEvent<SyntheticMouseEvent<HTMLDivElement>>,
-  onMouseLeave?: AbstractEvent<SyntheticMouseEvent<HTMLDivElement>>,
-  onTap?: AbstractEvent<
+  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLDivElement>>,
+  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLDivElement>>,
+  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onTap?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>
   >,
   tapStyle?: TapStyle,

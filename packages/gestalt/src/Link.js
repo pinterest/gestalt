@@ -9,7 +9,7 @@ import getRoundingClassName, {
   RoundingPropType,
   type Rounding,
 } from './getRoundingClassName.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   accessibilitySelected?: boolean,
@@ -19,12 +19,12 @@ type Props = {|
   href: string,
   id?: string,
   inline?: boolean,
-  onBlur?: AbstractEvent<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onClick?: AbstractEvent<
+  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
+  onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
-  onFocus?: AbstractEvent<SyntheticFocusEvent<HTMLAnchorElement>>,
+  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,

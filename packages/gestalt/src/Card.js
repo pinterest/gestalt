@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Card.css';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   active?: ?boolean,
   children?: React.Node,
   image?: React.Node,
-  onMouseEnter?: AbstractEvent<SyntheticMouseEvent<HTMLDivElement>>,
-  onMouseLeave?: AbstractEvent<SyntheticMouseEvent<HTMLDivElement>>,
+  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
 |};
 
 export default function Card(props: Props): React.Node {

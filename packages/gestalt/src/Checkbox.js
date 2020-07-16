@@ -10,7 +10,7 @@ import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   checked?: boolean,
@@ -21,11 +21,11 @@ type Props = {|
   indeterminate?: boolean,
   label?: string,
   name?: string,
-  onChange: AbstractEvent<
+  onChange: AbstractEventHandler<
     SyntheticInputEvent<HTMLInputElement>,
     {| checked: boolean |}
   >,
-  onClick?: AbstractEvent<
+  onClick?: AbstractEventHandler<
     SyntheticInputEvent<HTMLInputElement>,
     {| checked: boolean |}
   >,

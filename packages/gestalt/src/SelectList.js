@@ -10,7 +10,7 @@ import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
 import Icon from './Icon.js';
 import styles from './SelectList.css';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   errorMessage?: string,
@@ -19,7 +19,7 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: AbstractEvent<
+  onChange: AbstractEventHandler<
     SyntheticInputEvent<HTMLSelectElement>,
     {| value: string |}
   >,

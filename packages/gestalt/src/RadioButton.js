@@ -7,7 +7,7 @@ import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
-import { type AbstractEvent } from './AbstractEvent.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   checked?: boolean,
@@ -15,7 +15,7 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: AbstractEvent<
+  onChange: AbstractEventHandler<
     SyntheticInputEvent<HTMLInputElement>,
     {| checked: boolean |}
   >,
