@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
@@ -45,7 +45,9 @@ export default function IconButton({
   padding,
   selected,
   size,
-}: Props): React.Node {
+}: Props): Node {
+  const buttonElement = useRef(null);
+
   const {
     isTapping,
     handleBlur,
@@ -55,7 +57,7 @@ export default function IconButton({
     handleTouchMove,
     handleTouchCancel,
     handleTouchEnd,
-  } = useTapFeedback();
+  } = useTapFeedback(buttonElement);
 
   const [isActive, setActive] = React.useState(false);
   const [isFocused, setFocused] = React.useState(false);
