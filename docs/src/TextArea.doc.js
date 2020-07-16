@@ -30,6 +30,12 @@ card(
         href: 'errorMessageExample',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'textarea'>",
+        description: 'Forward the ref to the underlying textarea element',
+        href: 'refExample',
+      },
+      {
         name: 'helperText',
         type: 'string',
         description: 'More information about how to complete the form field',
@@ -155,6 +161,47 @@ function Example(props) {
         label="With a placeholder"
         value={value}
       />
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`TextArea\` with an anchor ref to a Flyout component
+  `}
+    defaultCode={`
+function TextAreaFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef();
+  return (
+    <Box marginBottom={12}>
+      <TextArea
+        ref={anchorRef}
+        label="Focus the TextArea to show the Flyout"
+        id="my-example"
+        onChange={() => {}}
+        onBlur={() => setOpen(false)}
+        onFocus={() => setOpen(true)}
+      />
+      {open && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="down"
+          onDismiss={() => setOpen(false)}
+          shouldFocus={false}
+          size="md"
+        >
+          <Box padding={3}>
+            <Text weight="bold">Example with Flyout</Text>
+          </Box>
+        </Flyout>
+      )}
     </Box>
   );
 }

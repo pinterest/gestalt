@@ -43,6 +43,7 @@ describe('TextArea', () => {
     fireEvent.blur(getByDisplayValue('TextArea Text'));
     expect(mockBlur).toHaveBeenCalled();
   });
+
   it('handles change events', () => {
     const mockChange = jest.fn();
     const { container } = render(
@@ -59,6 +60,7 @@ describe('TextArea', () => {
       expect(mockChange).toHaveBeenCalled();
     }
   });
+
   it('handles focus events', () => {
     const mockFocus = jest.fn();
     const { getByDisplayValue } = render(
@@ -73,6 +75,7 @@ describe('TextArea', () => {
     fireEvent.focus(getByDisplayValue('TextArea Text'));
     expect(mockFocus).toHaveBeenCalled();
   });
+
   it('handles key down events', () => {
     const mockKeyDown = jest.fn();
     const { container } = render(
@@ -93,6 +96,22 @@ describe('TextArea', () => {
       });
       expect(mockKeyDown).toHaveBeenCalled();
     }
+  });
+
+  it('forwards a ref to <input />', () => {
+    const ref = React.createRef();
+    render(
+      <TextArea
+        id="test"
+        onChange={jest.fn()}
+        onFocus={jest.fn()}
+        onBlur={jest.fn()}
+        value="TextArea Text"
+        ref={ref}
+      />
+    );
+    expect(ref.current instanceof HTMLTextAreaElement).toEqual(true);
+    expect(ref.current?.value).toEqual('TextArea Text');
   });
 
   it('shows a label for the text area', () => {
