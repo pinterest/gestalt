@@ -1,3 +1,21 @@
+## 7.1.0 (Jul 17, 2020)
+
+### Minor
+
+- Button/IconButton: compress onClick or onTouch (#1056)
+
+## 7.0.0 (Jul 16, 2020)
+
+### Major
+
+- TextArea: Add forward ref (BREAKING CHANGE) (#1053)
+
+## 6.3.0 (Jul 16, 2020)
+
+### Minor
+
+- Typeahead: Add New Component (#907)
+
 ## 6.2.0 (Jul 14, 2020)
 
 ### Minor

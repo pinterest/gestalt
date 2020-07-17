@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { type Element } from 'react';
+import React, { useRef, type Element } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -10,6 +10,8 @@ import styles from './Button.css';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import useTapFeedback from './useTapFeedback.js';
+import touchableStyles from './Touchable.css';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -61,6 +63,23 @@ export default function Button(props: Props): Element<'button'> {
     textColor: textColorProp,
     type = 'button',
   } = props;
+  const buttonElement = useRef(null);
+
+  const {
+    compressStyle,
+    isTapping,
+    handleBlur,
+    handleMouseDown,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchCancel,
+    handleTouchEnd,
+  } = useTapFeedback({
+    height: buttonElement?.current?.clientHeight,
+    width: buttonElement?.current?.clientWidth,
+  });
+
   const { name: colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -74,7 +93,7 @@ export default function Button(props: Props): Element<'button'> {
     colorClass = 'darkModeGray';
   }
 
-  const classes = classnames(styles.button, {
+  const classes = classnames(styles.button, touchableStyles.tapTransition, {
     [styles.sm]: size === 'sm',
     [styles.md]: size === 'md',
     [styles.lg]: size === 'lg',
@@ -85,6 +104,7 @@ export default function Button(props: Props): Element<'button'> {
     [styles.enabled]: !disabled,
     [styles.inline]: inline,
     [styles.block]: !inline,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
   const textColor =
@@ -110,8 +130,17 @@ export default function Button(props: Props): Element<'button'> {
       className={classes}
       disabled={disabled}
       name={name}
+      onBlur={handleBlur}
       onClick={event => onClick && onClick({ event })}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
       type={type}
+      ref={buttonElement}
+      {...(compressStyle ? { style: compressStyle } : {})}
     >
       {iconEnd ? (
         <Box alignItems="center" display="flex">

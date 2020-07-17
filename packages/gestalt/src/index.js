@@ -48,6 +48,7 @@ import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Video from './Video.js';
+import Typeahead from './Typeahead.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
@@ -102,6 +103,7 @@ export {
   TextField,
   Toast,
   Tooltip,
+  Typeahead,
   useColorScheme,
   Video,
 };

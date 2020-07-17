@@ -27,7 +27,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
       >
         <a
           aria-selected={true}
-          className="link touchable block pill"
+          className="link tapTransition touchable block pill"
           href="#"
           onBlur={[Function]}
           onClick={[Function]}
@@ -71,7 +71,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
       >
         <a
           aria-selected={false}
-          className="link touchable block pill"
+          className="link tapTransition touchable block pill"
           href="#"
           onBlur={[Function]}
           onClick={[Function]}
@@ -138,7 +138,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
       >
         <a
           aria-selected={true}
-          className="link touchable block pill"
+          className="link tapTransition touchable block pill"
           href="#"
           onBlur={[Function]}
           onClick={[Function]}
@@ -192,7 +192,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
       >
         <a
           aria-selected={false}
-          className="link touchable block pill"
+          className="link tapTransition touchable block pill"
           href="#"
           onBlur={[Function]}
           onClick={[Function]}
@@ -269,7 +269,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
       >
         <a
           aria-selected={true}
-          className="link touchable block pill"
+          className="link tapTransition touchable block pill"
           href="#"
           onBlur={[Function]}
           onClick={[Function]}
@@ -313,7 +313,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
       >
         <a
           aria-selected={false}
-          className="link touchable block pill"
+          className="link tapTransition touchable block pill"
           href="#"
           onBlur={[Function]}
           onClick={[Function]}

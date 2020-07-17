@@ -49,7 +49,12 @@ function Link({
   tapStyle = 'none',
   target = null,
 }: Props): React.Node {
+  const innerRef = React.useRef(null);
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+
   const {
+    compressStyle,
     isTapping,
     handleBlur,
     handleMouseDown,
@@ -58,10 +63,14 @@ function Link({
     handleTouchMove,
     handleTouchCancel,
     handleTouchEnd,
-  } = useTapFeedback();
+  } = useTapFeedback({
+    height: innerRef?.current?.clientHeight,
+    width: innerRef?.current?.clientWidth,
+  });
 
   const className = classnames(
     styles.link,
+    touchableStyles.tapTransition,
     touchableStyles.touchable,
     inline ? styles.inlineBlock : styles.block,
     getRoundingClassName(rounding),
@@ -107,11 +116,14 @@ function Link({
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      ref={forwardedRef}
+      ref={innerRef}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      {...(compressStyle && tapStyle === 'compress'
+        ? { style: compressStyle }
+        : {})}
       role={role}
       target={target ? `_${target}` : null}
     >
