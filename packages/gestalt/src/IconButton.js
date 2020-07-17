@@ -1,10 +1,12 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import styles from './IconButton.css';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
+import styles from './IconButton.css';
+import touchableStyles from './Touchable.css';
+import useTapFeedback from './useTapFeedback.js';
 
 type Props = {|
   accessibilityControls?: string,
@@ -43,10 +45,33 @@ export default function IconButton({
   padding,
   selected,
   size,
-}: Props): React.Node {
+}: Props): Node {
+  const buttonElement = useRef(null);
+
+  const {
+    compressStyle,
+    isTapping,
+    handleBlur,
+    handleMouseDown,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchCancel,
+    handleTouchEnd,
+  } = useTapFeedback({
+    height: buttonElement?.current?.clientHeight,
+    width: buttonElement?.current?.clientWidth,
+  });
+
   const [isActive, setActive] = React.useState(false);
   const [isFocused, setFocused] = React.useState(false);
   const [isHovered, setHovered] = React.useState(false);
+
+  const classes = classnames(styles.button, touchableStyles.tapTransition, {
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+  });
 
   return (
     <button
@@ -54,21 +79,33 @@ export default function IconButton({
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={classnames(
-        styles.button,
-        disabled ? styles.disabled : styles.enabled
-      )}
+      className={classes}
       disabled={disabled}
-      onBlur={() => setFocused(false)}
+      onBlur={() => {
+        handleBlur();
+        setFocused(false);
+      }}
       onClick={event => onClick && onClick({ event })}
       onFocus={() => setFocused(true)}
-      onMouseDown={() => setActive(true)}
+      onMouseDown={() => {
+        handleMouseDown();
+        setActive(true);
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => {
         setActive(false);
         setHovered(false);
       }}
-      onMouseUp={() => setActive(false)}
+      onMouseUp={() => {
+        handleMouseUp();
+        setActive(false);
+      }}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      ref={buttonElement}
+      {...(compressStyle ? { style: compressStyle } : {})}
       type="button"
     >
       <Pog

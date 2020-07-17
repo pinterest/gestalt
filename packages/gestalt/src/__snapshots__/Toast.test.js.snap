@@ -73,7 +73,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           Saved to
            
           <a
-            className="link touchable block rounding0 hoverUnderline"
+            className="link tapTransition touchable block rounding0 hoverUnderline"
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}
@@ -96,9 +96,16 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="box flexNone paddingX2"
       >
         <button
-          className="button lg solid gray enabled block"
+          className="button tapTransition lg solid gray enabled block"
           disabled={false}
+          onBlur={[Function]}
           onClick={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
           type="button"
         >
           <div
@@ -156,7 +163,7 @@ exports[`<Toast /> Text + Image 1`] = `
           Saved to
            
           <a
-            className="link touchable block rounding0 hoverUnderline"
+            className="link tapTransition touchable block rounding0 hoverUnderline"
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}

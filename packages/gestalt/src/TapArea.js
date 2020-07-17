@@ -62,7 +62,12 @@ function TapArea({
   tapStyle = 'none',
   rounding = 0,
 }: Props) {
+  const innerRef = React.useRef(null);
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+
   const {
+    compressStyle,
     isTapping,
     handleBlur,
     handleMouseDown,
@@ -71,9 +76,13 @@ function TapArea({
     handleTouchMove,
     handleTouchCancel,
     handleTouchEnd,
-  } = useTapFeedback();
+  } = useTapFeedback({
+    height: innerRef?.current?.clientHeight,
+    width: innerRef?.current?.clientWidth,
+  });
 
   const className = classnames(
+    styles.tapTransition,
     styles.touchable,
     getRoundingClassName(rounding),
     {
@@ -134,8 +143,11 @@ function TapArea({
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      ref={forwardedRef}
+      ref={innerRef}
       role="button"
+      {...(compressStyle && tapStyle === 'compress'
+        ? { style: compressStyle }
+        : {})}
       tabIndex={disabled ? null : '0'}
     >
       {children}
