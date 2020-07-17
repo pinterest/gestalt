@@ -48,19 +48,21 @@ function Checkbox(props: Props): React.Node {
     onClick,
     size = 'md',
   } = props;
-  const inputElement = React.useRef<?HTMLInputElement>(null);
+
+  const innerRef = React.useRef(null);
+  // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
+  // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+
   const [focused, setFocused] = React.useState(false);
   const [hovered, setHover] = React.useState(false);
 
   React.useEffect(() => {
-    // $FlowFixMe
-    if (forwardedRef && forwardedRef.current) {
-      // $FlowFixMe
-      forwardedRef.current.indeterminate = indeterminate;
-    } else if (inputElement && inputElement.current) {
-      inputElement.current.indeterminate = indeterminate;
+    if (innerRef && innerRef.current) {
+      innerRef.current.indeterminate = indeterminate;
     }
-  }, [forwardedRef, indeterminate]);
+  }, [indeterminate]);
 
   const handleChange = event => {
     if (onChange) {
@@ -126,7 +128,7 @@ function Checkbox(props: Props): React.Node {
               onFocus={() => setFocused(true)}
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
-              ref={forwardedRef || inputElement}
+              ref={innerRef}
               type="checkbox"
             />
             <div
