@@ -1,3 +1,9 @@
+## 8.0.0 (Jul 17, 2020)
+
+### Major
+
+- Checkbox: Add forward ref (BREAKING CHANGE) (#1057)
+
 ## 7.1.1 (Jul 17, 2020)
 
 ### Patch
