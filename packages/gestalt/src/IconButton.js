@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
 import Pog from './Pog.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
@@ -25,7 +26,7 @@ type Props = {|
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  onClick?: ({| event: SyntheticMouseEvent<> |}) => void,
+  onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
   padding?: 1 | 2 | 3 | 4 | 5,
   selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',

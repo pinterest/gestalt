@@ -10,6 +10,7 @@ import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
 import Label from './Label.js';
 import Text from './Text.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   checked?: boolean,
@@ -20,11 +21,14 @@ type Props = {|
   indeterminate?: boolean,
   label?: string,
   name?: string,
-  onChange: ({| event: SyntheticInputEvent<>, checked: boolean |}) => void,
-  onClick?: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    checked: boolean,
-  |}) => void,
+  onChange: AbstractEventHandler<
+    SyntheticInputEvent<HTMLInputElement>,
+    {| checked: boolean |}
+  >,
+  onClick?: AbstractEventHandler<
+    SyntheticInputEvent<HTMLInputElement>,
+    {| checked: boolean |}
+  >,
   size?: 'sm' | 'md',
 |};
 
@@ -51,13 +55,13 @@ export default function Checkbox({
     }
   }, [indeterminate]);
 
-  const handleChange = (event: SyntheticInputEvent<>) => {
+  const handleChange = event => {
     if (onChange) {
       onChange({ event, checked: event.target.checked });
     }
   };
 
-  const handleClick = (event: SyntheticInputEvent<HTMLInputElement>) => {
+  const handleClick = event => {
     if (onClick) {
       onClick({ event, checked: event.currentTarget.checked });
     }

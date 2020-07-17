@@ -7,6 +7,7 @@ import styles from './RadioButton.css';
 import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   checked?: boolean,
@@ -14,10 +15,10 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: ({|
-    event: SyntheticInputEvent<>,
-    checked: boolean,
-  |}) => void,
+  onChange: AbstractEventHandler<
+    SyntheticInputEvent<HTMLInputElement>,
+    {| checked: boolean |}
+  >,
   value: string,
   size?: 'sm' | 'md',
 |};
@@ -54,9 +55,9 @@ export default class RadioButton extends React.Component<Props, State> {
     hovered: false,
   };
 
-  handleChange: (event: SyntheticInputEvent<>) => void = (
-    event: SyntheticInputEvent<>
-  ) => {
+  handleChange: (
+    event: SyntheticInputEvent<HTMLInputElement>
+  ) => mixed = event => {
     const { onChange } = this.props;
     const { checked } = event.target;
     onChange({ checked, event });

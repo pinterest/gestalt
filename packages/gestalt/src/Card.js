@@ -4,27 +4,28 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import styles from './Card.css';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   active?: ?boolean,
   children?: React.Node,
   image?: React.Node,
-  onMouseEnter?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
-  onMouseLeave?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
+  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
 |};
 
 export default function Card(props: Props): React.Node {
   const [hovered, setHovered] = React.useState(false);
   const { active, children, image, onMouseEnter, onMouseLeave } = props;
 
-  const handleMouseEnter = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+  const handleMouseEnter = event => {
     setHovered(true);
     if (onMouseEnter) {
       onMouseEnter({ event });
     }
   };
 
-  const handleMouseLeave = (event: SyntheticMouseEvent<HTMLDivElement>) => {
+  const handleMouseLeave = event => {
     setHovered(false);
     if (onMouseLeave) {
       onMouseLeave({ event });

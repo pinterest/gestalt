@@ -9,6 +9,7 @@ import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import useTapFeedback from './useTapFeedback.js';
 import touchableStyles from './Touchable.css';
 
@@ -36,7 +37,7 @@ type Props = {|
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
-  onClick?: ({| event: SyntheticMouseEvent<> |}) => void,
+  onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
   selected?: boolean,
   size?: 'sm' | 'md' | 'lg',
   text: string,

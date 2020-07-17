@@ -6,6 +6,7 @@ import VideoControls from './VideoControls.js';
 import { ColorSchemeProvider } from './contexts/ColorScheme.js';
 import styles from './Video.css';
 import Box from './Box.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Source =
   | string
@@ -29,26 +30,26 @@ type Props = {|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
   |}) => void,
-  onEnded?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
-  onFullscreenChange?: ({| event: Event, fullscreen: boolean |}) => void,
-  onLoadedChange?: ({|
-    event: SyntheticEvent<HTMLVideoElement>,
-    loaded: number,
-  |}) => void,
-  onPlay?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
-  onPlayheadDown?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
-  onPlayheadUp?: ({| event: SyntheticMouseEvent<HTMLDivElement> |}) => void,
-  onPause?: ({| event: SyntheticEvent<HTMLDivElement> |}) => void,
-  onReady?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
-  onSeek?: ({| event: SyntheticEvent<HTMLVideoElement> |}) => void,
-  onTimeChange?: ({|
-    event: SyntheticEvent<HTMLVideoElement>,
-    time: number,
-  |}) => void,
-  onVolumeChange?: ({|
-    event: SyntheticEvent<HTMLDivElement>,
-    volume: number,
-  |}) => void,
+  onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
+  onLoadedChange?: AbstractEventHandler<
+    SyntheticEvent<HTMLVideoElement>,
+    {| loaded: number |}
+  >,
+  onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement>>,
+  onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onPause?: AbstractEventHandler<SyntheticEvent<HTMLDivElement>>,
+  onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onTimeChange?: AbstractEventHandler<
+    SyntheticEvent<HTMLVideoElement>,
+    {| time: number |}
+  >,
+  onVolumeChange?: AbstractEventHandler<
+    SyntheticEvent<HTMLDivElement>,
+    {| volume: number |}
+  >,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -402,7 +403,7 @@ export default class Video extends React.PureComponent<Props, State> {
   };
 
   // Sent when the video is switched to/out-of fullscreen mode
-  handleFullscreenChange: (event: Event) => void = event => {
+  handleFullscreenChange: EventListener = event => {
     const { onFullscreenChange } = this.props;
     const fullscreen = !!isFullscreen();
     this.setState({ fullscreen });

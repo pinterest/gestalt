@@ -7,12 +7,13 @@ import layout from './Layout.css';
 import styles from './SearchField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   accessibilityLabel: string,
   autoComplete?: 'on' | 'off' | 'username' | 'name',
   id: string,
-  onBlur?: ({| event: SyntheticEvent<HTMLInputElement> |}) => void,
+  onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
   onChange: ({|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
@@ -67,7 +68,7 @@ const SearchField = ({
     }
   };
 
-  const handleBlur = (event: SyntheticEvent<HTMLInputElement>) => {
+  const handleBlur = event => {
     setFocused(false);
     if (onBlur) {
       onBlur({ event });

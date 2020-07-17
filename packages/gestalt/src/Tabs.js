@@ -5,11 +5,13 @@ import Box from './Box.js';
 import Row from './Row.js';
 import Link from './Link.js';
 import Text from './Text.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type OnChangeHandler = ({|
-  +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>,
-  +activeTabIndex: number,
-|}) => void;
+type OnChangeHandler = AbstractEventHandler<
+  | SyntheticMouseEvent<HTMLAnchorElement>
+  | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  {| +activeTabIndex: number |}
+>;
 
 function Circle() {
   return (
