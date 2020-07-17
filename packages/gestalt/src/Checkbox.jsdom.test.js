@@ -26,7 +26,32 @@ describe('Checkbox', () => {
 
   it('forwards a ref to <Box ref={ref}><input/></Box>', () => {
     const ref = React.createRef();
-    render(<Checkbox id="testcheckbox" onChange={mockOnChange} ref={ref} />);
-    expect(ref.current instanceof HTMLDivElement).toEqual(true);
+    render(
+      <Checkbox checked id="testcheckbox" onChange={mockOnChange} ref={ref} />
+    );
+    expect(ref.current instanceof HTMLInputElement).toEqual(true);
+    expect(ref.current?.checked).toEqual(true);
+  });
+
+  it('sets the innermost input to indeterminate with ref', () => {
+    const ref = React.createRef();
+    render(
+      <Checkbox
+        indeterminate
+        id="testcheckbox"
+        onChange={mockOnChange}
+        ref={ref}
+      />
+    );
+    expect(ref.current instanceof HTMLInputElement).toEqual(true);
+    expect(ref.current?.indeterminate).toEqual(true);
+  });
+
+  it('sets the innermost input to indeterminate without ref', () => {
+    const { container } = render(
+      <Checkbox indeterminate id="testcheckbox" onChange={mockOnChange} />
+    );
+    const input = container.querySelector('input');
+    expect(input?.indeterminate).toBe(true);
   });
 });

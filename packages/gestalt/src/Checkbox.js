@@ -16,7 +16,7 @@ type Props = {|
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
-  forwardedRef?: React.Ref<'div'>,
+  forwardedRef?: React.Ref<'input'>,
   hasError?: boolean,
   id: string,
   indeterminate?: boolean,
@@ -33,29 +33,34 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-function Checkbox({
-  checked = false,
-  disabled = false,
-  errorMessage,
-  forwardedRef,
-  hasError = false,
-  id,
-  indeterminate = false,
-  label,
-  name,
-  onChange,
-  onClick,
-  size = 'md',
-}: Props): React.Node {
+function Checkbox(props: Props): React.Node {
+  const {
+    checked = false,
+    disabled = false,
+    errorMessage,
+    forwardedRef,
+    hasError = false,
+    id,
+    indeterminate = false,
+    label,
+    name,
+    onChange,
+    onClick,
+    size = 'md',
+  } = props;
   const inputElement = React.useRef<?HTMLInputElement>(null);
   const [focused, setFocused] = React.useState(false);
   const [hovered, setHover] = React.useState(false);
 
   React.useEffect(() => {
-    if (inputElement && inputElement.current) {
+    // $FlowFixMe
+    if (forwardedRef && forwardedRef.current) {
+      // $FlowFixMe
+      forwardedRef.current.indeterminate = indeterminate;
+    } else if (inputElement && inputElement.current) {
       inputElement.current.indeterminate = indeterminate;
     }
-  }, [indeterminate]);
+  }, [forwardedRef, indeterminate]);
 
   const handleChange = event => {
     if (onChange) {
@@ -106,7 +111,7 @@ function Checkbox({
         marginRight={-1}
       >
         <Label htmlFor={id}>
-          <Box ref={forwardedRef} paddingX={1} position="relative">
+          <Box paddingX={1}>
             <input
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
@@ -121,7 +126,7 @@ function Checkbox({
               onFocus={() => setFocused(true)}
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
-              ref={inputElement}
+              ref={forwardedRef || inputElement}
               type="checkbox"
             />
             <div
@@ -200,8 +205,8 @@ CheckboxWithRef.displayName = 'ForwardRef(Checkbox)';
 
 const CheckboxWithForwardRef: React$AbstractComponent<
   Props,
-  HTMLDivElement
-> = React.forwardRef<Props, HTMLDivElement>(CheckboxWithRef);
+  HTMLInputElement
+> = React.forwardRef<Props, HTMLInputElement>(CheckboxWithRef);
 
 CheckboxWithForwardRef.displayName = 'Checkbox';
 
