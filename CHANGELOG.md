@@ -1,3 +1,9 @@
+## 7.1.0 (Jul 17, 2020)
+
+### Minor
+
+- Button/IconButton: compress onClick or onTouch (#1056)
+
 ## 7.0.0 (Jul 16, 2020)
 
 ### Major
