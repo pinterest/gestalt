@@ -76,9 +76,8 @@ a checkbox and its indeterminism are independent.`,
       },
       {
         name: 'ref',
-        type: "React.Ref<'div'>",
-        description:
-          'Forward the ref to the underlying Box component wrapping the input element',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
         href: 'refExample',
       },
       {
