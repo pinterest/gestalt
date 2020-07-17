@@ -75,6 +75,12 @@ a checkbox and its indeterminism are independent.`,
         type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
       },
       {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'refExample',
+      },
+      {
         name: 'size',
         type: `"sm" | "md"`,
         defaultValue: 'md',
@@ -177,6 +183,53 @@ function CheckboxExample() {
         name="error"
         onChange={() => {}}
       />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`Checkbox\` with an anchor ref to a Flyout component
+  `}
+    defaultCode={`
+function CheckboxFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
+
+  const anchorRef = React.useRef();
+
+  return (
+    <Box >
+      <Checkbox
+        checked={checked}
+        id="ref"
+        label="Private Board"
+        name="privacy"
+        ref={anchorRef}
+        onChange={({ checked }) => {
+          setOpen(true)
+          setChecked(checked);
+        }}
+      />
+      {open && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="up"
+          onDismiss={() => setOpen(false)}
+          shouldFocus={false}
+        >
+          <Box padding={3}>
+            <Text weight="bold">Your board is now </Text>
+            <Text weight="bold">{checked ? 'private': 'public'}</Text>
+          </Box>
+        </Flyout>
+      )}
+    </Box>
   );
 }
 `}

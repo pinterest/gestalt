@@ -16,6 +16,7 @@ type Props = {|
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
+  forwardedRef?: React.Ref<'input'>,
   hasError?: boolean,
   id: string,
   indeterminate?: boolean,
@@ -32,26 +33,34 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-export default function Checkbox({
-  checked = false,
-  disabled = false,
-  errorMessage,
-  hasError = false,
-  id,
-  indeterminate = false,
-  label,
-  name,
-  onChange,
-  onClick,
-  size = 'md',
-}: Props): React.Node {
-  const inputElement = React.useRef<?HTMLInputElement>(null);
+function Checkbox(props: Props): React.Node {
+  const {
+    checked = false,
+    disabled = false,
+    errorMessage,
+    forwardedRef,
+    hasError = false,
+    id,
+    indeterminate = false,
+    label,
+    name,
+    onChange,
+    onClick,
+    size = 'md',
+  } = props;
+
+  const innerRef = React.useRef(null);
+  // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
+  // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+
   const [focused, setFocused] = React.useState(false);
   const [hovered, setHover] = React.useState(false);
 
   React.useEffect(() => {
-    if (inputElement && inputElement.current) {
-      inputElement.current.indeterminate = indeterminate;
+    if (innerRef && innerRef.current) {
+      innerRef.current.indeterminate = indeterminate;
     }
   }, [indeterminate]);
 
@@ -104,7 +113,7 @@ export default function Checkbox({
         marginRight={-1}
       >
         <Label htmlFor={id}>
-          <Box paddingX={1} position="relative">
+          <Box paddingX={1}>
             <input
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
@@ -119,7 +128,7 @@ export default function Checkbox({
               onFocus={() => setFocused(true)}
               onMouseEnter={handleHover}
               onMouseLeave={handleHover}
-              ref={inputElement}
+              ref={innerRef}
               type="checkbox"
             />
             <div
@@ -174,6 +183,12 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   hasError: PropTypes.bool,
   id: PropTypes.string.isRequired,
   indeterminate: PropTypes.bool,
@@ -183,3 +198,18 @@ Checkbox.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md']),
 };
+
+function CheckboxWithRef(props, ref) {
+  return <Checkbox {...props} forwardedRef={ref} />;
+}
+
+CheckboxWithRef.displayName = 'ForwardRef(Checkbox)';
+
+const CheckboxWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = React.forwardRef<Props, HTMLInputElement>(CheckboxWithRef);
+
+CheckboxWithForwardRef.displayName = 'Checkbox';
+
+export default CheckboxWithForwardRef;
