@@ -1,3 +1,9 @@
+## 7.1.1 (Jul 17, 2020)
+
+### Patch
+
+- AbstractEventHandler type (#1045)
+
 ## 7.1.0 (Jul 17, 2020)
 
 ### Minor
