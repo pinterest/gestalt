@@ -1,3 +1,9 @@
+## 8.0.2 (Jul 20, 2020)
+
+### Patch
+
+- Pulsar: update default size from 135px to 136px (#1061)
+
 ## 8.0.1 (Jul 20, 2020)
 
 ### Patch
