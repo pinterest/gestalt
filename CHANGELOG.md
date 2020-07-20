@@ -1,3 +1,9 @@
+## 8.0.3 (Jul 20, 2020)
+
+### Patch
+
+- Docs: Refactored Sticky example to use new Box's zIndex prop (#1062)
+
 ## 8.0.2 (Jul 20, 2020)
 
 ### Patch
