@@ -28,7 +28,7 @@ card(
         name: 'size',
         type: `number`,
         description: `Use numbers for pixel sizes`,
-        defaultValue: 120,
+        defaultValue: 136,
       },
     ]}
   />

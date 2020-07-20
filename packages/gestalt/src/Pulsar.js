@@ -9,7 +9,7 @@ type Props = {|
   size?: number,
 |};
 
-export default function Pulsar({ paused, size = 135 }: Props): React.Node {
+export default function Pulsar({ paused, size = 136 }: Props): React.Node {
   return (
     <Box
       dangerouslySetInlineStyle={{
