@@ -1,3 +1,9 @@
+## 8.0.1 (Jul 20, 2020)
+
+### Patch
+
+- Docs: Fixed automatic detection for Fixed/CompositeZIndex imports in Codesandbox (#1058)
+
 ## 8.0.0 (Jul 17, 2020)
 
 ### Major
