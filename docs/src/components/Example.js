@@ -40,6 +40,11 @@ const handleCodeSandbox = async ({ code, title }) => {
     ...new Set(
       code.match(/<((\w+))/g).map(component => component.replace('<', ''))
     ),
+    ...new Set(
+      code
+        .match(/(new FixedZIndex)|(new CompositeZIndex)/g)
+        .map(component => component.replace('new ', ''))
+    ),
   ];
 
   const baseComponents = gestaltComponents.filter(x =>
