@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node, useRef } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
@@ -24,6 +24,7 @@ type Props = {|
     | 'red',
   dangerouslySetSvgPath?: {| __path: string |},
   disabled?: boolean,
+  forwardedRef?: React.Ref<'button'>,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
@@ -32,7 +33,7 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
-export default function IconButton({
+function IconButton({
   accessibilityControls,
   accessibilityExpanded,
   accessibilityHaspopup,
@@ -40,14 +41,19 @@ export default function IconButton({
   bgColor,
   dangerouslySetSvgPath,
   disabled,
+  forwardedRef,
   icon,
   iconColor,
   onClick,
   padding,
   selected,
   size,
-}: Props): Node {
-  const buttonElement = useRef(null);
+}: Props): React.Node {
+  const innerRef = React.useRef(null);
+  // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
+  // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  React.useImperativeHandle(forwardedRef, () => innerRef.current);
 
   const {
     compressStyle,
@@ -60,8 +66,8 @@ export default function IconButton({
     handleTouchCancel,
     handleTouchEnd,
   } = useTapFeedback({
-    height: buttonElement?.current?.clientHeight,
-    width: buttonElement?.current?.clientWidth,
+    height: innerRef?.current?.clientHeight,
+    width: innerRef?.current?.clientWidth,
   });
 
   const [isActive, setActive] = React.useState(false);
@@ -105,9 +111,9 @@ export default function IconButton({
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
-      ref={buttonElement}
-      {...(compressStyle ? { style: compressStyle } : {})}
+      ref={innerRef}
       type="button"
+      {...(compressStyle ? { style: compressStyle } : {})}
     >
       <Pog
         active={!disabled && isActive}
@@ -143,6 +149,12 @@ IconButton.propTypes = {
     __path: PropTypes.string,
   }),
   disabled: PropTypes.bool,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
@@ -150,3 +162,18 @@ IconButton.propTypes = {
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
 };
+
+function IconButtonWithRef(props, ref) {
+  return <IconButton {...props} forwardedRef={ref} />;
+}
+
+IconButtonWithRef.displayName = 'ForwardRef(IconButton)';
+
+const IconButtonWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLButtonElement
+> = React.forwardRef<Props, HTMLButtonElement>(IconButtonWithRef);
+
+IconButtonWithForwardRef.displayName = 'IconButton';
+
+export default IconButtonWithForwardRef;

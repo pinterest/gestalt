@@ -89,6 +89,12 @@ card(
         href: 'paddingCombinations',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'button'>",
+        description: 'Forward the ref to the underlying button element',
+        href: 'refExample',
+      },
+      {
         name: 'selected',
         type: 'boolean',
         defaultValue: false,
@@ -135,7 +141,7 @@ function A11yExPopup() {
   const anchorRef = React.useRef(null);
 
   return (
-    <Box>
+    <>
       <Box display="inlineBlock" ref={anchorRef}>
         <IconButton
           accessibilityLabel="see more"
@@ -156,7 +162,7 @@ function A11yExPopup() {
           </Box>
         </Flyout>
       )}
-    </Box>
+    </>
   );
 }
 `}
@@ -180,7 +186,7 @@ function A11yExDisclosure() {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
-    <Box>
+    <>
       <Box display="inlineBlock">
         <IconButton
           accessibilityControls="accordion-panel"
@@ -201,10 +207,52 @@ function A11yExDisclosure() {
           <Text>I am an accordion panel.</Text>
         </Box>
       )}
-    </Box>
+    </>
   );
 }
 `}
+  />
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`IconButton\` with an anchor ref to a Flyout component
+  `}
+    defaultCode={`
+function IconButtonFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
+
+  const anchorRef = React.useRef(null);
+
+  return (
+    <>
+      <IconButton
+        accessibilityLabel="Love Reaction"
+        bgColor="white"
+        icon="heart"
+        iconColor="red"
+        onClick={() => setOpen(true)}
+        ref={anchorRef}
+      />
+      {open && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setOpen(false)}
+          shouldFocus={false}
+        >
+          <Box padding={3}>
+            <Text weight="bold">You loved this pin!</Text>
+          </Box>
+        </Flyout>
+      )}
+    </>
+  );
+}`}
   />
 );
 

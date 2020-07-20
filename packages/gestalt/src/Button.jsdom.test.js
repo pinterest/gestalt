@@ -3,11 +3,20 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Button from './Button.js';
 
-test('Button handles click', () => {
-  const mockOnClick = jest.fn();
-  const { getByText } = render(
-    <Button text="ButtonText" onClick={mockOnClick} />
-  );
-  getByText('ButtonText').click();
-  expect(mockOnClick).toHaveBeenCalled();
+describe('Button', () => {
+  it('handles click', () => {
+    const mockOnClick = jest.fn();
+    const { getByText } = render(
+      <Button text="ButtonText" onClick={mockOnClick} />
+    );
+    getByText('ButtonText').click();
+    expect(mockOnClick).toHaveBeenCalled();
+  });
+
+  it('forwards a ref to the innermost button element', () => {
+    const ref = React.createRef();
+    render(<Button disabled text="test" ref={ref} />);
+    expect(ref.current instanceof HTMLButtonElement).toEqual(true);
+    expect(ref.current?.disabled).toEqual(true);
+  });
 });

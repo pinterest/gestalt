@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { useRef, type Element } from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -34,6 +34,7 @@ type Props = {|
   accessibilityLabel?: string,
   color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
+  forwardedRef?: React.Ref<'button'>,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
@@ -45,7 +46,7 @@ type Props = {|
   type?: 'submit' | 'button',
 |};
 
-export default function Button(props: Props): Element<'button'> {
+function Button(props: Props): React.Element<'button'> {
   const {
     accessibilityControls,
     accessibilityExpanded,
@@ -53,6 +54,7 @@ export default function Button(props: Props): Element<'button'> {
     accessibilityLabel,
     color = 'gray',
     disabled = false,
+    forwardedRef,
     iconEnd,
     inline = false,
     name,
@@ -63,7 +65,11 @@ export default function Button(props: Props): Element<'button'> {
     textColor: textColorProp,
     type = 'button',
   } = props;
-  const buttonElement = useRef(null);
+  const innerRef = React.useRef(null);
+  // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
+  // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  React.useImperativeHandle(forwardedRef, () => innerRef.current);
 
   const {
     compressStyle,
@@ -76,8 +82,8 @@ export default function Button(props: Props): Element<'button'> {
     handleTouchCancel,
     handleTouchEnd,
   } = useTapFeedback({
-    height: buttonElement?.current?.clientHeight,
-    width: buttonElement?.current?.clientWidth,
+    height: innerRef?.current?.clientHeight,
+    width: innerRef?.current?.clientWidth,
   });
 
   const { name: colorSchemeName } = useColorScheme();
@@ -142,14 +148,13 @@ export default function Button(props: Props): Element<'button'> {
       onTouchEnd={handleTouchEnd}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
+      ref={innerRef}
       type={type}
-      ref={buttonElement}
       {...(compressStyle ? { style: compressStyle } : {})}
     >
       {iconEnd ? (
         <Box alignItems="center" display="flex">
           {buttonText}
-
           <Box display="inlineBlock" flex="none" marginStart={2}>
             <Icon
               accessibilityLabel=""
@@ -174,6 +179,12 @@ Button.propTypes = {
   accessibilityLabel: PropTypes.string,
   color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
   disabled: PropTypes.bool,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
   inline: PropTypes.bool,
   name: PropTypes.string,
@@ -184,3 +195,18 @@ Button.propTypes = {
   textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
   type: PropTypes.oneOf(['button', 'submit']),
 };
+
+function ButtonWithRef(props, ref) {
+  return <Button {...props} forwardedRef={ref} />;
+}
+
+ButtonWithRef.displayName = 'ForwardRef(Button)';
+
+const ButtonWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLButtonElement
+> = React.forwardRef<Props, HTMLButtonElement>(ButtonWithRef);
+
+ButtonWithForwardRef.displayName = 'Button';
+
+export default ButtonWithForwardRef;

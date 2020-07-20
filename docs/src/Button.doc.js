@@ -89,6 +89,12 @@ card(
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'button'>",
+        description: 'Forward the ref to the underlying button element',
+        href: 'refExample',
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'md',
@@ -337,7 +343,7 @@ function A11yExPopup() {
   const anchorRef = React.useRef(null);
 
   return (
-    <Box>
+    <>
       <Box
         color="lightGray"
         display="inlineBlock"
@@ -363,7 +369,7 @@ function A11yExPopup() {
           </Box>
         </Flyout>
       )}
-    </Box>
+    <>
   );
 }
 `}
@@ -387,7 +393,7 @@ function A11yExDisclosure() {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
-    <Box>
+    <>
       <Box
         color="lightGray"
         display="inlineBlock"
@@ -407,10 +413,51 @@ function A11yExDisclosure() {
           <Text>I am an accordion panel.</Text>
         </Box>
       )}
-    </Box>
+    </>
   );
 }
 `}
+  />
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`Button\` with an anchor ref to a Flyout component
+  `}
+    defaultCode={`
+function ButtonFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
+
+  const anchorRef = React.useRef(null);
+
+  return (
+    <>
+      <Button
+        inline
+        color="red"
+        onClick={() => setOpen(true)}
+        ref={anchorRef}
+        text="Submit"
+      />
+      {open && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setOpen(false)}
+          shouldFocus={false}
+        >
+          <Box padding={3}>
+            <Text weight="bold">Your message was submitted!</Text>
+          </Box>
+        </Flyout>
+      )}
+    </>
+  );
+}`}
   />
 );
 
