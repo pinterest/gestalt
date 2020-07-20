@@ -7,9 +7,9 @@ exports[`Pulsar is hidden when paused 1`] = `
     Object {
       "animationIterationCount": 0,
       "boxShadow": "none",
-      "height": 135,
+      "height": 136,
       "outline": "none",
-      "width": 135,
+      "width": 136,
     }
   }
 >
@@ -30,9 +30,9 @@ exports[`Pulsar renders 1`] = `
     Object {
       "animationIterationCount": "infinite",
       "boxShadow": "none",
-      "height": 135,
+      "height": 136,
       "outline": "none",
-      "width": 135,
+      "width": 136,
     }
   }
 >
