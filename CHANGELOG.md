@@ -1,3 +1,9 @@
+## 8.1.1 (Jul 21, 2020)
+
+### Patch
+
+- Docs: fix broken CodeSandbox links (#1066)
+
 ## 8.1.0 (Jul 21, 2020)
 
 ### Minor
