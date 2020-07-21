@@ -12,7 +12,7 @@ exports[`Checkbox 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={false}
@@ -62,7 +62,7 @@ exports[`Checkbox checked 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={true}
@@ -126,7 +126,7 @@ exports[`Checkbox disabled & checked 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={true}
@@ -190,7 +190,7 @@ exports[`Checkbox disabled 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={false}
@@ -240,7 +240,7 @@ exports[`Checkbox indeterminate 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={false}
@@ -304,7 +304,7 @@ exports[`Checkbox small 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={false}
@@ -354,7 +354,7 @@ exports[`Checkbox with error 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={false}
@@ -425,7 +425,7 @@ exports[`Checkbox without label 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX1 relative"
       >
         <input
           checked={false}
