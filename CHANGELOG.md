@@ -1,3 +1,9 @@
+## 8.0.4 (Jul 21, 2020)
+
+### Patch
+
+- Bump codecov from 3.7.0 to 3.7.1 (#1064)
+
 ## 8.0.3 (Jul 20, 2020)
 
 ### Patch
