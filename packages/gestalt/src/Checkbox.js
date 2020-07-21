@@ -113,7 +113,7 @@ function Checkbox(props: Props): React.Node {
         marginRight={-1}
       >
         <Label htmlFor={id}>
-          <Box paddingX={1}>
+          <Box paddingX={1} position="relative">
             <input
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
