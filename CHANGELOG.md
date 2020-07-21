@@ -1,3 +1,9 @@
+## 8.1.0 (Jul 21, 2020)
+
+### Minor
+
+- Checkbox: fix bug in behaviour related to position (#1065)
+
 ## 8.0.4 (Jul 21, 2020)
 
 ### Patch
