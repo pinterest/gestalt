@@ -32,20 +32,20 @@ const exportDefaultMaybe = ({ code }) =>
 
 export default Demo;`;
 
+const dedupeArray = <T>(arr: Array<T>): Array<T> => [...new Set(arr)];
+
 const handleCodeSandbox = async ({ code, title }) => {
   const gestaltComponents = Object.keys(gestalt);
   const additionalGestaltComponents = ['DatePicker'];
 
-  const usedComponents = [
-    ...new Set(
-      code.match(/<((\w+))/g).map(component => component.replace('<', ''))
+  const usedComponents = dedupeArray([
+    ...(code.match(/<((\w+))/g) || []).map(component =>
+      component.replace('<', '')
     ),
-    ...new Set(
-      code
-        .match(/(new FixedZIndex)|(new CompositeZIndex)/g)
-        .map(component => component.replace('new ', ''))
-    ),
-  ];
+    ...(
+      code.match(/(new FixedZIndex)|(new CompositeZIndex)/g) || []
+    ).map(component => component.replace('new ', '')),
+  ]);
 
   const baseComponents = gestaltComponents.filter(x =>
     usedComponents.includes(x)
