@@ -26,6 +26,7 @@ const NavLink = ({ children, to, history }: Props) => {
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
     event.preventDefault();
     history.push(to);
+    window.scrollTo(0, 0);
   };
 
   return (
