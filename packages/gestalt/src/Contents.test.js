@@ -6,6 +6,7 @@ import {
   baseOffsets,
   adjustOffsets,
   CARET_HEIGHT,
+  CARET_WIDTH,
   BORDER_RADIUS,
 } from './Contents.js';
 
@@ -46,7 +47,7 @@ const upperMiddleTriggerRect = (props = {}) => ({
   ...props,
 });
 
-// between BORDER_RADIUS & CARET_HEIGHT away from the edge of the scrren
+// between BORDER_RADIUS & CARET_HEIGHT away from the edge of the screen
 const upperLeftTriggerRect = (props = {}) => ({
   bottom: 50,
   height: 40,
@@ -129,7 +130,7 @@ describe('Contents', () => {
         top: windowSize.scrollY + triggerRect.top,
         left:
           windowSize.scrollX +
-          (triggerRect.left - flyoutSize.width - CARET_HEIGHT / 2),
+          (triggerRect.left - flyoutSize.width - CARET_HEIGHT),
       };
       const base = baseOffsets(
         hasCaret,
@@ -148,7 +149,7 @@ describe('Contents', () => {
       const mainDir = 'right';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.top,
-        left: windowSize.scrollX + (triggerRect.right + CARET_HEIGHT / 2),
+        left: windowSize.scrollX + triggerRect.right + CARET_HEIGHT,
       };
       const base = baseOffsets(
         hasCaret,
@@ -168,7 +169,7 @@ describe('Contents', () => {
       const expectedBase = {
         top:
           windowSize.scrollY +
-          (triggerRect.top - flyoutSize.height - CARET_HEIGHT / 2),
+          (triggerRect.top - flyoutSize.height - CARET_HEIGHT),
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets(
@@ -187,7 +188,7 @@ describe('Contents', () => {
       const triggerRect = centerTriggerRect();
       const mainDir = 'down';
       const expectedBase = {
-        top: windowSize.scrollY + triggerRect.bottom + CARET_HEIGHT / 2,
+        top: windowSize.scrollY + triggerRect.bottom + CARET_HEIGHT,
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets(
@@ -264,8 +265,8 @@ describe('Contents', () => {
         left: base.left,
       };
       const expectedCaretOffset = {
-        top: edgeShift.caret.y,
-        right: -edgeShift.caret.x,
+        top: edgeShift.caret.y + 2,
+        right: -CARET_HEIGHT,
         bottom: null,
         left: null,
       };
@@ -305,10 +306,10 @@ describe('Contents', () => {
       left: base.left,
     };
     const expectedCaretOffset = {
-      top: edgeShift.caret.y,
+      top: edgeShift.caret.y + 2,
       right: null,
       bottom: null,
-      left: -edgeShift.caret.x,
+      left: -CARET_HEIGHT,
     };
     const { flyoutOffset, caretOffset } = adjustOffsets(
       base,
@@ -330,7 +331,7 @@ describe('Contents', () => {
       expect(triggerRect.bottom - flyout.y).toBeGreaterThan(0);
       expect(flyout.x).toBeLessThan(BORDER_RADIUS);
       expect(caret.x).toEqual(caret.y);
-      expect(caret.x).toEqual(BORDER_RADIUS);
+      expect(caret.x).toEqual(CARET_WIDTH);
     });
   });
 });

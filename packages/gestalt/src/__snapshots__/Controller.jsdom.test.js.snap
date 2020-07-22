@@ -6,9 +6,9 @@ exports[`Controller renders 1`] = `
     className="container"
     style={
       Object {
-        "left": -20,
+        "left": -11,
         "stroke": null,
-        "top": -12,
+        "top": -6,
         "visibility": "visible",
       }
     }
@@ -21,19 +21,19 @@ exports[`Controller renders 1`] = `
         className="darkGray caret"
         style={
           Object {
-            "bottom": -24,
-            "left": 8,
+            "bottom": -6,
+            "left": 10,
             "right": null,
             "top": null,
           }
         }
       >
         <svg
-          height="24"
-          width="24"
+          height={6}
+          width={16}
         >
           <path
-            d="M0 0 L12 12 L24 0"
+            d="M 0 0 L 6 4.5 Q 8 6 10 4.5 L 16 0"
           />
         </svg>
       </div>
