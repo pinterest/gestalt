@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable no-shadow */
 // @flow strict
 import * as React from 'react';
 import { useState, useRef, type Node } from 'react';
@@ -19,7 +21,7 @@ type Props = {|
     label: string,
     value: string,
   |}>,
-  defaultItem?: OptionObject,
+  item?: OptionObject,
   id: string,
   label: string,
   noResultText: string,
@@ -51,7 +53,7 @@ type Props = {|
 const Typeahead = (props: Props): Node => {
   const {
     data,
-    defaultItem = null,
+    item = null,
     id,
     label = '',
     noResultText,
@@ -75,10 +77,10 @@ const Typeahead = (props: Props): Node => {
     );
 
   // Track input value
-  const [search, setSearch] = useState<string>(defaultItem?.label || '');
+  const [search, setSearch] = useState<string>('');
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
-  const [selected, setSelected] = useState<OptionObject | null>(defaultItem);
+  const [selected, setSelected] = useState<OptionObject | null>(item);
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
@@ -243,7 +245,7 @@ const Typeahead = (props: Props): Node => {
       <TypeaheadInputField
         label={label}
         id={id}
-        value={search}
+        value={item?.label || search}
         placeholder={placeholder}
         size={size}
         onChange={handleChange}
@@ -327,7 +329,7 @@ Typeahead.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onSelect: PropTypes.func,
-  defaultItem: PropTypes.exact({
+  item: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }),

@@ -26,7 +26,7 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'defaultItem',
+        name: 'item',
         type: '{ label: string, value: string }',
         description: 'The default item set in the Typeahead',
         required: false,
@@ -192,7 +192,7 @@ function Example(props) {
         id="Typeahead-example-defaultItem"
         noResultText="No Results"
         data={options}
-        defaultItem={defaultOption}
+        item={defaultOption}
         placeholder="Select a Label"
         onChange={handleOnChange}
         value={item}
