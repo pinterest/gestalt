@@ -1,3 +1,9 @@
+## 8.1.2 (Jul 22, 2020)
+
+### Patch
+
+- Docs: Scroll to top on click in NavLink component (#1060)
+
 ## 8.1.1 (Jul 21, 2020)
 
 ### Patch
