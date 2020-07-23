@@ -1,3 +1,9 @@
+## 8.2.0 (Jul 23, 2020)
+
+### Minor
+
+- Button: remove border for transparent button (#1069)
+
 ## 8.1.2 (Jul 22, 2020)
 
 ### Patch
