@@ -116,7 +116,6 @@
 
 .transparent {
   composes: transparentBg from "./Colors.css";
-  border: 1px solid #fff;
 }
 
 .transparent:hover,
