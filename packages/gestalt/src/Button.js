@@ -10,8 +10,10 @@ import styles from './Button.css';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
 import touchableStyles from './Touchable.css';
+import focusStyles from './Focus.css';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -99,23 +101,21 @@ function Button(props: Props): React.Element<'button'> {
     colorClass = 'darkModeGray';
   }
 
-  const classes = classnames(
-    styles.button,
-    styles.solid,
-    touchableStyles.tapTransition,
-    {
-      [styles.sm]: size === 'sm',
-      [styles.md]: size === 'md',
-      [styles.lg]: size === 'lg',
-      [styles[colorClass]]: !disabled && !selected,
-      [styles.selected]: !disabled && selected,
-      [styles.disabled]: disabled,
-      [styles.enabled]: !disabled,
-      [styles.inline]: inline,
-      [styles.block]: !inline,
-      [touchableStyles.tapCompress]: !disabled && isTapping,
-    }
-  );
+  const { isFocusVisible } = useFocusVisible();
+
+  const classes = classnames(styles.button, touchableStyles.tapTransition, {
+    [styles.sm]: size === 'sm',
+    [styles.md]: size === 'md',
+    [styles.lg]: size === 'lg',
+    [styles[colorClass]]: !disabled && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [styles.inline]: inline,
+    [styles.block]: !inline,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+  });
 
   const textColor =
     (disabled && 'gray') ||

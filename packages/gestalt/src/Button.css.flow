@@ -15,7 +15,6 @@ declare module.exports: {|
   +'red': string,
   +'selected': string,
   +'sm': string,
-  +'solid': string,
   +'transparent': string,
   +'white': string,
 |};

@@ -5,11 +5,9 @@
 
 .button {
   composes: borderBox minWidth60 from "./Layout.css";
-  border-radius: 24px;
-}
-
-.solid {
   composes: noBorder from "./Borders.css";
+  border-radius: 24px;
+  outline: 0;
 }
 
 .sm {
@@ -40,7 +38,6 @@
 }
 
 .enabled {
-  composes: accessibilityOutline from "./Focus.css";
   composes: pointer from "./Cursor.css";
 }
 
