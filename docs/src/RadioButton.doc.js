@@ -55,6 +55,12 @@ card(
         type: 'string',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'refExample',
+      },
+      {
         name: 'size',
         type: `"sm" | "md"`,
         description: `sm: 16px, md: 24px`,
@@ -124,6 +130,128 @@ function RadioButtonExample() {
           value="other"
         />
       </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="ref"
+    name="Example: ref"
+    description={`A \`RadioButton\` can be focused via \`ref\``}
+    defaultCode={`
+function RadioButtonExample() {
+  const ref = React.useRef();
+  const [option, setOption] = React.useState();
+
+  return (
+    <Row gap={2}>
+      <Button
+        text="Focus the RadioButton"
+        onClick={() => ref.current.focus()}
+      />
+      <Stack gap={2}>
+        <RadioButton
+          id="proceed"
+          checked={option === "proceed"}
+          label="Proceed"
+          onChange={() => setOption("proceed")}
+          value="usa"
+          ref={ref}
+        />
+        <RadioButton
+          id="notProceed"
+          checked={option === "notProceed"}
+          label="Do Not Proceed"
+          onChange={() => setOption("notProceed")}
+          value="usa"
+        />
+      </Stack>
+    </Row>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    name="Example: RadioButton and Flyout"
+    description={`
+    A \`RadioButton\` with an anchor ref to a Flyout component doesn't pass the correct positioning to the Flyout. Instead set the anchor ref to the parent container.
+  `}
+    defaultCode={`
+
+function ErrorFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const [option, setOption] = React.useState(false);
+  const anchorCatRef = React.useRef();
+  const anchorDogRef = React.useRef();
+
+  return (
+    <Box>
+      <Stack gap={2}>
+        <Box display="inlineBlock" ref={anchorCatRef}>
+          <RadioButton
+            id="cat"
+            checked={option === "cat"}
+            label="I'm a cat person"
+            onChange={() => {
+              setOpen(true)
+              setOption("cat")}
+            }
+            value="cat"
+          />
+        </Box>
+        <Box display="inlineBlock" ref={anchorDogRef}>
+          <RadioButton
+            id="dog"
+            checked={option === "dog"}
+            label="I'm a dog person"
+            onChange={() => {
+              setOpen(true)
+              setOption('dog')}
+            }
+            value="dog"
+          />
+        </Box>
+      </Stack>
+      {open &&
+        <Layer>
+          <Flyout
+            anchor={option === "cat" ? anchorCatRef.current  : anchorDogRef.current}
+            color="red"
+            idealDirection="right"
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            shouldFocus={false}
+            size="md"
+          >
+            <Link
+              href={
+                option === "cat"
+                  ? "https://www.pinterest.com/search/pins/?q=cats"
+                  : "https://www.pinterest.com/search/pins/?q=dogs"
+              }
+              target='blank'
+            >
+              <Box padding={3}>
+                <Text
+                  color="white"
+                  weight="bold"
+                >
+                { option === "cat"
+                    ? "Check cats on Pinterest!"
+                    : "Check dogs on Pinterest!"
+                }
+                </Text>
+              </Box>
+            </Link>
+          </Flyout>
+        </Layer>
+      }
     </Box>
   );
 }
