@@ -1,3 +1,9 @@
+## 8.2.1 (Jul 23, 2020)
+
+### Patch
+
+- Box: add test for flowtypes (#1070)
+
 ## 8.2.0 (Jul 23, 2020)
 
 ### Minor
