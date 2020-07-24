@@ -18,7 +18,7 @@ card(
   <PropTable
     props={[
       {
-        name: 'data',
+        name: 'options',
         type: 'Array<{ label: string, value: string }>',
         description:
           'The data much be an array with objects containing only label and value properties',
@@ -26,9 +26,9 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'item',
-        type: '{ label: string, value: string }',
-        description: 'The default item set in the Typeahead',
+        name: 'value',
+        type: 'string',
+        description: 'The default value set in the Typeahead',
         required: false,
         href: 'defaultItemExample',
       },
@@ -122,7 +122,7 @@ function Example(props) {
   const [selected, setSelected] = React.useState(null);
 
   const options = Array.from(Array(20).keys()).map((item) => ({
-    value: "value-" + (item + 1),
+    value: "Value-" + (item + 1),
     label: "Label-" + (item + 1),
   }));
 
@@ -146,10 +146,9 @@ function Example(props) {
         label="Typeahead Example 1"
         id="Typeahead-example"
         noResultText="No Results"
-        data={options}
+        options={options}
         placeholder="Select a Label"
         onChange={handleOnChange}
-        value={item}
         onSelect={handleSelect}
       />
     </>
@@ -165,7 +164,7 @@ card(
     defaultCode={`
 function Example(props) {
   const options = Array.from(Array(20).keys()).map((item) => ({
-    value: "value-" + (item + 1),
+    value: "Value-" + (item + 1),
     label: "Label-" + (item + 1),
   }));
 
@@ -191,11 +190,10 @@ function Example(props) {
         label="Typeahead Example 2"
         id="Typeahead-example-defaultItem"
         noResultText="No Results"
-        data={options}
-        item={defaultOption}
+        options={options}
+        value={defaultOption.value}
         placeholder="Select a Label"
         onChange={handleOnChange}
-        value={item}
         onSelect={handleSelect}
       />
     </>

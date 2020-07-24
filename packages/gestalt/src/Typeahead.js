@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable no-shadow */
 // @flow strict
 import * as React from 'react';
 import { useState, useRef, type Node } from 'react';
@@ -17,11 +15,11 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  data: Array<{|
+  options: Array<{|
     label: string,
     value: string,
   |}>,
-  item?: OptionObject,
+  value?: string,
   id: string,
   label: string,
   noResultText: string,
@@ -52,8 +50,8 @@ type Props = {|
 
 const Typeahead = (props: Props): Node => {
   const {
-    data,
-    item = null,
+    options,
+    value = null,
     id,
     label = '',
     noResultText,
@@ -68,23 +66,36 @@ const Typeahead = (props: Props): Node => {
   } = props;
 
   // Store original data
-  const dataRef = useRef(data);
+  const dataRef = useRef(options);
 
   // Utility function for filtering data by value
-  const filterOriginalData = filterValue =>
+  const filterOriginalData = (filterValue: string): OptionObject[] =>
     dataRef.current.filter(item =>
       item[searchField].toLowerCase().includes(filterValue.toLowerCase())
     );
 
+  // Utility function to find default value
+  // eslint-disable-next-line no-shadow
+  const findDefaultOption = (value: string | null): OptionObject | null => {
+    if (value === null) return value;
+
+    return (
+      dataRef.current.find(
+        item => item.value.toLowerCase() === value.toLowerCase()
+      ) || null
+    );
+  };
+
   // Track input value
-  const [search, setSearch] = useState<string>('');
+  const defaultOption: OptionObject | null = findDefaultOption(value);
+  const [search, setSearch] = useState<string>(defaultOption?.label || '');
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
-  const [selected, setSelected] = useState<OptionObject | null>(item);
+  const [selected, setSelected] = useState<OptionObject | null>(defaultOption);
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
-  const [options, setOptions] = useState<OptionObject[]>(
+  const [availableOptions, setAvailableOptions] = useState<OptionObject[]>(
     filterOriginalData(search)
   );
 
@@ -93,6 +104,7 @@ const Typeahead = (props: Props): Node => {
 
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
 
+  // eslint-disable-next-line no-shadow
   const handleFocus = ({ event, value }) => {
     // Run focus callback
     if (onFocus) onFocus({ event, value });
@@ -100,9 +112,9 @@ const Typeahead = (props: Props): Node => {
 
   const handleBlur = ({ event }) => {
     // Clear input and reset options when no results
-    if (options.length === 0) {
+    if (availableOptions.length === 0) {
       setSearch('');
-      setOptions(dataRef.current);
+      setAvailableOptions(dataRef.current);
     }
 
     setContainerOpen(false);
@@ -112,6 +124,7 @@ const Typeahead = (props: Props): Node => {
   };
 
   // Handler for when text is typed
+  // eslint-disable-next-line no-shadow
   const handleChange = ({ event, value }) => {
     if (containerOpen === false) setContainerOpen(true);
 
@@ -119,7 +132,7 @@ const Typeahead = (props: Props): Node => {
     const updatedOptions = filterOriginalData(value);
 
     // Update the avalble options
-    setOptions(updatedOptions);
+    setAvailableOptions(updatedOptions);
 
     // Update the search value
     setSearch(value);
@@ -194,8 +207,8 @@ const Typeahead = (props: Props): Node => {
     direction: -1 | 0 | 1
   ) => {
     let cursorIndex;
-    let newItem: OptionObject = options[0];
-    const optionsCount = options.length - 1;
+    let newItem: OptionObject = availableOptions[0];
+    const optionsCount = availableOptions.length - 1;
 
     const KEYS = {
       ENTER: 0,
@@ -224,7 +237,7 @@ const Typeahead = (props: Props): Node => {
     if (direction === KEYS.ENTER) {
       // Only set state when there are options.
       // handleBlur will take care of clear empty results
-      if (options.length > 0) {
+      if (availableOptions.length > 0) {
         setSelected(newItem);
         setSearch(newItem[searchField]);
         if (onSelect) onSelect({ event, item: newItem });
@@ -245,7 +258,7 @@ const Typeahead = (props: Props): Node => {
       <TypeaheadInputField
         label={label}
         id={id}
-        value={item?.label || search}
+        value={search}
         placeholder={placeholder}
         size={size}
         onChange={handleChange}
@@ -267,7 +280,7 @@ const Typeahead = (props: Props): Node => {
             positionRelativeToAnchor={false}
             size="flexible"
             // Forces the flyout to re-render and adjust it's position correctly
-            key={options.length}
+            key={availableOptions.length}
           >
             <Box
               // The returned element is Node which is incompatible with HTMLElement type
@@ -283,13 +296,14 @@ const Typeahead = (props: Props): Node => {
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
-                {options.length === 0 && (
+                {availableOptions.length === 0 && (
                   <Box margin={2}>
                     <Text color="gray">{noResultText}</Text>
                   </Box>
                 )}
+
                 {/* Return options */}
-                {options.map((option, index) => (
+                {availableOptions.map((option, index) => (
                   <Option
                     index={index}
                     key={`${option[searchField] + index}`}
@@ -316,8 +330,9 @@ Typeahead.displayName = 'Typeahead';
 Typeahead.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
+  value: PropTypes.string,
   onChange: PropTypes.func,
-  data: PropTypes.arrayOf(
+  options: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
@@ -329,10 +344,6 @@ Typeahead.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onSelect: PropTypes.func,
-  item: PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  }),
   noResultText: PropTypes.string.isRequired,
 };
 

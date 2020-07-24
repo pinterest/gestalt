@@ -20,7 +20,7 @@ describe('Typeahead', () => {
     <Typeahead
       id="Typeahead"
       noResultText="No Result"
-      data={FAKE_OPTIONS}
+      options={FAKE_OPTIONS}
       placeholder="Select a Label"
       onChange={onChangeMock}
       onBlur={onBlurMock}
