@@ -1,3 +1,9 @@
+## 9.0.0 (Jul 24, 2020)
+
+### Major
+
+- InputButton/Button: Add forward ref (BREAKING CHANGE) (#1063)
+
 ## 8.2.2 (Jul 24, 2020)
 
 ### Patch
