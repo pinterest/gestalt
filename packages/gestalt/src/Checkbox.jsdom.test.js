@@ -24,7 +24,7 @@ describe('Checkbox', () => {
     expect(mockOnChange).toHaveBeenCalled();
   });
 
-  it('forwards a ref to <Box ref={ref}><input/></Box>', () => {
+  it('forwards a ref to the innermost input element', () => {
     const ref = React.createRef();
     render(
       <Checkbox checked id="testcheckbox" onChange={mockOnChange} ref={ref} />
