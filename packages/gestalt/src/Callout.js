@@ -93,7 +93,7 @@ export default function Callout({
         <Text>{description}</Text>
       </Box>
       {secondaryLink && (
-        <Box paddingX={2}>
+        <Box paddingX={1}>
           <Box padding={4} flex="none">
             <Link href={secondaryLink.href}>
               <Text weight="bold">{secondaryLink.label}</Text>
@@ -102,7 +102,7 @@ export default function Callout({
         </Box>
       )}
       {primaryLink && (
-        <Box paddingX={2}>
+        <Box paddingX={1}>
           <Box rounding="pill" color="white" padding={4} flex="none">
             <Link href={primaryLink.href}>
               <Text weight="bold">{primaryLink.label}</Text>

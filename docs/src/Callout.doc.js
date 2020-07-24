@@ -55,7 +55,7 @@ card(
     defaultCode={`
 <Callout
   style="info" 
-  iconAcessibilityLabel="Info icon"
+  iconAccessibilityLabel="Info icon"
   title="The thing you were doing is now done"
   description="Get a badge, show up in more experiences and more."
   primaryLink={{href: "https://pinterest.com", label:"Get started"}} 
@@ -75,7 +75,7 @@ card(
     defaultCode={`
 <Callout
   style="warning" 
-  iconAcessibilityLabel="Warning icon"
+  iconAccessibilityLabel="Warning icon"
   description="This feature will be removed in two weeks."
   primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
@@ -93,7 +93,7 @@ card(
     defaultCode={`
 <Callout
   style="error" 
-  iconAcessibilityLabel="Error icon"
+  iconAccessibilityLabel="Error icon"
   description="Oops"
 />
   `}
