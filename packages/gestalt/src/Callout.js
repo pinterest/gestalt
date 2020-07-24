@@ -84,7 +84,7 @@ export default function Callout({
           size={32}
         />
       </Box>
-      <Box flex="grow" paddingX={3}>
+      <Box flex="grow" paddingX={6} maxWidth={600}>
         {title && (
           <Box marginBottom={2}>
             <Heading size="sm">{title}</Heading>

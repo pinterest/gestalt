@@ -27,7 +27,12 @@ exports[`<Callout /> Error Callout 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -65,7 +70,12 @@ exports[`<Callout /> Info Callout 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -103,7 +113,12 @@ exports[`<Callout /> Warning Callout 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -141,7 +156,12 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="box marginBottom2"
@@ -262,7 +282,12 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="box marginBottom2"
@@ -369,7 +394,12 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="box marginBottom2"
@@ -446,7 +476,12 @@ exports[`<Callout /> description + title 1`] = `
     </svg>
   </div>
   <div
-    className="box flexGrow paddingX3"
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 600,
+      }
+    }
   >
     <div
       className="box marginBottom2"
