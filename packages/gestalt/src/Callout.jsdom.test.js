@@ -8,9 +8,11 @@ test('Callout handles onDismiss callback', () => {
   const { getByLabelText } = render(
     <Callout
       description="Insert a clever error callout message here"
-      dismissIconAccessibilityLabel="Dismiss banner"
+      dismissButton={{
+        accessibilityLabel: 'Dismiss banner',
+        onDismiss: mockOnDismiss,
+      }}
       iconAccessibilityLabel="error icon"
-      onDismiss={mockOnDismiss}
       style="error"
     />
   );

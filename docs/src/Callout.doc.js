@@ -18,18 +18,12 @@ card(
         required: true,
       },
       {
-        name: 'dismissIconAccessibilityLabel',
-        type: 'string',
-        required: true,
+        name: 'dismissButton',
+        type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
       },
       {
         name: 'iconAccessibilityLabel',
         type: 'string',
-        required: true,
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
         required: true,
       },
       {
@@ -61,12 +55,15 @@ card(
     defaultCode={`
 <Callout
   style="info" 
-  dismissIconAcessibilityLabel="Dismiss banner"
   iconAcessibilityLabel="Info icon"
   title="The thing you were doing is now done"
   description="Get a badge, show up in more experiences and more."
   primaryLink={{href: "https://pinterest.com", label:"Get started"}} 
-  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}} 
+  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
   />
 `}
   />
@@ -78,11 +75,13 @@ card(
     defaultCode={`
 <Callout
   style="warning" 
-  dismissIconAcessibilityLabel="Dismiss banner"
   iconAcessibilityLabel="Warning icon"
-  onDismiss={()=>{}}
   description="This feature will be removed in two weeks."
   primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
 />
   `}
   />
@@ -94,9 +93,7 @@ card(
     defaultCode={`
 <Callout
   style="error" 
-  dismissIconAcessibilityLabel="Dismiss banner"
   iconAcessibilityLabel="Error icon"
-  onDismiss={()=>{}}
   description="Oops"
 />
   `}

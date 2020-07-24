@@ -8,9 +8,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever error callout message here"
-        dismissIconAccessibilityLabel="Dismiss banner"
         iconAccessibilityLabel="error icon"
-        onDismiss={() => {}}
         style="error"
       />
     ).toJSON();
@@ -21,9 +19,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever warning callout message here"
-        dismissIconAccessibilityLabel="Dismiss banner"
         iconAccessibilityLabel="warning icon"
-        onDismiss={() => {}}
         style="warning"
       />
     ).toJSON();
@@ -34,9 +30,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        dismissIconAccessibilityLabel="Dismiss banner"
         iconAccessibilityLabel="info icon"
-        onDismiss={() => {}}
         style="info"
       />
     ).toJSON();
@@ -47,9 +41,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        dismissIconAccessibilityLabel="Dismiss banner"
         iconAccessibilityLabel="info icon"
-        onDismiss={() => {}}
         style="info"
         title="A Title"
       />
@@ -61,9 +53,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        dismissIconAccessibilityLabel="Dismiss banner"
         iconAccessibilityLabel="info icon"
-        onDismiss={() => {}}
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         style="info"
         title="A Title"
@@ -76,11 +66,26 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        dismissIconAccessibilityLabel="Dismiss banner"
         iconAccessibilityLabel="info icon"
-        onDismiss={() => {}}
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         secondaryLink={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        style="info"
+        title="A Title"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('description + title + primaryLink + dismissButton', () => {
+    const tree = create(
+      <Callout
+        description="Insert a clever info callout message here"
+        iconAccessibilityLabel="info icon"
+        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
         style="info"
         title="A Title"
       />

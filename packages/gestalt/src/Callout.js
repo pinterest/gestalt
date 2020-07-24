@@ -1,7 +1,8 @@
 // @flow strict
 import * as React from 'react';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import Box from './Box.js';
+import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Link from './Link.js';
@@ -10,7 +11,10 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   description: string,
-  dismissIconAccessibilityLabel: string,
+  dismissButton?: {|
+    accessibilityLabel: string,
+    onDismiss: () => void,
+  |},
   iconAccessibilityLabel: string,
   primaryLink?: {|
     href: string,
@@ -20,7 +24,6 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLAnchorElement>
     >,
   |},
-  onDismiss: () => void,
   secondaryLink?: {|
     href: string,
     label: string,
@@ -53,9 +56,8 @@ const CALLOUT_TYPE_ATTRIBUTES = {
 
 export default function Callout({
   description,
-  dismissIconAccessibilityLabel,
+  dismissButton,
   iconAccessibilityLabel,
-  onDismiss,
   primaryLink,
   secondaryLink,
   style,
@@ -78,55 +80,64 @@ export default function Callout({
         <Icon
           icon={CALLOUT_TYPE_ATTRIBUTES[style].icon}
           color={CALLOUT_TYPE_ATTRIBUTES[style].color}
-          accessibilityLabel=""
-          size={24}
+          accessibilityLabel={iconAccessibilityLabel}
+          size={32}
         />
       </Box>
       <Box flex="grow" paddingX={3}>
         {title && (
           <Box marginBottom={2}>
-            <Text weight="bold">{title}</Text>
+            <Heading size="sm">{title}</Heading>
           </Box>
         )}
         <Text>{description}</Text>
       </Box>
       {secondaryLink && (
-        <Box padding={4} flex="none">
-          <Link href={secondaryLink.href}>
-            <Text weight="bold">{secondaryLink.label}</Text>
-          </Link>
+        <Box paddingX={2}>
+          <Box padding={4} flex="none">
+            <Link href={secondaryLink.href}>
+              <Text weight="bold">{secondaryLink.label}</Text>
+            </Link>
+          </Box>
         </Box>
       )}
       {primaryLink && (
-        <Box rounding="pill" color="white" padding={4} flex="none">
-          <Link href={primaryLink.href}>
-            <Text weight="bold">{primaryLink.label}</Text>
-          </Link>
+        <Box paddingX={2}>
+          <Box rounding="pill" color="white" padding={4} flex="none">
+            <Link href={primaryLink.href}>
+              <Text weight="bold">{primaryLink.label}</Text>
+            </Link>
+          </Box>
         </Box>
       )}
-      <Box position="absolute" top right padding={1}>
-        <IconButton
-          icon="cancel"
-          iconColor="darkGray"
-          size="sm"
-          accessibilityLabel={dismissIconAccessibilityLabel}
-          onClick={onDismiss}
-        />
-      </Box>
+      {dismissButton && (
+        <Box position="absolute" top right>
+          <IconButton
+            icon="cancel"
+            iconColor="darkGray"
+            size="sm"
+            accessibilityLabel={dismissButton.accessibilityLabel}
+            onClick={dismissButton.onDismiss}
+            padding={4}
+          />
+        </Box>
+      )}
     </Box>
   );
 }
 
 Callout.propTypes = {
   description: PropTypes.string.isRequired,
-  dismissIconAccessibilityLabel: PropTypes.string.isRequired,
+  dismissButton: PropTypes.exact({
+    accessibilityLabel: PropTypes.string.isRequired,
+    onDismiss: PropTypes.func.isRequired,
+  }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
   primaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
   }),
-  onDismiss: PropTypes.func,
   secondaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
