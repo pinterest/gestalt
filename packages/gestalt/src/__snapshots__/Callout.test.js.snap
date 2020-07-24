@@ -39,7 +39,7 @@ exports[`<Callout /> Error Callout 1`] = `
     className="absolute box paddingX1 paddingY1 right0 top0"
   >
     <button
-      aria-label=""
+      aria-label="Dismiss banner"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -121,7 +121,7 @@ exports[`<Callout /> Info Callout 1`] = `
     className="absolute box paddingX1 paddingY1 right0 top0"
   >
     <button
-      aria-label=""
+      aria-label="Dismiss banner"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -203,7 +203,7 @@ exports[`<Callout /> Warning Callout 1`] = `
     className="absolute box paddingX1 paddingY1 right0 top0"
   >
     <button
-      aria-label=""
+      aria-label="Dismiss banner"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -346,7 +346,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     className="absolute box paddingX1 paddingY1 right0 top0"
   >
     <button
-      aria-label=""
+      aria-label="Dismiss banner"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -463,7 +463,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
     className="absolute box paddingX1 paddingY1 right0 top0"
   >
     <button
-      aria-label=""
+      aria-label="Dismiss banner"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -554,7 +554,7 @@ exports[`<Callout /> description + title 1`] = `
     className="absolute box paddingX1 paddingY1 right0 top0"
   >
     <button
-      aria-label=""
+      aria-label="Dismiss banner"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}

@@ -6,22 +6,31 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Link from './Link.js';
 import Text from './Text.js';
-import typography from './Typography.css';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   description: string,
-    iconAccessibilityLabel: string,
-      primaryLink ?: {|
-        href: string,
-          label: string,
-  |},
-onDismiss: () => void,
-  secondaryLink ?: {|
+  dismissIconAccessibilityLabel: string,
+  iconAccessibilityLabel: string,
+  primaryLink?: {|
     href: string,
-      label: string,
+    label: string,
+    onClick?: AbstractEventHandler<
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+    >,
   |},
-style: 'error' | 'info' | 'warning',
-  title ?: string,
+  onDismiss: () => void,
+  secondaryLink?: {|
+    href: string,
+    label: string,
+    onClick?: AbstractEventHandler<
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
+    >,
+  |},
+  style: 'error' | 'info' | 'warning',
+  title?: string,
 |};
 
 const CALLOUT_TYPE_ATTRIBUTES = {
@@ -44,6 +53,7 @@ const CALLOUT_TYPE_ATTRIBUTES = {
 
 export default function Callout({
   description,
+  dismissIconAccessibilityLabel,
   iconAccessibilityLabel,
   onDismiss,
   primaryLink,
@@ -58,12 +68,19 @@ export default function Callout({
       position="relative"
       rounding={4}
       dangerouslySetInlineStyle={{
-        __style: { backgroundColor: CALLOUT_TYPE_ATTRIBUTES[style].backgroundColor }
+        __style: {
+          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[style].backgroundColor,
+        },
       }}
       padding={8}
     >
       <Box>
-        <Icon icon={CALLOUT_TYPE_ATTRIBUTES[style].icon} color={CALLOUT_TYPE_ATTRIBUTES[style].color} accessibilityLabel="" size={24} />
+        <Icon
+          icon={CALLOUT_TYPE_ATTRIBUTES[style].icon}
+          color={CALLOUT_TYPE_ATTRIBUTES[style].color}
+          accessibilityLabel=""
+          size={24}
+        />
       </Box>
       <Box flex="grow" paddingX={3}>
         {title && (
@@ -88,24 +105,33 @@ export default function Callout({
         </Box>
       )}
       <Box position="absolute" top right padding={1}>
-        <IconButton icon="cancel" iconColor="darkGray" size="sm" accessibilityLabel="" onClick={onDismiss} />
+        <IconButton
+          icon="cancel"
+          iconColor="darkGray"
+          size="sm"
+          accessibilityLabel={dismissIconAccessibilityLabel}
+          onClick={onDismiss}
+        />
       </Box>
     </Box>
-  )
+  );
 }
 
 Callout.propTypes = {
   description: PropTypes.string.isRequired,
+  dismissIconAccessibilityLabel: PropTypes.string.isRequired,
   iconAccessibilityLabel: PropTypes.string.isRequired,
   primaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
   }),
   onDismiss: PropTypes.func,
   secondaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
   }),
   style: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
   title: PropTypes.string,
-}
+};

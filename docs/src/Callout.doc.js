@@ -7,17 +7,18 @@ import PageHeader from './components/PageHeader.js';
 const cards = [];
 const card = c => cards.push(c);
 
-card(
-  <PageHeader
-    name="Callout"
-  />
-);
+card(<PageHeader name="Callout" />);
 
 card(
   <PropTable
     props={[
       {
         name: 'description',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'dismissIconAccessibilityLabel',
         type: 'string',
         required: true,
       },
@@ -33,11 +34,13 @@ card(
       },
       {
         name: 'primaryLink',
-        type: '{| href: string, label: string |}',
+        type:
+          '{| href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void |}',
       },
       {
         name: 'secondaryLink',
-        type: '{| href: string, label: string |}',
+        type:
+          '{| href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void |}',
       },
       {
         name: 'style',
@@ -57,12 +60,13 @@ card(
     name="Info Example"
     defaultCode={`
 <Callout
-    style="info" 
-    iconAcessibilityLabel=""
-    title="The thing you were doing is now done"
-    description="Get a badge, show up in more experiences and more."
-    primaryLink={{href: "https://pinterest.com", label:"Get started"}} 
-    secondaryLink={{href: "https://pinterest.com", label:"Learn more"}} 
+  style="info" 
+  dismissIconAcessibilityLabel="Dismiss banner"
+  iconAcessibilityLabel="Info icon"
+  title="The thing you were doing is now done"
+  description="Get a badge, show up in more experiences and more."
+  primaryLink={{href: "https://pinterest.com", label:"Get started"}} 
+  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}} 
   />
 `}
   />
@@ -74,7 +78,8 @@ card(
     defaultCode={`
 <Callout
   style="warning" 
-  iconAcessibilityLabel=""
+  dismissIconAcessibilityLabel="Dismiss banner"
+  iconAcessibilityLabel="Warning icon"
   onDismiss={()=>{}}
   description="This feature will be removed in two weeks."
   primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
@@ -89,7 +94,8 @@ card(
     defaultCode={`
 <Callout
   style="error" 
-  iconAcessibilityLabel=""
+  dismissIconAcessibilityLabel="Dismiss banner"
+  iconAcessibilityLabel="Error icon"
   onDismiss={()=>{}}
   description="Oops"
 />
