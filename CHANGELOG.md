@@ -1,3 +1,9 @@
+## 8.2.2 (Jul 24, 2020)
+
+### Patch
+
+- Docs: Fix Header to remove sticky header on reduced window size (#1074)
+
 ## 8.2.1 (Jul 23, 2020)
 
 ### Patch
