@@ -96,7 +96,7 @@ const Typeahead = (props: Props): Node => {
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
   const [availableOptions, setAvailableOptions] = useState<OptionObject[]>(
-    filterOriginalData(search)
+    dataRef.current
   );
 
   // Ref to the input
