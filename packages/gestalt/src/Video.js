@@ -525,7 +525,6 @@ export default class Video extends React.PureComponent<Props, State> {
         <ColorSchemeProvider id="Video" colorScheme="light">
           <video
             autoPlay={playing}
-            crossOrigin="anonymous"
             loop={loop}
             muted={volume === 0}
             playsInline={playsInline}
