@@ -1,3 +1,9 @@
+## 9.2.1 (Jul 27, 2020)
+
+### Patch
+
+- Docs Sidebar: remove collapsing + update heading / selected styles (#1078)
+
 ## 9.2.0 (Jul 27, 2020)
 
 ### Minor
