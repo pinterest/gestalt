@@ -1,6 +1,6 @@
 // @flow strict
 import * as React from 'react';
-import { Link, Text } from 'gestalt';
+import { Box, Link, Text } from 'gestalt';
 import { withRouter, Route } from 'react-router-dom';
 import { createLocation } from 'history';
 import { useSidebarContext } from './sidebarContext.js';
@@ -32,11 +32,13 @@ const NavLink = ({ children, to, history }: Props) => {
   return (
     <Route path={to} location={history.location}>
       {({ match }) => (
-        <Text weight={match ? 'bold' : 'normal'}>
-          <Link href={href} onClick={handleClick}>
-            {children}
-          </Link>
-        </Text>
+        <Box color={match ? 'lightGray' : 'transparent'} rounding={2}>
+          <Text weight="bold">
+            <Link href={href} onClick={handleClick} rounding={2}>
+              {children}
+            </Link>
+          </Text>
+        </Box>
       )}
     </Route>
   );
