@@ -1,3 +1,9 @@
+## 9.1.0 (Jul 27, 2020)
+
+### Minor
+
+- Video: Fix failing CORS access and preventing playback  (#1077)
+
 ## 9.0.0 (Jul 24, 2020)
 
 ### Major
