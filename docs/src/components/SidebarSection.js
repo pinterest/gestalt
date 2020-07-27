@@ -4,7 +4,7 @@ import { Box, Row, Text } from 'gestalt';
 import { type sidebarIndexType } from './sidebarIndex.js';
 import NavLink from './NavLink.js';
 
-export default function CollapsibleSection({ section }: sidebarIndexType) {
+export default function SidebarSection({ section }: sidebarIndexType) {
   return (
     <>
       <Box padding={2} marginTop={4} role="list">

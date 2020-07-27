@@ -32,11 +32,7 @@ if (container instanceof Element) {
               render={() => <Redirect to="/getting-started/Installation" />}
             />
             {sidebarIndex.map(section =>
-              section.pages
-                ? mapRoutes(section.pages, section.sectionPathname)
-                : section.subsections.map(subsection =>
-                    mapRoutes(subsection.pages, section.sectionPathname)
-                  )
+              mapRoutes(section.pages, section.sectionPathname)
             )}
           </Switch>
         </App>
