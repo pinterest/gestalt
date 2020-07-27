@@ -1,3 +1,9 @@
+## 9.2.2 (Jul 27, 2020)
+
+### Patch
+
+- Sidebar: cleanup (#1080)
+
 ## 9.2.1 (Jul 27, 2020)
 
 ### Patch
