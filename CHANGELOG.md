@@ -1,3 +1,9 @@
+## 9.2.0 (Jul 27, 2020)
+
+### Minor
+
+- useFocusVisible: Only show focus ring on keyboard input (#1073)
+
 ## 9.1.0 (Jul 27, 2020)
 
 ### Minor
