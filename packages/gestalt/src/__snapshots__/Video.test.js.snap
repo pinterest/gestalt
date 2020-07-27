@@ -37,7 +37,6 @@ exports[`Video with callbacks 1`] = `
     <video
       autoPlay={false}
       className="video"
-      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
@@ -94,7 +93,6 @@ exports[`Video with children 1`] = `
     <video
       autoPlay={false}
       className="video"
-      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
@@ -367,7 +365,6 @@ exports[`Video with media attributes 1`] = `
     <video
       autoPlay={false}
       className="video"
-      crossOrigin="anonymous"
       loop={true}
       muted={true}
       onCanPlay={[Function]}
@@ -425,7 +422,6 @@ exports[`Video with multiple sources 1`] = `
     <video
       autoPlay={false}
       className="video"
-      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
@@ -489,7 +485,6 @@ exports[`Video with source 1`] = `
     <video
       autoPlay={false}
       className="video"
-      crossOrigin="anonymous"
       muted={true}
       onCanPlay={[Function]}
       onDurationChange={[Function]}
