@@ -84,7 +84,7 @@ export default function Callout({
           size={32}
         />
       </Box>
-      <Box flex="grow" paddingX={6} maxWidth={600}>
+      <Box flex="grow" paddingX={6} maxWidth={648}>
         {title && (
           <Box marginBottom={2}>
             <Heading size="sm">{title}</Heading>
@@ -93,7 +93,7 @@ export default function Callout({
         <Text>{description}</Text>
       </Box>
       {secondaryLink && (
-        <Box paddingX={1}>
+        <Box paddingX={1} marginStart="auto">
           <Box padding={4} flex="none">
             <Link href={secondaryLink.href}>
               <Text weight="bold">{secondaryLink.label}</Text>
@@ -102,7 +102,7 @@ export default function Callout({
         </Box>
       )}
       {primaryLink && (
-        <Box paddingX={1}>
+        <Box paddingX={1} marginStart={secondaryLink ? undefined : 'auto'}>
           <Box rounding="pill" color="white" padding={4} flex="none">
             <Link href={primaryLink.href}>
               <Text weight="bold">{primaryLink.label}</Text>
