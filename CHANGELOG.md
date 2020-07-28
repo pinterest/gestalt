@@ -1,3 +1,9 @@
+## 10.0.0 (Jul 28, 2020)
+
+### Major
+
+- Layer: Fix flow type return on render (#1084)
+
 ## 9.2.2 (Jul 27, 2020)
 
 ### Patch
