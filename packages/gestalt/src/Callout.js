@@ -2,7 +2,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
-import GestaltProvider from './GestaltProvider';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -34,7 +33,7 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLAnchorElement>
     >,
   |},
-  style: 'error' | 'info' | 'warning',
+  type: 'error' | 'info' | 'warning',
   title?: string,
 |};
 
@@ -62,7 +61,7 @@ export default function Callout({
   iconAccessibilityLabel,
   primaryLink,
   secondaryLink,
-  style,
+  type,
   title,
 }: Props): React.Node {
   // Currently there is not a dark mode spec for this component. This is to ensure
@@ -78,15 +77,15 @@ export default function Callout({
       rounding={4}
       dangerouslySetInlineStyle={{
         __style: {
-          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[style].backgroundColor,
+          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[type].backgroundColor,
         },
       }}
       padding={8}
     >
       <Box>
         <Icon
-          icon={CALLOUT_TYPE_ATTRIBUTES[style].icon}
-          color={CALLOUT_TYPE_ATTRIBUTES[style].color}
+          icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
+          color={CALLOUT_TYPE_ATTRIBUTES[type].color}
           accessibilityLabel={iconAccessibilityLabel}
           size={32}
         />
@@ -104,7 +103,7 @@ export default function Callout({
       {secondaryLink && (
         <Box paddingX={1} marginStart="auto">
           <Box padding={4} flex="none">
-            <Link href={secondaryLink.href}>
+            <Link href={secondaryLink.href} onClick={secondaryLink.onClick}>
               <Text weight="bold" color={isDarkMode ? 'white' : 'darkGray'}>
                 {secondaryLink.label}
               </Text>
@@ -115,7 +114,7 @@ export default function Callout({
       {primaryLink && (
         <Box paddingX={1} marginStart={secondaryLink ? undefined : 'auto'}>
           <Box rounding="pill" color="white" padding={4} flex="none">
-            <Link href={primaryLink.href}>
+            <Link href={primaryLink.href} onClick={primaryLink.onClick}>
               <Text weight="bold">{primaryLink.label}</Text>
             </Link>
           </Box>
@@ -154,6 +153,6 @@ Callout.propTypes = {
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
   }),
-  style: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
+  type: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
   title: PropTypes.string,
 };

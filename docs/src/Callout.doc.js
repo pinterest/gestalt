@@ -37,7 +37,7 @@ card(
           '{| href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void |}',
       },
       {
-        name: 'style',
+        name: 'type',
         type: `"error" | "info" | "warning"`,
         required: true,
       },
@@ -54,7 +54,7 @@ card(
     name="Info Example"
     defaultCode={`
 <Callout
-  style="info" 
+  type="info" 
   iconAccessibilityLabel="Info icon"
   title="The thing you were doing is now done"
   description="Get a badge, show up in more experiences and more."
@@ -74,7 +74,7 @@ card(
     name="Warning Example"
     defaultCode={`
 <Callout
-  style="warning" 
+  type="warning" 
   iconAccessibilityLabel="Warning icon"
   description="This feature will be removed in two weeks."
   primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
@@ -92,7 +92,7 @@ card(
     name="Error Example"
     defaultCode={`
 <Callout
-  style="error" 
+  type="error" 
   iconAccessibilityLabel="Error icon"
   description="Oops"
 />

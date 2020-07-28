@@ -9,7 +9,7 @@ describe('<Callout />', () => {
       <Callout
         description="Insert a clever error callout message here"
         iconAccessibilityLabel="error icon"
-        style="error"
+        type="error"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('<Callout />', () => {
       <Callout
         description="Insert a clever warning callout message here"
         iconAccessibilityLabel="warning icon"
-        style="warning"
+        type="warning"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe('<Callout />', () => {
       <Callout
         description="Insert a clever info callout message here"
         iconAccessibilityLabel="info icon"
-        style="info"
+        type="info"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -42,7 +42,7 @@ describe('<Callout />', () => {
       <Callout
         description="Insert a clever info callout message here"
         iconAccessibilityLabel="info icon"
-        style="info"
+        type="info"
         title="A Title"
       />
     ).toJSON();
@@ -55,7 +55,7 @@ describe('<Callout />', () => {
         description="Insert a clever info callout message here"
         iconAccessibilityLabel="info icon"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
-        style="info"
+        type="info"
         title="A Title"
       />
     ).toJSON();
@@ -69,7 +69,7 @@ describe('<Callout />', () => {
         iconAccessibilityLabel="info icon"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         secondaryLink={{ href: 'pinterest.com/help', label: 'Learn more' }}
-        style="info"
+        type="info"
         title="A Title"
       />
     ).toJSON();
@@ -86,7 +86,7 @@ describe('<Callout />', () => {
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
         }}
-        style="info"
+        type="info"
         title="A Title"
       />
     ).toJSON();
