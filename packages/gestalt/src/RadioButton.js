@@ -12,6 +12,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 type Props = {|
   checked?: boolean,
   disabled?: boolean,
+  forwardedRef?: React.Ref<'input'>,
   id: string,
   label?: string,
   name?: string,
@@ -23,136 +24,140 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-type State = {|
-  focused: boolean,
-  hovered: boolean,
-|};
+function RadioButton(props: Props): React.Node {
+  const {
+    checked = false,
+    disabled = false,
+    id,
+    forwardedRef,
+    label,
+    name,
+    onChange,
+    value,
+    size = 'md',
+  } = props;
 
-export default class RadioButton extends React.Component<Props, State> {
-  static propTypes = {
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string,
-    name: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
-    size: PropTypes.oneOf(['sm', 'md']),
-  };
+  const [focused, setFocused] = React.useState(false);
+  const [hovered, setHover] = React.useState(false);
 
-  static defaultProps: {|
-    checked: boolean,
-    disabled: boolean,
-    size?: 'sm' | 'md',
-  |} = {
-    checked: false,
-    disabled: false,
-    size: 'md',
-  };
-
-  state: State = {
-    focused: false,
-    hovered: false,
-  };
-
-  handleChange: (
+  const handleChange: (
     event: SyntheticInputEvent<HTMLInputElement>
-  ) => mixed = event => {
-    const { onChange } = this.props;
-    const { checked } = event.target;
-    onChange({ checked, event });
-  };
+  ) => mixed = event => onChange({ checked: event.target.checked, event });
 
-  handleBlur: () => void = () => this.setState({ focused: false });
+  const handleBlur: () => void = () => setFocused(false);
 
-  handleFocus: () => void = () => this.setState({ focused: true });
+  const handleFocus: () => void = () => setFocused(true);
 
-  handleHover: (hovered: boolean) => void = (hovered: boolean) => {
-    this.setState({ hovered });
-  };
+  const handleHover: (isHovered: boolean) => void = (isHovered: boolean) =>
+    setHover(isHovered);
 
-  render(): React.Node {
-    const { checked, disabled, id, label, name, size, value } = this.props;
-    const { focused, hovered } = this.state;
+  let borderStyle = styles.Border;
+  if (disabled && checked) {
+    borderStyle = styles.BorderDisabledChecked;
+  } else if (!disabled && checked) {
+    borderStyle = styles.BorderDarkGray;
+  } else if (!disabled && hovered) {
+    borderStyle = styles.BorderHovered;
+  }
 
-    let borderStyle = styles.Border;
-    if (disabled && checked) {
-      borderStyle = styles.BorderDisabledChecked;
-    } else if (!disabled && checked) {
-      borderStyle = styles.BorderDarkGray;
-    } else if (!disabled && hovered) {
-      borderStyle = styles.BorderHovered;
-    }
+  let borderWidth = styles.BorderUnchecked;
+  if (disabled && !checked) {
+    borderWidth = styles.BorderDisabled;
+  } else if (checked && size === 'sm') {
+    borderWidth = styles.BorderCheckedSm;
+  } else if (checked && size === 'md') {
+    borderWidth = styles.BorderCheckedMd;
+  }
 
-    let borderWidth = styles.BorderUnchecked;
-    if (disabled && !checked) {
-      borderWidth = styles.BorderDisabled;
-    } else if (checked && size === 'sm') {
-      borderWidth = styles.BorderCheckedSm;
-    } else if (checked && size === 'md') {
-      borderWidth = styles.BorderCheckedMd;
-    }
+  const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
-    const styleSize =
-      size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
+  const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
-    const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
+  return (
+    <Box
+      alignItems="center"
+      display="flex"
+      justifyContent="start"
+      marginLeft={-1}
+      marginRight={-1}
+    >
+      <Label htmlFor={id}>
+        <Box paddingX={1}>
+          <div
+            className={classnames(
+              bgStyle,
+              borderStyle,
+              borderWidth,
+              styleSize,
+              styles.RadioButton,
+              {
+                [styles.RadioButtonIsFocused]: focused,
+              }
+            )}
+          >
+            <input
+              checked={checked}
+              className={classnames(controlStyles.input, styleSize, {
+                [styles.InputEnabled]: !disabled,
+              })}
+              disabled={disabled}
+              id={id}
+              name={name}
+              onBlur={handleBlur}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onMouseEnter={() => handleHover(true)}
+              onMouseLeave={() => handleHover(false)}
+              ref={forwardedRef}
+              type="radio"
+              value={value}
+            />
+          </div>
+        </Box>
+      </Label>
 
-    return (
-      <Box
-        alignItems="center"
-        display="flex"
-        justifyContent="start"
-        marginLeft={-1}
-        marginRight={-1}
-      >
+      {label && (
         <Label htmlFor={id}>
           <Box paddingX={1}>
-            <div
-              className={classnames(
-                bgStyle,
-                borderStyle,
-                borderWidth,
-                styleSize,
-                styles.RadioButton,
-                {
-                  [styles.RadioButtonIsFocused]: focused,
-                }
-              )}
+            <Text
+              color={disabled ? 'gray' : undefined}
+              size={size === 'sm' ? 'md' : 'lg'}
             >
-              <input
-                checked={checked}
-                className={classnames(controlStyles.input, styleSize, {
-                  [styles.InputEnabled]: !disabled,
-                })}
-                disabled={disabled}
-                id={id}
-                name={name}
-                onBlur={this.handleBlur}
-                onChange={this.handleChange}
-                onFocus={this.handleFocus}
-                onMouseEnter={() => this.handleHover(true)}
-                onMouseLeave={() => this.handleHover(false)}
-                type="radio"
-                value={value}
-              />
-            </div>
+              {label}
+            </Text>
           </Box>
         </Label>
-
-        {label && (
-          <Label htmlFor={id}>
-            <Box paddingX={1}>
-              <Text
-                color={disabled ? 'gray' : undefined}
-                size={size === 'sm' ? 'md' : 'lg'}
-              >
-                {label}
-              </Text>
-            </Box>
-          </Label>
-        )}
-      </Box>
-    );
-  }
+      )}
+    </Box>
+  );
 }
+
+RadioButton.propTypes = {
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['sm', 'md']),
+};
+
+function RadioButtonWithRef(props, ref) {
+  return <RadioButton {...props} forwardedRef={ref} />;
+}
+
+const RadioButtonWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = React.forwardRef<Props, HTMLInputElement>(RadioButtonWithRef);
+
+RadioButtonWithForwardRef.displayName = 'RadioButton';
+
+export default RadioButtonWithForwardRef;
