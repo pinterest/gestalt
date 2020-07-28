@@ -79,6 +79,7 @@ const sidebarIndex: sidebarIndexType = [
       'Row',
       'Stack',
       'Sticky',
+      'ZIndexClasses',
     ],
   },
   {
