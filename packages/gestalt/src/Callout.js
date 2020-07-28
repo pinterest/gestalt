@@ -34,7 +34,6 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLAnchorElement>
     >,
   |},
-  size?: 'sm' | 'normal',
   style: 'error' | 'info' | 'warning',
   title?: string,
 |};
