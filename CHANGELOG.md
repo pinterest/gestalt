@@ -1,3 +1,9 @@
+## 10.0.1 (Jul 28, 2020)
+
+### Patch
+
+- Docs: Added ZIndexClasses in Layout (#1082)
+
 ## 10.0.0 (Jul 28, 2020)
 
 ### Major
