@@ -1,3 +1,9 @@
+## 10.2.0 (Jul 28, 2020)
+
+### Minor
+
+- Icon: Add drag-drop icon (#1083)
+
 ## 10.1.0 (Jul 28, 2020)
 
 ### Minor
