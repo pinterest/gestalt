@@ -1,0 +1,502 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Callout /> Error Callout 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#FDEBEE",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="error"
+      className="icon red iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever error callout message here
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> Info Callout 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#EBF4FE",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="info"
+      className="icon blue iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever info callout message here
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> Warning Callout 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#FDF5EC",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="warning"
+      className="icon orange iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever warning callout message here
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#EBF4FE",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="info"
+      className="icon blue iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="box marginBottom2"
+    >
+      <h3
+        className="Heading fontSize1 darkGray alignLeft breakWord"
+      >
+        A Title
+      </h3>
+    </div>
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever info callout message here
+    </div>
+  </div>
+  <div
+    className="box marginEnd3 marginStartAuto paddingX1"
+  >
+    <div
+      className="box flexNone paddingX4 paddingY4 pill whiteBg"
+    >
+      <a
+        className="link tapTransition touchable block rounding0 hoverUnderline"
+        href="pinterest.com"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        target={null}
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        >
+          Visit Pinterest
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="absolute box right0 top0"
+  >
+    <button
+      aria-label="Dismiss banner"
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#EBF4FE",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="info"
+      className="icon blue iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="box marginBottom2"
+    >
+      <h3
+        className="Heading fontSize1 darkGray alignLeft breakWord"
+      >
+        A Title
+      </h3>
+    </div>
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever info callout message here
+    </div>
+  </div>
+  <div
+    className="box marginStartAuto paddingX1"
+  >
+    <div
+      className="box flexNone paddingX4 paddingY4"
+    >
+      <a
+        className="link tapTransition touchable block rounding0 hoverUnderline"
+        href="pinterest.com/help"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        target={null}
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        >
+          Learn more
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="box marginEnd3 paddingX1"
+  >
+    <div
+      className="box flexNone paddingX4 paddingY4 pill whiteBg"
+    >
+      <a
+        className="link tapTransition touchable block rounding0 hoverUnderline"
+        href="pinterest.com"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        target={null}
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        >
+          Visit Pinterest
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> description + title + primaryLink 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#EBF4FE",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="info"
+      className="icon blue iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="box marginBottom2"
+    >
+      <h3
+        className="Heading fontSize1 darkGray alignLeft breakWord"
+      >
+        A Title
+      </h3>
+    </div>
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever info callout message here
+    </div>
+  </div>
+  <div
+    className="box marginEnd3 marginStartAuto paddingX1"
+  >
+    <div
+      className="box flexNone paddingX4 paddingY4 pill whiteBg"
+    >
+      <a
+        className="link tapTransition touchable block rounding0 hoverUnderline"
+        href="pinterest.com"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        target={null}
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        >
+          Visit Pinterest
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> description + title 1`] = `
+<div
+  className="box itemsCenter paddingX8 paddingY8 relative rounding4 xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#EBF4FE",
+    }
+  }
+>
+  <div
+    className="box"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="info"
+      className="icon blue iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="box flexGrow paddingX6"
+    style={
+      Object {
+        "maxWidth": 648,
+      }
+    }
+  >
+    <div
+      className="box marginBottom2"
+    >
+      <h3
+        className="Heading fontSize1 darkGray alignLeft breakWord"
+      >
+        A Title
+      </h3>
+    </div>
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Insert a clever info callout message here
+    </div>
+  </div>
+</div>
+`;

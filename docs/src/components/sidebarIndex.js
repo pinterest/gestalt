@@ -39,7 +39,7 @@ const sidebarIndex: sidebarIndexType = [
   {
     sectionName: 'Feedback',
     sectionPathname: 'feedback',
-    pages: ['Modal', 'Pulsar', 'Spinner', 'Toast', 'Tooltip'],
+    pages: ['Callout', 'Modal', 'Pulsar', 'Spinner', 'Toast', 'Tooltip'],
   },
 
   {
