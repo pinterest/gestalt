@@ -2,11 +2,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
+import GestaltProvider from './GestaltProvider';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Link from './Link.js';
 import Text from './Text.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
@@ -32,6 +34,7 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLAnchorElement>
     >,
   |},
+  size?: 'sm' | 'normal',
   style: 'error' | 'info' | 'warning',
   title?: string,
 |};
@@ -63,6 +66,11 @@ export default function Callout({
   style,
   title,
 }: Props): React.Node {
+  // Currently there is not a dark mode spec for this component. This is to ensure
+  // that all text is readable.
+  const { name } = useColorScheme();
+  const isDarkMode = name === 'darkMode';
+
   return (
     <Box
       alignItems="center"
@@ -87,16 +95,20 @@ export default function Callout({
       <Box flex="grow" paddingX={6} maxWidth={648}>
         {title && (
           <Box marginBottom={2}>
-            <Heading size="sm">{title}</Heading>
+            <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
+              {title}
+            </Heading>
           </Box>
         )}
-        <Text>{description}</Text>
+        <Text color={isDarkMode ? 'white' : 'darkGray'}>{description}</Text>
       </Box>
       {secondaryLink && (
         <Box paddingX={1} marginStart="auto">
           <Box padding={4} flex="none">
             <Link href={secondaryLink.href}>
-              <Text weight="bold">{secondaryLink.label}</Text>
+              <Text weight="bold" color={isDarkMode ? 'white' : 'darkGray'}>
+                {secondaryLink.label}
+              </Text>
             </Link>
           </Box>
         </Box>
@@ -114,7 +126,7 @@ export default function Callout({
         <Box position="absolute" top right>
           <IconButton
             icon="cancel"
-            iconColor="darkGray"
+            iconColor={isDarkMode ? 'white' : 'darkGray'}
             size="sm"
             accessibilityLabel={dismissButton.accessibilityLabel}
             onClick={dismissButton.onDismiss}
