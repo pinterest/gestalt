@@ -1,3 +1,9 @@
+## 10.1.0 (Jul 28, 2020)
+
+### Minor
+
+- Callout: Add component (#1076)
+
 ## 10.0.1 (Jul 28, 2020)
 
 ### Patch
