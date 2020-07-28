@@ -1,9 +1,9 @@
 // @flow strict
 import * as React from 'react';
-import { useState, useRef, type Node } from 'react';
+import { useState, useRef, useImperativeHandle, type Node } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
-import Option from './TypeaheadOption.js';
+import TypeaheadOption from './TypeaheadOption.js';
 import Box from './Box.js';
 import Text from './Text.js';
 import Flyout from './Flyout.js';
@@ -15,11 +15,7 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  options: Array<{|
-    label: string,
-    value: string,
-  |}>,
-  value?: string,
+  forwardedRef?: React.Ref<'input'>,
   id: string,
   label: string,
   noResultText: string,
@@ -27,6 +23,7 @@ type Props = {|
     event:
       | SyntheticFocusEvent<HTMLInputElement>
       | SyntheticEvent<HTMLInputElement>,
+    value: string,
   |}) => void,
   onChange?: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
@@ -42,10 +39,13 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
   |}) => void,
+  options: Array<{|
+    label: string,
+    value: string,
+  |}>,
   placeholder?: string,
-  searchField?: string,
   size?: 'md' | 'lg',
-  forwardedRef?: React.Ref<'div'>,
+  value?: string,
 |};
 
 const Typeahead = (props: Props): Node => {
@@ -53,14 +53,13 @@ const Typeahead = (props: Props): Node => {
     options,
     value = null,
     id,
-    label = '',
+    label,
     noResultText,
     onBlur,
     onChange,
     onFocus,
     onSelect,
     placeholder,
-    searchField = 'label',
     size,
     forwardedRef,
   } = props;
@@ -71,17 +70,18 @@ const Typeahead = (props: Props): Node => {
   // Utility function for filtering data by value
   const filterOriginalData = (filterValue: string): OptionObject[] =>
     dataRef.current.filter(item =>
-      item[searchField].toLowerCase().includes(filterValue.toLowerCase())
+      item.label.toLowerCase().includes(filterValue.toLowerCase())
     );
 
   // Utility function to find default value
-  // eslint-disable-next-line no-shadow
-  const findDefaultOption = (value: string | null): OptionObject | null => {
-    if (value === null) return value;
+  const findDefaultOption = (
+    defaultValue: string | null
+  ): OptionObject | null => {
+    if (defaultValue === null) return defaultValue;
 
     return (
       dataRef.current.find(
-        item => item.value.toLowerCase() === value.toLowerCase()
+        item => item.value.toLowerCase() === defaultValue.toLowerCase()
       ) || null
     );
   };
@@ -100,14 +100,15 @@ const Typeahead = (props: Props): Node => {
   );
 
   // Ref to the input
-  const inputRef = useRef();
+  const inputRef = useRef(null);
+  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
+  useImperativeHandle(forwardedRef, () => inputRef.current);
 
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
 
-  // eslint-disable-next-line no-shadow
-  const handleFocus = ({ event, value }) => {
+  const handleFocus = ({ event }) => {
     // Run focus callback
-    if (onFocus) onFocus({ event, value });
+    if (onFocus) onFocus({ event, value: event.currentTarget.value });
   };
 
   const handleBlur = ({ event }) => {
@@ -120,7 +121,7 @@ const Typeahead = (props: Props): Node => {
     setContainerOpen(false);
 
     // Run blur callback
-    if (onBlur) onBlur({ event });
+    if (onBlur) onBlur({ event, value: event.currentTarget.value });
   };
 
   // Handler for when text is typed
@@ -152,7 +153,7 @@ const Typeahead = (props: Props): Node => {
   const handleSelect = ({ event, item }) => {
     setSelected(item);
 
-    setSearch(item[searchField]);
+    setSearch(item.label);
     setContainerOpen(false);
     if (inputRef.current) inputRef.current.focus();
     if (onSelect) onSelect({ event, item });
@@ -172,12 +173,8 @@ const Typeahead = (props: Props): Node => {
     // When we reach the start or end of the list, move to the start or end of the list based on the direction
     const nextOption =
       direction > 0
-        ? // .nextSibling returns a Node element which is not compatible with HTMLElement
-          // $FlowFixMe[incompatible-cast]
-          (selectedElement?.nextSibling: ?HTMLElement)
-        : // .nextSibling returns a Node element which is not compatible with HTMLElement
-          // $FlowFixMe[incompatible-cast]
-          (selectedElement?.previousSibling: ?HTMLElement);
+        ? selectedElement?.nextSibling
+        : selectedElement?.previousSibling;
 
     // Handles which option to display once we've hit the end of the list range
     const endRangeOption =
@@ -191,13 +188,15 @@ const Typeahead = (props: Props): Node => {
     if (!container || !selectedOption) return;
 
     const containerHeight = container.getClientRects()[0].height;
-    const overScroll = selectedOption?.offsetHeight / 3;
+    const overScroll =
+      selectedOption instanceof HTMLElement && selectedOption?.offsetHeight / 3;
 
     const scrollPos =
+      selectedOption instanceof HTMLElement &&
       selectedOption.offsetTop +
-      selectedOption.clientHeight -
-      containerHeight +
-      overScroll;
+        selectedOption.clientHeight -
+        containerHeight +
+        overScroll;
 
     container.scrollTop = scrollPos;
   };
@@ -206,8 +205,7 @@ const Typeahead = (props: Props): Node => {
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     direction: -1 | 0 | 1
   ) => {
-    let cursorIndex;
-    let newItem: OptionObject = availableOptions[0];
+    const newIndex = direction + hoveredItem;
     const optionsCount = availableOptions.length - 1;
 
     const KEYS = {
@@ -216,7 +214,7 @@ const Typeahead = (props: Props): Node => {
 
     // If there's an existing item, navigate from that position
 
-    const newIndex = direction + hoveredItem;
+    let cursorIndex = newIndex;
 
     // If we've reached the end, start at the top
     if (newIndex > optionsCount) {
@@ -226,11 +224,8 @@ const Typeahead = (props: Props): Node => {
     else if (newIndex < 0) {
       cursorIndex = optionsCount;
     }
-    // Carry-on otherwise
-    else {
-      cursorIndex = newIndex;
-    }
-    newItem = options[cursorIndex];
+
+    const newItem = options[cursorIndex];
 
     setHoveredItem(cursorIndex);
 
@@ -239,22 +234,18 @@ const Typeahead = (props: Props): Node => {
       // handleBlur will take care of clear empty results
       if (availableOptions.length > 0) {
         setSelected(newItem);
-        setSearch(newItem[searchField]);
+        setSearch(newItem.label);
         if (onSelect) onSelect({ event, item: newItem });
       }
 
-      handleBlur({ event });
+      handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
     handleScrolling(direction);
   };
 
-  const handleHover = (ref, index) => {
-    setHoveredItem(index);
-  };
-
   return (
-    <Box ref={forwardedRef}>
+    <Box>
       <TypeaheadInputField
         label={label}
         id={id}
@@ -296,26 +287,24 @@ const Typeahead = (props: Props): Node => {
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
-                {availableOptions.length === 0 && (
+                {availableOptions.length === 0 ? (
                   <Box margin={2}>
                     <Text color="gray">{noResultText}</Text>
                   </Box>
+                ) : (
+                  availableOptions.map((option, index) => (
+                    <TypeaheadOption
+                      index={index}
+                      key={`${option.value + index}`}
+                      option={option}
+                      selected={selected}
+                      hoveredItem={hoveredItem}
+                      setHoveredItem={setHoveredItem}
+                      handleSelect={handleSelect}
+                      setOptionRef={setOptionRef}
+                    />
+                  ))
                 )}
-
-                {/* Return options */}
-                {availableOptions.map((option, index) => (
-                  <Option
-                    index={index}
-                    key={`${option[searchField] + index}`}
-                    option={option}
-                    searchField={searchField}
-                    selected={selected}
-                    hoveredItem={hoveredItem}
-                    setHoveredItem={handleHover}
-                    handleSelect={handleSelect}
-                    setOptionRef={setOptionRef}
-                  />
-                ))}
               </Box>
             </Box>
           </Flyout>
@@ -328,6 +317,12 @@ const Typeahead = (props: Props): Node => {
 Typeahead.displayName = 'Typeahead';
 
 Typeahead.propTypes = {
+  forwardedRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.any,
+    }),
+  ]),
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   value: PropTypes.string,
@@ -340,7 +335,6 @@ Typeahead.propTypes = {
   ).isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
-  searchField: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onSelect: PropTypes.func,
@@ -353,6 +347,6 @@ const forwardRefTypeaheadField = (props, ref): Node => {
 
 forwardRefTypeaheadField.displayName = 'Typeahead';
 
-export default (React.forwardRef<Props, HTMLDivElement>(
+export default (React.forwardRef<Props, HTMLInputElement>(
   forwardRefTypeaheadField
-): React$AbstractComponent<Props, HTMLDivElement>);
+): React$AbstractComponent<Props, HTMLInputElement>);

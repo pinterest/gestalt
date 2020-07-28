@@ -6,7 +6,6 @@ import Box from './Box.js';
 import Text from './Text.js';
 import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
 import Icon from './Icon.js';
 
 type OptionObject = {|
@@ -18,13 +17,12 @@ type OptionProps = {|
   index: number,
   option: OptionObject,
   selected?: OptionObject | null,
-  searchField: string,
   handleSelect: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
   hoveredItem: ?number,
-  setHoveredItem: (?React.Node, number) => void,
+  setHoveredItem: number => void,
   setOptionRef: (?HTMLElement) => void,
 |};
 
@@ -32,7 +30,6 @@ export default function TypeaheadOption({
   index,
   option,
   selected,
-  searchField,
   handleSelect,
   hoveredItem,
   setHoveredItem,
@@ -50,15 +47,11 @@ export default function TypeaheadOption({
     [styles.pointer]: true,
   });
 
-  const { name: themeName } = useColorScheme();
-
   // Default option color
   let optionStateColor = 'transparent';
 
   // Set color on item hover
   if (index === hoveredItem) optionStateColor = 'lightGray';
-
-  const textColor = themeName !== 'lightTheme' ? 'darkGray' : 'white';
 
   return (
     <div
@@ -66,7 +59,7 @@ export default function TypeaheadOption({
         if (index === hoveredItem) setOptionRef(ref);
       }}
       className={className}
-      key={option[searchField]}
+      key={option.value}
       onClick={handleOnTap}
       onMouseDown={event => {
         event.preventDefault();
@@ -75,7 +68,7 @@ export default function TypeaheadOption({
         event.preventDefault();
       }}
       rounding={2}
-      onMouseEnter={() => setHoveredItem(null, index)}
+      onMouseEnter={() => setHoveredItem(index)}
       role="option"
       aria-selected={isSelectedItem}
       tabIndex="-1"
@@ -86,10 +79,9 @@ export default function TypeaheadOption({
         color={optionStateColor}
         rounding={2}
         display="flex"
-        direction="row"
       >
         <Box flex="grow">
-          <Text color={textColor}>{`${option[searchField]}`}</Text>
+          <Text color="darkGray">{`${option?.label}`}</Text>
         </Box>
         {isSelectedItem && (
           <Box
@@ -123,7 +115,6 @@ TypeaheadOption.propTypes = {
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }),
-  searchField: PropTypes.string,
   handleSelect: PropTypes.func,
   hoveredItem: PropTypes.number,
   setHoveredItem: PropTypes.func,

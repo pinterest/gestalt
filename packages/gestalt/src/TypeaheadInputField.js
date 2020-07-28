@@ -14,15 +14,16 @@ import FormLabel from './FormLabel.js';
 type DirectionOptionType = -1 | 0 | 1;
 
 type Props = {|
+  forwardedRef?: React.Ref<'input'>,
   id: string,
-  onBlur?: ({|
+  label?: string,
+  onBlur: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
   onChange: ({|
     value: string,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
-  setContainer: boolean => void,
   onClear: () => void,
   onFocus: ({|
     value: string,
@@ -33,15 +34,14 @@ type Props = {|
     DirectionOptionType
   ) => void,
   placeholder?: string,
+  setContainer: boolean => void,
   size?: 'md' | 'lg',
   value?: string,
-  label?: string,
-  forwardedRef?: React.Ref<'input'>,
 |};
 
 const InputField = ({
   id,
-  label = id,
+  label,
   onBlur,
   onChange,
   onClear,
@@ -65,25 +65,18 @@ const InputField = ({
   const handleClear = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({ value: '', event });
 
-    if (onClear) onClear();
+    onClear();
   };
-  const handleMouseEnter = () => setHovered(true);
-
-  const handleMouseLeave = () => setHovered(false);
 
   const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (onFocus) {
-      onFocus({
-        value: event.currentTarget.value,
-        event,
-      });
-    }
+    onFocus({
+      value: event.currentTarget.value,
+      event,
+    });
   };
 
   const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
-    if (onBlur) {
-      onBlur({ event });
-    }
+    onBlur({ event });
   };
 
   const handleClick = (event: SyntheticFocusEvent<HTMLInputElement>) => {
@@ -116,13 +109,16 @@ const InputField = ({
 
   const hasValue = value && value?.length > 0;
 
-  const className = classnames(styles.input, {
-    [layout.medium]: size === 'md',
-    [layout.large]: size === 'lg',
-    [styles.inputActive]: true,
-    [styles.inputHovered]: hovered,
-    [typeaheadStyle.inputRadius]: true,
-  });
+  const className = classnames(
+    styles.input,
+    styles.inputActive,
+    typeaheadStyle.inputRadius,
+    {
+      [layout.medium]: size === 'md',
+      [layout.large]: size === 'lg',
+      [styles.inputHovered]: hovered,
+    }
+  );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
   const clearIconSize = size === 'lg' ? 12 : 10;
@@ -133,8 +129,8 @@ const InputField = ({
       <Box
         alignItems="center"
         display="flex"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         position="relative"
       >
         <input

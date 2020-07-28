@@ -1,21 +1,23 @@
 // @flow strict
 import React from 'react';
 import { render } from '@testing-library/react';
-import InputField from './TypeaheadInputField.js';
+import TypeaheadInputField from './TypeaheadInputField.js';
 
-describe('<InputField />', () => {
+describe('<TypeaheadInputField />', () => {
   const onClearMock = jest.fn();
+  const onBlurMock = jest.fn();
   const onChangeMock = jest.fn();
   const setContainerMock = jest.fn();
   const onFocusMock = jest.fn();
   const onKeyNavigationMock = jest.fn();
   it('adds a "medium" classname by default', () => {
     const { container } = render(
-      <InputField
+      <TypeaheadInputField
         label="Demo Search Field"
         id="InputField"
         onChange={onChangeMock}
         onClear={onClearMock}
+        onBlur={onBlurMock}
         setContainer={setContainerMock}
         onFocus={onFocusMock}
         onKeyNavigation={onKeyNavigationMock}
@@ -28,11 +30,12 @@ describe('<InputField />', () => {
 
   it('adds a "large" classname when size is set to "lg"', () => {
     const { container } = render(
-      <InputField
+      <TypeaheadInputField
         label="Demo Search Field"
         id="InputField"
         onChange={onChangeMock}
         onClear={onClearMock}
+        onBlur={onBlurMock}
         setContainer={setContainerMock}
         onFocus={onFocusMock}
         onKeyNavigation={onKeyNavigationMock}
