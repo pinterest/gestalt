@@ -1,3 +1,9 @@
+## 11.0.0 (Jul 28, 2020)
+
+### Major
+
+- RadioButton: Add forward ref (BREAKING CHANGE) (#1071)
+
 ## 10.2.0 (Jul 28, 2020)
 
 ### Minor
