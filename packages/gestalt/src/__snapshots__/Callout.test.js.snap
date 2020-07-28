@@ -30,7 +30,7 @@ exports[`<Callout /> Error Callout 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
@@ -73,7 +73,7 @@ exports[`<Callout /> Info Callout 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
@@ -116,7 +116,7 @@ exports[`<Callout /> Warning Callout 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
@@ -159,7 +159,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
@@ -179,7 +179,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2"
+    className="box marginStartAuto paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
@@ -285,7 +285,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
@@ -305,7 +305,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2"
+    className="box marginStartAuto paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4"
@@ -335,7 +335,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2"
+    className="box paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
@@ -397,7 +397,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
@@ -417,7 +417,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2"
+    className="box marginStartAuto paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
@@ -479,7 +479,7 @@ exports[`<Callout /> description + title 1`] = `
     className="box flexGrow paddingX6"
     style={
       Object {
-        "maxWidth": 600,
+        "maxWidth": 648,
       }
     }
   >
