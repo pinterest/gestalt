@@ -112,7 +112,11 @@ export default function Callout({
         </Box>
       )}
       {primaryLink && (
-        <Box paddingX={1} marginStart={secondaryLink ? undefined : 'auto'}>
+        <Box
+          paddingX={1}
+          marginStart={secondaryLink ? undefined : 'auto'}
+          marginEnd={3}
+        >
           <Box rounding="pill" color="white" padding={4} flex="none">
             <Link href={primaryLink.href} onClick={primaryLink.onClick}>
               <Text weight="bold">{primaryLink.label}</Text>

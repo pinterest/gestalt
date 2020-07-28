@@ -179,7 +179,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
     </div>
   </div>
   <div
-    className="box marginStartAuto paddingX1"
+    className="box marginEnd3 marginStartAuto paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
@@ -335,7 +335,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX1"
+    className="box marginEnd3 paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
@@ -417,7 +417,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box marginStartAuto paddingX1"
+    className="box marginEnd3 marginStartAuto paddingX1"
   >
     <div
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
