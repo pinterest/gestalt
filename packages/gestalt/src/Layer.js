@@ -43,7 +43,7 @@ export default class Layer extends React.Component<Props, State> {
     }
   }
 
-  render(): boolean {
+  render(): boolean | React.Portal {
     const { children } = this.props;
     return this.state.mounted && createPortal(children, this.el);
   }
