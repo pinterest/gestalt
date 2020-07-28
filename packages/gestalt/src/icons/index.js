@@ -105,6 +105,7 @@ import menu from './menu.svg';
 import minimize from './minimize.svg';
 import move from './move.svg';
 import mute from './mute.svg';
+import dragDrop from './drag-drop.svg';
 import overlayText from './overlay-text.svg';
 import pause from './pause.svg';
 import people from './people.svg';
@@ -224,6 +225,7 @@ export default {
   'directional-arrow-left': directionalArrowLeft,
   'directional-arrow-right': directionalArrowRight,
   download,
+  'drag-drop': dragDrop,
   duplicate,
   edit,
   ellipsis,
