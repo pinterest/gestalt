@@ -8,7 +8,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever error callout message here"
-        iconAccessibilityLabel="error icon"
+        iconAccessibilityLabel="error"
         type="error"
       />
     ).toJSON();
@@ -19,7 +19,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever warning callout message here"
-        iconAccessibilityLabel="warning icon"
+        iconAccessibilityLabel="warning"
         type="warning"
       />
     ).toJSON();
@@ -30,7 +30,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        iconAccessibilityLabel="info icon"
+        iconAccessibilityLabel="info"
         type="info"
       />
     ).toJSON();
@@ -41,7 +41,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        iconAccessibilityLabel="info icon"
+        iconAccessibilityLabel="info"
         type="info"
         title="A Title"
       />
@@ -53,7 +53,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        iconAccessibilityLabel="info icon"
+        iconAccessibilityLabel="info"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         type="info"
         title="A Title"
@@ -66,7 +66,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        iconAccessibilityLabel="info icon"
+        iconAccessibilityLabel="info"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         secondaryLink={{ href: 'pinterest.com/help', label: 'Learn more' }}
         type="info"
@@ -80,7 +80,7 @@ describe('<Callout />', () => {
     const tree = create(
       <Callout
         description="Insert a clever info callout message here"
-        iconAccessibilityLabel="info icon"
+        iconAccessibilityLabel="info"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',

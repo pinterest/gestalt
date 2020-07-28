@@ -14,7 +14,7 @@ exports[`<Callout /> Error Callout 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="error icon"
+      aria-label="error"
       className="icon red iconBlock"
       height={32}
       role="img"
@@ -57,7 +57,7 @@ exports[`<Callout /> Info Callout 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="info icon"
+      aria-label="info"
       className="icon blue iconBlock"
       height={32}
       role="img"
@@ -100,7 +100,7 @@ exports[`<Callout /> Warning Callout 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="warning icon"
+      aria-label="warning"
       className="icon orange iconBlock"
       height={32}
       role="img"
@@ -143,7 +143,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="info icon"
+      aria-label="info"
       className="icon blue iconBlock"
       height={32}
       role="img"
@@ -269,7 +269,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="info icon"
+      aria-label="info"
       className="icon blue iconBlock"
       height={32}
       role="img"
@@ -381,7 +381,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="info icon"
+      aria-label="info"
       className="icon blue iconBlock"
       height={32}
       role="img"
@@ -463,7 +463,7 @@ exports[`<Callout /> description + title 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="info icon"
+      aria-label="info"
       className="icon blue iconBlock"
       height={32}
       role="img"

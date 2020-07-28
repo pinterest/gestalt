@@ -12,7 +12,7 @@ test('Callout handles onDismiss callback', () => {
         accessibilityLabel: 'Dismiss banner',
         onDismiss: mockOnDismiss,
       }}
-      iconAccessibilityLabel="error icon"
+      iconAccessibilityLabel="error"
       type="error"
     />
   );
