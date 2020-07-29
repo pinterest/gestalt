@@ -1,5 +1,5 @@
 /*
- * Log an error when a `ref` is specified on `<Typeahead />`
+ * Log an error when a searchField, data, defaultItem props are specified on `<Typeahead />`
  * In 12.0.0 we renamed properties data to options, defaultItem to value and removed the searchField
  */
 
