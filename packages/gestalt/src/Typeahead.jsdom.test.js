@@ -121,8 +121,6 @@ describe('Typeahead', () => {
         label="Ref Example"
         value="test"
         id="test"
-        label="test"
-        noResultText="test"
         options={[{ value: 'test', label: 'test' }]}
         ref={ref}
       />
