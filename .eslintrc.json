@@ -88,6 +88,12 @@
       }
     },
     {
+      "files": ["**/*.flowtest.js"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
       "files": ["scripts/danger/*.js"],
       "globals": {
         "danger": true,
