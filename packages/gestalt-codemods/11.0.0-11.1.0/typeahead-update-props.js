@@ -1,6 +1,6 @@
 /*
  * Log an error when a searchField, data, defaultItem props are specified on `<Typeahead />`
- * In 12.0.0 we renamed properties data to options, defaultItem to value and removed the searchField
+ * In 11.1.0 we renamed properties data to options, defaultItem to value and removed the searchField
  */
 
 export default function transformer(file, api) {
