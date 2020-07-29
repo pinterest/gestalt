@@ -5,6 +5,7 @@ import React, {
   useRef,
   useImperativeHandle,
   type Node,
+  type Ref,
 } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
@@ -20,7 +21,7 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: Ref<'input'>,
   id: string,
   label: string,
   noResultText: string,
