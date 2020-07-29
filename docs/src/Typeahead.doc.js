@@ -86,15 +86,6 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'searchField',
-        type: 'string',
-        description:
-          'The property name on which you want to be able to search on',
-        href: 'basicExample',
-        defaultValue: 'label',
-      },
-
-      {
         name: 'size',
         type: '"md" | "lg"',
         required: false,
