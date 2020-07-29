@@ -1,6 +1,11 @@
 // @flow strict
-import * as React from 'react';
-import { useState, useRef, useImperativeHandle, type Node } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useImperativeHandle,
+  type Node,
+} from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
 import TypeaheadOption from './TypeaheadOption.js';
@@ -105,6 +110,11 @@ const Typeahead = (props: Props): Node => {
   useImperativeHandle(forwardedRef, () => inputRef.current);
 
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
+
+  // Reset search options when the container is closed
+  useEffect(() => {
+    if (containerOpen === false) setAvailableOptions(dataRef.current);
+  }, [containerOpen]);
 
   const handleFocus = ({ event }) => {
     // Run focus callback
