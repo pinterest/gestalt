@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Heading from './Heading.js';
@@ -10,6 +10,15 @@ import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
+type LinkData = {|
+  href: string,
+  label: string,
+  onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+  >,
+|};
+
 type Props = {|
   description: string,
   dismissButton?: {|
@@ -17,22 +26,8 @@ type Props = {|
     onDismiss: () => void,
   |},
   iconAccessibilityLabel: string,
-  primaryLink?: {|
-    href: string,
-    label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-    >,
-  |},
-  secondaryLink?: {|
-    href: string,
-    label: string,
-    onClick?: AbstractEventHandler<
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-    >,
-  |},
+  primaryLink?: LinkData,
+  secondaryLink?: LinkData,
   type: 'error' | 'info' | 'warning',
   title?: string,
 |};
@@ -55,6 +50,44 @@ const CALLOUT_TYPE_ATTRIBUTES = {
   },
 };
 
+const CalloutLink = ({
+  data,
+  stacked,
+  type,
+}: {|
+  data: LinkData,
+  stacked?: boolean,
+  type: string,
+|}): Node => {
+  const { name } = useColorScheme();
+  const colorDarkMode = name === 'darkMode' ? 'white' : 'darkGray';
+  const { href, label, onClick } = data;
+
+  return (
+    <Box
+      alignItems="center"
+      color={type === 'primary' ? 'white' : undefined}
+      flex="none"
+      padding={4}
+      marginEnd="auto"
+      marginStart="auto"
+      mdMarginEnd={0}
+      rounding={type === 'primary' ? 'pill' : undefined}
+      marginBottom="auto"
+      marginTop="auto"
+    >
+      <Link href={href} onClick={onClick}>
+        <Text
+          color={type === 'primary' ? colorDarkMode : undefined}
+          weight="bold"
+        >
+          {label}
+        </Text>
+      </Link>
+    </Box>
+  );
+};
+
 export default function Callout({
   description,
   dismissButton,
@@ -63,7 +96,7 @@ export default function Callout({
   secondaryLink,
   type,
   title,
-}: Props): React.Node {
+}: Props): Node {
   // Currently there is not a dark mode spec for this component. This is to ensure
   // that all text is readable.
   const { name } = useColorScheme();
@@ -71,68 +104,60 @@ export default function Callout({
 
   return (
     <Box
-      alignItems="center"
-      display="flex"
-      position="relative"
-      rounding={4}
       dangerouslySetInlineStyle={{
         __style: {
           backgroundColor: CALLOUT_TYPE_ATTRIBUTES[type].backgroundColor,
         },
       }}
+      display="flex"
+      direction="column"
+      mdDirection="row"
       padding={8}
+      position="relative"
+      rounding={4}
     >
-      <Box>
-        <Icon
-          icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
-          color={CALLOUT_TYPE_ATTRIBUTES[type].color}
-          accessibilityLabel={iconAccessibilityLabel}
-          size={32}
-        />
-      </Box>
-      <Box flex="grow" paddingX={6} maxWidth={648}>
-        {title && (
-          <Box marginBottom={2}>
-            <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
-              {title}
-            </Heading>
-          </Box>
-        )}
-        <Text color={isDarkMode ? 'white' : 'darkGray'}>{description}</Text>
-      </Box>
-      {secondaryLink && (
-        <Box paddingX={1} marginStart="auto">
-          <Box padding={4} flex="none">
-            <Link href={secondaryLink.href} onClick={secondaryLink.onClick}>
-              <Text weight="bold" color={isDarkMode ? 'white' : 'darkGray'}>
-                {secondaryLink.label}
-              </Text>
-            </Link>
-          </Box>
-        </Box>
-      )}
-      {primaryLink && (
+      <Box display="flex" flex="grow">
         <Box
-          paddingX={1}
-          marginStart={secondaryLink ? undefined : 'auto'}
-          marginEnd={3}
+          marginBottom={0}
+          marginTop={0}
+          mdMarginBottom="auto"
+          mdMarginTop="auto"
         >
-          <Box rounding="pill" color="white" padding={4} flex="none">
-            <Link href={primaryLink.href} onClick={primaryLink.onClick}>
-              <Text weight="bold">{primaryLink.label}</Text>
-            </Link>
-          </Box>
+          <Icon
+            accessibilityLabel={iconAccessibilityLabel}
+            color={CALLOUT_TYPE_ATTRIBUTES[type].color}
+            icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
+            size={32}
+          />
         </Box>
+        <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
+          {title && (
+            <Box marginBottom={2}>
+              <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
+                {title}
+              </Heading>
+            </Box>
+          )}
+          <Text color={isDarkMode ? 'white' : 'darkGray'}>{description}</Text>
+        </Box>
+      </Box>
+      {secondaryLink && <CalloutLink type="secondary" data={secondaryLink} />}
+      {primaryLink && (
+        <CalloutLink
+          stacked={!!secondaryLink}
+          type="primary"
+          data={primaryLink}
+        />
       )}
       {dismissButton && (
-        <Box position="absolute" top right>
+        <Box position="absolute" right top>
           <IconButton
+            accessibilityLabel={dismissButton.accessibilityLabel}
             icon="cancel"
             iconColor={isDarkMode ? 'white' : 'darkGray'}
-            size="sm"
-            accessibilityLabel={dismissButton.accessibilityLabel}
             onClick={dismissButton.onDismiss}
             padding={4}
+            size="sm"
           />
         </Box>
       )}
