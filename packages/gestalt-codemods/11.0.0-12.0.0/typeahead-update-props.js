@@ -1,6 +1,6 @@
 /*
- * Log an error when a `ref` is specified on `<TextArea />`
- * In 7.0.0 we added forwardRef functionality to TextArea which will break places which already set `ref` on TextArea
+ * Log an error when a `ref` is specified on `<Typeahead />`
+ * In 12.0.0 we renamed properties data to options, defaultItem to value and removed the searchField
  */
 
 export default function transformer(file, api) {
