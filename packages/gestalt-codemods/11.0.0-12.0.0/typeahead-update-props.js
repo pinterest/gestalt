@@ -49,6 +49,13 @@ export default function transformer(file, api) {
             `Update defaultItem to value on Typeahead: ${file.path}:${attr.loc.start.line}:${attr.loc.start.column}`
           );
         }
+
+        if (attr.name && attr.name.name === 'searchField') {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Remove deprecated searchField prop from Typeahead: ${file.path}:${attr.loc.start.line}:${attr.loc.start.column}`
+          );
+        }
       });
       return null;
     })
