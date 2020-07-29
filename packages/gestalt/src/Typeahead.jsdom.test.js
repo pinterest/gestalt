@@ -117,6 +117,8 @@ describe('Typeahead', () => {
     const ref = React.createRef();
     render(
       <Typeahead
+        noResultText="No Result"
+        label="Ref Example"
         value="test"
         id="test"
         options={[{ value: 'test', label: 'test' }]}
