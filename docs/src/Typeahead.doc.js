@@ -75,7 +75,7 @@ card(
       },
       {
         name: 'onSelect',
-        type: '({ event: SyntheticInputEvent<>, item: Object }) => void',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
         required: false,
         description: 'Callback when you select an item ',
         href: 'basicExample',
@@ -94,7 +94,7 @@ card(
       },
       {
         name: 'ref',
-        type: "React.Ref<'div'>",
+        type: "React.Ref<'input'>",
         description:
           'Forward the ref to the underlying component container element',
         href: 'refExample',
@@ -188,6 +188,38 @@ function Example(props) {
         onSelect={handleSelect}
       />
     </>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    id="defaultItemExample2"
+    name="Ref Example"
+    defaultCode={`
+function TypeaheadExample() {
+  const ref = React.useRef();
+  const [option, setOption] = React.useState();
+  return (
+    <Row gap={2}>
+      <Typeahead
+        label="Select  your favorite shape"
+        id="favorite-shape"
+        noResultText="No Results"
+        options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
+        onSelect={p => ref.current.focus()}
+        placeholder="Select a shape"
+      />
+       <Typeahead
+        label="Select  your favorite color"
+        id="favorite-color"
+        noResultText="No Results"
+        options={[{label:'red', value:'red'}, {label:'blue', value:'blue'}]}
+        placeholder="Select a color"
+        ref={ref}
+     />
+    </Row>
   );
 }`}
   />

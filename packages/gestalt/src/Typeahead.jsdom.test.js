@@ -112,4 +112,18 @@ describe('Typeahead', () => {
     );
     expect(onSelectMock.mock.calls.length).toBe(1);
   });
+
+  it('forwards a ref to the innermost input element', () => {
+    const ref = React.createRef();
+    render(
+      <Typeahead
+        value="test"
+        id="test"
+        options={[{ value: 'test', label: 'test' }]}
+        ref={ref}
+      />
+    );
+    expect(ref.current instanceof HTMLInputElement).toEqual(true);
+    expect(ref.current?.value).toEqual('test');
+  });
 });
