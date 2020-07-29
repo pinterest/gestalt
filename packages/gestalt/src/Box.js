@@ -192,32 +192,37 @@ type PropType = {
   justifyContent?: JustifyContent,
   left?: boolean,
 
-  marginStart?: Margin,
-  marginEnd?: Margin,
-
   margin?: Margin,
   marginTop?: Margin,
   marginRight?: Margin,
   marginBottom?: Margin,
   marginLeft?: Margin,
+  marginStart?: Margin,
+  marginEnd?: Margin,
 
   smMargin?: Margin,
   smMarginTop?: Margin,
   smMarginRight?: Margin,
   smMarginBottom?: Margin,
   smMarginLeft?: Margin,
+  smMarginStart?: Margin,
+  smMarginEnd?: Margin,
 
   mdMargin?: Margin,
   mdMarginTop?: Margin,
   mdMarginRight?: Margin,
   mdMarginBottom?: Margin,
   mdMarginLeft?: Margin,
+  mdMarginStart?: Margin,
+  mdMarginEnd?: Margin,
 
   lgMargin?: Margin,
   lgMarginTop?: Margin,
   lgMarginRight?: Margin,
   lgMarginBottom?: Margin,
   lgMarginLeft?: Margin,
+  lgMarginStart?: Margin,
+  lgMarginEnd?: Margin,
 
   maxHeight?: Dimension,
   maxWidth?: Dimension,
@@ -292,6 +297,8 @@ const marginBottom = transformNumberOrPassthrough('marginBottom');
 const marginLeft = transformNumberOrPassthrough('marginLeft');
 const margin = union(marginTop, marginBottom, marginLeft, marginRight);
 
+const smMarginStart = transformNumberOrPassthrough('smMarginStart');
+const smMarginEnd = transformNumberOrPassthrough('smMarginEnd');
 const smMarginTop = transformNumberOrPassthrough('smMarginTop');
 const smMarginRight = transformNumberOrPassthrough('smMarginRight');
 const smMarginBottom = transformNumberOrPassthrough('smMarginBottom');
@@ -300,9 +307,13 @@ const smMargin = union(
   smMarginTop,
   smMarginBottom,
   smMarginLeft,
-  smMarginRight
+  smMarginRight,
+  smMarginStart,
+  smMarginEnd
 );
 
+const mdMarginStart = transformNumberOrPassthrough('mdMarginStart');
+const mdMarginEnd = transformNumberOrPassthrough('mdMarginEnd');
 const mdMarginTop = transformNumberOrPassthrough('mdMarginTop');
 const mdMarginRight = transformNumberOrPassthrough('mdMarginRight');
 const mdMarginBottom = transformNumberOrPassthrough('mdMarginBottom');
@@ -311,9 +322,13 @@ const mdMargin = union(
   mdMarginTop,
   mdMarginBottom,
   mdMarginLeft,
-  mdMarginRight
+  mdMarginRight,
+  mdMarginStart,
+  mdMarginEnd
 );
 
+const lgMarginStart = transformNumberOrPassthrough('lgMarginStart');
+const lgMarginEnd = transformNumberOrPassthrough('lgMarginEnd');
 const lgMarginTop = transformNumberOrPassthrough('lgMarginTop');
 const lgMarginRight = transformNumberOrPassthrough('lgMarginRight');
 const lgMarginBottom = transformNumberOrPassthrough('lgMarginBottom');
@@ -322,7 +337,9 @@ const lgMargin = union(
   lgMarginTop,
   lgMarginBottom,
   lgMarginLeft,
-  lgMarginRight
+  lgMarginRight,
+  lgMarginStart,
+  lgMarginEnd
 );
 
 const paddingX = bind(rangeWithoutZero('paddingX'), whitespace);
@@ -576,28 +593,38 @@ const propToFn = {
     // default: start
   }),
   left: toggle(layout.left0),
-  marginStart,
-  marginEnd,
   margin,
   marginTop,
   marginRight,
   marginBottom,
   marginLeft,
+  marginStart,
+  marginEnd,
+
   smMargin,
   smMarginTop,
   smMarginRight,
   smMarginBottom,
   smMarginLeft,
+  smMarginStart,
+  smMarginEnd,
+
   mdMargin,
   mdMarginTop,
   mdMarginRight,
   mdMarginBottom,
   mdMarginLeft,
+  mdMarginStart,
+  mdMarginEnd,
+
   lgMargin,
   lgMarginTop,
   lgMarginRight,
   lgMarginBottom,
   lgMarginLeft,
+  lgMarginStart,
+  lgMarginEnd,
+
   maxHeight: maxHeight => fromInlineStyle({ maxHeight }),
   maxWidth: maxWidth => fromInlineStyle({ maxWidth }),
   minHeight: minHeight => fromInlineStyle({ minHeight }),
@@ -952,32 +979,37 @@ BoxWithRef.propTypes = {
   justifyContent: JustifyContentPropType,
   left: PropTypes.bool,
 
-  marginStart: MarginPropType,
-  marginEnd: MarginPropType,
-
   margin: MarginPropType,
   marginTop: MarginPropType,
   marginRight: MarginPropType,
   marginBottom: MarginPropType,
   marginLeft: MarginPropType,
+  marginStart: MarginPropType,
+  marginEnd: MarginPropType,
 
   smMargin: MarginPropType,
   smMarginTop: MarginPropType,
   smMarginRight: MarginPropType,
   smMarginBottom: MarginPropType,
   smMarginLeft: MarginPropType,
+  smMarginStart: MarginPropType,
+  smMarginEnd: MarginPropType,
 
   mdMargin: MarginPropType,
   mdMarginTop: MarginPropType,
   mdMarginRight: MarginPropType,
   mdMarginBottom: MarginPropType,
   mdMarginLeft: MarginPropType,
+  mdMarginStart: MarginPropType,
+  mdMarginEnd: MarginPropType,
 
   lgMargin: MarginPropType,
   lgMarginTop: MarginPropType,
   lgMarginRight: MarginPropType,
   lgMarginBottom: MarginPropType,
   lgMarginLeft: MarginPropType,
+  lgMarginStart: MarginPropType,
+  lgMarginEnd: MarginPropType,
 
   maxHeight: DimensionPropType,
   maxWidth: DimensionPropType,
