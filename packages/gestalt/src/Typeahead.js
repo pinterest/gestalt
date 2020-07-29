@@ -23,7 +23,7 @@ type OptionObject = {|
 type Props = {|
   forwardedRef?: Ref<'input'>,
   id: string,
-  label: string,
+  label?: string,
   noResultText: string,
   onBlur?: ({|
     event:
