@@ -1,3 +1,9 @@
+## 11.1.0 (Jul 29, 2020)
+
+### Minor
+
+- Box: added support to responsive marginEnd marginStart (#1087)
+
 ## 11.0.0 (Jul 28, 2020)
 
 ### Major
