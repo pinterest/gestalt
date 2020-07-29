@@ -236,7 +236,7 @@ const Typeahead = (props: Props): Node => {
       cursorIndex = optionsCount;
     }
 
-    const newItem = options[cursorIndex];
+    const newItem = availableOptions[cursorIndex];
 
     setHoveredItem(cursorIndex);
 
