@@ -46,6 +46,10 @@ export const mapping = (map: {
 export const range = (scale: string): ((n: number) => Style) => (n): Style =>
   fromClassName(`${scale}${n < 0 ? `N${Math.abs(n)}` : n}`);
 
+export const rangeWithZero = (scale: string): ((n: number) => Style) => (
+  n
+): Style => range(scale)(n);
+
 // Like `range`, maps a range of integers to a range of classnames, excluding
 // zero values.
 //

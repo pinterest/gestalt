@@ -37,6 +37,7 @@ import {
   range,
   toggle,
   mapping,
+  rangeWithZero,
   rangeWithoutZero,
 } from './transforms.js';
 import { getRoundingStyle } from './getRoundingClassName.js';
@@ -279,7 +280,9 @@ const transformNumberOrPassthrough = (selector: string) => (
   m: Margin
 ): Style => {
   if (typeof m === 'number') {
-    return bind(rangeWithoutZero(selector), whitespace)(m);
+    return /^sd|md|lg/.test(selector)
+      ? bind(rangeWithZero(selector), whitespace)(m)
+      : bind(rangeWithoutZero(selector), whitespace)(m);
   }
 
   if (m === 'auto') {
