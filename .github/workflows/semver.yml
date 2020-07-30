@@ -1,4 +1,5 @@
-name: Require Release Type
+name: Semver
+# https://semver.org/
 
 on:
   pull_request:
@@ -9,8 +10,8 @@ on:
       - synchronize
 
 jobs:
-  checkReleaseType:
-    name: Test
+  requireLabel:
+    name: Require Label
     runs-on: ubuntu-latest
     steps:
       - uses: zwaldowski/match-label-action@v2
