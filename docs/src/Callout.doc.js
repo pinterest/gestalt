@@ -94,7 +94,7 @@ card(
 <Callout
   type="error"
   iconAccessibilityLabel="Error icon"
-  description="Oops"
+  description="This action can't be undone."
 />
   `}
   />

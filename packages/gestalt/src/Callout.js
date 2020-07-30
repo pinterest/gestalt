@@ -67,14 +67,14 @@ const CalloutLink = ({
     <Box
       alignItems="center"
       color={type === 'primary' ? 'white' : undefined}
-      flex="none"
-      padding={4}
+      marginBottom="auto"
       marginEnd="auto"
       marginStart="auto"
+      marginTop={type === 'primary' && stacked ? 2 : undefined}
       mdMarginEnd={0}
+      mdMarginTop="auto"
+      padding={4}
       rounding={type === 'primary' ? 'pill' : undefined}
-      marginBottom="auto"
-      marginTop="auto"
     >
       <Link href={href} onClick={onClick}>
         <Text
@@ -116,7 +116,12 @@ export default function Callout({
       position="relative"
       rounding={4}
     >
-      <Box display="flex" flex="grow">
+      <Box
+        display="flex"
+        flex="grow"
+        marginBottom={primaryLink || secondaryLink ? 4 : undefined}
+        mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
+      >
         <Box
           marginBottom={0}
           marginTop={0}
