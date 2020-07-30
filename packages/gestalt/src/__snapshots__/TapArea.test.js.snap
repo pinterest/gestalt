@@ -3,7 +3,7 @@
 exports[`TapArea renders 1`] = `
 <div
   aria-disabled={false}
-  className="tapTransition touchable rounding0 fullWidth pointer"
+  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}
@@ -27,7 +27,7 @@ exports[`TapArea renders 1`] = `
 exports[`TapArea sets correct mouse cursor 1`] = `
 <div
   aria-disabled={false}
-  className="tapTransition touchable rounding0 fullWidth zoomIn"
+  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth zoomIn"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}
@@ -51,7 +51,7 @@ exports[`TapArea sets correct mouse cursor 1`] = `
 exports[`TapArea sets correct rounding 1`] = `
 <div
   aria-disabled={false}
-  className="tapTransition touchable circle fullWidth pointer"
+  className="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}
@@ -75,7 +75,7 @@ exports[`TapArea sets correct rounding 1`] = `
 exports[`TapArea sets fullHeight correctly 1`] = `
 <div
   aria-disabled={false}
-  className="tapTransition touchable rounding0 fullHeight fullWidth pointer"
+  className="hideOutline tapTransition rounding0 accessibilityOutline fullHeight fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}
@@ -99,7 +99,7 @@ exports[`TapArea sets fullHeight correctly 1`] = `
 exports[`TapArea sets fullWidth correctly 1`] = `
 <div
   aria-disabled={false}
-  className="tapTransition touchable rounding0 pointer"
+  className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}
@@ -123,7 +123,7 @@ exports[`TapArea sets fullWidth correctly 1`] = `
 exports[`TapArea supports press style 1`] = `
 <div
   aria-disabled={false}
-  className="tapTransition touchable rounding0 fullWidth pointer"
+  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}

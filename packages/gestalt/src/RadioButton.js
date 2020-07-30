@@ -8,6 +8,8 @@ import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import useFocusVisible from './useFocusVisible.js';
+import focusStyles from './Focus.css';
 
 type Props = {|
   checked?: boolean,
@@ -73,6 +75,8 @@ function RadioButton(props: Props): React.Node {
 
   const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
+  const { isFocusVisible } = useFocusVisible();
+
   return (
     <Box
       alignItems="center"
@@ -91,7 +95,8 @@ function RadioButton(props: Props): React.Node {
               styleSize,
               styles.RadioButton,
               {
-                [styles.RadioButtonIsFocused]: focused,
+                [focusStyles.accessibilityOutlineFocus]:
+                  focused && isFocusVisible,
               }
             )}
           >

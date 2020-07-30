@@ -185,7 +185,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
     >
       <a
-        className="link tapTransition touchable block rounding0 hoverUnderline"
+        className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
         href="pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
@@ -311,7 +311,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
       className="box flexNone paddingX4 paddingY4"
     >
       <a
-        className="link tapTransition touchable block rounding0 hoverUnderline"
+        className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
         href="pinterest.com/help"
         onBlur={[Function]}
         onClick={[Function]}
@@ -341,7 +341,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
     >
       <a
-        className="link tapTransition touchable block rounding0 hoverUnderline"
+        className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
         href="pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}
@@ -423,7 +423,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
       className="box flexNone paddingX4 paddingY4 pill whiteBg"
     >
       <a
-        className="link tapTransition touchable block rounding0 hoverUnderline"
+        className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
         href="pinterest.com"
         onBlur={[Function]}
         onClick={[Function]}

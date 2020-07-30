@@ -7,6 +7,8 @@ import Text from './Text.js';
 import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
+import focusStyles from './Focus.css';
+import useFocusVisible from './useFocusVisible.js';
 
 type OptionObject = {|
   label: string,
@@ -42,7 +44,10 @@ export default function TypeaheadOption({
     if (handleSelect) handleSelect({ event, item: option });
   };
 
-  const className = classnames(styles.touchable, getRoundingClassName(2), {
+  const { isFocusVisible } = useFocusVisible();
+
+  const className = classnames(getRoundingClassName(2), {
+    [focusStyles.accessibilityOutline]: isFocusVisible,
     [styles.fullWidth]: true,
     [styles.pointer]: true,
   });
