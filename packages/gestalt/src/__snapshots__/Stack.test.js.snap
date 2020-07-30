@@ -2,7 +2,7 @@
 
 exports[`Stack aligns items 1`] = `
 <div
-  className="box"
+  className="box marginBottom0 marginTop0"
   style={
     Object {
       "height": undefined,
@@ -45,7 +45,7 @@ exports[`Stack aligns items 1`] = `
 
 exports[`Stack justifies content 1`] = `
 <div
-  className="box"
+  className="box marginBottom0 marginTop0"
   style={
     Object {
       "height": undefined,
@@ -88,7 +88,7 @@ exports[`Stack justifies content 1`] = `
 
 exports[`Stack renders 1`] = `
 <div
-  className="box"
+  className="box marginBottom0 marginTop0"
   style={
     Object {
       "height": undefined,

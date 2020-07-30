@@ -280,9 +280,7 @@ const transformNumberOrPassthrough = (selector: string) => (
   m: Margin
 ): Style => {
   if (typeof m === 'number') {
-    return /^sd|md|lg/.test(selector)
-      ? bind(rangeWithZero(selector), whitespace)(m)
-      : bind(rangeWithoutZero(selector), whitespace)(m);
+    return bind(rangeWithZero(selector), whitespace)(m);
   }
 
   if (m === 'auto') {

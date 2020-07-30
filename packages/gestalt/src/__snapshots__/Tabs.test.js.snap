@@ -2,7 +2,7 @@
 
 exports[`<Tabs /> matches snapshot with default props 1`] = `
 <div
-  className="box"
+  className="box marginEnd0 marginStart0"
   style={
     Object {
       "height": undefined,
@@ -113,7 +113,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
 
 exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 <div
-  className="box"
+  className="box marginEnd0 marginStart0"
   style={
     Object {
       "height": undefined,
@@ -244,7 +244,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 
 exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
 <div
-  className="box"
+  className="box marginEnd0 marginStart0"
   style={
     Object {
       "height": undefined,

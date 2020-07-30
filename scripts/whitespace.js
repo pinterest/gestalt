@@ -181,7 +181,7 @@ console.log(
     }),
 
     // Add margin/padding for boints -12 through 12
-    ...SCALE.reduce((arr, i) => arr.concat(rules(i)), []),
+    ...[0, ...SCALE].reduce((arr, i) => arr.concat(rules(i)), []),
     atrule(
       '--gestalt-sm',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'sm')), [])
