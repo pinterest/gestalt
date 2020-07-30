@@ -1,3 +1,9 @@
+## 11.1.2 (Jul 30, 2020)
+
+### Patch
+
+- Bump elliptic from 6.5.2 to 6.5.3 (#1092)
+
 ## 11.1.1 (Jul 30, 2020)
 
 ### Patch
