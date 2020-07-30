@@ -28,11 +28,19 @@ describe('ColorSchemeProvider', () => {
         :root {
         --gestalt-colorRed0: #ff5247;
         --gestalt-colorRed100: #e60023;
+        --gestalt-colorRed100Active: #a3081a;
+        --gestalt-colorRed100Hovered: #ad081b;
         --gestalt-colorGray0: #fff;
+        --gestalt-colorGray0Active: #e0e0e0;
+        --gestalt-colorGray0Hovered: #f0f0f0;
         --gestalt-colorGray50: #fff;
         --gestalt-colorGray100: #efefef;
+        --gestalt-colorGray100Active: #dadada;
+        --gestalt-colorGray100Hovered: #e2e2e2;
         --gestalt-colorGray150: #ddd;
         --gestalt-colorGray200: #767676;
+        --gestalt-colorGray200Active: #828282;
+        --gestalt-colorGray200Hovered: #878787;
         --gestalt-colorGray300: #111;
         --gestalt-colorGray400: #000;
         --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -52,11 +60,19 @@ describe('ColorSchemeProvider', () => {
         :root {
         --gestalt-colorRed0: #ff5247;
         --gestalt-colorRed100: #e60023;
+        --gestalt-colorRed100Active: #a3081a;
+        --gestalt-colorRed100Hovered: #ad081b;
         --gestalt-colorGray0: #fff;
+        --gestalt-colorGray0Active: #e0e0e0;
+        --gestalt-colorGray0Hovered: #f0f0f0;
         --gestalt-colorGray50: #fff;
         --gestalt-colorGray100: #efefef;
+        --gestalt-colorGray100Active: #dadada;
+        --gestalt-colorGray100Hovered: #e2e2e2;
         --gestalt-colorGray150: #ddd;
         --gestalt-colorGray200: #767676;
+        --gestalt-colorGray200Active: #828282;
+        --gestalt-colorGray200Hovered: #878787;
         --gestalt-colorGray300: #111;
         --gestalt-colorGray400: #000;
         --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -76,16 +92,24 @@ describe('ColorSchemeProvider', () => {
         :root {
         --gestalt-colorRed0: #e60023;
         --gestalt-colorRed100: #ff5247;
+        --gestalt-colorRed100Active: #a3081a;
+        --gestalt-colorRed100Hovered: #ad081b;
         --gestalt-colorGray0: #030303;
+        --gestalt-colorGray0Active: #1f1f1f;
+        --gestalt-colorGray0Hovered: #121212;
         --gestalt-colorGray50: #212121;
         --gestalt-colorGray100: #404040;
+        --gestalt-colorGray100Active: #505050;
+        --gestalt-colorGray100Hovered: #494949;
         --gestalt-colorGray150: #585858;
         --gestalt-colorGray200: #ababab;
+        --gestalt-colorGray200Active: #9b9b9b;
+        --gestalt-colorGray200Hovered: #919191;
         --gestalt-colorGray300: #efefef;
         --gestalt-colorGray400: #fff;
         --gestalt-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
         --gestalt-colorTransparentGray60: rgba(250, 250, 250, 0.5);
-        --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.5);
+        --gestalt-colorTransparentGray100: rgba(250, 250, 250, 0.6);
         --gestalt-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       </style>
@@ -103,16 +127,24 @@ describe('ColorSchemeProvider', () => {
         :root {
         --gestalt-colorRed0: #e60023;
         --gestalt-colorRed100: #ff5247;
+        --gestalt-colorRed100Active: #a3081a;
+        --gestalt-colorRed100Hovered: #ad081b;
         --gestalt-colorGray0: #030303;
+        --gestalt-colorGray0Active: #1f1f1f;
+        --gestalt-colorGray0Hovered: #121212;
         --gestalt-colorGray50: #212121;
         --gestalt-colorGray100: #404040;
+        --gestalt-colorGray100Active: #505050;
+        --gestalt-colorGray100Hovered: #494949;
         --gestalt-colorGray150: #585858;
         --gestalt-colorGray200: #ababab;
+        --gestalt-colorGray200Active: #9b9b9b;
+        --gestalt-colorGray200Hovered: #919191;
         --gestalt-colorGray300: #efefef;
         --gestalt-colorGray400: #fff;
         --gestalt-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
         --gestalt-colorTransparentGray60: rgba(250, 250, 250, 0.5);
-        --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.5);
+        --gestalt-colorTransparentGray100: rgba(250, 250, 250, 0.6);
         --gestalt-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       }
@@ -129,11 +161,19 @@ describe('ColorSchemeProvider', () => {
         .__gestaltThemetestId {
         --gestalt-colorRed0: #ff5247;
         --gestalt-colorRed100: #e60023;
+        --gestalt-colorRed100Active: #a3081a;
+        --gestalt-colorRed100Hovered: #ad081b;
         --gestalt-colorGray0: #fff;
+        --gestalt-colorGray0Active: #e0e0e0;
+        --gestalt-colorGray0Hovered: #f0f0f0;
         --gestalt-colorGray50: #fff;
         --gestalt-colorGray100: #efefef;
+        --gestalt-colorGray100Active: #dadada;
+        --gestalt-colorGray100Hovered: #e2e2e2;
         --gestalt-colorGray150: #ddd;
         --gestalt-colorGray200: #767676;
+        --gestalt-colorGray200Active: #828282;
+        --gestalt-colorGray200Hovered: #878787;
         --gestalt-colorGray300: #111;
         --gestalt-colorGray400: #000;
         --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
