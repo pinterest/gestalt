@@ -18,7 +18,7 @@ card(
   <PropTable
     props={[
       {
-        name: 'data',
+        name: 'options',
         type: 'Array<{ label: string, value: string }>',
         description:
           'The data much be an array with objects containing only label and value properties',
@@ -26,9 +26,9 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'defaultItem',
-        type: '{ label: string, value: string }',
-        description: 'The default item set in the Typeahead',
+        name: 'value',
+        type: 'string',
+        description: 'The default value set in the Typeahead',
         required: false,
         href: 'defaultItemExample',
       },
@@ -75,7 +75,7 @@ card(
       },
       {
         name: 'onSelect',
-        type: '({ event: SyntheticInputEvent<>, item: Object }) => void',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
         required: false,
         description: 'Callback when you select an item ',
         href: 'basicExample',
@@ -86,15 +86,6 @@ card(
         href: 'basicExample',
       },
       {
-        name: 'searchField',
-        type: 'string',
-        description:
-          'The property name on which you want to be able to search on',
-        href: 'basicExample',
-        defaultValue: 'label',
-      },
-
-      {
         name: 'size',
         type: '"md" | "lg"',
         required: false,
@@ -103,7 +94,7 @@ card(
       },
       {
         name: 'ref',
-        type: "React.Ref<'div'>",
+        type: "React.Ref<'input'>",
         description:
           'Forward the ref to the underlying component container element',
         href: 'refExample',
@@ -122,7 +113,7 @@ function Example(props) {
   const [selected, setSelected] = React.useState(null);
 
   const options = Array.from(Array(20).keys()).map((item) => ({
-    value: "value-" + (item + 1),
+    value: "Value-" + (item + 1),
     label: "Label-" + (item + 1),
   }));
 
@@ -146,10 +137,9 @@ function Example(props) {
         label="Typeahead Example 1"
         id="Typeahead-example"
         noResultText="No Results"
-        data={options}
+        options={options}
         placeholder="Select a Label"
         onChange={handleOnChange}
-        value={item}
         onSelect={handleSelect}
       />
     </>
@@ -165,7 +155,7 @@ card(
     defaultCode={`
 function Example(props) {
   const options = Array.from(Array(20).keys()).map((item) => ({
-    value: "value-" + (item + 1),
+    value: "Value-" + (item + 1),
     label: "Label-" + (item + 1),
   }));
 
@@ -191,14 +181,45 @@ function Example(props) {
         label="Typeahead Example 2"
         id="Typeahead-example-defaultItem"
         noResultText="No Results"
-        data={options}
-        defaultItem={defaultOption}
+        options={options}
+        value={defaultOption.value}
         placeholder="Select a Label"
         onChange={handleOnChange}
-        value={item}
         onSelect={handleSelect}
       />
     </>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    id="defaultItemExample2"
+    name="Ref Example"
+    defaultCode={`
+function TypeaheadExample() {
+  const ref = React.useRef();
+  const [option, setOption] = React.useState();
+  return (
+    <Row gap={2}>
+      <Typeahead
+        label="Select  your favorite shape"
+        id="favorite-shape"
+        noResultText="No Results"
+        options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
+        onSelect={p => ref.current.focus()}
+        placeholder="Select a shape"
+      />
+       <Typeahead
+        label="Select  your favorite color"
+        id="favorite-color"
+        noResultText="No Results"
+        options={[{label:'red', value:'red'}, {label:'blue', value:'blue'}]}
+        placeholder="Select a color"
+        ref={ref}
+     />
+    </Row>
   );
 }`}
   />

@@ -20,7 +20,7 @@ describe('Typeahead', () => {
     <Typeahead
       id="Typeahead"
       noResultText="No Result"
-      data={FAKE_OPTIONS}
+      options={FAKE_OPTIONS}
       placeholder="Select a Label"
       onChange={onChangeMock}
       onBlur={onBlurMock}
@@ -111,5 +111,21 @@ describe('Typeahead', () => {
       expect.objectContaining({ item: selectedOption })
     );
     expect(onSelectMock.mock.calls.length).toBe(1);
+  });
+
+  it('forwards a ref to the innermost input element', () => {
+    const ref = React.createRef();
+    render(
+      <Typeahead
+        noResultText="No Result"
+        label="Ref Example"
+        value="test"
+        id="test"
+        options={[{ value: 'test', label: 'test' }]}
+        ref={ref}
+      />
+    );
+    expect(ref.current instanceof HTMLInputElement).toEqual(true);
+    expect(ref.current?.value).toEqual('test');
   });
 });
