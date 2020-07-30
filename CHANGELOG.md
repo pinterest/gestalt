@@ -1,3 +1,9 @@
+## 11.1.1 (Jul 30, 2020)
+
+### Patch
+
+- Flowtest: Add flow specific test files (#1085)
+
 ## 11.1.0 (Jul 29, 2020)
 
 ### Minor
