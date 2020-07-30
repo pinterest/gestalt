@@ -1,3 +1,9 @@
+## 11.2.0 (Jul 30, 2020)
+
+### Minor
+
+- Typeahead: Refactor to show all options when there's a defaultValue, renamed defaultItem + removed searchField prop, fix forwardedRef + test coverage, add example to Docs,  (#1067)
+
 ## 11.1.2 (Jul 30, 2020)
 
 ### Patch
