@@ -12,8 +12,8 @@ const Valid = (
   />
 );
 
-// $FlowExpectedError[prop-missing] Cannot create `AvatarPair` element because property `nonexisting` is missing in props.
+// $FlowExpectedError[prop-missing]
 const NonExistingProp = <AvatarPair nonexisting={33} />;
 
-// $FlowExpectedError[prop-missing] Cannot create `AvatarPair` element because property `collaborators` is missing in props
+// $FlowExpectedError[prop-missing]
 const MissingProp = <AvatarPair />;

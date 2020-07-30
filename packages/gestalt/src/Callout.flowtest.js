@@ -10,8 +10,8 @@ const Valid = (
   />
 );
 
-// $FlowExpectedError[prop-missing] Cannot create `Callout` element because property `nonexisting` is missing in  props.
+// $FlowExpectedError[prop-missing]
 const NonExistingProp = <Callout nonexisting={33} />;
 
-// $FlowExpectedError[prop-missing] Cannot create `Callout` element because property `description` / `type` / `iconAccessiblityLabel` is missing in  props
+// $FlowExpectedError[prop-missing]
 const MissingProp = <Callout />;
