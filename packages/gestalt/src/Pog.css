@@ -1,7 +1,15 @@
 :root {
+  --gestalt-colorGray0Hovered: #f0f0f0;
+  --gestalt-colorGray0Active: #e0e0e0;
   --gestalt-colorGray300: #111;
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --gestalt-colorGray100Hovered: #e2e2e2;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorGray200Hovered: #878787;
+  --gestalt-colorGray200Active: #828282;
+  --gestalt-colorRed100Hovered: #ad081b;
+  --gestalt-colorRed100Active: #a3081a;
 }
 
 .pog {
@@ -54,11 +62,11 @@
 
 .white.hovered,
 .white.focused {
-  background-color: #f0f0f0;
+  background-color: var(--gestalt-colorGray0Hovered);
 }
 
 .white.active {
-  background-color: #e0e0e0;
+  background-color: var(--gestalt-colorGray0Active);
 }
 
 .lightGray {
@@ -67,11 +75,11 @@
 
 .lightGray.hovered,
 .lightGray.focused {
-  background-color: #e2e2e2;
+  background-color: var(--gestalt-colorGray100Hovered);
 }
 
 .lightGray.active {
-  background-color: #dadada;
+  background-color: var(--gestalt-colorGray100Active);
 }
 
 .gray {
@@ -80,11 +88,11 @@
 
 .gray.hovered,
 .gray.focused {
-  background-color: #878787;
+  background-color: var(--gestalt-colorGray200Hovered);
 }
 
 .gray.active {
-  background-color: #828282;
+  background-color: var(--gestalt-colorGray200Active);
 }
 
 .darkGray {
@@ -97,9 +105,9 @@
 
 .red.hovered,
 .red.focused {
-  background-color: #ad081b;
+  background-color: var(--gestalt-colorRed100Hovered);
 }
 
 .red.active {
-  background-color: #a3081a;
+  background-color: var(--gestalt-colorRed100Active);
 }

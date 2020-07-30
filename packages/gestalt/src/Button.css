@@ -1,6 +1,16 @@
 :root {
+  --gestalt-colorGray0Hovered: #f0f0f0;
+  --gestalt-colorGray0Active: #e0e0e0;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray100Hovered: #e2e2e2;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorRed100Hovered: #ad081b;
+  --gestalt-colorRed100Active: #a3081a;
+  --gestalt-blueHovered: #4a8ad4;
+  --gestalt-blueActive: #4a85c9;
+  --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
 }
 
 .button {
@@ -57,15 +67,15 @@
 
 .gray:hover,
 .gray:focus {
-  background-color: #e2e2e2;
+  background-color: var(--gestalt-colorGray100Hovered);
 }
 
 .gray:active {
-  background-color: #dadada;
+  background-color: var(--gestalt-colorGray100Active);
 }
 
 .darkModeGray {
-  background-color: var(--gestalt-colorGray50);
+  composes: whiteBgElevated from "./Colors.css";
 }
 
 .darkModeGray:hover,
@@ -90,12 +100,12 @@
 .red:focus,
 .darkModeRed:hover,
 .darkModeRed:focus {
-  background-color: #ad081b;
+  background-color: var(--gestalt-colorRed100Hovered);
 }
 
 .red:active,
 .darkModeRed:active {
-  background-color: #a3081a;
+  background-color: var(--gestalt-colorRed100Active);
 }
 
 .blue {
@@ -104,11 +114,11 @@
 
 .blue:hover,
 .blue:focus {
-  background-color: #4a8ad4;
+  background-color: var(--gestalt-blueHovered);
 }
 
 .blue:active {
-  background-color: #4a85c9;
+  background-color: var(--gestalt-blueActive);
 }
 
 .transparent {
@@ -117,11 +127,11 @@
 
 .transparent:hover,
 .transparent:focus {
-  background-color: rgba(0, 0, 0, 0.06);
+  background-color: var(--gestalt-colorTransparentGray60);
 }
 
 .transparent:active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--gestalt-colorTransparentGray100);
 }
 
 .white {
@@ -130,9 +140,9 @@
 
 .white:hover,
 .white:focus {
-  background-color: #f0f0f0;
+  background-color: var(--gestalt-colorGray0Hovered);
 }
 
 .white:active {
-  background-color: #e0e0e0;
+  background-color: var(--gestalt-colorGray0Active);
 }

@@ -16,11 +16,19 @@ exports[`Video with callbacks 1`] = `
         "__html": ".__gestaltThemeVideo {
   --gestalt-colorRed0: #ff5247;
   --gestalt-colorRed100: #e60023;
+  --gestalt-colorRed100Active: #a3081a;
+  --gestalt-colorRed100Hovered: #ad081b;
   --gestalt-colorGray0: #fff;
+  --gestalt-colorGray0Active: #e0e0e0;
+  --gestalt-colorGray0Hovered: #f0f0f0;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
+  --gestalt-colorGray200Active: #828282;
+  --gestalt-colorGray200Hovered: #878787;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -72,11 +80,19 @@ exports[`Video with children 1`] = `
         "__html": ".__gestaltThemeVideo {
   --gestalt-colorRed0: #ff5247;
   --gestalt-colorRed100: #e60023;
+  --gestalt-colorRed100Active: #a3081a;
+  --gestalt-colorRed100Hovered: #ad081b;
   --gestalt-colorGray0: #fff;
+  --gestalt-colorGray0Active: #e0e0e0;
+  --gestalt-colorGray0Hovered: #f0f0f0;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
+  --gestalt-colorGray200Active: #828282;
+  --gestalt-colorGray200Hovered: #878787;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -344,11 +360,19 @@ exports[`Video with media attributes 1`] = `
         "__html": ".__gestaltThemeVideo {
   --gestalt-colorRed0: #ff5247;
   --gestalt-colorRed100: #e60023;
+  --gestalt-colorRed100Active: #a3081a;
+  --gestalt-colorRed100Hovered: #ad081b;
   --gestalt-colorGray0: #fff;
+  --gestalt-colorGray0Active: #e0e0e0;
+  --gestalt-colorGray0Hovered: #f0f0f0;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
+  --gestalt-colorGray200Active: #828282;
+  --gestalt-colorGray200Hovered: #878787;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -401,11 +425,19 @@ exports[`Video with multiple sources 1`] = `
         "__html": ".__gestaltThemeVideo {
   --gestalt-colorRed0: #ff5247;
   --gestalt-colorRed100: #e60023;
+  --gestalt-colorRed100Active: #a3081a;
+  --gestalt-colorRed100Hovered: #ad081b;
   --gestalt-colorGray0: #fff;
+  --gestalt-colorGray0Active: #e0e0e0;
+  --gestalt-colorGray0Hovered: #f0f0f0;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
+  --gestalt-colorGray200Active: #828282;
+  --gestalt-colorGray200Hovered: #878787;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
@@ -464,11 +496,19 @@ exports[`Video with source 1`] = `
         "__html": ".__gestaltThemeVideo {
   --gestalt-colorRed0: #ff5247;
   --gestalt-colorRed100: #e60023;
+  --gestalt-colorRed100Active: #a3081a;
+  --gestalt-colorRed100Hovered: #ad081b;
   --gestalt-colorGray0: #fff;
+  --gestalt-colorGray0Active: #e0e0e0;
+  --gestalt-colorGray0Hovered: #f0f0f0;
   --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
+  --gestalt-colorGray100Active: #dadada;
+  --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
   --gestalt-colorGray200: #767676;
+  --gestalt-colorGray200Active: #828282;
+  --gestalt-colorGray200Hovered: #878787;
   --gestalt-colorGray300: #111;
   --gestalt-colorGray400: #000;
   --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);

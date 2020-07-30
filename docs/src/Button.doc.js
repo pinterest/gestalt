@@ -465,7 +465,7 @@ card(
   <Combination
     id="combinations"
     name="Combinations"
-    color={['gray', 'red']}
+    color={['gray', 'red', 'blue', 'white', 'transparent']}
     disabled={[false, true]}
     selected={[false, true]}
     size={['sm', 'md', 'lg']}
