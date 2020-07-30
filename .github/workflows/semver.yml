@@ -1,4 +1,4 @@
-name: Require Release Type
+name: Require Semver Change Label
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   checkReleaseType:
-    name: Test
+    name: Require Semver Change Label
     runs-on: ubuntu-latest
     steps:
       - uses: zwaldowski/match-label-action@v2
