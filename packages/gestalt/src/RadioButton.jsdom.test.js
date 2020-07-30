@@ -5,7 +5,7 @@ import RadioButton from './RadioButton.js';
 
 const mockOnChange = jest.fn();
 
-describe('RadioButton', () =>
+describe('RadioButton', () => {
   it('forwards a ref to <Box ref={ref}><input/></Box>', () => {
     const ref = React.createRef();
     render(
@@ -19,4 +19,5 @@ describe('RadioButton', () =>
     );
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.checked).toEqual(true);
-  }));
+  });
+});
