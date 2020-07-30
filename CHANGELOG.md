@@ -1,3 +1,9 @@
+## 11.2.3 (Jul 30, 2020)
+
+### Patch
+
+- Make Semver workflow wording clearer (#1094)
+
 ## 11.2.2 (Jul 30, 2020)
 
 ### Patch
