@@ -1,3 +1,9 @@
+## 11.2.4 (Jul 30, 2020)
+
+### Patch
+
+- RadioButton: fix warning in jest test (#1097)
+
 ## 11.2.3 (Jul 30, 2020)
 
 ### Patch
