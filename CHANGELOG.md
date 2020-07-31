@@ -1,3 +1,9 @@
+## 11.3.2 (Jul 31, 2020)
+
+### Patch
+
+- Mergify: configuration update (#1101)
+
 ## 11.3.1 (Jul 31, 2020)
 
 ### Patch
