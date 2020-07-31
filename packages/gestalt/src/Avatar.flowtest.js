@@ -4,8 +4,8 @@ import Avatar from './Avatar.js';
 
 const Valid = <Avatar name="Yen-Wei" />;
 
-// $FlowExpectedError[prop-missing] Cannot create `Avatar` element because property `nonexisting` is missing in Props
+// $FlowExpectedError[prop-missing]
 const NonExistingProp = <Avatar nonexisting={33} />;
 
-// $FlowExpectedError[prop-missing] Cannot create `Avatar` element because property `name` is missing in Props
+// $FlowExpectedError[prop-missing]
 const MissingProp = <Avatar size="sm" />;

@@ -107,12 +107,3 @@ test('Box has correct zIndex', () => {
   const tree = create(<Box zIndex={zIndexStub} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-test('Box is flowtyped correctly', () => {
-  // Disable console error output from proptypes package when running tests
-  jest.spyOn(console, 'error').mockImplementationOnce(() => {});
-
-  // $FlowExpectedError[incompatible-type] Cannot create `Box` element because  number [1] is incompatible with  enum [2] in property `margin.
-  const IncorrectMargin = <Box margin={33} />;
-  expect(IncorrectMargin.type).toEqual(Box);
-});

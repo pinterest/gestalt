@@ -10,7 +10,7 @@ import {
 type Props = {|
   children: React.Node,
   colorScheme?: ColorScheme,
-  id: ?string,
+  id?: string,
 |};
 
 export default function GestaltProvider({
