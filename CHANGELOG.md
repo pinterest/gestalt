@@ -1,3 +1,9 @@
+## 11.3.1 (Jul 31, 2020)
+
+### Patch
+
+- Flowtests: Add more tests to components + fix GestaltProvider flowtype (#1096)
+
 ## 11.3.0 (Jul 31, 2020)
 
 ### Minor
