@@ -54,11 +54,11 @@ card(
     name="Info Example"
     defaultCode={`
 <Callout
-  type="info" 
+  type="info"
   iconAccessibilityLabel="Info icon"
-  title="The thing you were doing is now done"
-  description="Get a badge, show up in more experiences and more."
-  primaryLink={{href: "https://pinterest.com", label:"Get started"}} 
+  title="Your business account was successfully created!"
+  description="Get a badge, show up in more shopping experiences and more. Apply to the Verified Merchant Program—it’s free!"
+  primaryLink={{href: "https://pinterest.com", label:"Get started"}}
   secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -74,7 +74,7 @@ card(
     name="Warning Example"
     defaultCode={`
 <Callout
-  type="warning" 
+  type="warning"
   iconAccessibilityLabel="Warning icon"
   description="This feature will be removed in two weeks."
   primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
@@ -92,9 +92,9 @@ card(
     name="Error Example"
     defaultCode={`
 <Callout
-  type="error" 
+  type="error"
   iconAccessibilityLabel="Error icon"
-  description="Oops"
+  description="This action can't be undone."
 />
   `}
   />
