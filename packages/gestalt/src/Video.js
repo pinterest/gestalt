@@ -1,6 +1,5 @@
 // @flow strict
-
-import * as React from 'react';
+import React, { PureComponent, type Node } from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import { ColorSchemeProvider } from './contexts/ColorScheme.js';
@@ -23,7 +22,7 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
-  children?: React.Node,
+  children?: Node,
   controls?: boolean,
   loop?: boolean,
   onDurationChange?: ({|
@@ -156,7 +155,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
   return newSource !== oldSource;
 };
 
-export default class Video extends React.PureComponent<Props, State> {
+export default class Video extends PureComponent<Props, State> {
   video: ?HTMLVideoElement;
 
   player: ?HTMLDivElement;
@@ -499,7 +498,7 @@ export default class Video extends React.PureComponent<Props, State> {
     }
   };
 
-  render(): React.Node {
+  render(): Node {
     const {
       aspectRatio,
       captions,

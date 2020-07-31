@@ -1,11 +1,11 @@
 // @flow strict
-import * as React from 'react';
+import { Component, type Node } from 'react';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
 |};
 
-export default class NoScrollBehavior extends React.Component<Props> {
+export default class NoScrollBehavior extends Component<Props> {
   prevOverflow: string | null;
 
   constructor(props: Props) {
@@ -26,7 +26,7 @@ export default class NoScrollBehavior extends React.Component<Props> {
     }
   }
 
-  render(): React.Node {
+  render(): Node {
     return this.props.children;
   }
 }

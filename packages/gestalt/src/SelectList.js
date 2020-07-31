@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -37,7 +37,7 @@ type State = {|
   focused: boolean,
 |};
 
-export default class SelectList extends React.Component<Props, State> {
+export default class SelectList extends Component<Props, State> {
   select: ?HTMLSelectElement;
 
   static propTypes = {
@@ -90,7 +90,7 @@ export default class SelectList extends React.Component<Props, State> {
     }
   };
 
-  render(): React.Node {
+  render(): Node {
     const {
       disabled,
       errorMessage,

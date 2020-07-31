@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
@@ -15,7 +15,7 @@ const SIZE_SCALE = {
 
 type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
-  children?: React.Node,
+  children?: Node,
   color?:
     | 'green'
     | 'pine'
@@ -52,7 +52,7 @@ export default function Text({
   size = 'lg',
   truncate = false,
   weight = 'normal',
-}: Props): React.Node {
+}: Props): Node {
   const scale = SIZE_SCALE[size];
 
   const cs = cx(

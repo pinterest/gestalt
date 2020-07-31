@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { Component, type Node as ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
@@ -9,7 +9,7 @@ type Props = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
-  children?: React.Node,
+  children?: ReactNode,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
@@ -69,7 +69,7 @@ function getTriggerRect(
   return { relativeOffset, triggerBoundingRect };
 }
 
-export default class Controller extends React.Component<Props, State> {
+export default class Controller extends Component<Props, State> {
   static propTypes = {
     anchor: PropTypes.shape({
       contains: PropTypes.func,
@@ -156,7 +156,7 @@ export default class Controller extends React.Component<Props, State> {
     this.setState({ relativeOffset, triggerBoundingRect });
   };
 
-  render(): React.Node {
+  render(): ReactNode {
     const {
       bgColor,
       border,

@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -93,8 +93,8 @@ const sizes = {
   xl: 120,
 };
 
-export default function Avatar(props: Props): React.Node {
-  const [isImageLoaded, setIsImageLoaded] = React.useState(true);
+export default function Avatar(props: Props): Node {
+  const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
   const {
     accessibilityLabel,

@@ -1,11 +1,11 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Controller from './Controller.js';
 
 type Props = {|
   anchor: ?HTMLElement,
-  children?: React.Node,
+  children?: Node,
   color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray',
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -15,7 +15,7 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number,
 |};
 
-export default function Flyout(props: Props): null | React.Node {
+export default function Flyout(props: Props): null | Node {
   const {
     anchor,
     children,

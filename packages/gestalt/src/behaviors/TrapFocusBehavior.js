@@ -1,8 +1,8 @@
 // @flow strict
-import * as React from 'react';
+import React, { Component, type Node as ReactNode } from 'react';
 
 type Props = {|
-  children?: React.Node,
+  children?: ReactNode,
 |};
 
 function queryFocusableAll(el: HTMLDivElement) {
@@ -32,7 +32,7 @@ const focusElement = (el: HTMLElement) => {
   }
 };
 
-export default class TrapFocusBehavior extends React.Component<Props> {
+export default class TrapFocusBehavior extends Component<Props> {
   el: ?HTMLDivElement;
 
   previouslyFocusedEl: ?HTMLElement;
@@ -76,7 +76,7 @@ export default class TrapFocusBehavior extends React.Component<Props> {
     }
   }
 
-  render(): React.Node {
+  render(): ReactNode {
     return <div ref={this.setElRef}>{this.props.children}</div>;
   }
 }

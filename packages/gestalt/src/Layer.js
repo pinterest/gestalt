@@ -1,17 +1,17 @@
 // @flow strict
-import * as React from 'react';
+import { Component, type Portal, type Node } from 'react';
 // flowlint-next-line untyped-import:off
 import { createPortal } from 'react-dom';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
 |};
 
 type State = {|
   mounted: boolean,
 |};
 
-export default class Layer extends React.Component<Props, State> {
+export default class Layer extends Component<Props, State> {
   state: State = {
     mounted: false,
   };
@@ -43,7 +43,7 @@ export default class Layer extends React.Component<Props, State> {
     }
   }
 
-  render(): React.Portal | null {
+  render(): Portal | null {
     const { children } = this.props;
     const { mounted } = this.state;
     if (!mounted) {

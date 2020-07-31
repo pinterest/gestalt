@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { PureComponent, type Node } from 'react';
 import PropTypes from 'prop-types';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './ScrollContainer.js';
@@ -24,7 +24,7 @@ type State = {|
   scrollTop: number,
 |};
 
-export default class ScrollFetch extends React.PureComponent<Props, State> {
+export default class ScrollFetch extends PureComponent<Props, State> {
   /**
    * Fetches additional items if needed.
    */
@@ -105,7 +105,7 @@ export default class ScrollFetch extends React.PureComponent<Props, State> {
     };
   }
 
-  render(): null | React.Node {
+  render(): null | Node {
     const { containerHeight, scrollHeight, scrollTop } = this.state;
     const { container, fetchMore, isAtEnd, isFetching } = this.props;
 

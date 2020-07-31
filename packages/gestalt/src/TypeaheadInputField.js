@@ -1,7 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
-import { type Node } from 'react';
+import React, { forwardRef, useState, type Ref, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -14,7 +13,7 @@ import FormLabel from './FormLabel.js';
 type DirectionOptionType = -1 | 0 | 1;
 
 type Props = {|
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: Ref<'input'>,
   id: string,
   label?: string,
   onBlur: ({|
@@ -53,7 +52,7 @@ const InputField = ({
   value,
   forwardedRef,
 }: Props): Node => {
-  const [hovered, setHovered] = React.useState<boolean>(false);
+  const [hovered, setHovered] = useState<boolean>(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({
@@ -204,6 +203,6 @@ const forwardRefInputField = (props, ref): Node => {
 };
 forwardRefInputField.displayName = 'InputField';
 
-export default (React.forwardRef<Props, HTMLInputElement>(
+export default (forwardRef<Props, HTMLInputElement>(
   forwardRefInputField
 ): React$AbstractComponent<Props, HTMLInputElement>);

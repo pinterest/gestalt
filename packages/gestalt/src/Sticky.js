@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import layout from './Layout.css';
 import { type Indexable, FixedZIndex } from './zIndex.js';
@@ -20,7 +20,7 @@ type Threshold =
     |};
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   zIndex?: Indexable,
   dangerouslySetZIndex?: {| __zIndex: number |},
   ...Threshold,
@@ -28,7 +28,7 @@ type Props = {|
 
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 
-export default function Sticky(props: Props): React.Node {
+export default function Sticky(props: Props): Node {
   const { dangerouslySetZIndex, children } = props;
   const zIndex =
     props.zIndex ||

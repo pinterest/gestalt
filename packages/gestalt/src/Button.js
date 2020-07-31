@@ -1,6 +1,12 @@
 // @flow strict
 
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  type Ref,
+  type Element,
+} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -36,7 +42,7 @@ type Props = {|
   accessibilityLabel?: string,
   color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
-  forwardedRef?: React.Ref<'button'>,
+  forwardedRef?: Ref<'button'>,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
@@ -48,7 +54,7 @@ type Props = {|
   type?: 'submit' | 'button',
 |};
 
-function Button(props: Props): React.Element<'button'> {
+function Button(props: Props): Element<'button'> {
   const {
     accessibilityControls,
     accessibilityExpanded,
@@ -67,11 +73,11 @@ function Button(props: Props): React.Element<'button'> {
     textColor: textColorProp,
     type = 'button',
   } = props;
-  const innerRef = React.useRef(null);
+  const innerRef = useRef(null);
   // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
   // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(forwardedRef, () => innerRef.current);
 
   const {
     compressStyle,
@@ -205,7 +211,7 @@ ButtonWithRef.displayName = 'ForwardRef(Button)';
 const ButtonWithForwardRef: React$AbstractComponent<
   Props,
   HTMLButtonElement
-> = React.forwardRef<Props, HTMLButtonElement>(ButtonWithRef);
+> = forwardRef<Props, HTMLButtonElement>(ButtonWithRef);
 
 ButtonWithForwardRef.displayName = 'Button';
 

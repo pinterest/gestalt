@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Pulsar.css';
@@ -9,7 +9,7 @@ type Props = {|
   size?: number,
 |};
 
-export default function Pulsar({ paused, size = 136 }: Props): React.Node {
+export default function Pulsar({ paused, size = 136 }: Props): Node {
   return (
     <Box
       dangerouslySetInlineStyle={{

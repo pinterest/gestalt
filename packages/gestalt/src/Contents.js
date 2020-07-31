@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Caret from './Caret.js';
@@ -59,7 +59,7 @@ type OwnProps = {|
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
-  children?: React.Node,
+  children?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onKeyDown: (event: {| keyCode: number |}) => void,
   onResize: () => void,
@@ -348,7 +348,7 @@ export function baseOffsets(
   return { top, left };
 }
 
-class WrappedContents extends React.Component<Props, State> {
+class WrappedContents extends Component<Props, State> {
   static propTypes = {
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
     border: PropTypes.bool,
@@ -518,7 +518,7 @@ class WrappedContents extends React.Component<Props, State> {
     }
   };
 
-  render(): React.Node {
+  render(): Node {
     const {
       bgColor,
       border,
@@ -583,7 +583,7 @@ class WrappedContents extends React.Component<Props, State> {
   }
 }
 
-export default function Contents(props: OwnProps): React.Node {
+export default function Contents(props: OwnProps): Node {
   const { colorGray100, name: colorSchemeName } = useColorScheme();
   return (
     <WrappedContents

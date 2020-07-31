@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { forwardRef, useState, type Node, type Ref } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
@@ -14,7 +14,7 @@ import focusStyles from './Focus.css';
 type Props = {|
   checked?: boolean,
   disabled?: boolean,
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: Ref<'input'>,
   id: string,
   label?: string,
   name?: string,
@@ -26,7 +26,7 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-function RadioButton(props: Props): React.Node {
+function RadioButton(props: Props): Node {
   const {
     checked = false,
     disabled = false,
@@ -39,8 +39,8 @@ function RadioButton(props: Props): React.Node {
     size = 'md',
   } = props;
 
-  const [focused, setFocused] = React.useState(false);
-  const [hovered, setHover] = React.useState(false);
+  const [focused, setFocused] = useState(false);
+  const [hovered, setHover] = useState(false);
 
   const handleChange: (
     event: SyntheticInputEvent<HTMLInputElement>
@@ -161,7 +161,7 @@ function RadioButtonWithRef(props, ref) {
 const RadioButtonWithForwardRef: React$AbstractComponent<
   Props,
   HTMLInputElement
-> = React.forwardRef<Props, HTMLInputElement>(RadioButtonWithRef);
+> = forwardRef<Props, HTMLInputElement>(RadioButtonWithRef);
 
 RadioButtonWithForwardRef.displayName = 'RadioButton';
 

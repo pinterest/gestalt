@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import { createElement, type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import colors from './Colors.css';
@@ -9,7 +9,7 @@ import typography from './Typography.css';
 type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
-  children?: React.Node,
+  children?: Node,
   color?:
     | 'blue'
     | 'darkGray'
@@ -46,7 +46,7 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
-export default function Heading(props: Props): React.Node {
+export default function Heading(props: Props): Node {
   const {
     accessibilityLevel,
     align = 'left',
@@ -78,7 +78,7 @@ export default function Heading(props: Props): React.Node {
   if (truncate && typeof children === 'string') {
     newProps = { ...newProps, title: children };
   }
-  return React.createElement(`h${headingLevel}`, newProps, children);
+  return createElement(`h${headingLevel}`, newProps, children);
 }
 
 Heading.propTypes = {

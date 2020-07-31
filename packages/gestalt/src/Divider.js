@@ -1,7 +1,7 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import styles from './Divider.css';
 
-export default function Divider(): React.Node {
+export default function Divider(): Node {
   return <hr className={styles.divider} />;
 }

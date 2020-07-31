@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Icon.css';
@@ -58,7 +58,7 @@ const flipOnRtlIconNames = [
   'text-size',
 ];
 
-export default function Icon(props: Props): React.Node {
+export default function Icon(props: Props): Node {
   const {
     accessibilityLabel,
     color = 'gray',

@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { Children, type Node } from 'react';
 import PropTypes from 'prop-types';
 import FlexBox from './FlexBox.js';
 import Box, {
@@ -25,7 +25,7 @@ type Props = {|
   alignContent?: AlignContent,
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
-  children?: React.Node,
+  children?: Node,
   flex?: Flex,
   gap?: Padding,
   height?: Dimension,
@@ -47,7 +47,7 @@ export default function Row({
   justifyContent = 'start',
   width,
   ...rest
-}: Props): React.Node {
+}: Props): Node {
   return (
     <Box
       height={height}
@@ -63,7 +63,7 @@ export default function Row({
         width={width}
         {...rest}
       >
-        {React.Children.map(children, child =>
+        {Children.map(children, child =>
           child !== null && child !== undefined ? (
             <Box paddingX={gap}>{child}</Box>
           ) : null

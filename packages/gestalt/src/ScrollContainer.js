@@ -13,11 +13,11 @@
  */
 
 // @flow strict
-import * as React from 'react';
+import { Children, Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   onScroll: (event: Event) => void,
   scrollContainer: ?HTMLElement | (() => ?HTMLElement),
 |};
@@ -28,7 +28,7 @@ function getScrollContainer(scrollContainer) {
     : scrollContainer;
 }
 
-export default class ScrollContainer extends React.Component<Props> {
+export default class ScrollContainer extends Component<Props> {
   scrollContainer: ?HTMLElement;
 
   static propTypes = {
@@ -74,6 +74,6 @@ export default class ScrollContainer extends React.Component<Props> {
   }
 
   render(): React$Node {
-    return React.Children.only(this.props.children);
+    return Children.only(this.props.children);
   }
 }

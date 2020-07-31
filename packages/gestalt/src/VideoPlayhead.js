@@ -1,6 +1,5 @@
 // @flow strict
-
-import * as React from 'react';
+import React, { PureComponent, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Video.css';
@@ -17,7 +16,7 @@ type State = {|
   seeking: boolean,
 |};
 
-export default class VideoPlayhead extends React.PureComponent<Props, State> {
+export default class VideoPlayhead extends PureComponent<Props, State> {
   playhead: ?HTMLDivElement;
 
   static propTypes = {
@@ -89,7 +88,7 @@ export default class VideoPlayhead extends React.PureComponent<Props, State> {
     onPlayheadUp(event);
   };
 
-  render(): React.Node {
+  render(): Node {
     const { currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
     return (

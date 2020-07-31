@@ -1,5 +1,13 @@
 // @flow strict
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useEffect,
+  useRef,
+  useState,
+  type Node,
+  type Ref,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import colors from './Colors.css';
@@ -18,7 +26,7 @@ type Props = {|
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: Ref<'input'>,
   hasError?: boolean,
   id: string,
   indeterminate?: boolean,
@@ -35,7 +43,7 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-function Checkbox(props: Props): React.Node {
+function Checkbox(props: Props): Node {
   const {
     checked = false,
     disabled = false,
@@ -51,16 +59,16 @@ function Checkbox(props: Props): React.Node {
     size = 'md',
   } = props;
 
-  const innerRef = React.useRef(null);
+  const innerRef = useRef(null);
   // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
   // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(forwardedRef, () => innerRef.current);
 
-  const [focused, setFocused] = React.useState(false);
-  const [hovered, setHover] = React.useState(false);
+  const [focused, setFocused] = useState(false);
+  const [hovered, setHover] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (innerRef && innerRef.current) {
       innerRef.current.indeterminate = indeterminate;
     }
@@ -213,7 +221,7 @@ CheckboxWithRef.displayName = 'ForwardRef(Checkbox)';
 const CheckboxWithForwardRef: React$AbstractComponent<
   Props,
   HTMLInputElement
-> = React.forwardRef<Props, HTMLInputElement>(CheckboxWithRef);
+> = forwardRef<Props, HTMLInputElement>(CheckboxWithRef);
 
 CheckboxWithForwardRef.displayName = 'Checkbox';
 

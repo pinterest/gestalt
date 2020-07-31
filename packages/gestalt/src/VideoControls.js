@@ -1,6 +1,5 @@
 // @flow strict
-
-import * as React from 'react';
+import React, { Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -52,7 +51,7 @@ const timeToString = (time?: number) => {
   return `${minutesStr}:${secondsStr}`;
 };
 
-class VideoControls extends React.Component<Props> {
+class VideoControls extends Component<Props> {
   static propTypes = {
     accessibilityHideCaptionsLabel: PropTypes.string,
     accessibilityShowCaptionsLabel: PropTypes.string,
@@ -142,7 +141,7 @@ class VideoControls extends React.Component<Props> {
     onVolumeChange(event);
   };
 
-  render(): React.Node {
+  render(): Node {
     const {
       accessibilityHideCaptionsLabel,
       accessibilityShowCaptionsLabel,

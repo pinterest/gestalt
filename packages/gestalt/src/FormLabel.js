@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FormLabel.css';
 import Text from './Text.js';
@@ -12,7 +12,7 @@ export default function FormLabel({
 }: {|
   id: string,
   label: string,
-|}): React.Node {
+|}): Node {
   return (
     <Label htmlFor={id}>
       <div className={styles.formLabel}>

@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { forwardRef, useState, type Ref } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -25,7 +25,7 @@ type Props = {|
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: Ref<'input'>,
 |};
 
 const SearchField = ({
@@ -40,8 +40,8 @@ const SearchField = ({
   value,
   forwardedRef,
 }: Props) => {
-  const [hovered, setHovered] = React.useState<boolean>(false);
-  const [focused, setFocused] = React.useState<boolean>(false);
+  const [hovered, setHovered] = useState<boolean>(false);
+  const [focused, setFocused] = useState<boolean>(false);
 
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     onChange({
@@ -179,6 +179,6 @@ function forwardRefSearchField(props, ref) {
 }
 forwardRefSearchField.displayName = 'SearchField';
 
-export default (React.forwardRef<Props, HTMLInputElement>(
+export default (forwardRef<Props, HTMLInputElement>(
   forwardRefSearchField
 ): React$AbstractComponent<Props, HTMLInputElement>);

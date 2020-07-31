@@ -1,5 +1,12 @@
 // @flow strict
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  type AbstractComponent,
+  type Node,
+  type Ref,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import touchableStyles from './Touchable.css';
@@ -15,8 +22,8 @@ import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
   accessibilitySelected?: boolean,
-  children?: React.Node,
-  forwardedRef?: React.Ref<'a'>,
+  children?: Node,
+  forwardedRef?: Ref<'a'>,
   hoverStyle?: 'none' | 'underline',
   href: string,
   id?: string,
@@ -50,10 +57,10 @@ function Link({
   hoverStyle = 'underline',
   tapStyle = 'none',
   target = null,
-}: Props): React.Node {
-  const innerRef = React.useRef(null);
+}: Props): Node {
+  const innerRef = useRef(null);
   // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(forwardedRef, () => innerRef.current);
 
   const {
     compressStyle,
@@ -171,10 +178,10 @@ function LinkWithRef(props, ref) {
   return <Link {...props} forwardedRef={ref} />;
 }
 
-const LinkWithForwardRef: React.AbstractComponent<
+const LinkWithForwardRef: AbstractComponent<
   Props,
   HTMLAnchorElement
-> = React.forwardRef<Props, HTMLAnchorElement>(LinkWithRef);
+> = forwardRef<Props, HTMLAnchorElement>(LinkWithRef);
 
 LinkWithForwardRef.displayName = 'Link';
 

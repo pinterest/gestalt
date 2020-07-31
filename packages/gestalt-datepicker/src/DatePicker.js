@@ -1,5 +1,5 @@
 // @flow strict-local
-import * as React from 'react';
+import React, { forwardRef, useEffect, useState, type ElementRef } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
@@ -12,7 +12,7 @@ type Props = {|
   disabled?: boolean,
   errorMessage?: string,
   excludeDates?: Array<Date>,
-  forwardedRef?: React.ElementRef<*>,
+  forwardedRef?: ElementRef<*>,
   helperText?: string,
   id: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
@@ -21,7 +21,7 @@ type Props = {|
   localeData?: LocaleData,
   maxDate?: Date,
   minDate?: Date,
-  nextRef?: React.ElementRef<*>,
+  nextRef?: ElementRef<*>,
   onChange: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     value: Date,
@@ -58,19 +58,19 @@ function DatePicker(props: Props) {
 
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the flyout pointed at the input correctly
-  const [selected, setSelected] = React.useState<?Date>(dateValue);
-  const [, setMonth] = React.useState<?number>();
-  const [dateFormat, setDateFormat] = React.useState<?string>();
-  const [updatedLocale, setUpdatedLocale] = React.useState<?string>();
-  const [initRangeHighlight, setInitRangeHighlight] = React.useState<?Date>();
+  const [selected, setSelected] = useState<?Date>(dateValue);
+  const [, setMonth] = useState<?number>();
+  const [dateFormat, setDateFormat] = useState<?string>();
+  const [updatedLocale, setUpdatedLocale] = useState<?string>();
+  const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (rangeSelector) {
       setInitRangeHighlight(rangeStartDate || rangeEndDate);
     }
   }, [rangeStartDate, rangeEndDate, rangeSelector]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (localeData && localeData.code) {
       registerLocale(localeData.code, localeData);
       setUpdatedLocale(localeData.code);
@@ -189,7 +189,7 @@ function datePickerForwardRef(props, ref) {
 
 datePickerForwardRef.displayName = 'DatePickerForwardRef';
 
-export default (React.forwardRef<Props, HTMLInputElement>(
+export default (forwardRef<Props, HTMLInputElement>(
   datePickerForwardRef
 ): React$AbstractComponent<Props, HTMLInputElement>);
 

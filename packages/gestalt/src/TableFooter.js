@@ -1,10 +1,10 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
 |};
 
-export default function TableFooter(props: Props): React.Node {
+export default function TableFooter(props: Props): Node {
   return <tfoot>{props.children}</tfoot>;
 }

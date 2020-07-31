@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -8,14 +8,14 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   active?: ?boolean,
-  children?: React.Node,
-  image?: React.Node,
+  children?: Node,
+  image?: Node,
   onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
 |};
 
-export default function Card(props: Props): React.Node {
-  const [hovered, setHovered] = React.useState(false);
+export default function Card(props: Props): Node {
+  const [hovered, setHovered] = useState(false);
   const { active, children, image, onMouseEnter, onMouseLeave } = props;
 
   const handleMouseEnter = event => {

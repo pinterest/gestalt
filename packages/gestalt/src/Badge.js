@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Badge.css';
@@ -10,7 +10,7 @@ type Props = {|
   text: string,
 |};
 
-export default function Badge(props: Props): React.Node {
+export default function Badge(props: Props): Node {
   const { position = 'middle', text } = props;
 
   const cs = cx(styles.Badge, styles[position], colors.blueBg);

@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import Box from './Box.js';
 import styles from './Table.css';
 import TableCell from './TableCell.js';
@@ -11,12 +11,12 @@ import TableRow from './TableRow.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   borderSize?: 'sm' | 'none',
   maxHeight?: number | string,
 |};
 
-export default function Table(props: Props): React.Node {
+export default function Table(props: Props): Node {
   const { borderSize, children, maxHeight } = props;
 
   return (

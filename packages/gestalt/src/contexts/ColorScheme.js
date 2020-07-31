@@ -1,5 +1,13 @@
 // @flow strict
-import * as React from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useState,
+  createContext,
+  type Context,
+  type Element,
+  type Node,
+} from 'react';
 import PropTypes from 'prop-types';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
@@ -36,7 +44,7 @@ type Theme = {|
 |};
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   colorScheme?: ColorScheme,
   id?: ?string,
 |};
@@ -95,9 +103,7 @@ const darkModeTheme = {
   blueActive: '#4a85c9',
 };
 
-const ThemeContext: React.Context<Theme> = React.createContext<Theme>(
-  lightModeTheme
-);
+const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 
 const themeToStyles = theme => {
   let styles = '';
@@ -122,14 +128,14 @@ export function ColorSchemeProvider({
   children,
   colorScheme,
   id,
-}: Props): React.Element<typeof ThemeContext.Provider> {
-  const [theme, setTheme] = React.useState(getTheme(colorScheme));
+}: Props): Element<typeof ThemeContext.Provider> {
+  const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
   const handlePrefChange = e => {
     setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
-  React.useEffect(() => {
+  useEffect(() => {
     setTheme(getTheme(colorScheme));
     if (colorScheme === 'userPreference' && window.matchMedia) {
       window
@@ -168,6 +174,6 @@ ColorSchemeProvider.propTypes = {
 };
 
 export function useColorScheme(): Theme {
-  const theme = React.useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
   return theme || lightModeTheme;
 }

@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import styles from './GroupAvatar.css';
 import Box from './Box.js';
@@ -170,7 +170,7 @@ const DefaultAvatar = (props: {|
   }
 };
 
-export default function GroupAvatar(props: Props): React.Node {
+export default function GroupAvatar(props: Props): Node {
   const { collaborators, outline, size = 'fit' } = props;
   const { colorGray0, colorGray100 } = useColorScheme();
   const avatarWidth = size === 'fit' ? '100%' : AVATAR_SIZES[size];

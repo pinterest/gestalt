@@ -1,14 +1,14 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Label.css';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   htmlFor: string,
 |};
 
-export default function Label(props: Props): React.Node {
+export default function Label(props: Props): Node {
   const { children, htmlFor } = props;
 
   return (

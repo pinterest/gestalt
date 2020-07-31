@@ -15,7 +15,7 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 */
 
-import * as React from 'react';
+import React, { forwardRef, type Node, type AbstractComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Box.css';
 import borders from './Borders.css';
@@ -137,7 +137,7 @@ type ResponsiveProps = {|
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 type PropType = {
-  children?: React.Node,
+  children?: Node,
   dangerouslySetInlineStyle?: {|
     __style: { [key: string]: string | number | void },
   |},
@@ -703,10 +703,10 @@ const omit = (keys, obj) =>
 // (className, style) or accessibility (onClick).
 const blacklistProps = ['onClick', 'className', 'style'];
 
-const BoxWithRef: React.AbstractComponent<
+const BoxWithRef: AbstractComponent<PropType, HTMLDivElement> = forwardRef<
   PropType,
   HTMLDivElement
-> = React.forwardRef<PropType, HTMLDivElement>(function Box(props, ref) {
+>(function Box(props, ref) {
   // Flow can't reason about the constant nature of Object.keys so we can't use
   // a functional (reduce) style here.
 
