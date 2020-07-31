@@ -182,7 +182,7 @@ const InputField = ({
 InputField.displayName = InputField;
 
 InputField.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   id: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onClear: PropTypes.func,
