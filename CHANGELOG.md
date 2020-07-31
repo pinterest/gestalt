@@ -1,3 +1,9 @@
+## 11.5.0 (Jul 31, 2020)
+
+### Minor
+
+- Callout: Added responsiveness design (#1088)
+
 ## 11.4.0 (Jul 31, 2020)
 
 ### Minor
