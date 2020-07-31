@@ -2,7 +2,7 @@
 
 exports[`Row aligns items 1`] = `
 <div
-  className="box"
+  className="box marginEnd0 marginStart0"
   style={
     Object {
       "height": undefined,
@@ -45,7 +45,7 @@ exports[`Row aligns items 1`] = `
 
 exports[`Row justifies content 1`] = `
 <div
-  className="box"
+  className="box marginEnd0 marginStart0"
   style={
     Object {
       "height": undefined,
@@ -88,7 +88,7 @@ exports[`Row justifies content 1`] = `
 
 exports[`Row renders 1`] = `
 <div
-  className="box"
+  className="box marginEnd0 marginStart0"
   style={
     Object {
       "height": undefined,
