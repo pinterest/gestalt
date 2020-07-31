@@ -1,3 +1,9 @@
+## 11.4.0 (Jul 31, 2020)
+
+### Minor
+
+- Button/Checkbox/IconButton/Link/RadioButton/Switch/TapArea: useFocusVisible (#1098)
+
 ## 11.3.2 (Jul 31, 2020)
 
 ### Patch
