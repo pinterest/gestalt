@@ -1,3 +1,9 @@
+## 11.3.0 (Jul 31, 2020)
+
+### Minor
+
+- Box: Added responsiveness to sm/md/lg 0px margins (#1091)
+
 ## 11.2.5 (Jul 31, 2020)
 
 ### Patch
