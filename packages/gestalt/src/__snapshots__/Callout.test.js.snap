@@ -2,7 +2,7 @@
 
 exports[`<Callout /> Error Callout 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#FDEBEE",
@@ -49,7 +49,7 @@ exports[`<Callout /> Error Callout 1`] = `
 
 exports[`<Callout /> Info Callout 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -96,7 +96,7 @@ exports[`<Callout /> Info Callout 1`] = `
 
 exports[`<Callout /> Warning Callout 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#FDF5EC",
@@ -143,7 +143,7 @@ exports[`<Callout /> Warning Callout 1`] = `
 
 exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -269,7 +269,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
 
 exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -377,7 +377,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
 
 exports[`<Callout /> description + title + primaryLink 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -459,7 +459,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
 
 exports[`<Callout /> description + title 1`] = `
 <div
-  className="box mdDirectionRow paddingX8 paddingY8 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",

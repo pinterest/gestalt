@@ -112,7 +112,8 @@ export default function Callout({
       display="flex"
       direction="column"
       mdDirection="row"
-      padding={8}
+      padding={6}
+      mdPadding={8}
       position="relative"
       rounding={4}
     >
