@@ -1,3 +1,9 @@
+## 11.5.1 (Aug 3, 2020)
+
+### Patch
+
+- Callout: Reduced padding for sm (#1104)
+
 ## 11.5.0 (Jul 31, 2020)
 
 ### Minor
