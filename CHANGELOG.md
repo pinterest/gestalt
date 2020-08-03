@@ -1,3 +1,9 @@
+## 11.5.5 (Aug 3, 2020)
+
+### Patch
+
+- VSCode: add recommended extensions (#1109)
+
 ## 11.5.4 (Aug 3, 2020)
 
 ### Patch
