@@ -1,11 +1,11 @@
 // @flow strict
 import React, {
+  forwardRef,
   useState,
   useEffect,
   useRef,
   useImperativeHandle,
   type Node,
-  type Ref,
 } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
@@ -21,7 +21,6 @@ type OptionObject = {|
 |};
 
 type Props = {|
-  forwardedRef?: Ref<'input'>,
   id: string,
   label?: string,
   noResultText: string,
@@ -54,10 +53,11 @@ type Props = {|
   value?: string,
 |};
 
-const Typeahead = (props: Props): Node => {
+const TypeaheadWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = forwardRef<Props, HTMLInputElement>(function Typeahead(props, ref): Node {
   const {
-    options,
-    value = null,
     id,
     label,
     noResultText,
@@ -65,9 +65,10 @@ const Typeahead = (props: Props): Node => {
     onChange,
     onFocus,
     onSelect,
+    options,
     placeholder,
     size,
-    forwardedRef,
+    value = null,
   } = props;
 
   // Store original data
@@ -108,7 +109,7 @@ const Typeahead = (props: Props): Node => {
   // Ref to the input
   const inputRef = useRef(null);
   // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  useImperativeHandle(forwardedRef, () => inputRef.current);
+  useImperativeHandle(ref, () => inputRef.current);
 
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
 
@@ -171,8 +172,8 @@ const Typeahead = (props: Props): Node => {
   };
 
   let selectedElement;
-  const setOptionRef = ref => {
-    selectedElement = ref;
+  const setOptionRef = optionRef => {
+    selectedElement = optionRef;
   };
 
   const containerRef = useRef();
@@ -323,21 +324,17 @@ const Typeahead = (props: Props): Node => {
       )}
     </Box>
   );
-};
+});
 
-Typeahead.displayName = 'Typeahead';
-
-Typeahead.propTypes = {
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
+// $FlowFixMe Flow(InferError)
+TypeaheadWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
-  value: PropTypes.string,
+  noResultText: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onSelect: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,
@@ -346,18 +343,9 @@ Typeahead.propTypes = {
   ).isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onSelect: PropTypes.func,
-  noResultText: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
-const forwardRefTypeaheadField = (props, ref): Node => {
-  return <Typeahead {...props} forwardedRef={ref} />;
-};
+TypeaheadWithForwardRef.displayName = 'Typeahead';
 
-forwardRefTypeaheadField.displayName = 'Typeahead';
-
-export default (React.forwardRef<Props, HTMLInputElement>(
-  forwardRefTypeaheadField
-): React$AbstractComponent<Props, HTMLInputElement>);
+export default TypeaheadWithForwardRef;
