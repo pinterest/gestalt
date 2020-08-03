@@ -191,44 +191,100 @@ function CheckboxExample() {
 
 card(
   <Example
-    id="refExample"
+    id="ref"
     name="Example: ref"
+    description={`The innermost \`Checkbox\` element can be accessed via \`ref\``}
+    defaultCode={`
+function CheckboxExample() {
+  const ref = React.useRef();
+  const [label, setLabel] = React.useState("24px Checkbox");
+  const [size, setSize] = React.useState('md');
+  const [switched, setSwitched] = React.useState(false);
+
+  React.useEffect(() => {
+      setLabel(ref.current && ref.current.offsetHeight)
+  }, [size]);
+
+  return (
+    <Row gap={2}>
+      <Label>
+        <Row gap={1}>
+          <Switch
+            onChange={() => { 
+              setSize(size === "sm" ? "md" : "sm")
+              setSwitched(!switched)}
+            }
+            id="emailNotifications"
+            switched={switched}
+          />
+          <Text>Toggle Checkbox to small size</Text>
+        </Row>
+      </Label>
+        <Checkbox
+          id="sizing"
+          checked={true}
+          label={label + 'px Checkbox'}
+          onChange={() => {} }
+          value="value"
+          ref={ref}
+          size={size}
+        />
+    </Row>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    name="Example: Checkbox and Flyout"
     description={`
-    A \`Checkbox\` with an anchor ref to a Flyout component
+    A \`Checkbox\` with an anchor ref to a Flyout component doesn't pass the correct positioning to the Flyout. Instead set the anchor ref to the parent container.
   `}
     defaultCode={`
+
 function CheckboxFlyoutExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
-
-  const anchorRef = React.useRef();
+  const termsA = React.useRef();
 
   return (
-    <Box >
-      <Checkbox
-        checked={checked}
-        id="ref"
-        label="Private Board"
-        name="privacy"
-        ref={anchorRef}
-        onChange={({ checked }) => {
-          setOpen(true)
-          setChecked(checked);
-        }}
-      />
-      {open && (
-        <Flyout
-          anchor={anchorRef.current}
-          idealDirection="up"
-          onDismiss={() => setOpen(false)}
-          shouldFocus={false}
-        >
-          <Box padding={3}>
-            <Text weight="bold">Your board is now </Text>
-            <Text weight="bold">{checked ? 'private': 'public'}</Text>
-          </Box>
-        </Flyout>
-      )}
+    <Box>
+        <Box display="inlineBlock" ref={termsA}>
+          <Checkbox
+            id="a"
+            checked={checked}
+            label="Email me a notification"
+            onChange={() => {
+              setOpen(!checked)
+              setChecked(!checked)
+              }
+            }
+            value="A"
+          />
+        </Box>
+      {open &&
+        <Layer>
+          <Flyout
+            anchor={termsA.current}
+            color="red"
+            idealDirection="right"
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            shouldFocus={false}
+            size="md"
+          >            
+            <Box padding={3}>
+              <Text
+                color="white"
+                weight="bold"
+              >
+                  Change your primary email in Settings
+              </Text>
+            </Box>
+          </Flyout>
+        </Layer>
+      }
     </Box>
   );
 }

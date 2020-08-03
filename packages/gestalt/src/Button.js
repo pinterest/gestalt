@@ -4,7 +4,6 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  type Ref,
   type Element,
 } from 'react';
 import classnames from 'classnames';
@@ -42,7 +41,6 @@ type Props = {|
   accessibilityLabel?: string,
   color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
-  forwardedRef?: Ref<'button'>,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
@@ -54,7 +52,13 @@ type Props = {|
   type?: 'submit' | 'button',
 |};
 
-function Button(props: Props): Element<'button'> {
+const ButtonWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLButtonElement
+> = forwardRef<Props, HTMLButtonElement>(function Button(
+  props,
+  ref
+): Element<'button'> {
   const {
     accessibilityControls,
     accessibilityExpanded,
@@ -62,7 +66,6 @@ function Button(props: Props): Element<'button'> {
     accessibilityLabel,
     color = 'gray',
     disabled = false,
-    forwardedRef,
     iconEnd,
     inline = false,
     name,
@@ -74,10 +77,9 @@ function Button(props: Props): Element<'button'> {
     type = 'button',
   } = props;
   const innerRef = useRef(null);
-  // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
+  // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
-  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(ref, () => innerRef.current);
 
   const {
     compressStyle,
@@ -181,21 +183,16 @@ function Button(props: Props): Element<'button'> {
     </button>
   );
   /* eslint-enable react/button-has-type */
-}
+});
 
-Button.propTypes = {
+// $FlowFixMe Flow(InferError)
+ButtonWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
   color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
   disabled: PropTypes.bool,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
   inline: PropTypes.bool,
   name: PropTypes.string,
@@ -206,17 +203,6 @@ Button.propTypes = {
   textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
   type: PropTypes.oneOf(['button', 'submit']),
 };
-
-function ButtonWithRef(props, ref) {
-  return <Button {...props} forwardedRef={ref} />;
-}
-
-ButtonWithRef.displayName = 'ForwardRef(Button)';
-
-const ButtonWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLButtonElement
-> = forwardRef<Props, HTMLButtonElement>(ButtonWithRef);
 
 ButtonWithForwardRef.displayName = 'Button';
 

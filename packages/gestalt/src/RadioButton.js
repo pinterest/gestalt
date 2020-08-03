@@ -1,5 +1,5 @@
 // @flow strict
-import React, { forwardRef, useState, type Node, type Ref } from 'react';
+import React, { forwardRef, useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
@@ -14,7 +14,6 @@ import focusStyles from './Focus.css';
 type Props = {|
   checked?: boolean,
   disabled?: boolean,
-  forwardedRef?: Ref<'input'>,
   id: string,
   label?: string,
   name?: string,
@@ -26,12 +25,14 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-function RadioButton(props: Props): Node {
+const RadioButtonWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = forwardRef<Props, HTMLInputElement>(function RadioButton(props, ref): Node {
   const {
     checked = false,
     disabled = false,
     id,
-    forwardedRef,
     label,
     name,
     onChange,
@@ -113,7 +114,7 @@ function RadioButton(props: Props): Node {
               onFocus={handleFocus}
               onMouseEnter={() => handleHover(true)}
               onMouseLeave={() => handleHover(false)}
-              ref={forwardedRef}
+              ref={ref}
               type="radio"
               value={value}
             />
@@ -135,33 +136,19 @@ function RadioButton(props: Props): Node {
       )}
     </Box>
   );
-}
+});
 
-RadioButton.propTypes = {
+// $FlowFixMe Flow(InferError)
+RadioButtonWithForwardRef.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['sm', 'md']),
 };
-
-function RadioButtonWithRef(props, ref) {
-  return <RadioButton {...props} forwardedRef={ref} />;
-}
-
-const RadioButtonWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(RadioButtonWithRef);
 
 RadioButtonWithForwardRef.displayName = 'RadioButton';
 
