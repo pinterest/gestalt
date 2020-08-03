@@ -1,3 +1,9 @@
+## 11.5.3 (Aug 3, 2020)
+
+### Patch
+
+- Internal: Refactored imports from namespacing * to explicit Default Exports and Named Values Importing (#1103)
+
 ## 11.5.2 (Aug 3, 2020)
 
 ### Patch
