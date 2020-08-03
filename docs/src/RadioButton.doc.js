@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import { RadioButton } from 'gestalt';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';

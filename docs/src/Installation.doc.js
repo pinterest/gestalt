@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import { Box, Heading, Link, Row, Stack, Text, Tooltip } from 'gestalt';
 import Markdown from './components/Markdown.js';
 

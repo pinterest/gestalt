@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import { Link as GestaltLink } from 'gestalt';
 import { createLocation } from 'history';
 import { withRouter } from 'react-router-dom';

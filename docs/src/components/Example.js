@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import * as gestalt from 'gestalt';
+import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
 import LZString from 'lz-string';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';

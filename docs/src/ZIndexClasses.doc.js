@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import { Box, Heading, Stack, Text } from 'gestalt';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';

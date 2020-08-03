@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import { Pog } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
