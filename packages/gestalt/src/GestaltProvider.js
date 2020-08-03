@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import {
   ColorSchemeProvider,
@@ -8,7 +8,7 @@ import {
 } from './contexts/ColorScheme.js';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   colorScheme?: ColorScheme,
   id?: string,
 |};
@@ -17,7 +17,7 @@ export default function GestaltProvider({
   children,
   colorScheme,
   id,
-}: Props): React.Node {
+}: Props): Node {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={id}>
       {children}

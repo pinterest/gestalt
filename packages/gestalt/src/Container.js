@@ -1,13 +1,13 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
 |};
 
-export default function Container(props: Props): React.Node {
+export default function Container(props: Props): Node {
   const { children } = props;
   return (
     <Box justifyContent="center" display="flex">

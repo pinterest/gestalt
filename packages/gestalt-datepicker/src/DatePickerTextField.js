@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { forwardRef, type ElementRef } from 'react';
 import { Box, Icon, Label, TextField } from 'gestalt';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -22,7 +22,7 @@ type InjectedProps = {|
 
 type Props = {|
   id: string,
-  forwardedRef?: React.ElementRef<*>,
+  forwardedRef?: ElementRef<*>,
   ...InjectedProps,
 |};
 
@@ -87,7 +87,7 @@ function textFieldForwardRef(props, ref) {
 
 textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 
-export default (React.forwardRef<Props, HTMLInputElement>(
+export default (forwardRef<Props, HTMLInputElement>(
   textFieldForwardRef
 ): React$AbstractComponent<Props, HTMLInputElement>);
 

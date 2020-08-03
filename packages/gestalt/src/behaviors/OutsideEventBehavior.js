@@ -1,18 +1,18 @@
 // @flow strict
-import * as React from 'react';
+import React, { useEffect, useRef, type Node as ReactNode } from 'react';
 
 type Props = {|
-  children: React.Node,
+  children: ReactNode,
   onClick?: (event: MouseEvent) => void,
 |};
 
 export default function OutsideEventBehavior({
   children,
   onClick,
-}: Props): React.Node {
-  const element = React.useRef<?HTMLDivElement>(null);
+}: Props): ReactNode {
+  const element = useRef<?HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleClickEvent = (event: MouseEvent) => {
       if (
         !onClick ||

@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { forwardRef, useState, type Ref } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import formElement from './FormElement.css';
@@ -13,7 +13,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
-  forwardedRef?: React.Ref<'textarea'>,
+  forwardedRef?: Ref<'textarea'>,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -57,7 +57,7 @@ function TextArea({
   rows = 3,
   value,
 }: Props) {
-  const [focused, setFocused] = React.useState(false);
+  const [focused, setFocused] = useState(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {
     onChange({ event, value: event.currentTarget.value });
@@ -151,7 +151,7 @@ TextAreaWithRef.displayName = 'ForwardRef(TextArea)';
 const TextAreaWithForwardRef: React$AbstractComponent<
   Props,
   HTMLTextAreaElement
-> = React.forwardRef<Props, HTMLTextAreaElement>(TextAreaWithRef);
+> = forwardRef<Props, HTMLTextAreaElement>(TextAreaWithRef);
 
 TextAreaWithForwardRef.displayName = 'TextArea';
 

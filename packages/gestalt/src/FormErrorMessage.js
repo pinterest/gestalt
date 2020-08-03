@@ -1,6 +1,6 @@
 // @flow strict
 
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
@@ -11,7 +11,7 @@ export default function FormErrorMessage({
 }: {|
   id: string,
   text?: string,
-|}): React.Node {
+|}): Node {
   return (
     <Box marginTop={2}>
       <Text color="red" size="sm">

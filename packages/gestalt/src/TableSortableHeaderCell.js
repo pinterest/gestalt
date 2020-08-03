@@ -1,12 +1,12 @@
 // @flow strict
-import * as React from 'react';
+import React, { useState, type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import TableHeaderCell from './TableHeaderCell.js';
 import TapArea from './TapArea.js';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   colSpan?: number,
   onSortChange: ({|
     event:
@@ -19,7 +19,7 @@ type Props = {|
   status: 'active' | 'inactive',
 |};
 
-export default function TableSortableHeaderCell(props: Props): React.Node {
+export default function TableSortableHeaderCell(props: Props): Node {
   const {
     children,
     colSpan,
@@ -30,8 +30,8 @@ export default function TableSortableHeaderCell(props: Props): React.Node {
     onSortChange,
   } = props;
 
-  const [isFocused, setFocused] = React.useState(false);
-  const [isHovered, setHovered] = React.useState(false);
+  const [isFocused, setFocused] = useState(false);
+  const [isHovered, setHovered] = useState(false);
 
   const shouldShowIcon = status === 'active' || isHovered || isFocused;
   const visibility = shouldShowIcon ? 'visible' : 'hidden';

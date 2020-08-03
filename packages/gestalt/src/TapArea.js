@@ -1,5 +1,11 @@
 // @flow strict
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  type Node,
+  type Ref,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
@@ -19,9 +25,9 @@ type Props = {|
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
   accessibilityLabel?: string,
-  children?: React.Node,
+  children?: Node,
   disabled?: boolean,
-  forwardedRef?: React.Ref<'div'>,
+  forwardedRef?: Ref<'div'>,
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?:
@@ -63,9 +69,9 @@ function TapArea({
   tapStyle = 'none',
   rounding = 0,
 }: Props) {
-  const innerRef = React.useRef(null);
+  const innerRef = useRef(null);
   // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(forwardedRef, () => innerRef.current);
 
   const {
     compressStyle,
@@ -210,7 +216,7 @@ TapArea.propTypes = TapAreaPropTypes;
 const TapAreaWithForwardRef: React$AbstractComponent<
   Props,
   HTMLDivElement
-> = React.forwardRef<Props, HTMLDivElement>((props, ref) => (
+> = forwardRef<Props, HTMLDivElement>((props, ref) => (
   <TapArea {...props} forwardedRef={ref} />
 ));
 

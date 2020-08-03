@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { useState, useEffect, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -10,10 +10,10 @@ import styles from './Modal.css';
 
 type Props = {|
   accessibilityModalLabel: string,
-  children?: React.Node,
+  children?: Node,
   closeOnOutsideClick?: boolean,
-  footer?: React.Node,
-  heading?: string | React.Node,
+  footer?: Node,
+  heading?: string | Node,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
@@ -31,7 +31,7 @@ function Backdrop({
   children,
   onClick,
 }: {|
-  children?: React.Node,
+  children?: Node,
   onClick?: (event: MouseEvent) => void,
 |}) {
   const handleClick = event => {
@@ -53,7 +53,7 @@ function Backdrop({
   );
 }
 
-function Header({ heading }: {| heading: string | React.Node |}) {
+function Header({ heading }: {| heading: string | Node |}) {
   if (typeof heading !== 'string') {
     return heading;
   }
@@ -76,12 +76,12 @@ export default function Modal({
   heading,
   role = 'dialog',
   size = 'sm',
-}: Props): React.Node {
-  const [showTopShadow, setShowTopShadow] = React.useState(false);
-  const [showBottomShadow, setShowBottomShadow] = React.useState(false);
-  const content = React.useRef<?HTMLDivElement>(null);
+}: Props): Node {
+  const [showTopShadow, setShowTopShadow] = useState(false);
+  const [showBottomShadow, setShowBottomShadow] = useState(false);
+  const content = useRef<?HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
       if (event.keyCode === ESCAPE_KEY_CODE) {
         onDismiss();
@@ -113,14 +113,14 @@ export default function Modal({
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('resize', updateShadows);
     return () => {
       window.removeEventListener('resize', updateShadows);
     };
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     updateShadows();
   }, []);
 

@@ -1,15 +1,15 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import styles from './Table.css';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   colSpan?: number,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
 |};
 
-export default function TableHeaderCell(props: Props): React.Node {
+export default function TableHeaderCell(props: Props): Node {
   const { children, colSpan, scope, rowSpan } = props;
 
   return (

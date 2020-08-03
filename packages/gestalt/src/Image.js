@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { PureComponent, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import styles from './Image.css';
@@ -8,7 +8,7 @@ const shouldScaleImage = fit => fit === 'cover' || fit === 'contain';
 
 type Props = {|
   alt: string,
-  children?: React.Node,
+  children?: Node,
   color: string,
   fit?: 'contain' | 'cover' | 'none',
   importance?: 'high' | 'low' | 'auto',
@@ -22,7 +22,7 @@ type Props = {|
   srcSet?: string,
 |};
 
-export default class Image extends React.PureComponent<Props> {
+export default class Image extends PureComponent<Props> {
   static propTypes = {
     alt: PropTypes.string.isRequired,
     children: PropTypes.node,
@@ -85,7 +85,7 @@ export default class Image extends React.PureComponent<Props> {
     }
   }
 
-  render(): React.Node {
+  render(): Node {
     const {
       alt,
       color,

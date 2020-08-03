@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { forwardRef, useState, type Ref } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import formElement from './FormElement.css';
@@ -18,7 +18,7 @@ type Props = {|
     | 'username',
   disabled?: boolean,
   errorMessage?: string,
-  forwardedRef?: React.Ref<'input'>,
+  forwardedRef?: Ref<'input'>,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -65,7 +65,7 @@ function TextField({
   type = 'text',
   value,
 }: Props) {
-  const [focused, setFocused] = React.useState(false);
+  const [focused, setFocused] = useState(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({ event, value: event.currentTarget.value });
@@ -163,11 +163,11 @@ TextField.propTypes = {
   value: PropTypes.string,
 };
 
-function forwardRef(props, ref) {
+function TextFieldWithRef(props, ref) {
   return <TextField {...props} forwardedRef={ref} />;
 }
-forwardRef.displayName = 'TextField';
+TextFieldWithRef.displayName = 'TextField';
 
-export default (React.forwardRef<Props, HTMLInputElement>(
-  forwardRef
+export default (forwardRef<Props, HTMLInputElement>(
+  TextFieldWithRef
 ): React$AbstractComponent<Props, HTMLInputElement>);

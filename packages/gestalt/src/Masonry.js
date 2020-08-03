@@ -1,5 +1,9 @@
 // @flow strict
-import * as React from 'react';
+import React, {
+  Component as ReactComponent,
+  type ComponentType,
+  type Node,
+} from 'react';
 import PropTypes from 'prop-types';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
@@ -36,7 +40,7 @@ type Layout =
 type Props<T> = {|
   columnWidth?: number,
   // eslint-disable-next-line flowtype/require-exact-type
-  comp: React.ComponentType<{
+  comp: ComponentType<{
     data: T,
     itemIdx: number,
     isMeasuring: boolean,
@@ -81,10 +85,7 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
 // eslint-disable-next-line flowtype/require-exact-type
-export default class Masonry<T: {}> extends React.Component<
-  Props<T>,
-  State<T>
-> {
+export default class Masonry<T: {}> extends ReactComponent<Props<T>, State<T>> {
   // eslint-disable-next-line flowtype/require-exact-type
   static createMeasurementStore<T1: {}, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
@@ -234,7 +235,6 @@ export default class Masonry<T: {}> extends React.Component<
     const measurementStore: Cache<T, *> =
       props.measurementStore || Masonry.createMeasurementStore();
 
-    // eslint-disable-next-line react/state-in-constructor
     this.state = {
       hasPendingMeasurements: props.items.some(
         item => !!item && !measurementStore.has(item)
@@ -484,7 +484,7 @@ export default class Masonry<T: {}> extends React.Component<
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  render(): React.Node {
+  render(): Node {
     const {
       columnWidth,
       comp: Component,

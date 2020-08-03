@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box, {
   AlignContentPropType,
@@ -26,7 +26,7 @@ type Props = {|
   alignContent?: AlignContent,
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
-  children?: React.Node,
+  children?: Node,
   direction?: Direction,
   fit?: boolean,
   flex?: Flex,
@@ -59,7 +59,7 @@ type Props = {|
   wrap?: boolean,
 |};
 
-export default function FlexBox(props: Props): React.Node {
+export default function FlexBox(props: Props): Node {
   return <Box display="flex" {...props} />;
 }
 

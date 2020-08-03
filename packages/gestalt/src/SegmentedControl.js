@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -9,7 +9,7 @@ import styles from './SegmentedControl.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
-  items: Array<React.Node>,
+  items: Array<Node>,
   onChange: AbstractEventHandler<
     SyntheticMouseEvent<HTMLButtonElement>,
     {| activeIndex: number |}
@@ -19,7 +19,7 @@ type Props = {|
   size?: 'md' | 'lg',
 |};
 
-export default function SegmentedControl(props: Props): React.Node {
+export default function SegmentedControl(props: Props): Node {
   const { items, onChange, responsive, selectedItemIndex, size = 'md' } = props;
   const buttonWidth = responsive
     ? undefined

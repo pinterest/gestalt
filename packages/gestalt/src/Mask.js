@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Mask.css';
@@ -8,7 +8,7 @@ import getRoundingClassName from './getRoundingClassName.js';
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   height?: number | string,
   rounding?: Rounding,
   width?: number | string,
@@ -16,7 +16,7 @@ type Props = {|
   wash?: boolean,
 |};
 
-export default function Mask(props: Props): React.Node {
+export default function Mask(props: Props): Node {
   const {
     children,
     rounding = 0,

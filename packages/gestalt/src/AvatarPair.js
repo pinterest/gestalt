@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
@@ -20,7 +20,7 @@ const sizes = {
 export default function AvatarPair({
   collaborators,
   size = 'fit',
-}: Props): React.Node {
+}: Props): Node {
   const width = size === 'fit' ? '100%' : sizes[size];
   return (
     <Box position="relative" width={width}>

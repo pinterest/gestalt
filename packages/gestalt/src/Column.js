@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './ColumnColumn.css';
@@ -9,21 +9,21 @@ type Columns = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 type ColumnProps =
   | {|
-      children?: React.Node,
+      children?: Node,
       span: Columns,
       smSpan?: Columns,
       mdSpan?: Columns,
       lgSpan?: Columns,
     |}
   | {|
-      children?: React.Node,
+      children?: Node,
       xs?: DeprecatedColumns,
       sm?: DeprecatedColumns,
       md?: DeprecatedColumns,
       lg?: DeprecatedColumns,
     |};
 
-export default function Column(props: ColumnProps): React.Node {
+export default function Column(props: ColumnProps): Node {
   const { children } = props;
   const cs = classnames(
     (props.xs !== undefined ||

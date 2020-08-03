@@ -11,7 +11,7 @@
  */
 
 // @flow strict
-import * as React from 'react';
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 type Props = {|
@@ -23,7 +23,7 @@ type Props = {|
   scrollTop: number,
 |};
 
-export default class FetchItems extends React.PureComponent<Props> {
+export default class FetchItems extends PureComponent<Props> {
   static propTypes = {
     containerHeight: PropTypes.number.isRequired,
     isAtEnd: PropTypes.bool,

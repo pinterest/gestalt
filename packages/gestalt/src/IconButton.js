@@ -1,5 +1,12 @@
 // @flow strict
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  useRef,
+  type Node,
+  type Ref,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
@@ -25,7 +32,7 @@ type Props = {|
     | 'red',
   dangerouslySetSvgPath?: {| __path: string |},
   disabled?: boolean,
-  forwardedRef?: React.Ref<'button'>,
+  forwardedRef?: Ref<'button'>,
   icon?: $Keys<typeof icons>,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
@@ -49,12 +56,12 @@ function IconButton({
   padding,
   selected,
   size,
-}: Props): React.Node {
-  const innerRef = React.useRef(null);
+}: Props): Node {
+  const innerRef = useRef(null);
   // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  React.useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(forwardedRef, () => innerRef.current);
 
   const {
     compressStyle,
@@ -71,9 +78,9 @@ function IconButton({
     width: innerRef?.current?.clientWidth,
   });
 
-  const [isActive, setActive] = React.useState(false);
-  const [isFocused, setFocused] = React.useState(false);
-  const [isHovered, setHovered] = React.useState(false);
+  const [isActive, setActive] = useState(false);
+  const [isFocused, setFocused] = useState(false);
+  const [isHovered, setHovered] = useState(false);
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -175,7 +182,7 @@ IconButtonWithRef.displayName = 'ForwardRef(IconButton)';
 const IconButtonWithForwardRef: React$AbstractComponent<
   Props,
   HTMLButtonElement
-> = React.forwardRef<Props, HTMLButtonElement>(IconButtonWithRef);
+> = forwardRef<Props, HTMLButtonElement>(IconButtonWithRef);
 
 IconButtonWithForwardRef.displayName = 'IconButton';
 

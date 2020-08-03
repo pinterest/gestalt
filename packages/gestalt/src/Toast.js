@@ -1,15 +1,15 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Element, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
 
 type Props = {|
-  button?: React.Node,
+  button?: Node,
   color?: 'darkGray' | 'red',
-  text: string | React.Element<*>,
-  thumbnail?: React.Node,
+  text: string | Element<*>,
+  thumbnail?: Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
 |};
 
@@ -19,7 +19,7 @@ export default function Toast({
   text,
   thumbnail,
   thumbnailShape = 'square',
-}: Props): React.Node {
+}: Props): Node {
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
       <Box color={color} fit padding={6} rounding="pill">

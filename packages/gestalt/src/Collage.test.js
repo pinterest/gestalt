@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import { create } from 'react-test-renderer';
 import Collage from './Collage.js';
 

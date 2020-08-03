@@ -1,12 +1,12 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 
 type Props = {|
   direction?: ?'up' | 'right' | 'down' | 'left',
 |};
 
-export default function Caret(props: Props): React.Node {
+export default function Caret(props: Props): Node {
   const { direction } = props;
   let path;
   switch (direction) {

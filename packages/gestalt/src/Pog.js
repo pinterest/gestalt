@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from './Icon.js';
@@ -56,7 +56,7 @@ const defaultIconButtonIconColors = {
   white: 'gray',
 };
 
-export default function Pog(props: Props): React.Node {
+export default function Pog(props: Props): Node {
   const {
     accessibilityLabel = '',
     active = false,

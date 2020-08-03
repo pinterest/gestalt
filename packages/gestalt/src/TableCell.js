@@ -1,14 +1,14 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import styles from './Table.css';
 
 type Props = {|
-  children: React.Node,
+  children: Node,
   colSpan?: number,
   rowSpan?: number,
 |};
 
-export default function TableCell(props: Props): React.Node {
+export default function TableCell(props: Props): Node {
   const { children, colSpan, rowSpan } = props;
 
   return (

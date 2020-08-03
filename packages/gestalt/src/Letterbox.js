@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Mask from './Mask.js';
 
@@ -15,7 +15,7 @@ import Mask from './Mask.js';
 const aspectRatio = (width, height) => width / height;
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   contentAspectRatio: number,
   height: number,
   width: number,
@@ -26,7 +26,7 @@ export default function Letterbox({
   contentAspectRatio,
   height,
   width,
-}: Props): React.Node {
+}: Props): Node {
   const viewportAspectRatio = aspectRatio(width, height);
 
   let contentHeight;

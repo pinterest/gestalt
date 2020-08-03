@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -36,7 +36,7 @@ export default function TypeaheadOption({
   hoveredItem,
   setHoveredItem,
   setOptionRef,
-}: OptionProps): React.Node {
+}: OptionProps): Node {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 

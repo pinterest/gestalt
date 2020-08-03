@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Collection from './Collection.js';
 
@@ -151,11 +151,11 @@ type Props = {|
     width: number,
     height: number,
     index: number,
-  |}) => React.Node,
+  |}) => Node,
   width: number,
 |};
 
-export default function Collage(props: Props): React.Node {
+export default function Collage(props: Props): Node {
   const {
     columns,
     cover,

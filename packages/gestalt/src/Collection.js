@@ -39,12 +39,12 @@
   4. The viewport can be any size. Most windowing/recycling solutions implement some sort of overscanning, however Collection leaves this up the the parent.
 
 */
-import * as React from 'react';
+import React, { PureComponent, type Node } from 'react';
 import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 
 type Props = {|
-  Item: ({| idx: number |}) => React.Node,
+  Item: ({| idx: number |}) => Node,
   layout: Array<{|
     top: number,
     left: number,
@@ -57,7 +57,7 @@ type Props = {|
   viewportHeight?: number,
 |};
 
-export default class Collection extends React.PureComponent<Props, void> {
+export default class Collection extends PureComponent<Props, void> {
   static propTypes = {
     // eslint-disable-next-line react/forbid-prop-types
     Item: PropTypes.any,
@@ -90,7 +90,7 @@ export default class Collection extends React.PureComponent<Props, void> {
     viewportTop: 0,
   };
 
-  render(): React.Node {
+  render(): Node {
     const { Item, layout, viewportTop = 0, viewportLeft = 0 } = this.props;
 
     // Calculate the full dimensions of the item layer

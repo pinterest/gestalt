@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 
 const SCROLL_DISTANCE = 10;
 const SPACE_CHAR_CODE = 32;
@@ -33,15 +33,15 @@ export default function useTapFeedback({
   handleTouchStart: (SyntheticTouchEvent<TapTargetHTMLElement>) => void,
   isTapping: boolean,
 |} {
-  const [isTapping, setTapping] = React.useState<boolean>(false);
-  const [coordinate, setCoordinate] = React.useState<Coordinate>({
+  const [isTapping, setTapping] = useState<boolean>(false);
+  const [coordinate, setCoordinate] = useState<Coordinate>({
     x: 0,
     y: 0,
   });
 
-  const [compressStyle, setCompressStyle] = React.useState(null);
+  const [compressStyle, setCompressStyle] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (height != null && width != null) {
       const largestSize = width > height ? width : height;
       setCompressStyle({

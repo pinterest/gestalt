@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Row from './Row.js';
@@ -36,7 +36,7 @@ function Tab({
   isActive,
   onChange,
 }: {|
-  children: React.Node,
+  children: Node,
   size: 'md' | 'lg',
   isActive: boolean,
   href: string,
@@ -45,8 +45,8 @@ function Tab({
   id?: string,
   onChange: OnChangeHandler,
 |}) {
-  const [hovered, setHovered] = React.useState(false);
-  const [focused, setFocused] = React.useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
   return (
     <Box position={focused ? 'relative' : undefined}>
       <Link
@@ -100,7 +100,7 @@ type Props = {|
     href: string,
     id?: string,
     indicator?: 'dot',
-    text: React.Node,
+    text: Node,
   |}>,
   wrap?: boolean,
 |};
@@ -111,7 +111,7 @@ export default function Tabs({
   size = 'md',
   tabs,
   wrap,
-}: Props): React.Node {
+}: Props): Node {
   return (
     <Row wrap={wrap}>
       {tabs.map(({ id, href, text, indicator }, index) => (
