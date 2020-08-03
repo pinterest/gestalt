@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import PropTable from './components/PropTable.js';
 import Card from './components/Card.js';
 import Example from './components/Example.js';
