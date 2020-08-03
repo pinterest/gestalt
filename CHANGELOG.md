@@ -1,3 +1,9 @@
+## 11.5.4 (Aug 3, 2020)
+
+### Patch
+
+- Internal: enforce disallow namespace/wildcard imports + apply on docs (#1106)
+
 ## 11.5.3 (Aug 3, 2020)
 
 ### Patch
