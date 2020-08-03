@@ -15,7 +15,12 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 */
 
-import React, { forwardRef, type Node, type AbstractComponent } from 'react';
+import React, {
+  forwardRef,
+  type Node,
+  type AbstractComponent,
+  type Element,
+} from 'react';
 import PropTypes from 'prop-types';
 import styles from './Box.css';
 import borders from './Borders.css';
@@ -703,10 +708,13 @@ const omit = (keys, obj) =>
 // (className, style) or accessibility (onClick).
 const blacklistProps = ['onClick', 'className', 'style'];
 
-const BoxWithRef: AbstractComponent<PropType, HTMLDivElement> = forwardRef<
+const BoxWithForwardRef: AbstractComponent<
   PropType,
   HTMLDivElement
->(function Box(props, ref) {
+> = forwardRef<PropType, HTMLDivElement>(function Box(
+  props,
+  ref
+): Element<'div'> {
   // Flow can't reason about the constant nature of Object.keys so we can't use
   // a functional (reduce) style here.
 
@@ -741,11 +749,9 @@ const BoxWithRef: AbstractComponent<PropType, HTMLDivElement> = forwardRef<
   return <div {...omit(omitProps, props)} {...toProps(s)} ref={ref} />;
 });
 
-// This is a legacy backport around tools external to Gestalt (*waves hands*)
-// expecting Boxes' displayName to be just "Box" and not "ForwardRef(Box)".
-BoxWithRef.displayName = 'Box';
+BoxWithForwardRef.displayName = 'Box';
 
-export default BoxWithRef;
+export default BoxWithForwardRef;
 
 /*
 
@@ -906,8 +912,8 @@ const SizeDisplayPropType = PropTypes.oneOf([
   'inlineBlock',
 ]);
 
-// $FlowFixMe
-BoxWithRef.propTypes = {
+// $FlowFixMe Flow(InferError)
+BoxWithForwardRef.propTypes = {
   children: PropTypes.node,
   dangerouslySetInlineStyle: PropTypes.exact({
     __style: PropTypes.object,
