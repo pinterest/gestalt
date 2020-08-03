@@ -1,3 +1,9 @@
+## 11.5.2 (Aug 3, 2020)
+
+### Patch
+
+- Datepicker: move gestalt to peerDependencies (#1105)
+
 ## 11.5.1 (Aug 3, 2020)
 
 ### Patch
