@@ -1,3 +1,9 @@
+## 11.6.0 (Aug 4, 2020)
+
+### Minor
+
+- GestaltProvider: rename to Provider & move under configuration (#1114)
+
 ## 11.5.6 (Aug 4, 2020)
 
 ### Patch
