@@ -1,3 +1,9 @@
+## 11.11.1 (Aug 4, 2020)
+
+### Patch
+
+- Internal: Remove the # from URLs in the docs (#1115)
+
 ## 11.11.0 (Aug 4, 2020)
 
 ### Minor
