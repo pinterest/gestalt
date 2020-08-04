@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { render } from 'react-dom';
 import 'gestalt/dist/gestalt-future.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker-future.css';
@@ -23,7 +23,7 @@ const mapRoutes = (pages, pathname) =>
 if (container instanceof Element) {
   render(
     <React.StrictMode>
-      <HashRouter>
+      <BrowserRouter>
         <App>
           <Switch>
             <Route
@@ -36,7 +36,7 @@ if (container instanceof Element) {
             )}
           </Switch>
         </App>
-      </HashRouter>
+      </BrowserRouter>
     </React.StrictMode>,
     container
   );

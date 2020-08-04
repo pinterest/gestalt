@@ -40,6 +40,7 @@
     "jest": "^26.1.0",
     "jscodeshift": "^0.10.0",
     "lint-staged": "^10.2.11",
+    "netlify-cli": "^2.59.0",
     "papaparse": "^5.2.0",
     "prettier": "1.19.1",
     "react-test-renderer": "^16.13.1",
@@ -63,7 +64,8 @@
     "lint:css": "stylelint \"packages/**/*.css\"",
     "lint:js": "eslint .",
     "precommit": "lint-staged",
-    "start": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
+    "dev": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
+    "start": "netlify dev -c \"yarn dev\"",
     "test": "./scripts/test.sh"
   },
   "jest": {
