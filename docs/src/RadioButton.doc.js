@@ -141,35 +141,42 @@ card(
   <Example
     id="ref"
     name="Example: ref"
-    description={`A \`RadioButton\` can be focused via \`ref\``}
+    description={`The innermost \`RadioButton\` element can be accessed via \`ref\``}
     defaultCode={`
 function RadioButtonExample() {
   const ref = React.useRef();
-  const [option, setOption] = React.useState();
+  const [label, setLabel] = React.useState("24 px RadioButton");
+  const [size, setSize] = React.useState('md');
+  const [switched, setSwitched] = React.useState(false);
+
+  React.useEffect(() => {
+      setLabel(ref.current && ref.current.offsetHeight)
+  }, [size]);
 
   return (
     <Row gap={2}>
-      <Button
-        text="Focus the RadioButton"
-        onClick={() => ref.current.focus()}
-      />
-      <Stack gap={2}>
+      <Label>
+        <Row gap={1}>
+          <Switch
+            onChange={() => { 
+              setSize(size === "sm" ? "md" : "sm")
+              setSwitched(!switched)}
+            }
+            id="emailNotifications"
+            switched={switched}
+          />
+          <Text>Toggle RadioButton to small size</Text>
+        </Row>
+      </Label>
         <RadioButton
-          id="proceed"
-          checked={option === "proceed"}
-          label="Proceed"
-          onChange={() => setOption("proceed")}
-          value="usa"
+          id="sizing"
+          checked={false}
+          label={label + 'px RadioButton'}
+          onChange={() => {} }
+          value="value"
           ref={ref}
+          size={size}
         />
-        <RadioButton
-          id="notProceed"
-          checked={option === "notProceed"}
-          label="Do Not Proceed"
-          onChange={() => setOption("notProceed")}
-          value="usa"
-        />
-      </Stack>
     </Row>
   );
 }`}
@@ -184,7 +191,7 @@ card(
   `}
     defaultCode={`
 
-function ErrorFlyoutExample() {
+function RadioButtonFlyoutExample() {
   const [open, setOpen] = React.useState(false);
   const [option, setOption] = React.useState(false);
   const anchorCatRef = React.useRef();

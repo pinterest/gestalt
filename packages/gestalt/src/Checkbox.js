@@ -6,7 +6,6 @@ import React, {
   useRef,
   useState,
   type Node,
-  type Ref,
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -26,7 +25,6 @@ type Props = {|
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
-  forwardedRef?: Ref<'input'>,
   hasError?: boolean,
   id: string,
   indeterminate?: boolean,
@@ -43,12 +41,14 @@ type Props = {|
   size?: 'sm' | 'md',
 |};
 
-function Checkbox(props: Props): Node {
+const CheckboxWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = forwardRef<Props, HTMLInputElement>(function Checkbox(props, ref): Node {
   const {
     checked = false,
     disabled = false,
     errorMessage,
-    forwardedRef,
     hasError = false,
     id,
     indeterminate = false,
@@ -60,10 +60,9 @@ function Checkbox(props: Props): Node {
   } = props;
 
   const innerRef = useRef(null);
-  // When using both forwardedRef and innerRef, React.useimperativehandle() allows a parent component
+  // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Checkbox ref={inputRef} /> to call inputRef.current.focus()
-  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  useImperativeHandle(forwardedRef, () => innerRef.current);
+  useImperativeHandle(ref, () => innerRef.current);
 
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
@@ -190,18 +189,13 @@ function Checkbox(props: Props): Node {
       )}
     </Box>
   );
-}
+});
 
-Checkbox.propTypes = {
+// $FlowFixMe Flow(InferError)
+CheckboxWithForwardRef.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
   hasError: PropTypes.bool,
   id: PropTypes.string.isRequired,
   indeterminate: PropTypes.bool,
@@ -211,17 +205,6 @@ Checkbox.propTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md']),
 };
-
-function CheckboxWithRef(props, ref) {
-  return <Checkbox {...props} forwardedRef={ref} />;
-}
-
-CheckboxWithRef.displayName = 'ForwardRef(Checkbox)';
-
-const CheckboxWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(CheckboxWithRef);
 
 CheckboxWithForwardRef.displayName = 'Checkbox';
 
