@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { forwardRef, useState, type Ref } from 'react';
+import React, { forwardRef, useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import formElement from './FormElement.css';
@@ -13,7 +13,6 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
-  forwardedRef?: Ref<'textarea'>,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -40,23 +39,26 @@ type Props = {|
   value?: string,
 |};
 
-function TextArea({
-  errorMessage,
-  disabled = false,
-  forwardedRef,
-  hasError = false,
-  helperText,
-  id,
-  label,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  placeholder,
-  rows = 3,
-  value,
-}: Props) {
+const TextAreaWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLTextAreaElement
+> = forwardRef<Props, HTMLTextAreaElement>(function TextArea(props, ref): Node {
+  const {
+    errorMessage,
+    disabled = false,
+    hasError = false,
+    helperText,
+    id,
+    label,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    onKeyDown,
+    placeholder,
+    rows = 3,
+    value,
+  } = props;
   const [focused, setFocused] = useState(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLTextAreaElement>) => {
@@ -107,7 +109,7 @@ function TextArea({
         onFocus={handleFocus}
         onKeyDown={handleKeyDown}
         placeholder={placeholder}
-        ref={forwardedRef}
+        ref={ref}
         rows={rows}
         value={value}
       />
@@ -117,17 +119,12 @@ function TextArea({
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );
-}
+});
 
-TextArea.propTypes = {
+// $FlowFixMe Flow(InferError)
+TextAreaWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
@@ -141,17 +138,6 @@ TextArea.propTypes = {
   rows: PropTypes.number,
   value: PropTypes.string,
 };
-
-function TextAreaWithRef(props, ref) {
-  return <TextArea {...props} forwardedRef={ref} />;
-}
-
-TextAreaWithRef.displayName = 'ForwardRef(TextArea)';
-
-const TextAreaWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLTextAreaElement
-> = forwardRef<Props, HTMLTextAreaElement>(TextAreaWithRef);
 
 TextAreaWithForwardRef.displayName = 'TextArea';
 

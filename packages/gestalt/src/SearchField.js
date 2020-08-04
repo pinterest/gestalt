@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { forwardRef, useState, type Ref } from 'react';
+import React, { forwardRef, useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -25,21 +25,24 @@ type Props = {|
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
-  forwardedRef?: Ref<'input'>,
 |};
 
-const SearchField = ({
-  accessibilityLabel,
-  autoComplete,
-  id,
-  onBlur,
-  onChange,
-  onFocus,
-  placeholder,
-  size = 'md',
-  value,
-  forwardedRef,
-}: Props) => {
+const SearchFieldWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = forwardRef<Props, HTMLInputElement>(function SearchField(props, ref): Node {
+  const {
+    accessibilityLabel,
+    autoComplete,
+    id,
+    onBlur,
+    onChange,
+    onFocus,
+    placeholder,
+    size = 'md',
+    value,
+  } = props;
+
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
@@ -117,7 +120,7 @@ const SearchField = ({
         </Box>
       )}
       <input
-        ref={forwardedRef}
+        ref={ref}
         aria-label={accessibilityLabel}
         autoComplete={autoComplete}
         className={className}
@@ -155,10 +158,12 @@ const SearchField = ({
       )}
     </Box>
   );
-};
+});
 
-SearchField.propTypes = {
+// $FlowFixMe Flow(InferError)
+SearchFieldWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
+  autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
   id: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
@@ -166,19 +171,8 @@ SearchField.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
 };
 
-function forwardRefSearchField(props, ref) {
-  return <SearchField {...props} forwardedRef={ref} />;
-}
-forwardRefSearchField.displayName = 'SearchField';
+SearchFieldWithForwardRef.displayName = 'SearchField';
 
-export default (forwardRef<Props, HTMLInputElement>(
-  forwardRefSearchField
-): React$AbstractComponent<Props, HTMLInputElement>);
+export default SearchFieldWithForwardRef;

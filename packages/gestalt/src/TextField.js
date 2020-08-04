@@ -1,5 +1,5 @@
 // @flow strict
-import React, { forwardRef, useState, type Ref } from 'react';
+import React, { forwardRef, useState, type Node } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import formElement from './FormElement.css';
@@ -18,7 +18,6 @@ type Props = {|
     | 'username',
   disabled?: boolean,
   errorMessage?: string,
-  forwardedRef?: Ref<'input'>,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -46,25 +45,28 @@ type Props = {|
   value?: string,
 |};
 
-function TextField({
-  autoComplete,
-  disabled = false,
-  errorMessage,
-  forwardedRef,
-  hasError = false,
-  helperText,
-  id,
-  label,
-  name,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  placeholder,
-  size = 'md',
-  type = 'text',
-  value,
-}: Props) {
+const TextFieldWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = forwardRef<Props, HTMLInputElement>(function TextField(props, ref): Node {
+  const {
+    autoComplete,
+    disabled = false,
+    errorMessage,
+    hasError = false,
+    helperText,
+    id,
+    label,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    onKeyDown,
+    placeholder,
+    size = 'md',
+    type = 'text',
+    value,
+  } = props;
   const [focused, setFocused] = useState(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
@@ -120,7 +122,7 @@ function TextField({
         onKeyDown={handleKeyDown}
         pattern={pattern}
         placeholder={placeholder}
-        ref={forwardedRef}
+        ref={ref}
         type={type}
         value={value}
       />
@@ -130,9 +132,10 @@ function TextField({
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );
-}
+});
 
-TextField.propTypes = {
+// $FlowFixMe Flow(InferError)
+TextFieldWithForwardRef.propTypes = {
   autoComplete: PropTypes.oneOf([
     'current-password',
     'new-password',
@@ -142,12 +145,6 @@ TextField.propTypes = {
   ]),
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
@@ -163,11 +160,6 @@ TextField.propTypes = {
   value: PropTypes.string,
 };
 
-function TextFieldWithRef(props, ref) {
-  return <TextField {...props} forwardedRef={ref} />;
-}
-TextFieldWithRef.displayName = 'TextField';
+TextFieldWithForwardRef.displayName = 'TextField';
 
-export default (forwardRef<Props, HTMLInputElement>(
-  TextFieldWithRef
-): React$AbstractComponent<Props, HTMLInputElement>);
+export default TextFieldWithForwardRef;

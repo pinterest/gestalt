@@ -38,20 +38,24 @@ type Props = {|
   value?: string,
 |};
 
-const InputField = ({
-  id,
-  label,
-  onBlur,
-  onChange,
-  onClear,
-  onKeyNavigation,
-  onFocus,
-  setContainer,
-  placeholder,
-  size = 'md',
-  value,
-  forwardedRef,
-}: Props): Node => {
+const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLInputElement
+> = forwardRef<Props, HTMLInputElement>(function InputField(props, ref): Node {
+  const {
+    id,
+    label,
+    onBlur,
+    onChange,
+    onClear,
+    onKeyNavigation,
+    onFocus,
+    setContainer,
+    placeholder,
+    size = 'md',
+    value,
+  } = props;
+
   const [hovered, setHovered] = useState<boolean>(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
@@ -133,7 +137,7 @@ const InputField = ({
         position="relative"
       >
         <input
-          ref={forwardedRef}
+          ref={ref}
           autoComplete="off"
           aria-label={label}
           className={className}
@@ -176,33 +180,23 @@ const InputField = ({
       </Box>
     </>
   );
-};
+});
 
-InputField.displayName = InputField;
-
-InputField.propTypes = {
+// $FlowFixMe Flow(InferError)
+TypeaheadInputFieldWithForwardRef.propTypes = {
   label: PropTypes.string,
   id: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
   onClear: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
+  onKeyNavigation: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
+  setContainer: PropTypes.func,
   value: PropTypes.string,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
 };
 
-const forwardRefInputField = (props, ref): Node => {
-  return <InputField {...props} forwardedRef={ref} />;
-};
-forwardRefInputField.displayName = 'InputField';
+TypeaheadInputFieldWithForwardRef.displayName = 'TypeaheadInputField';
 
-export default (forwardRef<Props, HTMLInputElement>(
-  forwardRefInputField
-): React$AbstractComponent<Props, HTMLInputElement>);
+export default TypeaheadInputFieldWithForwardRef;
