@@ -1,3 +1,9 @@
+## 11.7.0 (Aug 4, 2020)
+
+### Minor
+
+- useReducedMotion: Accessibility hook to support prefers-reduced-motion (#1100)
+
 ## 11.6.1 (Aug 4, 2020)
 
 ### Patch
