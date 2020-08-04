@@ -1,3 +1,9 @@
+## 11.11.0 (Aug 4, 2020)
+
+### Minor
+
+- Link/TapArea/DatePicker: Refactored forwardRef (#1113)
+
 ## 11.10.0 (Aug 4, 2020)
 
 ### Minor
