@@ -1,3 +1,9 @@
+## 11.6.1 (Aug 4, 2020)
+
+### Patch
+
+- Docs: Updated Video.doc.js to match flow types (#1117)
+
 ## 11.6.0 (Aug 4, 2020)
 
 ### Minor
