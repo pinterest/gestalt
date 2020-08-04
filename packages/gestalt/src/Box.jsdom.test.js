@@ -1,0 +1,13 @@
+// @flow strict
+import React from 'react';
+import { render } from '@testing-library/react';
+import Box from './Box.js';
+
+describe('Box', () => {
+  it('forwards a ref to the innermost div element', () => {
+    const ref = React.createRef();
+    render(<Box title="test" ref={ref} />);
+    expect(ref.current instanceof HTMLDivElement).toEqual(true);
+    expect(ref.current?.title).toEqual('test');
+  });
+});

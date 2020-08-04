@@ -184,6 +184,12 @@ card(
         href: 'absolutePositioning',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description: 'Forward the ref to the underlying div element',
+        href: 'refExample',
+      },
+      {
         name: 'role',
         type: 'string',
       },
@@ -304,17 +310,6 @@ card(
       </Box>
     )}
   </Combination>
-);
-
-card(
-  <Card
-    description={`
-    As of Gestalt v0.86.0, \`Box\` supports React's new [\`forwardRef\`](https://reactjs.org/docs/forwarding-refs.html) functionality.
-    This allows you to set a \`ref\` on the actual \`<Box />\` component and it will be passed down to the underlying \`<div>\` element.
-    The \`ref\` can be set through any of the supported React methods and accessing it will yield the \`<div>\` that \`Box\` implements.
-  `}
-    name="Refs"
-  />
 );
 
 card(
@@ -608,6 +603,52 @@ card(
       {props => <Box color="darkGray" width={60} height={60} {...props} />}
     </Combination>
   </Card>
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`Box\` with an anchor ref to a Flyout component
+  `}
+    defaultCode={`
+function ButtonFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const [checked, setChecked] = React.useState(false);
+
+  const anchorRef = React.useRef(null);
+
+  return (
+    <>
+      <Stack gap={3}>
+        <Button
+          inline
+          color="red"
+          onClick={() => setOpen(true)}
+          size="sm"
+          text="Anchor a Flyout to Box"
+        />
+        <Box borderSize='sm' padding={3} ref={anchorRef} rounding={1}>
+          <Text>I'm a Box</Text>
+        </Box>
+      </Stack>
+      {open && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setOpen(false)}
+          shouldFocus={false}
+        >
+          <Box padding={3}>
+            <Text weight="bold">I'm a Flyout anchored to a Box</Text>
+          </Box>
+        </Flyout>
+      )}
+    </>
+  );
+}`}
+  />
 );
 
 card(
