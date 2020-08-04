@@ -3,8 +3,8 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
+  type Element,
   type Node,
-  type Ref,
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -18,8 +18,6 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
-type TapStyle = 'none' | 'compress';
-
 type Props = {|
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
@@ -27,7 +25,6 @@ type Props = {|
   accessibilityLabel?: string,
   children?: Node,
   disabled?: boolean,
-  forwardedRef?: Ref<'div'>,
   fullHeight?: boolean,
   fullWidth?: boolean,
   mouseCursor?:
@@ -46,32 +43,39 @@ type Props = {|
   onTap?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>
   >,
-  tapStyle?: TapStyle,
+  tapStyle?: 'none' | 'compress',
   rounding?: Rounding,
 |};
 
-function TapArea({
-  accessibilityControls,
-  accessibilityExpanded,
-  accessibilityHaspopup,
-  accessibilityLabel,
-  children,
-  disabled = false,
-  forwardedRef,
-  fullHeight,
-  fullWidth = true,
-  mouseCursor = 'pointer',
-  onBlur,
-  onFocus,
-  onMouseEnter,
-  onMouseLeave,
-  onTap,
-  tapStyle = 'none',
-  rounding = 0,
-}: Props) {
+const TapAreaWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLDivElement
+> = forwardRef<Props, HTMLDivElement>(function TapArea(
+  props,
+  ref
+): Element<'div'> {
+  const {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    accessibilityLabel,
+    children,
+    disabled = false,
+    fullHeight,
+    fullWidth = true,
+    mouseCursor = 'pointer',
+    onBlur,
+    onFocus,
+    onMouseEnter,
+    onMouseLeave,
+    onTap,
+    tapStyle = 'none',
+    rounding = 0,
+  } = props;
+
   const innerRef = useRef(null);
-  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  useImperativeHandle(forwardedRef, () => innerRef.current);
+
+  useImperativeHandle(ref, () => innerRef.current);
 
   const {
     compressStyle,
@@ -162,23 +166,16 @@ function TapArea({
       {children}
     </div>
   );
-}
+});
 
-export const TapAreaPropTypes = {
+// $FlowFixMe Flow(InferError)
+TapAreaWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   disabled: PropTypes.bool,
-  forwardedRef: (PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]): React$PropType$Primitive<
-    ((...a: Array<$FlowFixMe>) => mixed) | { current?: $FlowFixMe, ... }
-  >),
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
   mouseCursor: (PropTypes.oneOf([
@@ -210,15 +207,6 @@ export const TapAreaPropTypes = {
   >),
   rounding: RoundingPropType,
 };
-
-TapArea.propTypes = TapAreaPropTypes;
-
-const TapAreaWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLDivElement
-> = forwardRef<Props, HTMLDivElement>((props, ref) => (
-  <TapArea {...props} forwardedRef={ref} />
-));
 
 TapAreaWithForwardRef.displayName = 'TapArea';
 

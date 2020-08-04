@@ -5,7 +5,7 @@ import React, {
   useRef,
   type AbstractComponent,
   type Node,
-  type Ref,
+  type Element,
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -23,7 +23,6 @@ import useFocusVisible from './useFocusVisible.js';
 type Props = {|
   accessibilitySelected?: boolean,
   children?: Node,
-  forwardedRef?: Ref<'a'>,
   hoverStyle?: 'none' | 'underline',
   href: string,
   id?: string,
@@ -41,26 +40,33 @@ type Props = {|
   target?: null | 'self' | 'blank',
 |};
 
-function Link({
-  accessibilitySelected,
-  children,
-  forwardedRef,
-  href,
-  id,
-  inline = false,
-  onBlur,
-  onClick,
-  onFocus,
-  rel = 'none',
-  role,
-  rounding = 0,
-  hoverStyle = 'underline',
-  tapStyle = 'none',
-  target = null,
-}: Props): Node {
+const LinkWithForwardRef: AbstractComponent<
+  Props,
+  HTMLAnchorElement
+> = forwardRef<Props, HTMLAnchorElement>(function Link(
+  props,
+  ref
+): Element<'a'> {
+  const {
+    accessibilitySelected,
+    children,
+    href,
+    id,
+    inline = false,
+    onBlur,
+    onClick,
+    onFocus,
+    rel = 'none',
+    role,
+    rounding = 0,
+    hoverStyle = 'underline',
+    tapStyle = 'none',
+    target = null,
+  } = props;
+
   const innerRef = useRef(null);
-  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
-  useImperativeHandle(forwardedRef, () => innerRef.current);
+
+  useImperativeHandle(ref, () => innerRef.current);
 
   const {
     compressStyle,
@@ -141,17 +147,12 @@ function Link({
       {children}
     </a>
   );
-}
+});
 
-Link.propTypes = {
+// $FlowFixMe Flow(InferError)
+LinkWithForwardRef.propTypes = {
   accessibilitySelected: PropTypes.bool,
   children: PropTypes.node,
-  forwardedRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any,
-    }),
-  ]),
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
     'none' | 'underline'
   >),
@@ -173,15 +174,6 @@ Link.propTypes = {
     null | 'self' | 'blank'
   >),
 };
-
-function LinkWithRef(props, ref) {
-  return <Link {...props} forwardedRef={ref} />;
-}
-
-const LinkWithForwardRef: AbstractComponent<
-  Props,
-  HTMLAnchorElement
-> = forwardRef<Props, HTMLAnchorElement>(LinkWithRef);
 
 LinkWithForwardRef.displayName = 'Link';
 
