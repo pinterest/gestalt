@@ -32,6 +32,11 @@ const sidebarIndex: sidebarIndexType = [
     pages: ['Provider'],
   },
   {
+    sectionName: 'Accessibility',
+    sectionPathname: 'accessibility',
+    pages: ['useReducedMotion'],
+  },
+  {
     sectionName: 'Data Display',
     sectionPathname: 'data-display',
     pages: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Table'],

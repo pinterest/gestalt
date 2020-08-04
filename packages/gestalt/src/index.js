@@ -48,6 +48,7 @@ import TextArea from './TextArea.js';
 import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
+import useReducedMotion from './useReducedMotion.js';
 import Video from './Video.js';
 import Typeahead from './Typeahead.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
@@ -107,5 +108,6 @@ export {
   Tooltip,
   Typeahead,
   useColorScheme,
+  useReducedMotion,
   Video,
 };
