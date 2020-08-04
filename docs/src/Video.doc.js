@@ -25,6 +25,7 @@ card(
         type: 'string',
         description:
           'Accessibility label for the fullscreen maximize button if controls are shown',
+        required: true,
         href: 'videoControlsExample',
       },
       {
@@ -32,6 +33,7 @@ card(
         type: 'string',
         description:
           'Accessibility label for the fullscreen minimize button if controls are shown',
+        required: true,
         href: 'videoControlsExample',
       },
       {
@@ -39,6 +41,7 @@ card(
         type: 'string',
         description:
           'Accessibility label for the mute button if controls are shown',
+        required: true,
         href: 'videoControlsExample',
       },
       {
@@ -46,6 +49,7 @@ card(
         type: 'string',
         description:
           'Accessibility label for the pause button if controls are shown',
+        required: true,
         href: 'videoControlsExample',
       },
       {
@@ -53,6 +57,7 @@ card(
         type: 'string',
         description:
           'Accessibility label for the play button if controls are shown',
+        required: true,
         href: 'videoControlsExample',
       },
       {
@@ -60,6 +65,7 @@ card(
         type: 'string',
         description:
           'Accessibility label for the unmute button if controls are shown',
+        required: true,
         href: 'videoControlsExample',
       },
       {
@@ -169,6 +175,7 @@ card(
         type: 'number',
         description:
           'Specifies the speed at which the video plays: 1 for normal',
+        required: true,
         defaultValue: 1,
         href: 'videoUpdatesExample',
       },
@@ -176,6 +183,7 @@ card(
         name: 'playing',
         type: 'boolean',
         description: 'Specifies whether the video should play or not',
+        required: true,
         defaultValue: false,
         href: 'nativeVideoAttributesExample',
       },
@@ -196,9 +204,10 @@ card(
       {
         name: 'preload',
         type: `"auto" | "metadata" | "none"`,
-        defaultValue: 'auto',
         description:
           'Specifies how, if any, the video should be loaded when the page loads',
+        required: true,
+        defaultValue: 'auto',
       },
       {
         name: 'src',
@@ -214,6 +223,7 @@ card(
         type: 'number',
         description:
           'Specifies the volume of the video audio: 0 for muted, 1 for max',
+        required: true,
         defaultValue: 0,
         href: 'nativeVideoAttributesExample',
       },
