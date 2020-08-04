@@ -12,24 +12,24 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type LinkData = {|
   href: string,
-    label: string,
-      onClick ?: AbstractEventHandler <
+  label: string,
+  onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent < HTMLAnchorElement >
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
 |};
 
 type Props = {|
   description: string,
-    dismissButton ?: {|
-      accessibilityLabel: string,
-        onDismiss: () => void,
+  dismissButton?: {|
+    accessibilityLabel: string,
+    onDismiss: () => void,
   |},
-iconAccessibilityLabel: string,
-  primaryLink ?: LinkData,
-  secondaryLink ?: LinkData,
+  iconAccessibilityLabel: string,
+  primaryLink?: LinkData,
+  secondaryLink?: LinkData,
   type: 'error' | 'info' | 'warning',
-    title ?: string,
+  title?: string,
 |};
 
 const CALLOUT_TYPE_ATTRIBUTES = {
@@ -56,8 +56,8 @@ const CalloutLink = ({
   type,
 }: {|
   data: LinkData,
-    stacked ?: boolean,
-    type: string,
+  stacked?: boolean,
+  type: string,
 |}): Node => {
   const { name } = useColorScheme();
   const colorDarkMode = name === 'darkMode' ? 'white' : 'darkGray';
