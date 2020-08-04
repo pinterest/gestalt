@@ -73,7 +73,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           Saved to
            
           <a
-            className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}
@@ -96,7 +96,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="box flexNone paddingX2"
       >
         <button
-          className="button tapTransition lg gray enabled block accessibilityOutline"
+          className="button hideOutline tapTransition lg gray enabled block accessibilityOutline"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -163,7 +163,7 @@ exports[`<Toast /> Text + Image 1`] = `
           Saved to
            
           <a
-            className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}
