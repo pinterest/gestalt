@@ -2,80 +2,196 @@
 
 exports[`Switch 1`] = `
 <div
-  className="switch switchWhite"
+  className="box marginEndN1 marginStartN1"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
 >
-  <input
-    checked={false}
-    className="checkbox checkboxEnabled"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="checkbox"
-  />
   <div
-    className="slider sliderLeft sliderLight"
-  />
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box paddingX1"
+    >
+      <label
+        className="label"
+        htmlFor="test"
+      >
+        <div
+          className="switch switchWhite"
+        >
+          <input
+            checked={false}
+            className="checkbox checkboxEnabled"
+            disabled={false}
+            id="test"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="checkbox"
+          />
+          <div
+            className="slider sliderLeft sliderLight"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Switch disabled 1`] = `
 <div
-  className="switch switchLightGray"
+  className="box marginEndN1 marginStartN1"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
 >
-  <input
-    checked={false}
-    className="checkbox"
-    disabled={true}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="checkbox"
-  />
   <div
-    className="slider sliderLeft sliderLight"
-  />
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box paddingX1"
+    >
+      <label
+        className="label"
+        htmlFor="test"
+      >
+        <div
+          className="switch switchLightGray"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            disabled={true}
+            id="test"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="checkbox"
+          />
+          <div
+            className="slider sliderLeft sliderLight"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Switch switched & disabled 1`] = `
 <div
-  className="switch switchLightGray"
+  className="box marginEndN1 marginStartN1"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
 >
-  <input
-    checked={false}
-    className="checkbox"
-    disabled={true}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="checkbox"
-  />
   <div
-    className="slider sliderLeft sliderLight"
-  />
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box paddingX1"
+    >
+      <label
+        className="label"
+        htmlFor="test"
+      >
+        <div
+          className="switch switchLightGray"
+        >
+          <input
+            checked={false}
+            className="checkbox"
+            disabled={true}
+            id="test"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="checkbox"
+          />
+          <div
+            className="slider sliderLeft sliderLight"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Switch switched 1`] = `
 <div
-  className="switch switchWhite"
+  className="box marginEndN1 marginStartN1"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
 >
-  <input
-    checked={false}
-    className="checkbox checkboxEnabled"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    type="checkbox"
-  />
   <div
-    className="slider sliderLeft sliderLight"
-  />
+    className="box itemsCenter xsDirectionRow xsDisplayFlex"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="box paddingX1"
+    >
+      <label
+        className="label"
+        htmlFor="test"
+      >
+        <div
+          className="switch switchWhite"
+        >
+          <input
+            checked={false}
+            className="checkbox checkboxEnabled"
+            disabled={false}
+            id="test"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            type="checkbox"
+          />
+          <div
+            className="slider sliderLeft sliderLight"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
 </div>
 `;

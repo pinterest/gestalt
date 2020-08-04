@@ -35,6 +35,10 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'label',
+        type: 'string',
+      },
+      {
         name: 'name',
         type: 'string',
         href: 'basicExample',
@@ -44,6 +48,12 @@ card(
         type: '({ event: SyntheticInputEvent<>, value: boolean }) => void',
         required: true,
         href: 'basicExample',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'refExample',
       },
       {
         name: 'switched',
@@ -57,28 +67,74 @@ card(
 
 card(
   <Example
-    id="basicExample"
-    description={`
-    Whenever you are using a \`Switch\` component, you should use a [Label](#/Label) with it to make your component accessible.
-  `}
-    name="Example: Using a label"
+    id="Example"
+    name="Example"
     defaultCode={`
 function SwitchExample() {
   const [switched, setSwitched] = React.useState(false);
 
   return (
-    <Box display="flex" alignItems="center">
-      <Box paddingX={2} flex="grow">
-        <Label htmlFor="emailNotifications">
-          <Text>Airplane mode</Text>
-        </Label>
-      </Box>
       <Switch
-        onChange={() => setSwitched(!switched)}
         id="emailNotifications"
+        label='Turn on your notifications'
+        onChange={() => setSwitched(!switched)}
         switched={switched}
       />
-    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Example: Switch and Flyout"
+    description={`
+    A \`Switch\` with an anchor ref to a Flyout component.
+  `}
+    id="refExample"
+    defaultCode={`
+function SwitchFlyoutExample() {
+  const [open, setOpen] = React.useState(false);
+  const [switched, setSwitched] = React.useState(false);
+  const anchorRef = React.useRef();
+
+  return (
+    <>
+      <Switch
+        id="emailNotifications"
+        label="Turn on your notifications"
+        onChange={() => {
+            setOpen(!switched);
+            setSwitched(!switched);
+          }
+        }
+        switched={switched}
+        ref={anchorRef}
+      />
+      {open &&
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            color="red"
+            idealDirection="up"
+            onDismiss={() => setOpen(false)}
+            positionRelativeToAnchor={false}
+            shouldFocus={false}
+            size="md"
+          >            
+            <Box padding={3}>
+              <Text
+                color="white"
+                weight="bold"
+              >
+                  Your notifications are on!
+              </Text>
+            </Box>
+          </Flyout>
+        </Layer>
+      }
+    </>
   );
 }
 `}
