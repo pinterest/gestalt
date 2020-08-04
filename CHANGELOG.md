@@ -1,3 +1,9 @@
+## 11.7.1 (Aug 4, 2020)
+
+### Patch
+
+- Focus Styles: override CSS outline if a global one is specified (#1118)
+
 ## 11.7.0 (Aug 4, 2020)
 
 ### Minor
