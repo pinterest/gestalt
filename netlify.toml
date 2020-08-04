@@ -1,3 +1,14 @@
 [build]
   publish = "docs/build"
   command = "./scripts/netlify.sh"
+
+[dev]
+  targetPort = 3000
+  port = 8888
+  framework = "#custom"
+  autoLaunch = true
+
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
