@@ -1,5 +1,13 @@
 // @flow strict-local
-import React, { forwardRef, useEffect, useState, type ElementRef } from 'react';
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+  useRef,
+  type ElementRef,
+  type Element,
+} from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';
@@ -12,7 +20,6 @@ type Props = {|
   disabled?: boolean,
   errorMessage?: string,
   excludeDates?: Array<Date>,
-  forwardedRef?: ElementRef<*>,
   helperText?: string,
   id: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
@@ -33,12 +40,17 @@ type Props = {|
   value?: Date,
 |};
 
-function DatePicker(props: Props) {
+const DatePickerWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLDivElement
+> = forwardRef<Props, HTMLDivElement>(function DatePicker(
+  props,
+  ref
+): Element<'div'> {
   const {
     disabled,
     errorMessage,
     excludeDates,
-    forwardedRef,
     helperText,
     id,
     idealDirection = 'down',
@@ -55,6 +67,9 @@ function DatePicker(props: Props) {
     rangeStartDate,
     value: dateValue,
   } = props;
+
+  const innerRef = useRef(null);
+  useImperativeHandle(ref, () => innerRef.current);
 
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the flyout pointed at the input correctly
@@ -155,14 +170,12 @@ function DatePicker(props: Props) {
             size={16}
           />
         }
-        ref={ref => {
-          if (!forwardedRef || !ref) {
+        ref={refElement => {
+          if (!innerRef || !refElement) {
             return null;
           }
-          if (Object.prototype.hasOwnProperty.call(forwardedRef, 'current')) {
-            forwardedRef.current = ref.input;
-          } else {
-            forwardedRef(ref.input);
+          if (Object.prototype.hasOwnProperty.call(innerRef, 'current')) {
+            innerRef.current = refElement.input;
           }
           return null;
         }}
@@ -181,19 +194,10 @@ function DatePicker(props: Props) {
       )}
     </div>
   );
-}
+});
 
-function datePickerForwardRef(props, ref) {
-  return <DatePicker {...props} forwardedRef={ref} />;
-}
-
-datePickerForwardRef.displayName = 'DatePickerForwardRef';
-
-export default (forwardRef<Props, HTMLInputElement>(
-  datePickerForwardRef
-): React$AbstractComponent<Props, HTMLInputElement>);
-
-DatePicker.propTypes = {
+// $FlowFixMe Flow(InferError)
+DatePickerWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
   excludeDates: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
@@ -205,6 +209,12 @@ DatePicker.propTypes = {
   localeData: LocaleDataPropTypes,
   maxDate: PropTypes.instanceOf(Date),
   minDate: PropTypes.instanceOf(Date),
+  nextRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({
+      current: PropTypes.instanceOf(Node),
+    }),
+  ]),
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   rangeEndDate: PropTypes.instanceOf(Date),
@@ -212,3 +222,7 @@ DatePicker.propTypes = {
   rangeStartDate: PropTypes.instanceOf(Date),
   value: PropTypes.instanceOf(Date),
 };
+
+DatePickerWithForwardRef.displayName = 'DatePicker';
+
+export default DatePickerWithForwardRef;
