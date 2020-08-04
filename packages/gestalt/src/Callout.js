@@ -34,7 +34,7 @@ type Props = {|
 
 const CALLOUT_TYPE_ATTRIBUTES = {
   info: {
-    icon: 'check-circle',
+    icon: 'info-circle',
     color: 'blue',
     backgroundColor: '#EBF4FE',
   },
