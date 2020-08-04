@@ -1,3 +1,9 @@
+## 11.8.0 (Aug 4, 2020)
+
+### Minor
+
+- Box: Refactored forwardRef logic + forwardRef test + forwardRef example in Docs (#1079)
+
 ## 11.7.1 (Aug 4, 2020)
 
 ### Patch
