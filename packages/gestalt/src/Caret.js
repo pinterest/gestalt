@@ -26,7 +26,7 @@ export default function Caret(props: Props): Node {
 
   return (
     <svg height={height} width={width}>
-      <path d={path} />
+      <path d={path} stroke="rgba(0, 0, 0, 0.02)" />
     </svg>
   );
 }
