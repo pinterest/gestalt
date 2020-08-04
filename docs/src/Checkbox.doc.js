@@ -191,7 +191,7 @@ function CheckboxExample() {
 
 card(
   <Example
-    id="ref"
+    id="refExample"
     name="Example: ref"
     description={`The innermost \`Checkbox\` element can be accessed via \`ref\``}
     defaultCode={`
