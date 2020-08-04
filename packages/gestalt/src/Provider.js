@@ -13,11 +13,7 @@ type Props = {|
   id?: string,
 |};
 
-export default function GestaltProvider({
-  children,
-  colorScheme,
-  id,
-}: Props): Node {
+export default function Provider({ children, colorScheme, id }: Props): Node {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={id}>
       {children}
@@ -25,7 +21,7 @@ export default function GestaltProvider({
   );
 }
 
-GestaltProvider.propTypes = {
+Provider.propTypes = {
   children: PropTypes.node,
   colorScheme: ColorSchemePropType,
 };

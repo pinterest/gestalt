@@ -13,7 +13,7 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Flyout from './Flyout.js';
-import GestaltProvider from './GestaltProvider.js';
+import Provider from './Provider.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -70,7 +70,7 @@ export {
   Divider,
   FixedZIndex,
   Flyout,
-  GestaltProvider,
+  Provider,
   GroupAvatar,
   Heading,
   Icon,

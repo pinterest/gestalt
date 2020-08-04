@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "prettier/prettier": "off",
+    "react/jsx-fragments": "off",
+    "no-undef": "off"
+  }
+}

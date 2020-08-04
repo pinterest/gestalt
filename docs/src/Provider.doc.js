@@ -9,8 +9,8 @@ const card = c => cards.push(c);
 
 card(
   <PageHeader
-    name="GestaltProvider"
-    description="An app may optionally have a `GestaltProvider` to set up context for components further down the tree. The first usecase is setting the color scheme, but other uses such as right to left support will be added in the future."
+    name="Provider"
+    description="An app may optionally have a `Provider` to set up context for components further down the tree. The first usecase is setting the color scheme, but other uses such as right to left support will be added in the future."
   />
 );
 
@@ -58,7 +58,7 @@ function Example(props) {
     }
   ];
   return (
-    <GestaltProvider colorScheme={scheme} id="docsExample">
+    <Provider colorScheme={scheme} id="docsExample">
       <Box color="white" padding={2}>
         <SelectList
           id="scheme"
@@ -74,7 +74,7 @@ function Example(props) {
         </Box>
         <Button text="Example button" inline /> <Button color="red" text="Red Button" inline />
       </Box>
-    </GestaltProvider>
+    </Provider>
   );
 }`}
   />

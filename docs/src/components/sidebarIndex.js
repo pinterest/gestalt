@@ -27,9 +27,9 @@ const sidebarIndex: sidebarIndexType = [
   },
 
   {
-    sectionName: 'Setup',
-    sectionPathname: 'setup',
-    pages: ['GestaltProvider'],
+    sectionName: 'Configuration',
+    sectionPathname: 'configuration',
+    pages: ['Provider'],
   },
   {
     sectionName: 'Data Display',

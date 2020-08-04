@@ -1,6 +1,6 @@
 // @flow strict
 import React, { useState } from 'react';
-import { Box, Divider, GestaltProvider, Link, Text } from 'gestalt';
+import { Box, Divider, Provider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import { SidebarContextProvider } from './sidebarContext.js';
@@ -21,7 +21,7 @@ export default function App(props: Props) {
         setIsSidebarOpen,
       }}
     >
-      <GestaltProvider colorScheme={colorScheme}>
+      <Provider colorScheme={colorScheme}>
         <Box minHeight="100vh" color="white">
           <Header
             colorScheme={colorScheme}
@@ -54,7 +54,7 @@ export default function App(props: Props) {
             </Box>
           ) : null}
         </Box>
-      </GestaltProvider>
+      </Provider>
     </SidebarContextProvider>
   );
 }
