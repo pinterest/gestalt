@@ -1,3 +1,9 @@
+## 11.9.0 (Aug 4, 2020)
+
+### Minor
+
+- Button/IconButton/CheckBox/RadioButton: refactored forwardRef (#1107)
+
 ## 11.8.0 (Aug 4, 2020)
 
 ### Minor
