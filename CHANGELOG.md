@@ -1,3 +1,9 @@
+## 11.10.0 (Aug 4, 2020)
+
+### Minor
+
+- SearchField/Typeahead/TypeaheadInputField/TextField/TextArea: refactored forwardRef (#1110)
+
 ## 11.9.0 (Aug 4, 2020)
 
 ### Minor
