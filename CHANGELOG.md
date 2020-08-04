@@ -1,3 +1,9 @@
+## 11.5.6 (Aug 4, 2020)
+
+### Patch
+
+- Callout: Update info callout icon (#1108)
+
 ## 11.5.5 (Aug 3, 2020)
 
 ### Patch
