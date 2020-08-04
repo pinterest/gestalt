@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React from 'react';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 
@@ -10,8 +10,15 @@ card(
   <PageHeader
     name="useReducedMotion"
     description={`
-      \`useReducedMotion\` uses the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion" target="_blank">prefers-reduced-motion</a> CSS media feature to detect
-      if the user has requested that the system minimize the amount of non-essential motion.
+    \`useReducedMotion\` allows a user to request that the system minimize the amount of non-essential motion.
+
+    Users can experience distraction or nausea from animated content. For example, scrolling a page which causes elements to move (other than the essential movement associated with scrolling) can trigger vestibular disorders.
+
+    References:
+    <ul>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion" target="_blank">CSS media query: prefers-reduced-motion</a></li>
+      <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
+    </ul>
     `}
   />
 );
