@@ -42,7 +42,7 @@ card(
     <Heading size="sm">CompositeZIndex</Heading>
     <Stack gap={2}>
       <Text>
-        CompositeZIndex is used for dinamically composing z-index values.
+        CompositeZIndex is used for dynamically composing z-index values.
         CompositeZIndex must be instantiated with an array of FixedZIndex or
         CompositeZIndex instances.
       </Text>
@@ -51,9 +51,9 @@ card(
           text="
 ~~~jsx
 import { CompositeZIndex, FixedZIndex } from 'gestalt';
-const fixedZindex = new FixedZIndex(1);
-const compositeZIndex = new CompositeZIndex([fixedZindex]);
-const highestCompositeZIndex = new CompositeZIndex([fixedZindex, compositeZIndex]);
+const fixedZIndex = new FixedZIndex(1);
+const compositeZIndex = new CompositeZIndex([fixedZIndex]);
+const highestCompositeZIndex = new CompositeZIndex([fixedZIndex, compositeZIndex]);
 ~~~
   "
         />
@@ -76,23 +76,23 @@ function ZIndexBoxExample() {
   const aboveOverlayZIndex = new CompositeZIndex([overlayZIndex]);
 
   return (
-      <Box width={125} height={250} position='relative'>
+      <Box width={125} height={250} position="relative">
         <Box
-          color='transparentDarkGray'
-          height='100%'
-          position='absolute'
-          width='100%'
+          color="transparentDarkGray"
+          height="100%"
+          position="absolute"
+          width="100%"
           zIndex={overlayZIndex}
         />
         <Stack gap={1}>
-          <Box position='absolute' zIndex={underOverlayZIndex} >
+          <Box position="absolute" zIndex={underOverlayZIndex} >
             <Avatar
               size="xl"
               src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
               name="Keerthi"
             />
           </Box>
-          <Box bottom position='absolute' zIndex={aboveOverlayZIndex}>
+          <Box bottom position="absolute" zIndex={aboveOverlayZIndex}>
             <Avatar
               size="xl"
               src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
