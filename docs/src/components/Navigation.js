@@ -7,7 +7,7 @@ import sidebarIndex from './sidebarIndex.js';
 import { useSidebarContext } from './sidebarContext.js';
 
 const componentSections = sidebarIndex.filter(
-  indexItm => indexItm.sectionPathname !== 'getting-started'
+  indexItm => indexItm.sectionName !== 'Getting Started'
 );
 
 function getAlphabetizedComponents() {
@@ -18,24 +18,16 @@ function getAlphabetizedComponents() {
         .flat()
         .sort()
     )
-  ).map(page => {
-    const { sectionPathname } = sidebarIndex.find(sbi =>
-      sbi.pages.includes(page)
-    );
-    return { name: page, sectionPathname };
-  });
+  );
 }
 
 function gettingStartedSection() {
   const gettingStarted = sidebarIndex.find(
-    itm => itm.sectionPathname === 'getting-started'
+    itm => itm.sectionName === 'Getting Started'
   );
 
   return (
-    <SidebarSection
-      section={gettingStarted}
-      key={gettingStarted.sectionPathname}
-    />
+    <SidebarSection section={gettingStarted} key={gettingStarted.sectionName} />
   );
 }
 
@@ -64,16 +56,12 @@ export default function Navigation() {
 
       {organizedBy === 'categorized' ? (
         componentSections.map(section => (
-          <SidebarSection section={section} key={section.sectionPathname} />
+          <SidebarSection section={section} key={section.sectionName} />
         ))
       ) : (
         <Box marginTop={4}>
-          {getAlphabetizedComponents().map((component, i) => (
-            <SidebarSectionLink
-              key={i}
-              componentName={component.name}
-              sectionPathname={component.sectionPathname}
-            />
+          {getAlphabetizedComponents().map((componentName, i) => (
+            <SidebarSectionLink key={i} componentName={componentName} />
           ))}
         </Box>
       )}
