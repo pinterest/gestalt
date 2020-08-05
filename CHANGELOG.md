@@ -1,3 +1,9 @@
+## 11.12.1 (Aug 5, 2020)
+
+### Patch
+
+- Docs: Add id to every heading (improves SEO & Search) (#1123)
+
 ## 11.12.0 (Aug 5, 2020)
 
 ### Minor
