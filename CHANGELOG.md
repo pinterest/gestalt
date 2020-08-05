@@ -1,3 +1,9 @@
+## 11.12.2 (Aug 5, 2020)
+
+### Patch
+
+- Docs: single subdirectory URLs (#1124)
+
 ## 11.12.1 (Aug 5, 2020)
 
 ### Patch
