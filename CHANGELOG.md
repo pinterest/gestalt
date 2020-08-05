@@ -1,3 +1,9 @@
+## 11.12.3 (Aug 5, 2020)
+
+### Patch
+
+- ZIndexClass: Fix source url (#1125)
+
 ## 11.12.2 (Aug 5, 2020)
 
 ### Patch
