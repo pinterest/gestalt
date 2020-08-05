@@ -24,10 +24,11 @@ const DIR_INDEX_MAP = {
   left: 3,
 };
 
-const MARGIN = 24;
-export const CARET_HEIGHT = 24;
-const CARET_OFFSET_FROM_SIDE = 24;
 export const BORDER_RADIUS = 8;
+export const CARET_HEIGHT = 4;
+const CARET_OFFSET_FROM_SIDE = 24;
+export const CARET_WIDTH = 12;
+const MARGIN = 24;
 
 type MainDir = ?('up' | 'right' | 'down' | 'left');
 type SubDir = 'up' | 'right' | 'down' | 'left' | 'middle';
@@ -204,22 +205,23 @@ export function calcEdgeShifts(
     CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
   let flyoutHorizontalShift =
     CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
-  let caretVerticalShift = CARET_HEIGHT;
-  let caretHorizontalShift = CARET_HEIGHT;
+  let caretVerticalShift = CARET_WIDTH;
+  let caretHorizontalShift = CARET_WIDTH;
 
   // Covers edge case where trigger is in a corner and we need to adjust the offset of the caret
   // to something smaller than normal in order
   const isCloseVertically =
     triggerRect.top - flyoutVerticalShift < 0 ||
     triggerRect.bottom + flyoutVerticalShift > windowSize.height;
-  const isCloseHorizontally =
-    triggerRect.left - flyoutHorizontalShift < 0 ||
-    triggerRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseVertically) {
     flyoutVerticalShift =
       BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
+
+  const isCloseHorizontally =
+    triggerRect.left - flyoutHorizontalShift < 0 ||
+    triggerRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseHorizontally) {
     flyoutHorizontalShift =
       BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
@@ -261,34 +263,36 @@ export function adjustOffsets(
   let flyoutTop = base.top;
 
   let caretTop = mainDir === 'down' ? -CARET_HEIGHT : null;
-  let caretRight = mainDir === 'left' ? -CARET_HEIGHT + 2 : null;
+  let caretRight = mainDir === 'left' ? -CARET_HEIGHT : null;
   let caretBottom = mainDir === 'up' ? -CARET_HEIGHT : null;
-  let caretLeft = mainDir === 'right' ? -CARET_HEIGHT + 2 : null;
+  let caretLeft = mainDir === 'right' ? -CARET_HEIGHT : null;
 
   if (subDir === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
-    caretTop = edgeShift.caret.y;
+    caretTop = edgeShift.caret.y + 2;
   } else if (subDir === 'down') {
     flyoutTop =
       base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
-    caretBottom = edgeShift.caret.y;
+    caretBottom = edgeShift.caret.y + 2;
   } else if (subDir === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
-    caretLeft = edgeShift.caret.x;
+    caretLeft = edgeShift.caret.x + 2;
   } else if (subDir === 'right') {
     flyoutLeft =
       base.left - flyoutSize.width + triggerRect.width + edgeShift.flyout.x;
-    caretRight = edgeShift.caret.x;
+    caretRight = edgeShift.caret.x + 2;
   } else if (subDir === 'middle') {
     if (mainDir === 'left' || mainDir === 'right') {
       const triggerMid = flyoutTop + triggerRect.height / 2;
       flyoutTop = triggerMid - flyoutSize.height / 2;
-      caretTop = (flyoutSize.height - CARET_HEIGHT) / 2;
+      // Vertical positioning of the caret (position along the anchor)
+      caretTop = (flyoutSize.height - CARET_WIDTH) / 2;
     }
     if (mainDir === 'up' || mainDir === 'down') {
       const triggerMid = flyoutLeft + triggerRect.width / 2;
       flyoutLeft = triggerMid - flyoutSize.width / 2;
-      caretLeft = (flyoutSize.width - CARET_HEIGHT) / 2;
+      // Horizontal positioning of the caret (position along the anchor)
+      caretLeft = (flyoutSize.width - CARET_WIDTH) / 2;
     }
   }
 
@@ -315,7 +319,7 @@ export function baseOffsets(
   triggerRect: ClientRect,
   windowSize: Window
 ): {| left: number, top: number |} {
-  const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT / 2 : 8;
+  const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT : 8;
   // TOP OFFSET
   let top;
   if (mainDir === 'down') {
@@ -538,6 +542,8 @@ class WrappedContents extends Component<Props, State> {
     const stroke = bgColor === 'white' && !isDarkMode ? colorGray100 : null;
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
 
+    const isCaretVertical = ['down', 'up'].includes(mainDir);
+
     return (
       <div
         className={styles.container}
@@ -554,12 +560,16 @@ class WrappedContents extends Component<Props, State> {
           ref={this.setFlyoutRef}
           tabIndex={-1}
         >
-          {caret && (
+          {caret && mainDir && (
             <div
               className={classnames(colors[bgColorElevated], styles.caret)}
               style={{ ...caretOffset }}
             >
-              <Caret direction={mainDir} />
+              <Caret
+                direction={mainDir}
+                height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
+                width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
+              />
             </div>
           )}
           <div
