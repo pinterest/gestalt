@@ -212,7 +212,7 @@ DatePickerWithForwardRef.propTypes = {
   nextRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
-      current: PropTypes.instanceOf(Node),
+      current: PropTypes.node,
     }),
   ]),
   onChange: PropTypes.func.isRequired,
