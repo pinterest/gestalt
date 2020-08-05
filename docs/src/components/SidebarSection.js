@@ -14,7 +14,7 @@ export default function SidebarSection({ section }: sidebarIndexType) {
       </Box>
       {section.pages.map((component, i) => (
         <Box key={i}>
-          <NavLink to={`/${section.sectionPathname}/${component}`}>
+          <NavLink to={`/${component}`}>
             <Box padding={2} role="listitem">
               {component}
             </Box>

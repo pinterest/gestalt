@@ -13,14 +13,14 @@ export default function Navigation() {
       {isSidebarOpen && (
         <Box display="block" mdDisplay="none" padding={4}>
           {sidebarIndex.map(section => (
-            <SidebarSection section={section} key={section.sectionPathname} />
+            <SidebarSection section={section} key={section.sectionName} />
           ))}
         </Box>
       )}
 
       <Box display="none" mdDisplay="block" padding={4}>
         {sidebarIndex.map(section => (
-          <SidebarSection section={section} key={section.sectionPathname} />
+          <SidebarSection section={section} key={section.sectionName} />
         ))}
       </Box>
     </>

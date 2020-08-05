@@ -11,10 +11,10 @@ import './docs.css';
 import sidebarIndex from './components/sidebarIndex.js';
 
 const container = document.getElementById('root');
-const mapRoutes = (pages, pathname) =>
+const mapRoutes = pages =>
   pages.map((page, i) => (
     <Route
-      path={`/${pathname}/${page}`}
+      path={`/${page}`}
       key={i}
       render={() => <CardPage cards={routes[page]} />}
     />
@@ -29,11 +29,9 @@ if (container instanceof Element) {
             <Route
               exact
               path="/"
-              render={() => <Redirect to="/getting-started/Installation" />}
+              render={() => <Redirect to="/Installation" />}
             />
-            {sidebarIndex.map(section =>
-              mapRoutes(section.pages, section.sectionPathname)
-            )}
+            {sidebarIndex.map(section => mapRoutes(section.pages))}
           </Switch>
         </App>
       </BrowserRouter>
