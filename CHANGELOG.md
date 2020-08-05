@@ -1,3 +1,9 @@
+## 11.12.5 (Aug 5, 2020)
+
+### Patch
+
+- Internal: disallow flow warnings (#1127)
+
 ## 11.12.4 (Aug 5, 2020)
 
 ### Patch
