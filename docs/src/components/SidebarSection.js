@@ -2,7 +2,7 @@
 import React from 'react';
 import { Box, Row, Text } from 'gestalt';
 import { type sidebarIndexType } from './sidebarIndex.js';
-import NavLink from './NavLink.js';
+import SidebarSectionLink from './SidebarSectionLink.js';
 
 export default function SidebarSection({ section }: sidebarIndexType) {
   return (
@@ -12,14 +12,9 @@ export default function SidebarSection({ section }: sidebarIndexType) {
           <Text size="sm">{section.sectionName}</Text>
         </Row>
       </Box>
-      {section.pages.map((component, i) => (
-        <Box key={i}>
-          <NavLink to={`/${component}`}>
-            <Box padding={2} role="listitem">
-              {component}
-            </Box>
-          </NavLink>
-        </Box>
+
+      {section.pages.map((componentName, i) => (
+        <SidebarSectionLink key={i} componentName={componentName} />
       ))}
     </>
   );
