@@ -90,7 +90,6 @@ card(
     id="switchCombinations"
     disabled={[false, true]}
     switched={[false, true]}
-    heading={false}
   >
     {(props, i) => (
       <Switch id={`example-${i}`} onChange={() => {}} {...props} />

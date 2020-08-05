@@ -158,7 +158,7 @@ function RadioButtonExample() {
       <Label>
         <Row gap={1}>
           <Switch
-            onChange={() => { 
+            onChange={() => {
               setSize(size === "sm" ? "md" : "sm")
               setSwitched(!switched)}
             }
@@ -271,7 +271,6 @@ card(
     checked={[false, true]}
     disabled={[false, true]}
     size={['sm', 'md']}
-    heading={false}
   >
     {(props, i) => (
       <RadioButton

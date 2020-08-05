@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+@keyframes target-fade {
+  0% { background-color: rgba(0,0,0,.05); }
+
+  100% { background-color: rgba(255,255,255,0); }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  :target {
+    animation: 1.5s ease-in target-fade  1;
+  }
+}
+

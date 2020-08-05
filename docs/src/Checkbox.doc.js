@@ -210,7 +210,7 @@ function CheckboxExample() {
       <Label>
         <Row gap={1}>
           <Switch
-            onChange={() => { 
+            onChange={() => {
               setSize(size === "sm" ? "md" : "sm")
               setSwitched(!switched)}
             }
@@ -273,7 +273,7 @@ function CheckboxFlyoutExample() {
             positionRelativeToAnchor={false}
             shouldFocus={false}
             size="md"
-          >            
+          >
             <Box padding={3}>
               <Text
                 color="white"
@@ -300,7 +300,6 @@ card(
     disabled={[false, true]}
     indeterminate={[false, true]}
     size={['sm', 'md']}
-    heading={false}
   >
     {(props, i) => (
       <Checkbox id={`example-${i}`} onChange={() => {}} {...props} />
