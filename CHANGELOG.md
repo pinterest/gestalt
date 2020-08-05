@@ -1,3 +1,9 @@
+## 11.12.4 (Aug 5, 2020)
+
+### Patch
+
+- Docs: track pageviews (#1126)
+
 ## 11.12.3 (Aug 5, 2020)
 
 ### Patch
