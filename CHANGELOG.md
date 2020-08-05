@@ -1,3 +1,9 @@
+## 11.11.3 (Aug 5, 2020)
+
+### Patch
+
+- DatePicker: Fix proptype bug (#1122)
+
 ## 11.11.2 (Aug 5, 2020)
 
 ### Patch
