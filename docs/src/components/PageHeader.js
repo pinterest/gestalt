@@ -7,6 +7,7 @@ type Props = {|
   name: string,
   description?: string,
   beta?: boolean,
+  fileName?: string, // only use if name !== file name
 |};
 
 const gestaltPath = component => {
@@ -26,6 +27,7 @@ export default function ComponentHeader({
   beta,
   name,
   description = '',
+  fileName,
 }: Props) {
   return (
     <Box marginBottom={6}>
@@ -39,7 +41,7 @@ export default function ComponentHeader({
           ) : null}
         </Heading>
         <Text color="gray">
-          <Link href={githubUrl(name)} inline>
+          <Link href={githubUrl(fileName || name)} inline>
             Source
           </Link>
         </Text>
