@@ -1,3 +1,9 @@
+## 11.11.2 (Aug 5, 2020)
+
+### Patch
+
+- ZIndexClasses: Fix typos and linting in docs (#1120)
+
 ## 11.11.1 (Aug 4, 2020)
 
 ### Patch
