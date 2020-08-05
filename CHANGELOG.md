@@ -1,3 +1,9 @@
+## 11.12.0 (Aug 5, 2020)
+
+### Minor
+
+- Flyout: Update Caret (#1081)
+
 ## 11.11.3 (Aug 5, 2020)
 
 ### Patch
