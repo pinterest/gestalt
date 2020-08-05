@@ -81,25 +81,18 @@ function layoutReducer(layout) {
 }
 
 export default function Combination({
-  name = '',
+  name = 'Combinations',
   description = '',
   layout = '2column',
   id,
   showValues = true,
   stacked = false,
-  heading = true,
   children,
   ...props
 }: Props) {
   const { column, mdColumn, lgColumn } = layoutReducer(layout);
   return (
-    <Card
-      name={name}
-      description={description}
-      id={id}
-      stacked={stacked}
-      heading={heading}
-    >
+    <Card name={name} description={description} id={id} stacked={stacked}>
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => (
           <Box

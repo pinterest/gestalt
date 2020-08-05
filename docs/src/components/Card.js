@@ -1,12 +1,12 @@
 // @flow strict
 import React from 'react';
-import { Box, Heading } from 'gestalt';
+import { Box, Heading, Icon, Link, Row } from 'gestalt';
+import slugify from 'slugify';
 import Markdown from './Markdown.js';
 
 type Props = {|
   children?: React.Node,
   description?: string,
-  heading?: boolean,
   id: ?string,
   name: string,
   stacked?: boolean,
@@ -15,14 +15,28 @@ type Props = {|
 export default function Card({
   children,
   description,
-  heading = true,
   id,
   name,
   stacked = false,
 }: Props) {
+  const slugifiedId = id ?? slugify(name);
   return (
-    <Box id={id}>
-      {heading && <Heading size="md">{name}</Heading>}
+    <Box
+      id={slugifiedId}
+      dangerouslySetInlineStyle={{
+        __style: {
+          scrollMarginTop: 60,
+        },
+      }}
+    >
+      <Heading size="md">
+        <Row display="flex" alignItems="baseline" gap={1}>
+          {name}
+          <Link href={`#${slugifiedId}`} inline>
+            <Icon icon="link" accessibilityLabel="" size={12} />
+          </Link>
+        </Row>
+      </Heading>
       <Box
         marginLeft={-2}
         marginRight={-2}

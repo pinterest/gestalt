@@ -7,7 +7,7 @@ import 'gestalt-datepicker/dist/gestalt-datepicker-future.css';
 import App from './components/App.js';
 import CardPage from './components/CardPage.js';
 import routes from './components/routes.js';
-import './reset.css';
+import './docs.css';
 import sidebarIndex from './components/sidebarIndex.js';
 
 const container = document.getElementById('root');

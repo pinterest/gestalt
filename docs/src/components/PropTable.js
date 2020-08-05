@@ -136,18 +136,7 @@ export default function PropTable({ props: properties, Component }: Props) {
                       <Box>
                         <Text overflow="normal" weight="bold">
                           {href ? (
-                            <Link
-                              href={`#${href}`}
-                              onClick={({ event }) => {
-                                event.preventDefault();
-                                const elem = document.getElementById(href);
-                                if (elem) {
-                                  elem.scrollIntoView({
-                                    block: 'start',
-                                  });
-                                }
-                              }}
-                            >
+                            <Link href={`#${href}`}>
                               <code>{name}</code>
                             </Link>
                           ) : (
