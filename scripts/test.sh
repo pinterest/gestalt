@@ -15,7 +15,7 @@ echo "jest"
 yarn jest --coverage
 
 echo "flow"
-yarn flow check
+yarn flow check --max-warnings 0
 
 echo "CSS: flow types"
 yarn run flow-generate:css

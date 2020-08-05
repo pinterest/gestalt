@@ -108,7 +108,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   // Ref to the input
   const inputRef = useRef(null);
-  // $FlowFixMe Flow thinks forwardedRef is a number, which is incorrect
   useImperativeHandle(ref, () => inputRef.current);
 
   const [containerOpen, setContainerOpen] = useState<boolean>(false);
