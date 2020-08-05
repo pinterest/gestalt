@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Box, Divider, Provider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
+import useTracking from './useTracking.js';
 import { SidebarContextProvider } from './sidebarContext.js';
 
 type Props = {|
@@ -13,6 +14,8 @@ export default function App(props: Props) {
   const { children } = props;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [colorScheme, setColorScheme] = useState('light');
+
+  useTracking('UA-12967896-44');
 
   return (
     <SidebarContextProvider
