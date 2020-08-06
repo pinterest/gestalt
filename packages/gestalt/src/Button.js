@@ -100,6 +100,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
+  const isDarkModeBlue = isDarkMode && color === 'blue';
 
   let colorClass = color;
 
@@ -128,7 +129,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
   const textColor =
     (disabled && 'gray') ||
     (selected && 'white') ||
-    (isDarkModeRed && 'darkGray') ||
+    ((isDarkModeRed || isDarkModeBlue) && 'darkGray') ||
     textColorProp ||
     DEFAULT_TEXT_COLORS[color];
 
