@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import { Box, Heading, Stack, Text } from 'gestalt';
+import { Box, Heading, Icon, Row, Stack, Text } from 'gestalt';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import Markdown from './components/Markdown.js';
@@ -106,6 +106,78 @@ function ZIndexBoxExample() {
 }
 `}
   />
+);
+
+card(
+  <Stack gap={2}>
+    <Heading size="md">Note</Heading>
+    <Text>
+      FixedZIndex and CompositeZIndex work with Box and Sticky components. To
+      stay consistent across your codebase using zIndex classes, you can extract
+      zIndex values from both zIndex classes in cases where the zIndex receptor
+      does not accept zIndex classes.
+    </Text>
+    <Box padding={2} color="lightGray" rounding={2}>
+      <Markdown
+        text="
+~~~jsx
+import { FixedZIndex, CompositeZIndex } from 'gestalt';
+~~~
+  "
+      />
+      <Markdown
+        text="
+~~~jsx
+const fixedZindex = new FixedZIndex(1);
+const compositeZIndex = new CompositeZIndex([fixedZindex]);
+~~~
+  "
+      />
+      <Markdown
+        text="
+~~~jsx
+const fixedZindexValue = fixedZindex.index(); // 1
+const compositeZIndexValue = compositeZIndex.index(); // 2
+~~~
+  "
+      />
+    </Box>
+    <Text>
+      However, this is an escape hatch that should only be used in cases like
+      needing to work with a third party library. For any other case, a better
+      approach is to wrap the component that needs a zIndex in a Box.
+    </Text>
+    <Box padding={2} color="lightGray" rounding={2}>
+      <Markdown
+        text="
+~~~jsx
+import { FixedZIndex } from 'gestalt';
+const fixedZindex = new FixedZIndex(1);
+~~~
+  "
+      />
+      <Row gap={1}>
+        <Icon icon="cancel" />
+        <Markdown
+          text="
+~~~jsx
+const customButton = <CustomButton zIndex={fixedZindex.index()}/>;
+~~~
+  "
+        />
+      </Row>
+      <Row gap={1}>
+        <Icon icon="check" />
+        <Markdown
+          text="
+~~~jsx
+const customButton = <Box zIndex={fixedZindex}> <CustomButton/> </Box>;
+~~~
+  "
+        />
+      </Row>
+    </Box>
+  </Stack>
 );
 
 export default cards;
