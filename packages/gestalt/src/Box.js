@@ -731,7 +731,7 @@ const BoxWithForwardRef: AbstractComponent<
   // styles. If there's a match, we also don't pass through that property. This
   // means Box's runtime is only dependent on the number of properties passed
   // to it (which is typically small) instead of the total number of possible
-  // properties (~30 or so). While it may ~feel~ like Box is innefficient, its
+  // properties (~30 or so). While it may ~feel~ like Box is inefficient, its
   // biggest performance impact is on startup time because there's so much code
   // here.
 
