@@ -1,3 +1,9 @@
+## 11.14.1 (Aug 7, 2020)
+
+### Patch
+
+- Box: s/blacklist/disallowed/ (#1131)
+
 ## 11.14.0 (Aug 7, 2020)
 
 ### Minor
