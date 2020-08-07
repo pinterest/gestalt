@@ -21,21 +21,23 @@ export default function Card({
 }: Props) {
   const slugifiedId = id ?? slugify(name);
   return (
-    <Box
-      id={slugifiedId}
-      dangerouslySetInlineStyle={{
-        __style: {
-          scrollMarginTop: 60,
-        },
-      }}
-    >
+    <>
       <Heading size="md">
-        <Row display="flex" alignItems="baseline" gap={1}>
-          {name}
-          <Link href={`#${slugifiedId}`} inline>
-            <Icon icon="link" accessibilityLabel="" size={12} />
-          </Link>
-        </Row>
+        <Box
+          dangerouslySetInlineStyle={{
+            __style: {
+              scrollMarginTop: 60,
+            },
+          }}
+          id={slugifiedId}
+        >
+          <Row display="flex" alignItems="baseline" gap={1}>
+            {name}
+            <Link href={`#${slugifiedId}`} inline>
+              <Icon icon="link" accessibilityLabel="" size={12} />
+            </Link>
+          </Row>
+        </Box>
       </Heading>
       <Box
         marginLeft={-2}
@@ -48,6 +50,6 @@ export default function Card({
           {children}
         </Box>
       </Box>
-    </Box>
+    </>
   );
 }
