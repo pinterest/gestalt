@@ -1,8 +1,9 @@
 // @flow strict
-import React, { Children, type Node } from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
-import FlexBox from './FlexBox.js';
-import Box, {
+import classnames from 'classnames';
+import styles from './Stack.css';
+import {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
@@ -39,38 +40,16 @@ type Props = {|
   wrap?: boolean,
 |};
 
-export default function Stack({
-  alignItems = 'start',
-  children,
-  gap = 0,
-  height,
-  justifyContent = 'center',
-  width,
-  ...rest
-}: Props): Node {
-  return (
-    <Box
-      height={height}
-      marginTop={gap ? -gap : 0}
-      marginBottom={gap ? -gap : 0}
-      width={width}
-    >
-      <FlexBox
-        alignItems={alignItems}
-        direction="column"
-        height={height}
-        justifyContent={justifyContent}
-        width={width}
-        {...rest}
-      >
-        {Children.map(children, child =>
-          child !== null && child !== undefined ? (
-            <Box paddingY={gap}>{child}</Box>
-          ) : null
-        )}
-      </FlexBox>
-    </Box>
+export default function Stack({ children, gap = 0, ...rest }: Props): Node {
+  const className = classnames(
+    styles.stack,
+    styles[`verticalGap${gap}`],
+    styles[`verticalGap${gap} > *`]
   );
+
+  // Handle `rest` props using Box transforms?
+
+  return <div className={className}>{children}</div>;
 }
 
 Stack.propTypes = {
