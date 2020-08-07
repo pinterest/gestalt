@@ -40,7 +40,7 @@ Build and watch Gestalt & run the docs server:
 yarn start
 ```
 
-Visit [http://localhost:3000/](http://localhost:3000) and click on a component to view the docs.
+Visit [http://localhost:8888/](http://localhost:8888) and click on a component to view the docs.
 
 ## Codemods
 
