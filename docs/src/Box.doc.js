@@ -319,7 +319,7 @@ card(
 
     If you need to use these features, please use a \`<div>\` instead.
   `}
-    name="Blacklisted properties"
+    name="Disallowed properties"
   />
 );
 
