@@ -1,3 +1,9 @@
+## 11.12.6 (Aug 7, 2020)
+
+### Patch
+
+- Docs: nest anchor tag inside of heading (#1132)
+
 ## 11.12.5 (Aug 5, 2020)
 
 ### Patch
