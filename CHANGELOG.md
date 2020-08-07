@@ -1,3 +1,9 @@
+## 11.14.2 (Aug 7, 2020)
+
+### Patch
+
+- [Docs] Update port number for running locally (#1130)
+
 ## 11.14.1 (Aug 7, 2020)
 
 ### Patch
