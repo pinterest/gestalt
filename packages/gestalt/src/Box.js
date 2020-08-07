@@ -706,7 +706,7 @@ const omit = (keys, obj) =>
 // back to the underlying `<div/>`. That's generally useful, but we'd also like
 // to strip out a few naughty properties that break style encapsulation
 // (className, style) or accessibility (onClick).
-const blacklistProps = ['onClick', 'className', 'style'];
+const disallowedProps = ['onClick', 'className', 'style'];
 
 const BoxWithForwardRef: AbstractComponent<
   PropType,
@@ -724,7 +724,7 @@ const BoxWithForwardRef: AbstractComponent<
 
   // Init the list of props we'll omit from passthrough. We'll add to this
   // list as we match props against the transforms list.
-  const omitProps = [...blacklistProps];
+  const omitProps = [...disallowedProps];
 
   // This loops through each property and if it exists in the previously
   // defined transform map, concatentes the resulting styles to the base
