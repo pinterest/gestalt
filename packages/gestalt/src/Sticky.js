@@ -20,16 +20,17 @@ type Threshold =
     |};
 
 type Props = {|
-  children: Node,
-  zIndex?: Indexable,
-  dangerouslySetZIndex?: {| __zIndex: number |},
   ...Threshold,
+  children: Node,
+  dangerouslySetZIndex?: {| __zIndex: number |},
+  height?: number,
+  zIndex?: Indexable,
 |};
 
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 
 export default function Sticky(props: Props): Node {
-  const { dangerouslySetZIndex, children } = props;
+  const { dangerouslySetZIndex, children, height } = props;
   const zIndex =
     props.zIndex ||
     (dangerouslySetZIndex &&
@@ -38,6 +39,7 @@ export default function Sticky(props: Props): Node {
         new FixedZIndex(dangerouslySetZIndex.__zIndex)
       : DEFAULT_ZINDEX);
   const style = {
+    ...(height !== undefined ? { height } : {}),
     top: props.top != null ? props.top : undefined,
     left: props.left != null ? props.left : undefined,
     right: props.right != null ? props.right : undefined,
@@ -60,6 +62,7 @@ Sticky.propTypes = {
   left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.number,
   // eslint-disable-next-line react/forbid-prop-types
   zIndex: PropTypes.any,
 };
