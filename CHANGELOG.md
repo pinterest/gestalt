@@ -1,3 +1,9 @@
+## 11.14.0 (Aug 7, 2020)
+
+### Minor
+
+- Sticky: add height prop (#1137)
+
 ## 11.13.0 (Aug 7, 2020)
 
 ### Minor
