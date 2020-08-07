@@ -1,3 +1,9 @@
+## 11.13.0 (Aug 7, 2020)
+
+### Minor
+
+- useReducedMotion: fix in Safari/Edge (#1134)
+
 ## 11.12.6 (Aug 7, 2020)
 
 ### Patch
