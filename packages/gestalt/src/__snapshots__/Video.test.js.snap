@@ -26,6 +26,7 @@ exports[`Video with callbacks 1`] = `
   --gestalt-colorGray100Active: #dadada;
   --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
+  --gestalt-colorGray150Hovered: #d0d0d0;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray200Active: #828282;
   --gestalt-colorGray200Hovered: #878787;
@@ -90,6 +91,7 @@ exports[`Video with children 1`] = `
   --gestalt-colorGray100Active: #dadada;
   --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
+  --gestalt-colorGray150Hovered: #d0d0d0;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray200Active: #828282;
   --gestalt-colorGray200Hovered: #878787;
@@ -370,6 +372,7 @@ exports[`Video with media attributes 1`] = `
   --gestalt-colorGray100Active: #dadada;
   --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
+  --gestalt-colorGray150Hovered: #d0d0d0;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray200Active: #828282;
   --gestalt-colorGray200Hovered: #878787;
@@ -435,6 +438,7 @@ exports[`Video with multiple sources 1`] = `
   --gestalt-colorGray100Active: #dadada;
   --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
+  --gestalt-colorGray150Hovered: #d0d0d0;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray200Active: #828282;
   --gestalt-colorGray200Hovered: #878787;
@@ -506,6 +510,7 @@ exports[`Video with source 1`] = `
   --gestalt-colorGray100Active: #dadada;
   --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray150: #ddd;
+  --gestalt-colorGray150Hovered: #d0d0d0;
   --gestalt-colorGray200: #767676;
   --gestalt-colorGray200Active: #828282;
   --gestalt-colorGray200Hovered: #878787;

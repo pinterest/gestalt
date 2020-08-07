@@ -38,6 +38,7 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray100Active: #dadada;
         --gestalt-colorGray100Hovered: #e2e2e2;
         --gestalt-colorGray150: #ddd;
+        --gestalt-colorGray150Hovered: #d0d0d0;
         --gestalt-colorGray200: #767676;
         --gestalt-colorGray200Active: #828282;
         --gestalt-colorGray200Hovered: #878787;
@@ -70,6 +71,7 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray100Active: #dadada;
         --gestalt-colorGray100Hovered: #e2e2e2;
         --gestalt-colorGray150: #ddd;
+        --gestalt-colorGray150Hovered: #d0d0d0;
         --gestalt-colorGray200: #767676;
         --gestalt-colorGray200Active: #828282;
         --gestalt-colorGray200Hovered: #878787;
@@ -173,6 +175,7 @@ describe('ColorSchemeProvider', () => {
         --gestalt-colorGray100Active: #dadada;
         --gestalt-colorGray100Hovered: #e2e2e2;
         --gestalt-colorGray150: #ddd;
+        --gestalt-colorGray150Hovered: #d0d0d0;
         --gestalt-colorGray200: #767676;
         --gestalt-colorGray200Active: #828282;
         --gestalt-colorGray200Hovered: #878787;
