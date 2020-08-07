@@ -128,10 +128,10 @@ yarn start
       <Link
         tapStyl="compress"
         inline
-        href="http://localhost:3000/"
+        href="http://localhost:8888/"
         target="blank"
       >
-        <Text weight="bold">http://localhost:3000</Text>
+        <Text weight="bold">http://localhost:8888</Text>
       </Link>{' '}
       and click on a component to view the docs.
     </Text>
