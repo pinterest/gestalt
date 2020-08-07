@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Sticky correctly sets height 1`] = `
+<div
+  className="sticky"
+  style={
+    Object {
+      "bottom": undefined,
+      "height": 100,
+      "left": undefined,
+      "right": undefined,
+      "top": 1,
+      "zIndex": 1,
+    }
+  }
+>
+  Sticky
+</div>
+`;
+
 exports[`Sticky correctly sets thresholds for number values 1`] = `
 <div
   className="sticky"

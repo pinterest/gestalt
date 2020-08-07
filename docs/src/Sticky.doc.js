@@ -42,6 +42,11 @@ card(
         description: `Use numbers for pixels: top={100} and strings for percentages: top="100%"`,
       },
       {
+        name: 'height',
+        type: 'number',
+        description: `Use numbers for pixels: height={100}. This is only useful when the sticky container and its content need to have different heights.`,
+      },
+      {
         name: 'zIndex',
         type: 'interface Indexable { index(): number; }',
         description: `An object representing the zIndex value of the Sticky.`,

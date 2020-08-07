@@ -26,6 +26,15 @@ test('Sticky correctly sets thresholds for string values', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Sticky correctly sets height', () => {
+  const tree = create(
+    <Sticky top={1} height={100}>
+      Sticky
+    </Sticky>
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Sticky correctly sets zIndex', () => {
   const zIndexStub = {
     index() {
