@@ -45,16 +45,19 @@ exports[`SelectList SelectList normal 1`] = `
       onChange={[Function]}
     >
       <option
+        disabled={false}
         value="value1"
       >
         option1
       </option>
       <option
+        disabled={false}
         value="value2"
       >
         option2
       </option>
       <option
+        disabled={false}
         value="value3"
       >
         option3

@@ -27,6 +27,7 @@ type Props = {|
   options: Array<{
     label: string,
     value: string,
+    disabled?: boolean,
   }>,
   placeholder?: string,
   size?: 'md' | 'lg',
@@ -52,6 +53,7 @@ export default class SelectList extends Component<Props, State> {
       PropTypes.exact({
         label: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
+        disabled: PropTypes.bool,
       })
     ),
     placeholder: PropTypes.string,
@@ -162,7 +164,11 @@ export default class SelectList extends Component<Props, State> {
               </option>
             )}
             {options.map(option => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                disabled={option.disabled || false}
+              >
                 {option.label}
               </option>
             ))}
