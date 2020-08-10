@@ -106,8 +106,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
 
   if (isDarkModeRed) {
     colorClass = 'darkModeRed';
-  } else if (isDarkMode && color === 'gray') {
-    colorClass = 'darkModeGray';
   }
 
   const { isFocusVisible } = useFocusVisible();
