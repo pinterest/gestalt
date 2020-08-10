@@ -1,5 +1,5 @@
 // @flow strict-local
-const format: { [string]: string } = {
+const dateFormat: { [string]: string } = {
   'ar-SA': 'MM/dd/yyyy', // Arabic (Saudi Arabia)
   cs: 'dd.MM.yyyy', // Czech
   da: 'dd/MM/yyyy', // Danish
@@ -33,4 +33,4 @@ const format: { [string]: string } = {
   'zh-TW': 'yyyy-MM-dd', // Chinese (Traditional)
 };
 
-export default format;
+export default dateFormat;
