@@ -1,5 +1,5 @@
 // @flow strict
-import * as React from 'react';
+import React, { Component, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Switch.css';
@@ -16,7 +16,7 @@ type State = {|
   focused: boolean,
 |};
 
-export default class Switch extends React.Component<Props, State> {
+export default class Switch extends Component<Props, State> {
   static propTypes = {
     disabled: PropTypes.bool,
     id: PropTypes.string.isRequired,
@@ -46,7 +46,7 @@ export default class Switch extends React.Component<Props, State> {
     onChange({ event, value: checked });
   };
 
-  render(): React.Node {
+  render(): Node {
     const { disabled, id, name, switched } = this.props;
 
     const switchStyles = classnames(
