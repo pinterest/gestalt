@@ -14,6 +14,10 @@
   composes: solid from "./Borders.css";
 }
 
+.RadioButtonIsFocused {
+  composes: accessibilityOutlineFocus from "./Focus.css";
+}
+
 .Border {
   composes: borderColorLightGray from "./Borders.css";
 }

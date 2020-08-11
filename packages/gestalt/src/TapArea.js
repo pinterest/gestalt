@@ -15,8 +15,6 @@ import getRoundingClassName, {
   type Rounding,
 } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
   accessibilityControls?: string,
@@ -92,14 +90,11 @@ const TapAreaWithForwardRef: React$AbstractComponent<
     width: innerRef?.current?.clientWidth,
   });
 
-  const { isFocusVisible } = useFocusVisible();
-
   const className = classnames(
-    focusStyles.hideOutline,
     styles.tapTransition,
+    styles.touchable,
     getRoundingClassName(rounding),
     {
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
@@ -131,6 +126,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
         if (!disabled && onFocus) {
           onFocus({ event });
         }
+        event.stopPropagation();
       }}
       onMouseEnter={event => {
         if (!disabled && onMouseEnter) {

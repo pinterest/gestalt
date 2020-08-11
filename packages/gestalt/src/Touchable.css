@@ -1,3 +1,7 @@
+.touchable {
+  composes: accessibilityOutline from "./Focus.css";
+}
+
 .fullHeight {
   height: 100%;
 }

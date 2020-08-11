@@ -3,6 +3,7 @@
 declare module.exports: {|
   +'checkbox': string,
   +'checkboxEnabled': string,
+  +'focused': string,
   +'slider': string,
   +'sliderDark': string,
   +'sliderLeft': string,
