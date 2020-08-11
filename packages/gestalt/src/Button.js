@@ -111,24 +111,19 @@ const ButtonWithForwardRef: React$AbstractComponent<
 
   const { isFocusVisible } = useFocusVisible();
 
-  const classes = classnames(
-    styles.button,
-    focusStyles.hideOutline,
-    touchableStyles.tapTransition,
-    {
-      [styles.sm]: size === 'sm',
-      [styles.md]: size === 'md',
-      [styles.lg]: size === 'lg',
-      [styles[colorClass]]: !disabled && !selected,
-      [styles.selected]: !disabled && selected,
-      [styles.disabled]: disabled,
-      [styles.enabled]: !disabled,
-      [styles.inline]: inline,
-      [styles.block]: !inline,
-      [touchableStyles.tapCompress]: !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-    }
-  );
+  const classes = classnames(styles.button, touchableStyles.tapTransition, {
+    [styles.sm]: size === 'sm',
+    [styles.md]: size === 'md',
+    [styles.lg]: size === 'lg',
+    [styles[colorClass]]: !disabled && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [styles.inline]: inline,
+    [styles.block]: !inline,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+  });
 
   const textColor =
     (disabled && 'gray') ||

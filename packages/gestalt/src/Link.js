@@ -87,7 +87,6 @@ const LinkWithForwardRef: AbstractComponent<
 
   const className = classnames(
     styles.link,
-    focusStyles.hideOutline,
     touchableStyles.tapTransition,
     inline ? styles.inlineBlock : styles.block,
     getRoundingClassName(rounding),

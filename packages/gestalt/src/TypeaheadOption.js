@@ -46,15 +46,11 @@ export default function TypeaheadOption({
 
   const { isFocusVisible } = useFocusVisible();
 
-  const className = classnames(
-    getRoundingClassName(2),
-    focusStyles.hideOutline,
-    {
-      [focusStyles.accessibilityOutline]: isFocusVisible,
-      [styles.fullWidth]: true,
-      [styles.pointer]: true,
-    }
-  );
+  const className = classnames(getRoundingClassName(2), {
+    [focusStyles.accessibilityOutline]: isFocusVisible,
+    [styles.fullWidth]: true,
+    [styles.pointer]: true,
+  });
 
   // Default option color
   let optionStateColor = 'transparent';

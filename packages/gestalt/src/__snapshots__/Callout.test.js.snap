@@ -198,7 +198,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
     className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4 pill whiteBg"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
       href="pinterest.com"
       onBlur={[Function]}
       onClick={[Function]}
@@ -324,7 +324,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
       href="pinterest.com/help"
       onBlur={[Function]}
       onClick={[Function]}
@@ -350,7 +350,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
     className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto marginTop2 mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4 pill whiteBg"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
       href="pinterest.com"
       onBlur={[Function]}
       onClick={[Function]}
@@ -432,7 +432,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
     className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4 pill whiteBg"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link tapTransition block rounding0 hoverUnderline accessibilityOutline"
       href="pinterest.com"
       onBlur={[Function]}
       onClick={[Function]}
