@@ -9,16 +9,16 @@ import React, {
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
-import focusStyles from './Focus.css';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
-import touchableStyles from './Touchable.css';
-import useFocusVisible from './useFocusVisible.js';
-import useTapFeedback from './useTapFeedback.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import useFocusVisible from './useFocusVisible.js';
+import useTapFeedback from './useTapFeedback.js';
+import touchableStyles from './Touchable.css';
+import focusStyles from './Focus.css';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',

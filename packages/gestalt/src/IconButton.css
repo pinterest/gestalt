@@ -5,10 +5,6 @@
   background: transparent;
 }
 
-.button:focus {
-  outline: 0;
-}
-
 .enabled {
   composes: pointer from "./Cursor.css";
 }
@@ -16,4 +12,8 @@
 .disabled {
   cursor: default;
   opacity: 0.5;
+}
+
+.button:focus {
+  outline: 0;
 }

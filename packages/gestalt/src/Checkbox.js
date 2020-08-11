@@ -18,8 +18,6 @@ import Icon from './Icon.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import useFocusVisible from './useFocusVisible.js';
-import focusStyles from './Focus.css';
 
 type Props = {|
   checked?: boolean,
@@ -112,8 +110,6 @@ const CheckboxWithForwardRef: React$AbstractComponent<
 
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
-  const { isFocusVisible } = useFocusVisible();
-
   return (
     <Box>
       <Box
@@ -150,8 +146,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
                 styleSize,
                 styles.check,
                 {
-                  [focusStyles.accessibilityOutlineFocus]:
-                    focused && isFocusVisible,
+                  [styles.checkFocused]: focused,
                 }
               )}
             >

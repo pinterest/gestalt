@@ -17,8 +17,6 @@ import getRoundingClassName, {
   type Rounding,
 } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import focusStyles from './Focus.css';
-import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
   accessibilitySelected?: boolean,
@@ -83,16 +81,14 @@ const LinkWithForwardRef: AbstractComponent<
     width: innerRef?.current?.clientWidth,
   });
 
-  const { isFocusVisible } = useFocusVisible();
-
   const className = classnames(
     styles.link,
     touchableStyles.tapTransition,
+    touchableStyles.touchable,
     inline ? styles.inlineBlock : styles.block,
     getRoundingClassName(rounding),
     {
       [styles.hoverUnderline]: hoverStyle === 'underline',
-      [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     }
   );

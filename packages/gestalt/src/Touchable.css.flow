@@ -11,6 +11,7 @@ declare module.exports: {|
   +'pointer': string,
   +'tapCompress': string,
   +'tapTransition': string,
+  +'touchable': string,
   +'zoomIn': string,
   +'zoomOut': string,
 |};
