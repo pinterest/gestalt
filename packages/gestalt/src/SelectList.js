@@ -167,7 +167,7 @@ export default class SelectList extends Component<Props, State> {
               <option
                 key={option.value}
                 value={option.value}
-                disabled={option.disabled || false}
+                disabled={option.disabled}
               >
                 {option.label}
               </option>
