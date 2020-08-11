@@ -4,7 +4,6 @@ declare module.exports: {|
   +'block': string,
   +'blue': string,
   +'button': string,
-  +'darkModeGray': string,
   +'darkModeRed': string,
   +'disabled': string,
   +'enabled': string,
