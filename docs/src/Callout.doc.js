@@ -7,13 +7,19 @@ import PageHeader from './components/PageHeader.js';
 const cards = [];
 const card = c => cards.push(c);
 
-card(<PageHeader name="Callout" />);
+card(
+  <PageHeader
+    name="Callout"
+    description="
+A callout is a banner that displays a short message that either is helpful information to a task on the page or requires user attention."
+  />
+);
 
 card(
   <PropTable
     props={[
       {
-        name: 'description',
+        name: 'message',
         type: 'string',
         required: true,
       },
@@ -57,7 +63,7 @@ card(
   type="info"
   iconAccessibilityLabel="Info icon"
   title="Your business account was successfully created!"
-  description="Get a badge, show up in more shopping experiences and more. Apply to the Verified Merchant Program—it’s free!"
+  message="Get a badge, show up in more shopping experiences and more. Apply to the Verified Merchant Program—it’s free!"
   primaryLink={{href: "https://pinterest.com", label:"Get started"}}
   secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
@@ -76,7 +82,7 @@ card(
 <Callout
   type="warning"
   iconAccessibilityLabel="Warning icon"
-  description="This feature will be removed in two weeks."
+  message="This feature will be removed in two weeks."
   primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -94,7 +100,7 @@ card(
 <Callout
   type="error"
   iconAccessibilityLabel="Error icon"
-  description="This action can't be undone."
+  message="This action can't be undone."
 />
   `}
   />
