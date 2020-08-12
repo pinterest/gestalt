@@ -1,3 +1,9 @@
+## 11.15.1 (Aug 12, 2020)
+
+### Patch
+
+- ZIndexClasses: note on docs re extracting index values from classes (#1136)
+
 ## 11.15.0 (Aug 11, 2020)
 
 ### Minor
