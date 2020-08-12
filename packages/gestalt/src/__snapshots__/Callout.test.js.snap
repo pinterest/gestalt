@@ -141,7 +141,7 @@ exports[`<Callout /> Warning Callout 1`] = `
 </div>
 `;
 
-exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
+exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
 <div
   className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
@@ -221,7 +221,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
     </a>
   </div>
   <div
-    className="absolute box right0 top0"
+    className="rtlPos"
   >
     <button
       aria-label="Dismiss banner"
@@ -267,7 +267,7 @@ exports[`<Callout /> description + title + primaryLink + dismissButton 1`] = `
 </div>
 `;
 
-exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
+exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
 <div
   className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
@@ -375,7 +375,7 @@ exports[`<Callout /> description + title + primaryLink + secondaryLink 1`] = `
 </div>
 `;
 
-exports[`<Callout /> description + title + primaryLink 1`] = `
+exports[`<Callout /> message + title + primaryLink 1`] = `
 <div
   className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={
@@ -457,7 +457,7 @@ exports[`<Callout /> description + title + primaryLink 1`] = `
 </div>
 `;
 
-exports[`<Callout /> description + title 1`] = `
+exports[`<Callout /> message + title 1`] = `
 <div
   className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
   style={

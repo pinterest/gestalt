@@ -4,7 +4,7 @@ import Callout from './Callout.js';
 
 const Valid = (
   <Callout
-    description="Callout error message"
+    message="Callout error message"
     iconAccessibilityLabel="error"
     type="error"
   />

@@ -7,7 +7,7 @@ describe('<Callout />', () => {
   test('Error Callout', () => {
     const tree = create(
       <Callout
-        description="Insert a clever error callout message here"
+        message="Insert a clever error callout message here"
         iconAccessibilityLabel="error"
         type="error"
       />
@@ -18,7 +18,7 @@ describe('<Callout />', () => {
   test('Warning Callout', () => {
     const tree = create(
       <Callout
-        description="Insert a clever warning callout message here"
+        message="Insert a clever warning callout message here"
         iconAccessibilityLabel="warning"
         type="warning"
       />
@@ -29,7 +29,7 @@ describe('<Callout />', () => {
   test('Info Callout', () => {
     const tree = create(
       <Callout
-        description="Insert a clever info callout message here"
+        message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
         type="info"
       />
@@ -37,10 +37,10 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('description + title', () => {
+  test('message + title', () => {
     const tree = create(
       <Callout
-        description="Insert a clever info callout message here"
+        message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
         type="info"
         title="A Title"
@@ -49,10 +49,10 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('description + title + primaryLink', () => {
+  test('message + title + primaryLink', () => {
     const tree = create(
       <Callout
-        description="Insert a clever info callout message here"
+        message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         type="info"
@@ -62,10 +62,10 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('description + title + primaryLink + secondaryLink', () => {
+  test('message + title + primaryLink + secondaryLink', () => {
     const tree = create(
       <Callout
-        description="Insert a clever info callout message here"
+        message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         secondaryLink={{ href: 'pinterest.com/help', label: 'Learn more' }}
@@ -76,10 +76,10 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('description + title + primaryLink + dismissButton', () => {
+  test('message + title + primaryLink + dismissButton', () => {
     const tree = create(
       <Callout
-        description="Insert a clever info callout message here"
+        message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
         primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         dismissButton={{

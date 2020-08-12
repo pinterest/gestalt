@@ -22,12 +22,12 @@ type LinkData = {|
 |};
 
 type Props = {|
-  description: string,
   dismissButton?: {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
   iconAccessibilityLabel: string,
+  message: string,
   primaryLink?: LinkData,
   secondaryLink?: LinkData,
   type: 'error' | 'info' | 'warning',
@@ -94,9 +94,9 @@ const CalloutLink = ({
 };
 
 export default function Callout({
-  description,
   dismissButton,
   iconAccessibilityLabel,
+  message,
   primaryLink,
   secondaryLink,
   type,
@@ -149,7 +149,7 @@ export default function Callout({
               </Heading>
             </Box>
           )}
-          <Text color={isDarkMode ? 'white' : 'darkGray'}>{description}</Text>
+          <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
         </Box>
       </Box>
       {secondaryLink && <CalloutLink type="secondary" data={secondaryLink} />}
@@ -177,12 +177,12 @@ export default function Callout({
 }
 
 Callout.propTypes = {
-  description: PropTypes.string.isRequired,
   dismissButton: PropTypes.exact({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
   primaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
