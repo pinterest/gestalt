@@ -189,38 +189,44 @@ card(
     id="textColor"
     name="Text colors"
     defaultCode={`
-<Box display="flex">
-  <Box color="blue" maxWidth={320} rounding={2} padding={4} margin={4}>
-    <Box marginBottom={4}>
-      <Text color="white">
-        Click to crop, rotate, apply filters, or edit your image.
-      </Text>
-    </Box>
-    <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
-      <Box display="flex" direction="row" column={6} paddingX={2}>
-        <Button color="transparent" text="Later" />
+
+function Example() {
+  const { name: colorSchemeName } = useColorScheme();
+  return (
+    <Box display="flex">
+      <Box color="blue" maxWidth={320} rounding={2} padding={4} margin={4}>
+        <Box marginBottom={4}>
+          <Text color="white">
+            Click to crop, rotate, apply filters, or edit your image.
+          </Text>
+        </Box>
+        <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
+          <Box display="flex" direction="row" column={6} paddingX={2}>
+            <Button color="transparent" text="Later" textColor="white" />
+          </Box>
+          <Box column={6} paddingX={2}>
+            <Button color="white" textColor={colorSchemeName === 'darkMode' ? 'darkGray' : 'blue'} text="Got it" />
+          </Box>
+        </Box>
       </Box>
-      <Box column={6} paddingX={2}>
-        <Button color="white" textColor="blue" text="Got it" />
+      <Box color="red" maxWidth={320} rounding={2} padding={4} margin={4}>
+        <Box marginBottom={4}>
+          <Text color="white">
+            Oops, something went wrong! Would you like to try again?
+          </Text>
+        </Box>
+        <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
+          <Box display="flex" direction="row" column={6} paddingX={2}>
+            <Button color="transparent" text="Cancel" textColor="white" />
+          </Box>
+          <Box column={6} paddingX={2}>
+            <Button color="white" textColor={colorSchemeName === 'darkMode' ? 'darkGray' : 'red'} text="Try again" />
+          </Box>
+        </Box>
       </Box>
     </Box>
-  </Box>
-  <Box color="red" maxWidth={320} rounding={2} padding={4} margin={4}>
-    <Box marginBottom={4}>
-      <Text color="white">
-        Oops, something went wrong! Would you like to try again?
-      </Text>
-    </Box>
-    <Box display="flex" direction="row" marginLeft={-2} marginRight={-2}>
-      <Box display="flex" direction="row" column={6} paddingX={2}>
-        <Button color="transparent" text="Cancel" />
-      </Box>
-      <Box column={6} paddingX={2}>
-        <Button color="white" textColor="red" text="Try again" />
-      </Box>
-    </Box>
-  </Box>
-</Box>
+  );
+}
 `}
   />
 );

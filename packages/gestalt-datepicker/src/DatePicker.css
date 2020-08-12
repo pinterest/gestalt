@@ -1,6 +1,6 @@
 :root {
   /* fix colors for higher contrast in middle grays */
-  --gestalt-gray300: #111;
+  --gestalt-colorGray300: #111;
 
   /* primary colors */
   --gestalt-colorGray50: #fff;
@@ -10,7 +10,6 @@
 
   /* transparent colors */
   --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
   --gestalt-color-focus: rgba(0, 132, 255, 0.5);
 
   /* border & dimensions */
@@ -24,7 +23,7 @@
 .react-datepicker {
   background-color: var(--gestalt-colorGray50);
   border-radius: 16px;
-  box-shadow: 0 0 8px var(--gestalt-colorTransparentGray100);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   color: var(--gestalt-colorGray300);
   display: inline-block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -63,7 +62,7 @@ to prevent conflict with another CSS module */
 
 .react-datepicker__days:hover {
   background-color: var(--gestalt-colorTransparentGray60);
-  color: var(--gestalt-gray300);
+  color: var(--gestalt-colorGray300);
 }
 
 :global ._gestalt .react-datepicker__day--highlighted {
@@ -92,13 +91,13 @@ to prevent conflict with another CSS module */
 
 :global ._gestalt .react-datepicker__day--selected:hover {
   background-color: var(--gestalt-colorTransparentGray60);
-  color: var(--gestalt-gray300);
+  color: var(--gestalt-colorGray300);
 }
 
 :global ._gestalt .react-datepicker__day--in-range {
   background-color: var(--gestalt-colorTransparentGray60);
   border-radius: 0;
-  color: var(--gestalt-gray300);
+  color: var(--gestalt-colorGray300);
 }
 
 :global ._gestalt .react-datepicker__day--in-range:hover {
@@ -165,7 +164,7 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__day--range-start:hover {
   background-color: inherit;
   border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-gray300);
+  color: var(--gestalt-colorGray300);
   position: relative;
 }
 
@@ -207,14 +206,14 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__day--range-end:hover {
   background-color: inherit;
   border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-gray300);
+  color: var(--gestalt-colorGray300);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-end:hover::after {
   background: var(--gestalt-colorTransparentGray60);
   border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-gray300);
+  color: var(--gestalt-colorGray300);
   content: "";
   display: block;
   height: 100%;

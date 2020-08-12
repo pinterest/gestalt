@@ -1,7 +1,6 @@
 :root {
   --gestalt-colorGray0Hovered: #f0f0f0;
   --gestalt-colorGray0Active: #e0e0e0;
-  --gestalt-colorGray50: #fff;
   --gestalt-colorGray100: #efefef;
   --gestalt-colorGray100Hovered: #e2e2e2;
   --gestalt-colorGray100Active: #dadada;
@@ -72,20 +71,6 @@
 
 .gray:active {
   background-color: var(--gestalt-colorGray100Active);
-}
-
-.darkModeGray {
-  composes: whiteBgElevated from "./Colors.css";
-}
-
-.darkModeGray:hover,
-.darkModeGray:focus{
-  background-color: var(--gestalt-colorGray100);
-
-}
-
-.darkModeGray:active {
-  filter: brightness(150%);
 }
 
 .red {

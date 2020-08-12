@@ -59,8 +59,13 @@ const CalloutLink = ({
   stacked?: boolean,
   type: string,
 |}): Node => {
-  const { name } = useColorScheme();
-  const colorDarkMode = name === 'darkMode' ? 'white' : 'darkGray';
+  const { colorGray400, name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+  const textColor = isDarkMode ? 'white' : 'darkGray';
+  const inlineStyle =
+    isDarkMode && type === 'primary'
+      ? { __style: { backgroundColor: colorGray400 } }
+      : undefined;
   const { href, label, onClick } = data;
 
   return (
@@ -75,12 +80,10 @@ const CalloutLink = ({
       mdMarginTop="auto"
       padding={4}
       rounding={type === 'primary' ? 'pill' : undefined}
+      dangerouslySetInlineStyle={inlineStyle}
     >
       <Link href={href} onClick={onClick}>
-        <Text
-          color={type === 'primary' ? colorDarkMode : undefined}
-          weight="bold"
-        >
+        <Text color={textColor} weight="bold">
           {label}
         </Text>
       </Link>
