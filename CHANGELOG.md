@@ -1,3 +1,9 @@
+## 11.15.2 (Aug 12, 2020)
+
+### Patch
+
+- Datepicker: standardized date format & placeholder date format across… (#1135)
+
 ## 11.15.1 (Aug 12, 2020)
 
 ### Patch
