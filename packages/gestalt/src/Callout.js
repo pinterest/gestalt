@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -9,6 +10,7 @@ import Link from './Link.js';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import styles from './Callout.css';
 
 type LinkData = {|
   href: string,
@@ -159,7 +161,7 @@ export default function Callout({
         />
       )}
       {dismissButton && (
-        <Box position="absolute" right top>
+        <div className={classnames(styles.rtlPos)}>
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel}
             icon="cancel"
@@ -168,7 +170,7 @@ export default function Callout({
             padding={4}
             size="sm"
           />
-        </Box>
+        </div>
       )}
     </Box>
   );
