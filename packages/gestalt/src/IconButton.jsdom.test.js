@@ -8,6 +8,6 @@ describe('IconButton', () => {
     const ref = React.createRef();
     render(<IconButton disabled accessibilityLabel="test" ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
-    expect(ref.current?.disabled).toEqual(true);
+    expect(ref.current?.type).toEqual('button');
   });
 });

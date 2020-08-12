@@ -96,8 +96,8 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="box flexNone paddingX2"
       >
         <button
+          aria-disabled={false}
           className="button tapTransition lg gray enabled block accessibilityOutline"
-          disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
           onMouseDown={[Function]}

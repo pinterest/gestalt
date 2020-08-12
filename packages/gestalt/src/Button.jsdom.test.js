@@ -15,8 +15,8 @@ describe('Button', () => {
 
   it('forwards a ref to the innermost button element', () => {
     const ref = React.createRef();
-    render(<Button disabled text="test" ref={ref} />);
+    render(<Button disabled text="test" type="submit" ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
-    expect(ref.current?.disabled).toEqual(true);
+    expect(ref.current?.type).toEqual('submit');
   });
 });

@@ -2,9 +2,9 @@
 
 exports[`IconButton renders with disabled state 1`] = `
 <button
+  aria-disabled={true}
   aria-label="Pinterest"
   className="button tapTransition disabled"
-  disabled={true}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}

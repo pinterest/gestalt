@@ -90,11 +90,11 @@ const IconButtonWithForwardRef: React$AbstractComponent<
   return (
     <button
       aria-controls={accessibilityControls}
+      aria-disabled={disabled}
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
       className={classes}
-      disabled={disabled}
       onBlur={() => {
         handleBlur();
         setFocused(false);

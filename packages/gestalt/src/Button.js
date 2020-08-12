@@ -145,8 +145,8 @@ const ButtonWithForwardRef: React$AbstractComponent<
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
+      aria-disabled={disabled}
       className={classes}
-      disabled={disabled}
       name={name}
       onBlur={handleBlur}
       onClick={event => onClick && onClick({ event })}
