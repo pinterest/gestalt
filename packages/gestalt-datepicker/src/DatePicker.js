@@ -14,6 +14,7 @@ import { Icon, Box, Label, Text } from 'gestalt';
 import PropTypes from 'prop-types';
 import DatePickerTextField from './DatePickerTextField.js';
 import styles from './DatePicker.css';
+import dateFormat from './dateFormat.js';
 import { LocaleDataPropTypes, type LocaleData } from './LocaleDataTypes.js';
 
 type Props = {|
@@ -75,7 +76,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
   // in the month and we need to keep the flyout pointed at the input correctly
   const [selected, setSelected] = useState<?Date>(dateValue);
   const [, setMonth] = useState<?number>();
-  const [dateFormat, setDateFormat] = useState<?string>();
+  const [format, setFormat] = useState<?string>();
   const [updatedLocale, setUpdatedLocale] = useState<?string>();
   const [initRangeHighlight, setInitRangeHighlight] = useState<?Date>();
 
@@ -89,9 +90,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
     if (localeData && localeData.code) {
       registerLocale(localeData.code, localeData);
       setUpdatedLocale(localeData.code);
-      setDateFormat(
-        localeData.formatLong && localeData.formatLong.date({ width: 'short' })
-      );
+      setFormat(dateFormat[localeData.code || 'en-US']);
     }
   }, [localeData]);
 
@@ -125,7 +124,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
       <ReactDatePicker
         calendarClassName={classnames(styles['react-datepicker'])}
         customInput={<DatePickerTextField id={id} />}
-        dateFormat={dateFormat}
+        dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
         endDate={rangeEndDate}
@@ -156,7 +155,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
         }}
         onKeyDown={event => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
-        placeholderText={placeholder || dateFormat || 'mm/dd/yyyy'}
+        placeholderText={placeholder || format?.toUpperCase() || 'MM/DD/YYYY'}
         popperClassName={classnames(
           styles['react-datepicker-popper'],
           styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`]
