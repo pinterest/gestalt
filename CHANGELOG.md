@@ -1,3 +1,9 @@
+## 11.16.0 (Aug 12, 2020)
+
+### Minor
+
+- [Dark mode] Color updates for dark mode (#1129)
+
 ## 11.15.2 (Aug 12, 2020)
 
 ### Patch
