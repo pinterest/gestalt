@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -9,6 +10,7 @@ import Link from './Link.js';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import styles from './Callout.css';
 
 type LinkData = {|
   href: string,
@@ -20,12 +22,12 @@ type LinkData = {|
 |};
 
 type Props = {|
-  description: string,
   dismissButton?: {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
   iconAccessibilityLabel: string,
+  message: string,
   primaryLink?: LinkData,
   secondaryLink?: LinkData,
   type: 'error' | 'info' | 'warning',
@@ -92,9 +94,9 @@ const CalloutLink = ({
 };
 
 export default function Callout({
-  description,
   dismissButton,
   iconAccessibilityLabel,
+  message,
   primaryLink,
   secondaryLink,
   type,
@@ -147,7 +149,7 @@ export default function Callout({
               </Heading>
             </Box>
           )}
-          <Text color={isDarkMode ? 'white' : 'darkGray'}>{description}</Text>
+          <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
         </Box>
       </Box>
       {secondaryLink && <CalloutLink type="secondary" data={secondaryLink} />}
@@ -159,7 +161,7 @@ export default function Callout({
         />
       )}
       {dismissButton && (
-        <Box position="absolute" right top>
+        <div className={classnames(styles.rtlPos)}>
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel}
             icon="cancel"
@@ -168,19 +170,19 @@ export default function Callout({
             padding={4}
             size="sm"
           />
-        </Box>
+        </div>
       )}
     </Box>
   );
 }
 
 Callout.propTypes = {
-  description: PropTypes.string.isRequired,
   dismissButton: PropTypes.exact({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
   primaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
