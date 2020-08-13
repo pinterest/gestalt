@@ -1,3 +1,9 @@
+## 11.17.0 (Aug 13, 2020)
+
+### Minor
+
+- Callout: added RTL support in dismiss button, renamed description prop (#1143)
+
 ## 11.16.0 (Aug 12, 2020)
 
 ### Minor
