@@ -1,3 +1,9 @@
+## 11.17.1 (Aug 13, 2020)
+
+### Patch
+
+- [Pog]: Add red to prop type (#1138)
+
 ## 11.17.0 (Aug 13, 2020)
 
 ### Minor
