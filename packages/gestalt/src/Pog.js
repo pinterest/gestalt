@@ -115,6 +115,7 @@ Pog.propTypes = {
     'gray',
     'lightGray',
     'white',
+    'red',
   ]),
   dangerouslySetSvgPath: PropTypes.shape({
     __path: PropTypes.string,
