@@ -89,6 +89,12 @@ card(
           Instead it serves to add overlays on top of the html video element, while still being under the video controls.`,
       },
       {
+        name: 'crossOrigin',
+        type: 'string',
+        description:
+          "Designate CORS behavior for the video element, one of 'use-credentials' or 'anonymous'. Note: when not passed in, CORS checks are disabled.",
+      },
+      {
         name: 'controls',
         type: 'boolean',
         description: 'Show the video player controls',

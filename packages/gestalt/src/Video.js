@@ -172,6 +172,7 @@ export default class Video extends PureComponent<Props, State> {
     aspectRatio: PropTypes.number.isRequired,
     captions: PropTypes.string.isRequired,
     children: PropTypes.node,
+    crossOrigin: PropTypes.string,
     controls: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
@@ -203,11 +204,13 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   static defaultProps: {|
+    crossOrigin?: 'use-credentials' | 'anonymous',
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
+    crossOrigin: undefined,
     playbackRate: 1,
     playing: false,
     preload: 'auto',
@@ -503,6 +506,7 @@ export default class Video extends PureComponent<Props, State> {
       aspectRatio,
       captions,
       children,
+      crossOrigin,
       loop,
       playing,
       playsInline,
@@ -538,6 +542,7 @@ export default class Video extends PureComponent<Props, State> {
             onSeeked={this.handleSeek}
             onTimeUpdate={this.handleTimeUpdate}
             onProgress={this.handleProgress}
+            {...(crossOrigin ? { crossOrigin } : null)}
           >
             {Array.isArray(src) &&
               src.map(source => (
