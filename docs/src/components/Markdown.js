@@ -1,11 +1,12 @@
 // @flow strict
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import './Markdown.css';
 
 type Props = {|
+  fetchFile?: boolean,
   text: string,
   size?: 'md' | 'lg',
 |};
@@ -28,7 +29,12 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ text, size = 'lg' }: Props) {
+export default function Markdown({
+  fetchFile = false,
+  text,
+  size = 'lg',
+}: Props) {
+  const [fetchedText, setFetchedText] = useState(null);
   const renderer = new Renderer();
 
   renderer.code = (code, language) => {
@@ -36,12 +42,27 @@ export default function Markdown({ text, size = 'lg' }: Props) {
     return `<pre><code class="hljs ${language}">${highlight}</code></pre>`;
   };
 
-  const html = marked(stripIndent(text), { renderer });
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(text);
+      const responseText = await response.text();
+      setFetchedText(responseText);
+    }
+    if (fetchFile) {
+      fetchData();
+    }
+  }, [fetchFile, setFetchedText, text]);
+
+  const html = marked(stripIndent(fetchFile ? fetchedText || '' : text), {
+    renderer,
+  });
 
   return (
     <Text size={size}>
-      {/* eslint-disable-next-line react/no-danger */}
-      <div className="Markdown" dangerouslySetInnerHTML={{ __html: html }} />
+      <div
+        className="Markdown"
+        dangerouslySetInnerHTML={{ __html: html }} // eslint-disable-line react/no-danger
+      />
     </Text>
   );
 }
