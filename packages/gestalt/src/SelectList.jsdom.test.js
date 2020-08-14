@@ -73,7 +73,7 @@ describe('<SelectList />', () => {
     expect(container.querySelector('option')).toBeDisabled();
   });
 
-  it('SelectList with disabled option', () => {
+  it('SelectList with disabled options', () => {
     const { container } = render(
       <SelectList
         id="test"
