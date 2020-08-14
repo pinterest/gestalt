@@ -451,50 +451,6 @@ exports[`Avatar renders the correct src 1`] = `
 </div>
 `;
 
-exports[`Avatar renders the default icon 1`] = `
-<div
-  className="box circle relative whiteBg"
-  style={
-    Object {
-      "height": "",
-      "width": "100%",
-    }
-  }
->
-  <div
-    className="box circle lightGrayBg overflowHidden relative"
-  >
-    <div
-      className="box relative"
-      style={
-        Object {
-          "paddingBottom": "100%",
-        }
-      }
-    />
-    <div
-      className="absolute bottom0 box left0 right0 top0"
-    >
-      <svg
-        preserveAspectRatio="xMidYMid meet"
-        role="img"
-        version="1.1"
-        viewBox="-3 -8 30 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>
-          Carlos
-        </title>
-        <path
-          d="test-file-stub"
-          fill="#111"
-        />
-      </svg>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Avatar renders the verified icon 1`] = `
 <div
   className="box circle relative whiteBg"
@@ -607,16 +563,23 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
     >
       <svg
         preserveAspectRatio="xMidYMid meet"
-        role="img"
         version="1.1"
-        viewBox="-3 -8 30 100"
+        viewBox="-50 -50 100 100"
+        width="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
-        
-        <path
-          d="test-file-stub"
+        <title>
+          
+        </title>
+        <text
+          className="antialiased sansSerif fontWeightBold"
+          dy="0.35em"
           fill="#111"
-        />
+          fontSize="40px"
+          textAnchor="middle"
+        >
+          
+        </text>
       </svg>
     </div>
   </div>

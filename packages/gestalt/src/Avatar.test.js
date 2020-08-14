@@ -19,13 +19,6 @@ describe('Avatar', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders the default icon', () => {
-    const tree = create(
-      <Avatar name="Carlos" __dangerouslyUseDefaultIcon />
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('renders an outline', () => {
     const tree = create(<Avatar name="Jenny" outline />).toJSON();
     expect(tree).toMatchSnapshot();

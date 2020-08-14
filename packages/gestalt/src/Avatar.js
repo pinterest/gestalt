@@ -5,7 +5,6 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
-import PersonSvg from './icons/person.svg';
 import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
@@ -24,11 +23,9 @@ const Square = (props: *) => (
 const DefaultAvatar = ({
   accessibilityLabel,
   name,
-  useDefaultIcon,
 }: {|
   accessibilityLabel?: string,
   name: string,
-  useDefaultIcon: boolean,
 |}) => {
   const { colorGray300 } = useColorScheme();
   const firstInitial = name ? [...name][0].toUpperCase() : '';
@@ -36,41 +33,28 @@ const DefaultAvatar = ({
 
   return (
     <Square color="lightGray" rounding="circle" overflow="hidden">
-      {useDefaultIcon || !firstInitial ? (
-        <svg
-          preserveAspectRatio="xMidYMid meet"
-          role="img"
-          version="1.1"
-          viewBox="-3 -8 30 100"
-          xmlns="http://www.w3.org/2000/svg"
+      <svg
+        width="100%"
+        viewBox="-50 -50 100 100"
+        version="1.1"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>{title}</title>
+        <text
+          fontSize="40px"
+          fill={colorGray300}
+          dy="0.35em"
+          textAnchor="middle"
+          className={[
+            typography.antialiased,
+            typography.sansSerif,
+            typography.fontWeightBold,
+          ].join(' ')}
         >
-          {title && <title>{title}</title>}
-          <path d={PersonSvg} fill={colorGray300} />
-        </svg>
-      ) : (
-        <svg
-          width="100%"
-          viewBox="-50 -50 100 100"
-          version="1.1"
-          preserveAspectRatio="xMidYMid meet"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>{title}</title>
-          <text
-            fontSize="40px"
-            fill={colorGray300}
-            dy="0.35em"
-            textAnchor="middle"
-            className={[
-              typography.antialiased,
-              typography.sansSerif,
-              typography.fontWeightBold,
-            ].join(' ')}
-          >
-            {firstInitial}
-          </text>
-        </svg>
-      )}
+          {firstInitial}
+        </text>
+      </svg>
     </Square>
   );
 };
@@ -82,7 +66,6 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
   src?: string,
   verified?: boolean,
-  __dangerouslyUseDefaultIcon?: boolean,
 |};
 
 const sizes = {
@@ -103,7 +86,6 @@ export default function Avatar(props: Props): Node {
     size = 'fit',
     src,
     verified,
-    __dangerouslyUseDefaultIcon: useDefaultIcon = false,
   } = props;
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
@@ -139,11 +121,7 @@ export default function Avatar(props: Props): Node {
           />
         </Mask>
       ) : (
-        <DefaultAvatar
-          accessibilityLabel={accessibilityLabel}
-          name={name}
-          useDefaultIcon={useDefaultIcon}
-        />
+        <DefaultAvatar accessibilityLabel={accessibilityLabel} name={name} />
       )}
 
       {verified && (
