@@ -44,6 +44,22 @@ describe('SelectList', () => {
     ).toEqual(['Placeholder text']);
   });
 
+  it('Renders a disabled option if options includes disabled option', () => {
+    const component = create(
+      <SelectList
+        id="test"
+        onChange={jest.fn()}
+        options={[
+          ...options,
+          { label: 'option4', value: 'value4', disabled: true },
+        ]}
+      />
+    );
+    expect(component.root.findByProps({ disabled: true }).children).toEqual([
+      'option4',
+    ]);
+  });
+
   it('SelectList normal', () => {
     const tree = create(
       <SelectList id="test" onChange={jest.fn()} options={options} />

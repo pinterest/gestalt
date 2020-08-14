@@ -73,6 +73,20 @@ describe('<SelectList />', () => {
     expect(container.querySelector('option')).toBeDisabled();
   });
 
+  it('SelectList with disabled options', () => {
+    const { container } = render(
+      <SelectList
+        id="test"
+        onChange={jest.fn()}
+        options={[
+          ...options,
+          { label: 'option4', value: 'value4', disabled: true },
+        ]}
+      />
+    );
+    expect(container.querySelector('option[value="value4"]')).toBeDisabled();
+  });
+
   it('shows a label for the select list', () => {
     const { getByText } = render(
       <SelectList

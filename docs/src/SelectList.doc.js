@@ -56,7 +56,7 @@ card(
       },
       {
         name: 'options',
-        type: 'Array<{ label: string, value: string }>',
+        type: 'Array<{ label: string, value: string, disabled?: boolean }>',
         required: true,
         href: 'basicExample',
       },
