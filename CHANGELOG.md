@@ -1,3 +1,9 @@
+## 11.19.0 (Aug 14, 2020)
+
+### Minor
+
+- SelectList: Add disabled to options prop (#1140)
+
 ## 11.18.0 (Aug 14, 2020)
 
 ### Minor
