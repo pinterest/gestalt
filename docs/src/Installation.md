@@ -1,10 +1,8 @@
+[![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt) <sup>Core </sup>
+[![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt-datepicker) <sup>DatePicker</sup>
+
 # Gestalt
-
-[![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt)
-
 Gestalt is a set of React UI components that enforces Pinterest’s design language. We use it to streamline communication between designers and developers by enforcing a bunch of fundamental UI components. This common set of components helps raise the bar for UX & accessibility across Pinterest.
-
-[Visit the official Gestalt Documentation](https://gestalt.netlify.app/)
 
 ## Installation
 
