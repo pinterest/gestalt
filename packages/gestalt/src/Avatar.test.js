@@ -4,7 +4,7 @@ import { create } from 'react-test-renderer';
 import Avatar from './Avatar.js';
 
 describe('Avatar', () => {
-  it('renders multi-byte character initials', () => {
+  it('renders multi-byte character initial', () => {
     const component = create(<Avatar name="💩 astral" />, {
       createNodeMock() {
         return { clientWidth: 100 };
