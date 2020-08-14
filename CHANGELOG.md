@@ -1,3 +1,9 @@
+## 11.20.0 (Aug 14, 2020)
+
+### Minor
+
+- Avatar: Remove person icon fallback variant (#1139)
+
 ## 11.19.0 (Aug 14, 2020)
 
 ### Minor
