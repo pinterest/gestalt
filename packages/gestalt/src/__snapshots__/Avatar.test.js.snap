@@ -50,7 +50,7 @@ exports[`Avatar renders an outline 1`] = `
 </div>
 `;
 
-exports[`Avatar renders multi-byte character initials 1`] = `
+exports[`Avatar renders multi-byte character initial 1`] = `
 <div
   className="box circle relative whiteBg"
   style={
