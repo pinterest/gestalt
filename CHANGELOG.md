@@ -1,3 +1,9 @@
+## 11.18.0 (Aug 14, 2020)
+
+### Minor
+
+- Docs: Implement markdown from md files as documentation sections (#1144)
+
 ## 11.17.1 (Aug 13, 2020)
 
 ### Patch
