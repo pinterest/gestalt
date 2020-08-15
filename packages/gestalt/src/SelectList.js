@@ -23,12 +23,11 @@ type Props = {|
     SyntheticInputEvent<HTMLSelectElement>,
     {| value: string |}
   >,
-  // eslint-disable-next-line flowtype/require-exact-type
-  options: Array<{
+  options: Array<{|
     label: string,
     value: string,
     disabled?: boolean,
-  }>,
+  |}>,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: ?string,
