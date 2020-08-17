@@ -1,3 +1,9 @@
+## 11.21.1 (Aug 17, 2020)
+
+### Patch
+
+- Interal: remove console.log message in Markdown.js (#1152)
+
 ## 11.21.0 (Aug 17, 2020)
 
 ### Minor
