@@ -1,3 +1,9 @@
+## 11.20.2 (Aug 17, 2020)
+
+### Patch
+
+- Internal: upgrade serialize-javascript (security) (#1149)
+
 ## 11.20.1 (Aug 17, 2020)
 
 ### Patch
