@@ -12,6 +12,13 @@ import Icon from './Icon.js';
 import styles from './SelectList.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
+// eslint-disable-next-line flowtype/require-exact-type
+type Options = Array<{
+  label: string,
+  value: string,
+  disabled?: boolean,
+}>;
+
 type Props = {|
   errorMessage?: string,
   disabled?: boolean,
@@ -23,11 +30,7 @@ type Props = {|
     SyntheticInputEvent<HTMLSelectElement>,
     {| value: string |}
   >,
-  options: Array<{|
-    label: string,
-    value: string,
-    disabled?: boolean,
-  |}>,
+  options: Options,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: ?string,
@@ -62,11 +65,7 @@ export default class SelectList extends Component<Props, State> {
 
   static defaultProps: {|
     disabled: boolean,
-    // eslint-disable-next-line flowtype/require-exact-type
-    options: Array<{
-      label: string,
-      value: string,
-    }>,
+    options: Options,
     size?: 'md' | 'lg',
   |} = {
     disabled: false,
