@@ -1,3 +1,9 @@
+## 11.22.0 (Aug 17, 2020)
+
+### Minor
+
+- Video: add crossOrigin option (#1150)
+
 ## 11.21.1 (Aug 17, 2020)
 
 ### Patch
