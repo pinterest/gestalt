@@ -173,7 +173,7 @@ export default class Video extends PureComponent<Props, State> {
     aspectRatio: PropTypes.number.isRequired,
     captions: PropTypes.string.isRequired,
     children: PropTypes.node,
-    crossOrigin: PropTypes.string,
+    crossOrigin: PropTypes.oneOf(['use-credentials', 'anonymous']),
     controls: PropTypes.bool,
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
@@ -205,13 +205,11 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   static defaultProps: {|
-    crossOrigin?: 'use-credentials' | 'anonymous',
     playbackRate: number,
     playing: boolean,
     preload: 'auto' | 'metadata' | 'none',
     volume: number,
   |} = {
-    crossOrigin: undefined,
     playbackRate: 1,
     playing: false,
     preload: 'auto',

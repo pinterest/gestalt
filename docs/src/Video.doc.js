@@ -90,9 +90,9 @@ card(
       },
       {
         name: 'crossOrigin',
-        type: 'string',
+        type: "'use-credentials' | 'anonymous'",
         description:
-          "Designate CORS behavior for the video element, one of 'use-credentials' or 'anonymous'. Note: when not passed in, CORS checks are disabled.",
+          "Designate CORS behavior for the video element. When not passed in, CORS checks are disabled.",
       },
       {
         name: 'controls',
