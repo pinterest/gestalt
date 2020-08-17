@@ -22,6 +22,7 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
+  crossOrigin?: 'anonymous' | 'use-credentials',
   children?: Node,
   controls?: boolean,
   loop?: boolean,
