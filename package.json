@@ -55,6 +55,9 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0"
   },
+  "resolutions": {
+    "serialize-javascript": "3.1.0"
+  },
   "scripts": {
     "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
