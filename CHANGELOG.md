@@ -1,3 +1,9 @@
+## 11.20.1 (Aug 17, 2020)
+
+### Patch
+
+- Docs: fix blank installation page (#1148)
+
 ## 11.20.0 (Aug 14, 2020)
 
 ### Minor
