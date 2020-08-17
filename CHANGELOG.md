@@ -1,3 +1,9 @@
+## 11.20.3 (Aug 17, 2020)
+
+### Patch
+
+- SelectList: fix FlowType (#1146)
+
 ## 11.20.2 (Aug 17, 2020)
 
 ### Patch
