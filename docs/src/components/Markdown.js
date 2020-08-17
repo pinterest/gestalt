@@ -34,7 +34,6 @@ export default function Markdown({
   text,
   size = 'lg',
 }: Props) {
-  console.log('/// Markdown - fetchfile', fetchFile);
   const [fetchedText, setFetchedText] = useState(null);
   const renderer = new Renderer();
 
