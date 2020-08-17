@@ -1,3 +1,9 @@
+## 11.21.0 (Aug 17, 2020)
+
+### Minor
+
+- SelecList: fix Flowtype (#1151)
+
 ## 11.20.3 (Aug 17, 2020)
 
 ### Patch
