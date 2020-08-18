@@ -9,6 +9,5 @@ declare module.exports: {|
   +'borderRadiusMd': string,
   +'borderRadiusSm': string,
   +'check': string,
-  +'checkFocused': string,
   +'inputEnabled': string,
 |};

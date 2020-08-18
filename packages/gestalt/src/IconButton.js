@@ -14,6 +14,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
+import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
   accessibilityControls?: string,
@@ -81,6 +82,8 @@ const IconButtonWithForwardRef: React$AbstractComponent<
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
+  const { isFocusVisible } = useFocusVisible();
+
   const classes = classnames(styles.button, touchableStyles.tapTransition, {
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
@@ -126,7 +129,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
         active={!disabled && isActive}
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
-        focused={!disabled && isFocused}
+        focused={!disabled && isFocusVisible && isFocused}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

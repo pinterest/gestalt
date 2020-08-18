@@ -16,7 +16,6 @@
   composes: borderBox minWidth60 from "./Layout.css";
   composes: noBorder from "./Borders.css";
   border-radius: 24px;
-  outline: 0;
 }
 
 .sm {

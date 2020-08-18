@@ -13,5 +13,4 @@ declare module.exports: {|
   +'BorderUnchecked': string,
   +'InputEnabled': string,
   +'RadioButton': string,
-  +'RadioButtonIsFocused': string,
 |};

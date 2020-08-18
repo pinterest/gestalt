@@ -22,10 +22,6 @@ html[dir="rtl"] .switch {
   transform: rotateY(180deg);
 }
 
-.focused {
-  composes: accessibilityOutlineFocus from "./Focus.css";
-}
-
 .switchDarkGray {
   composes: darkGrayBg from "./Colors.css";
   composes: borderColorDarkGray from "./Borders.css";
