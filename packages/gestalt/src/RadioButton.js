@@ -8,6 +8,8 @@ import Box from './Box.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import useFocusVisible from './useFocusVisible.js';
+import focusStyles from './Focus.css';
 
 type Props = {|
   checked?: boolean,
@@ -74,6 +76,8 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
 
   const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
+  const { isFocusVisible } = useFocusVisible();
+
   return (
     <Box
       alignItems="center"
@@ -92,7 +96,8 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
               styleSize,
               styles.RadioButton,
               {
-                [styles.RadioButtonIsFocused]: focused,
+                [focusStyles.accessibilityOutlineFocus]:
+                  focused && isFocusVisible,
               }
             )}
           >

@@ -141,7 +141,7 @@ exports[`Video with children 1`] = `
       >
         <div
           aria-disabled={false}
-          className="tapTransition touchable rounding0 pointer"
+          className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
@@ -178,7 +178,7 @@ exports[`Video with children 1`] = `
       >
         <div
           aria-disabled={false}
-          className="tapTransition touchable rounding0 pointer"
+          className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
@@ -309,7 +309,7 @@ exports[`Video with children 1`] = `
       >
         <div
           aria-disabled={false}
-          className="tapTransition touchable rounding0 pointer"
+          className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
           onBlur={[Function]}
           onClick={[Function]}
           onContextMenu={[Function]}
