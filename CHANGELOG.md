@@ -1,3 +1,9 @@
+## 11.23.0 (Aug 19, 2020)
+
+### Minor
+
+- Revert "Button/Checkbox/IconButton/Link/RadioButton/Switch/TapArea: Revert useFocusVisible (#1098) & Focus Styles: revert override CSS outline if a global one is specified (#1118) (#1141)" (#1153)
+
 ## 11.22.0 (Aug 17, 2020)
 
 ### Minor
