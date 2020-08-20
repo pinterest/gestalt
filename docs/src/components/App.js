@@ -10,6 +10,8 @@ type Props = {|
   children?: React.Node,
 |};
 
+const localStorageOrganizedByKey = 'gestalt-sitebar-organized-by';
+
 export default function App(props: Props) {
   const { children } = props;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,11 +19,32 @@ export default function App(props: Props) {
 
   useTracking('UA-12967896-44');
 
+  const [sidebarOrganisedBy, setSitebarOrganizedBy] = useState<
+    'categorized' | 'alphabetical'
+  >(() => {
+    try {
+      return localStorage.getItem(localStorageOrganizedByKey) || 'categorized';
+    } catch (error) {
+      console.log(error); // eslint-disable-line no-console
+    }
+    return 'categorized';
+  });
+
+  React.useEffect(() => {
+    try {
+      localStorage.setItem(localStorageOrganizedByKey, sidebarOrganisedBy);
+    } catch (error) {
+      console.log(error); // eslint-disable-line no-console
+    }
+  }, [sidebarOrganisedBy]);
+
   return (
     <SidebarContextProvider
       value={{
         isSidebarOpen,
         setIsSidebarOpen,
+        sidebarOrganisedBy,
+        setSitebarOrganizedBy,
       }}
     >
       <Provider colorScheme={colorScheme}>

@@ -20,7 +20,12 @@ type Props = {|
 
 function Header({ colorScheme, onChangeColorScheme }: Props) {
   const [isRTL, setIsRTL] = React.useState(false);
-  const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
+  const {
+    isSidebarOpen,
+    setIsSidebarOpen,
+    sidebarOrganisedBy,
+    setSitebarOrganizedBy,
+  } = useSidebarContext();
 
   const toggleRTL = () => {
     if (document && document.documentElement) {
@@ -99,6 +104,34 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
               icon="workflow-status-in-progress"
               onClick={() => onChangeColorScheme()}
             />
+          </Tooltip>
+          <Tooltip
+            inline
+            text={`Sidebar: ${
+              sidebarOrganisedBy === 'categorized'
+                ? 'Alphabetical'
+                : 'Categorize'
+            }`}
+          >
+            <Box display="flex" alignItems="center">
+              <IconButton
+                size="md"
+                accessibilityLabel="Toggle side bar categorization"
+                iconColor="white"
+                icon={
+                  sidebarOrganisedBy === 'categorized'
+                    ? 'arrow-circle-down'
+                    : 'folder'
+                }
+                onClick={() =>
+                  setSitebarOrganizedBy(
+                    sidebarOrganisedBy === 'categorized'
+                      ? 'alphabetical'
+                      : 'categorized'
+                  )
+                }
+              />
+            </Box>
           </Tooltip>
           <Tooltip
             inline
