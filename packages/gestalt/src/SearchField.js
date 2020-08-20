@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
 import styles from './SearchField.css';
+import formElement from './FormElement.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
+import FormErrorMessage from './FormErrorMessage.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
@@ -25,6 +27,8 @@ type Props = {|
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
+  errorMessage?: string,
+  hasError?: boolean,
 |};
 
 const SearchFieldWithForwardRef: React$AbstractComponent<
@@ -41,6 +45,8 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
     placeholder,
     size = 'md',
     value,
+    errorMessage,
+    hasError = false,
   } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);
@@ -81,82 +87,92 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
   const hasValue = value && value.length > 0;
   const hideSearchIcon = focused || hasValue;
 
-  const className = classnames(styles.input, {
-    [layout.medium]: size === 'md',
-    [layout.large]: size === 'lg',
-    [styles.inputActive]: focused || hasValue,
-    [styles.inputHovered]: hovered,
-  });
+  const className = classnames(
+    styles.input,
+    {
+      [layout.medium]: size === 'md',
+      [layout.large]: size === 'lg',
+      [styles.inputActive]: focused || hasValue,
+      [styles.inputHovered]: hovered,
+    },
+    hasError || errorMessage ? formElement.errored : formElement.normal
+  );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <Box
-      alignItems="center"
-      display="flex"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      position="relative"
-    >
-      {!hideSearchIcon && (
-        <Box
-          dangerouslySetInlineStyle={{
-            __style: {
-              pointerEvents: 'none',
-              // Added the following lines for Safari support
-              top: '50%',
-              transform: 'translateY(-50%)',
-            },
-          }}
-          left
-          right
-          paddingX={4}
-          position="absolute"
-        >
-          <Icon icon="search" accessibilityLabel="" />
-        </Box>
-      )}
-      <input
-        ref={ref}
-        aria-label={accessibilityLabel}
-        autoComplete={autoComplete}
-        className={className}
-        id={id}
-        onChange={handleChange}
-        placeholder={placeholder}
-        role="searchbox"
-        type="search"
-        value={value}
-      />
-      {hasValue && (
-        <button
-          className={styles.clear}
-          onClick={handleClear}
-          tabIndex={-1}
-          type="button"
-        >
+    <span>
+      <Box
+        alignItems="center"
+        display="flex"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        position="relative"
+      >
+        {!hideSearchIcon && (
           <Box
-            alignItems="center"
-            color={focused ? 'darkGray' : 'transparent'}
-            display="flex"
-            height={clearButtonSize}
-            justifyContent="center"
-            rounding="circle"
-            width={clearButtonSize}
+            dangerouslySetInlineStyle={{
+              __style: {
+                pointerEvents: 'none',
+                // Added the following lines for Safari support
+                top: '50%',
+                transform: 'translateY(-50%)',
+              },
+            }}
+            left
+            right
+            paddingX={4}
+            position="absolute"
           >
-            <Icon
-              accessibilityLabel=""
-              color={focused ? 'white' : 'darkGray'}
-              icon="cancel"
-              size={clearIconSize}
-            />
+            <Icon icon="search" accessibilityLabel="" />
           </Box>
-        </button>
-      )}
-    </Box>
+        )}
+        <input
+          aria-describedby={errorMessage && focused ? `${id}-error` : null}
+          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+          ref={ref}
+          aria-label={accessibilityLabel}
+          autoComplete={autoComplete}
+          className={className}
+          id={id}
+          onChange={handleChange}
+          placeholder={placeholder}
+          role="searchbox"
+          type="search"
+          value={value}
+        />
+
+        {hasValue && (
+          <button
+            className={styles.clear}
+            onClick={handleClear}
+            tabIndex={-1}
+            type="button"
+          >
+            <Box
+              alignItems="center"
+              color={focused ? 'darkGray' : 'transparent'}
+              display="flex"
+              height={clearButtonSize}
+              justifyContent="center"
+              rounding="circle"
+              width={clearButtonSize}
+            >
+              <Icon
+                accessibilityLabel=""
+                color={focused ? 'white' : 'darkGray'}
+                icon="cancel"
+                size={clearIconSize}
+              />
+            </Box>
+          </button>
+        )}
+      </Box>
+      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+    </span>
   );
 });
 
@@ -171,6 +187,8 @@ SearchFieldWithForwardRef.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
+  errorMessage: PropTypes.string,
+  hasError: PropTypes.bool,
 };
 
 SearchFieldWithForwardRef.displayName = 'SearchField';

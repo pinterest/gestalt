@@ -68,6 +68,15 @@ card(
         name: 'value',
         type: 'string',
       },
+      {
+        name: 'errorMessage',
+        type: 'string',
+      },
+      {
+        name: 'hasError',
+        type: 'boolean',
+        defaultValue: false,
+      },
     ]}
   />
 );
