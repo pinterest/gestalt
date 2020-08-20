@@ -24,7 +24,7 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
     isSidebarOpen,
     setIsSidebarOpen,
     sidebarOrganisedBy,
-    setSitebarOrganizedBy,
+    setSidebarOrganizedBy,
   } = useSidebarContext();
 
   const toggleRTL = () => {
@@ -116,7 +116,7 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
             <Box display="flex" alignItems="center">
               <IconButton
                 size="md"
-                accessibilityLabel="Toggle side bar categorization"
+                accessibilityLabel="Toggle sidebar categorization"
                 iconColor="white"
                 icon={
                   sidebarOrganisedBy === 'categorized'
@@ -124,7 +124,7 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
                     : 'folder'
                 }
                 onClick={() =>
-                  setSitebarOrganizedBy(
+                  setSidebarOrganizedBy(
                     sidebarOrganisedBy === 'categorized'
                       ? 'alphabetical'
                       : 'categorized'
