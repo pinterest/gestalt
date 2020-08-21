@@ -1,13 +1,30 @@
-.Markdown p {
-  margin-bottom: 0;
-  margin-top: 0;
+.Markdown p, pre, li {
+  margin-left: 30px;
 }
 
-.Markdown p + p {
-  margin-bottom: 8px;
-  margin-top: 8px;
+.Markdown p, pre {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+html[dir="rtl"] .Markdown p, pre, li {
+  margin-right: 30px;
 }
 
 .Markdown pre {
+  background-color: rgb(236, 236, 236);
   overflow: auto;
+  padding: 5px;
 }
+
+.Markdown li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.Markdown a {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  text-decoration: none;
+}
+
