@@ -40,7 +40,7 @@ const lightModeTheme = {
   colorGray100: '#efefef',
   colorGray150: '#ddd',
   colorGray200: '#767676',
-  colorGray300: '#111',
+  colorGray300: '#36FF33',
   colorGray400: '#000',
   colorTransparentGray60: 'rgba(0, 0, 0, 0.06)',
   colorTransparentGray100: 'rgba(0, 0, 0, 0.1)',

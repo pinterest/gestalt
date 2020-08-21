@@ -4,6 +4,7 @@
 [ignore]
 # Tracking https://github.com/facebook/flow/issues/4015
 <PROJECT_ROOT>/docs
+<PROJECT_ROOT>/integration
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
 
 [options]
