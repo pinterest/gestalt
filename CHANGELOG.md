@@ -1,3 +1,9 @@
+## 11.24.1 (Aug 21, 2020)
+
+### Patch
+
+- Docs: add sidebar alphabetization toggle (#1154)
+
 ## 11.24.0 (Aug 21, 2020)
 
 ### Minor
