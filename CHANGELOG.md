@@ -1,3 +1,9 @@
+## 11.24.0 (Aug 21, 2020)
+
+### Minor
+
+- Docs: Added Development + FAQ section (#1145)
+
 ## 11.23.0 (Aug 19, 2020)
 
 ### Minor
