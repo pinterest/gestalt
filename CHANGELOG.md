@@ -1,3 +1,9 @@
+## 11.25.2 (Aug 24, 2020)
+
+### Patch
+
+- Docs: PropTable use Card + fix scrollMarginTop on main Heading (#1163)
+
 ## 11.25.1 (Aug 24, 2020)
 
 ### Patch
