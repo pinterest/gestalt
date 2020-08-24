@@ -1,3 +1,9 @@
+## 11.26.0 (Aug 24, 2020)
+
+### Minor
+
+- Box: removed deprecated xs, sm, md, lg props + codemod helper (#1164)
+
 ## 11.25.2 (Aug 24, 2020)
 
 ### Patch
