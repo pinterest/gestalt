@@ -1,3 +1,9 @@
+## 11.25.1 (Aug 24, 2020)
+
+### Patch
+
+- Docs: update margin/padding for markdown elements (#1162)
+
 ## 11.25.0 (Aug 24, 2020)
 
 ### Minor
