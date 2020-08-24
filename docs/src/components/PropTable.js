@@ -1,6 +1,7 @@
 // @flow strict
 import React from 'react';
 import { Box, Text, Icon, Link } from 'gestalt';
+import Card from './Card.js';
 
 type Props = {|
   props: Array<{|
@@ -81,120 +82,122 @@ export default function PropTable({ props: properties, Component }: Props) {
   }
 
   return (
-    <Box overflow="auto">
-      <table
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          tableLayout: 'auto',
-        }}
-      >
-        <thead>
-          <tr>
-            {hasRequired && <Th />}
-            <Th>Name</Th>
-            <Th>Type</Th>
-            <Th>Default</Th>
-          </tr>
-        </thead>
-        <tbody>
-          {properties.length > 0 ? (
-            sortBy(
-              properties,
-              ({ required, name }) => `${required ? 'a' : 'b'}${name}`
-            ).reduce(
-              (
-                acc,
-                {
-                  defaultValue,
-                  description,
-                  href,
-                  name,
-                  required,
-                  responsive,
-                  type,
-                },
-                i
-              ) => {
-                acc.push(
-                  <tr key={i}>
-                    {hasRequired && (
+    <Card id="Props" name="Props">
+      <Box overflow="auto">
+        <table
+          style={{
+            width: '100%',
+            borderCollapse: 'collapse',
+            tableLayout: 'auto',
+          }}
+        >
+          <thead>
+            <tr>
+              {hasRequired && <Th />}
+              <Th>Name</Th>
+              <Th>Type</Th>
+              <Th>Default</Th>
+            </tr>
+          </thead>
+          <tbody>
+            {properties.length > 0 ? (
+              sortBy(
+                properties,
+                ({ required, name }) => `${required ? 'a' : 'b'}${name}`
+              ).reduce(
+                (
+                  acc,
+                  {
+                    defaultValue,
+                    description,
+                    href,
+                    name,
+                    required,
+                    responsive,
+                    type,
+                  },
+                  i
+                ) => {
+                  acc.push(
+                    <tr key={i}>
+                      {hasRequired && (
+                        <Td shrink border={!description}>
+                          {required && (
+                            <Box paddingY={1}>
+                              <Icon
+                                icon="check-circle"
+                                size={16}
+                                color="darkGray"
+                                accessibilityLabel={`Property ${name} is required`}
+                              />
+                            </Box>
+                          )}
+                        </Td>
+                      )}
                       <Td shrink border={!description}>
-                        {required && (
-                          <Box paddingY={1}>
-                            <Icon
-                              icon="check-circle"
-                              size={16}
-                              color="darkGray"
-                              accessibilityLabel={`Property ${name} is required`}
-                            />
+                        <Box>
+                          <Text overflow="normal" weight="bold">
+                            {href ? (
+                              <Link href={`#${href}`}>
+                                <code>{name}</code>
+                              </Link>
+                            ) : (
+                              <code>{name}</code>
+                            )}
+                          </Text>
+                        </Box>
+                        {responsive && (
+                          <Box>
+                            <Text>
+                              <code>
+                                sm{upcase(name)}, md{upcase(name)}, lg
+                                {upcase(name)}
+                              </code>
+                            </Text>
                           </Box>
                         )}
                       </Td>
-                    )}
-                    <Td shrink border={!description}>
-                      <Box>
-                        <Text overflow="normal" weight="bold">
-                          {href ? (
-                            <Link href={`#${href}`}>
-                              <code>{name}</code>
-                            </Link>
-                          ) : (
-                            <code>{name}</code>
-                          )}
-                        </Text>
-                      </Box>
-                      {responsive && (
-                        <Box>
-                          <Text>
-                            <code>
-                              sm{upcase(name)}, md{upcase(name)}, lg
-                              {upcase(name)}
-                            </code>
-                          </Text>
-                        </Box>
-                      )}
-                    </Td>
-                    <Td border={!description}>
-                      <code>{type}</code>
-                    </Td>
-                    <Td
-                      shrink
-                      overflow="normal"
-                      color={defaultValue != null ? 'darkGray' : 'gray'}
-                      border={!description}
-                    >
-                      {defaultValue != null ? (
-                        <code>{JSON.stringify(defaultValue)}</code>
-                      ) : (
-                        '-'
-                      )}
-                    </Td>
-                  </tr>
-                );
-                if (description) {
-                  acc.push(
-                    <tr key={`${i}-description`}>
-                      <Td colspan={hasRequired ? 2 : 1} />
-                      <Td colspan={2} overflow="normal" color="gray">
-                        {description}
+                      <Td border={!description}>
+                        <code>{type}</code>
+                      </Td>
+                      <Td
+                        shrink
+                        overflow="normal"
+                        color={defaultValue != null ? 'darkGray' : 'gray'}
+                        border={!description}
+                      >
+                        {defaultValue != null ? (
+                          <code>{JSON.stringify(defaultValue)}</code>
+                        ) : (
+                          '-'
+                        )}
                       </Td>
                     </tr>
                   );
-                }
-                return acc;
-              },
-              []
-            )
-          ) : (
-            <tr>
-              <Td colspan={3} color="gray">
-                No properties
-              </Td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </Box>
+                  if (description) {
+                    acc.push(
+                      <tr key={`${i}-description`}>
+                        <Td colspan={hasRequired ? 2 : 1} />
+                        <Td colspan={2} overflow="normal" color="gray">
+                          {description}
+                        </Td>
+                      </tr>
+                    );
+                  }
+                  return acc;
+                },
+                []
+              )
+            ) : (
+              <tr>
+                <Td colspan={3} color="gray">
+                  No properties
+                </Td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </Box>
+    </Card>
   );
 }
