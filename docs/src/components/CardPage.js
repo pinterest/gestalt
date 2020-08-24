@@ -10,7 +10,16 @@ type Props = {|
 const CardPage = ({ cards }: Props) => (
   <SearchContent>
     {cards.map((card, i) => (
-      <Box marginBottom={4} id={`card-${i}`} key={i}>
+      <Box
+        marginBottom={4}
+        id={`card-${i}`}
+        key={i}
+        dangerouslySetInlineStyle={{
+          __style: {
+            scrollMarginTop: 60,
+          },
+        }}
+      >
         {card}
       </Box>
     ))}
