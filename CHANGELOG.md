@@ -1,3 +1,9 @@
+## 11.25.0 (Aug 24, 2020)
+
+### Minor
+
+- SegmentedControl: make use of useFocusVisible (#1157)
+
 ## 11.24.1 (Aug 21, 2020)
 
 ### Patch
