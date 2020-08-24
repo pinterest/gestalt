@@ -9,7 +9,6 @@
 }
 
 .item {
-  composes: accessibilityOutline from "./Focus.css";
   composes: flexGrow from "./Layout.css";
   composes: m0 from "./Whitespace.css";
   composes: noBorder from "./Borders.css";

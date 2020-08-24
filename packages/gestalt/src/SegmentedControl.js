@@ -1,26 +1,83 @@
 // @flow strict
 import React, { type Node } from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import Box from './Box.js';
-import Text from './Text.js';
+import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SegmentedControl.css';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import Text from './Text.js';
+import useFocusVisible from './useFocusVisible.js';
 
+type OnChange = AbstractEventHandler<
+  SyntheticMouseEvent<HTMLButtonElement>,
+  {| activeIndex: number |}
+>;
 type Props = {|
   items: Array<Node>,
-  onChange: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLButtonElement>,
-    {| activeIndex: number |}
-  >,
+  onChange: OnChange,
   responsive?: boolean,
   selectedItemIndex: number,
   size?: 'md' | 'lg',
 |};
 
-export default function SegmentedControl(props: Props): Node {
-  const { items, onChange, responsive, selectedItemIndex, size = 'md' } = props;
+function SegmentedControlItem({
+  index,
+  item,
+  isSelected,
+  onChange,
+  size,
+  width,
+}: {|
+  index: number,
+  item: Node,
+  isSelected: boolean,
+  onChange: OnChange,
+  size?: 'md' | 'lg',
+  width: ?string,
+|}) {
+  const { isFocusVisible } = useFocusVisible();
+  const cs = classnames(styles.item, focusStyles.hideOutline, {
+    [styles.itemIsNotSelected]: !isSelected,
+    [styles.itemIsSelected]: isSelected,
+    [focusStyles.accessibilityOutline]: isFocusVisible,
+  });
+
+  return (
+    <button
+      aria-selected={isSelected}
+      className={cs}
+      onClick={event => onChange({ event, activeIndex: index })}
+      role="tab"
+      type="button"
+      style={{ width }}
+    >
+      {typeof item === 'string' ? (
+        <Text
+          color={isSelected ? 'darkGray' : 'gray'}
+          align="center"
+          size={size}
+          weight="bold"
+        >
+          {item}
+        </Text>
+      ) : (
+        <Box display="flex" justifyContent="center">
+          {item}
+        </Box>
+      )}
+    </button>
+  );
+}
+
+export default function SegmentedControl({
+  items,
+  onChange,
+  responsive,
+  selectedItemIndex,
+  size = 'md',
+}: Props): Node {
   const buttonWidth = responsive
     ? undefined
     : `${Math.floor(100 / Math.max(1, items.length))}%`;
@@ -32,39 +89,17 @@ export default function SegmentedControl(props: Props): Node {
       )}
       role="tablist"
     >
-      {items.map((item, i) => {
-        const isSelected = i === selectedItemIndex;
-        const cs = classnames(styles.item, {
-          [styles.itemIsNotSelected]: !isSelected,
-          [styles.itemIsSelected]: isSelected,
-        });
-        return (
-          <button
-            aria-selected={isSelected}
-            className={cs}
-            key={i}
-            onClick={event => onChange({ event, activeIndex: i })}
-            role="tab"
-            type="button"
-            style={{ width: buttonWidth }}
-          >
-            {typeof item === 'string' ? (
-              <Text
-                color={isSelected ? 'darkGray' : 'gray'}
-                align="center"
-                size={size}
-                weight="bold"
-              >
-                {item}
-              </Text>
-            ) : (
-              <Box display="flex" justifyContent="center">
-                {item}
-              </Box>
-            )}
-          </button>
-        );
-      })}
+      {items.map((item, i) => (
+        <SegmentedControlItem
+          key={i}
+          index={i}
+          item={item}
+          isSelected={i === selectedItemIndex}
+          onChange={onChange}
+          size={size}
+          width={buttonWidth}
+        />
+      ))}
     </div>
   );
 }
