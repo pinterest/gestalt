@@ -102,7 +102,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <span>
+    <>
       <Box
         alignItems="center"
         display="flex"
@@ -172,7 +172,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
         )}
       </Box>
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-    </span>
+    </>
   );
 });
 
