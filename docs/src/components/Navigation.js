@@ -44,8 +44,16 @@ export default function Navigation() {
         </Box>
       )}
 
-      <Box display="none" mdDisplay="block" padding={4}>
-        {navList}
+      <Box display="none" mdDisplay="block">
+        <Box
+          padding={4}
+          position="fixed"
+          overflow="auto"
+          maxHeight="calc(100% - 60px)"
+          minWidth={240}
+        >
+          {navList}
+        </Box>
       </Box>
     </>
   );
