@@ -43,6 +43,7 @@ exports[`SelectList SelectList normal 1`] = `
       id="test"
       onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
     >
       <option
         value="value1"
