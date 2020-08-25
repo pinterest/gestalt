@@ -1,3 +1,9 @@
+## 11.27.0 (Aug 25, 2020)
+
+### Minor
+
+- SelectList: convert to function component (#1167)
+
 ## 11.26.1 (Aug 25, 2020)
 
 ### Patch
