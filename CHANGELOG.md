@@ -1,3 +1,9 @@
+## 11.26.1 (Aug 25, 2020)
+
+### Patch
+
+- Docs: separate sidebar scrolling (#1166)
+
 ## 11.26.0 (Aug 24, 2020)
 
 ### Minor
