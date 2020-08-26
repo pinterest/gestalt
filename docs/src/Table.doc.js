@@ -91,6 +91,7 @@ card(<Card name="Table.Body" />);
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.Body}
     props={[
       {
@@ -105,6 +106,7 @@ card(<Card name="Table.Cell" />);
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.Cell}
     props={[
       {
@@ -129,6 +131,7 @@ card(<Card name="Table.Footer" />);
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.Footer}
     props={[
       {
@@ -143,6 +146,7 @@ card(<Card name="Table.Header" />);
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.Header}
     props={[
       {
@@ -200,6 +204,7 @@ card(<Card name="Table.HeaderCell" />);
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.HeaderCell}
     props={[
       {
@@ -229,6 +234,7 @@ card(<Card name="Table.Row" />);
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.Row}
     props={[
       {
@@ -248,6 +254,7 @@ card(
 
 card(
   <PropTable
+    showHeading={false}
     Component={Table.SortableHeaderCell}
     props={[
       {

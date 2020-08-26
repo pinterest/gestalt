@@ -2,15 +2,16 @@ body {
   margin: 0;
 }
 
-@keyframes target-fade {
-  0% { background-color: rgba(0,0,0,.05); }
-
-  100% { background-color: rgba(255,255,255,0); }
+pre {
+  white-space: pre-wrap !important; /* stylelint-disable-line declaration-no-important */
+  word-break: break-word !important; /* stylelint-disable-line declaration-no-important */
 }
 
-@media screen and (prefers-reduced-motion: no-preference) {
-  :target {
-    animation: 1.5s ease-in target-fade  1;
-  }
+ul {
+  margin: 0;
 }
 
+li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

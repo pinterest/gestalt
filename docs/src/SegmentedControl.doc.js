@@ -96,7 +96,7 @@ function SegmentedControlExample() {
 card(
   <Example
     description="Segmented Controls can have responsive widths where the width of an item is based on its content."
-    name="Example"
+    name="Example: Responsive"
     defaultCode={`
 function SegmentedControlExample() {
 

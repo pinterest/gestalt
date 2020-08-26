@@ -13,6 +13,8 @@ type Props = {|
   id?: string,
   name: string,
   direction?: 'row' | 'column',
+  showHeading?: boolean,
+  headingSize: 'sm' | 'md',
 |};
 
 const { Box, Column, IconButton, Text, Tooltip } = gestalt;
@@ -140,6 +142,8 @@ const Example = ({
   id,
   name,
   direction = 'column',
+  headingSize,
+  showHeading,
 }: Props) => {
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
@@ -149,6 +153,8 @@ const Example = ({
       description={description}
       id={id}
       stacked={direction === 'column'}
+      showHeading={showHeading}
+      headingSize={headingSize}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box

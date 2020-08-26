@@ -56,7 +56,7 @@ Visit [http://localhost:8888/](http://localhost:8888) and click on a component t
 
 When a release will cause breaking changes — in usage or in typing — we provide a codemod to ease the upgrade process. Codemods are organized by release in `/packages/gestalt-codemods`.
 
-### Usage:
+### Usage
 
 Clone the Gestalt repo locally if you haven't already. Run the relevant codemod(s) in the relevant directory of your repo (not the Gestalt repo): anywhere the component to be updated is used. Example usage for a codebase using Flow:
 
