@@ -1,3 +1,9 @@
+## 11.28.0 (Aug 26, 2020)
+
+### Minor
+
+- SearchField: Add errorMessage (#1155)
+
 ## 11.27.0 (Aug 25, 2020)
 
 ### Minor
