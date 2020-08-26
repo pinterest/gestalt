@@ -72,11 +72,6 @@ card(
         name: 'errorMessage',
         type: 'string',
       },
-      {
-        name: 'hasError',
-        type: 'boolean',
-        defaultValue: false,
-      },
     ]}
   />
 );

@@ -28,7 +28,6 @@ type Props = {|
   size?: 'md' | 'lg',
   value?: string,
   errorMessage?: string,
-  hasError?: boolean,
 |};
 
 const SearchFieldWithForwardRef: React$AbstractComponent<
@@ -46,7 +45,6 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
     size = 'md',
     value,
     errorMessage,
-    hasError = false,
   } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);
@@ -95,7 +93,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
       [styles.inputActive]: focused || hasValue,
       [styles.inputHovered]: hovered,
     },
-    hasError || errorMessage ? formElement.errored : formElement.normal
+    errorMessage ? formElement.errored : formElement.normal
   );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
@@ -132,7 +130,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
         )}
         <input
           aria-describedby={errorMessage && focused ? `${id}-error` : null}
-          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+          aria-invalid={errorMessage ? 'true' : 'false'}
           ref={ref}
           aria-label={accessibilityLabel}
           autoComplete={autoComplete}
@@ -188,7 +186,6 @@ SearchFieldWithForwardRef.propTypes = {
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
   errorMessage: PropTypes.string,
-  hasError: PropTypes.bool,
 };
 
 SearchFieldWithForwardRef.displayName = 'SearchField';
