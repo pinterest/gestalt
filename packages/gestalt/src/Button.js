@@ -4,13 +4,14 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  type Element,
+  type Node,
 } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
 import Icon from './Icon.js';
+import Link from './Link.js';
 import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
@@ -28,54 +29,67 @@ const DEFAULT_TEXT_COLORS = {
   white: 'darkGray',
 };
 
-const SIZE_NAME_TO_PIXEL = {
-  sm: 10,
-  md: 12,
-  lg: 12,
-};
-
-type Props = {|
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
-  accessibilityLabel?: string,
+type BaseButton = {|
   color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
-  onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
-  selected?: boolean,
+  onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>
+  >,
   size?: 'sm' | 'md' | 'lg',
   text: string,
   textColor?: 'white' | 'darkGray' | 'blue' | 'red',
-  type?: 'submit' | 'button',
 |};
 
+type ButtonType = {|
+  ...BaseButton,
+  accessibilityControls?: string,
+  accessibilityExpanded?: boolean,
+  accessibilityHaspopup?: boolean,
+  accessibilityLabel?: string,
+  selected?: boolean,
+  type?: 'button',
+|};
+
+type SubmitButtonType = {|
+  ...BaseButton,
+  accessibilityLabel?: string,
+  type: 'submit',
+|};
+
+type LinkButtonType = {|
+  ...BaseButton,
+  href: string,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
+  type: 'link',
+|};
+
+type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
+
+type unionRefs = HTMLButtonElement | HTMLAnchorElement;
+
 const ButtonWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLButtonElement
-> = forwardRef<Props, HTMLButtonElement>(function Button(
-  props,
-  ref
-): Element<'button'> {
+  unionProps,
+  unionRefs
+> = forwardRef<unionProps, unionRefs>(function Button(props, ref): Node {
   const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-    accessibilityLabel,
     color = 'gray',
     disabled = false,
-    iconEnd,
     inline = false,
-    name,
+    iconEnd,
     onClick,
     selected = false,
     size = 'md',
     text,
     textColor: textColorProp,
-    type = 'button',
   } = props;
+
   const innerRef = useRef(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
@@ -122,8 +136,9 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.selected]: !disabled && selected,
       [styles.disabled]: disabled,
       [styles.enabled]: !disabled,
-      [styles.inline]: inline,
-      [styles.block]: !inline,
+      [styles.inline]: props.type !== 'link' && inline,
+      [styles.block]: props.type !== 'link' && !inline,
+      [styles.link]: props.type === 'link',
       [touchableStyles.tapCompress]: !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     }
@@ -142,7 +157,89 @@ const ButtonWithForwardRef: React$AbstractComponent<
     </Text>
   );
 
+  const iconEndComponent = (): Node => {
+    const SIZE_NAME_TO_PIXEL = {
+      sm: 10,
+      md: 12,
+      lg: 12,
+    };
+
+    return (
+      <Box alignItems="center" display="flex">
+        {buttonText}
+        <Box display="inlineBlock" flex="none" marginStart={2}>
+          <Icon
+            accessibilityLabel=""
+            color={textColor}
+            icon={iconEnd}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        </Box>
+      </Box>
+    );
+  };
+
   /* eslint-disable react/button-has-type */
+  if (props.type === 'link') {
+    const { href, rel, target } = props;
+
+    return (
+      <Link
+        hoverStyle="none"
+        href={href}
+        onClick={({ event }) => {
+          if (onClick) {
+            onClick({ event });
+          }
+        }}
+        ref={innerRef}
+        rel={rel}
+        target={target}
+        inline={inline}
+        rounding="pill"
+        tapStyle="compress"
+      >
+        <div className={classes}>
+          {iconEnd ? iconEndComponent() : buttonText}
+        </div>
+      </Link>
+    );
+  }
+
+  if (props.type === 'submit') {
+    const { accessibilityLabel, name, type } = props;
+
+    return (
+      <button
+        aria-label={accessibilityLabel}
+        className={classes}
+        disabled={disabled}
+        name={name}
+        onBlur={handleBlur}
+        onClick={event => onClick && onClick({ event })}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onTouchCancel={handleTouchCancel}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
+        onTouchStart={handleTouchStart}
+        ref={innerRef}
+        style={compressStyle}
+        type={type}
+      >
+        {iconEnd ? iconEndComponent() : buttonText}
+      </button>
+    );
+  }
+
+  const {
+    accessibilityLabel,
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    type = 'Button',
+  } = props;
+
   return (
     <button
       aria-controls={accessibilityControls}
@@ -151,7 +248,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
       aria-label={accessibilityLabel}
       className={classes}
       disabled={disabled}
-      name={name}
       onBlur={handleBlur}
       onClick={event => onClick && onClick({ event })}
       onMouseDown={handleMouseDown}
@@ -164,21 +260,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       type={type}
       {...(compressStyle ? { style: compressStyle } : {})}
     >
-      {iconEnd ? (
-        <Box alignItems="center" display="flex">
-          {buttonText}
-          <Box display="inlineBlock" flex="none" marginStart={2}>
-            <Icon
-              accessibilityLabel=""
-              color={textColor}
-              icon={iconEnd}
-              size={SIZE_NAME_TO_PIXEL[size]}
-            />
-          </Box>
-        </Box>
-      ) : (
-        buttonText
-      )}
+      {iconEnd ? iconEndComponent() : buttonText}
     </button>
   );
   /* eslint-enable react/button-has-type */
@@ -192,15 +274,22 @@ ButtonWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
   disabled: PropTypes.bool,
+  href: PropTypes.string,
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
+    'none' | 'nofollow'
+  >),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
+    null | 'self' | 'blank'
+  >),
   text: PropTypes.string.isRequired,
   textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
-  type: PropTypes.oneOf(['button', 'submit']),
+  type: PropTypes.oneOf(['button', 'submit', 'link']),
 };
 
 ButtonWithForwardRef.displayName = 'Button';

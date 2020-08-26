@@ -4,8 +4,10 @@ import Button from './Button.js';
 
 const Valid = <Button text="Next" />;
 
-// $FlowExpectedError[prop-missing]
-const NonExistingProp = <Button nonexisting={33} />;
+const NonExistingProp = (
+  // $FlowExpectedError[incompatible-type]
+  <Button type="link" href="http://localhost:3000/Button" nonexisting={33} />
+);
 
-// $FlowExpectedError[prop-missing]
+// $FlowExpectedError[incompatible-type]
 const MissingProp = <Button />;
