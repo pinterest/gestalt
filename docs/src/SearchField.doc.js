@@ -68,6 +68,10 @@ card(
         name: 'value',
         type: 'string',
       },
+      {
+        name: 'errorMessage',
+        type: 'string',
+      },
     ]}
   />
 );
