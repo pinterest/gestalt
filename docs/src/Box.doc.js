@@ -524,7 +524,7 @@ card(
     id="border"
     name="Borders"
   >
-    <Combination borderSize={['sm', 'lg']}>
+    <Combination borderSize={['sm', 'lg']} showHeading={false}>
       {props => (
         <Box
           width={60}
@@ -578,7 +578,10 @@ card(
     id="rounding"
     name="Rounding"
   >
-    <Combination rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
+    <Combination
+      rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}
+      showHeading={false}
+    >
       {props => (
         <Box
           color="gray"
@@ -599,7 +602,10 @@ card(
     id="opacity"
     name="Opacity"
   >
-    <Combination opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
+    <Combination
+      opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
+      showHeading={false}
+    >
       {props => <Box color="darkGray" width={60} height={60} {...props} />}
     </Combination>
   </Card>

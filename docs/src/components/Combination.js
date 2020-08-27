@@ -11,6 +11,7 @@ type Props = {|
   id?: string,
   layout?: '2column' | '4column' | '12column',
   name?: string,
+  showHeading?: boolean,
   showValues?: boolean,
   stacked?: boolean,
 |};
@@ -85,6 +86,7 @@ export default function Combination({
   description = '',
   layout = '2column',
   id,
+  showHeading,
   showValues = true,
   stacked = false,
   children,
@@ -92,7 +94,13 @@ export default function Combination({
 }: Props) {
   const { column, mdColumn, lgColumn } = layoutReducer(layout);
   return (
-    <Card name={name} description={description} id={id} stacked={stacked}>
+    <Card
+      name={name}
+      description={description}
+      id={id}
+      stacked={stacked}
+      showHeading={showHeading}
+    >
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => (
           <Box
