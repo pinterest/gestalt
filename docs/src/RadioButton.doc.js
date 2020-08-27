@@ -1,12 +1,12 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { RadioButton } from 'gestalt';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(

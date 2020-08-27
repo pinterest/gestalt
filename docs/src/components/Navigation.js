@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box } from 'gestalt';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
@@ -17,7 +17,7 @@ function getAlphabetizedComponents() {
   );
 }
 
-export default function Navigation() {
+export default function Navigation(): Node {
   const { sidebarOrganisedBy, isSidebarOpen } = useSidebarContext();
 
   const navList = (

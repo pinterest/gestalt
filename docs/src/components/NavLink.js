@@ -1,16 +1,17 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Link, Text } from 'gestalt';
-import { withRouter, Route } from 'react-router-dom';
-import { createLocation } from 'history';
+import { withRouter, Route } from 'react-router-dom'; // flowlint-line untyped-import:off
+import { createLocation } from 'history'; // flowlint-line untyped-import:off
 import { useSidebarContext } from './sidebarContext.js';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   to: string,
   history: *,
 |};
 
+// $FlowIssue[prop-missing]
 const isLeftClickEvent = event => event.button === 0;
 const isModifiedEvent = event =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
@@ -44,4 +45,5 @@ const NavLink = ({ children, to, history }: Props) => {
   );
 };
 
+// $FlowIssue[signature-verification-failure]
 export default withRouter(NavLink);

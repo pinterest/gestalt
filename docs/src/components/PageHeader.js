@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Badge, Box, Text, Tooltip, Heading, Link } from 'gestalt';
 import Markdown from './Markdown.js';
 
@@ -28,7 +28,7 @@ export default function ComponentHeader({
   name,
   description = '',
   fileName,
-}: Props) {
+}: Props): Node {
   return (
     <Box marginBottom={6}>
       <Box marginBottom={4}>

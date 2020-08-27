@@ -1,12 +1,12 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Icon, Row, Stack, Text } from 'gestalt';
 import Example from './components/Example.js';
 import Card from './components/Card.js';
 import PageHeader from './components/PageHeader.js';
 import Markdown from './components/Markdown.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(

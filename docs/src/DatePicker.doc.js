@@ -1,5 +1,5 @@
 // @flow strict-local
-import React from 'react';
+import React, { type Node } from 'react';
 import DatePicker from 'gestalt-datepicker';
 import {
   arSA,
@@ -40,7 +40,7 @@ import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
 import Combination from './components/Combination.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 const localeMap = {

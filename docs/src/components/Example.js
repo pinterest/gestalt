@@ -1,9 +1,9 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
-import LZString from 'lz-string';
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+import LZString from 'lz-string'; // flowlint-line untyped-import:off
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'; // flowlint-line untyped-import:off
 import Card from './Card.js';
 import theme from './atomDark.js';
 
@@ -14,7 +14,7 @@ type Props = {|
   name: string,
   direction?: 'row' | 'column',
   showHeading?: boolean,
-  headingSize: 'sm' | 'md',
+  headingSize?: 'sm' | 'md',
 |};
 
 const { Box, Column, IconButton, Text, Tooltip } = gestalt;
@@ -82,6 +82,7 @@ const handleCodeSandbox = async ({ code, title }) => {
           dependencies: {
             react: 'latest',
             'react-dom': 'latest',
+            // $FlowIssue[exponential-spread]
             ...(baseComponents.length > 0 ? { gestalt: 'latest' } : {}),
             ...(additionalComponents.includes('DatePicker')
               ? { 'gestalt-datepicker': 'latest' }
@@ -144,7 +145,7 @@ const Example = ({
   direction = 'column',
   headingSize,
   showHeading,
-}: Props) => {
+}: Props): Node => {
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
   return (

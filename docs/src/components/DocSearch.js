@@ -1,8 +1,8 @@
 // @flow strict
-import React, { useEffect } from 'react';
+import React, { useEffect, type Node } from 'react';
 import './DocSearch.css';
 
-export default function DocSearch() {
+export default function DocSearch(): Node {
   useEffect(() => {
     window.docsearch({
       apiKey: 'a22bd809b2fb174c5defd3c0f44cab8c',

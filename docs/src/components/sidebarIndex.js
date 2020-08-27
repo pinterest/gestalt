@@ -1,9 +1,9 @@
 // @flow strict
 
-export type sidebarIndexType = Array<{|
-  displayName: string,
+export type sidebarIndexType = {|
+  sectionName: string,
   pages: Array<string>,
-|}>;
+|};
 
 // sidebarIndex is the source of truth for the sidebar documentation menu.
 // sidebarIndex establishes the sidebar hierarchical menu order:
@@ -13,7 +13,7 @@ export type sidebarIndexType = Array<{|
 //    >>> page 2
 //    >>> page 3
 // Any new section/page must be added to sidebarIndex to be displayed.
-const sidebarIndex: sidebarIndexType = [
+const sidebarIndex: Array<sidebarIndexType> = [
   {
     sectionName: 'Getting Started',
     pages: ['Installation', 'Development', 'Faq'],

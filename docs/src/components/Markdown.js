@@ -1,8 +1,8 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Text } from 'gestalt';
-import marked, { Renderer } from 'marked';
-import highlightjs from 'highlight.js';
+import marked, { Renderer } from 'marked'; // flowlint-line untyped-import:off
+import highlightjs from 'highlight.js'; // flowlint-line untyped-import:off
 import './Markdown.css';
 
 type Props = {|
@@ -27,7 +27,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ text }: Props) {
+export default function Markdown({ text }: Props): Node {
   const renderer = new Renderer();
 
   renderer.code = (code, language) => {
