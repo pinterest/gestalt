@@ -60,8 +60,8 @@ export default function App(props: Props) {
               <Navigation />
             </Box>
             <Divider />
-            <Box width="auto">
-              <Box padding={4} mdPadding={6} lgPadding={8}>
+            <Box width="100%">
+              <Box padding={4} mdPadding={6} lgPadding={8} width="100%">
                 {children}
               </Box>
             </Box>

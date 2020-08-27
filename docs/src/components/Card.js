@@ -7,38 +7,45 @@ import Markdown from './Markdown.js';
 type Props = {|
   children?: React.Node,
   description?: string,
+  headingSize: 'sm' | 'md',
   id: ?string,
   name: string,
   stacked?: boolean,
+  showHeading?: boolean,
 |};
 
 export default function Card({
   children,
   description,
+  headingSize = 'md',
   id,
   name,
   stacked = false,
+  showHeading = true,
 }: Props) {
   const slugifiedId = id ?? slugify(name);
   return (
     <>
-      <Heading size="md">
-        <Box
-          dangerouslySetInlineStyle={{
-            __style: {
-              scrollMarginTop: 60,
-            },
-          }}
-          id={slugifiedId}
-        >
-          <Row display="flex" alignItems="baseline" gap={1}>
-            {name}
-            <Link href={`#${slugifiedId}`} inline>
-              <Icon icon="link" accessibilityLabel="" size={12} />
-            </Link>
-          </Row>
-        </Box>
-      </Heading>
+      {showHeading && (
+        <Heading size={headingSize}>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                scrollMarginTop: 60,
+              },
+            }}
+            id={slugifiedId}
+            data-anchor
+          >
+            <Row display="flex" alignItems="baseline" gap={1}>
+              {name}
+              <Link href={`#${slugifiedId}`} inline>
+                <Icon icon="link" accessibilityLabel="" size={12} />
+              </Link>
+            </Row>
+          </Box>
+        </Heading>
+      )}
       <Box
         marginLeft={-2}
         marginRight={-2}

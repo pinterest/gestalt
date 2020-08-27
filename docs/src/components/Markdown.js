@@ -1,14 +1,12 @@
 // @flow strict
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import './Markdown.css';
 
 type Props = {|
-  fetchFile?: boolean,
   text: string,
-  size?: 'md' | 'lg',
 |};
 
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
@@ -29,12 +27,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({
-  fetchFile = false,
-  text,
-  size = 'lg',
-}: Props) {
-  const [fetchedText, setFetchedText] = useState(null);
+export default function Markdown({ text }: Props) {
   const renderer = new Renderer();
 
   renderer.code = (code, language) => {
@@ -42,23 +35,30 @@ export default function Markdown({
     return `<pre><code class="hljs ${language}">${highlight}</code></pre>`;
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(text);
-      const responseText = await response.text();
-      setFetchedText(responseText);
-    }
-    if (fetchFile) {
-      fetchData();
-    }
-  }, [fetchFile, setFetchedText, text]);
+  renderer.heading = (input, level) => {
+    const escapedText = input.toLowerCase().replace(/[^\w]+/g, '-');
 
-  const html = marked(stripIndent(fetchFile ? fetchedText || '' : text), {
+    return `
+      <h${level}>
+        ${
+          level === 2
+            ? `<div data-anchor>
+              <a id="${escapedText}" className="anchor" href="#${escapedText}">
+                <span className="header-link" />
+              </a>
+            </div>`
+            : ''
+        }
+        ${input}
+      </h${level}>`;
+  };
+
+  const html = marked(stripIndent(text), {
     renderer,
   });
 
   return (
-    <Text size={size}>
+    <Text>
       <div
         className="Markdown"
         dangerouslySetInnerHTML={{ __html: html }} // eslint-disable-line react/no-danger

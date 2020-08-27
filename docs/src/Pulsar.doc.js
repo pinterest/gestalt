@@ -69,7 +69,7 @@ card(
     description="
 
   "
-    name="Example"
+    name="Example: Flyout"
     defaultCode={`
 class FlyoutExample extends React.Component {
   constructor(props) {

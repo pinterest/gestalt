@@ -44,7 +44,7 @@ export default function Navigation() {
         </Box>
       )}
 
-      <Box display="none" mdDisplay="block">
+      <Box display="none" mdDisplay="block" color="white">
         <Box
           padding={4}
           position="fixed"
