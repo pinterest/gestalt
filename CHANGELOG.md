@@ -1,3 +1,9 @@
+## 11.28.3 (Aug 27, 2020)
+
+### Patch
+
+- Docs: remove heading for multiple Combination sections on Box (#1172)
+
 ## 11.28.2 (Aug 27, 2020)
 
 ### Patch
