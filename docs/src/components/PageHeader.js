@@ -46,7 +46,7 @@ export default function ComponentHeader({
           </Link>
         </Text>
       </Box>
-      {description && <Markdown text={description} size="lg" />}
+      {description && <Markdown text={description} />}
     </Box>
   );
 }

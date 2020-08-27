@@ -66,7 +66,7 @@ card(
   <Example
     id="iconWithLabel"
     description="Icon with a label"
-    name="Example:"
+    name="Example"
     defaultCode={`
 <Box alignItems="center" display="flex">
   <Box marginRight={1} padding={1}>

@@ -13,6 +13,7 @@ type Props = {|
     responsive?: boolean,
     type: string,
   |}>,
+  showHeading?: boolean,
   Component?: React.ComponentType<any>,
 |};
 
@@ -59,7 +60,11 @@ const Td = ({
 const upcase = string => string.charAt(0).toUpperCase() + string.slice(1);
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
-export default function PropTable({ props: properties, Component }: Props) {
+export default function PropTable({
+  props: properties,
+  Component,
+  showHeading,
+}: Props) {
   const hasRequired = properties.some(prop => prop.required);
 
   if (process.env.NODE_ENV === 'development' && Component) {
@@ -82,7 +87,7 @@ export default function PropTable({ props: properties, Component }: Props) {
   }
 
   return (
-    <Card id="Props" name="Props">
+    <Card id="Props" name="Props" showHeading={showHeading}>
       <Box overflow="auto">
         <table
           style={{
