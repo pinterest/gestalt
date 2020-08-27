@@ -1,3 +1,9 @@
+## 11.28.1 (Aug 27, 2020)
+
+### Patch
+
+- Docs: Add in page content navigation (#1168)
+
 ## 11.28.0 (Aug 26, 2020)
 
 ### Minor
