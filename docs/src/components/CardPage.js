@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import { Box, Sticky } from 'gestalt';
+import { Box, FixedZIndex, Sticky } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
@@ -38,7 +38,7 @@ const CardPage = ({ cards }: Props) => (
       lgDisplay="block"
       flex="none"
     >
-      <Sticky top={90}>
+      <Sticky top={90} zIndex={new FixedZIndex(0)}>
         <Toc cards={cards} />
       </Sticky>
     </Box>
