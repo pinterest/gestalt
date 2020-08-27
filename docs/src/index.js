@@ -16,7 +16,7 @@ const mapRoutes = pages =>
     <Route
       path={`/${page}`}
       key={i}
-      render={() => <CardPage cards={routes[page]} />}
+      render={() => <CardPage cards={routes[page]} page={page} />}
     />
   ));
 
