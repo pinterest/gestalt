@@ -1,3 +1,9 @@
+## 11.28.2 (Aug 27, 2020)
+
+### Patch
+
+- Docs: fix layer issue with search + TOC (#1171)
+
 ## 11.28.1 (Aug 27, 2020)
 
 ### Patch
