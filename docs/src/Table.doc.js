@@ -1,12 +1,12 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Table } from 'gestalt';
 import Card from './components/Card.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(
@@ -92,6 +92,7 @@ card(<Card name="Table.Body" />);
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.Body}
     props={[
       {
@@ -107,6 +108,7 @@ card(<Card name="Table.Cell" />);
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.Cell}
     props={[
       {
@@ -132,6 +134,7 @@ card(<Card name="Table.Footer" />);
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.Footer}
     props={[
       {
@@ -147,6 +150,7 @@ card(<Card name="Table.Header" />);
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.Header}
     props={[
       {
@@ -205,6 +209,7 @@ card(<Card name="Table.HeaderCell" />);
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.HeaderCell}
     props={[
       {
@@ -235,6 +240,7 @@ card(<Card name="Table.Row" />);
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.Row}
     props={[
       {
@@ -255,6 +261,7 @@ card(
 card(
   <PropTable
     showHeading={false}
+    // $FlowIssue[prop-missing]
     Component={Table.SortableHeaderCell}
     props={[
       {

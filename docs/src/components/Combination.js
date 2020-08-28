@@ -1,11 +1,11 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Text } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
 import Card from './Card.js';
 
-type Props = {|
-  children: (Object, number) => React.Node,
+type Props = {
+  children: (Object, number) => Node, // flowlint-line unclear-type:off
   description?: string,
   heading?: boolean,
   id?: string,
@@ -14,7 +14,8 @@ type Props = {|
   showHeading?: boolean,
   showValues?: boolean,
   stacked?: boolean,
-|};
+  ...
+};
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
 const combinations = variationsByField => {
@@ -91,7 +92,7 @@ export default function Combination({
   stacked = false,
   children,
   ...props
-}: Props) {
+}: Props): Node {
   const { column, mdColumn, lgColumn } = layoutReducer(layout);
   return (
     <Card

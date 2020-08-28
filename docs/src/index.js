@@ -1,7 +1,7 @@
 // @flow strict
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { render } from 'react-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'; // flowlint-line untyped-import:off
+import { render } from 'react-dom'; // flowlint-line untyped-import:off
 import 'gestalt/dist/gestalt-future.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker-future.css';
 import App from './components/App.js';

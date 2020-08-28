@@ -1,16 +1,16 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Link as GestaltLink } from 'gestalt';
-import { createLocation } from 'history';
-import { withRouter } from 'react-router-dom';
+import { createLocation } from 'history'; // flowlint-line untyped-import:off
+import { withRouter } from 'react-router-dom'; // flowlint-line untyped-import:off
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   history: *,
-  onClick: Function,
+  onClick: Function, // flowlint-line unclear-type:off
   replace?: boolean,
   target?: null | 'self' | 'blank',
-  to: string | Object,
+  to: string | Object, // flowlint-line unclear-type:off
 |};
 
 const isModifiedEvent = event =>
@@ -59,4 +59,5 @@ const Link = ({
   );
 };
 
+// $FlowIssue[signature-verification-failure]
 export default withRouter(Link);

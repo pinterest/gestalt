@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import {
   Box,
   Text,
@@ -172,7 +172,7 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
 export default function StickyHeader({
   colorScheme,
   onChangeColorScheme,
-}: Props) {
+}: Props): Node {
   const isReducedHeight = () => window.innerHeight < 709;
   const [reducedHeight, setReducedHeight] = React.useState(isReducedHeight());
 

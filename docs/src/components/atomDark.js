@@ -42,12 +42,6 @@ export default {
       },
     },
     {
-      types: [],
-      style: {
-        color: '#c6c5fe',
-      },
-    },
-    {
       types: ['operator', 'entity', 'url', 'string', 'variable'],
       style: {
         color: 'hsl(40, 90%, 60%)',

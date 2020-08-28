@@ -1,11 +1,11 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(

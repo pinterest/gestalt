@@ -1,10 +1,10 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(<PageHeader name="Spinner" />);

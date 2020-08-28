@@ -1,6 +1,8 @@
 // @flow strict
+// $FlowIssue[signature-verification-failure]
 const routes = {};
 
+// $FlowIssue[prop-missing]
 const requireCard = require.context('..', true, /\.doc\.js$/);
 const paths = requireCard.keys();
 paths.sort((a, b) => a.localeCompare(b));

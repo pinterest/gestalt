@@ -1,14 +1,14 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Heading, Icon, Link, Row } from 'gestalt';
-import slugify from 'slugify';
+import slugify from 'slugify'; // flowlint-line untyped-import:off
 import Markdown from './Markdown.js';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
   description?: string,
-  headingSize: 'sm' | 'md',
-  id: ?string,
+  headingSize?: 'sm' | 'md',
+  id?: string,
   name: string,
   stacked?: boolean,
   showHeading?: boolean,
@@ -22,7 +22,7 @@ export default function Card({
   name,
   stacked = false,
   showHeading = true,
-}: Props) {
+}: Props): Node {
   const slugifiedId = id ?? slugify(name);
   return (
     <>
@@ -37,7 +37,7 @@ export default function Card({
             id={slugifiedId}
             data-anchor
           >
-            <Row display="flex" alignItems="baseline" gap={1}>
+            <Row alignItems="baseline" gap={1}>
               {name}
               <Link href={`#${slugifiedId}`} inline>
                 <Icon icon="link" accessibilityLabel="" size={12} />

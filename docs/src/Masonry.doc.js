@@ -1,11 +1,11 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(
@@ -112,7 +112,7 @@ card(
 
 type Props = {|
   flexible?: boolean,
-  layout?: Function,
+  layout?: () => {||},
 |};
 
 type State = {|
@@ -178,6 +178,7 @@ const getPins = () => {
 class ExampleMasonry extends React.Component<Props, State> {
   // ref on a component gets the mounted instance of the component
   // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
+  // $FlowIssue[prop-missing]
   grid: ?Masonry<*>;
 
   scrollContainer: ?HTMLElement;
@@ -230,6 +231,7 @@ class ExampleMasonry extends React.Component<Props, State> {
           style={containerStyle}
         >
           {scrollContainer && (
+            // $FlowIssue[prop-missing]
             <Masonry
               columnWidth={170}
               comp={({ data }) => (
@@ -247,6 +249,7 @@ class ExampleMasonry extends React.Component<Props, State> {
               flexible={this.props.flexible}
               gutterWidth={5}
               items={this.state.pins}
+              // $FlowIssue[incompatible-type]
               layout={this.props.layout}
               minCols={1}
               ref={ref => {
@@ -321,6 +324,7 @@ card(
   `}
     name="Uniform row heights"
   >
+    {/* $FlowIssue[prop-missing] */}
     <ExampleMasonry layout={MasonryUniformRowLayout} />
   </Box>
 );
