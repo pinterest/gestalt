@@ -1,3 +1,9 @@
+## 11.28.6 (Aug 28, 2020)
+
+### Patch
+
+- Flyout: Update docs to mention that size is max width (#1174)
+
 ## 11.28.5 (Aug 28, 2020)
 
 ### Patch
