@@ -1,3 +1,9 @@
+## 11.28.4 (Aug 28, 2020)
+
+### Patch
+
+- Docs: Add 'edit this page' link to every doc page (#1170)
+
 ## 11.28.3 (Aug 27, 2020)
 
 ### Patch
