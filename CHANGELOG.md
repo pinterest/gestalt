@@ -1,3 +1,9 @@
+## 11.28.5 (Aug 28, 2020)
+
+### Patch
+
+- Docs: enable flow types (#1173)
+
 ## 11.28.4 (Aug 28, 2020)
 
 ### Patch
