@@ -1,11 +1,11 @@
 // @flow strict
 
-import React from 'react';
+import React, { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(<PageHeader name="SearchField" />);
@@ -87,7 +87,6 @@ card(
     Be sure to internationalize your \`accessibilityLabel\`.
   `}
     name="Example: Accessibility"
-    useCheckerboard={false}
     defaultCode={`
   function SearchFieldExample() {
     const [value, setValue] = React.useState('');

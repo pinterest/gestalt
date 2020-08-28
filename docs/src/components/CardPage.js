@@ -1,15 +1,15 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, FixedZIndex, Link, Sticky, Row, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
 type Props = {|
-  cards: Array<React.Node>,
+  cards: Array<Node>,
   page: string,
 |};
 
-const CardPage = ({ cards, page }: Props) => {
+const CardPage = ({ cards, page }: Props): Node => {
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/src/${page}.doc.js`;
 
   return (

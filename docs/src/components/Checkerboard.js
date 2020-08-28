@@ -1,12 +1,12 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { useColorScheme } from 'gestalt';
 
 type Props = {|
   size?: number,
 |};
 
-export default function Checkerboard({ size = 8 }: Props) {
+export default function Checkerboard({ size = 8 }: Props): Node {
   const { colorGray400 } = useColorScheme();
   return (
     <svg

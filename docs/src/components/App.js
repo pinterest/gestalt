@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState } from 'react';
+import React, { useState, type Node } from 'react';
 import { Box, Divider, Provider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
@@ -7,12 +7,12 @@ import useTracking from './useTracking.js';
 import { SidebarContextProvider } from './sidebarContext.js';
 
 type Props = {|
-  children?: React.Node,
+  children?: Node,
 |};
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by';
 
-export default function App(props: Props) {
+export default function App(props: Props): Node {
   const { children } = props;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [colorScheme, setColorScheme] = useState('light');
@@ -23,6 +23,7 @@ export default function App(props: Props) {
     'categorized' | 'alphabetical'
   >(() => {
     try {
+      // $FlowIssue[incompatible-call]
       return localStorage.getItem(localStorageOrganizedByKey) || 'categorized';
     } catch (error) {
       console.log(error); // eslint-disable-line no-console

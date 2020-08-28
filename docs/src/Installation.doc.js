@@ -1,10 +1,10 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Heading, Link, Row, Stack, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import Card from './components/Card.js';
 
-const cards = [];
+const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(<Heading>Installation</Heading>);
@@ -87,7 +87,6 @@ card(
       <Text>
         Gestalt is a{' '}
         <Link
-          tapStyl="compress"
           inline
           href="https://yarnpkg.com/lang/en/docs/workspaces/"
           target="blank"
@@ -117,12 +116,7 @@ yarn start
       />
       <Text>
         Visit{' '}
-        <Link
-          tapStyl="compress"
-          inline
-          href="http://localhost:8888/"
-          target="blank"
-        >
+        <Link inline href="http://localhost:8888/" target="blank">
           <Text weight="bold">http://localhost:8888</Text>
         </Link>{' '}
         and click on a component to view the docs.
@@ -178,12 +172,7 @@ card(
       <Text>
         Every commit to master performs a release. As a reviewer, ensure the
         correct label is attached to every PR. Please follow{' '}
-        <Link
-          tapStyl="compress"
-          inline
-          href="https://semver.org/"
-          target="blank"
-        >
+        <Link inline href="https://semver.org/" target="blank">
           <Text weight="bold">semantic versioning</Text>
         </Link>
         .
@@ -226,7 +215,6 @@ card(
       <Text>
         Install the{' '}
         <Link
-          tapStyl="compress"
           inline
           href="https://www.npmjs.com/package/@types/gestalt"
           target="blank"

@@ -1,23 +1,25 @@
 // @flow strict
-import React from 'react';
+import React, { type Node, type ComponentType } from 'react';
 import { Box, Text, Icon, Link } from 'gestalt';
 import Card from './Card.js';
 
 type Props = {|
   props: Array<{|
+    // flowlint-next-line unclear-type:off
     defaultValue?: any,
     description?: ?string,
-    href: ?string,
+    href?: string,
     name: string,
     required?: boolean,
     responsive?: boolean,
     type: string,
   |}>,
   showHeading?: boolean,
-  Component?: React.ComponentType<any>,
+  // flowlint-next-line unclear-type:off
+  Component?: ComponentType<any>,
 |};
 
-const Th = ({ children }: {| children?: React.Node |}) => (
+const Th = ({ children }: {| children?: Node |}) => (
   <th style={{ borderBottom: '2px solid #ddd' }}>
     <Box padding={2}>
       <Text size="md" color="gray" overflow="normal" weight="bold">
@@ -35,7 +37,7 @@ const Td = ({
   color = 'darkGray',
 }: {|
   border?: boolean,
-  children?: React.Node,
+  children?: Node,
   colspan?: number,
   shrink?: boolean,
   color?: 'darkGray' | 'gray',
@@ -64,12 +66,12 @@ export default function PropTable({
   props: properties,
   Component,
   showHeading,
-}: Props) {
+}: Props): Node {
   const hasRequired = properties.some(prop => prop.required);
 
   if (process.env.NODE_ENV === 'development' && Component) {
-    // eslint-disable-next-line react/forbid-foreign-prop-types
-    const { displayName, propTypes } = Component;
+    // $FlowIssue[prop-missing]
+    const { displayName, propTypes } = Component; // eslint-disable-line react/forbid-foreign-prop-types
     const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
       if (!properties.find(p => p.name === prop)) {
         return acc.concat(prop);
@@ -167,7 +169,6 @@ export default function PropTable({
                       </Td>
                       <Td
                         shrink
-                        overflow="normal"
                         color={defaultValue != null ? 'darkGray' : 'gray'}
                         border={!description}
                       >
@@ -183,7 +184,7 @@ export default function PropTable({
                     acc.push(
                       <tr key={`${i}-description`}>
                         <Td colspan={hasRequired ? 2 : 1} />
-                        <Td colspan={2} overflow="normal" color="gray">
+                        <Td colspan={2} color="gray">
                           {description}
                         </Td>
                       </tr>

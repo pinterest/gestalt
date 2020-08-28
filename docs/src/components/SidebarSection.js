@@ -1,10 +1,14 @@
 // @flow strict
-import React from 'react';
+import React, { type Node } from 'react';
 import { Box, Row, Text } from 'gestalt';
 import { type sidebarIndexType } from './sidebarIndex.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 
-export default function SidebarSection({ section }: sidebarIndexType) {
+export default function SidebarSection({
+  section,
+}: {|
+  section: sidebarIndexType,
+|}): Node {
   return (
     <>
       <Box padding={2} marginTop={4} role="list">

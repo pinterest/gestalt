@@ -14,6 +14,7 @@ function throttle(func, wait) {
     }
     previous = Date.now();
     timeout = null;
+    // $FlowIssue[incompatible-type]
     result = func.apply(context, args);
     if (!timeout) {
       context = null;
@@ -61,7 +62,7 @@ function useThrottledOnScroll(callback, delay) {
   }, [throttledCallback]);
 }
 
-export default function Toc({ cards }: {| cards: Array<Node> |}) {
+export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
   const [anchors, setAnchors] = useState([]);
   const [activeState, setActiveState] = React.useState(null);
   const clickedRef = React.useRef(false);
@@ -80,15 +81,19 @@ export default function Toc({ cards }: {| cards: Array<Node> |}) {
       .reverse()
       .every(anchor => {
         // No hash if we're near the top of the page
-        if (document.documentElement.scrollTop < 120) {
+        if (
+          document.documentElement &&
+          document.documentElement.scrollTop < 120
+        ) {
           active = { id: null };
           return false;
         }
 
         if (
+          document.documentElement &&
           anchor?.offsetTop <
-          document.documentElement.scrollTop +
-            document.documentElement.clientHeight / 8
+            document.documentElement.scrollTop +
+              document.documentElement.clientHeight / 8
         ) {
           active = anchor;
           return false;
