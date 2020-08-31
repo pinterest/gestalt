@@ -1,5 +1,11 @@
 // @flow strict
-import React, { useState, useEffect, useRef, type Node } from 'react';
+import React, {
+  forwardRef,
+  useState,
+  useEffect,
+  useRef,
+  type Node,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -67,16 +73,21 @@ function Header({ heading }: {| heading: string | Node |}) {
   );
 }
 
-export default function Modal({
-  accessibilityModalLabel,
-  children,
-  closeOnOutsideClick = true,
-  onDismiss,
-  footer,
-  heading,
-  role = 'dialog',
-  size = 'sm',
-}: Props): Node {
+const ModalWithForwardRef: React$AbstractComponent<
+  Props,
+  HTMLDivElement
+> = forwardRef<Props, HTMLDivElement>(function Modal(props, ref): Node {
+  const {
+    accessibilityModalLabel,
+    children,
+    closeOnOutsideClick = true,
+    onDismiss,
+    footer,
+    heading,
+    role = 'dialog',
+    size = 'sm',
+  } = props;
+
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
   const content = useRef<?HTMLDivElement>(null);
@@ -135,7 +146,12 @@ export default function Modal({
           role={role}
         >
           <Backdrop onClick={handleOutsideClick}>
-            <div className={styles.wrapper} tabIndex={-1} style={{ width }}>
+            <div
+              className={styles.wrapper}
+              tabIndex={-1}
+              style={{ width }}
+              ref={ref}
+            >
               <Box
                 flex="grow"
                 position="relative"
@@ -176,9 +192,10 @@ export default function Modal({
       </TrapFocusBehavior>
     </StopScrollBehavior>
   );
-}
+});
 
-Modal.propTypes = {
+// $FlowFixMe Flow(InferError)
+ModalWithForwardRef.propTypes = {
   accessibilityModalLabel: PropTypes.string.isRequired,
   children: PropTypes.node,
   closeOnOutsideClick: PropTypes.bool,
@@ -191,3 +208,7 @@ Modal.propTypes = {
     PropTypes.oneOf(['sm', 'md', 'lg']),
   ]),
 };
+
+ModalWithForwardRef.displayName = 'Modal';
+
+export default ModalWithForwardRef;

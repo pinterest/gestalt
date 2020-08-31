@@ -54,6 +54,12 @@ card(
         href: 'sizesExample',
       },
       {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description: 'Forward the ref to the underlying div element',
+        href: 'refExample',
+      },
+      {
         name: 'role',
         type: `"alertdialog" | "dialog"`,
         defaultValue: 'dialog',
@@ -286,6 +292,54 @@ function HeadingExample(props) {
   );
 }
 `}
+  />
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`Modal\` with focus using refs
+  `}
+    defaultCode={`
+function ModalRefExample() {
+  const [showModal, setShowModal] = React.useState(false);
+
+  const modalRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (showModal && modalRef.current) {
+      // this is just an example of accessing the ref, Modal already traps focus on rendering
+      modalRef.current.focus();
+    }
+  }, [showModal, modalRef]);
+
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          text="Open modal"
+          onClick={() => { setShowModal(!showModal) }}
+        />
+        <Layer>
+          {showModal && (
+            <Modal
+              accessibilityModalLabel="Focused modal"
+              onDismiss={() => { setShowModal(!showModal) }}
+              ref={modalRef}
+              size="md"
+            >
+              <Box color="lightGray" minHeight={400} padding={4}>
+                <Heading size="md">Focused modal</Heading>
+              </Box>
+            </Modal>
+          )}
+        </Layer>
+      </Box>
+    </Box>
+  );
+}`}
   />
 );
 
