@@ -65,10 +65,6 @@ export default function App(props: Props): Node {
               <Box padding={4} mdPadding={6} lgPadding={8} width="100%">
                 {children}
               </Box>
-            </Box>
-          </Box>
-          {document.location.href.includes('netlify') ? (
-            <Box>
               <Divider />
 
               <Box padding={4} mdPadding={6} lgPadding={8}>
@@ -79,7 +75,7 @@ export default function App(props: Props): Node {
                 </Link>
               </Box>
             </Box>
-          ) : null}
+          </Box>
         </Box>
       </Provider>
     </SidebarContextProvider>
