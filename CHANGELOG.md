@@ -1,3 +1,9 @@
+## 11.28.7 (Aug 31, 2020)
+
+### Patch
+
+- Docs: Add search shortcut with forward slash (#1177)
+
 ## 11.28.6 (Aug 28, 2020)
 
 ### Patch
