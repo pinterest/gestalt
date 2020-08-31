@@ -29,7 +29,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Accessibility',
-    pages: ['useReducedMotion'],
+    pages: ['useFocusVisible', 'useReducedMotion'],
   },
   {
     sectionName: 'Data Display',
