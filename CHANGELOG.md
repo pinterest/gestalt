@@ -1,3 +1,9 @@
+## 12.0.0 (Aug 31, 2020)
+
+### Major
+
+- Modal: Add forwardRef (#1175)
+
 ## 11.29.1 (Aug 31, 2020)
 
 ### Patch
