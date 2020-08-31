@@ -1,3 +1,9 @@
+## 11.29.0 (Aug 31, 2020)
+
+### Minor
+
+- useFocusVisible: export hook & add docs (#1176)
+
 ## 11.28.7 (Aug 31, 2020)
 
 ### Patch
