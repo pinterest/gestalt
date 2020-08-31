@@ -1,3 +1,9 @@
+## 11.29.1 (Aug 31, 2020)
+
+### Patch
+
+- Docs: fix Divider overlap on bottom of the page (#1178)
+
 ## 11.29.0 (Aug 31, 2020)
 
 ### Minor
