@@ -1,3 +1,9 @@
+## 12.1.0 (Aug 31, 2020)
+
+### Minor
+
+- Column: removed deprecated xs, sm, md, lg props + codemod helper (#1165)
+
 ## 12.0.0 (Aug 31, 2020)
 
 ### Major
