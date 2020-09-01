@@ -54,6 +54,17 @@ card(
         type: '() => void',
       },
       {
+        name: 'accessibilityLabel',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers to replace link texts that do not provide sufficient context about the link component behavior. Texts like `Click Here,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text.',
+          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text.',
+        ],
+        href: 'accessibility',
+      },
+      {
         name: 'onClick',
         type:
           '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
@@ -126,6 +137,7 @@ card(
 
 card(
   <Example
+    id="accessibility"
     description={`
     When providing the content for the link, avoid phrases like "click here" or "go to".
   `}
@@ -138,7 +150,7 @@ card(
   <Text>
     For more information,{' '}
     <Text inline weight="bold">
-      <Link inline href="https://pinterest.com">
+      <Link accessibilityLabel="visit https://pinterest.com" inline href="https://pinterest.com">
         click here
       </Link>
     </Text>.

@@ -21,6 +21,7 @@ import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
+  accessibilityLabel?: string,
   accessibilitySelected?: boolean,
   children?: Node,
   hoverStyle?: 'none' | 'underline',
@@ -48,6 +49,7 @@ const LinkWithForwardRef: AbstractComponent<
   ref
 ): Element<'a'> {
   const {
+    accessibilityLabel,
     accessibilitySelected,
     children,
     href,
@@ -100,6 +102,7 @@ const LinkWithForwardRef: AbstractComponent<
 
   return (
     <a
+      aria-label={accessibilityLabel}
       aria-selected={accessibilitySelected}
       className={className}
       href={href}
@@ -152,6 +155,7 @@ const LinkWithForwardRef: AbstractComponent<
 
 // $FlowFixMe Flow(InferError)
 LinkWithForwardRef.propTypes = {
+  accessibilityLabel: PropTypes.string,
   accessibilitySelected: PropTypes.bool,
   children: PropTypes.node,
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
