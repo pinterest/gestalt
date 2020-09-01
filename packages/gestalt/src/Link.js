@@ -21,11 +21,10 @@ import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
 type Props = {|
-  accessibilitySelected?: boolean,
+  accessibilityLabel?: string,
   children?: Node,
   hoverStyle?: 'none' | 'underline',
   href: string,
-  id?: string,
   inline?: boolean,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onClick?: AbstractEventHandler<
@@ -34,7 +33,6 @@ type Props = {|
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
-  role?: 'tab',
   rounding?: Rounding,
   tapStyle?: 'none' | 'compress',
   target?: null | 'self' | 'blank',
@@ -48,16 +46,14 @@ const LinkWithForwardRef: AbstractComponent<
   ref
 ): Element<'a'> {
   const {
-    accessibilitySelected,
+    accessibilityLabel,
     children,
     href,
-    id,
     inline = false,
     onBlur,
     onClick,
     onFocus,
     rel = 'none',
-    role,
     rounding = 0,
     hoverStyle = 'underline',
     tapStyle = 'none',
@@ -100,10 +96,9 @@ const LinkWithForwardRef: AbstractComponent<
 
   return (
     <a
-      aria-selected={accessibilitySelected}
+      aria-label={accessibilityLabel}
       className={className}
       href={href}
-      id={id}
       onBlur={event => {
         handleBlur();
         if (onBlur) {
@@ -142,7 +137,6 @@ const LinkWithForwardRef: AbstractComponent<
       {...(compressStyle && tapStyle === 'compress'
         ? { style: compressStyle }
         : {})}
-      role={role}
       target={target ? `_${target}` : null}
     >
       {children}
@@ -152,13 +146,12 @@ const LinkWithForwardRef: AbstractComponent<
 
 // $FlowFixMe Flow(InferError)
 LinkWithForwardRef.propTypes = {
-  accessibilitySelected: PropTypes.bool,
+  accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
     'none' | 'underline'
   >),
   href: PropTypes.string.isRequired,
-  id: PropTypes.string,
   inline: PropTypes.bool,
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
@@ -166,7 +159,6 @@ LinkWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
-  role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,
   tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
     'none' | 'compress'

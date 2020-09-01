@@ -128,7 +128,6 @@ exports[`target self 1`] = `
 
 exports[`with accessibilitySelected and role 1`] = `
 <a
-  aria-selected={true}
   className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
@@ -142,7 +141,6 @@ exports[`with accessibilitySelected and role 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  role="tab"
   target={null}
 >
   Link
