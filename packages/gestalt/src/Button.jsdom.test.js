@@ -24,7 +24,7 @@ describe('Button', () => {
   it('forwards a ref to the innermost a element with type link', () => {
     const ref = createRef();
     render(
-      <Button text="test" type="link" href="test" ref={ref} target="blank" />
+      <Button text="test" role="link" href="test" ref={ref} target="blank" />
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     // $FlowIgnore[prop-missing]

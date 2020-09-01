@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Button, Stack, Text } from 'gestalt';
+import { Button } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -8,16 +8,6 @@ import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
 const card = c => cards.push(c);
-
-const buildDescription = (lines: Array<string>): Node => (
-  <Stack gap={1}>
-    {lines.map((line, idx) => (
-      <Text key={idx} color="gray">
-        {line}
-      </Text>
-    ))}
-  </Stack>
-);
 
 card(
   <PageHeader
@@ -34,53 +24,52 @@ card(
         type: 'string',
         required: false,
         defaultValue: null,
-        description: buildDescription([
+        description: [
           'Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           'Use IconButton if you only need a button with an icon and no text.',
-          'Optional with button-type and submit-type buttons.',
-          'Accessibility: It populates aria-label.  Screen readers read the `accessibilityLabel` prop, if present, instead of `text`.',
-        ]),
-        href: 'accessibilityI',
+          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of `text`.',
+        ],
+        href: 'accessibilityLabel',
       },
       {
         name: 'accessibilityControls',
         type: 'string',
         required: false,
         defaultValue: null,
-        description: buildDescription([
+        description: [
           'Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.',
-          'Optional with button-type buttons.',
+          'Optional with button-role + button-type buttons.',
           'Accessibility: It populates aria-controls.',
-        ]),
-        href: 'accessibilityII',
+        ],
+        href: 'accessibility',
       },
       {
         name: 'accessibilityExpanded',
         type: 'boolean',
         required: false,
         defaultValue: null,
-        description: buildDescription([
+        description: [
           'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
-          'Optional with button-type buttons.',
+          'Optional with button-role + button-type buttons.',
           'Accessibility: It populates aria-expanded.',
-        ]),
-        href: 'accessibilityII',
+        ],
+        href: 'accessibility',
       },
       {
         name: 'accessibilityHaspopup',
         type: 'boolean',
         required: false,
         defaultValue: null,
-        description: buildDescription([
+        description: [
           'Indicate that a button component controls the appearance of menus and expose whether they are currently opened or closed.',
-          'Optional with button-type buttons.',
+          'Optional with button-role + button-type buttons.',
           'Accessibility: It populates aria-haspopup.',
-        ]),
-        href: 'accessibilityII',
+        ],
+        href: 'accessibility',
       },
       {
         name: 'color',
-        type: `gray' | 'red' | 'blue' | 'transparent' | 'white'`,
+        type: `'gray' | 'red' | 'blue' | 'transparent' | 'white'`,
         required: false,
         defaultValue: 'gray',
         description: 'Primary colors to apply to the button background.',
@@ -100,11 +89,11 @@ card(
         type: '$Keys<typeof icons>',
         required: false,
         defaultValue: false,
-        description: buildDescription([
+        description: [
           'Add a Gestalt icon to be displayed after the button text. Sometimes an icon can help clarify the usage of a button. Menus are a common use case.',
           'Accessibility: Icons on buttons are not accessible for screen readers.',
           'Use IconButton if you only need buttons with icons and no text.',
-        ]),
+        ],
         href: 'iconEnd',
       },
       {
@@ -121,10 +110,10 @@ card(
         type: '({ event: SyntheticMouseEvent<> }) => void',
         required: false,
         defaultValue: null,
-        description: buildDescription([
+        description: [
           'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard.',
-          'Required with button-type buttons.',
-        ]),
+          'Required with button-role + button-type buttons.',
+        ],
         href: 'selected',
       },
       {
@@ -141,10 +130,10 @@ card(
         type: 'string',
         required: true,
         defaultValue: null,
-        description: buildDescription([
-          'Text to render inside the button to convey the function and purpose of the button. The button text has a fix size.',
+        description: [
+          'Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
-        ]),
+        ],
         href: 'basic-button',
       },
       {
@@ -152,25 +141,23 @@ card(
         type: `'white' | 'darkGray' | 'blue' | 'red'`,
         required: false,
         defaultValue: null,
-        description: buildDescription([
+        description: [
           'Primary colors to apply to the text inside the Button.',
           'Text colors are automatically paired with the defined button `color`.',
           '`textColor` should only be used when using a white background color; it may become necessary to manually override the text color to match that of the parent`s background. Do not override the text color for any button besides those with white background as it breaks design standards.',
-        ]),
+        ],
         href: 'textColor',
       },
       {
         name: 'type',
-        type: `'submit' | 'button' | 'link'`,
+        type: `'submit' | 'button'`,
         required: false,
         defaultValue: 'button',
-        description: buildDescription([
-          'Select a button variant:',
-          '-`button`: Use to render simple push buttons with no default behavior and control custom functionality inside the `onClick` callback. The button is rendered as an button or  `<button> tag`.',
-          '-`submit`: Use to submit forms.  The button is inside/associated with a form. The button is rendered as an button or `<button> tag`.',
-          '-`link`: Use for buttons to act like links. The button is rendered as an anchor or `<a> tag`.',
-          'Required with submit-type and link-type buttons.',
-        ]),
+        description: [
+          'Select a type of button-role button:',
+          '-`button`: Use to render simple push buttons with no default behavior and control custom functionality inside the `onClick` callback.',
+          '-`submit`: Use to submit forms. The button is inside/associated with a form.',
+        ],
         href: 'type',
       },
       {
@@ -178,21 +165,21 @@ card(
         type: 'boolean',
         required: false,
         defaultValue: false,
-        description: buildDescription([
+        description: [
           'Control the "selected" state of a button component to toggle binary states.',
-          'Optional with button-type buttons.',
-        ]),
-        href: '',
+          'Optional with button-role + button-type buttons.',
+        ],
+        href: 'selected',
       },
       {
         name: 'href',
         type: 'string',
         required: false,
         defaultValue: null,
-        description: buildDescription([
-          'Specify a redirect url.',
-          'Required with link-type buttons.',
-        ]),
+        description: [
+          'Specify a link URL.',
+          'Required with link-role buttons.',
+        ],
         href: 'type',
       },
       {
@@ -205,11 +192,24 @@ card(
         href: 'ref',
       },
       {
+        name: 'role',
+        type: `'button' | 'link'`,
+        required: false,
+        defaultValue: 'button',
+        description: [
+          `Select a button variant:`,
+          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
+          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
+          `Required with link-role buttons.`,
+        ],
+        href: 'type',
+      },
+      {
         name: 'rel',
         type: `'none' | 'nofollow'`,
         required: false,
         defaultValue: 'none',
-        description: 'Optional with link-type buttons.',
+        description: 'Optional with link-role buttons.',
         href: 'type',
       },
       {
@@ -217,13 +217,13 @@ card(
         type: `null | 'self' | 'blank'`,
         required: false,
         defaultValue: 'null',
-        description: buildDescription([
+        description: [
           'Define the frame or window to open the anchor defined on `href`:',
           '- `null` opens the anchor in the same window.',
           '- `blank` opens the anchor in a new window.',
           '- `self` opens an anchor in the same frame.',
-          'Optional with link-type buttons.',
-        ]),
+          'Optional with link-role buttons.',
+        ],
         href: 'type',
       },
     ]}
@@ -240,19 +240,19 @@ card(
 
 card(
   <Example
-    name="Types"
+    name="Types & Roles"
     id="type"
     defaultCode={`
 <Row gap={1}>
-    <Tooltip text="button-type button">
-      <Button onClick={() => {}} text="Clear search history" inline />
-    </Tooltip>
-    <Tooltip text="submit-type button">
-      <Button type="submit" name='satisfaction-questionaire' text="Submit your response" inline />
-    </Tooltip>
-    <Tooltip text="link-type button">
-      <Button type="link" target='blank' href='https://www.pinterest.com' text="Visit pinterest.com" inline />
-    </Tooltip>
+  <Tooltip text="default button: button-role + button-type button">
+    <Button onClick={() => {}} text="Clear search history" inline />
+  </Tooltip>
+  <Tooltip text="form button variant: button-role + submit-type button">
+    <Button type="submit" name='satisfaction-questionaire' text="Submit your response" inline />
+  </Tooltip>
+  <Tooltip text="link button variant: link-role button + button-type">
+    <Button role="link" target='blank' href='https://www.pinterest.com' text="Visit pinterest.com" inline />
+  </Tooltip>
 </Row>
 `}
   />
@@ -291,88 +291,8 @@ card(
     name="Icons"
     id="iconEnd"
     defaultCode={`
-function MenuButtonExample() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef();
-
-  return (
-    <>
-      <Box display="inlineBlock" ref={anchorRef}>
-        <Button
-          accessibilityExpanded={!!open}
-          accessibilityHaspopup
-          iconEnd={open ? "arrow-down" : "arrow-forward"}
-          inline
-          onClick={() => setOpen(!open)}
-          text="Menu"
-        />
-      </Box>
-
-      {open && (
-        <Layer>
-          <Flyout
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="md"
-          >
-            <Box direction="column" display="flex" padding={2}>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 1
-                </Text>
-              </Box>
-              <Box padding={2}>
-                <Text weight="bold">
-                  Option 2
-                </Text>
-              </Box>
-            </Box>
-          </Flyout>
-        </Layer>
-      )}
-    </>
-  );
-}
+    <Button iconEnd='download' text="Download CVS file" inline />
 `}
-  />
-);
-
-card(
-  <Example
-    id="ref"
-    name="ref"
-    defaultCode={`
-function ButtonFlyoutExample() {
-  const [open, setOpen] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
-
-  const anchorRef = React.useRef(null);
-
-  return (
-    <>
-      <Button
-        inline
-        onClick={() => setOpen(true)}
-        ref={anchorRef}
-        text="Show Flyout"
-      />
-      {open && (
-        <Flyout
-          anchor={anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => setOpen(false)}
-          shouldFocus={false}
-        >
-          <Box padding={3}>
-            <Text weight="bold">This is a Button with an anchor ref to a Flyout component</Text>
-          </Box>
-        </Flyout>
-      )}
-    </>
-  );
-}`}
   />
 );
 
@@ -394,6 +314,43 @@ function Example() {
   );
 }
 `}
+  />
+);
+
+card(
+  <Example
+    id="ref"
+    name="ref"
+    defaultCode={`
+function ButtonFlyoutExample() {
+  const [selected, setSelected] = React.useState(false);
+
+  const anchorRef = React.useRef(null);
+
+  return (
+    <>
+      <Button
+        inline
+        onClick={() => setSelected(!selected)}
+        ref={anchorRef}
+        selected={selected}
+        text={selected ? "Hide Flyout" : "Show Flyout"}
+      />
+      {selected && (
+        <Flyout
+          anchor={anchorRef.current}
+          idealDirection="right"
+          onDismiss={() => setSelected(false)}
+          shouldFocus={false}
+        >
+          <Box padding={3}>
+            <Text weight="bold">This is a Button with an anchor ref to a Flyout component</Text>
+          </Box>
+        </Flyout>
+      )}
+    </>
+  );
+}`}
   />
 );
 
@@ -449,19 +406,19 @@ function TextColorExample() {
 
 card(
   <Example
-    name="Accessibility I"
-    id="accessibilityI"
+    name="Accessibility: label"
+    id="accessibilityLabel"
     defaultCode={`
 function AccessibilityExample() {
-  const [isFollowing, setIsFollowing] = React.useState(false);
+  const [selected, setSelected] = React.useState(false);
 
   return (
     <Button
-      accessibilityLabel={isFollowing ? "Following Alberto on Pinterest" : "Follow Alberto on Pinterestlow"}
-      onClick={() => setIsFollowing(!isFollowing)}
+      accessibilityLabel={selected ? "Unfollow Alberto on Pinterest" : "Follow Alberto on Pinterest"}
+      onClick={() => setSelected(!selected)}
       inline
-      text={isFollowing ? "Following" : "Follow"}
-    />
+      selected={selected}
+      text={selected ? "Unfollow" : "Follow"}        />
   );
 }
 `}
@@ -470,34 +427,51 @@ function AccessibilityExample() {
 
 card(
   <Example
-    name="Accessibility II"
-    id="accessibilityII"
+    name="Accessibility: controls, expanded, & popup"
+    id="accessibility"
     defaultCode={`
-function AccessibilityExample() {
-  const [isOpen, setOpen] = React.useState(false);
-  const COLLAPSIBLE_MENU = "collapsible-menu"
+function MenuButtonExample() {
+  const [selected, setSelected] = React.useState(false);
+  const anchorRef = React.useRef();
 
   return (
-    <Box column={5}>
-      <Button
-        accessibilityControls={COLLAPSIBLE_MENU}
-        accessibilityExpanded={isOpen}
-        accessibilityHasPopup="true"
-        inline
-        iconEnd={isOpen ? "arrow-down" : "arrow-forward"}
-        onClick={() => setOpen(!isOpen)}
-        text={isOpen ? "Hide the settings menu" : "Show the settings menu"}
-      />
-      {isOpen && (
-        <Box fit={false} id={COLLAPSIBLE_MENU} padding={2}>
-          <Stack gap={1}>
-            <Button size="sm" inline text="Language"/>
-            <Button size="sm" inline text="Privacy"/>
-            <Button size="sm" inline text="Notifications"/>
-          </Stack>
-        </Box>
+    <>
+      <Box display="inlineBlock" ref={anchorRef}>
+        <Button
+          accessibilityExpanded={selected}
+          accessibilityHaspopup
+          selected={selected}
+          inline
+          onClick={() => setSelected(!selected)}
+          text="Menu"
+        />
+      </Box>
+
+      {selected && (
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setSelected(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box direction="column" display="flex" padding={2}>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 1
+                </Text>
+              </Box>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 2
+                </Text>
+              </Box>
+            </Box>
+          </Flyout>
+        </Layer>
       )}
-    </Box>
+    </>
   );
 }
 `}

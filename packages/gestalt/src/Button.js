@@ -30,6 +30,7 @@ const DEFAULT_TEXT_COLORS = {
 };
 
 type BaseButton = {|
+  accessibilityLabel?: string,
   color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
@@ -51,23 +52,24 @@ type ButtonType = {|
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
-  accessibilityLabel?: string,
   selected?: boolean,
   type?: 'button',
+  role?: 'button',
 |};
 
 type SubmitButtonType = {|
   ...BaseButton,
-  accessibilityLabel?: string,
   type: 'submit',
+  role?: 'button',
 |};
 
 type LinkButtonType = {|
   ...BaseButton,
   href: string,
   rel?: 'none' | 'nofollow',
+  role: 'link',
   target?: null | 'self' | 'blank',
-  type: 'link',
+  role: 'link',
 |};
 
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
@@ -79,6 +81,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
   unionRefs
 > = forwardRef<unionProps, unionRefs>(function Button(props, ref): Node {
   const {
+    accessibilityLabel,
     color = 'gray',
     disabled = false,
     inline = false,
@@ -136,10 +139,11 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.selected]: !disabled && selected,
       [styles.disabled]: disabled,
       [styles.enabled]: !disabled,
-      [styles.inline]: props.type !== 'link' && inline,
-      [styles.block]: props.type !== 'link' && !inline,
-      [styles.link]: props.type === 'link',
-      [touchableStyles.tapCompress]: !disabled && isTapping,
+      [styles.inline]: props.role !== 'link' && inline,
+      [styles.block]: props.role !== 'link' && !inline,
+      [styles.link]: props.role === 'link',
+      [touchableStyles.tapCompress]:
+        props.type !== 'link' && !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     }
   );
@@ -179,25 +183,28 @@ const ButtonWithForwardRef: React$AbstractComponent<
     );
   };
 
+  function handleClick({ event }) {
+    if (onClick) {
+      onClick({ event });
+    }
+  }
+
   /* eslint-disable react/button-has-type */
-  if (props.type === 'link') {
+  if (props.role === 'link') {
     const { href, rel, target } = props;
 
     return (
       <Link
+        accessibilityLabel={accessibilityLabel}
+        inline={inline}
         hoverStyle="none"
         href={href}
-        onClick={({ event }) => {
-          if (onClick) {
-            onClick({ event });
-          }
-        }}
+        onClick={handleClick}
         ref={innerRef}
         rel={rel}
-        target={target}
-        inline={inline}
         rounding="pill"
         tapStyle="compress"
+        target={target}
       >
         <div className={classes}>
           {iconEnd ? iconEndComponent() : buttonText}
@@ -207,7 +214,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
   }
 
   if (props.type === 'submit') {
-    const { accessibilityLabel, name, type } = props;
+    const { name, type } = props;
 
     return (
       <button
@@ -216,7 +223,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         disabled={disabled}
         name={name}
         onBlur={handleBlur}
-        onClick={event => onClick && onClick({ event })}
+        onClick={handleClick}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onTouchCancel={handleTouchCancel}
@@ -233,11 +240,10 @@ const ButtonWithForwardRef: React$AbstractComponent<
   }
 
   const {
-    accessibilityLabel,
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
-    type = 'Button',
+    type = 'button',
   } = props;
 
   return (
@@ -249,7 +255,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       className={classes}
       disabled={disabled}
       onBlur={handleBlur}
-      onClick={event => onClick && onClick({ event })}
+      onClick={handleClick}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
@@ -282,6 +288,7 @@ ButtonWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  role: PropTypes.oneOf(['button', 'link']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
@@ -289,7 +296,7 @@ ButtonWithForwardRef.propTypes = {
   >),
   text: PropTypes.string.isRequired,
   textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
-  type: PropTypes.oneOf(['button', 'submit', 'link']),
+  type: PropTypes.oneOf(['button', 'submit']),
 };
 
 ButtonWithForwardRef.displayName = 'Button';
