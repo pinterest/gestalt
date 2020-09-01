@@ -143,7 +143,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.block]: props.role !== 'link' && !inline,
       [styles.link]: props.role === 'link',
       [touchableStyles.tapCompress]:
-        props.type !== 'link' && !disabled && isTapping,
+        props.role !== 'link' && !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     }
   );
@@ -183,7 +183,23 @@ const ButtonWithForwardRef: React$AbstractComponent<
     );
   };
 
-  function handleClick({ event }) {
+  function handleClick(
+    event:
+      | SyntheticMouseEvent<HTMLButtonElement>
+      | SyntheticKeyboardEvent<HTMLButtonElement>
+  ): void {
+    if (onClick) {
+      onClick({ event });
+    }
+  }
+
+  function handleLinkClick({
+    event,
+  }: {|
+    event:
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  |}): void {
     if (onClick) {
       onClick({ event });
     }
@@ -196,14 +212,15 @@ const ButtonWithForwardRef: React$AbstractComponent<
     return (
       <Link
         accessibilityLabel={accessibilityLabel}
+        _disabled={disabled}
         inline={inline}
-        hoverStyle="none"
         href={href}
-        onClick={handleClick}
+        hoverStyle="none"
+        onClick={handleLinkClick}
         ref={innerRef}
         rel={rel}
         rounding="pill"
-        tapStyle="compress"
+        tapStyle={disabled ? undefined : 'compress'}
         target={target}
       >
         <div className={classes}>

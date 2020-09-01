@@ -13,21 +13,50 @@ describe('Button', () => {
     expect(mockOnClick).toHaveBeenCalled();
   });
 
-  it('forwards a ref to the innermost button element with type button', () => {
+  it('renders a submit button and forwards a ref to the innermost <button> element', () => {
     const ref = createRef();
-    render(<Button disabled text="test" ref={ref} />);
+    render(<Button type="submit" text="test" ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
-    // $FlowIgnore[prop-missing]
-    expect(ref.current?.disabled).toEqual(true);
+    expect(ref.current?.type).toEqual('submit');
   });
 
-  it('forwards a ref to the innermost a element with type link', () => {
+  it('renders a default button and forwards a ref to the innermost <button> element', () => {
+    const ref = createRef();
+    render(<Button text="test" ref={ref} />);
+    expect(ref.current instanceof HTMLButtonElement).toEqual(true);
+    expect(ref.current?.type).toEqual('button');
+  });
+
+  it('renders a link button and forwards a ref to the innermost <a> element', () => {
     const ref = createRef();
     render(
-      <Button text="test" role="link" href="test" ref={ref} target="blank" />
+      <Button
+        text="test"
+        role="link"
+        href="http://www.pinterest.com"
+        ref={ref}
+        target="blank"
+      />
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
     // $FlowIgnore[prop-missing]
-    expect(ref.current?.target).toEqual('_blank');
+    expect(ref.current?.href).toEqual('http://www.pinterest.com/');
+  });
+
+  it('renders a disabled link button', () => {
+    const ref = createRef();
+    render(
+      <Button
+        text="test"
+        role="link"
+        href="http://www.pinterest.com"
+        disabled
+        ref={ref}
+        target="blank"
+      />
+    );
+    expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
+    // $FlowIgnore[prop-missing]
+    expect(ref.current?.href).toEqual('');
   });
 });

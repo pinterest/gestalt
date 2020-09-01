@@ -82,7 +82,7 @@ card(
         defaultValue: null,
         description:
           'Set disabled state so buttons look inactive, cannot be interacted with, and actions are not available.',
-        href: 'combinations',
+        href: 'type-roles',
       },
       {
         name: 'iconEnd',
@@ -107,7 +107,8 @@ card(
       },
       {
         name: 'onClick',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
         description: [
@@ -122,8 +123,8 @@ card(
         required: false,
         defaultValue: 'md',
         description:
-          'Display a button in different sizes. Size only changes top & bottom padding modifying the component height: sm (32px), md (40px), lg (48px).',
-        href: 'height',
+          'Display a button in different sizes. Size changes the component padding modifying its fixed height: sm (32px), md (40px), lg (48px).',
+        href: 'size',
       },
       {
         name: 'text',
@@ -158,7 +159,7 @@ card(
           '-`button`: Use to render simple push buttons with no default behavior and control custom functionality inside the `onClick` callback.',
           '-`submit`: Use to submit forms. The button is inside/associated with a form.',
         ],
-        href: 'type',
+        href: 'type-roles',
       },
       {
         name: 'selected',
@@ -180,7 +181,7 @@ card(
           'Specify a link URL.',
           'Required with link-role buttons.',
         ],
-        href: 'type',
+        href: 'type-roles',
       },
       {
         name: 'ref',
@@ -202,7 +203,7 @@ card(
           `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
           `Required with link-role buttons.`,
         ],
-        href: 'type',
+        href: 'type-roles',
       },
       {
         name: 'rel',
@@ -210,7 +211,7 @@ card(
         required: false,
         defaultValue: 'none',
         description: 'Optional with link-role buttons.',
-        href: 'type',
+        href: 'type-roles',
       },
       {
         name: 'target',
@@ -224,7 +225,7 @@ card(
           '- `self` opens an anchor in the same frame.',
           'Optional with link-role buttons.',
         ],
-        href: 'type',
+        href: 'type-roles',
       },
     ]}
   />
@@ -241,27 +242,47 @@ card(
 card(
   <Example
     name="Types & Roles"
-    id="type"
+    id="type-roles"
     defaultCode={`
-<Row gap={1}>
-  <Tooltip text="default button: button-role + button-type button">
-    <Button onClick={() => {}} text="Clear search history" inline />
-  </Tooltip>
-  <Tooltip text="form button variant: button-role + submit-type button">
-    <Button type="submit" name='satisfaction-questionaire' text="Submit your response" inline />
-  </Tooltip>
-  <Tooltip text="link button variant: link-role button + button-type">
-    <Button role="link" target='blank' href='https://www.pinterest.com' text="Visit pinterest.com" inline />
-  </Tooltip>
-</Row>
+function Example() {
+  const [disabled, setDisabled] = React.useState(false);
+
+  return (
+    <Stack gap={3}>
+      <Row gap={1}>
+        <Tooltip text="Default button">
+          <Button onClick={() => {}} text="Clear search history" inline disabled={disabled} />
+        </Tooltip>
+        <Tooltip text="Submit button">
+          <Button type="submit" name='satisfaction-questionaire' text="Submit your response" inline disabled={disabled} />
+        </Tooltip>
+        <Tooltip text="Link button">
+          <Button role="link" target='blank' href='https://www.pinterest.com' text="Visit pinterest.com" inline disabled={disabled} />
+        </Tooltip>
+      </Row>
+      <Row gap={1}>
+        <Switch
+          onChange={() => setDisabled(!disabled)}
+          id="disable-buttons"
+          switched={disabled}
+        />
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="disable-buttons">
+            <Text>Disable buttons</Text>
+          </Label>
+        </Box>
+      </Row>
+    </Stack>
+  );
+}
 `}
   />
 );
 
 card(
   <Example
-    name="Height"
-    id="height"
+    name="Size"
+    id="size"
     defaultCode={`<Row gap={1}>
   <Button size='sm' text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
@@ -301,7 +322,6 @@ card(
     name="Selected state"
     id="selected"
     defaultCode={`
-
 function Example() {
   const [selected, setSelected] = React.useState(false);
   return (
