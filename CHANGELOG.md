@@ -1,3 +1,9 @@
+## 12.2.0 (Sep 1, 2020)
+
+### Minor
+
+- Link: added accessibilityLabel / Docs: implemented support to Arrays in description  (#1180)
+
 ## 12.1.0 (Aug 31, 2020)
 
 ### Minor
