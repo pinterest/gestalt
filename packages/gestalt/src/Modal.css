@@ -1,10 +1,13 @@
 .backdrop {
   composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
-  composes: zoomOut from "./Cursor.css";
   background: rgba(0, 0, 0, 0.4);
   height: 100%;
   opacity: 0.9;
   overflow-y: scroll;
+}
+
+.withZoomOut {
+  composes: zoomOut from "./Cursor.css";
 }
 
 .container {
