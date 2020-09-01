@@ -1,13 +1,12 @@
 // @flow strict
 import React, { type Node, type ComponentType } from 'react';
-import { Box, Text, Icon, Link } from 'gestalt';
+import { Box, Text, Icon, Link, Stack } from 'gestalt';
 import Card from './Card.js';
 
 type Props = {|
   props: Array<{|
-    // flowlint-next-line unclear-type:off
-    defaultValue?: any,
-    description?: ?string,
+    defaultValue?: Node,
+    description?: string | Array<string>,
     href?: string,
     name: string,
     required?: boolean,
@@ -15,9 +14,18 @@ type Props = {|
     type: string,
   |}>,
   showHeading?: boolean,
-  // flowlint-next-line unclear-type:off
-  Component?: ComponentType<any>,
+  Component?: ComponentType<any>, // flowlint-line unclear-type:off
 |};
+
+const buildDescription = (lines: Array<string>): Node => (
+  <Stack gap={1}>
+    {lines.map((line, idx) => (
+      <Text key={idx} color="gray">
+        {line}
+      </Text>
+    ))}
+  </Stack>
+);
 
 const Th = ({ children }: {| children?: Node |}) => (
   <th style={{ borderBottom: '2px solid #ddd' }}>
@@ -185,7 +193,9 @@ export default function PropTable({
                       <tr key={`${i}-description`}>
                         <Td colspan={hasRequired ? 2 : 1} />
                         <Td colspan={2} color="gray">
-                          {description}
+                          {Array.isArray(description)
+                            ? buildDescription(description)
+                            : description}
                         </Td>
                       </tr>
                     );
