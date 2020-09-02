@@ -98,7 +98,10 @@ export default function PropTable({
 
   return (
     <Card id="Props" name="Props" showHeading={showHeading}>
-      <Box overflow="auto">
+      <Box
+        overflow="auto"
+        dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}
+      >
         <table
           style={{
             width: '100%',

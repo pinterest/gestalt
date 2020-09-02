@@ -10,6 +10,7 @@ declare module.exports: {|
   +'gray': string,
   +'inline': string,
   +'lg': string,
+  +'link': string,
   +'md': string,
   +'red': string,
   +'selected': string,
