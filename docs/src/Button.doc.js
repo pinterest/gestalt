@@ -271,31 +271,32 @@ function Example() {
 );
 
 card(
-  <>
-    <Example
-      name="Size"
-      id="size"
-      defaultCode={`<Row gap={1}>
+  <Example
+    name="Size"
+    id="size"
+    defaultCode={`<Row gap={1}>
   <Button size="sm" text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
   <Button size="lg" text="Large-sized button" inline />
 </Row>`}
-    />
-    <Combination
-      id="color"
-      name="Color"
-      color={['gray', 'red', 'blue', 'white', 'transparent']}
-    >
-      {(props, i) => (
-        <Button
-          id={`example-${i}`}
-          onChange={() => {}}
-          {...props}
-          text="Button"
-        />
-      )}
-    </Combination>
-  </>
+  />
+);
+
+card(
+  <Combination
+    id="color"
+    name="Color"
+    color={['gray', 'red', 'blue', 'white', 'transparent']}
+  >
+    {(props, i) => (
+      <Button
+        id={`example-${i}`}
+        onChange={() => {}}
+        {...props}
+        text="Button"
+      />
+    )}
+  </Combination>
 );
 
 card(
@@ -456,7 +457,7 @@ function MenuButtonExample() {
 
   return (
     <>
-      <Box display="inlineBlock" ref={anchorRef}>
+      <Box display="inlineBlock">
         <Button
           accessibilityControls="menu"
           accessibilityExpanded={selected}
@@ -465,6 +466,7 @@ function MenuButtonExample() {
           inline
           onClick={() => setSelected(!selected)}
           text="Menu"
+          ref={anchorRef}
         />
       </Box>
 

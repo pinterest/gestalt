@@ -12,6 +12,7 @@ import classnames from 'classnames';
 import buttonStyles from './Button.css';
 import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
+import iconButtonStyles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
@@ -47,6 +48,8 @@ type Props = {|
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
   rounding?: Rounding,
@@ -78,6 +81,8 @@ const InternalLinkWithForwardRef: AbstractComponent<
     onFocus,
     onMouseEnter,
     onMouseLeave,
+    onMouseDown,
+    onMouseUp,
     rel,
     rounding,
     size,
@@ -107,6 +112,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
   const { isFocusVisible } = useFocusVisible();
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
+  const isIconButton = wrappedComponent === 'iconButton';
 
   const className = classnames(
     linkStyles.link,
@@ -115,7 +121,6 @@ const InternalLinkWithForwardRef: AbstractComponent<
     inline ? linkStyles.inlineBlock : linkStyles.block,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
-      [buttonStyles.disabled]: !isTapArea && disabled,
       [touchableStyles.tapCompress]: !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     },
@@ -123,6 +128,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
       ? {
           [linkStyles.buttonLink]: true,
           [buttonStyles.button]: true,
+          [buttonStyles.disabled]: disabled,
           [buttonStyles.sm]: size === 'sm',
           [buttonStyles.md]: size === 'md',
           [buttonStyles.lg]: size === 'lg',
@@ -142,6 +148,13 @@ const InternalLinkWithForwardRef: AbstractComponent<
     isTapArea && mouseCursor
       ? {
           [touchableStyles[mouseCursor]]: !disabled,
+        }
+      : {},
+    isIconButton
+      ? {
+          [iconButtonStyles.button]: true,
+          [iconButtonStyles.disabled]: disabled,
+          [iconButtonStyles.enabled]: !disabled,
         }
       : {}
   );
@@ -179,8 +192,18 @@ const InternalLinkWithForwardRef: AbstractComponent<
           onMouseLeave({ event });
         }
       }}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
+      onMouseDown={event => {
+        if (onMouseDown) {
+          onMouseDown({ event });
+        }
+        handleMouseDown();
+      }}
+      onMouseUp={event => {
+        if (onMouseUp) {
+          onMouseUp({ event });
+        }
+        handleMouseUp();
+      }}
       onKeyPress={event => {
         // Check to see if space or enter were pressed
         if (onClick && keyPressShouldTriggerTap(event)) {
@@ -231,6 +254,8 @@ InternalLinkWithForwardRef.propTypes = {
   onClick: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
