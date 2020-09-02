@@ -10,6 +10,7 @@ import React, {
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import buttonStyles from './Button.css';
+import iconButtonStyles from './IconButton.css';
 import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
 import touchableStyles from './Touchable.css';
@@ -89,6 +90,7 @@ const WrapperLinkWithForwardRef: AbstractComponent<
   const { isFocusVisible } = useFocusVisible();
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
+  const isIconButton = wrappedComponent === 'iconButton';
 
   const className = classnames(
     linkStyles.link,
@@ -113,6 +115,13 @@ const WrapperLinkWithForwardRef: AbstractComponent<
     isButton && colorClass
       ? {
           [buttonStyles[colorClass]]: !disabled,
+        }
+      : {},
+    isIconButton
+      ? {
+          [iconButtonStyles.button]: true,
+          [iconButtonStyles.disabled]: disabled,
+          [iconButtonStyles.enabled]: !disabled,
         }
       : {},
     isTapArea
