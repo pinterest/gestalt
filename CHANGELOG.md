@@ -1,3 +1,9 @@
+## 12.4.2 (Sep 2, 2020)
+
+### Patch
+
+- Button: Flow + name prop fixes (#1184)
+
 ## 12.4.1 (Sep 2, 2020)
 
 ### Patch
