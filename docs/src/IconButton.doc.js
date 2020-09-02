@@ -79,6 +79,17 @@ card(
         Icon.`,
       },
       {
+        name: 'href',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Specify a link URL.',
+          'Required with link-role buttons.',
+        ],
+        href: 'roles',
+      },
+      {
         name: 'onClick',
         type: '({ event: SyntheticMouseEvent<> }) => void',
       },
@@ -89,10 +100,31 @@ card(
         href: 'paddingCombinations',
       },
       {
+        name: 'rel',
+        type: `'none' | 'nofollow'`,
+        required: false,
+        defaultValue: 'none',
+        description: 'Optional with link-role buttons.',
+        href: 'roles',
+      },
+      {
         name: 'ref',
-        type: "React.Ref<'button'>",
+        type: `React.Ref<'button'> | React.Ref<'a'>`,
         description: 'Forward the ref to the underlying button element',
         href: 'refExample',
+      },
+      {
+        name: 'role',
+        type: `'button' | 'link'`,
+        required: false,
+        defaultValue: 'button',
+        description: [
+          `Select a button variant:`,
+          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
+          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
+          `Required with link-role buttons.`,
+        ],
+        href: 'roles',
       },
       {
         name: 'selected',
@@ -106,6 +138,20 @@ card(
         description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
         defaultValue: 'md',
         href: 'sizeCombinations',
+      },
+      {
+        name: 'target',
+        type: `null | 'self' | 'blank'`,
+        required: false,
+        defaultValue: 'null',
+        description: [
+          'Define the frame or window to open the anchor defined on `href`:',
+          '- `null` opens the anchor in the same window.',
+          '- `blank` opens the anchor in a new window.',
+          '- `self` opens an anchor in the same frame.',
+          'Optional with link-role buttons.',
+        ],
+        href: 'roles',
       },
     ]}
   />
@@ -122,6 +168,43 @@ card(
   iconColor="red"
   onClick={() => { console.log('❤️')}}
 />
+`}
+  />
+);
+
+card(
+  <Example
+    name="Roles"
+    id="roles"
+    defaultCode={`
+function Example() {
+  const [disabled, setDisabled] = React.useState(false);
+
+  return (
+    <Stack gap={3}>
+      <Row gap={1}>
+        <Tooltip text="Default IconButton">
+          <IconButton accessibilityLabel='Default IconButton' icon='share' onClick={() => {}} disabled={disabled} />
+        </Tooltip>
+        <Tooltip text="Link IconButton">
+          <IconButton accessibilityLabel='Link IconButton' icon='link' role="link" target="blank" href="https://www.pinterest.com" disabled={disabled} />
+        </Tooltip>
+      </Row>
+      <Row gap={1}>
+        <Switch
+          onChange={() => setDisabled(!disabled)}
+          id="disable-buttons"
+          switched={disabled}
+        />
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="disable-buttons">
+            <Text>Disable buttons</Text>
+          </Label>
+        </Box>
+      </Row>
+    </Stack>
+  );
+}
 `}
   />
 );

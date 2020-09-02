@@ -204,7 +204,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
     }
   }
 
-  /* eslint-disable react/button-has-type */
   if (props.role === 'link') {
     const { href, rel, target } = props;
 
@@ -248,7 +247,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         onTouchStart={handleTouchStart}
         ref={innerRef}
         style={compressStyle}
-        type={type}
+        type={type} // eslint-disable-line react/button-has-type
       >
         {iconEnd ? iconEndComponent() : buttonText}
       </button>
@@ -281,13 +280,12 @@ const ButtonWithForwardRef: React$AbstractComponent<
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      type={type}
+      type={type} // eslint-disable-line react/button-has-type
       {...(compressStyle ? { style: compressStyle } : {})}
     >
       {iconEnd ? iconEndComponent() : buttonText}
     </button>
   );
-  /* eslint-enable react/button-has-type */
 });
 
 // $FlowFixMe Flow(InferError)
