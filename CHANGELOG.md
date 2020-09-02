@@ -1,3 +1,9 @@
+## 12.4.1 (Sep 2, 2020)
+
+### Patch
+
+- Internal: update bl package (security) (#1183)
+
 ## 12.4.0 (Sep 2, 2020)
 
 ### Minor
