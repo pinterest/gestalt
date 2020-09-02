@@ -69,7 +69,6 @@ type LinkButtonType = {|
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
-  role: 'link',
 |};
 
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
@@ -260,6 +259,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
+    name,
     type = 'button',
   } = props;
 
@@ -271,6 +271,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       aria-label={accessibilityLabel}
       className={classes}
       disabled={disabled}
+      name={name}
       onBlur={handleBlur}
       onClick={handleClick}
       onMouseDown={handleMouseDown}
