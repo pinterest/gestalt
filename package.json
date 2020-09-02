@@ -56,7 +56,8 @@
     "stylelint-order": "^4.1.0"
   },
   "resolutions": {
-    "serialize-javascript": "3.1.0"
+    "serialize-javascript": "3.1.0",
+    "bl": "4.0.3"
   },
   "scripts": {
     "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
