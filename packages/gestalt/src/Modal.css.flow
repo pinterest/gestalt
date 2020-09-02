@@ -5,6 +5,6 @@ declare module.exports: {|
   +'container': string,
   +'shadow': string,
   +'shadowContainer': string,
-  +'withZoomOut': string,
   +'wrapper': string,
+  +'zoomOut': string,
 |};

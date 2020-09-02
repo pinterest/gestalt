@@ -79,50 +79,6 @@ card(
 
 card(
   <Example
-    id="closeOnOutsideClickExample"
-    name="Prevent closing when clicking outside"
-    description={`
-      Sometimes we need the user to complete some required action at a Modal.
-      We can ensure that by preventing the user closing the modal.
-      For that you can set: \`closeOnOutsideClick\` to \`false\`.
-    `}
-    defaultCode={`
-function Example(props) {
-  const [showModal, setShowModal] = React.useState(false);
-  return (
-    <Box marginLeft={-1} marginRight={-1}>
-      <Box padding={1}>
-        <Button
-          text="Open modal"
-          onClick={() => { setShowModal(!showModal) }}
-        />
-        {showModal && (
-          <Layer>
-            <Modal
-              accessibilityModalLabel="Non closable modal"
-              closeOnOutsideClick={false}
-              heading="Heading"
-              onDismiss={() => { setShowModal(!showModal) }}
-            >
-              <Box padding={8}>
-                <Text align="center">Click on the button to close the modal</Text>
-                <Box marginTop={4}>
-                  <Button color="red" text="Close" onClick={() => { setShowModal(!showModal) }} />
-                </Box>
-              </Box>
-            </Modal>
-          </Layer>
-        )}
-      </Box>
-    </Box>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
     id="sizesExample"
     name="Sizes"
     description={`
@@ -154,7 +110,8 @@ function Example(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
-          text="size='sm'"
+          inline
+          text="Small Modal"
           onClick={() => { dispatch({type: 'small'}) }}
         />
         {state.modal === 'small' && (
@@ -175,7 +132,8 @@ function Example(props) {
       </Box>
       <Box padding={1}>
         <Button
-          text="size='md'"
+          inline
+          text="Medium Modal"
           onClick={() => { dispatch({type: 'medium'}) }}
         />
         {state.modal === 'medium' && (
@@ -196,7 +154,8 @@ function Example(props) {
       </Box>
       <Box padding={1}>
         <Button
-          text="size='lg'"
+          inline
+          text="Large Modal"
           onClick={() => { dispatch({type: 'large'}) }}
         />
         {state.modal === 'large' && (
@@ -216,6 +175,49 @@ function Example(props) {
         )}
       </Box>
     </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="closeOnOutsideClickExample"
+    name="Prevent close on outside click"
+    description={`
+      Sometimes we need the user to complete some required action at a Modal.
+      We can ensure that by preventing the user closing the modal.
+      For that you can set: \`closeOnOutsideClick\` to \`false\`.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+  return (
+    <>
+      <Button
+        inline
+        text="Open modal"
+        onClick={() => { setShowModal(!showModal) }}
+      />
+      {showModal && (
+        <Layer>
+          <Modal
+            accessibilityModalLabel="Non closable modal"
+            closeOnOutsideClick={false}
+            heading="Heading"
+            onDismiss={() => { setShowModal(!showModal) }}
+          >
+            <Box padding={8}>
+              <Text align="center">Click on the button to close the modal</Text>
+              <Box marginTop={4}>
+                <Button color="red" text="Close" onClick={() => { setShowModal(!showModal) }} />
+              </Box>
+            </Box>
+          </Modal>
+        </Layer>
+      )}
+    </>
   );
 }
 `}
