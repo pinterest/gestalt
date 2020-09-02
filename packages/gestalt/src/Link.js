@@ -40,7 +40,7 @@ type Props = {|
   tapStyle?: 'none' | 'compress',
   target?: null | 'self' | 'blank',
   // private props to be internally used, therefore, not documented
-  _disabled?: boolean,
+  disabled?: boolean,
 |};
 
 const LinkWithForwardRef: AbstractComponent<
@@ -66,7 +66,7 @@ const LinkWithForwardRef: AbstractComponent<
     hoverStyle = 'underline',
     tapStyle = 'none',
     target = null,
-    _disabled,
+    disabled,
   } = props;
 
   const innerRef = useRef(null);
@@ -108,7 +108,7 @@ const LinkWithForwardRef: AbstractComponent<
       aria-label={accessibilityLabel}
       aria-selected={accessibilitySelected}
       className={className}
-      href={_disabled ? undefined : href}
+      href={disabled ? undefined : href}
       id={id}
       onBlur={event => {
         handleBlur();
@@ -181,7 +181,7 @@ LinkWithForwardRef.propTypes = {
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
     null | 'self' | 'blank'
   >),
-  _disabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 LinkWithForwardRef.displayName = 'Link';

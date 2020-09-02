@@ -254,10 +254,10 @@ function Example() {
           <Button onClick={() => {}} text="Clear search history" inline disabled={disabled} />
         </Tooltip>
         <Tooltip text="Submit button">
-          <Button type="submit" name='satisfaction-questionaire' text="Submit your response" inline disabled={disabled} />
+          <Button type="submit" name="satisfaction-questionaire" text="Submit your response" inline disabled={disabled} />
         </Tooltip>
         <Tooltip text="Link button">
-          <Button role="link" target='blank' href='https://www.pinterest.com' text="Visit pinterest.com" inline disabled={disabled} />
+          <Button role="link" target="blank" href="https://www.pinterest.com" text="Visit pinterest.com" inline disabled={disabled} />
         </Tooltip>
       </Row>
       <Row gap={1}>
@@ -284,9 +284,9 @@ card(
     name="Size"
     id="size"
     defaultCode={`<Row gap={1}>
-  <Button size='sm' text="Small-sized button" inline />
+  <Button size="sm" text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
-  <Button size='lg' text="Large-sized button" inline />
+  <Button size="lg" text="Large-sized button" inline />
 </Row>`}
   />
 );
@@ -312,7 +312,7 @@ card(
     name="Icons"
     id="iconEnd"
     defaultCode={`
-    <Button iconEnd='download' text="Download CVS file" inline />
+    <Button iconEnd="download" text="Download CVS file" inline />
 `}
   />
 );
@@ -329,7 +329,7 @@ function Example() {
       inline
       selected={selected}
       onClick={() => {setSelected(!selected)}}
-      text={selected ? 'Selected' : 'Deselected'}
+      text={selected ? "Selected" : "Deselected"}
     />
   );
 }

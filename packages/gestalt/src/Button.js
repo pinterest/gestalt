@@ -212,7 +212,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     return (
       <Link
         accessibilityLabel={accessibilityLabel}
-        _disabled={disabled}
+        disabled={disabled}
         inline={inline}
         href={href}
         hoverStyle="none"
