@@ -1,3 +1,9 @@
+## 12.4.0 (Sep 2, 2020)
+
+### Minor
+
+- Button: v.2. Added support for href and segmented Flow type (#1169)
+
 ## 12.3.0 (Sep 2, 2020)
 
 ### Minor
