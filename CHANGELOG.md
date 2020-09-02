@@ -1,3 +1,9 @@
+## 12.3.0 (Sep 2, 2020)
+
+### Minor
+
+- Modal: Prevent showing zoom out icon if closeOnOutsideClick is false (#1181)
+
 ## 12.2.0 (Sep 1, 2020)
 
 ### Minor
