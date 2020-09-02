@@ -6,4 +6,5 @@ declare module.exports: {|
   +'shadow': string,
   +'shadowContainer': string,
   +'wrapper': string,
+  +'zoomOut': string,
 |};
