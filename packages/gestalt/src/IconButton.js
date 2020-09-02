@@ -9,6 +9,7 @@ import React, {
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
+import InternalLink from './InternalLink.js';
 import Pog from './Pog.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './IconButton.css';
@@ -16,10 +17,7 @@ import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
 
-type Props = {|
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
+type BaseIconButton = {|
   accessibilityLabel: string,
   bgColor?:
     | 'transparent'
@@ -32,21 +30,43 @@ type Props = {|
   dangerouslySetSvgPath?: {| __path: string |},
   disabled?: boolean,
   icon?: $Keys<typeof icons>,
+  onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLButtonElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
+  >,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
-  onClick?: AbstractEventHandler<SyntheticMouseEvent<HTMLButtonElement>>,
   padding?: 1 | 2 | 3 | 4 | 5,
-  selected?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
+type IconButtonType = {|
+  ...BaseIconButton,
+  accessibilityControls?: string,
+  accessibilityExpanded?: boolean,
+  accessibilityHaspopup?: boolean,
+  role?: 'button',
+  selected?: boolean,
+|};
+
+type LinkIconButtonType = {|
+  ...BaseIconButton,
+  href: string,
+  rel?: 'none' | 'nofollow',
+  role: 'link',
+  target?: null | 'self' | 'blank',
+|};
+
+type unionProps = IconButtonType | LinkIconButtonType;
+
+type unionRefs = HTMLButtonElement | HTMLAnchorElement;
+
 const IconButtonWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLButtonElement
-> = forwardRef<Props, HTMLButtonElement>(function IconButton(props, ref): Node {
+  unionProps,
+  unionRefs
+> = forwardRef<unionProps, unionRefs>(function IconButton(props, ref): Node {
   const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
     accessibilityLabel,
     bgColor,
     dangerouslySetSvgPath,
@@ -55,9 +75,9 @@ const IconButtonWithForwardRef: React$AbstractComponent<
     iconColor,
     onClick,
     padding,
-    selected,
     size,
   } = props;
+
   const innerRef = useRef(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
@@ -84,47 +104,19 @@ const IconButtonWithForwardRef: React$AbstractComponent<
 
   const { isFocusVisible } = useFocusVisible();
 
-  const classes = classnames(styles.button, touchableStyles.tapTransition, {
-    [styles.disabled]: disabled,
-    [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: !disabled && isTapping,
-  });
+  const buttonRoleClasses = classnames(
+    styles.button,
+    touchableStyles.tapTransition,
+    {
+      [styles.disabled]: disabled,
+      [styles.enabled]: !disabled,
+      [touchableStyles.tapCompress]:
+        props.role !== 'link' && !disabled && isTapping,
+    }
+  );
 
-  return (
-    <button
-      aria-controls={accessibilityControls}
-      aria-expanded={accessibilityExpanded}
-      aria-haspopup={accessibilityHaspopup}
-      aria-label={accessibilityLabel}
-      className={classes}
-      disabled={disabled}
-      onBlur={() => {
-        handleBlur();
-        setFocused(false);
-      }}
-      onClick={event => onClick && onClick({ event })}
-      onFocus={() => setFocused(true)}
-      onMouseDown={() => {
-        handleMouseDown();
-        setActive(true);
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => {
-        setActive(false);
-        setHovered(false);
-      }}
-      onMouseUp={() => {
-        handleMouseUp();
-        setActive(false);
-      }}
-      onTouchCancel={handleTouchCancel}
-      onTouchEnd={handleTouchEnd}
-      onTouchMove={handleTouchMove}
-      onTouchStart={handleTouchStart}
-      ref={innerRef}
-      type="button"
-      {...(compressStyle ? { style: compressStyle } : {})}
-    >
+  const renderPogComponent = (selected?: boolean): Node => {
+    return (
       <Pog
         active={!disabled && isActive}
         bgColor={bgColor}
@@ -137,6 +129,109 @@ const IconButtonWithForwardRef: React$AbstractComponent<
         selected={selected}
         size={size}
       />
+    );
+  };
+
+  function handleClick(event) {
+    if (onClick) {
+      onClick({ event });
+    }
+  }
+
+  function handleLinkClick({ event }) {
+    handleClick(event);
+  }
+
+  const handleOnBlur = () => {
+    setFocused(false);
+  };
+
+  const handleOnFocus = () => {
+    setFocused(true);
+  };
+
+  const handleOnMouseDown = () => {
+    setActive(true);
+  };
+
+  const handleOnMouseUp = () => {
+    setActive(false);
+  };
+
+  const handleOnMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleOnMouseLeave = () => {
+    setActive(false);
+    setHovered(false);
+  };
+
+  if (props.role === 'link') {
+    const { href, rel, target } = props;
+
+    return (
+      <InternalLink
+        accessibilityLabel={accessibilityLabel}
+        disabled={disabled}
+        href={href}
+        onClick={handleLinkClick}
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        onMouseDown={handleOnMouseDown}
+        onMouseUp={handleOnMouseUp}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        ref={innerRef}
+        rel={rel}
+        target={target}
+        wrappedComponent="iconButton"
+      >
+        {renderPogComponent()}
+      </InternalLink>
+    );
+  }
+
+  const {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    selected,
+  } = props;
+
+  return (
+    <button
+      aria-controls={accessibilityControls}
+      aria-expanded={accessibilityExpanded}
+      aria-haspopup={accessibilityHaspopup}
+      aria-label={accessibilityLabel}
+      className={buttonRoleClasses}
+      disabled={disabled}
+      onBlur={() => {
+        handleBlur();
+        handleOnBlur();
+      }}
+      onClick={handleClick}
+      onFocus={handleOnFocus}
+      onMouseDown={() => {
+        handleMouseDown();
+        handleOnMouseDown();
+      }}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      onMouseUp={() => {
+        handleMouseUp();
+        handleOnMouseUp();
+      }}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchStart}
+      ref={innerRef}
+      style={compressStyle || undefined}
+      type="button"
+    >
+      {renderPogComponent(selected)}
     </button>
   );
 });
@@ -160,12 +255,20 @@ IconButtonWithForwardRef.propTypes = {
     __path: PropTypes.string,
   }),
   disabled: PropTypes.bool,
+  href: PropTypes.string,
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
   padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
+    'none' | 'nofollow'
+  >),
+  role: PropTypes.oneOf(['button', 'link']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
+    null | 'self' | 'blank'
+  >),
 };
 
 IconButtonWithForwardRef.displayName = 'IconButton';

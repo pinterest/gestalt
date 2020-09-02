@@ -537,9 +537,9 @@ function MenuButtonExample() {
           accessibilityExpanded={selected}
           accessibilityHaspopup
           onTap={() => setSelected(!selected)}
+          ref={anchorRef}
         >
           <Box
-            ref={anchorRef}
             borderSize="sm"
             display="inlineBlock"
             alignItems="center"
