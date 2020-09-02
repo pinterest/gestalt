@@ -14,7 +14,7 @@ Object {
           role="dialog"
         >
           <div
-            class="backdrop"
+            class="backdrop zoomOut"
           />
           <div
             class="wrapper"
@@ -44,7 +44,7 @@ Object {
         role="dialog"
       >
         <div
-          class="backdrop"
+          class="backdrop zoomOut"
         />
         <div
           class="wrapper"

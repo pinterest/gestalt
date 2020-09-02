@@ -35,9 +35,11 @@ const ESCAPE_KEY_CODE = 27;
 
 function Backdrop({
   children,
+  closeOnOutsideClick,
   onClick,
 }: {|
   children?: Node,
+  closeOnOutsideClick: boolean,
   onClick?: (event: MouseEvent) => void,
 |}) {
   const handleClick = event => {
@@ -53,7 +55,12 @@ function Backdrop({
     <>
       {/* Disabling the linters below is fine, we don't want key event listeners (ESC handled elsewhere) */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <div className={styles.backdrop} onClick={handleClick} />
+      <div
+        className={classnames(styles.backdrop, {
+          [styles.zoomOut]: closeOnOutsideClick,
+        })}
+        onClick={handleClick}
+      />
       {children}
     </>
   );
@@ -145,7 +152,10 @@ const ModalWithForwardRef: React$AbstractComponent<
           className={styles.container}
           role={role}
         >
-          <Backdrop onClick={handleOutsideClick}>
+          <Backdrop
+            closeOnOutsideClick={closeOnOutsideClick}
+            onClick={handleOutsideClick}
+          >
             <div
               className={styles.wrapper}
               tabIndex={-1}
