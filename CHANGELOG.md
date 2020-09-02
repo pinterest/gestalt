@@ -1,3 +1,9 @@
+## 12.5.0 (Sep 2, 2020)
+
+### Minor
+
+- VideoControls: convert to function component (#1182)
+
 ## 12.4.2 (Sep 2, 2020)
 
 ### Patch
