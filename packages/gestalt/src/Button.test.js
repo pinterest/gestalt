@@ -12,16 +12,6 @@ describe('<Button />', () => {
       instance.find(element => element.type === 'button').props.className
     ).toContain('transparent');
   });
-
-  test('Custom text color', () => {
-    const instance = create(
-      <Button color="white" textColor="blue" text="Hello World" />
-    ).root;
-    expect(
-      instance.find(element => element.type === 'div').props.className
-    ).toContain('blue');
-  });
-
   test('Disabled state', () => {
     const instance = create(<Button color="red" disabled text="Hello World" />)
       .root;
@@ -37,6 +27,22 @@ describe('<Button />', () => {
       <Button color="white" iconEnd="arrow-down" inline text="Menu" />
     ).root;
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
+  });
+  test('Custom white text color on transparent background ', () => {
+    const instance = create(
+      <Button color="transparentWhiteText" text="Hello World" />
+    ).root;
+    expect(
+      instance.find(element => element.type === 'div').props.className
+    ).toContain('white');
+  });
+
+  test('Default darkGray text color on transparent background ', () => {
+    const instance = create(<Button color="transparent" text="Hello World" />)
+      .root;
+    expect(
+      instance.find(element => element.type === 'div').props.className
+    ).toContain('darkGray');
   });
 
   test('accessibilityControls', () => {
