@@ -65,6 +65,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
     sectionName: 'Layout',
     pages: [
       'Box',
+      'ButtonGroup',
       'Card',
       'Collage',
       'Column',
