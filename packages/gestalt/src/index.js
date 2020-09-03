@@ -4,6 +4,7 @@ import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
+import ButtonGroup from './ButtonGroup.js';
 import Callout from './Callout.js';
 import Card from './Card.js';
 import Checkbox from './Checkbox.js';
@@ -61,6 +62,7 @@ export {
   Badge,
   Box,
   Button,
+  ButtonGroup,
   Callout,
   Card,
   Checkbox,
