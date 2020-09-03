@@ -44,6 +44,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
     sectionName: 'Forms',
     pages: [
       'Button',
+      'ButtonGroup',
       'Checkbox',
       'DatePicker',
       'Flyout',
