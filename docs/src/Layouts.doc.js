@@ -26,7 +26,6 @@ card(
   marginTop={-3}
   wrap
   width="100%"
-  padding={3}
   direction="column"
   maxWidth={800}
 >
