@@ -1,3 +1,9 @@
+## 12.6.0 (Sep 3, 2020)
+
+### Minor
+
+- ButtonGroup: Add component (#1186)
+
 ## 12.5.0 (Sep 2, 2020)
 
 ### Minor
