@@ -16,7 +16,7 @@ export type sidebarIndexType = {|
 const sidebarIndex: Array<sidebarIndexType> = [
   {
     sectionName: 'Getting Started',
-    pages: ['Installation', 'Development', 'Faq'],
+    pages: ['Installation', 'Development', 'Layouts', 'Faq'],
   },
   {
     sectionName: 'Foundation',
