@@ -1,3 +1,9 @@
+## 12.6.1 (Sep 4, 2020)
+
+### Patch
+
+- Layouts: Add form layout example (#1187)
+
 ## 12.6.0 (Sep 3, 2020)
 
 ### Minor
