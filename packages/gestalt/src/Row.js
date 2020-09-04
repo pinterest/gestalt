@@ -1,8 +1,11 @@
 // @flow strict
-import React, { Children, type Node } from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
-import FlexBox from './FlexBox.js';
-import Box, {
+import classnames from 'classnames';
+import disallowedProps from './stackDisallowedProps.js';
+import styles from './Row.css';
+import { buildStyles } from './boxTransforms.js';
+import {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
@@ -19,7 +22,7 @@ import Box, {
   type JustifyContent,
   type Overflow,
   type Padding,
-} from './Box.js';
+} from './boxTypes.js';
 
 type Props = {|
   alignContent?: AlignContent,
@@ -39,37 +42,23 @@ type Props = {|
   wrap?: boolean,
 |};
 
-export default function Row({
-  alignItems = 'center',
-  children,
-  gap = 0,
-  height,
-  justifyContent = 'start',
-  width,
-  ...rest
-}: Props): Node {
+// Defaults for align-items and justify-content set in base styles
+export default function Row({ children, gap = 0, ...rest }: Props): Node {
+  const baseClasses = classnames(
+    styles.row,
+    styles[`horizontalGap${gap}`],
+    styles[`horizontalGap${gap} > *`]
+  );
+  const { passthroughProps, propsStyles } = buildStyles<Props>(
+    baseClasses,
+    rest,
+    disallowedProps
+  );
+
   return (
-    <Box
-      height={height}
-      marginStart={gap ? -gap : 0}
-      marginEnd={gap ? -gap : 0}
-      width={width}
-    >
-      <FlexBox
-        alignItems={alignItems}
-        direction="row"
-        height={height}
-        justifyContent={justifyContent}
-        width={width}
-        {...rest}
-      >
-        {Children.map(children, child =>
-          child !== null && child !== undefined ? (
-            <Box paddingX={gap}>{child}</Box>
-          ) : null
-        )}
-      </FlexBox>
-    </Box>
+    <div {...passthroughProps} {...propsStyles}>
+      {children}
+    </div>
   );
 }
 

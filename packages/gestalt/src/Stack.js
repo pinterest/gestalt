@@ -2,7 +2,9 @@
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import disallowedProps from './stackDisallowedProps.js';
 import styles from './Stack.css';
+import { buildStyles } from './boxTransforms.js';
 import {
   AlignContentPropType,
   AlignItemsPropType,
@@ -20,7 +22,7 @@ import {
   type JustifyContent,
   type Overflow,
   type Padding,
-} from './Box.js';
+} from './boxTypes.js';
 
 type Props = {|
   alignContent?: AlignContent,
@@ -40,16 +42,24 @@ type Props = {|
   wrap?: boolean,
 |};
 
+// Defaults for align-items and justify-content set in base styles
 export default function Stack({ children, gap = 0, ...rest }: Props): Node {
-  const className = classnames(
+  const baseClasses = classnames(
     styles.stack,
     styles[`verticalGap${gap}`],
     styles[`verticalGap${gap} > *`]
   );
+  const { passthroughProps, propsStyles } = buildStyles<Props>(
+    baseClasses,
+    rest,
+    disallowedProps
+  );
 
-  // Handle `rest` props using Box transforms?
-
-  return <div className={className}>{children}</div>;
+  return (
+    <div {...passthroughProps} {...propsStyles}>
+      {children}
+    </div>
+  );
 }
 
 Stack.propTypes = {
