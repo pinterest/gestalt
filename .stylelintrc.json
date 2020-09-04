@@ -9,7 +9,7 @@
         "ignoreProperties": ["composes"]
       }
     ],
-    "custom-property-pattern": "gestalt-.+",
+    "custom-property-pattern": "g-.+",
     "value-keyword-case": [
       "lower",
       {
