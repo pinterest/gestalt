@@ -65,11 +65,10 @@ console.log(
       '--gestalt-boint': `${BOINT_SIZE_PX}px`,
     }),
     ruleset('.stack', {
-      'flex-direction': 'column',
+      'align-items': 'flex-start', // default
       display: 'flex',
-      // defaults
-      'align-items': 'flex-start',
-      'justify-content': 'center',
+      'flex-direction': 'column',
+      'justify-content': 'center', // default
     }),
 
     // Add rules for boints 0 through 12

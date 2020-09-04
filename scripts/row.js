@@ -65,11 +65,10 @@ console.log(
       '--gestalt-boint': `${BOINT_SIZE_PX}px`,
     }),
     ruleset('.row', {
-      'flex-direction': 'row',
+      'align-items': 'center', // default
       display: 'flex',
-      // defaults
-      'align-items': 'center',
-      'justify-content': 'flex-start',
+      'flex-direction': 'row',
+      'justify-content': 'flex-start', // default
     }),
 
     // Add rules for boints 0 through 12
