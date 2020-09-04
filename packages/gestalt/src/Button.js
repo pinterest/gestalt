@@ -10,14 +10,14 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import focusStyles from './Focus.css';
-import Icon from './Icon.js';
-import Link from './Link.js';
 import icons from './icons/index.js';
 import styles from './Button.css';
 import Text from './Text.js';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback from './useTapFeedback.js';
+import InternalLink from './InternalLink.js';
+import Icon, { type IconColor } from './Icon.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
@@ -27,6 +27,12 @@ const DEFAULT_TEXT_COLORS = {
   red: 'white',
   transparent: 'white',
   white: 'darkGray',
+};
+
+const SIZE_NAME_TO_PIXEL = {
+  sm: 10,
+  md: 12,
+  lg: 12,
 };
 
 type BaseButton = {|
@@ -74,6 +80,30 @@ type LinkButtonType = {|
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
+
+const IconEnd = ({
+  text,
+  textColor,
+  icon,
+  size,
+}: {|
+  text: Node,
+  textColor: IconColor,
+  icon: $Keys<typeof icons>,
+  size: string,
+|}): Node => (
+  <Box alignItems="center" display="flex">
+    {text}
+    <Box display="inlineBlock" flex="none" marginStart={2}>
+      <Icon
+        accessibilityLabel=""
+        color={textColor}
+        icon={icon}
+        size={SIZE_NAME_TO_PIXEL[size]}
+      />
+    </Box>
+  </Box>
+);
 
 const ButtonWithForwardRef: React$AbstractComponent<
   unionProps,
@@ -126,7 +156,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
 
   const { isFocusVisible } = useFocusVisible();
 
-  const classes = classnames(
+  const buttonRoleClasses = classnames(
     styles.button,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
@@ -140,7 +170,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.enabled]: !disabled,
       [styles.inline]: props.role !== 'link' && inline,
       [styles.block]: props.role !== 'link' && !inline,
-      [styles.link]: props.role === 'link',
       [touchableStyles.tapCompress]:
         props.role !== 'link' && !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
@@ -160,82 +189,52 @@ const ButtonWithForwardRef: React$AbstractComponent<
     </Text>
   );
 
-  const iconEndComponent = (): Node => {
-    const SIZE_NAME_TO_PIXEL = {
-      sm: 10,
-      md: 12,
-      lg: 12,
-    };
-
-    return (
-      <Box alignItems="center" display="flex">
-        {buttonText}
-        <Box display="inlineBlock" flex="none" marginStart={2}>
-          <Icon
-            accessibilityLabel=""
-            color={textColor}
-            icon={iconEnd}
-            size={SIZE_NAME_TO_PIXEL[size]}
-          />
-        </Box>
-      </Box>
-    );
+  const handleClick = event => {
+    if (onClick) {
+      onClick({ event });
+    }
   };
 
-  function handleClick(
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-  ): void {
-    if (onClick) {
-      onClick({ event });
-    }
-  }
+  const handleLinkClick = ({ event }) => handleClick(event);
 
-  function handleLinkClick({
-    event,
-  }: {|
-    event:
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}): void {
-    if (onClick) {
-      onClick({ event });
-    }
-  }
-
-  /* eslint-disable react/button-has-type */
   if (props.role === 'link') {
-    const { href, rel, target } = props;
+    const { href, rel = 'none', target = null } = props;
 
     return (
-      <Link
+      <InternalLink
         accessibilityLabel={accessibilityLabel}
+        colorClass={colorClass}
         disabled={disabled}
         inline={inline}
         href={href}
-        hoverStyle="none"
         onClick={handleLinkClick}
         ref={innerRef}
         rel={rel}
-        rounding="pill"
-        tapStyle={disabled ? undefined : 'compress'}
+        size={size}
         target={target}
+        wrappedComponent="button"
       >
-        <div className={classes}>
-          {iconEnd ? iconEndComponent() : buttonText}
-        </div>
-      </Link>
+        {iconEnd ? (
+          <IconEnd
+            text={buttonText}
+            textColor={textColor}
+            icon={iconEnd}
+            size={size}
+          />
+        ) : (
+          buttonText
+        )}
+      </InternalLink>
     );
   }
 
   if (props.type === 'submit') {
-    const { name, type } = props;
+    const { name } = props;
 
     return (
       <button
         aria-label={accessibilityLabel}
-        className={classes}
+        className={buttonRoleClasses}
         disabled={disabled}
         name={name}
         onBlur={handleBlur}
@@ -247,10 +246,19 @@ const ButtonWithForwardRef: React$AbstractComponent<
         onTouchMove={handleTouchMove}
         onTouchStart={handleTouchStart}
         ref={innerRef}
-        style={compressStyle}
-        type={type}
+        style={compressStyle || undefined}
+        type="submit"
       >
-        {iconEnd ? iconEndComponent() : buttonText}
+        {iconEnd ? (
+          <IconEnd
+            text={buttonText}
+            textColor={textColor}
+            icon={iconEnd}
+            size={size}
+          />
+        ) : (
+          buttonText
+        )}
       </button>
     );
   }
@@ -260,7 +268,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
     accessibilityExpanded,
     accessibilityHaspopup,
     name,
-    type = 'button',
   } = props;
 
   return (
@@ -269,7 +276,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={classes}
+      className={buttonRoleClasses}
       disabled={disabled}
       name={name}
       onBlur={handleBlur}
@@ -281,13 +288,21 @@ const ButtonWithForwardRef: React$AbstractComponent<
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      type={type}
-      {...(compressStyle ? { style: compressStyle } : {})}
+      type="button"
+      style={compressStyle || undefined}
     >
-      {iconEnd ? iconEndComponent() : buttonText}
+      {iconEnd ? (
+        <IconEnd
+          text={buttonText}
+          textColor={textColor}
+          icon={iconEnd}
+          size={size}
+        />
+      ) : (
+        buttonText
+      )}
     </button>
   );
-  /* eslint-enable react/button-has-type */
 });
 
 // $FlowFixMe Flow(InferError)

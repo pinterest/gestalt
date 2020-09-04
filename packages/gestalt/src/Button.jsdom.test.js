@@ -39,8 +39,9 @@ describe('Button', () => {
       />
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
-    // $FlowIgnore[prop-missing]
-    expect(ref.current?.href).toEqual('http://www.pinterest.com/');
+    expect(
+      ref.current instanceof HTMLAnchorElement && ref.current?.href
+    ).toEqual('http://www.pinterest.com/');
   });
 
   it('renders a disabled link button', () => {
@@ -56,7 +57,8 @@ describe('Button', () => {
       />
     );
     expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
-    // $FlowIgnore[prop-missing]
-    expect(ref.current?.href).toEqual('');
+    expect(
+      ref.current instanceof HTMLAnchorElement && ref.current?.href
+    ).toEqual('');
   });
 });
