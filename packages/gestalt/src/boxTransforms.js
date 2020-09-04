@@ -404,6 +404,7 @@ const zIndex: Functor<?Indexable> = value => {
 /*
 
 It's preferable to put new properties into that object directly just so it's easier to read.
+Unfortunately Flow doesn't like that for the vast majority of the fields. :(
 
 */
 
