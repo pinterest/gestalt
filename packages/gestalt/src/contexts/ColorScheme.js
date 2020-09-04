@@ -112,7 +112,7 @@ const themeToStyles = theme => {
   let styles = '';
   Object.keys(theme).forEach(key => {
     if (key.startsWith('color')) {
-      styles += `  --gestalt-${key}: ${theme[key]};\n`;
+      styles += `  --g-${key}: ${theme[key]};\n`;
     }
   });
   return styles;

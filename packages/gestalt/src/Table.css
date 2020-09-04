@@ -1,7 +1,7 @@
 :root {
   /* primary colors */
-  --gestalt-colorGray0: #fff;
-  --gestalt-colorGray150: #ddd;
+  --g-colorGray0: #fff;
+  --g-colorGray150: #ddd;
 }
 
 .table {
@@ -22,11 +22,11 @@
 }
 
 .sticky tr th {
-  background-color: var(--gestalt-colorGray0);
+  background-color: var(--g-colorGray0);
   position: sticky;
   top: 0;
 }
 
 .thead tr:last-child th {
-  border-bottom: 1px solid var(--gestalt-colorGray150);
+  border-bottom: 1px solid var(--g-colorGray150);
 }

@@ -1,15 +1,15 @@
 :root {
-  --gestalt-colorGray0Hovered: #f0f0f0;
-  --gestalt-colorGray0Active: #e0e0e0;
-  --gestalt-colorGray100: #efefef;
-  --gestalt-colorGray100Hovered: #e2e2e2;
-  --gestalt-colorGray100Active: #dadada;
-  --gestalt-colorRed100Hovered: #ad081b;
-  --gestalt-colorRed100Active: #a3081a;
-  --gestalt-blueHovered: #4a8ad4;
-  --gestalt-blueActive: #4a85c9;
-  --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorGray0Hovered: #f0f0f0;
+  --g-colorGray0Active: #e0e0e0;
+  --g-colorGray100: #efefef;
+  --g-colorGray100Hovered: #e2e2e2;
+  --g-colorGray100Active: #dadada;
+  --g-colorRed100Hovered: #ad081b;
+  --g-colorRed100Active: #a3081a;
+  --g-blueHovered: #4a8ad4;
+  --g-blueActive: #4a85c9;
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
 }
 
 .button {
@@ -65,11 +65,11 @@
 
 .gray:hover,
 .gray:focus {
-  background-color: var(--gestalt-colorGray100Hovered);
+  background-color: var(--g-colorGray100Hovered);
 }
 
 .gray:active {
-  background-color: var(--gestalt-colorGray100Active);
+  background-color: var(--g-colorGray100Active);
 }
 
 .red {
@@ -84,12 +84,12 @@
 .red:focus,
 .darkModeRed:hover,
 .darkModeRed:focus {
-  background-color: var(--gestalt-colorRed100Hovered);
+  background-color: var(--g-colorRed100Hovered);
 }
 
 .red:active,
 .darkModeRed:active {
-  background-color: var(--gestalt-colorRed100Active);
+  background-color: var(--g-colorRed100Active);
 }
 
 .blue {
@@ -98,11 +98,11 @@
 
 .blue:hover,
 .blue:focus {
-  background-color: var(--gestalt-blueHovered);
+  background-color: var(--g-blueHovered);
 }
 
 .blue:active {
-  background-color: var(--gestalt-blueActive);
+  background-color: var(--g-blueActive);
 }
 
 .transparent {
@@ -111,11 +111,11 @@
 
 .transparent:hover,
 .transparent:focus {
-  background-color: var(--gestalt-colorTransparentGray60);
+  background-color: var(--g-colorTransparentGray60);
 }
 
 .transparent:active {
-  background-color: var(--gestalt-colorTransparentGray100);
+  background-color: var(--g-colorTransparentGray100);
 }
 
 .white {
@@ -124,9 +124,9 @@
 
 .white:hover,
 .white:focus {
-  background-color: var(--gestalt-colorGray0Hovered);
+  background-color: var(--g-colorGray0Hovered);
 }
 
 .white:active {
-  background-color: var(--gestalt-colorGray0Active);
+  background-color: var(--g-colorGray0Active);
 }

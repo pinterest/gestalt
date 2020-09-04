@@ -16,7 +16,7 @@ const SCALE = new Array(SCALE_LENGTH).fill().map((_, i) => i + 1);
 
 // --
 
-const bt = n => `calc(var(--gestalt-boint) * ${n})`;
+const bt = n => `calc(var(--g-boint) * ${n})`;
 const block = str =>
   [
     '{',
@@ -177,28 +177,28 @@ const autoRules = prefix => [
 console.log(
   Stylesheet([
     ruleset(':root', {
-      '--gestalt-boint': `${BOINT_SIZE_PX}px`,
+      '--g-boint': `${BOINT_SIZE_PX}px`,
     }),
 
     // Add margin/padding for boints -12 through 12
     ...[0, ...SCALE].reduce((arr, i) => arr.concat(rules(i)), []),
     atrule(
-      '--gestalt-sm',
+      '--g-sm',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'sm')), [])
     ),
     atrule(
-      '--gestalt-md',
+      '--g-md',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'md')), [])
     ),
     atrule(
-      '--gestalt-lg',
+      '--g-lg',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'lg')), [])
     ),
 
     // Add margin auto
     ...autoRules(),
-    atrule('--gestalt-sm', autoRules('sm')),
-    atrule('--gestalt-md', autoRules('md')),
-    atrule('--gestalt-lg', autoRules('lg')),
+    atrule('--g-sm', autoRules('sm')),
+    atrule('--g-md', autoRules('md')),
+    atrule('--g-lg', autoRules('lg')),
   ])
 );
