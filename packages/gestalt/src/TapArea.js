@@ -3,12 +3,12 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  type Element,
   type Node,
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
+import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import getRoundingClassName, {
   RoundingPropType,
@@ -18,10 +18,15 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
-type Props = {|
-  accessibilityControls?: string,
-  accessibilityExpanded?: boolean,
-  accessibilityHaspopup?: boolean,
+type FocusEventHandler = AbstractEventHandler<
+  SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>
+>;
+
+type MouseEventHandler = AbstractEventHandler<
+  SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>
+>;
+
+type BaseTapArea = {|
   accessibilityLabel?: string,
   children?: Node,
   disabled?: boolean,
@@ -36,28 +41,42 @@ type Props = {|
     | 'pointer'
     | 'zoomIn'
     | 'zoomOut',
-  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLDivElement>>,
-  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLDivElement>>,
-  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
+  onBlur?: FocusEventHandler,
+  onFocus?: FocusEventHandler,
+  onMouseEnter?: MouseEventHandler,
+  onMouseLeave?: MouseEventHandler,
   onTap?: AbstractEventHandler<
-    SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
-  tapStyle?: 'none' | 'compress',
   rounding?: Rounding,
 |};
+type TapAreaType = {|
+  ...BaseTapArea,
+  accessibilityControls?: string,
+  accessibilityExpanded?: boolean,
+  accessibilityHaspopup?: boolean,
+  role?: 'button',
+|};
+
+type LinkTapAreaType = {|
+  ...BaseTapArea,
+  href: string,
+  rel?: 'none' | 'nofollow',
+  role: 'link',
+  target?: null | 'self' | 'blank',
+|};
+
+type unionProps = TapAreaType | LinkTapAreaType;
+type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
 const TapAreaWithForwardRef: React$AbstractComponent<
-  Props,
-  HTMLDivElement
-> = forwardRef<Props, HTMLDivElement>(function TapArea(
-  props,
-  ref
-): Element<'div'> {
+  unionProps,
+  unionRefs
+> = forwardRef<unionProps, unionRefs>(function TapArea(props, ref): Node {
   const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
     accessibilityLabel,
     children,
     disabled = false,
@@ -69,7 +88,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<
     onMouseEnter,
     onMouseLeave,
     onTap,
-    tapStyle = 'none',
     rounding = 0,
   } = props;
 
@@ -94,7 +112,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
 
   const { isFocusVisible } = useFocusVisible();
 
-  const className = classnames(
+  const buttonRoleClasses = classnames(
     focusStyles.hideOutline,
     styles.tapTransition,
     getRoundingClassName(rounding),
@@ -103,10 +121,82 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       [styles.fullHeight]: fullHeight,
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
-      [styles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+      [styles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
     }
   );
 
+  const handleClick = event => {
+    if (!disabled && onTap) {
+      onTap({ event });
+    }
+  };
+
+  const handleLinkClick = ({ event }) => handleClick(event);
+
+  const handleOnBlur = event => {
+    if (!disabled && onBlur) {
+      onBlur({ event });
+    }
+  };
+
+  const handleLinkOnBlur = ({ event }) => handleOnBlur(event);
+
+  const handleOnFocus = event => {
+    if (!disabled && onFocus) {
+      onFocus({ event });
+    }
+  };
+
+  const handleLinkOnFocus = ({ event }) => handleOnFocus(event);
+
+  const handleOnMouseEnter = event => {
+    if (!disabled && onMouseEnter) {
+      onMouseEnter({ event });
+    }
+  };
+
+  const handleLinkOnMouseEnter = ({ event }) => handleOnMouseEnter(event);
+
+  const handleOnMouseLeave = event => {
+    if (!disabled && onMouseLeave) {
+      onMouseLeave({ event });
+    }
+  };
+
+  const handleLinkOnMouseLeave = ({ event }) => handleOnMouseLeave(event);
+
+  if (props.role === 'link') {
+    const { href, rel = 'none', target = null } = props;
+
+    return (
+      <InternalLink
+        accessibilityLabel={accessibilityLabel}
+        disabled={disabled}
+        href={href}
+        fullHeight={fullHeight}
+        fullWidth={fullWidth}
+        mouseCursor={mouseCursor}
+        onClick={handleLinkClick}
+        onBlur={handleLinkOnBlur}
+        onFocus={handleLinkOnFocus}
+        onMouseEnter={handleLinkOnMouseEnter}
+        onMouseLeave={handleLinkOnMouseLeave}
+        ref={innerRef}
+        rel={rel}
+        rounding={rounding}
+        target={target}
+        wrappedComponent="tapArea"
+      >
+        {children}
+      </InternalLink>
+    );
+  }
+
+  const {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+  } = props;
   return (
     <div
       aria-controls={accessibilityControls}
@@ -114,34 +204,16 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
-      className={className}
+      className={buttonRoleClasses}
       onContextMenu={event => event.preventDefault()}
-      onClick={event => {
-        if (!disabled && onTap) {
-          onTap({ event });
-        }
-      }}
+      onClick={handleClick}
       onBlur={event => {
-        if (!disabled && onBlur) {
-          onBlur({ event });
-        }
+        handleOnBlur(event);
         handleBlur();
       }}
-      onFocus={event => {
-        if (!disabled && onFocus) {
-          onFocus({ event });
-        }
-      }}
-      onMouseEnter={event => {
-        if (!disabled && onMouseEnter) {
-          onMouseEnter({ event });
-        }
-      }}
-      onMouseLeave={event => {
-        if (!disabled && onMouseLeave) {
-          onMouseLeave({ event });
-        }
-      }}
+      onFocus={handleOnFocus}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onKeyPress={event => {
@@ -158,9 +230,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       onTouchEnd={handleTouchEnd}
       ref={innerRef}
       role="button"
-      {...(compressStyle && tapStyle === 'compress'
-        ? { style: compressStyle }
-        : {})}
+      style={compressStyle || undefined}
       tabIndex={disabled ? null : '0'}
     >
       {children}
@@ -178,6 +248,7 @@ TapAreaWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
+  href: PropTypes.string,
   mouseCursor: (PropTypes.oneOf([
     'copy',
     'grab',
@@ -202,8 +273,12 @@ TapAreaWithForwardRef.propTypes = {
   onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
-    'none' | 'compress'
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
+    'none' | 'nofollow'
+  >),
+  role: PropTypes.oneOf(['tapArea', 'link']),
+  target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
+    null | 'self' | 'blank'
   >),
   rounding: RoundingPropType,
 };

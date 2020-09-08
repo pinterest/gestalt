@@ -44,15 +44,6 @@ test('TapArea sets fullHeight correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('TapArea supports press style', () => {
-  const tree = create(
-    <TapArea onTap={() => {}} tapStyle="compress">
-      TapArea
-    </TapArea>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 test('accessibilityControls', () => {
   const instance = create(
     <TapArea onTap={() => {}} accessibilityControls="another-element">

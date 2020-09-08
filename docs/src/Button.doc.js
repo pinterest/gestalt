@@ -61,7 +61,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Indicate that a button component controls the appearance of menus and expose whether they are currently opened or closed.',
+          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
           'Optional with button-role + button-type buttons.',
           'Accessibility: It populates aria-haspopup.',
         ],
@@ -224,7 +224,7 @@ card(
 
 card(
   <Example
-    name="Basic button"
+    name="Basic Button"
     id="basic-button"
     defaultCode={`<Button text="Medium-sized button" inline />`}
   />
@@ -458,6 +458,7 @@ function MenuButtonExample() {
     <>
       <Box display="inlineBlock" ref={anchorRef}>
         <Button
+          accessibilityControls="menu"
           accessibilityExpanded={selected}
           accessibilityHaspopup
           selected={selected}
@@ -476,7 +477,7 @@ function MenuButtonExample() {
             positionRelativeToAnchor={false}
             size="md"
           >
-            <Box direction="column" display="flex" padding={2}>
+            <Box id="menu" direction="column" display="flex" padding={2}>
               <Box padding={2}>
                 <Text weight="bold">
                   Option 1
