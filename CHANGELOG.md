@@ -1,3 +1,9 @@
+## 12.8.0 (Sep 8, 2020)
+
+### Minor
+
+- Layer: convert to function component (#1189)
+
 ## 12.7.0 (Sep 8, 2020)
 
 ### Minor
