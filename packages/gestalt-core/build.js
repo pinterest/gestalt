@@ -1,15 +1,12 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import cssnano from 'cssnano';
-import filesize from 'rollup-plugin-filesize';
-import gzip from 'gzip-size';
-import json from 'rollup-plugin-json';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import json from '@rollup/plugin-json';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'postcss';
 import postcssCssnext from 'postcss-cssnext';
 import postcssModules from 'postcss-modules';
-import replace from 'rollup-plugin-replace';
-import visualizer from 'rollup-plugin-visualizer';
+import replace from '@rollup/plugin-replace';
 import { parseString } from 'xml2js';
 import { readFileSync, writeFileSync } from 'fs';
 import { extname, relative } from 'path';
@@ -38,35 +35,11 @@ const svgPath = () => ({
   },
 });
 
-const statsPlugin = () => {
-  const statsMap = {};
-  const updateStats = (code, name) => {
-    const fileName = name.replace('dist/', '');
-    statsMap[fileName] = {
-      fileName,
-      size: Buffer.byteLength(code),
-      gzipSize: gzip.sync(code),
-    };
-    writeFileSync('dist/stats.json', JSON.stringify(statsMap, null, 2));
-  };
-
-  return {
-    name: 'stats',
-    generateBundle(options, bundles) {
-      const [file] = Object.keys(bundles);
-      const bundle = bundles[file];
-
-      updateStats(bundle.code, file);
-    },
-    updateStats,
-  };
-};
-
 const cssModules = (options = {}) => {
   const cssExportMap = {};
   const scopeNames = {};
-  let cssIE11 = ''; // CSS targeted toward IE11
-  let css = '';
+  const cssIE11Cache = {}; // CSS targeted toward IE11
+  const cssCache = {};
 
   const breakpoints = {
     'g-sm': '(min-width: 576px)',
@@ -139,8 +112,8 @@ const cssModules = (options = {}) => {
 
       let transformResult;
       const processIE11 = postcssParserIE11.process(code, opts).then(result => {
-        // Append CSS to output
-        cssIE11 += result.css;
+        // Set CSS for specific file
+        cssIE11Cache[id] = result.css;
 
         // We can't yet export consts because some selector names aren't
         // valid js variable names (anything with a hyphen "foo-bar").
@@ -151,8 +124,8 @@ const cssModules = (options = {}) => {
         transformResult = { code: js, map };
       });
       const process = postcssParser.process(code, opts).then(result => {
-        // Append CSS to output
-        css += result.css;
+        // Set CSS for specific file
+        cssCache[id] += result.css;
       });
       return Promise.all([processIE11, process]).then(() => transformResult);
     },
@@ -161,15 +134,15 @@ const cssModules = (options = {}) => {
       const opts = {
         preset: ['default', { calc: false }],
       };
-      cssnano.process(css, { from: undefined }, opts).then(result => {
-        const filename = `${options.output}-future.css`;
-        writeFileSync(filename, result.css);
-        options.stats.updateStats(result.css, filename);
-      });
-      cssnano.process(cssIE11).then(result => {
+      cssnano
+        .process(Object.values(cssCache).join(''), { from: undefined }, opts)
+        .then(result => {
+          const filename = `${options.output}-future.css`;
+          writeFileSync(filename, result.css);
+        });
+      cssnano.process(Object.values(cssIE11Cache).join('')).then(result => {
         const filename = `${options.output}.css`;
         writeFileSync(filename, result.css);
-        options.stats.updateStats(result.css, filename);
       });
     },
   };
@@ -178,7 +151,6 @@ const cssModules = (options = {}) => {
 const plugins = name => [
   cssModules({
     output: `../${name}/dist/${name}`,
-    stats: statsPlugin(),
   }),
   nodeResolve(),
   replace({
@@ -192,6 +164,7 @@ const plugins = name => [
   }),
   babel({
     babelrc: false,
+    babelHelpers: 'bundled',
     presets: [
       ['@babel/preset-env', { modules: false }],
       '@babel/react',
@@ -200,9 +173,6 @@ const plugins = name => [
     plugins: ['@babel/proposal-class-properties'],
     exclude: 'node_modules/**',
   }),
-  visualizer(),
-  filesize(),
-  statsPlugin(),
 ];
 
 export default plugins;
