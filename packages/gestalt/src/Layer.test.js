@@ -11,11 +11,7 @@ describe('Layer in server render', () => {
       return;
     }
 
-    const warnSpy = jest.spyOn(console, 'warn');
     const tree = create(<Layer>content</Layer>).toJSON();
     expect(tree).toEqual(null);
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Using Layer without document present. Children will not be rendered.'
-    );
   });
 });
