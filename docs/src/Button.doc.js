@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Button } from 'gestalt';
+import { Box, Button } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -69,11 +69,11 @@ card(
       },
       {
         name: 'color',
-        type: `'gray' | 'red' | 'blue' | 'transparent' | 'white'`,
+        type: `'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white'`,
         required: false,
         defaultValue: 'gray',
         description: 'Primary colors to apply to the button background.',
-        href: 'combinations',
+        href: 'color',
       },
       {
         name: 'disabled',
@@ -136,18 +136,6 @@ card(
           'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
         ],
         href: 'basic-button',
-      },
-      {
-        name: 'textColor',
-        type: `'white' | 'darkGray' | 'blue' | 'red'`,
-        required: false,
-        defaultValue: null,
-        description: [
-          'Primary colors to apply to the text inside the Button.',
-          'Text colors are automatically paired with the defined button `color`.',
-          '`textColor` should only be used when using a white background color; it may become necessary to manually override the text color to match that of the parent`s background. Do not override the text color for any button besides those with white background as it breaks design standards.',
-        ],
-        href: 'textColor',
       },
       {
         name: 'type',
@@ -280,15 +268,49 @@ function Example() {
 );
 
 card(
-  <Example
-    name="Size"
-    id="size"
-    defaultCode={`<Row gap={1}>
+  <>
+    <Example
+      name="Size"
+      id="size"
+      defaultCode={`<Row gap={1}>
   <Button size="sm" text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
   <Button size="lg" text="Large-sized button" inline />
 </Row>`}
-  />
+    />
+    <Combination
+      id="color"
+      name="Color"
+      color={[
+        'gray',
+        'red',
+        'blue',
+        'white',
+        'transparent',
+        'transparentWhiteText',
+      ]}
+    >
+      {(props, i) => {
+        let color;
+        if (props.color === 'transparentWhiteText') {
+          color = 'darkWash';
+        }
+        if (props.color === 'transparent') {
+          color = 'lightWash';
+        }
+        return (
+          <Box color={color}>
+            <Button
+              id={`example-${i}`}
+              onChange={() => {}}
+              {...props}
+              text="Button"
+            />
+          </Box>
+        );
+      }}
+    </Combination>
+  </>
 );
 
 card(
@@ -376,56 +398,6 @@ function ButtonFlyoutExample() {
 
 card(
   <Example
-    name="Text color"
-    id="textColor"
-    defaultCode={`
-
-function TextColorExample() {
-  const { name: colorSchemeName } = useColorScheme();
-  return (
-    <Box display="flex">
-      <Box color="blue" column={4} rounding={2} padding={4} margin={4}>
-        <Box marginBottom={4}>
-          <Text color="white">
-            Click to crop, rotate, apply filters, or edit your image.
-          </Text>
-        </Box>
-        <Row justifyContent="center" gap={1} >
-          <Button color="transparent" text="Later" textColor="white" />
-          <Button color="white" textColor={colorSchemeName === 'darkMode' ? 'darkGray' : 'blue'} text="Got it" />
-        </Row>
-      </Box>
-      <Box color="red" column={4} rounding={2} padding={4} margin={4}>
-        <Box marginBottom={4}>
-          <Text color="white">
-            Oops, something went wrong! Would you like to try again?
-          </Text>
-        </Box>
-        <Row justifyContent="center" gap={1} >
-          <Button color="transparent" text="Cancel" textColor="white" />
-          <Button color="white" textColor={colorSchemeName === 'darkMode' ? 'darkGray' : 'red'} text="Try again" />
-        </Row>
-      </Box>
-      <Box color="darkGray" column={4} rounding={2} padding={4} margin={4}>
-        <Box marginBottom={4}>
-          <Text color="white">
-            Explore today’s trending ideas, curated finds, and personalized picks.
-          </Text>
-        </Box>
-        <Row justifyContent="center" gap={1} >
-          <Button color="transparent" text="Later" />
-          <Button color="white" text="Learn more" />
-        </Row>
-      </Box>
-    </Box>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
     name="Accessibility: label"
     id="accessibilityLabel"
     defaultCode={`
@@ -496,26 +468,6 @@ function MenuButtonExample() {
 }
 `}
   />
-);
-
-card(
-  <Combination
-    id="combinations"
-    name="Combinations"
-    color={['gray', 'red', 'blue', 'white', 'transparent']}
-    disabled={[false, true]}
-    selected={[false, true]}
-    size={['sm', 'md', 'lg']}
-  >
-    {(props, i) => (
-      <Button
-        id={`example-${i}`}
-        onChange={() => {}}
-        {...props}
-        text="Button"
-      />
-    )}
-  </Combination>
 );
 
 export default cards;

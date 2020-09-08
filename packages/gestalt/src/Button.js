@@ -25,13 +25,20 @@ const DEFAULT_TEXT_COLORS = {
   blue: 'white',
   gray: 'darkGray',
   red: 'white',
-  transparent: 'white',
+  transparent: 'darkGray',
+  transparentWhiteText: 'white',
   white: 'darkGray',
 };
 
 type BaseButton = {|
   accessibilityLabel?: string,
-  color?: 'gray' | 'red' | 'blue' | 'transparent' | 'white',
+  color?:
+    | 'gray'
+    | 'red'
+    | 'blue'
+    | 'transparent'
+    | 'transparentWhiteText'
+    | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
@@ -44,7 +51,6 @@ type BaseButton = {|
   >,
   size?: 'sm' | 'md' | 'lg',
   text: string,
-  textColor?: 'white' | 'darkGray' | 'blue' | 'red',
 |};
 
 type ButtonType = {|
@@ -89,7 +95,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
     selected = false,
     size = 'md',
     text,
-    textColor: textColorProp,
   } = props;
 
   const innerRef = useRef(null);
@@ -118,7 +123,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
   const isDarkModeRed = isDarkMode && color === 'red';
   const isDarkModeBlue = isDarkMode && color === 'blue';
 
-  let colorClass = color;
+  let colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
 
   if (isDarkModeRed) {
     colorClass = 'darkModeRed';
@@ -151,7 +156,6 @@ const ButtonWithForwardRef: React$AbstractComponent<
     (disabled && 'gray') ||
     (selected && 'white') ||
     ((isDarkModeRed || isDarkModeBlue) && 'darkGray') ||
-    textColorProp ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
@@ -296,7 +300,14 @@ ButtonWithForwardRef.propTypes = {
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'white']),
+  color: PropTypes.oneOf([
+    'blue',
+    'gray',
+    'red',
+    'transparent',
+    'transparentWhiteText',
+    'white',
+  ]),
   disabled: PropTypes.bool,
   href: PropTypes.string,
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
@@ -313,7 +324,6 @@ ButtonWithForwardRef.propTypes = {
     null | 'self' | 'blank'
   >),
   text: PropTypes.string.isRequired,
-  textColor: PropTypes.oneOf(['white', 'darkGray', 'blue', 'red']),
   type: PropTypes.oneOf(['button', 'submit']),
 };
 
