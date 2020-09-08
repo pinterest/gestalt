@@ -1,3 +1,9 @@
+## 12.9.0 (Sep 8, 2020)
+
+### Minor
+
+- Internal: fix 'undefined' CSS in future CSS (#1198)
+
 ## 12.8.2 (Sep 8, 2020)
 
 ### Patch
