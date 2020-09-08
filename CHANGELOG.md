@@ -1,3 +1,9 @@
+## 12.10.0 (Sep 8, 2020)
+
+### Minor
+
+- Box: removal xs, sm, md, lg props (#1196)
+
 ## 12.9.0 (Sep 8, 2020)
 
 ### Minor
