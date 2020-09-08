@@ -1,3 +1,9 @@
+## 12.7.0 (Sep 8, 2020)
+
+### Minor
+
+- Internal: Rename css var namespace (#1192)
+
 ## 12.6.1 (Sep 4, 2020)
 
 ### Patch
