@@ -46,7 +46,6 @@
     "prettier": "1.19.1",
     "react-test-renderer": "^16.13.1",
     "rollup-plugin-inline-svg": "^1.1.1",
-    "sane": "^4.1.0",
     "semver": "^7.3.2",
     "shelljs": "^0.8.4",
     "slugify": "^1.4.5",
