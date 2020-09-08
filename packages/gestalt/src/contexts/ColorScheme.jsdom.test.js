@@ -26,28 +26,28 @@ describe('ColorSchemeProvider', () => {
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
-        --gestalt-colorRed0: #ff5247;
-        --gestalt-colorRed100: #e60023;
-        --gestalt-colorRed100Active: #a3081a;
-        --gestalt-colorRed100Hovered: #ad081b;
-        --gestalt-colorGray0: #fff;
-        --gestalt-colorGray0Active: #e0e0e0;
-        --gestalt-colorGray0Hovered: #f0f0f0;
-        --gestalt-colorGray50: #fff;
-        --gestalt-colorGray100: #efefef;
-        --gestalt-colorGray100Active: #dadada;
-        --gestalt-colorGray100Hovered: #e2e2e2;
-        --gestalt-colorGray150: #ddd;
-        --gestalt-colorGray150Hovered: #d0d0d0;
-        --gestalt-colorGray200: #767676;
-        --gestalt-colorGray200Active: #828282;
-        --gestalt-colorGray200Hovered: #878787;
-        --gestalt-colorGray300: #111;
-        --gestalt-colorGray400: #000;
-        --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-        --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-        --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-        --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+        --g-colorRed0: #ff5247;
+        --g-colorRed100: #e60023;
+        --g-colorRed100Active: #a3081a;
+        --g-colorRed100Hovered: #ad081b;
+        --g-colorGray0: #fff;
+        --g-colorGray0Active: #e0e0e0;
+        --g-colorGray0Hovered: #f0f0f0;
+        --g-colorGray50: #fff;
+        --g-colorGray100: #efefef;
+        --g-colorGray100Active: #dadada;
+        --g-colorGray100Hovered: #e2e2e2;
+        --g-colorGray150: #ddd;
+        --g-colorGray150Hovered: #d0d0d0;
+        --g-colorGray200: #767676;
+        --g-colorGray200Active: #828282;
+        --g-colorGray200Hovered: #878787;
+        --g-colorGray300: #111;
+        --g-colorGray400: #000;
+        --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+        --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+        --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
     `);
@@ -59,28 +59,28 @@ describe('ColorSchemeProvider', () => {
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
-        --gestalt-colorRed0: #ff5247;
-        --gestalt-colorRed100: #e60023;
-        --gestalt-colorRed100Active: #a3081a;
-        --gestalt-colorRed100Hovered: #ad081b;
-        --gestalt-colorGray0: #fff;
-        --gestalt-colorGray0Active: #e0e0e0;
-        --gestalt-colorGray0Hovered: #f0f0f0;
-        --gestalt-colorGray50: #fff;
-        --gestalt-colorGray100: #efefef;
-        --gestalt-colorGray100Active: #dadada;
-        --gestalt-colorGray100Hovered: #e2e2e2;
-        --gestalt-colorGray150: #ddd;
-        --gestalt-colorGray150Hovered: #d0d0d0;
-        --gestalt-colorGray200: #767676;
-        --gestalt-colorGray200Active: #828282;
-        --gestalt-colorGray200Hovered: #878787;
-        --gestalt-colorGray300: #111;
-        --gestalt-colorGray400: #000;
-        --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-        --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-        --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-        --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+        --g-colorRed0: #ff5247;
+        --g-colorRed100: #e60023;
+        --g-colorRed100Active: #a3081a;
+        --g-colorRed100Hovered: #ad081b;
+        --g-colorGray0: #fff;
+        --g-colorGray0Active: #e0e0e0;
+        --g-colorGray0Hovered: #f0f0f0;
+        --g-colorGray50: #fff;
+        --g-colorGray100: #efefef;
+        --g-colorGray100Active: #dadada;
+        --g-colorGray100Hovered: #e2e2e2;
+        --g-colorGray150: #ddd;
+        --g-colorGray150Hovered: #d0d0d0;
+        --g-colorGray200: #767676;
+        --g-colorGray200Active: #828282;
+        --g-colorGray200Hovered: #878787;
+        --g-colorGray300: #111;
+        --g-colorGray400: #000;
+        --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+        --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+        --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
     `);
@@ -92,28 +92,28 @@ describe('ColorSchemeProvider', () => {
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
-        --gestalt-colorRed0: #e60023;
-        --gestalt-colorRed100: #ff5247;
-        --gestalt-colorRed100Active: #b8001b;
-        --gestalt-colorRed100Hovered: #cf001f;
-        --gestalt-colorGray0: #030303;
-        --gestalt-colorGray0Active: #1f1f1f;
-        --gestalt-colorGray0Hovered: #121212;
-        --gestalt-colorGray50: #212121;
-        --gestalt-colorGray100: #404040;
-        --gestalt-colorGray100Active: #666;
-        --gestalt-colorGray100Hovered: #535353;
-        --gestalt-colorGray150: #585858;
-        --gestalt-colorGray150Hovered: #535353;
-        --gestalt-colorGray200: #ababab;
-        --gestalt-colorGray200Active: #9b9b9b;
-        --gestalt-colorGray200Hovered: #919191;
-        --gestalt-colorGray300: #efefef;
-        --gestalt-colorGray400: #fff;
-        --gestalt-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
-        --gestalt-colorTransparentGray60: rgba(250, 250, 250, 0.5);
-        --gestalt-colorTransparentGray100: rgba(250, 250, 250, 0.6);
-        --gestalt-colorTransparentWhite: rgba(51, 51, 51, 0.8);
+        --g-colorRed0: #e60023;
+        --g-colorRed100: #ff5247;
+        --g-colorRed100Active: #b8001b;
+        --g-colorRed100Hovered: #cf001f;
+        --g-colorGray0: #030303;
+        --g-colorGray0Active: #1f1f1f;
+        --g-colorGray0Hovered: #121212;
+        --g-colorGray50: #212121;
+        --g-colorGray100: #404040;
+        --g-colorGray100Active: #666;
+        --g-colorGray100Hovered: #535353;
+        --g-colorGray150: #585858;
+        --g-colorGray150Hovered: #535353;
+        --g-colorGray200: #ababab;
+        --g-colorGray200Active: #9b9b9b;
+        --g-colorGray200Hovered: #919191;
+        --g-colorGray300: #efefef;
+        --g-colorGray400: #fff;
+        --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
+        --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
+        --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
+        --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       </style>
     `);
@@ -128,28 +128,28 @@ describe('ColorSchemeProvider', () => {
       <style>
         @media(prefers-color-scheme: dark) {
         :root {
-        --gestalt-colorRed0: #e60023;
-        --gestalt-colorRed100: #ff5247;
-        --gestalt-colorRed100Active: #b8001b;
-        --gestalt-colorRed100Hovered: #cf001f;
-        --gestalt-colorGray0: #030303;
-        --gestalt-colorGray0Active: #1f1f1f;
-        --gestalt-colorGray0Hovered: #121212;
-        --gestalt-colorGray50: #212121;
-        --gestalt-colorGray100: #404040;
-        --gestalt-colorGray100Active: #666;
-        --gestalt-colorGray100Hovered: #535353;
-        --gestalt-colorGray150: #585858;
-        --gestalt-colorGray150Hovered: #535353;
-        --gestalt-colorGray200: #ababab;
-        --gestalt-colorGray200Active: #9b9b9b;
-        --gestalt-colorGray200Hovered: #919191;
-        --gestalt-colorGray300: #efefef;
-        --gestalt-colorGray400: #fff;
-        --gestalt-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
-        --gestalt-colorTransparentGray60: rgba(250, 250, 250, 0.5);
-        --gestalt-colorTransparentGray100: rgba(250, 250, 250, 0.6);
-        --gestalt-colorTransparentWhite: rgba(51, 51, 51, 0.8);
+        --g-colorRed0: #e60023;
+        --g-colorRed100: #ff5247;
+        --g-colorRed100Active: #b8001b;
+        --g-colorRed100Hovered: #cf001f;
+        --g-colorGray0: #030303;
+        --g-colorGray0Active: #1f1f1f;
+        --g-colorGray0Hovered: #121212;
+        --g-colorGray50: #212121;
+        --g-colorGray100: #404040;
+        --g-colorGray100Active: #666;
+        --g-colorGray100Hovered: #535353;
+        --g-colorGray150: #585858;
+        --g-colorGray150Hovered: #535353;
+        --g-colorGray200: #ababab;
+        --g-colorGray200Active: #9b9b9b;
+        --g-colorGray200Hovered: #919191;
+        --g-colorGray300: #efefef;
+        --g-colorGray400: #fff;
+        --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
+        --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
+        --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
+        --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       }
       </style>
@@ -163,28 +163,28 @@ describe('ColorSchemeProvider', () => {
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         .__gestaltThemetestId {
-        --gestalt-colorRed0: #ff5247;
-        --gestalt-colorRed100: #e60023;
-        --gestalt-colorRed100Active: #a3081a;
-        --gestalt-colorRed100Hovered: #ad081b;
-        --gestalt-colorGray0: #fff;
-        --gestalt-colorGray0Active: #e0e0e0;
-        --gestalt-colorGray0Hovered: #f0f0f0;
-        --gestalt-colorGray50: #fff;
-        --gestalt-colorGray100: #efefef;
-        --gestalt-colorGray100Active: #dadada;
-        --gestalt-colorGray100Hovered: #e2e2e2;
-        --gestalt-colorGray150: #ddd;
-        --gestalt-colorGray150Hovered: #d0d0d0;
-        --gestalt-colorGray200: #767676;
-        --gestalt-colorGray200Active: #828282;
-        --gestalt-colorGray200Hovered: #878787;
-        --gestalt-colorGray300: #111;
-        --gestalt-colorGray400: #000;
-        --gestalt-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
-        --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-        --gestalt-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-        --gestalt-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+        --g-colorRed0: #ff5247;
+        --g-colorRed100: #e60023;
+        --g-colorRed100Active: #a3081a;
+        --g-colorRed100Hovered: #ad081b;
+        --g-colorGray0: #fff;
+        --g-colorGray0Active: #e0e0e0;
+        --g-colorGray0Hovered: #f0f0f0;
+        --g-colorGray50: #fff;
+        --g-colorGray100: #efefef;
+        --g-colorGray100Active: #dadada;
+        --g-colorGray100Hovered: #e2e2e2;
+        --g-colorGray150: #ddd;
+        --g-colorGray150Hovered: #d0d0d0;
+        --g-colorGray200: #767676;
+        --g-colorGray200Active: #828282;
+        --g-colorGray200Hovered: #878787;
+        --g-colorGray300: #111;
+        --g-colorGray400: #000;
+        --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+        --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+        --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
     `);

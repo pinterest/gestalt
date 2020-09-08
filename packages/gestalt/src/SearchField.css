@@ -1,8 +1,8 @@
 :root {
-  --gestalt-boint: 4px;
-  --gestalt-colorGray0: #fff;
-  --gestalt-colorGray100: #efefef;
-  --gestalt-colorGray200: #767676;
+  --g-boint: 4px;
+  --g-colorGray0: #fff;
+  --g-colorGray100: #efefef;
+  --g-colorGray200: #767676;
 }
 
 .input {
@@ -15,7 +15,7 @@
   composes: xsCol12 from "./Column.css";
   appearance: none;
   min-width: 180px;
-  padding: calc(2 * var(--gestalt-boint)) calc(10 * var(--gestalt-boint)) calc(2 * var(--gestalt-boint)) calc(8px + calc(8 * var(--gestalt-boint)));
+  padding: calc(2 * var(--g-boint)) calc(10 * var(--g-boint)) calc(2 * var(--g-boint)) calc(8px + calc(8 * var(--g-boint)));
 }
 
 .input::-webkit-search-decoration,
@@ -26,7 +26,7 @@
 }
 
 .input:focus {
-  background-color: var(--gestalt-colorGray0);
+  background-color: var(--g-colorGray0);
   cursor: text;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .input::placeholder {
-  color: var(--gestalt-colorGray200);
+  color: var(--g-colorGray200);
 }
 
 html:not([dir="rtl"]) .inputActive {
@@ -65,7 +65,7 @@ html[dir="rtl"] .inputActive {
 }
 
 .clear:hover {
-  background-color: var(--gestalt-colorGray100);
+  background-color: var(--g-colorGray100);
   border-radius: 50%;
 }
 

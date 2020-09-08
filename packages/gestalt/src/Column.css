@@ -1,5 +1,5 @@
 :root {
-  --gestalt-ncols: 12;
+  --g-ncols: 12;
 }
 
 .col {
@@ -7,199 +7,199 @@
 }
 
 .xsCol1 {
-  width: calc(1 / var(--gestalt-ncols) * 100%);
+  width: calc(1 / var(--g-ncols) * 100%);
 }
 
 .xsCol2 {
-  width: calc(2 / var(--gestalt-ncols) * 100%);
+  width: calc(2 / var(--g-ncols) * 100%);
 }
 
 .xsCol3 {
-  width: calc(3 / var(--gestalt-ncols) * 100%);
+  width: calc(3 / var(--g-ncols) * 100%);
 }
 
 .xsCol4 {
-  width: calc(4 / var(--gestalt-ncols) * 100%);
+  width: calc(4 / var(--g-ncols) * 100%);
 }
 
 .xsCol5 {
-  width: calc(5 / var(--gestalt-ncols) * 100%);
+  width: calc(5 / var(--g-ncols) * 100%);
 }
 
 .xsCol6 {
-  width: calc(6 / var(--gestalt-ncols) * 100%);
+  width: calc(6 / var(--g-ncols) * 100%);
 }
 
 .xsCol7 {
-  width: calc(7 / var(--gestalt-ncols) * 100%);
+  width: calc(7 / var(--g-ncols) * 100%);
 }
 
 .xsCol8 {
-  width: calc(8 / var(--gestalt-ncols) * 100%);
+  width: calc(8 / var(--g-ncols) * 100%);
 }
 
 .xsCol9 {
-  width: calc(9 / var(--gestalt-ncols) * 100%);
+  width: calc(9 / var(--g-ncols) * 100%);
 }
 
 .xsCol10 {
-  width: calc(10 / var(--gestalt-ncols) * 100%);
+  width: calc(10 / var(--g-ncols) * 100%);
 }
 
 .xsCol11 {
-  width: calc(11 / var(--gestalt-ncols) * 100%);
+  width: calc(11 / var(--g-ncols) * 100%);
 }
 
 .xsCol12 {
-  width: calc(12 / var(--gestalt-ncols) * 100%);
+  width: calc(12 / var(--g-ncols) * 100%);
 }
 
-@media (--gestalt-sm) {
+@media (--g-sm) {
   .smCol1 {
-    width: calc(1 / var(--gestalt-ncols) * 100%);
+    width: calc(1 / var(--g-ncols) * 100%);
   }
 
   .smCol2 {
-    width: calc(2 / var(--gestalt-ncols) * 100%);
+    width: calc(2 / var(--g-ncols) * 100%);
   }
 
   .smCol3 {
-    width: calc(3 / var(--gestalt-ncols) * 100%);
+    width: calc(3 / var(--g-ncols) * 100%);
   }
 
   .smCol4 {
-    width: calc(4 / var(--gestalt-ncols) * 100%);
+    width: calc(4 / var(--g-ncols) * 100%);
   }
 
   .smCol5 {
-    width: calc(5 / var(--gestalt-ncols) * 100%);
+    width: calc(5 / var(--g-ncols) * 100%);
   }
 
   .smCol6 {
-    width: calc(6 / var(--gestalt-ncols) * 100%);
+    width: calc(6 / var(--g-ncols) * 100%);
   }
 
   .smCol7 {
-    width: calc(7 / var(--gestalt-ncols) * 100%);
+    width: calc(7 / var(--g-ncols) * 100%);
   }
 
   .smCol8 {
-    width: calc(8 / var(--gestalt-ncols) * 100%);
+    width: calc(8 / var(--g-ncols) * 100%);
   }
 
   .smCol9 {
-    width: calc(9 / var(--gestalt-ncols) * 100%);
+    width: calc(9 / var(--g-ncols) * 100%);
   }
 
   .smCol10 {
-    width: calc(10 / var(--gestalt-ncols) * 100%);
+    width: calc(10 / var(--g-ncols) * 100%);
   }
 
   .smCol11 {
-    width: calc(11 / var(--gestalt-ncols) * 100%);
+    width: calc(11 / var(--g-ncols) * 100%);
   }
 
   .smCol12 {
-    width: calc(12 / var(--gestalt-ncols) * 100%);
+    width: calc(12 / var(--g-ncols) * 100%);
   }
 }
 
-@media (--gestalt-md) {
+@media (--g-md) {
   .mdCol1 {
-    width: calc(1 / var(--gestalt-ncols) * 100%);
+    width: calc(1 / var(--g-ncols) * 100%);
   }
 
   .mdCol2 {
-    width: calc(2 / var(--gestalt-ncols) * 100%);
+    width: calc(2 / var(--g-ncols) * 100%);
   }
 
   .mdCol3 {
-    width: calc(3 / var(--gestalt-ncols) * 100%);
+    width: calc(3 / var(--g-ncols) * 100%);
   }
 
   .mdCol4 {
-    width: calc(4 / var(--gestalt-ncols) * 100%);
+    width: calc(4 / var(--g-ncols) * 100%);
   }
 
   .mdCol5 {
-    width: calc(5 / var(--gestalt-ncols) * 100%);
+    width: calc(5 / var(--g-ncols) * 100%);
   }
 
   .mdCol6 {
-    width: calc(6 / var(--gestalt-ncols) * 100%);
+    width: calc(6 / var(--g-ncols) * 100%);
   }
 
   .mdCol7 {
-    width: calc(7 / var(--gestalt-ncols) * 100%);
+    width: calc(7 / var(--g-ncols) * 100%);
   }
 
   .mdCol8 {
-    width: calc(8 / var(--gestalt-ncols) * 100%);
+    width: calc(8 / var(--g-ncols) * 100%);
   }
 
   .mdCol9 {
-    width: calc(9 / var(--gestalt-ncols) * 100%);
+    width: calc(9 / var(--g-ncols) * 100%);
   }
 
   .mdCol10 {
-    width: calc(10 / var(--gestalt-ncols) * 100%);
+    width: calc(10 / var(--g-ncols) * 100%);
   }
 
   .mdCol11 {
-    width: calc(11 / var(--gestalt-ncols) * 100%);
+    width: calc(11 / var(--g-ncols) * 100%);
   }
 
   .mdCol12 {
-    width: calc(12 / var(--gestalt-ncols) * 100%);
+    width: calc(12 / var(--g-ncols) * 100%);
   }
 }
 
-@media (--gestalt-lg) {
+@media (--g-lg) {
   .lgCol1 {
-    width: calc(1 / var(--gestalt-ncols) * 100%);
+    width: calc(1 / var(--g-ncols) * 100%);
   }
 
   .lgCol2 {
-    width: calc(2 / var(--gestalt-ncols) * 100%);
+    width: calc(2 / var(--g-ncols) * 100%);
   }
 
   .lgCol3 {
-    width: calc(3 / var(--gestalt-ncols) * 100%);
+    width: calc(3 / var(--g-ncols) * 100%);
   }
 
   .lgCol4 {
-    width: calc(4 / var(--gestalt-ncols) * 100%);
+    width: calc(4 / var(--g-ncols) * 100%);
   }
 
   .lgCol5 {
-    width: calc(5 / var(--gestalt-ncols) * 100%);
+    width: calc(5 / var(--g-ncols) * 100%);
   }
 
   .lgCol6 {
-    width: calc(6 / var(--gestalt-ncols) * 100%);
+    width: calc(6 / var(--g-ncols) * 100%);
   }
 
   .lgCol7 {
-    width: calc(7 / var(--gestalt-ncols) * 100%);
+    width: calc(7 / var(--g-ncols) * 100%);
   }
 
   .lgCol8 {
-    width: calc(8 / var(--gestalt-ncols) * 100%);
+    width: calc(8 / var(--g-ncols) * 100%);
   }
 
   .lgCol9 {
-    width: calc(9 / var(--gestalt-ncols) * 100%);
+    width: calc(9 / var(--g-ncols) * 100%);
   }
 
   .lgCol10 {
-    width: calc(10 / var(--gestalt-ncols) * 100%);
+    width: calc(10 / var(--g-ncols) * 100%);
   }
 
   .lgCol11 {
-    width: calc(11 / var(--gestalt-ncols) * 100%);
+    width: calc(11 / var(--g-ncols) * 100%);
   }
 
   .lgCol12 {
-    width: calc(12 / var(--gestalt-ncols) * 100%);
+    width: calc(12 / var(--g-ncols) * 100%);
   }
 }

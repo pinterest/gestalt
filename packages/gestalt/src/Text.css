@@ -1,7 +1,7 @@
 :root {
-  --gestalt-text-font-size-1: 12px;
-  --gestalt-text-font-size-2: 14px;
-  --gestalt-text-font-size-3: 16px;
+  --g-text-font-size-1: 12px;
+  --g-text-font-size-2: 14px;
+  --g-text-font-size-3: 16px;
 }
 
 .Text {
@@ -9,13 +9,13 @@
 }
 
 .fontSize1 {
-  font-size: var(--gestalt-text-font-size-1);
+  font-size: var(--g-text-font-size-1);
 }
 
 .fontSize2 {
-  font-size: var(--gestalt-text-font-size-2);
+  font-size: var(--g-text-font-size-2);
 }
 
 .fontSize3 {
-  font-size: var(--gestalt-text-font-size-3);
+  font-size: var(--g-text-font-size-3);
 }

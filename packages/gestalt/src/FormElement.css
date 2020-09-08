@@ -1,10 +1,10 @@
 :root {
   /* primary colors */
-  --gestalt-colorGray150: #ddd;
+  --g-colorGray150: #ddd;
 
   /* hover colors */
-  --gestalt-colorGray150Hovered: #d0d0d0;
-  --gestalt-colorRed100Hovered: #ad081b;
+  --g-colorGray150Hovered: #d0d0d0;
+  --g-colorRed100Hovered: #ad081b;
 }
 
 .base {
@@ -20,7 +20,7 @@
 }
 
 .normal:hover:not(:focus):not(.disabled) {
-  border-color: var(--gestalt-colorGray150Hovered);
+  border-color: var(--g-colorGray150Hovered);
 }
 
 .errored {
@@ -29,11 +29,11 @@
 }
 
 .errored:focus {
-  border-color: var(--gestalt-colorGray150);
+  border-color: var(--g-colorGray150);
 }
 
 .errored:hover:not(:focus) {
-  border-color: var(--gestalt-colorRed100Hovered);
+  border-color: var(--g-colorRed100Hovered);
 }
 
 .enabled {
