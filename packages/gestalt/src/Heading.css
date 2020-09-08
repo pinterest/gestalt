@@ -1,7 +1,7 @@
 :root {
-  --gestalt-heading-font-size-1: 20px;
-  --gestalt-heading-font-size-2: 28px;
-  --gestalt-heading-font-size-3: 36px;
+  --g-heading-font-size-1: 20px;
+  --g-heading-font-size-2: 28px;
+  --g-heading-font-size-3: 36px;
 }
 
 .Heading {
@@ -11,13 +11,13 @@
 }
 
 .fontSize1 {
-  font-size: var(--gestalt-heading-font-size-1);
+  font-size: var(--g-heading-font-size-1);
 }
 
 .fontSize2 {
-  font-size: var(--gestalt-heading-font-size-2);
+  font-size: var(--g-heading-font-size-2);
 }
 
 .fontSize3 {
-  font-size: var(--gestalt-heading-font-size-3);
+  font-size: var(--g-heading-font-size-3);
 }

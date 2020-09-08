@@ -1,30 +1,30 @@
 :root {
   /* fix colors for higher contrast in middle grays */
-  --gestalt-colorGray300: #111;
+  --g-colorGray300: #111;
 
   /* primary colors */
-  --gestalt-colorGray50: #fff;
-  --gestalt-colorGray200: #767676;
-  --gestalt-colorGray300: #111;
-  --gestalt-colorGray400: #000;
+  --g-colorGray50: #fff;
+  --g-colorGray200: #767676;
+  --g-colorGray300: #111;
+  --g-colorGray400: #000;
 
   /* transparent colors */
-  --gestalt-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --gestalt-color-focus: rgba(0, 132, 255, 0.5);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-color-focus: rgba(0, 132, 255, 0.5);
 
   /* border & dimensions */
-  --gestalt-borderRadius-circle: 50%;
-  --gestalt-borderRadius-halfCircle-End: 0 50% 50% 0;
-  --gestalt-borderRadius-halfCircle-Start: 50% 0 0 50%;
-  --gestalt-day-dimensions: 40px;
-  --gestalt-focus: 0 0 0 4px var(--gestalt-color-focus);
+  --g-borderRadius-circle: 50%;
+  --g-borderRadius-halfCircle-End: 0 50% 50% 0;
+  --g-borderRadius-halfCircle-Start: 50% 0 0 50%;
+  --g-day-dimensions: 40px;
+  --g-focus: 0 0 0 4px var(--g-color-focus);
 }
 
 .react-datepicker {
-  background-color: var(--gestalt-colorGray50);
+  background-color: var(--g-colorGray50);
   border-radius: 16px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  color: var(--gestalt-colorGray300);
+  color: var(--g-colorGray300);
   display: inline-block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -36,7 +36,7 @@
 }
 
 :global ._gestalt .react-datepicker__current-month {
-  color: var(--gestalt-colorGray300);
+  color: var(--g-colorGray300);
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 16px;
@@ -46,38 +46,38 @@
 to prevent conflict with another CSS module */
 
 .react-datepicker__days {
-  border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-colorGray300);
+  border-radius: var(--g-borderRadius-circle);
+  color: var(--g-colorGray300);
   cursor: pointer;
   display: inline-block;
-  line-height: var(--gestalt-day-dimensions);
+  line-height: var(--g-day-dimensions);
   text-align: center;
-  width: var(--gestalt-day-dimensions);
+  width: var(--g-day-dimensions);
 }
 
 .react-datepicker__days:focus {
-  box-shadow: var(--gestalt-focus);
+  box-shadow: var(--g-focus);
   outline: none;
 }
 
 .react-datepicker__days:hover {
-  background-color: var(--gestalt-colorTransparentGray60);
-  color: var(--gestalt-colorGray300);
+  background-color: var(--g-colorTransparentGray60);
+  color: var(--g-colorGray300);
 }
 
 :global ._gestalt .react-datepicker__day--highlighted {
-  background-color: var(--gestalt-colorGray300);
-  color: var(--gestalt-colorGray50);
+  background-color: var(--g-colorGray300);
+  color: var(--g-colorGray50);
 }
 
 :global ._gestalt .react-datepicker__day--disabled {
-  color: var(--gestalt-colorGray200);
+  color: var(--g-colorGray200);
   cursor: default;
 }
 
 :global ._gestalt .react-datepicker__day--disabled:hover {
-  background-color: var(--gestalt-colorGray50);
-  color: var(--gestalt-colorGray200);
+  background-color: var(--g-colorGray50);
+  color: var(--g-colorGray200);
 }
 
 :global ._gestalt .react-datepicker__day--disabled:focus {
@@ -85,39 +85,39 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--selected {
-  background-color: var(--gestalt-colorGray300);
-  color: var(--gestalt-colorGray50);
+  background-color: var(--g-colorGray300);
+  color: var(--g-colorGray50);
 }
 
 :global ._gestalt .react-datepicker__day--selected:hover {
-  background-color: var(--gestalt-colorTransparentGray60);
-  color: var(--gestalt-colorGray300);
+  background-color: var(--g-colorTransparentGray60);
+  color: var(--g-colorGray300);
 }
 
 :global ._gestalt .react-datepicker__day--in-range {
-  background-color: var(--gestalt-colorTransparentGray60);
+  background-color: var(--g-colorTransparentGray60);
   border-radius: 0;
-  color: var(--gestalt-colorGray300);
+  color: var(--g-colorGray300);
 }
 
 :global ._gestalt .react-datepicker__day--in-range:hover {
-  background: var(--gestalt-colorTransparentGray60);
-  border-radius: var(--gestalt-borderRadius-circle);
+  background: var(--g-colorTransparentGray60);
+  border-radius: var(--g-borderRadius-circle);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--in-range:first-child {
-  border-bottom-left-radius: var(--gestalt-borderRadius-circle);
-  border-top-left-radius: var(--gestalt-borderRadius-circle);
+  border-bottom-left-radius: var(--g-borderRadius-circle);
+  border-top-left-radius: var(--g-borderRadius-circle);
 }
 
 :global ._gestalt .react-datepicker__day--in-range:last-child {
-  border-bottom-right-radius: var(--gestalt-borderRadius-circle);
-  border-top-right-radius: var(--gestalt-borderRadius-circle);
+  border-bottom-right-radius: var(--g-borderRadius-circle);
+  border-top-right-radius: var(--g-borderRadius-circle);
 }
 
 :global ._gestalt .react-datepicker__day--in-range:not(.react-datepicker__day--selected):hover::before {
-  background: var(--gestalt-colorTransparentGray60);
+  background: var(--g-colorTransparentGray60);
   border-radius: 0;
   content: "";
   display: block;
@@ -131,25 +131,25 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--in-range:first-child:hover::before {
-  border-bottom-left-radius: var(--gestalt-borderRadius-circle);
-  border-top-left-radius: var(--gestalt-borderRadius-circle);
+  border-bottom-left-radius: var(--g-borderRadius-circle);
+  border-top-left-radius: var(--g-borderRadius-circle);
 }
 
 :global ._gestalt .react-datepicker__day--in-range:last-child:hover::before {
-  border-bottom-right-radius: var(--gestalt-borderRadius-circle);
-  border-top-right-radius: var(--gestalt-borderRadius-circle);
+  border-bottom-right-radius: var(--g-borderRadius-circle);
+  border-top-right-radius: var(--g-borderRadius-circle);
 }
 
 :global ._gestalt .react-datepicker__day--range-start {
-  background-color: var(--gestalt-colorGray400);
-  border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-colorGray50);
+  background-color: var(--g-colorGray400);
+  border-radius: var(--g-borderRadius-circle);
+  color: var(--g-colorGray50);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-start:not(:last-child):not(.react-datepicker__day--range-end)::before {
-  background: var(--gestalt-colorTransparentGray60);
-  border-radius: var(--gestalt-borderRadius-halfCircle-Start);
+  background: var(--g-colorTransparentGray60);
+  border-radius: var(--g-borderRadius-halfCircle-Start);
   content: "";
   display: block;
   height: 100%;
@@ -163,14 +163,14 @@ to prevent conflict with another CSS module */
 
 :global ._gestalt .react-datepicker__day--range-start:hover {
   background-color: inherit;
-  border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-colorGray300);
+  border-radius: var(--g-borderRadius-circle);
+  color: var(--g-colorGray300);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-start:hover::after {
-  background: var(--gestalt-colorTransparentGray60);
-  border-radius: var(--gestalt-borderRadius-circle);
+  background: var(--g-colorTransparentGray60);
+  border-radius: var(--g-borderRadius-circle);
   content: "";
   display: block;
   height: 100%;
@@ -183,15 +183,15 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--range-end {
-  background-color: var(--gestalt-colorGray400);
-  border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-colorGray50);
+  background-color: var(--g-colorGray400);
+  border-radius: var(--g-borderRadius-circle);
+  color: var(--g-colorGray50);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-end:not(:first-child):not(.react-datepicker__day--range-start)::before {
-  background: var(--gestalt-colorTransparentGray60);
-  border-radius: var(--gestalt-borderRadius-halfCircle-End);
+  background: var(--g-colorTransparentGray60);
+  border-radius: var(--g-borderRadius-halfCircle-End);
   content: "";
   display: block;
   height: 100%;
@@ -205,15 +205,15 @@ to prevent conflict with another CSS module */
 
 :global ._gestalt .react-datepicker__day--range-end:hover {
   background-color: inherit;
-  border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-colorGray300);
+  border-radius: var(--g-borderRadius-circle);
+  color: var(--g-colorGray300);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-end:hover::after {
-  background: var(--gestalt-colorTransparentGray60);
-  border-radius: var(--gestalt-borderRadius-circle);
-  color: var(--gestalt-colorGray300);
+  background: var(--g-colorTransparentGray60);
+  border-radius: var(--g-borderRadius-circle);
+  color: var(--g-colorGray300);
   content: "";
   display: block;
   height: 100%;
@@ -227,7 +227,7 @@ to prevent conflict with another CSS module */
 
 :global ._gestalt .react-datepicker__day--selecting-range-start:not(.react-datepicker__day--in-range):not(.react-datepicker__day--highlighted),
 :global ._gestalt .react-datepicker__day--selecting-range-end:not(.react-datepicker__day--in-range):not(.react-datepicker__day--highlighted) {
-  background-color: var(--gestalt-colorTransparentGray60);
+  background-color: var(--g-colorTransparentGray60);
 }
 
 :global ._gestalt .react-datepicker__day--outside-month {
@@ -235,13 +235,13 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day-name {
-  color: var(--gestalt-colorGray200);
+  color: var(--g-colorGray200);
   display: inline-block;
   font-size: 16px;
-  line-height: var(--gestalt-day-dimensions);
+  line-height: var(--g-day-dimensions);
   margin: 0;
   text-align: center;
-  width: var(--gestalt-day-dimensions);
+  width: var(--g-day-dimensions);
 }
 
 :global ._gestalt .react-datepicker__day-names {
@@ -265,7 +265,7 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__month {
-  color: var(--gestalt-colorGray50);
+  color: var(--g-colorGray50);
   text-align: center;
 }
 
@@ -287,7 +287,7 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__navigation {
   background: none;
   border: none;
-  border-radius: var(--gestalt-borderRadius-circle);
+  border-radius: var(--g-borderRadius-circle);
   cursor: pointer;
   height: auto;
   outline: none;
@@ -301,12 +301,12 @@ to prevent conflict with another CSS module */
 
 :global ._gestalt .react-datepicker__navigation:hover,
 :global ._gestalt .react-datepicker__navigation:focus {
-  background: var(--gestalt-colorTransparentGray60);
+  background: var(--g-colorTransparentGray60);
 }
 
 :global ._gestalt .react-datepicker__navigation:active::before {
-  background: var(--gestalt-colorTransparentGray60);
-  border-radius: var(--gestalt-borderRadius-circle);
+  background: var(--g-colorTransparentGray60);
+  border-radius: var(--g-borderRadius-circle);
   content: "";
   display: block;
   height: 100%;
@@ -344,7 +344,7 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
 }
 
 :global ._gestalt .react-datepicker__navigation:focus {
-  box-shadow: var(--gestalt-focus);
+  box-shadow: var(--g-focus);
 }
 
 .react-datepicker-popper {

@@ -1,5 +1,5 @@
 :root {
-  --gestalt-colorGray200: #767676;
+  --g-colorGray200: #767676;
 }
 
 .textArea {
@@ -12,5 +12,5 @@
 }
 
 .textArea::placeholder {
-  color: var(--gestalt-colorGray200);
+  color: var(--g-colorGray200);
 }
