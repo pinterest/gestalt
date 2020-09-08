@@ -1,3 +1,9 @@
+## 12.10.1 (Sep 8, 2020)
+
+### Patch
+
+- Internal: avoid blank page on startup in dev + fix most docs exceptions in incremental builds (#1195)
+
 ## 12.10.0 (Sep 8, 2020)
 
 ### Minor
