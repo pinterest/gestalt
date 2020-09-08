@@ -1,3 +1,9 @@
+## 12.8.1 (Sep 8, 2020)
+
+### Patch
+
+- Internal: make incremental builds 4x faster (#1191)
+
 ## 12.8.0 (Sep 8, 2020)
 
 ### Minor
