@@ -40,5 +40,16 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <script>
+      (() => {
+        // On dev startup, we don't want to show a blank page, refresh until we do have content on the page
+        setInterval(() => {
+          const rootElement = document.querySelector('#root');
+          if (rootElement && rootElement.innerHTML === '') {
+            location.reload();
+          }
+        }, 5000);
+      })();
+    </script>
   </body>
 </html>

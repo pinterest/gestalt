@@ -9,6 +9,9 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
+// $FlowIssue
+const icons: Array<string> = Icon?.icons ?? [];
+
 card(
   <PageHeader
     name="Icon"
@@ -37,8 +40,7 @@ card(
       },
       {
         name: 'icon',
-        // $FlowIssue[prop-missing]
-        type: Icon.icons.map(name => `'${name}'`).join(' | '),
+        type: icons.map(name => `'${name}'`).join(' | '),
         description: `This allows us to type check for a valid icon name based on the keys from the list of icons shown below.`,
         href: 'iconCombinations',
       },
@@ -82,8 +84,7 @@ card(
 );
 
 card(
-  // $FlowIssue[prop-missing]
-  <Combination id="iconCombinations" name="Icon Combinations" icon={Icon.icons}>
+  <Combination id="iconCombinations" name="Icon Combinations" icon={icons}>
     {props => (
       <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
     )}
