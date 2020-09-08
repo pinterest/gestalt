@@ -6,7 +6,11 @@ import WrapperLink from './WrapperLink.js';
 test('WrapperLink handles onClick callback', () => {
   const mockOnClick = jest.fn();
   const { getByText } = render(
-    <WrapperLink href="https://example.com" onClick={mockOnClick}>
+    <WrapperLink
+      wrappedComponent="button"
+      href="https://example.com"
+      onClick={mockOnClick}
+    >
       WrapperLink
     </WrapperLink>
   );

@@ -140,6 +140,9 @@ function TapAreaExample() {
         mouseCursor="zoomIn"
         onTap={() => setTouches(touches + 1)}
         rounding={2}
+        role='link'
+        href='http://localhost:8888/TapArea'
+        target='blank'
       >
         <Mask rounding={2}>
           <Image
@@ -149,14 +152,6 @@ function TapAreaExample() {
             src="https://i.ibb.co/DwYrGy6/stock14.jpg"
           />
         </Mask>
-        <Box paddingY={2}>
-          <Link
-            href="https://en.wikipedia.org/wiki/Antelope_Canyon"
-            onClick={({ event }) => event.stopPropagation()}
-          >
-            <Text align="center">Wiki Link</Text>
-          </Link>
-        </Box>
       </TapArea>
       <Box paddingY={2}>
         <Text color="gray" align="center">

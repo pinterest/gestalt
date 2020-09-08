@@ -14,15 +14,20 @@ import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
-import getRoundingClassName from './getRoundingClassName.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import getRoundingClassName, {
+  RoundingPropType,
+  type Rounding,
+} from './getRoundingClassName.js';
 
 type Props = {|
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
   disabled?: boolean,
+  fullHeight?: boolean,
+  fullWidth?: boolean,
   href: string,
   id?: string,
   inline?: boolean,
@@ -31,8 +36,10 @@ type Props = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
   rel?: 'none' | 'nofollow',
+  rounding?: Rounding,
   size?: 'sm' | 'md' | 'lg',
   target?: null | 'self' | 'blank',
+  wrappedComponent: 'button' | 'iconButton' | 'tapArea',
 |};
 
 const WrapperLinkWithForwardRef: AbstractComponent<
@@ -47,13 +54,17 @@ const WrapperLinkWithForwardRef: AbstractComponent<
     children,
     colorClass,
     disabled,
+    fullHeight,
+    fullWidth,
     href,
     id,
     inline,
     onClick,
     rel,
+    rounding,
     size,
     target,
+    wrappedComponent,
   } = props;
 
   const innerRef = useRef(null);
@@ -76,26 +87,38 @@ const WrapperLinkWithForwardRef: AbstractComponent<
   });
 
   const { isFocusVisible } = useFocusVisible();
+  const isTapArea = wrappedComponent === 'tapArea';
+  const isButton = wrappedComponent === 'button';
 
   const className = classnames(
     linkStyles.link,
-    linkStyles.buttonLink,
-    buttonStyles.button,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
-    inline ? linkStyles.inlineBlock : linkStyles.block,
-    getRoundingClassName('pill'),
+    inline || isTapArea ? linkStyles.inlineBlock : linkStyles.block,
+    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
-      [buttonStyles.sm]: size === 'sm',
-      [buttonStyles.md]: size === 'md',
-      [buttonStyles.lg]: size === 'lg',
-      [buttonStyles.disabled]: disabled,
+      [buttonStyles.disabled]: !isTapArea && disabled,
       [touchableStyles.tapCompress]: !disabled && isTapping,
       [focusStyles.accessibilityOutline]: isFocusVisible,
     },
-    colorClass
+    isButton
+      ? {
+          [linkStyles.buttonLink]: true,
+          [buttonStyles.button]: true,
+          [buttonStyles.sm]: size === 'sm',
+          [buttonStyles.md]: size === 'md',
+          [buttonStyles.lg]: size === 'lg',
+        }
+      : {},
+    isButton && colorClass
       ? {
           [buttonStyles[colorClass]]: !disabled,
+        }
+      : {},
+    isTapArea
+      ? {
+          [touchableStyles.fullHeight]: fullHeight,
+          [touchableStyles.fullWidth]: fullWidth,
         }
       : {}
   );
@@ -145,6 +168,8 @@ WrapperLinkWithForwardRef.propTypes = {
   children: PropTypes.node,
   colorClass: PropTypes.string,
   disabled: PropTypes.bool,
+  fullHeight: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   href: PropTypes.string.isRequired,
   id: PropTypes.string,
   inline: PropTypes.bool,
@@ -152,10 +177,12 @@ WrapperLinkWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  rounding: RoundingPropType,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
     null | 'self' | 'blank'
   >),
+  wrappedComponent: PropTypes.oneOf(['button', 'iconButton', 'tapArea']),
 };
 
 WrapperLinkWithForwardRef.displayName = 'ButtonLink';

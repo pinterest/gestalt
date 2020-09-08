@@ -216,6 +216,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         rel={rel}
         size={size}
         target={target}
+        wrappedComponent="button"
       >
         {iconEnd ? (
           <IconEnd

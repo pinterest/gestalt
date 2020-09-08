@@ -6,7 +6,11 @@ import WrapperLink from './WrapperLink.js';
 it('default', () =>
   expect(
     renderer
-      .create(<WrapperLink href="https://example.com">WrapperLink</WrapperLink>)
+      .create(
+        <WrapperLink wrappedComponent="button" href="https://example.com">
+          WrapperLink
+        </WrapperLink>
+      )
       .toJSON()
   ).toMatchSnapshot());
 
@@ -14,7 +18,11 @@ it('inline', () =>
   expect(
     renderer
       .create(
-        <WrapperLink href="https://example.com" inline>
+        <WrapperLink
+          wrappedComponent="button"
+          href="https://example.com"
+          inline
+        >
           WrapperLink
         </WrapperLink>
       )
@@ -25,7 +33,11 @@ it('target null', () =>
   expect(
     renderer
       .create(
-        <WrapperLink href="https://example.com" target={null}>
+        <WrapperLink
+          wrappedComponent="button"
+          href="https://example.com"
+          target={null}
+        >
           WrapperLink
         </WrapperLink>
       )
@@ -36,7 +48,11 @@ it('target self', () =>
   expect(
     renderer
       .create(
-        <WrapperLink href="https://example.com" target="self">
+        <WrapperLink
+          wrappedComponent="button"
+          href="https://example.com"
+          target="self"
+        >
           WrapperLink
         </WrapperLink>
       )
@@ -47,7 +63,11 @@ it('target blank', () =>
   expect(
     renderer
       .create(
-        <WrapperLink href="https://example.com" target="blank">
+        <WrapperLink
+          wrappedComponent="button"
+          href="https://example.com"
+          target="blank"
+        >
           WrapperLink
         </WrapperLink>
       )
@@ -58,7 +78,11 @@ it('with nofollow', () =>
   expect(
     renderer
       .create(
-        <WrapperLink href="https://example.com" rel="nofollow">
+        <WrapperLink
+          wrappedComponent="button"
+          href="https://example.com"
+          rel="nofollow"
+        >
           WrapperLink
         </WrapperLink>
       )
@@ -69,7 +93,11 @@ it('with onTap', () =>
   expect(
     renderer
       .create(
-        <WrapperLink href="https://example.com" onClick={() => {}}>
+        <WrapperLink
+          wrappedComponent="button"
+          href="https://example.com"
+          onClick={() => {}}
+        >
           WrapperLink
         </WrapperLink>
       )

@@ -2,7 +2,11 @@
 import React from 'react';
 import WrapperLink from './WrapperLink.js';
 
-const Valid = <WrapperLink href="https://example.com">content</WrapperLink>;
+const Valid = (
+  <WrapperLink wrappedComponent="button" href="https://example.com">
+    content
+  </WrapperLink>
+);
 
 // $FlowExpectedError[prop-missing]
 const MissingProp = <WrapperLink />;
