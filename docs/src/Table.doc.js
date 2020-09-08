@@ -93,7 +93,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.Body}
+    Component={Table?.Body}
     props={[
       {
         name: 'children',
@@ -109,7 +109,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.Cell}
+    Component={Table?.Cell}
     props={[
       {
         name: 'children',
@@ -135,7 +135,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.Footer}
+    Component={Table?.Footer}
     props={[
       {
         name: 'children',
@@ -151,7 +151,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.Header}
+    Component={Table?.Header}
     props={[
       {
         name: 'children',
@@ -210,7 +210,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.HeaderCell}
+    Component={Table?.HeaderCell}
     props={[
       {
         name: 'children',
@@ -241,7 +241,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.Row}
+    Component={Table?.Row}
     props={[
       {
         name: 'children',
@@ -262,7 +262,7 @@ card(
   <PropTable
     showHeading={false}
     // $FlowIssue[prop-missing]
-    Component={Table.SortableHeaderCell}
+    Component={Table?.SortableHeaderCell}
     props={[
       {
         name: 'children',
