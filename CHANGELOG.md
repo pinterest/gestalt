@@ -1,3 +1,9 @@
+## 12.8.2 (Sep 8, 2020)
+
+### Patch
+
+- Codemod: error message for JSXSpreadAttribute (#1197)
+
 ## 12.8.1 (Sep 8, 2020)
 
 ### Patch
