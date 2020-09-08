@@ -134,11 +134,6 @@ export type Overflow =
 
 export type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-type ResponsiveProps = {|
-  column?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12,
-  display?: boolean | 'flex' | 'flexColumn' | 'inlineBlock',
-|};
-
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
 
 type PropType = {
@@ -146,11 +141,6 @@ type PropType = {
   dangerouslySetInlineStyle?: {|
     __style: { [key: string]: string | number | void },
   |},
-
-  xs?: ResponsiveProps,
-  sm?: ResponsiveProps,
-  md?: ResponsiveProps,
-  lg?: ResponsiveProps,
 
   display?: Display,
   column?: Column,
@@ -374,98 +364,11 @@ const opacity = val => {
 
 /*
 
-These functions are legacy. I'd like to get rid of most of this file's dependency on importing `./style.js` directly once these are removed.
-
-*/
-
-const prefix = (pre: string) => mapClassName(name => `${pre}${name}`);
-const display = value => {
-  switch (value) {
-    case 'flex':
-      return fromClassName('DisplayFlex', 'DirectionRow');
-    case 'flexColumn':
-      return fromClassName('DisplayFlex', 'DirectionColumn');
-    case 'inlineBlock':
-      return fromClassName('DisplayInlineBlock');
-    case 'visuallyHidden':
-      return fromClassName('DisplayVisuallyHidden');
-    case false:
-      return fromClassName('DisplayNone');
-    default:
-      /* block */
-      return fromClassName('DisplayBlock');
-  }
-};
-const column = range('Col');
-
-/*
-
 It's preferable to put new properties into that object directly just so it's easier to read.
 
 */
 
 const propToFn = {
-  xs: value => {
-    if (!value) {
-      return identity();
-    }
-    return mapClassName(c => styles[c])(
-      prefix('xs')(
-        concat([
-          value.column ? column(value.column) : identity(),
-          typeof value.display !== 'undefined'
-            ? display(value.display)
-            : identity(),
-        ])
-      )
-    );
-  },
-  sm: value => {
-    if (!value) {
-      return identity();
-    }
-    return mapClassName(c => styles[c])(
-      prefix('sm')(
-        concat([
-          value.column ? column(value.column) : identity(),
-          typeof value.display !== 'undefined'
-            ? display(value.display)
-            : identity(),
-        ])
-      )
-    );
-  },
-  md: value => {
-    if (!value) {
-      return identity();
-    }
-    return mapClassName(c => styles[c])(
-      prefix('md')(
-        concat([
-          value.column ? column(value.column) : identity(),
-          typeof value.display !== 'undefined'
-            ? display(value.display)
-            : identity(),
-        ])
-      )
-    );
-  },
-  lg: value => {
-    if (!value) {
-      return identity();
-    }
-    return mapClassName(c => styles[c])(
-      prefix('lg')(
-        concat([
-          value.column ? column(value.column) : identity(),
-          typeof value.display !== 'undefined'
-            ? display(value.display)
-            : identity(),
-        ])
-      )
-    );
-  },
-
   display: mapping({
     none: styles.xsDisplayNone,
     flex: styles.xsDisplayFlex,
@@ -906,34 +809,11 @@ const RoundingPropType = PropTypes.oneOf([
   'pill',
 ]);
 
-const SizeDisplayPropType = PropTypes.oneOf([
-  'flex',
-  'flexColumn',
-  'inlineBlock',
-]);
-
 // $FlowFixMe Flow(InferError)
 BoxWithForwardRef.propTypes = {
   children: PropTypes.node,
   dangerouslySetInlineStyle: PropTypes.exact({
     __style: PropTypes.object,
-  }),
-
-  xs: PropTypes.exact({
-    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
-    column: PropTypes.number,
-  }),
-  sm: PropTypes.exact({
-    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
-    column: PropTypes.number,
-  }),
-  md: PropTypes.exact({
-    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
-    column: PropTypes.number,
-  }),
-  lg: PropTypes.exact({
-    display: PropTypes.oneOfType([PropTypes.bool, SizeDisplayPropType]),
-    column: PropTypes.number,
   }),
 
   display: DisplayPropType,
