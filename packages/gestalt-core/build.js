@@ -125,7 +125,7 @@ const cssModules = (options = {}) => {
       });
       const process = postcssParser.process(code, opts).then(result => {
         // Set CSS for specific file
-        cssCache[id] += result.css;
+        cssCache[id] = result.css;
       });
       return Promise.all([processIE11, process]).then(() => transformResult);
     },
