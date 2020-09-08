@@ -1,3 +1,9 @@
+## 12.11.0 (Sep 8, 2020)
+
+### Minor
+
+- Button: deprecated textColor prop values (#1188)
+
 ## 12.10.1 (Sep 8, 2020)
 
 ### Patch
