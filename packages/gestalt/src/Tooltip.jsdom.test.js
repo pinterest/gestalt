@@ -37,10 +37,10 @@ test('Tooltip renders the link when hovered', () => {
 
   if (ariaContainer) {
     fireEvent.mouseEnter(ariaContainer);
-    const { body } = document;
-    const element = getByText('Learn more');
-    expect(body && body.contains(element)).toBeTruthy();
   }
+  const { body } = document;
+  const element = getByText('Learn more');
+  expect(body && body.contains(element)).toBeTruthy();
 });
 
 test('Tooltip should render as expected when hovered', () => {

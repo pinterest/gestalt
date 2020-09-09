@@ -89,8 +89,8 @@ describe('TextField', () => {
       fireEvent.change(input, {
         target: { value: 'panda' },
       });
-      expect(mockChange).toHaveBeenCalled();
     }
+    expect(mockChange).toHaveBeenCalled();
   });
 
   it('handles focus events', () => {
@@ -126,8 +126,8 @@ describe('TextField', () => {
       fireEvent.keyDown(input, {
         target: { value: 'panda' },
       });
-      expect(mockKeyDown).toHaveBeenCalled();
     }
+    expect(mockKeyDown).toHaveBeenCalled();
   });
 
   it('shows a label for the text field', () => {
