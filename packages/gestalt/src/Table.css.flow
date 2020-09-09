@@ -3,6 +3,7 @@
 declare module.exports: {|
   +'sticky': string,
   +'table': string,
+  +'tbody': string,
   +'td': string,
   +'th': string,
   +'thead': string,
