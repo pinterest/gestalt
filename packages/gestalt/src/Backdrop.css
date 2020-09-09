@@ -1,0 +1,31 @@
+@keyframes :global(g-backdrop-fade-in) {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes :global(g-backdrop-fade-out) {
+  0% {
+    opacity: 1;
+  }  
+  
+  100% {
+    opacity: 0;
+  }
+}
+
+.backdrop {
+  composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
+  background: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  opacity: 0.9;
+  overflow-y: scroll;
+}
+
+.zoomOut {
+  composes: zoomOut from "./Cursor.css";
+}

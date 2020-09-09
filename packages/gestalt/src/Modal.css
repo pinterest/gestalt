@@ -1,15 +1,3 @@
-.backdrop {
-  composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
-  background: rgba(0, 0, 0, 0.4);
-  height: 100%;
-  opacity: 0.9;
-  overflow-y: scroll;
-}
-
-.zoomOut {
-  composes: zoomOut from "./Cursor.css";
-}
-
 .container {
   composes: fixed borderBox flex justifyCenter left0 top0 itemsCenter from "./Layout.css";
   composes: xsCol12 from "./Column.css";

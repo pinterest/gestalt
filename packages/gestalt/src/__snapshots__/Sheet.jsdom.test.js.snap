@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sheet should render all props 1`] = `
+<div>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="backdrop zoomOut"
+        style="animation: g-backdrop-fade-in 400ms ease-in-out;"
+      />
+      <div
+        aria-label="Sheet"
+        class="wrapper"
+        role="dialog"
+        style="animation: g-sheet-slide-in-ltr 400ms ease-in-out; width: 540px;"
+        tabindex="-1"
+      >
+        <div
+          class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+          style="width: 100%;"
+        >
+          <div
+            class="shadowContainer"
+          >
+            <div
+              class="box flexGrow justifyBetween xsDisplayFlex"
+            >
+              <div
+                class="box flexGrow"
+              >
+                <div
+                  class="box paddingX8 paddingY8 xsDisplayFlex"
+                >
+                  <h1
+                    class="Heading fontSize2 darkGray alignLeft breakWord"
+                  >
+                    Sheet title
+                  </h1>
+                </div>
+              </div>
+              <div
+                class="box flexNone paddingX6 paddingY7"
+              >
+                <button
+                  aria-label="Dismiss"
+                  class="button tapTransition enabled"
+                  type="button"
+                >
+                  <div
+                    class="pog white focused"
+                    style="height: 40px; width: 40px;"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      aria-label=""
+                      class="icon darkGray iconBlock"
+                      height="18"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="18"
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="box flexGrow overflowAuto"
+          >
+            Sheet content
+          </div>
+          <div
+            class="shadowContainer"
+          >
+            <div
+              class="box paddingX8 paddingY8"
+            >
+              <footer />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sheet should trigger out animation and dismiss when useReducedMotion is false 1`] = `
+<div>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="backdrop zoomOut"
+        style="animation: g-backdrop-fade-out 400ms ease-in-out;"
+      />
+      <div
+        aria-label="Test Sheet"
+        class="wrapper"
+        role="dialog"
+        style="animation: g-sheet-slide-out-ltr 400ms ease-in-out; width: 540px;"
+        tabindex="-1"
+      >
+        <div
+          class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+          style="width: 100%;"
+        >
+          <div
+            class="box flexGrow justifyEnd marginBottom8 xsDisplayFlex"
+          >
+            <div
+              class="absolute box flexNone paddingX6 paddingY7"
+            >
+              <button
+                aria-label="Dismiss"
+                class="button tapTransition enabled"
+                type="button"
+              >
+                <div
+                  class="pog white focused"
+                  style="height: 40px; width: 40px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    aria-label=""
+                    class="icon darkGray iconBlock"
+                    height="18"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="18"
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div
+            class="box flexGrow overflowAuto"
+          >
+            Sheet content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

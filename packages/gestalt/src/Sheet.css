@@ -1,0 +1,66 @@
+@keyframes :global(g-sheet-slide-in-ltr) {
+  0% {
+    transform: translateX(100%);
+  }
+  
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes :global(g-sheet-slide-in-rtl) {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes :global(g-sheet-slide-out-ltr) {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes :global(g-sheet-slide-out-rtl) {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.container {
+  composes: fixed borderBox flex justifyEnd left0 top0 itemsCenter from "./Layout.css";
+  composes: xsCol12 from "./Column.css";
+  height: 100%;
+  z-index: 1000;
+}
+
+.wrapper {
+  composes: relative overflowAuto flex from "./Layout.css";
+  composes: whiteBgElevated from "./Colors.css";
+  height: 100%;
+  max-height: 100%;
+}
+
+.wrapper:focus {
+  outline: none;
+}
+
+.shadowContainer {
+  composes: borderBox relative fit from "./Layout.css";
+  z-index: 1;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 8px 0;
+}
