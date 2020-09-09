@@ -1,17 +1,3 @@
-:root {
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray100: #efefef;
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray100Active: #dadada;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorRed100Active: #a3081a;
-  --g-blueHovered: #4a8ad4;
-  --g-blueActive: #4a85c9;
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-}
-
 .button {
   composes: borderBox minWidth60 from "./Layout.css";
   composes: noBorder from "./Borders.css";

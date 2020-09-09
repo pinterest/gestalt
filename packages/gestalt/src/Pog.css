@@ -1,17 +1,3 @@
-:root {
-  --g-colorGray0Hovered: #f0f0f0;
-  --g-colorGray0Active: #e0e0e0;
-  --g-colorGray300: #111;
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
-  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
-  --g-colorGray100Hovered: #e2e2e2;
-  --g-colorGray100Active: #dadada;
-  --g-colorGray200Hovered: #878787;
-  --g-colorGray200Active: #828282;
-  --g-colorRed100Hovered: #ad081b;
-  --g-colorRed100Active: #a3081a;
-}
-
 .pog {
   composes: circle from "./Borders.css";
   composes: flex from "./Layout.css";
