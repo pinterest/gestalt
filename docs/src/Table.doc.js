@@ -81,6 +81,28 @@ card(
         <Text>December 3, 1992</Text>
       </Table.Cell>
     </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Text>Hermione Granger</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>Gryffindor</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>September 19, 1979</Text>
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Text>Neville Longbottom</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>Gryffindor</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>July 30, 1980</Text>
+      </Table.Cell>
+    </Table.Row>
   </Table.Body>
 </Table>
 `}
