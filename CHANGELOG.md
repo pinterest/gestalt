@@ -1,3 +1,9 @@
+## 12.12.0 (Sep 9, 2020)
+
+### Minor
+
+- Internal: update most dev dependencies (#1204)
+
 ## 12.11.1 (Sep 9, 2020)
 
 ### Patch
