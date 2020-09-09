@@ -1,5 +1,5 @@
-// flow-typed signature: 0c9447942a6ffdb5f79f218bfe8e58d9
-// flow-typed version: fe9fda6713/@testing-library/jest-dom_v5.5.x/flow_>=v0.104.x
+// flow-typed signature: 5291c1af24f46ab1b593d2626cfbb310
+// flow-typed version: 7ad57fc095/@testing-library/jest-dom_v5.5.x/flow_>=v0.104.x
 
 declare module '@testing-library/jest-dom' {
   declare type JestMatcherResult = {

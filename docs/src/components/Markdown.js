@@ -1,8 +1,8 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Text } from 'gestalt';
-import marked, { Renderer } from 'marked'; // flowlint-line untyped-import:off
-import highlightjs from 'highlight.js'; // flowlint-line untyped-import:off
+import marked, { Renderer } from 'marked';
+import highlightjs from 'highlight.js';
 import './Markdown.css';
 
 type Props = {|

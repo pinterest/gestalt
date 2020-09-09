@@ -1,8 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box, Link, Text } from 'gestalt';
-import { withRouter, Route } from 'react-router-dom'; // flowlint-line untyped-import:off
-import { createLocation } from 'history'; // flowlint-line untyped-import:off
+import { withRouter, Route } from 'react-router-dom';
 import { useSidebarContext } from './sidebarContext.js';
 
 type Props = {|
@@ -17,8 +16,9 @@ const isModifiedEvent = event =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
 const NavLink = ({ children, to, history }: Props) => {
-  const location = createLocation(to, null, null, history.location);
-  const href = history.createHref(location);
+  const href = history.createHref({
+    pathname: to,
+  });
   const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
 
   const handleClick = ({ event }) => {

@@ -1,8 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Link as GestaltLink } from 'gestalt';
-import { createLocation } from 'history'; // flowlint-line untyped-import:off
-import { withRouter } from 'react-router-dom'; // flowlint-line untyped-import:off
+import { withRouter } from 'react-router-dom';
 
 type Props = {|
   children?: Node,
@@ -10,7 +9,7 @@ type Props = {|
   onClick: Function, // flowlint-line unclear-type:off
   replace?: boolean,
   target?: null | 'self' | 'blank',
-  to: string | Object, // flowlint-line unclear-type:off
+  to: string,
 |};
 
 const isModifiedEvent = event =>
@@ -24,11 +23,9 @@ const Link = ({
   target,
   to,
 }: Props) => {
-  const href = history.createHref(
-    typeof to === 'string'
-      ? createLocation(to, null, null, history.location)
-      : to
-  );
+  const href = history.createHref({
+    pathname: to,
+  });
 
   const handleClick = React.useCallback(
     ({ event }) => {
