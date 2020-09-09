@@ -11,13 +11,13 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "date-fns": "^2.12.0",
+    "date-fns": "^2.16.1",
     "gestalt": ">0.0.0",
     "gestalt-datepicker":  ">0.0.0",
-    "highlight.js": "^9.18.1",
-    "history": "^4.10.1",
+    "highlight.js": "^10.2.0",
+    "history": "^5.0.0",
     "lz-string": "^1.4.4",
-    "marked": "^0.8.0",
+    "marked": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-live": "^2.2.2",
