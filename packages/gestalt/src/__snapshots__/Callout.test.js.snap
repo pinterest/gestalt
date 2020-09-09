@@ -195,26 +195,30 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
     </div>
   </div>
   <div
-    className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4 pill whiteBg"
+    className="box itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1 pill"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
       href="pinterest.com"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={null}
       onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       rel=""
+      tabIndex={null}
       target={null}
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize3 darkGray alignCenter fontWeightBold"
       >
         Visit Pinterest
       </div>
@@ -321,52 +325,60 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4"
+    className="box itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
       href="pinterest.com/help"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={null}
       onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       rel=""
+      tabIndex={null}
       target={null}
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize3 darkGray alignCenter fontWeightBold"
       >
         Learn more
       </div>
     </a>
   </div>
   <div
-    className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto marginTop2 mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4 pill whiteBg"
+    className="box itemsCenter marginEndAuto marginStartAuto marginTop2 mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1 pill"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
       href="pinterest.com"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={null}
       onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       rel=""
+      tabIndex={null}
       target={null}
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize3 darkGray alignCenter fontWeightBold"
       >
         Visit Pinterest
       </div>
@@ -429,26 +441,30 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
     </div>
   </div>
   <div
-    className="box itemsCenter marginBottomAuto marginEndAuto marginStartAuto mdMarginEnd0 mdMarginTopAuto paddingX4 paddingY4 pill whiteBg"
+    className="box itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1 pill"
   >
     <a
-      className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
       href="pinterest.com"
       onBlur={[Function]}
       onClick={[Function]}
+      onContextMenu={null}
       onFocus={[Function]}
       onKeyPress={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
       onTouchCancel={[Function]}
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       rel=""
+      tabIndex={null}
       target={null}
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold"
+        className="Text fontSize3 darkGray alignCenter fontWeightBold"
       >
         Visit Pinterest
       </div>
