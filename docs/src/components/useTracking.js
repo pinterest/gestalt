@@ -1,6 +1,6 @@
 // @flow strict
 import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom'; // flowlint-line untyped-import:off
+import { useHistory } from 'react-router-dom';
 
 export default function useTracking(trackingId: string) {
   const { listen } = useHistory();

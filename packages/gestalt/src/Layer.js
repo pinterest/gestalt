@@ -1,6 +1,5 @@
 // @flow strict
 import { useRef, useState, type Portal, type Node, useEffect } from 'react';
-// flowlint-next-line untyped-import:off
 import { createPortal } from 'react-dom';
 
 export default function Layer({

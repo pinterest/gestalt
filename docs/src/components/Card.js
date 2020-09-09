@@ -1,7 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box, Heading, Icon, Link, Row } from 'gestalt';
-import slugify from 'slugify'; // flowlint-line untyped-import:off
+import slugify from 'slugify';
 import Markdown from './Markdown.js';
 
 type Props = {|
