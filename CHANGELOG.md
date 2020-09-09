@@ -1,3 +1,9 @@
+## 12.13.0 (Sep 9, 2020)
+
+### Minor
+
+- Internal: update flowtyped definitions + docs depedencies (#1206)
+
 ## 12.12.0 (Sep 9, 2020)
 
 ### Minor
