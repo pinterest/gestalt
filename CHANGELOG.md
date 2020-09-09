@@ -1,3 +1,9 @@
+## 12.11.1 (Sep 9, 2020)
+
+### Patch
+
+- Table: add bottom border to each row (apart from last item) (#1200)
+
 ## 12.11.0 (Sep 8, 2020)
 
 ### Minor
