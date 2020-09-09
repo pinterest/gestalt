@@ -96,6 +96,7 @@ DatePickerTextField.propTypes = {
   forwardedRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({
+      // eslint-disable-next-line react/forbid-prop-types
       current: PropTypes.any,
     }),
   ]),

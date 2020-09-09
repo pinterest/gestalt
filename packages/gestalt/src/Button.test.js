@@ -28,7 +28,7 @@ describe('<Button />', () => {
     ).root;
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
-  test('Custom white text color on transparent background ', () => {
+  test('Custom white text color on transparent background', () => {
     const instance = create(
       <Button color="transparentWhiteText" text="Hello World" />
     ).root;
@@ -37,7 +37,7 @@ describe('<Button />', () => {
     ).toContain('white');
   });
 
-  test('Default darkGray text color on transparent background ', () => {
+  test('Default darkGray text color on transparent background', () => {
     const instance = create(<Button color="transparent" text="Hello World" />)
       .root;
     expect(
