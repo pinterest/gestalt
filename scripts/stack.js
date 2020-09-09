@@ -16,7 +16,7 @@ const SCALE = new Array(SCALE_LENGTH).fill().map((_, i) => i + 1);
 
 // --
 
-const bt = n => `calc(var(--gestalt-boint) * ${n} / 2)`;
+const bt = n => `calc(var(--g-boint) * ${n} / 2)`;
 const block = str =>
   [
     '{',
@@ -62,7 +62,7 @@ const rules = i => [
 console.log(
   Stylesheet([
     ruleset(':root', {
-      '--gestalt-boint': `${BOINT_SIZE_PX}px`,
+      '--g-boint': `${BOINT_SIZE_PX}px`,
     }),
     ruleset('.stack', {
       'align-items': 'flex-start', // default
