@@ -130,7 +130,6 @@ function VideoControls({
   |}) => void = ({
     event,
   }: {|
-    // eslint-disable-next-line react/no-unused-prop-types
     event:
       | SyntheticMouseEvent<HTMLDivElement>
       | SyntheticKeyboardEvent<HTMLDivElement>,

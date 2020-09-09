@@ -2,14 +2,14 @@
 
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 
-describe(FixedZIndex, () => {
+describe('FixedZIndex', () => {
   test('index', () => {
     const subject = new FixedZIndex(100);
     expect(subject.index()).toEqual(100);
   });
 });
 
-describe(CompositeZIndex, () => {
+describe('CompositeZIndex', () => {
   test('empty', () => {
     const subject = new CompositeZIndex([]);
     expect(subject.index()).toEqual(0);

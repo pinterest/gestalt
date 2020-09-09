@@ -57,8 +57,8 @@ describe('TextArea', () => {
       fireEvent.change(textarea, {
         target: { value: 'panda' },
       });
-      expect(mockChange).toHaveBeenCalled();
     }
+    expect(mockChange).toHaveBeenCalled();
   });
 
   it('handles focus events', () => {
@@ -94,8 +94,8 @@ describe('TextArea', () => {
       fireEvent.keyDown(textarea, {
         target: { value: 'panda' },
       });
-      expect(mockKeyDown).toHaveBeenCalled();
     }
+    expect(mockKeyDown).toHaveBeenCalled();
   });
 
   it('forwards a ref to <input />', () => {
