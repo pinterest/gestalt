@@ -1,3 +1,9 @@
+## 13.1.0 (Sep 10, 2020)
+
+### Minor
+
+- Button: link-role button logic refactor (#1190)
+
 ## 13.0.2 (Sep 10, 2020)
 
 ### Patch
