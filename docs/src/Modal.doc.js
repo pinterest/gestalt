@@ -239,6 +239,7 @@ function Example(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
+          inline
           text="View padding"
           onClick={() => { setShowModal(!showModal) }}
         />
@@ -291,6 +292,7 @@ function HeadingExample(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
+          inline
           text="View heading"
           onClick={() => { setShowModal(!showModal) }}
         />
@@ -366,6 +368,7 @@ function ModalRefExample() {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
+          inline
           text="Open modal"
           onClick={() => { setShowModal(!showModal) }}
         />
@@ -405,6 +408,7 @@ function Example(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
+          inline
           text="Block Chris"
           onClick={() => { setShowModal(!showModal) }}
         />
@@ -417,25 +421,21 @@ function Example(props) {
               footer={
                 <Box
                   display="flex"
-                  marginLeft={-1}
-                  marginRight={-1}
                   justifyContent="center"
                 >
-                  <Box padding={1}>
+                  <ButtonGroup>
                     <Button
                       size="lg"
                       text="Cancel"
                       onClick={() => { setShowModal(!showModal) }}
                     />
-                  </Box>
-                  <Box padding={1}>
                     <Button
                       size="lg"
                       color="red"
                       text="Block"
                       onClick={() => { setShowModal(!showModal) }}
                     />
-                  </Box>
+                  </ButtonGroup>
                 </Box>
               }
               role="alertdialog"
@@ -472,6 +472,7 @@ function Example(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
+          inline
           text="Edit board"
           onClick={() => { setShowModal(!showModal) }}
         />
@@ -489,23 +490,18 @@ function Example(props) {
                   marginLeft={-1}
                   marginRight={-1}
                 >
-                  <Box column={6} paddingX={1}>
+                  <Box column={12} smColumn={6} paddingX={1}>
                     <Button text="Delete Board" inline size="lg" />
                   </Box>
-                  <Box column={6} paddingX={1}>
+                  <Box column={12} smColumn={6} paddingX={1}>
                     <Box
                       display="flex"
-                      direction="row"
                       justifyContent="end"
-                      marginLeft={-1}
-                      marginRight={-1}
                     >
-                      <Box paddingX={1}>
+                      <ButtonGroup>
                         <Button text="Cancel" inline onClick={() => { setShowModal(!showModal) }} size="lg" />
-                      </Box>
-                      <Box paddingX={1}>
                         <Button color="red" inline text="Save" size="lg" />
-                      </Box>
+                      </ButtonGroup>
                     </Box>
                   </Box>
                 </Box>
@@ -587,13 +583,14 @@ function Example(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
-          text="View images"
+          inline
+          text="View image"
           onClick={handleToggleModal}
         />
         {showModal && (
           <Layer>
             <Modal
-              accessibilityModalLabel="View random images"
+              accessibilityModalLabel="View random image"
               heading="Images"
               onDismiss={handleToggleModal}
               footer={
@@ -603,16 +600,16 @@ function Example(props) {
               }
               size="lg"
             >
+              <Spinner
+                accessibilityLabel="random image"
+                show={!hasLoaded}
+              />
               <Box display="flex" direction="row" justifyContent="center" alignItems="center">
-                <Spinner
-                  accessibilityLabel="random image"
-                  show={!hasLoaded}
-                />
                 <Box maxWidth={400} width="100%">
                   <Image
                     alt="LandScape"
                     onLoad={() => { setHasLoaded(true) }}
-                    src="https://i.picsum.photos/id/1000/5626/3635.jpg"
+                    src="https://picsum.photos/1000"
                     naturalHeight={3635}
                     naturalWidth={5626}
                   />
@@ -642,6 +639,7 @@ function Example(props) {
     <Box marginLeft={-1} marginRight={-1}>
       <Box padding={1}>
         <Button
+          inline
           text="View Modal"
           onClick={() => setShowModal(true)}
         />
@@ -700,7 +698,7 @@ card(
 
     \`accessibilityModalLabel\` allows us to update the spoken text for the heading prop.
 
-    ~~~html
+    ~~~jsx
     <Modal
       accessibilityModalLabel="Edit the details about your board House and Home"
       heading="Edit board"
