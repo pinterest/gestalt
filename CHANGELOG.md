@@ -1,3 +1,9 @@
+## 13.0.0 (Sep 10, 2020)
+
+### Major
+
+- Internal: BREAKING only build css file with css vars (#1201)
+
 ## 12.13.0 (Sep 9, 2020)
 
 ### Minor
