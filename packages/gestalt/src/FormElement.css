@@ -1,12 +1,3 @@
-:root {
-  /* primary colors */
-  --g-colorGray150: #ddd;
-
-  /* hover colors */
-  --g-colorGray150Hovered: #d0d0d0;
-  --g-colorRed100Hovered: #ad081b;
-}
-
 .base {
   composes: accessibilityOutline from "./Focus.css";
   appearance: none;

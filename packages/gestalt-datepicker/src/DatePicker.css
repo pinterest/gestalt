@@ -1,15 +1,5 @@
 :root {
-  /* fix colors for higher contrast in middle grays */
-  --g-colorGray300: #111;
-
-  /* primary colors */
-  --g-colorGray50: #fff;
-  --g-colorGray200: #767676;
-  --g-colorGray300: #111;
-  --g-colorGray400: #000;
-
   /* transparent colors */
-  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
   --g-color-focus: rgba(0, 132, 255, 0.5);
 
   /* border & dimensions */
