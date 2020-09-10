@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Button } from 'gestalt';
+import { Button } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -72,7 +72,10 @@ card(
         type: `'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white'`,
         required: false,
         defaultValue: 'gray',
-        description: 'Primary colors to apply to the button background.',
+        description: [
+          'Primary colors to apply to the button background.',
+          'Accessibility: Use `transparentWhiteText` to increase the contrast between a dark background and a transparent-Button text.',
+        ],
         href: 'color',
       },
       {
@@ -281,36 +284,61 @@ card(
     <Combination
       id="color"
       name="Color"
-      color={[
-        'gray',
-        'red',
-        'blue',
-        'white',
-        'transparent',
-        'transparentWhiteText',
-      ]}
+      color={['gray', 'red', 'blue', 'white', 'transparent']}
     >
-      {(props, i) => {
-        let color;
-        if (props.color === 'transparentWhiteText') {
-          color = 'darkWash';
-        }
-        if (props.color === 'transparent') {
-          color = 'lightWash';
-        }
-        return (
-          <Box color={color}>
-            <Button
-              id={`example-${i}`}
-              onChange={() => {}}
-              {...props}
-              text="Button"
-            />
-          </Box>
-        );
-      }}
+      {(props, i) => (
+        <Button
+          id={`example-${i}`}
+          onChange={() => {}}
+          {...props}
+          text="Button"
+        />
+      )}
     </Combination>
   </>
+);
+
+card(
+  <Example
+    name="Color: transparent"
+    id="transparent"
+    defaultCode={`function Example() {
+  const [selected, setSelected] = React.useState(false);
+  return (
+    <Box column={3}>
+      <Box margin={3}>
+        <Button
+          text="Toggle text color & compare contrast"
+          onClick={() => setSelected(!selected)}
+          selected={selected}/>
+      </Box>
+      <Image
+        alt="Image to compare contrast between text color and background."
+        color="rgb(231, 186, 176)"
+        naturalHeight={751}
+        naturalWidth={564}
+        src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+      >
+        <Box padding={2}>
+        <Button
+          color={selected ? 'transparentWhiteText' : 'transparent'}
+          iconEnd="add-pin"
+          text="Save this image"
+          inline />
+        </Box>
+        <Box padding={2} position="absolute" bottom right>
+          <Button
+          color={selected ? 'transparent' : 'transparentWhiteText'}
+          iconEnd="pin-hide"
+          text="Hide this image"
+          inline />
+        </Box>
+      </Image>
+    </Box>
+  )
+};
+`}
+  />
 );
 
 card(
