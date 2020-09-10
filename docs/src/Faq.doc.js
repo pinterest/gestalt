@@ -115,16 +115,17 @@ import { Button, Text } from 'gestalt';
         set the polyfill up in the docs which should go in the &lt;head /&gt; of
         your html.
         <Markdown
-          text="
+          text={`
 ~~~js
 // Load polyfills for IE 11
-if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-document.write(
-'<script src=https://polyfill.io/v3/polyfill.min.js?features=default><\/script>' +
-'<script src=https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js><\/script>'
-);
+if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
+  document.write(
+    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>' +
+    '<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"></script>'
+  );
 }
-~~~"
+~~~
+          `}
         />
       </Text>
     </Stack>
