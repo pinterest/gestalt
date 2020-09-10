@@ -1,3 +1,9 @@
+## 13.0.1 (Sep 10, 2020)
+
+### Patch
+
+- Docs: Improved Button ccolor Docs (#1205)
+
 ## 13.0.0 (Sep 10, 2020)
 
 ### Major
