@@ -6,26 +6,28 @@ import styles from './Icon.css';
 import icons from './icons/index.js';
 import colors from './Colors.css';
 
+export type IconColor =
+  | 'blue'
+  | 'darkGray'
+  | 'eggplant'
+  | 'gray'
+  | 'green'
+  | 'lightGray'
+  | 'maroon'
+  | 'midnight'
+  | 'navy'
+  | 'olive'
+  | 'orange'
+  | 'orchid'
+  | 'pine'
+  | 'purple'
+  | 'red'
+  | 'watermelon'
+  | 'white';
+
 type Props = {|
   accessibilityLabel: string,
-  color?:
-    | 'blue'
-    | 'darkGray'
-    | 'eggplant'
-    | 'gray'
-    | 'green'
-    | 'lightGray'
-    | 'maroon'
-    | 'midnight'
-    | 'navy'
-    | 'olive'
-    | 'orange'
-    | 'orchid'
-    | 'pine'
-    | 'purple'
-    | 'red'
-    | 'watermelon'
-    | 'white',
+  color?: IconColor,
   icon?: $Keys<typeof icons>,
   dangerouslySetSvgPath?: {| __path: string |},
   inline?: boolean,
