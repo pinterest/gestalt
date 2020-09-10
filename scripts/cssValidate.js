@@ -20,7 +20,7 @@ const duplicateVariablesDifferentValues = async () => {
   const astRoot = postcss.parse(combined);
 
   const lookup = {};
-  astRoot.walkDecls(/^--gestalt/, ({ prop, value }) => {
+  astRoot.walkDecls(/^--g/, ({ prop, value }) => {
     if (lookup[prop] && lookup[prop] !== value) {
       throw new Error(
         `CSS Validate error: ${prop} is defined multiple times with different values: ${lookup[prop]} & ${value}.\nPlease make these the same`
@@ -30,41 +30,9 @@ const duplicateVariablesDifferentValues = async () => {
   });
 };
 
-const noVarInLegacyCSS = async () => {
-  const combined = (
-    await Promise.all(
-      [
-        'packages/gestalt/dist/gestalt.css',
-        'packages/gestalt-datepicker/dist/gestalt-datepicker.css',
-      ].map(async file => {
-        return await fs.promises.readFile(file, 'utf8');
-      })
-    )
-  ).join('');
-
-  const astRoot = postcss.parse(combined);
-
-  // Define a CSS variable
-  astRoot.walkDecls(/^--gestalt/, ({ prop, value }) => {
-    throw new Error(
-      `CSS Validate error: ${prop} CSS variable with value ${value} is defined in the legacy CSS - this will break IE and older browsers`
-    );
-  });
-
-  // Use a CSS variable
-  astRoot.walkDecls(({ prop, value }) => {
-    if (value.startsWith('var(')) {
-      throw new Error(
-        `CSS Validate error: ${prop} property with CSS variable ${value} is used in the legacy CSS - this will break IE and older browsers`
-      );
-    }
-  });
-};
-
 (async function cssValidate() {
   try {
     await duplicateVariablesDifferentValues();
-    await noVarInLegacyCSS();
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);

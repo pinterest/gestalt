@@ -42,6 +42,8 @@
   /* transparent colors */
   --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
   --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
 }
 
 /** PRIMARY COLORS **/

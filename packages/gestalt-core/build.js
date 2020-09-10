@@ -38,7 +38,6 @@ const svgPath = () => ({
 const cssModules = (options = {}) => {
   const cssExportMap = {};
   const scopeNames = {};
-  const cssIE11Cache = {}; // CSS targeted toward IE11
   const cssCache = {};
 
   const breakpoints = {
@@ -71,17 +70,6 @@ const cssModules = (options = {}) => {
     },
   });
 
-  const pluginsIE11 = [
-    postcssCssnext({
-      features: {
-        customMedia: {
-          extensions: breakpoints,
-        },
-      },
-    }),
-    modulesPlugin,
-  ];
-
   const plugins = [
     postcssCssnext({
       features: {
@@ -94,7 +82,6 @@ const cssModules = (options = {}) => {
     modulesPlugin,
   ];
 
-  const postcssParserIE11 = postcss(pluginsIE11);
   const postcssParser = postcss(plugins);
 
   return {
@@ -111,9 +98,9 @@ const cssModules = (options = {}) => {
       };
 
       let transformResult;
-      const processIE11 = postcssParserIE11.process(code, opts).then(result => {
+      const process = postcssParser.process(code, opts).then(result => {
         // Set CSS for specific file
-        cssIE11Cache[id] = result.css;
+        cssCache[id] = result.css;
 
         // We can't yet export consts because some selector names aren't
         // valid js variable names (anything with a hyphen "foo-bar").
@@ -123,11 +110,7 @@ const cssModules = (options = {}) => {
         const map = { mappings: '' };
         transformResult = { code: js, map };
       });
-      const process = postcssParser.process(code, opts).then(result => {
-        // Set CSS for specific file
-        cssCache[id] = result.css;
-      });
-      return Promise.all([processIE11, process]).then(() => transformResult);
+      return process.then(() => transformResult);
     },
 
     generateBundle: () => {
@@ -137,13 +120,9 @@ const cssModules = (options = {}) => {
       cssnano
         .process(Object.values(cssCache).join(''), { from: undefined }, opts)
         .then(result => {
-          const filename = `${options.output}-future.css`;
+          const filename = `${options.output}.css`;
           writeFileSync(filename, result.css);
         });
-      cssnano.process(Object.values(cssIE11Cache).join('')).then(result => {
-        const filename = `${options.output}.css`;
-        writeFileSync(filename, result.css);
-      });
     },
   };
 };

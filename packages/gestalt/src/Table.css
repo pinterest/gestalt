@@ -1,9 +1,3 @@
-:root {
-  /* primary colors */
-  --g-colorGray0: #fff;
-  --g-colorGray150: #ddd;
-}
-
 .table {
   border-collapse: separate;
   border-spacing: 0;

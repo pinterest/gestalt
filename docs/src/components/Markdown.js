@@ -4,6 +4,7 @@ import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import './Markdown.css';
+import 'highlight.js/styles/github.css';
 
 type Props = {|
   text: string,
@@ -30,11 +31,6 @@ const stripIndent = (str: string): string => {
 export default function Markdown({ text }: Props): Node {
   const renderer = new Renderer();
 
-  renderer.code = (code, language) => {
-    const highlight = highlightjs.highlight(language, code).value;
-    return `<pre><code class="hljs ${language}">${highlight}</code></pre>`;
-  };
-
   renderer.heading = (input, level) => {
     const escapedText = input.toLowerCase().replace(/[^\w]+/g, '-');
 
@@ -55,6 +51,13 @@ export default function Markdown({ text }: Props): Node {
 
   const html = marked(stripIndent(text), {
     renderer,
+    highlight(code, language) {
+      const validLanguage = highlightjs.getLanguage(language)
+        ? language
+        : 'plaintext';
+      return highlightjs.highlight(validLanguage, code).value;
+    },
+    breaks: true,
   });
 
   return (

@@ -102,9 +102,30 @@ padding 0 .. 12
         Add the following to your import declarations:
         <Markdown
           text="
-~~~bash
+~~~js
 import { Button, Text } from 'gestalt';
 ~~~"
+        />
+      </Text>
+
+      <Heading size="sm">What&apos;s required to support IE11?</Heading>
+      <Text>
+        Gestalt supports IE11 currently, but you will need to use a polyfill
+        because the css file uses css variables. Below is an example of how we
+        set the polyfill up in the docs which should go in the &lt;head /&gt; of
+        your html.
+        <Markdown
+          text={`
+~~~js
+// Load polyfills for IE 11
+if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
+  document.write(
+    '<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>' +
+    '<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"></script>'
+  );
+}
+~~~
+          `}
         />
       </Text>
     </Stack>

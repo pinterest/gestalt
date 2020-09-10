@@ -1,17 +1,6 @@
 :root {
   --g-border-width: 1px;
   --g-border-width-lg: 2px;
-  --g-boint: 4px;
-
-  /* primary colors */
-  --g-colorGray100: #efefef;
-  --g-colorGray150: #ddd;
-  --g-colorGray200: #767676;
-  --g-colorGray300: #111;
-  --g-colorRed100: #e60023;
-
-  /* hover colors */
-  --g-colorGray150Hovered: #d0d0d0;
 }
 
 

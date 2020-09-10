@@ -1,7 +1,3 @@
-:root {
-  --g-colorGray200: #767676;
-}
-
 .textField {
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
