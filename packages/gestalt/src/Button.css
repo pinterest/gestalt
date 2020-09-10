@@ -116,9 +116,3 @@
 .white:active {
   background-color: var(--g-colorGray0Active);
 }
-
-.link {
-  composes: flex from "./Layout.css";
-  composes: itemsCenter from "./Layout.css";
-  composes: justifyCenter from "./Layout.css";
-}

@@ -16,3 +16,9 @@
 .block {
   composes: block from "./Layout.css";
 }
+
+.buttonLink {
+  composes: flex from "./Layout.css";
+  composes: itemsCenter from "./Layout.css";
+  composes: justifyCenter from "./Layout.css";
+}
