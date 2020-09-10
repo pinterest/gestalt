@@ -1,3 +1,9 @@
+## 13.0.2 (Sep 10, 2020)
+
+### Patch
+
+- Docs: use ButtonGroup in Modal examples (#1208)
+
 ## 13.0.1 (Sep 10, 2020)
 
 ### Patch
