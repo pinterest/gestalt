@@ -137,7 +137,7 @@ card(
     id="overflow"
     name="Overflow"
     defaultCode={`
-<Box maxWidth={240}>
+<Box maxWidth={180}>
   <Box marginBottom={2}>
     <Text weight="bold">normal:</Text>
     <Text overflow="normal">
