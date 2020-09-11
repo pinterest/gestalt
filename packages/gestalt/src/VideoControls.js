@@ -21,13 +21,21 @@ type Props = {|
   currentTime: number,
   duration: number,
   fullscreen: boolean,
-  onCaptionsChange: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onCaptionsChange: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  ) => void,
   onFullscreenChange: () => void,
-  onPause: (event: SyntheticEvent<HTMLDivElement>) => void,
-  onPlay: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onPause: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  ) => void,
+  onPlay: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  ) => void,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
-  onVolumeChange: (event: SyntheticEvent<HTMLDivElement>) => void,
+  onVolumeChange: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  ) => void,
   playing: boolean,
   seek: (time: number) => void,
   volume: number,
@@ -75,32 +83,12 @@ function VideoControls({
   seek,
   volume,
 }: Props): Node {
-  const handleFullscreenChange: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void = ({
-    event,
-  }: {|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  const handleFullscreenChange = ({ event }) => {
     event.stopPropagation();
     onFullscreenChange();
   };
 
-  const handlePlayingChange: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void = ({
-    event,
-  }: {|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  const handlePlayingChange = ({ event }) => {
     if (playing) {
       onPause(event);
     } else {
@@ -108,32 +96,12 @@ function VideoControls({
     }
   };
 
-  const handleCaptionsChange: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void = ({
-    event,
-  }: {|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  const handleCaptionsChange = ({ event }) => {
     event.stopPropagation();
     onCaptionsChange(event);
   };
 
-  const handleVolumeChange: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => void = ({
-    event,
-  }: {|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
-  |}) => {
+  const handleVolumeChange = ({ event }) => {
     onVolumeChange(event);
   };
 

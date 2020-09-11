@@ -36,10 +36,14 @@ type Props = {|
     SyntheticEvent<HTMLVideoElement>,
     {| loaded: number |}
   >,
-  onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement>>,
+  onPlay?: AbstractEventHandler<
+    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  >,
   onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
-  onPause?: AbstractEventHandler<SyntheticEvent<HTMLDivElement>>,
+  onPause?: AbstractEventHandler<
+    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  >,
   onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onTimeChange?: AbstractEventHandler<
@@ -47,7 +51,7 @@ type Props = {|
     {| time: number |}
   >,
   onVolumeChange?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement>,
+    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
     {| volume: number |}
   >,
   playbackRate: number,
@@ -415,7 +419,9 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when playback of the media starts after having been paused.
-  handlePlay: (event: SyntheticEvent<HTMLDivElement>) => void = event => {
+  handlePlay: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  ) => void = event => {
     const { onPlay } = this.props;
 
     if (onPlay) {
@@ -446,7 +452,9 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when playback is paused.
-  handlePause: (event: SyntheticEvent<HTMLDivElement>) => void = event => {
+  handlePause: (
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+  ) => void = event => {
     const { onPause } = this.props;
 
     if (onPause) {
@@ -490,7 +498,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Sent when the audio volume changes
   handleVolumeChange: (
-    event: SyntheticEvent<HTMLDivElement>
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
   ) => void = event => {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
