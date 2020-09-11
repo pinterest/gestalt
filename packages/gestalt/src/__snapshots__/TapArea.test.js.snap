@@ -119,27 +119,3 @@ exports[`TapArea sets fullWidth correctly 1`] = `
   TapArea
 </div>
 `;
-
-exports[`TapArea supports press style 1`] = `
-<div
-  aria-disabled={false}
-  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onContextMenu={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex="0"
->
-  TapArea
-</div>
-`;

@@ -6,14 +6,19 @@ exports[`default 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
+  tabIndex={null}
   target={null}
 >
   InternalLink
@@ -26,14 +31,19 @@ exports[`inline 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
+  tabIndex={null}
   target={null}
 >
   InternalLink
@@ -46,14 +56,19 @@ exports[`target blank 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="noopener noreferrer"
+  tabIndex={null}
   target="_blank"
 >
   InternalLink
@@ -66,14 +81,19 @@ exports[`target null 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
+  tabIndex={null}
   target={null}
 >
   InternalLink
@@ -86,14 +106,19 @@ exports[`target self 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
+  tabIndex={null}
   target="_self"
 >
   InternalLink
@@ -106,14 +131,19 @@ exports[`with nofollow 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="nofollow"
+  tabIndex={null}
   target={null}
 >
   InternalLink
@@ -126,14 +156,19 @@ exports[`with onTap 1`] = `
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
+  onContextMenu={null}
+  onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
+  tabIndex={null}
   target={null}
 >
   InternalLink

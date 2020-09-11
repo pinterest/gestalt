@@ -14,23 +14,42 @@ import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
-import getRoundingClassName from './getRoundingClassName.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import getRoundingClassName, {
+  RoundingPropType,
+  type Rounding,
+} from './getRoundingClassName.js';
 
 type Props = {|
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
   disabled?: boolean,
+  fullHeight?: boolean,
+  fullWidth?: boolean,
   href: string,
   id?: string,
   inline?: boolean,
+  mouseCursor?:
+    | 'copy'
+    | 'grab'
+    | 'grabbing'
+    | 'move'
+    | 'noDrop'
+    | 'pointer'
+    | 'zoomIn'
+    | 'zoomOut',
   onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
+  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
+  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
+  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
+  rounding?: Rounding,
   size?: 'sm' | 'md' | 'lg',
   target?: null | 'self' | 'blank',
   wrappedComponent: 'button' | 'iconButton' | 'tapArea',
@@ -48,11 +67,19 @@ const InternalLinkWithForwardRef: AbstractComponent<
     children,
     colorClass,
     disabled,
+    fullHeight,
+    fullWidth,
     href,
     id,
     inline,
+    mouseCursor,
     onClick,
+    onBlur,
+    onFocus,
+    onMouseEnter,
+    onMouseLeave,
     rel,
+    rounding,
     size,
     target,
     wrappedComponent,
@@ -78,7 +105,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
   });
 
   const { isFocusVisible } = useFocusVisible();
-
+  const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
 
   const className = classnames(
@@ -86,16 +113,16 @@ const InternalLinkWithForwardRef: AbstractComponent<
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
     inline ? linkStyles.inlineBlock : linkStyles.block,
-    getRoundingClassName('pill'),
+    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
+      [buttonStyles.disabled]: !isTapArea && disabled,
       [touchableStyles.tapCompress]: !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     },
     isButton
       ? {
           [linkStyles.buttonLink]: true,
           [buttonStyles.button]: true,
-          [buttonStyles.disabled]: disabled,
           [buttonStyles.sm]: size === 'sm',
           [buttonStyles.md]: size === 'md',
           [buttonStyles.lg]: size === 'lg',
@@ -104,6 +131,17 @@ const InternalLinkWithForwardRef: AbstractComponent<
     isButton && colorClass
       ? {
           [buttonStyles[colorClass]]: !disabled,
+        }
+      : {},
+    isTapArea
+      ? {
+          [touchableStyles.fullHeight]: fullHeight,
+          [touchableStyles.fullWidth]: fullWidth,
+        }
+      : {},
+    isTapArea && mouseCursor
+      ? {
+          [touchableStyles[mouseCursor]]: !disabled,
         }
       : {}
   );
@@ -114,10 +152,31 @@ const InternalLinkWithForwardRef: AbstractComponent<
       className={className}
       href={disabled ? undefined : href}
       id={id}
-      onBlur={handleBlur}
+      onContextMenu={isTapArea ? event => event.preventDefault() : null}
+      onBlur={event => {
+        if (onBlur) {
+          onBlur({ event });
+        }
+        handleBlur();
+      }}
       onClick={event => {
         if (onClick) {
           onClick({ event });
+        }
+      }}
+      onFocus={event => {
+        if (onFocus) {
+          onFocus({ event });
+        }
+      }}
+      onMouseEnter={event => {
+        if (onMouseEnter) {
+          onMouseEnter({ event });
+        }
+      }}
+      onMouseLeave={event => {
+        if (onMouseLeave) {
+          onMouseLeave({ event });
         }
       }}
       onMouseDown={handleMouseDown}
@@ -140,6 +199,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && !disabled ? { style: compressStyle } : {})}
+      tabIndex={isTapArea && !disabled ? '0' : null}
       target={target ? `_${target}` : null}
     >
       {children}
@@ -153,13 +213,30 @@ InternalLinkWithForwardRef.propTypes = {
   children: PropTypes.node,
   colorClass: PropTypes.string,
   disabled: PropTypes.bool,
+  fullHeight: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   href: PropTypes.string.isRequired,
   id: PropTypes.string,
   inline: PropTypes.bool,
+  mouseCursor: PropTypes.oneOf([
+    'copy',
+    'grab',
+    'grabbing',
+    'move',
+    'noDrop',
+    'pointer',
+    'zoomIn',
+    'zoomOut',
+  ]),
   onClick: PropTypes.func,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  rounding: RoundingPropType,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
     null | 'self' | 'blank'

@@ -11,7 +11,9 @@ type Props = {|
   onSortChange: ({|
     event:
       | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>,
+      | SyntheticKeyboardEvent<HTMLDivElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>,
   |}) => void,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',

@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import React, { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import TapArea from './TapArea.js';
 
@@ -51,4 +51,37 @@ test('TapArea handles key press event', () => {
   const mockEvent = { charCode: 32, preventDefault: jest.fn() };
   fireEvent.keyPress(getByText('TapArea'), mockEvent);
   expect(mockOnTap).toHaveBeenCalled();
+});
+
+it('renders a link TapArea and forwards a ref to the innermost <a> element', () => {
+  const ref = createRef();
+  render(
+    <TapArea
+      role="link"
+      href="http://www.pinterest.com"
+      ref={ref}
+      target="blank"
+    />
+  );
+  expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
+  expect(ref.current instanceof HTMLAnchorElement && ref.current?.href).toEqual(
+    'http://www.pinterest.com/'
+  );
+});
+
+it('renders a disabled link TapArea', () => {
+  const ref = createRef();
+  render(
+    <TapArea
+      role="link"
+      href="http://www.pinterest.com"
+      disabled
+      ref={ref}
+      target="blank"
+    />
+  );
+  expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
+  expect(ref.current instanceof HTMLAnchorElement && ref.current?.href).toEqual(
+    ''
+  );
 });
