@@ -44,11 +44,12 @@ type Props = {|
 
 // Defaults for align-items and justify-content set in base styles
 export default function Row({ children, gap = 0, ...rest }: Props): Node {
-  const baseClasses = classnames(
-    styles.row,
-    styles[`horizontalGap${gap}`],
-    styles[`horizontalGap${gap} > *`]
-  );
+  const hasGap = gap > 0;
+
+  const baseClasses = classnames(styles.row, {
+    [`horizontalGap${gap}`]: hasGap,
+    [`horizontalGap${gap} > *`]: hasGap,
+  });
   const { passthroughProps, propsStyles } = buildStyles<Props>(
     baseClasses,
     rest,
