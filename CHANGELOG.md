@@ -1,3 +1,9 @@
+## 13.4.0 (Sep 11, 2020)
+
+### Minor
+
+- Callout: implement Link Button on primary/secondary links (#1207)
+
 ## 13.3.0 (Sep 11, 2020)
 
 ### Minor
