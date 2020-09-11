@@ -1,3 +1,9 @@
+## 13.4.1 (Sep 11, 2020)
+
+### Patch
+
+- Docs: update Text wrap/overflow example (#1210)
+
 ## 13.4.0 (Sep 11, 2020)
 
 ### Minor
