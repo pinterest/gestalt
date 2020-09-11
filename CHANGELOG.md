@@ -1,3 +1,9 @@
+## 13.2.0 (Sep 11, 2020)
+
+### Minor
+
+- TapArea: implemented href with InternalLink (#1199)
+
 ## 13.1.0 (Sep 10, 2020)
 
 ### Minor
