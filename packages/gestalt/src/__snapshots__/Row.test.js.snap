@@ -2,7 +2,7 @@
 
 exports[`Row aligns items 1`] = `
 <div
-  className="itemsEnd row horizontalGap0 horizontalGap0 > *"
+  className="itemsEnd row"
 >
   <div />
   <div />
@@ -13,7 +13,7 @@ exports[`Row aligns items 1`] = `
 
 exports[`Row justifies content 1`] = `
 <div
-  className="justifyAround row horizontalGap0 horizontalGap0 > *"
+  className="justifyAround row"
 >
   <div />
   <div />
@@ -24,7 +24,7 @@ exports[`Row justifies content 1`] = `
 
 exports[`Row renders 1`] = `
 <div
-  className="row horizontalGap0 horizontalGap0 > *"
+  className="row"
 >
   <div />
   <div />

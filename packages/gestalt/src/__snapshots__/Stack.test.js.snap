@@ -2,7 +2,7 @@
 
 exports[`Stack aligns items 1`] = `
 <div
-  className="itemsEnd stack verticalGap0 verticalGap0 > *"
+  className="itemsEnd stack"
 >
   <div />
   <div />
@@ -13,7 +13,7 @@ exports[`Stack aligns items 1`] = `
 
 exports[`Stack justifies content 1`] = `
 <div
-  className="justifyAround stack verticalGap0 verticalGap0 > *"
+  className="justifyAround stack"
 >
   <div />
   <div />
@@ -24,7 +24,7 @@ exports[`Stack justifies content 1`] = `
 
 exports[`Stack renders 1`] = `
 <div
-  className="stack verticalGap0 verticalGap0 > *"
+  className="stack"
 >
   <div />
   <div />

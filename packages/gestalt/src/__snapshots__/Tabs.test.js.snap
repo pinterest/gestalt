@@ -2,7 +2,7 @@
 
 exports[`<Tabs /> matches snapshot with default props 1`] = `
 <div
-  className="row horizontalGap0 horizontalGap0 > *"
+  className="row"
 >
   <div
     className="box"
@@ -89,7 +89,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
 
 exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 <div
-  className="row horizontalGap0 horizontalGap0 > *"
+  className="row"
 >
   <div
     className="box"
@@ -196,7 +196,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 
 exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
 <div
-  className="flexWrap row horizontalGap0 horizontalGap0 > *"
+  className="flexWrap row"
 >
   <div
     className="box"
