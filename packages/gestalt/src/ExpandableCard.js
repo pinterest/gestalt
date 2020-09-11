@@ -1,17 +1,22 @@
 // @flow strict
 import React, { useState, type Node } from 'react';
-import { Box, IconButton, Text } from 'gestalt';
+import { Box, Icon, IconButton, Text } from 'gestalt';
+import slugify from 'slugify';
 
 type Props = {|
   id: ?string,
   title?: string | Node,
+  icon?: string,
   description?: string | Node,
   summary?: string | Node,
   shouldShowSummaryInExpandState?: boolean,
   isDefaultCollapsed?: boolean,
   children?: Node,
   shouldShowArrow?: boolean,
+  onClick?: () => void,
 |};
+
+// TODO: handleKeyUp? ESCAPE_KEY_CODE?, warning?
 
 function Title({ title }: {| title: string | Node |}) {
   if (typeof title !== 'string') {
@@ -53,13 +58,17 @@ function Summary({ summary }: {| summary: string | Node |}) {
 export default function ExpandableCard({
   id,
   title,
+  icon,
   description,
   summary,
   shouldShowSummaryInExpandState,
   isDefaultCollapsed = false,
   children,
   shouldShowArrow = true,
+  onClick,
 }: Props) {
+  const slugifiedId = id ?? slugify(title);
+  const iconAccessibilityLabel = 'Title icon';
   const [isCollapsed, setIsCollapsed] = useState(isDefaultCollapsed);
   const shouldShowSummary =
     summary &&
@@ -67,7 +76,7 @@ export default function ExpandableCard({
 
   return (
     <>
-      <Box id={id}>
+      <Box id={slugifiedId}>
         <Box display="flex">
           <Box
             display="flex"
@@ -77,9 +86,20 @@ export default function ExpandableCard({
             alignItems="baseline"
           >
             <Box column={shouldShowSummary ? 6 : 12} display="flex">
-              <Box display="flex" direction="column">
-                {title && <Title title={title} />}
-                {description && <Description description={description} />}
+              <Box display="flex" alignItems="center">
+                {icon && (
+                  <Box marginEnd={2}>
+                    <Icon
+                      icon={icon}
+                      accessibilityLabel={iconAccessibilityLabel}
+                      color="darkGray"
+                    />
+                  </Box>
+                )}
+                <Box display="flex" direction="column">
+                  {title && <Title title={title} />}
+                  {description && <Description description={description} />}
+                </Box>
               </Box>
             </Box>
             {shouldShowSummary && <Summary summary={summary} />}
@@ -87,11 +107,11 @@ export default function ExpandableCard({
           <Box>
             {children && shouldShowArrow && (
               <IconButton
-                accessibilityLabel="arrow icon to expand or collapse the card"
+                accessibilityLabel={iconAccessibilityLabel}
                 bgColor="white"
                 icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
                 iconColor="darkGray"
-                onClick={() => setIsCollapsed(!isCollapsed)}
+                onClick={onClick || (() => setIsCollapsed(!isCollapsed))}
                 size="xs"
               />
             )}

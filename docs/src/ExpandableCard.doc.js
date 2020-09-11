@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="ExpandableCard"
     description="
-The ExpandableCard component renders detailed information in the expanded state and summaried information in the collapsed state.
+The ExpandableCard component renders detailed information in the expanded state and summarized information in the collapsed state.
 "
   />
 );
@@ -26,10 +26,6 @@ card(
       {
         name: 'title',
         type: '?string | ?React.Node',
-      },
-      {
-        name: 'icon',
-        type: '?string',
       },
       {
         name: 'description',
@@ -58,27 +54,12 @@ card(
         type: '?boolean',
         defaultValue: true,
       },
-      {
-        name: 'onClick',
-        type: '() => void',
-      },
-      {
-        name: 'onMouseEnter',
-        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
-      },
-      {
-        name: 'onMouseLeave',
-        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
-      },
     ]}
   />
 );
 
 card(
   <Example
-    description={`
-    Using \`ExpandableCard\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-  `}
     name="Example 1"
     defaultCode={`
 function ExpandableCardExample1() {
@@ -86,10 +67,9 @@ function ExpandableCardExample1() {
     <Box maxWidth={800} padding={2} column={12}>
       <ExpandableCard
         id="examplename1"
-        title='Module title1'
+        title="Module title1"
         isDefaultCollapsed
-        summary='Summary'
-        icon="lock"
+        summary="Summary"
         >
         children
       </ExpandableCard>
@@ -102,9 +82,6 @@ function ExpandableCardExample1() {
 
 card(
   <Example
-    description={`
-    Using \`ExpandableCard\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-  `}
     name="Example 2"
     defaultCode={`
 function ExpandableCardExample2() {
@@ -133,9 +110,6 @@ function ExpandableCardExample2() {
 
 card(
   <Example
-    description={`
-    Using \`ExpandableCard\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
-  `}
     name="Example 3"
     defaultCode={`
 function ExpandableCardExample3() {
@@ -147,6 +121,39 @@ function ExpandableCardExample3() {
         summary={<Text size="md" truncate>Summary</Text>}
         description='exampleDescription'
         shouldShowSummaryInExpandState
+        >
+        children
+      </ExpandableCard>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Example 4"
+    defaultCode={`
+function ExpandableCardExample4() {
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <ExpandableCard
+        id="examplename4"
+        title={
+          <Box display="flex" alignItems="center">
+            <Box marginEnd={2}>
+              <Icon
+                icon="lock"
+                accessibilityLabel="Title icon"
+                color="darkGray"
+              />
+            </Box>
+            <Heading size="sm">Module title4</Heading>
+          </Box>
+        }
+        isDefaultCollapsed
+        summary="Summary"
         >
         children
       </ExpandableCard>
