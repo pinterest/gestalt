@@ -1,3 +1,9 @@
+## 13.3.0 (Sep 11, 2020)
+
+### Minor
+
+- Table.Header: fix stacking context on sticky header (#1209)
+
 ## 13.2.0 (Sep 11, 2020)
 
 ### Minor
