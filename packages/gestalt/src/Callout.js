@@ -6,18 +6,21 @@ import Box from './Box.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
-import Link from './Link.js';
+import Button from './Button.js';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Callout.css';
 
 type LinkData = {|
+  accessibilityLabel?: string,
   href: string,
   label: string,
   onClick?: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>
   >,
 |};
 
@@ -61,34 +64,35 @@ const CalloutLink = ({
   stacked?: boolean,
   type: string,
 |}): Node => {
-  const { colorGray400, name: colorSchemeName } = useColorScheme();
+  const { name: colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-  const textColor = isDarkMode ? 'white' : 'darkGray';
-  const inlineStyle =
-    isDarkMode && type === 'primary'
-      ? { __style: { backgroundColor: colorGray400 } }
-      : undefined;
-  const { href, label, onClick } = data;
+  let color = type === 'primary' ? 'white' : 'transparent';
+  if (isDarkMode && type === 'secondary') {
+    color = 'transparentWhiteText';
+  }
+  const { accessibilityLabel, href, label, onClick } = data;
 
   return (
     <Box
       alignItems="center"
-      color={type === 'primary' ? 'white' : undefined}
-      marginBottom="auto"
+      paddingX={1}
       marginEnd="auto"
       marginStart="auto"
       marginTop={type === 'primary' && stacked ? 2 : undefined}
       mdMarginEnd={0}
       mdMarginTop="auto"
-      padding={4}
+      mdMarginBottom="auto"
       rounding={type === 'primary' ? 'pill' : undefined}
-      dangerouslySetInlineStyle={inlineStyle}
     >
-      <Link href={href} onClick={onClick}>
-        <Text color={textColor} weight="bold">
-          {label}
-        </Text>
-      </Link>
+      <Button
+        accessibilityLabel={accessibilityLabel}
+        color={color}
+        href={href}
+        onClick={onClick}
+        role="link"
+        size="lg"
+        text={label}
+      />
     </Box>
   );
 };
