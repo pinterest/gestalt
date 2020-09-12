@@ -1,5 +1,6 @@
 // @flow strict
 import React from 'react';
+import { ExpandableCard } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -18,6 +19,7 @@ The ExpandableCard component renders detailed information in the expanded state 
 
 card(
   <PropTable
+    Component={ExpandableCard}
     props={[
       {
         name: 'id',

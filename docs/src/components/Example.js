@@ -5,7 +5,6 @@ import DatePicker from 'gestalt-datepicker';
 import LZString from 'lz-string';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import Card from './Card.js';
-import ExpandableCard from './ExpandableCard.js';
 import theme from './atomDark.js';
 
 type Props = {|
@@ -143,7 +142,7 @@ const Example = ({
   direction = 'column',
 }: Props) => {
   const code = defaultCode.trim();
-  const scope = { ...gestalt, DatePicker, ExpandableCard };
+  const scope = { ...gestalt, DatePicker };
   return (
     <Card
       name={name}

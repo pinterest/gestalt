@@ -1,22 +1,19 @@
 // @flow strict
 import React, { useState, type Node } from 'react';
-import { Box, Icon, IconButton, Text } from 'gestalt';
-import slugify from 'slugify';
+import Box from './Box.js';
+import IconButton from './IconButton.js';
+import Text from './Text.js';
 
 type Props = {|
   id: ?string,
   title?: string | Node,
-  icon?: string,
   description?: string | Node,
   summary?: string | Node,
   shouldShowSummaryInExpandState?: boolean,
   isDefaultCollapsed?: boolean,
   children?: Node,
   shouldShowArrow?: boolean,
-  onClick?: () => void,
 |};
-
-// TODO: handleKeyUp? ESCAPE_KEY_CODE?, warning?
 
 function Title({ title }: {| title: string | Node |}) {
   if (typeof title !== 'string') {
@@ -58,17 +55,13 @@ function Summary({ summary }: {| summary: string | Node |}) {
 export default function ExpandableCard({
   id,
   title,
-  icon,
   description,
   summary,
   shouldShowSummaryInExpandState,
   isDefaultCollapsed = false,
   children,
   shouldShowArrow = true,
-  onClick,
 }: Props) {
-  const slugifiedId = id ?? slugify(title);
-  const iconAccessibilityLabel = 'Title icon';
   const [isCollapsed, setIsCollapsed] = useState(isDefaultCollapsed);
   const shouldShowSummary =
     summary &&
@@ -76,7 +69,7 @@ export default function ExpandableCard({
 
   return (
     <>
-      <Box id={slugifiedId}>
+      <Box id={id}>
         <Box display="flex">
           <Box
             display="flex"
@@ -85,33 +78,24 @@ export default function ExpandableCard({
             marginEnd={6}
             alignItems="baseline"
           >
-            <Box column={shouldShowSummary ? 6 : 12} display="flex">
-              <Box display="flex" alignItems="center">
-                {icon && (
-                  <Box marginEnd={2}>
-                    <Icon
-                      icon={icon}
-                      accessibilityLabel={iconAccessibilityLabel}
-                      color="darkGray"
-                    />
-                  </Box>
-                )}
-                <Box display="flex" direction="column">
-                  {title && <Title title={title} />}
-                  {description && <Description description={description} />}
-                </Box>
-              </Box>
+            <Box
+              column={shouldShowSummary ? 6 : 12}
+              display="flex"
+              direction="column"
+            >
+              {title && <Title title={title} />}
+              {description && <Description description={description} />}
             </Box>
             {shouldShowSummary && <Summary summary={summary} />}
           </Box>
           <Box>
             {children && shouldShowArrow && (
               <IconButton
-                accessibilityLabel={iconAccessibilityLabel}
+                accessibilityLabel="arrow icon to expand or collapse the card"
                 bgColor="white"
                 icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
                 iconColor="darkGray"
-                onClick={onClick || (() => setIsCollapsed(!isCollapsed))}
+                onClick={() => setIsCollapsed(!isCollapsed)}
                 size="xs"
               />
             )}
