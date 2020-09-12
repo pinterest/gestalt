@@ -239,7 +239,7 @@ card(
       defaultCode={`
 function TapAreaExample() {
   return (
-    <Box rounding={4} borderSize="sm" column={2}>
+    <Box rounding={4} borderSize="sm" width={170}>
       <TapArea rounding={4}>
         <Box
           alignItems="center"
@@ -271,7 +271,7 @@ function TapAreaExample() {
   const [touches, setTouches] = React.useState(0);
 
   return (
-    <Box column={2}>
+    <Box width={200}>
       <TapArea
         onTap={() => setTouches(touches + 1)}
         rounding={2}
