@@ -220,10 +220,22 @@ card(
         defaultValue: 'null',
         description: [
           'Define the frame or window to open the anchor defined on `href`:',
-          '- `null` opens the anchor in the same window.',
-          '- `blank` opens the anchor in a new window.',
-          '- `self` opens an anchor in the same frame.',
+          `- 'null' opens the anchor in the same window.`,
+          `- 'blank' opens the anchor in a new window.`,
+          `- 'self' opens an anchor in the same frame.`,
           'Optional with role=link.',
+        ],
+        href: 'roles',
+      },
+      {
+        name: 'tapStyle',
+        type: `none | 'compress'`,
+        required: false,
+        defaultValue: 'none',
+        description: [
+          'Set a compressing behavior when the TapArea is clicked / touched.',
+          `- 'none' does not compress TapArea.`,
+          `- 'compress' scales down TapArea.`,
         ],
         href: 'roles',
       },
@@ -232,14 +244,13 @@ card(
 );
 
 card(
-  <>
-    <Example
-      name="Basic TapArea"
-      id="basic-taparea"
-      defaultCode={`
+  <Example
+    name="Basic TapArea"
+    id="basic-taparea"
+    defaultCode={`
 function TapAreaExample() {
   return (
-    <Box rounding={4} borderSize="sm" column={2}>
+    <Box rounding={4} borderSize="sm" width={170}>
       <TapArea rounding={4}>
         <Box
           alignItems="center"
@@ -260,23 +271,26 @@ function TapAreaExample() {
   );
 }
 `}
-    />
-    <Example
-      id="link_buttons"
-      description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
+  />
+);
+
+card(
+  <Example
+    id="link_buttons"
+    description={`If you have a \`Link\` or \`Button\` inside of TapArea, you can apply \`e.stopPropagation()\` so the \`onTap\` doesn't get triggered.
   `}
-      name="TapArea with Link/Buttons"
-      defaultCode={`
+    name="TapArea with Link/Buttons"
+    defaultCode={`
 function TapAreaExample() {
   const [touches, setTouches] = React.useState(0);
 
   return (
-    <Box column={2}>
+    <Box width={200}>
       <TapArea
         onTap={() => setTouches(touches + 1)}
         rounding={2}
       >
-        <Box color='darkGray' rounding={4} borderSize="sm">
+        <Box color="darkGray" rounding={4} borderSize="sm">
           <Mask rounding={2}>
             <Image
               alt="Antelope Canyon"
@@ -305,24 +319,28 @@ function TapAreaExample() {
     </Box>  );
 }
 `}
-    />
-  </>
+  />
 );
 
 card(
   <Example
-    name="Roles"
+    name="Roles & Compress Behavior"
     id="roles"
     defaultCode={`
 function Example() {
   const [disabled, setDisabled] = React.useState(false);
+  const [compressed, setCompressed] = React.useState('compress');
   const [touches, setTouches] = React.useState(0);
 
   return (
     <Stack gap={3}>
       <Row gap={3}>
         <Tooltip text="Default TapArea">
-          <TapArea disabled={disabled} onTap={() => setTouches(touches + 1)} >
+          <TapArea
+            tapStyle={compressed}
+            disabled={disabled}
+            onTap={() => setTouches(touches + 1)}
+          >
             <Box padding={3} column={12} borderSize="lg" width={200}>
               <Mask rounding={2}>
                 <Image
@@ -337,7 +355,13 @@ function Example() {
           </TapArea>
         </Tooltip>
         <Tooltip text="Link TapArea">
-          <TapArea disabled={disabled} role="link" target="blank" href="https://www.pinterest.com" >
+          <TapArea
+            tapStyle={compressed}
+            disabled={disabled}
+            role="link"
+            target="blank"
+            href="https://www.pinterest.com"
+          >
             <Box padding={3} column={12} borderSize="lg" width={200}>
               <Mask rounding={2}>
                 <Image
@@ -351,6 +375,18 @@ function Example() {
             </Box>
           </TapArea>
         </Tooltip>
+      </Row>
+      <Row gap={1}>
+        <Switch
+          onChange={() => setCompressed(compressed === "compress" ? "none" : "compress")}
+          id="compress-buttons"
+          switched={compressed === "compress" ? true : false }
+        />
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="compress-buttons">
+            <Text>Compress TapArea</Text>
+          </Label>
+        </Box>
       </Row>
       <Row gap={1}>
         <Switch

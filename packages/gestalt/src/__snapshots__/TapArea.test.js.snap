@@ -1,5 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Link-role tapArea supports press style 1`] = `
+<a
+  className="link hideOutline tapTransition block rounding0 accessibilityOutline fullWidth pointer"
+  href="http://www.test.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex="0"
+  target={null}
+>
+  TapArea
+</a>
+`;
+
 exports[`TapArea renders 1`] = `
 <div
   aria-disabled={false}
@@ -100,6 +125,30 @@ exports[`TapArea sets fullWidth correctly 1`] = `
 <div
   aria-disabled={false}
   className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex="0"
+>
+  TapArea
+</div>
+`;
+
+exports[`TapArea supports press style 1`] = `
+<div
+  aria-disabled={false}
+  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
   onBlur={[Function]}
   onClick={[Function]}
   onContextMenu={[Function]}

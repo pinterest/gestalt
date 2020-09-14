@@ -51,6 +51,7 @@ type Props = {|
   rel?: 'none' | 'nofollow',
   rounding?: Rounding,
   size?: 'sm' | 'md' | 'lg',
+  tapStyle?: 'none' | 'compress',
   target?: null | 'self' | 'blank',
   wrappedComponent: 'button' | 'iconButton' | 'tapArea',
 |};
@@ -81,6 +82,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
     rel,
     rounding,
     size,
+    tapStyle = 'compress',
     target,
     wrappedComponent,
   } = props;
@@ -198,7 +200,9 @@ const InternalLinkWithForwardRef: AbstractComponent<
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
-      {...(compressStyle && !disabled ? { style: compressStyle } : {})}
+      {...(tapStyle === 'compress' && compressStyle && !disabled
+        ? { style: compressStyle }
+        : {})}
       tabIndex={isTapArea && !disabled ? '0' : null}
       target={target ? `_${target}` : null}
     >
@@ -238,6 +242,9 @@ InternalLinkWithForwardRef.propTypes = {
   >),
   rounding: RoundingPropType,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
+    'none' | 'compress'
+  >),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
     null | 'self' | 'blank'
   >),
