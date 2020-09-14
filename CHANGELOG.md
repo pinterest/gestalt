@@ -1,3 +1,9 @@
+## 13.5.0 (Sep 14, 2020)
+
+### Minor
+
+- TapArea: reimplement tapStyle (#1211)
+
 ## 13.4.1 (Sep 11, 2020)
 
 ### Patch
