@@ -3,11 +3,12 @@ import React, { type Node } from 'react';
 import { Heading, Link, Row, Stack, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import Card from './components/Card.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
-card(<Heading>Installation</Heading>);
+card(<PageHeader name="Installation" showSourceLink={false} />);
 
 card(
   <Stack gap={2}>
