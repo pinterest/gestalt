@@ -1,3 +1,9 @@
+## 13.5.1 (Sep 15, 2020)
+
+### Patch
+
+- Docs: use PageHeader on all pages (#1212)
+
 ## 13.5.0 (Sep 14, 2020)
 
 ### Minor
