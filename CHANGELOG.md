@@ -1,3 +1,9 @@
+## 13.7.0 (Sep 15, 2020)
+
+### Minor
+
+- Revert "Row, Stack: Re-implement for better `gap` (#1193)" (#1213)
+
 ## 13.6.0 (Sep 15, 2020)
 
 ### Minor
