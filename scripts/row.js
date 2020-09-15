@@ -49,8 +49,8 @@ const ruleset = (selector, declarations) => ({
 const rules = i => [
   // Negative margins on parents
   ruleset(`.horizontalGap${i}`, {
-    'margin-left': `-${bt(i)}`,
-    'margin-right': `-${bt(i)}`,
+    'margin-left': `${bt(-i)}`,
+    'margin-right': `${bt(-i)}`,
   }),
   // Gap padding on children
   ruleset(`.horizontalGap${i} > *`, {
