@@ -35,7 +35,7 @@ exports[`Row renders 1`] = `
 
 exports[`Row renders with specified gap 1`] = `
 <div
-  className="row horizontalGap4 horizontalGap4 > *"
+  className="row horizontalGap4"
 >
   <div />
   <div />

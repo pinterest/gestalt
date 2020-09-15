@@ -48,7 +48,6 @@ export default function Row({ children, gap = 0, ...rest }: Props): Node {
 
   const baseClasses = classnames(styles.row, {
     [`horizontalGap${gap}`]: hasGap,
-    [`horizontalGap${gap} > *`]: hasGap,
   });
   const { passthroughProps, propsStyles } = buildStyles<Props>(
     baseClasses,

@@ -48,7 +48,6 @@ export default function Stack({ children, gap = 0, ...rest }: Props): Node {
 
   const baseClasses = classnames(styles.stack, {
     [`verticalGap${gap}`]: hasGap,
-    [`verticalGap${gap} > *`]: hasGap,
   });
   const { passthroughProps, propsStyles } = buildStyles<Props>(
     baseClasses,

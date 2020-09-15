@@ -35,7 +35,7 @@ exports[`Stack renders 1`] = `
 
 exports[`Stack renders with specified gap 1`] = `
 <div
-  className="stack verticalGap4 verticalGap4 > *"
+  className="stack verticalGap4"
 >
   <div />
   <div />
