@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlexBox aligns items 1`] = `
+<div
+  className="box itemsCenter xsDisplayFlex"
+>
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`FlexBox allows zero values for whitespace 1`] = `
+<div
+  className="box xsDisplayFlex"
+/>
+`;
+
+exports[`FlexBox has correct *-flex-column classes when display is flexColumn 1`] = `
+<div
+  className="box xsDirectionColumn xsDisplayFlex"
+/>
+`;
+
+exports[`FlexBox justifies content 1`] = `
+<div
+  className="box justifyAround xsDisplayFlex"
+>
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`FlexBox renders 1`] = `
+<div
+  className="box xsDisplayFlex"
+/>
+`;
