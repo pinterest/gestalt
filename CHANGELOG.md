@@ -1,3 +1,9 @@
+## 13.6.0 (Sep 15, 2020)
+
+### Minor
+
+- Row, Stack: Re-implement for better `gap` (#1193)
+
 ## 13.5.1 (Sep 15, 2020)
 
 ### Patch
