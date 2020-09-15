@@ -3,11 +3,12 @@ import React, { type Node } from 'react';
 import { Box, Heading, Link, Stack, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import Card from './components/Card.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
-card(<Heading>Frequently Asked Questions</Heading>);
+card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
 
 card(
   <Card name="Component Usage">
