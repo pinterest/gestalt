@@ -1,5 +1,4 @@
 // @flow strict
-
 import {
   concat,
   fromClassName,
@@ -16,7 +15,7 @@ These are a collection of a few functors that take values and returns Style's. O
 
 */
 
-type Functor<T> = (n: T) => Style;
+export type Functor<T> = (n: T) => Style;
 
 // Adds a classname when a property is present.
 //
