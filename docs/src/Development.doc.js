@@ -3,11 +3,12 @@ import React, { type Node } from 'react';
 import { Heading, Link, Stack, Text } from 'gestalt';
 import Card from './components/Card.js';
 import Markdown from './components/Markdown.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
-card(<Heading>Development</Heading>);
+card(<PageHeader name="Development" showSourceLink={false} />);
 
 card(
   <Card name="Set up your laptop">

@@ -8,6 +8,7 @@ type Props = {|
   description?: string,
   beta?: boolean,
   fileName?: string, // only use if name !== file name
+  showSourceLink?: boolean,
 |};
 
 const gestaltPath = component => {
@@ -28,6 +29,7 @@ export default function ComponentHeader({
   name,
   description = '',
   fileName,
+  showSourceLink = true,
 }: Props): Node {
   return (
     <Box marginBottom={6}>
@@ -40,11 +42,13 @@ export default function ComponentHeader({
             </Tooltip>
           ) : null}
         </Heading>
-        <Text color="gray">
-          <Link href={githubUrl(fileName || name)} inline>
-            Source
-          </Link>
-        </Text>
+        {showSourceLink && (
+          <Text color="gray">
+            <Link href={githubUrl(fileName || name)} inline>
+              Source
+            </Link>
+          </Text>
+        )}
       </Box>
       {description && <Markdown text={description} />}
     </Box>
