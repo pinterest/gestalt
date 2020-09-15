@@ -3,6 +3,7 @@
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
+<PROJECT_ROOT>/cypress
 
 [options]
 esproposal.optional_chaining=enable

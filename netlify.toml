@@ -2,6 +2,13 @@
   publish = "docs/build"
   command = "./scripts/netlify.sh"
 
+[build.environment]
+  # cache Cypress binary in local "node_modules" folder
+  # so Netlify caches it
+  CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
+  # set TERM variable for terminal output
+  TERM = "xterm"
+
 [dev]
   targetPort = 3000
   port = 8888
@@ -17,3 +24,7 @@
   for = "/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+
+[[plugins]]
+  # Cypress plugin will test our site after it is built
+  package = "netlify-plugin-cypress"
