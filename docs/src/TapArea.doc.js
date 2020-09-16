@@ -333,8 +333,8 @@ function Example() {
   const [touches, setTouches] = React.useState(0);
 
   return (
-    <Stack gap={3}>
-      <Row gap={3}>
+    <Stack gap={6}>
+      <Row gap={6}>
         <Tooltip text="Default TapArea">
           <TapArea
             tapStyle={compressed}
@@ -376,7 +376,7 @@ function Example() {
           </TapArea>
         </Tooltip>
       </Row>
-      <Row gap={1}>
+      <Row gap={2}>
         <Switch
           onChange={() => setCompressed(compressed === "compress" ? "none" : "compress")}
           id="compress-buttons"
@@ -388,7 +388,7 @@ function Example() {
           </Label>
         </Box>
       </Row>
-      <Row gap={1}>
+      <Row gap={2}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -496,7 +496,7 @@ function TapAreaRefExample() {
   const [focus, setFocus] = React.useState(0);
 
   return (
-    <Row gap={1}>
+    <Row gap={2}>
       <Button
         text="Focus the TapArea"
         onClick={() => ref.current.focus()}
@@ -546,7 +546,7 @@ function MenuButtonExample() {
             rounding={1}
             padding={2}
           >
-            <Row gap={1}>
+            <Row gap={2}>
               <Box height={50} width={50}>
                 <Mask rounding={1}>
                   <Image

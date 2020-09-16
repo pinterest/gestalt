@@ -275,7 +275,7 @@ function PreventDefaultExample() {
 
   return (
     <Box>
-      <Row gap={2} padding={2}>
+      <Row gap={4} padding={2}>
         <Label htmlFor="preventDefault">
           <Text>Prevent default on tap</Text>
         </Label>

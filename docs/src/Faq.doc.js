@@ -12,7 +12,7 @@ card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
 
 card(
   <Card name="Component Usage">
-    <Stack gap={2}>
+    <Stack gap={4}>
       <Heading size="sm">
         How can I visualize which components use Gestalt?
       </Heading>
@@ -135,7 +135,7 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
 
 card(
   <Card name="Component Development">
-    <Stack gap={2}>
+    <Stack gap={4}>
       <Heading size="sm">How do I get access to the Gestalt repo?</Heading>
       <Text>
         The{' '}
@@ -171,7 +171,7 @@ card(
 
 card(
   <Card name="Automated Releases">
-    <Stack gap={2}>
+    <Stack gap={4}>
       <Heading size="sm">How often does Gestalt release a new version?</Heading>
       <Text>
         Gestalt releases happen on every merge to master.{' '}

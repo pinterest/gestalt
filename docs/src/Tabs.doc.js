@@ -72,8 +72,8 @@ function TabExample() {
     { href: "https://pinterest.com", text: "People to Follow" },
   ];
   return (
-    <Stack gap={2}>
-      <Row gap={2} padding={2}>
+    <Stack gap={4}>
+      <Row gap={4} padding={2}>
         <Label htmlFor="wrap">
           <Text>Wrap</Text>
         </Label>
