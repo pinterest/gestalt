@@ -15,6 +15,9 @@
   framework = "#custom"
   autoLaunch = true
 
+[context.deploy-preview.environment]
+  DEBUG = "*,-babel"
+
 [[redirects]]
   from = "/*"
   to = "/"
