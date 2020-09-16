@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { ESCAPE_KEY_CODE } from './utils/KeyCodes.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
 import Heading from './Heading.js';
@@ -31,8 +32,6 @@ const SIZE_WIDTH_MAP = {
   md: 720,
   lg: 900,
 };
-
-const ESCAPE_KEY_CODE = 27;
 
 function Header({ heading }: {| heading: string | Node |}) {
   if (typeof heading !== 'string') {

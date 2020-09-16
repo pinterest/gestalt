@@ -119,3 +119,7 @@ html[dir="rtl"] .borderLeft {
 .solid {
   border-style: solid;
 }
+
+.shadow {
+  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
+}

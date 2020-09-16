@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import styles from './Backdrop.css';
 
 type Props = {|
-  animation?: string,
+  animation?: 'in' | 'out',
   children?: Node,
   closeOnOutsideClick: boolean,
   onClick?: (event: MouseEvent) => void,
@@ -27,24 +27,17 @@ function Backdrop({
     }
   };
 
-  /*
-  Animation example: "animation: g-backdrop-fade-in 400ms ease-in-out"
-
-  Currently supported backdrop animations:  
-  - g-backdrop-fade-in: fades the backdrop in
-  - g-backdrop-fade-out: fades the backdrop out
-  */
-  const style = animation ? { animation } : {};
   return (
     <>
       {/* Disabling the linters below is fine, we don't want key event listeners (ESC handled elsewhere) */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         className={classnames(styles.backdrop, {
+          [styles.backdropAnimationIn]: animation === 'in',
+          [styles.backdropAnimationOut]: animation === 'out',
           [styles.zoomOut]: closeOnOutsideClick,
         })}
         onClick={handleClick}
-        style={style}
       />
       {children}
     </>
@@ -57,6 +50,5 @@ Backdrop.propTypes = {
   closeOnOutsideClick: PropTypes.bool,
   onClick: PropTypes.func,
 };
-Backdrop.displayName = 'Backdrop';
 
 export default Backdrop;

@@ -45,7 +45,7 @@ describe('Sheet', () => {
   });
 
   it('should focus the dismiss button upon render', () => {
-    const { getByLabelText } = render(
+    const { container } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
@@ -54,7 +54,9 @@ describe('Sheet', () => {
         Sheet content
       </Sheet>
     );
-    expect(getByLabelText('Dismiss')).toBe(document.activeElement);
+    expect(container.querySelector('div[role="dialog"]')).toBe(
+      document.activeElement
+    );
   });
 
   it('should dismiss and focus on the reference element from the dismiss button', () => {

@@ -7,14 +7,13 @@ exports[`Sheet should render all props 1`] = `
       class="container"
     >
       <div
-        class="backdrop zoomOut"
-        style="animation: g-backdrop-fade-in 400ms ease-in-out;"
+        class="backdrop backdropAnimationIn zoomOut"
       />
       <div
         aria-label="Sheet"
-        class="wrapper"
+        class="wrapper wrapperAnimationIn"
         role="dialog"
-        style="animation: g-sheet-slide-in-ltr 400ms ease-in-out; width: 540px;"
+        style="width: 540px;"
         tabindex="-1"
       >
         <div
@@ -25,7 +24,7 @@ exports[`Sheet should render all props 1`] = `
             class="shadowContainer"
           >
             <div
-              class="box flexGrow justifyBetween xsDisplayFlex"
+              class="flexGrow justifyBetween row"
             >
               <div
                 class="box flexGrow"
@@ -49,7 +48,7 @@ exports[`Sheet should render all props 1`] = `
                   type="button"
                 >
                   <div
-                    class="pog white focused"
+                    class="pog white"
                     style="height: 40px; width: 40px;"
                   >
                     <svg
@@ -98,14 +97,13 @@ exports[`Sheet should trigger out animation and dismiss when useReducedMotion is
       class="container"
     >
       <div
-        class="backdrop zoomOut"
-        style="animation: g-backdrop-fade-out 400ms ease-in-out;"
+        class="backdrop backdropAnimationOut zoomOut"
       />
       <div
         aria-label="Test Sheet"
-        class="wrapper"
+        class="wrapper wrapperAnimationOut"
         role="dialog"
-        style="animation: g-sheet-slide-out-ltr 400ms ease-in-out; width: 540px;"
+        style="width: 540px;"
         tabindex="-1"
       >
         <div
@@ -124,7 +122,7 @@ exports[`Sheet should trigger out animation and dismiss when useReducedMotion is
                 type="button"
               >
                 <div
-                  class="pog white focused"
+                  class="pog white"
                   style="height: 40px; width: 40px;"
                 >
                   <svg

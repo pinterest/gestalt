@@ -9,13 +9,15 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { ESCAPE_KEY_CODE } from './utils/KeyCodes.js';
 import Box from './Box.js';
-import IconButton from './IconButton.js';
 import Backdrop from './Backdrop.js';
+import IconButton from './IconButton.js';
 import Heading from './Heading.js';
+import Row from './Row.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
-import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import styles from './Sheet.css';
+import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import useReducedMotion from './useReducedMotion.js';
 
 type Props = {|
@@ -29,14 +31,13 @@ type Props = {|
   size?: 'sm' | 'md' | 'lg' | number,
 |};
 
+type Animation = 'in' | 'out';
+
 const SIZE_WIDTH_MAP = {
   sm: 540,
   md: 720,
   lg: 900,
 };
-
-const ESCAPE_KEY_CODE = 27;
-const ANIMATION_DURATION_IN_MS = 400;
 
 function Header({ heading }: {| heading: string | Node |}) {
   if (typeof heading !== 'string') {
@@ -51,28 +52,6 @@ function Header({ heading }: {| heading: string | Node |}) {
     </Box>
   );
 }
-
-/*
-Currently supported sheet animations:  
-- g-sheet-slide-in-ltr: slides the sheet in, from the right edge. Screen direction: ltr
-- g-sheet-slide-in-rtl: slides the sheet in, from the left edge. Screen direction: rtl
-- g-sheet-slide-out-ltr: slides the sheet out, from the right edge. Screen direction: ltr
-- g-sheet-slide-out-rtl: slides the sheet out, from the left edge. Screen direction: rtl
-*/
-const getAnimation = (moment: 'in' | 'out') => {
-  const documentDirection = document?.documentElement?.dir || 'ltr';
-  const animations = {
-    in: {
-      backdrop: 'g-backdrop-fade-in',
-      sheet: `g-sheet-slide-in-${documentDirection}`,
-    },
-    out: {
-      backdrop: 'g-backdrop-fade-out',
-      sheet: `g-sheet-slide-out-${documentDirection}`,
-    },
-  };
-  return animations[moment];
-};
 
 const SheetWithForwardRef: React$AbstractComponent<
   Props,
@@ -89,19 +68,18 @@ const SheetWithForwardRef: React$AbstractComponent<
     size = 'sm',
   } = props;
 
-  const [showTopShadow, setShowTopShadow] = useState(false);
-  const [showBottomShadow, setShowBottomShadow] = useState(false);
-  const [currentAnimation, setCurrentAnimation] = useState(getAnimation('in'));
+  const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
+  const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
+  const [currentAnimation, setCurrentAnimation] = useState<Animation>('in');
   const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLDivElement>(null);
-  const dismissButtonRef = useRef<?HTMLButtonElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
   const startDismiss = useCallback(() => {
     if (shouldReduceMotion) {
       onDismiss();
     } else {
-      setCurrentAnimation(getAnimation('out'));
+      setCurrentAnimation('out');
       if (containerRef.current) {
         containerRef.current.addEventListener('animationend', onDismiss);
       }
@@ -142,12 +120,6 @@ const SheetWithForwardRef: React$AbstractComponent<
     };
   }, []);
 
-  useEffect(() => {
-    if (dismissButtonRef.current) {
-      dismissButtonRef.current.focus();
-    }
-  }, []);
-
   const handleOutsideClick = () => {
     if (closeOnOutsideClick) {
       startDismiss();
@@ -156,14 +128,6 @@ const SheetWithForwardRef: React$AbstractComponent<
 
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
-  const buildAnimationStyle = (animationName: string): { [string]: string } => {
-    return shouldReduceMotion
-      ? {}
-      : {
-          animation: `${animationName} ${ANIMATION_DURATION_IN_MS}ms ease-in-out`,
-        };
-  };
-
   const dismissButton = (
     <IconButton
       accessibilityLabel={accessibilityDismissButtonLabel}
@@ -171,7 +135,6 @@ const SheetWithForwardRef: React$AbstractComponent<
       icon="cancel"
       iconColor="darkGray"
       onClick={startDismiss}
-      ref={dismissButtonRef}
     />
   );
 
@@ -180,21 +143,19 @@ const SheetWithForwardRef: React$AbstractComponent<
       <TrapFocusBehavior>
         <div className={styles.container} ref={containerRef}>
           <Backdrop
-            animation={
-              buildAnimationStyle(currentAnimation.backdrop)?.animation
-            }
+            animation={currentAnimation}
             closeOnOutsideClick={closeOnOutsideClick}
             onClick={handleOutsideClick}
           >
             <div
               aria-label={accessibilitySheetLabel}
-              className={styles.wrapper}
+              className={classnames(styles.wrapper, {
+                [styles.wrapperAnimationIn]: currentAnimation === 'in',
+                [styles.wrapperAnimationOut]: currentAnimation === 'out',
+              })}
               ref={sheetRef}
               role="dialog"
-              style={{
-                ...buildAnimationStyle(currentAnimation.sheet),
-                width,
-              }}
+              style={{ width }}
               tabIndex={-1}
             >
               <Box
@@ -210,14 +171,14 @@ const SheetWithForwardRef: React$AbstractComponent<
                       [styles.shadow]: showTopShadow,
                     })}
                   >
-                    <Box display="flex" flex="grow" justifyContent="between">
+                    <Row flex="grow" justifyContent="between">
                       <Box flex="grow">
                         <Header heading={heading} />
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
                         {dismissButton}
                       </Box>
-                    </Box>
+                    </Row>
                   </div>
                 )}
                 {!heading && (

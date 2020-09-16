@@ -1,4 +1,4 @@
-@keyframes :global(g-sheet-slide-in-ltr) {
+@keyframes slide-in-ltr {
   0% {
     transform: translateX(100%);
   }
@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes :global(g-sheet-slide-in-rtl) {
+@keyframes slide-in-rtl {
   0% {
     transform: translateX(-100%);
   }
@@ -18,7 +18,7 @@
   }
 }
 
-@keyframes :global(g-sheet-slide-out-ltr) {
+@keyframes slide-out-ltr {
   0% {
     transform: translateX(0%);
   }
@@ -28,7 +28,7 @@
   }
 }
 
-@keyframes :global(g-sheet-slide-out-rtl) {
+@keyframes slide-out-rtl {
   0% {
     transform: translateX(0%);
   }
@@ -56,11 +56,27 @@
   outline: none;
 }
 
+.wrapperAnimationIn {
+  animation: slide-in-ltr 400ms ease-in-out;
+}
+
+html[dir="rtl"] .wrapperAnimationIn {
+  animation: slide-in-rtl 400ms ease-in-out;
+}
+
+.wrapperAnimationOut {
+  animation: slide-out-ltr 400ms ease-in-out;
+}
+
+html[dir="rtl"] .wrapperAnimationOut {
+  animation: slide-out-rtl 400ms ease-in-out;
+}
+
 .shadowContainer {
   composes: borderBox relative fit from "./Layout.css";
   z-index: 1;
 }
 
 .shadow {
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 8px 0;
+  composes: shadow from "./Borders.css";
 }

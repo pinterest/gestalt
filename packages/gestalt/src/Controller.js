@@ -1,6 +1,7 @@
 // @flow strict
 import React, { Component, type Node as ReactNode } from 'react';
 import PropTypes from 'prop-types';
+import { ESCAPE_KEY_CODE } from './utils/KeyCodes.js';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 
@@ -25,8 +26,6 @@ const SIZE_WIDTH_MAP = {
   lg: 320,
   xl: 360,
 };
-
-const ESCAPE_KEY_CODE = 27;
 
 type ClientRect = {
   bottom: number,

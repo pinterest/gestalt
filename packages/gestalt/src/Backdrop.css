@@ -1,16 +1,16 @@
-@keyframes :global(g-backdrop-fade-in) {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
   
   100% {
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes :global(g-backdrop-fade-out) {
+@keyframes fade-out {
   0% {
-    opacity: 1;
+    opacity: 0.9;
   }  
   
   100% {
@@ -19,11 +19,18 @@
 }
 
 .backdrop {
-  composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
-  background: rgba(0, 0, 0, 0.4);
+  composes: absolute left0 top0 right0 bottom0 overflowScrollY from "./Layout.css";
+  background: var(--g-colorTransparentGray400);
   height: 100%;
   opacity: 0.9;
-  overflow-y: scroll;
+}
+
+.backdropAnimationIn {
+  animation: fade-in 400ms linear;
+}
+
+.backdropAnimationOut {
+  animation: fade-out 400ms linear;
 }
 
 .zoomOut {

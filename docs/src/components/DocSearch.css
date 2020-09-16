@@ -170,10 +170,10 @@
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
+  composes: shadow from "./Borders.css";
   background: transparent;
   border: none;
   border-radius: 16px;
-  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
   height: auto;
   margin: 6px 0 0;
   max-width: 600px;

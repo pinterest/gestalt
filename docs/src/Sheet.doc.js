@@ -42,6 +42,17 @@ card(
         href: 'accessibilityExample',
       },
       {
+        name: 'children',
+        type: 'React.Node',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply the children content of the Sheet.',
+          'The container element that is going to be used as the Sheet main content.',
+        ],
+        href: 'defaultPaddingAndStylingExample',
+      },
+      {
         name: 'closeOnOutsideClick',
         type: 'boolean',
         required: false,
@@ -49,8 +60,8 @@ card(
         description: [
           'Indicate whether clicking on the backdrop (gray area) outside of the Sheet will automatically close it.',
           'Possible values:',
-          '- true: clicking on the backdrop will close the Sheet',
-          '- false: clicking on the backdrop will keep the Sheet open',
+          '- true: clicking on the backdrop will close the Sheet.',
+          '- false: clicking on the backdrop will keep the Sheet open.',
         ],
         href: 'closeOnOutsideClickExample',
       },
@@ -60,10 +71,10 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply the footer of the Sheet.',
-          'The container element that is going to be used as the Sheet custom footer',
+          'Supply the footer content of the Sheet.',
+          'The container element that is going to be used as the Sheet custom footer.',
         ],
-        href: 'footerExample',
+        href: 'defaultPaddingAndStylingExample',
       },
       {
         name: 'heading',
@@ -71,11 +82,11 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply the heading of the Sheet.',
+          'Supply the heading content of the Sheet.',
           'Please do not repeat the same text being passed in the "accessibilitySheetLabel" prop, but instead provide something that identifies the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
           'Possible values:',
-          '- <string>: the text that is going to be placed as the Sheet text heading',
-          '- <React.Node>: the container element that is going to be used as the Sheet custom heading',
+          '- <string>: the text that is going to be placed as the Sheet text heading.',
+          '- <React.Node>: the container element that is going to be used as the Sheet custom heading.',
         ],
         href: 'headingExample',
       },
@@ -86,17 +97,17 @@ card(
         defaultValue: null,
         description: [
           'Callback fired when the Sheet is dismissed from one of these ways:',
-          '- Clicking on the Dismiss button',
-          '- Pressing the ESC key',
-          '- Clicking on the backdrop (gray area) outside of the Sheet when the prop "closeOnOutsideClick" is true',
+          '- Clicking on the Dismiss button.',
+          '- Pressing the ESC key.',
+          '- Clicking on the backdrop (gray area) outside of the Sheet when the prop "closeOnOutsideClick" is true.',
         ],
-        href: 'onDismissExample',
+        href: 'defaultPaddingAndStylingExample',
       },
       {
         name: 'ref',
         type: "React.Ref<'div'>",
         description:
-          'Forward the ref to the underlying <div role="dialog"> element which represents the Sheet component',
+          'Forward the ref to the underlying <div role="dialog"> element which represents the Sheet component.',
         href: 'refExample',
       },
       {
@@ -234,6 +245,7 @@ function Example(props) {
 
 card(
   <Example
+    id="defaultPaddingAndStylingExample"
     name="Default padding &amp; styling"
     description={`
       Some of the padding required to style your sheet has already been provided for ease of use. The sheet shown
@@ -345,6 +357,39 @@ function Example(props) {
 
 card(
   <Example
+    name="Empty Sheet"
+    description={`
+      The props children, footer and heading are all optional, so it's possible to have a completely empty Sheet.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showSheet, setShowSheet] = React.useState(false);
+  return (
+    <>
+      <Button
+        inline
+        text="View empty sheet"
+        onClick={() => { setShowSheet(!showSheet) }}
+      />
+      {showSheet && (
+        <Layer>
+          <Sheet
+            accessibilityDismissButtonLabel="Close"
+            accessibilitySheetLabel="Example to demonstrate empty sheet"
+            onDismiss={() => { setShowSheet(!showSheet) }}
+            size="sm"
+          />
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
     id="headingExample"
     name="Custom heading"
     description="
@@ -422,10 +467,12 @@ function SheetRefExample() {
   const [showSheet, setShowSheet] = React.useState(false);
 
   const sheetRef = React.useRef(null);
+  const buttonRef = React.useRef(null);
 
   React.useEffect(() => {
-    if (showSheet && sheetRef.current) {
-      sheetRef.current.style.backgroundColor = 'black';
+    if (showSheet && sheetRef.current && buttonRef.current) {
+      sheetRef.current.style.backgroundColor = '#004b91';
+      buttonRef.current.focus();
     }
   }, [showSheet, sheetRef]);
 
@@ -446,8 +493,11 @@ function SheetRefExample() {
             size="md"
           >
             <Box padding={4}>
-              <Box color="lightGray" minHeight={400} padding={4}>
-                <Heading size="md">Focused content</Heading>
+              <Box color="white" minHeight={400} padding={4}>
+                <Box marginBottom={4}>
+                  <Heading size="md">Focused content</Heading>                
+                </Box>
+                <Button text="Focused button" inline ref={buttonRef} />
               </Box>
             </Box>
           </Sheet>
@@ -482,66 +532,6 @@ card(
     ~~~
   `}
     name="Accessibility Props"
-  />
-);
-
-card(
-  <Example
-    description={`
-    Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
-
-    \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
-
-    \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
-
-    You can toggle the page direction using the button below to see this behavior.
-    `}
-    name="Page Direction"
-    defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
-
-  const toggleRTL = () => {
-    if (document.documentElement) {
-      const isRTL = document.documentElement.dir === 'rtl';
-      document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-    }
-  };
-
-  const direction = document.documentElement.dir === 'rtl' ? 'left' : 'right';
-
-  return (
-    <>
-      <Box padding={1}>
-        <Button inline onClick={toggleRTL} text="Toggle Page Direction" />
-      </Box>
-      <Box padding={1}>
-        <Button
-          inline
-          text="Open sheet"
-          onClick={() => { setShowSheet(!showSheet) }}
-        />
-      </Box>
-      {showSheet && (
-        <Layer>
-          <Sheet
-            accessibilityDismissButtonLabel="Dismiss"
-            accessibilitySheetLabel="Example sheet to demonstrate the page direction"
-            footer={<Heading size="md">Footer on your {direction}</Heading>}
-            heading={'Header on your ' + direction}
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            size="md"
-          >
-            <Box padding={8}>
-              <Heading size="md">Children on your {direction}</Heading>
-            </Box>
-          </Sheet>
-        </Layer>
-      )}
-    </>
-  );
-}
-`}
   />
 );
 

@@ -37,15 +37,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Feedback',
-    pages: [
-      'Callout',
-      'Modal',
-      'Pulsar',
-      'Spinner',
-      'Sheet',
-      'Toast',
-      'Tooltip',
-    ],
+    pages: ['Callout', 'Modal', 'Pulsar', 'Spinner', 'Toast', 'Tooltip'],
   },
 
   {
@@ -83,6 +75,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Masonry',
       'Row',
       'Stack',
+      'Sheet',
       'Sticky',
       'ZIndexClasses',
     ],

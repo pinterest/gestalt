@@ -21,3 +21,7 @@ const MissingProp = <Sheet />;
 
 // $FlowExpectedError[prop-missing]
 const NonExistingProp = <Sheet nonexisting={33} />;
+
+// $FlowExpectedError[prop-missing]
+// $FlowExpectedError[incompatible-type]
+const InvalidTypeProp = <Sheet size="xxl" />;
