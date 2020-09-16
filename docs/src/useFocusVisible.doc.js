@@ -31,8 +31,8 @@ function Example() {
   const [ focussedButton2, setFocussedButton2 ] = React.useState(false);
 
   return (
-    <Stack gap={2}>
-      <Row gap={2}>
+    <Stack gap={4}>
+      <Row gap={4}>
         <Text>With focus visible</Text>
         <button
           onBlur={() => setFocussedButton1(false)}
@@ -45,7 +45,7 @@ function Example() {
           <Text>Button 1</Text>
         </button>
       </Row>
-      <Row gap={2}>
+      <Row gap={4}>
         <Text>Without focus visible</Text>
         <button
           onBlur={() => setFocussedButton2(false)}

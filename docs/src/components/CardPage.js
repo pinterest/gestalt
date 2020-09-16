@@ -34,7 +34,7 @@ const CardPage = ({ cards, page }: Props): Node => {
 
         <Box marginTop={12} display="flex">
           <Link href={editPageUrl} target="blank" inline>
-            <Row gap={1}>
+            <Row gap={2}>
               <Text weight="bold">Edit page on GitHub</Text>
             </Row>
           </Link>

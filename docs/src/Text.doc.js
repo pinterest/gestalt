@@ -100,7 +100,7 @@ card(
     id="inline"
     name="Block vs inline"
     defaultCode={`
-<Stack gap={2}>
+<Stack gap={4}>
   <Text>Some content in a default block element. (default)</Text>
   <Box>
     <Text inline>Inline text with the inline prop.</Text>
@@ -118,7 +118,7 @@ card(
     id="color"
     name="Colors"
     defaultCode={`
-<Stack gap={2}>
+<Stack gap={4}>
   <Box color="darkGray">
     <Text color="white">White</Text>
   </Box>
@@ -177,8 +177,8 @@ card(
     id="size"
     name="Sizes"
     defaultCode={`
-<Stack gap={1}>
-  <Row gap={1}>
+<Stack gap={2}>
+  <Row gap={2}>
     <Text inline size="sm">Small</Text>
     <span lang="ja">
       <Text inline size="sm">
@@ -186,7 +186,7 @@ card(
       </Text>
     </span>
   </Row>
-  <Row gap={1}>
+  <Row gap={2}>
     <Text inline size="md">Medium (default size)</Text>
     <span lang="ja">
       <Text inline size="md">
@@ -194,7 +194,7 @@ card(
       </Text>
     </span>
   </Row>
-  <Row gap={1}>
+  <Row gap={2}>
     <Text inline size="lg">Large</Text>
     <span lang="ja">
       <Text inline size="lg">
