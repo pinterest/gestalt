@@ -11,7 +11,7 @@
 
 [dev]
   targetPort = 3000
-  port = 8888
+  port = 8080
   framework = "#custom"
   autoLaunch = true
 
