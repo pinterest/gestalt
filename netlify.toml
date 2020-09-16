@@ -1,6 +1,6 @@
 [build]
   publish = "docs/build"
-  command = "./scripts/netlify.sh"
+  command = "yarn install && ./scripts/netlify.sh"
 
 [build.environment]
   # cache Cypress binary in local "node_modules" folder
@@ -16,7 +16,7 @@
   autoLaunch = true
 
 [context.deploy-preview.environment]
-  DEBUG = "*,-babel"
+  DEBUG = "*,-babel,-eslint*,-eslint"
 
 [[redirects]]
   from = "/*"
