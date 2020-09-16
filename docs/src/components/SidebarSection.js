@@ -10,8 +10,8 @@ export default function SidebarSection({
   section: sidebarIndexType,
 |}): Node {
   return (
-    <>
-      <Box padding={2} marginTop={4} role="list">
+    <Box role="list">
+      <Box padding={2} marginTop={4}>
         <Row justifyContent="between">
           <Text size="sm">{section.sectionName}</Text>
         </Row>
@@ -20,6 +20,6 @@ export default function SidebarSection({
       {section.pages.map((componentName, i) => (
         <SidebarSectionLink key={i} componentName={componentName} />
       ))}
-    </>
+    </Box>
   );
 }

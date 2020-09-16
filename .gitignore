@@ -12,5 +12,7 @@ packages/gestalt-datepicker/dist/*
 !packages/gestalt/dist/gestalt.js.flow
 !packages/gestalt/dist/gestalt-datepicker.js.flow
 
-# Cypress video files
+# Cypress output files during test runs
+# https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests.html#Configuring-Folder-Structure
 cypress/videos/
+cypress/screenshots/
