@@ -1,3 +1,9 @@
+## 13.10.0 (Sep 16, 2020)
+
+### Minor
+
+- Row/Stack: Revert better gap + update children type (#1221)
+
 ## 13.9.0 (Sep 16, 2020)
 
 ### Minor
