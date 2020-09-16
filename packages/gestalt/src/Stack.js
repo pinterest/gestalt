@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type ChildrenArray, type Element, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import disallowedProps from './stackDisallowedProps.js';
@@ -28,7 +28,8 @@ type Props = {|
   alignContent?: AlignContent,
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
-  children?: Node,
+  // $FlowExpectedError[unclear-type]
+  children?: ChildrenArray<Element<any>>,
   flex?: Flex,
   gap?: Padding,
   height?: Dimension,
