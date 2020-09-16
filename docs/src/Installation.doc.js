@@ -37,7 +37,7 @@ card(
       developers by enforcing a bunch of fundamental UI components. This common
       set of components helps raise the bar for UX & accessibility across
       Pinterest.
-    </Text>{' '}
+    </Text>
   </Stack>
 );
 
