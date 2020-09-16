@@ -1,3 +1,9 @@
+## 13.9.0 (Sep 16, 2020)
+
+### Minor
+
+- Row, Stack: Update `children` type (#1216)
+
 ## 13.8.0 (Sep 16, 2020)
 
 ### Minor
