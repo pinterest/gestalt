@@ -12,7 +12,7 @@ import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
-import ExpandableCard from './ExpandableCard.js';
+import ExpandableModule from './ExpandableModule.js';
 import Flyout from './Flyout.js';
 import Provider from './Provider.js';
 import GroupAvatar from './GroupAvatar.js';
@@ -70,7 +70,7 @@ export {
   CompositeZIndex,
   Container,
   Divider,
-  ExpandableCard,
+  ExpandableModule,
   FixedZIndex,
   Flyout,
   Provider,
