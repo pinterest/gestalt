@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:8888",
+  "baseUrl": "http://localhost:3000",
   "projectId": "x99ctf",
   "viewportHeight": 1080,
   "viewportWidth": 1920,
