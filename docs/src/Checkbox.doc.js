@@ -204,9 +204,9 @@ function CheckboxExample() {
   }, [size]);
 
   return (
-    <Row gap={4}>
+    <Row gap={2}>
       <Label>
-        <Row gap={2}>
+        <Row gap={1}>
           <Switch
             onChange={() => {
               setSize(size === "sm" ? "md" : "sm")
