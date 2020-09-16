@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:8888",
+  "projectId": "x99ctf",
+  "viewportHeight": 1080,
+  "viewportWidth": 1920,
+  "defaultCommandTimeout": 8000
+}

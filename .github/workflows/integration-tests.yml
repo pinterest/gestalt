@@ -1,0 +1,22 @@
+name: Integration Tests
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: yarn build
+          start: yarn docs
+          wait-on: 'http://localhost:3000'
+        env:
+          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
