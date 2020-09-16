@@ -26,7 +26,9 @@ card(
     props={[
       {
         name: 'children',
-        type: 'React.Node',
+        type: 'React.Element',
+        description:
+          'All children must be Elements — unwrapped strings and other non-Element Nodes are not allowed',
       },
       {
         name: 'alignContent',
