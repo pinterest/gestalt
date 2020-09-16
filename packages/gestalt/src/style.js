@@ -60,9 +60,10 @@ export const mapClassName = (fn: (x: string) => string): (Style => Style) => ({
   inlineStyle,
 });
 
-export type ToPropsOutput = {| className: string, style: InlineStyle |};
-
-export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
+export const toProps = ({
+  className,
+  inlineStyle,
+}: Style): { className: string, style: InlineStyle, ... } => {
   const props = {};
 
   if (className.size > 0) {
@@ -78,6 +79,5 @@ export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
     props.style = inlineStyle;
   }
 
-  // $FlowFixMe[incompatible-exact]
   return props;
 };

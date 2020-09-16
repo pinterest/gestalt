@@ -1,11 +1,8 @@
 // @flow strict
-import React, { type ChildrenArray, type Element, type Node } from 'react';
+import React, { Children, type Node } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import disallowedProps from './stackDisallowedProps.js';
-import styles from './Stack.css';
-import { buildStyles } from './boxTransforms.js';
-import {
+import FlexBox from './FlexBox.js';
+import Box, {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
@@ -22,13 +19,13 @@ import {
   type JustifyContent,
   type Overflow,
   type Padding,
-} from './boxTypes.js';
+} from './Box.js';
 
 type Props = {|
   alignContent?: AlignContent,
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
-  children?: ChildrenArray<?Element<*>>,
+  children?: Node,
   flex?: Flex,
   gap?: Padding,
   height?: Dimension,
@@ -42,23 +39,37 @@ type Props = {|
   wrap?: boolean,
 |};
 
-// Defaults for align-items and justify-content set in base styles
-export default function Stack({ children, gap = 0, ...rest }: Props): Node {
-  const hasGap = gap > 0;
-
-  const baseClasses = classnames(styles.stack, {
-    [styles[`verticalGap${gap}`]]: hasGap,
-  });
-  const { passthroughProps, propsStyles } = buildStyles<Props>(
-    baseClasses,
-    rest,
-    disallowedProps
-  );
-
+export default function Stack({
+  alignItems = 'start',
+  children,
+  gap = 0,
+  height,
+  justifyContent = 'center',
+  width,
+  ...rest
+}: Props): Node {
   return (
-    <div {...passthroughProps} {...propsStyles}>
-      {children}
-    </div>
+    <Box
+      height={height}
+      marginTop={gap ? -gap : 0}
+      marginBottom={gap ? -gap : 0}
+      width={width}
+    >
+      <FlexBox
+        alignItems={alignItems}
+        direction="column"
+        height={height}
+        justifyContent={justifyContent}
+        width={width}
+        {...rest}
+      >
+        {Children.map(children, child =>
+          child !== null && child !== undefined ? (
+            <Box paddingY={gap}>{child}</Box>
+          ) : null
+        )}
+      </FlexBox>
+    </Box>
   );
 }
 

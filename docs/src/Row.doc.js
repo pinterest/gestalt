@@ -26,9 +26,7 @@ card(
     props={[
       {
         name: 'children',
-        type: 'React.Element',
-        description:
-          'All children must be Elements — unwrapped strings and other non-Element Nodes are not allowed',
+        type: 'React.Node',
       },
       {
         name: 'alignContent',
@@ -121,7 +119,7 @@ card(
   `}
     name="Example: Media object"
     defaultCode={`
-<Row gap={2}>
+<Row gap={1}>
   <Avatar name="chrislloyd" size="md" />
   <Stack>
     <Text weight="bold">Chris Lloyd</Text>

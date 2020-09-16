@@ -202,7 +202,7 @@ function TypeaheadExample() {
   const ref = React.useRef();
   const [option, setOption] = React.useState();
   return (
-    <Row gap={4}>
+    <Row gap={2}>
       <Typeahead
         label="Select  your favorite shape"
         id="favorite-shape"

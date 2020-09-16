@@ -26,9 +26,7 @@ card(
     props={[
       {
         name: 'children',
-        type: 'React.Element',
-        description:
-          'All children must be Elements — unwrapped strings and other non-Element Nodes are not allowed',
+        type: 'React.Node',
       },
       {
         name: 'alignContent',
@@ -121,7 +119,7 @@ card(
     name="Example: Menu"
     defaultCode={`
 <Box borderSize="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
-  <Stack alignItems="center" gap={4}>
+  <Stack alignItems="center" gap={2}>
     <Text>Menu Item 1</Text>
     <Text>Menu Item 2</Text>
     <Text>Menu Item 3</Text>

@@ -627,7 +627,7 @@ function ButtonFlyoutExample() {
 
   return (
     <>
-      <Stack gap={6}>
+      <Stack gap={3}>
         <Button
           inline
           color="red"
