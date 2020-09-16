@@ -239,8 +239,8 @@ function Example() {
   const [disabled, setDisabled] = React.useState(false);
 
   return (
-    <Stack gap={3}>
-      <Row gap={1}>
+    <Stack gap={6}>
+      <Row gap={2}>
         <Tooltip text="Default button">
           <Button onClick={() => {}} text="Clear search history" inline disabled={disabled} />
         </Tooltip>
@@ -251,7 +251,7 @@ function Example() {
           <Button role="link" target="blank" href="https://www.pinterest.com" text="Visit pinterest.com" inline disabled={disabled} />
         </Tooltip>
       </Row>
-      <Row gap={1}>
+      <Row gap={2}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -275,7 +275,7 @@ card(
     <Example
       name="Size"
       id="size"
-      defaultCode={`<Row gap={1}>
+      defaultCode={`<Row gap={2}>
   <Button size="sm" text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
   <Button size="lg" text="Large-sized button" inline />

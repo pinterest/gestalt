@@ -2,172 +2,44 @@
 
 exports[`Stack aligns items 1`] = `
 <div
-  className="box marginBottom0 marginTop0"
-  style={
-    Object {
-      "height": undefined,
-      "width": undefined,
-    }
-  }
+  className="itemsEnd stack"
 >
-  <div
-    className="box itemsEnd justifyCenter xsDirectionColumn xsDisplayFlex"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  >
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-  </div>
+  <div />
+  <div />
+  <div />
+  <div />
 </div>
 `;
 
 exports[`Stack justifies content 1`] = `
 <div
-  className="box marginBottom0 marginTop0"
-  style={
-    Object {
-      "height": undefined,
-      "width": undefined,
-    }
-  }
+  className="justifyAround stack"
 >
-  <div
-    className="box itemsStart justifyAround xsDirectionColumn xsDisplayFlex"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  >
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-  </div>
+  <div />
+  <div />
+  <div />
+  <div />
 </div>
 `;
 
 exports[`Stack renders 1`] = `
 <div
-  className="box marginBottom0 marginTop0"
-  style={
-    Object {
-      "height": undefined,
-      "width": undefined,
-    }
-  }
+  className="stack"
 >
-  <div
-    className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  >
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-    <div
-      className="box"
-    >
-      <div />
-    </div>
-  </div>
+  <div />
+  <div />
+  <div />
+  <div />
 </div>
 `;
 
 exports[`Stack renders with specified gap 1`] = `
 <div
-  className="box marginBottomN4 marginTopN4"
-  style={
-    Object {
-      "height": undefined,
-      "width": undefined,
-    }
-  }
+  className="stack verticalGap4"
 >
-  <div
-    className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  >
-    <div
-      className="box paddingY4"
-    >
-      <div />
-    </div>
-    <div
-      className="box paddingY4"
-    >
-      <div />
-    </div>
-    <div
-      className="box paddingY4"
-    >
-      <div />
-    </div>
-    <div
-      className="box paddingY4"
-    >
-      <div />
-    </div>
-  </div>
+  <div />
+  <div />
+  <div />
+  <div />
 </div>
 `;

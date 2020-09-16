@@ -119,7 +119,7 @@ card(
   `}
     name="Example: Media object"
     defaultCode={`
-<Row gap={1}>
+<Row gap={2}>
   <Avatar name="chrislloyd" size="md" />
   <Stack>
     <Text weight="bold">Chris Lloyd</Text>

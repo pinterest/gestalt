@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 const buildDescription = (lines: Array<string>): Node => (
-  <Stack gap={1}>
+  <Stack gap={2}>
     {lines.map((line, idx) => (
       <Text key={idx} color="gray">
         {line}

@@ -37,8 +37,8 @@ export default function Card({
             id={slugifiedId}
             data-anchor
           >
-            <Row alignItems="baseline" gap={1}>
-              {name}
+            <Row alignItems="baseline" gap={2}>
+              <Box>{name}</Box>
               <Link href={`#${slugifiedId}`} inline>
                 <Icon icon="link" accessibilityLabel="" size={12} />
               </Link>

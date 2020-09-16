@@ -19,7 +19,7 @@ card(
 
 card(
   <Card name="FixedZIndex">
-    <Stack gap={2}>
+    <Stack gap={4}>
       <Text>
         FixedZIndex is used for setting fixed z-index values. FixedZIndex must
         be instantiated with a number.
@@ -40,7 +40,7 @@ const fixedZindex = new FixedZIndex(1);
 
 card(
   <Card name="CompositeZIndex">
-    <Stack gap={2}>
+    <Stack gap={4}>
       <Text>
         CompositeZIndex is used for dynamically composing z-index values.
         CompositeZIndex must be instantiated with an array of FixedZIndex or
@@ -84,7 +84,7 @@ function ZIndexBoxExample() {
           width="100%"
           zIndex={overlayZIndex}
         />
-        <Stack gap={1}>
+        <Stack gap={2}>
           <Box position="absolute" zIndex={underOverlayZIndex} >
             <Avatar
               size="xl"
@@ -109,7 +109,7 @@ function ZIndexBoxExample() {
 
 card(
   <Card name="Note">
-    <Stack gap={2}>
+    <Stack gap={4}>
       <Text>
         FixedZIndex and CompositeZIndex work with Box and Sticky components. To
         stay consistent across your codebase using zIndex classes, you can
@@ -155,7 +155,7 @@ const fixedZindex = new FixedZIndex(1);
 ~~~
   "
         />
-        <Row gap={1}>
+        <Row gap={2}>
           <Icon icon="cancel" accessibilityLabel="Cancel" />
           <Markdown
             text="
@@ -165,7 +165,7 @@ const customButton = <CustomButton zIndex={fixedZindex.index()}/>;
   "
           />
         </Row>
-        <Row gap={1}>
+        <Row gap={2}>
           <Icon icon="check" accessibilityLabel="Cancel" />
           <Markdown
             text="
