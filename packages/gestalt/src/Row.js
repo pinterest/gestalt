@@ -28,8 +28,7 @@ type Props = {|
   alignContent?: AlignContent,
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
-  // $FlowExpectedError[unclear-type]
-  children?: ChildrenArray<Element<any>>,
+  children?: ChildrenArray<?Element<*>>,
   flex?: Flex,
   gap?: Padding,
   height?: Dimension,
