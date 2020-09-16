@@ -11,8 +11,8 @@ const card = c => cards.push(c);
 card(<PageHeader name="Installation" showSourceLink={false} />);
 
 card(
-  <Stack gap={4}>
-    <Row gap={4}>
+  <Stack gap={2}>
+    <Row gap={2}>
       <Link inline target="blank" href="https://npmjs.org/package/gestalt">
         <img
           src="https://img.shields.io/npm/v/gestalt.svg?label=gestalt"
@@ -43,7 +43,7 @@ card(
 
 card(
   <Card name="Install">
-    <Stack gap={4}>
+    <Stack gap={2}>
       <Markdown
         text="
 ~~~jsx
@@ -60,7 +60,7 @@ yarn add gestalt
 
 card(
   <Card name="Usage">
-    <Stack gap={4}>
+    <Stack gap={2}>
       <Text>
         Gestalt exports each component as ES6 modules and a single, precompiled
         CSS file:
@@ -84,7 +84,7 @@ import 'gestalt/dist/gestalt.css';
 
 card(
   <Card name="Development">
-    <Stack gap={4}>
+    <Stack gap={2}>
       <Text>
         Gestalt is a{' '}
         <Link
@@ -128,7 +128,7 @@ yarn start
 
 card(
   <Card name="Codemods">
-    <Stack gap={4}>
+    <Stack gap={2}>
       <Text>
         When a release will cause breaking changes — in usage or in typing — we
         provide a codemod to ease the upgrade process. Codemods are organized by
@@ -169,7 +169,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
 
 card(
   <Card name="Releasing">
-    <Stack gap={4}>
+    <Stack gap={2}>
       <Text>
         Every commit to master performs a release. As a reviewer, ensure the
         correct label is attached to every PR. Please follow{' '}
@@ -212,7 +212,7 @@ card(
 
 card(
   <Card name="Typescript Support">
-    <Stack gap={4}>
+    <Stack gap={2}>
       <Text>
         Install the{' '}
         <Link
