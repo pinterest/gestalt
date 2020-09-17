@@ -1,3 +1,9 @@
+## 13.13.0 (Sep 17, 2020)
+
+### Minor
+
+- Internal: add Cypress integration tests (#1220)
+
 ## 13.12.0 (Sep 17, 2020)
 
 ### Minor
