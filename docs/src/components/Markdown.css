@@ -1,5 +1,5 @@
 .Markdown pre {
-  background-color: rgb(236, 236, 236);
+  background-color: rgba(236, 236, 236, 0.5);
   overflow: auto;
   padding: 5px;
 }

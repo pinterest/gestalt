@@ -1,6 +1,7 @@
 {
   "extends": [
     "airbnb",
+    "plugin:cypress/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:flowtype/recommended",
     "plugin:jest/recommended",
@@ -92,6 +93,13 @@
       "files": ["**/*.flowtest.js"],
       "rules": {
         "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["cypress/**/*.js"],
+      "rules": {
+        "jest/expect-expect": "off",
+        "flowtype/require-valid-file-annotation": "off"
       }
     },
     {

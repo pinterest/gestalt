@@ -48,6 +48,7 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
       display="flex"
       direction="row"
       alignItems="center"
+      role="banner"
     >
       <Box marginStart={-2} marginEnd={-2}>
         <Text color="white" weight="bold">

@@ -37,7 +37,7 @@ export default function Navigation(): Node {
   );
 
   return (
-    <>
+    <Box role="navigation">
       {isSidebarOpen && (
         <Box display="block" mdDisplay="none" padding={4}>
           {navList}
@@ -55,6 +55,6 @@ export default function Navigation(): Node {
           {navList}
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }
