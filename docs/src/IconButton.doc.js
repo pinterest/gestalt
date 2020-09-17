@@ -12,7 +12,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="IconButton"
-    description="The IconButton component allows you to define an action with a specific Icon."
+    description="IconButton allows users to take actions and make choices with a single click on a specific Icon. IconButton is typically found in forms, dialog, and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus."
   />
 );
 
@@ -20,92 +20,196 @@ card(
   <PropTable
     props={[
       {
+        name: 'accessibilityLabel',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers to provide context about the icon button component behavior. IconButton does not have text for screen reader to read and provide context. Therefore, we must pass an alternative text.',
+          'Accessibility: It populates aria-label.',
+        ],
+        href: 'basic',
+      },
+      {
         name: 'accessibilityControls',
         type: 'string',
-        description:
-          'Identifies the element whose contents or presence are controlled by the current element. Populates aria-controls.',
-        href: 'accessibility-disclosure',
+        required: false,
+        defaultValue: null,
+        description: [
+          `Specify the 'id' of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.`,
+          'Optional with button-role buttons.',
+          'Accessibility: It populates aria-controls.',
+        ],
+        href: 'accessibility',
       },
       {
         name: 'accessibilityExpanded',
         type: 'boolean',
-        description:
-          'Use this property on elements that can expand to reveal additional information. Populates aria-expanded.',
-        href: 'accessibility-disclosure',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
+          'Optional with button-role buttons.',
+          'Accessibility: It populates aria-expanded.',
+        ],
+        href: 'accessibility',
       },
       {
         name: 'accessibilityHaspopup',
         type: 'boolean',
-        description:
-          'Indicates that the element has a popup context menu or sub-level menu. Populates aria-haspopup.',
-        href: 'accessibility-popup',
-      },
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        description:
-          'String that clients such as VoiceOver will read to describe the element. Populates aria-label.',
-        href: 'accessibility-popup',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
+          'Optional with button-role buttons.',
+          'Accessibility: It populates aria-haspopup.',
+        ],
+        href: 'accessibility',
       },
       {
         name: 'bgColor',
         type:
           '"transparent" | "transparentDarkGray" | "darkGray" | "gray" | "lightGray" | "white" | "red"',
+        required: false,
         defaultValue: 'transparent',
-        required: true,
+        description: 'Primary colors to apply to the button background.',
         href: 'backgroundColorCombinations',
       },
       {
         name: 'dangerouslySetSvgPath',
         type: `{ __path: string }`,
-        description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
+        required: false,
+        defaultValue: null,
+        description: [
+          'Define a new icon different from the built-in Gestalt icons.',
+          `When using 'dangerouslySetSvgPath', the viewbox around the SVG path must be 24x24 px`,
+        ],
+        href: 'icon',
       },
       {
         name: 'disabled',
         type: 'boolean',
-        defaultValue: false,
-        href: 'disabledCombinations',
+        required: false,
+        defaultValue: null,
+        description:
+          'Set disabled state so IconButton looks inactive, cannot be interacted with, and actions are not available.',
+        href: 'roles',
       },
       {
         name: 'iconColor',
         type: `"darkGray" | "gray" | "red" | "white"`,
+        required: false,
         defaultValue: 'gray',
-        href: 'iconColorCombinations',
+        description: 'Primary color to apply to the Gestalt Icon.',
+        href: 'iconColor',
       },
       {
         name: 'icon',
         type: '$Keys<typeof icons>',
-        description: `This allows type checking for a valid icon name based on the keys from the list of icons in
-        Icon.`,
+        required: false,
+        defaultValue: null,
+        description: [
+          'Add a Gestalt icon to be displayed and convey the behaviour of the button.',
+          `Accessibility: Icons are visual information and are not accessible for screen readers. 'accessibilityLabel' must be passed to provide sufficient context to the IconButton.`,
+        ],
+        href: 'icon',
+      },
+      {
+        name: 'href',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Specify a link URL.',
+          'Required with link-role buttons.',
+        ],
+        href: 'roles',
       },
       {
         name: 'onClick',
-        type: '({ event: SyntheticMouseEvent<> }) => void',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard.',
+          'Required with button-role buttons.',
+        ],
+        href: 'selected',
       },
       {
         name: 'padding',
         type: `1 | 2 | 3 | 4 | 5`,
-        description: `Padding in boints. If omitted, padding is derived from the \`size\` prop.`,
-        href: 'paddingCombinations',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Sets a padding for the IconButton.',
+          `Combine the 'padding' with 'size' options for different icon/button size ratios. If omitted, padding is derived from the default padding for each 'size' prop.`,
+          'Padding options are 1-5 representing the padding in boints.',
+        ],
+        href: 'padding',
+      },
+      {
+        name: 'rel',
+        type: `'none' | 'nofollow'`,
+        required: false,
+        defaultValue: 'none',
+        description: 'Optional with link-role buttons.',
+        href: 'roles',
       },
       {
         name: 'ref',
-        type: "React.Ref<'button'>",
-        description: 'Forward the ref to the underlying button element',
-        href: 'refExample',
+        type: `React.Ref<'button'> | React.Ref<'a'>`,
+        description:
+          'Forward the ref to the underlying button or anchor element',
+        href: 'ref',
+      },
+      {
+        name: 'role',
+        type: `'button' | 'link'`,
+        required: false,
+        defaultValue: 'button',
+        description: [
+          `Select a button variant:`,
+          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
+          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
+          `Required with link-role buttons.`,
+        ],
+        href: 'roles',
       },
       {
         name: 'selected',
         type: 'boolean',
+        required: false,
         defaultValue: false,
-        href: 'selectedCombinations',
+        description: [
+          'Control the "selected" state of a button component to toggle binary states.',
+          'Optional with button-role + button-type buttons.',
+        ],
+        href: 'selected',
       },
       {
         name: 'size',
         type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        description: `xs: 24px, sm: 32px, md: 40px, lg: 48px, xl: 56px`,
+        required: false,
         defaultValue: 'md',
-        href: 'sizeCombinations',
+        description:
+          'Display an IconButton in different sizes. Size changes the component padding modifying its fixed height & width: xs (24px), sm (32px), md (40px), lg (48px), xl (56px).',
+        href: 'size',
+      },
+      {
+        name: 'target',
+        type: `null | 'self' | 'blank'`,
+        required: false,
+        defaultValue: 'null',
+        description: [
+          'Define the frame or window to open the anchor defined on `href`:',
+          `- 'null' opens the anchor in the same window.`,
+          `- 'blank' opens the anchor in a new window.`,
+          `- 'self' opens an anchor in the same frame.`,
+          'Optional with link-role buttons.',
+        ],
+        href: 'roles',
       },
     ]}
   />
@@ -113,14 +217,12 @@ card(
 
 card(
   <Example
-    name="Example"
+    name="Basic IconButton"
+    id="basic"
     defaultCode={`
 <IconButton
-  accessibilityLabel="Love"
-  bgColor="white"
-  icon="heart"
-  iconColor="red"
-  onClick={() => { console.log('❤️')}}
+  accessibilityLabel="Open edit modal to edit Board"
+  icon="edit"
 />
 `}
   />
@@ -128,86 +230,138 @@ card(
 
 card(
   <Example
-    id="accessibility-popup"
-    description={`
-      We want to make sure every button on the page is unique when being read by screenreader.
-      - \`accessibilityHaspopup\` specifies that the button has associated content (i.e. Flyout).
-      - \`accessibilityLabel\` updates the spoken text.
-  `}
-    name="Example: Accessibility (Popup)"
+    name="Roles"
+    id="roles"
     defaultCode={`
-function A11yExPopup() {
-  const [isOpen, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
+function Example() {
+  const [disabled, setDisabled] = React.useState(false);
   return (
-    <>
-      <Box display="inlineBlock" ref={anchorRef}>
-        <IconButton
-          accessibilityLabel="see more"
-          accessibilityHaspopup
-          icon="ellipsis"
-          iconColor="darkGray"
-          onClick={() => setOpen(!isOpen)}
+    <Stack gap={3}>
+      <Row gap={1}>
+        <Tooltip text="Default IconButton">
+          <IconButton
+            accessibilityLabel="Default IconButton"
+            icon="share"
+            onClick={() => {}}
+            disabled={disabled}
+          />
+        </Tooltip>
+        <Tooltip text="Link IconButton">
+          <IconButton
+            accessibilityLabel="Link IconButton"
+            icon="link"
+            role="link"
+            target="blank"
+            href="https://www.pinterest.com"
+            disabled={disabled}
+          />
+        </Tooltip>
+      </Row>
+      <Row gap={1}>
+        <Switch
+          onChange={() => setDisabled(!disabled)}
+          id="disable-buttons"
+          switched={disabled}
         />
-      </Box>
-      {isOpen && (
-        <Flyout
-          anchor={anchorRef && anchorRef.current}
-          idealDirection="right"
-          onDismiss={() => undefined}
-        >
-          <Box padding={2}>
-            <Text>I am a popup.</Text>
-          </Box>
-        </Flyout>
-      )}
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    id="accessibility-disclosure"
-    description={`
-      We want to make sure every button on the page is unique when being read by screenreader.
-      - \`accessibilityControls\` specifies the \`id\` of an associated content element (i.e. Accordion panel) which is controlled by this icon button.
-      - \`accessibilityExpanded\` specifies that the associated content (i.e. Accordion panel) is open.
-      - \`accessibilityLabel\` updates the spoken text.
-
-      Be sure to internationalize your \`accessibilityLabel\`.
-  `}
-    name="Example: Accessibility (Disclosure)"
-    defaultCode={`
-function A11yExDisclosure() {
-  const [isOpen, setOpen] = React.useState(false);
-
-  return (
-    <>
-      <Box display="inlineBlock">
-        <IconButton
-          accessibilityControls="accordion-panel"
-          accessibilityExpanded={isOpen}
-          accessibilityLabel={isOpen ? 'See less': 'See more'}
-          icon={isOpen ? 'arrow-up' : 'arrow-down'}
-          iconColor="darkGray"
-          onClick={() => setOpen(!isOpen)}
-        />
-      </Box>
-      {isOpen && (
-        <Box
-          aria-label={isOpen ? 'See less': 'See more'}
-          id="accordion-panel"
-          padding={2}
-          role="region"
-        >
-          <Text>I am an accordion panel.</Text>
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="disable-buttons">
+            <Text>Disable buttons</Text>
+          </Label>
         </Box>
-      )}
-    </>
+      </Row>
+    </Stack>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Combination id="size" name="Size" size={['xs', 'sm', 'md', 'lg', 'xl']}>
+    {props => (
+      <IconButton
+        accessibilityLabel={`Size ${props.color}`}
+        icon="angled-pin"
+        {...props}
+      />
+    )}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="padding"
+    name="Size: Icon/Button Ratio "
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+    padding={[1, 2, 3, 4, 5]}
+  >
+    {props => (
+      <IconButton
+        accessibilityLabel={`Size ${props.color}`}
+        bgColor="red"
+        icon="angled-pin"
+        {...props}
+      />
+    )}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="bgColor"
+    name="Background Color"
+    bgColor={[
+      'transparent',
+      'transparentDarkGray',
+      'darkGray',
+      'gray',
+      'lightGray',
+      'white',
+      'red',
+    ]}
+    layout="4column"
+  >
+    {props => (
+      <IconButton
+        accessibilityLabel={`Background Color ${props.color}`}
+        icon="angled-pin"
+        {...props}
+      />
+    )}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="iconColor"
+    name="Icon Color"
+    iconColor={['darkGray', 'gray', 'red', 'white']}
+  >
+    {props => (
+      <IconButton
+        icon="angled-pin"
+        accessibilityLabel={`Icon Color ${props.color}`}
+        bgColor={props.iconColor === 'white' ? 'red' : undefined}
+        {...props}
+      />
+    )}
+  </Combination>
+);
+
+card(
+  <Example
+    name="Selected state"
+    id="selected"
+    defaultCode={`
+function Example() {
+  const [selected, setSelected] = React.useState(false);
+  return (
+    <IconButton
+      accessibilityLabel="Open edit modal to edit Board"
+      icon="check"
+      onClick={() => {setSelected(!selected)}}
+      selected={selected}
+    />
   );
 }
 `}
@@ -216,29 +370,47 @@ function A11yExDisclosure() {
 
 card(
   <Example
-    id="refExample"
-    name="Example: ref"
-    description={`
-    A \`IconButton\` with an anchor ref to a Flyout component
-  `}
+    name="Icon"
+    id="icon"
+    defaultCode={`<Row gap={1}>
+  <Tooltip text="Built-in Gestalt Icon">
+    <IconButton
+      accessibilityLabel="Add icon"
+      icon="directional-arrow-right"
+    />
+  </Tooltip>
+  <Tooltip text="Custom Icon">
+    <IconButton
+      accessibilityLabel="Open edit modal to edit Board"
+      dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
+    />
+  </Tooltip>
+</Row>
+`}
+  />
+);
+
+card(
+  <Example
+    id="ref"
+    name="ref"
     defaultCode={`
 function IconButtonFlyoutExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
-
   const anchorRef = React.useRef(null);
-
   return (
     <>
       <IconButton
-        accessibilityLabel="Love Reaction"
+        accessibilityLabel="Love Reaction to a Pin"
         bgColor="white"
         icon="heart"
         iconColor="red"
-        onClick={() => setOpen(true)}
+        onClick={() => { setOpen(true), setChecked(!checked) } }
+        selected={checked}
         ref={anchorRef}
       />
-      {open && (
+      {open && checked &&(
         <Flyout
           anchor={anchorRef.current}
           idealDirection="right"
@@ -257,75 +429,59 @@ function IconButtonFlyoutExample() {
 );
 
 card(
-  <Combination
-    id="sizeCombinations"
-    name="Combinations: Size with default padding"
-    size={['xs', 'sm', 'md', 'lg', 'xl']}
-  >
-    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="paddingCombinations"
-    name="Combinations: Size with custom padding"
-    size={['xs', 'sm', 'md', 'lg', 'xl']}
-    padding={[1, 2, 3, 4, 5]}
-  >
-    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="iconColorCombinations"
-    name="Combinations: Icon Color"
-    iconColor={['darkGray', 'gray', 'red', 'white']}
-  >
-    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="backgroundColorCombinations"
-    name="Combinations: Background Color"
-    bgColor={[
-      'transparent',
-      'transparentDarkGray',
-      'darkGray',
-      'gray',
-      'lightGray',
-      'white',
-    ]}
-  >
-    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="selectedCombinations"
-    name="Combinations: Selected"
-    color={['gray']}
-    selected={[false, true]}
-  >
-    {props => <IconButton icon="heart" accessibilityLabel="" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="disabledCombinations"
-    name="Combinations: Disabled"
-    description="Icon buttons can be disabled as well. Adding the disabled flag to any color combination will add a 50% opacity and remove interactivity"
-    iconColor={['darkGray', 'gray', 'red', 'white']}
-  >
-    {props => (
-      <IconButton icon="heart" accessibilityLabel="" disabled {...props} />
-    )}
-  </Combination>
+  <Example
+    name="Accessibility: controls, expanded, & popup"
+    id="accessibility"
+    defaultCode={`
+function MenuIconButtonExample() {
+  const [selected, setSelected] = React.useState(false);
+  const anchorRef = React.useRef();
+  return (
+    <>
+      <IconButton
+        accessibilityLabel="Open the options menu"
+        accessibilityControls="menu"
+        accessibilityExpanded={selected}
+        accessibilityHaspopup
+        selected={selected}
+        icon="menu"
+        onClick={() => setSelected(!selected)}
+        ref={anchorRef}
+      />
+      {selected && (
+        <Layer>
+          <Flyout
+            anchor={anchorRef.current}
+            idealDirection="down"
+            onDismiss={() => setSelected(false)}
+            positionRelativeToAnchor={false}
+            size="md"
+          >
+            <Box
+              id="menu"
+              direction="column"
+              display="flex"
+              padding={2}
+            >
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 1
+                </Text>
+              </Box>
+              <Box padding={2}>
+                <Text weight="bold">
+                  Option 2
+                </Text>
+              </Box>
+            </Box>
+          </Flyout>
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
 );
 
 export default cards;
