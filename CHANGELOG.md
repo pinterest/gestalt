@@ -1,3 +1,9 @@
+## 13.12.0 (Sep 17, 2020)
+
+### Minor
+
+- Box: Extract types and transforms, cleanup (#1222)
+
 ## 13.11.0 (Sep 17, 2020)
 
 ### Minor
