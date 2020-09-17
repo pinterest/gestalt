@@ -1,3 +1,9 @@
+## 13.14.0 (Sep 17, 2020)
+
+### Minor
+
+- Layer: add zIndex prop (#1223)
+
 ## 13.13.0 (Sep 17, 2020)
 
 ### Minor
