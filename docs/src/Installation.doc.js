@@ -16,7 +16,7 @@ card(
       <Link inline target="blank" href="https://npmjs.org/package/gestalt">
         <img
           src="https://img.shields.io/npm/v/gestalt.svg?label=gestalt"
-          alt="Gestalt's NPM package version badge"
+          alt="Gestalt NPM package version badge"
         />
       </Link>
 
@@ -27,7 +27,7 @@ card(
       >
         <img
           src="https://img.shields.io/npm/v/gestalt-datepicker.svg?label=gestalt-datepicker"
-          alt="Gestalt's NPM package version badge"
+          alt="Gestalt DatePicker NPM package version badge"
         />
       </Link>
     </Row>
@@ -35,7 +35,7 @@ card(
       Gestalt is a set of React UI components that enforces Pinterest’s design
       language. We use it to streamline communication between designers and
       developers by enforcing a bunch of fundamental UI components. This common
-      set of components helps raise the bar for UX & accessibility across
+      set of components helps raise the bar for UX &amp; accessibility across
       Pinterest.
     </Text>{' '}
   </Stack>

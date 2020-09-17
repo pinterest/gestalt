@@ -146,6 +146,26 @@ card(
       </Text>
 
       <Heading size="sm">
+        What do we use for integration tests and how do we run the tests
+        locally?{' '}
+      </Heading>
+      <Text>
+        We use{' '}
+        <Link href="https://docs.cypress.io/" inline>
+          <Text weight="bold">Cypress</Text>
+        </Link>{' '}
+        for our integration test. If you want to run the tests locally:
+        <Markdown
+          text={`
+~~~bash
+yarn docs
+yarn cypress run
+~~~
+          `}
+        />
+      </Text>
+
+      <Heading size="sm">
         What is Gestalt Teachings and how do I add a video?
       </Heading>
       <Text>
