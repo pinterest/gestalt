@@ -105,6 +105,8 @@ function Example(props) {
 
   const initialState = {modal: 'none'};
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  const HEADER_ZINDEX = new FixedZIndex(1);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <Box marginLeft={-1} marginRight={-1}>
@@ -115,7 +117,7 @@ function Example(props) {
           onClick={() => { dispatch({type: 'small'}) }}
         />
         {state.modal === 'small' && (
-          <Layer>
+          <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
               heading="Small modal"
@@ -137,7 +139,7 @@ function Example(props) {
           onClick={() => { dispatch({type: 'medium'}) }}
         />
         {state.modal === 'medium' && (
-          <Layer>
+          <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
               heading="Medium modal"
@@ -159,7 +161,7 @@ function Example(props) {
           onClick={() => { dispatch({type: 'large'}) }}
         />
         {state.modal === 'large' && (
-          <Layer>
+          <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
               heading="Large modal"

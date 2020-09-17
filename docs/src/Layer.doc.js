@@ -23,6 +23,11 @@ card(
         type: 'React.Node',
         required: true,
       },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        description: `An object representing the zIndex value of the Layer.`,
+      },
     ]}
   />
 );
@@ -49,30 +54,72 @@ function Example() {
   const [showLayer, setShowLayer] = React.useState(false);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
-      <Box padding={1}>
-        <Button
-          text="Show Layer"
-          onClick={() => setShowLayer(!showLayer)}
-        />
-        {showLayer && (
-          <Layer>
-            <Box color="darkWash" position="fixed" top left right bottom display="flex" alignItems="center" justifyContent="center">
-              <Box color="white" padding={3} display="flex" alignItems="center">
-                <Text>Layer Content</Text>
-                <Box marginStart={2}>
-                  <IconButton
-                    accessibilityLabel="Close"
-                    icon="cancel"
-                    onClick={() => setShowLayer(!showLayer)}
-                  />
-                </Box>
+    <>
+      <Button
+        inline
+        text="Show Layer"
+        onClick={() => setShowLayer(!showLayer)}
+      />
+      {showLayer && (
+        <Layer>
+          <Box color="darkWash" position="fixed" top left right bottom display="flex" alignItems="center" justifyContent="center">
+            <Box color="white" padding={3} display="flex" alignItems="center">
+              <Text>Layer Content</Text>
+              <Box marginStart={2}>
+                <IconButton
+                  accessibilityLabel="Close"
+                  icon="cancel"
+                  onClick={() => setShowLayer(!showLayer)}
+                />
               </Box>
             </Box>
-          </Layer>
-        )}
-      </Box>
-    </Box>
+          </Box>
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    description="
+The example below shows using a \`FixedZIndex\` for the header zIndex and a \`CompositeZIndex\` to stack the Layer on top of it.
+    "
+    name="zIndex"
+    defaultCode={`
+function zIndexExample() {
+  const [showLayer, setShowLayer] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(100);
+  // Results in a zIndex of 101
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <>
+      <Button
+        inline
+        text="Show Layer"
+        onClick={() => setShowLayer(!showLayer)}
+      />
+      {showLayer && (
+        <Layer zIndex={zIndex}>
+          <Box color="darkWash" position="fixed" top left right bottom display="flex" alignItems="center" justifyContent="center">
+            <Box color="white" padding={3} display="flex" alignItems="center">
+              <Text>Layer Content</Text>
+              <Box marginStart={2}>
+                <IconButton
+                  accessibilityLabel="Close"
+                  icon="cancel"
+                  onClick={() => setShowLayer(!showLayer)}
+                />
+              </Box>
+            </Box>
+          </Box>
+        </Layer>
+      )}
+    </>
   );
 }
 `}

@@ -212,6 +212,7 @@ card(
       },
       {
         name: 'zIndex',
+        href: 'zindex',
         type: 'interface Indexable { index(): number; }',
         description: `An object representing the zIndex value of the Box.`,
       },
