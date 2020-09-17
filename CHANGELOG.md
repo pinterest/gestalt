@@ -1,3 +1,9 @@
+## 14.0.0 (Sep 17, 2020)
+
+### Major
+
+- Sticky: remove deprecated dangerouslySetZIndex (#1224)
+
 ## 13.14.0 (Sep 17, 2020)
 
 ### Minor
