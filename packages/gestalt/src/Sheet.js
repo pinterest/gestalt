@@ -9,8 +9,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ESCAPE_KEY_CODE } from './keyCodes.js';
-import { FixedZIndex } from './zIndex.js';
+import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
 import focusStyles from './Focus.css';
@@ -24,17 +23,15 @@ import useReducedMotion from './useReducedMotion.js';
 
 type AnimationType = 'in' | 'out';
 
-type HeadingType = string | Node;
-
 type Props = {|
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
-  heading?: HeadingType,
+  heading?: string,
   onDismiss: () => void,
-  size?: 'sm' | 'md' | 'lg' | number,
+  size?: 'sm' | 'md' | 'lg',
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -43,21 +40,13 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
-const DEFAULT_ZINDEX = new FixedZIndex(1);
-
-const Header = ({ heading }: {| heading: HeadingType |}) => {
-  if (typeof heading !== 'string') {
-    return heading;
-  }
-
-  return (
-    <Box display="flex" justifyContent="start" padding={8}>
-      <Heading size="md" accessibilityLevel={1}>
-        {heading}
-      </Heading>
-    </Box>
-  );
-};
+const Header = ({ heading }: {| heading: string |}) => (
+  <Box display="flex" justifyContent="start" padding={8}>
+    <Heading size="md" accessibilityLevel={1}>
+      {heading}
+    </Heading>
+  </Box>
+);
 
 const DismissButton = ({
   accessibilityDismissButtonLabel,
@@ -110,7 +99,7 @@ const SheetWithForwardRef: React$AbstractComponent<
 
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE_KEY_CODE) {
+      if (event.keyCode === ESCAPE) {
         startDismiss();
       }
     }
@@ -148,20 +137,12 @@ const SheetWithForwardRef: React$AbstractComponent<
     }
   };
 
-  const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
-
-  const containerStyle = {
-    zIndex: DEFAULT_ZINDEX.index(),
-  };
+  const width = SIZE_WIDTH_MAP[size];
 
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div
-          className={sheetStyles.container}
-          ref={containerRef}
-          style={containerStyle}
-        >
+        <div className={sheetStyles.container} ref={containerRef}>
           <Backdrop
             animation={currentAnimation}
             closeOnOutsideClick={closeOnOutsideClick}
@@ -236,6 +217,7 @@ const SheetWithForwardRef: React$AbstractComponent<
                   flex="grow"
                   overflow="auto"
                   onScroll={updateShadows}
+                  padding={8}
                   ref={contentRef}
                 >
                   {children}
@@ -267,10 +249,7 @@ SheetWithForwardRef.propTypes = {
   footer: PropTypes.node,
   heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onDismiss: PropTypes.func,
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['sm', 'md', 'lg']),
-  ]),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
 };
 
 SheetWithForwardRef.displayName = 'Sheet';

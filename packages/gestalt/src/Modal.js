@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ESCAPE_KEY_CODE } from './keyCodes.js';
+import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
 import focusStyles from './Focus.css';
@@ -69,7 +69,7 @@ const ModalWithForwardRef: React$AbstractComponent<
 
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE_KEY_CODE) {
+      if (event.keyCode === ESCAPE) {
         onDismiss();
       }
     }

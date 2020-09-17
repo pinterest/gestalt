@@ -47,8 +47,8 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply the children content of the Sheet.',
-          'The container element that is going to be used as the Sheet main content.',
+          'Supply the container element that is going to be used as the Sheet main content.',
+          'Obs: This element will be padded by 32px, differently than <Modal>.',
         ],
         href: 'defaultPaddingAndStylingExample',
       },
@@ -71,24 +71,22 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply the footer content of the Sheet.',
-          'The container element that is going to be used as the Sheet custom footer.',
+          'Supply the container element that is going to be used as the Sheet custom footer.',
+          'Obs: This element will be padded by 32px, similarly to <Modal>.',
         ],
         href: 'defaultPaddingAndStylingExample',
       },
       {
         name: 'heading',
-        type: `string | React.Node`,
+        type: `string`,
         required: false,
         defaultValue: null,
         description: [
-          'Supply the heading content of the Sheet.',
+          'Supply the text that is going to be placed as the Sheet text heading.',
           'Please do not repeat the same text being passed in the "accessibilitySheetLabel" prop, but instead provide something that identifies the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
-          'Possible values:',
-          '- <string>: the text that is going to be placed as the Sheet text heading.',
-          '- <React.Node>: the container element that is going to be used as the Sheet custom heading.',
+          'Obs: This element will be padded by 32px, similarly to <Modal>.',
         ],
-        href: 'headingExample',
+        href: 'defaultPaddingAndStylingExample',
       },
       {
         name: 'onDismiss',
@@ -119,7 +117,6 @@ card(
           '- sm: 540px',
           '- md: 720px',
           '- lg: 900px',
-          '- <number> in px',
         ],
         href: 'sizesExample',
       },
@@ -179,7 +176,7 @@ function Example(props) {
         />
       </Box>
       {state.size && (
-        <Layer>
+        <Layer zIndex={new FixedZIndex(2)}>
           <Sheet
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate different sizes"
@@ -188,9 +185,7 @@ function Example(props) {
             onDismiss={() => { dispatch({ type: 'none' }) }}
             size={state.size}
           >
-            <Box padding={8}>
-              <Heading size="md">Children</Heading>
-            </Box>
+            <Heading size="md">Children</Heading>
           </Sheet>
         </Layer>
       )}    
@@ -221,7 +216,7 @@ function Example(props) {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer>
+        <Layer zIndex={new FixedZIndex(2)}>
           <Sheet
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate preventing close on outside click"
@@ -230,9 +225,7 @@ function Example(props) {
             onDismiss={() => { setShowSheet(!showSheet) }}
             size="lg"
           >
-            <Box padding={8}>
-              <Text>Click on the dismiss button or press the ESC key to close the sheet.</Text>
-            </Box>
+            <Text>Click on the dismiss button or press the ESC key to close the sheet.</Text>
           </Sheet>
         </Layer>
       )}
@@ -264,7 +257,7 @@ function Example(props) {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer>
+        <Layer zIndex={new FixedZIndex(2)}>
           <Sheet
             accessibilityDismissButtonLabel="Close"
             accessibilitySheetLabel="Example sheet to demonstrate default padding and styling"
@@ -372,80 +365,13 @@ function Example(props) {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer>
+        <Layer zIndex={new FixedZIndex(2)}>
           <Sheet
             accessibilityDismissButtonLabel="Close"
             accessibilitySheetLabel="Example to demonstrate empty sheet"
             onDismiss={() => { setShowSheet(!showSheet) }}
             size="sm"
           />
-        </Layer>
-      )}
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    id="headingExample"
-    name="Custom heading"
-    description="
-      If you need more control over the Sheet heading besides a wrapped and centered text element, you can pass a custom React node as the heading prop and the Sheet will render that instead.
-    "
-    defaultCode={`
-function HeadingExample(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
-  const [activeTabIndex, setActiveTabIndex] = React.useState(0);
-
-  const handleChangeTab = ({ activeTabIndex, event }) => {
-    event.preventDefault();
-    setActiveTabIndex(activeTabIndex);
-  }
-
-  return (
-    <>
-      <Button
-        inline
-        text="View heading"
-        onClick={() => { setShowSheet(!showSheet) }}
-      />
-      {showSheet && (
-        <Layer>
-          <Sheet
-            accessibilityDismissButtonLabel="Close"
-            accessibilitySheetLabel="Example Sheet to demonstrate custom sheet heading"
-            heading={
-              <Box padding={8}>
-                <Tabs
-                  tabs={[
-                    {
-                      text: "Boards",
-                      href: "#"
-                    },
-                    {
-                      text: "Pins",
-                      href: "#"
-                    },
-                    {
-                      text: "Topics",
-                      href: "#"
-                    }
-                  ]}
-                  activeTabIndex={activeTabIndex}
-                  onChange={handleChangeTab}
-                />
-              </Box>
-            }
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            size="md"
-          >
-            <Box padding={8}>
-              <Text>Currently seeing tab: {activeTabIndex}</Text>
-            </Box>
-          </Sheet>
         </Layer>
       )}
     </>
@@ -483,7 +409,7 @@ function SheetRefExample() {
         text="Open sheet"
         onClick={() => { setShowSheet(!showSheet) }}
       />
-      <Layer>
+      <Layer zIndex={new FixedZIndex(2)}>
         {showSheet && (
           <Sheet
             accessibilityDismissButtonLabel="Close"
@@ -492,13 +418,11 @@ function SheetRefExample() {
             ref={sheetRef}
             size="md"
           >
-            <Box padding={4}>
-              <Box color="white" minHeight={400} padding={4}>
-                <Box marginBottom={4}>
-                  <Heading size="md">Focused content</Heading>                
-                </Box>
-                <Button text="Focused button" inline ref={buttonRef} />
+            <Box color="white" minHeight={400} padding={4}>
+              <Box marginBottom={4}>
+                <Heading size="md">Focused content</Heading>                
               </Box>
+              <Button text="Focused button" inline ref={buttonRef} />
             </Box>
           </Sheet>
         )}

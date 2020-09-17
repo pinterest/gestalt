@@ -5,7 +5,6 @@ exports[`Sheet should render all props 1`] = `
   <div>
     <div
       class="container"
-      style="z-index: 1;"
     >
       <div
         class="backdrop backdropAnimationIn zoomOut"
@@ -83,7 +82,7 @@ exports[`Sheet should render all props 1`] = `
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto"
+            class="box flexGrow overflowAuto paddingX8 paddingY8"
           >
             Sheet content
           </div>
@@ -108,7 +107,6 @@ exports[`Sheet should trigger out animation and dismiss when useReducedMotion is
   <div>
     <div
       class="container"
-      style="z-index: 1;"
     >
       <div
         class="backdrop backdropAnimationOut zoomOut"
@@ -157,7 +155,7 @@ exports[`Sheet should trigger out animation and dismiss when useReducedMotion is
             </div>
           </div>
           <div
-            class="box flexGrow overflowAuto"
+            class="box flexGrow overflowAuto paddingX8 paddingY8"
           >
             Sheet content
           </div>

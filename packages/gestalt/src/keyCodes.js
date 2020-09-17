@@ -1,4 +1,4 @@
 // @flow strict
-export const ENTER_KEY_CODE: number = 13;
-export const ESCAPE_KEY_CODE: number = 27;
-export const SPACE_KEY_CODE: number = 32;
+export const ENTER: number = 13;
+export const ESCAPE: number = 27;
+export const SPACE: number = 32;

@@ -1,6 +1,6 @@
 // @flow strict
 import { useEffect, useState } from 'react';
-import { ENTER_KEY_CODE, SPACE_KEY_CODE } from './keyCodes.js';
+import { ENTER, SPACE } from './keyCodes.js';
 
 const SCROLL_DISTANCE = 10;
 
@@ -13,7 +13,7 @@ type TapTargetHTMLElement = HTMLDivElement;
 
 export const keyPressShouldTriggerTap = (
   event: SyntheticKeyboardEvent<TapTargetHTMLElement>
-): boolean => [ENTER_KEY_CODE, SPACE_KEY_CODE].includes(event.charCode);
+): boolean => [ENTER, SPACE].includes(event.charCode);
 
 export default function useTapFeedback({
   height,
