@@ -1,3 +1,9 @@
+## 13.11.0 (Sep 17, 2020)
+
+### Minor
+
+- IconButton: Implemented href with InternalLink (#1219)
+
 ## 13.10.0 (Sep 16, 2020)
 
 ### Minor
