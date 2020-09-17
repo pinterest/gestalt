@@ -42,7 +42,6 @@
   composes: fixed borderBox flex justifyEnd left0 top0 itemsCenter from "./Layout.css";
   composes: xsCol12 from "./Column.css";
   height: 100%;
-  z-index: 1000;
 }
 
 .wrapper {
@@ -74,7 +73,6 @@ html[dir="rtl"] .wrapperAnimationOut {
 
 .shadowContainer {
   composes: borderBox relative fit from "./Layout.css";
-  z-index: 1;
 }
 
 .shadow {

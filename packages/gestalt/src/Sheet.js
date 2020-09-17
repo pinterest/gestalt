@@ -9,16 +9,22 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ESCAPE_KEY_CODE } from './utils/KeyCodes.js';
+import { ESCAPE_KEY_CODE } from './keyCodes.js';
+import { FixedZIndex } from './zIndex.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
+import focusStyles from './Focus.css';
 import IconButton from './IconButton.js';
 import Heading from './Heading.js';
 import Row from './Row.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
-import styles from './Sheet.css';
+import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import useReducedMotion from './useReducedMotion.js';
+
+type AnimationType = 'in' | 'out';
+
+type HeadingType = string | Node;
 
 type Props = {|
   accessibilityDismissButtonLabel: string,
@@ -26,12 +32,10 @@ type Props = {|
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
-  heading?: string | Node,
+  heading?: HeadingType,
   onDismiss: () => void,
   size?: 'sm' | 'md' | 'lg' | number,
 |};
-
-type Animation = 'in' | 'out';
 
 const SIZE_WIDTH_MAP = {
   sm: 540,
@@ -39,7 +43,9 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
-function Header({ heading }: {| heading: string | Node |}) {
+const DEFAULT_ZINDEX = new FixedZIndex(1);
+
+const Header = ({ heading }: {| heading: HeadingType |}) => {
   if (typeof heading !== 'string') {
     return heading;
   }
@@ -51,7 +57,23 @@ function Header({ heading }: {| heading: string | Node |}) {
       </Heading>
     </Box>
   );
-}
+};
+
+const DismissButton = ({
+  accessibilityDismissButtonLabel,
+  onClick,
+}: {|
+  accessibilityDismissButtonLabel: string,
+  onClick: () => void,
+|}) => (
+  <IconButton
+    accessibilityLabel={accessibilityDismissButtonLabel}
+    bgColor="white"
+    icon="cancel"
+    iconColor="darkGray"
+    onClick={onClick}
+  />
+);
 
 const SheetWithForwardRef: React$AbstractComponent<
   Props,
@@ -70,7 +92,7 @@ const SheetWithForwardRef: React$AbstractComponent<
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-  const [currentAnimation, setCurrentAnimation] = useState<Animation>('in');
+  const [currentAnimation, setCurrentAnimation] = useState<AnimationType>('in');
   const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -128,20 +150,18 @@ const SheetWithForwardRef: React$AbstractComponent<
 
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
-  const dismissButton = (
-    <IconButton
-      accessibilityLabel={accessibilityDismissButtonLabel}
-      bgColor="white"
-      icon="cancel"
-      iconColor="darkGray"
-      onClick={startDismiss}
-    />
-  );
+  const containerStyle = {
+    zIndex: DEFAULT_ZINDEX.index(),
+  };
 
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div className={styles.container} ref={containerRef}>
+        <div
+          className={sheetStyles.container}
+          ref={containerRef}
+          style={containerStyle}
+        >
           <Backdrop
             animation={currentAnimation}
             closeOnOutsideClick={closeOnOutsideClick}
@@ -149,10 +169,14 @@ const SheetWithForwardRef: React$AbstractComponent<
           >
             <div
               aria-label={accessibilitySheetLabel}
-              className={classnames(styles.wrapper, {
-                [styles.wrapperAnimationIn]: currentAnimation === 'in',
-                [styles.wrapperAnimationOut]: currentAnimation === 'out',
-              })}
+              className={classnames(
+                sheetStyles.wrapper,
+                focusStyles.hideOutline,
+                {
+                  [sheetStyles.wrapperAnimationIn]: currentAnimation === 'in',
+                  [sheetStyles.wrapperAnimationOut]: currentAnimation === 'out',
+                }
+              )}
               ref={sheetRef}
               role="dialog"
               style={{ width }}
@@ -167,8 +191,8 @@ const SheetWithForwardRef: React$AbstractComponent<
               >
                 {heading && (
                   <div
-                    className={classnames(styles.shadowContainer, {
-                      [styles.shadow]: showTopShadow,
+                    className={classnames(sheetStyles.shadowContainer, {
+                      [sheetStyles.shadow]: showTopShadow,
                     })}
                   >
                     <Row flex="grow" justifyContent="between">
@@ -176,7 +200,12 @@ const SheetWithForwardRef: React$AbstractComponent<
                         <Header heading={heading} />
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
-                        {dismissButton}
+                        <DismissButton
+                          accessibilityDismissButtonLabel={
+                            accessibilityDismissButtonLabel
+                          }
+                          onClick={startDismiss}
+                        />
                       </Box>
                     </Row>
                   </div>
@@ -194,7 +223,12 @@ const SheetWithForwardRef: React$AbstractComponent<
                       paddingY={7}
                       position="absolute"
                     >
-                      {dismissButton}
+                      <DismissButton
+                        accessibilityDismissButtonLabel={
+                          accessibilityDismissButtonLabel
+                        }
+                        onClick={startDismiss}
+                      />
                     </Box>
                   </Box>
                 )}
@@ -208,8 +242,8 @@ const SheetWithForwardRef: React$AbstractComponent<
                 </Box>
                 {footer && (
                   <div
-                    className={classnames(styles.shadowContainer, {
-                      [styles.shadow]: showBottomShadow,
+                    className={classnames(sheetStyles.shadowContainer, {
+                      [sheetStyles.shadow]: showBottomShadow,
                     })}
                   >
                     <Box padding={8}>{footer}</Box>

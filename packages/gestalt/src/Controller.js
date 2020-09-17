@@ -1,7 +1,7 @@
 // @flow strict
 import React, { Component, type Node as ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import { ESCAPE_KEY_CODE } from './utils/KeyCodes.js';
+import { ESCAPE_KEY_CODE } from './keyCodes.js';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 

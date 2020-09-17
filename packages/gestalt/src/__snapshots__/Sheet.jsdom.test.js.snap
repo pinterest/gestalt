@@ -5,13 +5,14 @@ exports[`Sheet should render all props 1`] = `
   <div>
     <div
       class="container"
+      style="z-index: 1;"
     >
       <div
         class="backdrop backdropAnimationIn zoomOut"
       />
       <div
         aria-label="Sheet"
-        class="wrapper wrapperAnimationIn"
+        class="wrapper hideOutline wrapperAnimationIn"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -24,48 +25,60 @@ exports[`Sheet should render all props 1`] = `
             class="shadowContainer"
           >
             <div
-              class="flexGrow justifyBetween row"
+              class="box marginEnd0 marginStart0"
             >
               <div
-                class="box flexGrow"
+                class="box flexGrow itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
               >
                 <div
-                  class="box paddingX8 paddingY8 xsDisplayFlex"
-                >
-                  <h1
-                    class="Heading fontSize2 darkGray alignLeft breakWord"
-                  >
-                    Sheet title
-                  </h1>
-                </div>
-              </div>
-              <div
-                class="box flexNone paddingX6 paddingY7"
-              >
-                <button
-                  aria-label="Dismiss"
-                  class="button tapTransition enabled"
-                  type="button"
+                  class="box"
                 >
                   <div
-                    class="pog white"
-                    style="height: 40px; width: 40px;"
+                    class="box flexGrow"
                   >
-                    <svg
-                      aria-hidden="true"
-                      aria-label=""
-                      class="icon darkGray iconBlock"
-                      height="18"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="18"
+                    <div
+                      class="box paddingX8 paddingY8 xsDisplayFlex"
                     >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
+                      <h1
+                        class="Heading fontSize2 darkGray alignLeft breakWord"
+                      >
+                        Sheet title
+                      </h1>
+                    </div>
                   </div>
-                </button>
+                </div>
+                <div
+                  class="box"
+                >
+                  <div
+                    class="box flexNone paddingX6 paddingY7"
+                  >
+                    <button
+                      aria-label="Dismiss"
+                      class="button tapTransition enabled"
+                      type="button"
+                    >
+                      <div
+                        class="pog white"
+                        style="height: 40px; width: 40px;"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          aria-label=""
+                          class="icon darkGray iconBlock"
+                          height="18"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="18"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -95,13 +108,14 @@ exports[`Sheet should trigger out animation and dismiss when useReducedMotion is
   <div>
     <div
       class="container"
+      style="z-index: 1;"
     >
       <div
         class="backdrop backdropAnimationOut zoomOut"
       />
       <div
         aria-label="Test Sheet"
-        class="wrapper wrapperAnimationOut"
+        class="wrapper hideOutline wrapperAnimationOut"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"

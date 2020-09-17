@@ -8,13 +8,14 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { ESCAPE_KEY_CODE } from './utils/KeyCodes.js';
+import { ESCAPE_KEY_CODE } from './keyCodes.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
+import focusStyles from './Focus.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import styles from './Modal.css';
+import modalStyles from './Modal.css';
 
 type Props = {|
   accessibilityModalLabel: string,
@@ -116,7 +117,7 @@ const ModalWithForwardRef: React$AbstractComponent<
       <TrapFocusBehavior>
         <div
           aria-label={accessibilityModalLabel}
-          className={styles.container}
+          className={modalStyles.container}
           role={role}
         >
           <Backdrop
@@ -124,7 +125,10 @@ const ModalWithForwardRef: React$AbstractComponent<
             onClick={handleOutsideClick}
           >
             <div
-              className={styles.wrapper}
+              className={classnames(
+                modalStyles.wrapper,
+                focusStyles.hideOutline
+              )}
               tabIndex={-1}
               style={{ width }}
               ref={ref}
@@ -138,8 +142,8 @@ const ModalWithForwardRef: React$AbstractComponent<
               >
                 {heading && (
                   <div
-                    className={classnames(styles.shadowContainer, {
-                      [styles.shadow]: showTopShadow,
+                    className={classnames(modalStyles.shadowContainer, {
+                      [modalStyles.shadow]: showTopShadow,
                     })}
                   >
                     <Header heading={heading} />
@@ -155,8 +159,8 @@ const ModalWithForwardRef: React$AbstractComponent<
                 </Box>
                 {footer && (
                   <div
-                    className={classnames(styles.shadowContainer, {
-                      [styles.shadow]: showBottomShadow,
+                    className={classnames(modalStyles.shadowContainer, {
+                      [modalStyles.shadow]: showBottomShadow,
                     })}
                   >
                     <Box padding={8}>{footer}</Box>
