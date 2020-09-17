@@ -22,7 +22,6 @@ type Threshold =
 type Props = {|
   ...Threshold,
   children: Node,
-  dangerouslySetZIndex?: {| __zIndex: number |},
   height?: number,
   zIndex?: Indexable,
 |};
@@ -30,14 +29,8 @@ type Props = {|
 const DEFAULT_ZINDEX = new FixedZIndex(1);
 
 export default function Sticky(props: Props): Node {
-  const { dangerouslySetZIndex, children, height } = props;
-  const zIndex =
-    props.zIndex ||
-    (dangerouslySetZIndex &&
-    Object.prototype.hasOwnProperty.call(dangerouslySetZIndex, '__zIndex')
-      ? // eslint-disable-next-line no-underscore-dangle
-        new FixedZIndex(dangerouslySetZIndex.__zIndex)
-      : DEFAULT_ZINDEX);
+  const { children, height } = props;
+  const zIndex = props.zIndex || DEFAULT_ZINDEX;
   const style = {
     ...(height !== undefined ? { height } : {}),
     top: props.top != null ? props.top : undefined,
@@ -55,9 +48,6 @@ export default function Sticky(props: Props): Node {
 
 Sticky.propTypes = {
   children: PropTypes.node,
-  dangerouslySetZIndex: PropTypes.exact({
-    __zIndex: PropTypes.number,
-  }),
   top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
