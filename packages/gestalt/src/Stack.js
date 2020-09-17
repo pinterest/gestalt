@@ -2,7 +2,8 @@
 import React, { Children, type Node } from 'react';
 import PropTypes from 'prop-types';
 import FlexBox from './FlexBox.js';
-import Box, {
+import Box from './Box.js';
+import {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
@@ -19,7 +20,7 @@ import Box, {
   type JustifyContent,
   type Overflow,
   type Padding,
-} from './Box.js';
+} from './boxTypes.js';
 
 type Props = {|
   alignContent?: AlignContent,
