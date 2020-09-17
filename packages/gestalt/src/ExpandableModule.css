@@ -2,6 +2,4 @@
   background: rgba(0, 0, 0, 0);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   composes: rounding4 from "./Borders.css";
-  composes: paddingX6 from "./boxWhitespace.css";
-  composes: paddingY6 from "./boxWhitespace.css";
 }
