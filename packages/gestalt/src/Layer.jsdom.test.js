@@ -2,6 +2,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Layer from './Layer.js';
+import { FixedZIndex } from './zIndex.js';
 
 describe('Layer in browser render', () => {
   if (typeof document !== 'undefined') {
@@ -18,6 +19,14 @@ describe('Layer in browser render', () => {
       const element = getByText('content');
       unmount();
       expect(body && body.contains(element)).toBeFalsy();
+    });
+
+    it('sets the zIndex if it is defined', () => {
+      const { getByText } = render(
+        <Layer zIndex={new FixedZIndex(200)}>content</Layer>
+      );
+      const element = getByText('content');
+      expect(element.style.zIndex).toEqual('200');
     });
   }
 });
