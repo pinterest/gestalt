@@ -1,3 +1,9 @@
+## 14.1.0 (Sep 18, 2020)
+
+### Minor
+
+- Sheet: Introduce component (#1217)
+
 ## 14.0.0 (Sep 17, 2020)
 
 ### Major
