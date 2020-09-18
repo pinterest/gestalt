@@ -75,6 +75,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Masonry',
       'Row',
       'Stack',
+      'Sheet',
       'Sticky',
       'ZIndexClasses',
     ],

@@ -4,5 +4,11 @@ declare module.exports: {|
   +'container': string,
   +'shadow': string,
   +'shadowContainer': string,
+  +'slide-in-ltr': string,
+  +'slide-in-rtl': string,
+  +'slide-out-ltr': string,
+  +'slide-out-rtl': string,
   +'wrapper': string,
+  +'wrapperAnimationIn': string,
+  +'wrapperAnimationOut': string,
 |};

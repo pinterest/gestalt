@@ -13,7 +13,7 @@
 .react-datepicker {
   background-color: var(--g-colorGray50);
   border-radius: 16px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
   color: var(--g-colorGray300);
   display: inline-block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

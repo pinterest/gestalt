@@ -17,7 +17,7 @@ Object {
             class="backdrop zoomOut"
           />
           <div
-            class="wrapper"
+            class="wrapper hideOutline"
             style="width: 540px;"
             tabindex="-1"
           >
@@ -47,7 +47,7 @@ Object {
           class="backdrop zoomOut"
         />
         <div
-          class="wrapper"
+          class="wrapper hideOutline"
           style="width: 540px;"
           tabindex="-1"
         >
