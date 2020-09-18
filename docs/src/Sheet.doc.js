@@ -243,8 +243,7 @@ card(
     description={`
       Some of the padding required to style your sheet has already been provided for ease of use. The sheet shown
       by clicking on the "View padding" button highlights the default behavior. 
-      The shadow (when scrolling) between
-      the \`heading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
+      The shadow (when scrolling) between the \`heading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
     `}
     defaultCode={`
 function Example(props) {
@@ -352,7 +351,7 @@ card(
   <Example
     name="Empty Sheet"
     description={`
-      The props children, footer and heading are all optional, so it's possible to have a completely empty Sheet.
+      By design, the props children, footer and heading are all optional, so this example is just to demonstrate it's possible to have a completely empty Sheet, even though that is unlikely to be a real use case.
     `}
     defaultCode={`
 function Example(props) {
@@ -394,13 +393,12 @@ function SheetRefExample() {
 
   const sheetRef = React.useRef(null);
   const buttonRef = React.useRef(null);
-
-  React.useEffect(() => {
-    if (showSheet && sheetRef.current && buttonRef.current) {
+  const callbackRef = (node) => {
+    if (node !== null) {
       sheetRef.current.style.backgroundColor = '#004b91';
       buttonRef.current.focus();
     }
-  }, [showSheet, sheetRef]);
+  }
 
   return (
     <>
@@ -409,24 +407,32 @@ function SheetRefExample() {
         text="Open sheet"
         onClick={() => { setShowSheet(!showSheet) }}
       />
-      <Layer zIndex={new FixedZIndex(2)}>
-        {showSheet && (
-          <Sheet
-            accessibilityDismissButtonLabel="Close"
-            accessibilitySheetLabel="Focused sheet"
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            ref={sheetRef}
-            size="md"
-          >
-            <Box color="white" minHeight={400} padding={4}>
-              <Box marginBottom={4}>
-                <Heading size="md">Focused content</Heading>                
+      {showSheet && (
+        <Layer zIndex={new FixedZIndex(2)}>
+          <>
+            <Sheet
+              accessibilityDismissButtonLabel="Close"
+              accessibilitySheetLabel="Focused sheet"
+              onDismiss={() => { setShowSheet(!showSheet) }}
+              ref={sheetRef}
+              size="md"
+            >
+              <Box color="white" minHeight={400} padding={8}>
+                <Box marginBottom={4}>
+                  <Heading size="md">Focused content</Heading>                
+                </Box>
+                <Button 
+                  inline 
+                  onClick={() => alert('Geronimoooo!')}
+                  ref={buttonRef} 
+                  text="Focused button (Press Enter to be convinced)" 
+                />
               </Box>
-              <Button text="Focused button" inline ref={buttonRef} />
-            </Box>
-          </Sheet>
-        )}
-      </Layer>
+            </Sheet>
+            <div ref={callbackRef} />
+          </>
+        </Layer>
+      )}
     </>
   );
 }`}
