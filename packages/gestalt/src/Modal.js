@@ -8,11 +8,14 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { ESCAPE } from './keyCodes.js';
 import Box from './Box.js';
+import Backdrop from './Backdrop.js';
+import focusStyles from './Focus.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import styles from './Modal.css';
+import modalStyles from './Modal.css';
 
 type Props = {|
   accessibilityModalLabel: string,
@@ -30,41 +33,6 @@ const SIZE_WIDTH_MAP = {
   md: 720,
   lg: 900,
 };
-
-const ESCAPE_KEY_CODE = 27;
-
-function Backdrop({
-  children,
-  closeOnOutsideClick,
-  onClick,
-}: {|
-  children?: Node,
-  closeOnOutsideClick: boolean,
-  onClick?: (event: MouseEvent) => void,
-|}) {
-  const handleClick = event => {
-    if (event.target !== event.currentTarget) {
-      return;
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  };
-  return (
-    <>
-      {/* Disabling the linters below is fine, we don't want key event listeners (ESC handled elsewhere) */}
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-      <div
-        className={classnames(styles.backdrop, {
-          [styles.zoomOut]: closeOnOutsideClick,
-        })}
-        onClick={handleClick}
-      />
-      {children}
-    </>
-  );
-}
 
 function Header({ heading }: {| heading: string | Node |}) {
   if (typeof heading !== 'string') {
@@ -101,7 +69,7 @@ const ModalWithForwardRef: React$AbstractComponent<
 
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE_KEY_CODE) {
+      if (event.keyCode === ESCAPE) {
         onDismiss();
       }
     }
@@ -149,7 +117,7 @@ const ModalWithForwardRef: React$AbstractComponent<
       <TrapFocusBehavior>
         <div
           aria-label={accessibilityModalLabel}
-          className={styles.container}
+          className={modalStyles.container}
           role={role}
         >
           <Backdrop
@@ -157,7 +125,10 @@ const ModalWithForwardRef: React$AbstractComponent<
             onClick={handleOutsideClick}
           >
             <div
-              className={styles.wrapper}
+              className={classnames(
+                modalStyles.wrapper,
+                focusStyles.hideOutline
+              )}
               tabIndex={-1}
               style={{ width }}
               ref={ref}
@@ -171,8 +142,8 @@ const ModalWithForwardRef: React$AbstractComponent<
               >
                 {heading && (
                   <div
-                    className={classnames(styles.shadowContainer, {
-                      [styles.shadow]: showTopShadow,
+                    className={classnames(modalStyles.shadowContainer, {
+                      [modalStyles.shadow]: showTopShadow,
                     })}
                   >
                     <Header heading={heading} />
@@ -188,8 +159,8 @@ const ModalWithForwardRef: React$AbstractComponent<
                 </Box>
                 {footer && (
                   <div
-                    className={classnames(styles.shadowContainer, {
-                      [styles.shadow]: showBottomShadow,
+                    className={classnames(modalStyles.shadowContainer, {
+                      [modalStyles.shadow]: showBottomShadow,
                     })}
                   >
                     <Box padding={8}>{footer}</Box>
