@@ -1,48 +1,30 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { useColorScheme } from 'gestalt';
+import { Box, useColorScheme } from 'gestalt';
 
-type Props = {|
-  size?: number,
-|};
-
-export default function Checkerboard({ size = 8 }: Props): Node {
-  const { colorGray400 } = useColorScheme();
+export default function Checkerboard(): Node {
+  const { colorGray300 } = useColorScheme();
+  const colorGray300Encoded = colorGray300.replace('#', '%23');
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      version="1.1"
-      width="100%"
+    <Box
       height="100%"
-      style={{ display: 'flex' }}
-      preserveAspectRatio="none"
-    >
-      <pattern
-        id="pattern"
-        x={0}
-        y={0}
-        width={size * 2}
-        height={size * 2}
-        patternUnits="userSpaceOnUse"
-      >
-        <rect
-          fill={colorGray400}
-          fillOpacity="0.1"
-          x={0}
-          width={size}
-          height={size}
-          y={0}
-        />
-        <rect
-          fill={colorGray400}
-          fillOpacity="0.1"
-          x={size}
-          width={size}
-          height={size}
-          y={size}
-        />
-      </pattern>
-      <rect fill="url(#pattern)" x={0} y={0} width="100%" height="100%" />
-    </svg>
+      width="100%"
+      dangerouslySetInlineStyle={{
+        __style: {
+          backgroundImage: `
+          url('data:image/svg+xml;utf8,
+            <svg preserveAspectRatio="none"  viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="5" height="5" fill-opacity="0.1" fill="${colorGray300Encoded}" />
+              <rect x="5" y="5" width="5" height="5" fill-opacity="0.1" fill="${colorGray300Encoded}" />
+              <rect x="5" y="0" width="5" height="5" fill-opacity="0.1" fill="transparent" />
+              <rect x="0" y="5" width="5" height="5" fill-opacity="0.1" fill="transparent" />
+            </svg>
+          ')`
+            .split('\n')
+            .join(''),
+          backgroundSize: '16px 16px',
+        },
+      }}
+    />
   );
 }
