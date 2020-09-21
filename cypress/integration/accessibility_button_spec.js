@@ -1,10 +1,10 @@
 describe('Accessibility', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/Button');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the root page page', () => {
+  it('Tests accessibility on the Button page', () => {
     cy.checkA11y();
   });
 });
