@@ -1,3 +1,9 @@
+## 14.2.0 (Sep 21, 2020)
+
+### Minor
+
+- Button: add accessibility integration tests (#1226)
+
 ## 14.1.0 (Sep 18, 2020)
 
 ### Minor
