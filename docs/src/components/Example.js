@@ -202,7 +202,11 @@ const Example = ({
               </Box>
               <Box position="relative" display="flex" color="darkGray">
                 <Box flex="grow">
-                  <LiveEditor padding={16} />
+                  {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                  <label>
+                    <LiveEditor padding={16} />
+                  </label>
                 </Box>
                 <Box padding={2}>
                   <Tooltip inline text="Open in CodeSandbox">
