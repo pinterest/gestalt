@@ -12,12 +12,11 @@ import Icon from './Icon.js';
 import styles from './SelectList.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-// eslint-disable-next-line flowtype/require-exact-type
-type Options = Array<{
+type Options = Array<{|
   label: string,
   value: string,
   disabled?: boolean,
-}>;
+|}>;
 
 type Props = {|
   errorMessage?: string,

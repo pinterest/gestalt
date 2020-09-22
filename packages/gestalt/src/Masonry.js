@@ -84,10 +84,11 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
 
-// eslint-disable-next-line flowtype/require-exact-type
-export default class Masonry<T: {}> extends ReactComponent<Props<T>, State<T>> {
-  // eslint-disable-next-line flowtype/require-exact-type
-  static createMeasurementStore<T1: {}, T2>(): MeasurementStore<T1, T2> {
+export default class Masonry<T: { ... }> extends ReactComponent<
+  Props<T>,
+  State<T>
+> {
+  static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
 
