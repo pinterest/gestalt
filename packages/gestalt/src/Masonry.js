@@ -39,12 +39,11 @@ type Layout =
 
 type Props<T> = {|
   columnWidth?: number,
-  // eslint-disable-next-line flowtype/require-exact-type
-  comp: ComponentType<{
+  comp: ComponentType<{|
     data: T,
     itemIdx: number,
     isMeasuring: boolean,
-  }>,
+  |}>,
   flexible?: boolean,
   gutterWidth?: number,
   items: Array<T>,
@@ -56,12 +55,10 @@ type Props<T> = {|
   loadItems?:
     | false
     | ((
-        // eslint-disable-next-line flowtype/require-exact-type
-        ?{
+        ?{|
           from: number,
-        }
-        // eslint-disable-next-line flowtype/require-exact-type
-      ) => void | boolean | {}),
+        |}
+      ) => void | boolean | {||}),
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
@@ -211,12 +208,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     loadItems?:
       | false
       | ((
-          // eslint-disable-next-line flowtype/require-exact-type
-          ?{
+          ?{|
             from: number,
-          }
-          // eslint-disable-next-line flowtype/require-exact-type
-        ) => void | boolean | {}),
+          |}
+        ) => void | boolean | { ... }),
     minCols: number,
     virtualize?: boolean,
   |} = {
