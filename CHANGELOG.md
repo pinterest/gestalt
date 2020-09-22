@@ -1,3 +1,9 @@
+## 14.3.0 (Sep 22, 2020)
+
+### Minor
+
+- Video: add `objectFill`  as a prop (#1227)
+
 ## 14.2.4 (Sep 22, 2020)
 
 ### Patch
