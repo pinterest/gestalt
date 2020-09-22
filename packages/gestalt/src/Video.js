@@ -11,6 +11,9 @@ type Source =
   | string
   | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
 
+type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+type CrossOrigin = 'anonymous' | 'use-credentials';
+
 type Props = {|
   accessibilityHideCaptionsLabel?: string,
   accessibilityShowCaptionsLabel?: string,
@@ -22,10 +25,11 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
-  crossOrigin?: 'anonymous' | 'use-credentials',
+  crossOrigin?: CrossOrigin,
   children?: Node,
   controls?: boolean,
   loop?: boolean,
+  objectFit?: ObjectFit,
   onDurationChange?: ({|
     event: SyntheticEvent<HTMLVideoElement>,
     duration: number,
@@ -515,6 +519,7 @@ export default class Video extends PureComponent<Props, State> {
       children,
       crossOrigin,
       loop,
+      objectFit,
       playing,
       playsInline,
       poster,
@@ -523,9 +528,7 @@ export default class Video extends PureComponent<Props, State> {
       volume,
     } = this.props;
     const { currentTime, duration, fullscreen, captionsButton } = this.state;
-
     const paddingBottom = (fullscreen && '0') || `${(1 / aspectRatio) * 100}%`;
-
     return (
       <div
         ref={this.setPlayerRef}
@@ -549,7 +552,10 @@ export default class Video extends PureComponent<Props, State> {
             onSeeked={this.handleSeek}
             onTimeUpdate={this.handleTimeUpdate}
             onProgress={this.handleProgress}
-            {...(crossOrigin ? { crossOrigin } : null)}
+            {...(objectFit ? { style: { 'object-fit': objectFit } } : null)}
+            {...((crossOrigin ? { crossOrigin } : { ...null }): {|
+              crossOrigin?: CrossOrigin,
+            |})}
           >
             {Array.isArray(src) &&
               src.map(source => (
