@@ -178,7 +178,6 @@ const getPins = () => {
 class ExampleMasonry extends React.Component<Props, State> {
   // ref on a component gets the mounted instance of the component
   // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
-  // $FlowIssue[prop-missing]
   grid: ?Masonry<*>;
 
   scrollContainer: ?HTMLElement;
@@ -231,7 +230,6 @@ class ExampleMasonry extends React.Component<Props, State> {
           style={containerStyle}
         >
           {scrollContainer && (
-            // $FlowIssue[prop-missing]
             <Masonry
               columnWidth={170}
               comp={({ data }) => (
