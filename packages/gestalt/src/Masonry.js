@@ -58,7 +58,7 @@ type Props<T> = {|
         ?{|
           from: number,
         |}
-      ) => void | boolean | {||}),
+      ) => void | boolean | { ... }),
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
   virtualBoundsBottom?: number,
