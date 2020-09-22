@@ -115,7 +115,7 @@ card(
       {
         name: 'onBlur',
         type:
-          '({ event: SyntheticFocusEvent<HTMLButtonElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
+          '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
         description: ['Callback fired when a TapArea component loses focus.'],
@@ -124,7 +124,7 @@ card(
       {
         name: 'onFocus',
         type:
-          '({ event: SyntheticFocusEvent<HTMLButtonElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
+          '({ event: SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
         description: [
@@ -135,7 +135,7 @@ card(
       {
         name: 'onMouseEnter',
         type:
-          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
         description: [
@@ -146,7 +146,7 @@ card(
       {
         name: 'onMouseLeave',
         type:
-          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
         description: [
@@ -157,7 +157,7 @@ card(
       {
         name: 'onTap',
         type:
-          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
         description: [
