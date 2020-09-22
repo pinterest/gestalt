@@ -1,3 +1,9 @@
+## 14.2.3 (Sep 22, 2020)
+
+### Patch
+
+- Internal: Add Cypress badge + link to Readme (#1229)
+
 ## 14.2.2 (Sep 22, 2020)
 
 ### Patch
