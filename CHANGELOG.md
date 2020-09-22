@@ -1,3 +1,9 @@
+## 14.2.1 (Sep 22, 2020)
+
+### Patch
+
+- Internal: fix `flowtype/require-exact-type` errors (#1228)
+
 ## 14.2.0 (Sep 21, 2020)
 
 ### Minor
