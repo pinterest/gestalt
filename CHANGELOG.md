@@ -1,3 +1,9 @@
+## 14.2.4 (Sep 22, 2020)
+
+### Patch
+
+- Docs: add ability to expand code examples (#1230)
+
 ## 14.2.3 (Sep 22, 2020)
 
 ### Patch
