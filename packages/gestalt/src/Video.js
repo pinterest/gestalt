@@ -12,6 +12,7 @@ type Source =
   | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
 
 type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+type CrossOrigin = 'anonymous' | 'use-credentials';
 
 type Props = {|
   accessibilityHideCaptionsLabel?: string,
@@ -24,7 +25,7 @@ type Props = {|
   accessibilityUnmuteLabel: string,
   aspectRatio: number,
   captions: string,
-  crossOrigin?: 'anonymous' | 'use-credentials',
+  crossOrigin?: CrossOrigin,
   children?: Node,
   controls?: boolean,
   loop?: boolean,
@@ -551,9 +552,10 @@ export default class Video extends PureComponent<Props, State> {
             onSeeked={this.handleSeek}
             onTimeUpdate={this.handleTimeUpdate}
             onProgress={this.handleProgress}
-            // $FlowIssue facebook/flow#8448
             {...(objectFit ? { style: { 'object-fit': objectFit } } : null)}
-            {...(crossOrigin ? { crossOrigin } : null)}
+            {...((crossOrigin ? { crossOrigin } : { ...null }): {|
+              crossOrigin?: CrossOrigin,
+            |})}
           >
             {Array.isArray(src) &&
               src.map(source => (
