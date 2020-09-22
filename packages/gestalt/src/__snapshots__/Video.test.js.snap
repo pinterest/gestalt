@@ -346,6 +346,72 @@ exports[`Video with children 1`] = `
 </div>
 `;
 
+exports[`Video with crossOrigin 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "100%",
+    }
+  }
+>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".__gestaltThemeVideo {
+  --g-colorRed0: #ff5247;
+  --g-colorRed100: #e60023;
+  --g-colorRed100Active: #a3081a;
+  --g-colorRed100Hovered: #ad081b;
+  --g-colorGray0: #fff;
+  --g-colorGray0Active: #e0e0e0;
+  --g-colorGray0Hovered: #f0f0f0;
+  --g-colorGray50: #fff;
+  --g-colorGray100: #efefef;
+  --g-colorGray100Active: #dadada;
+  --g-colorGray100Hovered: #e2e2e2;
+  --g-colorGray150: #ddd;
+  --g-colorGray150Hovered: #d0d0d0;
+  --g-colorGray200: #767676;
+  --g-colorGray200Active: #828282;
+  --g-colorGray200Hovered: #878787;
+  --g-colorGray300: #111;
+  --g-colorGray400: #000;
+  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+ }",
+      }
+    }
+  />
+  <div
+    className="__gestaltThemeVideo"
+  >
+    <video
+      autoPlay={false}
+      className="video"
+      crossOrigin="anonymous"
+      muted={true}
+      onCanPlay={[Function]}
+      onDurationChange={[Function]}
+      onEnded={[Function]}
+      onProgress={[Function]}
+      onSeeked={[Function]}
+      onTimeUpdate={[Function]}
+      preload="auto"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    >
+      <track
+        kind="captions"
+        src="https://media.w3.org/2010/05/sintel/captions.vtt"
+      />
+    </video>
+  </div>
+</div>
+`;
+
 exports[`Video with media attributes 1`] = `
 <div
   className="player"
@@ -475,6 +541,76 @@ exports[`Video with multiple sources 1`] = `
         src="https://archive.org/download/ElephantsDream/ed_hd.ogv"
         type="video/ogg"
       />
+      <track
+        kind="captions"
+        src="https://media.w3.org/2010/05/sintel/captions.vtt"
+      />
+    </video>
+  </div>
+</div>
+`;
+
+exports[`Video with objectFit 1`] = `
+<div
+  className="player"
+  style={
+    Object {
+      "height": 0,
+      "paddingBottom": "100%",
+    }
+  }
+>
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".__gestaltThemeVideo {
+  --g-colorRed0: #ff5247;
+  --g-colorRed100: #e60023;
+  --g-colorRed100Active: #a3081a;
+  --g-colorRed100Hovered: #ad081b;
+  --g-colorGray0: #fff;
+  --g-colorGray0Active: #e0e0e0;
+  --g-colorGray0Hovered: #f0f0f0;
+  --g-colorGray50: #fff;
+  --g-colorGray100: #efefef;
+  --g-colorGray100Active: #dadada;
+  --g-colorGray100Hovered: #e2e2e2;
+  --g-colorGray150: #ddd;
+  --g-colorGray150Hovered: #d0d0d0;
+  --g-colorGray200: #767676;
+  --g-colorGray200Active: #828282;
+  --g-colorGray200Hovered: #878787;
+  --g-colorGray300: #111;
+  --g-colorGray400: #000;
+  --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
+  --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
+  --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+  --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
+ }",
+      }
+    }
+  />
+  <div
+    className="__gestaltThemeVideo"
+  >
+    <video
+      autoPlay={false}
+      className="video"
+      muted={true}
+      onCanPlay={[Function]}
+      onDurationChange={[Function]}
+      onEnded={[Function]}
+      onProgress={[Function]}
+      onSeeked={[Function]}
+      onTimeUpdate={[Function]}
+      preload="auto"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+      style={
+        Object {
+          "object-fit": "contain",
+        }
+      }
+    >
       <track
         kind="captions"
         src="https://media.w3.org/2010/05/sintel/captions.vtt"

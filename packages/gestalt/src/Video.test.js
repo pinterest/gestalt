@@ -96,3 +96,29 @@ test('Video with children', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Video with crossOrigin', () => {
+  const tree = create(
+    <Video
+      {...A11Y_LABELS}
+      crossOrigin="anonymous"
+      aspectRatio={1}
+      captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Video with objectFit', () => {
+  const tree = create(
+    <Video
+      {...A11Y_LABELS}
+      objectFit="contain"
+      aspectRatio={1}
+      captions="https://media.w3.org/2010/05/sintel/captions.vtt"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
