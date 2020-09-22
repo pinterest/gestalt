@@ -1,3 +1,9 @@
+## 14.2.2 (Sep 22, 2020)
+
+### Patch
+
+- Docs: typo fixes for TapArea (#1225)
+
 ## 14.2.1 (Sep 22, 2020)
 
 ### Patch
