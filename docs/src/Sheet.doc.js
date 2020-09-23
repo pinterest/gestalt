@@ -16,6 +16,347 @@ card(
 );
 
 card(
+  <Example
+    id="sizesExample"
+    name="Sizes"
+    description={`
+      There are 3 different pre-selected widths available for a \`Sheet\`, as well as a last-resort option to set a custom width. Click on each button to view a sample Sheet of the specified size.
+      All Sheets have a max width of 100%.
+    `}
+    defaultCode={`
+function Example(props) {
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'small':
+        return { heading: 'Small sheet', size: 'sm' };
+      case 'medium':
+        return { heading: 'Medium sheet', size: 'md' };
+      case 'large':
+        return { heading: 'Large sheet', size: 'lg' };
+      case 'none':
+        return { };
+      default:
+        throw new Error();
+    }
+  }
+
+  const initialState = {};
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  return (
+    <>
+      <Box padding={1}>
+        <Button
+          inline
+          text="Small Sheet"
+          onClick={() => { dispatch({ type: 'small' }) }}
+        />
+      </Box>
+      <Box padding={1}>
+        <Button
+          inline
+          text="Medium Sheet"
+          onClick={() => { dispatch({ type: 'medium' }) }}
+        />
+      </Box>
+      <Box padding={1}>
+        <Button
+          inline
+          text="Large Sheet"
+          onClick={() => { dispatch({ type: 'large' }) }}
+        />
+      </Box>
+      {state.size && (
+        <Layer zIndex={new FixedZIndex(2)}>
+          <Sheet
+            accessibilityDismissButtonLabel="Dismiss"
+            accessibilitySheetLabel="Example sheet to demonstrate different sizes"
+            footer={<Heading size="md">Footer</Heading>}
+            heading={state.heading}
+            onDismiss={() => { dispatch({ type: 'none' }) }}
+            size={state.size}
+          >
+            <Heading size="md">Children</Heading>
+          </Sheet>
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="closeOnOutsideClickExample"
+    name="Prevent close on outside click"
+    description={`
+      Sometimes we need the user to complete some required action at a Sheet. We can increase the user focus by preventing the user closing the sheet from clicking on the backdrop (gray area) outside of the Sheet.
+      For that you can set: \`closeOnOutsideClick\` to \`false\`.
+      PS: The user will still be able to close the Sheet via the Dismiss button and the ESC key.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showSheet, setShowSheet] = React.useState(false);
+  return (
+    <>
+      <Button
+        inline
+        text="Open sheet"
+        onClick={() => { setShowSheet(!showSheet) }}
+      />
+      {showSheet && (
+        <Layer zIndex={new FixedZIndex(2)}>
+          <Sheet
+            accessibilityDismissButtonLabel="Dismiss"
+            accessibilitySheetLabel="Example sheet to demonstrate preventing close on outside click"
+            closeOnOutsideClick={false}
+            heading="Sheet that can't be closed by clicking outside"
+            onDismiss={() => { setShowSheet(!showSheet) }}
+            size="lg"
+          >
+            <Text>Click on the dismiss button or press the ESC key to close the sheet.</Text>
+          </Sheet>
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="defaultPaddingAndStylingExample"
+    name="Default padding &amp; styling"
+    description={`
+      Some of the padding required to style your sheet has already been provided for ease of use. The sheet shown
+      by clicking on the "View padding" button highlights the default behavior.
+      The shadow (when scrolling) between the \`heading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showSheet, setShowSheet] = React.useState(false);
+  return (
+    <>
+      <Button
+        inline
+        text="View default padding & styling"
+        onClick={() => { setShowSheet(!showSheet) }}
+      />
+      {showSheet && (
+        <Layer zIndex={new FixedZIndex(2)}>
+          <Sheet
+            accessibilityDismissButtonLabel="Close"
+            accessibilitySheetLabel="Example sheet to demonstrate default padding and styling"
+            heading="Sheet default styling"
+            onDismiss={() => { setShowSheet(!showSheet) }}
+            footer={
+              <Box color="lightGray">
+                <Heading size="md">Footer</Heading>
+              </Box>
+            }
+            size="md"
+          >
+            <Box marginBottom={2}>
+              <Text weight="bold">English</Text>
+              <Text>
+                <ol>
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                  <li>Five</li>
+                  <li>Six</li>
+                  <li>Seven</li>
+                  <li>Eight</li>
+                  <li>Nine</li>
+                  <li>Ten</li>
+                </ol>
+              </Text>
+            </Box>
+            <Box marginBottom={2}>
+              <Text weight="bold">Español</Text>
+              <Text>
+                <ol>
+                  <li>Uno</li>
+                  <li>Dos</li>
+                  <li>Tres</li>
+                  <li>Cuatro</li>
+                  <li>Cinco</li>
+                  <li>Seis</li>
+                  <li>Siete</li>
+                  <li>Ocho</li>
+                  <li>Nueve</li>
+                  <li>Diez</li>
+                </ol>
+              </Text>
+            </Box>
+            <Box marginBottom={2}>
+              <Text weight="bold">Português</Text>
+              <Text>
+                <ol>
+                  <li>Um</li>
+                  <li>Dois</li>
+                  <li>Três</li>
+                  <li>Quatro</li>
+                  <li>Cinco</li>
+                  <li>Seis</li>
+                  <li>Sete</li>
+                  <li>Oito</li>
+                  <li>Nove</li>
+                  <li>Dez</li>
+                </ol>
+              </Text>
+            </Box>
+            <Box marginBottom={2}>
+              <Text weight="bold">普通话</Text>
+              <Text>
+                <ol>
+                  <li>一</li>
+                  <li>二</li>
+                  <li>三</li>
+                  <li>四</li>
+                  <li>五</li>
+                  <li>六</li>
+                  <li>七</li>
+                  <li>八</li>
+                  <li>九</li>
+                  <li>十</li>
+                </ol>
+              </Text>
+            </Box>
+          </Sheet>
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Empty Sheet"
+    description={`
+      By design, the props children, footer and heading are all optional, so this example is just to demonstrate it's possible to have a completely empty Sheet, even though that is unlikely to be a real use case.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showSheet, setShowSheet] = React.useState(false);
+  return (
+    <>
+      <Button
+        inline
+        text="View empty sheet"
+        onClick={() => { setShowSheet(!showSheet) }}
+      />
+      {showSheet && (
+        <Layer zIndex={new FixedZIndex(2)}>
+          <Sheet
+            accessibilityDismissButtonLabel="Close"
+            accessibilitySheetLabel="Example to demonstrate empty sheet"
+            onDismiss={() => { setShowSheet(!showSheet) }}
+            size="sm"
+          />
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="refExample"
+    name="Example: ref"
+    description={`
+    A \`Sheet\` with focus using refs
+  `}
+    defaultCode={`
+function SheetRefExample() {
+  const [showSheet, setShowSheet] = React.useState(false);
+
+  const sheetRef = React.useRef(null);
+  const buttonRef = React.useRef(null);
+  const callbackRef = (node) => {
+    if (node !== null) {
+      sheetRef.current.style.backgroundColor = '#004b91';
+      buttonRef.current.focus();
+    }
+  }
+
+  return (
+    <>
+      <Button
+        inline
+        text="Open sheet"
+        onClick={() => { setShowSheet(!showSheet) }}
+      />
+      {showSheet && (
+        <Layer zIndex={new FixedZIndex(2)}>
+          <>
+            <Sheet
+              accessibilityDismissButtonLabel="Close"
+              accessibilitySheetLabel="Focused sheet"
+              onDismiss={() => { setShowSheet(!showSheet) }}
+              ref={sheetRef}
+              size="md"
+            >
+              <Box color="white" minHeight={400} padding={8}>
+                <Box marginBottom={4}>
+                  <Heading size="md">Focused content</Heading>
+                </Box>
+                <Button
+                  inline
+                  onClick={() => alert('Geronimoooo!')}
+                  ref={buttonRef}
+                  text="Focused button (Press Enter to be convinced)"
+                />
+              </Box>
+            </Sheet>
+            <div ref={callbackRef} />
+          </>
+        </Layer>
+      )}
+    </>
+  );
+}`}
+  />
+);
+
+card(
+  <Card
+    id="accessibilityExample"
+    description={`
+    We want to make sure every button on the page is unique when being read by screenreader.
+
+    - \`accessibilityDismissButtonLabel\` allows us to provide a short, descriptive label for screen-readers as a text alternative to the Dismiss button..
+    - \`accessibilitySheetLabel\` allows us to provide a short, descriptive label for screen-readers to contextualize the purpose of Sheet.
+
+    ~~~html
+    <Sheet
+      accessibilityDismissButtonLabel="Close"
+      accessibilitySheetLabel="Edit the details about your board House and Home"
+      heading="Edit board"
+      onDismiss={handleSheetDismiss}
+      footer={<Footer />}
+      size="lg"
+    >
+      {children}
+    </Sheet>
+    ~~~
+  `}
+    name="Accessibility Props"
+  />
+);
+
+card(
   <PropTable
     props={[
       {
@@ -121,347 +462,6 @@ card(
         href: 'sizesExample',
       },
     ]}
-  />
-);
-
-card(
-  <Example
-    id="sizesExample"
-    name="Sizes"
-    description={`
-      There are 3 different pre-selected widths available for a \`Sheet\`, as well as a last-resort option to set a custom width. Click on each button to view a sample Sheet of the specified size.
-      All Sheets have a max width of 100%.
-    `}
-    defaultCode={`
-function Example(props) {
-  function reducer(state, action) {
-    switch (action.type) {
-      case 'small':
-        return { heading: 'Small sheet', size: 'sm' };
-      case 'medium':
-        return { heading: 'Medium sheet', size: 'md' };
-      case 'large':
-        return { heading: 'Large sheet', size: 'lg' };
-      case 'none':
-        return { };
-      default:
-        throw new Error();
-    }
-  }
-
-  const initialState = {};
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-
-  return (
-    <>
-      <Box padding={1}>
-        <Button
-          inline
-          text="Small Sheet"
-          onClick={() => { dispatch({ type: 'small' }) }}
-        />        
-      </Box>
-      <Box padding={1}>
-        <Button
-          inline
-          text="Medium Sheet"
-          onClick={() => { dispatch({ type: 'medium' }) }}
-        />
-      </Box>
-      <Box padding={1}>
-        <Button
-          inline
-          text="Large Sheet"
-          onClick={() => { dispatch({ type: 'large' }) }}
-        />
-      </Box>
-      {state.size && (
-        <Layer zIndex={new FixedZIndex(2)}>
-          <Sheet
-            accessibilityDismissButtonLabel="Dismiss"
-            accessibilitySheetLabel="Example sheet to demonstrate different sizes"
-            footer={<Heading size="md">Footer</Heading>}
-            heading={state.heading}
-            onDismiss={() => { dispatch({ type: 'none' }) }}
-            size={state.size}
-          >
-            <Heading size="md">Children</Heading>
-          </Sheet>
-        </Layer>
-      )}    
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    id="closeOnOutsideClickExample"
-    name="Prevent close on outside click"
-    description={`
-      Sometimes we need the user to complete some required action at a Sheet. We can increase the user focus by preventing the user closing the sheet from clicking on the backdrop (gray area) outside of the Sheet.
-      For that you can set: \`closeOnOutsideClick\` to \`false\`.
-      PS: The user will still be able to close the Sheet via the Dismiss button and the ESC key.
-    `}
-    defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
-  return (
-    <>
-      <Button
-        inline
-        text="Open sheet"
-        onClick={() => { setShowSheet(!showSheet) }}
-      />
-      {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
-          <Sheet
-            accessibilityDismissButtonLabel="Dismiss"
-            accessibilitySheetLabel="Example sheet to demonstrate preventing close on outside click"
-            closeOnOutsideClick={false}
-            heading="Sheet that can't be closed by clicking outside"
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            size="lg"
-          >
-            <Text>Click on the dismiss button or press the ESC key to close the sheet.</Text>
-          </Sheet>
-        </Layer>
-      )}
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    id="defaultPaddingAndStylingExample"
-    name="Default padding &amp; styling"
-    description={`
-      Some of the padding required to style your sheet has already been provided for ease of use. The sheet shown
-      by clicking on the "View padding" button highlights the default behavior. 
-      The shadow (when scrolling) between the \`heading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
-    `}
-    defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
-  return (
-    <>
-      <Button
-        inline
-        text="View default padding & styling"
-        onClick={() => { setShowSheet(!showSheet) }}
-      />
-      {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close"
-            accessibilitySheetLabel="Example sheet to demonstrate default padding and styling"
-            heading="Sheet default styling"
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            footer={
-              <Box color="lightGray">
-                <Heading size="md">Footer</Heading>
-              </Box>
-            }
-            size="md"
-          >
-            <Box marginBottom={2}>
-              <Text weight="bold">English</Text>
-              <Text>
-                <ol>
-                  <li>One</li>
-                  <li>Two</li>
-                  <li>Three</li>
-                  <li>Four</li>
-                  <li>Five</li>
-                  <li>Six</li>
-                  <li>Seven</li>
-                  <li>Eight</li>
-                  <li>Nine</li>
-                  <li>Ten</li>
-                </ol>
-              </Text>
-            </Box>
-            <Box marginBottom={2}>
-              <Text weight="bold">Español</Text>
-              <Text>
-                <ol>
-                  <li>Uno</li>
-                  <li>Dos</li>
-                  <li>Tres</li>
-                  <li>Cuatro</li>
-                  <li>Cinco</li>
-                  <li>Seis</li>
-                  <li>Siete</li>
-                  <li>Ocho</li>
-                  <li>Nueve</li>
-                  <li>Diez</li>
-                </ol>
-              </Text>
-            </Box>
-            <Box marginBottom={2}>
-              <Text weight="bold">Português</Text>
-              <Text>
-                <ol>
-                  <li>Um</li>
-                  <li>Dois</li>
-                  <li>Três</li>
-                  <li>Quatro</li>
-                  <li>Cinco</li>
-                  <li>Seis</li>
-                  <li>Sete</li>
-                  <li>Oito</li>
-                  <li>Nove</li>
-                  <li>Dez</li>
-                </ol>
-              </Text>
-            </Box>  
-            <Box marginBottom={2}>
-              <Text weight="bold">普通话</Text>
-              <Text>
-                <ol>
-                  <li>一</li>
-                  <li>二</li>
-                  <li>三</li>
-                  <li>四</li>
-                  <li>五</li>
-                  <li>六</li>
-                  <li>七</li>
-                  <li>八</li>
-                  <li>九</li>
-                  <li>十</li>
-                </ol>
-              </Text>
-            </Box>            
-          </Sheet>
-        </Layer>
-      )}
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    name="Empty Sheet"
-    description={`
-      By design, the props children, footer and heading are all optional, so this example is just to demonstrate it's possible to have a completely empty Sheet, even though that is unlikely to be a real use case.
-    `}
-    defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
-  return (
-    <>
-      <Button
-        inline
-        text="View empty sheet"
-        onClick={() => { setShowSheet(!showSheet) }}
-      />
-      {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close"
-            accessibilitySheetLabel="Example to demonstrate empty sheet"
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            size="sm"
-          />
-        </Layer>
-      )}
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    id="refExample"
-    name="Example: ref"
-    description={`
-    A \`Sheet\` with focus using refs
-  `}
-    defaultCode={`
-function SheetRefExample() {
-  const [showSheet, setShowSheet] = React.useState(false);
-
-  const sheetRef = React.useRef(null);
-  const buttonRef = React.useRef(null);
-  const callbackRef = (node) => {
-    if (node !== null) {
-      sheetRef.current.style.backgroundColor = '#004b91';
-      buttonRef.current.focus();
-    }
-  }
-
-  return (
-    <>
-      <Button
-        inline
-        text="Open sheet"
-        onClick={() => { setShowSheet(!showSheet) }}
-      />
-      {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
-          <>
-            <Sheet
-              accessibilityDismissButtonLabel="Close"
-              accessibilitySheetLabel="Focused sheet"
-              onDismiss={() => { setShowSheet(!showSheet) }}
-              ref={sheetRef}
-              size="md"
-            >
-              <Box color="white" minHeight={400} padding={8}>
-                <Box marginBottom={4}>
-                  <Heading size="md">Focused content</Heading>                
-                </Box>
-                <Button 
-                  inline 
-                  onClick={() => alert('Geronimoooo!')}
-                  ref={buttonRef} 
-                  text="Focused button (Press Enter to be convinced)" 
-                />
-              </Box>
-            </Sheet>
-            <div ref={callbackRef} />
-          </>
-        </Layer>
-      )}
-    </>
-  );
-}`}
-  />
-);
-
-card(
-  <Card
-    id="accessibilityExample"
-    description={`
-    We want to make sure every button on the page is unique when being read by screenreader.
-
-    - \`accessibilityDismissButtonLabel\` allows us to provide a short, descriptive label for screen-readers as a text alternative to the Dismiss button..
-    - \`accessibilitySheetLabel\` allows us to provide a short, descriptive label for screen-readers to contextualize the purpose of Sheet.
-
-    ~~~html
-    <Sheet
-      accessibilityDismissButtonLabel="Close"
-      accessibilitySheetLabel="Edit the details about your board House and Home"
-      heading="Edit board"
-      onDismiss={handleSheetDismiss}
-      footer={<Footer />}
-      size="lg"
-    >
-      {children}
-    </Sheet>
-    ~~~
-  `}
-    name="Accessibility Props"
   />
 );
 

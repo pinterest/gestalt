@@ -17,58 +17,6 @@ The \`Heading\` component allows you to show headings on the page & has a bigger
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityLevel',
-        type: '1 | 2 | 3 | 4 | 5 | 6',
-        description: 'Allows you to override the default heading level',
-        href: 'levels',
-      },
-      {
-        name: 'align',
-        type: `"left" | "right" | "center" | "justify"`,
-        defaultValue: 'left',
-        href: 'align',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'color',
-        type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
-        defaultValue: 'darkGray',
-        href: 'colors',
-      },
-      {
-        name: 'id',
-        type: 'string',
-      },
-      {
-        name: 'overflow',
-        type: '"normal" | "breakWord"',
-        defaultValue: 'breakWord',
-        href: 'overflowTruncation',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md" | "lg"`,
-        description: `sm: 20px, md: 28px, lg: 36px`,
-        defaultValue: 'lg',
-        href: 'sizes',
-      },
-      {
-        name: 'truncate',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'overflowTruncation',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="sizes"
     name="Example: Sizes"
@@ -188,6 +136,58 @@ card(
   </Heading>
 </Box>
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilityLevel',
+        type: '1 | 2 | 3 | 4 | 5 | 6',
+        description: 'Allows you to override the default heading level',
+        href: 'levels',
+      },
+      {
+        name: 'align',
+        type: `"left" | "right" | "center" | "justify"`,
+        defaultValue: 'left',
+        href: 'align',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'color',
+        type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
+        defaultValue: 'darkGray',
+        href: 'colors',
+      },
+      {
+        name: 'id',
+        type: 'string',
+      },
+      {
+        name: 'overflow',
+        type: '"normal" | "breakWord"',
+        defaultValue: 'breakWord',
+        href: 'overflowTruncation',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md" | "lg"`,
+        description: `sm: 20px, md: 28px, lg: 36px`,
+        defaultValue: 'lg',
+        href: 'sizes',
+      },
+      {
+        name: 'truncate',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'overflowTruncation',
+      },
+    ]}
   />
 );
 

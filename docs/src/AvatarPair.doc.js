@@ -10,25 +10,6 @@ const card = c => cards.push(c);
 card(<PageHeader name="AvatarPair" description="Show avatars in pairs" />);
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'collaborators',
-        type: 'Array<{| name: string, src?: string |}>',
-        required: true,
-      },
-      {
-        name: 'size',
-        type: `"md" | "lg" | "fit"`,
-        defaultValue: 'fit',
-        description:
-          'md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     name="Example: Basic"
     defaultCode={`
@@ -70,6 +51,25 @@ card(
   />
 </Box>
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'collaborators',
+        type: 'Array<{| name: string, src?: string |}>',
+        required: true,
+      },
+      {
+        name: 'size',
+        type: `"md" | "lg" | "fit"`,
+        defaultValue: 'fit',
+        description:
+          'md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width',
+      },
+    ]}
   />
 );
 

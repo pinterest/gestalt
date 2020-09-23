@@ -10,6 +10,36 @@ const card = c => cards.push(c);
 card(<PageHeader name="Spinner" />);
 
 card(
+  <Example
+    description={`
+    Spinners indicate when a user has to wait for something else to occur. They delay showing for 300ms to improve perceived performance.
+
+    The label on a spinner is for accessibility. You should pick labels that relate to the specific part of the product it's being used in ("Loading homefeed" for instance).
+  `}
+    name="Example"
+    defaultCode={`
+function SpinnerExample() {
+  const [show, setShow] = React.useState(false);
+
+  return (
+    <Box>
+      <Box paddingY={2}>
+        <Button
+          inline
+          text={!show ? "Show spinner" : "Hide spinner"}
+          onClick={() => setShow(!show)}
+          size="md"
+        />
+      </Box>
+      <Spinner show={show} accessibilityLabel="Example spinner" />
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
   <PropTable
     props={[
       {
@@ -40,36 +70,6 @@ card(
         defaultValue: 'md',
       },
     ]}
-  />
-);
-
-card(
-  <Example
-    description={`
-    Spinners indicate when a user has to wait for something else to occur. They delay showing for 300ms to improve perceived performance.
-
-    The label on a spinner is for accessibility. You should pick labels that relate to the specific part of the product it's being used in ("Loading homefeed" for instance).
-  `}
-    name="Example"
-    defaultCode={`
-function SpinnerExample() {
-  const [show, setShow] = React.useState(false);
-
-  return (
-    <Box>
-      <Box paddingY={2}>
-        <Button
-          inline
-          text={!show ? "Show spinner" : "Hide spinner"}
-          onClick={() => setShow(!show)}
-          size="md"
-        />
-      </Box>
-      <Spinner show={show} accessibilityLabel="Example spinner" />
-    </Box>
-  );
-}
-`}
   />
 );
 

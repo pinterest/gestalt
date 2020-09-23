@@ -15,23 +15,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'htmlFor',
-        type: 'string',
-        required: true,
-        description: 'Id of the element this label is describing',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     description={`
     Whenever you are using a [SelectList](#/SelectList), [Switch](#/Switch), [TextField](#/TextField) or [TextArea](#/TextArea) component, you should use a \`Label\`.
@@ -57,6 +40,23 @@ function LabelExample() {
   );
 }
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'htmlFor',
+        type: 'string',
+        required: true,
+        description: 'Id of the element this label is describing',
+      },
+    ]}
   />
 );
 

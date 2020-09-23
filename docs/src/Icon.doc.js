@@ -22,6 +22,45 @@ Show icons with different colors and sizes in an accessible way.
 );
 
 card(
+  <Example
+    id="iconWithLabel"
+    description="Icon with a label"
+    name="Example"
+    defaultCode={`
+<Box alignItems="center" display="flex">
+  <Box marginRight={1} padding={1}>
+    <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
+  </Box>
+  <Text align="center" color="darkGray" weight="bold">
+    Pinterest
+  </Text>
+</Box>
+`}
+  />
+);
+
+card(
+  <Combination id="iconCombinations" name="Icon Combinations" icon={icons}>
+    {props => (
+      <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
+    )}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="sizeColorCombinations"
+    name="Size & Color Combinations"
+    size={[16, 24, 32]}
+    color={['gray', 'darkGray', 'red']}
+  >
+    {(props, i) => (
+      <Icon key={i} icon="heart" accessibilityLabel="" {...props} />
+    )}
+  </Combination>
+);
+
+card(
   <PropTable
     props={[
       {
@@ -63,45 +102,6 @@ card(
       },
     ]}
   />
-);
-
-card(
-  <Example
-    id="iconWithLabel"
-    description="Icon with a label"
-    name="Example"
-    defaultCode={`
-<Box alignItems="center" display="flex">
-  <Box marginRight={1} padding={1}>
-    <Icon icon="pin" accessibilityLabel="Pin" color="darkGray" />
-  </Box>
-  <Text align="center" color="darkGray" weight="bold">
-    Pinterest
-  </Text>
-</Box>
-`}
-  />
-);
-
-card(
-  <Combination id="iconCombinations" name="Icon Combinations" icon={icons}>
-    {props => (
-      <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
-    )}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="sizeColorCombinations"
-    name="Size & Color Combinations"
-    size={[16, 24, 32]}
-    color={['gray', 'darkGray', 'red']}
-  >
-    {(props, i) => (
-      <Icon key={i} icon="heart" accessibilityLabel="" {...props} />
-    )}
-  </Combination>
 );
 
 export default cards;

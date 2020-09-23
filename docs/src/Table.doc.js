@@ -17,30 +17,6 @@ card(
 );
 
 card(
-  <PropTable
-    Component={Table}
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'borderSize',
-        type: `"sm" | "none"`,
-        description: 'Specify a border width for table: "sm" is 1px',
-        defaultValue: 'none',
-      },
-      {
-        name: 'maxHeight',
-        type: `number | string`,
-        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
-        href: 'stickyHeader',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     name="Example: Basic Table"
     defaultCode={`
@@ -401,6 +377,30 @@ card(
       );
     }
 `}
+  />
+);
+
+card(
+  <PropTable
+    Component={Table}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'borderSize',
+        type: `"sm" | "none"`,
+        description: 'Specify a border width for table: "sm" is 1px',
+        defaultValue: 'none',
+      },
+      {
+        name: 'maxHeight',
+        type: `number | string`,
+        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
+        href: 'stickyHeader',
+      },
+    ]}
   />
 );
 
