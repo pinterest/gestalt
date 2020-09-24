@@ -34,6 +34,11 @@ card(
             <Link href="https://github.com/nvm-sh/nvm#usage">Install node</Link>
           </Text>
         </li>
+        <li>
+          <Text weight="bold">
+            <Link href="https://classic.yarnpkg.com/en/docs/install">Install yarn</Link>
+          </Text>
+        </li>
       </ul>
     </Stack>
   </Card>
@@ -71,15 +76,16 @@ git clone git@github.com:<YOUR_USERNAME>/gestalt.git
 cd gestalt && nvm use
 ~~~"
           />
+          <Text>
+            If the node version isn&apos;t available,{' '}
+            <Link href="https://github.com/nvm-sh/nvm#usage" inline>
+              <Text weight="bold">install it locally</Text>
+            </Link>
+            .
+          </Text>
         </li>
       </ul>
-      <Text>
-        If the node version isn&apos;t available,{' '}
-        <Link href="https://github.com/nvm-sh/nvm#usage" inline>
-          <Text weight="bold">install it locally</Text>
-        </Link>
-        .
-      </Text>
+
 
       <ul>
         <li>
