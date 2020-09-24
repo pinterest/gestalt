@@ -16,23 +16,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        description: `An object representing the zIndex value of the Layer.`,
-      },
-    ]}
-  />
-);
-
-card(
   <Card
     description="
     Because creating a portal in Layer depends on DOM manipulation, if document is not present,
@@ -123,6 +106,23 @@ function zIndexExample() {
   );
 }
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+        required: true,
+      },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        description: `An object representing the zIndex value of the Layer.`,
+      },
+    ]}
   />
 );
 

@@ -17,24 +17,6 @@ or combination with other education components for more instructions."
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'paused',
-        type: 'boolean',
-        defaultValue: false,
-      },
-      {
-        name: 'size',
-        type: `number`,
-        description: `Use numbers for pixel sizes`,
-        defaultValue: 136,
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     description={`
     Pulsars can be shown and hidden using the \`paused\` prop.
@@ -127,6 +109,24 @@ class FlyoutExample extends React.Component {
   }
 }
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'paused',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
+        name: 'size',
+        type: `number`,
+        description: `Use numbers for pixel sizes`,
+        defaultValue: 136,
+      },
+    ]}
   />
 );
 

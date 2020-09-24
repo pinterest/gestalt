@@ -15,6 +15,57 @@ card(
 );
 
 card(
+  <Example
+    name="Info Example"
+    defaultCode={`
+<Callout
+  type="info"
+  iconAccessibilityLabel="Info icon"
+  title="Your business account was successfully created!"
+  message="Get a badge, show up in more shopping experiences and more. Apply to the Verified Merchant Program—it’s free!"
+  primaryLink={{href: "https://pinterest.com", label:"Get started"}}
+  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  />
+`}
+  />
+);
+
+card(
+  <Example
+    name="Warning Example"
+    defaultCode={`
+<Callout
+  type="warning"
+  iconAccessibilityLabel="Warning icon"
+  message="This feature will be removed in two weeks."
+  primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+/>
+  `}
+  />
+);
+
+card(
+  <Example
+    name="Error Example"
+    defaultCode={`
+<Callout
+  type="error"
+  iconAccessibilityLabel="Error icon"
+  message="This action can't be undone."
+/>
+  `}
+  />
+);
+
+card(
   <PropTable
     props={[
       {
@@ -105,57 +156,6 @@ card(
         href: '',
       },
     ]}
-  />
-);
-
-card(
-  <Example
-    name="Info Example"
-    defaultCode={`
-<Callout
-  type="info"
-  iconAccessibilityLabel="Info icon"
-  title="Your business account was successfully created!"
-  message="Get a badge, show up in more shopping experiences and more. Apply to the Verified Merchant Program—it’s free!"
-  primaryLink={{href: "https://pinterest.com", label:"Get started"}}
-  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
-  }}
-  />
-`}
-  />
-);
-
-card(
-  <Example
-    name="Warning Example"
-    defaultCode={`
-<Callout
-  type="warning"
-  iconAccessibilityLabel="Warning icon"
-  message="This feature will be removed in two weeks."
-  primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
-  }}
-/>
-  `}
-  />
-);
-
-card(
-  <Example
-    name="Error Example"
-    defaultCode={`
-<Callout
-  type="error"
-  iconAccessibilityLabel="Error icon"
-  message="This action can't be undone."
-/>
-  `}
   />
 );
 

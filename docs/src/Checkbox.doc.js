@@ -17,79 +17,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'checked',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'combinations',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'combinations',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-      },
-      {
-        name: 'hasError',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'hasError',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'indeterminate',
-        type: 'boolean',
-        defaultValue: false,
-        description: `Indeterminism is
-purely presentational - the value of
-a checkbox and its indeterminism are independent.`,
-        href: 'combinations',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-      },
-      {
-        name: 'onChange',
-        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
-        required: true,
-      },
-      {
-        name: 'onClick',
-        type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-        href: 'refExample',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md"`,
-        defaultValue: 'md',
-        description: `"sm" is 16px & "md" is 24px`,
-        href: 'combinations',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="single"
     name="Example"
@@ -303,6 +230,79 @@ card(
       <Checkbox id={`example-${i}`} onChange={() => {}} {...props} />
     )}
   </Combination>
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'checked',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
+        name: 'errorMessage',
+        type: 'string',
+      },
+      {
+        name: 'hasError',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'hasError',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'indeterminate',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Indeterminism is
+purely presentational - the value of
+a checkbox and its indeterminism are independent.`,
+        href: 'combinations',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+      },
+      {
+        name: 'onChange',
+        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
+        required: true,
+      },
+      {
+        name: 'onClick',
+        type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'refExample',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md"`,
+        defaultValue: 'md',
+        description: `"sm" is 16px & "md" is 24px`,
+        href: 'combinations',
+      },
+    ]}
+  />
 );
 
 export default cards;

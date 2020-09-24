@@ -17,66 +17,6 @@ Like Masonry, Collage creates a deterministic grid layout that can absolutely po
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'columns',
-        type: 'number',
-        description: 'Number of columns (2 - 4)',
-        required: true,
-        href: 'columns',
-      },
-      {
-        name: 'cover',
-        type: 'boolean',
-        description: 'Whether or not the first image is a cover image',
-        defaultValue: false,
-        href: 'coverImage',
-      },
-      {
-        name: 'gutter',
-        type: 'number',
-        description: 'The amount of vertical & horizontal space between images',
-        defaultValue: 0,
-        href: 'gutter',
-      },
-      {
-        name: 'height',
-        type: 'number',
-        description: 'Height of the collage',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'layoutKey',
-        type: 'number',
-        description: `
-        Depending on the number of columns of the collage, there may be multiple layouts available.
-        If there are N layouts available, (layoutKey % N) will determine which layout is used.
-        `,
-        defaultValue: 0,
-        href: 'layoutKey',
-      },
-      {
-        name: 'renderImage',
-        type:
-          '({ width: number, height: number, index: number }) => React.Node',
-        description: 'Render prop for the collage images',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'width',
-        type: 'number',
-        description: 'Width of the collage',
-        required: true,
-        href: 'basicExample',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="basicExample"
     name="Basic example"
@@ -509,6 +449,66 @@ card(
   ))}
 </Box>
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'columns',
+        type: 'number',
+        description: 'Number of columns (2 - 4)',
+        required: true,
+        href: 'columns',
+      },
+      {
+        name: 'cover',
+        type: 'boolean',
+        description: 'Whether or not the first image is a cover image',
+        defaultValue: false,
+        href: 'coverImage',
+      },
+      {
+        name: 'gutter',
+        type: 'number',
+        description: 'The amount of vertical & horizontal space between images',
+        defaultValue: 0,
+        href: 'gutter',
+      },
+      {
+        name: 'height',
+        type: 'number',
+        description: 'Height of the collage',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'layoutKey',
+        type: 'number',
+        description: `
+        Depending on the number of columns of the collage, there may be multiple layouts available.
+        If there are N layouts available, (layoutKey % N) will determine which layout is used.
+        `,
+        defaultValue: 0,
+        href: 'layoutKey',
+      },
+      {
+        name: 'renderImage',
+        type:
+          '({ width: number, height: number, index: number }) => React.Node',
+        description: 'Render prop for the collage images',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'width',
+        type: 'number',
+        description: 'Width of the collage',
+        required: true,
+        href: 'basicExample',
+      },
+    ]}
   />
 );
 

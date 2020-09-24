@@ -13,98 +13,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'autoComplete',
-        type: `"current-password" | "new-password" | "on" | "off" | "username"`,
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: 'false',
-        href: 'disabledExample',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-        href: 'errorMessageExample',
-      },
-      {
-        name: 'helperText',
-        type: 'string',
-        description: 'More information about how to complete the form field',
-        href: 'helperText',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-      },
-      {
-        name: 'onBlur',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
-      },
-      {
-        name: 'onChange',
-        type:
-          '({ event: SyntheticInputEvent<HTMLInputElement>, value: string }) => void',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'onFocus',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
-      },
-      {
-        name: 'onKeyDown',
-        type:
-          '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
-        name: 'type',
-        type: `"date" | "email" | "number" | "password" | "text" | "url"`,
-        defaultValue: 'text',
-        href: 'basicExample',
-      },
-      {
-        name: 'value',
-        type: 'string',
-        href: 'basicExample',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="basicExample"
     name="Example"
@@ -264,6 +172,98 @@ card(
     in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
   `}
     name="onSubmit"
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'autoComplete',
+        type: `"current-password" | "new-password" | "on" | "off" | "username"`,
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: 'false',
+        href: 'disabledExample',
+      },
+      {
+        name: 'errorMessage',
+        type: 'string',
+        href: 'errorMessageExample',
+      },
+      {
+        name: 'helperText',
+        type: 'string',
+        description: 'More information about how to complete the form field',
+        href: 'helperText',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+      },
+      {
+        name: 'onBlur',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
+      },
+      {
+        name: 'onChange',
+        type:
+          '({ event: SyntheticInputEvent<HTMLInputElement>, value: string }) => void',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'onFocus',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLInputElement>, value: string }) => void',
+      },
+      {
+        name: 'onKeyDown',
+        type:
+          '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
+      },
+      {
+        name: 'placeholder',
+        type: 'string',
+        href: 'basicExample',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+      },
+      {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+      {
+        name: 'type',
+        type: `"date" | "email" | "number" | "password" | "text" | "url"`,
+        defaultValue: 'text',
+        href: 'basicExample',
+      },
+      {
+        name: 'value',
+        type: 'string',
+        href: 'basicExample',
+      },
+    ]}
   />
 );
 

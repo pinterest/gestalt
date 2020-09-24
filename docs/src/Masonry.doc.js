@@ -18,98 +18,6 @@ It contains performance optimizations like virtualization and support for infini
   />
 );
 
-card(
-  <PropTable
-    props={[
-      {
-        name: 'columnWidth',
-        type: 'number',
-        defaultValue: 236,
-        description:
-          'Specifies a fixed width of elements in the grid. However, using flexible is preferred.',
-      },
-      {
-        name: 'comp',
-        type: 'React.ComponentType',
-        required: true,
-        description:
-          'A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: `data: T`, `itemIdx: number`, and `isMeasuring: boolean`.',
-      },
-      {
-        name: 'flexible',
-        type: 'boolean',
-        defaultValue: false,
-        description:
-          'Item width will grow to fill column space and shrink to fit if below min columns.',
-      },
-      {
-        name: 'gutterWidth',
-        type: `number`,
-        defaultValue: 'null',
-        description:
-          'The amount of vertical and horizontal space between each item, specified in pixels.',
-      },
-      {
-        name: 'items',
-        type: 'T[]',
-        required: true,
-        description:
-          'An array of items to display that contains the information that `comp` needs to render.',
-      },
-      {
-        name: 'minCols',
-        type: 'number',
-        defaultValue: 3,
-        description: 'Minimum number of columns to display.',
-      },
-      {
-        name: 'loadItems',
-        type: '() => void',
-        description:
-          'A callback when the user scrolls and you need to load more items into the grid. Note that `scrollContainer` must be specified.',
-      },
-      {
-        name: 'scrollContainer',
-        type: '() => HTMLElement',
-        description:
-          'A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.',
-      },
-      {
-        name: 'virtualize',
-        type: 'boolean',
-        description:
-          'Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user’s viewport and scroll position. Note that `scrollContainer` must be specified when virtualizing.',
-        defaultValue: false,
-      },
-      {
-        name: 'virtualBoundsTop',
-        type: 'number',
-        description:
-          'If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.',
-      },
-      {
-        name: 'virtualBoundsBottom',
-        type: 'number',
-        description:
-          'If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.',
-      },
-      {
-        name: 'measurementStore',
-        type: 'typeof MeasurementStore',
-        description:
-          'Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.',
-      },
-      {
-        name: 'layout',
-        type: 'MasonryDefaultLayout | MasonryUniformRowLayout',
-        defaultValue: 'MasonryDefaultLayout',
-        description:
-          'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
-      },
-    ]}
-  />
-);
-
 type Props = {|
   flexible?: boolean,
   layout?: () => {||},
@@ -325,6 +233,98 @@ card(
     {/* $FlowIssue[prop-missing] */}
     <ExampleMasonry layout={MasonryUniformRowLayout} />
   </Box>
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'columnWidth',
+        type: 'number',
+        defaultValue: 236,
+        description:
+          'Specifies a fixed width of elements in the grid. However, using flexible is preferred.',
+      },
+      {
+        name: 'comp',
+        type: 'React.ComponentType',
+        required: true,
+        description:
+          'A React component (or stateless functional component) that renders the item you would like displayed in the grid. This component is passed three props: `data: T`, `itemIdx: number`, and `isMeasuring: boolean`.',
+      },
+      {
+        name: 'flexible',
+        type: 'boolean',
+        defaultValue: false,
+        description:
+          'Item width will grow to fill column space and shrink to fit if below min columns.',
+      },
+      {
+        name: 'gutterWidth',
+        type: `number`,
+        defaultValue: 'null',
+        description:
+          'The amount of vertical and horizontal space between each item, specified in pixels.',
+      },
+      {
+        name: 'items',
+        type: 'T[]',
+        required: true,
+        description:
+          'An array of items to display that contains the information that `comp` needs to render.',
+      },
+      {
+        name: 'minCols',
+        type: 'number',
+        defaultValue: 3,
+        description: 'Minimum number of columns to display.',
+      },
+      {
+        name: 'loadItems',
+        type: '() => void',
+        description:
+          'A callback when the user scrolls and you need to load more items into the grid. Note that `scrollContainer` must be specified.',
+      },
+      {
+        name: 'scrollContainer',
+        type: '() => HTMLElement',
+        description:
+          'A function that returns a DOM node that Masonry uses for on-scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.',
+      },
+      {
+        name: 'virtualize',
+        type: 'boolean',
+        description:
+          'Specifies whether or not Masonry dynamically adds/removes content from the grid based on the user’s viewport and scroll position. Note that `scrollContainer` must be specified when virtualizing.',
+        defaultValue: false,
+      },
+      {
+        name: 'virtualBoundsTop',
+        type: 'number',
+        description:
+          'If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsTop` allows customization of the buffer size above the viewport, specified in pixels.',
+      },
+      {
+        name: 'virtualBoundsBottom',
+        type: 'number',
+        description:
+          'If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.',
+      },
+      {
+        name: 'measurementStore',
+        type: 'typeof MeasurementStore',
+        description:
+          'Masonry internally caches item sizes/positions using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.',
+      },
+      {
+        name: 'layout',
+        type: 'MasonryDefaultLayout | MasonryUniformRowLayout',
+        defaultValue: 'MasonryDefaultLayout',
+        description:
+          'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
+      },
+    ]}
+  />
 );
 
 export default cards;

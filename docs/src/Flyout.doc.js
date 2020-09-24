@@ -17,73 +17,6 @@ or to make the interaction feel faster."
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'anchor',
-        type: '?HTMLElement',
-        required: true,
-        description: 'Ref for the element that the Flyout will attach to',
-        href: 'anchor',
-      },
-      {
-        name: 'idealDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the Flyout to open',
-        href: 'idealDirection',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'positionRelativeToAnchor',
-        type: 'boolean',
-        defaultValue: true,
-        description:
-          'Depicts if the Flyout shares a relative root with the anchor element',
-        href: 'anchor',
-      },
-      {
-        name: 'color',
-        type: `"blue" | "orange" | "red" | "white" | "darkGray"`,
-        defaultValue: 'white',
-        description:
-          'The background color of the Flyout; red matches other default error messaging',
-        href: 'errorFlyout',
-      },
-      {
-        name: 'shouldFocus',
-        type: 'boolean',
-        defaultValue: true,
-        description: 'Focus on the flyout when opened',
-        href: 'errorFlyout',
-      },
-      {
-        name: 'showCaret',
-        type: 'boolean',
-        defaultValue: false,
-        description: 'Show the caret on the flyout',
-        href: 'showCaret',
-      },
-      {
-        name: 'size',
-        type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number`,
-        description: `xs: 180px, sm: 230px, md: 284px, lg: 320px, xl: 360px, flexible: no inherent sizing from flyout. Sets the maximum width of the Flyout.`,
-        defaultValue: 'sm',
-        href: 'basicExample',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="basicExample"
     name="Example"
@@ -257,6 +190,73 @@ card(
     * \`aria-expanded\` informs the screenreader whether the flyout is currently open or closed.
   `}
     name="Accessibility"
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'anchor',
+        type: '?HTMLElement',
+        required: true,
+        description: 'Ref for the element that the Flyout will attach to',
+        href: 'anchor',
+      },
+      {
+        name: 'idealDirection',
+        type: `'up' | 'right' | 'down' | 'left'`,
+        description: 'Preferred direction for the Flyout to open',
+        href: 'idealDirection',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'onDismiss',
+        type: '() => void',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'positionRelativeToAnchor',
+        type: 'boolean',
+        defaultValue: true,
+        description:
+          'Depicts if the Flyout shares a relative root with the anchor element',
+        href: 'anchor',
+      },
+      {
+        name: 'color',
+        type: `"blue" | "orange" | "red" | "white" | "darkGray"`,
+        defaultValue: 'white',
+        description:
+          'The background color of the Flyout; red matches other default error messaging',
+        href: 'errorFlyout',
+      },
+      {
+        name: 'shouldFocus',
+        type: 'boolean',
+        defaultValue: true,
+        description: 'Focus on the flyout when opened',
+        href: 'errorFlyout',
+      },
+      {
+        name: 'showCaret',
+        type: 'boolean',
+        defaultValue: false,
+        description: 'Show the caret on the flyout',
+        href: 'showCaret',
+      },
+      {
+        name: 'size',
+        type: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number`,
+        description: `xs: 180px, sm: 230px, md: 284px, lg: 320px, xl: 360px, flexible: no inherent sizing from flyout. Sets the maximum width of the Flyout.`,
+        defaultValue: 'sm',
+        href: 'basicExample',
+      },
+    ]}
   />
 );
 

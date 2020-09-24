@@ -17,205 +17,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers to provide context about the icon button component behavior. IconButton does not have text for screen reader to read and provide context. Therefore, we must pass an alternative text.',
-          'Accessibility: It populates aria-label.',
-        ],
-        href: 'basic',
-      },
-      {
-        name: 'accessibilityControls',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          `Specify the 'id' of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.`,
-          'Optional with button-role buttons.',
-          'Accessibility: It populates aria-controls.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityExpanded',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
-          'Optional with button-role buttons.',
-          'Accessibility: It populates aria-expanded.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityHaspopup',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
-          'Optional with button-role buttons.',
-          'Accessibility: It populates aria-haspopup.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'bgColor',
-        type:
-          '"transparent" | "transparentDarkGray" | "darkGray" | "gray" | "lightGray" | "white" | "red"',
-        required: false,
-        defaultValue: 'transparent',
-        description: 'Primary colors to apply to the button background.',
-        href: 'backgroundColorCombinations',
-      },
-      {
-        name: 'dangerouslySetSvgPath',
-        type: `{ __path: string }`,
-        required: false,
-        defaultValue: null,
-        description: [
-          'Define a new icon different from the built-in Gestalt icons.',
-          `When using 'dangerouslySetSvgPath', the viewbox around the SVG path must be 24x24 px`,
-        ],
-        href: 'icon',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description:
-          'Set disabled state so IconButton looks inactive, cannot be interacted with, and actions are not available.',
-        href: 'roles',
-      },
-      {
-        name: 'iconColor',
-        type: `"darkGray" | "gray" | "red" | "white"`,
-        required: false,
-        defaultValue: 'gray',
-        description: 'Primary color to apply to the Gestalt Icon.',
-        href: 'iconColor',
-      },
-      {
-        name: 'icon',
-        type: '$Keys<typeof icons>',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Add a Gestalt icon to be displayed and convey the behaviour of the button.',
-          `Accessibility: Icons are visual information and are not accessible for screen readers. 'accessibilityLabel' must be passed to provide sufficient context to the IconButton.`,
-        ],
-        href: 'icon',
-      },
-      {
-        name: 'href',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Specify a link URL.',
-          'Required with link-role buttons.',
-        ],
-        href: 'roles',
-      },
-      {
-        name: 'onClick',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard.',
-          'Required with button-role buttons.',
-        ],
-        href: 'selected',
-      },
-      {
-        name: 'padding',
-        type: `1 | 2 | 3 | 4 | 5`,
-        required: false,
-        defaultValue: null,
-        description: [
-          'Sets a padding for the IconButton.',
-          `Combine the 'padding' with 'size' options for different icon/button size ratios. If omitted, padding is derived from the default padding for each 'size' prop.`,
-          'Padding options are 1-5 representing the padding in boints.',
-        ],
-        href: 'padding',
-      },
-      {
-        name: 'rel',
-        type: `'none' | 'nofollow'`,
-        required: false,
-        defaultValue: 'none',
-        description: 'Optional with link-role buttons.',
-        href: 'roles',
-      },
-      {
-        name: 'ref',
-        type: `React.Ref<'button'> | React.Ref<'a'>`,
-        description:
-          'Forward the ref to the underlying button or anchor element',
-        href: 'ref',
-      },
-      {
-        name: 'role',
-        type: `'button' | 'link'`,
-        required: false,
-        defaultValue: 'button',
-        description: [
-          `Select a button variant:`,
-          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
-          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
-          `Required with link-role buttons.`,
-        ],
-        href: 'roles',
-      },
-      {
-        name: 'selected',
-        type: 'boolean',
-        required: false,
-        defaultValue: false,
-        description: [
-          'Control the "selected" state of a button component to toggle binary states.',
-          'Optional with button-role + button-type buttons.',
-        ],
-        href: 'selected',
-      },
-      {
-        name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
-        required: false,
-        defaultValue: 'md',
-        description:
-          'Display an IconButton in different sizes. Size changes the component padding modifying its fixed height & width: xs (24px), sm (32px), md (40px), lg (48px), xl (56px).',
-        href: 'size',
-      },
-      {
-        name: 'target',
-        type: `null | 'self' | 'blank'`,
-        required: false,
-        defaultValue: 'null',
-        description: [
-          'Define the frame or window to open the anchor defined on `href`:',
-          `- 'null' opens the anchor in the same window.`,
-          `- 'blank' opens the anchor in a new window.`,
-          `- 'self' opens an anchor in the same frame.`,
-          'Optional with link-role buttons.',
-        ],
-        href: 'roles',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     name="Basic IconButton"
     id="basic"
@@ -481,6 +282,205 @@ function MenuIconButtonExample() {
   );
 }
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilityLabel',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers to provide context about the icon button component behavior. IconButton does not have text for screen reader to read and provide context. Therefore, we must pass an alternative text.',
+          'Accessibility: It populates aria-label.',
+        ],
+        href: 'basic',
+      },
+      {
+        name: 'accessibilityControls',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          `Specify the 'id' of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.`,
+          'Optional with button-role buttons.',
+          'Accessibility: It populates aria-controls.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'accessibilityExpanded',
+        type: 'boolean',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
+          'Optional with button-role buttons.',
+          'Accessibility: It populates aria-expanded.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'accessibilityHaspopup',
+        type: 'boolean',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
+          'Optional with button-role buttons.',
+          'Accessibility: It populates aria-haspopup.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'bgColor',
+        type:
+          '"transparent" | "transparentDarkGray" | "darkGray" | "gray" | "lightGray" | "white" | "red"',
+        required: false,
+        defaultValue: 'transparent',
+        description: 'Primary colors to apply to the button background.',
+        href: 'backgroundColorCombinations',
+      },
+      {
+        name: 'dangerouslySetSvgPath',
+        type: `{ __path: string }`,
+        required: false,
+        defaultValue: null,
+        description: [
+          'Define a new icon different from the built-in Gestalt icons.',
+          `When using 'dangerouslySetSvgPath', the viewbox around the SVG path must be 24x24 px`,
+        ],
+        href: 'icon',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        required: false,
+        defaultValue: null,
+        description:
+          'Set disabled state so IconButton looks inactive, cannot be interacted with, and actions are not available.',
+        href: 'roles',
+      },
+      {
+        name: 'iconColor',
+        type: `"darkGray" | "gray" | "red" | "white"`,
+        required: false,
+        defaultValue: 'gray',
+        description: 'Primary color to apply to the Gestalt Icon.',
+        href: 'iconColor',
+      },
+      {
+        name: 'icon',
+        type: '$Keys<typeof icons>',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Add a Gestalt icon to be displayed and convey the behaviour of the button.',
+          `Accessibility: Icons are visual information and are not accessible for screen readers. 'accessibilityLabel' must be passed to provide sufficient context to the IconButton.`,
+        ],
+        href: 'icon',
+      },
+      {
+        name: 'href',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Specify a link URL.',
+          'Required with link-role buttons.',
+        ],
+        href: 'roles',
+      },
+      {
+        name: 'onClick',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard.',
+          'Required with button-role buttons.',
+        ],
+        href: 'selected',
+      },
+      {
+        name: 'padding',
+        type: `1 | 2 | 3 | 4 | 5`,
+        required: false,
+        defaultValue: null,
+        description: [
+          'Sets a padding for the IconButton.',
+          `Combine the 'padding' with 'size' options for different icon/button size ratios. If omitted, padding is derived from the default padding for each 'size' prop.`,
+          'Padding options are 1-5 representing the padding in boints.',
+        ],
+        href: 'padding',
+      },
+      {
+        name: 'rel',
+        type: `'none' | 'nofollow'`,
+        required: false,
+        defaultValue: 'none',
+        description: 'Optional with link-role buttons.',
+        href: 'roles',
+      },
+      {
+        name: 'ref',
+        type: `React.Ref<'button'> | React.Ref<'a'>`,
+        description:
+          'Forward the ref to the underlying button or anchor element',
+        href: 'ref',
+      },
+      {
+        name: 'role',
+        type: `'button' | 'link'`,
+        required: false,
+        defaultValue: 'button',
+        description: [
+          `Select a button variant:`,
+          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
+          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
+          `Required with link-role buttons.`,
+        ],
+        href: 'roles',
+      },
+      {
+        name: 'selected',
+        type: 'boolean',
+        required: false,
+        defaultValue: false,
+        description: [
+          'Control the "selected" state of a button component to toggle binary states.',
+          'Optional with button-role + button-type buttons.',
+        ],
+        href: 'selected',
+      },
+      {
+        name: 'size',
+        type: `"xs" | "sm" | "md" | "lg" | "xl"`,
+        required: false,
+        defaultValue: 'md',
+        description:
+          'Display an IconButton in different sizes. Size changes the component padding modifying its fixed height & width: xs (24px), sm (32px), md (40px), lg (48px), xl (56px).',
+        href: 'size',
+      },
+      {
+        name: 'target',
+        type: `null | 'self' | 'blank'`,
+        required: false,
+        defaultValue: 'null',
+        description: [
+          'Define the frame or window to open the anchor defined on `href`:',
+          `- 'null' opens the anchor in the same window.`,
+          `- 'blank' opens the anchor in a new window.`,
+          `- 'self' opens an anchor in the same frame.`,
+          'Optional with link-role buttons.',
+        ],
+        href: 'roles',
+      },
+    ]}
   />
 );
 

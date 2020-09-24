@@ -19,58 +19,6 @@ radio buttons if the user can select more than one option from a list.
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'checked',
-        type: 'boolean',
-        defaultValue: false,
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-        description: 'The name given for all radio buttons in a single group',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
-        required: true,
-      },
-      {
-        name: 'value',
-        type: 'string',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-        href: 'refExample',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md"`,
-        description: `sm: 16px, md: 24px`,
-        defaultValue: 'md',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     name="Example"
     defaultCode={`
@@ -281,6 +229,58 @@ card(
       />
     )}
   </Combination>
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'checked',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: false,
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+        description: 'The name given for all radio buttons in a single group',
+      },
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
+        required: true,
+      },
+      {
+        name: 'value',
+        type: 'string',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'refExample',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md"`,
+        description: `sm: 16px, md: 24px`,
+        defaultValue: 'md',
+      },
+    ]}
+  />
 );
 
 export default cards;
