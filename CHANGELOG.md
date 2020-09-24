@@ -1,3 +1,9 @@
+## 14.3.1 (Sep 24, 2020)
+
+### Patch
+
+- Docs: move props section to the bottom (#1231)
+
 ## 14.3.0 (Sep 22, 2020)
 
 ### Minor
