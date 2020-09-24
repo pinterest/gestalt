@@ -15,74 +15,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: 'false',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-        href: 'exampleWithError',
-      },
-      {
-        name: 'helperText',
-        type: 'string',
-        description: 'More information about how to complete the form field',
-        href: 'helperText',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'options',
-        type: 'Array<{ label: string, value: string, disabled?: boolean }>',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
-        name: 'value',
-        type: 'string',
-        description: 'Value that is selected.',
-        href: 'basicExample',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="basicExample"
     name="Example"
@@ -198,6 +130,74 @@ function Example(props) {
   );
 }
     `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: 'false',
+      },
+      {
+        name: 'errorMessage',
+        type: 'string',
+        href: 'exampleWithError',
+      },
+      {
+        name: 'helperText',
+        type: 'string',
+        description: 'More information about how to complete the form field',
+        href: 'helperText',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+        href: 'basicExample',
+      },
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'options',
+        type: 'Array<{ label: string, value: string, disabled?: boolean }>',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'placeholder',
+        type: 'string',
+        href: 'basicExample',
+      },
+      {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+      {
+        name: 'value',
+        type: 'string',
+        description: 'Value that is selected.',
+        href: 'basicExample',
+      },
+    ]}
   />
 );
 

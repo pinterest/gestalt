@@ -54,173 +54,6 @@ card(
 );
 
 card(
-  <PropTable
-    Component={Box}
-    props={[
-      {
-        name: 'dangerouslySetInlineStyle',
-        type: '{ __style: { [key: string]: string | number | void } }',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'display',
-        type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
-        defaultValue: 'block',
-        responsive: true,
-        href: 'display',
-      },
-      {
-        name: 'direction',
-        type: `"row" | "column"`,
-        defaultValue: 'row',
-        responsive: true,
-        description:
-          'Establishes the main-axis, thus defining the direction flex items are placed in the flex container.',
-      },
-      {
-        name: 'alignContent',
-        type: `"start" | "end" | "center" | "between" | "around" | "evenly" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          "Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.",
-      },
-      {
-        name: 'alignItems',
-        type: `"start" | "end" | "center" | "baseline" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
-        href: 'layout',
-      },
-      {
-        name: 'alignSelf',
-        type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
-        defaultValue: 'stretch',
-        description:
-          'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
-      },
-      {
-        name: 'borderSize',
-        type: `"sm" | "lg" | "none"`,
-        defaultValue: 'none',
-        description:
-          'Specify a border width for the box. "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray',
-        href: 'border',
-      },
-      {
-        name: 'color',
-        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
-        defaultValue: 'transparent',
-        href: 'color',
-      },
-      { name: 'fit', type: 'boolean', defaultValue: false },
-      {
-        name: 'flex',
-        type: '"grow" | "shrink" | "none"',
-        defaultValue: 'shrink',
-        description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Box relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Box to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Box's size based on child content regardless of its container's size.`,
-      },
-      {
-        name: 'justifyContent',
-        type: `"start" | "end" | "center" | "between" | "around" | "evenly"`,
-        defaultValue: 'start',
-        description:
-          'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
-        href: 'layout',
-      },
-      ...absolutePositioningProps,
-      ...marginProps,
-      {
-        name: 'column',
-        type: `0 .. 12`,
-        responsive: true,
-      },
-      {
-        name: 'maxHeight',
-        type: `number | string`,
-      },
-      {
-        name: 'maxWidth',
-        type: `number | string`,
-        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%"`,
-      },
-      {
-        name: 'minHeight',
-        type: `number | string`,
-        description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%"`,
-      },
-      {
-        name: 'minWidth',
-        type: `number | string`,
-        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%"`,
-      },
-      {
-        name: 'height',
-        type: `number | string`,
-        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
-      },
-      {
-        name: 'width',
-        type: `number | string`,
-        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
-      },
-      {
-        name: 'opacity',
-        type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
-      },
-      {
-        name: 'overflow',
-        type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
-        defaultValue: 'visible',
-      },
-      ...paddingProps,
-      {
-        name: 'position',
-        type: `"static" | "absolute" | "relative" | "fixed"`,
-        defaultValue: 'static',
-        href: 'absolutePositioning',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'div'>",
-        description: 'Forward the ref to the underlying div element',
-        href: 'refExample',
-      },
-      {
-        name: 'role',
-        type: 'string',
-      },
-      {
-        name: 'rounding',
-        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        href: 'rounding',
-      },
-      {
-        name: 'userSelect',
-        type: `"auto" | "none"`,
-        defaultValue: 'auto',
-        description: `controls whether or not user can select text`,
-      },
-      {
-        name: 'wrap',
-        type: 'boolean',
-        defaultValue: false,
-        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
-      },
-      {
-        name: 'zIndex',
-        href: 'zindex',
-        type: 'interface Indexable { index(): number; }',
-        description: `An object representing the zIndex value of the Box.`,
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     description={`
     The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
@@ -672,6 +505,173 @@ function Example() {
   return <Box color="blue" width={60} height={60} zIndex={zIndex} />
 }
 `}
+  />
+);
+
+card(
+  <PropTable
+    Component={Box}
+    props={[
+      {
+        name: 'dangerouslySetInlineStyle',
+        type: '{ __style: { [key: string]: string | number | void } }',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'display',
+        type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
+        defaultValue: 'block',
+        responsive: true,
+        href: 'display',
+      },
+      {
+        name: 'direction',
+        type: `"row" | "column"`,
+        defaultValue: 'row',
+        responsive: true,
+        description:
+          'Establishes the main-axis, thus defining the direction flex items are placed in the flex container.',
+      },
+      {
+        name: 'alignContent',
+        type: `"start" | "end" | "center" | "between" | "around" | "evenly" | "stretch"`,
+        defaultValue: 'stretch',
+        description:
+          "Aligns a flex container's lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.",
+      },
+      {
+        name: 'alignItems',
+        type: `"start" | "end" | "center" | "baseline" | "stretch"`,
+        defaultValue: 'stretch',
+        description:
+          'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
+        href: 'layout',
+      },
+      {
+        name: 'alignSelf',
+        type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
+        defaultValue: 'stretch',
+        description:
+          'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
+      },
+      {
+        name: 'borderSize',
+        type: `"sm" | "lg" | "none"`,
+        defaultValue: 'none',
+        description:
+          'Specify a border width for the box. "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray',
+        href: 'border',
+      },
+      {
+        name: 'color',
+        type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
+        defaultValue: 'transparent',
+        href: 'color',
+      },
+      { name: 'fit', type: 'boolean', defaultValue: false },
+      {
+        name: 'flex',
+        type: '"grow" | "shrink" | "none"',
+        defaultValue: 'shrink',
+        description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Box relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Box to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Box's size based on child content regardless of its container's size.`,
+      },
+      {
+        name: 'justifyContent',
+        type: `"start" | "end" | "center" | "between" | "around" | "evenly"`,
+        defaultValue: 'start',
+        description:
+          'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
+        href: 'layout',
+      },
+      ...absolutePositioningProps,
+      ...marginProps,
+      {
+        name: 'column',
+        type: `0 .. 12`,
+        responsive: true,
+      },
+      {
+        name: 'maxHeight',
+        type: `number | string`,
+      },
+      {
+        name: 'maxWidth',
+        type: `number | string`,
+        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%"`,
+      },
+      {
+        name: 'minHeight',
+        type: `number | string`,
+        description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%"`,
+      },
+      {
+        name: 'minWidth',
+        type: `number | string`,
+        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%"`,
+      },
+      {
+        name: 'height',
+        type: `number | string`,
+        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
+      },
+      {
+        name: 'width',
+        type: `number | string`,
+        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
+      },
+      {
+        name: 'opacity',
+        type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
+      },
+      {
+        name: 'overflow',
+        type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
+        defaultValue: 'visible',
+      },
+      ...paddingProps,
+      {
+        name: 'position',
+        type: `"static" | "absolute" | "relative" | "fixed"`,
+        defaultValue: 'static',
+        href: 'absolutePositioning',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description: 'Forward the ref to the underlying div element',
+        href: 'refExample',
+      },
+      {
+        name: 'role',
+        type: 'string',
+      },
+      {
+        name: 'rounding',
+        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+        href: 'rounding',
+      },
+      {
+        name: 'userSelect',
+        type: `"auto" | "none"`,
+        defaultValue: 'auto',
+        description: `controls whether or not user can select text`,
+      },
+      {
+        name: 'wrap',
+        type: 'boolean',
+        defaultValue: false,
+        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
+      },
+      {
+        name: 'zIndex',
+        href: 'zindex',
+        type: 'interface Indexable { index(): number; }',
+        description: `An object representing the zIndex value of the Box.`,
+      },
+    ]}
   />
 );
 

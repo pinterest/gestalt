@@ -21,6 +21,47 @@ card(
 );
 
 card(
+  <Example
+    description={`
+    With a very limited set of props that only relate to horizontal layout, Row is useful for separating concerns to prevent overloaded Box usage.
+    Compare this example to the first example in the Box docs.
+  `}
+    name="Example: Media object"
+    defaultCode={`
+<Row gap={1}>
+  <Avatar name="chrislloyd" size="md" />
+  <Stack>
+    <Text weight="bold">Chris Lloyd</Text>
+    <Text>joined 2 years ago</Text>
+  </Stack>
+</Row>
+`}
+  />
+);
+
+card(
+  <Combination
+    description={`
+    Row is strictly for horizontal flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+  `}
+    id="layout"
+    name="Layout"
+    justifyContent={['start', 'end', 'center', 'between', 'around']}
+    alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
+  >
+    {({ alignItems, justifyContent, ...rest }) => (
+      <Box width={96} {...rest}>
+        <Row alignItems={alignItems} justifyContent={justifyContent}>
+          <Box margin={1} color="gray" height={8} width={8} />
+          <Box margin={1} color="gray" height={16} width={8} />
+          <Box margin={1} color="gray" height={32} width={8} />
+        </Row>
+      </Box>
+    )}
+  </Combination>
+);
+
+card(
   <PropTable
     Component={Row}
     props={[
@@ -109,47 +150,6 @@ card(
       },
     ]}
   />
-);
-
-card(
-  <Example
-    description={`
-    With a very limited set of props that only relate to horizontal layout, Row is useful for separating concerns to prevent overloaded Box usage.
-    Compare this example to the first example in the Box docs.
-  `}
-    name="Example: Media object"
-    defaultCode={`
-<Row gap={1}>
-  <Avatar name="chrislloyd" size="md" />
-  <Stack>
-    <Text weight="bold">Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
-  </Stack>
-</Row>
-`}
-  />
-);
-
-card(
-  <Combination
-    description={`
-    Row is strictly for horizontal flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
-  `}
-    id="layout"
-    name="Layout"
-    justifyContent={['start', 'end', 'center', 'between', 'around']}
-    alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
-  >
-    {({ alignItems, justifyContent, ...rest }) => (
-      <Box width={96} {...rest}>
-        <Row alignItems={alignItems} justifyContent={justifyContent}>
-          <Box margin={1} color="gray" height={8} width={8} />
-          <Box margin={1} color="gray" height={16} width={8} />
-          <Box margin={1} color="gray" height={32} width={8} />
-        </Row>
-      </Box>
-    )}
-  </Combination>
 );
 
 export default cards;

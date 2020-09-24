@@ -19,41 +19,6 @@ The Toast component is purely visual. In order to properly handle the showing an
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'button',
-        type: 'React.Node',
-        href: 'imageTextButtonExample',
-      },
-      {
-        name: 'color',
-        type: `'darkGray' | 'red'`,
-        href: 'redColorTextAlertExample',
-      },
-      {
-        name: 'thumbnail',
-        type: 'React.Node',
-        href: 'imageTextExample',
-      },
-      {
-        name: 'thumbnailShape',
-        type: `'circle' | 'rectangle' | 'square'`,
-        defaultValue: 'square',
-        href: 'imageTextExample',
-      },
-      {
-        name: 'text',
-        type: 'string | Array<string>',
-        description:
-          'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
-        href: 'textOnlyExample',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     id="textOnlyExample"
     name="Example: Text only"
@@ -337,6 +302,41 @@ card(
       />
     )}
   </Combination>
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'button',
+        type: 'React.Node',
+        href: 'imageTextButtonExample',
+      },
+      {
+        name: 'color',
+        type: `'darkGray' | 'red'`,
+        href: 'redColorTextAlertExample',
+      },
+      {
+        name: 'thumbnail',
+        type: 'React.Node',
+        href: 'imageTextExample',
+      },
+      {
+        name: 'thumbnailShape',
+        type: `'circle' | 'rectangle' | 'square'`,
+        defaultValue: 'square',
+        href: 'imageTextExample',
+      },
+      {
+        name: 'text',
+        type: 'string | Array<string>',
+        description:
+          'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
+        href: 'textOnlyExample',
+      },
+    ]}
+  />
 );
 
 export default cards;

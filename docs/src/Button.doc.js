@@ -17,212 +17,6 @@ card(
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
-          'Use IconButton if you only need a button with an icon and no text.',
-          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of `text`.',
-        ],
-        href: 'accessibilityLabel',
-      },
-      {
-        name: 'accessibilityControls',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.',
-          'Optional with button-role + button-type buttons.',
-          'Accessibility: It populates aria-controls.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityExpanded',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
-          'Optional with button-role + button-type buttons.',
-          'Accessibility: It populates aria-expanded.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'accessibilityHaspopup',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
-          'Optional with button-role + button-type buttons.',
-          'Accessibility: It populates aria-haspopup.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'color',
-        type: `'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white'`,
-        required: false,
-        defaultValue: 'gray',
-        description: [
-          'Primary colors to apply to the button background.',
-          'Accessibility: Use `transparentWhiteText` to increase the contrast between a dark background and a transparent-Button text.',
-        ],
-        href: 'color',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        required: false,
-        defaultValue: null,
-        description:
-          'Set disabled state so buttons look inactive, cannot be interacted with, and actions are not available.',
-        href: 'type-roles',
-      },
-      {
-        name: 'iconEnd',
-        type: '$Keys<typeof icons>',
-        required: false,
-        defaultValue: false,
-        description: [
-          'Add a Gestalt icon to be displayed after the button text. Sometimes an icon can help clarify the usage of a button. Menus are a common use case.',
-          'Accessibility: Icons on buttons are not accessible for screen readers.',
-          'Use IconButton if you only need buttons with icons and no text.',
-        ],
-        href: 'iconEnd',
-      },
-      {
-        name: 'inline',
-        type: 'boolean',
-        required: false,
-        defaultValue: false,
-        description:
-          'Display a button as an inline element so that it does not start on a new line breaking the flow of the content. Inline buttons are sized by the text within the button, whereas the default block buttons expand to the full width of their container.',
-        href: 'width',
-      },
-      {
-        name: 'onClick',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard.',
-          'Required with button-role + button-type buttons.',
-        ],
-        href: 'selected',
-      },
-      {
-        name: 'size',
-        type: `'sm' | 'md' | 'lg'`,
-        required: false,
-        defaultValue: 'md',
-        description:
-          'Display a button in different sizes. Size changes the component padding modifying its fixed height: sm (32px), md (40px), lg (48px).',
-        href: 'size',
-      },
-      {
-        name: 'text',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: [
-          'Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
-          'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
-        ],
-        href: 'basic-button',
-      },
-      {
-        name: 'type',
-        type: `'submit' | 'button'`,
-        required: false,
-        defaultValue: 'button',
-        description: [
-          'Select a type of button-role button:',
-          '-`button`: Use to render simple push buttons with no default behavior and control custom functionality inside the `onClick` callback.',
-          '-`submit`: Use to submit forms. The button is inside/associated with a form.',
-        ],
-        href: 'type-roles',
-      },
-      {
-        name: 'selected',
-        type: 'boolean',
-        required: false,
-        defaultValue: false,
-        description: [
-          'Control the "selected" state of a button component to toggle binary states.',
-          'Optional with button-role + button-type buttons.',
-        ],
-        href: 'selected',
-      },
-      {
-        name: 'href',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Specify a link URL.',
-          'Required with link-role buttons.',
-        ],
-        href: 'type-roles',
-      },
-      {
-        name: 'ref',
-        type: `React.Ref<'button'> | React.Ref<'a'>`,
-        required: false,
-        defaultValue: null,
-        description:
-          'Forward the ref to the underlying button or anchor element.',
-        href: 'ref',
-      },
-      {
-        name: 'role',
-        type: `'button' | 'link'`,
-        required: false,
-        defaultValue: 'button',
-        description: [
-          `Select a button variant:`,
-          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
-          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
-          `Required with link-role buttons.`,
-        ],
-        href: 'type-roles',
-      },
-      {
-        name: 'rel',
-        type: `'none' | 'nofollow'`,
-        required: false,
-        defaultValue: 'none',
-        description: 'Optional with link-role buttons.',
-        href: 'type-roles',
-      },
-      {
-        name: 'target',
-        type: `null | 'self' | 'blank'`,
-        required: false,
-        defaultValue: 'null',
-        description: [
-          'Define the frame or window to open the anchor defined on `href`:',
-          '- `null` opens the anchor in the same window.',
-          '- `blank` opens the anchor in a new window.',
-          '- `self` opens an anchor in the same frame.',
-          'Optional with link-role buttons.',
-        ],
-        href: 'type-roles',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     name="Basic Button"
     id="basic-button"
@@ -496,6 +290,212 @@ function MenuButtonExample() {
   );
 }
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilityLabel',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
+          'Use IconButton if you only need a button with an icon and no text.',
+          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of `text`.',
+        ],
+        href: 'accessibilityLabel',
+      },
+      {
+        name: 'accessibilityControls',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Specify the `id` of an associated element (or elements) whose contents or visibility are controlled by a button component so that screen reader users can identify the relationship between elements.',
+          'Optional with button-role + button-type buttons.',
+          'Accessibility: It populates aria-controls.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'accessibilityExpanded',
+        type: 'boolean',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Indicate that a button component hides or exposes collapsible components and expose whether they are currently expanded or collapsed.',
+          'Optional with button-role + button-type buttons.',
+          'Accessibility: It populates aria-expanded.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'accessibilityHaspopup',
+        type: 'boolean',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Indicate that a button component controls the appearance of interactive popup elements, such as menu or dialog.',
+          'Optional with button-role + button-type buttons.',
+          'Accessibility: It populates aria-haspopup.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'color',
+        type: `'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white'`,
+        required: false,
+        defaultValue: 'gray',
+        description: [
+          'Primary colors to apply to the button background.',
+          'Accessibility: Use `transparentWhiteText` to increase the contrast between a dark background and a transparent-Button text.',
+        ],
+        href: 'color',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        required: false,
+        defaultValue: null,
+        description:
+          'Set disabled state so buttons look inactive, cannot be interacted with, and actions are not available.',
+        href: 'type-roles',
+      },
+      {
+        name: 'iconEnd',
+        type: '$Keys<typeof icons>',
+        required: false,
+        defaultValue: false,
+        description: [
+          'Add a Gestalt icon to be displayed after the button text. Sometimes an icon can help clarify the usage of a button. Menus are a common use case.',
+          'Accessibility: Icons on buttons are not accessible for screen readers.',
+          'Use IconButton if you only need buttons with icons and no text.',
+        ],
+        href: 'iconEnd',
+      },
+      {
+        name: 'inline',
+        type: 'boolean',
+        required: false,
+        defaultValue: false,
+        description:
+          'Display a button as an inline element so that it does not start on a new line breaking the flow of the content. Inline buttons are sized by the text within the button, whereas the default block buttons expand to the full width of their container.',
+        href: 'width',
+      },
+      {
+        name: 'onClick',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard.',
+          'Required with button-role + button-type buttons.',
+        ],
+        href: 'selected',
+      },
+      {
+        name: 'size',
+        type: `'sm' | 'md' | 'lg'`,
+        required: false,
+        defaultValue: 'md',
+        description:
+          'Display a button in different sizes. Size changes the component padding modifying its fixed height: sm (32px), md (40px), lg (48px).',
+        href: 'size',
+      },
+      {
+        name: 'text',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
+          'Accessibility: Screen readers read the `accessibilityLabel` prop, if present, instead of the `text` prop. See `accessibilityLabel` for more info.',
+        ],
+        href: 'basic-button',
+      },
+      {
+        name: 'type',
+        type: `'submit' | 'button'`,
+        required: false,
+        defaultValue: 'button',
+        description: [
+          'Select a type of button-role button:',
+          '-`button`: Use to render simple push buttons with no default behavior and control custom functionality inside the `onClick` callback.',
+          '-`submit`: Use to submit forms. The button is inside/associated with a form.',
+        ],
+        href: 'type-roles',
+      },
+      {
+        name: 'selected',
+        type: 'boolean',
+        required: false,
+        defaultValue: false,
+        description: [
+          'Control the "selected" state of a button component to toggle binary states.',
+          'Optional with button-role + button-type buttons.',
+        ],
+        href: 'selected',
+      },
+      {
+        name: 'href',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Specify a link URL.',
+          'Required with link-role buttons.',
+        ],
+        href: 'type-roles',
+      },
+      {
+        name: 'ref',
+        type: `React.Ref<'button'> | React.Ref<'a'>`,
+        required: false,
+        defaultValue: null,
+        description:
+          'Forward the ref to the underlying button or anchor element.',
+        href: 'ref',
+      },
+      {
+        name: 'role',
+        type: `'button' | 'link'`,
+        required: false,
+        defaultValue: 'button',
+        description: [
+          `Select a button variant:`,
+          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
+          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
+          `Required with link-role buttons.`,
+        ],
+        href: 'type-roles',
+      },
+      {
+        name: 'rel',
+        type: `'none' | 'nofollow'`,
+        required: false,
+        defaultValue: 'none',
+        description: 'Optional with link-role buttons.',
+        href: 'type-roles',
+      },
+      {
+        name: 'target',
+        type: `null | 'self' | 'blank'`,
+        required: false,
+        defaultValue: 'null',
+        description: [
+          'Define the frame or window to open the anchor defined on `href`:',
+          '- `null` opens the anchor in the same window.',
+          '- `blank` opens the anchor in a new window.',
+          '- `self` opens an anchor in the same frame.',
+          'Optional with link-role buttons.',
+        ],
+        href: 'type-roles',
+      },
+    ]}
   />
 );
 

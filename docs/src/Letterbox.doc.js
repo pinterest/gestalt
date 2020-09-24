@@ -23,36 +23,6 @@ CSS property \`background-size: cover\`.`}
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'contentAspectRatio',
-        type: 'number',
-        required: true,
-        description:
-          'Proportional relationship between width and height of element',
-      },
-      {
-        name: 'height',
-        type: 'number',
-        required: true,
-        description: 'Desired final height of element',
-      },
-      {
-        name: 'width',
-        type: 'number',
-        required: true,
-        description: 'Desired final width of element',
-      },
-    ]}
-  />
-);
-
-card(
   <Example
     name="Tall content (564:806)"
     defaultCode={`
@@ -129,6 +99,36 @@ card(
   />
 </Letterbox>
 `}
+  />
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'contentAspectRatio',
+        type: 'number',
+        required: true,
+        description:
+          'Proportional relationship between width and height of element',
+      },
+      {
+        name: 'height',
+        type: 'number',
+        required: true,
+        description: 'Desired final height of element',
+      },
+      {
+        name: 'width',
+        type: 'number',
+        required: true,
+        description: 'Desired final width of element',
+      },
+    ]}
   />
 );
 
