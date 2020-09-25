@@ -1,3 +1,9 @@
+## 14.3.2 (Sep 25, 2020)
+
+### Patch
+
+- Docs: Add yarn installation and fix indentation on Development page (#1232)
+
 ## 14.3.1 (Sep 24, 2020)
 
 ### Patch
