@@ -7,11 +7,11 @@ exports[`Sheet should render all props 1`] = `
       class="container"
     >
       <div
-        class="backdrop backdropAnimationIn zoomOut"
+        class="backdrop zoomOut"
       />
       <div
         aria-label="Sheet"
-        class="wrapper hideOutline wrapperAnimationIn"
+        class="wrapper hideOutline"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -102,7 +102,71 @@ exports[`Sheet should render all props 1`] = `
 </div>
 `;
 
-exports[`Sheet should trigger out animation and dismiss when useReducedMotion is false 1`] = `
+exports[`Sheet should render animation in 1`] = `
+<div>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="backdrop backdropAnimationIn zoomOut"
+      />
+      <div
+        aria-label="Sheet"
+        class="wrapper hideOutline wrapperAnimationIn"
+        role="dialog"
+        style="width: 540px;"
+        tabindex="-1"
+      >
+        <div
+          class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+          style="width: 100%;"
+        >
+          <div
+            class="box flexGrow justifyEnd marginBottom8 xsDisplayFlex"
+          >
+            <div
+              class="absolute box flexNone paddingX6 paddingY7"
+            >
+              <button
+                aria-label="Dismiss"
+                class="button tapTransition enabled"
+                type="button"
+              >
+                <div
+                  class="pog white"
+                  style="height: 40px; width: 40px;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    aria-label=""
+                    class="icon darkGray iconBlock"
+                    height="18"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="18"
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div
+            class="box flexGrow overflowAuto paddingX8 paddingY8"
+          >
+            Sheet content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sheet should render animation out 1`] = `
 <div>
   <div>
     <div
@@ -112,7 +176,7 @@ exports[`Sheet should trigger out animation and dismiss when useReducedMotion is
         class="backdrop backdropAnimationOut zoomOut"
       />
       <div
-        aria-label="Test Sheet"
+        aria-label="Sheet"
         class="wrapper hideOutline wrapperAnimationOut"
         role="dialog"
         style="width: 540px;"

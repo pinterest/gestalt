@@ -25,7 +25,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
 
   {
     sectionName: 'Configuration',
-    pages: ['Provider'],
+    pages: ['AnimationController', 'Provider'],
   },
   {
     sectionName: 'Accessibility',

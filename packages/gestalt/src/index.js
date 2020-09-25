@@ -1,6 +1,7 @@
 // @flow strict
 import Avatar from './Avatar.js';
 import AvatarPair from './AvatarPair.js';
+import { AnimationController, useAnimation } from './AnimationController.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';
@@ -58,6 +59,7 @@ import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
 export {
+  AnimationController,
   Avatar,
   AvatarPair,
   Badge,
@@ -112,6 +114,7 @@ export {
   Toast,
   Tooltip,
   Typeahead,
+  useAnimation,
   useColorScheme,
   useFocusVisible,
   useReducedMotion,

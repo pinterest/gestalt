@@ -10,6 +10,7 @@ import React, {
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
+import { useAnimation } from './AnimationController.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
 import focusStyles from './Focus.css';
@@ -19,9 +20,6 @@ import Row from './Row.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import useReducedMotion from './useReducedMotion.js';
-
-type AnimationType = 'in' | 'out';
 
 type Props = {|
   accessibilityDismissButtonLabel: string,
@@ -81,26 +79,15 @@ const SheetWithForwardRef: React$AbstractComponent<
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
-  const [currentAnimation, setCurrentAnimation] = useState<AnimationType>('in');
+  const { animationState, onAnimationEnd } = useAnimation();
   const containerRef = useRef<?HTMLDivElement>(null);
   const contentRef = useRef<?HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
 
-  const startDismiss = useCallback(() => {
-    if (shouldReduceMotion) {
-      onDismiss();
-    } else {
-      setCurrentAnimation('out');
-      if (containerRef.current) {
-        containerRef.current.addEventListener('animationend', onDismiss);
-      }
-    }
-  }, [onDismiss, shouldReduceMotion]);
-
+  // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
       if (event.keyCode === ESCAPE) {
-        startDismiss();
+        onDismiss();
       }
     }
 
@@ -108,9 +95,17 @@ const SheetWithForwardRef: React$AbstractComponent<
     return function cleanup() {
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [startDismiss]);
+  }, [onDismiss]);
 
-  const updateShadows = () => {
+  // Handle onDismiss triggering from outside click
+  const handleOutsideClick = useCallback(() => {
+    if (closeOnOutsideClick) {
+      onDismiss();
+    }
+  }, [closeOnOutsideClick, onDismiss]);
+
+  // Handle the shadows on top and bottom of the content area when scrolling
+  const updateShadows = useCallback(() => {
     const target = contentRef.current;
     if (!target) {
       return;
@@ -121,7 +116,7 @@ const SheetWithForwardRef: React$AbstractComponent<
       hasVerticalScrollbar &&
         target.offsetHeight + target.scrollTop < target.scrollHeight
     );
-  };
+  }, []);
 
   useEffect(() => {
     updateShadows();
@@ -129,22 +124,14 @@ const SheetWithForwardRef: React$AbstractComponent<
     return () => {
       window.removeEventListener('resize', updateShadows);
     };
-  }, []);
-
-  const handleOutsideClick = () => {
-    if (closeOnOutsideClick) {
-      startDismiss();
-    }
-  };
-
-  const width = SIZE_WIDTH_MAP[size];
+  }, [updateShadows]);
 
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
         <div className={sheetStyles.container} ref={containerRef}>
           <Backdrop
-            animation={currentAnimation}
+            animationState={animationState}
             closeOnOutsideClick={closeOnOutsideClick}
             onClick={handleOutsideClick}
           >
@@ -154,13 +141,14 @@ const SheetWithForwardRef: React$AbstractComponent<
                 sheetStyles.wrapper,
                 focusStyles.hideOutline,
                 {
-                  [sheetStyles.wrapperAnimationIn]: currentAnimation === 'in',
-                  [sheetStyles.wrapperAnimationOut]: currentAnimation === 'out',
+                  [sheetStyles.wrapperAnimationIn]: animationState === 'in',
+                  [sheetStyles.wrapperAnimationOut]: animationState === 'out',
                 }
               )}
+              onAnimationEnd={onAnimationEnd}
               ref={sheetRef}
               role="dialog"
-              style={{ width }}
+              style={{ width: SIZE_WIDTH_MAP[size] }}
               tabIndex={-1}
             >
               <Box
@@ -185,7 +173,7 @@ const SheetWithForwardRef: React$AbstractComponent<
                           accessibilityDismissButtonLabel={
                             accessibilityDismissButtonLabel
                           }
-                          onClick={startDismiss}
+                          onClick={onDismiss}
                         />
                       </Box>
                     </Row>
@@ -208,7 +196,7 @@ const SheetWithForwardRef: React$AbstractComponent<
                         accessibilityDismissButtonLabel={
                           accessibilityDismissButtonLabel
                         }
-                        onClick={startDismiss}
+                        onClick={onDismiss}
                       />
                     </Box>
                   </Box>
