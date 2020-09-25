@@ -16,6 +16,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-flow": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@babel/register": "^7.11.5",
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
@@ -74,6 +75,7 @@
     "bl": "4.0.3"
   },
   "scripts": {
+    "a11y:generate": "./scripts/generateAccessibilitySpecs.js",
     "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "css:validate": "./scripts/cssValidate.js",

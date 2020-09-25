@@ -1,4 +1,4 @@
-describe('Accessibility', () => {
+describe('Button Accessibility check', () => {
   beforeEach(() => {
     cy.visit('/Button');
     cy.injectAxe();
