@@ -36,7 +36,9 @@ card(
         </li>
         <li>
           <Text weight="bold">
-            <Link href="https://classic.yarnpkg.com/en/docs/install">Install yarn</Link>
+            <Link href="https://classic.yarnpkg.com/en/docs/install">
+              Install yarn
+            </Link>
           </Text>
         </li>
       </ul>
@@ -85,7 +87,6 @@ cd gestalt && nvm use
           </Text>
         </li>
       </ul>
-
 
       <ul>
         <li>
