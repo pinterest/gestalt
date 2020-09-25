@@ -1,3 +1,9 @@
+## 14.4.0 (Sep 25, 2020)
+
+### Minor
+
+- Internal: Script to generate a11y tests + add tests for remaining components (#1233)
+
 ## 14.3.2 (Sep 25, 2020)
 
 ### Patch
