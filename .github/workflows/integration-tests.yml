@@ -35,6 +35,6 @@ jobs:
         env:
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
           # pass the Dashboard record key as an environment variable
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_RECORD_KEY: 'b63ae79f-fb3e-439f-b588-4946a6593370'
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
