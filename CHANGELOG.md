@@ -1,3 +1,9 @@
+## 14.4.1 (Sep 28, 2020)
+
+### Patch
+
+- Docs: add copy code button (#1235)
+
 ## 14.4.0 (Sep 25, 2020)
 
 ### Minor
