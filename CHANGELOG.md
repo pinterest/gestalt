@@ -1,3 +1,9 @@
+## 14.5.0 (Sep 28, 2020)
+
+### Minor
+
+- Internal: Parallelize Cypress integration tests (2x speed improvement) (#1234)
+
 ## 14.4.1 (Sep 28, 2020)
 
 ### Patch
