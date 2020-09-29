@@ -2,6 +2,7 @@
 import React, { type Node } from 'react';
 import {
   Box,
+  FixedZIndex,
   Text,
   Icon,
   IconButton,
@@ -192,7 +193,7 @@ export default function StickyHeader({
       onChangeColorScheme={onChangeColorScheme}
     />
   ) : (
-    <Sticky top={0}>
+    <Sticky zIndex={new FixedZIndex(10)} top={0}>
       <Header
         colorScheme={colorScheme}
         onChangeColorScheme={onChangeColorScheme}

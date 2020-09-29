@@ -43,7 +43,7 @@ function Example(props) {
 
   const initialState = {modal: 'none'};
   const [state, dispatch] = React.useReducer(reducer, initialState);
-  const HEADER_ZINDEX = new FixedZIndex(1);
+  const HEADER_ZINDEX = new FixedZIndex(10);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
