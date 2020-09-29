@@ -84,11 +84,11 @@ card(
       },
       {
         name: 'status',
-        type: `"error" | "info" | "warning"`,
+        type: `"notStarted" | "pending" | "needsAttention" | "complete"`,
         required: true,
         defaultValue: null,
         description: [
-          'Select the activaction card status:',
+          'Select the activation card status:',
           '-`notStarted`: A task that has not be started',
           '-`pending`: A task that is pending action',
           "-`needsAttention`: A task that requires the user's attention",
