@@ -34,7 +34,7 @@ card(
     linkData={{href: "https://pinterest.com", label:"Learn more"}}
     dismissButton={{
       accessibilityLabel: 'Dismiss card',
-      onDismiss: jest.fn(),
+      onDismiss: ()=>{},
     }}
   />
 </Box>
