@@ -1,0 +1,452 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Needs attention"
+        className="icon red iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+    >
+      Needs attention
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Tag is unhealthy
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    Oops! Your tag has errors that need to be fixed
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> Not started ActivationCard 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightBold"
+    >
+      Not started
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Claim your website
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    Claim your website to unlock new features
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> Pending ActivationCard 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Pending"
+        className="icon gray iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+    >
+      Pending
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Claiming your website
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    We will notify you via email as soon as your site has been successfully claimed
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> complete ActivationCard 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Complete"
+        className="icon green iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+    >
+      Complete
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Nice work
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    You are all done here
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> message + title + linkData + dismissButton 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Needs attention"
+        className="icon red iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+    >
+      Needs attention
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Tag is unhealthy
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    Oops! Your tag must be healthy to continue.
+  </div>
+  <div
+    className="box flexGrow itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTop8 paddingX1 pill"
+  >
+    <a
+      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+      href="https://pinterest.com"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={null}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      rel=""
+      tabIndex={null}
+      target={null}
+    >
+      <div
+        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+      >
+        Learn more
+      </div>
+    </a>
+  </div>
+  <div
+    className="rtlPos"
+  >
+    <button
+      aria-label="Dismiss card"
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon gray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> message + title + linkData 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Needs attention"
+        className="icon red iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+    >
+      Needs attention
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Tag is unhealthy
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    Oops! Your tag must be healthy to continue.
+  </div>
+  <div
+    className="box flexGrow itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTop8 paddingX1 pill"
+  >
+    <a
+      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+      href="https://pinterest.com"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={null}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      rel=""
+      tabIndex={null}
+      target={null}
+    >
+      <div
+        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+      >
+        Learn more
+      </div>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<ActivationCard /> message + title 1`] = `
+<div
+  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  style={
+    Object {
+      "maxWidth": 400,
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Needs attention"
+        className="icon red iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+    >
+      Needs attention
+    </div>
+  </div>
+  <div
+    className="box marginBottom2 marginTop6"
+  >
+    <h3
+      className="Heading fontSize1 darkGray alignLeft breakWord"
+    >
+      Tag is unhealthy
+    </h3>
+  </div>
+  <div
+    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+  >
+    Oops! Your tag must be healthy to continue.
+  </div>
+</div>
+`;
