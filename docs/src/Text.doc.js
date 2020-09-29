@@ -125,7 +125,7 @@ card(
     </span>
   </Row>
   <Row gap={1}>
-    <Text inline size="md">Medium (default size)</Text>
+    <Text inline size="md">Medium</Text>
     <span lang="ja">
       <Text inline size="md">
         こんにちは
@@ -133,7 +133,7 @@ card(
     </span>
   </Row>
   <Row gap={1}>
-    <Text inline size="lg">Large</Text>
+    <Text inline size="lg">Large (default size)</Text>
     <span lang="ja">
       <Text inline size="lg">
         こんにちは
