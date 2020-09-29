@@ -1,3 +1,9 @@
+## 14.5.1 (Sep 29, 2020)
+
+### Patch
+
+- Doc: update Text size example (#1237)
+
 ## 14.5.0 (Sep 28, 2020)
 
 ### Minor
