@@ -1,3 +1,9 @@
+## 14.5.2 (Sep 30, 2020)
+
+### Patch
+
+- Docs: fix zIndex issues (#1239)
+
 ## 14.5.1 (Sep 29, 2020)
 
 ### Patch
