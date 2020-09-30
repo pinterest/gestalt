@@ -26,10 +26,15 @@ export default function ExpandableModuleBase({
   hasError,
   onModuleClicked,
   children,
-}: Props) {
+}: Props): Node {
+  const handleModuleClick = () => {
+    if (onModuleClicked) {
+      onModuleClicked(!isCollapsed);
+    }
+  };
   return (
     <>
-      <TapArea onTap={() => onModuleClicked(!isCollapsed)}>
+      <TapArea onTap={handleModuleClick}>
         <Box display="flex">
           <Box display="flex" flex="grow" marginEnd={6}>
             <Box column={isCollapsed ? 6 : 12} display="flex">

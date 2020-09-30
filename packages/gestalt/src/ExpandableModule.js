@@ -16,7 +16,7 @@ type Props = {|
   |}>,
 |};
 
-export default function ExpandableModule({ items }: Props) {
+export default function ExpandableModule({ items }: Props): Node {
   const [expandedId, setExpandedId] = useState(-1);
 
   return (
