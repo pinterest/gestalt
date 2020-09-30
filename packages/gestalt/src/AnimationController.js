@@ -14,12 +14,12 @@ import useReducedMotion from './useReducedMotion.js';
 
 export type AnimationStateType = 'in' | 'post-in' | 'out' | 'post-out' | null;
 
-export type AnimationType = {|
+type AnimationType = {|
   animationState: AnimationStateType,
   setAnimationState: (AnimationStateType => void) | null,
 |};
 
-export type UseAnimationType = {|
+type UseAnimationType = {|
   animationState: AnimationStateType,
   onAnimationEnd: (() => void) | null,
 |};
@@ -38,7 +38,20 @@ const AnimationContext: Context<AnimationType> = createContext<AnimationType>(
   initialState
 );
 
-export function AnimationController({
+export function useAnimation(): UseAnimationType {
+  const { animationState, setAnimationState } = useContext(AnimationContext);
+  const onAnimationEnd = useCallback(() => {
+    if (['in', 'out'].includes(animationState) && setAnimationState) {
+      setAnimationState(animationState === 'in' ? 'post-in' : 'post-out');
+    }
+  }, [animationState, setAnimationState]);
+  return {
+    animationState,
+    onAnimationEnd: animationState ? onAnimationEnd : null,
+  };
+}
+
+function AnimationController({
   children,
   onDismissEnd,
 }: AnimationControllerProps): Element<typeof AnimationContext.Provider> | null {
@@ -57,11 +70,15 @@ export function AnimationController({
     }
   }, [animationState, onDismissEnd]);
 
-  return animationState !== 'post-out' ? (
+  if (animationState === 'post-out') {
+    return null;
+  }
+
+  return (
     <AnimationContext.Provider value={{ animationState, setAnimationState }}>
       {children({ onDismissStart })}
     </AnimationContext.Provider>
-  ) : null;
+  );
 }
 
 AnimationController.propTypes = {
@@ -69,20 +86,4 @@ AnimationController.propTypes = {
   onDismissEnd: PropTypes.func.isRequired,
 };
 
-export function useAnimation(): UseAnimationType {
-  const { animationState, setAnimationState } = useContext(AnimationContext);
-  const onAnimationEnd = useCallback(() => {
-    if (['in', 'out'].includes(animationState) && setAnimationState) {
-      setAnimationState(animationState === 'in' ? 'post-in' : 'post-out');
-    }
-  }, [animationState, setAnimationState]);
-  return {
-    animationState,
-    onAnimationEnd: animationState ? onAnimationEnd : null,
-  };
-}
-
-export default {
-  AnimationController,
-  useAnimation,
-};
+export default AnimationController;

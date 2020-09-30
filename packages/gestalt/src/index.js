@@ -1,7 +1,7 @@
 // @flow strict
 import Avatar from './Avatar.js';
 import AvatarPair from './AvatarPair.js';
-import { AnimationController, useAnimation } from './AnimationController.js';
+import AnimationController, { useAnimation } from './AnimationController.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
 import Button from './Button.js';

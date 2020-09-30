@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import { AnimationController } from './AnimationController.js';
+import AnimationController from './AnimationController.js';
 
 const Valid = (
   <AnimationController onDismissEnd={() => {}}>

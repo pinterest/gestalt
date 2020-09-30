@@ -2,7 +2,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
-import AnimationControllerModule from './AnimationController.js';
+import * as AnimationControllerModule from './AnimationController.js'; // eslint-disable-line import/no-namespace
 
 jest.mock('./AnimationController.js');
 
