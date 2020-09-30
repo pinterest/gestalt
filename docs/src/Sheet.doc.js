@@ -42,6 +42,8 @@ function Example(props) {
 
   const initialState = {};
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
     <>
@@ -67,7 +69,7 @@ function Example(props) {
         />
       </Box>
       {state.size && (
-        <Layer zIndex={new FixedZIndex(2)}>
+        <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate different sizes"
@@ -99,6 +101,8 @@ card(
     defaultCode={`
 function Example(props) {
   const [showSheet, setShowSheet] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (
     <>
       <Button
@@ -107,7 +111,7 @@ function Example(props) {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
+        <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate preventing close on outside click"
@@ -139,6 +143,8 @@ card(
     defaultCode={`
 function Example(props) {
   const [showSheet, setShowSheet] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (
     <>
       <Button
@@ -147,7 +153,7 @@ function Example(props) {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
+        <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Close"
             accessibilitySheetLabel="Example sheet to demonstrate default padding and styling"
@@ -247,6 +253,8 @@ card(
     defaultCode={`
 function Example(props) {
   const [showSheet, setShowSheet] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (
     <>
       <Button
@@ -255,7 +263,7 @@ function Example(props) {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
+        <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Close"
             accessibilitySheetLabel="Example to demonstrate empty sheet"
@@ -291,6 +299,9 @@ function SheetRefExample() {
     }
   }
 
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
   return (
     <>
       <Button
@@ -299,7 +310,7 @@ function SheetRefExample() {
         onClick={() => { setShowSheet(!showSheet) }}
       />
       {showSheet && (
-        <Layer zIndex={new FixedZIndex(2)}>
+        <Layer zIndex={sheetZIndex}>
           <>
             <Sheet
               accessibilityDismissButtonLabel="Close"
