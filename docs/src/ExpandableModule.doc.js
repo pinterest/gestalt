@@ -22,29 +22,10 @@ card(
     Component={ExpandableModule}
     props={[
       {
-        name: 'title',
-        type: 'string',
-      },
-      {
-        name: 'icon',
-        type: '?string',
-      },
-      {
-        name: 'summary',
-        type: '?Array<string>',
-      },
-      {
-        name: 'hasError',
-        type: '?boolean',
-      },
-      {
-        name: 'iconAccessibilityLabel',
-        type: '?string',
-        defaultValue: 'title icon',
-      },
-      {
-        name: 'children',
-        type: '?React.Node',
+        name: 'items',
+        type:
+          'Array<{| title: string, icon: ?string, summary: ?Array<string>, hasError: ?boolean, iconAccessibilityLabel: ?string, children: ?React.Node |}>',
+        required: true,
       },
     ]}
   />
