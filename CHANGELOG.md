@@ -1,3 +1,9 @@
+## 14.5.3 (Oct 1, 2020)
+
+### Patch
+
+- Internal: Bump @actions/core from 1.2.5 to 1.2.6 (#1241)
+
 ## 14.5.2 (Sep 30, 2020)
 
 ### Patch
