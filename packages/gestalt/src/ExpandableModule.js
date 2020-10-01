@@ -10,8 +10,8 @@ type Props = {|
     title: string,
     icon?: string,
     iconAccessibilityLabel?: string,
-    hasError?: boolean,
     summary?: Array<string>,
+    type?: string,
     children?: Node,
   |}>,
 |};
@@ -21,7 +21,7 @@ export default function ExpandableModule({ items }: Props): Node {
 
   return (
     <div className={styles.expandablemodule}>
-      {items.map(({ icon, title, hasError, summary, children }, index) => (
+      {items.map(({ icon, title, type, summary, children }, index) => (
         <React.Fragment key={index}>
           <Box padding={6}>
             <ExpandableModuleBase
@@ -29,7 +29,7 @@ export default function ExpandableModule({ items }: Props): Node {
               summary={summary}
               icon={icon}
               isCollapsed={expandedId !== index}
-              hasError={hasError}
+              type={type}
               onModuleClicked={isExpanded =>
                 setExpandedId(isExpanded ? -1 : index)
               }

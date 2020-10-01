@@ -9,7 +9,7 @@ const Valid = (
     iconAccessibilityLabel="test label"
     summary={['summary1', 'summary2', 'summary3']}
     isCollapsed={false}
-    hasError
+    type="info"
     onModuleClicked={() => {}}
   >
     <div>test children</div>

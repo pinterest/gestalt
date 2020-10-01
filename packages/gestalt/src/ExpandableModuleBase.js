@@ -12,10 +12,21 @@ type Props = {|
   iconAccessibilityLabel?: string,
   summary?: Array<string>,
   isCollapsed: boolean,
-  hasError?: boolean,
   onModuleClicked?: boolean => void,
+  type?: string,
   children?: Node,
 |};
+
+const EXPANDABLE_TYPE_ATTRIBUTES = {
+  info: {
+    color: 'darkGray',
+  },
+  error: {
+    icon: 'workflow-status-problem',
+    color: 'red',
+    accessibilityLabel: 'Error icon',
+  },
+};
 
 export default function ExpandableModuleBase({
   title,
@@ -23,8 +34,8 @@ export default function ExpandableModuleBase({
   iconAccessibilityLabel,
   summary,
   isCollapsed,
-  hasError,
   onModuleClicked,
+  type = 'info',
   children,
 }: Props): Node {
   const handleModuleClick = () => {
@@ -38,12 +49,14 @@ export default function ExpandableModuleBase({
         <Box display="flex">
           <Box display="flex" flex="grow" marginEnd={6}>
             <Box column={isCollapsed ? 6 : 12} display="flex">
-              {hasError && (
+              {EXPANDABLE_TYPE_ATTRIBUTES[type].icon && (
                 <Box marginEnd={2}>
                   <Icon
-                    icon="workflow-status-problem"
-                    accessibilityLabel="Error icon"
-                    color="red"
+                    icon={EXPANDABLE_TYPE_ATTRIBUTES[type].icon}
+                    accessibilityLabel={
+                      EXPANDABLE_TYPE_ATTRIBUTES[type].accessibilityLabel
+                    }
+                    color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
                   />
                 </Box>
               )}
@@ -59,7 +72,7 @@ export default function ExpandableModuleBase({
               <Text
                 weight="bold"
                 truncate
-                color={hasError ? 'red' : 'darkGray'}
+                color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
               >
                 {title}
               </Text>

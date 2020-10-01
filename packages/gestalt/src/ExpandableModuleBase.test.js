@@ -32,7 +32,9 @@ test('renders correctly with summary', () => {
 
 test('renders correctly with error', () => {
   const tree = renderer
-    .create(<ExpandableModuleBase title="test title" isCollapsed hasError />)
+    .create(
+      <ExpandableModuleBase title="test title" isCollapsed type="error" />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -39,7 +39,7 @@ test('renders correctly with multiple items', () => {
             title: 'Title3',
             summary: ['summary3'],
             children: 'Children3',
-            hasError: true,
+            type: 'error',
           },
         ]}
       />

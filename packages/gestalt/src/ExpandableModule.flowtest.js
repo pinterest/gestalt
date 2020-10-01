@@ -10,7 +10,7 @@ const Valid = (
         icon: 'lock',
         iconAccessibilityLabel: 'test label',
         summary: ['summary1', 'summary2', 'summary3'],
-        hasError: true,
+        type: 'info',
         children: 'test children',
       },
     ]}

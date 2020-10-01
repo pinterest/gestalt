@@ -24,7 +24,7 @@ card(
       {
         name: 'items',
         type:
-          'Array<{| title: string, icon: ?string, summary: ?Array<string>, hasError: ?boolean, iconAccessibilityLabel: ?string, children: ?React.Node |}>',
+          'Array<{| title: string, icon: ?string, summary: ?Array<string>, type: ?string, iconAccessibilityLabel: ?string, children: ?React.Node |}>',
         required: true,
       },
     ]}
@@ -95,7 +95,7 @@ function ExpandableModuleExample3() {
             title: 'Error state',
             summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
-            hasError: true,
+            type: 'error',
           }]}>
       </ExpandableModule>
     </Box>
