@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sheet should render all props 1`] = `
+exports[`Sheet should render all props with nodes 1`] = `
 <div>
   <div>
     <div
       class="container"
     >
       <div
-        class="backdrop zoomOut"
+        class="backdrop backdropAnimationIn zoomOut"
       />
       <div
         aria-label="Sheet"
-        class="wrapper hideOutline"
+        class="wrapper hideOutline wrapperAnimationIn"
         role="dialog"
         style="width: 540px;"
         tabindex="-1"
@@ -84,7 +84,7 @@ exports[`Sheet should render all props 1`] = `
           <div
             class="box flexGrow overflowAuto paddingX8 paddingY8"
           >
-            Sheet content
+            <section />
           </div>
           <div
             class="shadowContainer"
@@ -93,6 +93,112 @@ exports[`Sheet should render all props 1`] = `
               class="box paddingX8 paddingY8"
             >
               <footer />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Sheet should render all props with render props 1`] = `
+<div>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        class="backdrop backdropAnimationIn zoomOut"
+      />
+      <div
+        aria-label="Sheet"
+        class="wrapper hideOutline wrapperAnimationIn"
+        role="dialog"
+        style="width: 540px;"
+        tabindex="-1"
+      >
+        <div
+          class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+          style="width: 100%;"
+        >
+          <div
+            class="shadowContainer"
+          >
+            <div
+              class="box marginEnd0 marginStart0"
+            >
+              <div
+                class="box flexGrow itemsCenter justifyBetween xsDirectionRow xsDisplayFlex"
+              >
+                <div
+                  class="box"
+                >
+                  <div
+                    class="box flexGrow"
+                  >
+                    <div
+                      class="box paddingX8 paddingY8 xsDisplayFlex"
+                    >
+                      <h1
+                        class="Heading fontSize2 darkGray alignLeft breakWord"
+                      >
+                        Sheet title
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="box"
+                >
+                  <div
+                    class="box flexNone paddingX6 paddingY7"
+                  >
+                    <button
+                      aria-label="Dismiss"
+                      class="button tapTransition enabled"
+                      type="button"
+                    >
+                      <div
+                        class="pog white"
+                        style="height: 40px; width: 40px;"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          aria-label=""
+                          class="icon darkGray iconBlock"
+                          height="18"
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width="18"
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="box flexGrow overflowAuto paddingX8 paddingY8"
+          >
+            <button
+              type="submit"
+            />
+          </div>
+          <div
+            class="shadowContainer"
+          >
+            <div
+              class="box paddingX8 paddingY8"
+            >
+              <button
+                type="submit"
+              />
             </div>
           </div>
         </div>
@@ -157,7 +263,7 @@ exports[`Sheet should render animation in 1`] = `
           <div
             class="box flexGrow overflowAuto paddingX8 paddingY8"
           >
-            Sheet content
+            <section />
           </div>
         </div>
       </div>
@@ -221,7 +327,7 @@ exports[`Sheet should render animation out 1`] = `
           <div
             class="box flexGrow overflowAuto paddingX8 paddingY8"
           >
-            Sheet content
+            <section />
           </div>
         </div>
       </div>

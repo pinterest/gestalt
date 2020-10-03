@@ -58,7 +58,7 @@ describe('AnimationController', () => {
     expect(getNodeText(getByLabelText('animated'))).toEqual('');
   });
 
-  it('should transition animationState from in to post-in', () => {
+  it('should transition animationState from in to postIn', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
         {({ onDismissStart }) => (
@@ -68,7 +68,7 @@ describe('AnimationController', () => {
     );
     fireEvent.animationEnd(getByLabelText('animated'));
 
-    expect(getNodeText(getByLabelText('animated'))).toEqual('post-in');
+    expect(getNodeText(getByLabelText('animated'))).toEqual('postIn');
   });
 
   it('should transition animationState to out when onDismissStart() is called', () => {
@@ -84,7 +84,7 @@ describe('AnimationController', () => {
     expect(getNodeText(getByLabelText('animated'))).toEqual('out');
   });
 
-  it('should not render children when animationState is post-out', () => {
+  it('should not render children when animationState is postOut', () => {
     const { getByLabelText, queryByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
         {({ onDismissStart }) => (
