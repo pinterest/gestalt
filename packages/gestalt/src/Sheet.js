@@ -44,24 +44,39 @@ import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 
-type SheetProps = {|
+type SheetMainProps = {|
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
   children: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
-  heading?: string,
   onDismiss: () => void,
   size?: 'sm' | 'md' | 'lg',
 |};
 
+type SheetProps = {|
+  ...SheetMainProps,
+  heading?: string,
+  subHeading?: Node,
+|};
+
 type NodeOrRenderProp = Node | (({| onDismissStart: () => void |}) => Node);
 
-type AnimatedSheetProps = {|
-  ...SheetProps,
+type AnimatedSheetMainProps = {|
+  ...SheetMainProps,
   children: NodeOrRenderProp,
   footer?: NodeOrRenderProp,
 |};
+
+type AnimatedSheetWithHeadingProps = {|
+  ...AnimatedSheetMainProps,
+  heading: string,
+  subHeading?: NodeOrRenderProp,
+|};
+
+type AnimatedSheetProps =
+  | AnimatedSheetMainProps
+  | AnimatedSheetWithHeadingProps;
 
 const SIZE_WIDTH_MAP = {
   sm: 540,
@@ -116,10 +131,11 @@ const SheetWithForwardRef: React$AbstractComponent<
     accessibilitySheetLabel,
     children,
     closeOnOutsideClick = true,
-    onDismiss,
     footer,
-    heading,
+    heading = undefined,
+    onDismiss,
     size = 'sm',
+    subHeading = undefined,
   } = props;
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
@@ -222,6 +238,7 @@ const SheetWithForwardRef: React$AbstractComponent<
                         />
                       </Box>
                     </Row>
+                    {subHeading}
                   </div>
                 )}
                 {!heading && (
@@ -284,8 +301,9 @@ SheetWithForwardRef.propTypes = {
   closeOnOutsideClick: PropTypes.bool,
   footer: PropTypes.node,
   heading: PropTypes.string,
-  onDismiss: PropTypes.func,
+  onDismiss: PropTypes.func.isRequired,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  subHeading: PropTypes.node,
 };
 
 /*
@@ -308,8 +326,9 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
     closeOnOutsideClick,
     onDismiss,
     footer,
-    heading,
+    heading = undefined,
     size,
+    subHeading = undefined,
   } = props;
 
   return (
@@ -326,6 +345,11 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
           onDismiss={onDismissStart}
           ref={sheetRef}
           size={size}
+          subHeading={
+            typeof subHeading === 'function'
+              ? subHeading({ onDismissStart })
+              : subHeading
+          }
         >
           {typeof children === 'function'
             ? children({ onDismissStart })
@@ -345,6 +369,7 @@ AnimatedSheetWithForwardRef.propTypes = {
   ...SheetWithForwardRef.propTypes,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   footer: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  subHeading: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
 };
 
 export default AnimatedSheetWithForwardRef;
