@@ -1,39 +1,39 @@
 @keyframes slide-in-ltr {
-  0% {
+  from {
     transform: translateX(100%);
   }
   
-  100% {
+  to {
     transform: translateX(0%);
   }
 }
 
 @keyframes slide-in-rtl {
-  0% {
+  from {
     transform: translateX(-100%);
   }
 
-  100% {
+  to {
     transform: translateX(0%);
   }
 }
 
 @keyframes slide-out-ltr {
-  0% {
+  from {
     transform: translateX(0%);
   }
 
-  100% {
+  to {
     transform: translateX(100%);
   }
 }
 
 @keyframes slide-out-rtl {
-  0% {
+  from {
     transform: translateX(0%);
   }
 
-  100% {
+  to {
     transform: translateX(-100%);
   }
 }
