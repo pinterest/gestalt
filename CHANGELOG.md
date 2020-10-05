@@ -1,3 +1,9 @@
+## 14.6.0 (Oct 5, 2020)
+
+### Minor
+
+- Sheet: Control animation behavior with AnimationContext (#1236)
+
 ## 14.5.3 (Oct 1, 2020)
 
 ### Patch
