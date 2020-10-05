@@ -555,7 +555,7 @@ function RefExample() {
             >
               <Box color="white" minHeight={400} padding={8}>
                 <Box marginBottom={4}>
-                  <Heading size="md">Focused content</Heading>                
+                  <Heading size="md">Focused content</Heading>
                 </Box>
                 <Button 
                   inline 
