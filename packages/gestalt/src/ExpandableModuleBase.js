@@ -9,11 +9,12 @@ import Text from './Text.js';
 type Props = {|
   title: string,
   icon?: string,
-  iconAccessibilityLabel?: string,
+  arrowIconAccessibilityLabel: string,
+  titleIconAccessibilityLabel?: string,
   summary?: Array<string>,
   isCollapsed: boolean,
   onModuleClicked?: boolean => void,
-  type?: string,
+  type: 'error' | 'info',
   children?: Node,
 |};
 
@@ -31,11 +32,12 @@ const EXPANDABLE_TYPE_ATTRIBUTES = {
 export default function ExpandableModuleBase({
   title,
   icon,
-  iconAccessibilityLabel,
+  arrowIconAccessibilityLabel,
+  titleIconAccessibilityLabel,
   summary,
   isCollapsed,
   onModuleClicked,
-  type = 'info',
+  type,
   children,
 }: Props): Node {
   const handleModuleClick = () => {
@@ -47,7 +49,7 @@ export default function ExpandableModuleBase({
     <>
       <TapArea onTap={handleModuleClick}>
         <Box display="flex">
-          <Box display="flex" flex="grow" marginEnd={6}>
+          <Box display="flex" flex="grow" marginEnd={6} alignItems="baseline">
             <Box column={isCollapsed ? 6 : 12} display="flex">
               {EXPANDABLE_TYPE_ATTRIBUTES[type].icon && (
                 <Box marginEnd={2}>
@@ -64,7 +66,9 @@ export default function ExpandableModuleBase({
                 <Box paddingX={2}>
                   <Icon
                     icon="lock"
-                    accessibilityLabel={iconAccessibilityLabel || 'Title icon'}
+                    accessibilityLabel={
+                      titleIconAccessibilityLabel || 'Title icon'
+                    }
                     color="darkGray"
                   />
                 </Box>
@@ -80,7 +84,7 @@ export default function ExpandableModuleBase({
             {summary && isCollapsed && (
               <Box column={6}>
                 {summary.map((item, i) => (
-                  <Box key={i} paddingY={1}>
+                  <Box key={i} marginBottom={1}>
                     <Text size="md" truncate>
                       {item}
                     </Text>
@@ -92,7 +96,7 @@ export default function ExpandableModuleBase({
           <Box>
             {children && (
               <IconButton
-                accessibilityLabel="arrow icon to expand or collapse the module"
+                accessibilityLabel={arrowIconAccessibilityLabel}
                 bgColor="white"
                 icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
                 iconColor="darkGray"

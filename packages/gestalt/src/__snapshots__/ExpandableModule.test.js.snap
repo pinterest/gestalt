@@ -2,7 +2,7 @@
 
 exports[`renders correctly with multiple items 1`] = `
 <div
-  className="expandablemodule"
+  className="expandableModule"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -30,7 +30,7 @@ exports[`renders correctly with multiple items 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -46,7 +46,7 @@ exports[`renders correctly with multiple items 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottom1"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -61,7 +61,7 @@ exports[`renders correctly with multiple items 1`] = `
           className="box"
         >
           <button
-            aria-label="arrow icon to expand or collapse the module"
+            aria-label="click to expand/collapse"
             className="button tapTransition enabled"
             onBlur={[Function]}
             onClick={[Function]}
@@ -133,7 +133,7 @@ exports[`renders correctly with multiple items 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -149,7 +149,7 @@ exports[`renders correctly with multiple items 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottom1"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -164,7 +164,7 @@ exports[`renders correctly with multiple items 1`] = `
           className="box"
         >
           <button
-            aria-label="arrow icon to expand or collapse the module"
+            aria-label="click to expand/collapse"
             className="button tapTransition enabled"
             onBlur={[Function]}
             onClick={[Function]}
@@ -236,7 +236,7 @@ exports[`renders correctly with multiple items 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -269,7 +269,7 @@ exports[`renders correctly with multiple items 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottom1"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -284,7 +284,7 @@ exports[`renders correctly with multiple items 1`] = `
           className="box"
         >
           <button
-            aria-label="arrow icon to expand or collapse the module"
+            aria-label="click to expand/collapse"
             className="button tapTransition enabled"
             onBlur={[Function]}
             onClick={[Function]}
@@ -332,7 +332,7 @@ exports[`renders correctly with multiple items 1`] = `
 
 exports[`renders correctly with one item 1`] = `
 <div
-  className="expandablemodule"
+  className="expandableModule"
 >
   <div
     className="box paddingX6 paddingY6"
@@ -360,7 +360,7 @@ exports[`renders correctly with one item 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -376,7 +376,7 @@ exports[`renders correctly with one item 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottom1"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -386,7 +386,7 @@ exports[`renders correctly with one item 1`] = `
               </div>
             </div>
             <div
-              className="box paddingY1"
+              className="box marginBottom1"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -396,7 +396,7 @@ exports[`renders correctly with one item 1`] = `
               </div>
             </div>
             <div
-              className="box paddingY1"
+              className="box marginBottom1"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -411,7 +411,7 @@ exports[`renders correctly with one item 1`] = `
           className="box"
         >
           <button
-            aria-label="arrow icon to expand or collapse the module"
+            aria-label="click to expand/collapse"
             className="button tapTransition enabled"
             onBlur={[Function]}
             onClick={[Function]}

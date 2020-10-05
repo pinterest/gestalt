@@ -12,6 +12,8 @@ test('renders correctly with one item', () => {
             title: 'Title',
             summary: ['summary1', 'summary2', 'summary3'],
             children: 'Children',
+            arrowIconAccessibilityLabel: 'click to expand/collapse',
+            type: 'info',
           },
         ]}
       />
@@ -29,17 +31,22 @@ test('renders correctly with multiple items', () => {
             title: 'Title1',
             summary: ['summary1'],
             children: 'Children1',
+            arrowIconAccessibilityLabel: 'click to expand/collapse',
+            type: 'info',
           },
           {
             title: 'Title2',
             summary: ['summary2'],
             children: 'Children2',
+            arrowIconAccessibilityLabel: 'click to expand/collapse',
+            type: 'info',
           },
           {
             title: 'Title3',
             summary: ['summary3'],
             children: 'Children3',
             type: 'error',
+            arrowIconAccessibilityLabel: 'click to expand/collapse',
           },
         ]}
       />

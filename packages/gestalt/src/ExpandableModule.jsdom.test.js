@@ -9,19 +9,27 @@ describe('ExpandableModule', () => {
       {
         title: 'Title1',
         icon: 'lock',
-        iconAccessibilityLabel: 'lock icon label',
+        titleIconAccessibilityLabel: 'lock icon label',
+        arrowIconAccessibilityLabel:
+          'arrow icon to expand or collapse the module',
         summary: ['summary1'],
         children: 'Children1',
+        type: 'info',
       },
       {
         title: 'Title2',
         summary: ['summary2'],
         children: 'Children2',
+        arrowIconAccessibilityLabel:
+          'arrow icon to expand or collapse the module',
+        type: 'info',
       },
       {
         title: 'Title3',
         summary: ['summary3'],
         children: 'Children3',
+        arrowIconAccessibilityLabel:
+          'arrow icon to expand or collapse the module',
         type: 'error',
       },
     ],
@@ -32,7 +40,7 @@ describe('ExpandableModule', () => {
 
     expect(screen.getByText(/Title1/i)).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: /Title icon/i })
+      screen.getByRole('img', { name: /lock icon label/i })
     ).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children1/i)).toBeNull();

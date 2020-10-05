@@ -6,7 +6,8 @@ const Valid = (
   <ExpandableModuleBase
     title="test title"
     icon="lock"
-    iconAccessibilityLabel="test label"
+    titleIconAccessibilityLabel="test label"
+    arrowIconAccessibilityLabel="test label"
     summary={['summary1', 'summary2', 'summary3']}
     isCollapsed={false}
     type="info"

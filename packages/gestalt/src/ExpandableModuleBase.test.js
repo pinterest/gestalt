@@ -5,14 +5,30 @@ import ExpandableModuleBase from './ExpandableModuleBase.js';
 
 test('renders correctly', () => {
   const tree = renderer
-    .create(<ExpandableModuleBase title="test title" isCollapsed />)
+    .create(
+      <ExpandableModuleBase
+        title="test title"
+        isCollapsed
+        arrowIconAccessibilityLabel="click to expand/collapse"
+        type="info"
+      />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('renders correctly with icon', () => {
   const tree = renderer
-    .create(<ExpandableModuleBase title="test title" isCollapsed icon="lock" />)
+    .create(
+      <ExpandableModuleBase
+        title="test title"
+        isCollapsed
+        icon="lock"
+        titleIconAccessibilityLabel="lock icon lable"
+        arrowIconAccessibilityLabel="click to expand/collapse"
+        type="info"
+      />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -24,6 +40,8 @@ test('renders correctly with summary', () => {
         title="test title"
         isCollapsed
         summary={['summary1', 'summary2', 'summary3']}
+        arrowIconAccessibilityLabel="click to expand/collapse"
+        type="info"
       />
     )
     .toJSON();
@@ -33,7 +51,12 @@ test('renders correctly with summary', () => {
 test('renders correctly with error', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase title="test title" isCollapsed type="error" />
+      <ExpandableModuleBase
+        title="test title"
+        isCollapsed
+        type="error"
+        arrowIconAccessibilityLabel="click to expand/collapse"
+      />
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -41,7 +64,14 @@ test('renders correctly with error', () => {
 
 test('renders correctly with children', () => {
   const tree = renderer
-    .create(<ExpandableModuleBase title="test title" isCollapsed />)
+    .create(
+      <ExpandableModuleBase
+        title="test title"
+        isCollapsed
+        arrowIconAccessibilityLabel="click to expand/collapse"
+        type="info"
+      />
+    )
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -53,6 +83,8 @@ test('renders correctly with when expanded', () => {
         title="test title"
         isCollapsed={false}
         summary={['summary1', 'summary2', 'summary3']}
+        arrowIconAccessibilityLabel="click to expand/collapse"
+        type="info"
       >
         <div>test children</div>
       </ExpandableModuleBase>
