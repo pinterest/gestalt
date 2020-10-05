@@ -14,7 +14,6 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Flyout from './Flyout.js';
-import Provider from './Provider.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -30,6 +29,7 @@ import MasonryDefaultLayout from './layouts/MasonryLayout.js';
 import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
 import Modal from './Modal.js';
 import Pog from './Pog.js';
+import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
 import Row from './Row.js';
@@ -50,10 +50,10 @@ import TextArea from './TextArea.js';
 import TextField from './TextField.js';
 import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
+import Typeahead from './Typeahead.js';
+import Video from './Video.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
-import Video from './Video.js';
-import Typeahead from './Typeahead.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
@@ -75,7 +75,6 @@ export {
   Divider,
   FixedZIndex,
   Flyout,
-  Provider,
   GroupAvatar,
   Heading,
   Icon,
@@ -91,6 +90,7 @@ export {
   MasonryUniformRowLayout,
   Modal,
   Pog,
+  Provider,
   Pulsar,
   RadioButton,
   Row,
@@ -112,8 +112,8 @@ export {
   Toast,
   Tooltip,
   Typeahead,
+  Video,
   useColorScheme,
   useFocusVisible,
   useReducedMotion,
-  Video,
 };
