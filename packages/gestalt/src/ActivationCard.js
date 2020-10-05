@@ -138,7 +138,7 @@ const UncompletedCard = ({
 
   return (
     <>
-      <Box display="flex" alignContent="center">
+      <Box display="flex" alignContent="center" height={24}>
         {icon && (
           <Box marginEnd={2}>
             <Icon

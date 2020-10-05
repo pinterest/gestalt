@@ -12,6 +12,11 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
 >
   <div
     className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
   >
     <div
       className="box marginEnd2"
@@ -73,6 +78,11 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
 >
   <div
     className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
   >
     <div
       className="box marginTop1 selfCenter"
@@ -117,6 +127,11 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
 >
   <div
     className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
   >
     <div
       className="box marginEnd2"
@@ -238,6 +253,11 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
 >
   <div
     className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
   >
     <div
       className="box marginEnd2"
@@ -377,6 +397,11 @@ exports[`<ActivationCard /> message + title + link 1`] = `
 >
   <div
     className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
   >
     <div
       className="box marginEnd2"
@@ -472,6 +497,11 @@ exports[`<ActivationCard /> message + title 1`] = `
 >
   <div
     className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
   >
     <div
       className="box marginEnd2"
