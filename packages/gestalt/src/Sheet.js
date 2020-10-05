@@ -132,10 +132,10 @@ const SheetWithForwardRef: React$AbstractComponent<
     children,
     closeOnOutsideClick = true,
     footer,
-    heading = undefined,
+    heading,
     onDismiss,
     size = 'sm',
-    subHeading = undefined,
+    subHeading,
   } = props;
 
   const [showTopShadow, setShowTopShadow] = useState<boolean>(false);
