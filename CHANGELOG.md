@@ -1,3 +1,9 @@
+## 14.7.0 (Oct 5, 2020)
+
+### Minor
+
+- ActivationCard: Add component (#1238)
+
 ## 14.6.0 (Oct 5, 2020)
 
 ### Minor
