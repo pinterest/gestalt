@@ -5,6 +5,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }
@@ -61,6 +62,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }
@@ -100,6 +102,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }
@@ -156,6 +159,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }
@@ -215,6 +219,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }
@@ -349,6 +354,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }
@@ -439,6 +445,7 @@ exports[`<ActivationCard /> message + title 1`] = `
   className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
+      "height": "100%",
       "maxWidth": 400,
     }
   }

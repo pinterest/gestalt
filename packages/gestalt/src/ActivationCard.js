@@ -205,6 +205,7 @@ export default function ActivationCard({
       position="relative"
       direction="column"
       justifyContent="center"
+      height="100%"
     >
       {isCompleted ? (
         <CompletedCard
