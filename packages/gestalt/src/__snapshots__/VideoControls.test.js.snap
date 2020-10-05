@@ -24,7 +24,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -155,7 +155,7 @@ exports[`VideoControls for double digit minutes 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -199,7 +199,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -330,7 +330,7 @@ exports[`VideoControls for double digit seconds 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -374,7 +374,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -505,7 +505,7 @@ exports[`VideoControls for single digit minutes 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -549,7 +549,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -680,7 +680,7 @@ exports[`VideoControls for single digit seconds 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -724,7 +724,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}
@@ -855,7 +855,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
       onTouchMove={[Function]}
       onTouchStart={[Function]}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <svg
         aria-hidden={null}

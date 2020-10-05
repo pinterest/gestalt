@@ -13,16 +13,16 @@ describe('IconButton', () => {
     expect(mockOnClick).toHaveBeenCalled();
   });
 
-  it('renders a button and forwards a ref to the innermost <button> element', () => {
+  it('renders a button with sequential keyboard navigation and forwards a ref to the innermost <button> element', () => {
     const ref = createRef();
-    render(<IconButton disabled accessibilityLabel="test" ref={ref} />);
+    render(<IconButton accessibilityLabel="test" ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(
-      ref.current instanceof HTMLButtonElement && ref.current?.disabled
-    ).toEqual(true);
+      ref.current instanceof HTMLButtonElement && ref.current?.tabIndex
+    ).toEqual(0);
   });
 
-  it('renders a link button and forwards a ref to the innermost <a> element', () => {
+  it('renders a link button with sequential keyboard navigation and forwards a ref to the innermost <a> element', () => {
     const ref = createRef();
     render(
       <IconButton
@@ -38,6 +38,9 @@ describe('IconButton', () => {
     expect(
       ref.current instanceof HTMLAnchorElement && ref.current?.href
     ).toEqual('http://www.pinterest.com/');
+    expect(
+      ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex
+    ).toEqual(0);
   });
 
   it('renders a disabled link button', () => {
@@ -57,5 +60,54 @@ describe('IconButton', () => {
     expect(
       ref.current instanceof HTMLAnchorElement && ref.current?.href
     ).toEqual('');
+    expect(
+      ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex
+    ).toEqual(-1);
+  });
+
+  it('renders a disabled button', () => {
+    const ref = createRef();
+    render(
+      <IconButton disabled accessibilityLabel="test" icon="add" ref={ref} />
+    );
+    expect(ref.current instanceof HTMLButtonElement).toEqual(true);
+    expect(
+      ref.current instanceof HTMLButtonElement && ref.current?.tabIndex
+    ).toEqual(-1);
+  });
+
+  it('renders an IconButton removed from sequential keyboard navigation via tabIndex', () => {
+    const ref = createRef();
+    render(
+      <IconButton
+        accessibilityLabel="test"
+        icon="add"
+        ref={ref}
+        tabIndex={-1}
+      />
+    );
+    expect(ref.current instanceof HTMLButtonElement).toEqual(true);
+    expect(
+      ref.current instanceof HTMLButtonElement && ref.current?.tabIndex
+    ).toEqual(-1);
+  });
+
+  it('renders a link IconButton removed from sequential keyboard navigation via tabIndex', () => {
+    const ref = createRef();
+    render(
+      <IconButton
+        accessibilityLabel="test"
+        icon="add"
+        role="link"
+        href="http://www.pinterest.com"
+        ref={ref}
+        tabIndex={-1}
+        target="blank"
+      />
+    );
+    expect(ref.current instanceof HTMLAnchorElement).toEqual(true);
+    expect(
+      ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex
+    ).toEqual(-1);
   });
 });

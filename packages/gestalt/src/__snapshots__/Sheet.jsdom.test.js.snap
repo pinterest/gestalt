@@ -55,6 +55,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                     <button
                       aria-label="Dismiss"
                       class="button tapTransition enabled"
+                      tabindex="0"
                       type="button"
                     >
                       <div
@@ -158,6 +159,7 @@ exports[`Sheet should render all props with render props 1`] = `
                     <button
                       aria-label="Dismiss"
                       class="button tapTransition enabled"
+                      tabindex="0"
                       type="button"
                     >
                       <div
@@ -241,6 +243,7 @@ exports[`Sheet should render animation in 1`] = `
               <button
                 aria-label="Dismiss"
                 class="button tapTransition enabled"
+                tabindex="0"
                 type="button"
               >
                 <div
@@ -305,6 +308,7 @@ exports[`Sheet should render animation out 1`] = `
               <button
                 aria-label="Dismiss"
                 class="button tapTransition enabled"
+                tabindex="0"
                 type="button"
               >
                 <div

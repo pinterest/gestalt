@@ -156,7 +156,7 @@ exports[`Video with children 1`] = `
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex={0}
         >
           <svg
             aria-hidden={null}
@@ -193,7 +193,7 @@ exports[`Video with children 1`] = `
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex={0}
         >
           <svg
             aria-hidden={true}
@@ -324,7 +324,7 @@ exports[`Video with children 1`] = `
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex="0"
+          tabIndex={0}
         >
           <svg
             aria-hidden={null}

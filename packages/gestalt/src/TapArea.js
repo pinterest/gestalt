@@ -51,6 +51,7 @@ type BaseTapArea = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
+  tabIndex?: -1 | 0,
   rounding?: Rounding,
   tapStyle?: 'none' | 'compress',
 |};
@@ -89,6 +90,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
     onMouseEnter,
     onMouseLeave,
     onTap,
+    tabIndex = 0,
     rounding = 0,
     tapStyle = 'none',
   } = props;
@@ -189,6 +191,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
         onMouseLeave={handleLinkOnMouseLeave}
         ref={innerRef}
         rel={rel}
+        tabIndex={tabIndex}
         rounding={rounding}
         tapStyle={tapStyle}
         target={target}
@@ -240,7 +243,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       {...(tapStyle === 'compress' && compressStyle && !disabled
         ? { style: compressStyle }
         : {})}
-      tabIndex={disabled ? null : '0'}
+      tabIndex={disabled ? null : tabIndex}
     >
       {children}
     </div>
@@ -285,6 +288,7 @@ TapAreaWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['tapArea', 'link']),
   rounding: RoundingPropType,
   tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<

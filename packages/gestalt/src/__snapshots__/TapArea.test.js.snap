@@ -18,7 +18,7 @@ exports[`Link-role tapArea supports press style 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  tabIndex="0"
+  tabIndex={0}
   target={null}
 >
   TapArea
@@ -43,7 +43,7 @@ exports[`TapArea renders 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   TapArea
 </div>
@@ -67,7 +67,7 @@ exports[`TapArea sets correct mouse cursor 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   TapArea
 </div>
@@ -91,7 +91,7 @@ exports[`TapArea sets correct rounding 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   TapArea
 </div>
@@ -115,7 +115,7 @@ exports[`TapArea sets fullHeight correctly 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   TapArea
 </div>
@@ -139,7 +139,7 @@ exports[`TapArea sets fullWidth correctly 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   TapArea
 </div>
@@ -163,7 +163,7 @@ exports[`TapArea supports press style 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 >
   TapArea
 </div>

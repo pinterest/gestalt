@@ -7,7 +7,11 @@ it('default', () =>
   expect(
     renderer
       .create(
-        <InternalLink wrappedComponent="button" href="https://example.com">
+        <InternalLink
+          wrappedComponent="button"
+          href="https://example.com"
+          tabIndex={0}
+        >
           InternalLink
         </InternalLink>
       )
@@ -22,6 +26,7 @@ it('inline', () =>
           wrappedComponent="button"
           href="https://example.com"
           inline
+          tabIndex={0}
         >
           InternalLink
         </InternalLink>
@@ -37,6 +42,7 @@ it('target null', () =>
           wrappedComponent="button"
           href="https://example.com"
           target={null}
+          tabIndex={0}
         >
           InternalLink
         </InternalLink>
@@ -52,6 +58,7 @@ it('target self', () =>
           wrappedComponent="button"
           href="https://example.com"
           target="self"
+          tabIndex={0}
         >
           InternalLink
         </InternalLink>
@@ -67,6 +74,7 @@ it('target blank', () =>
           wrappedComponent="button"
           href="https://example.com"
           target="blank"
+          tabIndex={0}
         >
           InternalLink
         </InternalLink>
@@ -82,6 +90,7 @@ it('with nofollow', () =>
           wrappedComponent="button"
           href="https://example.com"
           rel="nofollow"
+          tabIndex={0}
         >
           InternalLink
         </InternalLink>
@@ -97,6 +106,7 @@ it('with onTap', () =>
           wrappedComponent="button"
           href="https://example.com"
           onClick={() => {}}
+          tabIndex={0}
         >
           InternalLink
         </InternalLink>

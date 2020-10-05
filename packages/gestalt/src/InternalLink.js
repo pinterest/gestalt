@@ -52,6 +52,7 @@ type Props = {|
   onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
+  tabIndex: -1 | 0,
   rounding?: Rounding,
   size?: 'sm' | 'md' | 'lg',
   tapStyle?: 'none' | 'compress',
@@ -85,6 +86,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
     onMouseDown,
     onMouseUp,
     rel,
+    tabIndex = 0,
     rounding,
     size,
     tapStyle = 'compress',
@@ -224,10 +226,10 @@ const InternalLinkWithForwardRef: AbstractComponent<
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      tabIndex={disabled ? null : tabIndex}
       {...(tapStyle === 'compress' && compressStyle && !disabled
         ? { style: compressStyle }
         : {})}
-      tabIndex={isTapArea && !disabled ? '0' : null}
       target={target ? `_${target}` : null}
     >
       {children}
@@ -266,6 +268,7 @@ InternalLinkWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<

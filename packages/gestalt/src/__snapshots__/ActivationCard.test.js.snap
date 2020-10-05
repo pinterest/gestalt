@@ -327,7 +327,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         rel=""
-        tabIndex={null}
+        tabIndex={0}
         target={null}
       >
         <div
@@ -355,6 +355,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      tabIndex={0}
       type="button"
     >
       <div
@@ -471,7 +472,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         rel=""
-        tabIndex={null}
+        tabIndex={0}
         target={null}
       >
         <div

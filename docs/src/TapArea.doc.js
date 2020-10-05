@@ -104,6 +104,7 @@ function Example() {
   const [disabled, setDisabled] = React.useState(false);
   const [compressed, setCompressed] = React.useState('compress');
   const [touches, setTouches] = React.useState(0);
+  const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
     <Stack gap={3}>
@@ -113,6 +114,7 @@ function Example() {
             tapStyle={compressed}
             disabled={disabled}
             onTap={() => setTouches(touches + 1)}
+            tabIndex={tabIndex ? -1 : 0}
           >
             <Box padding={3} column={12} borderSize="lg" width={200}>
               <Mask rounding={2}>
@@ -134,6 +136,7 @@ function Example() {
             role="link"
             target="blank"
             href="https://www.pinterest.com"
+            tabIndex={tabIndex ? -1 : 0}
           >
             <Box padding={3} column={12} borderSize="lg" width={200}>
               <Mask rounding={2}>
@@ -170,6 +173,18 @@ function Example() {
         <Box paddingX={2} flex="grow">
           <Label htmlFor="disable-buttons">
             <Text>Disable TapArea</Text>
+          </Label>
+        </Box>
+      </Row>
+      <Row gap={1}>
+        <Switch
+          onChange={() => setTabIndex(!tabIndex)}
+          id="unreachable-buttons"
+          switched={tabIndex}
+        />
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="unreachable-buttons">
+            <Text>Remove from keyboard navigation with tabIndex</Text>
           </Label>
         </Box>
       </Row>
@@ -521,6 +536,18 @@ card(
         defaultValue: null,
         description: 'Forward the ref to the underlying div or anchor element.',
         href: 'ref',
+      },
+      {
+        name: 'tabIndex',
+        type: `-1 | 0`,
+        required: false,
+        defaultValue: 0,
+        description: [
+          'Remove the component from sequential keyboard navigation to improve accessibility. The component is not focusable with keyboard navigation but it can be focused with Javascript or visually by clicking with the mouse.',
+          `The default behaviour for the component is to be focusable in sequential keyboard navigation in the order defined by the document's source order.`,
+          `If component is disabled, the component is also unreachable from keyboard navigation.`,
+        ],
+        href: 'roles',
       },
       {
         name: 'rounding',
