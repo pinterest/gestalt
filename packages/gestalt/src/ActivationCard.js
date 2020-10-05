@@ -81,7 +81,7 @@ const CompletedCard = ({
       <Box display="flex">
         {icon && (
           <Box display="flex" alignContent="center">
-            <Box marginEnd={2}>
+            <Box marginEnd={4}>
               <Icon
                 accessibilityLabel={statusMessage}
                 icon={icon.symbol}
@@ -145,14 +145,16 @@ const UncompletedCard = ({
               accessibilityLabel={statusMessage}
               icon={icon.symbol}
               color={icon.color}
+              size={24}
             />
           </Box>
         )}
-        <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="md">
-          {statusMessage}
-        </Text>
+        <Box alignSelf="center" marginTop={isStarted ? 0 : 1}>
+          <Text color={isStarted ? 'darkGray' : 'gray'} weight="bold" size="md">
+            {statusMessage}
+          </Text>
+        </Box>
       </Box>
-
       <Box marginTop={6}>
         <Heading size="sm">{title}</Heading>
       </Box>

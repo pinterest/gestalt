@@ -20,10 +20,10 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
         aria-hidden={null}
         aria-label="Needs attention"
         className="icon red iconBlock"
-        height={16}
+        height={24}
         role="img"
         viewBox="0 0 24 24"
-        width={16}
+        width={24}
       >
         <path
           d="test-file-stub"
@@ -31,9 +31,13 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
       </svg>
     </div>
     <div
-      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      className="box marginTop0 selfCenter"
     >
-      Needs attention
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      >
+        Needs attention
+      </div>
     </div>
   </div>
   <div
@@ -71,9 +75,13 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     className="box contentCenter xsDisplayFlex"
   >
     <div
-      className="Text fontSize2 gray alignLeft breakWord fontWeightBold"
+      className="box marginTop1 selfCenter"
     >
-      Not started
+      <div
+        className="Text fontSize2 gray alignLeft breakWord fontWeightBold"
+      >
+        Not started
+      </div>
     </div>
   </div>
   <div
@@ -117,10 +125,10 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
         aria-hidden={null}
         aria-label="Pending"
         className="icon gray iconBlock"
-        height={16}
+        height={24}
         role="img"
         viewBox="0 0 24 24"
-        width={16}
+        width={24}
       >
         <path
           d="test-file-stub"
@@ -128,9 +136,13 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
       </svg>
     </div>
     <div
-      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      className="box marginTop0 selfCenter"
     >
-      Pending
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      >
+        Pending
+      </div>
     </div>
   </div>
   <div
@@ -171,7 +183,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
       className="box contentCenter xsDisplayFlex"
     >
       <div
-        className="box marginEnd2"
+        className="box marginEnd4"
       >
         <svg
           aria-hidden={null}
@@ -234,10 +246,10 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         aria-hidden={null}
         aria-label="Needs attention"
         className="icon red iconBlock"
-        height={16}
+        height={24}
         role="img"
         viewBox="0 0 24 24"
-        width={16}
+        width={24}
       >
         <path
           d="test-file-stub"
@@ -245,9 +257,13 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
       </svg>
     </div>
     <div
-      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      className="box marginTop0 selfCenter"
     >
-      Needs attention
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      >
+        Needs attention
+      </div>
     </div>
   </div>
   <div
@@ -369,10 +385,10 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         aria-hidden={null}
         aria-label="Needs attention"
         className="icon red iconBlock"
-        height={16}
+        height={24}
         role="img"
         viewBox="0 0 24 24"
-        width={16}
+        width={24}
       >
         <path
           d="test-file-stub"
@@ -380,9 +396,13 @@ exports[`<ActivationCard /> message + title + link 1`] = `
       </svg>
     </div>
     <div
-      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      className="box marginTop0 selfCenter"
     >
-      Needs attention
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      >
+        Needs attention
+      </div>
     </div>
   </div>
   <div
@@ -460,10 +480,10 @@ exports[`<ActivationCard /> message + title 1`] = `
         aria-hidden={null}
         aria-label="Needs attention"
         className="icon red iconBlock"
-        height={16}
+        height={24}
         role="img"
         viewBox="0 0 24 24"
-        width={16}
+        width={24}
       >
         <path
           d="test-file-stub"
@@ -471,9 +491,13 @@ exports[`<ActivationCard /> message + title 1`] = `
       </svg>
     </div>
     <div
-      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      className="box marginTop0 selfCenter"
     >
-      Needs attention
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      >
+        Needs attention
+      </div>
     </div>
   </div>
   <div
