@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -33,7 +33,7 @@ type Props = {|
   link?: LinkData,
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete',
   statusMessage: string,
-  title?: string,
+  title: string,
 |};
 
 const STATUS_ICONS = {
@@ -50,13 +50,10 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
     <Box
       alignItems="center"
       paddingX={1}
+      marginTop={8}
       marginEnd="auto"
       marginStart="auto"
-      mdMarginEnd={0}
-      mdMarginTop={8}
-      mdMarginBottom="auto"
       rounding="pill"
-      flex="grow"
     >
       <Button
         accessibilityLabel={accessibilityLabel}
@@ -71,19 +68,76 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
   );
 };
 
-export default function ActivationCard({
+const CompletedCard = ({
+  dismissButton,
+  message,
+  status,
+  statusMessage,
+  title,
+}: Props): Node => {
+  const isStarted = status !== 'notStarted';
+  const icon = STATUS_ICONS['complete'];
+
+  return (
+    <Fragment>
+      <Box display="flex">
+        <Box display="flex" alignContent="center">
+          <Box marginEnd={2}>
+            <Icon
+              accessibilityLabel={statusMessage}
+              icon={icon.symbol}
+              color={icon.color}
+              size={40}
+            />
+          </Box>
+        </Box>
+        <Box>
+          <Box>
+            <Heading size="sm">{title}</Heading>
+          </Box>
+          {message && (
+            <Box
+              flex="grow"
+              direction="column"
+              alignContent="start"
+              marginTop={2}
+            >
+              <Text color="gray" size="md">
+                {message}
+              </Text>
+            </Box>
+          )}
+        </Box>
+      </Box>
+      {dismissButton && (
+        <div className={classnames(styles.rtlPos)}>
+          <IconButton
+            accessibilityLabel={dismissButton.accessibilityLabel}
+            icon="cancel"
+            iconColor="gray"
+            onClick={dismissButton.onDismiss}
+            padding={4}
+            size="sm"
+          />
+        </div>
+      )}
+    </Fragment>
+  );
+};
+
+const UncompletedCard = ({
   dismissButton,
   message,
   link,
   status,
   statusMessage,
   title,
-}: Props): Node {
+}: Props): Node => {
   const isStarted = status !== 'notStarted';
   const icon = STATUS_ICONS[status];
 
   return (
-    <Box flex="grow" borderSize="sm" rounding={4} padding={6} maxWidth={400}>
+    <Fragment>
       <Box display="flex" alignContent="center">
         {icon && (
           <Box marginEnd={2}>
@@ -98,17 +152,22 @@ export default function ActivationCard({
           {statusMessage}
         </Text>
       </Box>
-      {title && (
-        <Box marginTop={6} marginBottom={2}>
-          <Heading size="sm">{title}</Heading>
+
+      <Box marginTop={6}>
+        <Heading size="sm">{title}</Heading>
+      </Box>
+      {message && (
+        <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
+          <Text color="gray" size="md">
+            {message}
+          </Text>
         </Box>
       )}
-      {message && (
-        <Text color="gray" size="md">
-          {message}
-        </Text>
+      {link && (
+        <Box>
+          <ActivationCardLink data={link} />
+        </Box>
       )}
-      {link && <ActivationCardLink data={link} />}
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
@@ -120,6 +179,50 @@ export default function ActivationCard({
             size="sm"
           />
         </div>
+      )}
+    </Fragment>
+  );
+};
+
+export default function ActivationCard({
+  dismissButton,
+  message,
+  link,
+  status,
+  statusMessage,
+  title,
+}: Props): Node {
+  const isCompleted = status === 'complete';
+
+  return (
+    <Box
+      display="flex"
+      flex="grow"
+      borderSize="sm"
+      rounding={4}
+      padding={6}
+      maxWidth={400}
+      position="relative"
+      direction="column"
+      justifyContent="center"
+    >
+      {isCompleted ? (
+        <CompletedCard
+          dismissButton={dismissButton}
+          message={message}
+          status={status}
+          statusMessage={statusMessage}
+          title={title}
+        />
+      ) : (
+        <UncompletedCard
+          dismissButton={dismissButton}
+          link={link}
+          message={message}
+          status={status}
+          statusMessage={statusMessage}
+          title={title}
+        />
       )}
     </Box>
   );
@@ -143,5 +246,5 @@ ActivationCard.propTypes = {
     'complete',
   ]).isRequired,
   statusMessage: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };

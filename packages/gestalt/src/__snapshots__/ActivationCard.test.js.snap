@@ -2,7 +2,7 @@
 
 exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -36,7 +36,7 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     </div>
   </div>
   <div
-    className="box marginBottom2 marginTop6"
+    className="box marginTop6"
   >
     <h3
       className="Heading fontSize1 darkGray alignLeft breakWord"
@@ -45,16 +45,20 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
     </h3>
   </div>
   <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
-    Oops! Your tag has errors that need to be fixed
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    >
+      Oops! Your tag has errors that need to be fixed
+    </div>
   </div>
 </div>
 `;
 
 exports[`<ActivationCard /> Not started ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -71,7 +75,7 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     </div>
   </div>
   <div
-    className="box marginBottom2 marginTop6"
+    className="box marginTop6"
   >
     <h3
       className="Heading fontSize1 darkGray alignLeft breakWord"
@@ -80,16 +84,20 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
     </h3>
   </div>
   <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
-    Claim your website to unlock new features
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    >
+      Claim your website to unlock new features
+    </div>
   </div>
 </div>
 `;
 
 exports[`<ActivationCard /> Pending ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -123,7 +131,7 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     </div>
   </div>
   <div
-    className="box marginBottom2 marginTop6"
+    className="box marginTop6"
   >
     <h3
       className="Heading fontSize1 darkGray alignLeft breakWord"
@@ -132,16 +140,20 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
     </h3>
   </div>
   <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
-    We will notify you via email as soon as your site has been successfully claimed
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    >
+      We will notify you via email as soon as your site has been successfully claimed
+    </div>
   </div>
 </div>
 `;
 
 exports[`<ActivationCard /> complete ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -149,51 +161,58 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
   }
 >
   <div
-    className="box contentCenter xsDisplayFlex"
+    className="box xsDisplayFlex"
   >
     <div
-      className="box marginEnd2"
+      className="box contentCenter xsDisplayFlex"
     >
-      <svg
-        aria-hidden={null}
-        aria-label="Complete"
-        className="icon green iconBlock"
-        height={16}
-        role="img"
-        viewBox="0 0 24 24"
-        width={16}
+      <div
+        className="box marginEnd2"
       >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
+        <svg
+          aria-hidden={null}
+          aria-label="Complete"
+          className="icon green iconBlock"
+          height={40}
+          role="img"
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
     </div>
     <div
-      className="Text fontSize2 darkGray alignLeft breakWord fontWeightBold"
+      className="box"
     >
-      Complete
+      <div
+        className="box"
+      >
+        <h3
+          className="Heading fontSize1 darkGray alignLeft breakWord"
+        >
+          Nice work
+        </h3>
+      </div>
+      <div
+        className="box contentStart flexGrow marginTop2 xsDirectionColumn"
+      >
+        <div
+          className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+        >
+          You are all done here
+        </div>
+      </div>
     </div>
-  </div>
-  <div
-    className="box marginBottom2 marginTop6"
-  >
-    <h3
-      className="Heading fontSize1 darkGray alignLeft breakWord"
-    >
-      Nice work
-    </h3>
-  </div>
-  <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
-  >
-    You are all done here
   </div>
 </div>
 `;
 
 exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -227,7 +246,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     </div>
   </div>
   <div
-    className="box marginBottom2 marginTop6"
+    className="box marginTop6"
   >
     <h3
       className="Heading fontSize1 darkGray alignLeft breakWord"
@@ -236,39 +255,47 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     </h3>
   </div>
   <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
-    Oops! Your tag must be healthy to continue.
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    >
+      Oops! Your tag must be healthy to continue.
+    </div>
   </div>
   <div
-    className="box flexGrow itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTop8 paddingX1 pill"
+    className="box"
   >
-    <a
-      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
-      href="https://pinterest.com"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={null}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      tabIndex={null}
-      target={null}
+    <div
+      className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
     >
-      <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+      <a
+        className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+        href="https://pinterest.com"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={null}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={null}
+        target={null}
       >
-        Learn more
-      </div>
-    </a>
+        <div
+          className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        >
+          Learn more
+        </div>
+      </a>
+    </div>
   </div>
   <div
     className="rtlPos"
@@ -319,7 +346,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
 
 exports[`<ActivationCard /> message + title + link 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -353,7 +380,7 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     </div>
   </div>
   <div
-    className="box marginBottom2 marginTop6"
+    className="box marginTop6"
   >
     <h3
       className="Heading fontSize1 darkGray alignLeft breakWord"
@@ -362,46 +389,54 @@ exports[`<ActivationCard /> message + title + link 1`] = `
     </h3>
   </div>
   <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
-    Oops! Your tag must be healthy to continue.
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    >
+      Oops! Your tag must be healthy to continue.
+    </div>
   </div>
   <div
-    className="box flexGrow itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTop8 paddingX1 pill"
+    className="box"
   >
-    <a
-      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
-      href="https://pinterest.com"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={null}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      tabIndex={null}
-      target={null}
+    <div
+      className="box itemsCenter marginEndAuto marginStartAuto marginTop8 paddingX1 pill"
     >
-      <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+      <a
+        className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+        href="https://pinterest.com"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={null}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={null}
+        target={null}
       >
-        Learn more
-      </div>
-    </a>
+        <div
+          className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        >
+          Learn more
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 `;
 
 exports[`<ActivationCard /> message + title 1`] = `
 <div
-  className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
+  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "maxWidth": 400,
@@ -435,7 +470,7 @@ exports[`<ActivationCard /> message + title 1`] = `
     </div>
   </div>
   <div
-    className="box marginBottom2 marginTop6"
+    className="box marginTop6"
   >
     <h3
       className="Heading fontSize1 darkGray alignLeft breakWord"
@@ -444,9 +479,13 @@ exports[`<ActivationCard /> message + title 1`] = `
     </h3>
   </div>
   <div
-    className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
   >
-    Oops! Your tag must be healthy to continue.
+    <div
+      className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+    >
+      Oops! Your tag must be healthy to continue.
+    </div>
   </div>
 </div>
 `;
