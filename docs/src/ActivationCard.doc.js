@@ -24,7 +24,7 @@ card(
     statusMessage="Not started"
     title="Claim your website"
     message="Grow distribution and track Pins linked to your website"
-    link={{href: "https://pinterest.com", label:"Learn more"}}
+    link={{href: "https://pinterest.com", label:"Claim your website now"}}
     dismissButton={{
       accessibilityLabel: 'Dismiss card',
       onDismiss: ()=>{},
@@ -35,7 +35,7 @@ card(
     statusMessage="Pending"
     title="Claim your website"
     message="We will notify you via email as soon as your site has been successfully claimed."
-    link={{href: "https://pinterest.com", label:"Claim your website now"}}
+    link={{href: "https://pinterest.com", label:"Learn more"}}
     dismissButton={{
       accessibilityLabel: 'Dismiss card',
       onDismiss: ()=>{},
