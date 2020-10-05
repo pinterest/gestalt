@@ -64,27 +64,27 @@ describe('<ActivationCard />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + linkData', () => {
+  test('message + title + link', () => {
     const tree = create(
       <ActivationCard
         status="needsAttention"
         statusMessage="Needs attention"
         title="Tag is unhealthy"
         message="Oops! Your tag must be healthy to continue."
-        linkData={{ href: 'https://pinterest.com', label: 'Learn more' }}
+        link={{ href: 'https://pinterest.com', label: 'Learn more' }}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + linkData + dismissButton', () => {
+  test('message + title + link + dismissButton', () => {
     const tree = create(
       <ActivationCard
         status="needsAttention"
         statusMessage="Needs attention"
         title="Tag is unhealthy"
         message="Oops! Your tag must be healthy to continue."
-        linkData={{ href: 'https://pinterest.com', label: 'Learn more' }}
+        link={{ href: 'https://pinterest.com', label: 'Learn more' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss card',
           onDismiss: jest.fn(),

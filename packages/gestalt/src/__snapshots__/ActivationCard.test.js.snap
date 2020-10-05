@@ -191,7 +191,7 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
 </div>
 `;
 
-exports[`<ActivationCard /> message + title + linkData + dismissButton 1`] = `
+exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
 <div
   className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
   style={
@@ -317,7 +317,7 @@ exports[`<ActivationCard /> message + title + linkData + dismissButton 1`] = `
 </div>
 `;
 
-exports[`<ActivationCard /> message + title + linkData 1`] = `
+exports[`<ActivationCard /> message + title + link 1`] = `
 <div
   className="borderColorLightGray box flexGrow paddingX6 paddingY6 rounding4 sizeSm solid"
   style={

@@ -24,14 +24,14 @@ card(
     statusMessage="Pending"
     title="Claiming your website"
     message="We will notify you via email as soon as your site has been successfully claimed"
-    linkData={{href: "https://pinterest.com", label:"Learn more"}}
+    link={{href: "https://pinterest.com", label:"Learn more"}}
   />
   <ActivationCard
     status="needsAttention"
     statusMessage="Needs attention"
     title="Tag is unhealthy"
     message="Oops! Your tag must be healthy to continue."
-    linkData={{href: "https://pinterest.com", label:"Learn more"}}
+    link={{href: "https://pinterest.com", label:"Learn more"}}
     dismissButton={{
       accessibilityLabel: 'Dismiss card',
       onDismiss: ()=>{},
@@ -68,7 +68,7 @@ card(
         href: '',
       },
       {
-        name: 'linkData',
+        name: 'link',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,

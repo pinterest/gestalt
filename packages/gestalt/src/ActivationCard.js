@@ -30,7 +30,7 @@ type Props = {|
     onDismiss: () => void,
   |},
   message: string,
-  linkData?: LinkData,
+  link?: LinkData,
   status: 'notStarted' | 'pending' | 'needsAttention' | 'complete',
   statusMessage: string,
   title?: string,
@@ -74,7 +74,7 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
 export default function ActivationCard({
   dismissButton,
   message,
-  linkData,
+  link,
   status,
   statusMessage,
   title,
@@ -108,7 +108,7 @@ export default function ActivationCard({
           {message}
         </Text>
       )}
-      {linkData && <ActivationCardLink data={linkData} />}
+      {link && <ActivationCardLink data={link} />}
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
@@ -131,7 +131,7 @@ ActivationCard.propTypes = {
     onDismiss: PropTypes.func.isRequired,
   }),
   message: PropTypes.string.isRequired,
-  linkData: PropTypes.exact({
+  link: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
