@@ -11,7 +11,7 @@ const card = c => cards.push(c);
 card(
   <PageHeader
     name="Sheet"
-    description="Side sheets are surfaces that allow users to view information or complete sub-tasks in a workflow while keeping the context of the current page."
+    description="Sheets are side surfaces that allow users to view information or complete sub-tasks in a workflow while keeping the context of the current page."
   />
 );
 
@@ -20,11 +20,11 @@ card(
     id="sizesExample"
     name="Sizes"
     description={`
-      There are 3 different pre-selected widths available for a \`Sheet\`, as well as a last-resort option to set a custom width. Click on each button to view a sample Sheet of the specified size.
+      There are 3 different pre-selected widths available for a \`<Sheet>\`. Click on each button to view a sample Sheet of the specified size.
       All Sheets have a max width of 100%.
     `}
     defaultCode={`
-function Example(props) {
+function SizesExample(props) {
   function reducer(state, action) {
     switch (action.type) {
       case 'small':
@@ -39,7 +39,6 @@ function Example(props) {
         throw new Error();
     }
   }
-
   const initialState = {};
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const HEADER_ZINDEX = new FixedZIndex(10);
@@ -78,7 +77,7 @@ function Example(props) {
             onDismiss={() => { dispatch({ type: 'none' }) }}
             size={state.size}
           >
-            <Heading size="md">Children</Heading>
+            <Heading size="md">Content</Heading>
           </Sheet>
         </Layer>
       )}
@@ -86,6 +85,112 @@ function Example(props) {
   );
 }
 `}
+  />
+);
+
+card(
+  <Example
+    id="animationExample"
+    name="Example: animations"
+    description={`
+    ### 1) Animation types
+    A \`<Sheet>\` can perform 2 animations: **in** (on show) and **out** (on dismiss). 
+    PS: These animations are controlled by the accessibility hook [useReducedMotion](/useReducedMotion).
+
+    #### a) In (on show)
+    During the initial render, it will kick in the **in** animation, which does 2 simultaneous transitions:
+    - Backdrop fade in 
+    - Sheet slide in from the side
+
+    Once the **in** animation is finished, the \`<Sheet>\` will have been fully rendered and ready for user interaction.
+
+    #### b) Out (on dismiss)
+
+    Upon a dismiss trigger, it not immediately call \`onDismiss\`, but will instead kick in the **out** animation, which does 2 simultaneous transitions:
+    - Backdrop fade out
+    - Sheet slide out to the side
+
+    Once the **out** animation is finished, only then the \`onDismiss\` will be called to effectively to allow the parent component to unmount the \`<Sheet>\`.
+
+    ### 2) Animation on children and footer
+    The **in** animation is called with the initial render process from the entrypoint, with no option for customization.
+    The **out** animation, however, is called from the default exitpoints: 
+      - ESC key
+      - Click on outside
+      - X button (header)
+
+    However, in order to provide an exitpoint on the elements passed to the \`children\` and \`footer\` props, the following render prop can be used:
+    \`\`\`
+    ({ onDismissStart }) => ( ... )
+    \`\`\`
+     
+    When using this render prop, just pass the argument \`onDismissStart\` to your exitpoint action elements.
+
+    In the example below, please notice all the following animations:
+    - **in** (on show): from the "Open sheet" button entrypoint.
+    - **out** (on dismiss): from these 7 exitpoints:
+      - ESC key
+      - Click on outside
+      - X button (header)
+      - Right arrow icon red button (children)
+      - Done red button (children)
+      - Left arrow red icon button (children)
+      - Close button (footer)
+  `}
+    defaultCode={`
+function AnimationExample() {
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <>
+      <Button
+        inline
+        text="Open sheet"
+        onClick={() => setShouldShow(true)}
+      />
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <Sheet
+            accessibilityDismissButtonLabel="Close"
+            accessibilitySheetLabel="Animated sheet"
+            footer={({ onDismissStart }) => (
+              <Heading size="md">
+                <Button inline onClick={onDismissStart} text="Close" />
+              </Heading>
+            )}
+            heading="Animated Sheet"
+            onDismiss={() => setShouldShow(false)}
+            size="md"
+          >
+            {({ onDismissStart }) => (
+              <Row justifyContent="center" alignItems="center" height="100%">
+                <IconButton 
+                  accessibilityLabel="Done icon left"
+                  icon="directional-arrow-right" 
+                  iconColor="red"
+                  inline 
+                  onClick={onDismissStart} 
+                  size="lg"                     
+                />
+                <Button color="red" inline onClick={onDismissStart} size="lg" text="Done" />
+                <IconButton 
+                  accessibilityLabel="Done icon right"
+                  icon="directional-arrow-left" 
+                  iconColor="red"
+                  inline 
+                  onClick={onDismissStart} 
+                  size="lg"                     
+                />
+              </Row>
+            )}
+          </Sheet>
+        </Layer>
+      )}
+    </>
+  );
+}`}
   />
 );
 
@@ -99,25 +204,26 @@ card(
       PS: The user will still be able to close the Sheet via the Dismiss button and the ESC key.
     `}
     defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
+function CloseOnOutsideExample(props) {
+  const [shouldShow, setShouldShow] = React.useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
   return (
     <>
       <Button
         inline
         text="Open sheet"
-        onClick={() => { setShowSheet(!showSheet) }}
+        onClick={() => setShouldShow(true)}
       />
-      {showSheet && (
+      {shouldShow && (
         <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate preventing close on outside click"
             closeOnOutsideClick={false}
             heading="Sheet that can't be closed by clicking outside"
-            onDismiss={() => { setShowSheet(!showSheet) }}
+            onDismiss={() => setShouldShow(false)}
             size="lg"
           >
             <Text>Click on the dismiss button or press the ESC key to close the sheet.</Text>
@@ -141,24 +247,25 @@ card(
       The shadow (when scrolling) between the \`heading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
     `}
     defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
+function DefaultPaddingExample(props) {
+  const [shouldShow, setShouldShow] = React.useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
   return (
     <>
       <Button
         inline
         text="View default padding & styling"
-        onClick={() => { setShowSheet(!showSheet) }}
+        onClick={() => setShouldShow(true)}
       />
-      {showSheet && (
+      {shouldShow && (
         <Layer zIndex={sheetZIndex}>
           <Sheet
             accessibilityDismissButtonLabel="Close"
             accessibilitySheetLabel="Example sheet to demonstrate default padding and styling"
             heading="Sheet default styling"
-            onDismiss={() => { setShowSheet(!showSheet) }}
+            onDismiss={() => setShouldShow(false)}
             footer={
               <Box color="lightGray">
                 <Heading size="md">Footer</Heading>
@@ -216,7 +323,7 @@ function Example(props) {
                   <li>Dez</li>
                 </ol>
               </Text>
-            </Box>
+            </Box>  
             <Box marginBottom={2}>
               <Text weight="bold">普通话</Text>
               <Text>
@@ -233,43 +340,8 @@ function Example(props) {
                   <li>十</li>
                 </ol>
               </Text>
-            </Box>
+            </Box>            
           </Sheet>
-        </Layer>
-      )}
-    </>
-  );
-}
-`}
-  />
-);
-
-card(
-  <Example
-    name="Empty Sheet"
-    description={`
-      By design, the props children, footer and heading are all optional, so this example is just to demonstrate it's possible to have a completely empty Sheet, even though that is unlikely to be a real use case.
-    `}
-    defaultCode={`
-function Example(props) {
-  const [showSheet, setShowSheet] = React.useState(false);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-  return (
-    <>
-      <Button
-        inline
-        text="View empty sheet"
-        onClick={() => { setShowSheet(!showSheet) }}
-      />
-      {showSheet && (
-        <Layer zIndex={sheetZIndex}>
-          <Sheet
-            accessibilityDismissButtonLabel="Close"
-            accessibilitySheetLabel="Example to demonstrate empty sheet"
-            onDismiss={() => { setShowSheet(!showSheet) }}
-            size="sm"
-          />
         </Layer>
       )}
     </>
@@ -287,9 +359,8 @@ card(
     A \`Sheet\` with focus using refs
   `}
     defaultCode={`
-function SheetRefExample() {
-  const [showSheet, setShowSheet] = React.useState(false);
-
+function RefExample() {
+  const [shouldShow, setShouldShow] = React.useState(false);
   const sheetRef = React.useRef(null);
   const buttonRef = React.useRef(null);
   const callbackRef = (node) => {
@@ -298,7 +369,6 @@ function SheetRefExample() {
       buttonRef.current.focus();
     }
   }
-
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
@@ -307,27 +377,27 @@ function SheetRefExample() {
       <Button
         inline
         text="Open sheet"
-        onClick={() => { setShowSheet(!showSheet) }}
+        onClick={() => setShouldShow(true)}
       />
-      {showSheet && (
+      {shouldShow && (
         <Layer zIndex={sheetZIndex}>
           <>
             <Sheet
               accessibilityDismissButtonLabel="Close"
               accessibilitySheetLabel="Focused sheet"
-              onDismiss={() => { setShowSheet(!showSheet) }}
+              onDismiss={() => setShouldShow(false)}
               ref={sheetRef}
               size="md"
             >
               <Box color="white" minHeight={400} padding={8}>
                 <Box marginBottom={4}>
-                  <Heading size="md">Focused content</Heading>
+                  <Heading size="md">Focused content</Heading>                
                 </Box>
-                <Button
-                  inline
+                <Button 
+                  inline 
                   onClick={() => alert('Geronimoooo!')}
-                  ref={buttonRef}
-                  text="Focused button (Press Enter to be convinced)"
+                  ref={buttonRef} 
+                  text="Focused button (Press Enter to be convinced)" 
                 />
               </Box>
             </Sheet>
@@ -395,7 +465,7 @@ card(
       },
       {
         name: 'children',
-        type: 'React.Node',
+        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
         required: false,
         defaultValue: null,
         description: [
@@ -419,7 +489,7 @@ card(
       },
       {
         name: 'footer',
-        type: 'React.Node',
+        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
         required: false,
         defaultValue: null,
         description: [
@@ -462,7 +532,7 @@ card(
       },
       {
         name: 'size',
-        type: `"sm" | "md" | "lg" | number`,
+        type: `"sm" | "md" | "lg"`,
         defaultValue: 'sm',
         description: [
           'Determine the width of the Sheet component. Possible values:',

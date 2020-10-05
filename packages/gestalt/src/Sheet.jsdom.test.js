@@ -2,14 +2,20 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
-import * as useReducedMotionHook from './useReducedMotion.js'; // eslint-disable-line import/no-namespace
-
-const useReducedMotionMock = jest.spyOn(useReducedMotionHook, 'default');
+import * as AnimationControllerModule from './AnimationController.js'; // eslint-disable-line import/no-namespace
 
 describe('Sheet', () => {
-  it('should render all props', () => {
-    useReducedMotionMock.mockReturnValue(false);
+  let useAnimationMock;
 
+  beforeEach(() => {
+    useAnimationMock = jest.spyOn(AnimationControllerModule, 'useAnimation');
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('should render all props with nodes', () => {
     const sheetRef = React.createRef();
     const { container } = render(
       <Sheet
@@ -22,7 +28,67 @@ describe('Sheet', () => {
         ref={sheetRef}
         size="sm"
       >
-        Sheet content
+        <section />
+      </Sheet>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render all props with render props', () => {
+    const sheetRef = React.createRef();
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Sheet"
+        closeOnOutsideClick
+        footer={({ onDismissStart }) => (
+          <button onClick={onDismissStart} type="submit" />
+        )}
+        heading="Sheet title"
+        onDismiss={jest.fn()}
+        ref={sheetRef}
+        size="sm"
+      >
+        {({ onDismissStart }) => (
+          <button onClick={onDismissStart} type="submit" />
+        )}
+      </Sheet>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render animation in', () => {
+    useAnimationMock.mockReturnValue({
+      animationState: 'in',
+    });
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Sheet"
+        onDismiss={jest.fn()}
+      >
+        <section />
+      </Sheet>
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render animation out', () => {
+    useAnimationMock.mockReturnValue({
+      animationState: 'out',
+    });
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Sheet"
+        onDismiss={jest.fn()}
+      >
+        <section />
       </Sheet>
     );
 
@@ -31,6 +97,7 @@ describe('Sheet', () => {
 
   it('should attach a ref', () => {
     const sheetRef = React.createRef();
+
     render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
@@ -38,9 +105,10 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
         ref={sheetRef}
       >
-        Sheet content
+        <section />
       </Sheet>
     );
+
     expect(sheetRef.current instanceof HTMLDivElement).toEqual(true);
   });
 
@@ -51,53 +119,37 @@ describe('Sheet', () => {
         accessibilitySheetLabel="Test Sheet"
         onDismiss={jest.fn()}
       >
-        Sheet content
+        <section />
       </Sheet>
     );
+
     expect(container.querySelector('div[role="dialog"]')).toBe(
       document.activeElement
     );
   });
 
-  it('should dismiss and focus on the reference element from the dismiss button', () => {
-    useReducedMotionMock.mockReturnValue(true);
-    const mockOnDismiss = jest.fn();
-
-    const { getByLabelText } = render(
-      <Sheet
-        accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
-        onDismiss={mockOnDismiss}
-      >
-        Sheet content
-      </Sheet>
-    );
-    getByLabelText('Dismiss').click();
-    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
-  });
-
-  it('should dismiss and focus on the reference element from the ESC key when closeOnOutsideClick is true', () => {
-    useReducedMotionMock.mockReturnValue(true);
-    const mockOnDismiss = jest.fn();
-
-    render(
-      <Sheet
-        accessibilityDismissButtonLabel="Dismiss"
-        accessibilitySheetLabel="Test Sheet"
-        closeOnOutsideClick
-        onDismiss={mockOnDismiss}
-      >
-        Sheet content
-      </Sheet>
-    );
-    fireEvent.keyUp(window, {
-      keyCode: 27,
+  it('should trigger onAnimationEnd', () => {
+    const mockOnAnimationEnd = jest.fn();
+    useAnimationMock.mockReturnValue({
+      animationState: 'postIn',
+      onAnimationEnd: mockOnAnimationEnd,
     });
-    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        onDismiss={jest.fn()}
+      >
+        <section />
+      </Sheet>
+    );
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnAnimationEnd).toHaveBeenCalledTimes(1);
   });
 
-  it('should trigger out animation and dismiss when useReducedMotion is false', () => {
-    useReducedMotionMock.mockReturnValue(false);
+  it('should dismiss from the dismiss button', () => {
     const mockOnDismiss = jest.fn();
 
     const { container, getByLabelText } = render(
@@ -106,15 +158,98 @@ describe('Sheet', () => {
         accessibilitySheetLabel="Test Sheet"
         onDismiss={mockOnDismiss}
       >
-        Sheet content
+        <section />
       </Sheet>
     );
     getByLabelText('Dismiss').click();
-    expect(container).toMatchSnapshot();
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
-    container
-      .querySelector('div[role="dialog"]')
-      .parentElement.dispatchEvent(new Event('animationend'));
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dismiss from the ESC key', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>
+    );
+    fireEvent.keyUp(window.document, {
+      keyCode: 27,
+    });
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dismiss from clicking outside when closeOnOutsideClick is true', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>
+    );
+    const backDrop = container.querySelector('div[role="dialog"]').parentElement
+      .firstElementChild;
+    fireEvent.click(backDrop);
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dismiss from clicking on the children content', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container, getByText } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        onDismiss={mockOnDismiss}
+      >
+        {({ onDismissStart }) => (
+          <button onClick={onDismissStart} type="submit">
+            Submit
+          </button>
+        )}
+      </Sheet>
+    );
+    const button = getByText('Submit');
+    fireEvent.click(button);
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not dismiss from the ESC key when closeOnOutsideClick is false', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick={false}
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>
+    );
+    const backDrop = container.querySelector('div[role="dialog"]').parentElement
+      .firstElementChild;
+    fireEvent.click(backDrop);
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(0);
   });
 });
