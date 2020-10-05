@@ -74,21 +74,23 @@ const CompletedCard = ({
   statusMessage,
   title,
 }: Props): Node => {
-  const icon = STATUS_ICONS.complete;
+  const icon = STATUS_ICONS[status];
 
   return (
     <>
       <Box display="flex">
-        <Box display="flex" alignContent="center">
-          <Box marginEnd={2}>
-            <Icon
-              accessibilityLabel={statusMessage}
-              icon={icon.symbol}
-              color={icon.color}
-              size={40}
-            />
+        {icon && (
+          <Box display="flex" alignContent="center">
+            <Box marginEnd={2}>
+              <Icon
+                accessibilityLabel={statusMessage}
+                icon={icon.symbol}
+                color={icon.color}
+                size={40}
+              />
+            </Box>
           </Box>
-        </Box>
+        )}
         <Box>
           <Box>
             <Heading size="sm">{title}</Heading>
