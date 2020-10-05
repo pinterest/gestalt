@@ -1,4 +1,5 @@
 // @flow strict
+import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
 import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
@@ -58,6 +59,7 @@ import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
 export {
+  ActivationCard,
   Avatar,
   AvatarPair,
   Badge,
