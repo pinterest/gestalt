@@ -10,6 +10,7 @@ describe('ExpandableModule', () => {
         title: 'Title1',
         icon: 'lock',
         iconAccessibilityLabel: 'lock icon label',
+        tapAccessibilityLabel: 'tap to expand or collapse the module',
         summary: ['summary1'],
         children: 'Children1',
       },
@@ -17,11 +18,14 @@ describe('ExpandableModule', () => {
         title: 'Title2',
         summary: ['summary2'],
         children: 'Children2',
+        tapAccessibilityLabel: 'tap to expand or collapse the module',
       },
       {
         title: 'Title3',
         summary: ['summary3'],
         children: 'Children3',
+        iconAccessibilityLabel: 'error icon label',
+        tapAccessibilityLabel: 'tap to expand or collapse the module',
         type: 'error',
       },
     ],
@@ -32,7 +36,7 @@ describe('ExpandableModule', () => {
 
     expect(screen.getByText(/Title1/i)).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: /Title icon/i })
+      screen.getByRole('img', { name: /lock icon label/i })
     ).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children1/i)).toBeNull();
@@ -52,7 +56,7 @@ describe('ExpandableModule', () => {
   it('should expand the module correctly when clicked', () => {
     render(<ExpandableModule {...props} />);
     const expandButtons = screen.getAllByRole('button', {
-      name: /arrow icon to expand or collapse the module/i,
+      name: /tap to expand or collapse the module/i,
     });
 
     fireEvent.click(expandButtons[0]);

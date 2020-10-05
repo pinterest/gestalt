@@ -7,6 +7,7 @@ const Valid = (
     title="test title"
     icon="lock"
     iconAccessibilityLabel="test label"
+    tapAccessibilityLabel="test label"
     summary={['summary1', 'summary2', 'summary3']}
     isCollapsed={false}
     type="info"

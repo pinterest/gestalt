@@ -1,71 +1,63 @@
 // @flow strict
 import React, { type Node } from 'react';
 import Box from './Box.js';
-import IconButton from './IconButton.js';
 import Icon from './Icon.js';
+import icons from './icons/index.js';
+import Stack from './Stack.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 
 type Props = {|
   title: string,
-  icon?: string,
+  icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
+  tapAccessibilityLabel: string,
   summary?: Array<string>,
   isCollapsed: boolean,
-  onModuleClicked?: boolean => void,
-  type?: string,
+  onModuleClicked: boolean => void,
+  type: 'error' | 'info',
   children?: Node,
 |};
-
-const EXPANDABLE_TYPE_ATTRIBUTES = {
-  info: {
-    color: 'darkGray',
-  },
-  error: {
-    icon: 'workflow-status-problem',
-    color: 'red',
-    accessibilityLabel: 'Error icon',
-  },
-};
 
 export default function ExpandableModuleBase({
   title,
   icon,
   iconAccessibilityLabel,
+  tapAccessibilityLabel,
   summary,
   isCollapsed,
   onModuleClicked,
   type = 'info',
   children,
 }: Props): Node {
-  const handleModuleClick = () => {
-    if (onModuleClicked) {
-      onModuleClicked(!isCollapsed);
-    }
+  const EXPANDABLE_TYPE_ATTRIBUTES = {
+    info: {
+      icon,
+      color: 'darkGray',
+    },
+    error: {
+      icon: 'workflow-status-problem',
+      color: 'red',
+    },
   };
+
   return (
     <>
-      <TapArea onTap={handleModuleClick}>
+      <TapArea
+        onTap={() => {
+          onModuleClicked(!isCollapsed);
+        }}
+        accessibilityLabel={tapAccessibilityLabel}
+      >
         <Box display="flex">
-          <Box display="flex" flex="grow" marginEnd={6}>
+          <Box display="flex" flex="grow" marginEnd={6} alignItems="baseline">
             <Box column={isCollapsed ? 6 : 12} display="flex">
               {EXPANDABLE_TYPE_ATTRIBUTES[type].icon && (
                 <Box marginEnd={2}>
                   <Icon
                     icon={EXPANDABLE_TYPE_ATTRIBUTES[type].icon}
-                    accessibilityLabel={
-                      EXPANDABLE_TYPE_ATTRIBUTES[type].accessibilityLabel
-                    }
+                    accessibilityLabel={iconAccessibilityLabel || ''}
                     color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
-                  />
-                </Box>
-              )}
-              {icon && (
-                <Box paddingX={2}>
-                  <Icon
-                    icon="lock"
-                    accessibilityLabel={iconAccessibilityLabel || 'Title icon'}
-                    color="darkGray"
                   />
                 </Box>
               )}
@@ -80,24 +72,25 @@ export default function ExpandableModuleBase({
             {summary && isCollapsed && (
               <Box column={6}>
                 {summary.map((item, i) => (
-                  <Box key={i} paddingY={1}>
+                  <Stack key={i} gap={1}>
                     <Text size="md" truncate>
                       {item}
                     </Text>
-                  </Box>
+                  </Stack>
                 ))}
               </Box>
             )}
           </Box>
           <Box>
             {children && (
-              <IconButton
-                accessibilityLabel="arrow icon to expand or collapse the module"
-                bgColor="white"
-                icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
-                iconColor="darkGray"
-                size="xs"
-              />
+              <Box padding={2}>
+                <Icon
+                  icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
+                  color="darkGray"
+                  size="12"
+                  accessibilityLabel={tapAccessibilityLabel}
+                />
+              </Box>
             )}
           </Box>
         </Box>

@@ -12,6 +12,7 @@ test('renders correctly with one item', () => {
             title: 'Title',
             summary: ['summary1', 'summary2', 'summary3'],
             children: 'Children',
+            tapAccessibilityLabel: 'click to expand/collapse',
           },
         ]}
       />
@@ -29,17 +30,20 @@ test('renders correctly with multiple items', () => {
             title: 'Title1',
             summary: ['summary1'],
             children: 'Children1',
+            tapAccessibilityLabel: 'click to expand/collapse',
           },
           {
             title: 'Title2',
             summary: ['summary2'],
             children: 'Children2',
+            tapAccessibilityLabel: 'click to expand/collapse',
           },
           {
             title: 'Title3',
             summary: ['summary3'],
             children: 'Children3',
             type: 'error',
+            tapAccessibilityLabel: 'click to expand/collapse',
           },
         ]}
       />

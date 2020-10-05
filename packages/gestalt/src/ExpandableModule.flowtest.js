@@ -9,6 +9,7 @@ const Valid = (
         title: 'Title',
         icon: 'lock',
         iconAccessibilityLabel: 'test label',
+        tapAccessibilityLabel: 'test label',
         summary: ['summary1', 'summary2', 'summary3'],
         type: 'info',
         children: 'test children',

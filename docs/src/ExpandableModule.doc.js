@@ -24,7 +24,7 @@ card(
       {
         name: 'items',
         type:
-          'Array<{| title: string, icon: ?string, summary: ?Array<string>, type: ?string, iconAccessibilityLabel: ?string, children: ?React.Node |}>',
+          'Array<{| title: string, icon: $Keys<typeof icons>, summary: ?Array<string>, type?: "error" | "info", tapAccessibilityLabel: string, iconAccessibilityLabel: ?string, children: ?React.Node |}>',
         required: true,
       },
     ]}
@@ -33,7 +33,7 @@ card(
 
 card(
   <Example
-    name="Example 1"
+    name="Example"
     defaultCode={`
 function ExpandableModuleExample1() {
   return (
@@ -43,6 +43,7 @@ function ExpandableModuleExample1() {
             title: 'Title',
             summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
+            tapAccessibilityLabel: "tap to expand or collapse the module"
           }]}>
       </ExpandableModule>
     </Box>
@@ -54,7 +55,7 @@ function ExpandableModuleExample1() {
 
 card(
   <Example
-    name="Example 2"
+    name="Multiple items"
     defaultCode={`
 function ExpandableModuleExample2() {
   return (
@@ -64,16 +65,19 @@ function ExpandableModuleExample2() {
             title: 'Title1',
             summary: ['summary1'],
             children: <Text size="md">Children1</Text>,
+            tapAccessibilityLabel: "tap to expand or collapse the module"
           },
           {
             title: 'Title2',
             summary: ['summary2'],
             children: <Text size="md">Children2</Text>,
+            tapAccessibilityLabel: "tap to expand or collapse the module"
           },
           {
             title: 'Title3',
             summary: ['summary3'],
             children: <Text size="md">Children3</Text>,
+            tapAccessibilityLabel: "tap to expand or collapse the module"
           }]}>
       </ExpandableModule>
     </Box>
@@ -85,9 +89,32 @@ function ExpandableModuleExample2() {
 
 card(
   <Example
-    name="Example 3"
+    name="Example with icon"
     defaultCode={`
 function ExpandableModuleExample3() {
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <ExpandableModule items={[
+          {
+            title: 'Example with icon',
+            children: <Text size="md">Children1</Text>,
+            iconAccessibilityLabel: "title icon",
+            tapAccessibilityLabel: "tap to expand or collapse the module",
+            icon: 'lock',
+          }]}>
+      </ExpandableModule>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Error state"
+    defaultCode={`
+function ExpandableModuleExample4() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <ExpandableModule items={[
@@ -95,6 +122,8 @@ function ExpandableModuleExample3() {
             title: 'Error state',
             summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
+            iconAccessibilityLabel: "error icon",
+            tapAccessibilityLabel: "tap to expand or collapse the module",
             type: 'error',
           }]}>
       </ExpandableModule>

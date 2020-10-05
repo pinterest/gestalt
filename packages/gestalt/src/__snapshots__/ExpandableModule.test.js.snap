@@ -2,13 +2,14 @@
 
 exports[`renders correctly with multiple items 1`] = `
 <div
-  className="expandablemodule"
+  className="expandableModule"
 >
   <div
     className="box paddingX6 paddingY6"
   >
     <div
       aria-disabled={false}
+      aria-label="click to expand/collapse"
       className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
       onBlur={[Function]}
       onClick={[Function]}
@@ -30,7 +31,7 @@ exports[`renders correctly with multiple items 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -46,13 +47,33 @@ exports[`renders correctly with multiple items 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottomN1 marginTopN1"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
             >
               <div
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                title="summary1"
+                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+                style={
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  }
+                }
               >
-                summary1
+                <div
+                  className="box paddingY1"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary1"
+                  >
+                    summary1
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -60,46 +81,23 @@ exports[`renders correctly with multiple items 1`] = `
         <div
           className="box"
         >
-          <button
-            aria-label="arrow icon to expand or collapse the module"
-            className="button tapTransition enabled"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            type="button"
+          <div
+            className="box paddingX2 paddingY2"
           >
-            <div
-              className="pog white"
-              style={
-                Object {
-                  "height": 24,
-                  "width": 24,
-                }
-              }
+            <svg
+              aria-hidden={null}
+              aria-label="click to expand/collapse"
+              className="icon darkGray iconBlock"
+              height="12"
+              role="img"
+              viewBox="0 0 24 24"
+              width="12"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="icon darkGray iconBlock"
-                height={12}
-                role="img"
-                viewBox="0 0 24 24"
-                width={12}
-              >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </div>
-          </button>
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -112,6 +110,7 @@ exports[`renders correctly with multiple items 1`] = `
   >
     <div
       aria-disabled={false}
+      aria-label="click to expand/collapse"
       className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
       onBlur={[Function]}
       onClick={[Function]}
@@ -133,7 +132,7 @@ exports[`renders correctly with multiple items 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -149,13 +148,33 @@ exports[`renders correctly with multiple items 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottomN1 marginTopN1"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
             >
               <div
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                title="summary2"
+                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+                style={
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  }
+                }
               >
-                summary2
+                <div
+                  className="box paddingY1"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary2"
+                  >
+                    summary2
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -163,46 +182,23 @@ exports[`renders correctly with multiple items 1`] = `
         <div
           className="box"
         >
-          <button
-            aria-label="arrow icon to expand or collapse the module"
-            className="button tapTransition enabled"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            type="button"
+          <div
+            className="box paddingX2 paddingY2"
           >
-            <div
-              className="pog white"
-              style={
-                Object {
-                  "height": 24,
-                  "width": 24,
-                }
-              }
+            <svg
+              aria-hidden={null}
+              aria-label="click to expand/collapse"
+              className="icon darkGray iconBlock"
+              height="12"
+              role="img"
+              viewBox="0 0 24 24"
+              width="12"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="icon darkGray iconBlock"
-                height={12}
-                role="img"
-                viewBox="0 0 24 24"
-                width={12}
-              >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </div>
-          </button>
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -215,6 +211,7 @@ exports[`renders correctly with multiple items 1`] = `
   >
     <div
       aria-disabled={false}
+      aria-label="click to expand/collapse"
       className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
       onBlur={[Function]}
       onClick={[Function]}
@@ -236,7 +233,7 @@ exports[`renders correctly with multiple items 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -245,8 +242,8 @@ exports[`renders correctly with multiple items 1`] = `
               className="box marginEnd2"
             >
               <svg
-                aria-hidden={null}
-                aria-label="Error icon"
+                aria-hidden={true}
+                aria-label=""
                 className="icon red iconBlock"
                 height={16}
                 role="img"
@@ -269,13 +266,33 @@ exports[`renders correctly with multiple items 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottomN1 marginTopN1"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
             >
               <div
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                title="summary3"
+                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+                style={
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  }
+                }
               >
-                summary3
+                <div
+                  className="box paddingY1"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary3"
+                  >
+                    summary3
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -283,46 +300,23 @@ exports[`renders correctly with multiple items 1`] = `
         <div
           className="box"
         >
-          <button
-            aria-label="arrow icon to expand or collapse the module"
-            className="button tapTransition enabled"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            type="button"
+          <div
+            className="box paddingX2 paddingY2"
           >
-            <div
-              className="pog white"
-              style={
-                Object {
-                  "height": 24,
-                  "width": 24,
-                }
-              }
+            <svg
+              aria-hidden={null}
+              aria-label="click to expand/collapse"
+              className="icon darkGray iconBlock"
+              height="12"
+              role="img"
+              viewBox="0 0 24 24"
+              width="12"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="icon darkGray iconBlock"
-                height={12}
-                role="img"
-                viewBox="0 0 24 24"
-                width={12}
-              >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </div>
-          </button>
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -332,13 +326,14 @@ exports[`renders correctly with multiple items 1`] = `
 
 exports[`renders correctly with one item 1`] = `
 <div
-  className="expandablemodule"
+  className="expandableModule"
 >
   <div
     className="box paddingX6 paddingY6"
   >
     <div
       aria-disabled={false}
+      aria-label="click to expand/collapse"
       className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
       onBlur={[Function]}
       onClick={[Function]}
@@ -360,7 +355,7 @@ exports[`renders correctly with one item 1`] = `
         className="box xsDisplayFlex"
       >
         <div
-          className="box flexGrow marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -376,33 +371,93 @@ exports[`renders correctly with one item 1`] = `
             className="box xsCol6"
           >
             <div
-              className="box paddingY1"
+              className="box marginBottomN1 marginTopN1"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
             >
               <div
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                title="summary1"
+                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+                style={
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  }
+                }
               >
-                summary1
+                <div
+                  className="box paddingY1"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary1"
+                  >
+                    summary1
+                  </div>
+                </div>
               </div>
             </div>
             <div
-              className="box paddingY1"
+              className="box marginBottomN1 marginTopN1"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
             >
               <div
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                title="summary2"
+                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+                style={
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  }
+                }
               >
-                summary2
+                <div
+                  className="box paddingY1"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary2"
+                  >
+                    summary2
+                  </div>
+                </div>
               </div>
             </div>
             <div
-              className="box paddingY1"
+              className="box marginBottomN1 marginTopN1"
+              style={
+                Object {
+                  "height": undefined,
+                  "width": undefined,
+                }
+              }
             >
               <div
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                title="summary3"
+                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
+                style={
+                  Object {
+                    "height": undefined,
+                    "width": undefined,
+                  }
+                }
               >
-                summary3
+                <div
+                  className="box paddingY1"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary3"
+                  >
+                    summary3
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -410,46 +465,23 @@ exports[`renders correctly with one item 1`] = `
         <div
           className="box"
         >
-          <button
-            aria-label="arrow icon to expand or collapse the module"
-            className="button tapTransition enabled"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            type="button"
+          <div
+            className="box paddingX2 paddingY2"
           >
-            <div
-              className="pog white"
-              style={
-                Object {
-                  "height": 24,
-                  "width": 24,
-                }
-              }
+            <svg
+              aria-hidden={null}
+              aria-label="click to expand/collapse"
+              className="icon darkGray iconBlock"
+              height="12"
+              role="img"
+              viewBox="0 0 24 24"
+              width="12"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="icon darkGray iconBlock"
-                height={12}
-                role="img"
-                viewBox="0 0 24 24"
-                width={12}
-              >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
-            </div>
-          </button>
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </div>
