@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node, Fragment } from 'react';
+import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -8,7 +8,6 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
 
@@ -75,11 +74,10 @@ const CompletedCard = ({
   statusMessage,
   title,
 }: Props): Node => {
-  const isStarted = status !== 'notStarted';
-  const icon = STATUS_ICONS['complete'];
+  const icon = STATUS_ICONS.complete;
 
   return (
-    <Fragment>
+    <>
       <Box display="flex">
         <Box display="flex" alignContent="center">
           <Box marginEnd={2}>
@@ -121,7 +119,7 @@ const CompletedCard = ({
           />
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 
@@ -137,7 +135,7 @@ const UncompletedCard = ({
   const icon = STATUS_ICONS[status];
 
   return (
-    <Fragment>
+    <>
       <Box display="flex" alignContent="center">
         {icon && (
           <Box marginEnd={2}>
@@ -180,7 +178,7 @@ const UncompletedCard = ({
           />
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 
