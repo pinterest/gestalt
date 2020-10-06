@@ -1,3 +1,9 @@
+## 14.9.0 (Oct 6, 2020)
+
+### Minor
+
+- Internal: generate component script (#1243)
+
 ## 14.8.0 (Oct 6, 2020)
 
 ### Minor
