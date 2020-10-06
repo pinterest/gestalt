@@ -96,7 +96,10 @@
       }
     },
     {
-      "files": ["cypress/**/*.js"],
+      "files": [
+        "cypress/**/*.js",
+        "scripts/templates/accessibility_ComponentName_spec.js"
+      ],
       "rules": {
         "jest/expect-expect": "off",
         "flowtype/require-valid-file-annotation": "off"
