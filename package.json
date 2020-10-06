@@ -28,6 +28,7 @@
     "babel-jest": "^26.3.0",
     "blueimp-md5": "^2.18.0",
     "caniuse-lite": "^1.0.30001125",
+    "chalk": "^4.1.0",
     "codecov": "^3.7.2",
     "css-modules-flow-types-cli": "^1.4.1",
     "cssnano": "^4.1.10",
@@ -79,6 +80,7 @@
     "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "css:validate": "./scripts/cssValidate.js",
+    "generate": "./scripts/generateComponent.js",
     "dev": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
     "docs": "(cd docs && yarn start)",
     "flow-generate:css": "(css-modules-flow-types packages/gestalt/src/ >/dev/null) && (css-modules-flow-types packages/gestalt-datepicker/src/ >/dev/null)",
@@ -102,6 +104,7 @@
         },
         "testPathIgnorePatterns": [
           "/node_modules/",
+          "<rootDir>/scripts/templates/",
           "jsdom.test.js"
         ],
         "setupFilesAfterEnv": [
@@ -117,6 +120,7 @@
         },
         "testPathIgnorePatterns": [
           "/node_modules/",
+          "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
           "<rootDir>/packages/gestalt-core"
         ],
