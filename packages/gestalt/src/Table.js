@@ -22,7 +22,7 @@ export default function Table(props: Props): Node {
   return (
     <Box
       overflow="auto"
-      {...(borderSize === 'sm' ? { borderSize: 'sm', rounding: 1 } : {})}
+      {...(borderSize === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       maxHeight={maxHeight}
     >
       <table className={styles.table}>{children}</table>

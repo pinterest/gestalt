@@ -353,12 +353,12 @@ card(
 card(
   <Card
     description={`
-    Borders are controlled by the "borderSize" prop. Setting a size enables a solid light gray color in that width.
+    Borders are controlled by the "borderStyle" prop. Specifying a size ("sm" or "lg") enables a solid light gray color in that width, while specifying "shadow" adds a box-shadow instead.
   `}
     id="border"
     name="Borders"
   >
-    <Combination borderSize={['sm', 'lg']} showHeading={false}>
+    <Combination borderStyle={['sm', 'lg', 'shadow']} showHeading={false}>
       {props => (
         <Box
           width={60}
@@ -469,7 +469,7 @@ function ButtonFlyoutExample() {
           size="sm"
           text="Anchor a Flyout to Box"
         />
-        <Box borderSize='sm' padding={3} ref={anchorRef} rounding={1}>
+        <Box borderStyle='sm' padding={3} ref={anchorRef} rounding={1}>
           <Text>I'm a Box</Text>
         </Box>
       </Stack>
@@ -558,11 +558,11 @@ card(
           'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
       },
       {
-        name: 'borderSize',
-        type: `"sm" | "lg" | "none"`,
+        name: 'borderStyle',
+        type: `"sm" | "lg" | "shadow" | "none"`,
         defaultValue: 'none',
         description:
-          'Specify a border width for the box. "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray',
+          'Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. Alternatively, "shadow" can be specifed to add a box shadow instead of a solid border',
         href: 'border',
       },
       {

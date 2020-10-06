@@ -27,7 +27,7 @@ card(
   `}
     name="Example: Menu"
     defaultCode={`
-<Box borderSize="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
+<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
   <Stack alignItems="center" gap={2}>
     <Text>Menu Item 1</Text>
     <Text>Menu Item 2</Text>

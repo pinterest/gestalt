@@ -49,7 +49,7 @@ function TabExample() {
       {['md', 'lg'].map((size) => (
         <Box key={size}>
           <Heading size="sm">size = {size}</Heading>
-          <Box maxWidth={500} overflow="auto" borderSize="sm" padding={1}>
+          <Box maxWidth={500} overflow="auto" borderStyle="sm" padding={1}>
             <Tabs
               activeTabIndex={activeIndex}
               onChange={handleChange}

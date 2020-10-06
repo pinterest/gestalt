@@ -30,7 +30,7 @@ card(
     id="wrap"
     description={`When buttons don't fit within the container, they will automatically wrap to the next line.`}
     defaultCode={`
-<Box width={150} borderSize="sm">
+<Box width={150} borderStyle="sm">
   <ButtonGroup>
     <Button text="Button 1" />
     <Button text="Button 2" />

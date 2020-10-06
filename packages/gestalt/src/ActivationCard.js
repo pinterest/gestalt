@@ -200,7 +200,7 @@ export default function ActivationCard({
     <Box
       display="flex"
       flex="grow"
-      borderSize="sm"
+      borderStyle="sm"
       rounding={4}
       padding={6}
       maxWidth={400}

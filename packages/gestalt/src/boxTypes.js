@@ -28,7 +28,7 @@ export type AlignSelf =
   | 'baseline'
   | 'stretch';
 export type Bottom = boolean;
-export type BorderSize = 'sm' | 'lg' | 'none';
+export type BorderStyle = 'sm' | 'lg' | 'shadow' | 'none';
 export type Color =
   | 'blue'
   | 'darkGray'
@@ -141,8 +141,8 @@ export const AlignItemsPropType: React$PropType$Primitive<AlignItems> = PropType
 export const AlignSelfPropType: React$PropType$Primitive<AlignSelf> = PropTypes.oneOf(
   ['auto', 'start', 'end', 'center', 'baseline', 'stretch']
 );
-export const BorderSizePropType: React$PropType$Primitive<BorderSize> = PropTypes.oneOf(
-  ['sm', 'lg', 'none']
+export const BorderStylePropType: React$PropType$Primitive<BorderStyle> = PropTypes.oneOf(
+  ['sm', 'lg', 'shadow', 'none']
 );
 export const ColorPropType: React$PropType$Primitive<Color> = PropTypes.oneOf([
   'blue',
