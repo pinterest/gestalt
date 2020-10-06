@@ -77,7 +77,7 @@ function SizesExample(props) {
             onDismiss={() => { dispatch({ type: 'none' }) }}
             size={state.size}
           >
-            <Heading size="md">Content</Heading>
+            <Heading size="md">Children</Heading>
           </Sheet>
         </Layer>
       )}
@@ -128,10 +128,11 @@ card(
 
     In the example below, please notice all the following animations:
     - **in** (on show): from the "Open sheet" button entrypoint.
-    - **out** (on dismiss): from these 7 exitpoints:
+    - **out** (on dismiss): from these 8 exitpoints:
       - ESC key
       - Click on outside
-      - X button (header)
+      - X button (heading)
+      - Close button (subHeading)
       - Right arrow icon red button (children)
       - Done red button (children)
       - Left arrow red icon button (children)
@@ -157,12 +158,17 @@ function AnimationExample() {
             accessibilitySheetLabel="Animated sheet"
             footer={({ onDismissStart }) => (
               <Heading size="md">
-                <Button inline onClick={onDismissStart} text="Close" />
+                <Button inline onClick={onDismissStart} text="Close on Footer" />
               </Heading>
             )}
             heading="Animated Sheet"
             onDismiss={() => setShouldShow(false)}
             size="md"
+            subHeading={({ onDismissStart }) => (
+              <Box marginBottom={4} marginStart={8} marginEnd={8}>
+                <Button color="blue" inline onClick={onDismissStart} text="Close on Sub-heading" />
+              </Box>
+            )}
           >
             {({ onDismissStart }) => (
               <Row justifyContent="center" alignItems="center" height="100%">
@@ -174,7 +180,7 @@ function AnimationExample() {
                   onClick={onDismissStart} 
                   size="lg"                     
                 />
-                <Button color="red" inline onClick={onDismissStart} size="lg" text="Done" />
+                <Button color="red" inline onClick={onDismissStart} size="lg" text="Done on Children" />
                 <IconButton 
                   accessibilityLabel="Done icon right"
                   icon="directional-arrow-left" 
@@ -353,6 +359,164 @@ function DefaultPaddingExample(props) {
 
 card(
   <Example
+    id="subHeadingExample"
+    name="Sub-heading"
+    description={`
+      Specifies a sub-heading component to be docked under the heading. 
+      The shadow (when scrolling) between the \`subHeading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
+    `}
+    defaultCode={`
+function SubheadingExample(props) {
+  const SheetWithSubheading = ({
+    onDismiss,
+  }) => {
+    const [activeTabIndex, setActiveTabIndex] = React.useState(0);
+    const enRef = React.useRef();
+    const esRef = React.useRef();
+    const ptRef = React.useRef();
+    const chRef = React.useRef();
+    const refs = [enRef, esRef, ptRef, chRef];
+  
+    const handleChangeTab = ({ activeTabIndex, event }) => {
+      event.preventDefault();
+      setActiveTabIndex(activeTabIndex);
+      refs[activeTabIndex].current.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    return (
+      <Sheet
+        accessibilityDismissButtonLabel="Close"
+        accessibilitySheetLabel="Example sheet to demonstrate subHeading"
+        heading="Sheet with subHeading"
+        onDismiss={onDismiss}
+        footer={<Heading size="md">Footer</Heading>}
+        size="md"
+        subHeading={
+          <Box marginBottom={4} marginStart={8} marginEnd={8}>
+            <Tabs
+              tabs={[
+                {
+                  text: "English",
+                  href: "#"
+                },
+                {
+                  text: "Español",
+                  href: "#"
+                },
+                {
+                  text: "Português",
+                  href: "#"
+                },
+                {
+                  text: '普通话',
+                  href: '#'
+                }
+              ]}
+              activeTabIndex={activeTabIndex}
+              onChange={handleChangeTab}
+            />
+          </Box>
+        }
+      >
+        <Box marginBottom={8} ref={enRef}>
+          <Text weight="bold">English</Text>
+          <Text>
+            <ol>
+              <li>One</li>
+              <li>Two</li>
+              <li>Three</li>
+              <li>Four</li>
+              <li>Five</li>
+              <li>Six</li>
+              <li>Seven</li>
+              <li>Eight</li>
+              <li>Nine</li>
+              <li>Ten</li>
+            </ol>
+          </Text>
+        </Box>
+        <Box marginBottom={8} ref={esRef}>
+          <Text weight="bold">Español</Text>
+          <Text>
+            <ol>
+              <li>Uno</li>
+              <li>Dos</li>
+              <li>Tres</li>
+              <li>Cuatro</li>
+              <li>Cinco</li>
+              <li>Seis</li>
+              <li>Siete</li>
+              <li>Ocho</li>
+              <li>Nueve</li>
+              <li>Diez</li>
+            </ol>
+          </Text>
+        </Box>
+        <Box marginBottom={8} ref={ptRef}>
+          <Text weight="bold">Português</Text>
+          <Text>
+            <ol>
+              <li>Um</li>
+              <li>Dois</li>
+              <li>Três</li>
+              <li>Quatro</li>
+              <li>Cinco</li>
+              <li>Seis</li>
+              <li>Sete</li>
+              <li>Oito</li>
+              <li>Nove</li>
+              <li>Dez</li>
+            </ol>
+          </Text>
+        </Box>  
+        <Box marginBottom={8} ref={chRef}>
+          <Text weight="bold">普通话</Text>
+          <Text>
+            <ol>
+              <li>一</li>
+              <li>二</li>
+              <li>三</li>
+              <li>四</li>
+              <li>五</li>
+              <li>六</li>
+              <li>七</li>
+              <li>八</li>
+              <li>九</li>
+              <li>十</li>
+            </ol>
+          </Text>
+        </Box>            
+      </Sheet>
+    );
+  };
+
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <>
+      <Button
+        inline
+        text="View subheading"
+        onClick={() => setShouldShow(true)}
+      />
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
+        </Layer>
+      )}
+    </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
     id="refExample"
     name="Example: ref"
     description={`
@@ -391,7 +555,7 @@ function RefExample() {
             >
               <Box color="white" minHeight={400} padding={8}>
                 <Box marginBottom={4}>
-                  <Heading size="md">Focused content</Heading>                
+                  <Heading size="md">Focused content</Heading>
                 </Box>
                 <Button 
                   inline 
@@ -469,7 +633,8 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply the container element that is going to be used as the Sheet main content.',
+          'Supply the container element or render prop that is going to be used as the Sheet main content.',
+          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
           'Obs: This element will be padded by 32px, differently than <Modal>.',
         ],
         href: 'defaultPaddingAndStylingExample',
@@ -493,7 +658,8 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply the container element that is going to be used as the Sheet custom footer.',
+          'Supply the container element or render prop that is going to be used as the Sheet custom footer.',
+          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
           'Obs: This element will be padded by 32px, similarly to <Modal>.',
         ],
         href: 'defaultPaddingAndStylingExample',
@@ -541,6 +707,18 @@ card(
           '- lg: 900px',
         ],
         href: 'sizesExample',
+      },
+      {
+        name: 'subHeading',
+        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply the container element or the render prop that is going to be used as the Sheet sub-heading docked under the heading.',
+          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
+          'It can only be provided when a heading is also provided.',
+        ],
+        href: 'subHeadingExample',
       },
     ]}
   />

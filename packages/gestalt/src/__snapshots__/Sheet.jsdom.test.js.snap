@@ -80,6 +80,7 @@ exports[`Sheet should render all props with nodes 1`] = `
                 </div>
               </div>
             </div>
+            <nav />
           </div>
           <div
             class="box flexGrow overflowAuto paddingX8 paddingY8"
@@ -182,6 +183,9 @@ exports[`Sheet should render all props with render props 1`] = `
                 </div>
               </div>
             </div>
+            <button
+              type="submit"
+            />
           </div>
           <div
             class="box flexGrow overflowAuto paddingX8 paddingY8"
