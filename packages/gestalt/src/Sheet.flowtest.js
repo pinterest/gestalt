@@ -12,6 +12,7 @@ const ValidWithNodeProps = (
     onDismiss={() => {}}
     ref={React.createRef()}
     size="sm"
+    subHeading={<nav />}
   >
     <section />
   </Sheet>
@@ -27,27 +28,45 @@ const ValidWithRenderProps = (
     onDismiss={() => {}}
     ref={React.createRef()}
     size="sm"
+    subHeading={({ onDismissStart }) => <nav />}
   >
     {({ onDismissStart }) => <section />}
   </Sheet>
 );
 
-const InvalidChildren = (
+const InvalidWithRenderProps = (
   <Sheet
     accessibilityDismissButtonLabel="Dismiss"
     accessibilitySheetLabel="Sheet"
+    // $FlowExpectedError[prop-missing]
+    footer={({ onDismiss }) => <footer />}
+    heading="Sheet title"
     onDismiss={() => {}}
+    // $FlowExpectedError[prop-missing]
+    subHeading={({ onDismiss }) => <nav />}
   >
     {/* $FlowExpectedError[prop-missing] */}
     {({ onDismiss }) => <section />}
   </Sheet>
 );
 
-// $FlowExpectedError[prop-missing]
+const NoSubHeadingWithoutHeading = (
+  // $FlowExpectedError[incompatible-type]
+  <Sheet
+    accessibilityDismissButtonLabel="Dismiss"
+    accessibilitySheetLabel="Sheet"
+    onDismiss={() => {}}
+    subHeading={<nav />}
+  >
+    <section />
+  </Sheet>
+);
+
+// $FlowExpectedError[incompatible-type]
 const MissingProp = <Sheet />;
 
 const NonExistingProp = (
-  // $FlowExpectedError[prop-missing]
+  // $FlowExpectedError[incompatible-type]
   <Sheet
     accessibilityDismissButtonLabel="Dismiss"
     accessibilitySheetLabel="Sheet"
@@ -59,11 +78,11 @@ const NonExistingProp = (
 );
 
 const InvalidTypeProp = (
+  // $FlowExpectedError[incompatible-type]
   <Sheet
     accessibilityDismissButtonLabel="Dismiss"
     accessibilitySheetLabel="Sheet"
     onDismiss={() => {}}
-    // $FlowExpectedError[incompatible-type]
     size="xxl"
   >
     <section />

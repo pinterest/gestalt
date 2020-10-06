@@ -27,6 +27,7 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
         ref={sheetRef}
         size="sm"
+        subHeading={<nav />}
       >
         <section />
       </Sheet>
@@ -49,6 +50,9 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
         ref={sheetRef}
         size="sm"
+        subHeading={({ onDismissStart }) => (
+          <button onClick={onDismissStart} type="submit" />
+        )}
       >
         {({ onDismissStart }) => (
           <button onClick={onDismissStart} type="submit" />
@@ -223,6 +227,57 @@ describe('Sheet', () => {
             Submit
           </button>
         )}
+      </Sheet>
+    );
+    const button = getByText('Submit');
+    fireEvent.click(button);
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dismiss from clicking on the footer content', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container, getByText } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        footer={({ onDismissStart }) => (
+          <button onClick={onDismissStart} type="submit">
+            Submit
+          </button>
+        )}
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>
+    );
+    const button = getByText('Submit');
+    fireEvent.click(button);
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dismiss from clicking on the subHeading content', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container, getByText } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        closeOnOutsideClick
+        heading="Test Sheet"
+        onDismiss={mockOnDismiss}
+        subHeading={({ onDismissStart }) => (
+          <button onClick={onDismissStart} type="submit">
+            Submit
+          </button>
+        )}
+      >
+        <section />
       </Sheet>
     );
     const button = getByText('Submit');
