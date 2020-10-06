@@ -1,3 +1,9 @@
+## 14.8.0 (Oct 6, 2020)
+
+### Minor
+
+- Sheet: Add subHeading prop [Depends on #1236] (#1242)
+
 ## 14.7.0 (Oct 5, 2020)
 
 ### Minor
