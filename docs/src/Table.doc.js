@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Table } from 'gestalt';
+import { Avatar, Box, Button, Link, Text } from 'gestalt';
 import Card from './components/Card.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -285,6 +286,181 @@ card(
         type: 'React.Node',
       },
     ]}
+  />
+);
+
+card(<Card name="Table.RowExpandable" />);
+
+card(
+  <PropTable
+    showHeading={false}
+    // $FlowIssue[prop-missing]
+    Component={Table?.Row}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'expandedContents',
+        type: 'React.Node',
+      },
+      {
+        name: 'hoverStyle',
+        type: '"none" | "gray"',
+        defaultValue: 'gray',
+      },
+    ]}
+  />
+);
+
+card(
+  <Example
+    name="Example: Table Row Expanable"
+    defaultCode={`
+<Table>
+  <Table.Header>
+    <Table.Row>
+    <Table.HeaderCell>
+  <Box display="visuallyHidden">
+    <Text weight="bold">Open/Close row</Text>
+  </Box>
+</Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">Name</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">House</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">Birthday</Text>
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.RowExpandable
+    expandedContents=<Box maxWidth={236} padding={2} column={12}>
+      <Card image={<Avatar name="luna avatar" src="https://i.ibb.co/QY9qR7h/luna.png" />}>
+        <Text align="center" weight="bold">
+          <Link href="https://pinterest.com">
+            <Box paddingX={3} paddingY={2}>
+              Luna's Info
+            </Box>
+         </Link>
+        </Text>
+      </Card>
+      </Box>>
+      <Table.Cell>
+        <Text>Luna Lovegood</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>Ravenclaw</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>June 25, 1993</Text>
+      </Table.Cell>
+    </Table.RowExpandable>
+    <Table.RowExpandable
+    expandedContents=<Table  maxWidth={800} maxHeight={500}>
+  <Table.Header sticky>
+    <Table.Row>
+      <Table.HeaderCell>
+        <Text weight="bold">Image</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">Name</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">House</Text>
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row colSpan={10}>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Luna"
+              src="https://i.ibb.co/QY9qR7h/luna.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Lun Lovegood</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Draco"
+              src="https://i.ibb.co/Hzcfxjt/draco.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Draco Malfoy</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Neville"
+              src="https://i.ibb.co/JvY9DKK/neville.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Neville Longbottom</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>>
+      <Table.Cell>
+        <Text>Draco Malfoy</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>Slytherin</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>December 3, 1992</Text>
+      </Table.Cell>
+    </Table.RowExpandable>
+    <Table.RowExpandable
+    expandedContents=<Box maxWidth={236} padding={2} column={12}>
+      <Card image={<Avatar name="luna avatar" src="https://i.ibb.co/JvY9DKK/neville.png" />}>
+        <Text align="center" weight="bold">
+          <Link href="https://pinterest.com">
+            <Box paddingX={3} paddingY={2}>
+              Neville's Info
+            </Box>
+         </Link>
+        </Text>
+      </Card>
+      </Box>>
+      <Table.Cell>
+        <Text>Neville Longbottom</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>Gryffindor</Text>
+      </Table.Cell>
+      <Table.Cell>
+        <Text>July 30, 1980</Text>
+      </Table.Cell>
+    </Table.RowExpandable>
+  </Table.Body>
+</Table>
+`}
   />
 );
 

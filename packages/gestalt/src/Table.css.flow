@@ -7,4 +7,6 @@ declare module.exports: {|
   +'td': string,
   +'th': string,
   +'thead': string,
+  +'hoverShadeGray': string,
+  +'hoverNone': string,
 |};

@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<tr
+  className="hoverNone"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td>
+    <button
+      aria-label=""
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={18}
+          role="img"
+          viewBox="0 0 24 24"
+          width={18}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </td>
+  <div>
+    row cells
+  </div>
+</tr>
+`;
+
+exports[`renders correctly with explicit hover 1`] = `
+<tr
+  className="hoverNone"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td>
+    <button
+      aria-label=""
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={18}
+          role="img"
+          viewBox="0 0 24 24"
+          width={18}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </td>
+  <div>
+    row cells
+  </div>
+</tr>
+`;
+
+exports[`renders correctly without hover 1`] = `
+<tr
+  className="hoverNone"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td>
+    <button
+      aria-label=""
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={18}
+          role="img"
+          viewBox="0 0 24 24"
+          width={18}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </td>
+  <div>
+    row cells
+  </div>
+</tr>
+`;

@@ -7,6 +7,7 @@ import TableBody from './TableBody.js';
 import TableFooter from './TableFooter.js';
 import TableHeader from './TableHeader.js';
 import TableHeaderCell from './TableHeaderCell.js';
+import TableRowExpandable from './TableRowExpandable.js';
 import TableRow from './TableRow.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 
@@ -43,3 +44,5 @@ Table.HeaderCell = TableHeaderCell;
 Table.Row = TableRow;
 
 Table.SortableHeaderCell = TableSortableHeaderCell;
+
+Table.RowExpandable = TableRowExpandable;
