@@ -12,19 +12,17 @@ type Props = {|
   description?: string,
   id?: string,
   name: string,
-  direction?: 'row' | 'column',
   showHeading?: boolean,
   headingSize?: 'sm' | 'md',
 |};
 
-const { Box, Column, Text } = gestalt;
+const { Box, Text } = gestalt;
 
 const Example = ({
   defaultCode,
   description,
   id,
   name,
-  direction = 'column',
   headingSize,
   showHeading,
 }: Props): Node => {
@@ -36,48 +34,21 @@ const Example = ({
       name={name}
       description={description}
       id={id}
-      stacked={direction === 'column'}
+      stacked
       showHeading={showHeading}
       headingSize={headingSize}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
-        <Box
-          display="flex"
-          direction={direction}
-          marginLeft={-2}
-          marginRight={-2}
-        >
-          <Column span={direction === 'column' ? 12 : 6}>
-            <Box
-              paddingX={2}
-              display="flex"
-              direction="column"
-              alignItems="stretch"
-              height="100%"
-            >
-              <Box paddingY={2}>
-                <Text size="md" color="gray">
-                  Preview
-                </Text>
-              </Box>
-
-              <Box flex="grow" position="relative">
-                <Box
-                  position="absolute"
-                  left
-                  width={4}
-                  color="lightGray"
-                  height="100%"
-                />
-                <Box position="relative" padding={4}>
-                  <LivePreview />
-                </Box>
-              </Box>
+        <Box display="flex" direction="column" marginLeft={-2} marginRight={-2}>
+          <Box padding={2} height="100%">
+            <Box position="relative" padding={4} borderSize="sm" rounding={2}>
+              <LivePreview />
             </Box>
-          </Column>
-          <Column span={direction === 'column' ? 12 : 6}>
+          </Box>
+
+          <Box paddingX={2}>
             <ExampleCode code={code} name={name} />
-          </Column>
+          </Box>
         </Box>
 
         <Box padding={2}>
