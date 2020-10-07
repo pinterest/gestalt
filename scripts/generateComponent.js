@@ -12,10 +12,12 @@ const gestaltPackages = path.join(root, 'packages/gestalt/src');
 const indexFile = path.join(gestaltPackages, 'index.js');
 
 function logError(message) {
+  // eslint-disable-next-line no-console
   console.log(chalk.red(`❌  Error: ${message}`));
 }
 
 function logSuccess(message) {
+  // eslint-disable-next-line no-console
   console.log(chalk.green(`✅ ${message}`));
 }
 
