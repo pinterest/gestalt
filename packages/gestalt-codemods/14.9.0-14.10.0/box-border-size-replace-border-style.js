@@ -1,6 +1,6 @@
 /*
  * Converts
- *  <Text leading='short' /> to <Text/>
+ *  <Box borderSize="sm"/> to <Box borderStyle="sm"/>
  */
 
 export default function transformer(file, api) {
