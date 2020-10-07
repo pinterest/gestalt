@@ -1,3 +1,9 @@
+## 14.10.0 (Oct 7, 2020)
+
+### Minor
+
+- Button/IconButton/TapArea: added tabIndex prop (#1244)
+
 ## 14.9.3 (Oct 7, 2020)
 
 ### Patch
