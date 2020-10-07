@@ -1,6 +1,6 @@
 // @flow strict
 import React, { useEffect, useRef, useState, type Node } from 'react';
-import { Box, Button, IconButton, Stack, Text, Tooltip } from 'gestalt';
+import { Box, IconButton, Tooltip } from 'gestalt';
 import { LiveEditor } from 'react-live';
 import handleCodeSandbox from './handleCodeSandbox.js';
 import clipboardCopy from './clipboardCopy.js';
@@ -33,71 +33,82 @@ export default function ExampleCode({
   }, [code]);
 
   return (
-    <Box paddingX={2}>
-      <Stack gap={2}>
-        <Text size="md" color="gray">
-          Editor
-        </Text>
-
-        <Box display="flex" direction="column">
+    <>
+      <Box display="flex" direction="row" justifyContent="center" marginTop={2}>
+        <Tooltip inline text="Open in CodeSandbox" idealDirection="up">
+          <IconButton
+            dangerouslySetSvgPath={{
+              __path:
+                'M9.365 21.17v-8.645L1.93 8.248v4.928l3.405 1.974v3.705l4.029 2.314zm1.93.05l4.104-2.363v-3.794l3.427-1.986V8.211l-7.53 4.348v8.661zm6.54-14.666L13.878 4.26l-3.475 2.017L6.9 4.257 2.907 6.583l7.452 4.288 7.477-4.316zM0 18.017V6.04L10.377 0l10.38 6.015v11.983l-10.38 5.98L0 18.018z',
+            }}
+            accessibilityLabel="Open in CodeSandbox"
+            iconColor="darkGray"
+            size="lg"
+            onClick={() => {
+              handleCodeSandbox({ code, title: name });
+            }}
+          />
+        </Tooltip>
+        <Tooltip inline text="Copy Code" idealDirection="up">
+          <IconButton
+            dangerouslySetSvgPath={{
+              __path:
+                'M15.25 0h-6.5a1.75 1.75 0 000 3.5h6.5a5.256 5.256 0 015.25 5.25v6.5a1.75 1.75 0 103.5 0v-6.5C24 3.925 20.075 0 15.25 0zm-.75 6.5H3a3 3 0 00-3 3V21a3 3 0 003 3h11.5a3 3 0 003-3V9.5a3 3 0 00-3-3z',
+            }}
+            accessibilityLabel="Copy Code"
+            iconColor="darkGray"
+            size="lg"
+            onClick={() => {
+              copyCode({ code });
+            }}
+          />
+        </Tooltip>
+        <Tooltip
+          inline
+          text={`${expanded ? 'Collapse' : 'Expand'} code example`}
+          idealDirection="up"
+        >
+          <IconButton
+            dangerouslySetSvgPath={{
+              __path: expanded
+                ? 'M17.384 3.585c.769-.787 2.055-.779 2.87.017.815.797.852 2.083.082 2.87l-.163.166A12.797 12.797 0 0124 12.159c-1.751 4.949-6.455 8.5-12 8.5-1.649 0-3.223-.314-4.668-.885l-.938.959c-.77.787-2.055.779-2.87-.017-.815-.797-.853-2.083-.083-2.87l.264-.27A12.802 12.802 0 010 12.159c1.751-4.949 6.455-8.5 12-8.5 1.588 0 3.106.291 4.506.823l.877-.897h.001zm-1.053 11.074a4.937 4.937 0 00.298-4.395l-2.935 3.002c-.15.24-.352.449-.595.608l-2.893 2.96a5.021 5.021 0 001.794.325 5.003 5.003 0 004.331-2.5zm-4.33-7.501a5 5 0 00-4.331 2.5 4.935 4.935 0 00-.362 4.233l6.322-6.467a5.026 5.026 0 00-1.629-.266z'
+                : 'M10 12a2 2 0 103.999.001A2 2 0 0010 12zm2 5a5 5 0 11.001-10.001A5 5 0 0112 17zm0-13.5C6.455 3.5 1.751 7.051 0 12c1.751 4.949 6.455 8.5 12 8.5s10.249-3.551 12-8.5c-1.751-4.949-6.455-8.5-12-8.5z',
+            }}
+            accessibilityLabel={`${
+              expanded ? 'Collapse' : 'Expand'
+            } code for ${name}`}
+            iconColor="darkGray"
+            size="lg"
+            onClick={() => setExpanded(!expanded)}
+          />
+        </Tooltip>
+      </Box>
+      <Box display="flex" direction="column" width="100%" marginTop={2}>
+        <Box
+          position="relative"
+          display="flex"
+          color="darkGray"
+          ref={codeExampleRef}
+          overflow="hidden"
+          rounding={2}
+          {...(expanded
+            ? {}
+            : { maxHeight: CODE_EXAMPLE_HEIGHT, overflow: 'hidden' })}
+        >
           <Box
-            position="relative"
-            display="flex"
-            color="darkGray"
-            ref={codeExampleRef}
-            {...(expanded
-              ? {}
-              : { maxHeight: CODE_EXAMPLE_HEIGHT, overflow: 'hidden' })}
+            flex="grow"
+            onFocus={() => {
+              setExpanded(true);
+            }}
           >
-            <Box flex="grow">
-              {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
-              {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-              <label>
-                <LiveEditor padding={16} />
-              </label>
-            </Box>
-            <Box padding={2} display="flex" direction="column">
-              <Tooltip inline text="Open in CodeSandbox">
-                <IconButton
-                  dangerouslySetSvgPath={{
-                    __path:
-                      'M9.365 21.17v-8.645L1.93 8.248v4.928l3.405 1.974v3.705l4.029 2.314zm1.93.05l4.104-2.363v-3.794l3.427-1.986V8.211l-7.53 4.348v8.661zm6.54-14.666L13.878 4.26l-3.475 2.017L6.9 4.257 2.907 6.583l7.452 4.288 7.477-4.316zM0 18.017V6.04L10.377 0l10.38 6.015v11.983l-10.38 5.98L0 18.018z',
-                  }}
-                  accessibilityLabel="Open in CodeSandbox"
-                  iconColor="white"
-                  onClick={() => {
-                    handleCodeSandbox({ code, title: name });
-                  }}
-                />
-              </Tooltip>
-
-              <Tooltip inline text="Copy Code">
-                <IconButton
-                  dangerouslySetSvgPath={{
-                    __path:
-                      'M22.696 5.13c.348 0 .652.13.913.392.26.26.391.565.391.913v16.217c0 .348-.13.652-.391.913s-.566.391-.913.391H9.87c-.348 0-.653-.13-.913-.39a1.251 1.251 0 01-.392-.914v-3.826h-7.26c-.348 0-.653-.13-.914-.391A1.251 1.251 0 010 17.522v-9c0-.348.087-.74.26-1.174.175-.435.392-.783.653-1L6.348.913c.26-.26.609-.478 1-.652C7.783.087 8.174 0 8.522 0h5.565c.348 0 .652.13.913.391.26.261.391.566.391.913v4.392c.609-.348 1.174-.522 1.696-.522h5.609V5.13zm-7.261 2.827l-4 4h4v-4zM6.87 2.827l-4 4h4v-4zm2.608 8.651l4.218-4.217V1.696h-5.13V7.26c0 .348-.131.652-.392.913-.261.26-.565.391-.913.391H1.739v8.522h6.826v-3.435c0-.348.087-.739.261-1.174.217-.434.435-.739.652-1zm12.783 10.74V6.825h-5.13v5.565c0 .348-.131.652-.392.913-.26.261-.565.392-.913.392h-5.522v8.521h11.957z',
-                  }}
-                  accessibilityLabel="Copy Code"
-                  iconColor="white"
-                  onClick={() => {
-                    copyCode({ code });
-                  }}
-                />
-              </Tooltip>
-            </Box>
+            {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label>
+              <LiveEditor padding={16} />
+            </label>
           </Box>
-          {expanded ? null : (
-            <Box alignSelf="end" marginTop={2}>
-              <Button
-                onClick={() => setExpanded(true)}
-                accessibilityLabel={`Expand code for ${name}`}
-                inline
-                text="Expand code"
-              />
-            </Box>
-          )}
         </Box>
-      </Stack>
-    </Box>
+      </Box>
+    </>
   );
 }

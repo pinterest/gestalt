@@ -14,11 +14,11 @@ const CardPage = ({ cards, page }: Props): Node => {
 
   return (
     <Box display="flex">
-      <Box flex="grow" maxWidth={1200}>
+      <Box flex="grow" maxWidth={800}>
         <SearchContent>
           {cards.map((card, i) => (
             <Box
-              marginBottom={4}
+              marginBottom={12}
               id={`card-${i}`}
               key={i}
               dangerouslySetInlineStyle={{
