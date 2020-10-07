@@ -55,6 +55,7 @@ type BaseButton = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>
   >,
+  tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
   text: string,
 |};
@@ -122,6 +123,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     inline = false,
     iconEnd,
     onClick,
+    tabIndex = 0,
     selected = false,
     size = 'md',
     text,
@@ -214,6 +216,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         onClick={handleLinkClick}
         ref={innerRef}
         rel={rel}
+        tabIndex={tabIndex}
         size={size}
         target={target}
         wrappedComponent="button"
@@ -251,6 +254,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         onTouchStart={handleTouchStart}
         ref={innerRef}
         style={compressStyle || undefined}
+        tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
         {iconEnd ? (
@@ -292,8 +296,9 @@ const ButtonWithForwardRef: React$AbstractComponent<
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchStart}
       ref={innerRef}
-      type="button"
       style={compressStyle || undefined}
+      tabIndex={disabled ? null : tabIndex}
+      type="button"
     >
       {iconEnd ? (
         <IconEnd
@@ -332,6 +337,7 @@ ButtonWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['button', 'link']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),

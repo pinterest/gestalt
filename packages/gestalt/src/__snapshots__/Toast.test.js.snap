@@ -106,6 +106,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
+          tabIndex={0}
           type="button"
         >
           <div

@@ -16,6 +16,7 @@ exports[`IconButton renders with disabled state 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+  tabIndex={null}
   type="button"
 >
   <div
@@ -59,6 +60,7 @@ exports[`IconButton renders with icon 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+  tabIndex={0}
   type="button"
 >
   <div
@@ -102,6 +104,7 @@ exports[`IconButton renders with svg 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+  tabIndex={0}
   type="button"
 >
   <div

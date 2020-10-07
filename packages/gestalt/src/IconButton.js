@@ -38,6 +38,7 @@ type BaseIconButton = {|
   >,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
+  tabIndex?: -1 | 0,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
 |};
 
@@ -75,6 +76,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
     iconColor,
     onClick,
     padding,
+    tabIndex = 0,
     size,
   } = props;
 
@@ -184,6 +186,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
         onMouseLeave={handleOnMouseLeave}
         ref={innerRef}
         rel={rel}
+        tabIndex={tabIndex}
         target={target}
         wrappedComponent="iconButton"
       >
@@ -229,6 +232,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
       onTouchStart={handleTouchStart}
       ref={innerRef}
       style={compressStyle || undefined}
+      tabIndex={disabled ? null : tabIndex}
       type="button"
     >
       {renderPogComponent(selected)}
@@ -263,6 +267,7 @@ IconButtonWithForwardRef.propTypes = {
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),
+  tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['button', 'link']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),

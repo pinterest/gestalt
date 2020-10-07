@@ -18,6 +18,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      tabIndex={0}
       type="button"
     >
       <div
@@ -41,6 +42,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      tabIndex={0}
       type="button"
     >
       <div
@@ -67,6 +69,7 @@ exports[`ButtonGroup Renders the child without container when 1 child is passed 
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+  tabIndex={0}
   type="button"
 >
   <div

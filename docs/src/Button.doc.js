@@ -31,18 +31,40 @@ card(
     defaultCode={`
 function Example() {
   const [disabled, setDisabled] = React.useState(false);
+  const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
     <Stack gap={3}>
       <Row gap={1}>
         <Tooltip text="Default button">
-          <Button onClick={() => {}} text="Clear search history" inline disabled={disabled} />
+          <Button
+            onClick={() => {}}
+            text="Clear search history"
+            inline
+            disabled={disabled}
+            tabIndex={tabIndex ? -1 : 0}
+          />
         </Tooltip>
         <Tooltip text="Submit button">
-          <Button type="submit" name="satisfaction-questionaire" text="Submit your response" inline disabled={disabled} />
+          <Button
+            type="submit"
+            name="satisfaction-questionaire"
+            text="Submit your response"
+            inline
+            disabled={disabled}
+            tabIndex={tabIndex ? -1 : 0}
+          />
         </Tooltip>
         <Tooltip text="Link button">
-          <Button role="link" target="blank" href="https://www.pinterest.com" text="Visit pinterest.com" inline disabled={disabled} />
+          <Button
+            role="link"
+            target="blank"
+            href="https://www.pinterest.com"
+            text="Visit pinterest.com"
+            inline
+            disabled={disabled}
+            tabIndex={tabIndex ? -1 : 0}
+          />
         </Tooltip>
       </Row>
       <Row gap={1}>
@@ -54,6 +76,18 @@ function Example() {
         <Box paddingX={2} flex="grow">
           <Label htmlFor="disable-buttons">
             <Text>Disable buttons</Text>
+          </Label>
+        </Box>
+      </Row>
+      <Row gap={1}>
+        <Switch
+          onChange={() => setTabIndex(!tabIndex)}
+          id="unreachable-buttons"
+          switched={tabIndex}
+        />
+        <Box paddingX={2} flex="grow">
+          <Label htmlFor="unreachable-buttons">
+            <Text>Remove from keyboard navigation with tabIndex</Text>
           </Label>
         </Box>
       </Row>
@@ -459,6 +493,18 @@ card(
         description:
           'Forward the ref to the underlying button or anchor element.',
         href: 'ref',
+      },
+      {
+        name: 'tabIndex',
+        type: `-1 | 0`,
+        required: false,
+        defaultValue: 0,
+        description: [
+          'Remove the component from sequential keyboard navigation to improve accessibility. The component is not focusable with keyboard navigation but it can be focused with Javascript or visually by clicking with the mouse.',
+          `The default behaviour for the component is to be focusable in sequential keyboard navigation in the order defined by the document's source order.`,
+          `If component is disabled, the component is also unreachable from keyboard navigation.`,
+        ],
+        href: 'type-roles',
       },
       {
         name: 'role',

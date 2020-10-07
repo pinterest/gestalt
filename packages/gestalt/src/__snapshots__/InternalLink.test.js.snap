@@ -18,7 +18,7 @@ exports[`default 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  tabIndex={null}
+  tabIndex={0}
   target={null}
 >
   InternalLink
@@ -43,7 +43,7 @@ exports[`inline 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  tabIndex={null}
+  tabIndex={0}
   target={null}
 >
   InternalLink
@@ -68,7 +68,7 @@ exports[`target blank 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="noopener noreferrer"
-  tabIndex={null}
+  tabIndex={0}
   target="_blank"
 >
   InternalLink
@@ -93,7 +93,7 @@ exports[`target null 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  tabIndex={null}
+  tabIndex={0}
   target={null}
 >
   InternalLink
@@ -118,7 +118,7 @@ exports[`target self 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  tabIndex={null}
+  tabIndex={0}
   target="_self"
 >
   InternalLink
@@ -143,7 +143,7 @@ exports[`with nofollow 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="nofollow"
-  tabIndex={null}
+  tabIndex={0}
   target={null}
 >
   InternalLink
@@ -168,7 +168,7 @@ exports[`with onTap 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel=""
-  tabIndex={null}
+  tabIndex={0}
   target={null}
 >
   InternalLink
