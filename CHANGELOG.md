@@ -1,3 +1,9 @@
+## 14.9.3 (Oct 7, 2020)
+
+### Patch
+
+- Docs: Removed beta from DatePicker component (#1249)
+
 ## 14.9.2 (Oct 7, 2020)
 
 ### Patch
