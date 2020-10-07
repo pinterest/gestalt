@@ -1,3 +1,9 @@
+## 14.9.2 (Oct 7, 2020)
+
+### Patch
+
+- ActivationCard/Callout: Update docs and Fix proptypes (#1246)
+
 ## 14.9.1 (Oct 7, 2020)
 
 ### Patch
