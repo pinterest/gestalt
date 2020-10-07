@@ -1,3 +1,9 @@
+## 14.11.1 (Oct 7, 2020)
+
+### Patch
+
+- Docs: update design for code examples (#1248)
+
 ## 14.11.0 (Oct 7, 2020)
 
 ### Minor
