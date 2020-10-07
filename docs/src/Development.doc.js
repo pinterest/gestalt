@@ -202,7 +202,9 @@ git checkout -b <feature-branch> upstream/master
           <Text>Update the documentation.</Text>
         </li>
         <li>
-          <Text>Add unit tests for the change.</Text>
+          <Text>
+            Add unit tests &amp; accessibility integration tests for the change.
+          </Text>
           <ul>
             <li>
               <Text>
