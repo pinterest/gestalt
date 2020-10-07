@@ -1,3 +1,9 @@
+## 14.9.1 (Oct 7, 2020)
+
+### Patch
+
+- Docs: explain how to generate component files (#1247)
+
 ## 14.9.0 (Oct 6, 2020)
 
 ### Minor
