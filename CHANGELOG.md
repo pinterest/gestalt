@@ -1,3 +1,9 @@
+## 14.11.0 (Oct 7, 2020)
+
+### Minor
+
+- Box: Add option to specify 'shadow' for borderStyle prop (previously borderSize) (#1245)
+
 ## 14.10.1 (Oct 7, 2020)
 
 ### Patch
