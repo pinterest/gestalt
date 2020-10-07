@@ -23,7 +23,7 @@ card(
     defaultCode={`
 function TapAreaExample() {
   return (
-    <Box rounding={4} borderSize="sm" width={170}>
+    <Box rounding={4} borderStyle="sm" width={170}>
       <TapArea rounding={4}>
         <Box
           alignItems="center"
@@ -63,7 +63,7 @@ function TapAreaExample() {
         onTap={() => setTouches(touches + 1)}
         rounding={2}
       >
-        <Box color="darkGray" rounding={4} borderSize="sm">
+        <Box color="darkGray" rounding={4} borderStyle="sm">
           <Mask rounding={2}>
             <Image
               alt="Antelope Canyon"
@@ -116,7 +116,7 @@ function Example() {
             onTap={() => setTouches(touches + 1)}
             tabIndex={tabIndex ? -1 : 0}
           >
-            <Box padding={3} column={12} borderSize="lg" width={200}>
+            <Box padding={3} column={12} borderStyle="lg" width={200}>
               <Mask rounding={2}>
                 <Image
                   alt="Antelope Canyon"
@@ -138,7 +138,7 @@ function Example() {
             href="https://www.pinterest.com"
             tabIndex={tabIndex ? -1 : 0}
           >
-            <Box padding={3} column={12} borderSize="lg" width={200}>
+            <Box padding={3} column={12} borderStyle="lg" width={200}>
               <Mask rounding={2}>
                 <Image
                   alt="Antelope Canyon"
@@ -201,7 +201,7 @@ card(
     id="fullHeightWidth"
     defaultCode={`
 <Box color="olive" display="flex" width={500} height={250}>
-  <Box borderSize="sm" margin={3} column={6}>
+  <Box borderStyle="sm" margin={3} column={6}>
     <TapArea fullHeight>
       <Box height="100%" color="lightGray">
         <Text align="center">
@@ -210,7 +210,7 @@ card(
       </Box>
     </TapArea>
   </Box>
-  <Box borderSize="sm" margin={3} column={6}>
+  <Box borderStyle="sm" margin={3} column={6}>
     <TapArea>
       <Box height="100%" color="lightGray">
         <Text align="center">
@@ -241,7 +241,7 @@ card(
   >
     {(props, i) => (
       <TapArea id={`example-${i}`} {...props}>
-        <Box borderSize="lg" padding={3} color="white">
+        <Box borderStyle="lg" padding={3} color="white">
           <Text>{props.mouseCursor}</Text>
         </Box>
       </TapArea>
@@ -259,7 +259,7 @@ card(
       <TapArea id={`example-${i}`} {...props}>
         <Box
           color="white"
-          borderSize="lg"
+          borderStyle="lg"
           width={props.rounding === 'pill' ? 120 : 70}
           height={70}
           display="flex"
@@ -295,7 +295,7 @@ function TapAreaRefExample() {
         onFocus={() => setFocus(focus + 1)}
       >
         <Box
-          borderSize="sm"
+          borderStyle="sm"
           padding={2}
           rounding="pill"
         >
@@ -328,7 +328,7 @@ function MenuButtonExample() {
         >
           <Box
             ref={anchorRef}
-            borderSize="sm"
+            borderStyle="sm"
             display="inlineBlock"
             alignItems="center"
             rounding={1}

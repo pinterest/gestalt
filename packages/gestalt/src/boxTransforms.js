@@ -30,7 +30,7 @@ import {
   type AlignContent,
   type AlignItems,
   type AlignSelf,
-  type BorderSize,
+  type BorderStyle,
   type Column,
   type Color,
   type DangerouslySetInlineStyle,
@@ -136,9 +136,9 @@ const alignSelf: Functor<AlignSelf> = mapping({
   // default: auto
 });
 const bottom: Functor<boolean> = toggle(layout.bottom0);
-const borderSize: Functor<BorderSize> = value => {
+const borderStyle: Functor<BorderStyle> = value => {
   const borderProps =
-    value !== 'none'
+    value === 'sm' || value === 'lg'
       ? [
           fromClassName(borders.solid),
           fromClassName(borders.borderColorLightGray),
@@ -148,6 +148,7 @@ const borderSize: Functor<BorderSize> = value => {
     mapping({
       sm: borders.sizeSm,
       lg: borders.sizeLg,
+      shadow: borders.shadow,
       // default: none
     })(value),
     ...borderProps,
@@ -429,7 +430,7 @@ export const propToFn = {
   alignItems,
   alignSelf,
   bottom,
-  borderSize,
+  borderStyle,
   color,
   fit,
   flex,
