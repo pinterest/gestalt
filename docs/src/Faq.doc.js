@@ -146,6 +146,20 @@ card(
       </Text>
 
       <Heading size="sm">
+        How do I easily generate files for a component?
+      </Heading>
+      <Text>
+        Run the following and replace &quot;ComponentName&quot; with the name of
+        your component.
+        <Markdown
+          text="
+~~~js
+yarn generate ComponentName
+~~~"
+        />
+      </Text>
+
+      <Heading size="sm">
         What do we use for integration tests and how do we run the tests
         locally?{' '}
       </Heading>
