@@ -82,7 +82,6 @@ card(
   <PageHeader
     name="DatePicker"
     description="Use Datepicker when the user has to select a date or date range."
-    beta
   />
 );
 
