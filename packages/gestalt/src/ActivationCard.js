@@ -241,6 +241,7 @@ ActivationCard.propTypes = {
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    accessibilityLabel: PropTypes.string,
   }),
   status: PropTypes.oneOf([
     'notStarted',

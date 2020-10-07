@@ -55,7 +55,7 @@ card(
     name="Needs attention and Complete Cards"
     defaultCode={`
 <Box display="flex" marginStart={-1} marginEnd={-1}>
-  <Box paddingX={1} width="100%">
+  <Box paddingX={1}>
     <ActivationCard
       status="needsAttention"
       statusMessage="Needs attention"
@@ -68,7 +68,7 @@ card(
       }}
     />
   </Box>
-  <Box paddingX={1} width="100%">
+  <Box paddingX={1}>
     <ActivationCard
       status="complete"
       statusMessage="Completed"
@@ -151,7 +151,7 @@ card(
         required: true,
         defaultValue: null,
         description: [
-          'Heading to render inside the activation card above the message to convey the activation card topic to the user. The message text has a fixed size.',
+          'Heading to render inside the activation card above the message to convey the activation card topic to the user.',
         ],
         href: '',
       },

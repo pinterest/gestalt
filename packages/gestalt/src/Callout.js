@@ -191,11 +191,13 @@ Callout.propTypes = {
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    accessibilityLabel: PropTypes.string,
   }),
   secondaryLink: PropTypes.exact({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    accessibilityLabel: PropTypes.string,
   }),
   type: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
   title: PropTypes.string,
