@@ -1,3 +1,9 @@
+## 14.11.2 (Oct 7, 2020)
+
+### Patch
+
+- Docs: fix borderSize to borderStyle for Example (#1251)
+
 ## 14.11.1 (Oct 7, 2020)
 
 ### Patch
