@@ -1,3 +1,9 @@
+## 14.10.1 (Oct 7, 2020)
+
+### Patch
+
+- Internal: fail CI on ESLint warnings (#1250)
+
 ## 14.10.0 (Oct 7, 2020)
 
 ### Minor
