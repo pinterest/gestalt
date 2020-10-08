@@ -4,13 +4,14 @@ import ExpandableModule from './ExpandableModule.js';
 
 const Valid = (
   <ExpandableModule
+    id="uniqueTestID"
+    accessibilityExpandLabel="click to expand"
+    accessibilityCollapseLabel="click to collapse"
     items={[
       {
         title: 'Title',
         icon: 'lock',
         iconAccessibilityLabel: 'test label',
-        accessibilityLabel: 'test label',
-        accessibilityControls: 'ChildId',
         summary: ['summary1', 'summary2', 'summary3'],
         type: 'info',
         children: 'test children',

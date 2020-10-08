@@ -54,9 +54,9 @@ function ExpandableModuleExample1() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <ExpandableModule
-        id={expandableUniqueID}
-        accessibilityExpandLabel={'to expand the module'},
-        accessibilityCollapseLabel={'to collapse the module'}
+        id="ExpandableModuleExample1"
+        accessibilityExpandLabel="Expand the module"
+        accessibilityCollapseLabel="Collapse the module"
         items={[
           {
             title: 'Title',
@@ -79,9 +79,9 @@ function ExpandableModuleExample2() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <ExpandableModule
-        id={uniqueIDforMultipleItems}
-        accessibilityExpandLabel={'to expand the module'},
-        accessibilityCollapseLabel={'to collapse the module'}
+        id="ExpandableModuleExample2"
+        accessibilityExpandLabel="Expand the module"
+        accessibilityCollapseLabel="Collapse the module"
         items={[
           {
             title: 'Title1',
@@ -114,9 +114,9 @@ function ExpandableModuleExample3() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <ExpandableModule
-        id={uniqueIDforExample3}
-        accessibilityExpandLabel={'to expand the module'},
-        accessibilityCollapseLabel={'to collapse the module'}
+        id="ExpandableModuleExample3"
+        accessibilityExpandLabel="Expand the module"
+        accessibilityCollapseLabel="Collapse the module"
         items={[
           {
             title: 'Example with icon',
@@ -140,9 +140,9 @@ function ExpandableModuleExample4() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <ExpandableModule
-        id={uniqueIDforExample4}
-        accessibilityExpandLabel={'to expand the module'},
-        accessibilityCollapseLabel={'to collapse the module'}
+        id="ExpandableModuleExample4"
+        accessibilityExpandLabel="Expand the module"
+        accessibilityCollapseLabel="Collapse the module"
         items={[
           {
             title: 'Error state',

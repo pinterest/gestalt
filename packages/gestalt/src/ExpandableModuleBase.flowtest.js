@@ -4,11 +4,12 @@ import ExpandableModuleBase from './ExpandableModuleBase.js';
 
 const Valid = (
   <ExpandableModuleBase
+    id="uniqueTestID"
+    accessibilityExpandLabel="click to expand"
+    accessibilityCollapseLabel="click to collapse"
     title="test title"
     icon="lock"
     iconAccessibilityLabel="test label"
-    accessibilityLabel="test label"
-    accessibilityControls="ChildId"
     summary={['summary1', 'summary2', 'summary3']}
     isCollapsed={false}
     type="info"
