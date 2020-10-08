@@ -13,8 +13,8 @@ test('TableRowExpandable handles onMouseEnter callback', () => {
     <Table>
       <TableBody>
         <TableRowExpandable
-          accessibilityExpandLabel={'Expand'}
-          accessibilityCollapseLabel={'Collapse'}
+          accessibilityExpandLabel="Expand"
+          accessibilityCollapseLabel="Collapse"
           expandedContents={<Box>Hello</Box>}
         >
           <TableCell>

@@ -31,7 +31,7 @@ const MissingProp = (
   <TableRowExpandable>
     <div>row cells</div>
   </TableRowExpandable>
-); // eslint-disable-line jsx-a11y/anchor-is-valid
+);
 
 const NonExistingProp = (
   // $FlowExpectedError[prop-missing]
@@ -41,4 +41,4 @@ const NonExistingProp = (
     expandedContents={<div>Expanded Contents</div>}
     hoverStyle="none"
   />
-); // eslint-disable-line jsx-a11y/anchor-is-valid
+);
