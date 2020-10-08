@@ -8,6 +8,7 @@ const Valid = (
     accessibilityCollapseLabel="Collapse"
     expandedContents={<div>Expanded Contents</div>}
     hoverStyle="none"
+    id="expandableRow"
   >
     <div>row cells</div>
   </TableRowExpandable>
@@ -21,6 +22,7 @@ const InvalidTypeProp = (
     expandedContents={<div>Expanded Contents</div>}
     // $FlowExpectedError[incompatible-type]
     hoverStyle={2}
+    id="expandableRow"
   >
     <div>row cells</div>
   </TableRowExpandable>
@@ -40,5 +42,6 @@ const NonExistingProp = (
     accessibilityCollapseLabel="Collapse"
     expandedContents={<div>Expanded Contents</div>}
     hoverStyle="none"
+    id="expandableRow"
   />
 );

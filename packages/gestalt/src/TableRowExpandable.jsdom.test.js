@@ -16,6 +16,7 @@ test('TableRowExpandable handles onMouseEnter callback', () => {
           accessibilityExpandLabel="Expand"
           accessibilityCollapseLabel="Collapse"
           expandedContents={<Box>Hello</Box>}
+          id="expandableRow"
         >
           <TableCell>
             <Text>Row Info</Text>

@@ -4,8 +4,12 @@ exports[`renders correctly 1`] = `
 <tr
   className="hoverShadeGray"
 >
-  <td>
+  <td
+    className="td"
+  >
     <button
+      aria-controls="expandableRow"
+      aria-expanded={false}
       aria-label="Expand"
       className="button tapTransition enabled"
       onBlur={[Function]}
@@ -57,8 +61,12 @@ exports[`renders correctly with explicit hover 1`] = `
 <tr
   className="hoverShadeGray"
 >
-  <td>
+  <td
+    className="td"
+  >
     <button
+      aria-controls="expandableRow"
+      aria-expanded={false}
       aria-label="Expand"
       className="button tapTransition enabled"
       onBlur={[Function]}
@@ -110,8 +118,12 @@ exports[`renders correctly without hover 1`] = `
 <tr
   className={null}
 >
-  <td>
+  <td
+    className="td"
+  >
     <button
+      aria-controls="expandableRow"
+      aria-expanded={false}
       aria-label="Expand"
       className="button tapTransition enabled"
       onBlur={[Function]}

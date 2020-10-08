@@ -307,8 +307,8 @@ card(
         required: true,
         defaultValue: null,
         description: [
-          'Supply a short, descriptive label for screen-readers as a text alternative to the collapse button.',
-          'Accessibility: It populates aria-label on the <button> element for the collapse button.',
+          'Supply a short, descriptive label for screen-readers as a text alternative to the Collapse button.',
+          'Accessibility: It populates aria-label on the <button> element for the Collapse button.',
         ],
       },
       {
@@ -335,13 +335,18 @@ card(
         type: '"none" | "gray"',
         defaultValue: 'gray',
       },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+      },
     ]}
   />
 );
 
 card(
   <Example
-    name="Example: Table Row Expanable"
+    name="Example: Table Row Expandable"
     defaultCode={`
 <Table>
   <Table.Header>
@@ -366,6 +371,7 @@ card(
     <Table.RowExpandable
       accessibilityExpandLabel="Expand"
       accessibilityCollapseLabel="Collapse"
+      id="row1"
       expandedContents={
         <Box maxWidth={236} padding={2} column={12}>
           <Card
@@ -400,6 +406,7 @@ card(
     <Table.RowExpandable
       accessibilityExpandLabel="Expand"
       accessibilityCollapseLabel="Collapse"
+      id="row2"
       expandedContents={
         <Table maxWidth={800} maxHeight={500}>
           <Table.Header sticky>
@@ -493,6 +500,7 @@ card(
     <Table.RowExpandable
       accessibilityExpandLabel="Expand"
       accessibilityCollapseLabel="Collapse"
+      id="row3"
       expandedContents={
         <Box maxWidth={236} padding={2} column={12}>
           <Card

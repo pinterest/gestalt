@@ -4,13 +4,15 @@ import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
+import TableCell from './TableCell.js';
 
 type Props = {|
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
   children: Node,
-  hoverStyle?: 'gray' | 'none',
   expandedContents: Node,
+  hoverStyle?: 'gray' | 'none',
+  id: string,
 |};
 
 export default function TableRowExpandable(props: Props): Node {
@@ -19,6 +21,7 @@ export default function TableRowExpandable(props: Props): Node {
     accessibilityExpandLabel,
     children,
     expandedContents,
+    id,
   } = props;
   const [expanded, setExpanded] = useState(false);
   const hoverStyle = props.hoverStyle || 'gray';
@@ -27,8 +30,10 @@ export default function TableRowExpandable(props: Props): Node {
   return (
     <>
       <tr className={cs}>
-        <td>
+        <TableCell>
           <IconButton
+            accessibilityExpanded={expanded}
+            accessibilityControls={id}
             accessibilityLabel={
               expanded ? accessibilityCollapseLabel : accessibilityExpandLabel
             }
@@ -37,11 +42,11 @@ export default function TableRowExpandable(props: Props): Node {
             onClick={() => setExpanded(!expanded)}
             size="xs"
           />
-        </td>
+        </TableCell>
         {children}
       </tr>
       {expanded && (
-        <tr>
+        <tr id={id}>
           <td colSpan={React.Children.count(children) + 1}>
             <Box padding={6}>{expandedContents}</Box>
           </td>

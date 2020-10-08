@@ -10,6 +10,7 @@ test('renders correctly', () => {
         accessibilityExpandLabel="Expand"
         accessibilityCollapseLabel="Collapse"
         expandedContents={<div>Expanded Contents</div>}
+        id="expandableRow"
       >
         <div>row cells</div>
       </TableRowExpandable>
@@ -26,6 +27,7 @@ test('renders correctly with explicit hover', () => {
         accessibilityCollapseLabel="Collapse"
         hoverStyle="gray"
         expandedContents={<div>Expanded Contents</div>}
+        id="expandableRow"
       >
         <div>row cells</div>
       </TableRowExpandable>
@@ -42,6 +44,7 @@ test('renders correctly without hover', () => {
         accessibilityCollapseLabel="Collapse"
         hoverStyle="none"
         expandedContents={<div>Expanded Contents</div>}
+        id="expandableRow"
       >
         <div>row cells</div>
       </TableRowExpandable>
