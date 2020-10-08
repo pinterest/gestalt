@@ -2,9 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <tr
-  className="hoverNone"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  className="hoverShadeGray"
 >
   <td>
     <button
@@ -56,9 +54,7 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly with explicit hover 1`] = `
 <tr
-  className="hoverNone"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  className="hoverShadeGray"
 >
   <td>
     <button
@@ -110,9 +106,7 @@ exports[`renders correctly with explicit hover 1`] = `
 
 exports[`renders correctly without hover 1`] = `
 <tr
-  className="hoverNone"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  className={null}
 >
   <td>
     <button

@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Box from './Box.js';
 import Table from './Table.js';
 import TableBody from './TableBody.js';
@@ -20,26 +20,10 @@ test('TableRowExpandable handles onMouseEnter callback', () => {
       </TableBody>
     </Table>
   );
-  fireEvent.mouseEnter(getByText('Row Info'));
-  expect.objectContaining({
-    hoverStyle: 'gray',
-  });
-});
-
-test('TableRowExpandable handles onMouseLeave callback', () => {
-  const { getByText } = render(
-    <Table>
-      <TableBody>
-        <TableRowExpandable expandedContents={<Box>Hello</Box>}>
-          <TableCell>
-            <Text>Row Info</Text>
-          </TableCell>
-        </TableRowExpandable>
-      </TableBody>
-    </Table>
-  );
-  fireEvent.mouseLeave(getByText('Row Info'));
-  expect.objectContaining({
-    hoverStyle: 'gray',
-  });
+  expect(() => {
+    getByText('Hello');
+  }).toThrow('Unable to find an element with the text: Hello');
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(getByText('Hello')).toBeTruthy();
 });

@@ -13,22 +13,12 @@ type Props = {|
 
 export default function TableRowExpandable(props: Props): Node {
   const [expanded, setExpanded] = useState(false);
-  const [hovered, setHover] = useState(false);
-  const handleHover: (isHovered: boolean) => void = (isHovered: boolean) =>
-    setHover(isHovered);
   const hoverStyle = props.hoverStyle || 'gray';
-  const cs =
-    hovered && hoverStyle === 'gray'
-      ? cx(styles.hoverShadeGray)
-      : cx(styles.hoverNone);
+  const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
 
   return (
     <>
-      <tr
-        className={cs}
-        onMouseEnter={() => handleHover(true)}
-        onMouseLeave={() => handleHover(false)}
-      >
+      <tr className={cs}>
         <td>
           <IconButton
             accessibilityLabel=""
@@ -41,8 +31,8 @@ export default function TableRowExpandable(props: Props): Node {
       </tr>
       {expanded && (
         <tr>
-          <td colSpan={Object.keys(props.children).length}>
-            <Box>{props.expandedContents}</Box>
+          <td colSpan={React.Children.count(props.children) + 1}>
+            <Box padding={6}>{props.expandedContents}</Box>
           </td>
         </tr>
       )}

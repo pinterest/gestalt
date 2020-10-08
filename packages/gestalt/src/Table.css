@@ -30,10 +30,6 @@
   border-bottom: 1px solid var(--g-colorGray150);
 }
 
-.hoverShadeGray {
-  background-color: var(--g-colorGray150);
-}
-
-.hoverNone{
-  background-color: transparent;
+.hoverShadeGray:hover {
+  background-color: var(--g-colorGray100);
 }
