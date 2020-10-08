@@ -15,7 +15,6 @@ import controlStyles from './RadioButtonCheckbox.css';
 import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
-import Image from './Image.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -208,12 +207,14 @@ CheckboxWithForwardRef.propTypes = {
   errorMessage: PropTypes.string,
   hasError: PropTypes.bool,
   id: PropTypes.string.isRequired,
+  image: PropTypes.node,
   indeterminate: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md']),
+  subtext: PropTypes.string,
 };
 
 CheckboxWithForwardRef.displayName = 'Checkbox';

@@ -152,11 +152,13 @@ RadioButtonWithForwardRef.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
+  image: PropTypes.node,
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['sm', 'md']),
+  subtext: PropTypes.string,
 };
 
 RadioButtonWithForwardRef.displayName = 'RadioButton';
