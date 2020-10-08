@@ -14,6 +14,9 @@ yarn stylelint "**/*.css"
 echo "jest"
 yarn jest --coverage
 
+echo "a11y:validate"
+yarn a11y:validate
+
 echo "flow"
 yarn flow check --max-warnings 0
 
