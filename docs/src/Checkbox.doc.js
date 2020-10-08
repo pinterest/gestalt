@@ -95,6 +95,108 @@ function CheckboxExample() {
 
 card(
   <Example
+    id="subtext"
+    description="Here is an example of a group of checkboxes with additional subtext applied."
+    name="Example: With Subtext"
+    defaultCode={`
+function CheckboxExample() {
+    const [checkedEn, setCheckedEn] = React.useState(false);
+    const [checkedSp, setCheckedSp] = React.useState(false);
+    const [checkedCh, setCheckedCh] = React.useState(false);
+
+  return (
+    <Box margin={-2}>
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedEn}
+          id="english-info"
+          label="English"
+          subtext="USA, India, and Pakistan have the top number of English speakers "
+          name="languages"
+          onChange={({ checked }) => {
+            setCheckedEn(checked);
+          }}
+        />
+      </Box>
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedSp}
+          id="spanish-info"
+          label="Spanish"
+          subtext="Mexico, Columbia, and Spain are the top three Spanish speaking countries"
+          name="languages"
+          onChange={({ checked }) => {
+            setCheckedSp(checked);
+          }}
+        />
+      </Box>
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedCh}
+          id="chinese-info"
+          label="Chinese"
+          subtext="Chinese has two varieties: Cantonese and Mandarin"
+          name="languages"
+          onChange={({ checked }) => {
+            setCheckedCh(checked);
+          }}
+        />
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="images"
+    description="Here is an example of a group of checkboxes with images included. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context."
+    name="Example: With Images"
+    defaultCode={`
+function CheckboxExample() {
+    const [checkedEn, setCheckedEn] = React.useState(false);
+    const [checkedSp, setCheckedSp] = React.useState(false);
+    const [checkedCh, setCheckedCh] = React.useState(false);
+
+  return (
+    <Box margin={-2}>
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedEn}
+          id="coral"
+          label="Coral"
+          subtext="Botanical art in coral and green"
+          image={<Box height={100} width={80} rounding={3}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="container"/></Box>}
+          name="favorite art"
+          onChange={({ checked }) => {
+            setCheckedEn(checked);
+          }}
+        />
+      </Box>
+      <Box padding={2}>
+        <Checkbox
+          checked={checkedSp}
+          id="blue"
+          label="Blue"
+          subtext="Typography in blue"
+          image={<Box height={100} width={80} rounding={3}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="container"/></Box>}
+          name="favorite art"
+          onChange={({ checked }) => {
+            setCheckedSp(checked);
+          }}
+        />
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
     description="Here is an example of a checkbox showing an error message."
     id="hasError"
     name="Example: Error state"

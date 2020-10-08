@@ -15,6 +15,7 @@ import controlStyles from './RadioButtonCheckbox.css';
 import Box from './Box.js';
 import FormErrorMessage from './FormErrorMessage.js';
 import Icon from './Icon.js';
+import Image from './Image.js';
 import Label from './Label.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -27,6 +28,7 @@ type Props = {|
   errorMessage?: string,
   hasError?: boolean,
   id: string,
+  image?: Node,
   indeterminate?: boolean,
   label?: string,
   name?: string,
@@ -39,6 +41,7 @@ type Props = {|
     {| checked: boolean |}
   >,
   size?: 'sm' | 'md',
+  subtext?: string,
 |};
 
 const CheckboxWithForwardRef: React$AbstractComponent<
@@ -51,12 +54,14 @@ const CheckboxWithForwardRef: React$AbstractComponent<
     errorMessage,
     hasError = false,
     id,
+    image,
     indeterminate = false,
     label,
     name,
     onChange,
     onClick,
     size = 'md',
+    subtext,
   } = props;
 
   const innerRef = useRef(null);
@@ -115,13 +120,15 @@ const CheckboxWithForwardRef: React$AbstractComponent<
   const { isFocusVisible } = useFocusVisible();
 
   return (
-    <Box>
+    <Box width="100%" height="100%">
       <Box
-        alignItems="center"
+        alignItems={subtext || image ? 'start' : 'center'}
         display="flex"
         justifyContent="start"
         marginLeft={-1}
         marginRight={-1}
+        width="100%"
+        height="100%"
       >
         <Label htmlFor={id}>
           <Box paddingX={1} position="relative">
@@ -166,7 +173,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
             </div>
           </Box>
         </Label>
-
+        {image && image}
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
@@ -175,6 +182,9 @@ const CheckboxWithForwardRef: React$AbstractComponent<
                 size={size === 'sm' ? 'md' : 'lg'}
               >
                 {label}
+              </Text>
+              <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                <Box display="visuallyHidden">:</Box> {subtext}
               </Text>
             </Box>
           </Label>
