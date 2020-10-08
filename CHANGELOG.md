@@ -1,3 +1,9 @@
+## 14.13.0 (Oct 8, 2020)
+
+### Minor
+
+- Table: Add ExpandableRow (#1252)
+
 ## 14.12.0 (Oct 8, 2020)
 
 ### Minor
