@@ -1,7 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Table } from 'gestalt';
-import { Avatar, Box, Button, Link, Text } from 'gestalt';
 import Card from './components/Card.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';

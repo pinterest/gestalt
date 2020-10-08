@@ -18,7 +18,7 @@ test('renders correctly with explicit hover', () => {
   const tree = renderer
     .create(
       <TableRowExpandable
-        hoverStyle={'gray'}
+        hoverStyle="gray"
         expandedContents={<div>Expanded Contents</div>}
       >
         <div>row cells</div>
@@ -32,7 +32,7 @@ test('renders correctly without hover', () => {
   const tree = renderer
     .create(
       <TableRowExpandable
-        hoverStyle={'none'}
+        hoverStyle="none"
         expandedContents={<div>Expanded Contents</div>}
       >
         <div>row cells</div>

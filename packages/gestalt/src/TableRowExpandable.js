@@ -33,7 +33,7 @@ export default function TableRowExpandable(props: Props): Node {
           <IconButton
             accessibilityLabel=""
             icon={expanded ? 'arrow-up' : 'arrow-down'}
-            iconColor={'darkGray'}
+            iconColor="darkGray"
             onClick={() => setExpanded(!expanded)}
           />
         </td>
