@@ -11,10 +11,15 @@ async function validate() {
     []
   );
 
-  const a11ySpecFiles = await globby([cypressSpecFile]);
+  const a11ySpecFiles = (await globby([cypressSpecFile])).map(file =>
+    file.toLocaleLowerCase()
+  );
 
   const pagesWithoutA11ySpecFiles = pages.filter(
-    page => !a11ySpecFiles.includes(cypressSpecFile.replace('*', page))
+    page =>
+      !a11ySpecFiles.includes(
+        cypressSpecFile.replace('*', page.toLocaleLowerCase())
+      )
   );
 
   if (pagesWithoutA11ySpecFiles.length) {
