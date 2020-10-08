@@ -1,3 +1,9 @@
+## 14.13.1 (Oct 8, 2020)
+
+### Patch
+
+- Docs: update link icon for header target links (#1255)
+
 ## 14.13.0 (Oct 8, 2020)
 
 ### Minor
