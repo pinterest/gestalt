@@ -1,3 +1,9 @@
+## 14.12.0 (Oct 8, 2020)
+
+### Minor
+
+- Internal: Validate that each doc page has an a11y test (#1254)
+
 ## 14.11.2 (Oct 7, 2020)
 
 ### Patch
