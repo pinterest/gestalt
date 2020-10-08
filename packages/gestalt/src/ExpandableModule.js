@@ -4,51 +4,48 @@ import Box from './Box.js';
 import Divider from './Divider.js';
 import ExpandableModuleBase from './ExpandableModuleBase.js';
 import icons from './icons/index.js';
-import styles from './ExpandableModule.css';
 
 type Props = {|
+  id: string,
+  accessibilityExpandLabel: string,
+  accessibilityCollapseLabel: string,
   items: Array<{|
     title: string,
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
-    accessibilityLabel: string,
-    accessibilityControls: string,
     summary?: Array<string>,
     type?: 'error' | 'info',
     children?: Node,
   |}>,
 |};
 
-export default function ExpandableModule({ items }: Props): Node {
+export default function ExpandableModule({
+  id,
+  accessibilityExpandLabel,
+  accessibilityCollapseLabel,
+  items,
+}: Props): Node {
   const [expandedId, setExpandedId] = useState(-1);
 
   return (
-    <div className={styles.expandableModule}>
+    <Box rounding={2} borderStyle="shadow">
       {items.map(
         (
-          {
-            icon,
-            iconAccessibilityLabel,
-            accessibilityLabel,
-            accessibilityControls,
-            title,
-            type,
-            summary,
-            children,
-          },
+          { icon, iconAccessibilityLabel, title, type, summary, children },
           index
         ) => (
           <React.Fragment key={index}>
             <Box padding={6}>
               <ExpandableModuleBase
+                id={`${id}-${index}`}
                 title={title}
-                summary={summary}
                 icon={icon}
                 iconAccessibilityLabel={iconAccessibilityLabel}
-                accessibilityLabel={accessibilityLabel}
-                accessibilityControls={accessibilityControls}
+                summary={summary}
                 isCollapsed={expandedId !== index}
-                type={type || 'info'}
+                type={type}
+                accessibilityExpandLabel={accessibilityExpandLabel}
+                accessibilityCollapseLabel={accessibilityCollapseLabel}
                 onModuleClicked={isExpanded =>
                   setExpandedId(isExpanded ? -1 : index)
                 }
@@ -60,6 +57,6 @@ export default function ExpandableModule({ items }: Props): Node {
           </React.Fragment>
         )
       )}
-    </div>
+    </Box>
   );
 }

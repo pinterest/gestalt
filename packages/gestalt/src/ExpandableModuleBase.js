@@ -8,24 +8,26 @@ import TapArea from './TapArea.js';
 import Text from './Text.js';
 
 type Props = {|
+  id: string,
   title: string,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
-  accessibilityLabel: string,
-  accessibilityControls: string,
+  accessibilityExpandLabel: string,
+  accessibilityCollapseLabel: string,
   summary?: Array<string>,
   isCollapsed: boolean,
   onModuleClicked: boolean => void,
-  type: 'error' | 'info',
+  type?: 'error' | 'info',
   children?: Node,
 |};
 
 export default function ExpandableModuleBase({
+  id,
   title,
   icon,
   iconAccessibilityLabel,
-  accessibilityLabel,
-  accessibilityControls,
+  accessibilityExpandLabel,
+  accessibilityCollapseLabel,
   summary,
   isCollapsed,
   onModuleClicked,
@@ -49,8 +51,10 @@ export default function ExpandableModuleBase({
         onTap={() => {
           onModuleClicked(!isCollapsed);
         }}
-        accessibilityLabel={accessibilityLabel}
-        accessibilityControls={accessibilityControls}
+        accessibilityLabel={
+          isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
+        }
+        accessibilityControls={id}
         accessibilityExpanded={!isCollapsed}
       >
         <Box display="flex">
@@ -85,14 +89,18 @@ export default function ExpandableModuleBase({
               </Box>
             )}
           </Box>
-          <Box id={accessibilityControls}>
+          <Box id={id}>
             {children && (
               <Box padding={2}>
                 <Icon
                   icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
                   color="darkGray"
                   size="12"
-                  accessibilityLabel={accessibilityLabel}
+                  accessibilityLabel={
+                    isCollapsed
+                      ? accessibilityExpandLabel
+                      : accessibilityCollapseLabel
+                  }
                 />
               </Box>
             )}

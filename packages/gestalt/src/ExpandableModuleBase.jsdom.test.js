@@ -5,12 +5,13 @@ import ExpandableModuleBase from './ExpandableModuleBase.js';
 
 describe('ExpandableModuleBase', () => {
   const baseProps = {
+    id: 'uniqueTestID',
+    accessibilityExpandLabel: 'click to expand',
+    accessibilityCollapseLabel: 'click to collapse',
     title: 'test title',
     summary: ['summary1', 'summary2', 'summary3'],
     isCollapsed: true,
     onModuleClicked: jest.fn(),
-    accessibilityLabel: 'tap to expand or collapse the module',
-    accessibilityControls: 'ChildId',
     type: 'info',
   };
 
@@ -23,7 +24,7 @@ describe('ExpandableModuleBase', () => {
     expect(screen.queryByText(/Children/i)).toBeNull();
 
     const expandButton = screen.getByRole('button', {
-      name: /tap to expand or collapse the module/i,
+      name: /click to expand/i,
     });
     fireEvent.click(expandButton);
     expect(baseProps.onModuleClicked).toHaveBeenCalledWith(false);
@@ -55,7 +56,7 @@ describe('ExpandableModuleBase', () => {
     expect(screen.getByText(/Children/i)).toBeInTheDocument();
 
     const expandButton = screen.getByRole('button', {
-      name: /tap to expand or collapse the module/i,
+      name: /click to collapse/i,
     });
     fireEvent.click(expandButton);
     expect(props.onModuleClicked).toHaveBeenCalledWith(true);

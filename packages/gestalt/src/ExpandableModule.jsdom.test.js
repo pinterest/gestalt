@@ -5,13 +5,14 @@ import ExpandableModule from './ExpandableModule.js';
 
 describe('ExpandableModule', () => {
   const props = {
+    id: 'uniqueTestID',
+    accessibilityExpandLabel: 'click to expand',
+    accessibilityCollapseLabel: 'click to collapse',
     items: [
       {
         title: 'Title1',
         icon: 'lock',
         iconAccessibilityLabel: 'lock icon label',
-        accessibilityLabel: 'tap to expand or collapse the module',
-        accessibilityControls: 'ChildId1',
         summary: ['summary1'],
         children: 'Children1',
       },
@@ -19,16 +20,12 @@ describe('ExpandableModule', () => {
         title: 'Title2',
         summary: ['summary2'],
         children: 'Children2',
-        accessibilityLabel: 'tap to expand or collapse the module',
-        accessibilityControls: 'ChildId2',
       },
       {
         title: 'Title3',
         summary: ['summary3'],
         children: 'Children3',
         iconAccessibilityLabel: 'error icon label',
-        accessibilityLabel: 'tap to expand or collapse the module',
-        accessibilityControls: 'ChildId3',
         type: 'error',
       },
     ],
@@ -59,7 +56,7 @@ describe('ExpandableModule', () => {
   it('should expand the module correctly when clicked', () => {
     render(<ExpandableModule {...props} />);
     const expandButtons = screen.getAllByRole('button', {
-      name: /tap to expand or collapse the module/i,
+      name: /click to expand/i,
     });
 
     fireEvent.click(expandButtons[0]);

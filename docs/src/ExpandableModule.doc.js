@@ -22,9 +22,24 @@ card(
     Component={ExpandableModule}
     props={[
       {
+        name: 'id',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'accessibilityExpandLabel',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'accessibilityCollapseLabel',
+        type: 'string',
+        required: true,
+      },
+      {
         name: 'items',
         type:
-          'Array<{| title: string, icon: $Keys<typeof icons>, summary: ?Array<string>, type?: "error" | "info", accessibilityLabel: string, accessibilityControls: string, iconAccessibilityLabel: ?string, children: ?React.Node |}>',
+          'Array<{| title: string, icon?: $Keys<typeof icons>, summary?: Array<string>, type?: "info" | "error", iconAccessibilityLabel?: string, children: ?React.Node |}>',
         required: true,
       },
     ]}
@@ -38,13 +53,15 @@ card(
 function ExpandableModuleExample1() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule items={[
+      <ExpandableModule
+        id={expandableUniqueID}
+        accessibilityExpandLabel={'to expand the module'},
+        accessibilityCollapseLabel={'to collapse the module'}
+        items={[
           {
             title: 'Title',
             summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
-            accessibilityLabel: "tap to expand or collapse the module",
-            accessibilityControls: "ChildId"
           }]}>
       </ExpandableModule>
     </Box>
@@ -61,27 +78,25 @@ card(
 function ExpandableModuleExample2() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule items={[
+      <ExpandableModule
+        id={uniqueIDforMultipleItems}
+        accessibilityExpandLabel={'to expand the module'},
+        accessibilityCollapseLabel={'to collapse the module'}
+        items={[
           {
             title: 'Title1',
             summary: ['summary1'],
             children: <Text size="md">Children1</Text>,
-            accessibilityLabel: "tap to expand or collapse the module",
-            accessibilityControls: "ChildId"
           },
           {
             title: 'Title2',
             summary: ['summary2'],
             children: <Text size="md">Children2</Text>,
-            accessibilityLabel: "tap to expand or collapse the module",
-            accessibilityControls: "ChildId"
           },
           {
             title: 'Title3',
             summary: ['summary3'],
             children: <Text size="md">Children3</Text>,
-            accessibilityLabel: "tap to expand or collapse the module",
-            accessibilityControls: "ChildId"
           }]}>
       </ExpandableModule>
     </Box>
@@ -98,13 +113,15 @@ card(
 function ExpandableModuleExample3() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule items={[
+      <ExpandableModule
+        id={uniqueIDforExample3}
+        accessibilityExpandLabel={'to expand the module'},
+        accessibilityCollapseLabel={'to collapse the module'}
+        items={[
           {
             title: 'Example with icon',
             children: <Text size="md">Children1</Text>,
             iconAccessibilityLabel: "title icon",
-            accessibilityLabel: "tap to expand or collapse the module",
-            accessibilityControls: "ChildId",
             icon: 'lock',
           }]}>
       </ExpandableModule>
@@ -122,14 +139,16 @@ card(
 function ExpandableModuleExample4() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule items={[
+      <ExpandableModule
+        id={uniqueIDforExample4}
+        accessibilityExpandLabel={'to expand the module'},
+        accessibilityCollapseLabel={'to collapse the module'}
+        items={[
           {
             title: 'Error state',
             summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
             iconAccessibilityLabel: "error icon",
-            accessibilityLabel: "tap to expand or collapse the module",
-            accessibilityControls: "ChildId",
             type: 'error',
           }]}>
       </ExpandableModule>
