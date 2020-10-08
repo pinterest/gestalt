@@ -6,7 +6,7 @@ exports[`renders correctly 1`] = `
 >
   <td>
     <button
-      aria-label=""
+      aria-label="Expand"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -19,14 +19,15 @@ exports[`renders correctly 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      tabIndex={0}
       type="button"
     >
       <div
         className="pog transparent"
         style={
           Object {
-            "height": 40,
-            "width": 40,
+            "height": 24,
+            "width": 24,
           }
         }
       >
@@ -34,10 +35,10 @@ exports[`renders correctly 1`] = `
           aria-hidden={true}
           aria-label=""
           className="icon darkGray iconBlock"
-          height={18}
+          height={12}
           role="img"
           viewBox="0 0 24 24"
-          width={18}
+          width={12}
         >
           <path
             d="test-file-stub"
@@ -58,7 +59,7 @@ exports[`renders correctly with explicit hover 1`] = `
 >
   <td>
     <button
-      aria-label=""
+      aria-label="Expand"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -71,14 +72,15 @@ exports[`renders correctly with explicit hover 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      tabIndex={0}
       type="button"
     >
       <div
         className="pog transparent"
         style={
           Object {
-            "height": 40,
-            "width": 40,
+            "height": 24,
+            "width": 24,
           }
         }
       >
@@ -86,10 +88,10 @@ exports[`renders correctly with explicit hover 1`] = `
           aria-hidden={true}
           aria-label=""
           className="icon darkGray iconBlock"
-          height={18}
+          height={12}
           role="img"
           viewBox="0 0 24 24"
-          width={18}
+          width={12}
         >
           <path
             d="test-file-stub"
@@ -110,7 +112,7 @@ exports[`renders correctly without hover 1`] = `
 >
   <td>
     <button
-      aria-label=""
+      aria-label="Expand"
       className="button tapTransition enabled"
       onBlur={[Function]}
       onClick={[Function]}
@@ -123,14 +125,15 @@ exports[`renders correctly without hover 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
+      tabIndex={0}
       type="button"
     >
       <div
         className="pog transparent"
         style={
           Object {
-            "height": 40,
-            "width": 40,
+            "height": 24,
+            "width": 24,
           }
         }
       >
@@ -138,10 +141,10 @@ exports[`renders correctly without hover 1`] = `
           aria-hidden={true}
           aria-label=""
           className="icon darkGray iconBlock"
-          height={18}
+          height={12}
           role="img"
           viewBox="0 0 24 24"
-          width={18}
+          width={12}
         >
           <path
             d="test-file-stub"

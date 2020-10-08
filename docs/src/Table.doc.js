@@ -288,7 +288,12 @@ card(
   />
 );
 
-card(<Card name="Table.RowExpandable" />);
+card(
+  <Card
+    name="Table.RowExpandable"
+    description="Expandable row that is able to hold content that will displayed depending on the clickable expand/collapse button icon."
+  />
+);
 
 card(
   <PropTable
@@ -297,12 +302,33 @@ card(
     Component={Table?.Row}
     props={[
       {
+        name: 'accessibilityCollapseLabel',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers as a text alternative to the collapse button.',
+          'Accessibility: It populates aria-label on the <button> element for the collapse button.',
+        ],
+      },
+      {
+        name: 'accessibilityExpandLabel',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers as a text alternative to the Expand button.',
+          'Accessibility: It populates aria-label on the <button> element for the Expand button.',
+        ],
+      },
+      {
         name: 'children',
         type: 'React.Node',
       },
       {
         name: 'expandedContents',
         type: 'React.Node',
+        required: true,
       },
       {
         name: 'hoverStyle',
@@ -338,6 +364,8 @@ card(
   </Table.Header>
   <Table.Body>
     <Table.RowExpandable
+      accessibilityExpandLabel="Expand"
+      accessibilityCollapseLabel="Collapse"
       expandedContents={
         <Box maxWidth={236} padding={2} column={12}>
           <Card
@@ -370,6 +398,8 @@ card(
       </Table.Cell>
     </Table.RowExpandable>
     <Table.RowExpandable
+      accessibilityExpandLabel="Expand"
+      accessibilityCollapseLabel="Collapse"
       expandedContents={
         <Table maxWidth={800} maxHeight={500}>
           <Table.Header sticky>
@@ -461,6 +491,8 @@ card(
       </Table.Cell>
     </Table.RowExpandable>
     <Table.RowExpandable
+      accessibilityExpandLabel="Expand"
+      accessibilityCollapseLabel="Collapse"
       expandedContents={
         <Box maxWidth={236} padding={2} column={12}>
           <Card

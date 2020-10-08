@@ -12,7 +12,11 @@ test('TableRowExpandable handles onMouseEnter callback', () => {
   const { getByText } = render(
     <Table>
       <TableBody>
-        <TableRowExpandable expandedContents={<Box>Hello</Box>}>
+        <TableRowExpandable
+          accessibilityExpandLabel={'Expand'}
+          accessibilityCollapseLabel={'Collapse'}
+          expandedContents={<Box>Hello</Box>}
+        >
           <TableCell>
             <Text>Row Info</Text>
           </TableCell>
