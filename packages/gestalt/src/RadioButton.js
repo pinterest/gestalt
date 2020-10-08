@@ -15,12 +15,14 @@ type Props = {|
   checked?: boolean,
   disabled?: boolean,
   id: string,
+  image?: Node,
   label?: string,
   name?: string,
   onChange: AbstractEventHandler<
     SyntheticInputEvent<HTMLInputElement>,
     {| checked: boolean |}
   >,
+  subtext?: string,
   value: string,
   size?: 'sm' | 'md',
 |};
@@ -33,9 +35,11 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
     checked = false,
     disabled = false,
     id,
+    image,
     label,
     name,
     onChange,
+    subtext,
     value,
     size = 'md',
   } = props;
@@ -80,7 +84,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
 
   return (
     <Box
-      alignItems="center"
+      alignItems={subtext || image ? 'start' : 'center'}
       display="flex"
       justifyContent="start"
       marginLeft={-1}
@@ -121,7 +125,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
           </div>
         </Box>
       </Label>
-
+      {image && image}
       {label && (
         <Label htmlFor={id}>
           <Box paddingX={1}>
@@ -131,6 +135,11 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
             >
               {label}
             </Text>
+            {subtext && (
+              <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                <Box display="visuallyHidden">:</Box> {subtext}
+              </Text>
+            )}
           </Box>
         </Label>
       )}

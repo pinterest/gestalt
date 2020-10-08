@@ -120,15 +120,13 @@ const CheckboxWithForwardRef: React$AbstractComponent<
   const { isFocusVisible } = useFocusVisible();
 
   return (
-    <Box width="100%" height="100%">
+    <Box>
       <Box
         alignItems={subtext || image ? 'start' : 'center'}
         display="flex"
         justifyContent="start"
         marginLeft={-1}
         marginRight={-1}
-        width="100%"
-        height="100%"
       >
         <Label htmlFor={id}>
           <Box paddingX={1} position="relative">
@@ -183,9 +181,11 @@ const CheckboxWithForwardRef: React$AbstractComponent<
               >
                 {label}
               </Text>
-              <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
-                <Box display="visuallyHidden">:</Box> {subtext}
-              </Text>
+              {subtext && (
+                <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                  <Box display="visuallyHidden">:</Box> {subtext}
+                </Text>
+              )}
             </Box>
           </Label>
         )}

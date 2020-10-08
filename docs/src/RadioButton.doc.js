@@ -40,7 +40,7 @@ card(
     name="Example: Group"
     defaultCode={`
 function RadioButtonExample() {
-  const [gender, setGender] = React.useState(undefined);
+  const [favorite, setFavorite] = React.useState(undefined);
 
   return (
     <Box
@@ -50,32 +50,148 @@ function RadioButtonExample() {
     >
       <Box paddingY={1}>
         <RadioButton
-          checked={gender === 'male'}
-          id="genderMale"
-          label="Male"
-          name="gender"
-          onChange={() => setGender( 'male' )}
-          value="male"
+          checked={favorite === 'dogs'}
+          id="favoriteDog"
+          label="Dogs"
+          name="favorite"
+          onChange={() => setFavorite( 'dogs' )}
+          value="dogs"
         />
       </Box>
       <Box paddingY={1}>
         <RadioButton
-          checked={gender === 'female'}
-          id="genderFemale"
-          label="Female"
-          name="gender"
-          onChange={() => setGender( 'female' )}
-          value="female"
+          checked={favorite === 'cats'}
+          id="favoriteCat"
+          label="Cats"
+          name="favorite"
+          onChange={() => setFavorite( 'cats' )}
+          value="cats"
         />
       </Box>
       <Box paddingY={1}>
         <RadioButton
-          checked={gender === 'other'}
-          id="genderOther"
-          label="Other"
-          name="gender"
-          onChange={() => setGender( 'other' )}
-          value="other"
+          checked={favorite === 'plants'}
+          id="favoritePlants"
+          label="Plants"
+          name="favorite"
+          onChange={() => setFavorite( 'plants' )}
+          value="plants"
+        />
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    description="
+    Here is an example of a group of radio buttons with subtext.
+  "
+    name="Example: With Subtext"
+    defaultCode={`
+function RadioButtonExample() {
+  const [availability, setAvailability] = React.useState(undefined);
+
+  return (
+    <Box
+      role="list"
+      display="flex"
+      direction="column"
+    >
+      <Box paddingY={1}>
+        <RadioButton
+          checked={availability === 'monday'}
+          id="monday"
+          label="Monday"
+          subtext="Morning and afternoon"
+          name="Availability"
+          onChange={() => setAvailability( 'monday' )}
+          value="monday"
+        />
+      </Box>
+      <Box paddingY={1}>
+        <RadioButton
+          checked={availability === 'tuesday'}
+          id="tuesday"
+          label="Tuesday"
+          subtext="Morning, afternoon, and evening"
+          name="Availability"
+          onChange={() => setAvailability( 'tuesday' )}
+          value="tuesday"
+        />
+      </Box>
+      <Box paddingY={1}>
+        <RadioButton
+          checked={availability === 'wednesday'}
+          id="Wednesday"
+          label="Wednesday"
+          subtext="Evening only"
+          name="Availability"
+          onChange={() => setAvailability( 'wednesday' )}
+          value="wednesday"
+        />
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    description="
+    Here is an example of a group of radio buttons with images. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context.
+  "
+    name="Example: With Images"
+    defaultCode={`
+function RadioButtonExample() {
+  const [artPreference, setArtPreference] = React.useState(undefined);
+
+  return (
+    <Box
+      role="list"
+      display="flex"
+      direction="column"
+    >
+      <Box paddingY={1}>
+        <RadioButton
+          checked={artPreference === 'coral'}
+          id="coral"
+          label="Coral"
+          subtext="Botanical art in coral and green"
+          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+
+          name="Art Preference"
+          onChange={() => setArtPreference( 'coral' )}
+          value="coral"
+        />
+      </Box>
+      <Box paddingY={1}>
+        <RadioButton
+          checked={artPreference === 'blue'}
+          id="blue"
+          label="Blue"
+          subtext="Typography in blue"
+          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          name="Art Preference"
+          onChange={() => setArtPreference( 'blue' )}
+          value="blue"
+        />
+      </Box>
+      <Box paddingY={1}>
+        <RadioButton
+          checked={artPreference === 'green'}
+          id="green"
+          label="Green"
+          subtext="Abstract art in green"
+          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          name="Art Preference"
+          onChange={() => setArtPreference( 'green' )}
+          value="green"
         />
       </Box>
     </Box>

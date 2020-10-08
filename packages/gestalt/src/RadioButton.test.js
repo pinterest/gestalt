@@ -2,6 +2,8 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import RadioButton from './RadioButton.js';
+import Box from './Box.js';
+import Image from './Image.js';
 
 test('RadioButton', () => {
   const tree = create(
@@ -45,6 +47,43 @@ test('RadioButton disabled small', () => {
       disabled
       id="id"
       label="Name"
+      onChange={() => {}}
+      value=""
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('RadioButton with subtext', () => {
+  const tree = create(
+    <RadioButton
+      size="sm"
+      id="id"
+      label="Name"
+      subtext="More Info"
+      onChange={() => {}}
+      value=""
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('RadioButton with image', () => {
+  const tree = create(
+    <RadioButton
+      size="sm"
+      id="id"
+      label="Name"
+      image={
+        <Box>
+          <Image
+            alt=""
+            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
+            naturalHeight={1}
+            naturalWidth={1}
+          />
+        </Box>
+      }
       onChange={() => {}}
       value=""
     />

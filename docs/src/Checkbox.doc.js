@@ -162,26 +162,26 @@ function CheckboxExample() {
 
   return (
     <Box margin={-2}>
-      <Box padding={2}>
+      <Box padding={1}>
         <Checkbox
           checked={checkedEn}
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
-          image={<Box height={100} width={80} rounding={3}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="container"/></Box>}
+          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="container" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedEn(checked);
           }}
         />
       </Box>
-      <Box padding={2}>
+      <Box padding={1}>
         <Checkbox
           checked={checkedSp}
           id="blue"
           label="Blue"
           subtext="Typography in blue"
-          image={<Box height={100} width={80} rounding={3}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="container"/></Box>}
+          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="container" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedSp(checked);
