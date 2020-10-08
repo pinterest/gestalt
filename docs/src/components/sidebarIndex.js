@@ -79,6 +79,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Column',
       'Container',
       'Divider',
+      'ExpandableModule',
       'Layer',
       'Masonry',
       'Row',
