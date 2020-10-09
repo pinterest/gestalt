@@ -5,6 +5,14 @@ describe('Avatar Accessibility check', () => {
   });
 
   it('Tests accessibility on the Avatar page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

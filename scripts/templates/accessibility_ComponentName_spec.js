@@ -5,6 +5,14 @@ describe('ComponentName Accessibility check', () => {
   });
 
   it('Tests accessibility on the ComponentName page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

@@ -5,6 +5,14 @@ describe('Provider Accessibility check', () => {
   });
 
   it('Tests accessibility on the Provider page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

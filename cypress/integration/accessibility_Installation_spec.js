@@ -5,6 +5,14 @@ describe('Installation Accessibility check', () => {
   });
 
   it('Tests accessibility on the Installation page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

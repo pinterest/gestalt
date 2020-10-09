@@ -11,7 +11,7 @@ export default function SidebarSection({
 |}): Node {
   return (
     <Box role="list">
-      <Box padding={2} marginTop={4}>
+      <Box role="listitem" padding={2} marginTop={4}>
         <Row justifyContent="between">
           <Text size="sm">{section.sectionName}</Text>
         </Row>

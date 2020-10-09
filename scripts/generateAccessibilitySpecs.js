@@ -20,6 +20,14 @@ async function generate() {
   });
 
   it('Tests accessibility on the ${page} page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

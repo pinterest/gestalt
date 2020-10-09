@@ -9,11 +9,9 @@ type Props = {|
 
 export default function SideBarSectionLink({ componentName }: Props): Node {
   return (
-    <Box>
+    <Box role="listitem">
       <NavLink to={`/${componentName}`}>
-        <Box padding={2} role="listitem">
-          {componentName}
-        </Box>
+        <Box padding={2}>{componentName}</Box>
       </NavLink>
     </Box>
   );
