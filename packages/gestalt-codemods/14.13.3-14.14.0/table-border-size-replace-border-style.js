@@ -1,6 +1,6 @@
 /*
  * Converts
- *  <Box borderSize="sm"/> to <Box borderStyle="sm"/>
+ *  <Table borderSize="sm"/> to <Table borderStyle="sm"/>
  */
 
 export default function transformer(file, api) {
