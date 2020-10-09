@@ -187,13 +187,13 @@ Callout.propTypes = {
   }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  primaryLink: PropTypes.exact({
+  primaryLink: PropTypes.shape({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
   }),
-  secondaryLink: PropTypes.exact({
+  secondaryLink: PropTypes.shape({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,

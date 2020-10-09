@@ -137,7 +137,7 @@ Tabs.propTypes = {
   onChange: PropTypes.func.isRequired,
   size: PropTypes.oneOf(['md', 'lg']),
   tabs: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       href: PropTypes.string.isRequired,
       id: PropTypes.string,
       indicator: PropTypes.string,

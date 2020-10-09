@@ -233,7 +233,7 @@ export default function GroupAvatar(props: Props): Node {
 
 GroupAvatar.propTypes = {
   collaborators: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       name: PropTypes.string.isRequired,
       src: PropTypes.string,
     })

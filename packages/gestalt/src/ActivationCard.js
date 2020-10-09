@@ -232,12 +232,12 @@ export default function ActivationCard({
 }
 
 ActivationCard.propTypes = {
-  dismissButton: PropTypes.exact({
+  dismissButton: PropTypes.shape({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
   message: PropTypes.string.isRequired,
-  link: PropTypes.exact({
+  link: PropTypes.shape({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
