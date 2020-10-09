@@ -7,5 +7,5 @@
   "javascript.validate.enable": false,
   "npm.packageManager": "yarn",
   "prettier.packageManager": "yarn",
-  "typescript.validate.enable": false,
+  "typescript.validate.enable": false
 }
