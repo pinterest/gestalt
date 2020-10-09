@@ -1,3 +1,9 @@
+## 14.13.3 (Oct 9, 2020)
+
+### Patch
+
+- Internal: update axe-core (#1258)
+
 ## 14.13.2 (Oct 9, 2020)
 
 ### Patch
