@@ -1,3 +1,9 @@
+## 14.13.2 (Oct 9, 2020)
+
+### Patch
+
+- Internal: Update devDependencies + make stylelint stricter (#1257)
+
 ## 14.13.1 (Oct 8, 2020)
 
 ### Patch
