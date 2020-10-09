@@ -358,7 +358,12 @@ card(
     id="border"
     name="Borders"
   >
-    <Combination borderStyle={['sm', 'lg', 'shadow']} showHeading={false}>
+    <Combination
+      hasCheckerboard={false}
+      borderStyle={['sm', 'lg', 'shadow']}
+      showHeading={false}
+      layout="4column"
+    >
       {props => (
         <Box
           width={60}
@@ -376,6 +381,7 @@ card(
   <Combination
     id="color"
     name="Colors"
+    layout="4column"
     color={[
       'red',
       'white',
