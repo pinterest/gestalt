@@ -5,6 +5,14 @@ describe('Spinner Accessibility check', () => {
   });
 
   it('Tests accessibility on the Spinner page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

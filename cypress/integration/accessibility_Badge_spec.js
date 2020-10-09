@@ -5,6 +5,14 @@ describe('Badge Accessibility check', () => {
   });
 
   it('Tests accessibility on the Badge page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

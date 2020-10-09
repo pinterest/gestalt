@@ -1,4 +1,4 @@
-import 'cypress-axe';
+import '@christianv/cypress-axe';
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

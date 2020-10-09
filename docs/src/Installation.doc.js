@@ -83,7 +83,7 @@ import 'gestalt/dist/gestalt.css';
 );
 
 card(
-  <Card name="Development">
+  <Card name="Dev">
     <Stack gap={2}>
       <Text>
         Gestalt is a{' '}

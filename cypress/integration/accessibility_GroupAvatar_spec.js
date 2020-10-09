@@ -5,6 +5,14 @@ describe('GroupAvatar Accessibility check', () => {
   });
 
   it('Tests accessibility on the GroupAvatar page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

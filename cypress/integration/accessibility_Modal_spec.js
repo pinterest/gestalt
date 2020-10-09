@@ -5,6 +5,14 @@ describe('Modal Accessibility check', () => {
   });
 
   it('Tests accessibility on the Modal page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

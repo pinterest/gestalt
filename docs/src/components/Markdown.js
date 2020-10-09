@@ -4,7 +4,7 @@ import { Text } from 'gestalt';
 import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import './Markdown.css';
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
   text: string,
