@@ -267,7 +267,7 @@
   background: var(--g-colorTransparentGray60);
   color: #111;
 
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   padding: 0 0.05em;
 }
 
@@ -319,7 +319,7 @@
   border-bottom: 1px solid #ddd;
   color: var(--g-colorGray300);
   display: none;
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 1em;
   margin-top: 8px;
   padding: 4px 0;
@@ -335,7 +335,7 @@
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
   color: var(--g-colorGray200);
   float: left;
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.9em;
   padding: 5.33333px 10.66667px 5.33333px 0;
   position: relative;
@@ -365,7 +365,7 @@
 
 .algolia-autocomplete .algolia-docsearch-suggestion--title:not(.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content) {
   color: var(--g-colorGray300);
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.9em;
   font-weight: bold;
   margin-bottom: 4px;
@@ -373,14 +373,14 @@
 
 .algolia-autocomplete .algolia-docsearch-suggestion--text {
   display: block;
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 0.85em;
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   line-height: 1.2em;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--no-results {
-  /* stylelint-disable-next-line unit-blacklist */
+  /* stylelint-disable-next-line unit-disallowed-list */
   font-size: 1.2em;
   padding: 16px 0;
   text-align: center;
@@ -422,7 +422,7 @@
     color: var(--g-colorGray300);
     display: inline-block;
     float: left;
-    /* stylelint-disable-next-line unit-blacklist */
+    /* stylelint-disable-next-line unit-disallowed-list */
     font-size: 0.9em;
     font-weight: bold;
     opacity: 0.5;

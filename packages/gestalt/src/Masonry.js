@@ -144,7 +144,6 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     /**
      * The component to render.
      */
-    /* eslint react/no-unused-prop-types: 0 */
     comp: PropTypes.func.isRequired,
 
     /**

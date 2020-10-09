@@ -361,14 +361,14 @@ class WrappedContents extends Component<Props, State> {
     idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
     onKeyDown: PropTypes.func.isRequired,
     onResize: PropTypes.func.isRequired,
-    relativeOffset: PropTypes.exact({
+    relativeOffset: PropTypes.shape({
       x: PropTypes.number,
       y: PropTypes.number,
     }),
     positionRelativeToAnchor: PropTypes.bool,
     rounding: PropTypes.oneOf([2, 4]),
     shouldFocus: PropTypes.bool,
-    triggerRect: PropTypes.exact({
+    triggerRect: PropTypes.shape({
       bottom: PropTypes.number,
       height: PropTypes.number,
       left: PropTypes.number,

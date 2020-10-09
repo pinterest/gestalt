@@ -60,7 +60,7 @@
       true,
       { "ignorePseudoClasses": ["global"] }
     ],
-    "unit-blacklist": ["em"],
+    "unit-disallowed-list": ["em"],
     "value-no-vendor-prefix": true
   }
 }
