@@ -531,15 +531,19 @@ exports[`Checkbox with subtext 1`] = `
           Name
         </div>
         <div
-          className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+          className="box paddingY1"
         >
           <div
-            className="box xsDisplayVisuallyHidden"
+            className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
           >
-            :
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              :
+            </div>
+             
+            Additional Info
           </div>
-           
-          Additional Info
         </div>
       </div>
     </label>

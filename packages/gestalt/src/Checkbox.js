@@ -181,9 +181,11 @@ const CheckboxWithForwardRef: React$AbstractComponent<
                 {label}
               </Text>
               {subtext && (
-                <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
-                  <Box display="visuallyHidden">:</Box> {subtext}
-                </Text>
+                <Box paddingY={1}>
+                  <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                    <Box display="visuallyHidden">:</Box> {subtext}
+                  </Text>
+                </Box>
               )}
             </Box>
           </Label>
