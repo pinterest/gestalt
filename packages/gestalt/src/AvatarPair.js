@@ -46,11 +46,13 @@ export default function AvatarPair({
 }
 
 AvatarPair.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   collaborators: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       src: PropTypes.string,
     })
   ).isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg', 'fit']),
 };

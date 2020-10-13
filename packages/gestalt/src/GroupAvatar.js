@@ -232,6 +232,7 @@ export default function GroupAvatar(props: Props): Node {
 }
 
 GroupAvatar.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   collaborators: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -239,5 +240,6 @@ GroupAvatar.propTypes = {
     })
   ).isRequired,
   outline: PropTypes.bool,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
 };

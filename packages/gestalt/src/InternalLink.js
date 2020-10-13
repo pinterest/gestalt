@@ -237,7 +237,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 InternalLinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,

@@ -138,7 +138,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 RadioButtonWithForwardRef.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,

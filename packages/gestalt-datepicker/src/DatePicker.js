@@ -195,7 +195,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 DatePickerWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,

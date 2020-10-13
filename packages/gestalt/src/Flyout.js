@@ -51,15 +51,19 @@ export default function Flyout(props: Props): null | Node {
 }
 
 Flyout.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   anchor: PropTypes.shape({
     contains: PropTypes.func,
     getBoundingClientRect: PropTypes.func,
   }),
   children: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf(['blue', 'orange', 'red', 'white', 'darkGray']),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'flexible']), // default: sm

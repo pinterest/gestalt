@@ -116,10 +116,12 @@ TypeaheadOption.displayName = 'TypeaheadOption';
 
 TypeaheadOption.propTypes = {
   index: PropTypes.number.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }).isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   selected: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,

@@ -1,5 +1,5 @@
 [version]
-0.127.0
+0.135.0
 
 [ignore]
 <PROJECT_ROOT>/packages/gestalt-codemods/.*/__testfixtures__
@@ -11,6 +11,7 @@
 esproposal.optional_chaining=enable
 exact_by_default=true
 include_warnings=true
+sharedmemory.hash_table_pow=21
 types_first=true
 well_formed_exports=true
 

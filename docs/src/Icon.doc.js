@@ -9,7 +9,6 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
-// $FlowIssue
 const icons: Array<string> = Icon?.icons ?? [];
 
 card(

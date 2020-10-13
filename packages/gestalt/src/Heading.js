@@ -82,9 +82,12 @@ export default function Heading(props: Props): Node {
 }
 
 Heading.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   children: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf([
     'blue',
     'darkGray',
@@ -105,7 +108,9 @@ Heading.propTypes = {
     'white',
   ]),
   id: PropTypes.string,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   overflow: PropTypes.oneOf(['normal', 'breakWord']),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   truncate: PropTypes.bool,
 };

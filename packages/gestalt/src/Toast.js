@@ -72,8 +72,11 @@ export default function Toast({
 
 Toast.propTypes = {
   button: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf(['darkGray', 'red']),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   thumbnailShape: PropTypes.oneOf(['circle', 'rectangle', 'square']),
 };

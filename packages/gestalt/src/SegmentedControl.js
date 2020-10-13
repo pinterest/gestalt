@@ -105,9 +105,11 @@ export default function SegmentedControl({
 }
 
 SegmentedControl.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   items: PropTypes.arrayOf(PropTypes.node).isRequired,
   onChange: PropTypes.func.isRequired,
   responsive: PropTypes.bool,
   selectedItemIndex: PropTypes.number.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg']),
 };

@@ -181,24 +181,28 @@ export default function Callout({
 }
 
 Callout.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   dismissButton: PropTypes.exact({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   primaryLink: PropTypes.shape({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
   }),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   secondaryLink: PropTypes.shape({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
   }),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   type: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
   title: PropTypes.string,
 };
