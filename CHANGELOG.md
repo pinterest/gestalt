@@ -1,3 +1,9 @@
+## 14.13.4 (Oct 13, 2020)
+
+### Patch
+
+- [Internal] Upgrade to flow 0.135.0 (#1260)
+
 ## 14.13.3 (Oct 9, 2020)
 
 ### Patch
