@@ -7,6 +7,7 @@ import Card from './Card.js';
 type Props = {
   children: (Object, number) => Node, // flowlint-line unclear-type:off
   description?: string,
+  hasCheckerboard?: boolean,
   heading?: boolean,
   id?: string,
   layout?: '2column' | '4column' | '12column',
@@ -86,6 +87,7 @@ export default function Combination({
   name = 'Combinations',
   description = '',
   layout = '2column',
+  hasCheckerboard = true,
   id,
   showHeading,
   showValues = true,
@@ -125,7 +127,7 @@ export default function Combination({
             )}
             <Box position="relative" padding={4}>
               <Box position="absolute" top left bottom right>
-                <Checkerboard />
+                {hasCheckerboard && <Checkerboard />}
               </Box>
               <Box position="relative">{children(combination, i)}</Box>
             </Box>

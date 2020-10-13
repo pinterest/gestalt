@@ -17,7 +17,7 @@ test('renders correctly', () => {
 test('renders correctly with border', () => {
   const tree = renderer
     .create(
-      <Table borderSize="sm">
+      <Table borderStyle="sm">
         <div>rest of table</div>
       </Table>
     )
