@@ -240,7 +240,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 IconButtonWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,

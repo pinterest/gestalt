@@ -37,13 +37,13 @@ const reducer = (state, action) => {
       return {
         ...state,
         hoveredIcon: false,
-        ...(!state.hoveredText ? { isOpen: false } : {}),
+        isOpen: !state.hoveredText ? false : state.isOpen,
       };
     case 'hoverOutText':
       return {
         ...state,
         hoveredText: false,
-        ...(!state.hoveredIcon ? { isOpen: false } : {}),
+        isOpen: !state.hoveredIcon ? false : state.isOpen,
       };
     default:
       throw new Error();

@@ -232,17 +232,20 @@ export default function ActivationCard({
 }
 
 ActivationCard.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   dismissButton: PropTypes.shape({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
   message: PropTypes.string.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   link: PropTypes.shape({
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
   }),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   status: PropTypes.oneOf([
     'notStarted',
     'pending',

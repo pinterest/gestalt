@@ -175,7 +175,7 @@ const ModalWithForwardRef: React$AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
   accessibilityModalLabel: PropTypes.string.isRequired,
   children: PropTypes.node,

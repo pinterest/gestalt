@@ -16,7 +16,7 @@ This is how all these components are used:
 
 a. The default export is <AnimatedSheetWithForwardRef>
 b. <AnimatedSheetWithForwardRef> wraps AnimatedSheet
-c. AnimatedSheet includes <SheetWithForwardRef> 
+c. AnimatedSheet includes <SheetWithForwardRef>
 d. <SheetWithForwardRef> wraps Sheet
 e. Sheet is the actual component logic which includes the internal components <Header> and <DismissButton>.
 
@@ -293,7 +293,8 @@ const SheetWithForwardRef: React$AbstractComponent<
 SheetWithForwardRef.displayName = 'Sheet';
 
 // TODO: remove $FlowFixMe once this PR is released: https://github.com/facebook/flow/pull/8476
-// $FlowFixMe Flow(InferError)
+
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 SheetWithForwardRef.propTypes = {
   accessibilityDismissButtonLabel: PropTypes.string.isRequired,
   accessibilitySheetLabel: PropTypes.string.isRequired,
@@ -363,9 +364,10 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
 AnimatedSheetWithForwardRef.displayName = 'AnimatedSheet';
 
 // TODO: remove $FlowFixMe once this PR is released: https://github.com/facebook/flow/pull/8476
-// $FlowFixMe Flow(InferError)
+
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 AnimatedSheetWithForwardRef.propTypes = {
-  // $FlowFixMe Flow(InferError)
+  // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
   ...SheetWithForwardRef.propTypes,
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   footer: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),

@@ -216,6 +216,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     direction: -1 | 0 | 1
   ) => {
+    // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
     const newIndex = direction + hoveredItem;
     const optionsCount = availableOptions.length - 1;
 
@@ -325,7 +326,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TypeaheadWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,

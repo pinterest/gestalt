@@ -157,6 +157,7 @@ Avatar.propTypes = {
   name: PropTypes.string.isRequired,
   outline: PropTypes.bool,
   src: PropTypes.string,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
   verified: PropTypes.bool,
 };

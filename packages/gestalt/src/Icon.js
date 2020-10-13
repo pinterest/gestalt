@@ -34,6 +34,7 @@ type Props = {|
   size?: number | string,
 |};
 
+// $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
 const IconNames = Object.keys(icons);
 
 const flipOnRtlIconNames = [
@@ -104,6 +105,7 @@ Icon.icons = IconNames;
 
 Icon.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf([
     'blue',
     'darkGray',
@@ -123,10 +125,13 @@ Icon.propTypes = {
     'watermelon',
     'white',
   ]),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   dangerouslySetSvgPath: PropTypes.shape({
     __path: PropTypes.string,
   }),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   icon: PropTypes.oneOf(IconNames),
   inline: PropTypes.bool,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };

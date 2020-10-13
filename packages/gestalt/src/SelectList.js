@@ -149,6 +149,7 @@ SelectList.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   options: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,
@@ -157,6 +158,7 @@ SelectList.propTypes = {
     })
   ),
   placeholder: PropTypes.string,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
 };

@@ -135,7 +135,9 @@ export default function Tabs({
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg']),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       href: PropTypes.string.isRequired,

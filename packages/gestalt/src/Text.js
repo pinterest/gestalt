@@ -101,8 +101,10 @@ export default function Text({
 }
 
 Text.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   children: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf([
     'green',
     'pine',
@@ -124,8 +126,11 @@ Text.propTypes = {
   ]),
   inline: PropTypes.bool,
   italic: PropTypes.bool,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   overflow: PropTypes.oneOf(['normal', 'breakWord', 'noWrap']),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   truncate: PropTypes.bool,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   weight: PropTypes.oneOf(['bold', 'normal']),
 };

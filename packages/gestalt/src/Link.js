@@ -156,7 +156,7 @@ const LinkWithForwardRef: AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 LinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   accessibilitySelected: PropTypes.bool,

@@ -48,9 +48,13 @@ export default function Sticky(props: Props): Node {
 
 Sticky.propTypes = {
   children: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.number,
   // eslint-disable-next-line react/forbid-prop-types

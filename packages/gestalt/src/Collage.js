@@ -188,6 +188,7 @@ export default function Collage(props: Props): Node {
 }
 
 Collage.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   columns: PropTypes.oneOf([2, 3, 4]).isRequired,
   cover: PropTypes.bool,
   gutter: PropTypes.number,

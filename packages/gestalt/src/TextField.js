@@ -134,7 +134,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<
   );
 });
 
-// $FlowFixMe Flow(InferError)
+// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TextFieldWithForwardRef.propTypes = {
   autoComplete: PropTypes.oneOf([
     'current-password',

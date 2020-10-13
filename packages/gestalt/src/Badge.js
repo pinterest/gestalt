@@ -23,6 +23,7 @@ export default function Badge(props: Props): Node {
 }
 
 Badge.propTypes = {
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   position: PropTypes.oneOf(['middle', 'top']),
   text: PropTypes.string.isRequired,
 };

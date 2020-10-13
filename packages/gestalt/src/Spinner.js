@@ -43,5 +43,6 @@ Spinner.propTypes = {
   show: PropTypes.bool.isRequired,
   accessibilityLabel: PropTypes.string.isRequired,
   delay: PropTypes.bool,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['sm', 'md']),
 };

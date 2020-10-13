@@ -1,7 +1,7 @@
 // @flow strict
 import React, { useContext } from 'react';
 
-// $FlowIssue
+// $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
 const SidebarContext = React.createContext(true);
 
 // $FlowIssue[signature-verification-failure]
