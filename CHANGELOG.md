@@ -1,3 +1,9 @@
+## 14.14.0 (Oct 13, 2020)
+
+### Minor
+
+- Table: Update borderSize prop to borderStyle (#1259)
+
 ## 14.13.4 (Oct 13, 2020)
 
 ### Patch
