@@ -1,3 +1,9 @@
+## 14.14.2 (Oct 14, 2020)
+
+### Patch
+
+- Box: fix docs for Layout section (#1262)
+
 ## 14.14.1 (Oct 14, 2020)
 
 ### Patch
