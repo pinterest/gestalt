@@ -3,7 +3,6 @@ import React, { type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import icons from './icons/index.js';
-import Stack from './Stack.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 
