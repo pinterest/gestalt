@@ -1,3 +1,9 @@
+## 14.14.1 (Oct 14, 2020)
+
+### Patch
+
+- Checkbox/RadioButton: Add options to provide subtext and/or image for label (#1256)
+
 ## 14.14.0 (Oct 13, 2020)
 
 ### Minor
