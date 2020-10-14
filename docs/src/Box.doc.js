@@ -135,6 +135,7 @@ card(
     name="Layout"
     justifyContent={['start', 'end', 'center', 'between', 'around']}
     alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
+    layout="4column"
   >
     {props => (
       <Box display="flex" width={96} {...props}>
