@@ -168,7 +168,7 @@ function CheckboxExample() {
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
-          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedEn(checked);
@@ -180,8 +180,8 @@ function CheckboxExample() {
           checked={checkedSp}
           id="blue"
           label="Blue"
-          subtext="Typography in blue"
-          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
+          subtext="Typography and shoe in blue"
+          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedSp(checked);
@@ -365,6 +365,12 @@ card(
         required: true,
       },
       {
+        name: 'image',
+        type: 'React.Node',
+        description:
+          'An optional <Image/> component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
+      },
+      {
         name: 'indeterminate',
         type: 'boolean',
         defaultValue: false,
@@ -402,6 +408,12 @@ a checkbox and its indeterminism are independent.`,
         defaultValue: 'md',
         description: `"sm" is 16px & "md" is 24px`,
         href: 'combinations',
+      },
+      {
+        name: 'subtext',
+        type: 'string',
+        description:
+          'Optional description for the checkbox, used to provide more detail about an option',
       },
     ]}
   />

@@ -163,7 +163,7 @@ function RadioButtonExample() {
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
-          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
 
           name="Art Preference"
           onChange={() => setArtPreference( 'coral' )}
@@ -175,8 +175,8 @@ function RadioButtonExample() {
           checked={artPreference === 'blue'}
           id="blue"
           label="Blue"
-          subtext="Typography in blue"
-          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          subtext="Typography and shoe in blue"
+          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
           name="Art Preference"
           onChange={() => setArtPreference( 'blue' )}
           value="blue"
@@ -188,7 +188,7 @@ function RadioButtonExample() {
           id="green"
           label="Green"
           subtext="Abstract art in green"
-          image={<Box height={100} width={80} paddingX={1}><Image alt="" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
           name="Art Preference"
           onChange={() => setArtPreference( 'green' )}
           value="green"
@@ -366,6 +366,12 @@ card(
         required: true,
       },
       {
+        name: 'image',
+        type: 'React.Node',
+        description:
+          'An optional <Image/> component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
+      },
+      {
         name: 'label',
         type: 'string',
       },
@@ -394,6 +400,12 @@ card(
         type: `"sm" | "md"`,
         description: `sm: 16px, md: 24px`,
         defaultValue: 'md',
+      },
+      {
+        name: 'subtext',
+        type: 'string',
+        description:
+          'Optional description for the radio button, used to provide more detail about an option',
       },
     ]}
   />

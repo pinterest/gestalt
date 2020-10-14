@@ -170,7 +170,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
             </div>
           </Box>
         </Label>
-        {image && image}
+        {image && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
