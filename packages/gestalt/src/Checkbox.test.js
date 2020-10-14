@@ -2,6 +2,8 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Checkbox from './Checkbox.js';
+import Box from './Box.js';
+import Image from './Image.js';
 
 test('Checkbox', () => {
   const tree = create(
@@ -61,6 +63,41 @@ test('Checkbox with error', () => {
   const tree = create(
     <Checkbox
       errorMessage="Error message"
+      size="sm"
+      id="id"
+      label="Name"
+      onChange={() => {}}
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Checkbox with subtext', () => {
+  const tree = create(
+    <Checkbox
+      subtext="Additional Info"
+      size="sm"
+      id="id"
+      label="Name"
+      onChange={() => {}}
+    />
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Checkbox with an image', () => {
+  const tree = create(
+    <Checkbox
+      image={
+        <Box>
+          <Image
+            alt=""
+            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
+            naturalHeight={1}
+            naturalWidth={1}
+          />
+        </Box>
+      }
       size="sm"
       id="id"
       label="Name"

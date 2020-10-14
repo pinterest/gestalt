@@ -27,6 +27,7 @@ type Props = {|
   errorMessage?: string,
   hasError?: boolean,
   id: string,
+  image?: Node,
   indeterminate?: boolean,
   label?: string,
   name?: string,
@@ -39,6 +40,7 @@ type Props = {|
     {| checked: boolean |}
   >,
   size?: 'sm' | 'md',
+  subtext?: string,
 |};
 
 const CheckboxWithForwardRef: React$AbstractComponent<
@@ -51,12 +53,14 @@ const CheckboxWithForwardRef: React$AbstractComponent<
     errorMessage,
     hasError = false,
     id,
+    image,
     indeterminate = false,
     label,
     name,
     onChange,
     onClick,
     size = 'md',
+    subtext,
   } = props;
 
   const innerRef = useRef(null);
@@ -117,7 +121,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
   return (
     <Box>
       <Box
-        alignItems="center"
+        alignItems={subtext || image ? 'start' : 'center'}
         display="flex"
         justifyContent="start"
         marginLeft={-1}
@@ -166,7 +170,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
             </div>
           </Box>
         </Label>
-
+        {image && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
@@ -176,6 +180,13 @@ const CheckboxWithForwardRef: React$AbstractComponent<
               >
                 {label}
               </Text>
+              {subtext && (
+                <Box paddingY={1}>
+                  <Text color="gray" size={size === 'sm' ? 'md' : 'lg'}>
+                    <Box display="visuallyHidden">:</Box> {subtext}
+                  </Text>
+                </Box>
+              )}
             </Box>
           </Label>
         )}
@@ -198,12 +209,14 @@ CheckboxWithForwardRef.propTypes = {
   errorMessage: PropTypes.string,
   hasError: PropTypes.bool,
   id: PropTypes.string.isRequired,
+  image: PropTypes.node,
   indeterminate: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(['sm', 'md']),
+  subtext: PropTypes.string,
 };
 
 CheckboxWithForwardRef.displayName = 'Checkbox';

@@ -342,6 +342,83 @@ exports[`Checkbox small 1`] = `
 </div>
 `;
 
+exports[`Checkbox with an image 1`] = `
+<div
+  className="box"
+>
+  <div
+    className="box itemsStart marginLeftN1 marginRightN1 xsDisplayFlex"
+  >
+    <label
+      className="label"
+      htmlFor="id"
+    >
+      <div
+        className="box paddingX1 relative"
+      >
+        <input
+          checked={false}
+          className="input sizeSm inputEnabled"
+          disabled={false}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
+        <div
+          className="whiteBg border borderRadiusSm sizeSm check"
+        />
+      </div>
+    </label>
+    <div
+      className="box paddingX1"
+    >
+      <div
+        className="box"
+      >
+        <div
+          className="box relative"
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "paddingBottom": "100%",
+            }
+          }
+        >
+          <img
+            alt=""
+            className="img"
+            importance="auto"
+            loading="auto"
+            onError={[Function]}
+            onLoad={[Function]}
+            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
+          />
+        </div>
+      </div>
+    </div>
+    <label
+      className="label"
+      htmlFor="id"
+    >
+      <div
+        className="box paddingX1"
+      >
+        <div
+          className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Name
+        </div>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`Checkbox with error 1`] = `
 <div
   className="box"
@@ -409,6 +486,71 @@ exports[`Checkbox with error 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Checkbox with subtext 1`] = `
+<div
+  className="box"
+>
+  <div
+    className="box itemsStart marginLeftN1 marginRightN1 xsDisplayFlex"
+  >
+    <label
+      className="label"
+      htmlFor="id"
+    >
+      <div
+        className="box paddingX1 relative"
+      >
+        <input
+          checked={false}
+          className="input sizeSm inputEnabled"
+          disabled={false}
+          id="id"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          type="checkbox"
+        />
+        <div
+          className="whiteBg border borderRadiusSm sizeSm check"
+        />
+      </div>
+    </label>
+    <label
+      className="label"
+      htmlFor="id"
+    >
+      <div
+        className="box paddingX1"
+      >
+        <div
+          className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Name
+        </div>
+        <div
+          className="box paddingY1"
+        >
+          <div
+            className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+          >
+            <div
+              className="box xsDisplayVisuallyHidden"
+            >
+              :
+            </div>
+             
+            Additional Info
+          </div>
+        </div>
+      </div>
+    </label>
   </div>
 </div>
 `;
