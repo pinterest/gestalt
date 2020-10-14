@@ -57,9 +57,9 @@ export default function ExpandableModuleBase({
         accessibilityControls={id}
         accessibilityExpanded={!isCollapsed}
       >
-        <Box display="flex">
-          <Box display="flex" flex="grow" marginEnd={6} alignItems="baseline">
-            <Box column={isCollapsed ? 6 : 12} display="flex">
+        <Box padding={6} display="flex" alignItems="center">
+          <Box display="flex" flex="grow" marginEnd={6} alignItems="center">
+            <Box column={isCollapsed && summary ? 6 : 12} display="flex">
               {EXPANDABLE_TYPE_ATTRIBUTES[type].icon && (
                 <Box marginEnd={2}>
                   <Icon
@@ -78,13 +78,13 @@ export default function ExpandableModuleBase({
               </Text>
             </Box>
             {summary && isCollapsed && (
-              <Box column={6}>
+              <Box column={6} paddingX={6}>
                 {summary.map((item, i) => (
-                  <Stack key={i} gap={1}>
+                  <Box key={i} marginBottom={i === item.length - 1 ? 0 : 2}>
                     <Text size="md" truncate>
                       {item}
                     </Text>
-                  </Stack>
+                  </Box>
                 ))}
               </Box>
             )}
@@ -107,7 +107,11 @@ export default function ExpandableModuleBase({
           </Box>
         </Box>
       </TapArea>
-      {!isCollapsed && <Box marginTop={6}>{children}</Box>}
+      {!isCollapsed && (
+        <Box marginTop={-6} padding={6}>
+          {children}
+        </Box>
+      )}
     </>
   );
 }

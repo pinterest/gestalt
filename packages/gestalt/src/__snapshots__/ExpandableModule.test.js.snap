@@ -5,7 +5,7 @@ exports[`renders correctly with multiple items 1`] = `
   className="box rounding2 shadow"
 >
   <div
-    className="box paddingX6 paddingY6"
+    className="box"
   >
     <div
       aria-controls="uniqueTestID-0"
@@ -30,10 +30,10 @@ exports[`renders correctly with multiple items 1`] = `
       tabIndex={0}
     >
       <div
-        className="box xsDisplayFlex"
+        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -46,36 +46,16 @@ exports[`renders correctly with multiple items 1`] = `
             </div>
           </div>
           <div
-            className="box xsCol6"
+            className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottomN1 marginTopN1"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
-              }
+              className="box marginBottom2"
             >
               <div
-                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
-                }
+                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                title="summary1"
               >
-                <div
-                  className="box paddingY1"
-                >
-                  <div
-                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                    title="summary1"
-                  >
-                    summary1
-                  </div>
-                </div>
+                summary1
               </div>
             </div>
           </div>
@@ -109,7 +89,7 @@ exports[`renders correctly with multiple items 1`] = `
     className="divider"
   />
   <div
-    className="box paddingX6 paddingY6"
+    className="box"
   >
     <div
       aria-controls="uniqueTestID-1"
@@ -134,10 +114,10 @@ exports[`renders correctly with multiple items 1`] = `
       tabIndex={0}
     >
       <div
-        className="box xsDisplayFlex"
+        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -150,36 +130,16 @@ exports[`renders correctly with multiple items 1`] = `
             </div>
           </div>
           <div
-            className="box xsCol6"
+            className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottomN1 marginTopN1"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
-              }
+              className="box marginBottom2"
             >
               <div
-                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
-                }
+                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                title="summary2"
               >
-                <div
-                  className="box paddingY1"
-                >
-                  <div
-                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                    title="summary2"
-                  >
-                    summary2
-                  </div>
-                </div>
+                summary2
               </div>
             </div>
           </div>
@@ -213,7 +173,7 @@ exports[`renders correctly with multiple items 1`] = `
     className="divider"
   />
   <div
-    className="box paddingX6 paddingY6"
+    className="box"
   >
     <div
       aria-controls="uniqueTestID-2"
@@ -238,10 +198,10 @@ exports[`renders correctly with multiple items 1`] = `
       tabIndex={0}
     >
       <div
-        className="box xsDisplayFlex"
+        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -271,36 +231,16 @@ exports[`renders correctly with multiple items 1`] = `
             </div>
           </div>
           <div
-            className="box xsCol6"
+            className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottomN1 marginTopN1"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
-              }
+              className="box marginBottom2"
             >
               <div
-                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
-                }
+                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                title="summary3"
               >
-                <div
-                  className="box paddingY1"
-                >
-                  <div
-                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                    title="summary3"
-                  >
-                    summary3
-                  </div>
-                </div>
+                summary3
               </div>
             </div>
           </div>
@@ -338,7 +278,7 @@ exports[`renders correctly with one item 1`] = `
   className="box rounding2 shadow"
 >
   <div
-    className="box paddingX6 paddingY6"
+    className="box"
   >
     <div
       aria-controls="uniqueTestID-0"
@@ -363,10 +303,10 @@ exports[`renders correctly with one item 1`] = `
       tabIndex={0}
     >
       <div
-        className="box xsDisplayFlex"
+        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -379,96 +319,36 @@ exports[`renders correctly with one item 1`] = `
             </div>
           </div>
           <div
-            className="box xsCol6"
+            className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottomN1 marginTopN1"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
-              }
+              className="box marginBottom2"
             >
               <div
-                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
-                }
+                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                title="summary1"
               >
-                <div
-                  className="box paddingY1"
-                >
-                  <div
-                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                    title="summary1"
-                  >
-                    summary1
-                  </div>
-                </div>
+                summary1
               </div>
             </div>
             <div
-              className="box marginBottomN1 marginTopN1"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
-              }
+              className="box marginBottom2"
             >
               <div
-                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
-                }
+                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                title="summary2"
               >
-                <div
-                  className="box paddingY1"
-                >
-                  <div
-                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                    title="summary2"
-                  >
-                    summary2
-                  </div>
-                </div>
+                summary2
               </div>
             </div>
             <div
-              className="box marginBottomN1 marginTopN1"
-              style={
-                Object {
-                  "height": undefined,
-                  "width": undefined,
-                }
-              }
+              className="box marginBottom2"
             >
               <div
-                className="box itemsStart justifyCenter xsDirectionColumn xsDisplayFlex"
-                style={
-                  Object {
-                    "height": undefined,
-                    "width": undefined,
-                  }
-                }
+                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                title="summary3"
               >
-                <div
-                  className="box paddingY1"
-                >
-                  <div
-                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-                    title="summary3"
-                  >
-                    summary3
-                  </div>
-                </div>
+                summary3
               </div>
             </div>
           </div>

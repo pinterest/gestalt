@@ -35,7 +35,7 @@ export default function ExpandableModule({
           index
         ) => (
           <React.Fragment key={index}>
-            <Box padding={6}>
+            <Box>
               <ExpandableModuleBase
                 id={`${id}-${index}`}
                 title={title}
