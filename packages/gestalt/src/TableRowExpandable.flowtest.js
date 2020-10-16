@@ -23,6 +23,8 @@ const InvalidTypeProp = (
     // $FlowExpectedError[incompatible-type]
     hoverStyle={2}
     id="expandableRow"
+    // $FlowExpectedError[incompatible-type]
+    onExpand="gray"
   >
     <div>row cells</div>
   </TableRowExpandable>
