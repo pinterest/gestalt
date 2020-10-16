@@ -335,7 +335,8 @@ card(
       },
       {
         name: 'onExpand',
-        type: `({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement>, expanded: boolean }) => void`,
+        type: `({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement>
+          | SyntheticKeyboardEvent<HTMLAnchorElement> expanded: boolean }) => void`,
         description: [
           'Callback fired when the expand arrow-down button component is clicked with a mouse or keyboard.',
         ],

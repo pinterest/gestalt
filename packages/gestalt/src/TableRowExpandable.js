@@ -36,13 +36,7 @@ export default function TableRowExpandable(props: Props): Node {
   const hoverStyle = props.hoverStyle || 'gray';
   const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
 
-  const handleButtonClick = (
-    event:
-      | SyntheticMouseEvent<HTMLButtonElement>
-      | SyntheticKeyboardEvent<HTMLButtonElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>
-  ) => {
+  const handleButtonClick = ({ event }) => {
     setExpanded(!expanded);
     if (onExpand) {
       onExpand({ event, expanded });
