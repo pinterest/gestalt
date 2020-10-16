@@ -349,17 +349,10 @@ card(
     name="Example: Table Row Expandable"
     defaultCode={`
     function RowExpandableExample() {
-      const [iconShown, setIconShown] = React.useState(false);
-      const icon = () => {
-        return(
-            <Icon
-              icon="face-happy"
-              color="darkGray"
-              size={24}
-              accessibilityLabel="Pinterest Logo"
-            />
-          )
-      }
+      const [textShown, setTextShown] = React.useState(false);
+      const showTextOnExpand = () => {
+        return <Text>Row expanded</Text>;
+      };
 
       return(
         <Table>
@@ -386,7 +379,7 @@ card(
               accessibilityExpandLabel="Expand"
               accessibilityCollapseLabel="Collapse"
               id="row1"
-              onExpand={() => setIconShown(!iconShown)}
+              onExpand={() => setTextShown(!textShown)}
               expandedContents={
                 <Box maxWidth={236} padding={2} column={12}>
                   <Card
@@ -404,7 +397,7 @@ card(
                         </Box>
                       </Link>
                     </Text>
-                    {iconShown && icon()}
+                    {textShown && showTextOnExpand()}
                   </Card>
                 </Box>
               }

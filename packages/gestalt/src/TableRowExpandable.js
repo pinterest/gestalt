@@ -14,7 +14,9 @@ type Props = {|
   expandedContents: Node,
   onExpand?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>,
+    | SyntheticKeyboardEvent<HTMLButtonElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| expanded: boolean |}
   >,
   hoverStyle?: 'gray' | 'none',
@@ -38,6 +40,8 @@ export default function TableRowExpandable(props: Props): Node {
     event:
       | SyntheticMouseEvent<HTMLButtonElement>
       | SyntheticKeyboardEvent<HTMLButtonElement>
+      | SyntheticMouseEvent<HTMLAnchorElement>
+      | SyntheticKeyboardEvent<HTMLAnchorElement>
   ) => {
     setExpanded(!expanded);
     if (onExpand) {
