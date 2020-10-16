@@ -1,3 +1,9 @@
+## 14.15.0 (Oct 16, 2020)
+
+### Minor
+
+- Table: Add onExpand function prop to RowExpandable (#1263)
+
 ## 14.14.2 (Oct 14, 2020)
 
 ### Patch
