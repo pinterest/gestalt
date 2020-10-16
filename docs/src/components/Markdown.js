@@ -8,6 +8,7 @@ import 'highlight.js/styles/a11y-light.css';
 
 type Props = {|
   text: string,
+  type?: string,
 |};
 
 // Source: https://github.com/Thinkmill/react-markings/blob/master/index.js
@@ -28,26 +29,64 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-export default function Markdown({ text }: Props): Node {
-  const renderer = new Renderer();
+const makePullRequestLink = listitem => {
+  const pullRequestNumRegex = /\(#\d*\)/g;
+  let pullRequestNum = listitem.match(pullRequestNumRegex);
+  if (pullRequestNum && pullRequestNum.length > 0) {
+    pullRequestNum = pullRequestNum[0].replace(/\D/g, '');
+    const pullRequestURL = `https://github.com/pinterest/gestalt/pull/${pullRequestNum}`;
+    const pullRequestAnchor = `(<a href=${pullRequestURL}>#${pullRequestNum}</a>)`;
+    const listItemWithLink = listitem.replace(
+      pullRequestNumRegex,
+      pullRequestAnchor
+    );
+    return listItemWithLink;
+  }
+  return listitem;
+};
 
+const formatCmpName = listitem => {
+  const cmpNamesToIgnore = ['doc', 'docs', 'internal', 'codemod'];
+  const nameAndUpdate = listitem.split(':', 2);
+  const cmpName = nameAndUpdate[0];
+  if (
+    !cmpNamesToIgnore.includes(cmpName.toLowerCase()) &&
+    nameAndUpdate.length > 1
+  ) {
+    const cmpURL = `https://gestalt.netlify.app/${cmpName}`;
+    const formattedListItem = `<a href="${cmpURL}">${cmpName}:</a>${nameAndUpdate[1]}`;
+    return formattedListItem;
+  }
+
+  return listitem;
+};
+
+export default function Markdown({ text, type }: Props): Node {
+  const renderer = new Renderer();
   renderer.heading = (input, level) => {
     const escapedText = input.toLowerCase().replace(/[^\w]+/g, '-');
 
     return `
       <h${level}>
+        ${input}
         ${
           level === 2
-            ? `<div data-anchor>
-              <a id="${escapedText}" className="anchor" href="#${escapedText}">
-                <span className="header-link" />
-              </a>
-            </div>`
+            ? `
+              <a id="${escapedText}" class="anchor" href="#${escapedText}">
+                <span class="header-link" />
+              </a>`
             : ''
         }
-        ${input}
       </h${level}>`;
   };
+
+  if (type === 'changelog') {
+    renderer.listitem = listitem => {
+      let formattedListItem = formatCmpName(listitem);
+      formattedListItem = makePullRequestLink(formattedListItem);
+      return formattedListItem;
+    };
+  }
 
   const html = marked(stripIndent(text), {
     renderer,
