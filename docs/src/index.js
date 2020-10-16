@@ -26,7 +26,11 @@ if (container instanceof Element) {
       <BrowserRouter>
         <App>
           <Switch>
-            <Route exact path="/" render={() => <Redirect to="/Changelog" />} />
+            <Route
+              exact
+              path="/"
+              render={() => <Redirect to="/What's New" />}
+            />
             {sidebarIndex.map(section => mapRoutes(section.pages))}
           </Switch>
         </App>

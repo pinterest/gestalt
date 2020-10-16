@@ -7,7 +7,7 @@ describe('Page Headers', () => {
     cy.get('.docSearch-content h1')
       .invoke('text')
       .invoke('trim')
-      .should('equal', 'Installation');
+      .should('equal', "What's New");
   });
 
   it('navigates to the development page', () => {
