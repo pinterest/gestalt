@@ -37,7 +37,7 @@ export default function TableRowExpandable(props: Props): Node {
   const handleButtonClick = event => {
     setExpanded(!expanded);
     if (onExpand) {
-      onExpand({ event });
+      onExpand({ event, expanded });
     }
   };
 
