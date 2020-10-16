@@ -20,7 +20,7 @@ type Props = {|
   children?: Node,
 |};
 
-export default function ExpandableModuleBase({
+export default function ModuleExpandableBase({
   id,
   title,
   icon,

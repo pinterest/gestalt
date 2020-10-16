@@ -30,10 +30,10 @@ exports[`renders correctly with multiple items 1`] = `
       tabIndex={0}
     >
       <div
-        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
+        className="box paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -49,7 +49,7 @@ exports[`renders correctly with multiple items 1`] = `
             className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottom2"
+              className="box marginBottom0"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -65,7 +65,7 @@ exports[`renders correctly with multiple items 1`] = `
           id="uniqueTestID-0"
         >
           <div
-            className="box paddingX2 paddingY2"
+            className="box paddingX1 paddingY1"
           >
             <svg
               aria-hidden={null}
@@ -114,10 +114,10 @@ exports[`renders correctly with multiple items 1`] = `
       tabIndex={0}
     >
       <div
-        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
+        className="box paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -133,7 +133,7 @@ exports[`renders correctly with multiple items 1`] = `
             className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottom2"
+              className="box marginBottom0"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -149,7 +149,7 @@ exports[`renders correctly with multiple items 1`] = `
           id="uniqueTestID-1"
         >
           <div
-            className="box paddingX2 paddingY2"
+            className="box paddingX1 paddingY1"
           >
             <svg
               aria-hidden={null}
@@ -198,10 +198,10 @@ exports[`renders correctly with multiple items 1`] = `
       tabIndex={0}
     >
       <div
-        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
+        className="box paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -234,7 +234,7 @@ exports[`renders correctly with multiple items 1`] = `
             className="box paddingX6 xsCol6"
           >
             <div
-              className="box marginBottom2"
+              className="box marginBottom0"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -250,7 +250,7 @@ exports[`renders correctly with multiple items 1`] = `
           id="uniqueTestID-2"
         >
           <div
-            className="box paddingX2 paddingY2"
+            className="box paddingX1 paddingY1"
           >
             <svg
               aria-hidden={null}
@@ -303,10 +303,10 @@ exports[`renders correctly with one item 1`] = `
       tabIndex={0}
     >
       <div
-        className="box itemsCenter paddingX6 paddingY6 xsDisplayFlex"
+        className="box paddingX6 paddingY6 xsDisplayFlex"
       >
         <div
-          className="box flexGrow itemsCenter marginEnd6 xsDisplayFlex"
+          className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
         >
           <div
             className="box xsCol6 xsDisplayFlex"
@@ -342,7 +342,7 @@ exports[`renders correctly with one item 1`] = `
               </div>
             </div>
             <div
-              className="box marginBottom2"
+              className="box marginBottom0"
             >
               <div
                 className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
@@ -358,7 +358,7 @@ exports[`renders correctly with one item 1`] = `
           id="uniqueTestID-0"
         >
           <div
-            className="box paddingX2 paddingY2"
+            className="box paddingX1 paddingY1"
           >
             <svg
               aria-hidden={null}

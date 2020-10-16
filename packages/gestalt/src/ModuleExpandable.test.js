@@ -1,12 +1,12 @@
 // @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ExpandableModule from './ExpandableModule.js';
+import ModuleExpandable from './ModuleExpandable.js';
 
 test('renders correctly with one item', () => {
   const tree = renderer
     .create(
-      <ExpandableModule
+      <ModuleExpandable
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -26,7 +26,7 @@ test('renders correctly with one item', () => {
 test('renders correctly with multiple items', () => {
   const tree = renderer
     .create(
-      <ExpandableModule
+      <ModuleExpandable
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"

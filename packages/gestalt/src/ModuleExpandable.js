@@ -2,7 +2,7 @@
 import React, { useState, type Node } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
-import ExpandableModuleBase from './ExpandableModuleBase.js';
+import ModuleExpandableBase from './ModuleExpandableBase.js';
 import icons from './icons/index.js';
 
 type Props = {|
@@ -19,7 +19,7 @@ type Props = {|
   |}>,
 |};
 
-export default function ExpandableModule({
+export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
@@ -36,7 +36,7 @@ export default function ExpandableModule({
         ) => (
           <React.Fragment key={index}>
             <Box>
-              <ExpandableModuleBase
+              <ModuleExpandableBase
                 id={`${id}-${index}`}
                 title={title}
                 icon={icon}
@@ -51,7 +51,7 @@ export default function ExpandableModule({
                 }
               >
                 {children}
-              </ExpandableModuleBase>
+              </ModuleExpandableBase>
             </Box>
             {index !== items.length - 1 && <Divider />}
           </React.Fragment>

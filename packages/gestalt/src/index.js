@@ -14,7 +14,7 @@ import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
-import ExpandableModule from './ExpandableModule.js';
+import Module from './Module.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -76,7 +76,7 @@ export {
   CompositeZIndex,
   Container,
   Divider,
-  ExpandableModule,
+  Module,
   FixedZIndex,
   Flyout,
   GroupAvatar,

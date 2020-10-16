@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { ExpandableModule } from 'gestalt';
+import { Module } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -10,16 +10,16 @@ const card = c => cards.push(c);
 
 card(
   <PageHeader
-    name="ExpandableModule"
+    name="Module"
     description="
-The ExpandableModule component renders detailed information in the expanded state and summarized information in the collapsed state.
+The Module component renders detailed information in the expanded state and summarized information in the collapsed state.
 "
   />
 );
 
 card(
   <PropTable
-    Component={ExpandableModule}
+    Component={Module}
     props={[
       {
         name: 'id',
@@ -50,11 +50,11 @@ card(
   <Example
     name="Example"
     defaultCode={`
-function ExpandableModuleExample1() {
+function ModuleExample1() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule
-        id="ExpandableModuleExample1"
+      <Module.Expandable
+        id="ModuleExample1"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
         items={[
@@ -63,7 +63,7 @@ function ExpandableModuleExample1() {
             summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
           }]}>
-      </ExpandableModule>
+      </Module.Expandable>
     </Box>
   );
 }
@@ -75,11 +75,11 @@ card(
   <Example
     name="Multiple items"
     defaultCode={`
-function ExpandableModuleExample2() {
+function ModuleExample2() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule
-        id="ExpandableModuleExample2"
+      <Module.Expandable
+        id="ModuleExample2"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
         items={[
@@ -98,7 +98,7 @@ function ExpandableModuleExample2() {
             summary: ['summary3'],
             children: <Text size="md">Children3</Text>,
           }]}>
-      </ExpandableModule>
+      </Module.Expandable>
     </Box>
   );
 }
@@ -110,11 +110,11 @@ card(
   <Example
     name="Example with icon"
     defaultCode={`
-function ExpandableModuleExample3() {
+function ModuleExample3() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule
-        id="ExpandableModuleExample3"
+      <Module.Expandable
+        id="ModuleExample3"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
         items={[
@@ -124,7 +124,7 @@ function ExpandableModuleExample3() {
             iconAccessibilityLabel: "title icon",
             icon: 'lock',
           }]}>
-      </ExpandableModule>
+      </Module.Expandable>
     </Box>
   );
 }
@@ -136,11 +136,11 @@ card(
   <Example
     name="Error state"
     defaultCode={`
-function ExpandableModuleExample4() {
+function ModuleExample4() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
-      <ExpandableModule
-        id="ExpandableModuleExample4"
+      <Module.Expandable
+        id="ModuleExample4"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
         items={[
@@ -151,7 +151,7 @@ function ExpandableModuleExample4() {
             iconAccessibilityLabel: "error icon",
             type: 'error',
           }]}>
-      </ExpandableModule>
+      </Module.Expandable>
     </Box>
   );
 }

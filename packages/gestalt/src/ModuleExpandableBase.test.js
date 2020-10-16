@@ -1,12 +1,12 @@
 // @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ExpandableModuleBase from './ExpandableModuleBase.js';
+import ModuleExpandableBase from './ModuleExpandableBase.js';
 
 test('renders correctly', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase
+      <ModuleExpandableBase
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -23,7 +23,7 @@ test('renders correctly', () => {
 test('renders correctly with icon', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase
+      <ModuleExpandableBase
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -42,7 +42,7 @@ test('renders correctly with icon', () => {
 test('renders correctly with summary', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase
+      <ModuleExpandableBase
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -60,7 +60,7 @@ test('renders correctly with summary', () => {
 test('renders correctly with error', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase
+      <ModuleExpandableBase
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -77,7 +77,7 @@ test('renders correctly with error', () => {
 test('renders correctly with children', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase
+      <ModuleExpandableBase
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -94,7 +94,7 @@ test('renders correctly with children', () => {
 test('renders correctly with when expanded', () => {
   const tree = renderer
     .create(
-      <ExpandableModuleBase
+      <ModuleExpandableBase
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
@@ -105,7 +105,7 @@ test('renders correctly with when expanded', () => {
         onModuleClicked={() => {}}
       >
         <div>test children</div>
-      </ExpandableModuleBase>
+      </ModuleExpandableBase>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

@@ -1,9 +1,9 @@
 // @flow strict
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import ExpandableModule from './ExpandableModule.js';
+import ModuleExpandable from './ModuleExpandable.js';
 
-describe('ExpandableModule', () => {
+describe('ModuleExpandable', () => {
   const props = {
     id: 'uniqueTestID',
     accessibilityExpandLabel: 'click to expand',
@@ -32,7 +32,7 @@ describe('ExpandableModule', () => {
   };
 
   it('should render the collapsed state correctly', () => {
-    render(<ExpandableModule {...props} />);
+    render(<ModuleExpandable {...props} />);
 
     expect(screen.getByText(/Title1/i)).toBeInTheDocument();
     expect(
@@ -54,7 +54,7 @@ describe('ExpandableModule', () => {
   });
 
   it('should expand the module correctly when clicked', () => {
-    render(<ExpandableModule {...props} />);
+    render(<ModuleExpandable {...props} />);
     const expandButtons = screen.getAllByRole('button', {
       name: /click to expand/i,
     });

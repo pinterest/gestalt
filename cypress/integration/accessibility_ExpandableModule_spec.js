@@ -1,10 +1,10 @@
-describe('ExpandableModule Accessibility check', () => {
+describe('ModuleExpandable Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ExpandableModule');
+    cy.visit('/ModuleExpandable');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the ExpandableModule page', () => {
+  it('Tests accessibility on the ModuleExpandable page', () => {
     cy.checkA11y();
   });
 });
