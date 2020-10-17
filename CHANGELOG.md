@@ -278,13 +278,13 @@
 
 ### Minor
 
-- Row, Stack: Update `children` type (#1216)
+- Row/Stack: Update `children` type (#1216)
 
 ## 13.8.0 (Sep 16, 2020)
 
 ### Minor
 
-- Row, Stack: Second attempt to re-implement for better `gap` (#1214)
+- Row/Stack: Second attempt to re-implement for better `gap` (#1214)
 
 ## 13.7.0 (Sep 15, 2020)
 
@@ -296,7 +296,7 @@
 
 ### Minor
 
-- Row, Stack: Re-implement for better `gap` (#1193)
+- Row/Stack: Re-implement for better `gap` (#1193)
 
 ## 13.5.1 (Sep 15, 2020)
 
@@ -326,7 +326,7 @@
 
 ### Minor
 
-- Table.Header: fix stacking context on sticky header (#1209)
+- Table: fix stacking context on sticky Table.Header (#1209)
 
 ## 13.2.0 (Sep 11, 2020)
 
@@ -734,7 +734,7 @@
 
 ### Patch
 
-- ZIndexClass: Fix source url (#1125)
+- ZIndexClasses: Fix source url (#1125)
 
 ## 11.12.2 (Aug 5, 2020)
 

@@ -8,7 +8,9 @@ const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 function Changelog() {
-  const [changelogData, setChangelogData] = React.useState('Loading...');
+  const [changelogData, setChangelogData] = React.useState(
+    'Loading changelog from GitHub...'
+  );
 
   useEffect(() => {
     const fetchChangelog = async () => {
@@ -18,7 +20,7 @@ function Changelog() {
       setChangelogData(
         result.ok
           ? await result.text()
-          : '# There was error loading the changelog, please try again later.'
+          : 'There was error loading the changelog, please try again later.'
       );
     };
 

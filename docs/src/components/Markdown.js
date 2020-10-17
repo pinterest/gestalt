@@ -47,14 +47,18 @@ const makePullRequestLink = listitem => {
 
 const formatComponentName = listitem => {
   const componentNamesToIgnore = ['doc', 'docs', 'internal', 'codemod'];
-  const nameAndUpdate = listitem.split(':', 2);
-  const componentName = nameAndUpdate[0];
-  if (
-    !componentNamesToIgnore.includes(componentName.toLowerCase()) &&
-    nameAndUpdate.length > 1
-  ) {
-    const componentURL = `https://gestalt.netlify.app/${componentName}`;
-    const formattedListItem = `<a href="${componentURL}">${componentName}</a>:${nameAndUpdate[1]}`;
+  const namesAndUpdate = listitem.split(':', 2);
+  const componentNames = namesAndUpdate[0].split('/');
+
+  if (namesAndUpdate.length > 1) {
+    const componentLinks = componentNames
+      .map(name =>
+        !componentNamesToIgnore.includes(name.toLowerCase())
+          ? `<a href="https://gestalt.netlify.app/${name}">${name}</a>`
+          : name
+      )
+      .join('/');
+    const formattedListItem = `${componentLinks}:${namesAndUpdate[1]}`;
     return formattedListItem;
   }
 
