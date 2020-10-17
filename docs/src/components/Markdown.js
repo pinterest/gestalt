@@ -35,7 +35,7 @@ const makePullRequestLink = listitem => {
   if (pullRequestNum && pullRequestNum.length > 0) {
     pullRequestNum = pullRequestNum[0].replace(/\D/g, '');
     const pullRequestURL = `https://github.com/pinterest/gestalt/pull/${pullRequestNum}`;
-    const pullRequestAnchor = `(<a href=${pullRequestURL}>#${pullRequestNum}</a>)`;
+    const pullRequestAnchor = `(<a href=${pullRequestURL}>#${pullRequestNum}</a>)\n`;
     const listItemWithLink = listitem.replace(
       pullRequestNumRegex,
       pullRequestAnchor
@@ -45,16 +45,16 @@ const makePullRequestLink = listitem => {
   return listitem;
 };
 
-const formatCmpName = listitem => {
-  const cmpNamesToIgnore = ['doc', 'docs', 'internal', 'codemod'];
+const formatComponentName = listitem => {
+  const componentNamesToIgnore = ['doc', 'docs', 'internal', 'codemod'];
   const nameAndUpdate = listitem.split(':', 2);
-  const cmpName = nameAndUpdate[0];
+  const componentName = nameAndUpdate[0];
   if (
-    !cmpNamesToIgnore.includes(cmpName.toLowerCase()) &&
+    !componentNamesToIgnore.includes(componentName.toLowerCase()) &&
     nameAndUpdate.length > 1
   ) {
-    const cmpURL = `https://gestalt.netlify.app/${cmpName}`;
-    const formattedListItem = `<a href="${cmpURL}">${cmpName}:</a>${nameAndUpdate[1]}`;
+    const componentURL = `https://gestalt.netlify.app/${componentName}`;
+    const formattedListItem = `<a href="${componentURL}">${componentName}</a>:${nameAndUpdate[1]}`;
     return formattedListItem;
   }
 
@@ -81,11 +81,8 @@ export default function Markdown({ text, type }: Props): Node {
   };
 
   if (type === 'changelog') {
-    renderer.listitem = listitem => {
-      let formattedListItem = formatCmpName(listitem);
-      formattedListItem = makePullRequestLink(formattedListItem);
-      return formattedListItem;
-    };
+    renderer.listitem = listitem =>
+      `<li>${makePullRequestLink(formatComponentName(listitem))}</li>`;
   }
 
   const html = marked(stripIndent(text), {

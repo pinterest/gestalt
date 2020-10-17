@@ -10,22 +10,20 @@ const card = c => cards.push(c);
 function Changelog() {
   const [changelogData, setChangelogData] = React.useState('Loading...');
 
-  const getChangelog = () => {
-    fetch('https://cdn.jsdelivr.net/gh/pinterest/gestalt@master/CHANGELOG.md')
-      .then(response => {
-        if (!response.ok) {
-          return '# There was error loading the changelog, please try again later.';
-        }
-        return response.text();
-      })
-      .then(data => {
-        setChangelogData(data);
-      });
-  };
-
   useEffect(() => {
-    getChangelog();
-  });
+    const fetchChangelog = async () => {
+      const result = await fetch(
+        'https://cdn.jsdelivr.net/gh/pinterest/gestalt@master/CHANGELOG.md'
+      );
+      setChangelogData(
+        result.ok
+          ? await result.text()
+          : '# There was error loading the changelog, please try again later.'
+      );
+    };
+
+    fetchChangelog();
+  }, []);
 
   return (
     <Box>

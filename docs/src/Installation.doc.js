@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Heading, Link, Row, Stack, Text } from 'gestalt';
+import { Heading, Link, Stack, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import Card from './components/Card.js';
 import PageHeader from './components/PageHeader.js';
@@ -9,37 +9,6 @@ const cards: Array<Node> = [];
 const card = c => cards.push(c);
 
 card(<PageHeader name="Installation" showSourceLink={false} />);
-
-card(
-  <Stack gap={2}>
-    <Row gap={2}>
-      <Link inline target="blank" href="https://npmjs.org/package/gestalt">
-        <img
-          src="https://img.shields.io/npm/v/gestalt.svg?label=gestalt"
-          alt="Gestalt NPM package version badge"
-        />
-      </Link>
-
-      <Link
-        inline
-        target="blank"
-        href="https://npmjs.org/package/gestalt-datepicker"
-      >
-        <img
-          src="https://img.shields.io/npm/v/gestalt-datepicker.svg?label=gestalt-datepicker"
-          alt="Gestalt DatePicker NPM package version badge"
-        />
-      </Link>
-    </Row>
-    <Text>
-      Gestalt is a set of React UI components that enforces Pinterest’s design
-      language. We use it to streamline communication between designers and
-      developers by enforcing a bunch of fundamental UI components. This common
-      set of components helps raise the bar for UX &amp; accessibility across
-      Pinterest.
-    </Text>{' '}
-  </Stack>
-);
 
 card(
   <Card name="Install">

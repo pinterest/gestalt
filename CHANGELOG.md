@@ -134,7 +134,7 @@
 
 ### Minor
 
-- Sheet: Add subHeading prop [Depends on #1236] (#1242)
+- Sheet: Add subHeading prop [Depends on #1236](#1242)
 
 ## 14.7.0 (Oct 5, 2020)
 
@@ -200,7 +200,7 @@
 
 ### Minor
 
-- Video: add `objectFill`  as a prop (#1227)
+- Video: add `objectFill` as a prop (#1227)
 
 ## 14.2.4 (Sep 22, 2020)
 
@@ -470,7 +470,7 @@
 
 ### Minor
 
-- Link: added accessibilityLabel / Docs: implemented support to Arrays in description  (#1180)
+- Link: added accessibilityLabel / Docs: implemented support to Arrays in description (#1180)
 
 ## 12.1.0 (Aug 31, 2020)
 
@@ -842,7 +842,7 @@
 
 ### Patch
 
-- Internal: Refactored imports from namespacing * to explicit Default Exports and Named Values Importing (#1103)
+- Internal: Refactored imports from namespacing \* to explicit Default Exports and Named Values Importing (#1103)
 
 ## 11.5.2 (Aug 3, 2020)
 
@@ -920,7 +920,7 @@
 
 ### Minor
 
-- Typeahead: Refactor to show all options when there's a defaultValue, renamed defaultItem + removed searchField prop, fix forwardedRef + test coverage, add example to Docs,  (#1067)
+- Typeahead: Refactor to show all options when there's a defaultValue, renamed defaultItem + removed searchField prop, fix forwardedRef + test coverage, add example to Docs, (#1067)
 
 ## 11.1.2 (Jul 30, 2020)
 
@@ -992,7 +992,7 @@
 
 ### Minor
 
-- Video: Fix failing CORS access and preventing playback  (#1077)
+- Video: Fix failing CORS access and preventing playback (#1077)
 
 ## 9.0.0 (Jul 24, 2020)
 
@@ -2544,7 +2544,7 @@ Run codemods for breaking changes in order:
 
 ## 0.96.0 (May 6, 2019)
 
-## Minor
+### Minor
 
 - Icon: add calendar icon to gestalt (#512)
 - Icon: add lightning bolt icon (#513)
