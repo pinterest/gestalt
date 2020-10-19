@@ -77,7 +77,7 @@ export default function ModuleExpandableBase({
               </Text>
             </Box>
             {summary && isCollapsed && (
-              <Box column={6} paddingX={6}>
+              <Box column={6} marginStart={6}>
                 {summary.map((item, i) => (
                   <Box key={i} marginBottom={i === summary.length - 1 ? 0 : 2}>
                     <Text size="md" truncate>

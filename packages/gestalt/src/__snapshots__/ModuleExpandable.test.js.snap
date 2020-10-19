@@ -46,7 +46,7 @@ exports[`renders correctly with multiple items 1`] = `
             </div>
           </div>
           <div
-            className="box paddingX6 xsCol6"
+            className="box marginStart6 xsCol6"
           >
             <div
               className="box marginBottom0"
@@ -130,7 +130,7 @@ exports[`renders correctly with multiple items 1`] = `
             </div>
           </div>
           <div
-            className="box paddingX6 xsCol6"
+            className="box marginStart6 xsCol6"
           >
             <div
               className="box marginBottom0"
@@ -231,7 +231,7 @@ exports[`renders correctly with multiple items 1`] = `
             </div>
           </div>
           <div
-            className="box paddingX6 xsCol6"
+            className="box marginStart6 xsCol6"
           >
             <div
               className="box marginBottom0"
@@ -319,7 +319,7 @@ exports[`renders correctly with one item 1`] = `
             </div>
           </div>
           <div
-            className="box paddingX6 xsCol6"
+            className="box marginStart6 xsCol6"
           >
             <div
               className="box marginBottom2"
