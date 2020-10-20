@@ -6,6 +6,8 @@ import highlightjs from 'highlight.js';
 import './Markdown.css';
 import 'highlight.js/styles/a11y-light.css';
 
+const sidebarIndex = require('./sidebarIndex.js');
+
 type Props = {|
   text: string,
   type?: string,
@@ -46,18 +48,20 @@ const makePullRequestLink = listitem => {
 };
 
 const formatComponentName = listitem => {
-  const componentNamesToIgnore = ['doc', 'docs', 'internal', 'codemod'];
+  const currentComponents = sidebarIndex.default.reduce(
+    (acc, currentValue) => [...acc, ...currentValue.pages],
+    []
+  );
   const namesAndUpdate = listitem.split(':', 2);
-  const componentNames = namesAndUpdate[0].split('/');
 
   if (namesAndUpdate.length > 1) {
-    const componentLinks = componentNames
-      .map(name =>
-        !componentNamesToIgnore.includes(name.toLowerCase())
-          ? `<a href="https://gestalt.netlify.app/${name}">${name}</a>`
-          : name
-      )
-      .join('/');
+    const componentLinks = namesAndUpdate[0].replace(/\w+/gm, match => {
+      if (currentComponents.includes(match)) {
+        return `<a href="https://gestalt.netlify.app/${match}">${match}</a>`;
+      }
+      return match;
+    });
+
     const formattedListItem = `${componentLinks}:${namesAndUpdate[1]}`;
     return formattedListItem;
   }
