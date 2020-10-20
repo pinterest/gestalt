@@ -2,11 +2,12 @@
 
 exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >
@@ -68,11 +69,12 @@ exports[`<ActivationCard /> Needs attention ActivationCard 1`] = `
 
 exports[`<ActivationCard /> Not started ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >
@@ -117,11 +119,12 @@ exports[`<ActivationCard /> Not started ActivationCard 1`] = `
 
 exports[`<ActivationCard /> Pending ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >
@@ -183,11 +186,12 @@ exports[`<ActivationCard /> Pending ActivationCard 1`] = `
 
 exports[`<ActivationCard /> complete ActivationCard 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >
@@ -243,11 +247,12 @@ exports[`<ActivationCard /> complete ActivationCard 1`] = `
 
 exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >
@@ -388,11 +393,12 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
 
 exports[`<ActivationCard /> message + title + link 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >
@@ -488,11 +494,12 @@ exports[`<ActivationCard /> message + title + link 1`] = `
 
 exports[`<ActivationCard /> message + title 1`] = `
 <div
-  className="borderColorLightGray box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 sizeSm solid xsDirectionColumn xsDisplayFlex"
+  className="box flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "height": "100%",
       "maxWidth": 400,
+      "width": "100%",
     }
   }
 >

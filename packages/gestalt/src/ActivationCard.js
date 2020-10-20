@@ -200,7 +200,7 @@ export default function ActivationCard({
     <Box
       display="flex"
       flex="grow"
-      borderStyle="sm"
+      borderStyle="shadow"
       rounding={4}
       padding={6}
       maxWidth={400}
@@ -208,6 +208,7 @@ export default function ActivationCard({
       direction="column"
       justifyContent="center"
       height="100%"
+      width="100%"
     >
       {isCompleted ? (
         <CompletedCard

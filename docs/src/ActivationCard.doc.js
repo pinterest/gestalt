@@ -19,7 +19,7 @@ card(
     name="Not started and Pending Cards"
     defaultCode={`
 <Box display="flex" marginStart={-1} marginEnd={-1}>
-  <Box paddingX={1}>
+  <Box paddingX={1} column={6}>
     <ActivationCard
       status="notStarted"
       statusMessage="Not started"
@@ -32,7 +32,7 @@ card(
       }}
     />
   </Box>
-  <Box paddingX={1}>
+  <Box paddingX={1} column={6}>
     <ActivationCard
       status="pending"
       statusMessage="Pending"
@@ -55,7 +55,7 @@ card(
     name="Needs attention and Complete Cards"
     defaultCode={`
 <Box display="flex" marginStart={-1} marginEnd={-1}>
-  <Box paddingX={1}>
+  <Box paddingX={1} column={6}>
     <ActivationCard
       status="needsAttention"
       statusMessage="Needs attention"
@@ -68,7 +68,7 @@ card(
       }}
     />
   </Box>
-  <Box paddingX={1}>
+  <Box paddingX={1} column={6}>
     <ActivationCard
       status="complete"
       statusMessage="Completed"
