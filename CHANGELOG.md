@@ -1,3 +1,9 @@
+## 14.19.0 (Oct 20, 2020)
+
+### Minor
+
+- Docs: New What's New landing page (#1264)
+
 ## 14.18.0 (Oct 20, 2020)
 
 ### Minor
