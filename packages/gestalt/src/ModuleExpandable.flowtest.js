@@ -1,0 +1,30 @@
+// @flow strict
+import React from 'react';
+import ModuleExpandable from './ModuleExpandable.js';
+
+const Valid = (
+  <ModuleExpandable
+    id="uniqueTestID"
+    accessibilityExpandLabel="click to expand"
+    accessibilityCollapseLabel="click to collapse"
+    items={[
+      {
+        title: 'Title',
+        icon: 'lock',
+        iconAccessibilityLabel: 'test label',
+        summary: ['summary1', 'summary2', 'summary3'],
+        type: 'info',
+        children: 'test children',
+      },
+    ]}
+  />
+);
+
+// $FlowExpectedError[prop-missing]
+const MissingProp = <ModuleExpandable />;
+
+// $FlowExpectedError[prop-missing]
+const NonExistingProp = <ModuleExpandable nonexisting={33} />;
+
+// $FlowExpectedError[prop-missing]
+const InvalidTypeProp = <ModuleExpandable size="xxl" />;
