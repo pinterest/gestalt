@@ -328,8 +328,13 @@ card(
     indeterminate={[false, true]}
     size={['sm', 'md']}
   >
-    {(props, i) => (
-      <Checkbox id={`example-${i}`} onChange={() => {}} {...props} />
+    {(props, i, label) => (
+      <Checkbox
+        id={`example-${i}`}
+        label={label}
+        onChange={() => {}}
+        {...props}
+      />
     )}
   </Combination>
 );

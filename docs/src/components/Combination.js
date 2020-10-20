@@ -129,7 +129,9 @@ export default function Combination({
               <Box position="absolute" top left bottom right>
                 {hasCheckerboard && <Checkerboard />}
               </Box>
-              <Box position="relative">{children(combination, i)}</Box>
+              <Box position="relative">
+                {children(combination, i, combination[key])}
+              </Box>
             </Box>
           </Box>
         ))}
