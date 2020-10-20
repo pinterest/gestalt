@@ -5,6 +5,14 @@ describe('Module Accessibility check', () => {
   });
 
   it('Tests accessibility on the Module page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'color-contrast',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });
