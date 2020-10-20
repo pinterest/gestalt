@@ -13,7 +13,7 @@ describe('text-size-replace', () => {
     'text-size-replace-md',
     'text-size-replace-lg',
     'text-size-replace-xl',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(__dirname, 'text-size-replace', { quote: 'single' }, test);
   });
 });

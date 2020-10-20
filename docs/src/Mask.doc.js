@@ -7,7 +7,7 @@ import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -77,7 +77,7 @@ card(
     name="Rounding Combinations"
     rounding={['circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}
   >
-    {props => (
+    {(props) => (
       <Mask height={70} width={70} {...props}>
         <div style={{ backgroundColor: '#e3780c', width: 70, height: 70 }} />
       </Mask>

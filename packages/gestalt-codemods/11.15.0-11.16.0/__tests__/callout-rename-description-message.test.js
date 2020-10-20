@@ -10,7 +10,7 @@ jest.mock('../callout-rename-description-message', () => {
 });
 
 describe('callout-rename-description-message', () => {
-  ['callout-rename-description-message'].forEach(test => {
+  ['callout-rename-description-message'].forEach((test) => {
     defineTest(
       __dirname,
       'callout-rename-description-message',

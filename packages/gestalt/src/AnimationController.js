@@ -107,7 +107,7 @@ export type AnimationStateType = 'in' | 'postIn' | 'out' | 'postOut' | null;
 
 type AnimationType = {|
   animationState: AnimationStateType,
-  setAnimationState: (AnimationStateType => void) | null,
+  setAnimationState: ((AnimationStateType) => void) | null,
 |};
 
 type UseAnimationType = {|

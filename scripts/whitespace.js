@@ -16,13 +16,13 @@ const SCALE = new Array(SCALE_LENGTH).fill().map((_, i) => i + 1);
 
 // --
 
-const bt = n => `calc(var(--g-boint) * ${n})`;
-const block = str =>
+const bt = (n) => `calc(var(--g-boint) * ${n})`;
+const block = (str) =>
   [
     '{',
     str
       .split('\n')
-      .map(line => (line.length === 0 ? '' : `  ${line}`))
+      .map((line) => (line.length === 0 ? '' : `  ${line}`))
       .join('\n'),
     '}',
   ].join('\n');
@@ -32,14 +32,16 @@ const Declaration = ({ property, value }) => `${property}: ${value};`;
 const Ruleset = ({ selector, declarations }) =>
   `${selector} ${block(
     Object.keys(declarations)
-      .map(property => Declaration({ property, value: declarations[property] }))
+      .map((property) =>
+        Declaration({ property, value: declarations[property] })
+      )
       .join('\n')
   )}`;
 
 const AtRule = ({ query, rulesets }) =>
   `@media (${query}) ${block(rulesets.map(Ruleset).join('\n\n'))}`;
 
-const Statement = obj => {
+const Statement = (obj) => {
   switch (obj.kind) {
     case 'ruleset':
       return Ruleset(obj);
@@ -50,7 +52,7 @@ const Statement = obj => {
   }
 };
 
-const Stylesheet = statements =>
+const Stylesheet = (statements) =>
   [PRELUDE].concat(statements.map(Statement)).join('\n\n');
 
 // --
@@ -67,7 +69,7 @@ const atrule = (query, rulesets) => ({
   rulesets,
 });
 
-const capitalize = str =>
+const capitalize = (str) =>
   `${str.substring(0, 1).toUpperCase()}${str.substring(1, str.length)}`;
 const classname = (namespace, className) =>
   namespace ? `.${namespace}${capitalize(className)}` : `.${className}`;
@@ -147,7 +149,7 @@ const rules = (i, prefix) => [
     : []),
 ];
 
-const autoRules = prefix => [
+const autoRules = (prefix) => [
   ruleset(`html:not([dir="rtl"]) ${classname(prefix, `marginStartAuto`)}`, {
     'margin-left': 'auto',
   }),

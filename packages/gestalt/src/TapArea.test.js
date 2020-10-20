@@ -75,7 +75,7 @@ test('accessibilityControls', () => {
   ).root;
   expect(
     instance.find(
-      element => element.type === 'div' && element.props.role === 'button'
+      (element) => element.type === 'div' && element.props.role === 'button'
     ).props['aria-controls']
   ).toContain('another-element');
 });
@@ -88,7 +88,7 @@ test('accessibilityExpanded', () => {
   ).root;
   expect(
     instance.find(
-      element => element.type === 'div' && element.props.role === 'button'
+      (element) => element.type === 'div' && element.props.role === 'button'
     ).props['aria-expanded']
   ).toBe(true);
 });
@@ -101,7 +101,7 @@ test('accessibilityHaspopup', () => {
   ).root;
   expect(
     instance.find(
-      element => element.type === 'div' && element.props.role === 'button'
+      (element) => element.type === 'div' && element.props.role === 'button'
     ).props['aria-haspopup']
   ).toBe(true);
 });
@@ -114,7 +114,7 @@ test('accessibilityLabel', () => {
   ).root;
   expect(
     instance.find(
-      element => element.type === 'div' && element.props.role === 'button'
+      (element) => element.type === 'div' && element.props.role === 'button'
     ).props['aria-label']
   ).toContain('hello');
 });

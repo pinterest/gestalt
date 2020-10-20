@@ -9,13 +9,15 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'app/common/react/ui/Toast/Toast') {
       return;
     }
 
-    const specifier = decl.specifiers.find(node => node.local.name === 'Toast');
+    const specifier = decl.specifiers.find(
+      (node) => node.local.name === 'Toast'
+    );
     if (!specifier) {
       return;
     }
@@ -24,7 +26,7 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (

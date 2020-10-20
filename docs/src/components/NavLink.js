@@ -11,8 +11,8 @@ type Props = {|
 |};
 
 // $FlowIssue[prop-missing]
-const isLeftClickEvent = event => event.button === 0;
-const isModifiedEvent = event =>
+const isLeftClickEvent = (event) => event.button === 0;
+const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
 const NavLink = ({ children, to, history }: Props) => {

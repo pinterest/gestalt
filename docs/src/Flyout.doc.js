@@ -6,7 +6,7 @@ import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader

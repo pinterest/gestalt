@@ -8,17 +8,17 @@ export default function transformer(file, api) {
   const src = j(file.source);
   const localIdentifierNames = {};
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    decl.specifiers.forEach(node => {
+    decl.specifiers.forEach((node) => {
       localIdentifierNames[node.local.name] = node.imported.name;
     });
   });
 
-  src.find(j.JSXOpeningElement).forEach(path => {
+  src.find(j.JSXOpeningElement).forEach((path) => {
     const { node } = path;
     const { name } = node.name;
     const isInGestalt = Object.prototype.hasOwnProperty.call(

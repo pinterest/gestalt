@@ -25,10 +25,10 @@ const { data } = papa.parse(`${headers}\n${transformOutput}`, {
   dynamicTyping: true,
   header: true,
 });
-const withoutTests = data.filter(file => !file.isTest);
+const withoutTests = data.filter((file) => !file.isTest);
 
-const inGestalt = withoutTests.filter(file => !!file.inGestalt);
-const nativeDom = withoutTests.filter(file => !file.inGestalt);
+const inGestalt = withoutTests.filter((file) => !!file.inGestalt);
+const nativeDom = withoutTests.filter((file) => !file.inGestalt);
 
 const inGestaltCount = inGestalt.length;
 const nativeDomCount = nativeDom.length;

@@ -110,25 +110,25 @@ const LinkWithForwardRef: AbstractComponent<
       className={className}
       href={disabled ? undefined : href}
       id={id}
-      onBlur={event => {
+      onBlur={(event) => {
         handleBlur();
         if (onBlur) {
           onBlur({ event });
         }
       }}
-      onClick={event => {
+      onClick={(event) => {
         if (onClick) {
           onClick({ event });
         }
       }}
-      onFocus={event => {
+      onFocus={(event) => {
         if (onFocus) {
           onFocus({ event });
         }
       }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onKeyPress={event => {
+      onKeyPress={(event) => {
         // Check to see if space or enter were pressed
         if (onClick && keyPressShouldTriggerTap(event)) {
           // Prevent the default action to stop scrolling when space is pressed

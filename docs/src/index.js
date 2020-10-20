@@ -11,7 +11,7 @@ import './docs.css';
 import sidebarIndex from './components/sidebarIndex.js';
 
 const container = document.getElementById('root');
-const mapRoutes = pages =>
+const mapRoutes = (pages) =>
   pages.map((page, i) => (
     <Route
       path={`/${page}`}
@@ -31,7 +31,7 @@ if (container instanceof Element) {
               path="/"
               render={() => <Redirect to="/What's New" />}
             />
-            {sidebarIndex.map(section => mapRoutes(section.pages))}
+            {sidebarIndex.map((section) => mapRoutes(section.pages))}
           </Switch>
         </App>
       </BrowserRouter>

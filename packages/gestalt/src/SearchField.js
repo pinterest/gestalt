@@ -75,7 +75,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
     }
   };
 
-  const handleBlur = event => {
+  const handleBlur = (event) => {
     setFocused(false);
     if (onBlur) {
       onBlur({ event });

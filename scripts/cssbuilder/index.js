@@ -2,12 +2,12 @@
 
 /* eslint-env node */
 
-const Block = str =>
+const Block = (str) =>
   [
     '{',
     str
       .split('\n')
-      .map(line => (line.length === 0 ? '' : `  ${line}`))
+      .map((line) => (line.length === 0 ? '' : `  ${line}`))
       .join('\n'),
     '}',
   ].join('\n');
@@ -28,7 +28,7 @@ const Ruleset = ({ selector, declarations = [] }) =>
 const AtRule = ({ query, rulesets }) =>
   `@media (${query}) ${Block(rulesets.map(Ruleset).join('\n\n'))}`;
 
-const Statement = obj => {
+const Statement = (obj) => {
   switch (obj.kind) {
     case 'ruleset':
       return Ruleset(obj);

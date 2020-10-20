@@ -10,7 +10,7 @@ function getAlphabetizedComponents() {
   return Array.from(
     new Set(
       sidebarIndex
-        .map(section => section.pages)
+        .map((section) => section.pages)
         .flat()
         .sort()
     )
@@ -23,7 +23,7 @@ export default function Navigation(): Node {
   const navList = (
     <>
       {sidebarOrganisedBy === 'categorized' ? (
-        sidebarIndex.map(section => (
+        sidebarIndex.map((section) => (
           <SidebarSection section={section} key={section.sectionName} />
         ))
       ) : (

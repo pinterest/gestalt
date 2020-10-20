@@ -7,7 +7,7 @@ jest.mock('../deprecatedPadding-box-replace', () => {
 });
 
 describe('deprecatedPadding-box-replace', () => {
-  ['deprecatedPadding-box-replace'].forEach(test => {
+  ['deprecatedPadding-box-replace'].forEach((test) => {
     defineTest(
       __dirname,
       'deprecatedPadding-box-replace',

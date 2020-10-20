@@ -3,7 +3,7 @@ import type { Cache } from './Cache.js';
 
 type Position = {| top: number, left: number, width: number, height: number |};
 
-const mindex = arr => {
+const mindex = (arr) => {
   let idx = 0;
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] < arr[idx]) {

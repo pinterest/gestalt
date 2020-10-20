@@ -2,14 +2,14 @@ export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
 
-  const isNull = expression =>
+  const isNull = (expression) =>
     expression.type === 'Literal' && expression.raw === 'null';
-  const isUndefined = expression =>
+  const isUndefined = (expression) =>
     expression.type === 'Identifier' && expression.name === 'undefined';
 
   // inserts a default scroll container attribute
   // scrollContainer={ () => window }
-  const insertDefaultScrollContainer = attributes =>
+  const insertDefaultScrollContainer = (attributes) =>
     attributes.concat(
       j.jsxAttribute(
         j.jsxIdentifier('scrollContainer'),
@@ -20,7 +20,7 @@ export default function transformer(file, api) {
     );
 
   // updates existing scroll container values
-  const updateValue = expression => {
+  const updateValue = (expression) => {
     switch (expression.type) {
       // before: scrollContainer={ condition ? a : undefined }
       // after: scrollContainer={ condition ? a : window }
@@ -51,8 +51,8 @@ export default function transformer(file, api) {
   // updates existing scroll container attributes
   // before: scrollContainer={ expression }
   // after: scrollContainer={ () => expression }
-  const updateExistingScrollContainer = attributes =>
-    attributes.map(attr => {
+  const updateExistingScrollContainer = (attributes) =>
+    attributes.map((attr) => {
       if (attr.name.name !== 'scrollContainer') {
         return attr;
       }
@@ -73,12 +73,12 @@ export default function transformer(file, api) {
   const { name } = specifier.nodes()[0].local;
   return j(file.source)
     .find(j.JSXOpeningElement, { name: { name } })
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
       const { attributes } = node;
 
       const hasScrollContainerAttribute = attributes.some(
-        attribute => attribute.name.name === 'scrollContainer'
+        (attribute) => attribute.name.name === 'scrollContainer'
       );
 
       node.attributes = hasScrollContainerAttribute

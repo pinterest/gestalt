@@ -48,7 +48,7 @@ function SegmentedControlItem({
     <button
       aria-selected={isSelected}
       className={cs}
-      onClick={event => onChange({ event, activeIndex: index })}
+      onClick={(event) => onChange({ event, activeIndex: index })}
       role="tab"
       type="button"
       style={{ width }}

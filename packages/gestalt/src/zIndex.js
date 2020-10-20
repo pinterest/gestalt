@@ -25,6 +25,6 @@ export class CompositeZIndex implements Indexable {
   }
 
   index(): number {
-    return Math.max(-1, ...this.deps.map(dep => dep.index())) + 1;
+    return Math.max(-1, ...this.deps.map((dep) => dep.index())) + 1;
   }
 }

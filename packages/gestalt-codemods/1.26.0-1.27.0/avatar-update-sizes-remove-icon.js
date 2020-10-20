@@ -18,16 +18,16 @@ export default function transformer(file, api) {
   let localIdentifierAvatar;
   let localIdentifierGroupAvatar;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const avatarSpecifier = decl.specifiers.find(
-      node => node.imported.name === 'Avatar'
+      (node) => node.imported.name === 'Avatar'
     );
     const groupAvatarSpecifier = decl.specifiers.find(
-      node => node.imported.name === 'GroupAvatar'
+      (node) => node.imported.name === 'GroupAvatar'
     );
     if (!avatarSpecifier && !groupAvatarSpecifier) {
       return;
@@ -40,7 +40,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (
@@ -51,10 +51,10 @@ export default function transformer(file, api) {
       }
 
       const hasSize = node.openingElement.attributes.find(
-        attr => attr.name && attr.name.name === 'size'
+        (attr) => attr.name && attr.name.name === 'size'
       );
       const hasIcon = node.openingElement.attributes.find(
-        attr => attr.name && attr.name.name === 'icon'
+        (attr) => attr.name && attr.name.name === 'icon'
       );
 
       if (!hasSize && !hasIcon) {
@@ -62,7 +62,7 @@ export default function transformer(file, api) {
       }
 
       node.openingElement.attributes = node.openingElement.attributes
-        .map(attr => {
+        .map((attr) => {
           if (attr.name && attr.name.name === 'size' && attr.value.value) {
             if (attr.value.value === 'sm') {
               return j.jsxAttribute(j.jsxIdentifier('size'), j.literal('xs'));

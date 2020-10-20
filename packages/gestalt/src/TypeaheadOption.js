@@ -24,7 +24,7 @@ type OptionProps = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
   hoveredItem: ?number,
-  setHoveredItem: number => void,
+  setHoveredItem: (number) => void,
   setOptionRef: (?HTMLElement) => void,
 |};
 
@@ -40,7 +40,7 @@ export default function TypeaheadOption({
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
-  const handleOnTap = event => {
+  const handleOnTap = (event) => {
     if (handleSelect) handleSelect({ event, item: option });
   };
 
@@ -64,16 +64,16 @@ export default function TypeaheadOption({
 
   return (
     <div
-      ref={ref => {
+      ref={(ref) => {
         if (index === hoveredItem) setOptionRef(ref);
       }}
       className={className}
       key={option.value}
       onClick={handleOnTap}
-      onMouseDown={event => {
+      onMouseDown={(event) => {
         event.preventDefault();
       }}
-      onKeyPress={event => {
+      onKeyPress={(event) => {
         event.preventDefault();
       }}
       rounding={2}

@@ -3,13 +3,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let specifiers = [];
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     specifiers = decl.specifiers.filter(
-      node =>
+      (node) =>
         node.imported.name === 'Button' ||
         node.imported.name === 'Card' ||
         node.imported.name === 'Flyout' ||
@@ -22,9 +22,9 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
-      specifiers.forEach(specifier => {
+      specifiers.forEach((specifier) => {
         const localIdentifier = specifier.local;
 
         if (node.openingElement.name.name !== localIdentifier.name) {
@@ -34,7 +34,7 @@ export default function transformer(file, api) {
         const attrs = node.openingElement.attributes;
         if (
           !attrs.some(
-            attr =>
+            (attr) =>
               attr.name.name === 'ariaExpanded' ||
               attr.name.name === 'ariaHaspopup' ||
               attr.name.name === 'label' ||
@@ -44,7 +44,7 @@ export default function transformer(file, api) {
         ) {
           return;
         }
-        node.openingElement.attributes = attrs.map(attr => {
+        node.openingElement.attributes = attrs.map((attr) => {
           const attribute = attr;
           if (attribute.name.name === 'ariaExpanded') {
             attribute.name.name = 'accessibilityExpanded';

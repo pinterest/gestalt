@@ -6,7 +6,7 @@ import Card from './components/Card.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
 

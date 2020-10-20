@@ -30,12 +30,14 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(node => node.local.name === 'Text');
+    const specifier = decl.specifiers.find(
+      (node) => node.local.name === 'Text'
+    );
     if (!specifier) {
       return;
     }
@@ -44,7 +46,7 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXOpeningElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (
@@ -57,7 +59,7 @@ export default function transformer(file, api) {
       }
 
       const attrs = node.attributes;
-      const sizeAttr = attrs.find(attr => attr.name.name === 'size');
+      const sizeAttr = attrs.find((attr) => attr.name.name === 'size');
 
       const value = (sizeAttr && sizeAttr.value.value) || 'md';
       const idx = SIZES.indexOf(value);
@@ -67,12 +69,12 @@ export default function transformer(file, api) {
       const md = baseSize - 1;
       const lg = baseSize;
 
-      const valueNode = i =>
+      const valueNode = (i) =>
         i - OFFSET >= 0 && i - OFFSET < SIZES.length
           ? j.literal(SIZES[i - OFFSET])
           : j.jsxExpressionContainer(j.literal(i));
 
-      let newAttrs = attrs.filter(attr => attr.name.name !== 'size');
+      let newAttrs = attrs.filter((attr) => attr.name.name !== 'size');
 
       if (value !== 'md') {
         newAttrs = newAttrs.concat(

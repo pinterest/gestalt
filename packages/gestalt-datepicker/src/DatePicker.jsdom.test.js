@@ -56,7 +56,7 @@ describe('DatePicker', () => {
       return (
         <DatePicker
           id="fake_id"
-          onChange={e => setDate(e.value)}
+          onChange={(e) => setDate(e.value)}
           value={date}
         />
       );
@@ -93,7 +93,7 @@ describe('DatePicker', () => {
       return (
         <DatePicker
           id="fake_id"
-          onChange={e => setDate(e.value)}
+          onChange={(e) => setDate(e.value)}
           value={date}
         />
       );

@@ -25,7 +25,7 @@ function isValidKey(e: KeyboardEvent) {
 }
 
 function triggerChangeHandlers(modality: Modality, e: HandlerEvent) {
-  changeHandlers.forEach(handler => {
+  changeHandlers.forEach((handler) => {
     handler(modality, e);
   });
 }

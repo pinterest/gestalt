@@ -11,7 +11,7 @@ const duplicateVariablesDifferentValues = async () => {
 
   const combined = (
     await Promise.all(
-      files.map(async file => {
+      files.map(async (file) => {
         return await fs.promises.readFile(file, 'utf8');
       })
     )

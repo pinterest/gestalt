@@ -45,15 +45,15 @@ export default function transformer(file, api) {
     return newProperties;
   }
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return null;
     }
 
     localIdentifierName = decl.specifiers
-      .filter(node => node.imported.name === 'Box')
-      .map(node => node.local.name);
+      .filter((node) => node.imported.name === 'Box')
+      .map((node) => node.local.name);
     return null;
   });
 
@@ -63,7 +63,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(jsxElement => {
+    .forEach((jsxElement) => {
       const { node } = jsxElement;
 
       if (!localIdentifierName.includes(node.openingElement.name.name)) {
@@ -72,7 +72,7 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
 
-      if (attrs.some(attr => attr.type === 'JSXSpreadAttribute')) {
+      if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
           `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
         );
@@ -80,7 +80,7 @@ export default function transformer(file, api) {
 
       let newAppendAttr = [];
       const newAttrs = attrs
-        .map(attr => {
+        .map((attr) => {
           if (
             !attr?.name?.name ||
             !['deprecatedMargin'].includes(attr.name.name)

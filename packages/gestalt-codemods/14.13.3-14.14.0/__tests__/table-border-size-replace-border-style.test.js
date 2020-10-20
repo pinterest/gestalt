@@ -10,7 +10,7 @@ jest.mock('../table-border-size-replace-border-style', () => {
 });
 
 describe('table-border-size-replace-border-style', () => {
-  ['table-border-size-replace-border-style'].forEach(test => {
+  ['table-border-size-replace-border-style'].forEach((test) => {
     defineTest(
       __dirname,
       'table-border-size-replace-border-style',

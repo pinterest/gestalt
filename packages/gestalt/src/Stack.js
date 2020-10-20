@@ -64,7 +64,7 @@ export default function Stack({
         width={width}
         {...rest}
       >
-        {Children.map(children, child =>
+        {Children.map(children, (child) =>
           child !== null && child !== undefined ? (
             <Box paddingY={gap}>{child}</Box>
           ) : null

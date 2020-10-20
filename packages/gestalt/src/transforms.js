@@ -23,7 +23,7 @@ export type Functor<T> = (n: T) => Style;
 //
 export const toggle = (
   ...classNames: Array<string>
-): ((val?: boolean) => Style) => val =>
+): ((val?: boolean) => Style) => (val) =>
   val ? fromClassName(...classNames) : identity();
 
 // Maps string values to classes
@@ -32,8 +32,8 @@ export const toggle = (
 //
 export const mapping = (map: {
   [key: string]: string,
-  ...,
-}): ((val: string) => Style) => val =>
+  ...
+}): ((val: string) => Style) => (val) =>
   Object.prototype.hasOwnProperty.call(map, val)
     ? fromClassName(map[val])
     : identity();
@@ -64,12 +64,12 @@ export function bind<T>(
   fn: Functor<T>,
   scope: { +[key: string]: string, ... }
 ): (val: T) => Style {
-  const map = mapClassName(name => scope[name]);
+  const map = mapClassName((name) => scope[name]);
   return (val: T): Style => map(fn(val));
 }
 
 // This takes a series of the previously defined functors, runs them all
 // against a value and returns the set of their classnames.
-export const union = <T>(
-  ...fns: Array<Functor<T>>
-): ((val: T) => Style) => val => concat(fns.map(fn => fn(val)));
+export const union = <T>(...fns: Array<Functor<T>>): ((val: T) => Style) => (
+  val
+) => concat(fns.map((fn) => fn(val)));

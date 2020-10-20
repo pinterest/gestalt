@@ -214,7 +214,7 @@ describe('useColorScheme', () => {
   it('uses theme based on matchMedia when userPreference', () => {
     let listener = jest.fn();
     window.matchMedia = () => ({
-      addListener: cb => {
+      addListener: (cb) => {
         listener = cb;
       },
       removeListener: jest.fn(),

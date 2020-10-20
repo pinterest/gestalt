@@ -23,7 +23,7 @@ function ButtonGroup({ children }: {| children?: Node |}): Node {
       display="flex"
       wrap
     >
-      {Children.map(children, child =>
+      {Children.map(children, (child) =>
         child !== null && child !== undefined ? (
           <Box paddingX={1} paddingY={1}>
             {child}

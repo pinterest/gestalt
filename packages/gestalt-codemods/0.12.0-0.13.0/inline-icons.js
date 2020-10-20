@@ -2,7 +2,7 @@ export default function transformer(file, api) {
   const j = api.jscodeshift;
   return j(file.source)
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== 'Icon') {

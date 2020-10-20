@@ -79,7 +79,7 @@ const RESIZE_DEBOUNCE = 300;
 // The amount of extra buffer space for populating visible items.
 const VIRTUAL_BUFFER_FACTOR = 0.7;
 
-const layoutNumberToCssDimension = n => (n !== Infinity ? n : undefined);
+const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
 export default class Masonry<T: { ... }> extends ReactComponent<
   Props<T>,
@@ -232,7 +232,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
 
     this.state = {
       hasPendingMeasurements: props.items.some(
-        item => !!item && !measurementStore.has(item)
+        (item) => !!item && !measurementStore.has(item)
       ),
       isFetching: false,
       items: props.items,
@@ -258,7 +258,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
       }
     }
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       scrollTop,
       width: this.gridWrapper ? this.gridWrapper.clientWidth : prevState.width,
     }));
@@ -275,7 +275,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     }
     // calculate whether we still have pending measurements
     const hasPendingMeasurements = items.some(
-      item => !!item && !measurementStore.has(item)
+      (item) => !!item && !measurementStore.has(item)
     );
     if (
       hasPendingMeasurements ||
@@ -320,7 +320,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     // whenever we're receiving new props, determine whether any items need to be measured
     // TODO - we should treat items as immutable
     const hasPendingMeasurements = items.some(
-      item => !measurementStore.has(item)
+      (item) => !measurementStore.has(item)
     );
 
     // Shallow compare all items, if any change reflow the grid.
@@ -536,7 +536,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
           ref={this.setGridWrapperRef}
         >
           {items
-            .filter(item => item)
+            .filter((item) => item)
             .map((item, i) => (
               <div // keep this in sync with renderMasonryComponent
                 className="static"
@@ -552,7 +552,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
                       ? undefined
                       : layoutNumberToCssDimension(columnWidth), // we can't set a width for server rendered flexible items
                 }}
-                ref={el => {
+                ref={(el) => {
                   if (el && !(flexible || layout === 'flexible')) {
                     // only measure flexible items on client
                     measurementStore.set(item, el.clientHeight);
@@ -571,10 +571,10 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     } else {
       // Full layout is possible
       const itemsToRender = items.filter(
-        item => item && measurementStore.has(item)
+        (item) => item && measurementStore.has(item)
       );
       const itemsToMeasure = items
-        .filter(item => item && !measurementStore.has(item))
+        .filter((item) => item && !measurementStore.has(item))
         .slice(0, minCols);
 
       // $FlowFixMe[incompatible-call]
@@ -583,7 +583,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
-        ? Math.max(...positions.map(pos => pos.top + pos.height))
+        ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
@@ -611,7 +611,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
                     width: layoutNumberToCssDimension(position.width),
                     height: layoutNumberToCssDimension(position.height),
                   }}
-                  ref={el => {
+                  ref={(el) => {
                     if (el) {
                       measurementStore.set(data, el.clientHeight);
                     }

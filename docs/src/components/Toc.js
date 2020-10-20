@@ -79,7 +79,7 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
     anchors
       .slice()
       .reverse()
-      .every(anchor => {
+      .every((anchor) => {
         // No hash if we're near the top of the page
         if (
           document.documentElement &&

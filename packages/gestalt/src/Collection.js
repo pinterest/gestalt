@@ -94,8 +94,8 @@ export default class Collection extends PureComponent<Props, void> {
     const { Item, layout, viewportTop = 0, viewportLeft = 0 } = this.props;
 
     // Calculate the full dimensions of the item layer
-    const width = Math.max(...layout.map(item => item.left + item.width));
-    const height = Math.max(...layout.map(item => item.top + item.height));
+    const width = Math.max(...layout.map((item) => item.left + item.width));
+    const height = Math.max(...layout.map((item) => item.top + item.height));
 
     // Default the viewport to being the full width of the content layer
     const { viewportWidth = width, viewportHeight = height } = this.props;

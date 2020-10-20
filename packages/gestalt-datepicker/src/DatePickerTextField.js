@@ -54,8 +54,8 @@ function DatePickerTextField(props: Props) {
             autoComplete="off"
             disabled={disabled}
             id={id}
-            onBlur={data => onBlur && onBlur(data.event)}
-            onFocus={data => {
+            onBlur={(data) => onBlur && onBlur(data.event)}
+            onFocus={(data) => {
               if (onFocus) {
                 onFocus(data.event);
               }
@@ -63,10 +63,10 @@ function DatePickerTextField(props: Props) {
                 onClick();
               }
             }}
-            onChange={data => onChange && onChange(data.event)}
-            onKeyDown={data => onKeyDown && onKeyDown(data.event)}
+            onChange={(data) => onChange && onChange(data.event)}
+            onKeyDown={(data) => onKeyDown && onKeyDown(data.event)}
             placeholder={placeholder}
-            ref={input => forwardedRef && forwardedRef(input || null)}
+            ref={(input) => forwardedRef && forwardedRef(input || null)}
             size="lg"
             value={value}
           />

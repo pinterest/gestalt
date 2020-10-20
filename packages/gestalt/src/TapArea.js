@@ -133,7 +133,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
     }
   );
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (!disabled && onTap) {
       onTap({ event });
     }
@@ -141,7 +141,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
 
   const handleLinkClick = ({ event }) => handleClick(event);
 
-  const handleOnBlur = event => {
+  const handleOnBlur = (event) => {
     if (!disabled && onBlur) {
       onBlur({ event });
     }
@@ -149,7 +149,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
 
   const handleLinkOnBlur = ({ event }) => handleOnBlur(event);
 
-  const handleOnFocus = event => {
+  const handleOnFocus = (event) => {
     if (!disabled && onFocus) {
       onFocus({ event });
     }
@@ -157,7 +157,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
 
   const handleLinkOnFocus = ({ event }) => handleOnFocus(event);
 
-  const handleOnMouseEnter = event => {
+  const handleOnMouseEnter = (event) => {
     if (!disabled && onMouseEnter) {
       onMouseEnter({ event });
     }
@@ -165,7 +165,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
 
   const handleLinkOnMouseEnter = ({ event }) => handleOnMouseEnter(event);
 
-  const handleOnMouseLeave = event => {
+  const handleOnMouseLeave = (event) => {
     if (!disabled && onMouseLeave) {
       onMouseLeave({ event });
     }
@@ -215,9 +215,9 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
-      onContextMenu={event => event.preventDefault()}
+      onContextMenu={(event) => event.preventDefault()}
       onClick={handleClick}
-      onBlur={event => {
+      onBlur={(event) => {
         handleOnBlur(event);
         handleBlur();
       }}
@@ -226,7 +226,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       onMouseLeave={handleOnMouseLeave}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onKeyPress={event => {
+      onKeyPress={(event) => {
         // Check to see if space or enter were pressed
         if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
           // Prevent the default action to stop scrolling when space is pressed

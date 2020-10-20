@@ -136,7 +136,7 @@ const alignSelf: Functor<AlignSelf> = mapping({
   // default: auto
 });
 const bottom: Functor<boolean> = toggle(layout.bottom0);
-const borderStyle: Functor<BorderStyle> = value => {
+const borderStyle: Functor<BorderStyle> = (value) => {
   const borderProps =
     value === 'sm' || value === 'lg'
       ? [
@@ -183,7 +183,7 @@ const flex: Functor<Flex> = mapping({
   none: layout.flexNone,
   // default: shrink
 });
-const height: Functor<Dimension> = h => fromInlineStyle({ height: h });
+const height: Functor<Dimension> = (h) => fromInlineStyle({ height: h });
 const justifyContent: Functor<JustifyContent> = mapping({
   end: layout.justifyEnd,
   center: layout.justifyCenter,
@@ -198,9 +198,9 @@ const left: Functor<boolean> = toggle(layout.left0);
 
 type MarginFunctorType = Functor<Margin>;
 
-const transformNumberOrPassthrough = (
-  selector: string
-): MarginFunctorType => m => {
+const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (
+  m
+) => {
   if (typeof m === 'number') {
     return bind(rangeWithZero(selector), whitespace)(m);
   }
@@ -316,12 +316,12 @@ const lgMargin: MarginFunctorType = union(
 
 /* ***************************************** */
 
-const maxHeight: Functor<Dimension> = d => fromInlineStyle({ maxHeight: d });
-const maxWidth: Functor<Dimension> = d => fromInlineStyle({ maxWidth: d });
-const minHeight: Functor<Dimension> = d => fromInlineStyle({ minHeight: d });
-const minWidth: Functor<Dimension> = d => fromInlineStyle({ minWidth: d });
-const opacityMap = mapClassName(name => styles[name]);
-const opacity: Functor<Opacity> = val => {
+const maxHeight: Functor<Dimension> = (d) => fromInlineStyle({ maxHeight: d });
+const maxWidth: Functor<Dimension> = (d) => fromInlineStyle({ maxWidth: d });
+const minHeight: Functor<Dimension> = (d) => fromInlineStyle({ minHeight: d });
+const minWidth: Functor<Dimension> = (d) => fromInlineStyle({ minWidth: d });
+const opacityMap = mapClassName((name) => styles[name]);
+const opacity: Functor<Opacity> = (val) => {
   if (val > 0 && val < 1) {
     return opacityMap(range('opacity0')(val * 10));
   }
@@ -389,13 +389,15 @@ const userSelect: Functor<UserSelect> = mapping({
   none: styles.userSelectNone,
   // default: auto
 });
-const width: Functor<Dimension> = w => fromInlineStyle({ width: w });
+const width: Functor<Dimension> = (w) => fromInlineStyle({ width: w });
 const wrap: Functor<boolean> = toggle(layout.flexWrap);
-const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = value => {
+const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (
+  value
+) => {
   // eslint-disable-next-line no-underscore-dangle
   return value && value.__style ? fromInlineStyle(value.__style) : identity();
 };
-const zIndex: Functor<?Indexable> = value => {
+const zIndex: Functor<?Indexable> = (value) => {
   if (!value) {
     return identity();
   }

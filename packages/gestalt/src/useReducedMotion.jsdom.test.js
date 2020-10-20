@@ -11,7 +11,7 @@ const mediaqueryDefaults = {
 
 describe('useReducedMotion', () => {
   test('returns true if "Reduced Motion" is enabled', () => {
-    window.matchMedia = jest.fn().mockImplementation(query => {
+    window.matchMedia = jest.fn().mockImplementation((query) => {
       return {
         ...mediaqueryDefaults,
         matches: true,
@@ -24,7 +24,7 @@ describe('useReducedMotion', () => {
   });
 
   test('returns false if "Reduced Motion" is disabled', () => {
-    window.matchMedia = jest.fn().mockImplementation(query => {
+    window.matchMedia = jest.fn().mockImplementation((query) => {
       return {
         ...mediaqueryDefaults,
         media: query,
@@ -37,7 +37,7 @@ describe('useReducedMotion', () => {
 
   test('handles change of "prefers-reduce-motion" media query value', () => {
     let change;
-    window.matchMedia = jest.fn().mockImplementation(query => {
+    window.matchMedia = jest.fn().mockImplementation((query) => {
       return {
         ...mediaqueryDefaults,
         matches: false,

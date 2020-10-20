@@ -9,13 +9,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let touchableLocalIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const touchableSpecifier = decl.specifiers.find(
-      node => node.imported.name === 'Touchable'
+      (node) => node.imported.name === 'Touchable'
     );
 
     if (!touchableSpecifier) {
@@ -27,9 +27,9 @@ export default function transformer(file, api) {
 
     const newSpecifiers = [
       // Strip out Touchable import
-      ...decl.specifiers.filter(node => node.imported.name !== 'Touchable'),
+      ...decl.specifiers.filter((node) => node.imported.name !== 'Touchable'),
       // Only add the new TapArea import if it is not already imported
-      decl.specifiers.every(node => node.imported.name !== 'TapArea') &&
+      decl.specifiers.every((node) => node.imported.name !== 'TapArea') &&
         j.importSpecifier(j.identifier('TapArea')),
     ].filter(Boolean);
 
@@ -52,7 +52,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== touchableLocalIdentifierName) {
@@ -60,7 +60,7 @@ export default function transformer(file, api) {
       }
 
       node.openingElement.attributes = node.openingElement.attributes.map(
-        attr => {
+        (attr) => {
           const attribute = attr;
           if (attribute.name && attribute.name.name === 'onTouch') {
             attribute.name.name = 'onTap';

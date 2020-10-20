@@ -12,7 +12,7 @@ describe('convert-font-weight', () => {
     'convert-font-weight-false',
     'convert-font-weight-spread',
     'convert-font-weight-static',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(__dirname, 'convert-font-weight', { quote: 'single' }, test);
   });
 });

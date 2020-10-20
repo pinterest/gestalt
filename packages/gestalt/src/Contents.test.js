@@ -64,7 +64,7 @@ describe('Contents', () => {
   describe('Main Direction chosen correctly', () => {
     it('Chooses the main direction as idealDirection when it fits on screen', () => {
       const triggerRect = centerTriggerRect();
-      idealDirections.forEach(idealDir => {
+      idealDirections.forEach((idealDir) => {
         const mainDir = getMainDir(
           flyoutSize,
           idealDir,
@@ -77,7 +77,7 @@ describe('Contents', () => {
 
     it('Opens down when the trigger is too close to the top of screen', () => {
       const triggerRect = centerTriggerRect({ bottom: 40, top: 0 });
-      idealDirections.forEach(idealDir => {
+      idealDirections.forEach((idealDir) => {
         const mainDir = getMainDir(
           flyoutSize,
           idealDir,
@@ -93,7 +93,7 @@ describe('Contents', () => {
         bottom: windowSize.height,
         top: windowSize.height - 40,
       });
-      idealDirections.forEach(idealDir => {
+      idealDirections.forEach((idealDir) => {
         const mainDir = getMainDir(
           flyoutSize,
           idealDir,
@@ -114,7 +114,7 @@ describe('Contents', () => {
   describe('Sub direction chosen correctly', () => {
     it('Chooses the middle as sub direction when it fits on the screen', () => {
       const triggerRect = centerTriggerRect();
-      idealDirections.forEach(idealDir => {
+      idealDirections.forEach((idealDir) => {
         const subDir = getSubDir(flyoutSize, idealDir, triggerRect, windowSize);
         expect(subDir).toEqual('middle');
       });

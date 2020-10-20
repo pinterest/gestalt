@@ -7,7 +7,7 @@ import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -95,7 +95,7 @@ function Example() {
 
 card(
   <Combination id="size" name="Size" size={['xs', 'sm', 'md', 'lg', 'xl']}>
-    {props => (
+    {(props) => (
       <IconButton
         accessibilityLabel={`Size ${props.color}`}
         icon="angled-pin"
@@ -112,7 +112,7 @@ card(
     size={['xs', 'sm', 'md', 'lg', 'xl']}
     padding={[1, 2, 3, 4, 5]}
   >
-    {props => (
+    {(props) => (
       <IconButton
         accessibilityLabel={`Size ${props.color}`}
         bgColor="red"
@@ -138,7 +138,7 @@ card(
     ]}
     layout="4column"
   >
-    {props => (
+    {(props) => (
       <IconButton
         accessibilityLabel={`Background Color ${props.color}`}
         icon="angled-pin"
@@ -154,7 +154,7 @@ card(
     name="Icon Color"
     iconColor={['darkGray', 'gray', 'red', 'white']}
   >
-    {props => (
+    {(props) => (
       <IconButton
         icon="angled-pin"
         accessibilityLabel={`Icon Color ${props.color}`}

@@ -10,16 +10,16 @@ export default function transformer(file, api) {
   let boxLocalIdentifierName;
   let touchableLocalIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const boxSpecifier = decl.specifiers.find(
-      node => node.imported.name === 'Box'
+      (node) => node.imported.name === 'Box'
     );
     const touchableSpecifier = decl.specifiers.find(
-      node => node.imported.name === 'Touchable'
+      (node) => node.imported.name === 'Touchable'
     );
     if (!(boxSpecifier || touchableSpecifier)) {
       return;
@@ -33,7 +33,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (
@@ -44,7 +44,7 @@ export default function transformer(file, api) {
       }
 
       const hasShape = node.openingElement.attributes.find(
-        attr => attr.name && attr.name.name === 'shape'
+        (attr) => attr.name && attr.name.name === 'shape'
       );
 
       if (!hasShape) {
@@ -52,7 +52,7 @@ export default function transformer(file, api) {
       }
 
       node.openingElement.attributes = node.openingElement.attributes
-        .map(attr => {
+        .map((attr) => {
           if (
             attr.name &&
             attr.name.name === 'shape' &&

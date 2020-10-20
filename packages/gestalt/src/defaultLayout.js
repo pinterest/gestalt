@@ -8,7 +8,7 @@ export type Position = {|
   height: number,
 |};
 
-const mindex = arr => {
+const mindex = (arr) => {
   let idx = 0;
   for (let i = 0; i < arr.length; i += 1) {
     if (arr[i] < arr[idx]) {

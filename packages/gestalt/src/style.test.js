@@ -38,7 +38,7 @@ test('concat', () => {
 
 test('mapClassName', () => {
   const style = fromClassName('a', 'b', 'c');
-  expect(mapClassName(s => s.toUpperCase())(style)).toEqual(
+  expect(mapClassName((s) => s.toUpperCase())(style)).toEqual(
     fromClassName('A', 'B', 'C')
   );
 });

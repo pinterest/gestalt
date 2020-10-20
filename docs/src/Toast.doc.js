@@ -7,7 +7,7 @@ import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -260,7 +260,7 @@ card(
     ]}
     button={[null, <Button key="button-key" inline text="Undo" size="lg" />]}
   >
-    {props => <Toast {...props} />}
+    {(props) => <Toast {...props} />}
   </Combination>
 );
 
@@ -272,7 +272,7 @@ card(
     showValues={false}
     thumbnailShape={['circle', 'rectangle', 'square']}
   >
-    {props => (
+    {(props) => (
       <Toast
         {...props}
         thumbnail={

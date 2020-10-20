@@ -15,7 +15,7 @@ const colors = [
   'orange',
 ];
 
-colors.forEach(color => {
+colors.forEach((color) => {
   console.log(
     `
 /* ${color} */

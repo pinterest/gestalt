@@ -18,14 +18,14 @@ export default function Card(props: Props): Node {
   const [hovered, setHovered] = useState(false);
   const { active, children, image, onMouseEnter, onMouseLeave } = props;
 
-  const handleMouseEnter = event => {
+  const handleMouseEnter = (event) => {
     setHovered(true);
     if (onMouseEnter) {
       onMouseEnter({ event });
     }
   };
 
-  const handleMouseLeave = event => {
+  const handleMouseLeave = (event) => {
     setHovered(false);
     if (onMouseLeave) {
       onMouseLeave({ event });

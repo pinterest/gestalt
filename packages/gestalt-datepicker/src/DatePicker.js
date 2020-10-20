@@ -101,7 +101,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
     left: 'left',
   };
 
-  const updateNextRef = submitted => {
+  const updateNextRef = (submitted) => {
     if (
       (rangeSelector === 'start' && !rangeEndDate) ||
       (rangeSelector === 'end' && !rangeStartDate)
@@ -153,7 +153,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
           onChange({ event, value });
           updateNextRef(event.type === 'click');
         }}
-        onKeyDown={event => updateNextRef(event.key === 'Enter')}
+        onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
         onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
         placeholderText={placeholder || format?.toUpperCase() || 'MM/DD/YYYY'}
         popperClassName={classnames(
@@ -169,7 +169,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<
             size={16}
           />
         }
-        ref={refElement => {
+        ref={(refElement) => {
           if (!innerRef || !refElement) {
             return null;
           }
