@@ -1,3 +1,9 @@
+## 14.17.0 (Oct 20, 2020)
+
+### Minor
+
+- Layer: fix issue with Flyout when zIndex gets set (#1265)
+
 ## 14.16.0 (Oct 20, 2020)
 
 ### Minor
