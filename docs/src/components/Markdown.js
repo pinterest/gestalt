@@ -5,8 +5,7 @@ import marked, { Renderer } from 'marked';
 import highlightjs from 'highlight.js';
 import './Markdown.css';
 import 'highlight.js/styles/a11y-light.css';
-
-const sidebarIndex = require('./sidebarIndex.js');
+import sidebarIndex from './sidebarIndex.js';
 
 type Props = {|
   text: string,
@@ -48,7 +47,7 @@ const makePullRequestLink = listitem => {
 };
 
 const formatComponentName = listitem => {
-  const currentComponents = sidebarIndex.default.reduce(
+  const currentComponents = sidebarIndex.reduce(
     (acc, currentValue) => [...acc, ...currentValue.pages],
     []
   );
