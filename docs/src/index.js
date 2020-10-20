@@ -29,7 +29,7 @@ if (container instanceof Element) {
             <Route
               exact
               path="/"
-              render={() => <Redirect to="/Installation" />}
+              render={() => <Redirect to="/What's New" />}
             />
             {sidebarIndex.map(section => mapRoutes(section.pages))}
           </Switch>

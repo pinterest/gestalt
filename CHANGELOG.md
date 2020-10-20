@@ -134,7 +134,7 @@
 
 ### Minor
 
-- Sheet: Add subHeading prop [Depends on #1236] (#1242)
+- Sheet: Add subHeading prop [Depends on #1236](#1242)
 
 ## 14.7.0 (Oct 5, 2020)
 
@@ -200,7 +200,7 @@
 
 ### Minor
 
-- Video: add `objectFill`  as a prop (#1227)
+- Video: add `objectFill` as a prop (#1227)
 
 ## 14.2.4 (Sep 22, 2020)
 
@@ -278,13 +278,13 @@
 
 ### Minor
 
-- Row, Stack: Update `children` type (#1216)
+- Row/Stack: Update `children` type (#1216)
 
 ## 13.8.0 (Sep 16, 2020)
 
 ### Minor
 
-- Row, Stack: Second attempt to re-implement for better `gap` (#1214)
+- Row/Stack: Second attempt to re-implement for better `gap` (#1214)
 
 ## 13.7.0 (Sep 15, 2020)
 
@@ -296,7 +296,7 @@
 
 ### Minor
 
-- Row, Stack: Re-implement for better `gap` (#1193)
+- Row/Stack: Re-implement for better `gap` (#1193)
 
 ## 13.5.1 (Sep 15, 2020)
 
@@ -326,7 +326,7 @@
 
 ### Minor
 
-- Table.Header: fix stacking context on sticky header (#1209)
+- Table: fix stacking context on sticky Table.Header (#1209)
 
 ## 13.2.0 (Sep 11, 2020)
 
@@ -470,7 +470,7 @@
 
 ### Minor
 
-- Link: added accessibilityLabel / Docs: implemented support to Arrays in description  (#1180)
+- Link: added accessibilityLabel / Docs: implemented support to Arrays in description (#1180)
 
 ## 12.1.0 (Aug 31, 2020)
 
@@ -614,7 +614,7 @@
 
 ### Minor
 
-- SelecList: fix Flowtype (#1151)
+- SelectList: fix Flowtype (#1151)
 
 ## 11.20.3 (Aug 17, 2020)
 
@@ -734,7 +734,7 @@
 
 ### Patch
 
-- ZIndexClass: Fix source url (#1125)
+- ZIndexClasses: Fix source url (#1125)
 
 ## 11.12.2 (Aug 5, 2020)
 
@@ -842,7 +842,7 @@
 
 ### Patch
 
-- Internal: Refactored imports from namespacing * to explicit Default Exports and Named Values Importing (#1103)
+- Internal: Refactored imports from namespacing \* to explicit Default Exports and Named Values Importing (#1103)
 
 ## 11.5.2 (Aug 3, 2020)
 
@@ -920,7 +920,7 @@
 
 ### Minor
 
-- Typeahead: Refactor to show all options when there's a defaultValue, renamed defaultItem + removed searchField prop, fix forwardedRef + test coverage, add example to Docs,  (#1067)
+- Typeahead: Refactor to show all options when there's a defaultValue, renamed defaultItem + removed searchField prop, fix forwardedRef + test coverage, add example to Docs, (#1067)
 
 ## 11.1.2 (Jul 30, 2020)
 
@@ -992,7 +992,7 @@
 
 ### Minor
 
-- Video: Fix failing CORS access and preventing playback  (#1077)
+- Video: Fix failing CORS access and preventing playback (#1077)
 
 ## 9.0.0 (Jul 24, 2020)
 
@@ -2544,7 +2544,7 @@ Run codemods for breaking changes in order:
 
 ## 0.96.0 (May 6, 2019)
 
-## Minor
+### Minor
 
 - Icon: add calendar icon to gestalt (#512)
 - Icon: add lightning bolt icon (#513)

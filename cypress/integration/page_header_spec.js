@@ -3,11 +3,11 @@ describe('Page Headers', () => {
     cy.visit('/');
   });
 
-  it('Loads the installation page', () => {
+  it("Loads the What's New page", () => {
     cy.get('.docSearch-content h1')
       .invoke('text')
       .invoke('trim')
-      .should('equal', 'Installation');
+      .should('include', "What's New");
   });
 
   it('navigates to the development page', () => {
