@@ -1,0 +1,4 @@
+.layer {
+  composes: absolute top0 left0 from "./Layout.css";
+  width: 100%;
+}

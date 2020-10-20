@@ -2,6 +2,7 @@
 import { useRef, useState, type Portal, type Node, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { type Indexable } from './zIndex.js';
+import styles from './Layer.css';
 
 export default function Layer({
   children,
@@ -19,7 +20,7 @@ export default function Layer({
     if (typeof document !== 'undefined' && document.createElement) {
       element.current = document.createElement('div');
       element.current.style.zIndex = zIndex ? `${zIndex.index()}` : '';
-      element.current.style.position = zIndex ? 'absolute' : '';
+      element.current.className = zIndex ? styles.layer : '';
     }
 
     if (typeof document !== 'undefined' && document.body && element.current) {
