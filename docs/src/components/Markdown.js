@@ -72,7 +72,10 @@ const formatComponentName = listitem => {
 export default function Markdown({ text, type }: Props): Node {
   const renderer = new Renderer();
   renderer.heading = (input, level) => {
-    const escapedText = input.toLowerCase().replace(/[^\w]+/g, '-');
+    const escapedText = input
+      .toLowerCase()
+      .replace(/[^\w]+/g, '-')
+      .replace(/[-]+$/gm, '');
 
     return `
       <h${level}>
