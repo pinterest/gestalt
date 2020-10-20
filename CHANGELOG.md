@@ -1,3 +1,9 @@
+## 14.16.0 (Oct 20, 2020)
+
+### Minor
+
+- Module: Add Module.Expandable component (#1253)
+
 ## 14.15.0 (Oct 16, 2020)
 
 ### Minor
