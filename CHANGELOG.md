@@ -1,3 +1,9 @@
+## 14.18.0 (Oct 20, 2020)
+
+### Minor
+
+- ActivationCard: Add shadow border and polish docs (#1266)
+
 ## 14.17.0 (Oct 20, 2020)
 
 ### Minor
