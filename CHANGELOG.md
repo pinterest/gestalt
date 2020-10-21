@@ -1,3 +1,9 @@
+## 14.20.0 (Oct 21, 2020)
+
+### Minor
+
+- Internal: Upgrade prettier to 2.x version (#1267)
+
 ## 14.19.0 (Oct 20, 2020)
 
 ### Minor
