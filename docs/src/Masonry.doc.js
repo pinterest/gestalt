@@ -6,7 +6,7 @@ import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -96,7 +96,7 @@ class ExampleMasonry extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    getPins().then(startPins => {
+    getPins().then((startPins) => {
       this.setState({
         pins: startPins,
       });
@@ -132,7 +132,7 @@ class ExampleMasonry extends React.Component<Props, State> {
           style={inputStyle}
         />
         <div
-          ref={el => {
+          ref={(el) => {
             this.scrollContainer = el;
           }}
           style={containerStyle}
@@ -158,7 +158,7 @@ class ExampleMasonry extends React.Component<Props, State> {
               // $FlowIssue[incompatible-type]
               layout={this.props.layout}
               minCols={1}
-              ref={ref => {
+              ref={(ref) => {
                 this.grid = ref;
               }}
               scrollContainer={() => scrollContainer}

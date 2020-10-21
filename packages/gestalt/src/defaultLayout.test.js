@@ -120,7 +120,7 @@ test('justify', () => {
   const measurements = { a: 100, b: 120, c: 80, d: 100 };
   const items = ['a', 'b', 'c', 'd'];
 
-  const makeLayout = justify =>
+  const makeLayout = (justify) =>
     defaultLayout({
       cache: stubCache(measurements),
       columnWidth: 100,

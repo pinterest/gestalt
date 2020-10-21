@@ -7,7 +7,7 @@ jest.mock('../leading-text-remove', () => {
 });
 
 describe('leading-text-remove', () => {
-  ['leading-text-remove'].forEach(test => {
+  ['leading-text-remove'].forEach((test) => {
     defineTest(__dirname, 'leading-text-remove', { quote: 'single' }, test);
   });
 });

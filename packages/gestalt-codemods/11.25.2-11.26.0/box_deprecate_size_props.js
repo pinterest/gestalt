@@ -19,15 +19,15 @@ export default function transformer(file, api) {
   let localIdentifierName;
   let fileHasModifications = false;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return null;
     }
 
     localIdentifierName = decl.specifiers
-      .filter(node => node.imported.name === 'Box')
-      .map(node => node.local.name);
+      .filter((node) => node.imported.name === 'Box')
+      .map((node) => node.local.name);
     return null;
   });
 
@@ -37,7 +37,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(jsxElement => {
+    .forEach((jsxElement) => {
       const { node } = jsxElement;
 
       if (!localIdentifierName.includes(node.openingElement.name.name)) {
@@ -46,7 +46,7 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
 
-      if (attrs.some(attr => attr.type === 'JSXSpreadAttribute')) {
+      if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
           `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
         );
@@ -58,12 +58,14 @@ export default function transformer(file, api) {
         return j.jsxIdentifier(
           attr.name.name === 'xs'
             ? property.key.name
-            : `${attr.name.name}${property.key.name.charAt(0).toUpperCase() +
-                property.key.name.slice(1)}`
+            : `${attr.name.name}${
+                property.key.name.charAt(0).toUpperCase() +
+                property.key.name.slice(1)
+              }`
         );
       };
 
-      const buildValue = property => {
+      const buildValue = (property) => {
         if (typeof property.value.value === 'string') {
           return j.literal(property.value.value);
         }
@@ -107,7 +109,7 @@ export default function transformer(file, api) {
       };
 
       const newAttrs = attrs
-        .map(attr => {
+        .map((attr) => {
           if (
             attr?.name?.name &&
             ['xs', 'sm', 'md', 'lg'].includes(attr.name.name)
@@ -120,14 +122,14 @@ export default function transformer(file, api) {
                 `Replace deprecated ${attr.name.name} prop manually. Location: ${file.path} @line: ${node.loc.start.line}`
               );
             }
-            attr.value.expression.properties.forEach(property => {
+            attr.value.expression.properties.forEach((property) => {
               if (property.value.type !== 'Literal') {
                 throw new Error(
                   `Replace deprecated ${attr.name.name} prop manually. Location: ${file.path} @line: ${node.loc.start.line}`
                 );
               }
               const newAttribute = buildAttribute(attr, property);
-              const pushAttr = atr =>
+              const pushAttr = (atr) =>
                 Array.isArray(atr)
                   ? newAppendAttr.push(...atr)
                   : newAppendAttr.push(atr);

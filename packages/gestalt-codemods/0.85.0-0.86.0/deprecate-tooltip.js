@@ -19,25 +19,25 @@ export default function transformer(file, api) {
   const src = j(file.source);
 
   // Fix all the imports
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
 
     // If Tooltip is not used, skip the file
-    if (!decl.specifiers.some(node => node.imported.name === 'Tooltip')) {
+    if (!decl.specifiers.some((node) => node.imported.name === 'Tooltip')) {
       return;
     }
 
     const newSpecifiers = [
       // Strip out Tooltip import
-      ...decl.specifiers.filter(node => node.imported.name !== 'Tooltip'),
+      ...decl.specifiers.filter((node) => node.imported.name !== 'Tooltip'),
       // Only add the new Flyout import if it is not already imported
-      decl.specifiers.every(node => node.imported.name !== 'Flyout') &&
+      decl.specifiers.every((node) => node.imported.name !== 'Flyout') &&
         j.importSpecifier(j.identifier('Flyout')),
       // Only add the new Box import if it is not already imported
-      decl.specifiers.every(node => node.imported.name !== 'Box') &&
+      decl.specifiers.every((node) => node.imported.name !== 'Box') &&
         j.importSpecifier(j.identifier('Box')),
     ].filter(Boolean);
 
@@ -52,7 +52,7 @@ export default function transformer(file, api) {
   });
 
   // Fix all the components
-  src.find(j.JSXElement).forEach(path => {
+  src.find(j.JSXElement).forEach((path) => {
     const { node } = path;
 
     if (node.openingElement.name.name !== 'Tooltip') {
@@ -62,7 +62,7 @@ export default function transformer(file, api) {
     const { attributes } = node.openingElement;
 
     const hasSizeAttribute = attributes.some(
-      attribute => attribute.name.name === 'size'
+      (attribute) => attribute.name.name === 'size'
     );
 
     // Inject the old props with new props to mimic the Tooltip

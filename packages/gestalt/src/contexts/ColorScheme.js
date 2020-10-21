@@ -108,9 +108,9 @@ const darkModeTheme = {
 
 const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 
-const themeToStyles = theme => {
+const themeToStyles = (theme) => {
   let styles = '';
-  Object.keys(theme).forEach(key => {
+  Object.keys(theme).forEach((key) => {
     if (key.startsWith('color')) {
       styles += `  --g-${key}: ${theme[key]};\n`;
     }
@@ -135,7 +135,7 @@ export function ColorSchemeProvider({
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
-  const handlePrefChange = e => {
+  const handlePrefChange = (e) => {
     setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
   useEffect(() => {

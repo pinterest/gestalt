@@ -46,7 +46,7 @@ export default function ModuleExpandable({
                 type={type}
                 accessibilityExpandLabel={accessibilityExpandLabel}
                 accessibilityCollapseLabel={accessibilityCollapseLabel}
-                onModuleClicked={isExpanded =>
+                onModuleClicked={(isExpanded) =>
                   setExpandedId(isExpanded ? -1 : index)
                 }
               >

@@ -18,7 +18,7 @@ describe('convert-roundedX', () => {
     'convert-touchable-roundedX-right',
     'convert-touchable-roundedX-top',
     'convert-touchable-roundedX-circle',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(__dirname, 'convert-roundedX', { quote: 'single' }, test);
   });
 });

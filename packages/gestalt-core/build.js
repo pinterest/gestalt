@@ -98,7 +98,7 @@ const cssModules = (options = {}) => {
       };
 
       let transformResult;
-      const process = postcssParser.process(code, opts).then(result => {
+      const process = postcssParser.process(code, opts).then((result) => {
         // Set CSS for specific file
         cssCache[id] = result.css;
 
@@ -119,7 +119,7 @@ const cssModules = (options = {}) => {
       };
       cssnano
         .process(Object.values(cssCache).join(''), { from: undefined }, opts)
-        .then(result => {
+        .then((result) => {
           const filename = `${options.output}.css`;
           writeFileSync(filename, result.css);
         });
@@ -127,7 +127,7 @@ const cssModules = (options = {}) => {
   };
 };
 
-const plugins = name => [
+const plugins = (name) => [
   cssModules({
     output: `../${name}/dist/${name}`,
   }),

@@ -52,10 +52,9 @@ export const concat = (styles: Array<Style>): Style =>
     identity()
   );
 
-export const mapClassName = (fn: (x: string) => string): (Style => Style) => ({
-  className,
-  inlineStyle,
-}: Style): Style => ({
+export const mapClassName = (
+  fn: (x: string) => string
+): ((Style) => Style) => ({ className, inlineStyle }: Style): Style => ({
   className: new Set(Array.from(className).map(fn)),
   inlineStyle,
 });
@@ -69,9 +68,7 @@ export const toProps = ({ className, inlineStyle }: Style): ToPropsOutput => {
     // Sorting here ensures that classNames are always stable, reducing diff
     // churn. Box usually has a small number of properties so it's not a perf
     // concern.
-    props.className = Array.from(className)
-      .sort()
-      .join(' ');
+    props.className = Array.from(className).sort().join(' ');
   }
 
   if (Object.keys(inlineStyle).length > 0) {

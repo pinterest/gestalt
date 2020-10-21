@@ -170,46 +170,46 @@ const InternalLinkWithForwardRef: AbstractComponent<
       className={className}
       href={disabled ? undefined : href}
       id={id}
-      onContextMenu={isTapArea ? event => event.preventDefault() : null}
-      onBlur={event => {
+      onContextMenu={isTapArea ? (event) => event.preventDefault() : null}
+      onBlur={(event) => {
         if (onBlur) {
           onBlur({ event });
         }
         handleBlur();
       }}
-      onClick={event => {
+      onClick={(event) => {
         if (onClick) {
           onClick({ event });
         }
       }}
-      onFocus={event => {
+      onFocus={(event) => {
         if (onFocus) {
           onFocus({ event });
         }
       }}
-      onMouseEnter={event => {
+      onMouseEnter={(event) => {
         if (onMouseEnter) {
           onMouseEnter({ event });
         }
       }}
-      onMouseLeave={event => {
+      onMouseLeave={(event) => {
         if (onMouseLeave) {
           onMouseLeave({ event });
         }
       }}
-      onMouseDown={event => {
+      onMouseDown={(event) => {
         if (onMouseDown) {
           onMouseDown({ event });
         }
         handleMouseDown();
       }}
-      onMouseUp={event => {
+      onMouseUp={(event) => {
         if (onMouseUp) {
           onMouseUp({ event });
         }
         handleMouseUp();
       }}
-      onKeyPress={event => {
+      onKeyPress={(event) => {
         // Check to see if space or enter were pressed
         if (onClick && keyPressShouldTriggerTap(event)) {
           // Prevent the default action to stop scrolling when space is pressed

@@ -3,13 +3,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifier;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'pinterest-gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node =>
+      (node) =>
         node.imported.name === 'IconButton' || node.imported.name === 'Button'
     );
     if (!specifier) {
@@ -37,7 +37,7 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== localIdentifier.name) {
@@ -54,7 +54,7 @@ export default function transformer(file, api) {
           attributes.splice(index, 1);
 
           // Convert `aria.hasPopup` & `aria.expanded` to `aria-haspopup` & `aria-expanded`
-          attr.value.expression.properties.forEach(property => {
+          attr.value.expression.properties.forEach((property) => {
             if (
               property.key.name === 'haspopup' ||
               property.key.name === 'expanded'

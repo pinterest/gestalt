@@ -3,13 +3,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifier;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node => node.imported.name === 'Image'
+      (node) => node.imported.name === 'Image'
     );
     if (!specifier) {
       return;
@@ -19,7 +19,7 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== localIdentifier.name) {
@@ -29,12 +29,12 @@ export default function transformer(file, api) {
       const attrs = node.openingElement.attributes;
       if (
         !attrs.some(
-          attr => attr.name.name === 'width' || attr.name.name === 'height'
+          (attr) => attr.name.name === 'width' || attr.name.name === 'height'
         )
       ) {
         return;
       }
-      node.openingElement.attributes = attrs.map(attr => {
+      node.openingElement.attributes = attrs.map((attr) => {
         const attribute = attr;
         if (attribute.name.name === 'width') {
           attribute.name.name = 'naturalWidth';

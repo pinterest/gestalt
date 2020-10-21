@@ -13,7 +13,7 @@ describe('heading-size-replace', () => {
     'heading-size-replace-md',
     'heading-size-replace-lg',
     'heading-size-replace-xl',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(__dirname, 'heading-size-replace', { quote: 'single' }, test);
   });
 });

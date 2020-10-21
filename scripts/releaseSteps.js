@@ -49,7 +49,7 @@ async function bumpPackageVersion() {
   // - 'minor release'
   // - 'major release'
   const types = ['patch', 'minor', 'major'];
-  const releaseType = types.find(type =>
+  const releaseType = types.find((type) =>
     (process.env.LABELS || '').toLowerCase().includes(`${type} release`)
   );
 

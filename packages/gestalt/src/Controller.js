@@ -126,14 +126,14 @@ export default class Controller extends Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  handleKeyDown: (event: {| keyCode: number |}) => void = event => {
+  handleKeyDown: (event: {| keyCode: number |}) => void = (event) => {
     const { onDismiss } = this.props;
     if (event.keyCode === ESCAPE) {
       onDismiss();
     }
   };
 
-  handlePageClick: (event: Event) => void = event => {
+  handlePageClick: (event: Event) => void = (event) => {
     const { anchor, onDismiss } = this.props;
     if (event.target instanceof Node && !anchor.contains(event.target)) {
       onDismiss();
@@ -144,7 +144,7 @@ export default class Controller extends Component<Props, State> {
     this.updateTriggerRect(this.props);
   };
 
-  updateTriggerRect: Props => void = ({
+  updateTriggerRect: (Props) => void = ({
     anchor,
     positionRelativeToAnchor,
   }: Props) => {

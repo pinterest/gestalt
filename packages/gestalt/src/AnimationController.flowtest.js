@@ -4,7 +4,7 @@ import AnimationController from './AnimationController.js';
 
 const Valid = (
   <AnimationController onDismissEnd={() => {}}>
-    {onDismissStart => <section />}
+    {(onDismissStart) => <section />}
   </AnimationController>
 );
 

@@ -7,7 +7,7 @@ import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -40,7 +40,7 @@ card(
     focused={[false, true]}
     active={[false, true]}
   >
-    {props => <Pog icon="heart" {...props} />}
+    {(props) => <Pog icon="heart" {...props} />}
   </Combination>
 );
 
@@ -50,7 +50,7 @@ card(
     name="Combinations: Size with default padding"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
-    {props => <Pog icon="heart" {...props} />}
+    {(props) => <Pog icon="heart" {...props} />}
   </Combination>
 );
 
@@ -61,7 +61,7 @@ card(
     size={['xs', 'sm', 'md', 'lg', 'xl']}
     padding={[1, 2, 3, 4, 5]}
   >
-    {props => <Pog icon="heart" {...props} />}
+    {(props) => <Pog icon="heart" {...props} />}
   </Combination>
 );
 
@@ -71,7 +71,7 @@ card(
     name="Combinations: Icon Color"
     iconColor={['darkGray', 'gray', 'red', 'white']}
   >
-    {props => <Pog icon="heart" {...props} />}
+    {(props) => <Pog icon="heart" {...props} />}
   </Combination>
 );
 
@@ -88,7 +88,7 @@ card(
       'gray',
     ]}
   >
-    {props => <Pog icon="heart" {...props} />}
+    {(props) => <Pog icon="heart" {...props} />}
   </Combination>
 );
 

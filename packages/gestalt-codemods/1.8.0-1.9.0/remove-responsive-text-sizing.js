@@ -10,7 +10,7 @@ export default function transformer(file, api) {
   let localIdentifierName;
   let fileHasModifications = false;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return null;
@@ -18,10 +18,10 @@ export default function transformer(file, api) {
 
     localIdentifierName = decl.specifiers
       .filter(
-        node =>
+        (node) =>
           node.imported.name === 'Text' || node.imported.name === 'Heading'
       )
-      .map(node => node.local.name); // Save Alias for Gestalt Text / Heading
+      .map((node) => node.local.name); // Save Alias for Gestalt Text / Heading
     return null;
   });
 
@@ -31,7 +31,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(jsxElement => {
+    .forEach((jsxElement) => {
       const { node } = jsxElement;
       const oldSizes = {};
 
@@ -41,14 +41,14 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
 
-      if (attrs.some(attr => attr.type === 'JSXSpreadAttribute')) {
+      if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
           `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
         );
       }
 
       const newAttrs = attrs
-        .map(attr => {
+        .map((attr) => {
           if (
             !attr?.name?.name ||
             !['size', 'smSize', 'mdSize', 'lgSize'].includes(attr?.name?.name)

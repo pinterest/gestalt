@@ -3,13 +3,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifier;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'pinterest-gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node => node.imported.name === 'Text'
+      (node) => node.imported.name === 'Text'
     );
     if (!specifier) {
       return;
@@ -23,14 +23,14 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
       if (node.openingElement.name.name !== localIdentifier.name) {
         return;
       }
 
       node.openingElement.attributes = node.openingElement.attributes.map(
-        attr => {
+        (attr) => {
           if (
             attr.name.name === 'overflow' &&
             attr.value.value === 'break-word'

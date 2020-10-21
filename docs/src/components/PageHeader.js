@@ -11,14 +11,14 @@ type Props = {|
   showSourceLink?: boolean,
 |};
 
-const gestaltPath = component => {
+const gestaltPath = (component) => {
   if (component === 'DatePicker') {
     return `packages/gestalt-datepicker/src/${component}.js`;
   }
   return `packages/gestalt/src/${component}.js`;
 };
 
-const githubUrl = component =>
+const githubUrl = (component) =>
   [
     'https://github.com/pinterest/gestalt/blob/master',
     gestaltPath(component),

@@ -10,7 +10,7 @@ jest.mock('../box-border-size-replace-border-style', () => {
 });
 
 describe('box-border-size-replace-border-style', () => {
-  ['box-border-size-replace-border-style'].forEach(test => {
+  ['box-border-size-replace-border-style'].forEach((test) => {
     defineTest(
       __dirname,
       'box-border-size-replace-border-style',

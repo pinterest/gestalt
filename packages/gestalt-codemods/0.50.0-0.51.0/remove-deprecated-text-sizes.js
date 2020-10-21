@@ -9,13 +9,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node => node.imported.name === 'Text'
+      (node) => node.imported.name === 'Text'
     );
     if (!specifier) {
       return;
@@ -25,7 +25,7 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== localIdentifierName) {
@@ -34,13 +34,13 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
 
-      if (attrs.some(attr => attr.type === 'JSXSpreadAttribute')) {
+      if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
           `Dynamic Text properties encountered at ${file.path}:${node.loc.start.line.line}`
         );
       }
 
-      node.openingElement.attributes = attrs.map(attr => {
+      node.openingElement.attributes = attrs.map((attr) => {
         if (
           attr &&
           attr.name &&

@@ -9,13 +9,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node => node.imported.name === 'Card'
+      (node) => node.imported.name === 'Card'
     );
     if (!specifier) {
       return;
@@ -25,7 +25,7 @@ export default function transformer(file, api) {
 
   return src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== localIdentifierName) {
@@ -34,7 +34,7 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
       const index = attrs.findIndex(
-        attr => attr.name.name === 'accessibilityLabel'
+        (attr) => attr.name.name === 'accessibilityLabel'
       );
 
       if (index !== -1) {

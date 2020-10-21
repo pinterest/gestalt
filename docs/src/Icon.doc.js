@@ -7,7 +7,7 @@ import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 const icons: Array<string> = Icon?.icons ?? [];
 
@@ -40,7 +40,7 @@ card(
 
 card(
   <Combination id="iconCombinations" name="Icon Combinations" icon={icons}>
-    {props => (
+    {(props) => (
       <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
     )}
   </Combination>
@@ -78,7 +78,7 @@ card(
       },
       {
         name: 'icon',
-        type: icons.map(name => `'${name}'`).join(' | '),
+        type: icons.map((name) => `'${name}'`).join(' | '),
         description: `This allows us to type check for a valid icon name based on the keys from the list of icons shown below.`,
         href: 'iconCombinations',
       },

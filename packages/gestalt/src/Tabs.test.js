@@ -16,7 +16,7 @@ describe('<Tabs />', () => {
         onChange={() => {}}
       />
     ).root;
-    const links = instance.findAll(element => element.type === 'a');
+    const links = instance.findAll((element) => element.type === 'a');
     expect(links && links[0].props['aria-selected']).toEqual(true);
     expect(links && links[1].props['aria-selected']).toEqual(false);
     expect(links && links[2].props['aria-selected']).toEqual(false);
@@ -34,7 +34,7 @@ describe('<Tabs />', () => {
       />
     ).root;
 
-    const links = instance.findAll(element => element.type === 'a');
+    const links = instance.findAll((element) => element.type === 'a');
     expect(links && links[0].props.id).toEqual('news-tab');
     expect(links && links[1].props.id).toBeUndefined();
   });

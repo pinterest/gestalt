@@ -9,13 +9,13 @@ export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
   let localIdentifierName;
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node => node.imported.name === 'Toast'
+      (node) => node.imported.name === 'Toast'
     );
     if (!specifier) {
       return;
@@ -27,18 +27,18 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
       if (node.openingElement.name.name !== localIdentifierName) {
         return;
       }
 
       const hasColorAttribute = node.openingElement.attributes.find(
-        attr => attr.name && attr.name.name === 'color'
+        (attr) => attr.name && attr.name.name === 'color'
       );
 
       const hasIconAttribute = node.openingElement.attributes.find(
-        attr => attr.name && attr.name.name === 'icon'
+        (attr) => attr.name && attr.name.name === 'icon'
       );
 
       if (!hasColorAttribute && !hasIconAttribute) {
@@ -46,7 +46,7 @@ export default function transformer(file, api) {
       }
 
       node.openingElement.attributes = node.openingElement.attributes
-        .map(attr => {
+        .map((attr) => {
           if (
             attr.name &&
             (attr.name.name === 'color' || attr.name.name === 'icon')

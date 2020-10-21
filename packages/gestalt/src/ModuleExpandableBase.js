@@ -15,7 +15,7 @@ type Props = {|
   accessibilityCollapseLabel: string,
   summary?: Array<string>,
   isCollapsed: boolean,
-  onModuleClicked: boolean => void,
+  onModuleClicked: (boolean) => void,
   type?: 'error' | 'info',
   children?: Node,
 |};

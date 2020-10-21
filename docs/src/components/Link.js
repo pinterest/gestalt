@@ -12,7 +12,7 @@ type Props = {|
   to: string,
 |};
 
-const isModifiedEvent = event =>
+const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
 const Link = ({

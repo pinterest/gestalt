@@ -1,7 +1,7 @@
 // @flow strict
 
 export default function experiments() {
-  const changed = danger.git.modified_files.some(file =>
+  const changed = danger.git.modified_files.some((file) =>
     file.match(/masonry/i)
   );
   if (changed) {

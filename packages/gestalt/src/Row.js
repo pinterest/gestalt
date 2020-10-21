@@ -64,7 +64,7 @@ export default function Row({
         width={width}
         {...rest}
       >
-        {Children.map(children, child =>
+        {Children.map(children, (child) =>
           child !== null && child !== undefined ? (
             <Box paddingX={gap}>{child}</Box>
           ) : null

@@ -9,13 +9,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let gestaltProviderLocalIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const gestaltProviderSpecifier = decl.specifiers.find(
-      node => node.imported.name === 'GestaltProvider'
+      (node) => node.imported.name === 'GestaltProvider'
     );
 
     if (!gestaltProviderSpecifier) {
@@ -28,10 +28,10 @@ export default function transformer(file, api) {
     const newSpecifiers = [
       // Strip out GestaltProvider import
       ...decl.specifiers.filter(
-        node => node.imported.name !== 'GestaltProvider'
+        (node) => node.imported.name !== 'GestaltProvider'
       ),
       // Only add the new Provider import if it is not already imported
-      decl.specifiers.every(node => node.imported.name !== 'Provider') &&
+      decl.specifiers.every((node) => node.imported.name !== 'Provider') &&
         j.importSpecifier(j.identifier('Provider')),
     ].filter(Boolean);
 
@@ -54,7 +54,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (

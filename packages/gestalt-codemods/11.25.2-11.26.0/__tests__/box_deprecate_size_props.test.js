@@ -7,7 +7,7 @@ jest.mock('../box_deprecate_size_props', () => {
 });
 
 describe('box_deprecate_size_props', () => {
-  ['box_deprecate_size_props'].forEach(test => {
+  ['box_deprecate_size_props'].forEach((test) => {
     defineTest(
       __dirname,
       'box_deprecate_size_props',

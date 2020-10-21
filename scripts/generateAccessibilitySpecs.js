@@ -10,7 +10,7 @@ async function generate() {
   );
 
   await Promise.all(
-    pages.map(async page => {
+    pages.map(async (page) => {
       return await fs.promises.writeFile(
         `./cypress/integration/accessibility_${page}_spec.js`,
         `describe('${page} Accessibility check', () => {

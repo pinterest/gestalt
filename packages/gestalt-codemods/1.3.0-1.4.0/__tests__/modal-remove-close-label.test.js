@@ -7,7 +7,7 @@ jest.mock('../modal-remove-close-label', () => {
 });
 
 describe('modal-remove-close-label', () => {
-  ['modal-remove-close-label'].forEach(test => {
+  ['modal-remove-close-label'].forEach((test) => {
     defineTest(
       __dirname,
       'modal-remove-close-label',

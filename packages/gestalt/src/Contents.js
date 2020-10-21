@@ -10,11 +10,12 @@ import { useColorScheme } from './contexts/ColorScheme.js';
 
 /* Needed until this Flow issue is fixed: https://github.com/facebook/flow/issues/380 */
 /* eslint quote-props: 0 */
+// prettier-ignore
 const SPACES_INDEX_MAP = {
   '0': 'up',
   '1': 'right',
   '2': 'down',
-  '3': 'left',
+  '3': 'left'
 };
 
 const DIR_INDEX_MAP = {

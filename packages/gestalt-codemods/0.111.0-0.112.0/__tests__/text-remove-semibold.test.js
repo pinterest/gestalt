@@ -12,7 +12,7 @@ describe('text-remove-semibold', () => {
     'text-remove-semibold-dynamic-semibold-first',
     'text-remove-semibold-dynamic-normal',
     'text-remove-semibold-static',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(__dirname, 'text-remove-semibold', { quote: 'single' }, test);
   });
 });

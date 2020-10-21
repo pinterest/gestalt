@@ -20,7 +20,7 @@ const stripIndent = (str: string): string => {
     return str;
   }
 
-  const indent = Math.min(...match.map(x => x.length));
+  const indent = Math.min(...match.map((x) => x.length));
 
   if (indent === 0) {
     return str;
@@ -30,7 +30,7 @@ const stripIndent = (str: string): string => {
   return str.replace(re, '');
 };
 
-const makePullRequestLink = listitem => {
+const makePullRequestLink = (listitem) => {
   const pullRequestNumRegex = /\(#\d*\)/g;
   let pullRequestNum = listitem.match(pullRequestNumRegex);
   if (pullRequestNum && pullRequestNum.length > 0) {
@@ -46,7 +46,7 @@ const makePullRequestLink = listitem => {
   return listitem;
 };
 
-const formatComponentName = listitem => {
+const formatComponentName = (listitem) => {
   const currentComponents = sidebarIndex.reduce(
     (acc, currentValue) => [...acc, ...currentValue.pages],
     []
@@ -54,7 +54,7 @@ const formatComponentName = listitem => {
   const namesAndUpdate = listitem.split(':', 2);
 
   if (namesAndUpdate.length > 1) {
-    const componentLinks = namesAndUpdate[0].replace(/\w+/gm, match => {
+    const componentLinks = namesAndUpdate[0].replace(/\w+/gm, (match) => {
       if (currentComponents.includes(match)) {
         return `<a href="https://gestalt.netlify.app/${match}">${match}</a>`;
       }
@@ -91,7 +91,7 @@ export default function Markdown({ text, type }: Props): Node {
   };
 
   if (type === 'changelog') {
-    renderer.listitem = listitem =>
+    renderer.listitem = (listitem) =>
       `<li>${makePullRequestLink(formatComponentName(listitem))}</li>`;
   }
 

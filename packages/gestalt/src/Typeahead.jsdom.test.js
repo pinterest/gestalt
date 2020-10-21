@@ -6,7 +6,7 @@ import Typeahead from './Typeahead.js';
 
 const TOTAL_OPTIONS = 10;
 
-const FAKE_OPTIONS = Array.from(Array(TOTAL_OPTIONS).keys()).map(item => ({
+const FAKE_OPTIONS = Array.from(Array(TOTAL_OPTIONS).keys()).map((item) => ({
   value: `value-${item}`,
   label: `label-${item}`,
 }));
@@ -104,7 +104,7 @@ describe('Typeahead', () => {
       selectOption.click();
     });
 
-    const selectedOption = FAKE_OPTIONS.find(option =>
+    const selectedOption = FAKE_OPTIONS.find((option) =>
       option.label.includes('6')
     );
     expect(onSelectMock).toHaveBeenCalledWith(

@@ -5,7 +5,7 @@ import Markdown from './components/Markdown.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 function Changelog() {
   const [changelogData, setChangelogData] = React.useState(

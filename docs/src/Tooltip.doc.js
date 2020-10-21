@@ -5,7 +5,7 @@ import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader

@@ -26,11 +26,11 @@ export default function transformer(file, api) {
         name: locals.nodes()[0].local.name,
       },
     })
-    .replaceWith(path => {
+    .replaceWith((path) => {
       const { node } = path;
       const { attributes } = node;
 
-      if (attributes.some(attr => attr.type === 'JSXSpreadAttribute')) {
+      if (attributes.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
           `Dynamic Touchable properties encountered at ${file.path}:${node.loc.start.line}`
         );

@@ -31,11 +31,11 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     seeking: false,
   };
 
-  setPlayheadRef: (ref: ?HTMLDivElement) => void = ref => {
+  setPlayheadRef: (ref: ?HTMLDivElement) => void = (ref) => {
     this.playhead = ref;
   };
 
-  seek: (clientX: number) => void = clientX => {
+  seek: (clientX: number) => void = (clientX) => {
     if (this.playhead) {
       const { duration, seek } = this.props;
       const { left, width } = this.playhead.getBoundingClientRect();
@@ -45,12 +45,12 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = event =>
+  stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) =>
     event.stopPropagation();
 
-  handleMouseDown: (
-    event: SyntheticMouseEvent<HTMLDivElement>
-  ) => void = event => {
+  handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
+    event
+  ) => {
     event.preventDefault();
     const { onPlayheadDown } = this.props;
     onPlayheadDown(event);
@@ -58,9 +58,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     this.seek(event.clientX);
   };
 
-  handleMouseLeave: (
-    event: SyntheticMouseEvent<HTMLDivElement>
-  ) => void = event => {
+  handleMouseLeave: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
+    event
+  ) => {
     const { onPlayheadUp } = this.props;
     const { seeking } = this.state;
     // If the user is seeking and mouse leaves playhead then end the seek
@@ -70,9 +70,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseMove: (
-    event: SyntheticMouseEvent<HTMLDivElement>
-  ) => void = event => {
+  handleMouseMove: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
+    event
+  ) => {
     event.preventDefault();
     const { seeking } = this.state;
     if (seeking) {
@@ -80,9 +80,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseUp: (
-    event: SyntheticMouseEvent<HTMLDivElement>
-  ) => void = event => {
+  handleMouseUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
+    event
+  ) => {
     const { onPlayheadUp } = this.props;
     this.setState({ seeking: false });
     onPlayheadUp(event);

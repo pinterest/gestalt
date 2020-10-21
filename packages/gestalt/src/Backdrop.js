@@ -18,7 +18,7 @@ function Backdrop({
   closeOnOutsideClick,
   onClick,
 }: Props): Node {
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (event.target !== event.currentTarget) {
       return;
     }

@@ -17,7 +17,7 @@ console.log(`Publishing version: ${version}`);
 // `yarn publish` publishes the package defined by the package.json in the current directory.
 const packages = ['gestalt', 'gestalt-datepicker'];
 
-packages.forEach(packageName => {
+packages.forEach((packageName) => {
   shell.cd(path.join(__dirname, '..', 'packages', packageName));
   shell.exec(
     `yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${version}`

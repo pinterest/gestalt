@@ -81,7 +81,7 @@ const avatarLayout = (n, size) => {
   }
 };
 
-const degToRad = deg => deg * (Math.PI / 180);
+const degToRad = (deg) => deg * (Math.PI / 180);
 
 const DefaultAvatar = (props: {|
   size: string | number,

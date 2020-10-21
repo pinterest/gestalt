@@ -14,7 +14,7 @@ describe('avatar-update-sizes-remove-icon', () => {
     'avatar-update-sizes-remove-icon-avatar',
     'avatar-update-sizes-remove-icon-icon',
     'avatar-update-sizes-remove-icon-groupavatar',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(
       __dirname,
       'avatar-update-sizes-remove-icon',

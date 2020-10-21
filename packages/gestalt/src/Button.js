@@ -195,7 +195,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     </Text>
   );
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (onClick) {
       onClick({ event });
     }

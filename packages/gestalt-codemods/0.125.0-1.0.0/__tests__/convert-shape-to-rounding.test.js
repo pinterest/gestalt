@@ -21,7 +21,7 @@ describe('convert-shape-to-rounding', () => {
     'convert-touchable-shape-to-rounding-pill',
     'convert-touchable-shape-to-rounding-rounded',
     'convert-touchable-shape-to-rounding-square',
-  ].forEach(test => {
+  ].forEach((test) => {
     defineTest(
       __dirname,
       'convert-shape-to-rounding',

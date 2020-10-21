@@ -6,7 +6,7 @@ export default function useTracking(trackingId: string) {
   const { listen } = useHistory();
 
   useEffect(() => {
-    const unlisten = listen(location => {
+    const unlisten = listen((location) => {
       if (!window.gtag) return;
 
       window.gtag('config', trackingId, {

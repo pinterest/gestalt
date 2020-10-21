@@ -2,7 +2,7 @@
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import LZString from 'lz-string';
 
-const compress = object =>
+const compress = (object) =>
   LZString.compressToBase64(JSON.stringify(object))
     .replace(/\+/g, '-') // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
@@ -30,19 +30,19 @@ const handleCodeSandbox = async ({
   const additionalGestaltComponents = ['DatePicker'];
 
   const usedComponents = dedupeArray([
-    ...(code.match(/<((\w+))/g) || []).map(component =>
+    ...(code.match(/<((\w+))/g) || []).map((component) =>
       component.replace('<', '')
     ),
     ...(
       code.match(/(new FixedZIndex)|(new CompositeZIndex)/g) || []
-    ).map(component => component.replace('new ', '')),
+    ).map((component) => component.replace('new ', '')),
   ]);
 
-  const baseComponents = gestaltComponents.filter(x =>
+  const baseComponents = gestaltComponents.filter((x) =>
     usedComponents.includes(x)
   );
 
-  const additionalComponents = additionalGestaltComponents.filter(x =>
+  const additionalComponents = additionalGestaltComponents.filter((x) =>
     usedComponents.includes(x)
   );
 
@@ -118,7 +118,7 @@ ${exportDefaultMaybe({ code })}`,
       mode: 'cors',
     }
   )
-    .then(response => response.json())
+    .then((response) => response.json())
     .then(({ errors, sandbox_id: id }) => {
       if (errors) throw errors;
       return `https://codesandbox.io/s/${id}?module=/example.js`;

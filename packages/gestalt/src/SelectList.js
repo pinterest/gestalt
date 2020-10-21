@@ -52,7 +52,7 @@ export default function SelectList({
 
   const handleOnChange: (
     event: SyntheticInputEvent<HTMLSelectElement>
-  ) => void = event => {
+  ) => void = (event) => {
     if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
     }
@@ -122,7 +122,7 @@ export default function SelectList({
               {placeholder}
             </option>
           )}
-          {options.map(option => (
+          {options.map((option) => (
             <option
               key={option.value}
               value={option.value}

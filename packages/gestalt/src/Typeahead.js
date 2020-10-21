@@ -76,7 +76,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   // Utility function for filtering data by value
   const filterOriginalData = (filterValue: string): OptionObject[] =>
-    dataRef.current.filter(item =>
+    dataRef.current.filter((item) =>
       item.label.toLowerCase().includes(filterValue.toLowerCase())
     );
 
@@ -88,7 +88,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
     return (
       dataRef.current.find(
-        item => item.value.toLowerCase() === defaultValue.toLowerCase()
+        (item) => item.value.toLowerCase() === defaultValue.toLowerCase()
       ) || null
     );
   };
@@ -171,7 +171,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
   };
 
   let selectedElement;
-  const setOptionRef = optionRef => {
+  const setOptionRef = (optionRef) => {
     selectedElement = optionRef;
   };
 

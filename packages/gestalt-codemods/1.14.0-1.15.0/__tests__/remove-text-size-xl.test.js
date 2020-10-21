@@ -7,7 +7,7 @@ jest.mock('../remove-text-size-xl', () => {
 });
 
 describe('remove-text-size-xl', () => {
-  ['remove-text-size-xl-sm', 'remove-text-size-xl-xl'].forEach(test => {
+  ['remove-text-size-xl-sm', 'remove-text-size-xl-xl'].forEach((test) => {
     defineTest(__dirname, 'remove-text-size-xl', { quote: 'single' }, test);
   });
 });

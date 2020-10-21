@@ -59,7 +59,7 @@ const paddingAll = (gutter, positions) =>
     height: height - gutter,
   }));
 
-const mindex = arr =>
+const mindex = (arr) =>
   arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
 
 const columnsForCollageWithCover = (numOfColumns: Column) =>
@@ -124,7 +124,7 @@ function getCollageLayout({
   // existing columns over.
   if (cover) {
     const coverImageWidth = Math.ceil(numCols / 2) * (width / numCols);
-    positions = positions.map(position => ({
+    positions = positions.map((position) => ({
       ...position,
       left: coverImageWidth + position.left,
     }));

@@ -9,13 +9,13 @@ export default function transformer(file, api) {
   const src = j(file.source);
   let localIdentifierName;
 
-  src.find(j.ImportDeclaration).forEach(path => {
+  src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
     if (decl.source.value !== 'gestalt') {
       return;
     }
     const specifier = decl.specifiers.find(
-      node => node.imported.name === 'Text'
+      (node) => node.imported.name === 'Text'
     );
     if (!specifier) {
       return;
@@ -27,7 +27,7 @@ export default function transformer(file, api) {
 
   const transform = src
     .find(j.JSXElement)
-    .forEach(path => {
+    .forEach((path) => {
       const { node } = path;
 
       if (node.openingElement.name.name !== localIdentifierName) {
@@ -35,7 +35,7 @@ export default function transformer(file, api) {
       }
 
       const hasWeight = node.openingElement.attributes.find(
-        attr => attr.name && attr.name.name === 'weight'
+        (attr) => attr.name && attr.name.name === 'weight'
       );
 
       if (!hasWeight) {
@@ -43,7 +43,7 @@ export default function transformer(file, api) {
       }
 
       node.openingElement.attributes = node.openingElement.attributes
-        .map(attr => {
+        .map((attr) => {
           if (attr.name && attr.name.name === 'weight') {
             const isExpressionContainer =
               attr.value && attr.value.type === 'JSXExpressionContainer';

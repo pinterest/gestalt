@@ -67,7 +67,7 @@ const Td = ({
   </td>
 );
 
-const upcase = string => string.charAt(0).toUpperCase() + string.slice(1);
+const upcase = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
 export default function PropTable({
@@ -75,13 +75,13 @@ export default function PropTable({
   Component,
   showHeading,
 }: Props): Node {
-  const hasRequired = properties.some(prop => prop.required);
+  const hasRequired = properties.some((prop) => prop.required);
 
   if (process.env.NODE_ENV === 'development' && Component) {
     // $FlowIssue[prop-missing]
     const { displayName, propTypes } = Component; // eslint-disable-line react/forbid-foreign-prop-types
     const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
-      if (!properties.find(p => p.name === prop)) {
+      if (!properties.find((p) => p.name === prop)) {
         return acc.concat(prop);
       }
       return acc;

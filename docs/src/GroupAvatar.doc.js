@@ -7,7 +7,7 @@ import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -58,7 +58,7 @@ card(
     name="Size Combinations: 1 Person"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
-    {props => <GroupAvatar collaborators={[user1]} {...props} />}
+    {(props) => <GroupAvatar collaborators={[user1]} {...props} />}
   </Combination>
 );
 
@@ -67,7 +67,7 @@ card(
     name="Size Combinations: 2 People"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
-    {props => <GroupAvatar collaborators={[user1, user3]} {...props} />}
+    {(props) => <GroupAvatar collaborators={[user1, user3]} {...props} />}
   </Combination>
 );
 
@@ -76,7 +76,9 @@ card(
     name="Size Combinations: 3 People"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
-    {props => <GroupAvatar collaborators={[user1, user3, user2]} {...props} />}
+    {(props) => (
+      <GroupAvatar collaborators={[user1, user3, user2]} {...props} />
+    )}
   </Combination>
 );
 
@@ -85,9 +87,9 @@ card(
     name="Size Combinations: 1 Person (no pictures)"
     size={['sm', 'md', 'lg']}
   >
-    {props => (
+    {(props) => (
       <GroupAvatar
-        collaborators={[user1].map(collab => ({
+        collaborators={[user1].map((collab) => ({
           name: collab.name,
         }))}
         {...props}
@@ -101,9 +103,9 @@ card(
     name="Size Combinations: 3 People (no pictures)"
     size={['sm', 'md', 'lg']}
   >
-    {props => (
+    {(props) => (
       <GroupAvatar
-        collaborators={[user1, user3, user2].map(collab => ({
+        collaborators={[user1, user3, user2].map((collab) => ({
           name: collab.name,
         }))}
         {...props}
