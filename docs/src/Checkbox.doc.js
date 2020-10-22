@@ -327,6 +327,7 @@ card(
     disabled={[false, true]}
     indeterminate={[false, true]}
     size={['sm', 'md']}
+    hasCheckerboard={false}
   >
     {(props, i) => (
       <Checkbox
