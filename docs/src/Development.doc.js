@@ -6,7 +6,7 @@ import Markdown from './components/Markdown.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(<PageHeader name="Development" showSourceLink={false} />);
 
@@ -198,61 +198,72 @@ git checkout -b <feature-branch> upstream/master
         <li>
           <Text>Time to make changes to Gestalt!</Text>
         </li>
-        <li>
-          <Text>Update the documentation.</Text>
-        </li>
-        <li>
-          <Text>
-            Add unit tests &amp; accessibility integration tests for the change.
-          </Text>
-          <ul>
-            <li>
-              <Text>
-                <code>&lt;Component&gt;.test.js</code> files should be used to
-                test component rendering and for snapshot tests.
-              </Text>
-            </li>
-            <li>
-              <Text>
-                <code>&lt;Component&gt;.jsdom.test.js</code> files should be
-                used to test component interactions (such as click, keypress,
-                focus, etc) and client-side only tests. More info on{' '}
-                <Link
-                  inline
-                  href="https://testing-library.com/docs/react-testing-library/cheatsheet"
-                >
-                  <Text weight="bold">react-testing-library</Text>
-                </Link>
-                .
-              </Text>
-            </li>
-            <li>
-              <Text>
-                <code>&lt;Component&gt;.flowtest.js</code> files should be used
-                to test flow coverage.
-              </Text>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <Text>Run tests &amp; update snapshots.</Text>
-          <Markdown
-            text="
+        <ul>
+          <li>
+            <Text>Update the documentation.</Text>
+          </li>
+          <li>
+            <Text>
+              Add unit tests &amp; accessibility integration tests for the
+              change.
+            </Text>
+            <ul>
+              <li>
+                <Text>
+                  <code>&lt;Component&gt;.test.js</code> files should be used to
+                  test component rendering and for snapshot tests.
+                </Text>
+              </li>
+              <li>
+                <Text>
+                  <code>&lt;Component&gt;.jsdom.test.js</code> files should be
+                  used to test component interactions (such as click, keypress,
+                  focus, etc) and client-side only tests. More info on{' '}
+                  <Link
+                    inline
+                    href="https://testing-library.com/docs/react-testing-library/cheatsheet"
+                  >
+                    <Text weight="bold">react-testing-library</Text>
+                  </Link>
+                  .
+                </Text>
+              </li>
+              <li>
+                <Text>
+                  <code>&lt;Component&gt;.flowtest.js</code> files should be
+                  used to test flow coverage.
+                </Text>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <Text>Run tests &amp; update snapshots.</Text>
+            <Markdown
+              text="
 ~~~bash
 yarn jest -u
 ~~~"
-          />
-        </li>
-
-        <li>
-          <Text>Update CSS flow types.</Text>
-          <Markdown
-            text="
+            />
+          </li>
+          <li>
+            <Text>Update CSS flow types.</Text>
+            <Markdown
+              text="
 ~~~bash
 yarn run flow-generate:css
 ~~~"
-          />
-        </li>
+            />
+          </li>
+          <li>
+            <Text>
+              If you are introducing breaking changes, create a{' '}
+              <Link href="#codemods" inline>
+                <Text weight="bold">codemod</Text>
+              </Link>{' '}
+              to help users migrate between versions.
+            </Text>
+          </li>
+        </ul>
 
         <li>
           <Text>
@@ -320,6 +331,43 @@ card(
         title exactly reflect those changes.
       </Text>
 
+      <Heading id="codemods" size="sm">
+        Codemods
+      </Heading>
+      <Text>
+        When a release will cause breaking changes — in usage or in typing — we
+        provide a codemod to ease the upgrade process. Codemods are organized by
+        release number in{' '}
+        <Text inline italic>
+          /packages/gestalt-codemods
+        </Text>
+        . The name of the folder should reflect the resulting version number of
+        your PR.
+      </Text>
+      <Text>
+        Run the relevant codemod(s) in the relevant directory of your repo (not
+        the Gestalt repo): anywhere the component to be updated is used. Example
+        usage for a codebase using Flow:
+      </Text>
+      <Markdown
+        text="
+~~~jsx
+yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/code
+~~~
+"
+      />
+      <Text>
+        For a dry run to see what the changes will be, add the{' '}
+        <Text inline italic>
+          -d
+        </Text>{' '}
+        (dry run) and{' '}
+        <Text inline italic>
+          -p
+        </Text>{' '}
+        (print output) flags (pipe stdout to a file for easier inspection if you
+        like).
+      </Text>
       <Heading size="sm">Changes not allowed</Heading>
       <Text>Do not use the following CSS style properties:</Text>
 
