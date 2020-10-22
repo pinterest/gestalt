@@ -4,7 +4,6 @@ describe('Box Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
   it('Tests accessibility on the Box page', () => {
     cy.configureAxe({
       rules: [
