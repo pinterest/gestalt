@@ -22,7 +22,7 @@ import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
 type Props = {|
-  ariaLabelledBy?: string,
+  accessibilityLabelledBy?: string,
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
@@ -49,7 +49,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
   HTMLInputElement
 > = forwardRef<Props, HTMLInputElement>(function Checkbox(props, ref): Node {
   const {
-    ariaLabelledBy,
+    accessibilityLabelledBy,
     checked = false,
     disabled = false,
     errorMessage,
@@ -132,7 +132,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
         <Label htmlFor={id}>
           <Box paddingX={1} position="relative">
             <input
-              aria-labelledby={ariaLabelledBy}
+              aria-labelledby={accessibilityLabelledBy}
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
                 [styles.inputEnabled]: !disabled,
@@ -207,6 +207,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 CheckboxWithForwardRef.propTypes = {
+  accessibilityLabelledBy: PropTypes.string,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,

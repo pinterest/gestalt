@@ -12,7 +12,7 @@ import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
 type Props = {|
-  ariaLabelledBy?: string,
+  accessibilityLabelledBy?: string,
   checked?: boolean,
   disabled?: boolean,
   id: string,
@@ -33,7 +33,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
   HTMLInputElement
 > = forwardRef<Props, HTMLInputElement>(function RadioButton(props, ref): Node {
   const {
-    ariaLabelledBy,
+    accessibilityLabelledBy,
     checked = false,
     disabled = false,
     id,
@@ -108,7 +108,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
             )}
           >
             <input
-              aria-labelledby={ariaLabelledBy}
+              aria-labelledby={accessibilityLabelledBy}
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
                 [styles.InputEnabled]: !disabled,
@@ -154,7 +154,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 RadioButtonWithForwardRef.propTypes = {
-  ariaLabelledBy: PropTypes.string,
+  accessibilityLabelledBy: PropTypes.string,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,

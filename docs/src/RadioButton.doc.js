@@ -342,7 +342,7 @@ card(
         id={`example-${i}`}
         onChange={() => {}}
         value=""
-        ariaLabelledBy={`radio-button-combos-label-${i}`}
+        accessibilityLabelledBy={`radio-button-combos-label-${i}`}
         {...props}
       />
     )}
@@ -352,6 +352,12 @@ card(
 card(
   <PropTable
     props={[
+      {
+        name: 'accessibilityLabelledBy',
+        type: 'string',
+        description:
+          'Specify an ID of an element that acts as the label of the checkbox',
+      },
       {
         name: 'checked',
         type: 'boolean',

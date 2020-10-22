@@ -331,7 +331,7 @@ card(
     {(props, i) => (
       <Checkbox
         id={`example-${i}`}
-        ariaLabelledBy={`combinations-label-${i}`}
+        accessibilityLabelledBy={`combinations-label-${i}`}
         onChange={() => {}}
         {...props}
       />
@@ -342,6 +342,12 @@ card(
 card(
   <PropTable
     props={[
+      {
+        name: 'accessibilityLabelledBy',
+        type: 'string',
+        description:
+          'Specify an ID of an element that acts as the label of the checkbox',
+      },
       {
         name: 'checked',
         type: 'boolean',
