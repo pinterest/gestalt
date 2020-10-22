@@ -4,8 +4,7 @@ describe('Development Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the Development page', () => {
+  it('Tests accessibility on the Development page', () => {
     cy.configureAxe({
       rules: [
         {

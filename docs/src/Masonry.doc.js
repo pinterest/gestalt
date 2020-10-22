@@ -1,12 +1,19 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Masonry, Image, Text, MasonryUniformRowLayout } from 'gestalt';
+import {
+  Box,
+  Masonry,
+  Image,
+  Label,
+  Text,
+  MasonryUniformRowLayout,
+} from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -20,6 +27,7 @@ It contains performance optimizations like virtualization and support for infini
 
 type Props = {|
   flexible?: boolean,
+  id?: string,
   layout?: () => {||},
 |};
 
@@ -96,7 +104,7 @@ class ExampleMasonry extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    getPins().then((startPins) => {
+    getPins().then(startPins => {
       this.setState({
         pins: startPins,
       });
@@ -122,7 +130,11 @@ class ExampleMasonry extends React.Component<Props, State> {
     const { scrollContainer } = this;
     return (
       <div>
+        <Label htmlFor={`input-${this.props.id}`}>
+          <Text>Container Width</Text>
+        </Label>
         <input
+          id={`input-${this.props.id}`}
           type="range"
           defaultValue={700}
           onChange={this.updateWidth}
@@ -131,8 +143,10 @@ class ExampleMasonry extends React.Component<Props, State> {
           step={5}
           style={inputStyle}
         />
+
         <div
-          ref={(el) => {
+          tabIndex={0}
+          ref={el => {
             this.scrollContainer = el;
           }}
           style={containerStyle}
@@ -158,7 +172,7 @@ class ExampleMasonry extends React.Component<Props, State> {
               // $FlowIssue[incompatible-type]
               layout={this.props.layout}
               minCols={1}
-              ref={(ref) => {
+              ref={ref => {
                 this.grid = ref;
               }}
               scrollContainer={() => scrollContainer}
@@ -189,24 +203,24 @@ card(
 );
 
 card(
-  <Box
+  <Card
     description={`
     When the \`flexible\` property is set to true, the item width will shrink/grow to fill the container. This is great for responsive designs.
 
     ~~~jsx
     <Masonry flexible comp={Item} items={items} minCols={1} />
     ~~~
-  `}
+    `}
     name="Flexible item width"
   >
-    <ExampleMasonry flexible />
-  </Box>
+    <ExampleMasonry flexible id="flexible-width" />
+  </Card>
 );
 
 card(
-  <Box
+  <Card
     description={`
-    When the \`flexible\` property is ommitted, the item width will be fixed to \`columnWidth\`.
+    When the \`flexible\` property is omitted, the item width will be fixed to \`columnWidth\`.
 
     ~~~jsx
     <Masonry comp={Item} items={items} minCols={1} />
@@ -214,12 +228,12 @@ card(
   `}
     name="Non-flexible item width"
   >
-    <ExampleMasonry />
-  </Box>
+    <ExampleMasonry id="non-flexible-width" />
+  </Card>
 );
 
 card(
-  <Box
+  <Card
     description={`
     Using the \`MasonryUniformRowLayout\` layout.
 
@@ -231,8 +245,8 @@ card(
     name="Uniform row heights"
   >
     {/* $FlowIssue[prop-missing] */}
-    <ExampleMasonry layout={MasonryUniformRowLayout} />
-  </Box>
+    <ExampleMasonry layout={MasonryUniformRowLayout} id="uniform" />
+  </Card>
 );
 
 card(

@@ -5,7 +5,7 @@ import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -78,9 +78,7 @@ class FlyoutExample extends React.Component {
             top: 10,
             left: 10,
             pointerEvents: "none", }}>
-            <TapArea onTap={({ event }) => this.handleClick(event)} rounding="circle" fullWidth={false}>
               <Pulsar paused={this.state.open} />
-            </TapArea>
           </div>
           <Button
             accessibilityExpanded={!!this.state.open}

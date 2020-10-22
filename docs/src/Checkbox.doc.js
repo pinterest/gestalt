@@ -7,7 +7,7 @@ import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -168,7 +168,7 @@ function CheckboxExample() {
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedEn(checked);
@@ -181,7 +181,7 @@ function CheckboxExample() {
           id="blue"
           label="Blue"
           subtext="Typography and shoe in blue"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedSp(checked);
@@ -328,10 +328,10 @@ card(
     indeterminate={[false, true]}
     size={['sm', 'md']}
   >
-    {(props, i, label) => (
+    {(props, i) => (
       <Checkbox
         id={`example-${i}`}
-        label={label}
+        ariaLabelledBy={`combinations-label-${i}`}
         onChange={() => {}}
         {...props}
       />
@@ -372,6 +372,7 @@ card(
       {
         name: 'image',
         type: 'React.Node',
+        href: 'images',
         description:
           'An optional <Image/> component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
       },
@@ -417,6 +418,7 @@ a checkbox and its indeterminism are independent.`,
       {
         name: 'subtext',
         type: 'string',
+        href: 'subtext',
         description:
           'Optional description for the checkbox, used to provide more detail about an option',
       },

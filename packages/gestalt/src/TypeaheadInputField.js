@@ -33,7 +33,7 @@ type Props = {|
     DirectionOptionType
   ) => void,
   placeholder?: string,
-  setContainer: (boolean) => void,
+  setContainer: boolean => void,
   size?: 'md' | 'lg',
   value?: string,
 |};
@@ -170,7 +170,9 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
             right
           >
             <Icon
-              accessibilityLabel=""
+              accessibilityLabel={
+                !hasValue ? 'Show options' : 'Clear selection'
+              }
               color="darkGray"
               icon={!hasValue ? 'arrow-down' : 'cancel'}
               size={clearIconSize}

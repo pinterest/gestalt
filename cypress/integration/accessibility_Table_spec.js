@@ -4,12 +4,15 @@ describe('Table Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the Table page', () => {
+  it('Tests accessibility on the Table page', () => {
     cy.configureAxe({
       rules: [
         {
           id: 'color-contrast',
+          enabled: false,
+        },
+        {
+          id: 'scrollable-region-focusable',
           enabled: false,
         },
       ],

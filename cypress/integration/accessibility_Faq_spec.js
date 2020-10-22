@@ -4,8 +4,7 @@ describe('Faq Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the Faq page', () => {
+  it('Tests accessibility on the Faq page', () => {
     cy.configureAxe({
       rules: [
         {

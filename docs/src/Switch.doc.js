@@ -1,13 +1,13 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Switch } from 'gestalt';
+import { Box, Label, Switch, Text } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -54,10 +54,19 @@ card(
     id="switchCombinations"
     disabled={[false, true]}
     switched={[false, true]}
+    hasCheckerboard={false}
+    layout="4column"
   >
-    {(props, i) => (
-      <Switch id={`example-${i}`} onChange={() => {}} {...props} />
-    )}
+    {(props, i) => {
+      return (
+        <Box borderStyle="lg" padding={2}>
+          <Label htmlFor={`example-${i}`}>
+            <Text>{`Switch ${i + 1}`}</Text>
+          </Label>
+          <Switch id={`example-${i}`} onChange={() => {}} {...props} />
+        </Box>
+      );
+    }}
   </Combination>
 );
 

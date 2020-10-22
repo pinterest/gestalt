@@ -22,6 +22,7 @@ import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 
 type Props = {|
+  ariaLabelledBy?: string,
   checked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
@@ -48,6 +49,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
   HTMLInputElement
 > = forwardRef<Props, HTMLInputElement>(function Checkbox(props, ref): Node {
   const {
+    ariaLabelledBy,
     checked = false,
     disabled = false,
     errorMessage,
@@ -77,13 +79,13 @@ const CheckboxWithForwardRef: React$AbstractComponent<
     }
   }, [indeterminate]);
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     if (onChange) {
       onChange({ event, checked: event.target.checked });
     }
   };
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     if (onClick) {
       onClick({ event, checked: event.currentTarget.checked });
     }
@@ -130,6 +132,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
         <Label htmlFor={id}>
           <Box paddingX={1} position="relative">
             <input
+              aria-labelledby={ariaLabelledBy}
               checked={checked}
               className={classnames(controlStyles.input, styleSize, {
                 [styles.inputEnabled]: !disabled,

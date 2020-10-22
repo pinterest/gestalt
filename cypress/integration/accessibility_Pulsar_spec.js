@@ -4,8 +4,7 @@ describe('Pulsar Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the Pulsar page', () => {
+  it('Tests accessibility on the Pulsar page', () => {
     cy.configureAxe({
       rules: [
         {

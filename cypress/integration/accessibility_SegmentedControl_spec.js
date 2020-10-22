@@ -4,8 +4,7 @@ describe('SegmentedControl Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the SegmentedControl page', () => {
+  it('Tests accessibility on the SegmentedControl page', () => {
     cy.configureAxe({
       rules: [
         {

@@ -5,7 +5,7 @@ import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -22,7 +22,7 @@ function Example() {
   const STICKY_ZINDEX = new CompositeZIndex([BOX_ZINDEX]);
 
   return (
-    <Box color="white" height={200} overflow="scroll">
+    <Box color="white" height={200} overflow="scroll" tabIndex={0}>
       <Box height={500} marginTop={10}>
         <Box>
           <Sticky top={0}>

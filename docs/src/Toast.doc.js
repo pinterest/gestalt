@@ -7,7 +7,7 @@ import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 card(
   <PageHeader
@@ -229,7 +229,7 @@ function ToastExample() {
 
 card(
   <Combination
-    id="combinations"
+    id="combinations-overview"
     layout="12column"
     name="Combinations: Overview"
     showValues={false}
@@ -260,19 +260,19 @@ card(
     ]}
     button={[null, <Button key="button-key" inline text="Undo" size="lg" />]}
   >
-    {(props) => <Toast {...props} />}
+    {props => <Toast {...props} />}
   </Combination>
 );
 
 card(
   <Combination
-    id="combinations"
+    id="combinations-thumbnail"
     layout="12column"
     name="Combinations: Thumbnail shapes"
     showValues={false}
     thumbnailShape={['circle', 'rectangle', 'square']}
   >
-    {(props) => (
+    {props => (
       <Toast
         {...props}
         thumbnail={

@@ -8,7 +8,7 @@ import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
 const cards: Array<Node> = [];
-const card = (c) => cards.push(c);
+const card = c => cards.push(c);
 
 const marginProps = [
   { name: 'margin', description: 'Scale is in boints, where 1bt is 4px' },
@@ -28,7 +28,7 @@ const marginProps = [
 }));
 
 const absolutePositioningProps = ['left', 'right', 'top', 'bottom'].map(
-  (name) => ({
+  name => ({
     name,
     type: 'boolean',
     defaultValue: false,
@@ -36,7 +36,7 @@ const absolutePositioningProps = ['left', 'right', 'top', 'bottom'].map(
   })
 );
 
-const paddingProps = ['padding', 'paddingX', 'paddingY'].map((name) => ({
+const paddingProps = ['padding', 'paddingX', 'paddingY'].map(name => ({
   name,
   type: '0 .. 12',
   defaultValue: 0,
@@ -137,7 +137,7 @@ card(
     alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
     layout="4column"
   >
-    {(props) => (
+    {props => (
       <Box display="flex" width={96} {...props}>
         <Box margin={1} color="gray" height={8} width={8} />
         <Box margin={1} color="gray" height={16} width={8} />
@@ -360,12 +360,13 @@ card(
     name="Borders"
   >
     <Combination
+      id="border"
       hasCheckerboard={false}
       borderStyle={['sm', 'lg', 'shadow']}
       showHeading={false}
       layout="4column"
     >
-      {(props) => (
+      {props => (
         <Box
           width={60}
           height={60}
@@ -407,7 +408,7 @@ card(
       'darkWash',
     ]}
   >
-    {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
+    {props => <Box width={60} height={60} rounding="circle" {...props} />}
   </Combination>
 );
 
@@ -420,10 +421,11 @@ card(
     name="Rounding"
   >
     <Combination
+      id="rounding"
       rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}
       showHeading={false}
     >
-      {(props) => (
+      {props => (
         <Box
           color="gray"
           width={props.rounding === 'pill' ? 120 : 70}
@@ -444,10 +446,11 @@ card(
     name="Opacity"
   >
     <Combination
+      id="opacity"
       opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
       showHeading={false}
     >
-      {(props) => <Box color="darkGray" width={60} height={60} {...props} />}
+      {props => <Box color="darkGray" width={60} height={60} {...props} />}
     </Combination>
   </Card>
 );
