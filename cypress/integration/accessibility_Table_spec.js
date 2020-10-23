@@ -12,6 +12,7 @@ describe('Table Accessibility check', () => {
           enabled: false,
         },
         {
+          // Disabled to avoid confusion for sticky header example
           id: 'scrollable-region-focusable',
           enabled: false,
         },

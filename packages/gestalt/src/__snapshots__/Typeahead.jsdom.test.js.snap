@@ -53,8 +53,8 @@ exports[`Typeahead renders Typeahead normal 1`] = `
         }
       >
         <svg
-          aria-hidden={true}
-          aria-label=""
+          aria-hidden={null}
+          aria-label="Show options"
           className="icon darkGray iconBlock"
           height={10}
           role="img"
