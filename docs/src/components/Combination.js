@@ -117,7 +117,7 @@ export default function Combination({
             alignItems="center"
           >
             {showValues && (
-              <Box marginBottom={2} id={`${id}-label-${i}`}>
+              <Box marginBottom={2} id={`${id || ''}-label-${i}`}>
                 {Object.keys(combination).map((key) => (
                   <Text align="center" size="md" key={`${i}-${key}`}>
                     {toReactAttribute(key, combination[key])}
