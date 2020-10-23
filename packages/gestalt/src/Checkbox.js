@@ -79,13 +79,13 @@ const CheckboxWithForwardRef: React$AbstractComponent<
     }
   }, [indeterminate]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     if (onChange) {
       onChange({ event, checked: event.target.checked });
     }
   };
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (onClick) {
       onClick({ event, checked: event.currentTarget.checked });
     }

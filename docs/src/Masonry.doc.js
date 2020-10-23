@@ -13,7 +13,7 @@ import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
 
 const cards: Array<Node> = [];
-const card = c => cards.push(c);
+const card = (c) => cards.push(c);
 
 card(
   <PageHeader
@@ -104,7 +104,7 @@ class ExampleMasonry extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    getPins().then(startPins => {
+    getPins().then((startPins) => {
       this.setState({
         pins: startPins,
       });
@@ -130,11 +130,11 @@ class ExampleMasonry extends React.Component<Props, State> {
     const { scrollContainer } = this;
     return (
       <div>
-        <Label htmlFor={`input-${this.props.id}`}>
+        <Label htmlFor={`input-${this.props.id || ''}`}>
           <Text>Container Width</Text>
         </Label>
         <input
-          id={`input-${this.props.id}`}
+          id={`input-${this.props.id || ''}`}
           type="range"
           defaultValue={700}
           onChange={this.updateWidth}
@@ -145,8 +145,9 @@ class ExampleMasonry extends React.Component<Props, State> {
         />
 
         <div
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
-          ref={el => {
+          ref={(el) => {
             this.scrollContainer = el;
           }}
           style={containerStyle}
@@ -172,7 +173,7 @@ class ExampleMasonry extends React.Component<Props, State> {
               // $FlowIssue[incompatible-type]
               layout={this.props.layout}
               minCols={1}
-              ref={ref => {
+              ref={(ref) => {
                 this.grid = ref;
               }}
               scrollContainer={() => scrollContainer}

@@ -19,7 +19,7 @@ type Props = {
 };
 
 const flatMap = (arr, fn) => arr.map(fn).reduce((a, b) => a.concat(b));
-const combinations = variationsByField => {
+const combinations = (variationsByField) => {
   const fieldNames = Object.keys(variationsByField);
 
   if (!fieldNames.length) return [{}];
@@ -33,7 +33,7 @@ const combinations = variationsByField => {
       );
     }
 
-    const vs = variationsForField.map(fieldValue => ({
+    const vs = variationsForField.map((fieldValue) => ({
       ...acc,
       [fieldName]: fieldValue,
     }));
@@ -41,7 +41,7 @@ const combinations = variationsByField => {
     if (!restFieldNames.length) {
       return vs;
     }
-    return flatMap(vs, newAcc => combine(restFieldNames, newAcc));
+    return flatMap(vs, (newAcc) => combine(restFieldNames, newAcc));
   };
 
   return combine(fieldNames, {});
@@ -118,7 +118,7 @@ export default function Combination({
           >
             {showValues && (
               <Box marginBottom={2} id={`${id}-label-${i}`}>
-                {Object.keys(combination).map(key => (
+                {Object.keys(combination).map((key) => (
                   <Text align="center" size="md" key={`${i}-${key}`}>
                     {toReactAttribute(key, combination[key])}
                   </Text>

@@ -51,7 +51,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
 
   const handleChange: (
     event: SyntheticInputEvent<HTMLInputElement>
-  ) => mixed = event => onChange({ checked: event.target.checked, event });
+  ) => mixed = (event) => onChange({ checked: event.target.checked, event });
 
   const handleBlur: () => void = () => setFocused(false);
 
