@@ -1,3 +1,9 @@
+## 14.21.1 (Oct 26, 2020)
+
+### Patch
+
+- Docs: Update codemod folder names and add dev instructions (#1269)
+
 ## 14.21.0 (Oct 26, 2020)
 
 ### Minor
