@@ -234,7 +234,7 @@ function CheckboxExample() {
 
   return (
     <Row gap={2}>
-      <Label>
+      <Label htmlFor="emailNotifications">
         <Row gap={1}>
           <Switch
             onChange={() => {
@@ -321,21 +321,17 @@ function CheckboxFlyoutExample() {
 
 card(
   <Combination
-    id="combinations"
     checked={[false, true]}
-    hasError={[false, true]}
     disabled={[false, true]}
+    hasCheckerboard={false}
+    hasError={[false, true]}
+    id="combinations"
     indeterminate={[false, true]}
     size={['sm', 'md']}
-    hasCheckerboard={false}
+    useLabelForValues
   >
     {(props, i) => (
-      <Checkbox
-        id={`example-${i}`}
-        accessibilityLabelledBy={`combinations-label-${i}`}
-        onChange={() => {}}
-        {...props}
-      />
+      <Checkbox id={`example-${i}`} onChange={() => {}} {...props} />
     )}
   </Combination>
 );
@@ -343,12 +339,6 @@ card(
 card(
   <PropTable
     props={[
-      {
-        name: 'accessibilityLabelledBy',
-        type: 'string',
-        description:
-          'Specify an ID of an element that acts as the label of the checkbox',
-      },
       {
         name: 'checked',
         type: 'boolean',

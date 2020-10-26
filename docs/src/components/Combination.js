@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Text } from 'gestalt';
+import { Box, Label, Text } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
 import Card from './Card.js';
 
@@ -15,6 +15,7 @@ type Props = {
   showHeading?: boolean,
   showValues?: boolean,
   stacked?: boolean,
+  useLabelForValues?: boolean,
   ...
 };
 
@@ -92,6 +93,7 @@ export default function Combination({
   showHeading,
   showValues = true,
   stacked = false,
+  useLabelForValues = false,
   children,
   ...props
 }: Props): Node {
@@ -105,34 +107,41 @@ export default function Combination({
       showHeading={showHeading}
     >
       <Box display="flex" wrap>
-        {combinations(props).map((combination, i) => (
-          <Box
-            column={column}
-            mdColumn={mdColumn}
-            lgColumn={lgColumn}
-            key={i}
-            padding={4}
-            display="flex"
-            direction="column"
-            alignItems="center"
-          >
-            {showValues && (
-              <Box marginBottom={2} id={`${id || ''}-label-${i}`}>
-                {Object.keys(combination).map((key) => (
-                  <Text align="center" size="md" key={`${i}-${key}`}>
-                    {toReactAttribute(key, combination[key])}
-                  </Text>
-                ))}
+        {combinations(props).map((combination, i) => {
+          const combinationTitles = Object.keys(combination).map((key) => (
+            <Text align="center" size="md" key={`${i}-${key}`}>
+              {toReactAttribute(key, combination[key])}
+            </Text>
+          ));
+          return (
+            <Box
+              column={column}
+              mdColumn={mdColumn}
+              lgColumn={lgColumn}
+              key={i}
+              padding={4}
+              display="flex"
+              direction="column"
+              alignItems="center"
+            >
+              {showValues && (
+                <Box marginBottom={2}>
+                  {useLabelForValues ? (
+                    <Label htmlFor={`example-${i}`}>{combinationTitles}</Label>
+                  ) : (
+                    combinationTitles
+                  )}
+                </Box>
+              )}
+              <Box position="relative" padding={4}>
+                <Box position="absolute" top left bottom right>
+                  {hasCheckerboard && <Checkerboard />}
+                </Box>
+                <Box position="relative">{children(combination, i)}</Box>
               </Box>
-            )}
-            <Box position="relative" padding={4}>
-              <Box position="absolute" top left bottom right>
-                {hasCheckerboard && <Checkerboard />}
-              </Box>
-              <Box position="relative">{children(combination, i)}</Box>
             </Box>
-          </Box>
-        ))}
+          );
+        })}
       </Box>
     </Card>
   );

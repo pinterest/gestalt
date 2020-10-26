@@ -170,9 +170,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
             right
           >
             <Icon
-              accessibilityLabel={
-                !hasValue ? 'Show options' : 'Clear selection'
-              }
+              accessibilityLabel=""
               color="darkGray"
               icon={!hasValue ? 'arrow-down' : 'cancel'}
               size={clearIconSize}
