@@ -1,3 +1,9 @@
+## 14.21.0 (Oct 26, 2020)
+
+### Minor
+
+- Internal: improve package.json with repository / keywords + exports information (#1270)
+
 ## 14.20.0 (Oct 21, 2020)
 
 ### Minor
