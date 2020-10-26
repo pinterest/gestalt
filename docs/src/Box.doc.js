@@ -572,7 +572,7 @@ card(
         type: `"sm" | "lg" | "shadow" | "none"`,
         defaultValue: 'none',
         description:
-          'Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. Alternatively, "shadow" can be specifed to add a box shadow instead of a solid border',
+          'Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. Alternatively, "shadow" can be specified to add a box shadow instead of a solid border',
         href: 'border',
       },
       {
