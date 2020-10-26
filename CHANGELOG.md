@@ -1,3 +1,9 @@
+## 14.21.2 (Oct 26, 2020)
+
+### Patch
+
+- Internal: Add 'design system' to package.json keywords (#1271)
+
 ## 14.21.1 (Oct 26, 2020)
 
 ### Patch
