@@ -141,5 +141,9 @@
       "stylelint",
       "flow-generate:css && flow"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinterest/gestalt"
   }
 }

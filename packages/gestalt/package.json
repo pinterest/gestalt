@@ -8,6 +8,14 @@
   "jsnext:main": "dist/gestalt.es.js",
   "module": "dist/gestalt.es.js",
   "style": "dist/gestalt.css",
+  "exports": {
+    ".": {
+      "import": "./dist/gestalt.es.js"
+    },
+    "./css": {
+      "import": "./dist/gestalt.css"
+    }
+  },
   "files": [
     "dist",
     "src"
@@ -31,5 +39,15 @@
     "last 2 versions",
     "not IE < 11",
     "not <1%"
-  ]
+  ],
+  "keywords": [
+    "react",
+    "react component",
+    "pinterest",
+    "ui library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinterest/gestalt"
+  }
 }

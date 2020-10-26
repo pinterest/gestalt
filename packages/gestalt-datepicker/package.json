@@ -8,6 +8,14 @@
   "jsnext:main": "dist/gestalt-datepicker.es.js",
   "module": "dist/gestalt-datepicker.es.js",
   "style": "dist/gestalt-datepicker.css",
+  "exports": {
+    ".": {
+      "import": "./dist/gestalt-datepicker.es.js"
+    },
+    "./css": {
+      "import": "./dist/gestalt-datepicker.css"
+    }
+  },
   "files": [
     "dist",
     "src"
@@ -31,5 +39,16 @@
     "last 2 versions",
     "not IE < 11",
     "not <1%"
-  ]
+  ],
+  "keywords": [
+    "react",
+    "react component",
+    "pinterest",
+    "ui library",
+    "datepicker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinterest/gestalt"
+  }
 }
