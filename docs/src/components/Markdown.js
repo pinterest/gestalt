@@ -82,7 +82,7 @@ export default function Markdown({ text, type }: Props): Node {
         ${
           level === 2
             ? `
-              <a id="${escapedText}" class="anchor" href="#${escapedText}">
+              <a id="${escapedText}" class="anchor" href="#${escapedText}" aria-label="Version ${escapedText} - Anchor Tag">
                 <span class="header-link" />
               </a>`
             : ''
