@@ -1,3 +1,9 @@
+## 14.21.4 (Oct 27, 2020)
+
+### Patch
+
+- Docs: Enable accessibility tests for most pages (#1268)
+
 ## 14.21.3 (Oct 27, 2020)
 
 ### Patch
