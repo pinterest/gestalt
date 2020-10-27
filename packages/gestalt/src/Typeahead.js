@@ -143,7 +143,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     // Filter the available options using original data
     const updatedOptions = filterOriginalData(value);
 
-    // Update the avalble options
+    // Update the available options
     setAvailableOptions(updatedOptions);
 
     // Update the search value
@@ -180,7 +180,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
   const handleScrolling = (direction: number) => {
     const container = containerRef.current;
 
-    // Based on keyboard navigation we get the next or previuos option
+    // Based on keyboard navigation we get the next or previous option
     // When we reach the start or end of the list, move to the start or end of the list based on the direction
     const nextOption =
       direction > 0

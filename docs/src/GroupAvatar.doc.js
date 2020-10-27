@@ -55,6 +55,7 @@ card(
 
 card(
   <Combination
+    id="1-person"
     name="Size Combinations: 1 Person"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
@@ -64,6 +65,7 @@ card(
 
 card(
   <Combination
+    id="2-people"
     name="Size Combinations: 2 People"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
@@ -73,6 +75,7 @@ card(
 
 card(
   <Combination
+    id="3-people"
     name="Size Combinations: 3 People"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
@@ -84,6 +87,7 @@ card(
 
 card(
   <Combination
+    id="no-pictures"
     name="Size Combinations: 1 Person (no pictures)"
     size={['sm', 'md', 'lg']}
   >
@@ -100,6 +104,7 @@ card(
 
 card(
   <Combination
+    id="3-no-pictures"
     name="Size Combinations: 3 People (no pictures)"
     size={['sm', 'md', 'lg']}
   >

@@ -229,7 +229,7 @@ function ToastExample() {
 
 card(
   <Combination
-    id="combinations"
+    id="combinations-overview"
     layout="12column"
     name="Combinations: Overview"
     showValues={false}
@@ -266,7 +266,7 @@ card(
 
 card(
   <Combination
-    id="combinations"
+    id="combinations-thumbnail"
     layout="12column"
     name="Combinations: Thumbnail shapes"
     showValues={false}

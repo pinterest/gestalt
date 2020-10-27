@@ -197,73 +197,74 @@ git checkout -b <feature-branch> upstream/master
         </li>
         <li>
           <Text>Time to make changes to Gestalt!</Text>
-        </li>
-        <ul>
-          <li>
-            <Text>Update the documentation.</Text>
-          </li>
-          <li>
-            <Text>
-              Add unit tests &amp; accessibility integration tests for the
-              change.
-            </Text>
-            <ul>
-              <li>
-                <Text>
-                  <code>&lt;Component&gt;.test.js</code> files should be used to
-                  test component rendering and for snapshot tests.
-                </Text>
-              </li>
-              <li>
-                <Text>
-                  <code>&lt;Component&gt;.jsdom.test.js</code> files should be
-                  used to test component interactions (such as click, keypress,
-                  focus, etc) and client-side only tests. More info on{' '}
-                  <Link
-                    inline
-                    href="https://testing-library.com/docs/react-testing-library/cheatsheet"
-                  >
-                    <Text weight="bold">react-testing-library</Text>
-                  </Link>
-                  .
-                </Text>
-              </li>
-              <li>
-                <Text>
-                  <code>&lt;Component&gt;.flowtest.js</code> files should be
-                  used to test flow coverage.
-                </Text>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Text>Run tests &amp; update snapshots.</Text>
-            <Markdown
-              text="
+          <ul>
+            <li>
+              <Text>Update the documentation.</Text>
+            </li>
+            <li>
+              <Text>
+                Add unit tests &amp; accessibility integration tests for the
+                change.
+              </Text>
+              <ul>
+                <li>
+                  <Text>
+                    <code>&lt;Component&gt;.test.js</code> files should be used
+                    to test component rendering and for snapshot tests.
+                  </Text>
+                </li>
+                <li>
+                  <Text>
+                    <code>&lt;Component&gt;.jsdom.test.js</code> files should be
+                    used to test component interactions (such as click,
+                    keypress, focus, etc) and client-side only tests. More info
+                    on{' '}
+                    <Link
+                      inline
+                      href="https://testing-library.com/docs/react-testing-library/cheatsheet"
+                    >
+                      <Text weight="bold">react-testing-library</Text>
+                    </Link>
+                    .
+                  </Text>
+                </li>
+                <li>
+                  <Text>
+                    <code>&lt;Component&gt;.flowtest.js</code> files should be
+                    used to test flow coverage.
+                  </Text>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Text>Run tests &amp; update snapshots.</Text>
+              <Markdown
+                text="
 ~~~bash
 yarn jest -u
 ~~~"
-            />
-          </li>
-          <li>
-            <Text>Update CSS flow types.</Text>
-            <Markdown
-              text="
+              />
+            </li>
+            <li>
+              <Text>Update CSS flow types.</Text>
+              <Markdown
+                text="
 ~~~bash
 yarn run flow-generate:css
 ~~~"
-            />
-          </li>
-          <li>
-            <Text>
-              If you are introducing breaking changes, create a{' '}
-              <Link href="#codemods" inline>
-                <Text weight="bold">codemod</Text>
-              </Link>{' '}
-              to help users migrate between versions.
-            </Text>
-          </li>
-        </ul>
+              />
+            </li>
+            <li>
+              <Text>
+                If you are introducing breaking changes, create a{' '}
+                <Link href="#codemods" inline>
+                  <Text weight="bold">codemod</Text>
+                </Link>{' '}
+                to help users migrate between versions.
+              </Text>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <Text>

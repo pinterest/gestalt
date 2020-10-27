@@ -14,7 +14,7 @@ card(
     description={`
 This component is the workhorse of Pinterest. If you define Pinterest to be all
 about collecting ideas, then images is how we choose to represent those ideas.
-In response, we've added a few extra superpowers to the regular <img> tag to
+In response, we've added a few extra superpowers to the regular <code>img</code> tag to
 make it even more awesome.
 `}
   />
@@ -288,7 +288,7 @@ card(
         type: `"eager" | "lazy" | "auto"`,
         defaultValue: 'auto',
         description: `
-        Controls if loading the image should be defered when it's off-screen. ‘lazy’ to defer the load until the image or iframe reaches a distance threshold from the viewport. ‘eager’ to load the resource immediately. ‘auto’ the default behavior, which is to eagerly load the resource.
+        Controls if loading the image should be deferred when it's off-screen. ‘lazy’ to defer the load until the image or iframe reaches a distance threshold from the viewport. ‘eager’ to load the resource immediately. ‘auto’ the default behavior, which is to eagerly load the resource.
         `,
         href: 'fit',
       },

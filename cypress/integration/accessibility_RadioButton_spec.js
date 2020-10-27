@@ -4,8 +4,7 @@ describe('RadioButton Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the RadioButton page', () => {
+  it('Tests accessibility on the RadioButton page', () => {
     cy.configureAxe({
       rules: [
         {

@@ -168,7 +168,7 @@ function CheckboxExample() {
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedEn(checked);
@@ -181,7 +181,7 @@ function CheckboxExample() {
           id="blue"
           label="Blue"
           subtext="Typography and shoe in blue"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
           name="favorite art"
           onChange={({ checked }) => {
             setCheckedSp(checked);
@@ -234,7 +234,7 @@ function CheckboxExample() {
 
   return (
     <Row gap={2}>
-      <Label>
+      <Label htmlFor="emailNotifications">
         <Row gap={1}>
           <Switch
             onChange={() => {
@@ -321,15 +321,21 @@ function CheckboxFlyoutExample() {
 
 card(
   <Combination
-    id="combinations"
     checked={[false, true]}
-    hasError={[false, true]}
     disabled={[false, true]}
+    hasCheckerboard={false}
+    hasError={[false, true]}
+    id="combinations"
     indeterminate={[false, true]}
     size={['sm', 'md']}
+    labelPrefix="checkbox-combinations"
   >
     {(props, i) => (
-      <Checkbox id={`example-${i}`} onChange={() => {}} {...props} />
+      <Checkbox
+        id={`checkbox-combinations-${i}`}
+        onChange={() => {}}
+        {...props}
+      />
     )}
   </Combination>
 );
@@ -367,6 +373,7 @@ card(
       {
         name: 'image',
         type: 'React.Node',
+        href: 'images',
         description:
           'An optional <Image/> component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
       },
@@ -412,6 +419,7 @@ a checkbox and its indeterminism are independent.`,
       {
         name: 'subtext',
         type: 'string',
+        href: 'subtext',
         description:
           'Optional description for the checkbox, used to provide more detail about an option',
       },

@@ -44,7 +44,6 @@ function RadioButtonExample() {
 
   return (
     <Box
-      role="list"
       display="flex"
       direction="column"
     >
@@ -87,6 +86,7 @@ function RadioButtonExample() {
 
 card(
   <Example
+    id="subtext"
     description="
     Here is an example of a group of radio buttons with subtext.
   "
@@ -97,7 +97,6 @@ function RadioButtonExample() {
 
   return (
     <Box
-      role="list"
       display="flex"
       direction="column"
     >
@@ -143,6 +142,7 @@ function RadioButtonExample() {
 
 card(
   <Example
+    id="images"
     description="
     Here is an example of a group of radio buttons with images. When including images, you can use the subtext property to clearly describe the information being presented by the image, or use the image's alt text to provide more context.
   "
@@ -153,7 +153,6 @@ function RadioButtonExample() {
 
   return (
     <Box
-      role="list"
       display="flex"
       direction="column"
     >
@@ -163,7 +162,7 @@ function RadioButtonExample() {
           id="coral"
           label="Coral"
           subtext="Botanical art in coral and green"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
 
           name="Art Preference"
           onChange={() => setArtPreference( 'coral' )}
@@ -176,7 +175,7 @@ function RadioButtonExample() {
           id="blue"
           label="Blue"
           subtext="Typography and shoe in blue"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
           name="Art Preference"
           onChange={() => setArtPreference( 'blue' )}
           value="blue"
@@ -188,7 +187,7 @@ function RadioButtonExample() {
           id="green"
           label="Green"
           subtext="Abstract art in green"
-          image={<Box height={100} width={80}><Image alt="" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
+          image={<Box height={100} width={80}><Image alt="Abstract art in green" src="https://i.ibb.co/FY2MKr5/stock6.jpg" fit="cover" naturalWidth={1} naturalHeight={1}/></Box>}
           name="Art Preference"
           onChange={() => setArtPreference( 'green' )}
           value="green"
@@ -335,10 +334,13 @@ card(
     checked={[false, true]}
     disabled={[false, true]}
     size={['sm', 'md']}
+    id="radio-state-combos"
+    hasCheckerboard={false}
+    labelPrefix="radio-state-combos"
   >
     {(props, i) => (
       <RadioButton
-        id={`example-${i}`}
+        id={`radio-state-combos-${i}`}
         onChange={() => {}}
         value=""
         {...props}
@@ -354,11 +356,13 @@ card(
         name: 'checked',
         type: 'boolean',
         defaultValue: false,
+        href: 'radio-button-combos',
       },
       {
         name: 'disabled',
         type: 'boolean',
         defaultValue: false,
+        href: 'radio-button-combos',
       },
       {
         name: 'id',
@@ -368,6 +372,7 @@ card(
       {
         name: 'image',
         type: 'React.Node',
+        href: 'images',
         description:
           'An optional <Image/> component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
       },
@@ -393,17 +398,19 @@ card(
         name: 'ref',
         type: "React.Ref<'input'>",
         description: 'Forward the ref to the underlying input element',
-        href: 'refExample',
+        href: 'ref',
       },
       {
         name: 'size',
         type: `"sm" | "md"`,
         description: `sm: 16px, md: 24px`,
         defaultValue: 'md',
+        href: 'ref',
       },
       {
         name: 'subtext',
         type: 'string',
+        href: 'subtext',
         description:
           'Optional description for the radio button, used to provide more detail about an option',
       },

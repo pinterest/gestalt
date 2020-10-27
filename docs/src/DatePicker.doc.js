@@ -334,6 +334,7 @@ card(
       return (
         <DatePicker
           id={`example-idealDirection-${idealDirection}`}
+          label={`Direction ${idealDirection}`}
           onChange={() => {}}
           idealDirection={idealDirection}
         />

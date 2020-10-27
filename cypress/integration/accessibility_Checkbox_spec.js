@@ -4,8 +4,7 @@ describe('Checkbox Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the Checkbox page', () => {
+  it('Tests accessibility on the Checkbox page', () => {
     cy.configureAxe({
       rules: [
         {

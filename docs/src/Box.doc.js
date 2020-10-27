@@ -360,6 +360,7 @@ card(
     name="Borders"
   >
     <Combination
+      id="border"
       hasCheckerboard={false}
       borderStyle={['sm', 'lg', 'shadow']}
       showHeading={false}
@@ -420,6 +421,7 @@ card(
     name="Rounding"
   >
     <Combination
+      id="rounding"
       rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}
       showHeading={false}
     >
@@ -444,6 +446,7 @@ card(
     name="Opacity"
   >
     <Combination
+      id="opacity"
       opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
       showHeading={false}
     >
@@ -569,7 +572,7 @@ card(
         type: `"sm" | "lg" | "shadow" | "none"`,
         defaultValue: 'none',
         description:
-          'Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. Alternatively, "shadow" can be specifed to add a box shadow instead of a solid border',
+          'Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. Alternatively, "shadow" can be specified to add a box shadow instead of a solid border',
         href: 'border',
       },
       {

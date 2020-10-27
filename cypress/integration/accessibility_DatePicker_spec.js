@@ -4,8 +4,7 @@ describe('DatePicker Accessibility check', () => {
     cy.injectAxe();
   });
 
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('Tests accessibility on the DatePicker page', () => {
+  it('Tests accessibility on the DatePicker page', () => {
     cy.configureAxe({
       rules: [
         {
