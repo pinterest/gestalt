@@ -17,10 +17,16 @@ import { useSidebarContext } from './sidebarContext.js';
 type Props = {|
   colorScheme: string,
   onChangeColorScheme: () => void,
+  textDirection: 'ltr' | 'rtl',
+  onTextDirectionChange: () => void,
 |};
 
-function Header({ colorScheme, onChangeColorScheme }: Props) {
-  const [isRTL, setIsRTL] = React.useState(false);
+function Header({
+  colorScheme,
+  onChangeColorScheme,
+  textDirection,
+  onTextDirectionChange,
+}: Props) {
   const {
     isSidebarOpen,
     setIsSidebarOpen,
@@ -28,16 +34,11 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
     setSidebarOrganizedBy,
   } = useSidebarContext();
 
-  const toggleRTL = () => {
-    if (document && document.documentElement) {
-      document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-      setIsRTL(!isRTL);
-    }
-  };
   const togglePageDirSvgPath = {
-    __path: isRTL
-      ? 'M9 10v5h2V4h2v11h2V4h2V2H9C6.79 2 5 3.79 5 6s1.79 4 4 4zm12 8l-4-4v3H5v2h12v3l4-4z'
-      : 'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
+    __path:
+      textDirection === 'rtl'
+        ? 'M9 10v5h2V4h2v11h2V4h2V2H9C6.79 2 5 3.79 5 6s1.79 4 4 4zm12 8l-4-4v3H5v2h12v3l4-4z'
+        : 'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
   };
 
   return (
@@ -83,14 +84,18 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
         <Box display="none" mdDisplay="flex" alignItems="center">
           <Tooltip
             inline
-            text={isRTL ? 'Left-To-Right View' : 'Right-To-Left View'}
+            text={
+              textDirection === 'rtl'
+                ? 'Left-To-Right View'
+                : 'Right-To-Left View'
+            }
           >
             <IconButton
               size="md"
               accessibilityLabel="toggle page direction: Left-To-Right / Right-To-Left View"
               iconColor="white"
               dangerouslySetSvgPath={togglePageDirSvgPath}
-              onClick={toggleRTL}
+              onClick={() => onTextDirectionChange()}
             />
           </Tooltip>
           <Tooltip
@@ -174,6 +179,8 @@ function Header({ colorScheme, onChangeColorScheme }: Props) {
 export default function StickyHeader({
   colorScheme,
   onChangeColorScheme,
+  textDirection,
+  onTextDirectionChange,
 }: Props): Node {
   const isReducedHeight = () => window.innerHeight < 709;
   const [reducedHeight, setReducedHeight] = React.useState(isReducedHeight());
@@ -191,12 +198,16 @@ export default function StickyHeader({
     <Header
       colorScheme={colorScheme}
       onChangeColorScheme={onChangeColorScheme}
+      textDirection={textDirection}
+      onTextDirectionChange={onTextDirectionChange}
     />
   ) : (
     <Sticky zIndex={new FixedZIndex(10)} top={0}>
       <Header
         colorScheme={colorScheme}
         onChangeColorScheme={onChangeColorScheme}
+        textDirection={textDirection}
+        onTextDirectionChange={onTextDirectionChange}
       />
     </Sticky>
   );
