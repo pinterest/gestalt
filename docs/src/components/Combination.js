@@ -15,7 +15,7 @@ type Props = {
   showHeading?: boolean,
   showValues?: boolean,
   stacked?: boolean,
-  useLabelForValues?: boolean,
+  labelPrefix?: string,
   ...
 };
 
@@ -93,7 +93,7 @@ export default function Combination({
   showHeading,
   showValues = true,
   stacked = false,
-  useLabelForValues = false,
+  labelPrefix,
   children,
   ...props
 }: Props): Node {
@@ -126,8 +126,10 @@ export default function Combination({
             >
               {showValues && (
                 <Box marginBottom={2}>
-                  {useLabelForValues ? (
-                    <Label htmlFor={`example-${i}`}>{combinationTitles}</Label>
+                  {labelPrefix ? (
+                    <Label htmlFor={`${labelPrefix}-${i}`}>
+                      {combinationTitles}
+                    </Label>
                   ) : (
                     combinationTitles
                   )}

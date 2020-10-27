@@ -328,10 +328,14 @@ card(
     id="combinations"
     indeterminate={[false, true]}
     size={['sm', 'md']}
-    useLabelForValues
+    labelPrefix="checkbox-combinations"
   >
     {(props, i) => (
-      <Checkbox id={`example-${i}`} onChange={() => {}} {...props} />
+      <Checkbox
+        id={`checkbox-combinations-${i}`}
+        onChange={() => {}}
+        {...props}
+      />
     )}
   </Combination>
 );

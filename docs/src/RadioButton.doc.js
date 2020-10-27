@@ -334,13 +334,13 @@ card(
     checked={[false, true]}
     disabled={[false, true]}
     size={['sm', 'md']}
-    id="radio-button-combos"
+    id="radio-state-combos"
     hasCheckerboard={false}
-    useLabelForValues
+    labelPrefix="radio-state-combos"
   >
     {(props, i) => (
       <RadioButton
-        id={`example-${i}`}
+        id={`radio-state-combos-${i}`}
         onChange={() => {}}
         value=""
         {...props}
