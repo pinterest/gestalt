@@ -1,3 +1,9 @@
+## 14.21.3 (Oct 27, 2020)
+
+### Patch
+
+- Tests: Fix flaky test on master (#1273)
+
 ## 14.21.2 (Oct 26, 2020)
 
 ### Patch
