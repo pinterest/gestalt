@@ -1,3 +1,9 @@
+## 14.21.5 (Oct 28, 2020)
+
+### Patch
+
+- Docs: persist dark mode + RTL settings across refreshes (#1272)
+
 ## 14.21.4 (Oct 27, 2020)
 
 ### Patch
