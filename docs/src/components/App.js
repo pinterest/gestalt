@@ -1,43 +1,44 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
+import React, { useState, type Node, useEffect } from 'react';
 import { Box, Divider, Provider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import useTracking from './useTracking.js';
 import { SidebarContextProvider } from './sidebarContext.js';
+import useLocalStorage from './useLocalStorage.js';
 
 type Props = {|
   children?: Node,
 |};
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by';
+const localStorageColorSchemeKey = 'gestalt-color-scheme';
+const localStorageTextDirectionKey = 'gestalt-text-direction';
 
 export default function App(props: Props): Node {
   const { children } = props;
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [colorScheme, setColorScheme] = useState('light');
 
   useTracking('UA-12967896-44');
 
-  const [sidebarOrganisedBy, setSidebarOrganizedBy] = useState<
+  const [sidebarOrganisedBy, setSidebarOrganizedBy] = useLocalStorage<
     'categorized' | 'alphabetical'
-  >(() => {
-    try {
-      // $FlowIssue[incompatible-call]
-      return localStorage.getItem(localStorageOrganizedByKey) || 'categorized';
-    } catch (error) {
-      console.log(error); // eslint-disable-line no-console
-    }
-    return 'categorized';
-  });
+  >(localStorageOrganizedByKey, 'categorized');
 
-  React.useEffect(() => {
-    try {
-      localStorage.setItem(localStorageOrganizedByKey, sidebarOrganisedBy);
-    } catch (error) {
-      console.log(error); // eslint-disable-line no-console
+  const [colorScheme, setColorScheme] = useLocalStorage<
+    'light' | 'dark' | 'userPreference'
+  >(localStorageColorSchemeKey, 'light');
+
+  const [textDirection, setTextDirection] = useLocalStorage<'ltr' | 'rtl'>(
+    localStorageTextDirectionKey,
+    'ltr'
+  );
+
+  useEffect(() => {
+    if (document && document.documentElement) {
+      document.documentElement.dir = textDirection;
     }
-  }, [sidebarOrganisedBy]);
+  }, [textDirection]);
 
   return (
     <SidebarContextProvider
@@ -54,6 +55,10 @@ export default function App(props: Props): Node {
             colorScheme={colorScheme}
             onChangeColorScheme={() =>
               setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
+            }
+            textDirection={textDirection}
+            onTextDirectionChange={() =>
+              setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl')
             }
           />
           <Box mdDisplay="flex" direction="row">
