@@ -74,12 +74,11 @@ const CalloutLink = ({
 
   return (
     <Box
+      display="flex"
       alignItems="center"
+      justifyContent="center"
       paddingX={1}
-      marginEnd="auto"
-      marginStart="auto"
       marginTop={type === 'primary' && stacked ? 2 : undefined}
-      mdMarginEnd={0}
       mdMarginTop="auto"
       mdMarginBottom="auto"
       rounding={type === 'primary' ? 'pill' : undefined}
@@ -126,44 +125,50 @@ export default function Callout({
       position="relative"
       rounding={4}
     >
-      <Box
-        display="flex"
-        flex="grow"
-        marginBottom={primaryLink || secondaryLink ? 4 : undefined}
-        mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
-      >
+      <Box mdDisplay="flex" wrap width="100%">
         <Box
-          marginBottom={0}
-          marginTop={0}
-          mdMarginBottom="auto"
-          mdMarginTop="auto"
+          display="flex"
+          marginBottom={primaryLink || secondaryLink ? 4 : undefined}
+          mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
         >
-          <Icon
-            accessibilityLabel={iconAccessibilityLabel}
-            color={CALLOUT_TYPE_ATTRIBUTES[type].color}
-            icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
-            size={32}
-          />
+          <Box
+            marginBottom={0}
+            marginTop={0}
+            mdMarginBottom="auto"
+            mdMarginTop="auto"
+          >
+            <Icon
+              accessibilityLabel={iconAccessibilityLabel}
+              color={CALLOUT_TYPE_ATTRIBUTES[type].color}
+              icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
+              size={32}
+            />
+          </Box>
+          <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
+            {title && (
+              <Box marginBottom={2}>
+                <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
+                  {title}
+                </Heading>
+              </Box>
+            )}
+            <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
+          </Box>
         </Box>
-        <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
-          {title && (
-            <Box marginBottom={2}>
-              <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
-                {title}
-              </Heading>
-            </Box>
+        <Box mdDisplay="flex" marginStart="auto">
+          {secondaryLink && (
+            <CalloutLink type="secondary" data={secondaryLink} />
           )}
-          <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
+          {primaryLink && (
+            <CalloutLink
+              stacked={!!secondaryLink}
+              type="primary"
+              data={primaryLink}
+            />
+          )}
         </Box>
       </Box>
-      {secondaryLink && <CalloutLink type="secondary" data={secondaryLink} />}
-      {primaryLink && (
-        <CalloutLink
-          stacked={!!secondaryLink}
-          type="primary"
-          data={primaryLink}
-        />
-      )}
+
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
