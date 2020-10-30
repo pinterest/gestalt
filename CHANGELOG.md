@@ -3161,22 +3161,22 @@ Run codemods for breaking changes in order:
 - TextField: Remove duplicate logic opening the error flyout (#34)
 - Internal: Re-exports flowtypes (#35)
 
-## [0.57.1] (Feb 22, 2018)
+## 0.57.1 (Feb 22, 2018)
 
 ### Patch
 
 - Internal: Fix docs (StateRecorder) + run development mode locally + fix propType error #25
 
-## [0.57.0] (Feb 22, 2018)
+## 0.57.0 (Feb 22, 2018)
 
-## Minor
+### Minor
 
 - Sticky: Add zIndex support (#21)
 - SearchField: Add custom `onBlur` prop / Rename syntheticEvent => event / Use stricter flowtype on event to remove if check (#17)
 - Flyout: Allow for custom width (#16)
 - ExperimentalMasonry: Reference measurementStore from props instead of instance (#14)
 
-## Patch
+### Patch
 
 - Docs: Netlify: Live preview with every PR (#18)
 - Docs: Updates Heading, Image, Label & Text to use Example (#10)
@@ -3189,6 +3189,3 @@ Run codemods for breaking changes in order:
 - Docs: Removes function syntax from cards (#7)
 - Build: Fixes repo url in docs build script (#4)
 - Internal: Webpack 3 upgrade (#11)
-
-[0.57.1]: https://deploy-preview-26--gestalt.netlify.com/
-[0.57.0]: https://deploy-preview-24--gestalt.netlify.com/
