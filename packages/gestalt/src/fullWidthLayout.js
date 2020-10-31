@@ -13,7 +13,7 @@ const mindex = (arr) => {
   return idx;
 };
 
-export default <T>({
+const fullWidthLayout = <T>({
   gutter = 0,
   cache,
   minCols = 2,
@@ -90,3 +90,5 @@ export default <T>({
     }, []);
   };
 };
+
+export default fullWidthLayout;

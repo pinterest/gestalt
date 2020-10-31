@@ -25,7 +25,7 @@ const offscreen = (width, height = Infinity) => ({
   height,
 });
 
-export default <T>({
+const defaultLayout = <T>({
   cache,
   columnWidth = 236,
   gutter = 14,
@@ -87,3 +87,5 @@ export default <T>({
     return positions;
   }, []);
 };
+
+export default defaultLayout;

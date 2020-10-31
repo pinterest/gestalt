@@ -1,5 +1,5 @@
 // @flow strict
-export default {
+const atomDark = {
   plain: {
     color: '#c5c8c6',
     backgroundColor: '#111',
@@ -91,3 +91,5 @@ export default {
     },
   ],
 };
+
+export default atomDark;

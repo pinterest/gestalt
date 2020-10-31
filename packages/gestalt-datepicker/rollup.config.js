@@ -1,7 +1,7 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
 import plugins from '../gestalt-core/build.js'; // eslint-disable-line import/no-relative-parent-imports
 
-export default {
+const rollupConfig = {
   input: 'src/index.js',
   output: [
     {
@@ -45,3 +45,5 @@ export default {
   ],
   plugins: plugins('gestalt-datepicker'),
 };
+
+export default rollupConfig;

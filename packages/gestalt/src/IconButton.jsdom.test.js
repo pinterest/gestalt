@@ -60,9 +60,6 @@ describe('IconButton', () => {
     expect(
       ref.current instanceof HTMLAnchorElement && ref.current?.href
     ).toEqual('');
-    expect(
-      ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex
-    ).toEqual(-1);
   });
 
   it('renders a disabled button', () => {
@@ -72,8 +69,8 @@ describe('IconButton', () => {
     );
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(
-      ref.current instanceof HTMLButtonElement && ref.current?.tabIndex
-    ).toEqual(-1);
+      ref.current instanceof HTMLButtonElement && ref.current?.disabled
+    ).toEqual(true);
   });
 
   it('renders an IconButton removed from sequential keyboard navigation via tabIndex', () => {
