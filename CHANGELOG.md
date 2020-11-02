@@ -1,3 +1,9 @@
+## 14.23.0 (Nov 2, 2020)
+
+### Minor
+
+- Docs: upgrade to Create React App 4 (#1276)
+
 ## 14.22.0 (Nov 2, 2020)
 
 ### Minor
