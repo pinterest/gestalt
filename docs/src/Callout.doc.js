@@ -21,15 +21,15 @@ card(
 <Callout
   type="info"
   iconAccessibilityLabel="Info icon"
-  title="Your business account was successfully created!"
-  message="Get a badge, show up in more shopping experiences and more. Apply to the Verified Merchant Program—it’s free!"
+  title="Your business account was created!"
+  message="Apply to the Verified Merchant Program!"
   primaryLink={{href: "https://pinterest.com", label:"Get started"}}
   secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
   }}
-  />
+/>
 `}
   />
 );

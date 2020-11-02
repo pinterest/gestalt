@@ -10,39 +10,51 @@ exports[`<Callout /> Error Callout 1`] = `
   }
 >
   <div
-    className="box flexGrow xsDisplayFlex"
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="error"
-        className="icon red iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
-      }
+      className="box xsDisplayFlex"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        Insert a clever error callout message here
+        <svg
+          aria-hidden={null}
+          aria-label="error"
+          className="icon red iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever error callout message here
+        </div>
       </div>
     </div>
+    <div
+      className="box marginStartAuto mdDisplayFlex"
+    />
   </div>
 </div>
 `;
@@ -57,39 +69,51 @@ exports[`<Callout /> Info Callout 1`] = `
   }
 >
   <div
-    className="box flexGrow xsDisplayFlex"
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="info"
-        className="icon blue iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
-      }
+      className="box xsDisplayFlex"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        Insert a clever info callout message here
+        <svg
+          aria-hidden={null}
+          aria-label="info"
+          className="icon blue iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever info callout message here
+        </div>
       </div>
     </div>
+    <div
+      className="box marginStartAuto mdDisplayFlex"
+    />
   </div>
 </div>
 `;
@@ -104,39 +128,51 @@ exports[`<Callout /> Warning Callout 1`] = `
   }
 >
   <div
-    className="box flexGrow xsDisplayFlex"
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="warning"
-        className="icon orange iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
-      }
+      className="box xsDisplayFlex"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        Insert a clever warning callout message here
+        <svg
+          aria-hidden={null}
+          aria-label="warning"
+          className="icon orange iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever warning callout message here
+        </div>
       </div>
     </div>
+    <div
+      className="box marginStartAuto mdDisplayFlex"
+    />
   </div>
 </div>
 `;
@@ -151,78 +187,91 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
   }
 >
   <div
-    className="box flexGrow marginBottom4 mdMarginBottom0 xsDisplayFlex"
-  >
-    <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="info"
-        className="icon blue iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
       }
+    }
+  >
+    <div
+      className="box marginBottom4 mdMarginBottom0 xsDisplayFlex"
     >
       <div
-        className="box marginBottom2"
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        <h3
-          className="Heading fontSize1 darkGray alignLeft breakWord"
+        <svg
+          aria-hidden={null}
+          aria-label="info"
+          className="icon blue iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
         >
-          A Title
-        </h3>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
       >
-        Insert a clever info callout message here
+        <div
+          className="box marginBottom2"
+        >
+          <h3
+            className="Heading fontSize1 darkGray alignLeft breakWord"
+          >
+            A Title
+          </h3>
+        </div>
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever info callout message here
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    className="box itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1 pill"
-  >
-    <a
-      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
-      href="pinterest.com"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={null}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      tabIndex={0}
-      target={null}
+    <div
+      className="box marginStartAuto mdDisplayFlex"
     >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 pill xsDisplayFlex"
       >
-        Visit Pinterest
+        <a
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          href="pinterest.com"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          tabIndex={0}
+          target={null}
+        >
+          <div
+            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          >
+            Visit Pinterest
+          </div>
+        </a>
       </div>
-    </a>
+    </div>
   </div>
   <div
     className="rtlPos"
@@ -282,108 +331,121 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
   }
 >
   <div
-    className="box flexGrow marginBottom4 mdMarginBottom0 xsDisplayFlex"
-  >
-    <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="info"
-        className="icon blue iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
       }
+    }
+  >
+    <div
+      className="box marginBottom4 mdMarginBottom0 xsDisplayFlex"
     >
       <div
-        className="box marginBottom2"
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        <h3
-          className="Heading fontSize1 darkGray alignLeft breakWord"
+        <svg
+          aria-hidden={null}
+          aria-label="info"
+          className="icon blue iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
         >
-          A Title
-        </h3>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
       >
-        Insert a clever info callout message here
+        <div
+          className="box marginBottom2"
+        >
+          <h3
+            className="Heading fontSize1 darkGray alignLeft breakWord"
+          >
+            A Title
+          </h3>
+        </div>
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever info callout message here
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    className="box itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1"
-  >
-    <a
-      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
-      href="pinterest.com/help"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={null}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      tabIndex={0}
-      target={null}
+    <div
+      className="box marginStartAuto mdDisplayFlex"
     >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
-        Learn more
+        <a
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
+          href="pinterest.com/help"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          tabIndex={0}
+          target={null}
+        >
+          <div
+            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          >
+            Learn more
+          </div>
+        </a>
       </div>
-    </a>
-  </div>
-  <div
-    className="box itemsCenter marginEndAuto marginStartAuto marginTop2 mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1 pill"
-  >
-    <a
-      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
-      href="pinterest.com"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={null}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      tabIndex={0}
-      target={null}
-    >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="box itemsCenter justifyCenter marginTop2 mdMarginBottomAuto mdMarginTopAuto paddingX1 pill xsDisplayFlex"
       >
-        Visit Pinterest
+        <a
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          href="pinterest.com"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          tabIndex={0}
+          target={null}
+        >
+          <div
+            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          >
+            Visit Pinterest
+          </div>
+        </a>
       </div>
-    </a>
+    </div>
   </div>
 </div>
 `;
@@ -398,78 +460,91 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
   }
 >
   <div
-    className="box flexGrow marginBottom4 mdMarginBottom0 xsDisplayFlex"
-  >
-    <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-    >
-      <svg
-        aria-hidden={null}
-        aria-label="info"
-        className="icon blue iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
-    <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
       }
+    }
+  >
+    <div
+      className="box marginBottom4 mdMarginBottom0 xsDisplayFlex"
     >
       <div
-        className="box marginBottom2"
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        <h3
-          className="Heading fontSize1 darkGray alignLeft breakWord"
+        <svg
+          aria-hidden={null}
+          aria-label="info"
+          className="icon blue iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
         >
-          A Title
-        </h3>
+          <path
+            d="test-file-stub"
+          />
+        </svg>
       </div>
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
       >
-        Insert a clever info callout message here
+        <div
+          className="box marginBottom2"
+        >
+          <h3
+            className="Heading fontSize1 darkGray alignLeft breakWord"
+          >
+            A Title
+          </h3>
+        </div>
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever info callout message here
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    className="box itemsCenter marginEndAuto marginStartAuto mdMarginBottomAuto mdMarginEnd0 mdMarginTopAuto paddingX1 pill"
-  >
-    <a
-      className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
-      href="pinterest.com"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onContextMenu={null}
-      onFocus={[Function]}
-      onKeyPress={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      rel=""
-      tabIndex={0}
-      target={null}
+    <div
+      className="box marginStartAuto mdDisplayFlex"
     >
       <div
-        className="Text fontSize3 darkGray alignCenter fontWeightBold"
+        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 pill xsDisplayFlex"
       >
-        Visit Pinterest
+        <a
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          href="pinterest.com"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          tabIndex={0}
+          target={null}
+        >
+          <div
+            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          >
+            Visit Pinterest
+          </div>
+        </a>
       </div>
-    </a>
+    </div>
   </div>
 </div>
 `;
@@ -484,48 +559,60 @@ exports[`<Callout /> message + title 1`] = `
   }
 >
   <div
-    className="box flexGrow xsDisplayFlex"
+    className="box flexWrap mdDisplayFlex"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
   >
     <div
-      className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+      className="box xsDisplayFlex"
     >
-      <svg
-        aria-hidden={null}
-        aria-label="info"
-        className="icon blue iconBlock"
-        height={32}
-        role="img"
-        viewBox="0 0 24 24"
-        width={32}
+      <div
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
+        <svg
+          aria-hidden={null}
+          aria-label="info"
+          className="icon blue iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="box marginBottom2"
+        >
+          <h3
+            className="Heading fontSize1 darkGray alignLeft breakWord"
+          >
+            A Title
+          </h3>
+        </div>
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever info callout message here
+        </div>
+      </div>
     </div>
     <div
-      className="box marginBottomAuto marginTopAuto paddingX6"
-      style={
-        Object {
-          "maxWidth": 648,
-        }
-      }
-    >
-      <div
-        className="box marginBottom2"
-      >
-        <h3
-          className="Heading fontSize1 darkGray alignLeft breakWord"
-        >
-          A Title
-        </h3>
-      </div>
-      <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-      >
-        Insert a clever info callout message here
-      </div>
-    </div>
+      className="box marginStartAuto mdDisplayFlex"
+    />
   </div>
 </div>
 `;
