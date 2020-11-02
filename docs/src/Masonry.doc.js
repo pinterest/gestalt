@@ -1,13 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import {
-  Box,
-  Masonry,
-  Image,
-  Label,
-  Text,
-  MasonryUniformRowLayout,
-} from 'gestalt';
+import { Box, Masonry, Image, Label, Text } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
@@ -28,7 +21,7 @@ It contains performance optimizations like virtualization and support for infini
 type Props = {|
   flexible?: boolean,
   id?: string,
-  layout?: () => {||},
+  layout?: 'uniformRow',
 |};
 
 type State = {|
@@ -170,7 +163,6 @@ class ExampleMasonry extends React.Component<Props, State> {
               flexible={this.props.flexible}
               gutterWidth={5}
               items={this.state.pins}
-              // $FlowIssue[incompatible-type]
               layout={this.props.layout}
               minCols={1}
               ref={(ref) => {
@@ -245,8 +237,7 @@ card(
   `}
     name="Uniform row heights"
   >
-    {/* $FlowIssue[prop-missing] */}
-    <ExampleMasonry layout={MasonryUniformRowLayout} id="uniform" />
+    <ExampleMasonry layout="uniformRow" id="uniform" />
   </Card>
 );
 
