@@ -170,7 +170,7 @@ import workflowStatusProblem from './workflow-status-problem.svg';
 import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 import workflowStatusWarning from './workflow-status-warning.svg';
 
-export default {
+const icons = {
   ad,
   'ad-group': adGroup,
   add,
@@ -342,3 +342,5 @@ export default {
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
 };
+
+export default icons;

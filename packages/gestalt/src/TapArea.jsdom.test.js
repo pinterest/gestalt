@@ -108,9 +108,6 @@ describe('TapArea', () => {
     expect(
       ref.current instanceof HTMLAnchorElement && ref.current?.href
     ).toEqual('');
-    expect(
-      ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex
-    ).toEqual(-1);
   });
 
   it('renders a TapArea removed from sequential keyboard navigation via tabIndex', () => {

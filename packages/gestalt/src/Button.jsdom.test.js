@@ -55,8 +55,8 @@ describe('Button', () => {
     render(<Button text="test" disabled ref={ref} />);
     expect(ref.current instanceof HTMLButtonElement).toEqual(true);
     expect(
-      ref.current instanceof HTMLButtonElement && ref.current?.tabIndex
-    ).toEqual(-1);
+      ref.current instanceof HTMLButtonElement && ref.current?.disabled
+    ).toEqual(true);
   });
 
   it('renders a disabled link button', () => {
@@ -75,9 +75,6 @@ describe('Button', () => {
     expect(
       ref.current instanceof HTMLAnchorElement && ref.current?.href
     ).toEqual('');
-    expect(
-      ref.current instanceof HTMLAnchorElement && ref.current?.tabIndex
-    ).toEqual(-1);
   });
 
   it('renders a button removed from sequential keyboard navigation via tabIndex', () => {
