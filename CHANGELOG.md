@@ -1,3 +1,9 @@
+## 14.22.0 (Nov 2, 2020)
+
+### Minor
+
+- Callout: V2 Redesign for responsiveness (#1274)
+
 ## 14.21.5 (Oct 28, 2020)
 
 ### Patch
