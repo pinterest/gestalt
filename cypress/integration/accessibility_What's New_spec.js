@@ -11,6 +11,10 @@ describe("What's New Accessibility check", () => {
           id: 'color-contrast',
           enabled: false,
         },
+        {
+          id: 'link-name',
+          enabled: false,
+        },
       ],
     });
     cy.checkA11y();

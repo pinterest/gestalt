@@ -125,11 +125,18 @@ export default function Callout({
       position="relative"
       rounding={4}
     >
-      <Box mdDisplay="flex" wrap width="100%">
+      <Box
+        mdDisplay="flex"
+        wrap
+        width="100%"
+        mdMarginTop={-3}
+        mdMarginBottom={-3}
+      >
         <Box
           display="flex"
           marginBottom={primaryLink || secondaryLink ? 4 : undefined}
           mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
+          mdPaddingY={3}
         >
           <Box
             marginBottom={0}
@@ -155,7 +162,7 @@ export default function Callout({
             <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
           </Box>
         </Box>
-        <Box mdDisplay="flex" marginStart="auto">
+        <Box mdDisplay="flex" marginStart="auto" mdPaddingY={3}>
           {secondaryLink && (
             <CalloutLink type="secondary" data={secondaryLink} />
           )}
