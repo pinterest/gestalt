@@ -1,3 +1,9 @@
+## 14.24.0 (Nov 3, 2020)
+
+### Minor
+
+- Internal: remove exports from package.json (#1280)
+
 ## 14.23.1 (Nov 3, 2020)
 
 ### Patch
