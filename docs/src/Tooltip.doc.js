@@ -153,6 +153,12 @@ card(
         required: false,
         description: 'A link which will show on the bottom of a tooltip',
       },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        required: false,
+        description: 'An object representing the zIndex value of the Tooltip.',
+      },
     ]}
   />
 );
