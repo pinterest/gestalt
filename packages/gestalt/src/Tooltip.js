@@ -5,6 +5,7 @@ import Controller from './Controller.js';
 import Text from './Text.js';
 import Box from './Box.js';
 import Layer from './Layer.js';
+import { type Indexable } from './zIndex.js';
 
 const noop = () => {};
 const TIMEOUT = 100;
@@ -15,6 +16,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   inline?: boolean,
   text: string,
+  zIndex?: Indexable,
 |};
 
 const initialState = { hoveredIcon: false, hoveredText: false, isOpen: false };
@@ -56,6 +58,7 @@ export default function Tooltip({
   idealDirection = 'down',
   inline,
   text,
+  zIndex,
 }: Props): Node {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { isOpen } = state;
@@ -92,7 +95,7 @@ export default function Tooltip({
         {children}
       </Box>
       {isOpen && !!anchor && (
-        <Layer>
+        <Layer zIndex={zIndex}>
           <Controller
             anchor={anchor}
             caret={false}
