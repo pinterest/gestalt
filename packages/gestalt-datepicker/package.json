@@ -8,14 +8,6 @@
   "jsnext:main": "dist/gestalt-datepicker.es.js",
   "module": "dist/gestalt-datepicker.es.js",
   "style": "dist/gestalt-datepicker.css",
-  "exports": {
-    ".": {
-      "import": "./dist/gestalt-datepicker.es.js"
-    },
-    "./css": {
-      "import": "./dist/gestalt-datepicker.css"
-    }
-  },
   "files": [
     "dist",
     "src"
