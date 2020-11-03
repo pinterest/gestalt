@@ -1,3 +1,9 @@
+## 14.23.1 (Nov 3, 2020)
+
+### Patch
+
+- Callout: Fix responsiveness margin (#1277)
+
 ## 14.23.0 (Nov 2, 2020)
 
 ### Minor
