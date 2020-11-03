@@ -1,3 +1,9 @@
+## 14.25.0 (Nov 3, 2020)
+
+### Minor
+
+- Tooltip: Add zIndex prop (#1279)
+
 ## 14.24.0 (Nov 3, 2020)
 
 ### Minor
