@@ -17,6 +17,31 @@ applied to each collaborator image to ensure the component retains a circular ap
   />
 );
 
+card(
+  <PropTable
+    props={[
+      {
+        name: 'collaborators',
+        type: 'Array<{ name: string, src?: string }>',
+        required: true,
+      },
+      {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Adds a white border around GroupAvatar so it's visible when displayed on other images`,
+      },
+      {
+        name: 'size',
+        type: `"xs" | "sm" | "md" | "lg" | "xl" | "fit"`,
+        defaultValue: 'fit',
+        description:
+          'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, GroupAvatar will fill 100% of the parent container width',
+      },
+    ]}
+  />
+);
+
 const user1 = {
   name: 'Keerthi',
   src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
@@ -144,30 +169,4 @@ card(
   `}
   />
 );
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'collaborators',
-        type: 'Array<{ name: string, src?: string }>',
-        required: true,
-      },
-      {
-        name: 'outline',
-        type: 'boolean',
-        defaultValue: false,
-        description: `Adds a white border around GroupAvatar so it's visible when displayed on other images`,
-      },
-      {
-        name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl" | "fit"`,
-        defaultValue: 'fit',
-        description:
-          'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, GroupAvatar will fill 100% of the parent container width',
-      },
-    ]}
-  />
-);
-
 export default cards;

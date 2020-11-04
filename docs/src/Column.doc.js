@@ -16,6 +16,23 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'span',
+        type: '0 .. 12',
+        required: true,
+        responsive: true,
+      },
+    ]}
+  />
+);
+
+card(
   <Card
     description={`
     Column is a basic layout component to help you size your UI. A full width is composed
@@ -253,23 +270,6 @@ card(
   </Box>
 </Box>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'span',
-        type: '0 .. 12',
-        required: true,
-        responsive: true,
-      },
-    ]}
   />
 );
 

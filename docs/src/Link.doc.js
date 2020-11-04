@@ -15,6 +15,103 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilitySelected',
+        type: 'boolean',
+        href: 'tab',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'hoverStyle',
+        type: `'none' | 'underline'`,
+        defaultValue: 'underline',
+        href: 'Permutations',
+      },
+      {
+        name: 'href',
+        type: 'string',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        description: 'id attribute of the anchor tag',
+      },
+      {
+        name: 'inline',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'advancedExample',
+      },
+      {
+        name: 'onBlur',
+        type: '() => void',
+      },
+      {
+        name: 'accessibilityLabel',
+        type: 'string',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers to replace link texts that do not provide sufficient context about the link component behavior. Texts like `Click Here,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text.',
+          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text.',
+        ],
+        href: 'accessibility',
+      },
+      {
+        name: 'onClick',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+        href: 'PreventDefault',
+      },
+      {
+        name: 'onFocus',
+        type: '() => void',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'a'>",
+        description: 'Forward the ref to the underlying anchor element',
+      },
+      {
+        name: 'rel',
+        type: `"none" | "nofollow"`,
+        defaultValue: 'none',
+      },
+      {
+        name: 'role',
+        type: `"tab"`,
+        href: 'tab',
+      },
+      {
+        name: 'rounding',
+        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+        defaultValue: '0',
+        href: 'advancedExample',
+      },
+      {
+        name: 'tapStyle',
+        type: `"none" | "compress"`,
+        defaultValue: 'none',
+        href: 'Permutations',
+      },
+      {
+        name: 'target',
+        type: `"null" | "self" | "blank"`,
+        defaultValue: 'null',
+        href: 'PreventDefault',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description={`
     You should wrap \`Link\` components inside of a \`Text\` component to get the correct font & underline color.
@@ -200,103 +297,6 @@ function PreventDefaultExample() {
   );
 }
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilitySelected',
-        type: 'boolean',
-        href: 'tab',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'hoverStyle',
-        type: `'none' | 'underline'`,
-        defaultValue: 'underline',
-        href: 'Permutations',
-      },
-      {
-        name: 'href',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        description: 'id attribute of the anchor tag',
-      },
-      {
-        name: 'inline',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'advancedExample',
-      },
-      {
-        name: 'onBlur',
-        type: '() => void',
-      },
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers to replace link texts that do not provide sufficient context about the link component behavior. Texts like `Click Here,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text.',
-          'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text.',
-        ],
-        href: 'accessibility',
-      },
-      {
-        name: 'onClick',
-        type:
-          '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
-        href: 'PreventDefault',
-      },
-      {
-        name: 'onFocus',
-        type: '() => void',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'a'>",
-        description: 'Forward the ref to the underlying anchor element',
-      },
-      {
-        name: 'rel',
-        type: `"none" | "nofollow"`,
-        defaultValue: 'none',
-      },
-      {
-        name: 'role',
-        type: `"tab"`,
-        href: 'tab',
-      },
-      {
-        name: 'rounding',
-        type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        defaultValue: '0',
-        href: 'advancedExample',
-      },
-      {
-        name: 'tapStyle',
-        type: `"none" | "compress"`,
-        defaultValue: 'none',
-        href: 'Permutations',
-      },
-      {
-        name: 'target',
-        type: `"null" | "self" | "blank"`,
-        defaultValue: 'null',
-        href: 'PreventDefault',
-      },
-    ]}
   />
 );
 

@@ -16,6 +16,26 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'text',
+        type: `string`,
+        required: true,
+        description:
+          'Text displayed inside of the Badge. Sentence case is best.',
+      },
+      {
+        name: 'position',
+        type: `"middle" | "top"`,
+        defaultValue: 'middle',
+        description: 'Badge position relative to its parent element.',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description="
     The `Badge` component is rendered inline within parent element."
@@ -34,26 +54,6 @@ card(
     defaultCode={`
   <Heading>Heading <Badge text="Beta" position="top"/></Heading>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'text',
-        type: `string`,
-        required: true,
-        description:
-          'Text displayed inside of the Badge. Sentence case is best.',
-      },
-      {
-        name: 'position',
-        type: `"middle" | "top"`,
-        defaultValue: 'middle',
-        description: 'Badge position relative to its parent element.',
-      },
-    ]}
   />
 );
 

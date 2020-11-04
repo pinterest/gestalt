@@ -21,6 +21,91 @@ make it even more awesome.
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'alt',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'color',
+        type: 'string',
+        required: true,
+        href: 'placeholders',
+      },
+      {
+        name: 'fit',
+        type: `"cover" | "contain" | "none"`,
+        defaultValue: 'none',
+        description: `Doesn't work with srcSet or sizes.`,
+        href: 'fit',
+      },
+      {
+        name: 'importance',
+        type: `"high" | "low" | "auto"`,
+        defaultValue: 'auto',
+        description: `Priority Hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). ‘high‘ the developer considers the resource as being high priority. ‘low‘ the developer considers the resource as being low priority. ‘auto‘ the developer does not indicate a preference. This also serves as the attribute's invalid value default and missing value default.`,
+        href: 'fit',
+      },
+      {
+        name: 'loading',
+        type: `"eager" | "lazy" | "auto"`,
+        defaultValue: 'auto',
+        description: `
+        Controls if loading the image should be deferred when it's off-screen. ‘lazy’ to defer the load until the image or iframe reaches a distance threshold from the viewport. ‘eager’ to load the resource immediately. ‘auto’ the default behavior, which is to eagerly load the resource.
+        `,
+        href: 'fit',
+      },
+      {
+        name: 'naturalHeight',
+        type: 'number',
+        required: true,
+        description: 'Exact height of source image',
+        href: 'fit',
+      },
+      {
+        name: 'naturalWidth',
+        type: 'number',
+        required: true,
+        description: 'Exact width of source image',
+        href: 'fit',
+      },
+      {
+        name: 'onError',
+        type: '() => void',
+      },
+      {
+        name: 'onLoad',
+        type: '() => void',
+      },
+      {
+        name: 'sizes',
+        type: 'string',
+        description:
+          'A list of one or more strings separated by commas indicating a set of source sizes',
+      },
+      {
+        name: 'src',
+        type: 'string',
+        required: true,
+        href: 'placeholders',
+      },
+      {
+        name: 'srcSet',
+        type: 'string',
+        description:
+          'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
+      },
+    ]}
+  />
+);
+
+card(
   <Card
     description={`
     One thing that might be unusual is that the \`width\` and the \`height\` of the
@@ -248,91 +333,6 @@ card(
   />
 </Box>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'alt',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'color',
-        type: 'string',
-        required: true,
-        href: 'placeholders',
-      },
-      {
-        name: 'fit',
-        type: `"cover" | "contain" | "none"`,
-        defaultValue: 'none',
-        description: `Doesn't work with srcSet or sizes.`,
-        href: 'fit',
-      },
-      {
-        name: 'importance',
-        type: `"high" | "low" | "auto"`,
-        defaultValue: 'auto',
-        description: `Priority Hints provide developers a way to indicate a resource's relative importance to the browser, allowing more control over the order resources are loaded (only available via Chrome Origin Trial). ‘high‘ the developer considers the resource as being high priority. ‘low‘ the developer considers the resource as being low priority. ‘auto‘ the developer does not indicate a preference. This also serves as the attribute's invalid value default and missing value default.`,
-        href: 'fit',
-      },
-      {
-        name: 'loading',
-        type: `"eager" | "lazy" | "auto"`,
-        defaultValue: 'auto',
-        description: `
-        Controls if loading the image should be deferred when it's off-screen. ‘lazy’ to defer the load until the image or iframe reaches a distance threshold from the viewport. ‘eager’ to load the resource immediately. ‘auto’ the default behavior, which is to eagerly load the resource.
-        `,
-        href: 'fit',
-      },
-      {
-        name: 'naturalHeight',
-        type: 'number',
-        required: true,
-        description: 'Exact height of source image',
-        href: 'fit',
-      },
-      {
-        name: 'naturalWidth',
-        type: 'number',
-        required: true,
-        description: 'Exact width of source image',
-        href: 'fit',
-      },
-      {
-        name: 'onError',
-        type: '() => void',
-      },
-      {
-        name: 'onLoad',
-        type: '() => void',
-      },
-      {
-        name: 'sizes',
-        type: 'string',
-        description:
-          'A list of one or more strings separated by commas indicating a set of source sizes',
-      },
-      {
-        name: 'src',
-        type: 'string',
-        required: true,
-        href: 'placeholders',
-      },
-      {
-        name: 'srcSet',
-        type: 'string',
-        description:
-          'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
-      },
-    ]}
   />
 );
 

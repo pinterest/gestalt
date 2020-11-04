@@ -15,6 +15,46 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilityLabel',
+        type: 'string',
+        description:
+          'String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.',
+      },
+      {
+        name: 'name',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'outline',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Adds a white border around Avatar so it's visible when displayed on other images`,
+      },
+      {
+        name: 'size',
+        type: `"xs" | "sm" | "md" | "lg" | "xl" | "fit"`,
+        defaultValue: 'fit',
+        description:
+          'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width',
+      },
+      {
+        name: 'src',
+        type: 'string',
+      },
+      {
+        name: 'verified',
+        type: 'boolean',
+        defaultValue: false,
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description={`
     There are 5 sizes you can choose for an \`Avatar\`. For certain designs you may need a container-based size. More information on that option is below.
@@ -118,46 +158,6 @@ card(
   verified
 />
   `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityLabel',
-        type: 'string',
-        description:
-          'String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.',
-      },
-      {
-        name: 'name',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'outline',
-        type: 'boolean',
-        defaultValue: false,
-        description: `Adds a white border around Avatar so it's visible when displayed on other images`,
-      },
-      {
-        name: 'size',
-        type: `"xs" | "sm" | "md" | "lg" | "xl" | "fit"`,
-        defaultValue: 'fit',
-        description:
-          'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, Avatar will fill 100% of the parent container width',
-      },
-      {
-        name: 'src',
-        type: 'string',
-      },
-      {
-        name: 'verified',
-        type: 'boolean',
-        defaultValue: false,
-      },
-    ]}
   />
 );
 

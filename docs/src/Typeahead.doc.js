@@ -13,6 +13,94 @@ card(
     description={`Use a \`Typeahead\` when you want to let the user filter a list when selecting.`}
   />
 );
+card(
+  <PropTable
+    props={[
+      {
+        name: 'options',
+        type: 'Array<{ label: string, value: string }>',
+        description:
+          'The data much be an array with objects containing only label and value properties',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'value',
+        type: 'string',
+        description: 'The default value set in the Typeahead',
+        required: false,
+        href: 'defaultItemExample',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'noResultText',
+        type: 'string',
+        href: 'basicExample',
+        required: true,
+        description: 'The text shown when the input value returns no matches',
+      },
+      {
+        name: 'onBlur',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
+        required: false,
+        description: 'Callback when you focus outside the component ',
+        href: 'basicExample',
+      },
+
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        required: false,
+        description: 'Callback when user types into the control input field',
+        href: 'basicExample',
+      },
+
+      {
+        name: 'onFocus',
+        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
+        required: false,
+        description: 'Callback when you focus on the component',
+        href: 'basicExample',
+      },
+      {
+        name: 'onSelect',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        required: false,
+        description: 'Callback when you select an item ',
+        href: 'basicExample',
+      },
+      {
+        name: 'placeholder',
+        type: 'string',
+        href: 'basicExample',
+      },
+      {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description:
+          'Forward the ref to the underlying component container element',
+        href: 'refExample',
+      },
+    ]}
+  />
+);
 
 card(
   <Example
@@ -133,95 +221,6 @@ function TypeaheadExample() {
     </Row>
   );
 }`}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'options',
-        type: 'Array<{ label: string, value: string }>',
-        description:
-          'The data much be an array with objects containing only label and value properties',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'value',
-        type: 'string',
-        description: 'The default value set in the Typeahead',
-        required: false,
-        href: 'defaultItemExample',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'noResultText',
-        type: 'string',
-        href: 'basicExample',
-        required: true,
-        description: 'The text shown when the input value returns no matches',
-      },
-      {
-        name: 'onBlur',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
-        required: false,
-        description: 'Callback when you focus outside the component ',
-        href: 'basicExample',
-      },
-
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
-        description: 'Callback when user types into the control input field',
-        href: 'basicExample',
-      },
-
-      {
-        name: 'onFocus',
-        type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
-        required: false,
-        description: 'Callback when you focus on the component',
-        href: 'basicExample',
-      },
-      {
-        name: 'onSelect',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
-        description: 'Callback when you select an item ',
-        href: 'basicExample',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description:
-          'Forward the ref to the underlying component container element',
-        href: 'refExample',
-      },
-    ]}
   />
 );
 

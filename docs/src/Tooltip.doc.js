@@ -17,6 +17,51 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+        required: true,
+        description: 'The element to wrap with a tooltip on hover.',
+      },
+      {
+        name: 'idealDirection',
+        type: `'up' | 'right' | 'down' | 'left'`,
+        description: 'Preferred direction for the Tooltip to open',
+        defaultValue: 'down',
+      },
+      {
+        name: 'inline',
+        type: 'boolean',
+        href: 'inline',
+        description:
+          'Flag used to help render the tooltip inline to the element',
+      },
+      {
+        name: 'text',
+        type: 'string',
+        required: true,
+        description:
+          'String that is shown as addition information in a tooltip bubble to describe the child. Always localize the text.',
+      },
+      {
+        name: 'link',
+        type: 'React.Node',
+        required: false,
+        description: 'A link which will show on the bottom of a tooltip',
+      },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        required: false,
+        description: 'An object representing the zIndex value of the Tooltip.',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     name="Tooltips"
     description="General Tooltip usage involves wrapping your target in a Tooltip. Notice how long
@@ -115,51 +160,6 @@ card(
   />
 </Tooltip>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-        description: 'The element to wrap with a tooltip on hover.',
-      },
-      {
-        name: 'idealDirection',
-        type: `'up' | 'right' | 'down' | 'left'`,
-        description: 'Preferred direction for the Tooltip to open',
-        defaultValue: 'down',
-      },
-      {
-        name: 'inline',
-        type: 'boolean',
-        href: 'inline',
-        description:
-          'Flag used to help render the tooltip inline to the element',
-      },
-      {
-        name: 'text',
-        type: 'string',
-        required: true,
-        description:
-          'String that is shown as addition information in a tooltip bubble to describe the child. Always localize the text.',
-      },
-      {
-        name: 'link',
-        type: 'React.Node',
-        required: false,
-        description: 'A link which will show on the bottom of a tooltip',
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        required: false,
-        description: 'An object representing the zIndex value of the Tooltip.',
-      },
-    ]}
   />
 );
 

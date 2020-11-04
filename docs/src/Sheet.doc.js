@@ -16,6 +16,129 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilityDismissButtonLabel',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button.',
+          'Accessibility: It populates aria-label on the <button> element for the Dismiss button.',
+        ],
+        href: 'accessibilityExample',
+      },
+      {
+        name: 'accessibilitySheetLabel',
+        type: 'string',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet.',
+          'Please do not repeat the same text being passed in the "heading" prop, but instead provide something that summarizes the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
+          'Accessibility: It populates aria-label on the <div role="dialog"> element which represents the Sheet component.',
+        ],
+        href: 'accessibilityExample',
+      },
+      {
+        name: 'children',
+        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply the container element or render prop that is going to be used as the Sheet main content.',
+          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
+          'Obs: This element will be padded by 32px, differently than <Modal>.',
+        ],
+        href: 'defaultPaddingAndStylingExample',
+      },
+      {
+        name: 'closeOnOutsideClick',
+        type: 'boolean',
+        required: false,
+        defaultValue: true,
+        description: [
+          'Indicate whether clicking on the backdrop (gray area) outside of the Sheet will automatically close it.',
+          'Possible values:',
+          '- true: clicking on the backdrop will close the Sheet.',
+          '- false: clicking on the backdrop will keep the Sheet open.',
+        ],
+        href: 'closeOnOutsideClickExample',
+      },
+      {
+        name: 'footer',
+        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply the container element or render prop that is going to be used as the Sheet custom footer.',
+          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
+          'Obs: This element will be padded by 32px, similarly to <Modal>.',
+        ],
+        href: 'defaultPaddingAndStylingExample',
+      },
+      {
+        name: 'heading',
+        type: `string`,
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply the text that is going to be placed as the Sheet text heading.',
+          'Please do not repeat the same text being passed in the "accessibilitySheetLabel" prop, but instead provide something that identifies the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
+          'Obs: This element will be padded by 32px, similarly to <Modal>.',
+        ],
+        href: 'defaultPaddingAndStylingExample',
+      },
+      {
+        name: 'onDismiss',
+        type: '() => void',
+        required: true,
+        defaultValue: null,
+        description: [
+          'Callback fired when the Sheet is dismissed from one of these ways:',
+          '- Clicking on the Dismiss button.',
+          '- Pressing the ESC key.',
+          '- Clicking on the backdrop (gray area) outside of the Sheet when the prop "closeOnOutsideClick" is true.',
+        ],
+        href: 'defaultPaddingAndStylingExample',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description:
+          'Forward the ref to the underlying <div role="dialog"> element which represents the Sheet component.',
+        href: 'refExample',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md" | "lg"`,
+        defaultValue: 'sm',
+        description: [
+          'Determine the width of the Sheet component. Possible values:',
+          '- sm: 540px',
+          '- md: 720px',
+          '- lg: 900px',
+        ],
+        href: 'sizesExample',
+      },
+      {
+        name: 'subHeading',
+        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Supply the container element or the render prop that is going to be used as the Sheet sub-heading docked under the heading.',
+          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
+          'It can only be provided when a heading is also provided.',
+        ],
+        href: 'subHeadingExample',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     id="sizesExample"
     name="Sizes"
@@ -94,12 +217,12 @@ card(
     name="Example: animations"
     description={`
     ### 1) Animation types
-    A \`<Sheet>\` can perform 2 animations: **in** (on show) and **out** (on dismiss). 
+    A \`<Sheet>\` can perform 2 animations: **in** (on show) and **out** (on dismiss).
     PS: These animations are controlled by the accessibility hook [useReducedMotion](/useReducedMotion).
 
     #### a) In (on show)
     During the initial render, it will kick in the **in** animation, which does 2 simultaneous transitions:
-    - Backdrop fade in 
+    - Backdrop fade in
     - Sheet slide in from the side
 
     Once the **in** animation is finished, the \`<Sheet>\` will have been fully rendered and ready for user interaction.
@@ -114,7 +237,7 @@ card(
 
     ### 2) Animation on children and footer
     The **in** animation is called with the initial render process from the entrypoint, with no option for customization.
-    The **out** animation, however, is called from the default exitpoints: 
+    The **out** animation, however, is called from the default exitpoints:
       - ESC key
       - Click on outside
       - X button (header)
@@ -123,7 +246,7 @@ card(
     \`\`\`
     ({ onDismissStart }) => ( ... )
     \`\`\`
-     
+
     When using this render prop, just pass the argument \`onDismissStart\` to your exitpoint action elements.
 
     In the example below, please notice all the following animations:
@@ -172,22 +295,22 @@ function AnimationExample() {
           >
             {({ onDismissStart }) => (
               <Row justifyContent="center" alignItems="center" height="100%">
-                <IconButton 
+                <IconButton
                   accessibilityLabel="Done icon left"
-                  icon="directional-arrow-right" 
+                  icon="directional-arrow-right"
                   iconColor="red"
-                  inline 
-                  onClick={onDismissStart} 
-                  size="lg"                     
+                  inline
+                  onClick={onDismissStart}
+                  size="lg"
                 />
                 <Button color="red" inline onClick={onDismissStart} size="lg" text="Done on Children" />
-                <IconButton 
+                <IconButton
                   accessibilityLabel="Done icon right"
-                  icon="directional-arrow-left" 
+                  icon="directional-arrow-left"
                   iconColor="red"
-                  inline 
-                  onClick={onDismissStart} 
-                  size="lg"                     
+                  inline
+                  onClick={onDismissStart}
+                  size="lg"
                 />
               </Row>
             )}
@@ -329,7 +452,7 @@ function DefaultPaddingExample(props) {
                   <li>Dez</li>
                 </ol>
               </Text>
-            </Box>  
+            </Box>
             <Box marginBottom={2}>
               <Text weight="bold">普通话</Text>
               <Text>
@@ -346,7 +469,7 @@ function DefaultPaddingExample(props) {
                   <li>十</li>
                 </ol>
               </Text>
-            </Box>            
+            </Box>
           </Sheet>
         </Layer>
       )}
@@ -362,7 +485,7 @@ card(
     id="subHeadingExample"
     name="Sub-heading"
     description={`
-      Specifies a sub-heading component to be docked under the heading. 
+      Specifies a sub-heading component to be docked under the heading.
       The shadow (when scrolling) between the \`subHeading\`, \`children\`, and \`footer\` are included as well. Please try scrolling up and down the children to verify the shadow.
     `}
     defaultCode={`
@@ -376,7 +499,7 @@ function SubheadingExample(props) {
     const ptRef = React.useRef();
     const chRef = React.useRef();
     const refs = [enRef, esRef, ptRef, chRef];
-  
+
     const handleChangeTab = ({ activeTabIndex, event }) => {
       event.preventDefault();
       setActiveTabIndex(activeTabIndex);
@@ -470,7 +593,7 @@ function SubheadingExample(props) {
               <li>Dez</li>
             </ol>
           </Text>
-        </Box>  
+        </Box>
         <Box marginBottom={8} ref={chRef}>
           <Text weight="bold">普通话</Text>
           <Text>
@@ -487,7 +610,7 @@ function SubheadingExample(props) {
               <li>十</li>
             </ol>
           </Text>
-        </Box>            
+        </Box>
       </Sheet>
     );
   };
@@ -557,11 +680,11 @@ function RefExample() {
                 <Box marginBottom={4}>
                   <Heading size="md">Focused content</Heading>
                 </Box>
-                <Button 
-                  inline 
+                <Button
+                  inline
                   onClick={() => alert('Geronimoooo!')}
-                  ref={buttonRef} 
-                  text="Focused button (Press Enter to be convinced)" 
+                  ref={buttonRef}
+                  text="Focused button (Press Enter to be convinced)"
                 />
               </Box>
             </Sheet>
@@ -598,129 +721,6 @@ card(
     ~~~
   `}
     name="Accessibility Props"
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityDismissButtonLabel',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button.',
-          'Accessibility: It populates aria-label on the <button> element for the Dismiss button.',
-        ],
-        href: 'accessibilityExample',
-      },
-      {
-        name: 'accessibilitySheetLabel',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet.',
-          'Please do not repeat the same text being passed in the "heading" prop, but instead provide something that summarizes the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
-          'Accessibility: It populates aria-label on the <div role="dialog"> element which represents the Sheet component.',
-        ],
-        href: 'accessibilityExample',
-      },
-      {
-        name: 'children',
-        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply the container element or render prop that is going to be used as the Sheet main content.',
-          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
-          'Obs: This element will be padded by 32px, differently than <Modal>.',
-        ],
-        href: 'defaultPaddingAndStylingExample',
-      },
-      {
-        name: 'closeOnOutsideClick',
-        type: 'boolean',
-        required: false,
-        defaultValue: true,
-        description: [
-          'Indicate whether clicking on the backdrop (gray area) outside of the Sheet will automatically close it.',
-          'Possible values:',
-          '- true: clicking on the backdrop will close the Sheet.',
-          '- false: clicking on the backdrop will keep the Sheet open.',
-        ],
-        href: 'closeOnOutsideClickExample',
-      },
-      {
-        name: 'footer',
-        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply the container element or render prop that is going to be used as the Sheet custom footer.',
-          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
-          'Obs: This element will be padded by 32px, similarly to <Modal>.',
-        ],
-        href: 'defaultPaddingAndStylingExample',
-      },
-      {
-        name: 'heading',
-        type: `string`,
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply the text that is going to be placed as the Sheet text heading.',
-          'Please do not repeat the same text being passed in the "accessibilitySheetLabel" prop, but instead provide something that identifies the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
-          'Obs: This element will be padded by 32px, similarly to <Modal>.',
-        ],
-        href: 'defaultPaddingAndStylingExample',
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
-        required: true,
-        defaultValue: null,
-        description: [
-          'Callback fired when the Sheet is dismissed from one of these ways:',
-          '- Clicking on the Dismiss button.',
-          '- Pressing the ESC key.',
-          '- Clicking on the backdrop (gray area) outside of the Sheet when the prop "closeOnOutsideClick" is true.',
-        ],
-        href: 'defaultPaddingAndStylingExample',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'div'>",
-        description:
-          'Forward the ref to the underlying <div role="dialog"> element which represents the Sheet component.',
-        href: 'refExample',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md" | "lg"`,
-        defaultValue: 'sm',
-        description: [
-          'Determine the width of the Sheet component. Possible values:',
-          '- sm: 540px',
-          '- md: 720px',
-          '- lg: 900px',
-        ],
-        href: 'sizesExample',
-      },
-      {
-        name: 'subHeading',
-        type: 'React.Node | (({| onDismissStart: () => void |}) => React.Node)',
-        required: false,
-        defaultValue: null,
-        description: [
-          'Supply the container element or the render prop that is going to be used as the Sheet sub-heading docked under the heading.',
-          'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
-          'It can only be provided when a heading is also provided.',
-        ],
-        href: 'subHeadingExample',
-      },
-    ]}
   />
 );
 

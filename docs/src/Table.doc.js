@@ -17,6 +17,30 @@ card(
 );
 
 card(
+  <PropTable
+    Component={Table}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'borderStyle',
+        type: `"sm" | "none"`,
+        description: 'Specify a border width for table: "sm" is 1px',
+        defaultValue: 'none',
+      },
+      {
+        name: 'maxHeight',
+        type: `number | string`,
+        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
+        href: 'stickyHeader',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     name="Example: Basic Table"
     defaultCode={`
@@ -85,12 +109,11 @@ card(
   />
 );
 
-card(<Card name="Table.Body" />);
-
 card(
   <PropTable
-    showHeading={false}
     Component={Table?.Body}
+    name="Table.Body"
+    id="Table.Body"
     props={[
       {
         name: 'children',
@@ -100,11 +123,10 @@ card(
   />
 );
 
-card(<Card name="Table.Cell" />);
-
 card(
   <PropTable
-    showHeading={false}
+    name="Table.Cell"
+    id="Table.Cell"
     Component={Table?.Cell}
     props={[
       {
@@ -125,11 +147,10 @@ card(
   />
 );
 
-card(<Card name="Table.Footer" />);
-
 card(
   <PropTable
-    showHeading={false}
+    name="Table.Footer"
+    id="Table.Footer"
     Component={Table?.Footer}
     props={[
       {
@@ -144,7 +165,8 @@ card(<Card name="Table.Header" />);
 
 card(
   <PropTable
-    showHeading={false}
+    name="Table.Header"
+    id="Table.Header"
     Component={Table?.Header}
     props={[
       {
@@ -237,11 +259,10 @@ card(
   />
 );
 
-card(<Card name="Table.HeaderCell" />);
-
 card(
   <PropTable
-    showHeading={false}
+    name="Table.HeaderCell"
+    id="Table.HeaderCell"
     Component={Table?.HeaderCell}
     props={[
       {
@@ -267,11 +288,10 @@ card(
   />
 );
 
-card(<Card name="Table.Row" />);
-
 card(
   <PropTable
-    showHeading={false}
+    name="Table.Row"
+    id="Table.Row"
     Component={Table?.Row}
     props={[
       {
@@ -291,7 +311,8 @@ card(
 
 card(
   <PropTable
-    showHeading={false}
+    name="Table.RowExpandable"
+    id="Table.RowExpandable"
     Component={Table?.Row}
     props={[
       {
@@ -559,7 +580,8 @@ card(
 
 card(
   <PropTable
-    showHeading={false}
+    name="Table.SortableHeaderCell"
+    id="Table.SortableHeaderCell"
     Component={Table?.SortableHeaderCell}
     props={[
       {
@@ -638,30 +660,6 @@ card(
       );
     }
 `}
-  />
-);
-
-card(
-  <PropTable
-    Component={Table}
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'borderStyle',
-        type: `"sm" | "none"`,
-        description: 'Specify a border width for table: "sm" is 1px',
-        defaultValue: 'none',
-      },
-      {
-        name: 'maxHeight',
-        type: `number | string`,
-        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
-        href: 'stickyHeader',
-      },
-    ]}
   />
 );
 

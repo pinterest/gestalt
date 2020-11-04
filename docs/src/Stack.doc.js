@@ -21,50 +21,6 @@ card(
 );
 
 card(
-  <Example
-    description={`
-    With a very limited set of props that only relate to vertical layout, Stack is useful for separating concerns to prevent overloaded Box usage.
-  `}
-    name="Example: Menu"
-    defaultCode={`
-<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
-  <Stack alignItems="center" gap={2}>
-    <Text>Menu Item 1</Text>
-    <Text>Menu Item 2</Text>
-    <Text>Menu Item 3</Text>
-  </Stack>
-</Box>
-`}
-  />
-);
-
-card(
-  <Combination
-    description={`
-    Stack is strictly for vertical flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
-  `}
-    id="layout"
-    name="Layout"
-    justifyContent={['start', 'end', 'center', 'between', 'around']}
-    alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
-  >
-    {({ alignItems, justifyContent, ...rest }) => (
-      <Box height={96} width={96} {...rest}>
-        <Stack
-          alignItems={alignItems}
-          height="100%"
-          justifyContent={justifyContent}
-        >
-          <Box margin={1} color="gray" width={8} height={8} />
-          <Box margin={1} color="gray" width={16} height={8} />
-          <Box margin={1} color="gray" width={32} height={8} />
-        </Stack>
-      </Box>
-    )}
-  </Combination>
-);
-
-card(
   <PropTable
     Component={Stack}
     props={[
@@ -153,6 +109,50 @@ card(
       },
     ]}
   />
+);
+
+card(
+  <Example
+    description={`
+    With a very limited set of props that only relate to vertical layout, Stack is useful for separating concerns to prevent overloaded Box usage.
+  `}
+    name="Example: Menu"
+    defaultCode={`
+<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
+  <Stack alignItems="center" gap={2}>
+    <Text>Menu Item 1</Text>
+    <Text>Menu Item 2</Text>
+    <Text>Menu Item 3</Text>
+  </Stack>
+</Box>
+`}
+  />
+);
+
+card(
+  <Combination
+    description={`
+    Stack is strictly for vertical flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+  `}
+    id="layout"
+    name="Layout"
+    justifyContent={['start', 'end', 'center', 'between', 'around']}
+    alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
+  >
+    {({ alignItems, justifyContent, ...rest }) => (
+      <Box height={96} width={96} {...rest}>
+        <Stack
+          alignItems={alignItems}
+          height="100%"
+          justifyContent={justifyContent}
+        >
+          <Box margin={1} color="gray" width={8} height={8} />
+          <Box margin={1} color="gray" width={16} height={8} />
+          <Box margin={1} color="gray" width={32} height={8} />
+        </Stack>
+      </Box>
+    )}
+  </Combination>
 );
 
 export default cards;

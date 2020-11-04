@@ -17,6 +17,34 @@ The Card component is meant to highlight content in grids. It visually shows tha
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'active',
+        type: '?boolean',
+        defaultValue: false,
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'image',
+        type: 'React.Node',
+      },
+      {
+        name: 'onMouseEnter',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
+      },
+      {
+        name: 'onMouseLeave',
+        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description={`
     Using \`Card\` is as easy as it can be, simply wrap your component(s) with it. Ideally all of the children should be clickable and cover 100% of the area
@@ -44,34 +72,6 @@ function CardExample() {
   );
 }
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'active',
-        type: '?boolean',
-        defaultValue: false,
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'image',
-        type: 'React.Node',
-      },
-      {
-        name: 'onMouseEnter',
-        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
-      },
-      {
-        name: 'onMouseLeave',
-        type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
-      },
-    ]}
   />
 );
 

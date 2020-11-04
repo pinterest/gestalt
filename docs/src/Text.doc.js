@@ -15,6 +15,68 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'align',
+        type: `"left" | "right" | "center" | "justify"`,
+        defaultValue: 'left',
+        href: 'align',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'color',
+        type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
+        defaultValue: 'darkGray',
+        href: 'color',
+      },
+      {
+        name: 'inline',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'inline',
+      },
+      {
+        name: 'italic',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'styles',
+      },
+      {
+        name: 'overflow',
+        type: `"normal" | "breakWord" | "noWrap"`,
+        defaultValue: 'breakWord',
+        href: 'overflow',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md" | "lg"`,
+        description: `sm: 12px, md: 14px, lg: 16px`,
+        defaultValue: 'lg',
+        href: 'size',
+      },
+      {
+        name: 'truncate',
+        type: 'boolean',
+        description:
+          'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
+        href: 'overflow',
+        defaultValue: false,
+      },
+      {
+        name: 'weight',
+        type: `"bold" | "normal"`,
+        defaultValue: 'normal',
+        href: 'styles',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description="Use this to adjust the positioning of text within wrapper elements."
     id="align"
@@ -162,68 +224,6 @@ card(
   </Box>
 </Box>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'align',
-        type: `"left" | "right" | "center" | "justify"`,
-        defaultValue: 'left',
-        href: 'align',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'color',
-        type: `"blue" | "darkGray" | "eggplant" | "gray" | "green" | "lightGray" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "watermelon" | "white"`,
-        defaultValue: 'darkGray',
-        href: 'color',
-      },
-      {
-        name: 'inline',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'inline',
-      },
-      {
-        name: 'italic',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'styles',
-      },
-      {
-        name: 'overflow',
-        type: `"normal" | "breakWord" | "noWrap"`,
-        defaultValue: 'breakWord',
-        href: 'overflow',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md" | "lg"`,
-        description: `sm: 12px, md: 14px, lg: 16px`,
-        defaultValue: 'lg',
-        href: 'size',
-      },
-      {
-        name: 'truncate',
-        type: 'boolean',
-        description:
-          'Truncate the text to a single line. Add the title attribute if `<Text>` only contains text.',
-        href: 'overflow',
-        defaultValue: false,
-      },
-      {
-        name: 'weight',
-        type: `"bold" | "normal"`,
-        defaultValue: 'normal',
-        href: 'styles',
-      },
-    ]}
   />
 );
 

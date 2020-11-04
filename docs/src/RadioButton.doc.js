@@ -19,6 +19,75 @@ radio buttons if the user can select more than one option from a list.
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'checked',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'radio-button-combos',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'radio-button-combos',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'image',
+        type: 'React.Node',
+        href: 'images',
+        description:
+          'An optional <Image/> component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+        description: 'The name given for all radio buttons in a single group',
+      },
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
+        required: true,
+      },
+      {
+        name: 'value',
+        type: 'string',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'ref',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md"`,
+        description: `sm: 16px, md: 24px`,
+        defaultValue: 'md',
+        href: 'ref',
+      },
+      {
+        name: 'subtext',
+        type: 'string',
+        href: 'subtext',
+        description:
+          'Optional description for the radio button, used to provide more detail about an option',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     name="Example"
     defaultCode={`
@@ -347,75 +416,6 @@ card(
       />
     )}
   </Combination>
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'checked',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'radio-button-combos',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'radio-button-combos',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'image',
-        type: 'React.Node',
-        href: 'images',
-        description:
-          'An optional <Image/> component can be supplied to add an image to each radio button. Spacing is already accounted for, simply specify the width and height.',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-        description: 'The name given for all radio buttons in a single group',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, checked: boolean }) => void',
-        required: true,
-      },
-      {
-        name: 'value',
-        type: 'string',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-        href: 'ref',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md"`,
-        description: `sm: 16px, md: 24px`,
-        defaultValue: 'md',
-        href: 'ref',
-      },
-      {
-        name: 'subtext',
-        type: 'string',
-        href: 'subtext',
-        description:
-          'Optional description for the radio button, used to provide more detail about an option',
-      },
-    ]}
-  />
 );
 
 export default cards;

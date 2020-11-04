@@ -16,6 +16,43 @@ card(
 );
 
 card(
+  <PropTable
+    Component={Tabs}
+    props={[
+      {
+        name: 'activeTabIndex',
+        type: 'number',
+        required: true,
+      },
+      {
+        name: 'tabs',
+        type: `Array<{| text: React.Node, href: string, id?: string, indicator?: 'dot' |}>`,
+        required: true,
+      },
+      {
+        name: 'onChange',
+        type: `({ +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number }) => void`,
+        required: true,
+        description:
+          'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
+      },
+      {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+      {
+        name: 'wrap',
+        type: 'boolean',
+        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     name="Example"
     defaultCode={`
@@ -64,43 +101,6 @@ function TabExample() {
   );
 }
   `}
-  />
-);
-
-card(
-  <PropTable
-    Component={Tabs}
-    props={[
-      {
-        name: 'activeTabIndex',
-        type: 'number',
-        required: true,
-      },
-      {
-        name: 'tabs',
-        type: `Array<{| text: React.Node, href: string, id?: string, indicator?: 'dot' |}>`,
-        required: true,
-      },
-      {
-        name: 'onChange',
-        type: `({ +event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>, +activeTabIndex: number }) => void`,
-        required: true,
-        description:
-          'If your app uses a tool such as react-router to navigate between pages, be sure to use onChange to navigate instead of getting a full page refresh with href',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-      {
-        name: 'wrap',
-        type: 'boolean',
-        description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
-      },
-    ]}
   />
 );
 

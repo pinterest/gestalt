@@ -15,6 +15,27 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'colorScheme',
+        type: `"light" | "dark" | "userPreference"`,
+        defaultValue: 'light',
+        description:
+          'The color scheme for components inside the provider. Specify "userPreference" to use "prefers-color-scheme" media query.',
+        href: 'colorScheme',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        description:
+          'An optional id for your provider. If not passed in, settings will be applied as globally as possible (example: it sets color scheme variables at :root).',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description="Specify a light or dark color scheme for components"
     name="Color scheme"
@@ -56,27 +77,6 @@ function Example(props) {
     </Provider>
   );
 }`}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'colorScheme',
-        type: `"light" | "dark" | "userPreference"`,
-        defaultValue: 'light',
-        description:
-          'The color scheme for components inside the provider. Specify "userPreference" to use "prefers-color-scheme" media query.',
-        href: 'colorScheme',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        description:
-          'An optional id for your provider. If not passed in, settings will be applied as globally as possible (example: it sets color scheme variables at :root).',
-      },
-    ]}
   />
 );
 

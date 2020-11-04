@@ -16,6 +16,88 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: 'false',
+        href: 'disabledExample',
+      },
+      {
+        name: 'errorMessage',
+        type: 'string',
+        href: 'errorMessageExample',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'textarea'>",
+        description: 'Forward the ref to the underlying textarea element',
+        href: 'refExample',
+      },
+      {
+        name: 'helperText',
+        type: 'string',
+        description: 'More information about how to complete the form field',
+        href: 'helperText',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+      },
+      {
+        name: 'onBlur',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
+      },
+      {
+        name: 'onChange',
+        type:
+          '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'onFocus',
+        type:
+          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
+      },
+      {
+        name: 'onKeyDown',
+        type:
+          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
+      },
+      {
+        name: 'placeholder',
+        type: 'string',
+        href: 'basicExample',
+      },
+      {
+        name: 'rows',
+        type: 'number',
+        description: 'Number of rows to display',
+        defaultValue: 3,
+      },
+      {
+        name: 'value',
+        type: 'string',
+        href: 'basicExample',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     id="basicExample"
     name="Example"
@@ -176,88 +258,6 @@ card(
     in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
   `}
     name="onSubmit"
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: 'false',
-        href: 'disabledExample',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-        href: 'errorMessageExample',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'textarea'>",
-        description: 'Forward the ref to the underlying textarea element',
-        href: 'refExample',
-      },
-      {
-        name: 'helperText',
-        type: 'string',
-        description: 'More information about how to complete the form field',
-        href: 'helperText',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-      },
-      {
-        name: 'onBlur',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
-      },
-      {
-        name: 'onChange',
-        type:
-          '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'onFocus',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
-      },
-      {
-        name: 'onKeyDown',
-        type:
-          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
-      },
-      {
-        name: 'placeholder',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'rows',
-        type: 'number',
-        description: 'Number of rows to display',
-        defaultValue: 3,
-      },
-      {
-        name: 'value',
-        type: 'string',
-        href: 'basicExample',
-      },
-    ]}
   />
 );
 

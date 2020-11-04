@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Heading, Icon, Link, Row } from 'gestalt';
+import { Box, Heading, IconButton, Row } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
 
@@ -10,6 +10,7 @@ type Props = {|
   headingSize?: 'sm' | 'md',
   id?: string,
   name: string,
+  toggle?: Node,
   stacked?: boolean,
   showHeading?: boolean,
 |};
@@ -20,6 +21,7 @@ export default function Card({
   headingSize = 'md',
   id,
   name,
+  toggle,
   stacked = false,
   showHeading = true,
 }: Props): Node {
@@ -39,20 +41,18 @@ export default function Card({
           >
             <Row alignItems="baseline" gap={1}>
               <Box>{name}</Box>
-              <Link
-                href={`#${slugifiedId}`}
-                inline
+
+              <IconButton
+                dangerouslySetSvgPath={{
+                  __path:
+                    'M21.001 7.241l-4.053 4.052-1.06-1.06.672-.672a1.5 1.5 0 10-2.121-2.121l-.671.672-1.061-1.06L16.759 3l4.242 4.241zm-9.708 9.708l-4.052 4.052-4.242-4.241 4.053-4.053 1.059 1.06-.671.672a1.5 1.5 0 002.121 2.121l.671-.672 1.061 1.061zM14.639.879l-4.053 4.052a3 3 0 000 4.242l1.061 1.06-1.415 1.414-1.06-1.061a3 3 0 00-4.241 0L.879 14.638a2.998 2.998 0 000 4.242l4.241 4.242a3 3 0 004.241 0l4.053-4.052a3 3 0 000-4.242l-1.06-1.061 1.414-1.413 1.06 1.06a3 3 0 004.241 0l4.052-4.052a2.998 2.998 0 000-4.242L18.88.879a2.997 2.997 0 00-4.241 0z',
+                }}
                 accessibilityLabel={`${name} - Anchor tag`}
-              >
-                <Icon
-                  dangerouslySetSvgPath={{
-                    __path:
-                      'M21.001 7.241l-4.053 4.052-1.06-1.06.672-.672a1.5 1.5 0 10-2.121-2.121l-.671.672-1.061-1.06L16.759 3l4.242 4.241zm-9.708 9.708l-4.052 4.052-4.242-4.241 4.053-4.053 1.059 1.06-.671.672a1.5 1.5 0 002.121 2.121l.671-.672 1.061 1.061zM14.639.879l-4.053 4.052a3 3 0 000 4.242l1.061 1.06-1.415 1.414-1.06-1.061a3 3 0 00-4.241 0L.879 14.638a2.998 2.998 0 000 4.242l4.241 4.242a3 3 0 004.241 0l4.053-4.052a3 3 0 000-4.242l-1.06-1.061 1.414-1.413 1.06 1.06a3 3 0 004.241 0l4.052-4.052a2.998 2.998 0 000-4.242L18.88.879a2.997 2.997 0 00-4.241 0z',
-                  }}
-                  accessibilityLabel=""
-                  size={14}
-                />
-              </Link>
+                size="sm"
+                href={`#${slugifiedId}`}
+                role="link"
+              />
+              {toggle}
             </Row>
           </Box>
         </Heading>

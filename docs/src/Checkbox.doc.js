@@ -17,6 +17,93 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'checked',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'combinations',
+      },
+      {
+        name: 'errorMessage',
+        type: 'string',
+      },
+      {
+        name: 'hasError',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'hasError',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'image',
+        type: 'React.Node',
+        href: 'images',
+        description:
+          'An optional <Image/> component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
+      },
+      {
+        name: 'indeterminate',
+        type: 'boolean',
+        defaultValue: false,
+        description: `Indeterminism is
+purely presentational - the value of
+a checkbox and its indeterminism are independent.`,
+        href: 'combinations',
+      },
+      {
+        name: 'label',
+        type: 'string',
+      },
+      {
+        name: 'name',
+        type: 'string',
+      },
+      {
+        name: 'onChange',
+        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
+        required: true,
+      },
+      {
+        name: 'onClick',
+        type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'input'>",
+        description: 'Forward the ref to the underlying input element',
+        href: 'refExample',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md"`,
+        defaultValue: 'md',
+        description: `"sm" is 16px & "md" is 24px`,
+        href: 'combinations',
+      },
+      {
+        name: 'subtext',
+        type: 'string',
+        href: 'subtext',
+        description:
+          'Optional description for the checkbox, used to provide more detail about an option',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     id="single"
     name="Example"
@@ -338,93 +425,6 @@ card(
       />
     )}
   </Combination>
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'checked',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'combinations',
-      },
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'combinations',
-      },
-      {
-        name: 'errorMessage',
-        type: 'string',
-      },
-      {
-        name: 'hasError',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'hasError',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'image',
-        type: 'React.Node',
-        href: 'images',
-        description:
-          'An optional <Image/> component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
-      },
-      {
-        name: 'indeterminate',
-        type: 'boolean',
-        defaultValue: false,
-        description: `Indeterminism is
-purely presentational - the value of
-a checkbox and its indeterminism are independent.`,
-        href: 'combinations',
-      },
-      {
-        name: 'label',
-        type: 'string',
-      },
-      {
-        name: 'name',
-        type: 'string',
-      },
-      {
-        name: 'onChange',
-        type: `({ event: SyntheticInputEvent<>, checked: boolean }) => void`,
-        required: true,
-      },
-      {
-        name: 'onClick',
-        type: `({ event: SyntheticInputEvent<HTMLInputElement>, checked: boolean }) => void`,
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'input'>",
-        description: 'Forward the ref to the underlying input element',
-        href: 'refExample',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md"`,
-        defaultValue: 'md',
-        description: `"sm" is 16px & "md" is 24px`,
-        href: 'combinations',
-      },
-      {
-        name: 'subtext',
-        type: 'string',
-        href: 'subtext',
-        description:
-          'Optional description for the checkbox, used to provide more detail about an option',
-      },
-    ]}
-  />
 );
 
 export default cards;

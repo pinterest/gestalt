@@ -13,6 +13,48 @@ card(
     description="Sticky allows an element to become fixed when it reaches a threshold (top, left, bottom, or right)."
   />
 );
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'bottom',
+        type: 'number | string',
+        description: `Use numbers for pixels: bottom={100} and strings for percentages: width="100%"`,
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'left',
+        type: 'number | string',
+        description: `Use numbers for pixels: left={100} and strings for percentages: left="100%"`,
+      },
+      {
+        name: 'right',
+        type: 'number | string',
+        description: `Use numbers for pixels: right={100} and strings for percentages: right="100%"`,
+      },
+      {
+        name: 'top',
+        type: 'number | string',
+        description: `Use numbers for pixels: top={100} and strings for percentages: top="100%"`,
+      },
+      {
+        name: 'height',
+        type: 'number',
+        description: `Use numbers for pixels: height={100}. This is only useful when the sticky container and its content need to have different heights.`,
+      },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        description: `An object representing the zIndex value of the Sticky.`,
+      },
+    ]}
+  />
+);
+
 card(
   <Example
     name="Example: Sticky top"
@@ -62,47 +104,6 @@ function Example() {
   )
 }
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'bottom',
-        type: 'number | string',
-        description: `Use numbers for pixels: bottom={100} and strings for percentages: width="100%"`,
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'left',
-        type: 'number | string',
-        description: `Use numbers for pixels: left={100} and strings for percentages: left="100%"`,
-      },
-      {
-        name: 'right',
-        type: 'number | string',
-        description: `Use numbers for pixels: right={100} and strings for percentages: right="100%"`,
-      },
-      {
-        name: 'top',
-        type: 'number | string',
-        description: `Use numbers for pixels: top={100} and strings for percentages: top="100%"`,
-      },
-      {
-        name: 'height',
-        type: 'number',
-        description: `Use numbers for pixels: height={100}. This is only useful when the sticky container and its content need to have different heights.`,
-      },
-      {
-        name: 'zIndex',
-        type: 'interface Indexable { index(): number; }',
-        description: `An object representing the zIndex value of the Sticky.`,
-      },
-    ]}
   />
 );
 
