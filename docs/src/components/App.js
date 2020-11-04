@@ -6,6 +6,7 @@ import Navigation from './Navigation.js';
 import useTracking from './useTracking.js';
 import { SidebarContextProvider } from './sidebarContext.js';
 import useLocalStorage from './useLocalStorage.js';
+import { PropTableContextProvider } from './propTableContext.js';
 
 type Props = {|
   children?: Node,
@@ -74,7 +75,7 @@ export default function App(props: Props): Node {
                 width="100%"
                 role="main"
               >
-                {children}
+                <PropTableContextProvider>{children}</PropTableContextProvider>
               </Box>
               <Divider />
 

@@ -14,6 +14,8 @@ card(
   />
 );
 
+card(<PropTable props={[]} />);
+
 card(
   <Example
     description="
@@ -33,7 +35,5 @@ card(
 `}
   />
 );
-
-card(<PropTable props={[]} />);
 
 export default cards;

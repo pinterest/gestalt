@@ -15,6 +15,17 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description="
     On small screens, the container is the width of the screen. On large screens, it centers the content with a max-width of 800px.
@@ -29,17 +40,6 @@ card(
   </Container>
 </Box>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-    ]}
   />
 );
 

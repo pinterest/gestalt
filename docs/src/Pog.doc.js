@@ -21,78 +21,6 @@ This abstraction to allow for links that look like an IconButton.
 );
 
 card(
-  <Example
-    name="Example"
-    defaultCode={`
-<Pog
-  icon="heart"
-  iconColor="red"
-/>
-`}
-  />
-);
-
-card(
-  <Combination
-    id="stateCombinations"
-    name="Combinations: State"
-    hovered={[false, true]}
-    focused={[false, true]}
-    active={[false, true]}
-  >
-    {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="sizeCombinations"
-    name="Combinations: Size with default padding"
-    size={['xs', 'sm', 'md', 'lg', 'xl']}
-  >
-    {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="paddingCombinations"
-    name="Combinations: Size with custom padding"
-    size={['xs', 'sm', 'md', 'lg', 'xl']}
-    padding={[1, 2, 3, 4, 5]}
-  >
-    {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="iconColorCombinations"
-    name="Combinations: Icon Color"
-    iconColor={['darkGray', 'gray', 'red', 'white']}
-  >
-    {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
-);
-
-card(
-  <Combination
-    id="backgroundColorCombinations"
-    name="Combinations: Background Color"
-    bgColor={[
-      'transparent',
-      'transparentDarkGray',
-      'darkGray',
-      'white',
-      'lightGray',
-      'gray',
-    ]}
-  >
-    {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
-);
-
-card(
   <PropTable
     props={[
       {
@@ -163,6 +91,78 @@ card(
       },
     ]}
   />
+);
+
+card(
+  <Example
+    name="Example"
+    defaultCode={`
+<Pog
+  icon="heart"
+  iconColor="red"
+/>
+`}
+  />
+);
+
+card(
+  <Combination
+    id="stateCombinations"
+    name="Combinations: State"
+    hovered={[false, true]}
+    focused={[false, true]}
+    active={[false, true]}
+  >
+    {(props) => <Pog icon="heart" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="sizeCombinations"
+    name="Combinations: Size with default padding"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+  >
+    {(props) => <Pog icon="heart" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="paddingCombinations"
+    name="Combinations: Size with custom padding"
+    size={['xs', 'sm', 'md', 'lg', 'xl']}
+    padding={[1, 2, 3, 4, 5]}
+  >
+    {(props) => <Pog icon="heart" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="iconColorCombinations"
+    name="Combinations: Icon Color"
+    iconColor={['darkGray', 'gray', 'red', 'white']}
+  >
+    {(props) => <Pog icon="heart" {...props} />}
+  </Combination>
+);
+
+card(
+  <Combination
+    id="backgroundColorCombinations"
+    name="Combinations: Background Color"
+    bgColor={[
+      'transparent',
+      'transparentDarkGray',
+      'darkGray',
+      'white',
+      'lightGray',
+      'gray',
+    ]}
+  >
+    {(props) => <Pog icon="heart" {...props} />}
+  </Combination>
 );
 
 export default cards;

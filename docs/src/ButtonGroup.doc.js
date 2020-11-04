@@ -12,6 +12,19 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'Node',
+        description: `List of Button's or IconButton's`,
+        href: 'accessibilityLabel',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     name="Example"
     id="example"
@@ -38,19 +51,6 @@ card(
   </ButtonGroup>
 </Box>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'Node',
-        description: `List of Button's or IconButton's`,
-        href: 'accessibilityLabel',
-      },
-    ]}
   />
 );
 

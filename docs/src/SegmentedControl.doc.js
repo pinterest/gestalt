@@ -21,6 +21,43 @@ When a control is engaged, information below the control should get updated.
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'items',
+        type: 'Array<React.Node>',
+        required: true,
+      },
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticMouseEvent<>, activeIndex: number }) => void',
+        required: true,
+      },
+      {
+        name: 'responsive',
+        type: 'boolean',
+        required: false,
+        description:
+          'By default, items have equal widths. If this prop is true, the width of an item is based on its content.',
+      },
+      {
+        name: 'selectedItemIndex',
+        type: 'number',
+        required: true,
+        description: 'Index of element in `items` that is selected.',
+      },
+      {
+        name: 'size',
+        type: '"md" | "lg"',
+        required: false,
+        description: 'md: 40px, lg: 48px',
+        defaultValue: 'md',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     description="Segmented Controls are naive components, meaning you need to wire up the behavior when you click on an item.
 
@@ -81,43 +118,6 @@ function SegmentedControlExample() {
   );
 }
     `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'items',
-        type: 'Array<React.Node>',
-        required: true,
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticMouseEvent<>, activeIndex: number }) => void',
-        required: true,
-      },
-      {
-        name: 'responsive',
-        type: 'boolean',
-        required: false,
-        description:
-          'By default, items have equal widths. If this prop is true, the width of an item is based on its content.',
-      },
-      {
-        name: 'selectedItemIndex',
-        type: 'number',
-        required: true,
-        description: 'Index of element in `items` that is selected.',
-      },
-      {
-        name: 'size',
-        type: '"md" | "lg"',
-        required: false,
-        description: 'md: 40px, lg: 48px',
-        defaultValue: 'md',
-      },
-    ]}
   />
 );
 

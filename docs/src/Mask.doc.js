@@ -19,6 +19,47 @@ putting a \`Mask\` on it.
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'height',
+        type: `number | string`,
+        href: 'basicExample',
+        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
+      },
+      {
+        name: 'width',
+        type: `number | string`,
+        href: 'basicExample',
+        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
+      },
+      {
+        name: 'rounding',
+        type: `"circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
+        defaultValue: 0,
+        href: 'roundingCombinations',
+      },
+      {
+        name: 'wash',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'wash',
+      },
+      {
+        name: 'willChangeTransform',
+        type: 'boolean',
+        defaultValue: true,
+        href: 'willChangeTransform',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     id="basicExample"
     name="Example"
@@ -103,47 +144,6 @@ card(
   </Mask>
 </Box>
 `}
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'height',
-        type: `number | string`,
-        href: 'basicExample',
-        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
-      },
-      {
-        name: 'width',
-        type: `number | string`,
-        href: 'basicExample',
-        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
-      },
-      {
-        name: 'rounding',
-        type: `"circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        defaultValue: 0,
-        href: 'roundingCombinations',
-      },
-      {
-        name: 'wash',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'wash',
-      },
-      {
-        name: 'willChangeTransform',
-        type: 'boolean',
-        defaultValue: true,
-        href: 'willChangeTransform',
-      },
-    ]}
   />
 );
 

@@ -16,6 +16,68 @@ card(
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'accessibilityModalLabel',
+        type: 'string',
+        required: true,
+        description:
+          'String that clients such as VoiceOver will read to describe the modal. Always localize the label.',
+        href: 'accessibility',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'closeOnOutsideClick',
+        type: 'boolean',
+        description: 'Close the modal when you click outside of it',
+        defaultValue: true,
+        href: 'closeOnOutsideClickExample',
+      },
+      {
+        name: 'footer',
+        type: 'React.Node',
+        href: 'sizesExample',
+      },
+      {
+        name: 'heading',
+        type: `string | React.Node`,
+        required: false,
+        href: 'heading',
+      },
+      {
+        name: 'onDismiss',
+        type: '() => void',
+        required: true,
+        href: 'sizesExample',
+      },
+      {
+        name: 'ref',
+        type: "React.Ref<'div'>",
+        description: 'Forward the ref to the underlying div element',
+        href: 'refExample',
+      },
+      {
+        name: 'role',
+        type: `"alertdialog" | "dialog"`,
+        defaultValue: 'dialog',
+        href: 'role',
+      },
+      {
+        name: 'size',
+        type: `"sm" | "md" | "lg" | number`,
+        defaultValue: 'sm',
+        description: `sm: 540px, md: 720px, lg: 900px`,
+        href: 'sizesExample',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     id="sizesExample"
     name="Sizes"
@@ -651,68 +713,6 @@ card(
     ~~~
   `}
     name="Accessibility Props"
-  />
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'accessibilityModalLabel',
-        type: 'string',
-        required: true,
-        description:
-          'String that clients such as VoiceOver will read to describe the modal. Always localize the label.',
-        href: 'accessibility',
-      },
-      {
-        name: 'children',
-        type: 'React.Node',
-      },
-      {
-        name: 'closeOnOutsideClick',
-        type: 'boolean',
-        description: 'Close the modal when you click outside of it',
-        defaultValue: true,
-        href: 'closeOnOutsideClickExample',
-      },
-      {
-        name: 'footer',
-        type: 'React.Node',
-        href: 'sizesExample',
-      },
-      {
-        name: 'heading',
-        type: `string | React.Node`,
-        required: false,
-        href: 'heading',
-      },
-      {
-        name: 'onDismiss',
-        type: '() => void',
-        required: true,
-        href: 'sizesExample',
-      },
-      {
-        name: 'ref',
-        type: "React.Ref<'div'>",
-        description: 'Forward the ref to the underlying div element',
-        href: 'refExample',
-      },
-      {
-        name: 'role',
-        type: `"alertdialog" | "dialog"`,
-        defaultValue: 'dialog',
-        href: 'role',
-      },
-      {
-        name: 'size',
-        type: `"sm" | "md" | "lg" | number`,
-        defaultValue: 'sm',
-        description: `sm: 540px, md: 720px, lg: 900px`,
-        href: 'sizesExample',
-      },
-    ]}
   />
 );
 

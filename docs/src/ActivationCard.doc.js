@@ -15,73 +15,6 @@ card(
 );
 
 card(
-  <Example
-    name="Not started and Pending Cards"
-    defaultCode={`
-<Box display="flex" marginStart={-1} marginEnd={-1}>
-  <Box paddingX={1} column={6}>
-    <ActivationCard
-      status="notStarted"
-      statusMessage="Not started"
-      title="Claim your website"
-      message="Grow distribution and track Pins linked to your website"
-      link={{href: "https://pinterest.com", label:"Claim your website now"}}
-      dismissButton={{
-        accessibilityLabel: 'Dismiss card',
-        onDismiss: ()=>{},
-      }}
-    />
-  </Box>
-  <Box paddingX={1} column={6}>
-    <ActivationCard
-      status="pending"
-      statusMessage="Pending"
-      title="Claim your website"
-      message="We will notify you via email as soon as your site has been successfully claimed."
-      link={{href: "https://pinterest.com", label:"Learn more"}}
-      dismissButton={{
-        accessibilityLabel: 'Dismiss card',
-        onDismiss: ()=>{},
-      }}
-    />
-  </Box>
-</Box>
-  `}
-  />
-);
-
-card(
-  <Example
-    name="Needs attention and Complete Cards"
-    defaultCode={`
-<Box display="flex" marginStart={-1} marginEnd={-1}>
-  <Box paddingX={1} column={6}>
-    <ActivationCard
-      status="needsAttention"
-      statusMessage="Needs attention"
-      title="Tag is unhealthy"
-      message="Oops! Your tag must be healthy to continue."
-      link={{accessibilityLabel:"Learn more about tag health", href: "https://pinterest.com", label:"Learn more"}}
-      dismissButton={{
-        accessibilityLabel: 'Dismiss card',
-        onDismiss: ()=>{},
-      }}
-    />
-  </Box>
-  <Box paddingX={1} column={6}>
-    <ActivationCard
-      status="complete"
-      statusMessage="Completed"
-      title="Nice work"
-      message="Tag is installed and healthy"
-    />
-  </Box>
-</Box>
-  `}
-  />
-);
-
-card(
   <PropTable
     props={[
       {
@@ -156,6 +89,73 @@ card(
         href: '',
       },
     ]}
+  />
+);
+
+card(
+  <Example
+    name="Not started and Pending Cards"
+    defaultCode={`
+<Box display="flex" marginStart={-1} marginEnd={-1}>
+  <Box paddingX={1} column={6}>
+    <ActivationCard
+      status="notStarted"
+      statusMessage="Not started"
+      title="Claim your website"
+      message="Grow distribution and track Pins linked to your website"
+      link={{href: "https://pinterest.com", label:"Claim your website now"}}
+      dismissButton={{
+        accessibilityLabel: 'Dismiss card',
+        onDismiss: ()=>{},
+      }}
+    />
+  </Box>
+  <Box paddingX={1} column={6}>
+    <ActivationCard
+      status="pending"
+      statusMessage="Pending"
+      title="Claim your website"
+      message="We will notify you via email as soon as your site has been successfully claimed."
+      link={{href: "https://pinterest.com", label:"Learn more"}}
+      dismissButton={{
+        accessibilityLabel: 'Dismiss card',
+        onDismiss: ()=>{},
+      }}
+    />
+  </Box>
+</Box>
+  `}
+  />
+);
+
+card(
+  <Example
+    name="Needs attention and Complete Cards"
+    defaultCode={`
+<Box display="flex" marginStart={-1} marginEnd={-1}>
+  <Box paddingX={1} column={6}>
+    <ActivationCard
+      status="needsAttention"
+      statusMessage="Needs attention"
+      title="Tag is unhealthy"
+      message="Oops! Your tag must be healthy to continue."
+      link={{accessibilityLabel:"Learn more about tag health", href: "https://pinterest.com", label:"Learn more"}}
+      dismissButton={{
+        accessibilityLabel: 'Dismiss card',
+        onDismiss: ()=>{},
+      }}
+    />
+  </Box>
+  <Box paddingX={1} column={6}>
+    <ActivationCard
+      status="complete"
+      statusMessage="Completed"
+      title="Nice work"
+      message="Tag is installed and healthy"
+    />
+  </Box>
+</Box>
+  `}
   />
 );
 

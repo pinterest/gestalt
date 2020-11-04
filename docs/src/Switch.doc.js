@@ -20,6 +20,42 @@ If you have a cell with multiple options that can activated, consider using chec
 );
 
 card(
+  <PropTable
+    props={[
+      {
+        name: 'disabled',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'switchCombinations',
+      },
+      {
+        name: 'id',
+        type: 'string',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'name',
+        type: 'string',
+        href: 'basicExample',
+      },
+      {
+        name: 'onChange',
+        type: '({ event: SyntheticInputEvent<>, value: boolean }) => void',
+        required: true,
+        href: 'basicExample',
+      },
+      {
+        name: 'switched',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'switchCombinations',
+      },
+    ]}
+  />
+);
+
+card(
   <Example
     id="basicExample"
     description={`
@@ -68,42 +104,6 @@ card(
       );
     }}
   </Combination>
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'disabled',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'switchCombinations',
-      },
-      {
-        name: 'id',
-        type: 'string',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'name',
-        type: 'string',
-        href: 'basicExample',
-      },
-      {
-        name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: boolean }) => void',
-        required: true,
-        href: 'basicExample',
-      },
-      {
-        name: 'switched',
-        type: 'boolean',
-        defaultValue: false,
-        href: 'switchCombinations',
-      },
-    ]}
-  />
 );
 
 export default cards;

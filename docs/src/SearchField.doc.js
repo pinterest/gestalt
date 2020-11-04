@@ -11,57 +11,6 @@ const card = (c) => cards.push(c);
 card(<PageHeader name="SearchField" />);
 
 card(
-  <Example
-    description={`
-    We want to make sure every button on the page is unique when being read by screenreader.
-    \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open.
-    \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
-    \`accessibilityLabel\` allows us to update the spoken text.
-
-    Be sure to internationalize your \`accessibilityLabel\`.
-  `}
-    name="Example: Accessibility"
-    defaultCode={`
-  function SearchFieldExample() {
-    const [value, setValue] = React.useState('');
-
-    return (
-      <Box color="white" rounding={2} padding={3} display="flex" alignItems="center">
-        <Box padding={3}>
-          <Icon
-            icon="pinterest"
-            color="red"
-            size={20}
-            accessibilityLabel="Pinterest"
-          />
-        </Box>
-        <Box flex="grow" paddingX={2}>
-          <SearchField
-            accessibilityLabel="Demo Search Field"
-            id="searchField"
-            onChange={({value}) => setValue(value)}
-            placeholder="Search and explore"
-            value={value}
-          />
-        </Box>
-        <Box paddingX={2}>
-          <IconButton
-            accessibilityLabel="Notifications"
-            icon="speech-ellipsis"
-            size="md"
-          />
-        </Box>
-        <Box paddingX={2}>
-          <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-        </Box>
-      </Box>
-    );
-  }
-`}
-  />
-);
-
-card(
   <PropTable
     props={[
       {
@@ -124,6 +73,57 @@ card(
         type: 'string',
       },
     ]}
+  />
+);
+
+card(
+  <Example
+    description={`
+    We want to make sure every button on the page is unique when being read by screenreader.
+    \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open.
+    \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
+    \`accessibilityLabel\` allows us to update the spoken text.
+
+    Be sure to internationalize your \`accessibilityLabel\`.
+  `}
+    name="Example: Accessibility"
+    defaultCode={`
+  function SearchFieldExample() {
+    const [value, setValue] = React.useState('');
+
+    return (
+      <Box color="white" rounding={2} padding={3} display="flex" alignItems="center">
+        <Box padding={3}>
+          <Icon
+            icon="pinterest"
+            color="red"
+            size={20}
+            accessibilityLabel="Pinterest"
+          />
+        </Box>
+        <Box flex="grow" paddingX={2}>
+          <SearchField
+            accessibilityLabel="Demo Search Field"
+            id="searchField"
+            onChange={({value}) => setValue(value)}
+            placeholder="Search and explore"
+            value={value}
+          />
+        </Box>
+        <Box paddingX={2}>
+          <IconButton
+            accessibilityLabel="Notifications"
+            icon="speech-ellipsis"
+            size="md"
+          />
+        </Box>
+        <Box paddingX={2}>
+          <IconButton accessibilityLabel="Profile" icon="person" size="md" />
+        </Box>
+      </Box>
+    );
+  }
+`}
   />
 );
 
