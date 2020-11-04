@@ -1,3 +1,9 @@
+## 14.25.1 (Nov 4, 2020)
+
+### Patch
+
+- Docs: Fix UniformRowLayout example (#1278)
+
 ## 14.25.0 (Nov 3, 2020)
 
 ### Minor
