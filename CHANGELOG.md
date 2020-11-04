@@ -1,3 +1,9 @@
+## 14.25.2 (Nov 4, 2020)
+
+### Patch
+
+- Internal: Add integration test retries (#1281)
+
 ## 14.25.1 (Nov 4, 2020)
 
 ### Patch
