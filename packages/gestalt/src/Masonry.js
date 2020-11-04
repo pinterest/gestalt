@@ -493,6 +493,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     const { hasPendingMeasurements, measurementStore, width } = this.state;
 
     let getPositions;
+
     if ((flexible || layout === 'flexible') && width !== null) {
       getPositions = fullWidthLayout({
         gutter,
