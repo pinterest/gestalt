@@ -1,3 +1,9 @@
+## 14.26.0 (Nov 4, 2020)
+
+### Minor
+
+- Docs: Move props back to the top + make collapsible (#1282)
+
 ## 14.25.2 (Nov 4, 2020)
 
 ### Patch
