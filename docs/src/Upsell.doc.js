@@ -7,7 +7,12 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Upsell" />);
+card(
+  <PageHeader
+    name="Upsell"
+    description="Upsells are banners that display short messages that focus on selling or upgrading something the user already has."
+  />
+);
 
 card(
   <PropTable
