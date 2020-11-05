@@ -4,7 +4,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  type Node,
+  type Node
 } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -27,13 +27,13 @@ const DEFAULT_TEXT_COLORS = {
   red: 'white',
   transparent: 'darkGray',
   transparentWhiteText: 'white',
-  white: 'darkGray',
+  white: 'darkGray'
 };
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 10,
   md: 12,
-  lg: 12,
+  lg: 12
 };
 
 type BaseButton = {|
@@ -46,6 +46,7 @@ type BaseButton = {|
     | 'transparentWhiteText'
     | 'white',
   disabled?: boolean,
+  iconStart?: $Keys<typeof icons>,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
   name?: string,
@@ -57,7 +58,7 @@ type BaseButton = {|
   >,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
-  text: string,
+  text: string
 |};
 
 type ButtonType = {|
@@ -67,13 +68,13 @@ type ButtonType = {|
   accessibilityHaspopup?: boolean,
   selected?: boolean,
   type?: 'button',
-  role?: 'button',
+  role?: 'button'
 |};
 
 type SubmitButtonType = {|
   ...BaseButton,
   type: 'submit',
-  role?: 'button',
+  role?: 'button'
 |};
 
 type LinkButtonType = {|
@@ -81,34 +82,47 @@ type LinkButtonType = {|
   href: string,
   rel?: 'none' | 'nofollow',
   role: 'link',
-  target?: null | 'self' | 'blank',
+  target?: null | 'self' | 'blank'
 |};
 
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
-const IconEnd = ({
+const TextWithConditionalIcons = ({
   text,
   textColor,
   icon,
-  size,
+  size
 }: {|
   text: Node,
   textColor: IconColor,
-  icon: $Keys<typeof icons>,
-  size: string,
+  iconStart: $Keys<typeof icons>,
+  iconEnd: $Keys<typeof icons>,
+  size: string
 |}): Node => (
   <Box alignItems="center" display="flex">
+    {IconStart && (
+      <Box display="inlineBlock" flex="none" marginEnd={2}>
+        <Icon
+          accessibilityLabel=""
+          color={textColor}
+          icon={iconStart}
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      </Box>
+    )}
     {text}
-    <Box display="inlineBlock" flex="none" marginStart={2}>
-      <Icon
-        accessibilityLabel=""
-        color={textColor}
-        icon={icon}
-        size={SIZE_NAME_TO_PIXEL[size]}
-      />
-    </Box>
+    {IconEnd && (
+      <Box display="inlineBlock" flex="none" marginStart={2}>
+        <Icon
+          accessibilityLabel=""
+          color={textColor}
+          icon={iconEnd}
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      </Box>
+    )}
   </Box>
 );
 
@@ -118,15 +132,22 @@ const ButtonWithForwardRef: React$AbstractComponent<
 > = forwardRef<unionProps, unionRefs>(function Button(props, ref): Node {
   const {
     accessibilityLabel,
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
+    name,
     color = 'gray',
     disabled = false,
     inline = false,
+    iconStart,
     iconEnd,
+    type,
+    role,
     onClick,
     tabIndex = 0,
     selected = false,
     size = 'md',
-    text,
+    text
   } = props;
 
   const innerRef = useRef(null);
@@ -143,10 +164,10 @@ const ButtonWithForwardRef: React$AbstractComponent<
     handleTouchStart,
     handleTouchMove,
     handleTouchCancel,
-    handleTouchEnd,
+    handleTouchEnd
   } = useTapFeedback({
     height: innerRef?.current?.clientHeight,
-    width: innerRef?.current?.clientWidth,
+    width: innerRef?.current?.clientWidth
   });
 
   const { name: colorSchemeName } = useColorScheme();
@@ -175,11 +196,10 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.selected]: !disabled && selected,
       [styles.disabled]: disabled,
       [styles.enabled]: !disabled,
-      [styles.inline]: props.role !== 'link' && inline,
-      [styles.block]: props.role !== 'link' && !inline,
-      [touchableStyles.tapCompress]:
-        props.role !== 'link' && !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+      [styles.inline]: role !== 'link' && inline,
+      [styles.block]: role !== 'link' && !inline,
+      [touchableStyles.tapCompress]: role !== 'link' && !disabled && isTapping,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible
     }
   );
 
@@ -195,7 +215,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     </Text>
   );
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     if (onClick) {
       onClick({ event });
     }
@@ -203,7 +223,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
 
   const handleLinkClick = ({ event }) => handleClick(event);
 
-  if (props.role === 'link') {
+  if (role === 'link') {
     const { href, rel = 'none', target = null } = props;
 
     return (
@@ -221,68 +241,23 @@ const ButtonWithForwardRef: React$AbstractComponent<
         target={target}
         wrappedComponent="button"
       >
-        {iconEnd ? (
-          <IconEnd
-            text={buttonText}
-            textColor={textColor}
-            icon={iconEnd}
-            size={size}
-          />
-        ) : (
-          buttonText
-        )}
+        <TextWithConditionalIcons
+          text={buttonText}
+          textColor={textColor}
+          iconStart={iconStart}
+          iconEnd={iconEnd}
+          size={size}
+        />
       </InternalLink>
     );
   }
 
-  if (props.type === 'submit') {
-    const { name } = props;
-
-    return (
-      <button
-        aria-label={accessibilityLabel}
-        className={buttonRoleClasses}
-        disabled={disabled}
-        name={name}
-        onBlur={handleBlur}
-        onClick={handleClick}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onTouchCancel={handleTouchCancel}
-        onTouchEnd={handleTouchEnd}
-        onTouchMove={handleTouchMove}
-        onTouchStart={handleTouchStart}
-        ref={innerRef}
-        style={compressStyle || undefined}
-        tabIndex={disabled ? null : tabIndex}
-        type="submit"
-      >
-        {iconEnd ? (
-          <IconEnd
-            text={buttonText}
-            textColor={textColor}
-            icon={iconEnd}
-            size={size}
-          />
-        ) : (
-          buttonText
-        )}
-      </button>
-    );
-  }
-
-  const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-    name,
-  } = props;
-
+  const isSubmitBtn = type === 'submit';
   return (
     <button
-      aria-controls={accessibilityControls}
-      aria-expanded={accessibilityExpanded}
-      aria-haspopup={accessibilityHaspopup}
+      aria-controls={isSubmitBtn ? null : accessibilityControls}
+      aria-expanded={isSubmitBtn ? null : accessibilityExpanded}
+      aria-haspopup={isSubmitBtn ? null : accessibilityHaspopup}
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
       disabled={disabled}
@@ -298,18 +273,15 @@ const ButtonWithForwardRef: React$AbstractComponent<
       ref={innerRef}
       style={compressStyle || undefined}
       tabIndex={disabled ? null : tabIndex}
-      type="button"
+      type={isSubmitBtn ? 'submit' : 'button'}
     >
-      {iconEnd ? (
-        <IconEnd
-          text={buttonText}
-          textColor={textColor}
-          icon={iconEnd}
-          size={size}
-        />
-      ) : (
-        buttonText
-      )}
+      <TextWithConditionalIcons
+        text={buttonText}
+        textColor={textColor}
+        iconStart={iconStart}
+        iconEnd={iconEnd}
+        size={size}
+      />
     </button>
   );
 });
@@ -326,11 +298,12 @@ ButtonWithForwardRef.propTypes = {
     'red',
     'transparent',
     'transparentWhiteText',
-    'white',
+    'white'
   ]),
   disabled: PropTypes.bool,
   href: PropTypes.string,
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
+  iconStart: PropTypes.oneOf(Object.keys(icons)),
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
@@ -345,7 +318,7 @@ ButtonWithForwardRef.propTypes = {
     null | 'self' | 'blank'
   >),
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['button', 'submit']),
+  type: PropTypes.oneOf(['button', 'submit'])
 };
 
 ButtonWithForwardRef.displayName = 'Button';
