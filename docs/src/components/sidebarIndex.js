@@ -45,6 +45,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Spinner',
       'Toast',
       'Tooltip',
+      'Upsell',
     ],
   },
 
