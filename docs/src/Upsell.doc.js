@@ -35,18 +35,6 @@ card(
         href: '',
       },
       {
-        name: 'iconAccessibilityLabel',
-        type: 'string',
-        required: true,
-        defaultValue: null,
-        description: [
-          'Supply a short, descriptive label for screen-readers to provide sufficient context about the Upsell intent.',
-          'The Upsell component displays `error`, `info`, or `warning` icons which visually indicate the intent of the component. `iconAccessibilityLabel` allows screen readers to communicate that intent.',
-          'Accessibility: It populates aria-label.',
-        ],
-        href: '',
-      },
-      {
         name: 'primaryLink',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
@@ -73,19 +61,6 @@ card(
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
           'Accessibility: `accessibilityLabel` populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the button `text`.',
-        ],
-        href: '',
-      },
-      {
-        name: 'type',
-        type: `"error" | "info" | "warning"`,
-        required: true,
-        defaultValue: null,
-        description: [
-          'Select a type of Upsell:',
-          '-`error`: To provide error messaging to the user.',
-          '-`info`: To provide general information to the user.',
-          '-`warning`: To provide a warn message to the user.',
         ],
         href: '',
       },
