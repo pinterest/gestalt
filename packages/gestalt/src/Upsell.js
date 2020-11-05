@@ -99,7 +99,12 @@ export default function Upsell({
           mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
           mdPaddingY={3}
         >
-          <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
+          <Box
+            marginBottom="auto"
+            marginTop="auto"
+            maxWidth={648}
+            marginEnd={6}
+          >
             {title && (
               <Box marginBottom={2}>
                 <Heading size="sm">{title}</Heading>

@@ -16,7 +16,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
       className="box mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -53,7 +53,7 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -175,7 +175,7 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -282,7 +282,7 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -359,7 +359,7 @@ exports[`<Upsell /> message + title 1`] = `
       className="box mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
