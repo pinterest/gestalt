@@ -31,7 +31,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     />
   </div>
 </div>
@@ -77,7 +77,7 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     >
       <div
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
@@ -199,7 +199,7 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     >
       <div
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
@@ -306,7 +306,7 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     >
       <div
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
@@ -383,7 +383,7 @@ exports[`<Upsell /> message + title 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     />
   </div>
 </div>

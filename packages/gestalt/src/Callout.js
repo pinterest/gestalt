@@ -161,7 +161,7 @@ export default function Callout({
             <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
           </Box>
         </Box>
-        <Box mdDisplay="flex" marginStart="auto" mdPaddingY={3}>
+        <Box mdDisplay="flex" marginStart="auto" mdMarginEnd={4} mdPaddingY={3}>
           {secondaryLink && (
             <CalloutLink type="secondary" data={secondaryLink} />
           )}

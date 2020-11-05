@@ -53,7 +53,7 @@ exports[`<Callout /> Error Callout 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     />
   </div>
 </div>
@@ -112,7 +112,7 @@ exports[`<Callout /> Info Callout 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     />
   </div>
 </div>
@@ -171,7 +171,7 @@ exports[`<Callout /> Warning Callout 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     />
   </div>
 </div>
@@ -239,7 +239,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     >
       <div
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
@@ -383,7 +383,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     >
       <div
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
@@ -512,7 +512,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     >
       <div
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
@@ -611,7 +611,7 @@ exports[`<Callout /> message + title 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdPaddingY3"
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
     />
   </div>
 </div>
