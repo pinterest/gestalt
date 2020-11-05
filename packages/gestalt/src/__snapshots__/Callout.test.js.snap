@@ -242,7 +242,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
       className="box marginStartAuto mdDisplayFlex mdPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 pill xsDisplayFlex"
+        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
@@ -416,7 +416,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
         </a>
       </div>
       <div
-        className="box itemsCenter justifyCenter marginTop2 mdMarginBottomAuto mdMarginTopAuto paddingX1 pill xsDisplayFlex"
+        className="box itemsCenter justifyCenter marginTop2 mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
@@ -515,7 +515,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
       className="box marginStartAuto mdDisplayFlex mdPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 pill xsDisplayFlex"
+        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
