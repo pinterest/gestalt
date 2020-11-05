@@ -81,7 +81,6 @@ const CalloutLink = ({
       marginTop={type === 'primary' && stacked ? 2 : undefined}
       mdMarginTop="auto"
       mdMarginBottom="auto"
-      rounding={type === 'primary' ? 'pill' : undefined}
     >
       <Button
         accessibilityLabel={accessibilityLabel}
