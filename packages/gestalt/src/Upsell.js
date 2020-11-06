@@ -4,13 +4,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
-import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import styles from './Callout.css';
+import styles from './Upsell.css';
 
 type LinkData = {|
   accessibilityLabel?: string,
@@ -29,33 +27,13 @@ type Props = {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
-  iconAccessibilityLabel: string,
   message: string,
   primaryLink?: LinkData,
   secondaryLink?: LinkData,
-  type: 'error' | 'info' | 'warning',
   title?: string,
 |};
 
-const CALLOUT_TYPE_ATTRIBUTES = {
-  info: {
-    icon: 'info-circle',
-    color: 'blue',
-    backgroundColor: '#EBF4FE',
-  },
-  warning: {
-    icon: 'workflow-status-warning',
-    color: 'orange',
-    backgroundColor: '#FDF5EC',
-  },
-  error: {
-    icon: 'workflow-status-problem',
-    color: 'red',
-    backgroundColor: '#FDEBEE',
-  },
-};
-
-const CalloutLink = ({
+const UpsellLink = ({
   data,
   stacked,
   type,
@@ -64,12 +42,7 @@ const CalloutLink = ({
   stacked?: boolean,
   type: string,
 |}): Node => {
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-  let color = type === 'primary' ? 'white' : 'transparent';
-  if (isDarkMode && type === 'secondary') {
-    color = 'transparentWhiteText';
-  }
+  const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, href, label, onClick } = data;
 
   return (
@@ -95,27 +68,15 @@ const CalloutLink = ({
   );
 };
 
-export default function Callout({
+export default function Upsell({
   dismissButton,
-  iconAccessibilityLabel,
   message,
   primaryLink,
   secondaryLink,
-  type,
   title,
 }: Props): Node {
-  // Currently there is not a dark mode spec for this component. This is to ensure
-  // that all text is readable.
-  const { name } = useColorScheme();
-  const isDarkMode = name === 'darkMode';
-
   return (
     <Box
-      dangerouslySetInlineStyle={{
-        __style: {
-          backgroundColor: CALLOUT_TYPE_ATTRIBUTES[type].backgroundColor,
-        },
-      }}
       display="flex"
       direction="column"
       mdDirection="row"
@@ -123,6 +84,7 @@ export default function Callout({
       mdPadding={8}
       position="relative"
       rounding={4}
+      borderStyle="shadow"
     >
       <Box
         mdDisplay="flex"
@@ -138,35 +100,25 @@ export default function Callout({
           mdPaddingY={3}
         >
           <Box
-            marginBottom={0}
-            marginTop={0}
-            mdMarginBottom="auto"
-            mdMarginTop="auto"
+            marginBottom="auto"
+            marginTop="auto"
+            maxWidth={648}
+            marginEnd={6}
           >
-            <Icon
-              accessibilityLabel={iconAccessibilityLabel}
-              color={CALLOUT_TYPE_ATTRIBUTES[type].color}
-              icon={CALLOUT_TYPE_ATTRIBUTES[type].icon}
-              size={32}
-            />
-          </Box>
-          <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
             {title && (
               <Box marginBottom={2}>
-                <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
-                  {title}
-                </Heading>
+                <Heading size="sm">{title}</Heading>
               </Box>
             )}
-            <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
+            <Text>{message}</Text>
           </Box>
         </Box>
         <Box mdDisplay="flex" marginStart="auto" mdMarginEnd={4} mdPaddingY={3}>
           {secondaryLink && (
-            <CalloutLink type="secondary" data={secondaryLink} />
+            <UpsellLink type="secondary" data={secondaryLink} />
           )}
           {primaryLink && (
-            <CalloutLink
+            <UpsellLink
               stacked={!!secondaryLink}
               type="primary"
               data={primaryLink}
@@ -180,7 +132,7 @@ export default function Callout({
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel}
             icon="cancel"
-            iconColor={isDarkMode ? 'white' : 'darkGray'}
+            iconColor="darkGray"
             onClick={dismissButton.onDismiss}
             padding={4}
             size="sm"
@@ -191,13 +143,12 @@ export default function Callout({
   );
 }
 
-Callout.propTypes = {
+Upsell.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   dismissButton: PropTypes.exact({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
-  iconAccessibilityLabel: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   primaryLink: PropTypes.shape({
@@ -213,7 +164,5 @@ Callout.propTypes = {
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
   }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  type: PropTypes.oneOf(['error', 'info', 'warning']).isRequired,
   title: PropTypes.string,
 };

@@ -1,13 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Callout /> Error Callout 1`] = `
+exports[`<Upsell /> Basic Upsell 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#FDEBEE",
-    }
-  }
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
@@ -21,24 +16,7 @@ exports[`<Callout /> Error Callout 1`] = `
       className="box mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="error"
-          className="icon red iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -48,7 +26,7 @@ exports[`<Callout /> Error Callout 1`] = `
         <div
           className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
-          Insert a clever error callout message here
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -59,132 +37,9 @@ exports[`<Callout /> Error Callout 1`] = `
 </div>
 `;
 
-exports[`<Callout /> Info Callout 1`] = `
+exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
->
-  <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="box mdPaddingY3 xsDisplayFlex"
-    >
-      <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="info"
-          className="icon blue iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
-      >
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever info callout message here
-        </div>
-      </div>
-    </div>
-    <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
-    />
-  </div>
-</div>
-`;
-
-exports[`<Callout /> Warning Callout 1`] = `
-<div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#FDF5EC",
-    }
-  }
->
-  <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
-  >
-    <div
-      className="box mdPaddingY3 xsDisplayFlex"
-    >
-      <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="warning"
-          className="icon orange iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
-      >
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever warning callout message here
-        </div>
-      </div>
-    </div>
-    <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
-    />
-  </div>
-</div>
-`;
-
-exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
-<div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
@@ -198,24 +53,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="info"
-          className="icon blue iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -234,7 +72,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
         <div
           className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
-          Insert a clever info callout message here
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -245,7 +83,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -265,7 +103,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize3 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -321,14 +159,9 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
 </div>
 `;
 
-exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
+exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
@@ -342,24 +175,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="info"
-          className="icon blue iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -378,7 +194,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
         <div
           className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
-          Insert a clever info callout message here
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -389,7 +205,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -419,7 +235,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
         className="box itemsCenter justifyCenter marginTop2 mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -439,7 +255,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize3 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -450,14 +266,9 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
 </div>
 `;
 
-exports[`<Callout /> message + title + primaryLink 1`] = `
+exports[`<Upsell /> message + title + primaryLink 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
@@ -471,24 +282,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="info"
-          className="icon blue iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -507,7 +301,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
         <div
           className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
-          Insert a clever info callout message here
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -518,7 +312,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
         className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -538,7 +332,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
           target={null}
         >
           <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            className="Text fontSize3 white alignCenter fontWeightBold"
           >
             Visit Pinterest
           </div>
@@ -549,14 +343,9 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
 </div>
 `;
 
-exports[`<Callout /> message + title 1`] = `
+exports[`<Upsell /> message + title 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
-  style={
-    Object {
-      "backgroundColor": "#EBF4FE",
-    }
-  }
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
@@ -570,24 +359,7 @@ exports[`<Callout /> message + title 1`] = `
       className="box mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="info"
-          className="icon blue iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginEnd6 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -606,7 +378,7 @@ exports[`<Callout /> message + title 1`] = `
         <div
           className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
-          Insert a clever info callout message here
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
