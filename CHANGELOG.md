@@ -1,3 +1,9 @@
+## 14.28.0 (Nov 6, 2020)
+
+### Minor
+
+- Docs: improved Development and Faq (#1285)
+
 ## 14.27.0 (Nov 6, 2020)
 
 ### Minor
