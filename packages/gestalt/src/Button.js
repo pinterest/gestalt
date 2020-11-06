@@ -90,20 +90,20 @@ type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
-const TextWithConditionalIcons = ({
+const TextWithIcons = ({
   text,
   textColor,
   iconColor,
   iconStart,
   iconEnd,
-  size,
+  size
 }: {|
   text: Node,
   textColor: IconColor,
   iconColor: IconColor,
   iconStart: $Keys<typeof icons>,
   iconEnd: $Keys<typeof icons>,
-  size: string,
+  size: string
 |}): Node => {
   const icon = (
     <Icon
@@ -247,7 +247,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         target={target}
         wrappedComponent="button"
       >
-        <TextWithConditionalIcons
+        <TextWithIcons
           text={buttonText}
           textColor={textColor}
           iconStart={iconStart}
@@ -282,7 +282,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       tabIndex={disabled ? null : tabIndex}
       type={isSubmitBtn ? 'submit' : 'button'}
     >
-      <TextWithConditionalIcons
+      <TextWithIcons
         text={buttonText}
         textColor={textColor}
         iconStart={iconStart}
