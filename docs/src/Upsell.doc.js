@@ -88,9 +88,9 @@ card(
     name="Call to Actions and Title"
     defaultCode={`
 <Upsell
-  title="Download the Pinterest marketing app on Shopify"
-  message="Seamlessly add your products to Pinterest, promote them and track the results"
-  primaryLink={{href: "https://pinterest.com", label:"Install now"}}
+  title="Join the Verified Merchant Program"
+  message="Apply to the Verified Merchant Program—it’s free"
+  primaryLink={{href: "https://pinterest.com", label:"Apply now"}}
   secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
