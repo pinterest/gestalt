@@ -88,6 +88,18 @@ card(
         href: 'type-roles',
       },
       {
+        name: 'iconStart',
+        type: '$Keys<typeof icons>',
+        required: false,
+        defaultValue: false,
+        description: [
+          'Add a Gestalt icon to be displayed before the button text. Sometimes an icon can help clarify the usage of a button. Menus are a common use case.',
+          'Accessibility: Icons on buttons are not accessible for screen readers.',
+          'Use IconButton if you only need buttons with icons and no text.',
+        ],
+        href: 'icons',
+      },
+      {
         name: 'iconEnd',
         type: '$Keys<typeof icons>',
         required: false,
@@ -97,7 +109,19 @@ card(
           'Accessibility: Icons on buttons are not accessible for screen readers.',
           'Use IconButton if you only need buttons with icons and no text.',
         ],
-        href: 'iconEnd',
+        href: 'icons',
+      },
+      {
+        name: 'iconColor',
+        type: '$Keys<typeof IconColor>',
+        required: false,
+        defaultValue: false,
+        description: [
+          'Allows you to change the color of the icon within the button',
+          'Accessibility: Icons on buttons are not accessible for screen readers.',
+          'Use IconButton if you only need buttons with icons and no text.',
+        ],
+        href: 'icons',
       },
       {
         name: 'inline',
@@ -406,9 +430,13 @@ card(
 card(
   <Example
     name="Icons"
-    id="iconEnd"
+    id="icons"
     defaultCode={`
-    <Button iconEnd="download" text="Download CVS file" inline />
+    <Row gap={1}>
+      <Button iconEnd="download" text="Download CVS file" inline />
+      <Button iconStart="download" text="Download CVS file" inline />
+      <Button iconStart="workflow-status-warning" iconColor="orange" text="Download CVS file" inline />
+    </Row>
 `}
   />
 );

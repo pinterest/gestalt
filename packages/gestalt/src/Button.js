@@ -4,7 +4,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  type Node
+  type Node,
 } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -27,13 +27,13 @@ const DEFAULT_TEXT_COLORS = {
   red: 'white',
   transparent: 'darkGray',
   transparentWhiteText: 'white',
-  white: 'darkGray'
+  white: 'darkGray',
 };
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 10,
   md: 12,
-  lg: 12
+  lg: 12,
 };
 
 type BaseButton = {|
@@ -48,6 +48,7 @@ type BaseButton = {|
   disabled?: boolean,
   iconStart?: $Keys<typeof icons>,
   iconEnd?: $Keys<typeof icons>,
+  iconColor: IconColor,
   inline?: boolean,
   name?: string,
   onClick?: AbstractEventHandler<
@@ -58,7 +59,7 @@ type BaseButton = {|
   >,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
-  text: string
+  text: string,
 |};
 
 type ButtonType = {|
@@ -68,13 +69,13 @@ type ButtonType = {|
   accessibilityHaspopup?: boolean,
   selected?: boolean,
   type?: 'button',
-  role?: 'button'
+  role?: 'button',
 |};
 
 type SubmitButtonType = {|
   ...BaseButton,
   type: 'submit',
-  role?: 'button'
+  role?: 'button',
 |};
 
 type LinkButtonType = {|
@@ -82,7 +83,7 @@ type LinkButtonType = {|
   href: string,
   rel?: 'none' | 'nofollow',
   role: 'link',
-  target?: null | 'self' | 'blank'
+  target?: null | 'self' | 'blank',
 |};
 
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
@@ -92,39 +93,43 @@ type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 const TextWithConditionalIcons = ({
   text,
   textColor,
-  icon,
-  size
+  iconColor,
+  iconStart,
+  iconEnd,
+  size,
 }: {|
   text: Node,
   textColor: IconColor,
+  iconColor: IconColor,
   iconStart: $Keys<typeof icons>,
   iconEnd: $Keys<typeof icons>,
-  size: string
-|}): Node => (
-  <Box alignItems="center" display="flex">
-    {IconStart && (
-      <Box display="inlineBlock" flex="none" marginEnd={2}>
-        <Icon
-          accessibilityLabel=""
-          color={textColor}
-          icon={iconStart}
-          size={SIZE_NAME_TO_PIXEL[size]}
-        />
-      </Box>
-    )}
-    {text}
-    {IconEnd && (
-      <Box display="inlineBlock" flex="none" marginStart={2}>
-        <Icon
-          accessibilityLabel=""
-          color={textColor}
-          icon={iconEnd}
-          size={SIZE_NAME_TO_PIXEL[size]}
-        />
-      </Box>
-    )}
-  </Box>
-);
+  size: string,
+|}): Node => {
+  const icon = (
+    <Icon
+      accessibilityLabel=""
+      color={iconColor || textColor}
+      icon={iconStart}
+      size={SIZE_NAME_TO_PIXEL[size]}
+    />
+  );
+
+  return (
+    <Box alignItems="center" display="flex">
+      {iconStart && (
+        <Box display="inlineBlock" flex="none" marginEnd={2}>
+          {icon}
+        </Box>
+      )}
+      {text}
+      {iconEnd && (
+        <Box display="inlineBlock" flex="none" marginStart={2}>
+          {icon}
+        </Box>
+      )}
+    </Box>
+  );
+};
 
 const ButtonWithForwardRef: React$AbstractComponent<
   unionProps,
@@ -141,13 +146,14 @@ const ButtonWithForwardRef: React$AbstractComponent<
     inline = false,
     iconStart,
     iconEnd,
+    iconColor,
     type,
     role,
     onClick,
     tabIndex = 0,
     selected = false,
     size = 'md',
-    text
+    text,
   } = props;
 
   const innerRef = useRef(null);
@@ -164,10 +170,10 @@ const ButtonWithForwardRef: React$AbstractComponent<
     handleTouchStart,
     handleTouchMove,
     handleTouchCancel,
-    handleTouchEnd
+    handleTouchEnd,
   } = useTapFeedback({
     height: innerRef?.current?.clientHeight,
-    width: innerRef?.current?.clientWidth
+    width: innerRef?.current?.clientWidth,
   });
 
   const { name: colorSchemeName } = useColorScheme();
@@ -199,7 +205,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.inline]: role !== 'link' && inline,
       [styles.block]: role !== 'link' && !inline,
       [touchableStyles.tapCompress]: role !== 'link' && !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     }
   );
 
@@ -215,7 +221,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     </Text>
   );
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     if (onClick) {
       onClick({ event });
     }
@@ -246,6 +252,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
           textColor={textColor}
           iconStart={iconStart}
           iconEnd={iconEnd}
+          iconColor={iconColor || textColor}
           size={size}
         />
       </InternalLink>
@@ -280,6 +287,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         textColor={textColor}
         iconStart={iconStart}
         iconEnd={iconEnd}
+        iconColor={iconColor || textColor}
         size={size}
       />
     </button>
@@ -298,7 +306,7 @@ ButtonWithForwardRef.propTypes = {
     'red',
     'transparent',
     'transparentWhiteText',
-    'white'
+    'white',
   ]),
   disabled: PropTypes.bool,
   href: PropTypes.string,
@@ -318,7 +326,7 @@ ButtonWithForwardRef.propTypes = {
     null | 'self' | 'blank'
   >),
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['button', 'submit'])
+  type: PropTypes.oneOf(['button', 'submit']),
 };
 
 ButtonWithForwardRef.displayName = 'Button';
