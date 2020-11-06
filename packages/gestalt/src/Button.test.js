@@ -9,14 +9,14 @@ describe('<Button />', () => {
     const instance = create(<Button color="transparent" text="Hello World" />)
       .root;
     expect(
-      instance.find((element) => element.type === 'button').props.className
+      instance.find(element => element.type === 'button').props.className
     ).toContain('transparent');
   });
   test('Disabled state', () => {
     const instance = create(<Button color="red" disabled text="Hello World" />)
       .root;
     const { className } = instance.find(
-      (element) => element.type === 'button'
+      element => element.type === 'button'
     ).props;
     expect(className).toContain('disabled');
     expect(className).not.toContain('red');
@@ -28,12 +28,19 @@ describe('<Button />', () => {
     ).root;
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
+
+  test('iconStart', () => {
+    const instance = create(
+      <Button color="white" iconStart="arrow-down" inline text="Menu" />
+    ).root;
+    expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
+  });
   test('Custom white text color on transparent background', () => {
     const instance = create(
       <Button color="transparentWhiteText" text="Hello World" />
     ).root;
     expect(
-      instance.find((element) => element.type === 'div').props.className
+      instance.find(element => element.type === 'div').props.className
     ).toContain('white');
   });
 
@@ -41,7 +48,7 @@ describe('<Button />', () => {
     const instance = create(<Button color="transparent" text="Hello World" />)
       .root;
     expect(
-      instance.find((element) => element.type === 'div').props.className
+      instance.find(element => element.type === 'div').props.className
     ).toContain('darkGray');
   });
 
@@ -50,9 +57,7 @@ describe('<Button />', () => {
       <Button text="Hello World" accessibilityControls="another-element" />
     ).root;
     expect(
-      instance.find((element) => element.type === 'button').props[
-        'aria-controls'
-      ]
+      instance.find(element => element.type === 'button').props['aria-controls']
     ).toContain('another-element');
   });
 
@@ -60,9 +65,7 @@ describe('<Button />', () => {
     const instance = create(<Button text="Hello World" accessibilityExpanded />)
       .root;
     expect(
-      instance.find((element) => element.type === 'button').props[
-        'aria-expanded'
-      ]
+      instance.find(element => element.type === 'button').props['aria-expanded']
     ).toBe(true);
   });
 
@@ -70,9 +73,7 @@ describe('<Button />', () => {
     const instance = create(<Button text="Hello World" accessibilityHaspopup />)
       .root;
     expect(
-      instance.find((element) => element.type === 'button').props[
-        'aria-haspopup'
-      ]
+      instance.find(element => element.type === 'button').props['aria-haspopup']
     ).toBe(true);
   });
 
@@ -81,7 +82,7 @@ describe('<Button />', () => {
       <Button text="Hello World" accessibilityLabel="hello" />
     ).root;
     expect(
-      instance.find((element) => element.type === 'button').props['aria-label']
+      instance.find(element => element.type === 'button').props['aria-label']
     ).toContain('hello');
   });
 });
