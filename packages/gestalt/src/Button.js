@@ -306,12 +306,32 @@ ButtonWithForwardRef.propTypes = {
     'red',
     'transparent',
     'transparentWhiteText',
-    'white',
+    'white'
   ]),
   disabled: PropTypes.bool,
   href: PropTypes.string,
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
   iconStart: PropTypes.oneOf(Object.keys(icons)),
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  iconColor: PropTypes.oneOf([
+    'blue',
+    'darkGray',
+    'eggplant',
+    'gray',
+    'green',
+    'lightGray',
+    'maroon',
+    'midnight',
+    'navy',
+    'olive',
+    'orange',
+    'orchid',
+    'pine',
+    'purple',
+    'red',
+    'watermelon',
+    'white',
+  ]),
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
@@ -326,7 +346,7 @@ ButtonWithForwardRef.propTypes = {
     null | 'self' | 'blank'
   >),
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['button', 'submit']),
+  type: PropTypes.oneOf(['button', 'submit'])
 };
 
 ButtonWithForwardRef.displayName = 'Button';
