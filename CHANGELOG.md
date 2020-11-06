@@ -1,3 +1,9 @@
+## 14.27.0 (Nov 6, 2020)
+
+### Minor
+
+- Upsell: Add component (#1283)
+
 ## 14.26.0 (Nov 4, 2020)
 
 ### Minor
