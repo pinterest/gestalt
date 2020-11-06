@@ -1,3 +1,9 @@
+## 14.28.1 (Nov 6, 2020)
+
+### Patch
+
+- Docs: Update Upsell.doc.js with better examples (#1286)
+
 ## 14.28.0 (Nov 6, 2020)
 
 ### Minor
