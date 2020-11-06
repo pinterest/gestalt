@@ -4,7 +4,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  type Node,
+  type Node
 } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -27,13 +27,13 @@ const DEFAULT_TEXT_COLORS = {
   red: 'white',
   transparent: 'darkGray',
   transparentWhiteText: 'white',
-  white: 'darkGray',
+  white: 'darkGray'
 };
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 10,
   md: 12,
-  lg: 12,
+  lg: 12
 };
 
 type BaseButton = {|
@@ -59,7 +59,7 @@ type BaseButton = {|
   >,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
-  text: string,
+  text: string
 |};
 
 type ButtonType = {|
@@ -69,13 +69,13 @@ type ButtonType = {|
   accessibilityHaspopup?: boolean,
   selected?: boolean,
   type?: 'button',
-  role?: 'button',
+  role?: 'button'
 |};
 
 type SubmitButtonType = {|
   ...BaseButton,
   type: 'submit',
-  role?: 'button',
+  role?: 'button'
 |};
 
 type LinkButtonType = {|
@@ -83,7 +83,7 @@ type LinkButtonType = {|
   href: string,
   rel?: 'none' | 'nofollow',
   role: 'link',
-  target?: null | 'self' | 'blank',
+  target?: null | 'self' | 'blank'
 |};
 
 type unionProps = ButtonType | SubmitButtonType | LinkButtonType;
@@ -105,26 +105,27 @@ const TextWithIcons = ({
   iconEnd: $Keys<typeof icons>,
   size: string
 |}): Node => {
-  const icon = (
-    <Icon
-      accessibilityLabel=""
-      color={iconColor || textColor}
-      icon={iconStart}
-      size={SIZE_NAME_TO_PIXEL[size]}
-    />
-  );
-
   return (
     <Box alignItems="center" display="flex">
       {iconStart && (
         <Box display="inlineBlock" flex="none" marginEnd={2}>
-          {icon}
+          <Icon
+            accessibilityLabel=""
+            color={iconColor || textColor}
+            icon={iconStart}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
         </Box>
       )}
       {text}
       {iconEnd && (
         <Box display="inlineBlock" flex="none" marginStart={2}>
-          {icon}
+          <Icon
+            accessibilityLabel=""
+            color={iconColor || textColor}
+            icon={iconEnd}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
         </Box>
       )}
     </Box>
@@ -153,7 +154,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     tabIndex = 0,
     selected = false,
     size = 'md',
-    text,
+    text
   } = props;
 
   const innerRef = useRef(null);
@@ -170,10 +171,10 @@ const ButtonWithForwardRef: React$AbstractComponent<
     handleTouchStart,
     handleTouchMove,
     handleTouchCancel,
-    handleTouchEnd,
+    handleTouchEnd
   } = useTapFeedback({
     height: innerRef?.current?.clientHeight,
-    width: innerRef?.current?.clientWidth,
+    width: innerRef?.current?.clientWidth
   });
 
   const { name: colorSchemeName } = useColorScheme();
@@ -205,7 +206,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.inline]: role !== 'link' && inline,
       [styles.block]: role !== 'link' && !inline,
       [touchableStyles.tapCompress]: role !== 'link' && !disabled && isTapping,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible
     }
   );
 
@@ -221,7 +222,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     </Text>
   );
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     if (onClick) {
       onClick({ event });
     }
@@ -330,7 +331,7 @@ ButtonWithForwardRef.propTypes = {
     'purple',
     'red',
     'watermelon',
-    'white',
+    'white'
   ]),
   inline: PropTypes.bool,
   name: PropTypes.string,
