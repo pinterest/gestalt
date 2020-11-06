@@ -199,42 +199,17 @@ git checkout -b <feature-branch> upstream/master
           <Text>Time to make changes to Gestalt!</Text>
           <ul>
             <li>
-              <Text>Update the documentation.</Text>
-            </li>
-            <li>
               <Text>
-                Add unit tests &amp; accessibility integration tests for the
-                change.
+                Run the following command to generate the scaffolding for new
+                components. Replace &lsquo;ComponentName&lsquo; with the name of
+                your component.
+                <Markdown
+                  text="
+~~~js
+yarn generate ComponentName
+~~~"
+                />
               </Text>
-              <ul>
-                <li>
-                  <Text>
-                    <code>&lt;Component&gt;.test.js</code> files should be used
-                    to test component rendering and for snapshot tests.
-                  </Text>
-                </li>
-                <li>
-                  <Text>
-                    <code>&lt;Component&gt;.jsdom.test.js</code> files should be
-                    used to test component interactions (such as click,
-                    keypress, focus, etc) and client-side only tests. More info
-                    on{' '}
-                    <Link
-                      inline
-                      href="https://testing-library.com/docs/react-testing-library/cheatsheet"
-                    >
-                      <Text weight="bold">react-testing-library</Text>
-                    </Link>
-                    .
-                  </Text>
-                </li>
-                <li>
-                  <Text>
-                    <code>&lt;Component&gt;.flowtest.js</code> files should be
-                    used to test flow coverage.
-                  </Text>
-                </li>
-              </ul>
             </li>
             <li>
               <Text>Run tests &amp; update snapshots.</Text>
@@ -400,9 +375,11 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
       <ul>
         <li>
           <Text>
-            Boolean props: For example, instead of isRTL: boolean or isStart:
-            boolean isEnd: boolean use more declarative props such as
-            layoutDirection: rtl | ltr or role: startInput | endInput.
+            Boolean props: For example, instead of <code>isRTL: boolean</code>{' '}
+            or <code>isStart: boolean</code> or <code>isEnd: boolean</code> use
+            more declarative props such as{' '}
+            <code>layoutDirection: rtl | ltr</code> or{' '}
+            <code>role: startInput | endInput</code>.
           </Text>
         </li>
       </ul>

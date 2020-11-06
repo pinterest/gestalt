@@ -11,6 +11,38 @@ const card = (c) => cards.push(c);
 card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
 
 card(
+  <Card name="Gestalt Usage">
+    <Stack gap={2}>
+      <Heading size="sm">
+        What are the benefits of using the Gestalt library?
+      </Heading>
+      <Text>
+        Using Gestalt guarantees adherence and compliance to Pinterest design
+        standards and best practices which results in UI and UX consistency
+        across surfaces.
+      </Text>
+      <Text>
+        Gestalt also provides:
+        <ul>
+          <li>Styled, tested, and accessible components</li>
+          <li>Right-to-left, internationalization, and dark-mode support</li>
+          <li>
+            Low maintaince (automatic design and code updates cross-platform)
+          </li>
+          <li>
+            Well-documented components and continuous Gestalt team support
+          </li>
+        </ul>
+      </Text>
+      <Text>
+        Gestalt increases designers and developers velocity with the highest
+        design and code quality.
+      </Text>
+    </Stack>
+  </Card>
+);
+
+card(
   <Card name="Component Usage">
     <Stack gap={2}>
       <Heading size="sm">
@@ -46,13 +78,10 @@ card(
         <ul>
           <li>Click the link in the bookmark bar.</li>
           <li>
-            Red is bad: all places that are not using gestalt will have a red
+            Red is bad: all places that are not using Gestalt will have a red
             border around them.
           </li>
-          <li>
-            Everything else is GestaltproviderToProvider2 (or using inline
-            styles).
-          </li>
+          <li>Everything else is Gestalt (or using inline styles).</li>
         </ul>
       </Text>
 
@@ -206,15 +235,22 @@ yarn cypress run
 card(
   <Card name="Automated Releases">
     <Stack gap={2}>
-      <Heading size="sm">How often does Gestalt release a new version?</Heading>
+      <Heading size="sm">How does versioning work in Gestalt?</Heading>
       <Text>
-        Gestalt releases happen on every merge to master.{' '}
+        The Gestalt library development approach is continuous releasing. Each
+        major, minor, and patch change is merged to master and released as the
+        latest supported Gestalt version.{' '}
         <Link href="https://github.com/pinterest/gestalt/releases" inline>
-          <Text weight="bold">Check the release log</Text>
+          <Text weight="bold">Check the release log.</Text>
         </Link>
-        .
       </Text>
-
+      <Text>
+        When a release will cause breaking changes — in usage or in typing — we
+        provide a codemod to ease the upgrade process.{' '}
+        <Link href="https://gestalt.netlify.app/Installation#Codemods" inline>
+          <Text weight="bold">Read more about Codemods.</Text>
+        </Link>
+      </Text>
       <Heading size="sm">
         My Pull Request fails on &quot;Semver / Require Label
         (pull_request)&quot;, how do I fix it?
