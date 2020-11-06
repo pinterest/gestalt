@@ -22,11 +22,11 @@ Object {
             tabindex="-1"
           >
             <div
-              class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+              class="box flexGrow paddingX4 relative xsDirectionColumn xsDisplayFlex"
               style="width: 100%;"
             >
               <div
-                class="box flexGrow overflowAuto"
+                class="box flexGrow marginTop4 overflowAuto"
               >
                 Modal content
               </div>
@@ -52,11 +52,11 @@ Object {
           tabindex="-1"
         >
           <div
-            class="box flexGrow relative xsDirectionColumn xsDisplayFlex"
+            class="box flexGrow paddingX4 relative xsDirectionColumn xsDisplayFlex"
             style="width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto"
+              class="box flexGrow marginTop4 overflowAuto"
             >
               Modal content
             </div>
