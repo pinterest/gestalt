@@ -7,7 +7,7 @@ import Text from './Text.js';
 
 type Props = {|
   button?: Node,
-  color?: 'darkGray' | 'red',
+  color?: 'darkGray' | 'red' | 'white',
   text: string | Element<*>,
   thumbnail?: Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
@@ -22,7 +22,17 @@ export default function Toast({
 }: Props): Node {
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
-      <Box color={color} fit padding={6} rounding="pill">
+      <Box
+        color={color}
+        fit
+        padding={6}
+        rounding="pill"
+        dangerouslySetInlineStyle={{
+          __style: {
+            boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.1)',
+          },
+        }}
+      >
         <Box
           display="flex"
           marginLeft={-2}
@@ -53,7 +63,7 @@ export default function Toast({
             paddingX={2}
           >
             <Text
-              color="white"
+              color={color === 'white' ? 'darkGray' : 'white'}
               align={!thumbnail && !button ? 'center' : 'left'}
             >
               {text}
@@ -73,7 +83,7 @@ export default function Toast({
 Toast.propTypes = {
   button: PropTypes.node,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf(['darkGray', 'red']),
+  color: PropTypes.oneOf(['darkGray', 'red', 'white']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,

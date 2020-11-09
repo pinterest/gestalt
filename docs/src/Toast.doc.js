@@ -28,7 +28,7 @@ card(
       },
       {
         name: 'color',
-        type: `'darkGray' | 'red'`,
+        type: `'darkGray' | 'red' | 'white'`,
         href: 'redColorTextAlertExample',
       },
       {
@@ -135,6 +135,56 @@ function ToastExample() {
               text={
                 <>
                   Oops! Something went wrong. Please try again later.
+                </>
+              }
+            />
+          )}
+        </Box>
+      </Layer>
+    </Box>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    id="whiteColorTextAlertExample"
+    name="Example: White background color"
+    defaultCode={`
+function ToastExample() {
+  const [showToast, setShowToast] = React.useState(false);
+  return (
+    <Box>
+      <Button
+        inline
+        text={ showToast ? 'Close toast' : 'Show toast' }
+        onClick={() => setShowToast(!showToast)}
+      />
+      <Layer>
+        <Box
+          fit
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: 50,
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          paddingX={1}
+          position="fixed"
+        >
+          {showToast && (
+            <Toast
+              color="white"
+              text={
+                <>
+                  Saved to{' '}
+                  <Text inline weight="bold">
+                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
+                      Home decor
+                    </Link>
+                  </Text>
                 </>
               }
             />
