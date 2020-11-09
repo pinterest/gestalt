@@ -7,7 +7,6 @@ import Text from './Text.js';
 
 type Props = {|
   button?: Node,
-  color?: 'darkGray' | 'red' | 'white',
   text: string | Element<*>,
   thumbnail?: Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
@@ -15,7 +14,6 @@ type Props = {|
 
 export default function Toast({
   button,
-  color = 'darkGray',
   text,
   thumbnail,
   thumbnailShape = 'square',
@@ -23,7 +21,7 @@ export default function Toast({
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
       <Box
-        color={color}
+        color="white"
         fit
         padding={6}
         rounding="pill"
@@ -62,10 +60,7 @@ export default function Toast({
             justifyContent="center"
             paddingX={2}
           >
-            <Text
-              color={color === 'white' ? 'darkGray' : 'white'}
-              align={!thumbnail && !button ? 'center' : 'left'}
-            >
+            <Text align={!thumbnail && !button ? 'center' : 'left'}>
               {text}
             </Text>
           </Box>
@@ -82,8 +77,6 @@ export default function Toast({
 
 Toast.propTypes = {
   button: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf(['darkGray', 'red', 'white']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,

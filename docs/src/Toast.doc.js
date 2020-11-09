@@ -27,11 +27,6 @@ card(
         href: 'imageTextButtonExample',
       },
       {
-        name: 'color',
-        type: `'darkGray' | 'red' | 'white'`,
-        href: 'redColorTextAlertExample',
-      },
-      {
         name: 'thumbnail',
         type: 'React.Node',
         href: 'imageTextExample',
@@ -82,101 +77,6 @@ function ToastExample() {
         >
           {showToast && (
             <Toast
-              text={
-                <>
-                  Saved to{' '}
-                  <Text inline color="white" weight="bold">
-                    <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
-                      Home decor
-                    </Link>
-                  </Text>
-                </>
-              }
-            />
-          )}
-        </Box>
-      </Layer>
-    </Box>
-  );
-}`}
-  />
-);
-
-card(
-  <Example
-    id="redColorTextAlertExample"
-    name="Example: Red background color"
-    defaultCode={`
-function ToastExample() {
-  const [showToast, setShowToast] = React.useState(false);
-  return (
-    <Box>
-      <Button
-        inline
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
-      />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 50,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
-            <Toast
-              color="red"
-              text={
-                <>
-                  Oops! Something went wrong. Please try again later.
-                </>
-              }
-            />
-          )}
-        </Box>
-      </Layer>
-    </Box>
-  );
-}`}
-  />
-);
-
-card(
-  <Example
-    id="whiteColorTextAlertExample"
-    name="Example: White background color"
-    defaultCode={`
-function ToastExample() {
-  const [showToast, setShowToast] = React.useState(false);
-  return (
-    <Box>
-      <Button
-        inline
-        text={ showToast ? 'Close toast' : 'Show toast' }
-        onClick={() => setShowToast(!showToast)}
-      />
-      <Layer>
-        <Box
-          fit
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: 50,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          paddingX={1}
-          position="fixed"
-        >
-          {showToast && (
-            <Toast
-              color="white"
               text={
                 <>
                   Saved to{' '}
@@ -237,7 +137,7 @@ function ToastExample() {
               text={
                 <>
                   Saved to{' '}
-                  <Text inline color="white" weight="bold">
+                  <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
@@ -294,7 +194,7 @@ function ToastExample() {
               text={
                 <>
                   Saved to{' '}
-                  <Text inline color="white" weight="bold">
+                  <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
@@ -322,7 +222,7 @@ card(
       'Section created!',
       <>
         Saved to{' '}
-        <Text inline color="white" weight="bold">
+        <Text inline weight="bold">
           <Link
             inline
             target="blank"
@@ -372,7 +272,7 @@ card(
         text={
           <>
             Saved to{' '}
-            <Text inline color="white" weight="bold">
+            <Text inline weight="bold">
               <Link
                 inline
                 target="blank"

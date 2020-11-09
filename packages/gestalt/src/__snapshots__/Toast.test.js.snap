@@ -11,7 +11,7 @@ exports[`<Toast /> Red Toast 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill redBg"
+    className="box fit paddingX6 paddingY6 pill whiteBg"
     style={
       Object {
         "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
@@ -25,7 +25,7 @@ exports[`<Toast /> Red Toast 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
@@ -46,7 +46,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill"
+    className="box fit paddingX6 paddingY6 pill whiteBg"
     style={
       Object {
         "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
@@ -78,7 +78,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignLeft breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
           Saved to
            
@@ -142,7 +142,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill"
+    className="box fit paddingX6 paddingY6 pill whiteBg"
     style={
       Object {
         "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
@@ -174,7 +174,7 @@ exports[`<Toast /> Text + Image 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignLeft breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
           Saved to
            
@@ -214,7 +214,7 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill"
+    className="box fit paddingX6 paddingY6 pill whiteBg"
     style={
       Object {
         "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
@@ -228,7 +228,7 @@ exports[`<Toast /> Text Only 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>
