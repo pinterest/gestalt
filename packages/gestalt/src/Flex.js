@@ -16,7 +16,7 @@ import {
   type AlignItems,
   type AlignSelf,
   type Dimension,
-  type Flex,
+  type Flex as FlexType,
   type JustifyContent,
   type Overflow,
   type Padding,
@@ -27,7 +27,7 @@ type Props = {|
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
   children?: Node,
-  flex?: Flex,
+  flex?: FlexType,
   gap?: Padding,
   height?: Dimension,
   justifyContent?: JustifyContent,
@@ -40,7 +40,7 @@ type Props = {|
   wrap?: boolean,
 |};
 
-export default function Stack({
+export default function Flex({
   alignItems = 'start',
   children,
   gap = 0,
@@ -64,7 +64,7 @@ export default function Stack({
         width={width}
         {...rest}
       >
-        {Children.map(children, (child) =>
+        {Children.map(children, child =>
           child !== null && child !== undefined ? (
             <Box paddingY={gap}>{child}</Box>
           ) : null
@@ -74,7 +74,7 @@ export default function Stack({
   );
 }
 
-Stack.propTypes = {
+Flex.propTypes = {
   alignContent: AlignContentPropType,
   alignItems: AlignItemsPropType,
   alignSelf: AlignSelfPropType,
