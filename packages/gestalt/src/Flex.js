@@ -1,7 +1,6 @@
 // @flow strict
 import React, { Children, type Node } from 'react';
 import PropTypes from 'prop-types';
-import FlexBox from './FlexBox.js';
 import Box from './Box.js';
 import {
   AlignContentPropType,
@@ -60,9 +59,10 @@ export default function Flex({
       marginBottom={gap ? -gap : 0}
       width={width}
     >
-      <FlexBox
+      <Box
         alignItems={alignItems}
-        direction="column"
+        direction={direction}
+        display="flex"
         height={height}
         justifyContent={justifyContent}
         width={width}
@@ -73,7 +73,7 @@ export default function Flex({
             <Box paddingY={gap}>{child}</Box>
           ) : null
         )}
-      </FlexBox>
+      </Box>
     </Box>
   );
 }
