@@ -2,7 +2,6 @@
 import styles from './Box.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
-import flexStyles from './Flex.css';
 import layout from './Layout.css';
 import whitespace from './boxWhitespace.css';
 import {
@@ -39,7 +38,6 @@ import {
   type Display,
   type Direction,
   type Flex,
-  type Gap,
   type JustifyContent,
   type Margin,
   type Opacity,
@@ -340,14 +338,6 @@ const overflow: Functor<Overflow> = mapping({
 
 /* ***************************************** */
 
-type GapFunctor = Functor<Gap>;
-
-const columnGap: GapFunctor = (gap) =>
-  fromClassName(flexStyles[`columnGap${gap}`]);
-const rowGap: GapFunctor = (gap) => fromClassName(flexStyles[`rowGap${gap}`]);
-
-/* ***************************************** */
-
 type PaddingFunctor = Functor<Padding>;
 
 const paddingX: PaddingFunctor = bind(rangeWithoutZero('paddingX'), whitespace);
@@ -511,10 +501,6 @@ export const propToFn = {
   wrap,
   dangerouslySetInlineStyle,
   zIndex,
-
-  // Flex
-  columnGap,
-  rowGap,
 };
 
 /*
