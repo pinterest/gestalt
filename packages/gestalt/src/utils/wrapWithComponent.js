@@ -41,7 +41,7 @@ function isElementOfType<P>(
   return Components.some(
     // $FlowFixMe[incompatible-call]
     // $FlowFixMe[incompatible-type]
-    AComponent => typeof type !== 'string' && isComponent(AComponent, type)
+    (AComponent) => typeof type !== 'string' && isComponent(AComponent, type)
   );
 }
 
