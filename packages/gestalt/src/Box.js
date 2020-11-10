@@ -202,11 +202,11 @@ const BoxWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
   HTMLDivElement
 >(function Box(props, ref): Element<'div'> {
-  const { passthroughProps, propsStyles } = buildStyles<Props>(
-    styles.box,
+  const { passthroughProps, propsStyles } = buildStyles<Props>({
+    baseStyles: styles.box,
     props,
-    disallowedProps
-  );
+    blocklistProps: disallowedProps,
+  });
 
   // And... magic!
   return <div {...passthroughProps} {...propsStyles} ref={ref} />;
