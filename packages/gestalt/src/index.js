@@ -34,7 +34,6 @@ import Pog from './Pog.js';
 import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
-import Row from './Row.js';
 import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
@@ -98,7 +97,6 @@ export {
   Provider,
   Pulsar,
   RadioButton,
-  Row,
   ScrollFetch,
   SearchField,
   SegmentedControl,
