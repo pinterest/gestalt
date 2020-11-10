@@ -1,52 +1,52 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Stack from './Stack.js';
+import Flex from './Flex.js';
 
-test('Stack renders', () => {
+test('Flex renders', () => {
   const tree = create(
-    <Stack>
+    <Flex>
       <div />
       <div />
       <div />
       <div />
-    </Stack>
+    </Flex>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Stack renders with specified gap', () => {
+test('Flex renders with specified gap', () => {
   const tree = create(
-    <Stack gap={4}>
+    <Flex gap={4}>
       <div />
       <div />
       <div />
       <div />
-    </Stack>
+    </Flex>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Stack aligns items', () => {
+test('Flex aligns items', () => {
   const tree = create(
-    <Stack alignItems="end">
+    <Flex alignItems="end">
       <div />
       <div />
       <div />
       <div />
-    </Stack>
+    </Flex>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Stack justifies content', () => {
+test('Flex justifies content', () => {
   const tree = create(
-    <Stack justifyContent="around">
+    <Flex justifyContent="around">
       <div />
       <div />
       <div />
       <div />
-    </Stack>
+    </Flex>
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

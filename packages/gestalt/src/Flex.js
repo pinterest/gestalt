@@ -1,7 +1,9 @@
 // @flow strict
 import React, { Children, type Node } from 'react';
 import PropTypes from 'prop-types';
-import Box from './Box.js';
+import FlexItem from './FlexItem.js';
+import wrapWithComponent from './utils/wrapWithComponent.js';
+import { buildStyles } from './boxTransforms.js';
 import {
   AlignContentPropType,
   AlignItemsPropType,
@@ -9,18 +11,18 @@ import {
   DimensionPropType,
   DirectionPropType,
   FlexPropType,
+  GapPropType,
   JustifyContentPropType,
   OverflowPropType,
-  PaddingPropType,
   type AlignContent,
   type AlignItems,
   type AlignSelf,
   type Dimension,
   type Direction,
   type Flex as FlexType,
+  type Gap,
   type JustifyContent,
   type Overflow,
-  type Padding,
 } from './boxTypes.js';
 
 type Props = {|
@@ -30,7 +32,7 @@ type Props = {|
   children?: Node,
   direction?: Direction,
   flex?: FlexType,
-  gap?: Padding,
+  gap?: Gap,
   height?: Dimension,
   justifyContent?: JustifyContent,
   maxHeight?: Dimension,
@@ -43,40 +45,68 @@ type Props = {|
 |};
 
 export default function Flex({
-  alignItems = 'start',
-  children,
+  alignItems = 'center',
+  children: childrenProp,
   direction = 'row',
   gap = 0,
-  height,
   justifyContent = 'center',
-  width,
   ...rest
 }: Props): Node {
-  return (
-    <Box
-      height={height}
-      marginTop={gap ? -gap : 0}
-      marginBottom={gap ? -gap : 0}
-      width={width}
-    >
-      <Box
-        alignItems={alignItems}
-        direction={direction}
-        display="flex"
-        height={height}
-        justifyContent={justifyContent}
-        width={width}
-        {...rest}
-      >
-        {Children.map(children, child =>
-          child !== null && child !== undefined ? (
-            <Box paddingY={gap}>{child}</Box>
-          ) : null
-        )}
-      </Box>
-    </Box>
-  );
+  const gapClassName = `${direction}Gap${gap}`;
+
+  const allowedProps = [
+    'alignContent',
+    'alignItems',
+    'alignSelf',
+    'children',
+    'direction',
+    'flex',
+    gapClassName,
+    'height',
+    'justifyContent',
+    'maxHeight',
+    'maxWidth',
+    'minHeight',
+    'minWidth',
+    'overflow',
+    'width',
+    'wrap',
+  ];
+
+  const children = gap
+    ? Children.map(childrenProp, (child, index) => {
+        if (child === null || child === undefined) {
+          return null;
+        }
+        return wrapWithComponent({
+          element: child,
+          Component: FlexItem,
+          props: {
+            key: index,
+          },
+        });
+      })
+    : childrenProp;
+
+  const props = {
+    ...rest,
+    alignItems,
+    children,
+    direction,
+    [gapClassName]: gap,
+    justifyContent,
+  };
+
+  const { passthroughProps, propsStyles } = buildStyles<Props>({
+    baseStyles: '',
+    props,
+    allowlistProps: allowedProps,
+  });
+
+  return <div {...passthroughProps} {...propsStyles} />;
 }
+
+Flex.Item = FlexItem;
 
 Flex.propTypes = {
   alignContent: AlignContentPropType,
@@ -85,7 +115,7 @@ Flex.propTypes = {
   children: PropTypes.node,
   direction: DirectionPropType,
   flex: FlexPropType,
-  gap: PaddingPropType,
+  gap: GapPropType,
   height: DimensionPropType,
   justifyContent: JustifyContentPropType,
   maxHeight: DimensionPropType,

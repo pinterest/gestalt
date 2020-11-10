@@ -15,6 +15,7 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Module from './Module.js';
+import Flex from './Flex.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -40,7 +41,6 @@ import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Sheet from './Sheet.js';
 import Spinner from './Spinner.js';
-import Stack from './Stack.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
@@ -78,6 +78,7 @@ export {
   Divider,
   Module,
   FixedZIndex,
+  Flex,
   Flyout,
   GroupAvatar,
   Heading,
@@ -103,7 +104,6 @@ export {
   SelectList,
   Sheet,
   Spinner,
-  Stack,
   Sticky,
   Switch,
   Table,

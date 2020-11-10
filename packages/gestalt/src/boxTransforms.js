@@ -2,6 +2,7 @@
 import styles from './Box.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
+import flexStyles from './Flex.css';
 import layout from './Layout.css';
 import whitespace from './boxWhitespace.css';
 import {
@@ -38,6 +39,7 @@ import {
   type Display,
   type Direction,
   type Flex,
+  type Gap,
   type JustifyContent,
   type Margin,
   type Opacity,
@@ -338,6 +340,14 @@ const overflow: Functor<Overflow> = mapping({
 
 /* ***************************************** */
 
+type GapFunctor = Functor<Gap>;
+
+const columnGap: GapFunctor = (gap) =>
+  fromClassName(flexStyles[`columnGap${gap}`]);
+const rowGap: GapFunctor = (gap) => fromClassName(flexStyles[`rowGap${gap}`]);
+
+/* ***************************************** */
+
 type PaddingFunctor = Functor<Padding>;
 
 const paddingX: PaddingFunctor = bind(rangeWithoutZero('paddingX'), whitespace);
@@ -501,6 +511,10 @@ export const propToFn = {
   wrap,
   dangerouslySetInlineStyle,
   zIndex,
+
+  // Flex
+  columnGap,
+  rowGap,
 };
 
 /*
@@ -511,6 +525,9 @@ This is where it all comes together. This function takes the base styles for the
 the component's props, and any disallowed props. It outputs the passthrough props (after
 removing disallowed and given props), as well as an object with the combined classNames
 and styles from the given props.
+
+Optionally, for more restrictive components, this function can accept an allowlist of
+valid props. Any props not on this list will be ignored.
 
 */
 
