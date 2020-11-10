@@ -201,7 +201,7 @@ function TypeaheadExample() {
   const ref = React.useRef();
   const [option, setOption] = React.useState();
   return (
-    <Row gap={2}>
+    <Flex gap={2}>
       <Typeahead
         label="Select  your favorite shape"
         id="favorite-shape"
@@ -218,7 +218,7 @@ function TypeaheadExample() {
         placeholder="Select a color"
         ref={ref}
      />
-    </Row>
+    </Flex>
   );
 }`}
   />

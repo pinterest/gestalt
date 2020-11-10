@@ -2,7 +2,7 @@
 import React, { useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
-import Row from './Row.js';
+import Flex from './Flex.js';
 import Link from './Link.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -113,7 +113,7 @@ export default function Tabs({
   wrap,
 }: Props): Node {
   return (
-    <Row wrap={wrap}>
+    <Flex wrap={wrap}>
       {tabs.map(({ id, href, text, indicator }, index) => (
         <Tab
           key={id || `${href}_${index}`}
@@ -128,7 +128,7 @@ export default function Tabs({
           {text}
         </Tab>
       ))}
-    </Row>
+    </Flex>
   );
 }
 

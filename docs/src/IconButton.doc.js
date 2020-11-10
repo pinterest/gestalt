@@ -250,8 +250,8 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Stack gap={3}>
-      <Row gap={1}>
+    <Flex direction="column" gap={3}>
+      <Flex gap={1}>
         <Tooltip text="Default IconButton">
           <IconButton
             accessibilityLabel="Default IconButton"
@@ -272,8 +272,8 @@ function Example() {
             tabIndex={tabIndex ? -1 : 0}
           />
         </Tooltip>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={1}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -284,8 +284,8 @@ function Example() {
             <Text>Disable buttons</Text>
           </Label>
         </Box>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={1}>
         <Switch
           onChange={() => setTabIndex(!tabIndex)}
           id="unreachable-buttons"
@@ -296,8 +296,8 @@ function Example() {
             <Text>Remove from keyboard navigation with tabIndex</Text>
           </Label>
         </Box>
-      </Row>
-    </Stack>
+      </Flex>
+    </Flex>
   );
 }
 `}
@@ -400,7 +400,7 @@ card(
   <Example
     name="Icon"
     id="icon"
-    defaultCode={`<Row gap={1}>
+    defaultCode={`<Flex gap={1}>
   <Tooltip text="Built-in Gestalt Icon">
     <IconButton
       accessibilityLabel="Add icon"
@@ -413,7 +413,7 @@ card(
       dangerouslySetSvgPath={{ __path: 'M23 5v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4v-5.5h10.258l-1.94 1.939a1.5 1.5 0 0 0 2.121 2.122L17 12l-5.561-5.561a1.501 1.501 0 0 0-2.121 2.122l1.94 1.939H1V5a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4'}}
     />
   </Tooltip>
-</Row>
+</Flex>
 `}
   />
 );

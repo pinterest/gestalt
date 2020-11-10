@@ -275,7 +275,7 @@ function PreventDefaultExample() {
 
   return (
     <Box>
-      <Row gap={2} padding={2}>
+      <Flex gap={2} padding={2}>
         <Label htmlFor="preventDefault">
           <Text>Prevent default on tap</Text>
         </Label>
@@ -284,7 +284,7 @@ function PreventDefaultExample() {
           onChange={() => setPreventDefault(!preventDefault)}
           switched={preventDefault}
         />
-      </Row>
+      </Flex>
       <Divider />
       <Box padding={2}>
         <Text>

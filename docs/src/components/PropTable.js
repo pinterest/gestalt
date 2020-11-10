@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node, type ComponentType } from 'react';
-import { Box, Text, Icon, IconButton, Link, Stack, Tooltip } from 'gestalt';
+import { Box, Flex, Icon, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
 import { usePropTableContext } from './propTableContext.js';
 
@@ -20,13 +20,13 @@ type Props = {|
 |};
 
 const buildDescription = (lines: Array<string>): Node => (
-  <Stack gap={1}>
+  <Flex direction="column" gap={1}>
     {lines.map((line, idx) => (
       <Text key={idx} color="gray">
         {line}
       </Text>
     ))}
-  </Stack>
+  </Flex>
 );
 
 const Th = ({ children }: {| children?: Node |}) => (

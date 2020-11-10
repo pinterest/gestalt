@@ -100,14 +100,14 @@ card(
     id="inline"
     name="Block vs inline"
     defaultCode={`
-<Stack gap={2}>
+<Flex direction="column" gap={2}>
   <Text>Some content in a default block element. (default)</Text>
   <Box>
     <Text inline>Inline text with the inline prop.</Text>
     {' '}
     <Text inline>More inline text.</Text>
   </Box>
-</Stack>
+</Flex>
 `}
   />
 );
@@ -118,7 +118,7 @@ card(
     id="color"
     name="Colors"
     defaultCode={`
-<Stack gap={2}>
+<Flex direction="column" gap={2}>
   <Box color="darkGray">
     <Text color="white">White</Text>
   </Box>
@@ -126,7 +126,7 @@ card(
   <Text color="darkGray">Dark Gray (default)</Text>
   <Text color="blue">Blue</Text>
   <Text color="red">Red</Text>
-</Stack>
+</Flex>
 `}
   />
 );
@@ -177,32 +177,32 @@ card(
     id="size"
     name="Sizes"
     defaultCode={`
-<Stack gap={1}>
-  <Row gap={1}>
+<Flex direction="column" gap={1}>
+  <Flex gap={1}>
     <Text inline size="sm">Small</Text>
     <span lang="ja">
       <Text inline size="sm">
         こんにちは
       </Text>
     </span>
-  </Row>
-  <Row gap={1}>
+  </Flex>
+  <Flex gap={1}>
     <Text inline size="md">Medium</Text>
     <span lang="ja">
       <Text inline size="md">
         こんにちは
       </Text>
     </span>
-  </Row>
-  <Row gap={1}>
+  </Flex>
+  <Flex gap={1}>
     <Text inline size="lg">Large (default size)</Text>
     <span lang="ja">
       <Text inline size="lg">
         こんにちは
       </Text>
     </span>
-  </Row>
-</Stack>
+  </Flex>
+</Flex>
 `}
   />
 );

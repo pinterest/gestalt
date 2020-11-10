@@ -346,8 +346,8 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Stack gap={3}>
-      <Row gap={3}>
+    <Flex direction="column" gap={3}>
+      <Flex gap={3}>
         <Tooltip text="Default TapArea">
           <TapArea
             tapStyle={compressed}
@@ -390,8 +390,8 @@ function Example() {
             </Box>
           </TapArea>
         </Tooltip>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={1}>
         <Switch
           onChange={() => setCompressed(compressed === "compress" ? "none" : "compress")}
           id="compress-buttons"
@@ -402,8 +402,8 @@ function Example() {
             <Text>Compress TapArea</Text>
           </Label>
         </Box>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={1}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -414,8 +414,8 @@ function Example() {
             <Text>Disable TapArea</Text>
           </Label>
         </Box>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={1}>
         <Switch
           onChange={() => setTabIndex(!tabIndex)}
           id="unreachable-buttons"
@@ -426,8 +426,8 @@ function Example() {
             <Text>Remove from keyboard navigation with tabIndex</Text>
           </Label>
         </Box>
-      </Row>
-    </Stack>
+      </Flex>
+    </Flex>
   );
 }
 `}
@@ -523,7 +523,7 @@ function TapAreaRefExample() {
   const [focus, setFocus] = React.useState(0);
 
   return (
-    <Row gap={1}>
+    <Flex gap={1}>
       <Button
         text="Focus the TapArea"
         onClick={() => ref.current.focus()}
@@ -541,7 +541,7 @@ function TapAreaRefExample() {
           <Text>TapArea is focused {focus} times</Text>
         </Box>
       </TapArea>
-    </Row>
+    </Flex>
   );
 }`}
   />
@@ -573,7 +573,7 @@ function MenuButtonExample() {
             rounding={1}
             padding={2}
           >
-            <Row gap={1}>
+            <Flex gap={1}>
               <Box height={50} width={50}>
                 <Mask rounding={1}>
                   <Image
@@ -585,7 +585,7 @@ function MenuButtonExample() {
                 </Mask>
               </Box>
               <Text weight="bold" align="center">Menu</Text>
-            </Row>
+            </Flex>
           </Box>
       </TapArea>
       {selected && (

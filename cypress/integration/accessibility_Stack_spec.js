@@ -1,10 +1,10 @@
-describe('Stack Accessibility check', () => {
+describe('Flex Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Stack');
+    cy.visit('/Flex');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the Stack page', () => {
+  it('Tests accessibility on the Flex page', () => {
     cy.configureAxe({
       rules: [
         {

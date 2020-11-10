@@ -294,7 +294,7 @@ function AnimationExample() {
             )}
           >
             {({ onDismissStart }) => (
-              <Row justifyContent="center" alignItems="center" height="100%">
+              <Flex justifyContent="center" alignItems="center" height="100%">
                 <IconButton
                   accessibilityLabel="Done icon left"
                   icon="directional-arrow-right"
@@ -312,7 +312,7 @@ function AnimationExample() {
                   onClick={onDismissStart}
                   size="lg"
                 />
-              </Row>
+              </Flex>
             )}
           </Sheet>
         </Layer>

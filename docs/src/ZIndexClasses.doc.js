@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Icon, Row, Stack, Text } from 'gestalt';
+import { Box, Flex, Icon, Text } from 'gestalt';
 import Example from './components/Example.js';
 import Card from './components/Card.js';
 import PageHeader from './components/PageHeader.js';
@@ -19,7 +19,7 @@ card(
 
 card(
   <Card name="FixedZIndex">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <Text>
         FixedZIndex is used for setting fixed z-index values. FixedZIndex must
         be instantiated with a number.
@@ -34,13 +34,13 @@ const fixedZindex = new FixedZIndex(1);
   "
         />
       </Box>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="CompositeZIndex">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <Text>
         CompositeZIndex is used for dynamically composing z-index values.
         CompositeZIndex must be instantiated with an array of FixedZIndex or
@@ -58,7 +58,7 @@ const highestCompositeZIndex = new CompositeZIndex([fixedZIndex, compositeZIndex
   "
         />
       </Box>
-    </Stack>
+    </Flex>
   </Card>
 );
 
@@ -84,7 +84,7 @@ function ZIndexBoxExample() {
           width="100%"
           zIndex={overlayZIndex}
         />
-        <Stack gap={1}>
+        <Flex direction="column" gap={1}>
           <Box position="absolute" zIndex={underOverlayZIndex} >
             <Avatar
               size="xl"
@@ -99,7 +99,7 @@ function ZIndexBoxExample() {
               name="Keerthi"
             />
           </Box>
-        </Stack>
+        </Flex>
       </Box>
   )
 }
@@ -109,7 +109,7 @@ function ZIndexBoxExample() {
 
 card(
   <Card name="Note">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <Text>
         FixedZIndex and CompositeZIndex work with Box and Sticky components. To
         stay consistent across your codebase using zIndex classes, you can
@@ -155,7 +155,7 @@ const fixedZindex = new FixedZIndex(1);
 ~~~
   "
         />
-        <Row gap={1}>
+        <Flex gap={1}>
           <Icon icon="cancel" accessibilityLabel="Cancel" />
           <Markdown
             text="
@@ -164,8 +164,8 @@ const customButton = <CustomButton zIndex={fixedZindex.index()}/>;
 ~~~
   "
           />
-        </Row>
-        <Row gap={1}>
+        </Flex>
+        <Flex gap={1}>
           <Icon icon="check" accessibilityLabel="Cancel" />
           <Markdown
             text="
@@ -174,9 +174,9 @@ const customButton = <Box zIndex={fixedZindex}> <CustomButton/> </Box>;
 ~~~
   "
           />
-        </Row>
+        </Flex>
       </Box>
-    </Stack>
+    </Flex>
   </Card>
 );
 

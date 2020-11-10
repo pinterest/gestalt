@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Heading, Link, Stack, Text } from 'gestalt';
+import { Flex, Heading, Link, Text } from 'gestalt';
 import Card from './components/Card.js';
 import Markdown from './components/Markdown.js';
 import PageHeader from './components/PageHeader.js';
@@ -12,7 +12,7 @@ card(<PageHeader name="Development" showSourceLink={false} />);
 
 card(
   <Card name="Set up your laptop">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <ul>
         <li>
           <Text>
@@ -42,13 +42,13 @@ card(
           </Text>
         </li>
       </ul>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Set up your Gestalt Repository">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <ul>
         <li>
           <Text>
@@ -127,13 +127,13 @@ git remote -v
           />
         </li>
       </ul>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Set up VSCode">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <ul>
         <li>
           <Text>
@@ -147,13 +147,13 @@ card(
           </Text>
         </li>
       </ul>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Run the Gestalt Documentation Server">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <Text>
         Whenever you make changes to Gestalt, please test them out locally
         before making a PR.
@@ -165,13 +165,13 @@ card(
         </Link>
         .
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Create a Pull Request">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <ul>
         <li>
           <Text>Rebase your local master branch.</Text>
@@ -291,13 +291,13 @@ git push -f origin HEAD
           </Text>
         </li>
       </ul>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Guidelines">
-    <Stack gap={2}>
+    <Flex direction="column" gap={2}>
       <Heading size="sm">Scope of work</Heading>
 
       <Text>
@@ -383,7 +383,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
           </Text>
         </li>
       </ul>
-    </Stack>
+    </Flex>
   </Card>
 );
 

@@ -320,9 +320,9 @@ function CheckboxExample() {
   }, [size]);
 
   return (
-    <Row gap={2}>
+    <Flex gap={2}>
       <Label htmlFor="emailNotifications">
-        <Row gap={1}>
+        <Flex gap={1}>
           <Switch
             onChange={() => {
               setSize(size === "sm" ? "md" : "sm")
@@ -332,7 +332,7 @@ function CheckboxExample() {
             switched={switched}
           />
           <Text>Toggle Checkbox to small size</Text>
-        </Row>
+        </Flex>
       </Label>
         <Checkbox
           id="sizing"
@@ -343,7 +343,7 @@ function CheckboxExample() {
           ref={ref}
           size={size}
         />
-    </Row>
+    </Flex>
   );
 }`}
   />

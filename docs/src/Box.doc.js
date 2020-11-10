@@ -638,7 +638,7 @@ function ButtonFlyoutExample() {
 
   return (
     <>
-      <Stack gap={3}>
+      <Flex direction="column" gap={3}>
         <Button
           inline
           color="red"
@@ -649,7 +649,7 @@ function ButtonFlyoutExample() {
         <Box borderStyle='sm' padding={3} ref={anchorRef} rounding={1}>
           <Text>I'm a Box</Text>
         </Box>
-      </Stack>
+      </Flex>
       {open && (
         <Flyout
           anchor={anchorRef.current}
