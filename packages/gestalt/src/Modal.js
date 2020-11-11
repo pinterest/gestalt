@@ -136,16 +136,14 @@ const ModalWithForwardRef: React$AbstractComponent<
                 position="relative"
                 display="flex"
                 direction="column"
-                width="100%"
-                paddingX={4}
-              >
+                width="100%"              >
                 {heading && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
                       [modalStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Box display="flex" justifyContent="center" paddingY={6}>
+                    <Box display="flex" justifyContent="center" paddingX={4} paddingY={6}>
                       <Header heading={heading} />
                     </Box>
                   </div>
@@ -156,6 +154,7 @@ const ModalWithForwardRef: React$AbstractComponent<
                   onScroll={updateShadows}
                   ref={content}
                   marginTop={4}
+                  paddingX={4}
                 >
                   {children}
                 </Box>
@@ -165,7 +164,7 @@ const ModalWithForwardRef: React$AbstractComponent<
                       [modalStyles.shadow]: showBottomShadow,
                     })}
                   >
-                    <Box paddingY={4}>{footer}</Box>
+                    <Box padding={4}>{footer}</Box>
                   </div>
                 )}
               </Box>
