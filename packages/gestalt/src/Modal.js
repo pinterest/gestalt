@@ -40,7 +40,7 @@ function Header({ heading }: {| heading: string | Node |}) {
   }
 
   return (
-    <Heading size="md" accessibilityLevel={1}>
+    <Heading size="sm" accessibilityLevel={1}>
       {heading}
     </Heading>
   );
@@ -136,14 +136,20 @@ const ModalWithForwardRef: React$AbstractComponent<
                 position="relative"
                 display="flex"
                 direction="column"
-                width="100%"              >
+                width="100%"
+              >
                 {heading && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
                       [modalStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Box display="flex" justifyContent="center" paddingX={4} paddingY={6}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      paddingX={4}
+                      paddingY={6}
+                    >
                       <Header heading={heading} />
                     </Box>
                   </div>
