@@ -8,6 +8,7 @@ import { useColorScheme } from './contexts/ColorScheme.js';
 
 type Props = {|
   button?: Node,
+  color?: 'white' | 'red',
   text: string | Element<*>,
   thumbnail?: Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
@@ -15,6 +16,7 @@ type Props = {|
 
 export default function Toast({
   button,
+  color = 'white',
   text,
   thumbnail,
   thumbnailShape = 'square',
@@ -25,7 +27,7 @@ export default function Toast({
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
       <Box
-        color="white"
+        color={color}
         fit
         padding={6}
         rounding="pill"
@@ -66,7 +68,10 @@ export default function Toast({
             justifyContent="center"
             paddingX={2}
           >
-            <Text align={!thumbnail && !button ? 'center' : 'left'}>
+            <Text
+              color={color === 'red' ? 'white' : undefined}
+              align={!thumbnail && !button ? 'center' : 'left'}
+            >
               {text}
             </Text>
           </Box>
@@ -83,6 +88,8 @@ export default function Toast({
 
 Toast.propTypes = {
   button: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  color: PropTypes.oneOf(['white', 'red']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,
