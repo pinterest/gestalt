@@ -68,10 +68,7 @@ export default function Toast({
             justifyContent="center"
             paddingX={2}
           >
-            <Text
-              color={color === 'red' ? 'white' : undefined}
-              align={!thumbnail && !button ? 'center' : 'left'}
-            >
+            <Text align={!thumbnail && !button ? 'center' : 'left'}>
               {text}
             </Text>
           </Box>
