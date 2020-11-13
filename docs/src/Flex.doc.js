@@ -13,9 +13,9 @@ card(
   <PageHeader
     name="Flex"
     description={`
-      Flex is a layout component with a very limited subset of the props available to Box.
+      Flex is a layout component with a very limited subset of the props available to Box and a few special props of its own.
 
-      Use this component for vertical flex layouts.
+      Use this component for flex layouts, especially when even spacing between elements is desired (see the 'gap' property!).
     `}
   />
 );
@@ -33,14 +33,14 @@ card(
         type: `"start" | "end" | "center" | "between" | "around" | "evenly" | "stretch"`,
         defaultValue: 'stretch',
         description:
-          "Aligns a flex container's lines within when there is extra space in the horizontal axis, similar to how justify-content aligns individual items within the vertical axis.",
+          "Aligns the flex container's lines within when there is extra space in the cross axis, similar to how justify-content aligns individual items within the main axis.",
       },
       {
         name: 'alignItems',
         type: `"start" | "end" | "center" | "baseline" | "stretch"`,
         defaultValue: 'start',
         description:
-          'Defines the default behaviour for how flex items are laid out along the horizontal axis on the current line. Think of it as the justify-content version for the vertical axis (perpendicular to the horizontal axis).',
+          'Defines the default behaviour for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross axis (perpendicular to the main axis).',
         href: 'layout',
       },
       {
@@ -49,6 +49,13 @@ card(
         defaultValue: 'stretch',
         description:
           'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
+      },
+      {
+        name: 'direction',
+        type: `"row" | "column"`,
+        defaultValue: 'row',
+        description:
+          'Establishes the main axis, thus defining the direction flex items are placed in the flex container.',
       },
       { name: 'fit', type: 'boolean', defaultValue: false },
       {
@@ -61,8 +68,7 @@ card(
         name: 'gap',
         type: '0 .. 12',
         defaultValue: 0,
-        description:
-          'Defines symmetrical vertical padding to be applied to each child.',
+        description: 'Defines spacing between each child along the main axis.',
       },
       {
         name: 'height',
@@ -74,7 +80,7 @@ card(
         type: `"start" | "end" | "center" | "between" | "around" | "evenly"`,
         defaultValue: 'center',
         description:
-          'Defines the alignment along the vertical axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
+          'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
         href: 'layout',
       },
       {
@@ -114,7 +120,7 @@ card(
 card(
   <Example
     description={`
-    With a very limited set of props that only relate to vertical layout, Flex is useful for separating concerns to prevent overloaded Box usage.
+    With a limited set of props that only relate to flex layouts, Flex is useful for separating layout from other concerns to prevent overloaded Box usage.
   `}
     name="Example: Menu"
     defaultCode={`
@@ -130,9 +136,29 @@ card(
 );
 
 card(
+  <Example
+    description={`
+    Under the hood, Flex wraps each child is a Flex.Item sub-component to apply the gap. If one of more of those children need custom flex properties, you can import and use Flex.Item directly.
+  `}
+    name="Example: Applying flex properties to children"
+    defaultCode={`
+<Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
+  <Flex alignItems="center" gap={2} width="100%">
+    <Button inline text="Button 1" />
+    <Flex.Item flex="grow">
+      <Button inline text="Button 2" />
+    </Flex.Item>
+    <Button inline text="Button 3" />
+  </Flex>
+</Box>
+`}
+  />
+);
+
+card(
   <Combination
     description={`
-    Flex is strictly for vertical flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+    Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
   `}
     id="layout"
     name="Layout"
