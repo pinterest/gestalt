@@ -138,7 +138,7 @@ card(
 card(
   <Example
     description={`
-    Under the hood, Flex wraps each child is a Flex.Item sub-component to apply the gap. If one of more of those children need custom flex properties, you can import and use Flex.Item directly.
+    When using the 'gap' property, Flex wraps each child in a Flex.Item sub-component. If one of more of those children need custom flex properties, you can use Flex.Item directly.
   `}
     name="Example: Applying flex properties to children"
     defaultCode={`
