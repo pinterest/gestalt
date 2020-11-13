@@ -64,11 +64,11 @@ const allowedProps = [
 ];
 
 export default function Flex({
-  alignItems = 'center',
+  alignItems,
   children: childrenProp,
   direction = 'row',
   gap = 0,
-  justifyContent = 'center',
+  justifyContent,
   ...rest
 }: Props): Node {
   const children = gap
