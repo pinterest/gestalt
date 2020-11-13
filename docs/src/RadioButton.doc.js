@@ -286,9 +286,9 @@ function RadioButtonExample() {
   }, [size]);
 
   return (
-    <Flex gap={2}>
+    <Flex gap={4}>
       <Label>
-        <Flex gap={1}>
+        <Flex gap={2}>
           <Switch
             onChange={() => {
               setSize(size === "sm" ? "md" : "sm")
@@ -331,7 +331,7 @@ function RadioButtonFlyoutExample() {
 
   return (
     <Box>
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={4}>
         <Box display="inlineBlock" ref={anchorCatRef}>
           <RadioButton
             id="cat"

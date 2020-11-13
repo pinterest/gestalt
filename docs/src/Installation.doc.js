@@ -12,7 +12,7 @@ card(<PageHeader name="Installation" showSourceLink={false} />);
 
 card(
   <Card name="Install">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Markdown
         text="
 ~~~jsx
@@ -29,7 +29,7 @@ yarn add gestalt
 
 card(
   <Card name="Usage">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Text>
         Gestalt exports each component as ES6 modules and a single, precompiled
         CSS file:
@@ -53,7 +53,7 @@ import 'gestalt/dist/gestalt.css';
 
 card(
   <Card name="Dev">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Text>
         Gestalt is a{' '}
         <Link
@@ -97,7 +97,7 @@ yarn start
 
 card(
   <Card name="Codemods">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Text>
         When a release will cause breaking changes — in usage or in typing — we
         provide a codemod to ease the upgrade process. Codemods are organized by
@@ -138,7 +138,7 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
 
 card(
   <Card name="Releasing">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Text>
         Every commit to master performs a release. As a reviewer, ensure the
         correct label is attached to every PR. Please follow{' '}
@@ -181,7 +181,7 @@ card(
 
 card(
   <Card name="Typescript Support">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Text>
         Install the{' '}
         <Link

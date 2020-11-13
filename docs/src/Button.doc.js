@@ -252,8 +252,8 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={3}>
-      <Flex gap={1}>
+    <Flex direction="column" gap={6}>
+      <Flex gap={2}>
         <Tooltip text="Default button">
           <Button
             onClick={() => {}}
@@ -285,7 +285,7 @@ function Example() {
           />
         </Tooltip>
       </Flex>
-      <Flex gap={1}>
+      <Flex gap={2}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -297,7 +297,7 @@ function Example() {
           </Label>
         </Box>
       </Flex>
-      <Flex gap={1}>
+      <Flex gap={2}>
         <Switch
           onChange={() => setTabIndex(!tabIndex)}
           id="unreachable-buttons"
@@ -321,7 +321,7 @@ card(
     <Example
       name="Size"
       id="size"
-      defaultCode={`<Flex gap={1}>
+      defaultCode={`<Flex gap={2}>
   <Button size="sm" text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
   <Button size="lg" text="Large-sized button" inline />

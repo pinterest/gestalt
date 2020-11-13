@@ -12,7 +12,7 @@ card(<PageHeader name="Development" showSourceLink={false} />);
 
 card(
   <Card name="Set up your laptop">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <ul>
         <li>
           <Text>
@@ -48,7 +48,7 @@ card(
 
 card(
   <Card name="Set up your Gestalt Repository">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <ul>
         <li>
           <Text>
@@ -133,7 +133,7 @@ git remote -v
 
 card(
   <Card name="Set up VSCode">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <ul>
         <li>
           <Text>
@@ -153,7 +153,7 @@ card(
 
 card(
   <Card name="Run the Gestalt Documentation Server">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Text>
         Whenever you make changes to Gestalt, please test them out locally
         before making a PR.
@@ -171,7 +171,7 @@ card(
 
 card(
   <Card name="Create a Pull Request">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <ul>
         <li>
           <Text>Rebase your local master branch.</Text>
@@ -297,7 +297,7 @@ git push -f origin HEAD
 
 card(
   <Card name="Guidelines">
-    <Flex direction="column" gap={2}>
+    <Flex direction="column" gap={4}>
       <Heading size="sm">Scope of work</Heading>
 
       <Text>

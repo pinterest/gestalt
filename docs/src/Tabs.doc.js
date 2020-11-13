@@ -72,8 +72,8 @@ function TabExample() {
     { href: "https://pinterest.com", text: "People to Follow" },
   ];
   return (
-    <Flex direction="column" gap={2}>
-      <Flex gap={2} padding={2}>
+    <Flex direction="column" gap={4}>
+      <Flex gap={4} padding={2}>
         <Label htmlFor="wrap">
           <Text>Wrap</Text>
         </Label>

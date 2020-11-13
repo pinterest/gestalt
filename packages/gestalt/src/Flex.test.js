@@ -17,7 +17,7 @@ test('Flex renders', () => {
 
 test('Flex renders with specified gap', () => {
   const tree = create(
-    <Flex gap={4}>
+    <Flex gap={8}>
       <div />
       <div />
       <div />

@@ -346,8 +346,8 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={3}>
-      <Flex gap={3}>
+    <Flex direction="column" gap={6}>
+      <Flex gap={6}>
         <Tooltip text="Default TapArea">
           <TapArea
             tapStyle={compressed}
@@ -391,7 +391,7 @@ function Example() {
           </TapArea>
         </Tooltip>
       </Flex>
-      <Flex gap={1}>
+      <Flex gap={2}>
         <Switch
           onChange={() => setCompressed(compressed === "compress" ? "none" : "compress")}
           id="compress-buttons"
@@ -403,7 +403,7 @@ function Example() {
           </Label>
         </Box>
       </Flex>
-      <Flex gap={1}>
+      <Flex gap={2}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -415,7 +415,7 @@ function Example() {
           </Label>
         </Box>
       </Flex>
-      <Flex gap={1}>
+      <Flex gap={2}>
         <Switch
           onChange={() => setTabIndex(!tabIndex)}
           id="unreachable-buttons"
@@ -523,7 +523,7 @@ function TapAreaRefExample() {
   const [focus, setFocus] = React.useState(0);
 
   return (
-    <Flex gap={1}>
+    <Flex gap={2}>
       <Button
         text="Focus the TapArea"
         onClick={() => ref.current.focus()}
@@ -573,7 +573,7 @@ function MenuButtonExample() {
             rounding={1}
             padding={2}
           >
-            <Flex gap={1}>
+            <Flex gap={2}>
               <Box height={50} width={50}>
                 <Mask rounding={1}>
                   <Image

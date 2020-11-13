@@ -125,7 +125,7 @@ card(
     name="Example: Menu"
     defaultCode={`
 <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width={130}>
-  <Flex direction="column" alignItems="center" gap={2}>
+  <Flex direction="column" alignItems="center" gap={4}>
     <Text>Menu Item 1</Text>
     <Text>Menu Item 2</Text>
     <Text>Menu Item 3</Text>
@@ -143,7 +143,7 @@ card(
     name="Example: Applying flex properties to children"
     defaultCode={`
 <Box borderStyle="sm" paddingX={2} paddingY={3} rounding={3} width="100%">
-  <Flex alignItems="center" gap={2} width="100%">
+  <Flex alignItems="center" gap={4} width="100%">
     <Button inline text="Button 1" />
     <Flex.Item flex="grow">
       <Button inline text="Button 2" />

@@ -39,7 +39,7 @@ export default function Card({
             id={slugifiedId}
             data-anchor
           >
-            <Flex alignItems="baseline" gap={1}>
+            <Flex alignItems="baseline" gap={2}>
               <Box>{name}</Box>
 
               <IconButton
