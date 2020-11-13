@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex aligns items 1`] = `
+<div
+  className="Flex rowGap0 itemsEnd xsDirectionRow"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Flex justifies content 1`] = `
+<div
+  className="Flex rowGap0 justifyAround xsDirectionRow"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Flex renders 1`] = `
+<div
+  className="Flex rowGap0 xsDirectionRow"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Flex renders with direction: column 1`] = `
+<div
+  className="Flex columnGap0 xsDirectionColumn"
+>
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Flex renders with specified gap 1`] = `
+<div
+  className="Flex rowGap8 xsDirectionRow"
+>
+  <div
+    className="FlexItem"
+  >
+    <div />
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div />
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div />
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Flex.Item renders with specified props 1`] = `
+<div
+  className="Flex rowGap0 xsDirectionRow"
+>
+  <div />
+  <div
+    className="FlexItem flexGrow selfEnd"
+  >
+    <div />
+  </div>
+  <div />
+  <div />
+</div>
+`;
