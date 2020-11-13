@@ -156,6 +156,33 @@ card(
 );
 
 card(
+  <PropTable
+    name="Flex.Item"
+    id="Flex.Item"
+    Component={Flex?.Item}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'alignSelf',
+        type: `"auto" | "start" | "end" | "center" | "baseline" | "stretch"`,
+        defaultValue: 'stretch',
+        description:
+          'Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.',
+      },
+      {
+        name: 'flex',
+        type: '"grow" | "shrink" | "none"',
+        defaultValue: 'shrink',
+        description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Flex relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Flex to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Flex's size based on child content regardless of its container's size.`,
+      },
+    ]}
+  />
+);
+
+card(
   <Combination
     description={`
     Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
