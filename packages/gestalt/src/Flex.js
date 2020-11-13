@@ -83,7 +83,7 @@ export default function Flex({
             key: index,
           },
         });
-      })
+      }).filter(Boolean)
     : childrenProp;
 
   const { passthroughProps, propsStyles } = buildStyles<Props>({
