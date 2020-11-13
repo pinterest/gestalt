@@ -77,6 +77,11 @@ console.log(
     ruleset(':root', {
       '--g-boint': `${BOINT_SIZE_PX}px`,
     }),
+
+    ruleset('.Flex', {
+      display: 'flex', // Basically a no-op, just appeasing the lint rule about empty rulesets
+    }),
+
     // Establishing class name for import in FlexItem.js
     ruleset('.FlexItem', {
       display: 'block', // Basically a no-op, just appeasing the lint rule about empty rulesets

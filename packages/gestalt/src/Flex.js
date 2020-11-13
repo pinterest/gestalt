@@ -87,7 +87,7 @@ export default function Flex({
     : childrenProp;
 
   const { passthroughProps, propsStyles } = buildStyles<Props>({
-    baseStyles: styles[`${direction}Gap${gap}`],
+    baseStyles: `${styles.Flex} ${styles[`${direction}Gap${gap}`]}`,
     props: {
       ...rest,
       alignItems,
