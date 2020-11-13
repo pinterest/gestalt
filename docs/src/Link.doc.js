@@ -275,16 +275,18 @@ function PreventDefaultExample() {
 
   return (
     <Box>
-      <Flex gap={4} padding={2}>
-        <Label htmlFor="preventDefault">
-          <Text>Prevent default on tap</Text>
-        </Label>
-        <Switch
-          id="preventDefault"
-          onChange={() => setPreventDefault(!preventDefault)}
-          switched={preventDefault}
-        />
-      </Flex>
+      <Box padding={2}>
+        <Flex alignItems="center" gap={4}>
+          <Label htmlFor="preventDefault">
+            <Text>Prevent default on tap</Text>
+          </Label>
+          <Switch
+            id="preventDefault"
+            onChange={() => setPreventDefault(!preventDefault)}
+            switched={preventDefault}
+          />
+        </Flex>
+      </Box>
       <Divider />
       <Box padding={2}>
         <Text>

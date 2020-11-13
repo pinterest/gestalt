@@ -30,7 +30,7 @@ function Changelog() {
   return (
     <Box>
       <PageHeader name="What's New 🎉" showSourceLink={false} />
-      <Flex direction="column" gap={4}>
+      <Flex alignItems="start" direction="column" gap={4}>
         <Flex gap={4}>
           <Link inline target="blank" href="https://npmjs.org/package/gestalt">
             <img

@@ -225,7 +225,11 @@ const SheetWithForwardRef: React$AbstractComponent<
                       [sheetStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Flex flex="grow" justifyContent="between">
+                    <Flex
+                      alignItems="center"
+                      flex="grow"
+                      justifyContent="between"
+                    >
                       <Box flex="grow">
                         <Header heading={heading} />
                       </Box>

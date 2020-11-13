@@ -31,8 +31,8 @@ function Example() {
   const [ focussedButton2, setFocussedButton2 ] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={4}>
-      <Flex gap={4}>
+    <Flex alignItems="start" direction="column" gap={4}>
+      <Flex alignItems="center" gap={4}>
         <Text>With focus visible</Text>
         <button
           onBlur={() => setFocussedButton1(false)}
@@ -45,7 +45,7 @@ function Example() {
           <Text>Button 1</Text>
         </button>
       </Flex>
-      <Flex gap={4}>
+      <Flex alignItems="center" gap={4}>
         <Text>Without focus visible</Text>
         <button
           onBlur={() => setFocussedButton2(false)}

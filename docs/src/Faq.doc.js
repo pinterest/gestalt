@@ -12,7 +12,7 @@ card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
 
 card(
   <Card name="Gestalt Usage">
-    <Flex direction="column" gap={4}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">
         What are the benefits of using the Gestalt library?
       </Heading>
@@ -44,7 +44,7 @@ card(
 
 card(
   <Card name="Component Usage">
-    <Flex direction="column" gap={4}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">
         How can I visualize which components use Gestalt?
       </Heading>
@@ -164,7 +164,7 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
 
 card(
   <Card name="Component Development">
-    <Flex direction="column" gap={4}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">How do I get access to the Gestalt repo?</Heading>
       <Text>
         The{' '}
@@ -234,7 +234,7 @@ yarn cypress run
 
 card(
   <Card name="Automated Releases">
-    <Flex direction="column" gap={4}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">How does versioning work in Gestalt?</Heading>
       <Text>
         The Gestalt library development approach is continuous releasing. Each

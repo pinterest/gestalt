@@ -250,7 +250,7 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={6}>
+    <Flex alignItems="start" direction="column" gap={6}>
       <Flex gap={2}>
         <Tooltip text="Default IconButton">
           <IconButton

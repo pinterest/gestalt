@@ -346,7 +346,7 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Flex direction="column" gap={6}>
+    <Flex alignItems="start" direction="column" gap={6}>
       <Flex gap={6}>
         <Tooltip text="Default TapArea">
           <TapArea

@@ -113,7 +113,7 @@ export default function Tabs({
   wrap,
 }: Props): Node {
   return (
-    <Flex wrap={wrap}>
+    <Flex alignItems="center" justifyContent="start" wrap={wrap}>
       {tabs.map(({ id, href, text, indicator }, index) => (
         <Tab
           key={id || `${href}_${index}`}

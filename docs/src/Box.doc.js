@@ -638,7 +638,7 @@ function ButtonFlyoutExample() {
 
   return (
     <>
-      <Flex direction="column" gap={6}>
+      <Flex alignItems="start" direction="column" gap={6}>
         <Button
           inline
           color="red"

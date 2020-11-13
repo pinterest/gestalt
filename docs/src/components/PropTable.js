@@ -20,7 +20,7 @@ type Props = {|
 |};
 
 const buildDescription = (lines: Array<string>): Node => (
-  <Flex direction="column" gap={2}>
+  <Flex alignItems="start" direction="column" gap={2}>
     {lines.map((line, idx) => (
       <Text key={idx} color="gray">
         {line}

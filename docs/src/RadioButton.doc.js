@@ -331,7 +331,7 @@ function RadioButtonFlyoutExample() {
 
   return (
     <Box>
-      <Flex direction="column" gap={4}>
+      <Flex alignItems="start" direction="column" gap={4}>
         <Box display="inlineBlock" ref={anchorCatRef}>
           <RadioButton
             id="cat"
