@@ -31,13 +31,16 @@ export default function Toast({
         fit
         padding={6}
         rounding="pill"
-        dangerouslySetInlineStyle={{
-          __style: {
-            boxShadow: isDarkMode
-              ? '0px 0px 8px rgba(0, 0, 0, 0.5)'
-              : '0px 0px 8px rgba(0, 0, 0, 0.1)',
-          },
-        }}
+        borderStyle={isDarkMode ? undefined : 'shadow'}
+        dangerouslySetInlineStyle={
+          isDarkMode
+            ? {
+                __style: {
+                  boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.5)',
+                },
+              }
+            : undefined
+        }
       >
         <Box
           display="flex"
