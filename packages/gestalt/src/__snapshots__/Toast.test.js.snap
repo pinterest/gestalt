@@ -11,12 +11,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill whiteBg"
-    style={
-      Object {
-        "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
-      }
-    }
+    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
@@ -107,12 +102,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill whiteBg"
-    style={
-      Object {
-        "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
-      }
-    }
+    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
@@ -179,12 +169,7 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill whiteBg"
-    style={
-      Object {
-        "boxShadow": "0px 0px 8px rgba(0, 0, 0, 0.1)",
-      }
-    }
+    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
