@@ -42,17 +42,9 @@ export default function transformer(file, api) {
         );
       }
 
-      let tempAttr;
       const newAttrs = attrs
         .map((attr) => {
-          if (
-            attr?.name?.name &&
-            attr.name.name === 'color' &&
-            attr.value.value === 'darkGray'
-          ) {
-            tempAttr = [
-              j.jsxAttribute(j.jsxIdentifier('color'), j.literal('white')),
-            ];
+          if (['darkGray', 'white'].includes(attr.value.value)) {
             return null;
           }
           return attr;
@@ -61,11 +53,7 @@ export default function transformer(file, api) {
 
       fileHasModifications = true;
 
-      const appendedAttr = tempAttr || false;
-
-      node.openingElement.attributes = appendedAttr
-        ? [...newAttrs, ...appendedAttr]
-        : newAttrs;
+      node.openingElement.attributes = newAttrs;
       return null;
     })
     .toSource();

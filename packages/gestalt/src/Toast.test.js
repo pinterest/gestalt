@@ -13,6 +13,16 @@ describe('<Toast />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test('Red Toast', () => {
+    const tree = create(
+      <Toast
+        color="red"
+        text="Same great profile, slightly new look. Learn more?"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   test('Text + Image', () => {
     const tree = create(
       <Toast
