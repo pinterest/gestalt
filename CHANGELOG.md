@@ -1,3 +1,9 @@
+## 14.29.0 (Nov 17, 2020)
+
+### Minor
+
+- Toast: color white as default & adding drop shadow + Codemode helper (#1287)
+
 ## 14.28.1 (Nov 6, 2020)
 
 ### Patch
