@@ -5,20 +5,20 @@ import { Flex } from "gestalt";
 export default function TestComp() {
   return (
     <div>
-      <Flex alignItems="start" justifyContent="center">
+      <Flex alignItems="start" direction="column" justifyContent="center">
         <div/>
       </Flex>
 
-      <Flex alignItems="start" gap={6} justifyContent="center">
+      <Flex alignItems="start" direction="column" gap={6} justifyContent="center">
         <div/>
         <div/>
       </Flex>
 
-      <Flex alignItems="end" justifyContent="center">
+      <Flex alignItems="end" direction="column" justifyContent="center">
         <div/>
       </Flex>
 
-      <Flex alignItems="start" justifyContent="between">
+      <Flex alignItems="start" direction="column" justifyContent="between">
         <div/>
       </Flex>
     </div>

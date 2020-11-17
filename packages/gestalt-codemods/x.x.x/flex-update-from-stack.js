@@ -101,6 +101,11 @@ export default function transformer(file, api) {
         );
       }
 
+      // Add direction
+      node.openingElement.attributes.push(
+        j.jsxAttribute(j.jsxIdentifier('direction'), j.literal('column'))
+      );
+
       // Sort attributes alphabetically
       node.openingElement.attributes.sort((a, b) =>
         a.name.name.localeCompare(b.name.name)
