@@ -1,3 +1,9 @@
+## 14.30.0 (Nov 17, 2020)
+
+### Minor
+
+- Flex: Replace Row/Stack with Flex (#1288)
+
 ## 14.29.0 (Nov 17, 2020)
 
 ### Minor
