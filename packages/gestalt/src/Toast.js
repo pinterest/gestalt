@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 
 type Props = {|
   button?: Node,
-  color?: 'darkGray' | 'red',
+  color?: 'white' | 'red',
   text: string | Element<*>,
   thumbnail?: Node,
   thumbnailShape?: 'circle' | 'rectangle' | 'square',
@@ -15,14 +16,32 @@ type Props = {|
 
 export default function Toast({
   button,
-  color = 'darkGray',
+  color = 'white',
   text,
   thumbnail,
   thumbnailShape = 'square',
 }: Props): Node {
+  const { name: colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
-      <Box color={color} fit padding={6} rounding="pill">
+      <Box
+        color={color}
+        fit
+        padding={6}
+        rounding="pill"
+        borderStyle={isDarkMode ? undefined : 'shadow'}
+        dangerouslySetInlineStyle={
+          isDarkMode
+            ? {
+                __style: {
+                  boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.5)',
+                },
+              }
+            : undefined
+        }
+      >
         <Box
           display="flex"
           marginLeft={-2}
@@ -53,7 +72,7 @@ export default function Toast({
             paddingX={2}
           >
             <Text
-              color="white"
+              color={color === 'red' ? 'white' : undefined}
               align={!thumbnail && !button ? 'center' : 'left'}
             >
               {text}
@@ -73,7 +92,7 @@ export default function Toast({
 Toast.propTypes = {
   button: PropTypes.node,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf(['darkGray', 'red']),
+  color: PropTypes.oneOf(['white', 'red']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
   thumbnail: PropTypes.node,

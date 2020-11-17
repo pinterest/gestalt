@@ -11,7 +11,7 @@ exports[`<Toast /> Red Toast 1`] = `
   }
 >
   <div
-    className="box fit paddingX6 paddingY6 pill redBg"
+    className="box fit paddingX6 paddingY6 pill redBg shadow"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
@@ -41,7 +41,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill"
+    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
@@ -68,7 +68,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignLeft breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
           Saved to
            
@@ -132,7 +132,7 @@ exports[`<Toast /> Text + Image 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill"
+    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
@@ -159,7 +159,7 @@ exports[`<Toast /> Text + Image 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignLeft breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
         >
           Saved to
            
@@ -199,7 +199,7 @@ exports[`<Toast /> Text Only 1`] = `
   }
 >
   <div
-    className="box darkGrayBg fit paddingX6 paddingY6 pill"
+    className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
       className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
@@ -208,7 +208,7 @@ exports[`<Toast /> Text Only 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 white alignCenter breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
         >
           Same great profile, slightly new look. Learn more?
         </div>

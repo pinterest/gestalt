@@ -28,7 +28,7 @@ card(
       },
       {
         name: 'color',
-        type: `'darkGray' | 'red'`,
+        type: `'white' | 'red'`,
         href: 'redColorTextAlertExample',
       },
       {
@@ -85,7 +85,7 @@ function ToastExample() {
               text={
                 <>
                   Saved to{' '}
-                  <Text inline color="white" weight="bold">
+                  <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
@@ -187,7 +187,7 @@ function ToastExample() {
               text={
                 <>
                   Saved to{' '}
-                  <Text inline color="white" weight="bold">
+                  <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
@@ -244,7 +244,7 @@ function ToastExample() {
               text={
                 <>
                   Saved to{' '}
-                  <Text inline color="white" weight="bold">
+                  <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
@@ -272,7 +272,7 @@ card(
       'Section created!',
       <>
         Saved to{' '}
-        <Text inline color="white" weight="bold">
+        <Text inline weight="bold">
           <Link
             inline
             target="blank"
@@ -322,7 +322,7 @@ card(
         text={
           <>
             Saved to{' '}
-            <Text inline color="white" weight="bold">
+            <Text inline weight="bold">
               <Link
                 inline
                 target="blank"
