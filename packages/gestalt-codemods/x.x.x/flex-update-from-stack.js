@@ -30,9 +30,9 @@ export default function transformer(file, api) {
       touchableSpecifier && touchableSpecifier.local.name;
 
     const newSpecifiers = [
-      // Strip out Touchable import
+      // Strip out Stack import
       ...decl.specifiers.filter((node) => node.imported.name !== 'Stack'),
-      // Only add the new TapArea import if it is not already imported
+      // Only add the new Flex import if it is not already imported
       decl.specifiers.every((node) => node.imported.name !== 'Flex') &&
         j.importSpecifier(j.identifier('Flex')),
     ].filter(Boolean);
