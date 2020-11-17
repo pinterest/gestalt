@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Heading, IconButton, Row } from 'gestalt';
+import { Box, Flex, Heading, IconButton } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
 
@@ -39,7 +39,7 @@ export default function Card({
             id={slugifiedId}
             data-anchor
           >
-            <Row alignItems="baseline" gap={1}>
+            <Flex alignItems="baseline" gap={2}>
               <Box>{name}</Box>
 
               <IconButton
@@ -53,7 +53,7 @@ export default function Card({
                 role="link"
               />
               {toggle}
-            </Row>
+            </Flex>
           </Box>
         </Heading>
       )}

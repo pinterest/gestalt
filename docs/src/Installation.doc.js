@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Heading, Link, Stack, Text } from 'gestalt';
+import { Flex, Heading, Link, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import Card from './components/Card.js';
 import PageHeader from './components/PageHeader.js';
@@ -12,7 +12,7 @@ card(<PageHeader name="Installation" showSourceLink={false} />);
 
 card(
   <Card name="Install">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Markdown
         text="
 ~~~jsx
@@ -23,13 +23,13 @@ or
 yarn add gestalt
 ~~~"
       />
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Usage">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Text>
         Gestalt exports each component as ES6 modules and a single, precompiled
         CSS file:
@@ -47,13 +47,13 @@ import 'gestalt/dist/gestalt.css';
         but you can use Gestalt anywhere that supports ES6 module bundling and
         global CSS.
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Dev">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Text>
         Gestalt is a{' '}
         <Link
@@ -91,13 +91,13 @@ yarn start
         </Link>{' '}
         and click on a component to view the docs.
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Codemods">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Text>
         When a release will cause breaking changes — in usage or in typing — we
         provide a codemod to ease the upgrade process. Codemods are organized by
@@ -132,13 +132,13 @@ yarn codemod --parser=flow -t={relative/path/to/codemod} relative/path/to/your/c
         (print output) flags (pipe stdout to a file for easier inspection if you
         like).
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Releasing">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Text>
         Every commit to master performs a release. As a reviewer, ensure the
         correct label is attached to every PR. Please follow{' '}
@@ -175,13 +175,13 @@ card(
         </li>
       </ul>
       <Text> Example PR title: Avatar: Add outline prop</Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Typescript Support">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Text>
         Install the{' '}
         <Link
@@ -204,7 +204,7 @@ or
 yarn add @types/gestalt
 ~~~"
       />
-    </Stack>
+    </Flex>
   </Card>
 );
 

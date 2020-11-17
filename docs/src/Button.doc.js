@@ -252,8 +252,8 @@ function Example() {
   const [tabIndex, setTabIndex] = React.useState(false);
 
   return (
-    <Stack gap={3}>
-      <Row gap={1}>
+    <Flex alignItems="start" direction="column" gap={6}>
+      <Flex gap={2}>
         <Tooltip text="Default button">
           <Button
             onClick={() => {}}
@@ -284,8 +284,8 @@ function Example() {
             tabIndex={tabIndex ? -1 : 0}
           />
         </Tooltip>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={2}>
         <Switch
           onChange={() => setDisabled(!disabled)}
           id="disable-buttons"
@@ -296,8 +296,8 @@ function Example() {
             <Text>Disable buttons</Text>
           </Label>
         </Box>
-      </Row>
-      <Row gap={1}>
+      </Flex>
+      <Flex gap={2}>
         <Switch
           onChange={() => setTabIndex(!tabIndex)}
           id="unreachable-buttons"
@@ -308,8 +308,8 @@ function Example() {
             <Text>Remove from keyboard navigation with tabIndex</Text>
           </Label>
         </Box>
-      </Row>
-    </Stack>
+      </Flex>
+    </Flex>
   );
 }
 `}
@@ -321,11 +321,11 @@ card(
     <Example
       name="Size"
       id="size"
-      defaultCode={`<Row gap={1}>
+      defaultCode={`<Flex gap={2}>
   <Button size="sm" text="Small-sized button" inline />
   <Button text="Medium-sized button" inline />
   <Button size="lg" text="Large-sized button" inline />
-</Row>`}
+</Flex>`}
     />
     <Combination
       id="color"

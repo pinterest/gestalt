@@ -15,6 +15,7 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Module from './Module.js';
+import Flex from './Flex.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -34,14 +35,12 @@ import Pog from './Pog.js';
 import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
-import Row from './Row.js';
 import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Sheet from './Sheet.js';
 import Spinner from './Spinner.js';
-import Stack from './Stack.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
@@ -79,6 +78,7 @@ export {
   Divider,
   Module,
   FixedZIndex,
+  Flex,
   Flyout,
   GroupAvatar,
   Heading,
@@ -98,14 +98,12 @@ export {
   Provider,
   Pulsar,
   RadioButton,
-  Row,
   ScrollFetch,
   SearchField,
   SegmentedControl,
   SelectList,
   Sheet,
   Spinner,
-  Stack,
   Sticky,
   Switch,
   Table,

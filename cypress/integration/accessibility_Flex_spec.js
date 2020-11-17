@@ -1,10 +1,10 @@
-describe('Row Accessibility check', () => {
+describe('Flex Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Row');
+    cy.visit('/Flex');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the Row page', () => {
+  it('Tests accessibility on the Flex page', () => {
     cy.configureAxe({
       rules: [
         {

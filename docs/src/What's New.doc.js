@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node, useEffect } from 'react';
-import { Box, Text, Link, Stack, Row } from 'gestalt';
+import { Box, Flex, Link, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import PageHeader from './components/PageHeader.js';
 
@@ -30,8 +30,8 @@ function Changelog() {
   return (
     <Box>
       <PageHeader name="What's New 🎉" showSourceLink={false} />
-      <Stack gap={2}>
-        <Row gap={2}>
+      <Flex alignItems="start" direction="column" gap={4}>
+        <Flex gap={4}>
           <Link inline target="blank" href="https://npmjs.org/package/gestalt">
             <img
               src="https://img.shields.io/npm/v/gestalt.svg?label=gestalt"
@@ -49,7 +49,7 @@ function Changelog() {
               alt="Gestalt DatePicker NPM package version badge"
             />
           </Link>
-        </Row>
+        </Flex>
         <Text>
           Gestalt is a set of React UI components that enforces Pinterest’s
           design language. We use it to streamline communication between
@@ -62,7 +62,7 @@ function Changelog() {
           number, as well as available codemods to help upgrade between
           versions.
         </Text>
-      </Stack>
+      </Flex>
 
       <Markdown text={changelogData} type="changelog" />
     </Box>

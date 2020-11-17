@@ -286,9 +286,9 @@ function RadioButtonExample() {
   }, [size]);
 
   return (
-    <Row gap={2}>
+    <Flex gap={4}>
       <Label>
-        <Row gap={1}>
+        <Flex gap={2}>
           <Switch
             onChange={() => {
               setSize(size === "sm" ? "md" : "sm")
@@ -298,7 +298,7 @@ function RadioButtonExample() {
             switched={switched}
           />
           <Text>Toggle RadioButton to small size</Text>
-        </Row>
+        </Flex>
       </Label>
         <RadioButton
           id="sizing"
@@ -309,7 +309,7 @@ function RadioButtonExample() {
           ref={ref}
           size={size}
         />
-    </Row>
+    </Flex>
   );
 }`}
   />
@@ -331,7 +331,7 @@ function RadioButtonFlyoutExample() {
 
   return (
     <Box>
-      <Stack gap={2}>
+      <Flex alignItems="start" direction="column" gap={4}>
         <Box display="inlineBlock" ref={anchorCatRef}>
           <RadioButton
             id="cat"
@@ -356,7 +356,7 @@ function RadioButtonFlyoutExample() {
             value="dog"
           />
         </Box>
-      </Stack>
+      </Flex>
       {open &&
         <Layer>
           <Flyout

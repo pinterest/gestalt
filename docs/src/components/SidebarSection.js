@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Row, Text } from 'gestalt';
+import { Box, Flex, Text } from 'gestalt';
 import { type sidebarIndexType } from './sidebarIndex.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 
@@ -12,9 +12,9 @@ export default function SidebarSection({
   return (
     <Box role="list">
       <Box role="listitem" padding={2} marginTop={4}>
-        <Row justifyContent="between">
+        <Flex justifyContent="between">
           <Text size="sm">{section.sectionName}</Text>
-        </Row>
+        </Flex>
       </Box>
 
       {section.pages.map((componentName, i) => (

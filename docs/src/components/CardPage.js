@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, FixedZIndex, Link, Sticky, Row, Text } from 'gestalt';
+import { Box, FixedZIndex, Flex, Link, Sticky, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
@@ -34,9 +34,9 @@ const CardPage = ({ cards, page }: Props): Node => {
 
         <Box marginTop={12} display="flex">
           <Link href={editPageUrl} target="blank" inline>
-            <Row gap={1}>
+            <Flex gap={2}>
               <Text weight="bold">Edit page on GitHub</Text>
-            </Row>
+            </Flex>
           </Link>
         </Box>
       </Box>

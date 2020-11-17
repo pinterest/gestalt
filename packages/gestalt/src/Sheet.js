@@ -36,10 +36,10 @@ import { ESCAPE } from './keyCodes.js';
 import AnimationController, { useAnimation } from './AnimationController.js';
 import Box from './Box.js';
 import Backdrop from './Backdrop.js';
+import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import IconButton from './IconButton.js';
 import Heading from './Heading.js';
-import Row from './Row.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
@@ -225,7 +225,11 @@ const SheetWithForwardRef: React$AbstractComponent<
                       [sheetStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Row flex="grow" justifyContent="between">
+                    <Flex
+                      alignItems="center"
+                      flex="grow"
+                      justifyContent="between"
+                    >
                       <Box flex="grow">
                         <Header heading={heading} />
                       </Box>
@@ -237,7 +241,7 @@ const SheetWithForwardRef: React$AbstractComponent<
                           onClick={onDismiss}
                         />
                       </Box>
-                    </Row>
+                    </Flex>
                     {subHeading}
                   </div>
                 )}

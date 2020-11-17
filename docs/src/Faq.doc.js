@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Heading, Link, Stack, Text } from 'gestalt';
+import { Box, Flex, Heading, Link, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import Card from './components/Card.js';
 import PageHeader from './components/PageHeader.js';
@@ -12,7 +12,7 @@ card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
 
 card(
   <Card name="Gestalt Usage">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">
         What are the benefits of using the Gestalt library?
       </Heading>
@@ -38,13 +38,13 @@ card(
         Gestalt increases designers and developers velocity with the highest
         design and code quality.
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Component Usage">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">
         How can I visualize which components use Gestalt?
       </Heading>
@@ -158,13 +158,13 @@ if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
           `}
         />
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Component Development">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">How do I get access to the Gestalt repo?</Heading>
       <Text>
         The{' '}
@@ -228,13 +228,13 @@ yarn cypress run
         </Link>{' '}
         to add your own videos to this list.
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 
 card(
   <Card name="Automated Releases">
-    <Stack gap={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
       <Heading size="sm">How does versioning work in Gestalt?</Heading>
       <Text>
         The Gestalt library development approach is continuous releasing. Each
@@ -296,7 +296,7 @@ card(
           </li>
         </ul>
       </Text>
-    </Stack>
+    </Flex>
   </Card>
 );
 

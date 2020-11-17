@@ -62,6 +62,7 @@ export type Display =
 export type Direction = 'row' | 'column';
 export type Flex = 'grow' | 'shrink' | 'none';
 export type Fit = boolean;
+export type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type JustifyContent =
   | 'start'
   | 'end'
@@ -183,6 +184,21 @@ export const FlexPropType: React$PropType$Primitive<Flex> = PropTypes.oneOf([
   'grow',
   'shrink',
   'none',
+]);
+export const GapPropType: React$PropType$Primitive<Gap> = PropTypes.oneOf([
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
 ]);
 export const JustifyContentPropType: React$PropType$Primitive<JustifyContent> = PropTypes.oneOf(
   ['start', 'end', 'center', 'between', 'around', 'evenly']

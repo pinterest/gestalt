@@ -512,14 +512,23 @@ the component's props, and any disallowed props. It outputs the passthrough prop
 removing disallowed and given props), as well as an object with the combined classNames
 and styles from the given props.
 
+Optionally, for more restrictive components, this function can accept an allowlist of
+valid props. Any props not on this list will be ignored.
+
 */
 
 // $FlowExpectedError[unclear-type]
-export function buildStyles<T: Object>(
+export function buildStyles<T: Object>({
+  baseStyles,
+  props,
+  blocklistProps,
+  allowlistProps,
+}: {|
   baseStyles: string,
   props: T,
-  disallowedProps?: Array<string>
-): {|
+  blocklistProps?: Array<string>,
+  allowlistProps?: Array<string>,
+|}): {|
   passthroughProps: T,
   propsStyles: ToPropsOutput,
 |} {
@@ -532,7 +541,7 @@ export function buildStyles<T: Object>(
 
   // Init the list of props we'll omit from passthrough. We'll add to this
   // list as we match props against the transforms list.
-  const omitProps = [...(disallowedProps ?? [])];
+  const omitProps = [...(blocklistProps ?? [])];
 
   // This loops through each property and if it exists in the previously
   // defined transform map, concatenates the resulting styles to the base
@@ -547,7 +556,8 @@ export function buildStyles<T: Object>(
   for (const prop in props) {
     if (
       Object.prototype.hasOwnProperty.call(propToFn, prop) &&
-      !omitProps.includes(prop)
+      !omitProps.includes(prop) &&
+      (!allowlistProps || allowlistProps.includes(prop))
     ) {
       const fn = propToFn[prop];
       const value = props[prop];

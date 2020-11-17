@@ -72,8 +72,8 @@ function TabExample() {
     { href: "https://pinterest.com", text: "People to Follow" },
   ];
   return (
-    <Stack gap={2}>
-      <Row gap={2} padding={2}>
+    <Flex alignItems="start" direction="column" gap={4}>
+      <Flex gap={4} padding={2}>
         <Label htmlFor="wrap">
           <Text>Wrap</Text>
         </Label>
@@ -82,7 +82,7 @@ function TabExample() {
           onChange={() => setWrap(!wrap)}
           switched={wrap}
         />
-      </Row>
+      </Flex>
       {['md', 'lg'].map((size) => (
         <Box key={size}>
           <Heading size="sm">size = {size}</Heading>
@@ -97,7 +97,7 @@ function TabExample() {
           </Box>
         </Box>
       ))}
-    </Stack>
+    </Flex>
   );
 }
   `}

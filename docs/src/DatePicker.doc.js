@@ -253,7 +253,7 @@ function DatePickerRangeExample() {
   const startDateInput = React.useRef(null)
 
   return (
-    <Row gap={1}>
+    <Flex gap={2}>
       <DatePicker
         rangeStartDate={startDate}
         rangeEndDate={endDate}
@@ -278,7 +278,7 @@ function DatePickerRangeExample() {
         value={endDate}
         ref={endDateInput}
       />
-    </Row>
+    </Flex>
   );
 }
 `}
