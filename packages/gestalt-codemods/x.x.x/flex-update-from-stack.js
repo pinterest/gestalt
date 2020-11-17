@@ -68,9 +68,16 @@ export default function transformer(file, api) {
         (attr) => {
           const attribute = attr;
           if (attribute.name && attribute.name.name === 'gap') {
-            const doubledVal = attribute.value.expression.value * 2;
-            attribute.value.expression.value = doubledVal;
-            attribute.value.expression.raw = `${doubledVal}`;
+            if (Number.isInteger(attribute.value.expression.value)) {
+              const doubledVal = attribute.value.expression.value * 2;
+              attribute.value.expression.value = doubledVal;
+              attribute.value.expression.raw = `${doubledVal}`;
+            } else {
+              throw new Error(`
+              ${file.path}
+              Manually convert the Row gap: "${attribute.value.expression.value}" to a valid number
+              `);
+            }
           }
           return attribute;
         }
