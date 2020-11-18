@@ -56,7 +56,48 @@ card(
 card(
   <Example
     id="textOnlyExample"
-    name="Example: Text only"
+    name="Example: Simple Text"
+    defaultCode={`
+function ToastExample() {
+  const [showToast, setShowToast] = React.useState(false);
+  return (
+    <Box>
+      <Button
+        inline
+        text={ showToast ? 'Close toast' : 'Show toast' }
+        onClick={() => setShowToast(!showToast)}
+      />
+      <Layer>
+        <Box
+          fit
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: 50,
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          paddingX={1}
+          position="fixed"
+        >
+          {showToast && (
+            <Toast
+              text={"Section created!"}
+            />
+          )}
+        </Box>
+      </Layer>
+    </Box>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    id="textOnlyExample"
+    name="Example: Complex Text"
+    description="When passing in your own Text component for the text property, be careful not to specify a color property, as the Toast component will automatically pick the right text color based on the Toast's background color."
     defaultCode={`
 function ToastExample() {
   const [showToast, setShowToast] = React.useState(false);
