@@ -46,7 +46,7 @@ function isElementOfType<P>(
 
 // Conditionally wraps `element` in `Component` if it is not already an instance of
 // `Component`. If `props` is passed, those will be added as props on the
-// wrapped component. If `element` is nullish, the component is returned unwrapped.
+// wrapped component. If `element` is nullish, null is returned.
 export default function wrapWithComponent<P>({
   element,
   Component,
