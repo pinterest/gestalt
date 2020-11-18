@@ -7,6 +7,7 @@ type Props = {|
   anchor: ?HTMLElement,
   children?: Node,
   color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray',
+  handleKeyDown?: (event: {| keyCode: number |}) => void,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
@@ -19,6 +20,7 @@ export default function Flyout(props: Props): null | Node {
   const {
     anchor,
     children,
+    handleKeyDown,
     idealDirection,
     onDismiss,
     positionRelativeToAnchor = true,
@@ -38,6 +40,7 @@ export default function Flyout(props: Props): null | Node {
       bgColor={color}
       border
       caret={showCaret}
+      handleKeyDown={handleKeyDown}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}

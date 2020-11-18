@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
-import TypeaheadOption from './TypeaheadOption.js';
+import MenuOption from './MenuOption.js';
 import Box from './Box.js';
 import Text from './Text.js';
 import Flyout from './Flyout.js';
@@ -309,11 +309,10 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
               ref={containerRef}
               position="relative"
               overflow="auto"
-              padding={1}
-              marginTop={2}
-              marginBottom={2}
+              padding={2}
               maxHeight="50vh"
               width={positioningRef.current?.offsetWidth}
+              role="combobox"
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
@@ -323,7 +322,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                   </Box>
                 ) : (
                   availableOptions.map((option, index) => (
-                    <TypeaheadOption
+                    <MenuOption
                       index={index}
                       key={`${option.value + index}`}
                       option={option}
@@ -332,6 +331,8 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                       setHoveredItem={setHoveredItem}
                       handleSelect={handleSelect}
                       setOptionRef={setOptionRef}
+                      textWeight="normal"
+                      role="option"
                     />
                   ))
                 )}

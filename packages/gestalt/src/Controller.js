@@ -11,6 +11,7 @@ type Props = {|
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
+  handleKeyDown?: (event: {| keyCode: number |}) => void,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
@@ -78,6 +79,7 @@ export default class Controller extends Component<Props, State> {
     border: PropTypes.bool,
     caret: PropTypes.bool,
     children: PropTypes.node,
+    handleKeyDown: PropTypes.func,
     idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
     onDismiss: PropTypes.func.isRequired,
     positionRelativeToAnchor: PropTypes.bool,
@@ -127,10 +129,11 @@ export default class Controller extends Component<Props, State> {
   }
 
   handleKeyDown: (event: {| keyCode: number |}) => void = (event) => {
-    const { onDismiss } = this.props;
+    const { handleKeyDown, onDismiss } = this.props;
     if (event.keyCode === ESCAPE) {
       onDismiss();
     }
+    if (handleKeyDown) handleKeyDown(event);
   };
 
   handlePageClick: (event: Event) => void = (event) => {

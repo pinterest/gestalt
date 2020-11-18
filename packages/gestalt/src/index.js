@@ -14,7 +14,7 @@ import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
-import Module from './Module.js';
+import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';
 import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
@@ -31,6 +31,7 @@ import Masonry from './Masonry.js';
 import MasonryDefaultLayout from './layouts/MasonryLayout.js';
 import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
 import Modal from './Modal.js';
+import Module from './Module.js';
 import Pog from './Pog.js';
 import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
@@ -77,7 +78,7 @@ export {
   CompositeZIndex,
   Container,
   Divider,
-  Module,
+  Dropdown,
   FixedZIndex,
   Flex,
   Flyout,
@@ -95,6 +96,7 @@ export {
   MasonryDefaultLayout,
   MasonryUniformRowLayout,
   Modal,
+  Module,
   Pog,
   Provider,
   Pulsar,

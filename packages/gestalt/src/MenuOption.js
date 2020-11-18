@@ -2,7 +2,9 @@
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Badge from './Badge.js';
 import Box from './Box.js';
+import Link from './Link.js';
 import Text from './Text.js';
 import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
@@ -16,6 +18,7 @@ type OptionObject = {|
 |};
 
 type OptionProps = {|
+  badgeText?: string,
   index: number,
   option: OptionObject,
   selected?: OptionObject | null,
@@ -24,23 +27,35 @@ type OptionProps = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
   hoveredItem: ?number,
+  isExternal?: boolean,
+  role?: 'option' | 'menuitem',
   setHoveredItem: (number) => void,
   setOptionRef: (?HTMLElement) => void,
+  shouldTruncate?: boolean,
+  textWeight?: 'bold' | 'normal',
+  url?: string,
 |};
 
-export default function TypeaheadOption({
-  index,
-  option,
-  selected,
+export default function MenuOption({
+  badgeText,
   handleSelect,
   hoveredItem,
+  index,
+  isExternal,
+  option,
+  role,
+  selected,
   setHoveredItem,
   setOptionRef,
+  shouldTruncate = false,
+  textWeight = 'normal',
+  url,
 }: OptionProps): Node {
   // Determine if the option is the current selected item
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
   const handleOnTap = (event) => {
+    event.preventDefault();
     if (handleSelect) handleSelect({ event, item: option });
   };
 
@@ -69,6 +84,7 @@ export default function TypeaheadOption({
       }}
       className={className}
       key={option.value}
+      id={index}
       onClick={handleOnTap}
       onMouseDown={(event) => {
         event.preventDefault();
@@ -78,31 +94,53 @@ export default function TypeaheadOption({
       }}
       rounding={2}
       onMouseEnter={() => setHoveredItem(index)}
-      role="option"
+      role={role}
       aria-selected={isSelectedItem}
-      tabIndex="-1"
+      tabIndex={index === hoveredItem ? '0' : '-1'}
     >
-      <Box
-        margin={1}
-        padding={2}
-        color={optionStateColor}
-        rounding={2}
-        display="flex"
-      >
-        <Box flex="grow">
-          <Text color="darkGray">{`${option?.label}`}</Text>
+      <Box padding={2} color={optionStateColor} rounding={2} display="flex">
+        <Box display="flex" flex="grow" alignItems="center">
+          <Text truncate={shouldTruncate} weight={textWeight} color="darkGray">
+            {url ? (
+              <Link hoverStyle="none" href={url}>{`${option?.label}`}</Link>
+            ) : (
+              `${option?.label}`
+            )}
+          </Text>
+          {badgeText && (
+            <Box marginStart={2} marginTop={1}>
+              <Badge text={badgeText} />
+            </Box>
+          )}
         </Box>
-        {isSelectedItem && (
+        {isSelectedItem && !isExternal && (
           <Box
             display="flex"
             color="transparent"
             justifyContent="center"
             alignItems="center"
+            marginStart={2}
           >
             <Icon
-              accessibilityLabel="selected-icon"
+              accessibilityLabel="selected item"
               color="darkGray"
               icon="check"
+              size={12}
+            />
+          </Box>
+        )}
+        {isExternal && (
+          <Box
+            display="flex"
+            color="transparent"
+            justifyContent="center"
+            alignItems="center"
+            marginStart={2}
+          >
+            <Icon
+              accessibilityLabel="external option"
+              color="darkGray"
+              icon="arrow-up-right"
               size={12}
             />
           </Box>
@@ -112,9 +150,9 @@ export default function TypeaheadOption({
   );
 }
 
-TypeaheadOption.displayName = 'TypeaheadOption';
+MenuOption.displayName = 'MenuOption';
 
-TypeaheadOption.propTypes = {
+MenuOption.propTypes = {
   index: PropTypes.number.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.exact({
