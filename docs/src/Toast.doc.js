@@ -46,7 +46,7 @@ card(
         name: 'text',
         type: 'string | Array<string>',
         description:
-          'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text).',
+          'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text). Avoid specifying a Text color within this property, as the color is automatically determined based on the background color',
         href: 'textOnlyExample',
       },
     ]}
