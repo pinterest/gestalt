@@ -1,3 +1,9 @@
+## 14.30.1 (Nov 18, 2020)
+
+### Patch
+
+- Toast: Update documentation around Text property (#1291)
+
 ## 14.30.0 (Nov 17, 2020)
 
 ### Minor
