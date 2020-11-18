@@ -44,9 +44,9 @@ card(
       },
       {
         name: 'text',
-        type: 'string | Array<string>',
+        type: 'string | React.Node',
         description:
-          'Use string for guide toasts (one line of text) and Array<string> for confirmation toasts (two lines of text). Avoid specifying a Text color within this property, as the color is automatically determined based on the background color',
+          'Use string for guide toasts (one line of text) and React.Node for confirmation toasts (complex text, potentially containing a Link). Avoid specifying a Text color within this property, as the color is automatically determined based on the background color',
         href: 'textOnlyExample',
       },
     ]}
@@ -95,7 +95,7 @@ function ToastExample() {
 
 card(
   <Example
-    id="textOnlyExample"
+    id="complexTextExample"
     name="Example: Complex Text"
     description="When passing in your own Text component for the text property, be careful not to specify a color property, as the Toast component will automatically pick the right text color based on the Toast's background color."
     defaultCode={`
