@@ -1,3 +1,9 @@
+## 14.30.2 (Nov 18, 2020)
+
+### Patch
+
+- Flex: Update comment, update codemod directory name (#1290)
+
 ## 14.30.1 (Nov 18, 2020)
 
 ### Patch
