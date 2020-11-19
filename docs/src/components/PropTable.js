@@ -19,7 +19,11 @@ type Props = {|
   id?: string,
 |};
 
-const buildDescription = (lines: Array<string>): Node => (
+const unifyQuotes = (input) => {
+  return input?.replace(/'/g, '"');
+};
+
+const Description = (lines: Array<string>): Node => (
   <Flex alignItems="start" direction="column" gap={2}>
     {lines.map((line, idx) => (
       <Text key={idx} color="gray">
@@ -207,7 +211,7 @@ export default function PropTable({
                           )}
                         </Td>
                         <Td border={!description}>
-                          <code>{type}</code>
+                          <code>{unifyQuotes(type)}</code>
                         </Td>
                         <Td
                           shrink
@@ -228,7 +232,7 @@ export default function PropTable({
                           <Td colspan={hasRequired ? 2 : 1} />
                           <Td colspan={2} color="gray">
                             {Array.isArray(description)
-                              ? buildDescription(description)
+                              ? Description(description)
                               : description}
                           </Td>
                         </tr>
