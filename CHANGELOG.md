@@ -1,3 +1,9 @@
+## 14.30.3 (Nov 19, 2020)
+
+### Patch
+
+- Docs: unify quotes in the proptable (#1292)
+
 ## 14.30.2 (Nov 18, 2020)
 
 ### Patch
