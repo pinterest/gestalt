@@ -90,8 +90,8 @@ Internal components <Header> and <DismissButton>
 
 */
 const Header = ({ heading }: {| heading: string |}) => (
-  <Box display="flex" justifyContent="start" padding={8}>
-    <Heading size="md" accessibilityLevel={1}>
+  <Box display="flex" justifyContent="start">
+    <Heading size="sm" accessibilityLevel={1}>
       {heading}
     </Heading>
   </Box>
@@ -230,10 +230,10 @@ const SheetWithForwardRef: React$AbstractComponent<
                       flex="grow"
                       justifyContent="between"
                     >
-                      <Box flex="grow">
+                      <Box flex="grow" paddingX={4} paddingY={6}>
                         <Header heading={heading} />
                       </Box>
-                      <Box flex="none" paddingX={6} paddingY={7}>
+                      <Box flex="none" paddingX={4} paddingY={6}>
                         <DismissButton
                           accessibilityDismissButtonLabel={
                             accessibilityDismissButtonLabel
@@ -242,7 +242,9 @@ const SheetWithForwardRef: React$AbstractComponent<
                         />
                       </Box>
                     </Flex>
-                    {subHeading}
+                    <Box flex="grow" paddingX={4} marginBottom={4}>
+                      {subHeading}
+                    </Box>
                   </div>
                 )}
                 {!heading && (
@@ -271,7 +273,8 @@ const SheetWithForwardRef: React$AbstractComponent<
                   flex="grow"
                   overflow="auto"
                   onScroll={updateShadows}
-                  padding={8}
+                  paddingX={4}
+                  marginTop={4}
                   ref={contentRef}
                 >
                   {children}
@@ -282,7 +285,7 @@ const SheetWithForwardRef: React$AbstractComponent<
                       [sheetStyles.shadow]: showBottomShadow,
                     })}
                   >
-                    <Box padding={8}>{footer}</Box>
+                    <Box padding={4}>{footer}</Box>
                   </div>
                 )}
               </Box>
