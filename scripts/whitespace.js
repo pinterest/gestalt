@@ -135,18 +135,17 @@ const rules = (i, prefix) => [
         ruleset(classname(prefix, `marginLeftN${i}`), {
           'margin-left': bt(-i),
         }),
-
-        ruleset(classname(prefix, `paddingY${i}`), {
-          'padding-bottom': bt(i),
-          'padding-top': bt(i),
-        }),
-
-        ruleset(classname(prefix, `paddingX${i}`), {
-          'padding-left': bt(i),
-          'padding-right': bt(i),
-        }),
       ]
     : []),
+  ruleset(classname(prefix, `paddingY${i}`), {
+    'padding-bottom': bt(i),
+    'padding-top': bt(i),
+  }),
+
+  ruleset(classname(prefix, `paddingX${i}`), {
+    'padding-left': bt(i),
+    'padding-right': bt(i),
+  }),
 ];
 
 const autoRules = (prefix) => [
