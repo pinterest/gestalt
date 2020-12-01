@@ -8,7 +8,7 @@ exports[`Box allows auto margin 1`] = `
 
 exports[`Box allows zero values for whitespace 1`] = `
 <div
-  className="box"
+  className="box paddingX0 paddingY0"
 />
 `;
 

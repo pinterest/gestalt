@@ -21,7 +21,6 @@ import {
   toggle,
   mapping,
   rangeWithZero,
-  rangeWithoutZero,
   type Functor,
 } from './transforms.js';
 import { getRoundingStyle } from './getRoundingClassName.js';
@@ -340,36 +339,36 @@ const overflow: Functor<Overflow> = mapping({
 
 type PaddingFunctor = Functor<Padding>;
 
-const paddingX: PaddingFunctor = bind(rangeWithoutZero('paddingX'), whitespace);
-const paddingY: PaddingFunctor = bind(rangeWithoutZero('paddingY'), whitespace);
+const paddingX: PaddingFunctor = bind(rangeWithZero('paddingX'), whitespace);
+const paddingY: PaddingFunctor = bind(rangeWithZero('paddingY'), whitespace);
 const padding: PaddingFunctor = union(paddingX, paddingY);
 
 const smPaddingX: PaddingFunctor = bind(
-  rangeWithoutZero('smPaddingX'),
+  rangeWithZero('smPaddingX'),
   whitespace
 );
 const smPaddingY: PaddingFunctor = bind(
-  rangeWithoutZero('smPaddingY'),
+  rangeWithZero('smPaddingY'),
   whitespace
 );
 const smPadding: PaddingFunctor = union(smPaddingX, smPaddingY);
 
 const mdPaddingX: PaddingFunctor = bind(
-  rangeWithoutZero('mdPaddingX'),
+  rangeWithZero('mdPaddingX'),
   whitespace
 );
 const mdPaddingY: PaddingFunctor = bind(
-  rangeWithoutZero('mdPaddingY'),
+  rangeWithZero('mdPaddingY'),
   whitespace
 );
 const mdPadding: PaddingFunctor = union(mdPaddingX, mdPaddingY);
 
 const lgPaddingX: PaddingFunctor = bind(
-  rangeWithoutZero('lgPaddingX'),
+  rangeWithZero('lgPaddingX'),
   whitespace
 );
 const lgPaddingY: PaddingFunctor = bind(
-  rangeWithoutZero('lgPaddingY'),
+  rangeWithZero('lgPaddingY'),
   whitespace
 );
 const lgPadding: PaddingFunctor = union(lgPaddingX, lgPaddingY);

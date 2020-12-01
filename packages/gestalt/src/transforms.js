@@ -49,14 +49,6 @@ export const rangeWithZero = (scale: string): ((n: number) => Style) => (
   n
 ): Style => range(scale)(n);
 
-// Like `range`, maps a range of integers to a range of classnames, excluding
-// zero values.
-//
-//     <Box padding={0} />
-export const rangeWithoutZero = (scale: string): ((n: number) => Style) => (
-  n
-): Style => (n === 0 ? identity() : range(scale)(n));
-
 // Binds a string classname to the value in an object. Useful when interacting
 // with ranges that need to come dynamically from a style object. This is
 // similar to the NPM package 'classnames/bind'.

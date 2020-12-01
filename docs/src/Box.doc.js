@@ -10,40 +10,6 @@ import Card from './components/Card.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-const marginProps = [
-  { name: 'margin', description: 'Scale is in boints, where 1bt is 4px' },
-  { name: 'marginTop' },
-  { name: 'marginRight' },
-  { name: 'marginBottom' },
-  { name: 'marginLeft' },
-  { name: 'marginStart' },
-  { name: 'marginEnd' },
-].map((prop: {| name: string, description?: string |}) => ({
-  name: prop.name,
-  type: '-12 ... 12 | "auto"',
-  defaultValue: 0,
-  responsive: true,
-  description: prop.description,
-  href: 'margins',
-}));
-
-const absolutePositioningProps = ['left', 'right', 'top', 'bottom'].map(
-  (name) => ({
-    name,
-    type: 'boolean',
-    defaultValue: false,
-    href: 'absolutePositioning',
-  })
-);
-
-const paddingProps = ['padding', 'paddingX', 'paddingY'].map((name) => ({
-  name,
-  type: '0 .. 12',
-  defaultValue: 0,
-  responsive: true,
-  href: 'padding',
-}));
-
 card(
   <PageHeader
     name="Box"
@@ -131,8 +97,32 @@ card(
           'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
         href: 'layout',
       },
-      ...absolutePositioningProps,
-      ...marginProps,
+      ...['left', 'right', 'top', 'bottom'].map((name) => ({
+        name,
+        type: 'boolean',
+        defaultValue: false,
+        href: 'absolutePositioning',
+      })),
+      ...[
+        {
+          name: 'margin',
+          description:
+            'Scale is in 4px increments so a margin of 2 is 8px. Supports 3 responsive breakpoints: sm, md, lg. Each sets the margin from that breakpoint and up.',
+        },
+        { name: 'marginTop' },
+        { name: 'marginRight' },
+        { name: 'marginBottom' },
+        { name: 'marginLeft' },
+        { name: 'marginStart' },
+        { name: 'marginEnd' },
+      ].map((prop: {| name: string, description?: string |}) => ({
+        name: prop.name,
+        type: '-12 ... 12 | "auto"',
+        defaultValue: 0,
+        responsive: true,
+        description: prop.description,
+        href: 'margins',
+      })),
       {
         name: 'column',
         type: `0 .. 12`,
@@ -176,7 +166,22 @@ card(
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
       },
-      ...paddingProps,
+      ...[
+        {
+          name: 'padding',
+          description:
+            'Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up.',
+        },
+        { name: 'paddingX', description: 'Horizontal padding (left/right)' },
+        { name: 'paddingY', description: 'Vertical padding (top/bottom)' },
+      ].map(({ description = '', name }) => ({
+        description,
+        name,
+        type: '0 .. 12',
+        defaultValue: 0,
+        responsive: true,
+        href: 'padding',
+      })),
       {
         name: 'position',
         type: `"static" | "absolute" | "relative" | "fixed"`,
@@ -341,7 +346,7 @@ const PaddingSwatch = (props: *) => (
 card(
   <Card
     description={`
-    Padding is applied in boints and is always symmetric. You should try to use padding before you use margins as they compose better and don't collapse.
+    Padding is applied in 4px increments and is always symmetric. You should try to use padding before you use margins as they compose better and don't collapse.
 
     ~~~jsx
     <Box padding={1} />
@@ -366,6 +371,21 @@ card(
   </Card>
 );
 
+card(
+  <Example
+    name="Responsive padding"
+    description="Control the padding on different screen sizes by setting the `smPadding`, `mdPadding` or `lgPadding` properties. In the example, we increase the padding by 4px for every breakpoint."
+    defaultCode={`
+function ResponsivePadding() {
+  return (
+    <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="lightGray">
+      <Box width={40} height={40} color="green" />
+    </Box>
+  );
+}`}
+  />
+);
+
 const MarginSwatch = (props: *) => (
   <Box
     margin={1}
@@ -388,7 +408,7 @@ const MarginSwatch = (props: *) => (
 card(
   <Card
     description={`
-    Margins are applied in boints and are asymmetric. Margins can be -6 to 6 boints. You can set margin to be auto in the left and right axis.
+    Margins are applied in 4px increments and are asymmetric. You can set margin to be auto in the left and right axis.
 
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
 
@@ -582,7 +602,7 @@ card(
 card(
   <Card
     description={`
-    Sets a border radius for the Box. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in boints.
+    Sets a border radius for the Box. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in 4px increments.
   `}
     id="rounding"
     name="Rounding"
