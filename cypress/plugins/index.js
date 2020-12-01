@@ -15,7 +15,17 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = () => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+module.exports = (on) => {
+  on('task', {
+    logToTerminal(message) {
+      // eslint-disable-next-line no-console
+      console.log(message);
+      return null;
+    },
+    table(message) {
+      // eslint-disable-next-line no-console
+      console.table(message);
+      return null;
+    },
+  });
 };

@@ -5,14 +5,6 @@ describe('Mask Accessibility check', () => {
   });
 
   it('Tests accessibility on the Mask page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

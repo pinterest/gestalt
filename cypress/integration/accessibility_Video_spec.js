@@ -8,7 +8,7 @@ describe('Video Accessibility check', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'color-contrast',
+          id: 'aria-progressbar-name',
           enabled: false,
         },
       ],

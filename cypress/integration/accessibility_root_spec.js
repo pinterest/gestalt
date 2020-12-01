@@ -8,10 +8,6 @@ describe('Accessibility', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'color-contrast',
-          enabled: false,
-        },
-        {
           id: 'link-name',
           enabled: false,
         },

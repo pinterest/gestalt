@@ -5,14 +5,6 @@ describe('useReducedMotion Accessibility check', () => {
   });
 
   it('Tests accessibility on the useReducedMotion page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

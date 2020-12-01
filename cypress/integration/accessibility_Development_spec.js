@@ -5,14 +5,6 @@ describe('Development Accessibility check', () => {
   });
 
   it('Tests accessibility on the Development page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });
