@@ -1,3 +1,9 @@
+## 15.0.0 (Dec 1, 2020)
+
+### Major
+
+- Box: Allow zero padding overrides (#1293)
+
 ## 14.30.3 (Nov 19, 2020)
 
 ### Patch
