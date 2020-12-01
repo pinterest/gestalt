@@ -5,14 +5,6 @@ describe('Card Accessibility check', () => {
   });
 
   it('Tests accessibility on the Card page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

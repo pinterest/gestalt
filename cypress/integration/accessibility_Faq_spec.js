@@ -5,14 +5,6 @@ describe('Faq Accessibility check', () => {
   });
 
   it('Tests accessibility on the Faq page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

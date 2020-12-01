@@ -5,14 +5,6 @@ describe('Pog Accessibility check', () => {
   });
 
   it('Tests accessibility on the Pog page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

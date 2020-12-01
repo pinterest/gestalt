@@ -5,14 +5,6 @@ describe('Flex Accessibility check', () => {
   });
 
   it('Tests accessibility on the Flex page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });
