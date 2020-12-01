@@ -106,7 +106,8 @@ card(
       ...[
         {
           name: 'margin',
-          description: 'Scale is in 4px increments so a margin of 2 is 8px',
+          description:
+            'Scale is in 4px increments so a margin of 2 is 8px. Supports 3 responsive breakpoints: sm, md, lg. Each sets the margin from that breakpoint and up.',
         },
         { name: 'marginTop' },
         { name: 'marginRight' },
