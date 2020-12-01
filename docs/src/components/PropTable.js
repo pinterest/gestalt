@@ -171,10 +171,11 @@ export default function PropTable({
                     },
                     i
                   ) => {
+                    const hasSecondRow = description || responsive;
                     acc.push(
                       <tr key={i}>
                         {hasRequired && (
-                          <Td shrink border={!description}>
+                          <Td shrink border={!hasSecondRow}>
                             {required && (
                               <Box paddingY={1}>
                                 <Icon
@@ -187,7 +188,7 @@ export default function PropTable({
                             )}
                           </Td>
                         )}
-                        <Td shrink border={!description}>
+                        <Td shrink border={!hasSecondRow}>
                           <Box>
                             <Text overflow="normal" weight="bold">
                               {href ? (
@@ -199,24 +200,14 @@ export default function PropTable({
                               )}
                             </Text>
                           </Box>
-                          {responsive && (
-                            <Box>
-                              <Text>
-                                <code>
-                                  sm{upcase(name)}, md{upcase(name)}, lg
-                                  {upcase(name)}
-                                </code>
-                              </Text>
-                            </Box>
-                          )}
                         </Td>
-                        <Td border={!description}>
+                        <Td border={!hasSecondRow}>
                           <code>{unifyQuotes(type)}</code>
                         </Td>
                         <Td
                           shrink
                           color={defaultValue != null ? 'darkGray' : 'gray'}
-                          border={!description}
+                          border={!hasSecondRow}
                         >
                           {defaultValue != null ? (
                             <code>{JSON.stringify(defaultValue)}</code>
@@ -226,10 +217,22 @@ export default function PropTable({
                         </Td>
                       </tr>
                     );
-                    if (description) {
+                    if (hasSecondRow) {
                       acc.push(
-                        <tr key={`${i}-description`}>
-                          <Td colspan={hasRequired ? 2 : 1} />
+                        <tr key={`${i}-second-row`}>
+                          {hasRequired && <Td colspan={1} />}
+                          <Td colspan={1}>
+                            {responsive && (
+                              <Box>
+                                <Text>
+                                  <code>
+                                    sm{upcase(name)}, md{upcase(name)}, lg
+                                    {upcase(name)}
+                                  </code>
+                                </Text>
+                              </Box>
+                            )}
+                          </Td>
                           <Td colspan={2} color="gray">
                             {Array.isArray(description)
                               ? Description(description)
