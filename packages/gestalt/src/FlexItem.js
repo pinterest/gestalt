@@ -28,6 +28,8 @@ export default function FlexItem(props: Props): Node {
   return <div {...passthroughProps} {...propsStyles} />;
 }
 
+FlexItem.displayName = 'Flex.Item';
+
 FlexItem.propTypes = {
   alignSelf: AlignSelfPropType,
   children: PropTypes.node.isRequired,

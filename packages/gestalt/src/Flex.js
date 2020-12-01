@@ -103,6 +103,8 @@ export default function Flex({
 
 Flex.Item = FlexItem;
 
+Flex.displayName = 'Flex';
+
 Flex.propTypes = {
   alignContent: AlignContentPropType,
   alignItems: AlignItemsPropType,
