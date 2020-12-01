@@ -2,7 +2,7 @@
 import React, { type Node } from 'react';
 import { Box, Link, Text } from 'gestalt';
 import { withRouter, Route } from 'react-router-dom';
-import { useSidebarContext } from './sidebarContext.js';
+import { useNavigationSidebarContext } from './navigationSidebarContext.js';
 
 type Props = {|
   children?: Node,
@@ -19,10 +19,10 @@ const NavLink = ({ children, to, history }: Props) => {
   const href = history.createHref({
     pathname: to,
   });
-  const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
+  const { isSidebarOpen, setIsSidebarOpen } = useNavigationSidebarContext();
 
   const handleClick = ({ event }) => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarOpen(isSidebarOpen && !isSidebarOpen);
     if (event.defaultPrevented) return;
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
     event.preventDefault();

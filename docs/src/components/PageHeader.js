@@ -11,7 +11,7 @@ import {
   Flex,
 } from 'gestalt';
 import Markdown from './Markdown.js';
-import { usePinnedSectionContext } from './pinnedSectionContext.js';
+import { useNavigationSidebarContext } from './navigationSidebarContext.js';
 
 type Props = {|
   name: string,
@@ -41,7 +41,7 @@ export default function ComponentHeader({
   fileName,
   showSourceLink = true,
 }: Props): Node {
-  const { pinnedSection, setPinnedSection } = usePinnedSectionContext();
+  const { pinnedSection, setPinnedSection } = useNavigationSidebarContext();
 
   function handlePinnedComponents() {
     const arrayPinned = JSON.parse(pinnedSection);

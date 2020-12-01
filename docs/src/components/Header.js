@@ -12,7 +12,7 @@ import {
 } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import Link from './Link.js';
-import { useSidebarContext } from './sidebarContext.js';
+import { useNavigationSidebarContext } from './navigationSidebarContext.js';
 
 type Props = {|
   colorScheme: string,
@@ -32,7 +32,7 @@ function Header({
     setIsSidebarOpen,
     sidebarOrganisedBy,
     setSidebarOrganizedBy,
-  } = useSidebarContext();
+  } = useNavigationSidebarContext();
 
   const togglePageDirSvgPath = {
     __path:

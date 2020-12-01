@@ -4,8 +4,7 @@ import { Box, Icon } from 'gestalt';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 import sidebarIndex from './sidebarIndex.js';
-import { useSidebarContext } from './sidebarContext.js';
-import { usePinnedSectionContext } from './pinnedSectionContext.js';
+import { useNavigationSidebarContext } from './navigationSidebarContext.js';
 
 function getAlphabetizedComponents() {
   return Array.from(
@@ -19,12 +18,28 @@ function getAlphabetizedComponents() {
 }
 
 export default function Navigation(): Node {
-  const { sidebarOrganisedBy, isSidebarOpen } = useSidebarContext();
-  const { pinnedSection } = usePinnedSectionContext();
+  const {
+    pinnedSection,
+    sidebarOrganisedBy,
+    isSidebarOpen,
+  } = useNavigationSidebarContext();
   const pinnedSectionArr = JSON.parse(pinnedSection);
 
   const navList = (
     <>
+      {pinnedSectionArr.length !== 0 && (
+        <>
+          <Box padding={2}>
+            <Icon accessibilityLabel="Pinned Sections" icon="angled-pin" />
+          </Box>
+          {pinnedSectionArr.map((componentName, i) => (
+            <SidebarSectionLink
+              componentName={componentName}
+              key={`pinned-${i}`}
+            />
+          ))}
+        </>
+      )}
       {sidebarOrganisedBy === 'categorized' ? (
         sidebarIndex.map((section) => (
           <SidebarSection section={section} key={section.sectionName} />
@@ -46,7 +61,13 @@ export default function Navigation(): Node {
   return (
     <Box role="navigation">
       {isSidebarOpen && (
-        <Box display="block" mdDisplay="none" padding={4}>
+        <Box
+          height={350}
+          overflow="scroll"
+          display="block"
+          mdDisplay="none"
+          padding={4}
+        >
           {navList}
         </Box>
       )}
@@ -59,19 +80,6 @@ export default function Navigation(): Node {
           maxHeight="calc(100% - 60px)"
           minWidth={240}
         >
-          {pinnedSectionArr.length !== 0 && (
-            <>
-              <Box padding={2}>
-                <Icon accessibilityLabel="Pinned Sections" icon="angled-pin" />
-              </Box>
-              {pinnedSectionArr.map((componentName, i) => (
-                <SidebarSectionLink
-                  componentName={componentName}
-                  key={`pinned-${i}`}
-                />
-              ))}
-            </>
-          )}
           {navList}
         </Box>
       </Box>

@@ -3,14 +3,14 @@ import React, { type Node } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 import { type sidebarIndexType } from './sidebarIndex.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
-import { usePinnedSectionContext } from './pinnedSectionContext.js';
+import { useNavigationSidebarContext } from './navigationSidebarContext.js';
 
 export default function SidebarSection({
   section,
 }: {|
   section: sidebarIndexType,
 |}): Node {
-  const { pinnedSection } = usePinnedSectionContext();
+  const { pinnedSection } = useNavigationSidebarContext();
   const pinnedSectionArr = JSON.parse(pinnedSection);
 
   return (
