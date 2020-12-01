@@ -41,9 +41,9 @@ function IconButtonFlyoutExample() {
         <Dropdown anchor={anchorRef.current}>
           <Dropdown.Item handleSelect={handleSelect} selected={selected} option={{'value': 'item 1', 'label': 'Item 1'}}/>
           <Dropdown.Item handleSelect={handleSelect} selected={selected} option={{'value': 'item 2', 'label': 'Item 2 with a really really really loooooooooooooooooong name'}}/>
-          <Dropdown.Item handleSelect={handleSelect}  isExternal url="www.google.com" option={{'value': 'item 3', 'label': 'external Item 3 with a really really loooooooooooooooooong name'}}/>
+          <Dropdown.Item handleSelect={handleSelect}  isExternal url="https://pinterest.com" option={{'value': 'item 3', 'label': 'external Item 3 with a really really loooooooooooooooooong name'}}/>
           <Dropdown.Item badgeText="New" option={{'value': 'item 4', 'label': 'Item 4'}}/>
-          <Dropdown.Item isExternal badgeText="New" option={{'value': 'item 5', 'label': 'Item 5 with a really really long name'}}/>
+          <Dropdown.Item isExternal badgeText="New" option={{'value': 'item 5', 'label': 'Item 5 with a really really long name'}} url="https://pinterest.com"/>
         </Dropdown>
       )}
     </Box>
@@ -98,7 +98,7 @@ function IconButtonFlyoutExample() {
             handleSelect={handleSelect}
             selected={selected}
             isExternal
-            url="www.google.com"
+            url="https://pinterest.com"
             option={{
               value: 'item 3',
               label:
@@ -115,6 +115,7 @@ function IconButtonFlyoutExample() {
             handleSelect={handleSelect}
             selected={selected}
             isExternal
+            url="https://pinterest.com"
             badgeText="New"
             option={{
               value: 'item 5',

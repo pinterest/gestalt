@@ -3,6 +3,7 @@ import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
+import styles from './Dropdown.css';
 
 type SectionProps = {||};
 
@@ -11,12 +12,12 @@ export default function DropdownSection({
   children,
 }: SectionProps): Node {
   return (
-    <Box width="100%" aria-label={label} marginTop={4}>
+    <div className={styles.DropdownSection} aria-label={label}>
       <Box padding={2} display="flex" role="presentation">
         <Text size="sm">{label}</Text>
       </Box>
       {children}
-    </Box>
+    </div>
   );
 }
 

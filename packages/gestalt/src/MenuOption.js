@@ -55,7 +55,9 @@ export default function MenuOption({
   const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
 
   const handleOnTap = (event) => {
-    event.preventDefault();
+    if (!url) {
+      event.preventDefault();
+    }
     if (handleSelect) handleSelect({ event, item: option });
   };
 
@@ -102,7 +104,13 @@ export default function MenuOption({
         <Box display="flex" flex="grow" alignItems="center">
           <Text truncate={shouldTruncate} weight={textWeight} color="darkGray">
             {url ? (
-              <Link hoverStyle="none" href={url}>{`${option?.label}`}</Link>
+              <Link hoverStyle="none" href={url}>
+                <Text
+                  truncate={shouldTruncate}
+                  weight={textWeight}
+                  color="darkGray"
+                >{`${option?.label}`}</Text>
+              </Link>
             ) : (
               `${option?.label}`
             )}

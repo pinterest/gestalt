@@ -1,3 +1,7 @@
-.customClass {
-  background: rgba(0, 0, 0, 0.061);
+.DropdownSection {
+  width: 100%
+}
+
+.DropdownSection + .DropdownSection {
+  margin-top:  calc(var(--g-boint) * 4);
 }
