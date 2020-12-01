@@ -1,3 +1,9 @@
+## 15.1.0 (Dec 1, 2020)
+
+### Minor
+
+- Internal: Upgrade cypress, cypress-axe and axe-core (#1295)
+
 ## 15.0.0 (Dec 1, 2020)
 
 ### Major
