@@ -9,7 +9,10 @@ const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
 card(
-  <PageHeader name="TextField" description="TextField allows for text input." />
+  <PageHeader
+    fileName="TextField"
+    description="TextField allows for text input."
+  />
 );
 
 card(

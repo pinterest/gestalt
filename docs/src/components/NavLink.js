@@ -19,10 +19,10 @@ const NavLink = ({ children, to, history }: Props) => {
   const href = history.createHref({
     pathname: to,
   });
-  const { isSidebarOpen, setIsSidebarOpen } = useNavigationSidebarContext();
+  const { setIsSidebarOpen } = useNavigationSidebarContext();
 
   const handleClick = ({ event }) => {
-    setIsSidebarOpen(isSidebarOpen && !isSidebarOpen);
+    setIsSidebarOpen(false);
     if (event.defaultPrevented) return;
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
     event.preventDefault();

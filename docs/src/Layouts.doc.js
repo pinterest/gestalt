@@ -8,7 +8,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Layouts"
+    fileName="Layouts"
     description="A list of easy-to-copy layouts which have been battle tested."
     showSourceLink={false}
   />

@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Container"
+    fileName="Container"
     description="Containers are useful in responsively laying out content on different screens."
   />
 );

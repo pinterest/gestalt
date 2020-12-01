@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="SelectList"
+    fileName="SelectList"
     description={`Use a \`SelectList\` when you have four or more items you want a user to choose from.`}
   />
 );

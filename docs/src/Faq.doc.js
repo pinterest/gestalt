@@ -8,7 +8,9 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Frequently Asked Questions" showSourceLink={false} />);
+card(
+  <PageHeader fileName="Frequently Asked Questions" showSourceLink={false} />
+);
 
 card(
   <Card name="Gestalt Usage">

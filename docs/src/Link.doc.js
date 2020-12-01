@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Link"
+    fileName="Link"
     description="The Link component allows you to show links on the page, open them in a new window, and change the color."
   />
 );

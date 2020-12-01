@@ -8,7 +8,7 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Development" showSourceLink={false} />);
+card(<PageHeader fileName="Development" showSourceLink={false} />);
 
 card(
   <Card name="Set up your laptop">

@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Mask"
+    fileName="Mask"
     description={`If you have an item you need to fit into a shape, you can achieve this by
 putting a \`Mask\` on it.
 `}

@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Module"
+    fileName="Module"
     description="
 The Module component renders detailed information in the expanded state and summarized information in the collapsed state.
 "

@@ -80,7 +80,7 @@ const localeMap = {
 
 card(
   <PageHeader
-    name="DatePicker"
+    fileName="DatePicker"
     description="Use Datepicker when the user has to select a date or date range."
   />
 );

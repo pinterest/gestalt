@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="SegmentedControl"
+    fileName="SegmentedControl"
     description="
 Segmented Controls may be used to group between multiple selections.
 The controls display the current state and related state.

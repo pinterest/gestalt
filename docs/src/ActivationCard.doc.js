@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="ActivationCard"
+    fileName="ActivationCard"
     description="Activation cards are used in groups to communicate a user’s stage in a series of steps toward an overall action."
   />
 );

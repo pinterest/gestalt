@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Typeahead"
+    fileName="Typeahead"
     description={`Use a \`Typeahead\` when you want to let the user filter a list when selecting.`}
   />
 );

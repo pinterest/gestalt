@@ -8,7 +8,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="useReducedMotion"
+    fileName="useReducedMotion"
     description={`
     \`useReducedMotion\` allows a user to request that the system minimize the amount of non-essential motion.
 

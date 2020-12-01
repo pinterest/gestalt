@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Video"
+    fileName="Video"
     description="
 Like an Image, a Video component is used for media layout. This component is
 supercharged with lots of goodies to turn a regular video in a full blown viewing experience.

@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Pulsar"
+    fileName="Pulsar"
     description="Pulsars bring focus to a specific element on the screen and act like training wheels
 to guide people towards the normal way to perform that action. They are used in isolation
 or combination with other education components for more instructions."

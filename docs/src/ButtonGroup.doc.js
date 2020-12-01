@@ -8,7 +8,7 @@ const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
 card(
-  <PageHeader name="ButtonGroup" description="Group a series of buttons." />
+  <PageHeader fileName="ButtonGroup" description="Group a series of buttons." />
 );
 
 card(

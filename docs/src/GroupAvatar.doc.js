@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="GroupAvatar"
+    fileName="GroupAvatar"
     description={`You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
 applied to each collaborator image to ensure the component retains a circular appearance.`}
   />

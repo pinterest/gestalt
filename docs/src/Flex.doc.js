@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Flex"
+    fileName="Flex"
     description={`
       Flex is a layout component with a very limited subset of the props available to Box and a few special props of its own.
 

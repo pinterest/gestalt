@@ -13,7 +13,7 @@ const icons: Array<string> = Icon?.icons ?? [];
 
 card(
   <PageHeader
-    name="Icon"
+    fileName="Icon"
     description="
 Show icons with different colors and sizes in an accessible way.
 "

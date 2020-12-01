@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Callout"
+    fileName="Callout"
     description="Callouts are banners that display short messages that are either helpful information to a task on the page or require user attention."
   />
 );

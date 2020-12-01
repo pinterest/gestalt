@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Card"
+    fileName="Card"
     description="
 The Card component is meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
 "

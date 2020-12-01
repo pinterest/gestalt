@@ -46,7 +46,7 @@ const paddingProps = ['padding', 'paddingX', 'paddingY'].map((name) => ({
 
 card(
   <PageHeader
-    name="Box"
+    fileName="Box"
     description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
 
 &mdash; Anon _(Winning Box Haiku, 2017)_`}

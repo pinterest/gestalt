@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Button"
+    fileName="Button"
     description="Buttons allow users to take actions, and make choices, with a single click. They are typically found in forms, dialog, and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus."
   />
 );

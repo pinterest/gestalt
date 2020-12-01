@@ -7,7 +7,7 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Spinner" />);
+card(<PageHeader fileName="Spinner" />);
 
 card(
   <PropTable

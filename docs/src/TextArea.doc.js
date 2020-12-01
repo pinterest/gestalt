@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="TextArea"
+    fileName="TextArea"
     description="TextArea allows for multi-line input."
   />
 );

@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Heading"
+    fileName="Heading"
     description={`
 The \`Heading\` component allows you to show headings on the page & has a bigger line height than regular text.
 `}

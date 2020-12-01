@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Collage"
+    fileName="Collage"
     description="
 Like Masonry, Collage creates a deterministic grid layout that can absolutely position and virtualize images.
 "

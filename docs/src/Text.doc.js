@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Text"
+    fileName="Text"
     description="The Text component should be used for all text on the page."
   />
 );

@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Flyout"
+    fileName="Flyout"
     description="Flyouts are similar to modals. They’re an alternative when there is less content to display,
 or to make the interaction feel faster."
   />

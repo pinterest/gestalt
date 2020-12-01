@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Label"
+    fileName="Label"
     description="Use the Label component to connect a label with a form component in an accessible way."
   />
 );

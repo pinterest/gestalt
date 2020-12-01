@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Image"
+    fileName="Image"
     description={`
 This component is the workhorse of Pinterest. If you define Pinterest to be all
 about collecting ideas, then images is how we choose to represent those ideas.

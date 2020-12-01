@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Letterbox"
+    fileName="Letterbox"
     description={`
 Letterboxes are useful if you have some source media which is larger than
 the area you want to display it in. For instance, you might have a really

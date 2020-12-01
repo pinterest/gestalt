@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Checkbox"
+    fileName="Checkbox"
     description="We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles."
   />
 );

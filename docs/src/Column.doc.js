@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Column"
+    fileName="Column"
     description="Gestalt supports a 12-column system."
   />
 );

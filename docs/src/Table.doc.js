@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Table"
+    fileName="Table"
     description="The Table contains the following composable elements: Table, Table.Body, Table.Cell, Table.Footer, Table.Header, Table.HeaderCell, Table.Row, Table.SortableHeaderCell."
   />
 );

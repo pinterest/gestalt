@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Upsell"
+    fileName="Upsell"
     description="Upsells are banners that display short messages that focus on selling or upgrading something the user already has."
   />
 );

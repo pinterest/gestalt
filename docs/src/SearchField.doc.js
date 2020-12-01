@@ -8,7 +8,7 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="SearchField" />);
+card(<PageHeader fileName="SearchField" />);
 
 card(
   <PropTable

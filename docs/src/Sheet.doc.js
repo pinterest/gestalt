@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Sheet"
+    fileName="Sheet"
     description="Sheets are side surfaces that allow users to view information or complete sub-tasks in a workflow while keeping the context of the current page."
   />
 );

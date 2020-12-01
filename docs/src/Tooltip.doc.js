@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Tooltip"
+    fileName="Tooltip"
     description="The Tooltip component allows you to wrap a child with a help tooltip when hovered.
     Tooltips are about way finding, not feature adoption, education, or promotion. They should
     only include short descriptive text and are co-located with the element they describe."

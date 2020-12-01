@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Toast"
+    fileName="Toast"
     description={`Toasts can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
 
 The Toast component is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.`}

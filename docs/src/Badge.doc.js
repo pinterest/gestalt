@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Badge"
+    fileName="Badge"
     description={`The \`Badge\` component helps to label text.
 `}
   />

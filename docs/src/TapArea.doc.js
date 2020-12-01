@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="TapArea"
+    fileName="TapArea"
     description="TapArea allows components to be clickable & touchable in an accessible way."
   />
 );

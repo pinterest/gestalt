@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Avatar"
+    fileName="Avatar"
     description="You can use an `Avatar` to represent a user. Every Avatar image has a subtle color wash."
   />
 );

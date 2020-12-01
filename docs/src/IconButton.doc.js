@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="IconButton"
+    fileName="IconButton"
     description="IconButton allows users to take actions and make choices with a single click on a specific Icon. IconButton is typically found in forms, dialog, and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus."
   />
 );

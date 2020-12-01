@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Divider"
+    fileName="Divider"
     description="If you have two things that need to be separated, put a `Divider` between them."
   />
 );

@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Pog"
+    fileName="Pog"
     description="
 A lower-level functional component to show the active, hovered, & focused states of an [IconButton](#/IconButton).
 

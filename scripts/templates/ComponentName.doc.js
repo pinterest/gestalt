@@ -9,7 +9,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="ComponentName"
+    fileName="ComponentName"
     description="ComponentName allows users to ..."
   />
 );

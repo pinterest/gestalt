@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Masonry"
+    fileName="Masonry"
     description="
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
 It contains performance optimizations like virtualization and support for infinite scrolling.

@@ -7,7 +7,7 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="AvatarPair" description="Show avatars in pairs" />);
+card(<PageHeader fileName="AvatarPair" description="Show avatars in pairs" />);
 
 card(
   <PropTable

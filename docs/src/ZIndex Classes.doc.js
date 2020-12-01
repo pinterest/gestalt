@@ -11,8 +11,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="FixedZIndex and CompositeZIndex"
-    fileName="zIndex"
+    fileName="ZIndex Classes"
     description="FixedZIndex and CompositeZIndex are 2 classes that generate z-index for the Box and Sticky components."
   />
 );

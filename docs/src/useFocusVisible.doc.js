@@ -8,7 +8,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="useFocusVisible"
+    fileName="useFocusVisible"
     description={`
     \`useFocusVisible\` manages focus interactions on the page and determines whether a focus ring should be shown. If a user interacts with a mouse/touch, then the focus is not visible. When the user interacts with the keyboard, then the focus is visible.
 

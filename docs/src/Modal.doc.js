@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Modal"
+    fileName="Modal"
     description="Modals are light temporary views; general purpose containers allowing for a multitude of design choices."
   />
 );

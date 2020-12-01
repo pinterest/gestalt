@@ -14,10 +14,9 @@ import Markdown from './Markdown.js';
 import { useNavigationSidebarContext } from './navigationSidebarContext.js';
 
 type Props = {|
-  name: string,
   description?: string,
   beta?: boolean,
-  fileName?: string, // only use if name !== file name
+  fileName: string,
   showSourceLink?: boolean,
 |};
 
@@ -34,9 +33,10 @@ const githubUrl = (component) =>
     gestaltPath(component),
   ].join('/');
 
+const MAX_PINNED_SECTIONS = 3;
+
 export default function ComponentHeader({
   beta,
-  name,
   description = '',
   fileName,
   showSourceLink = true,
@@ -45,58 +45,60 @@ export default function ComponentHeader({
 
   function handlePinnedComponents() {
     const arrayPinned = JSON.parse(pinnedSection);
-    if (!arrayPinned.includes(fileName || name) && arrayPinned.length < 3) {
+    if (
+      !arrayPinned.includes(fileName) &&
+      arrayPinned.length < MAX_PINNED_SECTIONS
+    ) {
+      return setPinnedSection(JSON.stringify([...arrayPinned, fileName]));
+    }
+    if (arrayPinned.includes(fileName)) {
       return setPinnedSection(
-        JSON.stringify([...arrayPinned, fileName || name])
+        JSON.stringify(arrayPinned.filter((item) => item !== fileName))
       );
     }
-    return setPinnedSection(
-      JSON.stringify(arrayPinned.filter((item) => item !== (fileName || name)))
-    );
+
+    arrayPinned.shift();
+    arrayPinned.push(fileName);
+
+    return setPinnedSection(JSON.stringify(arrayPinned));
   }
 
   const pinnedSectionArr = JSON.parse(pinnedSection);
-  const pinnedSectionMax = pinnedSectionArr.length < 3;
+  const pinnedSectionMax = pinnedSectionArr.length < MAX_PINNED_SECTIONS;
 
   return (
     <Box marginBottom={6}>
       <Box marginBottom={4}>
         <Flex gap={2}>
           <Heading>
-            {name}{' '}
+            {fileName}{' '}
             {beta ? (
               <Tooltip inline text="Do not use in production code">
                 <Badge text="Beta" position="top" />
               </Tooltip>
             ) : null}
           </Heading>
-          {showSourceLink && (
-            <Tooltip
-              text={
-                pinnedSectionMax
-                  ? 'Pin this section in the sidebar'
-                  : 'Max 3 pinned sections'
-              }
-            >
-              <IconButton
-                accessibilityLabel="Pin this section in navigation sidebar"
-                icon="angled-pin"
-                iconColor="gray"
-                onClick={() => handlePinnedComponents()}
-                padding={1}
-                size="xs"
-                selected={pinnedSectionArr.includes(fileName || name)}
-                disabled={
-                  !pinnedSectionMax &&
-                  !pinnedSectionArr.includes(fileName || name)
-                }
-              />
-            </Tooltip>
-          )}
+          <Tooltip
+            text={
+              pinnedSectionMax
+                ? 'Pin this section in the sidebar'
+                : 'Max 3 pinned sections'
+            }
+          >
+            <IconButton
+              accessibilityLabel="Pin this section in navigation sidebar"
+              icon="angled-pin"
+              iconColor="gray"
+              onClick={() => handlePinnedComponents()}
+              padding={1}
+              size="xs"
+              selected={pinnedSectionArr.includes(fileName)}
+            />
+          </Tooltip>
         </Flex>
         {showSourceLink && (
           <Text color="gray">
-            <Link href={githubUrl(fileName || name)} inline>
+            <Link href={githubUrl(fileName)} inline>
               Source
             </Link>
           </Text>
