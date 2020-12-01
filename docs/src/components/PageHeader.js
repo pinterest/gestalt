@@ -1,7 +1,17 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Badge, Box, Text, Tooltip, Heading, Link } from 'gestalt';
+import {
+  Badge,
+  Box,
+  IconButton,
+  Text,
+  Tooltip,
+  Heading,
+  Link,
+  Flex,
+} from 'gestalt';
 import Markdown from './Markdown.js';
+import { usePinnedSectionContext } from './pinnedSectionContext.js';
 
 type Props = {|
   name: string,
@@ -31,17 +41,59 @@ export default function ComponentHeader({
   fileName,
   showSourceLink = true,
 }: Props): Node {
+  const { pinnedSection, setPinnedSection } = usePinnedSectionContext();
+
+  function handlePinnedComponents() {
+    const arrayPinned = JSON.parse(pinnedSection);
+    if (!arrayPinned.includes(fileName || name) && arrayPinned.length < 3) {
+      return setPinnedSection(
+        JSON.stringify([...arrayPinned, fileName || name])
+      );
+    }
+    return setPinnedSection(
+      JSON.stringify(arrayPinned.filter((item) => item !== (fileName || name)))
+    );
+  }
+
+  const pinnedSectionArr = JSON.parse(pinnedSection);
+  const pinnedSectionMax = pinnedSectionArr.length < 3;
+
   return (
     <Box marginBottom={6}>
       <Box marginBottom={4}>
-        <Heading>
-          {name}{' '}
-          {beta ? (
-            <Tooltip inline text="Do not use in production code">
-              <Badge text="Beta" position="top" />
+        <Flex gap={2}>
+          <Heading>
+            {name}{' '}
+            {beta ? (
+              <Tooltip inline text="Do not use in production code">
+                <Badge text="Beta" position="top" />
+              </Tooltip>
+            ) : null}
+          </Heading>
+          {showSourceLink && (
+            <Tooltip
+              text={
+                pinnedSectionMax
+                  ? 'Pin this section in the sidebar'
+                  : 'Max 3 pinned sections'
+              }
+            >
+              <IconButton
+                accessibilityLabel="Pin this section in navigation sidebar"
+                icon="angled-pin"
+                iconColor="gray"
+                onClick={() => handlePinnedComponents()}
+                padding={1}
+                size="xs"
+                selected={pinnedSectionArr.includes(fileName || name)}
+                disabled={
+                  !pinnedSectionMax &&
+                  !pinnedSectionArr.includes(fileName || name)
+                }
+              />
             </Tooltip>
-          ) : null}
-        </Heading>
+          )}
+        </Flex>
         {showSourceLink && (
           <Text color="gray">
             <Link href={githubUrl(fileName || name)} inline>

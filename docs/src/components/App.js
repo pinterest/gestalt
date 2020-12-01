@@ -7,6 +7,7 @@ import useTracking from './useTracking.js';
 import { SidebarContextProvider } from './sidebarContext.js';
 import useLocalStorage from './useLocalStorage.js';
 import { PropTableContextProvider } from './propTableContext.js';
+import { PinnedSectionContextProvider } from './pinnedSectionContext.js';
 
 type Props = {|
   children?: Node,
@@ -50,46 +51,50 @@ export default function App(props: Props): Node {
         setSidebarOrganizedBy,
       }}
     >
-      <Provider colorScheme={colorScheme}>
-        <Box minHeight="100vh" color="white">
-          <Header
-            colorScheme={colorScheme}
-            onChangeColorScheme={() =>
-              setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
-            }
-            textDirection={textDirection}
-            onTextDirectionChange={() =>
-              setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl')
-            }
-          />
-          <Box mdDisplay="flex" direction="row">
-            <Box minWidth={240}>
-              <Navigation />
-            </Box>
-            <Divider />
-            <Box width="100%">
-              <Box
-                padding={4}
-                mdPadding={6}
-                lgPadding={8}
-                width="100%"
-                role="main"
-              >
-                <PropTableContextProvider>{children}</PropTableContextProvider>
+      <PinnedSectionContextProvider>
+        <Provider colorScheme={colorScheme}>
+          <Box minHeight="100vh" color="white">
+            <Header
+              colorScheme={colorScheme}
+              onChangeColorScheme={() =>
+                setColorScheme(colorScheme === 'light' ? 'dark' : 'light')
+              }
+              textDirection={textDirection}
+              onTextDirectionChange={() =>
+                setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl')
+              }
+            />
+            <Box mdDisplay="flex" direction="row">
+              <Box minWidth={240}>
+                <Navigation />
               </Box>
               <Divider />
+              <Box width="100%">
+                <Box
+                  padding={4}
+                  mdPadding={6}
+                  lgPadding={8}
+                  width="100%"
+                  role="main"
+                >
+                  <PropTableContextProvider>
+                    {children}
+                  </PropTableContextProvider>
+                </Box>
+                <Divider />
 
-              <Box padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
-                <Link href="https://www.netlify.com/">
-                  <Box paddingX={2} paddingY={1}>
-                    <Text align="right">This site is powered by Netlify</Text>
-                  </Box>
-                </Link>
+                <Box padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
+                  <Link href="https://www.netlify.com/">
+                    <Box paddingX={2} paddingY={1}>
+                      <Text align="right">This site is powered by Netlify</Text>
+                    </Box>
+                  </Link>
+                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
-      </Provider>
+        </Provider>
+      </PinnedSectionContextProvider>
     </SidebarContextProvider>
   );
 }

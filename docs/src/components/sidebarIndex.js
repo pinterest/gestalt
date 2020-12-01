@@ -86,7 +86,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Masonry',
       'Sheet',
       'Sticky',
-      'ZIndexClasses',
+      'ZIndex',
     ],
   },
   {

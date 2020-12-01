@@ -1,10 +1,10 @@
-describe('ZIndexClasses Accessibility check', () => {
+describe('ZIndex Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ZIndexClasses');
+    cy.visit('/ZIndex');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the ZIndexClasses page', () => {
+  it('Tests accessibility on the ZIndex page', () => {
     cy.configureAxe({
       rules: [
         {
