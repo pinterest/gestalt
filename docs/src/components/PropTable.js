@@ -171,11 +171,11 @@ export default function PropTable({
                     },
                     i
                   ) => {
-                    const hasSecondRow = description || responsive;
+                    const propNameHasSecondRow = description || responsive;
                     acc.push(
                       <tr key={i}>
                         {hasRequired && (
-                          <Td shrink border={!hasSecondRow}>
+                          <Td shrink border={!propNameHasSecondRow}>
                             {required && (
                               <Box paddingY={1}>
                                 <Icon
@@ -188,7 +188,7 @@ export default function PropTable({
                             )}
                           </Td>
                         )}
-                        <Td shrink border={!hasSecondRow}>
+                        <Td shrink border={!propNameHasSecondRow}>
                           <Box>
                             <Text overflow="normal" weight="bold">
                               {href ? (
@@ -201,13 +201,13 @@ export default function PropTable({
                             </Text>
                           </Box>
                         </Td>
-                        <Td border={!hasSecondRow}>
+                        <Td border={!propNameHasSecondRow}>
                           <code>{unifyQuotes(type)}</code>
                         </Td>
                         <Td
                           shrink
                           color={defaultValue != null ? 'darkGray' : 'gray'}
-                          border={!hasSecondRow}
+                          border={!propNameHasSecondRow}
                         >
                           {defaultValue != null ? (
                             <code>{JSON.stringify(defaultValue)}</code>
@@ -217,7 +217,7 @@ export default function PropTable({
                         </Td>
                       </tr>
                     );
-                    if (hasSecondRow) {
+                    if (propNameHasSecondRow) {
                       acc.push(
                         <tr key={`${i}-second-row`}>
                           {hasRequired && <Td colspan={1} />}
