@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag renders 1`] = `
+<div
+  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+  >
+    <div
+      className="box marginEnd1 marginStart2 paddingY0"
+    >
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        New
+      </div>
+    </div>
+    <button
+      className="button lightGray hideOutline tapTransition accessibilityOutline"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Remove"
+        className="icon darkGray iconBlock"
+        height={8}
+        role="img"
+        viewBox="0 0 24 24"
+        width={8}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tag renders a disabled tag 1`] = `
+<div
+  className="borderColorLightGray box lightGrayBg rounding2 sizeSm solid xsDisplayInlineBlock"
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+  >
+    <div
+      className="box marginEnd2 marginStart2 paddingY2"
+    >
+      <div
+        className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      >
+        New
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tag renders a tag with an error state 1`] = `
+<div
+  className="box redBg rounding2 xsDisplayInlineBlock"
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+  >
+    <div
+      className="box marginStart2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Error"
+        className="icon white iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="box marginEnd1 marginStart2 paddingY0"
+    >
+      <div
+        className="Text fontSize2 white alignLeft breakWord fontWeightNormal"
+      >
+        New
+      </div>
+    </div>
+    <button
+      className="button red hideOutline tapTransition accessibilityOutline"
+      onClick={[Function]}
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Remove"
+        className="icon white iconBlock"
+        height={8}
+        role="img"
+        viewBox="0 0 24 24"
+        width={8}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
