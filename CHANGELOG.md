@@ -1,3 +1,9 @@
+## 15.1.2 (Dec 2, 2020)
+
+### Patch
+
+- Internal: Fix a11y tests on master (#1299)
+
 ## 15.1.1 (Dec 2, 2020)
 
 ### Patch
