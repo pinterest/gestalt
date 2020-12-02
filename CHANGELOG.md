@@ -1,3 +1,9 @@
+## 15.2.0 (Dec 2, 2020)
+
+### Minor
+
+- Internal: Docs improvements; Contexts, header options, + minor fixes (#1297)
+
 ## 15.1.2 (Dec 2, 2020)
 
 ### Patch
