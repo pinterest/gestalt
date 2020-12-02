@@ -87,7 +87,7 @@ export default function Tag(props: Props): Node {
           </Text>
         </Box>
         {!disabled && (
-          <button className={removeIconClasses} onClick={onRemove}>
+          <button className={removeIconClasses} onClick={onRemove} type="button">
             <Icon
               accessibilityLabel={removeIconAccessibilityLabel}
               color={fgColor}
@@ -104,7 +104,7 @@ export default function Tag(props: Props): Node {
 Tag.propTypes = {
   text: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  hasError: PropTypes.bool,
+  errorMessage: PropTypes.string,
   onRemove: PropTypes.func,
   removeIconAccessibilityLabel: PropTypes.string,
 };
