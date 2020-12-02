@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box } from 'gestalt';
+import HeaderMenu from './HeaderMenu.js';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 import sidebarIndex from './sidebarIndex.js';
@@ -39,15 +40,18 @@ export default function Navigation(): Node {
   return (
     <Box role="navigation">
       {isSidebarOpen && (
-        <Box
-          height={350}
-          overflow="scroll"
-          display="block"
-          mdDisplay="none"
-          padding={4}
-        >
-          {navList}
-        </Box>
+        <>
+          <HeaderMenu />
+          <Box
+            height={350}
+            overflow="scroll"
+            display="block"
+            mdDisplay="none"
+            padding={4}
+          >
+            {navList}
+          </Box>
+        </>
       )}
 
       <Box display="none" mdDisplay="block" color="white">
