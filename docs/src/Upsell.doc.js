@@ -40,6 +40,16 @@ card(
         href: '',
       },
       {
+        name: 'image',
+        type: 'React.Node',
+        required: false,
+        defaultValue: null,
+        description: [
+          'React node to render on left side of banner. Max width is 128 px.',
+        ],
+        href: '',
+      },
+      {
         name: 'primaryLink',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
@@ -113,6 +123,55 @@ card(
   }}
 />
   `}
+  />
+);
+
+card(
+  <Example
+    name="Icon"
+    defaultCode={`
+<Upsell
+  title="Give $30, get $60 in ads credit"
+  message="When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too"
+  primaryLink={{href: "https://pinterest.com", label:"Send invite"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  image={<Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>}
+/>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Image"
+    defaultCode={`
+<Upsell
+  title="Stay healthy and safe"
+  message="Please practice social distancing, and check out our resources for adapting to these times."
+  primaryLink={{href: "https://pinterest.com", label:"Visit"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  image={
+    <Box
+      width={128}
+      height={128}
+    >
+      <Image
+        alt="Please practice social distancing, and check out our resources for adapting to these times."
+        color="rgb(231, 186, 176)"
+        naturalHeight={751}
+        naturalWidth={564}
+        src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+      />
+    </Box>
+  }
+/>
+`}
   />
 );
 

@@ -16,7 +16,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
       className="box mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginTopAuto"
+        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -37,6 +37,150 @@ exports[`<Upsell /> Basic Upsell 1`] = `
 </div>
 `;
 
+exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = `
+<div
+  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+>
+  <div
+    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+    >
+      <div
+        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        style={
+          Object {
+            "maxWidth": 128,
+          }
+        }
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Pin"
+          className="icon darkGray iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="box marginBottomAuto marginEnd6 marginStart6 marginTopAuto"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="box marginBottom2"
+        >
+          <h3
+            className="Heading fontSize1 darkGray alignLeft breakWord"
+          >
+            A Title
+          </h3>
+        </div>
+        <div
+          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Insert a clever upsell message here
+        </div>
+      </div>
+    </div>
+    <div
+      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+    >
+      <div
+        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+      >
+        <a
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          href="pinterest.com"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          tabIndex={0}
+          target={null}
+        >
+          <div
+            className="Text fontSize3 white alignCenter fontWeightBold"
+          >
+            Visit Pinterest
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="rtlPos"
+  >
+    <button
+      aria-label="Dismiss banner"
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
 <div
   className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
@@ -53,7 +197,7 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginTopAuto"
+        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -175,7 +319,7 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginTopAuto"
+        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -282,7 +426,7 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
       className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginTopAuto"
+        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,
@@ -359,7 +503,7 @@ exports[`<Upsell /> message + title 1`] = `
       className="box mdPaddingY3 xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginTopAuto"
+        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
         style={
           Object {
             "maxWidth": 648,

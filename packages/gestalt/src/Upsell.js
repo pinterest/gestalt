@@ -27,6 +27,7 @@ type Props = {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
+  image?: Node,
   message: string,
   primaryLink?: LinkData,
   secondaryLink?: LinkData,
@@ -70,6 +71,7 @@ const UpsellLink = ({
 
 export default function Upsell({
   dismissButton,
+  image,
   message,
   primaryLink,
   secondaryLink,
@@ -99,11 +101,23 @@ export default function Upsell({
           mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
           mdPaddingY={3}
         >
+          {image && (
+            <Box
+              marginBottom={0}
+              marginTop={0}
+              mdMarginBottom="auto"
+              mdMarginTop="auto"
+              maxWidth={128}
+            >
+              {image}
+            </Box>
+          )}
           <Box
             marginBottom="auto"
             marginTop="auto"
             maxWidth={648}
             marginEnd={6}
+            marginStart={image ? 6 : 0}
           >
             {title && (
               <Box marginBottom={2}>
@@ -149,6 +163,7 @@ Upsell.propTypes = {
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
+  image: PropTypes.node,
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   primaryLink: PropTypes.shape({
