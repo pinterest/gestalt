@@ -1,3 +1,9 @@
+## 15.1.1 (Dec 2, 2020)
+
+### Patch
+
+- Internal: Give Flex and FlexItem display names for debugging (#1296)
+
 ## 15.1.0 (Dec 1, 2020)
 
 ### Minor
