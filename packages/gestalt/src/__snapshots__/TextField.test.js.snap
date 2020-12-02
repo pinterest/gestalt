@@ -2,53 +2,65 @@
 
 exports[`TextField TextField normal 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="false"
-    className="textField base enabled normal medium"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="textFieldWrapper base enabled normal medium"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with autocomplete 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="false"
-    className="textField base enabled normal medium"
-    disabled={false}
-    id="test"
-    name="email"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="textFieldWrapper base enabled normal medium"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField"
+      disabled={false}
+      id="test"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with error 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="true"
-    className="textField base enabled errored medium"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="textFieldWrapper base enabled errored medium"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="true"
+      className="textField"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
   <div
     className="box marginTop2"
   >
@@ -67,35 +79,43 @@ exports[`TextField TextField with error 1`] = `
 
 exports[`TextField TextField with hasError 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="true"
-    className="textField base enabled errored medium"
-    disabled={false}
-    id="test"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="textFieldWrapper base enabled errored medium"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="true"
+      className="textField"
+      disabled={false}
+      id="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
 
 exports[`TextField TextField with name 1`] = `
 <span>
-  <input
-    aria-describedby={null}
-    aria-invalid="false"
-    className="textField base enabled normal medium"
-    disabled={false}
-    id="test"
-    name="email"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-  />
+  <div
+    className="textFieldWrapper base enabled normal medium"
+  >
+    <input
+      aria-describedby={null}
+      aria-invalid="false"
+      className="textField"
+      disabled={false}
+      id="test"
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
 </span>
 `;
