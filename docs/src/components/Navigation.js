@@ -39,7 +39,13 @@ export default function Navigation(): Node {
   return (
     <Box role="navigation">
       {isSidebarOpen && (
-        <Box display="block" mdDisplay="none" padding={4}>
+        <Box
+          height={350}
+          overflow="scroll"
+          display="block"
+          mdDisplay="none"
+          padding={4}
+        >
           {navList}
         </Box>
       )}
