@@ -9,6 +9,12 @@
     <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/pinterest_favicon.png" />
+    <link
+      rel="search"
+      type="application/opensearchdescription+xml"
+      href="/opensearch.xml"
+      title="Gestalt"
+    />
     <script type="text/javascript">
       // Load polyfills for IE 11
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
@@ -36,9 +42,7 @@
     <title>Gestalt</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
       (() => {
