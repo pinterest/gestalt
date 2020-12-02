@@ -2,7 +2,7 @@
 import React, { type Node, type ComponentType } from 'react';
 import { Box, Flex, Icon, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
-import { usePropTableContext } from './propTableContext.js';
+import { useAppContext } from './appContext.js';
 
 type Props = {|
   props: Array<{|
@@ -83,7 +83,7 @@ export default function PropTable({
   Component,
 }: Props): Node {
   const hasRequired = properties.some((prop) => prop.required);
-  const { propTableVariant, setPropTableVariant } = usePropTableContext();
+  const { propTableVariant, setPropTableVariant } = useAppContext();
 
   if (process.env.NODE_ENV === 'development' && Component) {
     // $FlowIssue[prop-missing]

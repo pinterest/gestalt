@@ -1,10 +1,11 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box } from 'gestalt';
+import HeaderMenu from './HeaderMenu.js';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 import sidebarIndex from './sidebarIndex.js';
-import { useSidebarContext } from './sidebarContext.js';
+import { useNavigationContext } from './navigationContext.js';
 
 function getAlphabetizedComponents() {
   return Array.from(
@@ -18,7 +19,7 @@ function getAlphabetizedComponents() {
 }
 
 export default function Navigation(): Node {
-  const { sidebarOrganisedBy, isSidebarOpen } = useSidebarContext();
+  const { sidebarOrganisedBy, isSidebarOpen } = useNavigationContext();
 
   const navList = (
     <>
@@ -39,9 +40,18 @@ export default function Navigation(): Node {
   return (
     <Box role="navigation">
       {isSidebarOpen && (
-        <Box display="block" mdDisplay="none" padding={4}>
-          {navList}
-        </Box>
+        <>
+          <HeaderMenu />
+          <Box
+            height={350}
+            overflow="scroll"
+            display="block"
+            mdDisplay="none"
+            padding={4}
+          >
+            {navList}
+          </Box>
+        </>
       )}
 
       <Box display="none" mdDisplay="block" color="white">
