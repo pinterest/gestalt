@@ -45,6 +45,7 @@ import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
 import Tabs from './Tabs.js';
+import Tag from './Tag.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import TextArea from './TextArea.js';
@@ -108,6 +109,7 @@ export {
   Switch,
   Table,
   Tabs,
+  Tag,
   TapArea,
   Text,
   TextArea,
