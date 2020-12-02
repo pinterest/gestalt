@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { useState, useEffect, type Node } from 'react';
 import {
   Box,
   FixedZIndex,
@@ -12,27 +12,22 @@ import {
 } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import Link from './Link.js';
-import { useSidebarContext } from './sidebarContext.js';
+import { useAppContext } from './appContext.js';
+import { useNavigationContext } from './navigationContext.js';
 
-type Props = {|
-  colorScheme: string,
-  onChangeColorScheme: () => void,
-  textDirection: 'ltr' | 'rtl',
-  onTextDirectionChange: () => void,
-|};
-
-function Header({
-  colorScheme,
-  onChangeColorScheme,
-  textDirection,
-  onTextDirectionChange,
-}: Props) {
+function Header() {
+  const {
+    colorScheme,
+    setColorScheme,
+    textDirection,
+    setTextDirection,
+  } = useAppContext();
   const {
     isSidebarOpen,
     setIsSidebarOpen,
     sidebarOrganisedBy,
     setSidebarOrganizedBy,
-  } = useSidebarContext();
+  } = useNavigationContext();
 
   const togglePageDirSvgPath = {
     __path:
@@ -40,6 +35,12 @@ function Header({
         ? 'M9 10v5h2V4h2v11h2V4h2V2H9C6.79 2 5 3.79 5 6s1.79 4 4 4zm12 8l-4-4v3H5v2h12v3l4-4z'
         : 'M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z',
   };
+
+  const onChangeColorScheme = () =>
+    setColorScheme(colorScheme === 'light' ? 'dark' : 'light');
+
+  const onTextDirectionChange = () =>
+    setTextDirection(textDirection === 'rtl' ? 'ltr' : 'rtl');
 
   return (
     <Box
@@ -176,16 +177,11 @@ function Header({
   );
 }
 
-export default function StickyHeader({
-  colorScheme,
-  onChangeColorScheme,
-  textDirection,
-  onTextDirectionChange,
-}: Props): Node {
+export default function StickyHeader(): Node {
   const isReducedHeight = () => window.innerHeight < 709;
-  const [reducedHeight, setReducedHeight] = React.useState(isReducedHeight());
+  const [reducedHeight, setReducedHeight] = useState(isReducedHeight());
 
-  React.useEffect(() => {
+  useEffect(() => {
     function handleResizeHeight() {
       if (isReducedHeight() !== reducedHeight) {
         setReducedHeight(isReducedHeight());
@@ -195,20 +191,10 @@ export default function StickyHeader({
   });
 
   return reducedHeight ? (
-    <Header
-      colorScheme={colorScheme}
-      onChangeColorScheme={onChangeColorScheme}
-      textDirection={textDirection}
-      onTextDirectionChange={onTextDirectionChange}
-    />
+    <Header />
   ) : (
     <Sticky zIndex={new FixedZIndex(10)} top={0}>
-      <Header
-        colorScheme={colorScheme}
-        onChangeColorScheme={onChangeColorScheme}
-        textDirection={textDirection}
-        onTextDirectionChange={onTextDirectionChange}
-      />
+      <Header />
     </Sticky>
   );
 }

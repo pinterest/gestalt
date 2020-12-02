@@ -4,7 +4,7 @@ import { Box } from 'gestalt';
 import SidebarSection from './SidebarSection.js';
 import SidebarSectionLink from './SidebarSectionLink.js';
 import sidebarIndex from './sidebarIndex.js';
-import { useSidebarContext } from './sidebarContext.js';
+import { useNavigationContext } from './navigationContext.js';
 
 function getAlphabetizedComponents() {
   return Array.from(
@@ -18,7 +18,7 @@ function getAlphabetizedComponents() {
 }
 
 export default function Navigation(): Node {
-  const { sidebarOrganisedBy, isSidebarOpen } = useSidebarContext();
+  const { sidebarOrganisedBy, isSidebarOpen } = useNavigationContext();
 
   const navList = (
     <>
