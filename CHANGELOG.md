@@ -1,3 +1,9 @@
+## 15.3.0 (Dec 2, 2020)
+
+### Minor
+
+- Docs: Add search autodiscovery (OpenSearch) (#1300)
+
 ## 15.2.0 (Dec 2, 2020)
 
 ### Minor
