@@ -2,6 +2,7 @@
 
 exports[`Tag renders 1`] = `
 <div
+  aria-disabled={false}
   className="box lightGrayBg rounding2 xsDisplayInlineBlock"
 >
   <div
@@ -41,6 +42,7 @@ exports[`Tag renders 1`] = `
 
 exports[`Tag renders a disabled tag 1`] = `
 <div
+  aria-disabled={true}
   className="borderColorLightGray box lightGrayBg rounding2 sizeSm solid xsDisplayInlineBlock"
 >
   <div
@@ -61,6 +63,7 @@ exports[`Tag renders a disabled tag 1`] = `
 
 exports[`Tag renders a tag with an error state 1`] = `
 <div
+  aria-disabled={false}
   className="box redBg rounding2 xsDisplayInlineBlock"
 >
   <div

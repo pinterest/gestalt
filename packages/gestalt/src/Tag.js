@@ -66,6 +66,7 @@ export default function Tag(props: Props): Node {
       color={bgColor}
       display="inlineBlock"
       rounding={2}
+      aria-disabled={disabled}
     >
       <Flex alignItems="center">
         {errorMessage && (
