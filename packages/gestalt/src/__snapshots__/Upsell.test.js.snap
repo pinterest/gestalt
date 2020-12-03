@@ -70,6 +70,28 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
+        className="box marginBottom4 smMarginBottom0"
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Pin"
+          className="icon darkGray iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
         className="box"
         style={
           Object {
@@ -78,7 +100,7 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
         }
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
         >
           <div
             className="box smDisplayNone"

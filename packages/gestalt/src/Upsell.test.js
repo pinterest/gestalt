@@ -67,14 +67,16 @@ describe('<Upsell />', () => {
           onDismiss: () => {},
         }}
         title="A Title"
-        image={
-          <Icon
-            icon="pinterest"
-            accessibilityLabel="Pin"
-            color="darkGray"
-            size={32}
-          />
-        }
+        imageData={{
+          component: (
+            <Icon
+              icon="pinterest"
+              accessibilityLabel="Pin"
+              color="darkGray"
+              size={32}
+            />
+          ),
+        }}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
