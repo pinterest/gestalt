@@ -17,8 +17,11 @@ const ValidError = (
   />
 );
 
-// $FlowExpectedError[prop-missing]
+// $FlowExpectedError[incompatible-type]
+const MissingProp = <Tag />;
+
+// $FlowExpectedError[incompatible-type]
 const InvalidProps = <Tag nonexisting={33} />;
 
-// $FlowExpectedError[prop-missing]
-const MissingProp = <Tag text="New" />;
+// $FlowExpectedError[incompatible-type]
+const IncompleteProps = <Tag text="New" />;

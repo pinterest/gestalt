@@ -19,6 +19,7 @@ exports[`Tag renders 1`] = `
     <button
       className="button lightGray hideOutline tapTransition accessibilityOutline"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden={null}
@@ -94,6 +95,7 @@ exports[`Tag renders a tag with an error state 1`] = `
     <button
       className="button red hideOutline tapTransition accessibilityOutline"
       onClick={[Function]}
+      type="button"
     >
       <svg
         aria-hidden={null}
