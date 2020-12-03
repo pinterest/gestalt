@@ -48,13 +48,14 @@ const UpsellLink = ({
 
   return (
     <Box
-      display="flex"
+      display="block"
+      smDisplay="flex"
       alignItems="center"
       justifyContent="center"
       paddingX={1}
       marginTop={type === 'primary' && stacked ? 2 : undefined}
-      mdMarginTop="auto"
-      mdMarginBottom="auto"
+      smMarginTop="auto"
+      smMarginBottom="auto"
     >
       <Button
         accessibilityLabel={accessibilityLabel}
@@ -81,53 +82,56 @@ export default function Upsell({
     <Box
       display="flex"
       direction="column"
-      mdDirection="row"
+      smDirection="row"
       padding={6}
-      mdPadding={8}
+      smPadding={8}
       position="relative"
       rounding={4}
       borderStyle="shadow"
     >
       <Box
-        mdDisplay="flex"
+        smDisplay="flex"
         wrap
         width="100%"
-        mdMarginTop={-3}
-        mdMarginBottom={-3}
+        smMarginTop={-3}
+        smMarginBottom={-3}
       >
         <Box
           display="flex"
+          direction="column"
+          smDirection="row"
+          justifyContent="center"
+          alignItems="center"
           marginBottom={primaryLink || secondaryLink ? 4 : undefined}
-          mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
-          mdPaddingY={3}
+          smMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
+          smPaddingY={3}
         >
           {image && (
-            <Box
-              marginBottom={0}
-              marginTop={0}
-              mdMarginBottom="auto"
-              mdMarginTop="auto"
-              maxWidth={128}
-            >
+            <Box maxWidth={128} column={3}>
               {image}
             </Box>
           )}
-          <Box
-            marginBottom="auto"
-            marginTop="auto"
-            maxWidth={648}
-            marginEnd={6}
-            marginStart={image ? 6 : 0}
-          >
-            {title && (
-              <Box marginBottom={2}>
-                <Heading size="sm">{title}</Heading>
-              </Box>
-            )}
-            <Text>{message}</Text>
+          <Box maxWidth={648} column={image ? 9 : 12}>
+            <Box
+              display="flex"
+              smDisplay="block"
+              direction="column"
+              alignItems="center"
+              marginBottom="auto"
+              marginTop="auto"
+              marginEnd={6}
+              marginStart={image ? 6 : 0}
+            >
+              {title && (
+                <Box marginBottom={2}>
+                  <Heading size="sm">{title}</Heading>
+                </Box>
+              )}
+              <Text>{message}</Text>
+            </Box>
           </Box>
         </Box>
-        <Box mdDisplay="flex" marginStart="auto" mdMarginEnd={4} mdPaddingY={3}>
+        <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
           {secondaryLink && (
             <UpsellLink type="secondary" data={secondaryLink} />
           )}
@@ -140,7 +144,6 @@ export default function Upsell({
           )}
         </Box>
       </Box>
-
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton

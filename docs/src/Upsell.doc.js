@@ -157,10 +157,6 @@ card(
     onDismiss: ()=>{},
   }}
   image={
-    <Box
-      width={128}
-      height={128}
-    >
       <Image
         alt="Please practice social distancing, and check out our resources for adapting to these times."
         color="rgb(231, 186, 176)"
@@ -168,8 +164,7 @@ card(
         naturalWidth={564}
         src="https://i.ibb.co/7bQQYkX/stock2.jpg"
       />
-    </Box>
-  }
+    }
 />
 `}
   />
