@@ -70,6 +70,7 @@ export default function Tag(props: Props): Node {
       height={32}
       maxWidth={300}
       rounding={2}
+      aria-disabled={disabled}
     >
       <Flex alignItems="center" height="100%">
         <Box marginStart={errorMessage ? 2 : 0} marginEnd={2}>
