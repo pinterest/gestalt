@@ -40,14 +40,14 @@ card(
         href: '',
       },
       {
-        name: 'image',
-        type: 'React.Node',
+        name: 'imageData',
+        type: '{| component: typeof Image | typeof Icon, width?: number, |}',
         required: false,
         defaultValue: null,
         description: [
-          'React node to render on left side of banner. Max width is 128 px.',
+          'Either <Image /> or <Icon /> to render on left side of banner. Width is not used with Icon. Image width defaults to 128 px. Max width of image is 128 px.',
         ],
-        href: '',
+        href: 'Image',
       },
       {
         name: 'primaryLink',
@@ -138,7 +138,9 @@ card(
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
   }}
-  image={<Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>}
+  imageData={{
+    component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+  }}
 />
 `}
   />
@@ -156,15 +158,17 @@ card(
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
   }}
-  image={
-      <Image
-        alt="Please practice social distancing, and check out our resources for adapting to these times."
-        color="rgb(231, 186, 176)"
-        naturalHeight={751}
-        naturalWidth={564}
-        src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-      />
-    }
+  imageData={{
+      component: 
+        <Image
+          alt="Please practice social distancing, and check out our resources for adapting to these times."
+          color="rgb(231, 186, 176)"
+          naturalHeight={751}
+          naturalWidth={564}
+          src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+        />,
+      width: 128,
+    }}
 />
 `}
   />

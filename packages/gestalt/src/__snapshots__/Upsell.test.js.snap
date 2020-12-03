@@ -2,10 +2,10 @@
 
 exports[`<Upsell /> Basic Upsell 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -13,10 +13,10 @@ exports[`<Upsell /> Basic Upsell 1`] = `
     }
   >
     <div
-      className="box mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
+        className="box"
         style={
           Object {
             "maxWidth": 648,
@@ -24,14 +24,31 @@ exports[`<Upsell /> Basic Upsell 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
-          Insert a clever upsell message here
+          <div
+            className="box smDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     />
   </div>
 </div>
@@ -39,10 +56,10 @@ exports[`<Upsell /> Basic Upsell 1`] = `
 
 exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -50,32 +67,10 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
-        style={
-          Object {
-            "maxWidth": 128,
-          }
-        }
-      >
-        <svg
-          aria-hidden={null}
-          aria-label="Pin"
-          className="icon darkGray iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-      <div
-        className="box marginBottomAuto marginEnd6 marginStart6 marginTopAuto"
+        className="box"
         style={
           Object {
             "maxWidth": 648,
@@ -83,26 +78,52 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever upsell message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
@@ -183,10 +204,10 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
 
 exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -194,10 +215,10 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
+        className="box"
         style={
           Object {
             "maxWidth": 648,
@@ -205,26 +226,52 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever upsell message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
@@ -305,10 +352,10 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
 
 exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -316,10 +363,10 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
+        className="box"
         style={
           Object {
             "maxWidth": 648,
@@ -327,26 +374,52 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever upsell message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
@@ -376,7 +449,7 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
         </a>
       </div>
       <div
-        className="box itemsCenter justifyCenter marginTop2 mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter marginTop2 paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
@@ -412,10 +485,10 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
 
 exports[`<Upsell /> message + title + primaryLink 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -423,10 +496,10 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
+        className="box"
         style={
           Object {
             "maxWidth": 648,
@@ -434,26 +507,52 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever upsell message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
@@ -489,10 +588,10 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
 
 exports[`<Upsell /> message + title 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -500,10 +599,10 @@ exports[`<Upsell /> message + title 1`] = `
     }
   >
     <div
-      className="box mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottomAuto marginEnd6 marginStart0 marginTopAuto"
+        className="box"
         style={
           Object {
             "maxWidth": 648,
@@ -511,23 +610,49 @@ exports[`<Upsell /> message + title 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever upsell message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever upsell message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     />
   </div>
 </div>

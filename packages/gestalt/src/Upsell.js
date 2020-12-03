@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Heading from './Heading.js';
+import Icon from './Icon.js';
 import IconButton from './IconButton.js';
+import Image from './Image.js';
 import Button from './Button.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -27,7 +29,10 @@ type Props = {|
     accessibilityLabel: string,
     onDismiss: () => void,
   |},
-  image?: Node,
+  imageData?: {|
+    component: typeof Image | typeof Icon,
+    width?: number,
+  |},
   message: string,
   primaryLink?: LinkData,
   secondaryLink?: LinkData,
@@ -72,12 +77,14 @@ const UpsellLink = ({
 
 export default function Upsell({
   dismissButton,
-  image,
+  imageData,
   message,
   primaryLink,
   secondaryLink,
   title,
 }: Props): Node {
+  const isImage = imageData && imageData.component.type === Image;
+
   return (
     <Box
       display="flex"
@@ -106,12 +113,16 @@ export default function Upsell({
           smMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
           smPaddingY={3}
         >
-          {image && (
-            <Box maxWidth={128} column={3}>
-              {image}
+          {imageData && (
+            <Box
+              marginBottom={4}
+              smMarginBottom={0}
+              width={isImage ? Math.min(imageData.width, 128) : undefined}
+            >
+              {imageData.component}
             </Box>
           )}
-          <Box maxWidth={648} column={image ? 9 : 12}>
+          <Box maxWidth={648}>
             <Box
               display="flex"
               smDisplay="block"
@@ -119,15 +130,32 @@ export default function Upsell({
               alignItems="center"
               marginBottom="auto"
               marginTop="auto"
-              marginEnd={6}
-              marginStart={image ? 6 : 0}
+              marginEnd={0}
+              marginStart={0}
+              smMarginEnd={6}
+              smMarginStart={imageData ? 6 : 0}
             >
-              {title && (
-                <Box marginBottom={2}>
-                  <Heading size="sm">{title}</Heading>
-                </Box>
-              )}
-              <Text>{message}</Text>
+              {/* We repeat this code block to ensure that text is 
+              centered for our smaller displays and left aligned 
+              for larger displays */}
+              <Box smDisplay="none">
+                {title && (
+                  <Box marginBottom={2}>
+                    <Heading align="center" size="sm">
+                      {title}
+                    </Heading>
+                  </Box>
+                )}
+                <Text align="center">{message}</Text>
+              </Box>
+              <Box smDisplay="block" display="none">
+                {title && (
+                  <Box marginBottom={2}>
+                    <Heading size="sm">{title}</Heading>
+                  </Box>
+                )}
+                <Text>{message}</Text>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -166,7 +194,10 @@ Upsell.propTypes = {
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
-  image: PropTypes.node,
+  imageData: PropTypes.exact({
+    component: PropTypes.node.isRequired,
+    width: PropTypes.number,
+  }),
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   primaryLink: PropTypes.shape({
