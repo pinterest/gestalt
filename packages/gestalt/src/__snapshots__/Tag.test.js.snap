@@ -4,12 +4,27 @@ exports[`Tag renders 1`] = `
 <div
   aria-disabled={false}
   className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+    }
+  }
 >
   <div
     className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
   >
     <div
-      className="box marginEnd1 marginStart2 paddingY0"
+      className="box marginEnd1 marginStart2"
+      style={
+        Object {
+          "marginBottom": 1,
+        }
+      }
     >
       <div
         className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
@@ -44,12 +59,27 @@ exports[`Tag renders a disabled tag 1`] = `
 <div
   aria-disabled={true}
   className="borderColorLightGray box lightGrayBg rounding2 sizeSm solid xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+    }
+  }
 >
   <div
     className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
   >
     <div
-      className="box marginEnd2 marginStart2 paddingY2"
+      className="box marginEnd2 marginStart2"
+      style={
+        Object {
+          "marginBottom": 1,
+        }
+      }
     >
       <div
         className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
@@ -65,9 +95,19 @@ exports[`Tag renders a tag with an error state 1`] = `
 <div
   aria-disabled={false}
   className="box redBg rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+    }
+  }
 >
   <div
     className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
   >
     <div
       className="box marginStart2"
@@ -76,10 +116,10 @@ exports[`Tag renders a tag with an error state 1`] = `
         aria-hidden={null}
         aria-label="Error"
         className="icon white iconBlock"
-        height={16}
+        height={12}
         role="img"
         viewBox="0 0 24 24"
-        width={16}
+        width={12}
       >
         <path
           d="test-file-stub"
@@ -87,7 +127,12 @@ exports[`Tag renders a tag with an error state 1`] = `
       </svg>
     </div>
     <div
-      className="box marginEnd1 marginStart2 paddingY0"
+      className="box marginEnd1 marginStart2"
+      style={
+        Object {
+          "marginBottom": 1,
+        }
+      }
     >
       <div
         className="Text fontSize2 white alignLeft breakWord fontWeightNormal"

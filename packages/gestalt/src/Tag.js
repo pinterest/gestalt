@@ -65,23 +65,25 @@ export default function Tag(props: Props): Node {
       borderStyle={disabled && !errorMessage ? 'sm' : 'none'}
       color={bgColor}
       display="inlineBlock"
+      height={32}
       rounding={2}
       aria-disabled={disabled}
     >
-      <Flex alignItems="center">
+      <Flex alignItems="center" height="100%">
         {errorMessage && (
           <Box marginStart={2}>
             <Icon
               accessibilityLabel={errorMessage}
               color={fgColor}
               icon="workflow-status-problem"
+              size={12}
             />
           </Box>
         )}
         <Box
           marginStart={2}
           marginEnd={disabled ? 2 : 1}
-          paddingY={disabled ? 2 : 0}
+          dangerouslySetInlineStyle={{ __style: { marginBottom: 1 } }}
         >
           <Text color={fgColor} size="md">
             {text}
