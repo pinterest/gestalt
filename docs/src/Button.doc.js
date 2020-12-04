@@ -121,6 +121,19 @@ card(
         href: 'selected',
       },
       {
+        name: 'onLinkClickData',
+        type:
+          '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        description: [
+          'onLinkClickData works in pair with a Provider:',
+          '<Provider onLinkClick={({ href, onLinkClickContextData, event}) => {}}>.',
+          `- 'href' can be used to check the type of url`,
+          `- 'onLinkClickContextData' can be used to pass any prop to 'onLinkClick', such as props to control when to prevent native Link component events`,
+          `- 'event' can be used to prevent native Link component events`,
+        ],
+        href: 'OnLinkClickContext',
+      },
+      {
         name: 'size',
         type: `'sm' | 'md' | 'lg'`,
         required: false,
@@ -258,7 +271,6 @@ function Example() {
           <Button
             onClick={() => {}}
             text="Clear search history"
-            inline
             disabled={disabled}
             tabIndex={tabIndex ? -1 : 0}
           />
@@ -268,7 +280,6 @@ function Example() {
             type="submit"
             name="satisfaction-questionaire"
             text="Submit your response"
-            inline
             disabled={disabled}
             tabIndex={tabIndex ? -1 : 0}
           />
@@ -279,7 +290,6 @@ function Example() {
             target="blank"
             href="https://www.pinterest.com"
             text="Visit pinterest.com"
-            inline
             disabled={disabled}
             tabIndex={tabIndex ? -1 : 0}
           />
@@ -322,9 +332,9 @@ card(
       name="Size"
       id="size"
       defaultCode={`<Flex gap={2}>
-  <Button size="sm" text="Small-sized button" inline />
-  <Button text="Medium-sized button" inline />
-  <Button size="lg" text="Large-sized button" inline />
+  <Button size="sm" text="Small-sized button" />
+  <Button text="Medium-sized button" />
+  <Button size="lg" text="Large-sized button" />
 </Flex>`}
     />
     <Combination
@@ -370,14 +380,14 @@ card(
           color={selected ? 'transparentWhiteText' : 'transparent'}
           iconEnd="add-pin"
           text="Save this image"
-          inline />
+        />
         </Box>
         <Box padding={2} position="absolute" bottom right>
           <Button
-          color={selected ? 'transparent' : 'transparentWhiteText'}
-          iconEnd="pin-hide"
-          text="Hide this image"
-          inline />
+            color={selected ? 'transparent' : 'transparentWhiteText'}
+            iconEnd="pin-hide"
+            text="Hide this image"
+          />
         </Box>
       </Image>
     </Box>
@@ -481,8 +491,8 @@ function AccessibilityExample() {
   return (
     <Button
       accessibilityLabel={selected ? "Unfollow Alberto on Pinterest" : "Follow Alberto on Pinterest"}
-      onClick={() => setSelected(!selected)}
       inline
+      onClick={() => setSelected(!selected)}
       selected={selected}
       text={selected ? "Unfollow" : "Follow"}        />
   );
@@ -502,13 +512,13 @@ function MenuButtonExample() {
 
   return (
     <>
-      <Box display="inlineBlock" ref={anchorRef}>
+      <Box ref={anchorRef}>
         <Button
           accessibilityControls="menu"
           accessibilityExpanded={selected}
           accessibilityHaspopup
-          selected={selected}
           inline
+          selected={selected}
           onClick={() => setSelected(!selected)}
           text="Menu"
         />
@@ -539,6 +549,39 @@ function MenuButtonExample() {
         </Layer>
       )}
     </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="OnLinkClickContext"
+    name="OnLinkClickContext"
+    defaultCode={`
+function LinkWithProvider() {
+  const onLinkClickCallback = ({ href, onLinkClickContextData, event }) => {
+    if (onLinkClickContextData && onLinkClickContextData.stopPropagation) {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert("Disabled link. Opening help.pinterest.com instead");
+      window.open("https://help.pinterest.com", '_blank')
+    }
+  };
+
+  return (
+    <Provider onLinkClick={onLinkClickCallback}>
+      <Box display="inlineBlock">
+        <Button
+          href="https://www.pinterest.com"
+          onLinkClickContextData={{stopPropagation: true}}
+          role="link"
+          target="blank"
+          text="Visit pinterest.com"
+        />
+      </Box>
+    </Provider>
   );
 }
 `}

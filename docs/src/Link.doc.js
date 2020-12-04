@@ -71,6 +71,19 @@ card(
         href: 'PreventDefault',
       },
       {
+        name: 'onLinkClickData',
+        type:
+          '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        description: [
+          'onLinkClickData works in pair with a Provider:',
+          '<Provider onLinkClick={({ href, onLinkClickContextData, event}) => {}}>.',
+          `- 'href' can be used to check the type of url`,
+          `- 'onLinkClickContextData' can be used to pass any prop to 'onLinkClick', such as props to control when to prevent native Link component events`,
+          `- 'event' can be used to prevent native Link component events`,
+        ],
+        href: 'OnLinkClickContext',
+      },
+      {
         name: 'onFocus',
         type: '() => void',
       },
@@ -296,6 +309,36 @@ function PreventDefaultExample() {
         </Text>
       </Box>
     </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="OnLinkClickContext"
+    name="OnLinkClickContext"
+    defaultCode={`
+function LinkWithProvider() {
+  const onLinkClickCallback = ({ href, onLinkClickContextData, event }) => {
+    if (onLinkClickContextData && onLinkClickContextData.stopPropagation) {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert("Disabled link. Opening help.pinterest.com instead");
+      window.open("https://help.pinterest.com", '_blank')
+    }
+  };
+
+  return (
+    <Provider onLinkClick={onLinkClickCallback}>
+      <Link
+        href="https://pinterest.com"
+        onLinkClickContextData={{stopPropagation: true}}
+      >
+        <Text>https://pinterest.com</Text>
+      </Link>
+    </Provider>
   );
 }
 `}

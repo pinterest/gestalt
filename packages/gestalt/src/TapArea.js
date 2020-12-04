@@ -17,6 +17,7 @@ import getRoundingClassName, {
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import { type onLinkClickContextDataType } from './contexts/OnLinkClickContext.js';
 
 type FocusEventHandler = AbstractEventHandler<
   SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>
@@ -66,6 +67,7 @@ type TapAreaType = {|
 type LinkTapAreaType = {|
   ...BaseTapArea,
   href: string,
+  onLinkClickContextData?: onLinkClickContextDataType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -174,7 +176,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
   const handleLinkOnMouseLeave = ({ event }) => handleOnMouseLeave(event);
 
   if (props.role === 'link') {
-    const { href, rel = 'none', target = null } = props;
+    const { onLinkClickContextData, href, rel = 'none', target = null } = props;
 
     return (
       <InternalLink
@@ -185,6 +187,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
         fullWidth={fullWidth}
         mouseCursor={mouseCursor}
         onClick={handleLinkClick}
+        onLinkClickContextData={onLinkClickContextData}
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
         onMouseEnter={handleLinkOnMouseEnter}
@@ -283,6 +286,8 @@ TapAreaWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onTap: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  onLinkClickContextData: PropTypes.object,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<

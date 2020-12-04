@@ -6,17 +6,29 @@ import {
   type ColorScheme,
   ColorSchemePropType,
 } from './contexts/ColorScheme.js';
+import {
+  OnLinkClickProvider,
+  type onLinkClickType,
+} from './contexts/OnLinkClickContext.js';
 
 type Props = {|
   children: Node,
   colorScheme?: ColorScheme,
   id?: string,
+  onLinkClick?: onLinkClickType,
 |};
 
-export default function Provider({ children, colorScheme, id }: Props): Node {
+export default function Provider({
+  children,
+  onLinkClick,
+  colorScheme,
+  id,
+}: Props): Node {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={id}>
-      {children}
+      <OnLinkClickProvider onLinkClick={onLinkClick}>
+        {children}
+      </OnLinkClickProvider>
     </ColorSchemeProvider>
   );
 }
@@ -24,4 +36,5 @@ export default function Provider({ children, colorScheme, id }: Props): Node {
 Provider.propTypes = {
   children: PropTypes.node,
   colorScheme: ColorSchemePropType,
+  onLinkClick: PropTypes.func,
 };

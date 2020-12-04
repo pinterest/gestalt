@@ -19,6 +19,10 @@ import getRoundingClassName, {
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import {
+  useOnLinkClick,
+  type onLinkClickContextDataType,
+} from './contexts/OnLinkClickContext.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -33,6 +37,7 @@ type Props = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
+  onLinkClickContextData?: onLinkClickContextDataType,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
@@ -59,6 +64,7 @@ const LinkWithForwardRef: AbstractComponent<
     inline = false,
     onBlur,
     onClick,
+    onLinkClickContextData,
     onFocus,
     rel = 'none',
     role,
@@ -103,6 +109,8 @@ const LinkWithForwardRef: AbstractComponent<
     }
   );
 
+  const onLinkClickContext = useOnLinkClick();
+
   return (
     <a
       aria-label={accessibilityLabel}
@@ -117,6 +125,13 @@ const LinkWithForwardRef: AbstractComponent<
         }
       }}
       onClick={(event) => {
+        if (onLinkClickContext) {
+          onLinkClickContext.onLinkClick({
+            href,
+            onLinkClickContextData,
+            event,
+          });
+        }
         if (onClick) {
           onClick({ event });
         }
@@ -169,6 +184,8 @@ LinkWithForwardRef.propTypes = {
   inline: PropTypes.bool,
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  onLinkClickContextData: PropTypes.object,
   onFocus: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'

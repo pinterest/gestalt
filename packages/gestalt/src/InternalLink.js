@@ -21,6 +21,10 @@ import getRoundingClassName, {
   RoundingPropType,
   type Rounding,
 } from './getRoundingClassName.js';
+import {
+  useOnLinkClick,
+  type onLinkClickContextDataType,
+} from './contexts/OnLinkClickContext.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -45,6 +49,7 @@ type Props = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
+  onLinkClickContextData?: onLinkClickContextDataType,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
@@ -79,6 +84,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
     inline,
     mouseCursor,
     onClick,
+    onLinkClickContextData,
     onBlur,
     onFocus,
     onMouseEnter,
@@ -164,6 +170,8 @@ const InternalLinkWithForwardRef: AbstractComponent<
       : {}
   );
 
+  const onLinkClickContext = useOnLinkClick();
+
   return (
     <a
       aria-label={accessibilityLabel}
@@ -178,6 +186,13 @@ const InternalLinkWithForwardRef: AbstractComponent<
         handleBlur();
       }}
       onClick={(event) => {
+        if (onLinkClickContext) {
+          onLinkClickContext.onLinkClick({
+            href,
+            onLinkClickContextData,
+            event,
+          });
+        }
         if (onClick) {
           onClick({ event });
         }
@@ -259,6 +274,8 @@ InternalLinkWithForwardRef.propTypes = {
     'zoomOut',
   ]),
   onClick: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  onLinkClickContextData: PropTypes.object,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onMouseDown: PropTypes.func,

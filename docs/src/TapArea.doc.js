@@ -166,6 +166,19 @@ card(
         href: 'basic-taparea',
       },
       {
+        name: 'onLinkClickData',
+        type:
+          '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        description: [
+          'onLinkClickData works in pair with a Provider:',
+          '<Provider onLinkClick={({ href, onLinkClickContextData, event}) => {}}>.',
+          `- 'href' can be used to check the type of url`,
+          `- 'onLinkClickContextData' can be used to pass any prop to 'onLinkClick', such as props to control when to prevent native Link component events`,
+          `- 'event' can be used to prevent native Link component events`,
+        ],
+        href: 'OnLinkClickContext',
+      },
+      {
         name: 'ref',
         type: `React.Ref<'div'> | React.Ref<'a'>`,
         required: false,
@@ -613,6 +626,49 @@ function MenuButtonExample() {
         </Layer>
       )}
     </>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="OnLinkClickContext"
+    name="OnLinkClickContext"
+    defaultCode={`
+function LinkWithProvider() {
+  const onLinkClickCallback = ({ href, onLinkClickContextData, event }) => {
+    if (onLinkClickContextData && onLinkClickContextData.stopPropagation) {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert("Disabled link. Opening help.pinterest.com instead");
+      window.open("https://help.pinterest.com", '_blank')
+    }
+  };
+
+  return (
+    <Provider onLinkClick={onLinkClickCallback}>
+      <Box width={200}>
+        <TapArea
+          href="https://www.pinterest.com/search/pins/?rs=ac&len=2&q=antelope%20canyon%20arizona&eq=Antelope%20Canyon"
+          onLinkClickContextData={{stopPropagation: true}}
+          role='link'p
+          rounding={2}
+        >
+          <Box color="darkGray" rounding={4} borderStyle="sm">
+            <Mask rounding={2}>
+              <Image
+                alt="Antelope Canyon"
+                naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/DwYrGy6/stock14.jpg"
+              />
+            </Mask>
+          </Box>
+        </TapArea>
+      </Box>
+    </Provider>
   );
 }
 `}
