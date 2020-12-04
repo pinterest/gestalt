@@ -133,7 +133,7 @@ card(
     defaultCode={`
 <Upsell
   title="Give $30, get $60 in ads credit"
-  message="When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too"
+  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
   primaryLink={{href: "https://pinterest.com", label:"Send invite"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -153,7 +153,7 @@ card(
     defaultCode={`
 <Upsell
   title="Stay healthy and safe"
-  message="Please practice social distancing, and check out our resources for adapting to these times."
+  message="Check out our resources for adapting to these times."
   primaryLink={{href: "https://pinterest.com", label:"Visit"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
@@ -162,7 +162,7 @@ card(
   imageData={{
       component: 
         <Image
-          alt="Please practice social distancing, and check out our resources for adapting to these times."
+          alt="Check out our resources for adapting to these times."
           color="rgb(231, 186, 176)"
           naturalHeight={751}
           naturalWidth={564}

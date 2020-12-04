@@ -63,7 +63,7 @@ const UpsellLink = ({
       alignItems="center"
       justifyContent="center"
       paddingX={1}
-      marginTop={type === 'primary' && stacked ? 2 : undefined}
+      marginTop={type === 'secondary' && stacked ? 2 : undefined}
       smMarginTop="auto"
       smMarginBottom="auto"
     >
@@ -174,14 +174,19 @@ export default function Upsell({
         </Box>
         <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
           {secondaryLink && (
-            <UpsellLink type="secondary" data={secondaryLink} />
+            <Box smDisplay="block" display="none">
+              <UpsellLink type="secondary" data={secondaryLink} />
+            </Box>
           )}
-          {primaryLink && (
-            <UpsellLink
-              stacked={!!secondaryLink}
-              type="primary"
-              data={primaryLink}
-            />
+          {primaryLink && <UpsellLink type="primary" data={primaryLink} />}
+          {secondaryLink && (
+            <Box smDisplay="none">
+              <UpsellLink
+                type="secondary"
+                data={secondaryLink}
+                stacked={!!secondaryLink}
+              />
+            </Box>
           )}
         </Box>
       </Box>

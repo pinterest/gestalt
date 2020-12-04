@@ -451,37 +451,41 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box smDisplayBlock xsDisplayNone"
       >
-        <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
-          href="pinterest.com/help"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={null}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          rel=""
-          tabIndex={0}
-          target={null}
+        <div
+          className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
         >
-          <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          <a
+            className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+            href="pinterest.com/help"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={null}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            tabIndex={0}
+            target={null}
           >
-            Learn more
-          </div>
-        </a>
+            <div
+              className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            >
+              Learn more
+            </div>
+          </a>
+        </div>
       </div>
       <div
-        className="box itemsCenter justifyCenter marginTop2 paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
@@ -509,6 +513,40 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
             Visit Pinterest
           </div>
         </a>
+      </div>
+      <div
+        className="box smDisplayNone"
+      >
+        <div
+          className="box itemsCenter justifyCenter marginTop2 paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        >
+          <a
+            className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+            href="pinterest.com/help"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={null}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            tabIndex={0}
+            target={null}
+          >
+            <div
+              className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            >
+              Learn more
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
