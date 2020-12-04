@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Element, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -30,7 +30,7 @@ type Props = {|
     onDismiss: () => void,
   |},
   imageData?: {|
-    component: typeof Image | typeof Icon,
+    component: Element<typeof Image | typeof Icon>,
     width?: number,
   |},
   message: string,
@@ -83,7 +83,7 @@ export default function Upsell({
   secondaryLink,
   title,
 }: Props): Node {
-  const isImage = imageData && imageData.component.type === Image;
+  const isImage = imageData?.component && imageData.component.type === Image;
 
   return (
     <Box
@@ -117,7 +117,10 @@ export default function Upsell({
             <Box
               marginBottom={4}
               smMarginBottom={0}
-              width={isImage ? Math.min(imageData.width, 128) : undefined}
+              width={
+                isImage ? Math.min(imageData.width || 128, 128) : undefined
+              }
+              flex="none"
             >
               {imageData.component}
             </Box>
@@ -190,11 +193,12 @@ export default function Upsell({
 
 Upsell.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.exact({
+  dismissButton: PropTypes.shape({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
-  imageData: PropTypes.exact({
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  imageData: PropTypes.shape({
     component: PropTypes.node.isRequired,
     width: PropTypes.number,
   }),
