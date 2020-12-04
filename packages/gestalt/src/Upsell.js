@@ -3,11 +3,12 @@ import React, { type Element, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
+import Button from './Button.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
-import Button from './Button.js';
+import Mask from './Mask.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Upsell.css';
@@ -31,6 +32,10 @@ type Props = {|
   |},
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
+    mask?: {|
+      rounding?: 'circle' | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+      wash?: boolean,
+    |},
     width?: number,
   |},
   message: string,
@@ -122,7 +127,12 @@ export default function Upsell({
               }
               flex="none"
             >
-              {imageData.component}
+              <Mask
+                rounding={imageData.mask?.rounding || 0}
+                wash={imageData.mask?.wash || false}
+              >
+                {imageData.component}
+              </Mask>
             </Box>
           )}
           <Box maxWidth={648}>
@@ -200,6 +210,10 @@ Upsell.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   imageData: PropTypes.shape({
     component: PropTypes.node.isRequired,
+    mask: PropTypes.shape({
+      rounding: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle']),
+      wash: PropTypes.bool,
+    }),
     width: PropTypes.number,
   }),
   message: PropTypes.string.isRequired,

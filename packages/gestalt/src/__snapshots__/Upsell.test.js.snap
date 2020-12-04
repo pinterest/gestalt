@@ -77,19 +77,29 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
           }
         }
       >
-        <svg
-          aria-hidden={null}
-          aria-label="Pin"
-          className="icon darkGray iconBlock"
-          height={32}
-          role="img"
-          viewBox="0 0 24 24"
-          width={32}
+        <div
+          className="Mask rounding0 willChangeTransform"
+          style={
+            Object {
+              "height": undefined,
+              "width": undefined,
+            }
+          }
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden={null}
+            aria-label="Pin"
+            className="icon darkGray iconBlock"
+            height={32}
+            role="img"
+            viewBox="0 0 24 24"
+            width={32}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
       <div
         className="box"

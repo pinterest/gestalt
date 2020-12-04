@@ -41,7 +41,8 @@ card(
       },
       {
         name: 'imageData',
-        type: '{| component: typeof Image | typeof Icon, width?: number, |}',
+        type:
+          '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
         required: false,
         defaultValue: null,
         description: [
@@ -167,6 +168,7 @@ card(
           naturalWidth={564}
           src="https://i.ibb.co/7bQQYkX/stock2.jpg"
         />,
+        mask: {rounding: 4},
       width: 128,
     }}
 />
