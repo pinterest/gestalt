@@ -3,6 +3,13 @@
   composes: paddingX2 from "./boxWhitespace.css";
   composes: paddingY3 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
+}
+
+html[dir="rtl"] .button {
+  border-radius: 8px 0 0 8px;
+}
+
+html:not([dir="rtl"]) .button {
   border-radius: 0 8px 8px 0;
 }
 
