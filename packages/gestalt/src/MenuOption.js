@@ -89,6 +89,71 @@ export default function MenuOption({
   // Set color on item hover
   if (index === hoveredItem) optionStateColor = 'lightGray';
 
+  const menuOptionContents = (
+    <Flex>
+      <Flex flex="grow" direction="column">
+        <Flex alignItems="center">
+          {children || (
+            <>
+              <Text
+                truncate={shouldTruncate}
+                weight={textWeight}
+                color="darkGray"
+                inline
+              >
+                {option?.label}
+              </Text>
+              {badgeText && (
+                <Box marginStart={2} marginTop={1}>
+                  <Badge text={badgeText} />
+                </Box>
+              )}
+            </>
+          )}
+        </Flex>
+        {subtext && (
+          <Box marginTop={1}>
+            <Text size="md" color="gray">
+              {subtext}
+            </Text>
+          </Box>
+        )}
+      </Flex>
+      {isSelectedItem && !isExternal && (
+        <Box
+          display="flex"
+          color="transparent"
+          justifyContent="center"
+          alignItems="center"
+          marginStart={2}
+        >
+          <Icon
+            accessibilityLabel="selected item"
+            color="darkGray"
+            icon="check"
+            size={12}
+          />
+        </Box>
+      )}
+      {isExternal && (
+        <Box
+          display="flex"
+          color="transparent"
+          justifyContent="center"
+          alignItems="center"
+          marginStart={2}
+        >
+          <Icon
+            accessibilityLabel="external option"
+            color="darkGray"
+            icon="arrow-up-right"
+            size={12}
+          />
+        </Box>
+      )}
+    </Flex>
+  );
+
   return (
     <div
       ref={(ref) => {
@@ -117,78 +182,12 @@ export default function MenuOption({
         display="flex"
         direction="column"
       >
-        <Flex>
-          <Flex flex="grow" alignItems="center">
-            {children || (
-              <>
-                <Text
-                  truncate={shouldTruncate}
-                  weight={textWeight}
-                  color="darkGray"
-                  inline
-                >
-                  {url ? (
-                    <Link hoverStyle="none" href={url}>
-                      <Text
-                        truncate={shouldTruncate}
-                        weight={textWeight}
-                        color="darkGray"
-                      >
-                        {`${option?.label}`}
-                      </Text>
-                    </Link>
-                  ) : (
-                    `${option?.label}`
-                  )}
-                </Text>
-                {badgeText && (
-                  <Box marginStart={2} marginTop={1}>
-                    <Badge text={badgeText} />
-                  </Box>
-                )}
-              </>
-            )}
-          </Flex>
-
-          {isSelectedItem && !isExternal && (
-            <Box
-              display="flex"
-              color="transparent"
-              justifyContent="center"
-              alignItems="center"
-              marginStart={2}
-            >
-              <Icon
-                accessibilityLabel="selected item"
-                color="darkGray"
-                icon="check"
-                size={12}
-              />
-            </Box>
-          )}
-          {isExternal && (
-            <Box
-              display="flex"
-              color="transparent"
-              justifyContent="center"
-              alignItems="center"
-              marginStart={2}
-            >
-              <Icon
-                accessibilityLabel="external option"
-                color="darkGray"
-                icon="arrow-up-right"
-                size={12}
-              />
-            </Box>
-          )}
-        </Flex>
-        {subtext && (
-          <Box marginTop={1}>
-            <Text size="md" color="gray">
-              {subtext}
-            </Text>
-          </Box>
+        {url ? (
+          <Link hoverStyle="none" href={url}>
+            {menuOptionContents}
+          </Link>
+        ) : (
+          menuOptionContents
         )}
       </Box>
     </div>
