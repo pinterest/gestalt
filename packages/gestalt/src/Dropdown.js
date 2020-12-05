@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
-import styles from './Dropdown.css';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 
@@ -168,7 +167,7 @@ export default function Dropdown({
     }
   };
 
-  const renderDropdownItem = (dropdownChildren, idxBase) => {
+  const renderDropdownItems = (dropdownChildren, idxBase) => {
     return React.Children.map(dropdownChildren, (child, idx) => {
       const props = {
         hoveredItem,
@@ -176,7 +175,6 @@ export default function Dropdown({
         setOptionRef,
       };
       if (React.isValidElement(child)) {
-        console.log({ child });
         const index = idx + idxBase;
         return React.cloneElement(child, { ...props, index });
       }
@@ -199,7 +197,7 @@ export default function Dropdown({
       ) {
         items.push(
           React.cloneElement(dropdownChildren[i], {
-            children: renderDropdownItem(
+            children: renderDropdownItems(
               dropdownChildren[i].props.children,
               numItemsRendered
             ),

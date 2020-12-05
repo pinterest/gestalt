@@ -36,7 +36,7 @@ card(
 
       If an item navigates to a new page, rather than acting as a selection, a \`url\` should be provided and the \`isExternal\` prop specified. Additionally, each item can contain a badge by specifying \`badgeText\`.
 
-      Dropdowns have a minimum width of \`180px\` and a maximum width of \`360px\`, after which the labels will truncate if needed.
+      Dropdowns have a minimum width of \`180px\` and a maximum width of \`360px\`, after which the labels will truncate if needed. It will automatically open in the most convenient location, unless an \`idealDirection\` is specified.
 
     `}
     defaultCode={`
