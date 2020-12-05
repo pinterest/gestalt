@@ -2,7 +2,7 @@
 
 exports[`<Callout /> Error Callout 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#FDEBEE",
@@ -10,7 +10,7 @@ exports[`<Callout /> Error Callout 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -18,10 +18,10 @@ exports[`<Callout /> Error Callout 1`] = `
     }
   >
     <div
-      className="box mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -46,14 +46,31 @@ exports[`<Callout /> Error Callout 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          Insert a clever error callout message here
+          <div
+            className="box smDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever error callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever error callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     />
   </div>
 </div>
@@ -61,7 +78,7 @@ exports[`<Callout /> Error Callout 1`] = `
 
 exports[`<Callout /> Info Callout 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -69,7 +86,7 @@ exports[`<Callout /> Info Callout 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -77,10 +94,10 @@ exports[`<Callout /> Info Callout 1`] = `
     }
   >
     <div
-      className="box mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -105,14 +122,31 @@ exports[`<Callout /> Info Callout 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          Insert a clever info callout message here
+          <div
+            className="box smDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     />
   </div>
 </div>
@@ -120,7 +154,7 @@ exports[`<Callout /> Info Callout 1`] = `
 
 exports[`<Callout /> Warning Callout 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#FDF5EC",
@@ -128,7 +162,7 @@ exports[`<Callout /> Warning Callout 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -136,10 +170,10 @@ exports[`<Callout /> Warning Callout 1`] = `
     }
   >
     <div
-      className="box mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -164,14 +198,31 @@ exports[`<Callout /> Warning Callout 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          Insert a clever warning callout message here
+          <div
+            className="box smDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever warning callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever warning callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     />
   </div>
 </div>
@@ -179,7 +230,7 @@ exports[`<Callout /> Warning Callout 1`] = `
 
 exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -187,7 +238,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -195,10 +246,10 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -223,26 +274,52 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever info callout message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
@@ -323,7 +400,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
 
 exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -331,7 +408,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -339,10 +416,10 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -367,56 +444,86 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever info callout message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box smDisplayBlock xsDisplayNone"
       >
-        <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
-          href="pinterest.com/help"
-          onBlur={[Function]}
-          onClick={[Function]}
-          onContextMenu={null}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          rel=""
-          tabIndex={0}
-          target={null}
+        <div
+          className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
         >
-          <div
-            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          <a
+            className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
+            href="pinterest.com/help"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={null}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            tabIndex={0}
+            target={null}
           >
-            Learn more
-          </div>
-        </a>
+            <div
+              className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            >
+              Learn more
+            </div>
+          </a>
+        </div>
       </div>
       <div
-        className="box itemsCenter justifyCenter marginTop2 mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
@@ -445,6 +552,40 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
           </div>
         </a>
       </div>
+      <div
+        className="box smDisplayNone"
+      >
+        <div
+          className="box itemsCenter justifyCenter marginTop2 paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        >
+          <a
+            className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
+            href="pinterest.com/help"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={null}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            tabIndex={0}
+            target={null}
+          >
+            <div
+              className="Text fontSize3 darkGray alignCenter fontWeightBold"
+            >
+              Learn more
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -452,7 +593,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
 
 exports[`<Callout /> message + title + primaryLink 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -460,7 +601,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -468,10 +609,10 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
     }
   >
     <div
-      className="box marginBottom4 mdMarginBottom0 mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -496,26 +637,52 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever info callout message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box itemsCenter justifyCenter mdMarginBottomAuto mdMarginTopAuto paddingX1 xsDisplayFlex"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
           className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
@@ -551,7 +718,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
 
 exports[`<Callout /> message + title 1`] = `
 <div
-  className="box mdDirectionRow mdPaddingX8 mdPaddingY8 paddingX6 paddingY6 relative rounding4 xsDirectionColumn xsDisplayFlex"
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
     Object {
       "backgroundColor": "#EBF4FE",
@@ -559,7 +726,7 @@ exports[`<Callout /> message + title 1`] = `
   }
 >
   <div
-    className="box flexWrap mdDisplayFlex mdMarginBottomN3 mdMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
     style={
       Object {
         "width": "100%",
@@ -567,10 +734,10 @@ exports[`<Callout /> message + title 1`] = `
     }
   >
     <div
-      className="box mdPaddingY3 xsDisplayFlex"
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom0 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -595,23 +762,49 @@ exports[`<Callout /> message + title 1`] = `
         }
       >
         <div
-          className="box marginBottom2"
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
         >
-          <h3
-            className="Heading fontSize1 darkGray alignLeft breakWord"
+          <div
+            className="box smDisplayNone"
           >
-            A Title
-          </h3>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-        >
-          Insert a clever info callout message here
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignCenter breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
+          <div
+            className="box smDisplayBlock xsDisplayNone"
+          >
+            <div
+              className="box marginBottom2"
+            >
+              <h3
+                className="Heading fontSize1 darkGray alignLeft breakWord"
+              >
+                A Title
+              </h3>
+            </div>
+            <div
+              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              Insert a clever info callout message here
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div
-      className="box marginStartAuto mdDisplayFlex mdMarginEnd4 mdPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     />
   </div>
 </div>

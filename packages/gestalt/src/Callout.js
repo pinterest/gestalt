@@ -74,13 +74,14 @@ const CalloutLink = ({
 
   return (
     <Box
-      display="flex"
+      display="block"
+      smDisplay="flex"
       alignItems="center"
       justifyContent="center"
       paddingX={1}
-      marginTop={type === 'primary' && stacked ? 2 : undefined}
-      mdMarginTop="auto"
-      mdMarginBottom="auto"
+      marginTop={type === 'secondary' && stacked ? 2 : undefined}
+      smMarginTop="auto"
+      smMarginBottom="auto"
     >
       <Button
         accessibilityLabel={accessibilityLabel}
@@ -118,27 +119,31 @@ export default function Callout({
       }}
       display="flex"
       direction="column"
-      mdDirection="row"
+      smDirection="row"
       padding={6}
-      mdPadding={8}
+      smPadding={8}
       position="relative"
       rounding={4}
     >
       <Box
-        mdDisplay="flex"
+        smDisplay="flex"
         wrap
         width="100%"
-        mdMarginTop={-3}
-        mdMarginBottom={-3}
+        smMarginTop={-3}
+        smMarginBottom={-3}
       >
         <Box
           display="flex"
+          direction="column"
+          smDirection="row"
+          justifyContent="center"
+          alignItems="center"
           marginBottom={primaryLink || secondaryLink ? 4 : undefined}
-          mdMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
-          mdPaddingY={3}
+          smMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
+          smPaddingY={3}
         >
           <Box
-            marginBottom={0}
+            marginBottom={4}
             marginTop={0}
             mdMarginBottom="auto"
             mdMarginTop="auto"
@@ -151,26 +156,53 @@ export default function Callout({
             />
           </Box>
           <Box marginBottom="auto" marginTop="auto" maxWidth={648} paddingX={6}>
-            {title && (
-              <Box marginBottom={2}>
-                <Heading color={isDarkMode ? 'white' : 'darkGray'} size="sm">
-                  {title}
-                </Heading>
+            <Box
+              display="flex"
+              smDisplay="block"
+              direction="column"
+              alignItems="center"
+              marginBottom="auto"
+              marginTop="auto"
+            >
+              {/* We repeat this code block to ensure that text is 
+              centered for our smaller displays and left aligned 
+              for larger displays */}
+              <Box smDisplay="none">
+                {title && (
+                  <Box marginBottom={2}>
+                    <Heading align="center" size="sm">
+                      {title}
+                    </Heading>
+                  </Box>
+                )}
+                <Text align="center">{message}</Text>
               </Box>
-            )}
-            <Text color={isDarkMode ? 'white' : 'darkGray'}>{message}</Text>
+              <Box smDisplay="block" display="none">
+                {title && (
+                  <Box marginBottom={2}>
+                    <Heading size="sm">{title}</Heading>
+                  </Box>
+                )}
+                <Text>{message}</Text>
+              </Box>
+            </Box>
           </Box>
         </Box>
-        <Box mdDisplay="flex" marginStart="auto" mdMarginEnd={4} mdPaddingY={3}>
+        <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
           {secondaryLink && (
-            <CalloutLink type="secondary" data={secondaryLink} />
+            <Box smDisplay="block" display="none">
+              <CalloutLink type="secondary" data={secondaryLink} />
+            </Box>
           )}
-          {primaryLink && (
-            <CalloutLink
-              stacked={!!secondaryLink}
-              type="primary"
-              data={primaryLink}
-            />
+          {primaryLink && <CalloutLink type="primary" data={primaryLink} />}
+          {secondaryLink && (
+            <Box smDisplay="none">
+              <CalloutLink
+                type="secondary"
+                data={secondaryLink}
+                stacked={!!secondaryLink}
+              />
+            </Box>
           )}
         </Box>
       </Box>
@@ -193,7 +225,7 @@ export default function Callout({
 
 Callout.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.exact({
+  dismissButton: PropTypes.shape({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
