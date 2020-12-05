@@ -202,6 +202,52 @@ function Example(props) {
 
 card(
   <Example
+    id="with-subtext"
+    name="With Subtext"
+    defaultCode={`
+function Example(props) {
+  const [item, setItem] = React.useState("");
+  const [selected, setSelected] = React.useState(null);
+
+  const options = Array.from(Array(20).keys()).map((item) => ({
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1),
+    subtext: "Subtext-"+ (item + 1),
+  }));
+
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
+
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
+
+  const label = "Selected Item: " + (selected && selected.label || '');
+
+  return (
+    <>
+      <Box marginBottom={4}>
+       <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      </Box>
+
+      <Typeahead
+        label="Typeahead Example 1"
+        id="Typeahead-example"
+        noResultText="No Results"
+        options={options}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        onSelect={handleSelect}
+      />
+    </>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
     id="defaultItemExample2"
     name="Ref Example"
     defaultCode={`

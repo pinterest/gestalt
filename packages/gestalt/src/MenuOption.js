@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';
 import Box from './Box.js';
+import Flex from './Flex.js';
 import Link from './Link.js';
 import Text from './Text.js';
 import styles from './Touchable.css';
@@ -21,7 +22,7 @@ type OptionProps = {|
   badgeText?: string,
   index: number,
   option: OptionObject,
-  selected?: OptionObject | null,
+  selected?: OptionObject | Array<OptionObject> | null,
   handleSelect: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -32,12 +33,14 @@ type OptionProps = {|
   setHoveredItem: (number) => void,
   setOptionRef: (?HTMLElement) => void,
   shouldTruncate?: boolean,
+  subtext?: string,
   textWeight?: 'bold' | 'normal',
   url?: string,
 |};
 
 export default function MenuOption({
   badgeText,
+  children,
   handleSelect,
   hoveredItem,
   index,
@@ -48,14 +51,21 @@ export default function MenuOption({
   setHoveredItem,
   setOptionRef,
   shouldTruncate = false,
+  subtext,
   textWeight = 'normal',
   url,
 }: OptionProps): Node {
-  // Determine if the option is the current selected item
-  const isSelectedItem = JSON.stringify(option) === JSON.stringify(selected);
+  let foundAMatch = [];
+  if (selected instanceof Array)
+    foundAMatch = selected.filter((item) => item.value === option.value);
+
+  // Determine if the option is a current selected item
+  const isSelectedItem =
+    foundAMatch.length > 0 ||
+    JSON.stringify(option) === JSON.stringify(selected);
 
   const handleOnTap = (event) => {
-    if (!url) {
+    if (!url && !children) {
       event.preventDefault();
     }
     if (handleSelect) handleSelect({ event, item: option });
@@ -100,57 +110,84 @@ export default function MenuOption({
       aria-selected={isSelectedItem}
       tabIndex={index === hoveredItem ? '0' : '-1'}
     >
-      <Box padding={2} color={optionStateColor} rounding={2} display="flex">
-        <Box display="flex" flex="grow" alignItems="center">
-          <Text truncate={shouldTruncate} weight={textWeight} color="darkGray">
-            {url ? (
-              <Link hoverStyle="none" href={url}>
+      <Box
+        padding={2}
+        color={optionStateColor}
+        rounding={2}
+        display="flex"
+        direction="column"
+      >
+        <Flex>
+          <Flex flex="grow" alignItems="center">
+            {children || (
+              <>
                 <Text
                   truncate={shouldTruncate}
                   weight={textWeight}
                   color="darkGray"
-                >{`${option?.label}`}</Text>
-              </Link>
-            ) : (
-              `${option?.label}`
+                  inline
+                >
+                  {url ? (
+                    <Link hoverStyle="none" href={url}>
+                      <Text
+                        truncate={shouldTruncate}
+                        weight={textWeight}
+                        color="darkGray"
+                      >
+                        {`${option?.label}`}
+                      </Text>
+                    </Link>
+                  ) : (
+                    `${option?.label}`
+                  )}
+                </Text>
+                {badgeText && (
+                  <Box marginStart={2} marginTop={1}>
+                    <Badge text={badgeText} />
+                  </Box>
+                )}
+              </>
             )}
-          </Text>
-          {badgeText && (
-            <Box marginStart={2} marginTop={1}>
-              <Badge text={badgeText} />
+          </Flex>
+
+          {isSelectedItem && !isExternal && (
+            <Box
+              display="flex"
+              color="transparent"
+              justifyContent="center"
+              alignItems="center"
+              marginStart={2}
+            >
+              <Icon
+                accessibilityLabel="selected item"
+                color="darkGray"
+                icon="check"
+                size={12}
+              />
             </Box>
           )}
-        </Box>
-        {isSelectedItem && !isExternal && (
-          <Box
-            display="flex"
-            color="transparent"
-            justifyContent="center"
-            alignItems="center"
-            marginStart={2}
-          >
-            <Icon
-              accessibilityLabel="selected item"
-              color="darkGray"
-              icon="check"
-              size={12}
-            />
-          </Box>
-        )}
-        {isExternal && (
-          <Box
-            display="flex"
-            color="transparent"
-            justifyContent="center"
-            alignItems="center"
-            marginStart={2}
-          >
-            <Icon
-              accessibilityLabel="external option"
-              color="darkGray"
-              icon="arrow-up-right"
-              size={12}
-            />
+          {isExternal && (
+            <Box
+              display="flex"
+              color="transparent"
+              justifyContent="center"
+              alignItems="center"
+              marginStart={2}
+            >
+              <Icon
+                accessibilityLabel="external option"
+                color="darkGray"
+                icon="arrow-up-right"
+                size={12}
+              />
+            </Box>
+          )}
+        </Flex>
+        {subtext && (
+          <Box marginTop={1}>
+            <Text size="md" color="gray">
+              {subtext}
+            </Text>
           </Box>
         )}
       </Box>
@@ -166,14 +203,17 @@ MenuOption.propTypes = {
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
+    subtext: PropTypes.string,
   }).isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   selected: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
+    subtext: PropTypes.string,
   }),
   handleSelect: PropTypes.func,
   hoveredItem: PropTypes.number,
   setHoveredItem: PropTypes.func,
   setOptionRef: PropTypes.func,
+  subtext: PropTypes.string,
 };

@@ -20,6 +20,7 @@ import Tag from './Tag.js';
 type OptionObject = {|
   label: string,
   value: string,
+  subtext?: string,
 |};
 
 type Props = {|
@@ -331,6 +332,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                       setHoveredItem={setHoveredItem}
                       handleSelect={handleSelect}
                       setOptionRef={setOptionRef}
+                      subtext={option.subtext}
                       textWeight="normal"
                       role="option"
                     />

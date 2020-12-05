@@ -129,8 +129,10 @@ const LinkWithForwardRef: AbstractComponent<
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onKeyPress={(event) => {
+        console.log('on key pres outside');
         // Check to see if space or enter were pressed
         if (onClick && keyPressShouldTriggerTap(event)) {
+          console.log('on key press in Link');
           // Prevent the default action to stop scrolling when space is pressed
           event.preventDefault();
           onClick({ event });

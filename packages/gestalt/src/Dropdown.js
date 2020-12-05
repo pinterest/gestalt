@@ -9,12 +9,23 @@ import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 
 type Props = {|
-  accessibilityLabel?: string,
+  anchor?: ?HTMLElement,
+  children: Node,
+  headerContent?: Node,
+  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  onDismiss: () => void,
+  onSelect?: ({|
+    event:
+      | SyntheticFocusEvent<HTMLInputElement>
+      | SyntheticKeyboardEvent<HTMLInputElement>,
+    item: ?OptionObject,
+  |}) => void,
 |};
 
 export default function Dropdown({
   anchor,
   children,
+  headerContent,
   idealDirection,
   onDismiss,
   onSelect,
@@ -157,14 +168,15 @@ export default function Dropdown({
     }
   };
 
-  const renderDropdownChildren = (dropdownChildren, idxBase) => {
+  const renderDropdownItem = (dropdownChildren, idxBase) => {
     return React.Children.map(dropdownChildren, (child, idx) => {
       const props = {
         hoveredItem,
         setHoveredItem,
         setOptionRef,
       };
-      if (React.isValidElement(child) && child.type.name === 'DropdownItem') {
+      if (React.isValidElement(child)) {
+        console.log({ child });
         const index = idx + idxBase;
         return React.cloneElement(child, { ...props, index });
       }
@@ -172,7 +184,7 @@ export default function Dropdown({
     });
   };
 
-  const renderWrappedChildren = (dropdownChildren) => {
+  const renderDropdownChildren = (dropdownChildren) => {
     let numItemsRendered = 0;
     const items = [];
     const props = {
@@ -181,53 +193,29 @@ export default function Dropdown({
       setOptionRef,
     };
     for (let i = 0; i < dropdownChildren.length; i += 1) {
-      if (dropdownChildren[i].props.children) {
+      if (
+        dropdownChildren[i].props.children &&
+        dropdownChildren[i].type.name === 'DropdownSection'
+      ) {
         items.push(
           React.cloneElement(dropdownChildren[i], {
-            children: renderDropdownChildren(
+            children: renderDropdownItem(
               dropdownChildren[i].props.children,
               numItemsRendered
             ),
           })
         );
         numItemsRendered += dropdownChildren[i].props.children.length;
-      } else if (
-        React.isValidElement(dropdownChildren[i]) &&
-        dropdownChildren[i].type.name === 'DropdownItem'
-      ) {
+      } else if (React.isValidElement(dropdownChildren[i])) {
         const index = i;
 
         items.push(
           React.cloneElement(dropdownChildren[i], { ...props, index })
         );
+        numItemsRendered += 1;
       }
     }
     return items;
-
-    // return React.Children.map(dropdownChildren, (child, idx) => {
-    //   console.log({ numItemsRendered });
-    //   const props = {
-    //     hoveredItem,
-    //     setHoveredItem,
-    //     setOptionRef,
-    //   };
-    //   if (child.props.children) {
-    //     return React.cloneElement(child, {
-    //       children: renderDropdownChildren(
-    //         child.props.children,
-    //         numItemsRendered
-    //       ),
-    //     });
-    //   }
-    //   numItemsRendered += idx >= 0 ? child.props.children.length : 0;
-
-    //   if (React.isValidElement(child) && child.type.name === 'DropdownItem') {
-    //     const index = idx;
-
-    //     return React.cloneElement(child, { ...props, index });
-    //   }
-    //   return child;
-    // });
   };
 
   return (
@@ -237,7 +225,7 @@ export default function Dropdown({
         color="white"
         handleKeyDown={handleKeyDown}
         idealDirection={idealDirection || 'down'}
-        onDismiss={() => {}}
+        onDismiss={onDismiss}
         positionRelativeToAnchor={false}
         size="xl"
       >
@@ -250,7 +238,8 @@ export default function Dropdown({
           role="menu"
           aria-activedescendant={hoveredItem}
         >
-          {renderWrappedChildren(children)}
+          {headerContent && <Box padding={2}>{headerContent}</Box>}
+          {renderDropdownChildren(children)}
         </Box>
       </Flyout>
     </Layer>
@@ -258,7 +247,17 @@ export default function Dropdown({
 }
 
 Dropdown.propTypes = {
-  accessibilityLabel: PropTypes.string,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  anchor: PropTypes.shape({
+    contains: PropTypes.func,
+    getBoundingClientRect: PropTypes.func,
+  }),
+  children: PropTypes.node,
+  headerContent: PropTypes.node,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  onDismiss: PropTypes.func.isRequired,
+  onSelect: PropTypes.func,
 };
 
 Dropdown.Item = DropdownItem;
