@@ -16,10 +16,12 @@ import useFocusVisible from './useFocusVisible.js';
 type OptionObject = {|
   label: string,
   value: string,
+  subtext?: string,
 |};
 
 type OptionProps = {|
   badgeText?: string,
+  children?: Node,
   index: number,
   option: OptionObject,
   selected?: OptionObject | Array<OptionObject> | null,
@@ -33,7 +35,6 @@ type OptionProps = {|
   setHoveredItem: (number) => void,
   setOptionRef: (?HTMLElement) => void,
   shouldTruncate?: boolean,
-  subtext?: string,
   textWeight?: 'bold' | 'normal',
   url?: string,
 |};
@@ -51,7 +52,6 @@ export default function MenuOption({
   setHoveredItem,
   setOptionRef,
   shouldTruncate = false,
-  subtext,
   textWeight = 'normal',
   url,
 }: OptionProps): Node {
@@ -111,10 +111,10 @@ export default function MenuOption({
             </>
           )}
         </Flex>
-        {subtext && (
+        {option.subtext && (
           <Box marginTop={1}>
             <Text size="md" color="gray">
-              {subtext}
+              {option.subtext}
             </Text>
           </Box>
         )}
@@ -214,5 +214,4 @@ MenuOption.propTypes = {
   hoveredItem: PropTypes.number,
   setHoveredItem: PropTypes.func,
   setOptionRef: PropTypes.func,
-  subtext: PropTypes.string,
 };

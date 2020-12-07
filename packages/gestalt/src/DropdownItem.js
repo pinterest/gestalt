@@ -11,6 +11,7 @@ type OptionObject = {|
 
 type OptionProps = {|
   badgeText?: string,
+  children?: Node,
   index: number,
   isExternal?: boolean,
   /* the option with value and label */
@@ -51,7 +52,6 @@ export default function DropdownItem({
       selected={selected}
       setHoveredItem={setHoveredItem}
       setOptionRef={setOptionRef}
-      subtext={option.subtext}
       shouldTruncate
       textWeight="bold"
       url={url}

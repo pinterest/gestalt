@@ -6,10 +6,16 @@ import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
+import handleScrolling from './utils/keyboardNavigation.js';
 
+type OptionObject = {|
+  label: string,
+  value: string,
+  subtext?: string,
+|};
 type Props = {|
   anchor?: ?HTMLElement,
-  children: Node,
+  children: Array<Node>,
   headerContent?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -29,7 +35,7 @@ export default function Dropdown({
   onDismiss,
   onSelect,
 }: Props): Node {
-  const getFlattenedChildren = (dropdownChildren) => {
+  const getFlattenedChildren = (dropdownChildren: Array<Node>) => {
     const items = [];
     for (let i = 0; i < dropdownChildren.length; i += 1) {
       if (
@@ -54,43 +60,8 @@ export default function Dropdown({
 
   const containerRef = useRef();
 
-  const handleScrolling = (direction: number) => {
-    const container = containerRef.current;
-
-    // Based on keyboard navigation we get the next or previous option
-    // When we reach the start or end of the list, move to the start or end of the list based on the direction
-    const nextOption =
-      direction > 0
-        ? selectedElement?.nextSibling
-        : selectedElement?.previousSibling;
-
-    // Handles which option to display once we've hit the end of the list range
-    const endRangeOption =
-      direction > 0
-        ? container?.firstChild?.firstChild
-        : container?.firstChild?.lastChild;
-
-    const selectedOption = nextOption || endRangeOption;
-
-    // If one of these nodes is missing exit early
-    if (!container || !selectedOption) return;
-
-    const containerHeight = container.getClientRects()[0].height;
-    const overScroll =
-      selectedOption instanceof HTMLElement && selectedOption?.offsetHeight / 3;
-
-    const scrollPos =
-      selectedOption instanceof HTMLElement &&
-      selectedOption.offsetTop +
-        selectedOption.clientHeight -
-        containerHeight +
-        overScroll;
-
-    container.scrollTop = scrollPos;
-  };
-
   const handleKeyNavigation = (
-    event: {| keyCode: number |},
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
     direction: -1 | 0 | 1
   ) => {
     // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
@@ -126,7 +97,7 @@ export default function Dropdown({
         });
     }
     // Scrolling
-    handleScrolling(direction);
+    handleScrolling(direction, containerRef, selectedElement);
   };
 
   const handleKeyDown = (event) => {
@@ -153,12 +124,12 @@ export default function Dropdown({
 
     // ESC Key
     else if (event.keyCode === 27) {
-      if (onDismiss) onDismiss({ event });
+      if (onDismiss) onDismiss();
     }
 
     // Tab Key
     else if (event.keyCode === 9) {
-      if (onDismiss) onDismiss({ event });
+      if (onDismiss) onDismiss();
     }
 
     // Space Key
@@ -182,7 +153,7 @@ export default function Dropdown({
     });
   };
 
-  const renderDropdownChildren = (dropdownChildren) => {
+  const renderDropdownChildren = (dropdownChildren: Array<Node>) => {
     let numItemsRendered = 0;
     const items = [];
     const props = {

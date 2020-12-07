@@ -7,7 +7,7 @@ type Props = {|
   anchor: ?HTMLElement,
   children?: Node,
   color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray',
-  handleKeyDown?: (event: {| keyCode: number |}) => void,
+  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLInputElement>) => void,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,

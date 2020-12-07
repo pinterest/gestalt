@@ -5,7 +5,10 @@ import Box from './Box.js';
 import Text from './Text.js';
 import styles from './Dropdown.css';
 
-type SectionProps = {||};
+type SectionProps = {|
+  children: Node,
+  label: string,
+|};
 
 export default function DropdownSection({
   label,
@@ -24,5 +27,6 @@ export default function DropdownSection({
 DropdownSection.displayName = 'DropdownSection';
 
 DropdownSection.propTypes = {
+  children: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
 };

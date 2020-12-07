@@ -16,6 +16,7 @@ import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import Tag from './Tag.js';
+import handleContainerScrolling from './utils/keyboardNavigation.js';
 
 type OptionObject = {|
   label: string,
@@ -51,10 +52,7 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
   |}) => void,
-  options: $ReadOnlyArray<{|
-    label: string,
-    value: string,
-  |}>,
+  options: $ReadOnlyArray<OptionObject>,
   placeholder?: string,
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
@@ -192,41 +190,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   const containerRef = useRef();
 
-  const handleScrolling = (direction: number) => {
-    const container = containerRef.current;
-
-    // Based on keyboard navigation we get the next or previous option
-    // When we reach the start or end of the list, move to the start or end of the list based on the direction
-    const nextOption =
-      direction > 0
-        ? selectedElement?.nextSibling
-        : selectedElement?.previousSibling;
-
-    // Handles which option to display once we've hit the end of the list range
-    const endRangeOption =
-      direction > 0
-        ? container?.firstChild?.firstChild
-        : container?.firstChild?.lastChild;
-
-    const selectedOption = nextOption || endRangeOption;
-
-    // If one of these nodes is missing exit early
-    if (!container || !selectedOption) return;
-
-    const containerHeight = container.getClientRects()[0].height;
-    const overScroll =
-      selectedOption instanceof HTMLElement && selectedOption?.offsetHeight / 3;
-
-    const scrollPos =
-      selectedOption instanceof HTMLElement &&
-      selectedOption.offsetTop +
-        selectedOption.clientHeight -
-        containerHeight +
-        overScroll;
-
-    container.scrollTop = scrollPos;
-  };
-
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     direction: -1 | 0 | 1
@@ -268,7 +231,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
       handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
-    handleScrolling(direction);
+    handleContainerScrolling(direction, containerRef, selectedElement);
   };
 
   const positioningRef = tags ? wrapperRef : inputRef;
@@ -332,7 +295,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                       setHoveredItem={setHoveredItem}
                       handleSelect={handleSelect}
                       setOptionRef={setOptionRef}
-                      subtext={option.subtext}
                       textWeight="normal"
                       role="option"
                     />
@@ -361,6 +323,8 @@ TypeaheadWithForwardRef.propTypes = {
     PropTypes.exact({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
+      // eslint-disable-next-line react/no-unused-prop-types
+      subtext: PropTypes.string,
     })
   ).isRequired,
   placeholder: PropTypes.string,
