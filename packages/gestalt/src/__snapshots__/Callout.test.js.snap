@@ -21,7 +21,7 @@ exports[`<Callout /> Error Callout 1`] = `
       className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -97,7 +97,7 @@ exports[`<Callout /> Info Callout 1`] = `
       className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -173,7 +173,7 @@ exports[`<Callout /> Warning Callout 1`] = `
       className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -249,7 +249,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -419,7 +419,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -612,7 +612,7 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -737,7 +737,7 @@ exports[`<Callout /> message + title 1`] = `
       className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box marginBottom4 marginTop0 mdMarginBottomAuto mdMarginTopAuto"
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}

@@ -145,8 +145,8 @@ export default function Callout({
           <Box
             marginBottom={4}
             marginTop={0}
-            mdMarginBottom="auto"
-            mdMarginTop="auto"
+            smMarginBottom="auto"
+            smMarginTop="auto"
           >
             <Icon
               accessibilityLabel={iconAccessibilityLabel}
