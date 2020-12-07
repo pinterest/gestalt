@@ -208,12 +208,12 @@ export default function Upsell({
 
 Upsell.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.shape({
+  dismissButton: PropTypes.exact({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  imageData: PropTypes.shape({
+  imageData: PropTypes.exact({
     component: PropTypes.node.isRequired,
     mask: PropTypes.shape({
       rounding: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 'circle']),
