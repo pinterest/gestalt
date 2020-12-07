@@ -225,7 +225,7 @@ export default function Callout({
 
 Callout.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.shape({
+  dismissButton: PropTypes.exact({
     accessibilityLabel: PropTypes.string.isRequired,
     onDismiss: PropTypes.func.isRequired,
   }),
