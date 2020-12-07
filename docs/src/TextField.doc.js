@@ -90,6 +90,12 @@ card(
         defaultValue: 'md',
       },
       {
+        name: 'tags',
+        type: 'Array<React.Node>',
+        description: 'List of tags to display in the component',
+        href: 'tagExample',
+      },
+      {
         name: 'type',
         type: `"date" | "email" | "number" | "password" | "text" | "url"`,
         defaultValue: 'text',
@@ -193,6 +199,53 @@ function Example(props) {
       label="With an error message"
       value={value}
     />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="tagsExample"
+    name="Example: Tags"
+    description={`You can include \`Tag\`s in the input using the \`tags\` prop.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+  const [tags, setTags] = React.useState(['a@pinterest.com', 'b@pinterest.com']);
+  return (
+    <Box padding={2} color="white">
+      <TextField
+        id="emails"
+        label="Emails"
+        onChange={({value}) => {
+          const chunks = value.split(/[ ,;]+/);
+          if (chunks.length > 1) {
+            setTags([...tags, ...chunks.slice(0, -1)]);
+          }
+          setValue(chunks[chunks.length - 1]);
+        }}
+        onKeyDown={({event: {keyCode, target: {selectionEnd}}}) => {
+          if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
+            setTags([...tags.slice(0, -1)]);
+          }
+        }}
+        tags={tags.map((tag, idx) => (
+          <Tag
+            key={tag}
+            onRemove={() => {
+              const newTags = [...tags];
+              newTags.splice(idx, 1);
+              setTags([...newTags]);
+            }}
+            removeIconAccessibilityLabel="Remove"
+            text={tag}
+          />
+        ))}
+        value={value}
+      />
+    </Box>
   );
 }
 `}

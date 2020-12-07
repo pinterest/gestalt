@@ -2,10 +2,13 @@
 import React, { forwardRef, useState, type Node } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import Box from './Box.js';
+import focusStyles from './Focus.css';
 import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
+import Tag from './Tag.js';
 import layout from './Layout.css';
 import styles from './TextField.css';
 
@@ -40,6 +43,7 @@ type Props = {|
     value: string,
   |}) => void,
   placeholder?: string,
+  tags?: Array<Node>,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   size?: 'md' | 'lg',
   value?: string,
@@ -64,6 +68,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<
     onKeyDown,
     placeholder,
     size = 'md',
+    tags,
     type = 'text',
     value,
   } = props;
@@ -93,12 +98,15 @@ const TextFieldWithForwardRef: React$AbstractComponent<
     }
   };
 
-  const classes = classnames(
-    styles.textField,
+  const wrapperClasses = classnames(
+    styles.textFieldWrapper,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
-    hasError || errorMessage ? formElement.errored : formElement.normal,
-    size === 'md' ? layout.medium : layout.large
+    (hasError || errorMessage) && !focused
+      ? formElement.errored
+      : formElement.normal,
+    size === 'md' ? layout.medium : layout.large,
+    { [focusStyles.accessibilityOutlineFocus]: focused }
   );
 
   // type='number' doesn't work on ios safari without a pattern
@@ -108,24 +116,37 @@ const TextFieldWithForwardRef: React$AbstractComponent<
   return (
     <span>
       {label && <FormLabel id={id} label={label} />}
-      <input
-        aria-describedby={errorMessage && focused ? `${id}-error` : null}
-        aria-invalid={errorMessage || hasError ? 'true' : 'false'}
-        autoComplete={autoComplete}
-        className={classes}
-        disabled={disabled}
-        id={id}
-        name={name}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onKeyDown={handleKeyDown}
-        pattern={pattern}
-        placeholder={placeholder}
-        ref={ref}
-        type={type}
-        value={value}
-      />
+      <div className={wrapperClasses}>
+        {tags &&
+          tags.map((tag, tagIndex) => (
+            <Box
+              key={tagIndex}
+              marginStart={tagIndex === 0 ? 4 : 1}
+              marginTop={2}
+              marginBottom={2}
+            >
+              {tag}
+            </Box>
+          ))}
+        <input
+          aria-describedby={errorMessage && focused ? `${id}-error` : null}
+          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+          autoComplete={autoComplete}
+          className={styles.textField}
+          disabled={disabled}
+          id={id}
+          name={name}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onKeyDown={handleKeyDown}
+          pattern={pattern}
+          placeholder={placeholder}
+          ref={ref}
+          type={type}
+          value={value}
+        />
+      </div>
       {helperText && !errorMessage ? (
         <FormHelperText text={helperText} />
       ) : null}
@@ -156,6 +177,7 @@ TextFieldWithForwardRef.propTypes = {
   onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
+  tags: PropTypes.arrayOf(PropTypes.node),
   type: PropTypes.oneOf(['date', 'email', 'number', 'password', 'text', 'url']),
   value: PropTypes.string,
 };

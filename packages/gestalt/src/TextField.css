@@ -1,8 +1,20 @@
 .textField {
-  composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
-  composes: xsCol12 from "./Column.css";
+  appearance: none;
+  border: none;
+  border-radius: 16px;
   padding: 8px 16px;
+  width: 100%;
+}
+
+.textField:focus {
+  outline: 0;
+}
+
+.textFieldWrapper {
+  composes: borderBox from "./Layout.css";
+  composes: xsCol12 from "./Column.css";
+  display: flex;
 }
 
 .textField::placeholder {
