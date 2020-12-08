@@ -62,12 +62,12 @@ export default function Tag(props: Props): Node {
 
   return (
     <Box
+      aria-disabled={disabled}
       borderStyle={disabled && !errorMessage ? 'sm' : 'none'}
       color={bgColor}
       display="inlineBlock"
       height={32}
       rounding={2}
-      aria-disabled={disabled}
     >
       <Flex alignItems="center" height="100%">
         {errorMessage && (
@@ -80,12 +80,8 @@ export default function Tag(props: Props): Node {
             />
           </Box>
         )}
-        <Box
-          marginStart={2}
-          marginEnd={disabled ? 2 : 1}
-          dangerouslySetInlineStyle={{ __style: { marginBottom: 1 } }}
-        >
-          <Text color={fgColor} size="md">
+        <Box marginStart={2} marginEnd={disabled ? 2 : 1}>
+          <Text color={fgColor} inline size="md">
             {text}
           </Text>
         </Box>

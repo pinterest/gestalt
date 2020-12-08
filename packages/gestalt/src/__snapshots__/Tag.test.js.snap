@@ -20,17 +20,12 @@ exports[`Tag renders 1`] = `
   >
     <div
       className="box marginEnd1 marginStart2"
-      style={
-        Object {
-          "marginBottom": 1,
-        }
-      }
     >
-      <div
+      <span
         className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
       >
         New
-      </div>
+      </span>
     </div>
     <button
       className="button lightGray hideOutline tapTransition accessibilityOutline"
@@ -75,17 +70,12 @@ exports[`Tag renders a disabled tag 1`] = `
   >
     <div
       className="box marginEnd2 marginStart2"
-      style={
-        Object {
-          "marginBottom": 1,
-        }
-      }
     >
-      <div
+      <span
         className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
       >
         New
-      </div>
+      </span>
     </div>
   </div>
 </div>
@@ -128,17 +118,12 @@ exports[`Tag renders a tag with an error state 1`] = `
     </div>
     <div
       className="box marginEnd1 marginStart2"
-      style={
-        Object {
-          "marginBottom": 1,
-        }
-      }
     >
-      <div
+      <span
         className="Text fontSize2 white alignLeft breakWord fontWeightNormal"
       >
         New
-      </div>
+      </span>
     </div>
     <button
       className="button red hideOutline tapTransition accessibilityOutline"
