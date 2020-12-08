@@ -1,3 +1,9 @@
+## 15.4.0 (Dec 8, 2020)
+
+### Minor
+
+- Upsell: Add image prop (#1298)
+
 ## 15.3.0 (Dec 2, 2020)
 
 ### Minor
