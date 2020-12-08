@@ -1,3 +1,9 @@
+## 15.5.0 (Dec 8, 2020)
+
+### Minor
+
+- Callout: Responsiveness updates (#1304)
+
 ## 15.4.0 (Dec 8, 2020)
 
 ### Minor
