@@ -40,6 +40,17 @@ card(
         href: '',
       },
       {
+        name: 'imageData',
+        type:
+          '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
+        required: false,
+        defaultValue: null,
+        description: [
+          'Either <Image /> or <Icon /> to render on left side of banner. Width is not used with Icon. Image width defaults to 128 px. Max width of image is 128 px.',
+        ],
+        href: 'Image',
+      },
+      {
         name: 'primaryLink',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
@@ -113,6 +124,55 @@ card(
   }}
 />
   `}
+  />
+);
+
+card(
+  <Example
+    name="Icon"
+    defaultCode={`
+<Upsell
+  title="Give $30, get $60 in ads credit"
+  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+  primaryLink={{href: "https://pinterest.com", label:"Send invite"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  imageData={{
+    component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+  }}
+/>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Image"
+    defaultCode={`
+<Upsell
+  title="Stay healthy and safe"
+  message="Check out our resources for adapting to these times."
+  primaryLink={{href: "https://pinterest.com", label:"Visit"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  imageData={{
+      component: 
+        <Image
+          alt="Check out our resources for adapting to these times."
+          color="rgb(231, 186, 176)"
+          naturalHeight={751}
+          naturalWidth={564}
+          src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+        />,
+        mask: {rounding: 4},
+      width: 128,
+    }}
+/>
+`}
   />
 );
 
