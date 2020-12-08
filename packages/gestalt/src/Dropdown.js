@@ -1,5 +1,13 @@
 // @flow strict
-import React, { useState, useRef, type Node } from 'react';
+import React, {
+  useState,
+  useRef,
+  type Node,
+  type ComponentType,
+  type ElementType,
+  type ElementProps,
+  type ChildrenArray,
+} from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
@@ -8,6 +16,10 @@ import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 import handleScrolling from './utils/keyboardNavigation.js';
 
+type ItemProps = {|
+  props: Object, // flowlint-line unclear-type:off
+  type: Object, // flowlint-line unclear-type:off
+|};
 type OptionObject = {|
   label: string,
   value: string,
@@ -15,7 +27,7 @@ type OptionObject = {|
 |};
 type Props = {|
   anchor?: ?HTMLElement,
-  children: Array<Node>,
+  children: ComponentType<any>, // flowlint-line unclear-type:off
   headerContent?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -35,18 +47,34 @@ export default function Dropdown({
   onDismiss,
   onSelect,
 }: Props): Node {
-  const getFlattenedChildren = (dropdownChildren: Array<Node>) => {
+  const getFlattenedChildren = (
+    dropdownChildren: ComponentType<{|
+      props: Object, // flowlint-line unclear-type:off
+      type: {| name: string |},
+    |}>[]
+  ) => {
     const items = [];
-    for (let i = 0; i < dropdownChildren.length; i += 1) {
-      if (
-        dropdownChildren[i].props.children &&
-        dropdownChildren[i].type.name === 'DropdownSection'
-      ) {
-        items.push(dropdownChildren[i].props.children);
-      } else if (dropdownChildren[i].type.name === 'DropdownItem') {
-        items.push(dropdownChildren[i]);
+
+    dropdownChildren.forEach((child) => {
+      if (child.props.children && child.type.name === 'DropdownSection') {
+        items.push(child.props.children);
       }
-    }
+      if (child.type.name === 'DropdownItem') {
+        items.push(child);
+      }
+    });
+
+    // for (let i = 0; i < dropdownChildren.length; i += 1) {
+    //   if (
+    //     dropdownChildren[i].props.children &&
+    //     dropdownChildren[i].type.name === 'DropdownSection'
+    //   ) {
+    //     items.push(dropdownChildren[i].props.children);
+    //   } else if (dropdownChildren[i].type.name === 'DropdownItem') {
+    //     console.log(dropdownChildren[i]);
+    //     items.push(dropdownChildren[i]);
+    //   }
+    // }
     return items.flat();
   };
 
@@ -153,7 +181,7 @@ export default function Dropdown({
     });
   };
 
-  const renderDropdownChildren = (dropdownChildren: Array<Node>) => {
+  const renderDropdownChildren = (dropdownChildren: Array<ElementType>) => {
     let numItemsRendered = 0;
     const items = [];
     const props = {

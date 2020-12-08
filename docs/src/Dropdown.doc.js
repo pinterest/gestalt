@@ -40,7 +40,7 @@ card(
 
     `}
     defaultCode={`
-function IconButtonDropdownExample() {
+function MenuButtonDropdownExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorRef = React.useRef(null);

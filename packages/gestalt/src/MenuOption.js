@@ -119,22 +119,24 @@ export default function MenuOption({
           </Box>
         )}
       </Flex>
-      {isSelectedItem && !isExternal && (
-        <Box
-          display="flex"
-          color="transparent"
-          justifyContent="center"
-          alignItems="center"
-          marginStart={2}
-        >
+      <Box
+        display={!isExternal ? 'flex' : 'none'}
+        color="transparent"
+        justifyContent="center"
+        alignItems="center"
+        marginStart={2}
+      >
+        {isSelectedItem && !isExternal ? (
           <Icon
-            accessibilityLabel="selected item"
+            accessibilityLabel="Selected item"
             color="darkGray"
             icon="check"
             size={12}
           />
-        </Box>
-      )}
+        ) : (
+          <Box width={12} />
+        )}
+      </Box>
       {isExternal && (
         <Box
           display="flex"
