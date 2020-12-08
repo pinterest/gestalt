@@ -31,4 +31,15 @@ describe('Tag', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('clips long strings', () => {
+    const tree = create(
+      <Tag
+        text="The quick brown fox jumps over the lazy dog"
+        onRemove={() => {}}
+        removeIconAccessibilityLabel="Remove"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

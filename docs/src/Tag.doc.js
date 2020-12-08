@@ -100,4 +100,24 @@ function Example(props) {
   `}
   />
 );
+
+card(
+  <Example
+    description="Tags have a max width of 300px, and will clip longer text"
+    name="Max width"
+    defaultCode={`
+function Example(props) {
+  const [showTag, setShowTag] = React.useState(true);
+  return showTag ? (
+    <Tag
+      onRemove={() => setShowTag(false)}
+      removeIconAccessibilityLabel="Remove"
+      text="The quick brown fox jumps over the lazy dog"
+    />
+  ) : null;
+}
+  `}
+  />
+);
+
 export default cards;

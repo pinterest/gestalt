@@ -9,6 +9,7 @@ import Icon from './Icon.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import touchableStyles from './Touchable.css';
+import typographyStyles from './Typography.css';
 import styles from './Tag.css';
 
 type Props = {|
@@ -67,38 +68,41 @@ export default function Tag(props: Props): Node {
       color={bgColor}
       display="inlineBlock"
       height={32}
+      maxWidth={300}
       rounding={2}
     >
       <Flex alignItems="center" height="100%">
-        {errorMessage && (
-          <Box marginStart={2}>
+        <Box marginStart={errorMessage ? 2 : 0} marginEnd={2}>
+          {errorMessage && (
             <Icon
               accessibilityLabel={errorMessage}
               color={fgColor}
               icon="workflow-status-problem"
               size={12}
             />
-          </Box>
-        )}
-        <Box marginStart={2} marginEnd={disabled ? 2 : 1}>
+          )}
+        </Box>
+        <div className={typographyStyles.truncate} title={text}>
           <Text color={fgColor} inline size="md">
             {text}
           </Text>
+        </div>
+        <Box marginStart={disabled ? 2 : 1}>
+          {!disabled && (
+            <button
+              className={removeIconClasses}
+              onClick={onRemove}
+              type="button"
+            >
+              <Icon
+                accessibilityLabel={removeIconAccessibilityLabel}
+                color={fgColor}
+                icon="cancel"
+                size={8}
+              />
+            </button>
+          )}
         </Box>
-        {!disabled && (
-          <button
-            className={removeIconClasses}
-            onClick={onRemove}
-            type="button"
-          >
-            <Icon
-              accessibilityLabel={removeIconAccessibilityLabel}
-              color={fgColor}
-              icon="cancel"
-              size={8}
-            />
-          </button>
-        )}
       </Flex>
     </Box>
   );
