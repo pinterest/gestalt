@@ -16,8 +16,8 @@ type OptionProps = {|
   isExternal?: boolean,
   /* the option with value and label */
   option: OptionObject,
-  selected?: OptionObject | null,
-  handleSelect: ({|
+  selected?: OptionObject | Array<OptionObject> | null,
+  handleSelect?: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
@@ -32,7 +32,7 @@ export default function DropdownItem({
   children,
   handleSelect,
   hoveredItem,
-  index,
+  index = 0,
   isExternal,
   option,
   selected,
@@ -42,6 +42,7 @@ export default function DropdownItem({
 }: OptionProps): Node {
   return (
     <MenuOption
+      key={`${option.value + index}`}
       badgeText={badgeText}
       handleSelect={handleSelect}
       hoveredItem={hoveredItem}
@@ -65,20 +66,29 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   badgeText: PropTypes.string,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number,
   isExternal: PropTypes.bool,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  option: PropTypes.exact({
+  option: PropTypes.shape({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
   }).isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  selected: PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    subtext: PropTypes.string,
-  }),
+  selected: PropTypes.oneOfType([
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      subtext: PropTypes.string,
+    }),
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        subtext: PropTypes.string,
+      })
+    ),
+  ]),
   handleSelect: PropTypes.func,
   hoveredItem: PropTypes.number,
   setHoveredItem: PropTypes.func,

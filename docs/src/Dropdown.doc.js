@@ -1,5 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
+import { Dropdown } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -15,13 +16,206 @@ card(
 );
 
 card(
+  <Example
+    id="default"
+    name="Basic Example"
+    showHeading={false}
+    showCode={false}
+    defaultCode={`
+      function MenuButtonDropdownExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState(null);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({item}) => {
+          setSelected(item);
+        };
+
+        return (
+          <Box display="flex" justifyContent="center">
+            <Button
+              accessibilityHaspopup
+              iconEnd="arrow-down"
+              text="Menu"
+              inline
+              ref={anchorRef}
+              selected={open}
+              onClick={() => { setOpen(!open) } }
+            />
+            {open && (
+              <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{'value': 'item 1', 'label': 'Item 1'}}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{'value': 'item 2', 'label': 'Item 2 with a really long, detailed, complex name'}}
+                />
+                <Dropdown.Item
+                  isExternal
+                  url="https://pinterest.com"
+                  option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name'}}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{'value': 'item 4', 'label': 'Item 4'}}
+                />
+                <Dropdown.Item
+                  isExternal
+                  badgeText="New"
+                  option={{'value': 'item 5', 'label': 'Item 5 with a really long, detailed name'}}
+                  url="https://pinterest.com"
+                />
+                <Dropdown.Item
+                  isExternal
+                  option={{'value': 'item 6', 'label': 'Item 6'}}
+                  url="https://pinterest.com"
+                />
+              </Dropdown>
+            )}
+          </Box>
+        );
+      }`}
+  />
+);
+
+card(
   <PropTable
+    Component={Dropdown}
+    name="Dropdown"
+    id="Dropdown"
     props={[
       {
-        name: 'TODO',
+        name: 'anchor',
+        type: '?HTMLElement',
+        description: 'Ref for the element that the Dropdown will attach to',
+        href: 'default',
+      },
+      {
+        name: 'children',
+        required: true,
+        type: 'React.Node',
+        description:
+          'Should consist of Dropdown.Item and/or Dropdown.Section components',
+        href: 'default',
+      },
+      {
+        name: 'headerContent',
+        type: 'React.Node',
+        description:
+          'Content to display at the top of the Dropdown before any items or sections',
+        href: 'customHeader',
+      },
+      {
+        name: 'idealDirection',
+        type: `'up' | 'right' | 'down' | 'left'`,
+        description: 'Preferred direction for the Dropdown to open',
+        defaultValue: 'down',
+        href: 'default',
+      },
+      {
+        name: 'onDismiss',
+        type: '() => void',
+        required: true,
+        href: 'default',
+      },
+      {
+        name: 'onSelect',
+        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        required: false,
+        description: 'Callback when you select an item',
+        href: 'default',
+      },
+    ]}
+  />
+);
+
+card(
+  <PropTable
+    Component={Dropdown.Item}
+    name="Dropdown.Item"
+    id="Dropdown.Item"
+    props={[
+      {
+        name: 'badgeText',
         type: 'string',
         description:
-          'String that clients such as VoiceOver will read to describe the element.',
+          "When supplied, will display a Badge next to the item's label.",
+        href: 'default',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
+        description:
+          'If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link, such as supporting React Router.',
+        href: 'withCustomItemContent',
+      },
+      {
+        name: 'isExternal',
+        type: 'boolean',
+        description:
+          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source.',
+        href: 'default',
+      },
+      {
+        name: 'option',
+        type: 'Object: {label: string, value: string, subtext: string}',
+        required: true,
+        description:
+          'Object detailing the label, value, and (optional) subtext for this item.',
+        href: 'withSubtext',
+      },
+      {
+        name: 'selected',
+        type:
+          'Object: {label: string, value: string, subtext: string} || Array<{label: string, value: string, subtext: string}>',
+        description:
+          'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item',
+        href: 'default',
+      },
+      {
+        name: 'handleSelect',
+        type:
+          '({ event: SyntheticInputEvent<>, item: {label: string, value: string, subtext: string} }) => void',
+        required: true,
+        description: 'Callback when you select an item',
+        href: 'default',
+      },
+      {
+        name: 'url',
+        type: 'string',
+        required: false,
+        description:
+          'When supplied, surrounds the item in a Link, and directs users to the url when item is selected.',
+        href: 'default',
+      },
+    ]}
+  />
+);
+
+card(
+  <PropTable
+    Component={Dropdown.Section}
+    name="Dropdown.Section"
+    id="Dropdown.Section"
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+        required: true,
+        description: 'Any Dropdown.Items to be rendered',
+        href: 'withSections',
+      },
+      {
+        name: 'label',
+        type: 'string',
+        required: true,
+        description: 'Label for the section',
+        href: 'withSections',
       },
     ]}
   />
@@ -30,7 +224,7 @@ card(
 card(
   <Example
     id="default"
-    name="Default"
+    name="Basic Example"
     description={`
       A Dropdown can be attached to a Button, IconButton, or Textfield using the \`anchor\` prop and is composed of multiple Dropdown Items.
 
@@ -40,64 +234,64 @@ card(
 
     `}
     defaultCode={`
-function MenuButtonDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    setSelected(item);
-  };
+      function MenuButtonDropdownExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState(null);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({item}) => {
+          setSelected(item);
+        };
 
-  return (
-    <Box display="flex" justifyContent="center">
-      <Button
-        accessibilityHaspopup
-        iconEnd="arrow-down"
-        text="Menu"
-        inline
-        ref={anchorRef}
-        selected={open}
-        onClick={() => { setOpen(!open) } }
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{'value': 'item 1', 'label': 'Item 1'}}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{'value': 'item 2', 'label': 'Item 2 with a really long, detailed, complex name'}}
-          />
-          <Dropdown.Item
-            isExternal
-            url="https://pinterest.com"
-            option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name'}}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            badgeText="New"
-            option={{'value': 'item 4', 'label': 'Item 4'}}
-          />
-          <Dropdown.Item
-            isExternal
-            badgeText="New"
-            option={{'value': 'item 5', 'label': 'Item 5 with a really long, detailed name'}}
-            url="https://pinterest.com"
-          />
-          <Dropdown.Item
-            isExternal
-            option={{'value': 'item 6', 'label': 'Item 6'}}
-            url="https://pinterest.com"
-          />
-        </Dropdown>
-      )}
-    </Box>
-  );
-}`}
+        return (
+          <Box display="flex" justifyContent="center">
+            <Button
+              accessibilityHaspopup
+              iconEnd="arrow-down"
+              text="Menu"
+              inline
+              ref={anchorRef}
+              selected={open}
+              onClick={() => { setOpen(!open) } }
+            />
+            {open && (
+              <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{'value': 'item 1', 'label': 'Item 1'}}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{'value': 'item 2', 'label': 'Item 2 with a really long, detailed, complex name'}}
+                />
+                <Dropdown.Item
+                  isExternal
+                  url="https://pinterest.com"
+                  option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name'}}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{'value': 'item 4', 'label': 'Item 4'}}
+                />
+                <Dropdown.Item
+                  isExternal
+                  badgeText="New"
+                  option={{'value': 'item 5', 'label': 'Item 5 with a really long, detailed name'}}
+                  url="https://pinterest.com"
+                />
+                <Dropdown.Item
+                  isExternal
+                  option={{'value': 'item 6', 'label': 'Item 6'}}
+                  url="https://pinterest.com"
+                />
+              </Dropdown>
+            )}
+          </Box>
+        );
+      }`}
   />
 );
 
@@ -109,82 +303,82 @@ card(
       A Dropdown can also be composed of Dropdown Sections, which simply require a \`label\`. Dropdown Sections and Dropdown Items can be mixed as needed.
     `}
     defaultCode={`
-function IconButtonDropdownExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState([]);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    if(selected.some(selectedItem => selectedItem.value === item.value )) {
-      let updatedSelectedItems = selected.filter(selectedItem => selectedItem.value != item.value);
-      setSelected(selected => updatedSelectedItems);
-    } else {
-      setSelected(selected => [...selected, item]);
-    }
-  };
+      function IconButtonDropdownExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState([]);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({item}) => {
+          if(selected.some(selectedItem => selectedItem.value === item.value )) {
+            let updatedSelectedItems = selected.filter(selectedItem => selectedItem.value != item.value);
+            setSelected(selected => updatedSelectedItems);
+          } else {
+            setSelected(selected => [...selected, item]);
+          }
+        };
 
-  return (
-    <Box display="flex" justifyContent="center">
-      <IconButton
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        icon="arrow-down"
-        selected={open}
-        onClick={() => { setOpen(!open) } }
-        ref={anchorRef}
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
-        <Dropdown.Section label="Sort by">
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{ value: 'item 1', label: 'Item 1' }}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{
-              value: 'item 2',
-              label:
-                'Item 2 with a really long, detailed, complex name',
-            }}
-          />
-        </Dropdown.Section>
-        <Dropdown.Section label="View options">
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            isExternal
-            url="https://pinterest.com"
-            option={{
-              value: 'item 3',
-              label:
-                'External Item 3 with a really long, detailed, complex name',
-            }}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            badgeText="New"
-            option={{ value: 'item 4', label: 'Item 4' }}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            isExternal
-            url="https://pinterest.com"
-            badgeText="New"
-            option={{
-              value: 'item 5',
-              label: 'Item 5 with a really long name is a new item!',
-            }}
-          />
-        </Dropdown.Section>
-      </Dropdown>
-      )}
-    </Box>
-  );
-}`}
+        return (
+          <Box display="flex" justifyContent="center">
+            <IconButton
+              accessibilityHaspopup
+              accessibilityLabel="More Options"
+              icon="arrow-down"
+              selected={open}
+              onClick={() => { setOpen(!open) } }
+              ref={anchorRef}
+            />
+            {open && (
+              <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+              <Dropdown.Section label="Sort by">
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{ value: 'item 1', label: 'Item 1' }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{
+                    value: 'item 2',
+                    label:
+                      'Item 2 with a really long, detailed, complex name',
+                  }}
+                />
+              </Dropdown.Section>
+              <Dropdown.Section label="View options">
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  isExternal
+                  url="https://pinterest.com"
+                  option={{
+                    value: 'item 3',
+                    label:
+                      'External Item 3 with a really long, detailed, complex name',
+                  }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{ value: 'item 4', label: 'Item 4' }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  isExternal
+                  url="https://pinterest.com"
+                  badgeText="New"
+                  option={{
+                    value: 'item 5',
+                    label: 'Item 5 with a really long name is a new item!',
+                  }}
+                />
+              </Dropdown.Section>
+            </Dropdown>
+            )}
+          </Box>
+        );
+      }`}
   />
 );
 
@@ -196,80 +390,80 @@ card(
       A Dropdown can also contain a custom header by specifying \`headerContent\`, which always appears at the very top of the menu.
     `}
     defaultCode={`
-function ButtonFlyoutExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    setSelected(item);
-  };
+      function ButtonFlyoutExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState(null);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({item}) => {
+          setSelected(item);
+        };
 
-  return (
-    <Box display="flex" justifyContent="center">
-    <Button
-      accessibilityHaspopup
-      iconEnd="arrow-down"
-      text="Menu"
-      inline
-      ref={anchorRef}
-      selected={open}
-      onClick={() => { setOpen(!open) } }
-    />
-      {open && (
-        <Dropdown
-          anchor={anchorRef.current}
-          headerContent={
-            <Text align="left" size="sm">
-              This Pin was inspired by your <Text weight="bold" size="sm">
-                <Link href="https://pinterest.com">recent activity</Link>
-              </Text></Text>
-          }
-          onDismiss={() => {setOpen(false)}}
-        >
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{ value: 'item 1', label: 'Hide Pin' }}
+        return (
+          <Box display="flex" justifyContent="center">
+          <Button
+            accessibilityHaspopup
+            iconEnd="arrow-down"
+            text="Menu"
+            inline
+            ref={anchorRef}
+            selected={open}
+            onClick={() => { setOpen(!open) } }
           />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{
-              value: 'item 2',
-              label:
-                'Report Pin',
-            }}
-          />
-        <Dropdown.Section label="View options">
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{
-              value: 'item 3',
-              label:
-                'Default',
-            }}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            badgeText="New"
-            option={{ value: 'item 4', label: 'Compact' }}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{
-              value: 'item 5',
-              label: 'List',
-            }}
-          />
-        </Dropdown.Section>
-      </Dropdown>
-      )}
-    </Box>
-  );
-}`}
+            {open && (
+              <Dropdown
+                anchor={anchorRef.current}
+                headerContent={
+                  <Text align="left" size="sm">
+                    This Pin was inspired by your <Text weight="bold" size="sm">
+                      <Link href="https://pinterest.com">recent activity</Link>
+                    </Text></Text>
+                }
+                onDismiss={() => {setOpen(false)}}
+              >
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{ value: 'item 1', label: 'Hide Pin' }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{
+                    value: 'item 2',
+                    label:
+                      'Report Pin',
+                  }}
+                />
+              <Dropdown.Section label="View options">
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{
+                    value: 'item 3',
+                    label:
+                      'Default',
+                  }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{ value: 'item 4', label: 'Compact' }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{
+                    value: 'item 5',
+                    label: 'List',
+                  }}
+                />
+              </Dropdown.Section>
+            </Dropdown>
+            )}
+          </Box>
+        );
+      }`}
   />
 );
 
@@ -281,58 +475,58 @@ card(
       Each Dropdown Item can also contain \`subtext\` below the label. This \`subtext\` will wrap if needed.
     `}
     defaultCode={`
-function IconButtonFlyoutExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    setSelected(item);
-  };
+      function IconButtonFlyoutExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState(null);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({item}) => {
+          setSelected(item);
+        };
 
-  return (
-    <Box display="flex" justifyContent="center">
-      <IconButton
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        selected={open}
-        icon="add"
-        onClick={() => { setOpen(!open) } }
-        ref={anchorRef}
-      />
-      {open && (
-        <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{'value': 'item 1', 'label': 'Item 1', 'subtext': 'Created Dec. 2020'}}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            option={{'value': 'item 2', 'label': 'Item 2 with a really long, detailed, complex name'}}
-          />
-          <Dropdown.Item
-            isExternal
-            url="https://pinterest.com"
-            option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name', 'subtext': 'Extra subtext details'}}
-          />
-          <Dropdown.Item
-            handleSelect={handleSelect}
-            selected={selected}
-            badgeText="New"
-            option={{'value': 'item 4', 'label': 'Item 4', 'subtext': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}}
-          />
-          <Dropdown.Item
-            isExternal
-            badgeText="New"
-            option={{'value': 'item 5', 'label': 'Item 5 with a really long name is a new item!'}}
-            url="https://pinterest.com"
-          />
-        </Dropdown>
-      )}
-    </Box>
-  );
-}`}
+        return (
+          <Box display="flex" justifyContent="center">
+            <IconButton
+              accessibilityHaspopup
+              accessibilityLabel="More Options"
+              selected={open}
+              icon="add"
+              onClick={() => { setOpen(!open) } }
+              ref={anchorRef}
+            />
+            {open && (
+              <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{'value': 'item 1', 'label': 'Item 1', 'subtext': 'Created Dec. 2020'}}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{'value': 'item 2', 'label': 'Item 2 with a really long, detailed, complex name'}}
+                />
+                <Dropdown.Item
+                  isExternal
+                  url="https://pinterest.com"
+                  option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name', 'subtext': 'Extra subtext details'}}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{'value': 'item 4', 'label': 'Item 4', 'subtext': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}}
+                />
+                <Dropdown.Item
+                  isExternal
+                  badgeText="New"
+                  option={{'value': 'item 5', 'label': 'Item 5 with a really long name is a new item!'}}
+                  url="https://pinterest.com"
+                />
+              </Dropdown>
+            )}
+          </Box>
+        );
+      }`}
   />
 );
 
@@ -346,70 +540,70 @@ card(
       To ensure the entire width of the item is clickable, you will likely need to surround you custom content with a full-width Box.
     `}
     defaultCode={`
-function IconButtonFlyoutExample() {
-  const [open, setOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState(null);
-  const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    setSelected(item);
-  };
+      function IconButtonFlyoutExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState(null);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({item}) => {
+          setSelected(item);
+        };
 
-  return (
-    <Box display="flex" justifyContent="center">
-      <IconButton
-        accessibilityHaspopup
-        accessibilityLabel="More Options"
-        selected={open}
-        icon="add"
-        onClick={() => { setOpen(!open) } }
-        ref={anchorRef}
-      />
-      {open && (
-        <Dropdown
-          anchor={anchorRef.current}
-          onDismiss={() => {setOpen(false)}}
-        >
-          <Dropdown.Item
-            isExternal
-            option={{ value: 'item 1', label: 'Custom link 1' }}
-            handleSelect={handleSelect}
-            selected={selected}
-          >
-            <Box width={"100%"}>
-              <Text>
-                <Link
-                  hoverStyle="none"
-                  href="https://pinterest.com"
-                  target="blank"
+        return (
+          <Box display="flex" justifyContent="center">
+            <IconButton
+              accessibilityHaspopup
+              accessibilityLabel="More Options"
+              selected={open}
+              icon="add"
+              onClick={() => { setOpen(!open) } }
+              ref={anchorRef}
+            />
+            {open && (
+              <Dropdown
+                anchor={anchorRef.current}
+                onDismiss={() => {setOpen(false)}}
+              >
+                <Dropdown.Item
+                  isExternal
+                  option={{ value: 'item 1', label: 'Custom link 1' }}
+                  handleSelect={handleSelect}
+                  selected={selected}
                 >
-                  Custom link 1
-                </Link>
-              </Text>
-            </Box>
-          </Dropdown.Item>
-          <Dropdown.Item
-            isExternal
-            option={{ value: 'item 2', label: 'Another custom link' }}
-            handleSelect={handleSelect}
-            selected={selected}
-          >
-            <Box width={"100%"}>
-              <Text>
-                <Link
-                  hoverStyle="none"
-                  href="https://google.com"
-                  target="blank"
+                  <Box width={"100%"}>
+                    <Text>
+                      <Link
+                        hoverStyle="none"
+                        href="https://pinterest.com"
+                        target="blank"
+                      >
+                        Custom link 1
+                      </Link>
+                    </Text>
+                  </Box>
+                </Dropdown.Item>
+                <Dropdown.Item
+                  isExternal
+                  option={{ value: 'item 2', label: 'Another custom link' }}
+                  handleSelect={handleSelect}
+                  selected={selected}
                 >
-                  Another custom link
-                </Link>
-              </Text>
-            </Box>
-          </Dropdown.Item>
-        </Dropdown>
-      )}
-    </Box>
-  );
-}`}
+                  <Box width={"100%"}>
+                    <Text>
+                      <Link
+                        hoverStyle="none"
+                        href="https://google.com"
+                        target="blank"
+                      >
+                        Another custom link
+                      </Link>
+                    </Text>
+                  </Box>
+                </Dropdown.Item>
+              </Dropdown>
+            )}
+          </Box>
+        );
+      }`}
   />
 );
 

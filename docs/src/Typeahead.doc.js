@@ -20,7 +20,7 @@ card(
         name: 'options',
         type: 'Array<{ label: string, value: string }>',
         description:
-          'The data much be an array with objects containing only label and value properties',
+          'The data must be an array with objects containing only label and value properties',
         required: true,
         href: 'basicExample',
       },

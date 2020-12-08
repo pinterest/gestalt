@@ -1,13 +1,6 @@
 // @flow strict
-import React, {
-  useState,
-  useRef,
-  type Node,
-  type ComponentType,
-  type ElementType,
-  type ElementProps,
-  type ChildrenArray,
-} from 'react';
+// flowlint unclear-type:off
+import React, { useState, useRef, type Node, type ComponentType } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
@@ -16,10 +9,6 @@ import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 import handleScrolling from './utils/keyboardNavigation.js';
 
-type ItemProps = {|
-  props: Object, // flowlint-line unclear-type:off
-  type: Object, // flowlint-line unclear-type:off
-|};
 type OptionObject = {|
   label: string,
   value: string,
@@ -27,7 +16,7 @@ type OptionObject = {|
 |};
 type Props = {|
   anchor?: ?HTMLElement,
-  children: ComponentType<any>, // flowlint-line unclear-type:off
+  children: Array<Object>,
   headerContent?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -43,38 +32,28 @@ export default function Dropdown({
   anchor,
   children,
   headerContent,
-  idealDirection,
+  idealDirection = 'down',
   onDismiss,
   onSelect,
 }: Props): Node {
   const getFlattenedChildren = (
     dropdownChildren: ComponentType<{|
-      props: Object, // flowlint-line unclear-type:off
+      props: Object,
       type: {| name: string |},
     |}>[]
   ) => {
-    const items = [];
-
-    dropdownChildren.forEach((child) => {
+    const items = dropdownChildren.map((child) => {
+      // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
       if (child.props.children && child.type.name === 'DropdownSection') {
-        items.push(child.props.children);
+        return child.props.children;
       }
+      // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
       if (child.type.name === 'DropdownItem') {
-        items.push(child);
+        return child;
       }
+      return null;
     });
 
-    // for (let i = 0; i < dropdownChildren.length; i += 1) {
-    //   if (
-    //     dropdownChildren[i].props.children &&
-    //     dropdownChildren[i].type.name === 'DropdownSection'
-    //   ) {
-    //     items.push(dropdownChildren[i].props.children);
-    //   } else if (dropdownChildren[i].type.name === 'DropdownItem') {
-    //     console.log(dropdownChildren[i]);
-    //     items.push(dropdownChildren[i]);
-    //   }
-    // }
     return items.flat();
   };
 
@@ -113,11 +92,15 @@ export default function Dropdown({
       cursorIndex = optionsCount;
     }
 
+    // $FlowFixMe[incompatible-use] flow 0.135.0 upgrade
+    // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
     const newItem = availableOptions[cursorIndex].props.option;
     setHoveredItem(cursorIndex);
 
     if (direction === KEYS.ENTER) {
       if (onSelect) onSelect({ event, item: newItem });
+      // $FlowFixMe[incompatible-use] flow 0.135.0 upgrade
+      // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
       if (availableOptions[cursorIndex].props.handleSelect)
         availableOptions[cursorIndex].props.handleSelect({
           event,
@@ -175,13 +158,14 @@ export default function Dropdown({
       };
       if (React.isValidElement(child)) {
         const index = idx + idxBase;
-        return React.cloneElement(child, { ...props, index });
+        const key = `option-${index}`;
+        return React.cloneElement(child, { ...props, index, key });
       }
       return child;
     });
   };
 
-  const renderDropdownChildren = (dropdownChildren: Array<ElementType>) => {
+  const renderDropdownChildren = (dropdownChildren: Array<Object>) => {
     let numItemsRendered = 0;
     const items = [];
     const props = {
@@ -189,29 +173,27 @@ export default function Dropdown({
       setHoveredItem,
       setOptionRef,
     };
-    for (let i = 0; i < dropdownChildren.length; i += 1) {
-      if (
-        dropdownChildren[i].props.children &&
-        dropdownChildren[i].type.name === 'DropdownSection'
-      ) {
+
+    dropdownChildren.forEach((child: Object, index) => {
+      if (child.props.children && child.type.name === 'DropdownSection') {
+        const key = `section-${child.props.label}`;
         items.push(
-          React.cloneElement(dropdownChildren[i], {
+          React.cloneElement(child, {
             children: renderDropdownItems(
-              dropdownChildren[i].props.children,
+              child.props.children,
               numItemsRendered
             ),
+            key,
           })
         );
-        numItemsRendered += dropdownChildren[i].props.children.length;
-      } else if (React.isValidElement(dropdownChildren[i])) {
-        const index = i;
-
-        items.push(
-          React.cloneElement(dropdownChildren[i], { ...props, index })
-        );
+        numItemsRendered += child.props.children.length;
+      } else if (React.isValidElement(child)) {
+        const key = `option-${index}`;
+        items.push(React.cloneElement(child, { ...props, index, key }));
         numItemsRendered += 1;
       }
-    }
+    });
+
     return items;
   };
 
@@ -221,7 +203,7 @@ export default function Dropdown({
         anchor={anchor}
         color="white"
         handleKeyDown={handleKeyDown}
-        idealDirection={idealDirection || 'down'}
+        idealDirection={idealDirection}
         onDismiss={onDismiss}
         positionRelativeToAnchor={false}
         size="xl"

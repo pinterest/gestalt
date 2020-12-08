@@ -13,6 +13,7 @@ type Props = {|
   id?: string,
   name: string,
   showHeading?: boolean,
+  showCode?: boolean,
   headingSize?: 'sm' | 'md',
 |};
 
@@ -25,6 +26,7 @@ const Example = ({
   name,
   headingSize,
   showHeading,
+  showCode = true,
 }: Props): Node => {
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
@@ -46,9 +48,11 @@ const Example = ({
             </Box>
           </Box>
 
-          <Box paddingX={2}>
-            <ExampleCode code={code} name={name} />
-          </Box>
+          {showCode && (
+            <Box paddingX={2}>
+              <ExampleCode code={code} name={name} />
+            </Box>
+          )}
         </Box>
 
         <Box padding={2}>

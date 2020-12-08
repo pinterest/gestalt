@@ -25,7 +25,7 @@ type OptionProps = {|
   index: number,
   option: OptionObject,
   selected?: OptionObject | Array<OptionObject> | null,
-  handleSelect: ({|
+  handleSelect?: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
@@ -207,11 +207,20 @@ MenuOption.propTypes = {
     subtext: PropTypes.string,
   }).isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  selected: PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    subtext: PropTypes.string,
-  }),
+  selected: PropTypes.oneOfType([
+    PropTypes.exact({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      subtext: PropTypes.string,
+    }),
+    PropTypes.arrayOf(
+      PropTypes.exact({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        subtext: PropTypes.string,
+      })
+    ),
+  ]),
   handleSelect: PropTypes.func,
   hoveredItem: PropTypes.number,
   setHoveredItem: PropTypes.func,
