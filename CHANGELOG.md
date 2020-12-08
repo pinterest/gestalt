@@ -1,3 +1,9 @@
+## 15.5.1 (Dec 8, 2020)
+
+### Patch
+
+- Bump highlight.js from 10.2.0 to 10.4.1 (#1302)
+
 ## 15.5.0 (Dec 8, 2020)
 
 ### Minor
