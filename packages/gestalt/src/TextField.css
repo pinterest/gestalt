@@ -11,6 +11,7 @@
 
 .unstyledTextField {
   composes: unstyled from "./FormElement.css";
+  composes: Text fontSize3 from "./Text.css";
   flex: 1;
   margin-bottom: 4px;
 }
