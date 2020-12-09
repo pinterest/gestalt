@@ -27,22 +27,9 @@ exports[`<Upsell /> Basic Upsell 1`] = `
           className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="box smDisplayNone"
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
           >
-            <div
-              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
-          </div>
-          <div
-            className="box smDisplayBlock xsDisplayNone"
-          >
-            <div
-              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+            Insert a clever upsell message here
           </div>
         </div>
       </div>
@@ -113,40 +100,18 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton + image 1`] = 
           className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="box smDisplayNone"
+            className="box marginBottom2"
           >
-            <div
-              className="box marginBottom2"
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
             >
-              <h3
-                className="Heading fontSize1 darkGray alignCenter breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+              A Title
+            </h3>
           </div>
           <div
-            className="box smDisplayBlock xsDisplayNone"
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
           >
-            <div
-              className="box marginBottom2"
-            >
-              <h3
-                className="Heading fontSize1 darkGray alignLeft breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+            Insert a clever upsell message here
           </div>
         </div>
       </div>
@@ -261,40 +226,18 @@ exports[`<Upsell /> message + title + primaryLink + dismissButton 1`] = `
           className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="box smDisplayNone"
+            className="box marginBottom2"
           >
-            <div
-              className="box marginBottom2"
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
             >
-              <h3
-                className="Heading fontSize1 darkGray alignCenter breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+              A Title
+            </h3>
           </div>
           <div
-            className="box smDisplayBlock xsDisplayNone"
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
           >
-            <div
-              className="box marginBottom2"
-            >
-              <h3
-                className="Heading fontSize1 darkGray alignLeft breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+            Insert a clever upsell message here
           </div>
         </div>
       </div>
@@ -409,40 +352,18 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
           className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="box smDisplayNone"
+            className="box marginBottom2"
           >
-            <div
-              className="box marginBottom2"
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
             >
-              <h3
-                className="Heading fontSize1 darkGray alignCenter breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+              A Title
+            </h3>
           </div>
           <div
-            className="box smDisplayBlock xsDisplayNone"
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
           >
-            <div
-              className="box marginBottom2"
-            >
-              <h3
-                className="Heading fontSize1 darkGray alignLeft breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+            Insert a clever upsell message here
           </div>
         </div>
       </div>
@@ -451,38 +372,34 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
       className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
     >
       <div
-        className="box smDisplayBlock xsDisplayNone"
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
-        <div
-          className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+        <a
+          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+          href="pinterest.com/help"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={null}
+          onFocus={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          rel=""
+          tabIndex={0}
+          target={null}
         >
-          <a
-            className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
-            href="pinterest.com/help"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onContextMenu={null}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            tabIndex={0}
-            target={null}
+          <div
+            className="Text fontSize3 darkGray alignCenter fontWeightBold"
           >
-            <div
-              className="Text fontSize3 darkGray alignCenter fontWeightBold"
-            >
-              Learn more
-            </div>
-          </a>
-        </div>
+            Learn more
+          </div>
+        </a>
       </div>
       <div
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
@@ -513,40 +430,6 @@ exports[`<Upsell /> message + title + primaryLink + secondaryLink 1`] = `
             Visit Pinterest
           </div>
         </a>
-      </div>
-      <div
-        className="box smDisplayNone"
-      >
-        <div
-          className="box itemsCenter justifyCenter marginTop2 paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
-        >
-          <a
-            className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
-            href="pinterest.com/help"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onContextMenu={null}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-            tabIndex={0}
-            target={null}
-          >
-            <div
-              className="Text fontSize3 darkGray alignCenter fontWeightBold"
-            >
-              Learn more
-            </div>
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -580,40 +463,18 @@ exports[`<Upsell /> message + title + primaryLink 1`] = `
           className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="box smDisplayNone"
+            className="box marginBottom2"
           >
-            <div
-              className="box marginBottom2"
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
             >
-              <h3
-                className="Heading fontSize1 darkGray alignCenter breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+              A Title
+            </h3>
           </div>
           <div
-            className="box smDisplayBlock xsDisplayNone"
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
           >
-            <div
-              className="box marginBottom2"
-            >
-              <h3
-                className="Heading fontSize1 darkGray alignLeft breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+            Insert a clever upsell message here
           </div>
         </div>
       </div>
@@ -683,40 +544,18 @@ exports[`<Upsell /> message + title 1`] = `
           className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
         >
           <div
-            className="box smDisplayNone"
+            className="box marginBottom2"
           >
-            <div
-              className="box marginBottom2"
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
             >
-              <h3
-                className="Heading fontSize1 darkGray alignCenter breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignCenter breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+              A Title
+            </h3>
           </div>
           <div
-            className="box smDisplayBlock xsDisplayNone"
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
           >
-            <div
-              className="box marginBottom2"
-            >
-              <h3
-                className="Heading fontSize1 darkGray alignLeft breakWord"
-              >
-                A Title
-              </h3>
-            </div>
-            <div
-              className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
-            >
-              Insert a clever upsell message here
-            </div>
+            Insert a clever upsell message here
           </div>
         </div>
       </div>

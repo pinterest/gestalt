@@ -1,21 +1,6 @@
 // @flow strict
 import { useState, useEffect } from 'react';
-
-function addListener(mediaQuery, callback) {
-  // addEventListener on mediaQuery is not supported in all browsers (Edge / Safari)
-  if (mediaQuery.addEventListener) {
-    mediaQuery.addEventListener('change', callback);
-  } else if (mediaQuery.addListener) {
-    mediaQuery.addListener(callback);
-  }
-}
-function removeListener(mediaQuery, callback) {
-  if (mediaQuery.removeEventListener) {
-    mediaQuery.removeEventListener('change', callback);
-  } else if (mediaQuery.removeListener) {
-    mediaQuery.removeListener(callback);
-  }
-}
+import { addListener, removeListener } from './utils/matchMedia.js';
 
 export default function useReducedMotion(): boolean {
   const supportsMatchMedia = typeof window !== 'undefined' && window.matchMedia;
