@@ -64,6 +64,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'SearchField',
       'SelectList',
       'Switch',
+      'Tag',
       'TapArea',
       'TextArea',
       'TextField',

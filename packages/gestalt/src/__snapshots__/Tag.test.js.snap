@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag clips long strings 1`] = `
+<div
+  aria-disabled={false}
+  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginEnd2 marginStart0"
+    />
+    <div
+      className="truncate"
+      title="The quick brown fox jumps over the lazy dog"
+    >
+      <span
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        The quick brown fox jumps over the lazy dog
+      </span>
+    </div>
+    <div
+      className="box marginStart1"
+    >
+      <button
+        className="button lightGray hideOutline tapTransition accessibilityOutline"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Remove long example tag"
+          className="icon darkGray iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tag renders 1`] = `
+<div
+  aria-disabled={false}
+  className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginEnd2 marginStart0"
+    />
+    <div
+      className="truncate"
+      title="New"
+    >
+      <span
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        New
+      </span>
+    </div>
+    <div
+      className="box marginStart1"
+    >
+      <button
+        className="button lightGray hideOutline tapTransition accessibilityOutline"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Remove New tag"
+          className="icon darkGray iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tag renders a disabled tag 1`] = `
+<div
+  aria-disabled={true}
+  className="borderColorLightGray box lightGrayBg rounding2 sizeSm solid xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginEnd2 marginStart0"
+    />
+    <div
+      className="truncate"
+      title="New"
+    >
+      <span
+        className="Text fontSize2 gray alignLeft breakWord fontWeightNormal"
+      >
+        New
+      </span>
+    </div>
+    <div
+      className="box marginStart2"
+    />
+  </div>
+</div>
+`;
+
+exports[`Tag renders a tag with an error state 1`] = `
+<div
+  aria-disabled={false}
+  className="box redBg rounding2 xsDisplayInlineBlock"
+  style={
+    Object {
+      "height": 32,
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 itemsCenter xsDirectionRow"
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="box marginEnd2 marginStart2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Something went wrong"
+        className="icon white iconBlock"
+        height={12}
+        role="img"
+        viewBox="0 0 24 24"
+        width={12}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="truncate"
+      title="New"
+    >
+      <span
+        className="Text fontSize2 white alignLeft breakWord fontWeightNormal"
+      >
+        New
+      </span>
+    </div>
+    <div
+      className="box marginStart1"
+    >
+      <button
+        className="button red hideOutline tapTransition accessibilityOutline"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="Remove New tag"
+          className="icon white iconBlock"
+          height={8}
+          role="img"
+          viewBox="0 0 24 24"
+          width={8}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
