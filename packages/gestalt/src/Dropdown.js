@@ -1,6 +1,12 @@
 // @flow strict
 // flowlint unclear-type:off
-import React, { useState, useRef, type Node, type ComponentType } from 'react';
+import React, {
+  useState,
+  useRef,
+  type Node,
+  type ComponentType,
+  type ChildrenArray,
+} from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
@@ -16,7 +22,7 @@ type OptionObject = {|
 |};
 type Props = {|
   anchor?: ?HTMLElement,
-  children: Array<Object>,
+  children: Node,
   headerContent?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
@@ -36,19 +42,15 @@ export default function Dropdown({
   onDismiss,
   onSelect,
 }: Props): Node {
-  const getFlattenedChildren = (
-    dropdownChildren: ComponentType<{|
-      props: Object,
-      type: {| name: string |},
-    |}>[]
-  ) => {
+  const getFlattenedChildren = (dropdownChildren: ChildrenArray<Object>) => {
     const items = dropdownChildren.map((child) => {
-      // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-      if (child.props.children && child.type.name === 'DropdownSection') {
+      if (
+        child.props.children &&
+        child.type.displayName === 'DropdownSection'
+      ) {
         return child.props.children;
       }
-      // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
-      if (child.type.name === 'DropdownItem') {
+      if (child.type.displayName === 'DropdownItem') {
         return child;
       }
       return null;
@@ -165,7 +167,7 @@ export default function Dropdown({
     });
   };
 
-  const renderDropdownChildren = (dropdownChildren: Array<Object>) => {
+  const renderDropdownChildren = (dropdownChildren: ??) => {
     let numItemsRendered = 0;
     const items = [];
     const props = {
@@ -175,7 +177,7 @@ export default function Dropdown({
     };
 
     dropdownChildren.forEach((child: Object, index) => {
-      if (child.props.children && child.type.name === 'DropdownSection') {
+      if (child.props.children && child.type.displayName === 'DropdownSection') {
         const key = `section-${child.props.label}`;
         items.push(
           React.cloneElement(child, {

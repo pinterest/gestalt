@@ -12,7 +12,7 @@ type OptionObject = {|
 type OptionProps = {|
   badgeText?: string,
   children?: Node,
-  index: number,
+  index?: number,
   isExternal?: boolean,
   /* the option with value and label */
   option: OptionObject,
@@ -21,9 +21,9 @@ type OptionProps = {|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
-  hoveredItem: ?number,
-  setHoveredItem: (number) => void,
-  setOptionRef: (?HTMLElement) => void,
+  hoveredItem?: ?number,
+  setHoveredItem?: (number) => void,
+  setOptionRef?: (?HTMLElement) => void,
   url?: string,
 |};
 
