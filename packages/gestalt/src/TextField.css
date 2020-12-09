@@ -10,12 +10,9 @@
 }
 
 .unstyledTextField {
-  appearance: none;
-  border: none;
-  border-radius: 8px;
+  composes: unstyled from "./FormElement.css";
   flex: 1;
   margin-bottom: 4px;
-  padding: 4px 8px;
 }
 
 .unstyledTextField:focus {
