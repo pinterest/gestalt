@@ -98,55 +98,61 @@ const TextFieldWithForwardRef: React$AbstractComponent<
     }
   };
 
-  const wrapperClasses = classnames(
-    styles.textFieldWrapper,
+  const classes = classnames(
+    styles.textField,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || errorMessage) && !focused
       ? formElement.errored
       : formElement.normal,
     size === 'md' ? layout.medium : layout.large,
-    { [focusStyles.accessibilityOutlineFocus]: focused }
+    {
+      [focusStyles.accessibilityOutlineFocus]: focused,
+      [styles.textFieldWrapper]: !!tags,
+    }
   );
 
   // type='number' doesn't work on ios safari without a pattern
   // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
   const pattern = type === 'number' ? '\\d*' : undefined;
 
+  const inputElement = (
+    <input
+      aria-describedby={errorMessage && focused ? `${id}-error` : null}
+      aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+      autoComplete={autoComplete}
+      className={tags ? styles.unstyledTextField : classes}
+      disabled={disabled}
+      id={id}
+      name={name}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
+      pattern={pattern}
+      placeholder={placeholder}
+      ref={ref}
+      type={type}
+      value={value}
+    />
+  );
+
   return (
     <span>
       {label && <FormLabel id={id} label={label} />}
-      <div className={wrapperClasses}>
-        {tags &&
-          tags.map((tag, tagIndex) => (
-            <Box
-              key={tagIndex}
-              marginStart={tagIndex === 0 ? 4 : 1}
-              marginTop={2}
-              marginBottom={2}
-            >
-              {tag}
-            </Box>
-          ))}
-        <input
-          aria-describedby={errorMessage && focused ? `${id}-error` : null}
-          aria-invalid={errorMessage || hasError ? 'true' : 'false'}
-          autoComplete={autoComplete}
-          className={styles.textField}
-          disabled={disabled}
-          id={id}
-          name={name}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onKeyDown={handleKeyDown}
-          pattern={pattern}
-          placeholder={placeholder}
-          ref={ref}
-          type={type}
-          value={value}
-        />
-      </div>
+      {tags ? (
+        <div className={classes}>
+          {tags &&
+            tags.map((tag, tagIndex) => (
+              <Box key={tagIndex} marginEnd={1} marginBottom={1}>
+                {tag}
+              </Box>
+            ))}
+          {inputElement}
+        </div>
+      ) : (
+        inputElement
+      )}
       {helperText && !errorMessage ? (
         <FormHelperText text={helperText} />
       ) : null}

@@ -1,22 +1,29 @@
 .textField {
-  composes: Text fontSize3 from "./Text.css";
-  appearance: none;
-  border: none;
-  border-radius: 16px;
-  padding: 8px 16px;
-  width: 100%;
-}
-
-.textField:focus {
-  outline: 0;
-}
-
-.textFieldWrapper {
   composes: borderBox from "./Layout.css";
+  composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
-  display: flex;
+  padding: 8px 16px;
 }
 
 .textField::placeholder {
   color: var(--g-colorGray200);
+}
+
+.unstyledTextField {
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  flex: 1;
+  margin-bottom: 4px;
+  padding: 4px 8px;
+}
+
+.unstyledTextField:focus {
+  outline: 0;
+}
+
+.textFieldWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 4px;
 }

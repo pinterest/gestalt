@@ -2,65 +2,53 @@
 
 exports[`TextField TextField normal 1`] = `
 <span>
-  <div
-    className="textFieldWrapper base enabled normal medium"
-  >
-    <input
-      aria-describedby={null}
-      aria-invalid="false"
-      className="textField"
-      disabled={false}
-      id="test"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      type="text"
-    />
-  </div>
+  <input
+    aria-describedby={null}
+    aria-invalid="false"
+    className="textField base enabled normal medium"
+    disabled={false}
+    id="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
 </span>
 `;
 
 exports[`TextField TextField with autocomplete 1`] = `
 <span>
-  <div
-    className="textFieldWrapper base enabled normal medium"
-  >
-    <input
-      aria-describedby={null}
-      aria-invalid="false"
-      className="textField"
-      disabled={false}
-      id="test"
-      name="email"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      type="text"
-    />
-  </div>
+  <input
+    aria-describedby={null}
+    aria-invalid="false"
+    className="textField base enabled normal medium"
+    disabled={false}
+    id="test"
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
 </span>
 `;
 
 exports[`TextField TextField with error 1`] = `
 <span>
-  <div
-    className="textFieldWrapper base enabled errored medium"
-  >
-    <input
-      aria-describedby={null}
-      aria-invalid="true"
-      className="textField"
-      disabled={false}
-      id="test"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      type="text"
-    />
-  </div>
+  <input
+    aria-describedby={null}
+    aria-invalid="true"
+    className="textField base enabled errored medium"
+    disabled={false}
+    id="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
   <div
     className="box marginTop2"
   >
@@ -79,34 +67,228 @@ exports[`TextField TextField with error 1`] = `
 
 exports[`TextField TextField with hasError 1`] = `
 <span>
-  <div
-    className="textFieldWrapper base enabled errored medium"
-  >
-    <input
-      aria-describedby={null}
-      aria-invalid="true"
-      className="textField"
-      disabled={false}
-      id="test"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      type="text"
-    />
-  </div>
+  <input
+    aria-describedby={null}
+    aria-invalid="true"
+    className="textField base enabled errored medium"
+    disabled={false}
+    id="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
 </span>
 `;
 
 exports[`TextField TextField with name 1`] = `
 <span>
+  <input
+    aria-describedby={null}
+    aria-invalid="false"
+    className="textField base enabled normal medium"
+    disabled={false}
+    id="test"
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
+</span>
+`;
+
+exports[`TextField TextField with tags 1`] = `
+<span>
   <div
-    className="textFieldWrapper base enabled normal medium"
+    className="textField base enabled normal medium textFieldWrapper"
   >
+    <div
+      className="box marginBottom1 marginEnd1"
+    >
+      <div
+        aria-disabled={false}
+        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+        style={
+          Object {
+            "height": 32,
+            "maxWidth": 300,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd2 marginStart0"
+          />
+          <div
+            className="truncate"
+            title="a@pinterest.com"
+          >
+            <span
+              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              a@pinterest.com
+            </span>
+          </div>
+          <div
+            className="box marginStart1"
+          >
+            <button
+              className="button lightGray hideOutline tapTransition accessibilityOutline"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={null}
+                aria-label="Remove email tag"
+                className="icon darkGray iconBlock"
+                height={8}
+                role="img"
+                viewBox="0 0 24 24"
+                width={8}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box marginBottom1 marginEnd1"
+    >
+      <div
+        aria-disabled={false}
+        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+        style={
+          Object {
+            "height": 32,
+            "maxWidth": 300,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd2 marginStart0"
+          />
+          <div
+            className="truncate"
+            title="b@pinterest.com"
+          >
+            <span
+              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              b@pinterest.com
+            </span>
+          </div>
+          <div
+            className="box marginStart1"
+          >
+            <button
+              className="button lightGray hideOutline tapTransition accessibilityOutline"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={null}
+                aria-label="Remove email tag"
+                className="icon darkGray iconBlock"
+                height={8}
+                role="img"
+                viewBox="0 0 24 24"
+                width={8}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box marginBottom1 marginEnd1"
+    >
+      <div
+        aria-disabled={false}
+        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+        style={
+          Object {
+            "height": 32,
+            "maxWidth": 300,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd2 marginStart0"
+          />
+          <div
+            className="truncate"
+            title="c@pinterest.com"
+          >
+            <span
+              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              c@pinterest.com
+            </span>
+          </div>
+          <div
+            className="box marginStart1"
+          >
+            <button
+              className="button lightGray hideOutline tapTransition accessibilityOutline"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={null}
+                aria-label="Remove email tag"
+                className="icon darkGray iconBlock"
+                height={8}
+                role="img"
+                viewBox="0 0 24 24"
+                width={8}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <input
       aria-describedby={null}
       aria-invalid="false"
-      className="textField"
+      className="unstyledTextField"
       disabled={false}
       id="test"
       name="email"
