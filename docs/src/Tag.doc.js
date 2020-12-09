@@ -40,7 +40,7 @@ card(
         name: 'removeIconAccessibilityLabel',
         type: 'string',
         description:
-          'Accessibility label for the icon button to remove the tag. Required unless the tag is in a disabled state.',
+          'Accessibility label for the icon button to remove the tag, ideally something like "Remove [Tag Name] Tag". Required unless the tag is in a disabled state.',
       },
       {
         name: 'text',
@@ -62,7 +62,7 @@ function Example(props) {
   return showTag ? (
     <Tag
       onRemove={() => setShowTag(false)}
-      removeIconAccessibilityLabel="Remove"
+      removeIconAccessibilityLabel="Remove New tag"
       text="New"
     />
   ) : null;
@@ -92,7 +92,7 @@ function Example(props) {
     <Tag
       errorMessage="Error"
       onRemove={() => setShowTag(false)}
-      removeIconAccessibilityLabel="Remove"
+      removeIconAccessibilityLabel="Remove New tag"
       text="New"
     />
   ) : null;
@@ -111,7 +111,7 @@ function Example(props) {
   return showTag ? (
     <Tag
       onRemove={() => setShowTag(false)}
-      removeIconAccessibilityLabel="Remove"
+      removeIconAccessibilityLabel="Remove long example tag"
       text="The quick brown fox jumps over the lazy dog"
     />
   ) : null;

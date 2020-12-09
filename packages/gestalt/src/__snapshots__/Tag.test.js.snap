@@ -42,7 +42,7 @@ exports[`Tag clips long strings 1`] = `
       >
         <svg
           aria-hidden={null}
-          aria-label="Remove"
+          aria-label="Remove long example tag"
           className="icon darkGray iconBlock"
           height={8}
           role="img"
@@ -101,7 +101,7 @@ exports[`Tag renders 1`] = `
       >
         <svg
           aria-hidden={null}
-          aria-label="Remove"
+          aria-label="Remove New tag"
           className="icon darkGray iconBlock"
           height={8}
           role="img"
@@ -181,7 +181,7 @@ exports[`Tag renders a tag with an error state 1`] = `
     >
       <svg
         aria-hidden={null}
-        aria-label="Error"
+        aria-label="Something went wrong"
         className="icon white iconBlock"
         height={12}
         role="img"
@@ -213,7 +213,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       >
         <svg
           aria-hidden={null}
-          aria-label="Remove"
+          aria-label="Remove New tag"
           className="icon white iconBlock"
           height={8}
           role="img"

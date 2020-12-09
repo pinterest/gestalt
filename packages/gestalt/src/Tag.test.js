@@ -9,7 +9,7 @@ describe('Tag', () => {
       <Tag
         text="New"
         onRemove={() => {}}
-        removeIconAccessibilityLabel="Remove"
+        removeIconAccessibilityLabel="Remove New tag"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -25,8 +25,8 @@ describe('Tag', () => {
       <Tag
         text="New"
         onRemove={() => {}}
-        removeIconAccessibilityLabel="Remove"
-        errorMessage="Error"
+        removeIconAccessibilityLabel="Remove New tag"
+        errorMessage="Something went wrong"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe('Tag', () => {
       <Tag
         text="The quick brown fox jumps over the lazy dog"
         onRemove={() => {}}
-        removeIconAccessibilityLabel="Remove"
+        removeIconAccessibilityLabel="Remove long example tag"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
