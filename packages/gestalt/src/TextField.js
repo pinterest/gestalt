@@ -8,7 +8,6 @@ import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
-import Tag from './Tag.js';
 import layout from './Layout.css';
 import styles from './TextField.css';
 
@@ -142,12 +141,11 @@ const TextFieldWithForwardRef: React$AbstractComponent<
       {label && <FormLabel id={id} label={label} />}
       {tags ? (
         <div className={classes}>
-          {tags &&
-            tags.map((tag, tagIndex) => (
-              <Box key={tagIndex} marginEnd={1} marginBottom={1}>
-                {tag}
-              </Box>
-            ))}
+          {tags.map((tag, tagIndex) => (
+            <Box key={tagIndex} marginEnd={1} marginBottom={1}>
+              {tag}
+            </Box>
+          ))}
           {inputElement}
         </div>
       ) : (

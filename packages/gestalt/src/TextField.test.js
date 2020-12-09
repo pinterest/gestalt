@@ -89,19 +89,16 @@ describe('TextField', () => {
         onChange={jest.fn()}
         tags={[
           <Tag
-            key="a"
             text="a@pinterest.com"
             onRemove={() => {}}
             removeIconAccessibilityLabel="Remove email tag"
           />,
           <Tag
-            key="b"
             text="b@pinterest.com"
             onRemove={() => {}}
             removeIconAccessibilityLabel="Remove email tag"
           />,
           <Tag
-            key="c"
             text="c@pinterest.com"
             onRemove={() => {}}
             removeIconAccessibilityLabel="Remove email tag"
