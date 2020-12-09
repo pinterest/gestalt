@@ -1,3 +1,9 @@
+## 15.6.0 (Dec 9, 2020)
+
+### Minor
+
+- Tag component (#1301)
+
 ## 15.5.1 (Dec 8, 2020)
 
 ### Patch
