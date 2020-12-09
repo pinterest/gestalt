@@ -93,7 +93,7 @@ card(
         name: 'tags',
         type: 'Array<React.Node>',
         description: 'List of tags to display in the component',
-        href: 'tagExample',
+        href: 'tagsExample',
       },
       {
         name: 'type',
@@ -209,7 +209,7 @@ card(
   <Example
     id="tagsExample"
     name="Example: Tags"
-    description={`You can include \`Tag\`s in the input using the \`tags\` prop.`}
+    description={`You can include \`Tag\` elements in the input using the \`tags\` prop.`}
     defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
