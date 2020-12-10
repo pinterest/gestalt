@@ -1,3 +1,9 @@
+## 15.7.0 (Dec 10, 2020)
+
+### Minor
+
+- Callout/Upsell: Implemented new useResponsiveMinWidth hook and utils (#1308)
+
 ## 15.6.0 (Dec 9, 2020)
 
 ### Minor
