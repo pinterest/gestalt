@@ -12,6 +12,7 @@ import Mask from './Mask.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Upsell.css';
+import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
 type LinkData = {|
   accessibilityLabel?: string,
@@ -89,6 +90,7 @@ export default function Upsell({
   title,
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
+  const responsiveMinWidth = useResponsiveMinWidth();
 
   return (
     <Box
@@ -148,45 +150,33 @@ export default function Upsell({
               smMarginEnd={6}
               smMarginStart={imageData ? 6 : 0}
             >
-              {/* We repeat this code block to ensure that text is 
-              centered for our smaller displays and left aligned 
-              for larger displays */}
-              <Box smDisplay="none">
-                {title && (
-                  <Box marginBottom={2}>
-                    <Heading align="center" size="sm">
-                      {title}
-                    </Heading>
-                  </Box>
-                )}
-                <Text align="center">{message}</Text>
-              </Box>
-              <Box smDisplay="block" display="none">
-                {title && (
-                  <Box marginBottom={2}>
-                    <Heading size="sm">{title}</Heading>
-                  </Box>
-                )}
-                <Text>{message}</Text>
-              </Box>
+              {title && (
+                <Box marginBottom={2}>
+                  <Heading
+                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
+                    size="sm"
+                  >
+                    {title}
+                  </Heading>
+                </Box>
+              )}
+              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>
+                {message}
+              </Text>
             </Box>
           </Box>
         </Box>
         <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryLink && (
-            <Box smDisplay="block" display="none">
-              <UpsellLink type="secondary" data={secondaryLink} />
-            </Box>
+          {secondaryLink && responsiveMinWidth !== 'xs' && (
+            <UpsellLink type="secondary" data={secondaryLink} />
           )}
           {primaryLink && <UpsellLink type="primary" data={primaryLink} />}
-          {secondaryLink && (
-            <Box smDisplay="none">
-              <UpsellLink
-                type="secondary"
-                data={secondaryLink}
-                stacked={!!secondaryLink}
-              />
-            </Box>
+          {secondaryLink && responsiveMinWidth === 'xs' && (
+            <UpsellLink
+              type="secondary"
+              data={secondaryLink}
+              stacked={!!secondaryLink}
+            />
           )}
         </Box>
       </Box>
