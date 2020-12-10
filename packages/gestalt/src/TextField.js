@@ -106,10 +106,12 @@ const TextFieldWithForwardRef: React$AbstractComponent<
       ? formElement.errored
       : formElement.normal,
     size === 'md' ? layout.medium : layout.large,
-    {
-      [focusStyles.accessibilityOutlineFocus]: focused,
-      [styles.textFieldWrapper]: !!tags,
-    }
+    tags
+      ? {
+          [focusStyles.accessibilityOutlineFocus]: focused,
+          [styles.textFieldWrapper]: true,
+        }
+      : {}
   );
 
   // type='number' doesn't work on ios safari without a pattern

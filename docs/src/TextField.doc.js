@@ -123,7 +123,7 @@ function Example(props) {
   return (
     <TextField
       id="email"
-      onChange={({value}) => setValue(value)}
+      onChange={({ value }) => setValue(value)}
       placeholder="Add email"
       label="Email"
       value={value}
@@ -146,7 +146,7 @@ function Example(props) {
     <TextField
       disabled
       id="name"
-      onChange={({value}) => setValue(value)}
+      onChange={({ value }) => setValue(value)}
       placeholder="Name"
       label="Disabled"
       value={value}
@@ -170,7 +170,7 @@ function Example(props) {
       <TextField
         id="username"
         helperText={'https://pinterest.com/' + value}
-        onChange={({value}) => setValue(value)}
+        onChange={({ value }) => setValue(value)}
         label="Username"
         value={value}
       />
@@ -187,7 +187,7 @@ card(
     name="Example: Error message"
     description={`
     A TextField can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.`}
     defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('')
@@ -195,7 +195,7 @@ function Example(props) {
     <TextField
       id="aboutme"
       errorMessage={!value ? "This field can't be blank!" : null}
-      onChange={({value}) => setValue(value)}
+      onChange={({ value }) => setValue(value)}
       label="With an error message"
       value={value}
     />
@@ -209,24 +209,27 @@ card(
   <Example
     id="tagsExample"
     name="Example: Tags"
-    description={`You can include \`Tag\` elements in the input using the \`tags\` prop.`}
+    description={`
+    You can include \`Tag\` elements in the input using the \`tags\` prop.
+    Note that the \`TextField\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. This example creates new tags by splitting the input on spaces, commas, and semicolons, and removes them on backspaces.`}
     defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(['a@pinterest.com', 'b@pinterest.com']);
+
   return (
     <Box padding={2} color="white">
       <TextField
         id="emails"
         label="Emails"
-        onChange={({value}) => {
-          const chunks = value.split(/[ ,;]+/);
-          if (chunks.length > 1) {
-            setTags([...tags, ...chunks.slice(0, -1)]);
+        onChange={({ value }) => {
+          const tagInput = value.split(/[ ,;]+/);
+          if (tagInput.length > 1) {
+            setTags([...tags, ...tagInput.splice(0, tagInput.length - 1)]);
           }
-          setValue(chunks[chunks.length - 1]);
+          setValue(tagInput[tagInput.length - 1]);
         }}
-        onKeyDown={({event: {keyCode, target: {selectionEnd}}}) => {
+        onKeyDown={({ event: { keyCode, target: { selectionEnd } } }) => {
           if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
             setTags([...tags.slice(0, -1)]);
           }
@@ -239,7 +242,7 @@ function Example(props) {
               newTags.splice(idx, 1);
               setTags([...newTags]);
             }}
-            removeIconAccessibilityLabel="Remove"
+            removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
             text={tag}
           />
         ))}
