@@ -1,5 +1,5 @@
 // @flow strict
-import React, { forwardRef, useState, type Node } from 'react';
+import React, { forwardRef, useState, type Element, type Node } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -8,6 +8,7 @@ import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
+import Tag from './Tag.js';
 import layout from './Layout.css';
 import styles from './TextField.css';
 
@@ -42,7 +43,7 @@ type Props = {|
     value: string,
   |}) => void,
   placeholder?: string,
-  tags?: Array<Node>,
+  tags?: Array<Element<typeof Tag>>,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   size?: 'md' | 'lg',
   value?: string,

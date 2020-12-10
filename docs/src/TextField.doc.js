@@ -91,7 +91,7 @@ card(
       },
       {
         name: 'tags',
-        type: 'Array<React.Node>',
+        type: 'Array<Element<typeof Tag>>',
         description: 'List of tags to display in the component',
         href: 'tagsExample',
       },
