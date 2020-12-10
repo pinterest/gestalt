@@ -22,11 +22,8 @@ type OptionProps = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
   url?: string,
-  // Private props, not listed in props table
+  // Private prop, not listed in props table
   index?: number,
-  hoveredItem?: ?number,
-  setHoveredItem?: (number) => void,
-  setOptionRef?: (?HTMLElement) => void,
 |};
 
 export default function DropdownItem({
