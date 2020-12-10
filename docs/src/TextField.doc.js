@@ -220,7 +220,8 @@ function Example(props) {
   return (
     <Box padding={2} color="white">
       <TextField
-        id="emails"
+        autoComplete="off"
+        id="tags"
         label="Emails"
         onChange={({ value }) => {
           const tagInput = value.split(/[ ,;]+/);
