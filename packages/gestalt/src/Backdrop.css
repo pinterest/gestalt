@@ -22,7 +22,6 @@
   composes: absolute left0 top0 right0 bottom0 overflowScrollY from "./Layout.css";
   background: var(--g-colorTransparentGray800);
   height: 100%;
-  opacity: 0.9;
 }
 
 .backdropAnimationIn {
