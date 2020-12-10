@@ -2,6 +2,7 @@
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption from './MenuOption.js';
+import DropdownContext from './DropdownContextProvider.js';
 
 type OptionObject = {|
   label: string,
@@ -12,7 +13,6 @@ type OptionObject = {|
 type OptionProps = {|
   badgeText?: string,
   children?: Node,
-  index?: number,
   isExternal?: boolean,
   /* the option with value and label */
   option: OptionObject,
@@ -21,44 +21,47 @@ type OptionProps = {|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
+  url?: string,
+  // Private props, not listed in props table
+  index?: number,
   hoveredItem?: ?number,
   setHoveredItem?: (number) => void,
   setOptionRef?: (?HTMLElement) => void,
-  url?: string,
 |};
 
 export default function DropdownItem({
   badgeText,
   children,
   handleSelect,
-  hoveredItem,
   index = 0,
   isExternal,
   option,
   selected,
-  setHoveredItem,
-  setOptionRef,
   url,
 }: OptionProps): Node {
   return (
-    <MenuOption
-      key={`${option.value + index}`}
-      badgeText={badgeText}
-      handleSelect={handleSelect}
-      hoveredItem={hoveredItem}
-      index={index}
-      isExternal={isExternal}
-      option={option}
-      role="menuitem"
-      selected={selected}
-      setHoveredItem={setHoveredItem}
-      setOptionRef={setOptionRef}
-      shouldTruncate
-      textWeight="bold"
-      url={url}
-    >
-      {children}
-    </MenuOption>
+    <DropdownContext.Consumer>
+      {({ hoveredItem, setHoveredItem, setOptionRef }) => (
+        <MenuOption
+          key={`${option.value + index}`}
+          badgeText={badgeText}
+          handleSelect={handleSelect}
+          hoveredItem={hoveredItem}
+          index={index}
+          isExternal={isExternal}
+          option={option}
+          role="menuitem"
+          selected={selected}
+          setHoveredItem={setHoveredItem}
+          setOptionRef={setOptionRef}
+          shouldTruncate
+          textWeight="bold"
+          url={url}
+        >
+          {children}
+        </MenuOption>
+      )}
+    </DropdownContext.Consumer>
   );
 }
 
@@ -90,7 +93,4 @@ DropdownItem.propTypes = {
     ),
   ]),
   handleSelect: PropTypes.func,
-  hoveredItem: PropTypes.number,
-  setHoveredItem: PropTypes.func,
-  setOptionRef: PropTypes.func,
 };

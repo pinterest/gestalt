@@ -1,18 +1,12 @@
 // @flow strict
-// flowlint unclear-type:off
-import React, {
-  useState,
-  useRef,
-  type Node,
-  type ComponentType,
-  type ChildrenArray,
-} from 'react';
+import React, { useState, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
+import DropdownContext from './DropdownContextProvider.js';
 import handleScrolling from './utils/keyboardNavigation.js';
 
 type OptionObject = {|
@@ -42,8 +36,10 @@ export default function Dropdown({
   onDismiss,
   onSelect,
 }: Props): Node {
-  const getFlattenedChildren = (dropdownChildren: ChildrenArray<Object>) => {
-    const items = dropdownChildren.map((child) => {
+  const getFlattenedChildren = () => {
+    const dropdownChildrenArray = React.Children.toArray(children);
+
+    const items = dropdownChildrenArray.map((child) => {
       if (
         child.props.children &&
         child.type.displayName === 'DropdownSection'
@@ -59,7 +55,7 @@ export default function Dropdown({
     return items.flat();
   };
 
-  const availableOptions = getFlattenedChildren(children);
+  const availableOptions = getFlattenedChildren();
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
   let selectedElement;
@@ -151,47 +147,45 @@ export default function Dropdown({
     }
   };
 
-  const renderDropdownItems = (dropdownChildren, idxBase) => {
-    return React.Children.map(dropdownChildren, (child, idx) => {
-      const props = {
-        hoveredItem,
-        setHoveredItem,
-        setOptionRef,
-      };
-      if (React.isValidElement(child)) {
+  const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) => {
+    return dropdownChildren.map((child, idx) => {
+      if (child.type.displayName === 'DropdownItem') {
         const index = idx + idxBase;
-        const key = `option-${index}`;
-        return React.cloneElement(child, { ...props, index, key });
+        return React.cloneElement(child, { index });
       }
       return child;
     });
   };
 
-  const renderDropdownChildren = (dropdownChildren: ??) => {
+  /* In order to properly supply a consecutive index to each Dropdown.Item,
+   * used for keyboard navigation,
+   * we must clone the item and inject the index prop
+   */
+  const renderChildrenWithIndex = () => {
     let numItemsRendered = 0;
     const items = [];
-    const props = {
-      hoveredItem,
-      setHoveredItem,
-      setOptionRef,
-    };
 
-    dropdownChildren.forEach((child: Object, index) => {
-      if (child.props.children && child.type.displayName === 'DropdownSection') {
-        const key = `section-${child.props.label}`;
+    const dropdownChildrenArray = React.Children.toArray(children);
+
+    dropdownChildrenArray.forEach((child, index) => {
+      if (
+        child.props.children &&
+        child.type.displayName === 'DropdownSection'
+      ) {
+        const sectionChildrenArray = React.Children.toArray(
+          child.props.children
+        );
         items.push(
           React.cloneElement(child, {
-            children: renderDropdownItems(
-              child.props.children,
+            children: renderDropdownItemsWithIndex(
+              sectionChildrenArray,
               numItemsRendered
             ),
-            key,
           })
         );
         numItemsRendered += child.props.children.length;
-      } else if (React.isValidElement(child)) {
-        const key = `option-${index}`;
-        items.push(React.cloneElement(child, { ...props, index, key }));
+      } else if (child.type.displayName === 'DropdownItem') {
+        items.push(React.cloneElement(child, { index }));
         numItemsRendered += 1;
       }
     });
@@ -220,7 +214,11 @@ export default function Dropdown({
           aria-activedescendant={hoveredItem}
         >
           {headerContent && <Box padding={2}>{headerContent}</Box>}
-          {renderDropdownChildren(children)}
+          <DropdownContext.Provider
+            value={{ hoveredItem, setHoveredItem, setOptionRef }}
+          >
+            {renderChildrenWithIndex()}
+          </DropdownContext.Provider>
         </Box>
       </Flyout>
     </Layer>

@@ -87,11 +87,4 @@ describe('Dropdown', () => {
     const tree = create(Component).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-  // it('renders an accessibility label', () => {
-  //   const tree = create(
-  //     <Dropdown accessibilityLabel="Test Accessibility Label" />
-  //   ).toJSON();
-  //   expect(tree).toMatchSnapshot();
-  // });
 });

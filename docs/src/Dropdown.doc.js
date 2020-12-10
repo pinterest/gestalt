@@ -4,6 +4,7 @@ import { Dropdown } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
+import Card from './components/Card.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -34,6 +35,7 @@ card(
           <Box display="flex" justifyContent="center">
             <Button
               accessibilityHaspopup
+              accessibilityExpanded={open}
               iconEnd="arrow-down"
               text="Menu"
               inline
@@ -222,6 +224,18 @@ card(
 );
 
 card(
+  <Card
+    description={`
+    Remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
+
+    * \`aria-haspopup\` lets the screen reader know that there is a Dropdown menu linked to the trigger.
+    * \`aria-expanded\` informs the screen reader whether the Dropdown menu is currently open or closed.
+  `}
+    name="Accessibility"
+  />
+);
+
+card(
   <Example
     id="default"
     name="Basic Example"
@@ -246,6 +260,7 @@ card(
           <Box display="flex" justifyContent="center">
             <Button
               accessibilityHaspopup
+              accessibilityExpanded={open}
               iconEnd="arrow-down"
               text="Menu"
               inline
@@ -320,6 +335,7 @@ card(
           <Box display="flex" justifyContent="center">
             <IconButton
               accessibilityHaspopup
+              accessibilityExpanded={open}
               accessibilityLabel="More Options"
               icon="arrow-down"
               selected={open}
@@ -402,6 +418,7 @@ card(
           <Box display="flex" justifyContent="center">
           <Button
             accessibilityHaspopup
+            accessibilityExpanded={open}
             iconEnd="arrow-down"
             text="Menu"
             inline
@@ -487,6 +504,7 @@ card(
           <Box display="flex" justifyContent="center">
             <IconButton
               accessibilityHaspopup
+              accessibilityExpanded={open}
               accessibilityLabel="More Options"
               selected={open}
               icon="add"
@@ -552,6 +570,7 @@ card(
           <Box display="flex" justifyContent="center">
             <IconButton
               accessibilityHaspopup
+              accessibilityExpanded={open}
               accessibilityLabel="More Options"
               selected={open}
               icon="add"
