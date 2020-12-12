@@ -1,3 +1,9 @@
+## 15.8.0 (Dec 12, 2020)
+
+### Minor
+
+- TextField: add tags prop (#1306)
+
 ## 15.7.0 (Dec 10, 2020)
 
 ### Minor
