@@ -6,4 +6,5 @@ declare module.exports: {|
   +'enabled': string,
   +'errored': string,
   +'normal': string,
+  +'unstyled': string,
 |};

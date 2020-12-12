@@ -1,6 +1,7 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
+import Tag from './Tag.js';
 import TextField from './TextField.js';
 
 describe('TextField', () => {
@@ -75,6 +76,37 @@ describe('TextField', () => {
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('TextField with tags', () => {
+    const tree = create(
+      <TextField
+        name="email"
+        id="test"
+        onChange={jest.fn()}
+        tags={[
+          <Tag
+            key="a"
+            text="a@pinterest.com"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove email tag"
+          />,
+          <Tag
+            key="b"
+            text="b@pinterest.com"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove email tag"
+          />,
+          <Tag
+            key="c"
+            text="c@pinterest.com"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove email tag"
+          />,
+        ]}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();

@@ -37,3 +37,12 @@
   composes: lightGrayBg from "./Colors.css";
   composes: borderColorLightGrayDisabled from "./Borders.css";
 }
+
+.unstyled {
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: inherit;
+  padding: 4px 8px;
+}

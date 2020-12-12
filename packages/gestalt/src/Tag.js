@@ -6,6 +6,7 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
 import Icon from './Icon.js';
+import { useColorScheme } from './contexts/ColorScheme.js';
 import useFocusVisible from './useFocusVisible.js';
 import focusStyles from './Focus.css';
 import touchableStyles from './Touchable.css';
@@ -40,6 +41,7 @@ export default function Tag(props: Props): Node {
     removeIconAccessibilityLabel = '',
     text,
   } = props;
+  const { colorGray200 } = useColorScheme();
 
   const bgColor = errorMessage ? 'red' : 'lightGray';
   let fgColor = 'darkGray';
@@ -61,11 +63,18 @@ export default function Tag(props: Props): Node {
     }
   );
 
+  const borderStyle =
+    disabled && !errorMessage
+      ? {
+          __style: { border: `solid 1px ${colorGray200}` },
+        }
+      : undefined;
+
   return (
     <Box
       aria-disabled={disabled}
-      borderStyle={disabled && !errorMessage ? 'sm' : 'none'}
       color={bgColor}
+      dangerouslySetInlineStyle={borderStyle}
       display="inlineBlock"
       height={32}
       maxWidth={300}
