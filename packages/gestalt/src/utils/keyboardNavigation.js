@@ -1,5 +1,9 @@
 // @flow strict
-const handleContainerScrolling = (direction, containerRef, selectedElement) => {
+const handleContainerScrolling = (
+  direction: -1 | 0 | 1,
+  containerRef: {| current: ?HTMLElement |},
+  selectedElement: ?HTMLElement
+) => {
   const container = containerRef.current;
 
   // Based on keyboard navigation we get the next or previous option
@@ -30,7 +34,7 @@ const handleContainerScrolling = (direction, containerRef, selectedElement) => {
       selectedOption.clientHeight -
       containerHeight +
       overScroll;
-
+  // $FlowFixMe[incompatible-type] flow 0.135.0 upgrade
   container.scrollTop = scrollPos;
 };
 

@@ -7,7 +7,7 @@ import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 import DropdownContext from './DropdownContextProvider.js';
-import handleScrolling from './utils/keyboardNavigation.js';
+import handleContainerScrolling from './utils/keyboardNavigation.js';
 
 type OptionObject = {|
   label: string,
@@ -21,9 +21,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   onSelect?: ({|
-    event:
-      | SyntheticFocusEvent<HTMLInputElement>
-      | SyntheticKeyboardEvent<HTMLInputElement>,
+    event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |},
     item: ?OptionObject,
   |}) => void,
 |};
@@ -56,7 +54,7 @@ export default function Dropdown({
   };
 
   const availableOptions = getFlattenedChildren();
-  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
+  const [hoveredItem, setHoveredItem] = useState<number>(0);
 
   let selectedElement;
   const setOptionRef = (optionRef) => {
@@ -66,10 +64,9 @@ export default function Dropdown({
   const containerRef = useRef();
 
   const handleKeyNavigation = (
-    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |},
     direction: -1 | 0 | 1
   ) => {
-    // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
     const newIndex = direction + hoveredItem;
     const optionsCount = availableOptions.length - 1;
 
@@ -91,14 +88,12 @@ export default function Dropdown({
     }
 
     // $FlowFixMe[incompatible-use] flow 0.135.0 upgrade
-    // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
     const newItem = availableOptions[cursorIndex].props.option;
     setHoveredItem(cursorIndex);
 
     if (direction === KEYS.ENTER) {
       if (onSelect) onSelect({ event, item: newItem });
       // $FlowFixMe[incompatible-use] flow 0.135.0 upgrade
-      // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
       if (availableOptions[cursorIndex].props.handleSelect)
         availableOptions[cursorIndex].props.handleSelect({
           event,
@@ -106,7 +101,7 @@ export default function Dropdown({
         });
     }
     // Scrolling
-    handleScrolling(direction, containerRef, selectedElement);
+    handleContainerScrolling(direction, containerRef, selectedElement);
   };
 
   const handleKeyDown = (event) => {
@@ -118,16 +113,19 @@ export default function Dropdown({
     // Up Arrow
     if (event.keyCode === 38) {
       handleKeyNavigation(event, KEYS.UP);
+      // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
     // Down Arrow
     else if (event.keyCode === 40) {
       handleKeyNavigation(event, KEYS.DOWN);
+      // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
     // Enter Key
     else if (event.keyCode === 13) {
       handleKeyNavigation(event, KEYS.ENTER);
+      // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
 
@@ -143,6 +141,7 @@ export default function Dropdown({
 
     // Space Key
     else if (event.keyCode === 32) {
+      // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
   };

@@ -1,13 +1,13 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Dropdown from './Dropdown.js';
 
 describe('Dropdown', () => {
   const handleSelectMock = jest.fn();
   const setOpenMock = jest.fn();
-  const element = document.createElement('div');
+  const element = document.createElement('button');
 
   const Component = (
     <Dropdown

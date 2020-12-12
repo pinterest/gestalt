@@ -269,7 +269,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
           >
             <Box
               // The returned element is Node which is incompatible with HTMLElement type
-              // $FlowFixMe[incompatible-type]
               ref={containerRef}
               position="relative"
               overflow="auto"

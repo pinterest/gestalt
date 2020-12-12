@@ -11,7 +11,9 @@ type Props = {|
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  handleKeyDown?: (
+    event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |}
+  ) => void,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
