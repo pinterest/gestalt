@@ -1,3 +1,9 @@
+## 15.9.0 (Dec 14, 2020)
+
+### Minor
+
+- Modal: Update backdrop wash to 80% opacity (#1309)
+
 ## 15.8.0 (Dec 12, 2020)
 
 ### Minor
