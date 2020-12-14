@@ -58,7 +58,9 @@ export default function Dropdown({
 
   let selectedElement;
   const setOptionRef = (optionRef) => {
+    console.log(optionRef);
     selectedElement = optionRef;
+    if (selectedElement) selectedElement.focus();
   };
 
   const containerRef = useRef();

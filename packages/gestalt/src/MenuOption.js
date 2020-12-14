@@ -105,6 +105,7 @@ export default function MenuOption({
               </Text>
               {badgeText && (
                 <Box marginStart={2} marginTop={1}>
+                  <Box display="visuallyHidden">{`, `}</Box>
                   <Badge text={badgeText} />
                 </Box>
               )}
@@ -146,7 +147,7 @@ export default function MenuOption({
           marginStart={2}
         >
           <Icon
-            accessibilityLabel="external option"
+            accessibilityLabel=", External"
             color="darkGray"
             icon="arrow-up-right"
             size={12}
@@ -175,7 +176,7 @@ export default function MenuOption({
       onMouseEnter={() => setHoveredItem(index)}
       role={role}
       aria-selected={isSelectedItem}
-      tabIndex={index === hoveredItem ? '0' : '-1'}
+      tabIndex={-1}
     >
       <Box
         padding={2}
@@ -185,7 +186,7 @@ export default function MenuOption({
         direction="column"
       >
         {url ? (
-          <Link hoverStyle="none" href={url}>
+          <Link hoverStyle="none" href={url} target="blank">
             {menuOptionContents}
           </Link>
         ) : (

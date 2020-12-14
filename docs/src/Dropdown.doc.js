@@ -58,7 +58,7 @@ card(
                 <Dropdown.Item
                   isExternal
                   url="https://pinterest.com"
-                  option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name'}}
+                  option={{'value': 'item 3', 'label': 'Item 3 with a really long, detailed, complex name'}}
                 />
                 <Dropdown.Item
                   handleSelect={handleSelect}
@@ -283,7 +283,7 @@ card(
                 <Dropdown.Item
                   isExternal
                   url="https://pinterest.com"
-                  option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name'}}
+                  option={{'value': 'item 3', 'label': 'Item 3 with a really long, detailed, complex name'}}
                 />
                 <Dropdown.Item
                   handleSelect={handleSelect}
@@ -369,7 +369,7 @@ card(
                   option={{
                     value: 'item 3',
                     label:
-                      'External Item 3 with a really long, detailed, complex name',
+                      'Item 3 with a really long, detailed, complex name',
                   }}
                 />
                 <Dropdown.Item
@@ -526,7 +526,7 @@ card(
                 <Dropdown.Item
                   isExternal
                   url="https://pinterest.com"
-                  option={{'value': 'item 3', 'label': 'External Item 3 with a really long, detailed, complex name', 'subtext': 'Extra subtext details'}}
+                  option={{'value': 'item 3', 'label': 'Item 3 with a really long, detailed, complex name', 'subtext': 'Extra subtext details'}}
                 />
                 <Dropdown.Item
                   handleSelect={handleSelect}
