@@ -1,15 +1,13 @@
 // @flow strict
 import React from 'react';
-import { create } from 'react-test-renderer';
-import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import Dropdown from './Dropdown.js';
 
+const handleSelectMock = jest.fn();
+const setOpenMock = jest.fn();
+const element = document.createElement('button');
 describe('Dropdown', () => {
-  const handleSelectMock = jest.fn();
-  const setOpenMock = jest.fn();
-  const element = document.createElement('button');
-
-  const Component = (
+  const Component = renderer.create(
     <Dropdown
       anchor={element}
       onDismiss={() => {
@@ -57,22 +55,7 @@ describe('Dropdown', () => {
     </Dropdown>
   );
   it('renders a menu of 6 items', () => {
-    const tree = create(Component).toJSON();
+    const tree = Component.toJSON();
     expect(tree).toMatchSnapshot();
-  });
-});
-
-describe('DropdownItem', () => {
-  const handleSelectMock = jest.fn();
-  it('calls handleSelect when Item clicked', () => {
-    const { getByText } = render(
-      <Dropdown.Item
-        handleSelect={handleSelectMock}
-        badgeText="New"
-        option={{ value: 'item 4', label: 'Item 4' }}
-      />
-    );
-    getByText('Item 4').click();
-    expect(handleSelectMock).toHaveBeenCalled();
   });
 });

@@ -201,6 +201,7 @@ export default function Dropdown({
         idealDirection={idealDirection}
         onDismiss={onDismiss}
         positionRelativeToAnchor={false}
+        shouldFocus={false}
         size="xl"
       >
         <Box
