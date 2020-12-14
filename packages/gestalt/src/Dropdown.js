@@ -58,7 +58,6 @@ export default function Dropdown({
 
   let selectedElement;
   const setOptionRef = (optionRef) => {
-    console.log(optionRef);
     selectedElement = optionRef;
     if (selectedElement) selectedElement.focus();
   };
@@ -77,7 +76,6 @@ export default function Dropdown({
     };
 
     // If there's an existing item, navigate from that position
-
     let cursorIndex = newIndex;
 
     // If we've reached the end, start at the top
@@ -133,11 +131,13 @@ export default function Dropdown({
 
     // ESC Key
     else if (event.keyCode === 27) {
+      if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
     }
 
     // Tab Key
     else if (event.keyCode === 9) {
+      if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
     }
 
@@ -203,7 +203,7 @@ export default function Dropdown({
         idealDirection={idealDirection}
         onDismiss={onDismiss}
         positionRelativeToAnchor={false}
-        shouldFocus={false}
+        shouldFocus
         size="xl"
       >
         <Box
@@ -232,6 +232,7 @@ Dropdown.propTypes = {
   anchor: PropTypes.shape({
     contains: PropTypes.func,
     getBoundingClientRect: PropTypes.func,
+    focus: PropTypes.func,
   }),
   children: PropTypes.node,
   headerContent: PropTypes.node,

@@ -73,9 +73,8 @@ card(
                   url="https://pinterest.com"
                 />
                 <Dropdown.Item
-                  isExternal
-                  option={{'value': 'item 6', 'label': 'Item 6'}}
-                  url="https://pinterest.com"
+                  option={{'value': 'item 6', 'label': 'Item 6 navigates internally'}}
+                  url="/typeahead"
                 />
               </Dropdown>
             )}
@@ -160,7 +159,7 @@ card(
         name: 'isExternal',
         type: 'boolean',
         description:
-          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source.',
+          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source. Do not add if the item navigates users within the product.',
         href: 'default',
       },
       {
@@ -240,7 +239,7 @@ card(
     id="default"
     name="Basic Example"
     description={`
-      A Dropdown can be attached to a Button, IconButton, or Textfield using the \`anchor\` prop and is composed of multiple Dropdown Items.
+      A Dropdown can be attached to a Button, IconButton, or Textfield (via [Typeahead](/Typeahead)) using the \`anchor\` prop and is composed of multiple Dropdown Items.
 
       If an item navigates to a new page, rather than acting as a selection, a \`url\` should be provided and the \`isExternal\` prop specified. Additionally, each item can contain a badge by specifying \`badgeText\`.
 
@@ -299,8 +298,8 @@ card(
                 />
                 <Dropdown.Item
                   isExternal
-                  option={{'value': 'item 6', 'label': 'Item 6'}}
-                  url="https://pinterest.com"
+                  option={{'value': 'item 6', 'label': 'Item 6 navigates internally'}}
+                  url="/typeahead"
                 />
               </Dropdown>
             )}
