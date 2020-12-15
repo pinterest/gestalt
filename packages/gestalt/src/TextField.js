@@ -149,7 +149,12 @@ const TextFieldWithForwardRef: React$AbstractComponent<
               {tag}
             </Box>
           ))}
-          {inputElement}
+          <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
+            <div aria-hidden className={styles.measure}>
+              {value}
+            </div>
+            {inputElement}
+          </Box>
         </div>
       ) : (
         inputElement
