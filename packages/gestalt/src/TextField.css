@@ -9,7 +9,7 @@
   color: var(--g-colorGray200);
 }
 
-.unstyledTextField, .measure {
+.unstyledTextField, .textFieldSpacer {
   composes: unstyled from "./FormElement.css";
   composes: Text fontSize3 from "./Text.css";
   margin-bottom: 4px;
