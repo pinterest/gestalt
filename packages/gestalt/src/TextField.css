@@ -24,7 +24,7 @@
   outline: 0;
 }
 
-.measure {
+.textFieldSpacer {
   visibility: hidden;
   white-space: nowrap;
 }
