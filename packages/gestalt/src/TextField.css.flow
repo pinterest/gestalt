@@ -3,6 +3,7 @@
 declare module.exports: {|
   +'measure': string,
   +'textField': string,
+  +'textFieldSpacer': string,
   +'textFieldWrapper': string,
   +'unstyledTextField': string,
 |};
