@@ -295,7 +295,7 @@ exports[`TextField TextField with tags 1`] = `
     >
       <div
         aria-hidden={true}
-        className="measure"
+        className="textFieldSpacer"
       />
       <input
         aria-describedby={null}
