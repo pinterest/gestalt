@@ -111,7 +111,7 @@ function FlyoutExample() {
             size="md"
           >
             <Box padding={3} display="flex" alignItems="center" direction="column" column={12}>
-              <Text align="center" weight="bold">
+              <Text align="center">
                 Need help with something? Check out our Help Center.
               </Text>
               <Box paddingX={2} marginTop={3}>
@@ -156,7 +156,7 @@ function FlyoutExample() {
             size="md"
           >
             <Box padding={3} column={12}>
-              <Text align="center" weight="bold">
+              <Text align="center">
                 Flyout with a caret, not a 🥕
               </Text>
             </Box>
@@ -196,7 +196,7 @@ function ErrorFlyoutExample() {
             size="md"
           >
             <Box padding={3}>
-              <Text color="white" weight="bold">
+              <Text color="white">
                 Oops! This item is out of stock.
               </Text>
             </Box>
