@@ -1,3 +1,9 @@
+## 15.10.1 (Dec 16, 2020)
+
+### Patch
+
+- Update Flyout Docs - Remove bold text (#1313)
+
 ## 15.10.0 (Dec 16, 2020)
 
 ### Minor
