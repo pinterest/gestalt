@@ -12,6 +12,7 @@ import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
 import styles from './TextArea.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { FixedZIndex } from './zIndex.js';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
