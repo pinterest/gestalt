@@ -210,12 +210,53 @@ card(
     id="tagsExample"
     name="Example: Tags"
     description={`
-    You can include \`Tag\` elements in the input using the \`tags\` prop.
-    Note that the \`TextField\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. This example creates new tags by splitting the input on spaces, commas, and semicolons, and removes them on backspaces.`}
+    You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
+
+    Note that the \`TextField\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
+
+    This example showcases the recommended behavior. In addition, it creates new tags by splitting the input on spaces, commas, semicolons.`}
     defaultCode={`
 function Example(props) {
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(['a@pinterest.com', 'b@pinterest.com']);
+
+  const onChangeTagManagement = ({ value }) => {
+    // Create new tags around spaces, commas, and semicolons.
+    const tagInput = value.split(/[\\s,;]+/);
+    if (tagInput.length > 1) {
+      setTags([
+        ...tags,
+        // Avoid creating a tag on content after the separators, and filter out
+        // empty tags
+        ...tagInput.splice(0, tagInput.length - 1).filter(val => val !== ''),
+      ]);
+    }
+    setValue(tagInput[tagInput.length - 1]);
+  }
+
+  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
+    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
+      // Remove tag on backspace if the cursor is at the beginning of the field
+      setTags([...tags.slice(0, -1)]);
+    } else if (keyCode === 13 /* Enter */ && value.trim() !== '') {
+      // Create a new tag on enter
+      setTags([...tags, value.trim()]);
+      setValue('');
+    }
+  }
+
+  const renderedTags = tags.map((tag, idx) => (
+    <Tag
+      key={tag}
+      onRemove={() => {
+        const newTags = [...tags];
+        newTags.splice(idx, 1);
+        setTags([...newTags]);
+      }}
+      removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
+      text={tag}
+    />
+  ));
 
   return (
     <Box padding={2} color="white">
@@ -223,30 +264,9 @@ function Example(props) {
         autoComplete="off"
         id="tags"
         label="Emails"
-        onChange={({ value }) => {
-          const tagInput = value.split(/[ ,;]+/);
-          if (tagInput.length > 1) {
-            setTags([...tags, ...tagInput.splice(0, tagInput.length - 1)]);
-          }
-          setValue(tagInput[tagInput.length - 1]);
-        }}
-        onKeyDown={({ event: { keyCode, target: { selectionEnd } } }) => {
-          if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
-            setTags([...tags.slice(0, -1)]);
-          }
-        }}
-        tags={tags.map((tag, idx) => (
-          <Tag
-            key={tag}
-            onRemove={() => {
-              const newTags = [...tags];
-              newTags.splice(idx, 1);
-              setTags([...newTags]);
-            }}
-            removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
-            text={tag}
-          />
-        ))}
+        onChange={onChangeTagManagement}
+        onKeyDown={onKeyDownTagManagement}
+        tags={renderedTags}
         value={value}
       />
     </Box>
