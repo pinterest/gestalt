@@ -14,11 +14,13 @@ import Backdrop from './Backdrop.js';
 import focusStyles from './Focus.css';
 import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
+import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
   accessibilityModalLabel: string,
+  align?: 'left' | 'center',
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
@@ -26,6 +28,7 @@ type Props = {|
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
+  subHeading?: string,
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -34,16 +37,29 @@ const SIZE_WIDTH_MAP = {
   lg: 900,
 };
 
-function Header({ heading }: {| heading: string | Node |}) {
+function Header({
+  align,
+  heading,
+  subHeading,
+}: {|
+  align: 'left' | 'center',
+  heading: string | Node,
+  subHeading?: string,
+|}) {
   if (typeof heading !== 'string') {
     return heading;
   }
 
   return (
-    <Box display="flex" justifyContent="center" padding={8}>
-      <Heading size="md" accessibilityLevel={1}>
+    <Box justifyContent={align === 'left' ? 'start' : 'center'} padding={8}>
+      <Heading size="md" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
+      {subHeading && (
+        <Box marginTop={1}>
+          <Text align={align}>{subHeading}</Text>
+        </Box>
+      )}
     </Box>
   );
 }
@@ -54,6 +70,7 @@ const ModalWithForwardRef: React$AbstractComponent<
 > = forwardRef<Props, HTMLDivElement>(function Modal(props, ref): Node {
   const {
     accessibilityModalLabel,
+    align = 'center',
     children,
     closeOnOutsideClick = true,
     onDismiss,
@@ -61,6 +78,7 @@ const ModalWithForwardRef: React$AbstractComponent<
     heading,
     role = 'dialog',
     size = 'sm',
+    subHeading,
   } = props;
 
   const [showTopShadow, setShowTopShadow] = useState(false);
@@ -146,7 +164,11 @@ const ModalWithForwardRef: React$AbstractComponent<
                       [modalStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Header heading={heading} />
+                    <Header
+                      align={align}
+                      heading={heading}
+                      subHeading={subHeading}
+                    />
                   </div>
                 )}
                 <Box
@@ -178,6 +200,7 @@ const ModalWithForwardRef: React$AbstractComponent<
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
   accessibilityModalLabel: PropTypes.string.isRequired,
+  align: PropTypes.oneOf(['left', 'center']),
   children: PropTypes.node,
   closeOnOutsideClick: PropTypes.bool,
   footer: PropTypes.node,
@@ -188,6 +211,7 @@ ModalWithForwardRef.propTypes = {
     PropTypes.number,
     PropTypes.oneOf(['sm', 'md', 'lg']),
   ]),
+  subHeading: PropTypes.string,
 };
 
 ModalWithForwardRef.displayName = 'Modal';
