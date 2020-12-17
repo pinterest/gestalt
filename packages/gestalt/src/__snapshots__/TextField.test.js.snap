@@ -285,19 +285,32 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
     </div>
-    <input
-      aria-describedby={null}
-      aria-invalid="false"
-      className="unstyledTextField"
-      disabled={false}
-      id="test"
-      name="email"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      type="text"
-    />
+    <div
+      className="box flexGrow marginEnd2 relative"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        aria-hidden={true}
+        className="textFieldSpacer"
+      />
+      <input
+        aria-describedby={null}
+        aria-invalid="false"
+        className="unstyledTextField"
+        disabled={false}
+        id="test"
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    </div>
   </div>
 </span>
 `;

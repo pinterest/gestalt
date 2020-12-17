@@ -149,7 +149,16 @@ const TextFieldWithForwardRef: React$AbstractComponent<
               {tag}
             </Box>
           ))}
-          {inputElement}
+          <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
+            {/* This is an invisible spacer div which mirrors the input's
+             * content. We use it to implement the flex wrapping behavior
+             * which is not supported by inputs, by having the actual input
+             * track it with absolute positioning. */}
+            <div aria-hidden className={styles.textFieldSpacer}>
+              {value}
+            </div>
+            {inputElement}
+          </Box>
         </div>
       ) : (
         inputElement
