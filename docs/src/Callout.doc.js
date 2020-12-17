@@ -52,9 +52,9 @@ card(
         href: '',
       },
       {
-        name: 'primaryLink',
+        name: 'primaryButton',
         type:
-          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
+          '{| accessibilityLabel?: string , href: string, label: string, role: "link" | "button", onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
@@ -67,9 +67,9 @@ card(
         href: '',
       },
       {
-        name: 'secondaryLink',
+        name: 'secondaryButton',
         type:
-          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
+          '{| accessibilityLabel?: string , href: string, label: string, role: "link" | "button", onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
@@ -117,8 +117,8 @@ card(
   iconAccessibilityLabel="Info icon"
   title="Your business account was created!"
   message="Apply to the Verified Merchant Program!"
-  primaryLink={{href: "https://pinterest.com", label:"Get started"}}
-  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  primaryButton={{href: "https://pinterest.com", label:"Get started", role: "link"}}
+  secondaryButton={{href: "https://pinterest.com", label:"Learn more", role: "link"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -136,7 +136,7 @@ card(
   type="warning"
   iconAccessibilityLabel="Warning icon"
   message="This feature will be removed in two weeks."
-  primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  primaryButton={{href: "https://pinterest.com", label:"Learn more", role: "link"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -156,6 +156,115 @@ card(
   message="This action can't be undone."
 />
   `}
+  />
+);
+
+card(
+  <Example
+    name='Example with role="button"'
+    description={`
+      You can use \`role="button"\` with the button props if you would like primaryButton to behave like a button rather than a link.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Callout
+        type="info"
+        iconAccessibilityLabel="Info icon"
+        title="Your board was created!"
+        message="You can edit your board at anytime!"
+        primaryButton={{
+          href: "https://pinterest.com",
+          label:"Edit board", role: "button",
+          onClick: () => { setShowModal(!showModal) }
+        }}
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: ()=>{},
+        }}
+      />
+      {showModal && (
+        <Layer>
+          <Modal
+            accessibilityModalLabel="Edit Julia's board"
+            heading="Edit your board"
+            onDismiss={() => { setShowModal(!showModal) }}
+            footer={
+              <Box
+                justifyContent="between"
+                display="flex"
+                direction="row"
+                marginLeft={-1}
+                marginRight={-1}
+              >
+                <Box column={12} smColumn={6} paddingX={1}>
+                  <Button text="Delete Board" inline size="lg" />
+                </Box>
+                <Box column={12} smColumn={6} paddingX={1}>
+                  <Box
+                    display="flex"
+                    justifyContent="end"
+                  >
+                    <ButtonGroup>
+                      <Button text="Cancel" inline onClick={() => { setShowModal(!showModal) }} size="lg" />
+                      <Button color="red" inline text="Save" size="lg" />
+                    </ButtonGroup>
+                  </Box>
+                </Box>
+              </Box>
+            }
+            size="md"
+          >
+            <Box display="flex" direction="row" position="relative">
+              <Column span={12}>
+                <Box paddingY={2} paddingX={8} display="flex">
+                  <Column span={4}>
+                    <Label htmlFor="name">
+                      <Text align="left" weight="bold">
+                        Name
+                      </Text>
+                    </Label>
+                  </Column>
+                  <Column span={8}>
+                    <TextField id="name" onChange={() => undefined} />
+                  </Column>
+                </Box>
+                <Box paddingY={2} paddingX={8} display="flex">
+                  <Column span={4}>
+                    <Label htmlFor="desc">
+                      <Text align="left" weight="bold">
+                        Description
+                      </Text>
+                    </Label>
+                  </Column>
+                  <Column span={8}>
+                    <TextArea id="desc" onChange={() => undefined} />
+                  </Column>
+                </Box>
+                <Box paddingY={2} paddingX={8} display="flex">
+                  <Column span={4}>
+                    <Label htmlFor="notifications">
+                      <Text align="left" weight="bold">
+                        Email Notifications
+                      </Text>
+                    </Label>
+                  </Column>
+                  <Column span={8}>
+                    <Switch id="notifications" onChange={() => undefined} switched />
+                  </Column>
+                </Box>
+              </Column>
+            </Box>
+          </Modal>
+        </Layer>
+      )}
+    </Box>
+  );
+}
+`}
   />
 );
 
