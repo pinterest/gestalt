@@ -31,7 +31,7 @@ card(
         type: `"center" | "left"`,
         defaultValue: 'center',
         description:
-          'Use to specify the alignment of heading when supplied heading is a string',
+          'Use to specify the alignment of `heading` & `subHeading` strings',
         href: 'headingOptions',
       },
       {
@@ -85,6 +85,7 @@ card(
         name: 'subHeading',
         type: `string`,
         required: false,
+        description: `Only renders with \`heading\` strings`,
         href: 'headingOptions',
       },
     ]}

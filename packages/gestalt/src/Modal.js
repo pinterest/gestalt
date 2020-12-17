@@ -20,15 +20,21 @@ import modalStyles from './Modal.css';
 
 type Props = {|
   accessibilityModalLabel: string,
-  align?: 'left' | 'center',
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
-  heading?: string | Node,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
-  subHeading?: string,
+  ...
+    | {|
+        heading?: Node,
+      |}
+    | {|
+        heading?: string,
+        subHeading?: string,
+        align?: 'left' | 'center',
+      |},
 |};
 
 const SIZE_WIDTH_MAP = {
@@ -43,13 +49,9 @@ function Header({
   subHeading,
 }: {|
   align: 'left' | 'center',
-  heading: string | Node,
+  heading: string,
   subHeading?: string,
 |}) {
-  if (typeof heading !== 'string') {
-    return heading;
-  }
-
   return (
     <Box justifyContent={align === 'left' ? 'start' : 'center'} padding={8}>
       <Heading size="md" accessibilityLevel={1} align={align}>
@@ -78,7 +80,7 @@ const ModalWithForwardRef: React$AbstractComponent<
     heading,
     role = 'dialog',
     size = 'sm',
-    subHeading,
+    subHeading = undefined,
   } = props;
 
   const [showTopShadow, setShowTopShadow] = useState(false);
@@ -164,11 +166,15 @@ const ModalWithForwardRef: React$AbstractComponent<
                       [modalStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Header
-                      align={align}
-                      heading={heading}
-                      subHeading={subHeading}
-                    />
+                    {typeof heading === 'string' ? (
+                      <Header
+                        align={align}
+                        heading={heading}
+                        subHeading={subHeading}
+                      />
+                    ) : (
+                      heading
+                    )}
                   </div>
                 )}
                 <Box
