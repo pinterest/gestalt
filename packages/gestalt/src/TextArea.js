@@ -81,7 +81,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
   };
 
   const handleFocus = (event: SyntheticFocusEvent<HTMLTextAreaElement>) => {
-    setFocused(false);
+    setFocused(true);
     if (onFocus) {
       onFocus({ event, value: event.currentTarget.value });
     }
