@@ -89,6 +89,12 @@ card(
         defaultValue: 3,
       },
       {
+        name: 'tags',
+        type: 'Array<Element<typeof Tag>>',
+        description: 'List of tags to display in the component',
+        href: 'tagsExample',
+      },
+      {
         name: 'value',
         type: 'string',
         href: 'basicExample',
@@ -226,6 +232,71 @@ function Example(props) {
       errorMessage={!value ? "This field can't be blank!" : null}
       placeholder="Write something about yourself..."
       label="With an error message"
+      value={value}
+    />
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="tagsExample"
+    name="Example: Tags"
+    description={`
+    You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
+
+    Note that the \`TextArea\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
+
+    This example showcases the recommended behavior.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+  const [tags, setTags] = React.useState(['San Francisco', 'New York']);
+
+  const onChangeTagManagement = ({ value }) => {
+    // Create new tags around new lines
+    const tagInput = value.split(/\\n+/);
+    if (tagInput.length > 1) {
+      setTags([
+        ...tags,
+        // Avoid creating a tag on content on the last line, and filter out
+        // empty tags
+        ...tagInput.splice(0, tagInput.length - 1).filter(val => val !== ''),
+      ]);
+    }
+    setValue(tagInput[tagInput.length - 1]);
+  }
+
+  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
+    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
+      // Remove tag on backspace if the cursor is at the beginning of the field
+      setTags([...tags.slice(0, -1)]);
+    }
+  }
+
+  const renderedTags = tags.map((tag, idx) => (
+    <Tag
+      key={tag}
+      onRemove={() => {
+        const newTags = [...tags];
+        newTags.splice(idx, 1);
+        setTags([...newTags]);
+      }}
+      removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
+      text={tag}
+    />
+  ));
+
+  return (
+    <TextArea
+      id="cities"
+      label="Cities"
+      onChange={onChangeTagManagement}
+      onKeyDown={onKeyDownTagManagement}
+      placeholder="Cities you've lived in"
+      tags={renderedTags}
       value={value}
     />
   );

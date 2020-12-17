@@ -80,3 +80,236 @@ exports[`TextArea TextArea with rows 1`] = `
   />
 </span>
 `;
+
+exports[`TextArea TextArea with tags 1`] = `
+<span>
+  <div
+    className="textArea base enabled normal textAreaWrapper"
+    style={
+      Object {
+        "height": 92,
+      }
+    }
+  >
+    <div
+      className="box marginBottom1 marginEnd1"
+      style={
+        Object {
+          "zIndex": 1,
+        }
+      }
+    >
+      <div
+        aria-disabled={false}
+        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+        style={
+          Object {
+            "height": 32,
+            "maxWidth": 300,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd2 marginStart0"
+          />
+          <div
+            className="truncate"
+            title="a@pinterest.com"
+          >
+            <span
+              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              a@pinterest.com
+            </span>
+          </div>
+          <div
+            className="box marginStart1"
+          >
+            <button
+              className="button lightGray hideOutline tapTransition accessibilityOutline"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={null}
+                aria-label="Remove email tag"
+                className="icon darkGray iconBlock"
+                height={8}
+                role="img"
+                viewBox="0 0 24 24"
+                width={8}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box marginBottom1 marginEnd1"
+      style={
+        Object {
+          "zIndex": 1,
+        }
+      }
+    >
+      <div
+        aria-disabled={false}
+        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+        style={
+          Object {
+            "height": 32,
+            "maxWidth": 300,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd2 marginStart0"
+          />
+          <div
+            className="truncate"
+            title="b@pinterest.com"
+          >
+            <span
+              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              b@pinterest.com
+            </span>
+          </div>
+          <div
+            className="box marginStart1"
+          >
+            <button
+              className="button lightGray hideOutline tapTransition accessibilityOutline"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={null}
+                aria-label="Remove email tag"
+                className="icon darkGray iconBlock"
+                height={8}
+                role="img"
+                viewBox="0 0 24 24"
+                width={8}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box marginBottom1 marginEnd1"
+      style={
+        Object {
+          "zIndex": 1,
+        }
+      }
+    >
+      <div
+        aria-disabled={false}
+        className="box lightGrayBg rounding2 xsDisplayInlineBlock"
+        style={
+          Object {
+            "height": 32,
+            "maxWidth": 300,
+          }
+        }
+      >
+        <div
+          className="Flex rowGap0 itemsCenter xsDirectionRow"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            className="box marginEnd2 marginStart0"
+          />
+          <div
+            className="truncate"
+            title="c@pinterest.com"
+          >
+            <span
+              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+            >
+              c@pinterest.com
+            </span>
+          </div>
+          <div
+            className="box marginStart1"
+          >
+            <button
+              className="button lightGray hideOutline tapTransition accessibilityOutline"
+              onClick={[Function]}
+              type="button"
+            >
+              <svg
+                aria-hidden={null}
+                aria-label="Remove email tag"
+                className="icon darkGray iconBlock"
+                height={8}
+                role="img"
+                viewBox="0 0 24 24"
+                width={8}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box flexGrow relative"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        aria-hidden={true}
+        className="textAreaSpacer"
+      />
+      <textarea
+        aria-describedby={null}
+        aria-invalid="false"
+        className="unstyledTextArea"
+        disabled={false}
+        id="test"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+      />
+    </div>
+  </div>
+</span>
+`;

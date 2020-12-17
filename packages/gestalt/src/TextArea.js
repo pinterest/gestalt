@@ -1,14 +1,21 @@
 // @flow strict
 
-import React, { forwardRef, useState, type Node } from 'react';
+import React, { forwardRef, useState, type Element, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Box from './Box.js';
+import focusStyles from './Focus.css';
 import formElement from './FormElement.css';
 import FormErrorMessage from './FormErrorMessage.js';
 import FormHelperText from './FormHelperText.js';
 import FormLabel from './FormLabel.js';
+import Tag from './Tag.js';
 import styles from './TextArea.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { FixedZIndex } from './zIndex.js';
+
+const ROW_HEIGHT = 24;
+const INPUT_PADDING_WITH_TAGS = 20;
 
 type Props = {|
   errorMessage?: string,
@@ -36,6 +43,7 @@ type Props = {|
   >,
   placeholder?: string,
   rows?: number,
+  tags?: Array<Element<typeof Tag>>,
   value?: string,
 |};
 
@@ -57,6 +65,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
     onKeyDown,
     placeholder,
     rows = 3,
+    tags,
     value,
   } = props;
   const [focused, setFocused] = useState(false);
@@ -91,28 +100,73 @@ const TextAreaWithForwardRef: React$AbstractComponent<
     styles.textArea,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
-    hasError || errorMessage ? formElement.errored : formElement.normal
+    (hasError || errorMessage) && !focused
+      ? formElement.errored
+      : formElement.normal,
+    tags
+      ? {
+          [focusStyles.accessibilityOutlineFocus]: focused,
+          [styles.textAreaWrapper]: true,
+        }
+      : {}
   );
+
+  const inputElement = (
+    <textarea
+      aria-describedby={errorMessage && focused ? `${id}-error` : null}
+      aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+      className={tags ? styles.unstyledTextArea : classes}
+      disabled={disabled}
+      id={id}
+      name={name}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
+      placeholder={placeholder}
+      ref={ref}
+      rows={tags ? undefined : rows}
+      value={value}
+    />
+  );
+
+  const wrapperStyle = { height: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS };
+  const tagsZIndex = new FixedZIndex(1);
 
   return (
     <span>
       {label && <FormLabel id={id} label={label} />}
-      <textarea
-        aria-describedby={errorMessage && focused ? `${id}-error` : null}
-        aria-invalid={errorMessage || hasError ? 'true' : 'false'}
-        className={classes}
-        disabled={disabled}
-        id={id}
-        name={name}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
-        ref={ref}
-        rows={rows}
-        value={value}
-      />
+      {tags ? (
+        <div className={classes} style={wrapperStyle}>
+          {tags.map((tag, tagIndex) => (
+            <Box
+              key={tagIndex}
+              marginEnd={1}
+              marginBottom={1}
+              zIndex={tagsZIndex}
+            >
+              {tag}
+            </Box>
+          ))}
+          <Box
+            flex="grow"
+            maxWidth="100%"
+            overflow="visible"
+            position="relative"
+          >
+            {/* This is an invisible spacer div which mirrors the input's
+             * content. We use it to implement the flex wrapping behavior
+             * which is not supported by inputs, by having the actual input
+             * track it with absolute positioning. */}
+            <div aria-hidden className={styles.textAreaSpacer}>
+              {value}
+            </div>
+            {inputElement}
+          </Box>
+        </div>
+      ) : (
+        inputElement
+      )}
       {helperText && !errorMessage ? (
         <FormHelperText text={helperText} />
       ) : null}
@@ -136,6 +190,7 @@ TextAreaWithForwardRef.propTypes = {
   onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
   rows: PropTypes.number,
+  tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
 };
 
