@@ -1,3 +1,9 @@
+## 15.10.2 (Dec 17, 2020)
+
+### Patch
+
+- Textfield: update tags wrapping behavior (#1311)
+
 ## 15.10.1 (Dec 16, 2020)
 
 ### Patch
