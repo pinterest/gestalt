@@ -1,7 +1,7 @@
 // @flow strict
 import React from 'react';
 import Modal from './Modal.js';
-import Test from './Test.js';
+import Text from './Text.js';
 
 const Valid = <Modal accessibilityModalLabel="Modal" onDismiss={() => {}} />;
 
