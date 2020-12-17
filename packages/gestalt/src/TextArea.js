@@ -12,7 +12,6 @@ import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
 import styles from './TextArea.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { FixedZIndex } from './zIndex.js';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
@@ -130,21 +129,17 @@ const TextAreaWithForwardRef: React$AbstractComponent<
     />
   );
 
-  const wrapperStyle = { height: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS };
-  const tagsZIndex = new FixedZIndex(1);
+  const tagsWrapperStyle = {
+    height: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
+  };
 
   return (
     <span>
       {label && <FormLabel id={id} label={label} />}
       {tags ? (
-        <div className={classes} style={wrapperStyle}>
+        <div className={classes} style={tagsWrapperStyle}>
           {tags.map((tag, tagIndex) => (
-            <Box
-              key={tagIndex}
-              marginEnd={1}
-              marginBottom={1}
-              zIndex={tagsZIndex}
-            >
+            <Box key={tagIndex} marginEnd={1} marginBottom={1}>
               {tag}
             </Box>
           ))}

@@ -93,11 +93,6 @@ exports[`TextArea TextArea with tags 1`] = `
   >
     <div
       className="box marginBottom1 marginEnd1"
-      style={
-        Object {
-          "zIndex": 1,
-        }
-      }
     >
       <div
         aria-disabled={false}
@@ -158,11 +153,6 @@ exports[`TextArea TextArea with tags 1`] = `
     </div>
     <div
       className="box marginBottom1 marginEnd1"
-      style={
-        Object {
-          "zIndex": 1,
-        }
-      }
     >
       <div
         aria-disabled={false}
@@ -223,11 +213,6 @@ exports[`TextArea TextArea with tags 1`] = `
     </div>
     <div
       className="box marginBottom1 marginEnd1"
-      style={
-        Object {
-          "zIndex": 1,
-        }
-      }
     >
       <div
         aria-disabled={false}
