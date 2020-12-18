@@ -1,5 +1,6 @@
 /*
  * Converts
+ *  <Callout primaryLink={...} secondaryLink={...} /> to <Callout primaryAction={...} secondaryAction={...} />
  *  <Upsell primaryLink={...} secondaryLink={...} /> to <Upsell primaryAction={...} secondaryAction={...} />
  */
 
@@ -16,7 +17,7 @@ export default function transformer(file, api) {
     }
 
     localIdentifierName = decl.specifiers
-      .filter((node) => node.imported.name === 'Upsell')
+      .filter((node) => ['Upsell', 'Callout'].includes(node.imported.name))
       .map((node) => node.local.name);
     return null;
   });
