@@ -26,15 +26,9 @@ type Props = {|
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
-  ...
-    | {|
-        heading?: Node,
-      |}
-    | {|
-        heading?: string,
-        subHeading?: string,
-        align?: 'left' | 'center',
-      |},
+  heading?: Node,
+  subHeading?: string,
+  align?: 'left' | 'center',
 |};
 
 const SIZE_WIDTH_MAP = {
