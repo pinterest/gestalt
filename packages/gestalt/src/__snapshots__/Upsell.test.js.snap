@@ -138,9 +138,9 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel=""
+          rel="noopener noreferrer"
           tabIndex={0}
-          target={null}
+          target="_blank"
         >
           <div
             className="Text fontSize3 white alignCenter fontWeightBold"
@@ -264,9 +264,9 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel=""
+          rel="noopener noreferrer"
           tabIndex={0}
-          target={null}
+          target="_blank"
         >
           <div
             className="Text fontSize3 white alignCenter fontWeightBold"
@@ -390,9 +390,9 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel=""
+          rel="noopener noreferrer"
           tabIndex={0}
-          target={null}
+          target="_blank"
         >
           <div
             className="Text fontSize3 darkGray alignCenter fontWeightBold"
@@ -420,9 +420,9 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel=""
+          rel="noopener noreferrer"
           tabIndex={0}
-          target={null}
+          target="_blank"
         >
           <div
             className="Text fontSize3 white alignCenter fontWeightBold"
@@ -501,9 +501,9 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel=""
+          rel="noopener noreferrer"
           tabIndex={0}
-          target={null}
+          target="_blank"
         >
           <div
             className="Text fontSize3 white alignCenter fontWeightBold"

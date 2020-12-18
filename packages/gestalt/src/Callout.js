@@ -92,6 +92,7 @@ const CalloutAction = ({
           onClick={onClick}
           role="link"
           size="lg"
+          target="blank"
           text={label}
         />
       ) : (
