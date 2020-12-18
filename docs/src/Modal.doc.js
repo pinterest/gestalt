@@ -27,6 +27,14 @@ card(
         href: 'accessibility',
       },
       {
+        name: 'align',
+        type: `"center" | "left"`,
+        defaultValue: 'center',
+        description:
+          'Use to specify the alignment of `heading` & `subHeading` strings',
+        href: 'headingOptions',
+      },
+      {
         name: 'children',
         type: 'React.Node',
       },
@@ -72,6 +80,13 @@ card(
         defaultValue: 'sm',
         description: `sm: 540px, md: 720px, lg: 900px`,
         href: 'sizesExample',
+      },
+      {
+        name: 'subHeading',
+        type: `string`,
+        required: false,
+        description: `Only renders with \`heading\` strings`,
+        href: 'headingOptions',
       },
     ]}
   />
@@ -259,6 +274,89 @@ function Example(props) {
               size="md"
             >
               <Box>
+                <Heading size="md">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
+      </Box>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    id="headingOptions"
+    name="Heading options"
+    description={`
+      When the supplied heading is a string, you have the option of adding a subtitle and aligning text left or center.
+    `}
+    defaultCode={`
+function Example(props) {
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'left':
+        return {modal: 'left'};
+      case 'center':
+        return {modal: 'center'};
+      case 'none':
+        return {modal: 'none'};
+      default:
+        throw new Error();
+    }
+  }
+
+  const initialState = {modal: 'none'};
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Box padding={1}>
+        <Button
+          inline
+          text="Left aligned heading"
+          onClick={() => { dispatch({type: 'left'}) }}
+        />
+        {state.modal === 'left' && (
+          <Layer zIndex={zIndex}>
+            <Modal
+              accessibilityModalLabel="View default padding and styling"
+              align="left"
+              heading="Heading"
+              onDismiss={() => { dispatch({type: 'none'}) }}
+              footer={<Heading size="md">Footer</Heading>}
+              size="md"
+              subHeading="This is the \`subHeading\`. It has the same specificed alignment as the \`heading\`."
+            >
+              <Box padding={8}>
+                <Heading size="md">Children</Heading>
+              </Box>
+            </Modal>
+          </Layer>
+        )}
+      </Box>
+      <Box padding={1}>
+        <Button
+          inline
+          text="Center aligned heading"
+          onClick={() => { dispatch({type: 'center'}) }}
+        />
+        {state.modal === 'center' && (
+          <Layer zIndex={zIndex}>
+            <Modal
+              accessibilityModalLabel="View default padding and styling"
+              heading="Heading"
+              onDismiss={() => { dispatch({type: 'none'}) }}
+              footer={<Heading size="md">Footer</Heading>}
+              size="md"
+              subHeading="This is the \`subHeading\`. It has the same specificed alignment as the \`heading\`."
+            >
+              <Box padding={8}>
                 <Heading size="md">Children</Heading>
               </Box>
             </Modal>
