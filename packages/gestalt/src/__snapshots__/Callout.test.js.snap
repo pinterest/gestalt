@@ -189,7 +189,7 @@ exports[`<Callout /> Warning Callout 1`] = `
 </div>
 `;
 
-exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
+exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
 <div
   className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
@@ -337,7 +337,7 @@ exports[`<Callout /> message + title + primaryLink + dismissButton 1`] = `
 </div>
 `;
 
-exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
+exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
 <div
   className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
@@ -470,7 +470,7 @@ exports[`<Callout /> message + title + primaryLink + secondaryLink 1`] = `
 </div>
 `;
 
-exports[`<Callout /> message + title + primaryLink 1`] = `
+exports[`<Callout /> message + title + primaryAction with href 1`] = `
 <div
   className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
   style={
@@ -567,6 +567,103 @@ exports[`<Callout /> message + title + primaryLink 1`] = `
             Visit Pinterest
           </div>
         </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Callout /> message + title + primaryAction without href 1`] = `
+<div
+  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  style={
+    Object {
+      "backgroundColor": "#EBF4FE",
+    }
+  }
+>
+  <div
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
+    >
+      <div
+        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+      >
+        <svg
+          aria-hidden={null}
+          aria-label="info"
+          className="icon blue iconBlock"
+          height={32}
+          role="img"
+          viewBox="0 0 24 24"
+          width={32}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+      <div
+        className="box marginBottomAuto marginTopAuto paddingX6"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="box itemsCenter marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex"
+        >
+          <div
+            className="box marginBottom2"
+          >
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
+            >
+              A Title
+            </h3>
+          </div>
+          <div
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          >
+            Insert a clever info callout message here
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
+    >
+      <div
+        className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
+      >
+        <button
+          className="button hideOutline tapTransition lg white enabled block accessibilityOutline"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <div
+            className="Text fontSize3 darkGray alignCenter fontWeightBold"
+          >
+            Visit Pinterest
+          </div>
+        </button>
       </div>
     </div>
   </div>

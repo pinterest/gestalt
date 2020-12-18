@@ -52,13 +52,14 @@ card(
         href: '',
       },
       {
-        name: 'primaryButton',
+        name: 'primaryAction',
         type:
-          '{| accessibilityLabel?: string , href: string, label: string, role: "link" | "button", onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
+          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
-          'Link-role button to render inside the callout as the main call-to-action to the user. The label text has a fixed size.',
+          'Button to render inside the callout as the main call-to-action to the user. The label text has a fixed size.',
+          '- href: If href is supplied, the action will serve as a link, while if no href is supplied, the action will be a button',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
@@ -67,13 +68,14 @@ card(
         href: '',
       },
       {
-        name: 'secondaryButton',
+        name: 'secondaryAction',
         type:
-          '{| accessibilityLabel?: string , href: string, label: string, role: "link" | "button", onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
+          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
-          'Link-role button to render inside the callout as a secondary call-to-action to the user.',
+          'Button to render inside the callout as the secondary call-to-action to the user. The label text has a fixed size.',
+          '- href: If href is supplied, the action will serve as a link, while if no href is supplied, the action will be a button',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
@@ -117,8 +119,8 @@ card(
   iconAccessibilityLabel="Info icon"
   title="Your business account was created!"
   message="Apply to the Verified Merchant Program!"
-  primaryButton={{href: "https://pinterest.com", label:"Get started", role: "link"}}
-  secondaryButton={{href: "https://pinterest.com", label:"Learn more", role: "link"}}
+  primaryAction={{href: "https://pinterest.com", label:"Get started"}}
+  secondaryAction={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -136,7 +138,7 @@ card(
   type="warning"
   iconAccessibilityLabel="Warning icon"
   message="This feature will be removed in two weeks."
-  primaryButton={{href: "https://pinterest.com", label:"Learn more", role: "link"}}
+  primaryAction={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -161,9 +163,9 @@ card(
 
 card(
   <Example
-    name='Example with role="button"'
+    name="Example with button call-to-action"
     description={`
-      You can use \`role="button"\` with the button props if you would like primaryButton to behave like a button rather than a link.
+      \`primaryAction\` and \`secondaryAction\` can be used as buttons when no \`href\` is supplied.
     `}
     defaultCode={`
 function Example(props) {
@@ -176,8 +178,7 @@ function Example(props) {
         iconAccessibilityLabel="Info icon"
         title="Your board was created!"
         message="You can edit your board at anytime!"
-        primaryButton={{
-          href: "https://pinterest.com",
+        primaryAction={{
           label:"Edit board", role: "button",
           onClick: () => { setShowModal(!showModal) }
         }}

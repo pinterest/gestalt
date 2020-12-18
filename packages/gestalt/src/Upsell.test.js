@@ -19,34 +19,45 @@ describe('<Upsell />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink', () => {
+  test('message + title + primaryAction with href', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         title="A Title"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink + secondaryLink', () => {
+  test('message + title + primaryAction without href', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
-        secondaryLink={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        primaryAction={{ label: 'Visit Pinterest' }}
         title="A Title"
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink + dismissButton', () => {
+  test('message + title + primaryAction + secondaryAction', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        secondaryAction={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        title="A Title"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('message + title + primaryAction + dismissButton', () => {
+    const tree = create(
+      <Upsell
+        message="Insert a clever upsell message here"
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -57,11 +68,11 @@ describe('<Upsell />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink + dismissButton + image', () => {
+  test('message + title + primaryAction + dismissButton + image', () => {
     const tree = create(
       <Upsell
         message="Insert a clever upsell message here"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},

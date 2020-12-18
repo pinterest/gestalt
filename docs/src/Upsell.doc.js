@@ -51,13 +51,14 @@ card(
         href: 'Image',
       },
       {
-        name: 'primaryLink',
+        name: 'primaryAction',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
-          'Link-role button to render inside the Upsell as the main call-to-action to the user. The label text has a fixed size.',
+          'Button to render inside the callout as the main call-to-action to the user. The label text has a fixed size.',
+          '- href: If href is supplied, the action will serve as a link, while if no href is supplied, the action will be a button',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
@@ -66,13 +67,14 @@ card(
         href: '',
       },
       {
-        name: 'secondaryLink',
+        name: 'secondaryAction',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
-          'Link-role button to render inside the Upsell as a secondary call-to-action to the user.',
+          'Button to render inside the callout as the secondary call-to-action to the user. The label text has a fixed size.',
+          '- href: If href is supplied, the action will serve as a link, while if no href is supplied, the action will be a button',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
@@ -91,24 +93,6 @@ card(
         href: '',
       },
     ]}
-  />
-);
-
-card(
-  <Example
-    name="Call to Actions and Title"
-    defaultCode={`
-<Upsell
-  title="Join the Verified Merchant Program"
-  message="Apply to the Verified Merchant Program—it’s free"
-  primaryLink={{href: "https://pinterest.com", label:"Apply now"}}
-  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
-  }}
-/>
-`}
   />
 );
 
@@ -134,7 +118,7 @@ card(
 <Upsell
   title="Give $30, get $60 in ads credit"
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryLink={{href: "https://pinterest.com", label:"Send invite"}}
+  primaryAction={{href: "https://pinterest.com", label:"Send invite"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -154,7 +138,7 @@ card(
 <Upsell
   title="Stay healthy and safe"
   message="Check out our resources for adapting to these times."
-  primaryLink={{href: "https://pinterest.com", label:"Visit"}}
+  primaryAction={{href: "https://pinterest.com", label:"Visit"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -172,6 +156,95 @@ card(
       width: 128,
     }}
 />
+`}
+  />
+);
+
+card(
+  <Example
+    name="Link Call to Actions"
+    description={`
+      When \`href\` is supplied to \`primaryAction\` and \`secondaryAction\` the action button defaults to a link-role button.
+    `}
+    defaultCode={`
+<Upsell
+  title="Join the Verified Merchant Program"
+  message="Apply to the Verified Merchant Program—it’s free"
+  primaryAction={{href: "https://pinterest.com", label:"Apply now"}}
+  secondaryAction={{href: "https://pinterest.com", label:"Learn more"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+/>
+`}
+  />
+);
+
+card(
+  <Example
+    name="Button Call to Actions"
+    description={`
+      \`primaryAction\` and \`secondaryAction\` can be used as buttons when no \`href\` is supplied.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Upsell
+        title="Give $30, get $60 in ads credit"
+        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+        primaryAction={{onClick: () => { setShowModal(!showModal) }, label:"Send invite"}}
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: ()=>{},
+        }}
+        imageData={{
+          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+        }}
+      />
+      {showModal && (
+        <Layer>
+          <Modal
+            accessibilityModalLabel="Would you like to sign up"
+            heading="Invite Friends?"
+            onDismiss={() => { setShowModal(!showModal) }}
+            footer={
+              <Box
+                display="flex"
+                justifyContent="center"
+              >
+                <ButtonGroup>
+                  <Button
+                    size="lg"
+                    text="Cancel"
+                    onClick={() => { setShowModal(!showModal) }}
+                  />
+                  <Button
+                    size="lg"
+                    color="red"
+                    text="Sign up"
+                    onClick={() => { setShowModal(!showModal) }}
+                  />
+                </ButtonGroup>
+              </Box>
+            }
+            role="alertdialog"
+            size="sm"
+          >
+            <Box paddingX={8}>
+              <Text align="center">
+                When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too
+              </Text>
+            </Box>
+          </Modal>
+        </Layer>
+      )}
+    </Box>
+  );
+}
 `}
   />
 );

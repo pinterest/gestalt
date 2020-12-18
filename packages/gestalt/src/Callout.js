@@ -13,23 +13,10 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
-type LinkData = {|
+type ActionData = {|
   accessibilityLabel?: string,
-  href: string,
+  href?: string,
   label: string,
-  role: 'link',
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
-  >,
-|};
-
-type ButtonData = {|
-  accessibilityLabel?: string,
-  label: string,
-  role: 'button',
   onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
@@ -45,8 +32,8 @@ type Props = {|
   |},
   iconAccessibilityLabel: string,
   message: string,
-  primaryButton?: ButtonData | LinkData,
-  secondaryButton?: ButtonData | LinkData,
+  primaryAction?: ActionData,
+  secondaryAction?: ActionData,
   type: 'error' | 'info' | 'warning',
   title?: string,
 |};
@@ -69,12 +56,12 @@ const CALLOUT_TYPE_ATTRIBUTES = {
   },
 };
 
-const CalloutButton = ({
+const CalloutAction = ({
   data,
   stacked,
   type,
 }: {|
-  data: ButtonData | LinkData,
+  data: ActionData,
   stacked?: boolean,
   type: string,
 |}): Node => {
@@ -84,8 +71,7 @@ const CalloutButton = ({
   if (isDarkMode && type === 'secondary') {
     color = 'transparentWhiteText';
   }
-  const { accessibilityLabel, label, onClick, role } = data;
-  const isLink = role === 'link';
+  const { accessibilityLabel, label, onClick, href } = data;
 
   return (
     <Box
@@ -98,18 +84,17 @@ const CalloutButton = ({
       smMarginTop="auto"
       smMarginBottom="auto"
     >
-      {isLink && (
+      {href ? (
         <Button
           accessibilityLabel={accessibilityLabel}
           color={color}
-          href={data.href}
+          href={href}
           onClick={onClick}
           role="link"
           size="lg"
           text={label}
         />
-      )}
-      {!isLink && (
+      ) : (
         <Button
           accessibilityLabel={accessibilityLabel}
           color={color}
@@ -127,8 +112,8 @@ export default function Callout({
   dismissButton,
   iconAccessibilityLabel,
   message,
-  primaryButton,
-  secondaryButton,
+  primaryAction,
+  secondaryAction,
   type,
   title,
 }: Props): Node {
@@ -166,8 +151,8 @@ export default function Callout({
           smDirection="row"
           justifyContent="center"
           alignItems="center"
-          marginBottom={primaryButton || secondaryButton ? 4 : undefined}
-          smMarginBottom={primaryButton || secondaryButton ? 0 : undefined}
+          marginBottom={primaryAction || secondaryAction ? 4 : undefined}
+          smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
           <Box
@@ -209,17 +194,17 @@ export default function Callout({
           </Box>
         </Box>
         <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryButton && responsiveMinWidth !== 'xs' && (
-            <CalloutButton type="secondary" data={secondaryButton} />
+          {secondaryAction && responsiveMinWidth !== 'xs' && (
+            <CalloutAction type="secondary" data={secondaryAction} />
           )}
-          {primaryButton && (
-            <CalloutButton type="primary" data={primaryButton} />
+          {primaryAction && (
+            <CalloutAction type="primary" data={primaryAction} />
           )}
-          {secondaryButton && responsiveMinWidth === 'xs' && (
-            <CalloutButton
+          {secondaryAction && responsiveMinWidth === 'xs' && (
+            <CalloutAction
               type="secondary"
-              data={secondaryButton}
-              stacked={!!secondaryButton}
+              data={secondaryAction}
+              stacked={!!secondaryAction}
             />
           )}
         </Box>
@@ -250,16 +235,15 @@ Callout.propTypes = {
   iconAccessibilityLabel: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  primaryButton: PropTypes.shape({
+  primaryAction: PropTypes.shape({
     href: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
-    role: PropTypes.oneOf(['button', 'link']),
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  secondaryButton: PropTypes.shape({
-    href: PropTypes.string.isRequired,
+  secondaryAction: PropTypes.shape({
+    href: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
