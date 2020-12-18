@@ -1,14 +1,22 @@
 // @flow strict
 
-import React, { forwardRef, useState, type Ref, type Node } from 'react';
+import React, {
+  forwardRef,
+  useState,
+  type Element,
+  type Node,
+  type Ref,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SearchField.css';
 import typeaheadStyle from './TypeaheadInputField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
+import Tag from './Tag.js';
 
 type DirectionOptionType = -1 | 0 | 1;
 
@@ -28,6 +36,10 @@ type Props = {|
     value: string,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   onKeyNavigation: (
     SyntheticKeyboardEvent<HTMLInputElement>,
     DirectionOptionType
@@ -35,6 +47,7 @@ type Props = {|
   placeholder?: string,
   setContainer: (boolean) => void,
   size?: 'md' | 'lg',
+  tags?: Array<Element<typeof Tag>>,
   value?: string,
 |};
 
@@ -48,15 +61,18 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     onBlur,
     onChange,
     onClear,
+    onKeyDown,
     onKeyNavigation,
     onFocus,
     setContainer,
     placeholder,
     size = 'md',
+    tags,
     value,
   } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);
+  const [focused, setFocused] = useState(false);
 
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({
@@ -72,6 +88,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   };
 
   const handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+    setFocused(true);
     onFocus({
       value: event.currentTarget.value,
       event,
@@ -79,6 +96,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   };
 
   const handleBlur = (event: SyntheticFocusEvent<HTMLInputElement>) => {
+    setFocused(false);
     onBlur({ event });
   };
 
@@ -87,9 +105,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     setContainer(true);
   };
 
-  const handleKeyNavigation = (
-    event: SyntheticKeyboardEvent<HTMLInputElement>
-  ) => {
+  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
     setContainer(true);
     const KEYS = {
       UP: -1,
@@ -108,6 +124,10 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     else if (event.keyCode === 13) {
       onKeyNavigation(event, KEYS.ENTER);
     }
+
+    if (onKeyDown) {
+      onKeyDown({ event, value });
+    }
   };
 
   const hasValue = value && value?.length > 0;
@@ -120,12 +140,63 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
       [layout.medium]: size === 'md',
       [layout.large]: size === 'lg',
       [styles.inputHovered]: hovered,
-    }
+    },
+    tags
+      ? {
+          [focusStyles.accessibilityOutlineFocus]: focused,
+          [typeaheadStyle.inputWrapper]: true,
+        }
+      : {}
   );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
   const clearIconSize = size === 'lg' ? 12 : 10;
 
+  const inputElement = (
+    <input
+      ref={ref}
+      autoComplete="off"
+      aria-label={label}
+      className={tags ? typeaheadStyle.unstyledInput : className}
+      id={id}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onClick={() => setContainer(true)}
+      onChange={handleChange}
+      placeholder={placeholder}
+      type="text"
+      value={value}
+      onKeyDown={handleKeyDown}
+    />
+  );
+
+  const iconButton = (
+    <button
+      className={hasValue ? styles.clear : typeaheadStyle.icon}
+      onClick={!hasValue ? handleClick : handleClear}
+      tabIndex={-1}
+      type="button"
+    >
+      <Box
+        alignItems="center"
+        color="transparent"
+        display="flex"
+        height={clearButtonSize}
+        justifyContent="center"
+        rounding="circle"
+        width={clearButtonSize}
+        left
+        right
+      >
+        <Icon
+          accessibilityLabel=""
+          color="darkGray"
+          icon={!hasValue ? 'arrow-down' : 'cancel'}
+          size={clearIconSize}
+        />
+      </Box>
+    </button>
+  );
   return (
     <>
       {label && <FormLabel id={id} label={label} />}
@@ -136,47 +207,32 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
         onMouseLeave={() => setHovered(false)}
         position="relative"
       >
-        <input
-          ref={ref}
-          autoComplete="off"
-          aria-label={label}
-          className={className}
-          id={id}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onClick={() => setContainer(true)}
-          onChange={handleChange}
-          placeholder={placeholder}
-          type="text"
-          value={value}
-          onKeyDown={handleKeyNavigation}
-        />
-
-        <button
-          className={hasValue ? styles.clear : typeaheadStyle.icon}
-          onClick={!hasValue ? handleClick : handleClear}
-          tabIndex={-1}
-          type="button"
-        >
-          <Box
-            alignItems="center"
-            color="transparent"
-            display="flex"
-            height={clearButtonSize}
-            justifyContent="center"
-            rounding="circle"
-            width={clearButtonSize}
-            left
-            right
-          >
-            <Icon
-              accessibilityLabel=""
-              color="darkGray"
-              icon={!hasValue ? 'arrow-down' : 'cancel'}
-              size={clearIconSize}
-            />
-          </Box>
-        </button>
+        {tags ? (
+          <div className={className}>
+            {tags.map((tag, tagIndex) => (
+              <Box key={tagIndex} marginEnd={1} marginBottom={1}>
+                {tag}
+              </Box>
+            ))}
+            <Box flex="grow" marginEnd={2} maxWidth="100%" position="relative">
+              {/* This is an invisible spacer div which mirrors the input's
+               * content. We use it to implement the flex wrapping behavior
+               * which is not supported by inputs, by having the actual input
+               * track it with absolute positioning. */}
+              <div aria-hidden className={typeaheadStyle.inputSpacer}>
+                {/* Keep a non-empty value so that the div doesn't collapse */}
+                {value || '-'}
+              </div>
+              {inputElement}
+            </Box>
+            {iconButton}
+          </div>
+        ) : (
+          <>
+            {inputElement}
+            {iconButton}
+          </>
+        )}
       </Box>
     </>
   );

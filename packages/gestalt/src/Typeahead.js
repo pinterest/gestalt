@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useRef,
   useImperativeHandle,
+  type Element,
   type Node,
 } from 'react';
 import PropTypes from 'prop-types';
@@ -14,6 +15,7 @@ import Box from './Box.js';
 import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
+import Tag from './Tag.js';
 
 type OptionObject = {|
   label: string,
@@ -38,6 +40,10 @@ type Props = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   onSelect?: ({|
     event:
       | SyntheticFocusEvent<HTMLInputElement>
@@ -50,6 +56,7 @@ type Props = {|
   |}>,
   placeholder?: string,
   size?: 'md' | 'lg',
+  tags?: Array<Element<typeof Tag>>,
   value?: string,
 |};
 
@@ -64,10 +71,12 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     onBlur,
     onChange,
     onFocus,
+    onKeyDown,
     onSelect,
     options,
     placeholder,
     size,
+    tags,
     value = null,
   } = props;
 
@@ -270,8 +279,10 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClear={handleClear}
+        onKeyDown={onKeyDown}
         onKeyNavigation={handleKeyNavigation}
         setContainer={setContainerOpen}
+        tags={tags}
         ref={inputRef}
       />
 

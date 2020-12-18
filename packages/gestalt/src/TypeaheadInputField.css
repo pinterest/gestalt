@@ -13,6 +13,27 @@
   composes: rounding4 from './Borders.css'
 }
 
+.unstyledInput, .inputSpacer {
+  composes: unstyled from "./FormElement.css";
+  composes: Text fontSize3 from "./Text.css";
+  margin-bottom: var(--g-boint);
+  padding: var(--g-boint) calc(var(--g-boint) * 2);
+}
+
+.unstyledInput {
+  composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
+  width: 100%;
+}
+
+.unstyledInput:focus {
+  outline: 0;
+}
+
+.inputSpacer {
+  visibility: hidden;
+  white-space: nowrap;
+}
+
 html:not([dir="rtl"]) .inputActive {
   padding: 8px 32px 8px 16px;
 }
@@ -27,4 +48,12 @@ html:not([dir="rtl"]) .icon {
 
 html[dir="rtl"] .icon {
   left: 0;
+}
+
+html:not([dir="rtl"]) .inputWrapper,
+html[dir="rtl"] .inputWrapper {
+  /* Increase specificity for this class to override SearchField defaults */
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: var(--g-boint);
 }

@@ -73,6 +73,13 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'onKeyDown',
+        type:
+          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
+        required: false,
+        description: 'Callback for key stroke events',
+      },
+      {
         name: 'onSelect',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',
         required: false,
@@ -90,6 +97,12 @@ card(
         required: false,
         description: 'md: 40px, lg: 48px',
         defaultValue: 'md',
+      },
+      {
+        name: 'tags',
+        type: 'Array<Element<typeof Tag>>',
+        description: 'List of tags to display in the component',
+        href: 'tagsExample',
       },
       {
         name: 'ref',
@@ -203,24 +216,89 @@ function TypeaheadExample() {
   return (
     <Flex gap={4}>
       <Typeahead
-        label="Select  your favorite shape"
+        label="Select your favorite shape"
         id="favorite-shape"
         noResultText="No Results"
         options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
         onSelect={p => ref.current.focus()}
         placeholder="Select a shape"
       />
-       <Typeahead
-        label="Select  your favorite color"
+      <Typeahead
+        label="Select your favorite color"
         id="favorite-color"
         noResultText="No Results"
         options={[{label:'red', value:'red'}, {label:'blue', value:'blue'}]}
         placeholder="Select a color"
         ref={ref}
-     />
+      />
     </Flex>
   );
 }`}
+  />
+);
+
+card(
+  <Example
+    id="tagsExample"
+    name="Example: Tags"
+    description={`
+    You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
+
+    Note that the \`Typeahead\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
+
+    This example showcases the recommended behavior.`}
+    defaultCode={`
+function Example(props) {
+  const options = [
+    { label: 'blue', value: 'blue' },
+    { label: 'green', value: 'green' },
+    { label: 'orange', value: 'orange' },
+    { label: 'purple', value: 'purple' },
+    { label: 'red', value: 'red' },
+    { label: 'yellow', value: 'yellow' },
+  ];
+
+  const [selected, setSelected] = React.useState([]);
+
+  const onSelectTagManagement = ({ item: { value } }) => {
+    if (!selected.includes(value)) {
+      setSelected([...selected, value]);
+    }
+  }
+
+  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
+    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
+      // Remove tag on backspace if the cursor is at the beginning of the field
+      setSelected([...selected.slice(0, -1)]);
+    }
+  }
+
+  const renderedTags = options
+    .filter(({ value }) => selected.includes(value))
+    .map(({ label, value }) => (
+      <Tag
+        key={value}
+        onRemove={() => setSelected({ ...selected, [value]: false })}
+        removeIconAccessibilityLabel={\`Remove \${label} tag\`}
+        text={label}
+      />
+    ));
+
+  return (
+    <Typeahead
+      key={JSON.stringify(selected) /* force update when the options change */}
+      label="Select your favorite colors"
+      id="favorite-colors"
+      noResultText="No Results"
+      onKeyDown={onKeyDownTagManagement}
+      onSelect={onSelectTagManagement}
+      options={options.filter(({ value }) => !selected.includes(value))}
+      placeholder="Select colors"
+      tags={renderedTags}
+    />
+  );
+}
+`}
   />
 );
 

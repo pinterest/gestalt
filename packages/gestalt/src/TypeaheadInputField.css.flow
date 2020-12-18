@@ -4,4 +4,7 @@ declare module.exports: {|
   +'icon': string,
   +'inputActive': string,
   +'inputRadius': string,
+  +'inputSpacer': string,
+  +'inputWrapper': string,
+  +'unstyledInput': string,
 |};
