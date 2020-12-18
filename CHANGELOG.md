@@ -1,3 +1,9 @@
+## 16.0.0 (Dec 18, 2020)
+
+### Major
+
+- Callout/Upsell: update primary/secondaryLink to be primary/secondaryAction + Codemod (#1314)
+
 ## 15.11.0 (Dec 18, 2020)
 
 ### Minor
