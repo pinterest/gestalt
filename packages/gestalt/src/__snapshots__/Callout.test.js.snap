@@ -276,9 +276,9 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel="noopener noreferrer"
+          rel=""
           tabIndex={0}
-          target="_blank"
+          target={null}
         >
           <div
             className="Text fontSize3 darkGray alignCenter fontWeightBold"
@@ -424,9 +424,9 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel="noopener noreferrer"
+          rel=""
           tabIndex={0}
-          target="_blank"
+          target={null}
         >
           <div
             className="Text fontSize3 darkGray alignCenter fontWeightBold"
@@ -454,9 +454,9 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel="noopener noreferrer"
+          rel=""
           tabIndex={0}
-          target="_blank"
+          target={null}
         >
           <div
             className="Text fontSize3 darkGray alignCenter fontWeightBold"
@@ -557,9 +557,9 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          rel="noopener noreferrer"
+          rel=""
           tabIndex={0}
-          target="_blank"
+          target={null}
         >
           <div
             className="Text fontSize3 darkGray alignCenter fontWeightBold"
