@@ -52,13 +52,14 @@ card(
         href: '',
       },
       {
-        name: 'primaryLink',
+        name: 'primaryAction',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
-          'Link-role button to render inside the callout as the main call-to-action to the user. The label text has a fixed size.',
+          'Button to render inside the callout as the main call-to-action to the user. The label text has a fixed size.',
+          '- href: If href is supplied, the action will serve as a link, while if no href is supplied, the action will be a button',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
@@ -67,13 +68,14 @@ card(
         href: '',
       },
       {
-        name: 'secondaryLink',
+        name: 'secondaryAction',
         type:
           '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}',
         required: false,
         defaultValue: null,
         description: [
-          'Link-role button to render inside the callout as a secondary call-to-action to the user.',
+          'Button to render inside the callout as the secondary call-to-action to the user. The label text has a fixed size.',
+          '- href: If href is supplied, the action will serve as a link, while if no href is supplied, the action will be a button',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
@@ -117,8 +119,8 @@ card(
   iconAccessibilityLabel="Info icon"
   title="Your business account was created!"
   message="Apply to the Verified Merchant Program!"
-  primaryLink={{href: "https://pinterest.com", label:"Get started"}}
-  secondaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  primaryAction={{href: "https://pinterest.com", label:"Get started"}}
+  secondaryAction={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -136,7 +138,7 @@ card(
   type="warning"
   iconAccessibilityLabel="Warning icon"
   message="This feature will be removed in two weeks."
-  primaryLink={{href: "https://pinterest.com", label:"Learn more"}}
+  primaryAction={{href: "https://pinterest.com", label:"Learn more"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -156,6 +158,114 @@ card(
   message="This action can't be undone."
 />
   `}
+  />
+);
+
+card(
+  <Example
+    name="Example with button call-to-action"
+    description={`
+      \`primaryAction\` and \`secondaryAction\` can be used as buttons when no \`href\` is supplied.
+    `}
+    defaultCode={`
+function Example(props) {
+  const [showModal, setShowModal] = React.useState(false);
+
+  return (
+    <Box marginLeft={-1} marginRight={-1}>
+      <Callout
+        type="info"
+        iconAccessibilityLabel="Info icon"
+        title="Your board was created!"
+        message="You can edit your board at anytime!"
+        primaryAction={{
+          label:"Edit board", role: "button",
+          onClick: () => { setShowModal(!showModal) }
+        }}
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: ()=>{},
+        }}
+      />
+      {showModal && (
+        <Layer>
+          <Modal
+            accessibilityModalLabel="Edit Julia's board"
+            heading="Edit your board"
+            onDismiss={() => { setShowModal(!showModal) }}
+            footer={
+              <Box
+                justifyContent="between"
+                display="flex"
+                direction="row"
+                marginLeft={-1}
+                marginRight={-1}
+              >
+                <Box column={12} smColumn={6} paddingX={1}>
+                  <Button text="Delete Board" inline size="lg" />
+                </Box>
+                <Box column={12} smColumn={6} paddingX={1}>
+                  <Box
+                    display="flex"
+                    justifyContent="end"
+                  >
+                    <ButtonGroup>
+                      <Button text="Cancel" inline onClick={() => { setShowModal(!showModal) }} size="lg" />
+                      <Button color="red" inline text="Save" size="lg" />
+                    </ButtonGroup>
+                  </Box>
+                </Box>
+              </Box>
+            }
+            size="md"
+          >
+            <Box display="flex" direction="row" position="relative">
+              <Column span={12}>
+                <Box paddingY={2} paddingX={8} display="flex">
+                  <Column span={4}>
+                    <Label htmlFor="name">
+                      <Text align="left" weight="bold">
+                        Name
+                      </Text>
+                    </Label>
+                  </Column>
+                  <Column span={8}>
+                    <TextField id="name" onChange={() => undefined} />
+                  </Column>
+                </Box>
+                <Box paddingY={2} paddingX={8} display="flex">
+                  <Column span={4}>
+                    <Label htmlFor="desc">
+                      <Text align="left" weight="bold">
+                        Description
+                      </Text>
+                    </Label>
+                  </Column>
+                  <Column span={8}>
+                    <TextArea id="desc" onChange={() => undefined} />
+                  </Column>
+                </Box>
+                <Box paddingY={2} paddingX={8} display="flex">
+                  <Column span={4}>
+                    <Label htmlFor="notifications">
+                      <Text align="left" weight="bold">
+                        Email Notifications
+                      </Text>
+                    </Label>
+                  </Column>
+                  <Column span={8}>
+                    <Switch id="notifications" onChange={() => undefined} switched />
+                  </Column>
+                </Box>
+              </Column>
+            </Box>
+          </Modal>
+        </Layer>
+      )}
+    </Box>
+  );
+}
+`}
   />
 );
 

@@ -14,9 +14,9 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 
-type LinkData = {|
+type ActionData = {|
   accessibilityLabel?: string,
-  href: string,
+  href?: string,
   label: string,
   onClick?: AbstractEventHandler<
     | SyntheticMouseEvent<HTMLButtonElement>
@@ -40,17 +40,17 @@ type Props = {|
     width?: number,
   |},
   message: string,
-  primaryLink?: LinkData,
-  secondaryLink?: LinkData,
+  primaryAction?: ActionData,
+  secondaryAction?: ActionData,
   title?: string,
 |};
 
-const UpsellLink = ({
+const UpsellAction = ({
   data,
   stacked,
   type,
 }: {|
-  data: LinkData,
+  data: ActionData,
   stacked?: boolean,
   type: string,
 |}): Node => {
@@ -68,15 +68,26 @@ const UpsellLink = ({
       smMarginTop="auto"
       smMarginBottom="auto"
     >
-      <Button
-        accessibilityLabel={accessibilityLabel}
-        color={color}
-        href={href}
-        onClick={onClick}
-        role="link"
-        size="lg"
-        text={label}
-      />
+      {href ? (
+        <Button
+          accessibilityLabel={accessibilityLabel}
+          color={color}
+          href={href}
+          onClick={onClick}
+          role="link"
+          size="lg"
+          text={label}
+        />
+      ) : (
+        <Button
+          accessibilityLabel={accessibilityLabel}
+          color={color}
+          onClick={onClick}
+          role="button"
+          size="lg"
+          text={label}
+        />
+      )}
     </Box>
   );
 };
@@ -85,8 +96,8 @@ export default function Upsell({
   dismissButton,
   imageData,
   message,
-  primaryLink,
-  secondaryLink,
+  primaryAction,
+  secondaryAction,
   title,
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
@@ -116,8 +127,8 @@ export default function Upsell({
           smDirection="row"
           justifyContent="center"
           alignItems="center"
-          marginBottom={primaryLink || secondaryLink ? 4 : undefined}
-          smMarginBottom={primaryLink || secondaryLink ? 0 : undefined}
+          marginBottom={primaryAction || secondaryAction ? 4 : undefined}
+          smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
           {imageData && (
@@ -167,15 +178,17 @@ export default function Upsell({
           </Box>
         </Box>
         <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryLink && responsiveMinWidth !== 'xs' && (
-            <UpsellLink type="secondary" data={secondaryLink} />
+          {secondaryAction && responsiveMinWidth !== 'xs' && (
+            <UpsellAction type="secondary" data={secondaryAction} />
           )}
-          {primaryLink && <UpsellLink type="primary" data={primaryLink} />}
-          {secondaryLink && responsiveMinWidth === 'xs' && (
-            <UpsellLink
+          {primaryAction && (
+            <UpsellAction type="primary" data={primaryAction} />
+          )}
+          {secondaryAction && responsiveMinWidth === 'xs' && (
+            <UpsellAction
               type="secondary"
-              data={secondaryLink}
-              stacked={!!secondaryLink}
+              data={secondaryAction}
+              stacked={!!secondaryAction}
             />
           )}
         </Box>
@@ -213,15 +226,15 @@ Upsell.propTypes = {
   }),
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  primaryLink: PropTypes.shape({
-    href: PropTypes.string.isRequired,
+  primaryAction: PropTypes.shape({
+    href: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  secondaryLink: PropTypes.shape({
-    href: PropTypes.string.isRequired,
+  secondaryAction: PropTypes.shape({
+    href: PropTypes.string,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,

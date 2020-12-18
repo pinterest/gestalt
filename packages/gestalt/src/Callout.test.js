@@ -49,12 +49,12 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink', () => {
+  test('message + title + primaryAction with href', () => {
     const tree = create(
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         type="info"
         title="A Title"
       />
@@ -62,13 +62,12 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink + secondaryLink', () => {
+  test('message + title + primaryAction without href', () => {
     const tree = create(
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
-        secondaryLink={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        primaryAction={{ label: 'Visit Pinterest' }}
         type="info"
         title="A Title"
       />
@@ -76,12 +75,26 @@ describe('<Callout />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('message + title + primaryLink + dismissButton', () => {
+  test('message + title + primaryAction + secondaryAction', () => {
     const tree = create(
       <Callout
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
-        primaryLink={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
+        secondaryAction={{ href: 'pinterest.com/help', label: 'Learn more' }}
+        type="info"
+        title="A Title"
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('message + title + primaryAction + dismissButton', () => {
+    const tree = create(
+      <Callout
+        message="Insert a clever info callout message here"
+        iconAccessibilityLabel="info"
+        primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
