@@ -1,3 +1,9 @@
+## 15.11.0 (Dec 18, 2020)
+
+### Minor
+
+- Modal: Add subHeading and align props (#1316)
+
 ## 15.10.2 (Dec 17, 2020)
 
 ### Patch
