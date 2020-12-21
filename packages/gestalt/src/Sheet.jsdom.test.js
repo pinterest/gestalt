@@ -199,7 +199,6 @@ describe('Sheet', () => {
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Test Sheet"
         onDismiss={mockOnDismiss}
-        shouldCloseOnKeyEvent={true}
       >
         <section />
       </Sheet>
@@ -253,14 +252,15 @@ describe('Sheet', () => {
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(0);
 
-    rerender(<Sheet
-      accessibilityDismissButtonLabel="Dismiss"
-      accessibilitySheetLabel="Test Sheet"
-      onDismiss={mockOnDismiss}
-      shouldCloseOnKeyEvent={true}
-    >
-      <section />
-    </Sheet>);
+    rerender(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        onDismiss={mockOnDismiss}
+      >
+        <section />
+      </Sheet>
+    );
 
     fireEvent.keyUp(window.document, {
       keyCode: 27,
