@@ -111,6 +111,15 @@ card(
         href: 'refExample',
       },
       {
+        name: 'shouldCloseOnKeyEvent',
+        type: `() => boolean`,
+        defaultValue: 'null',
+        description: [
+          'Determine if component should close on key event',
+        ],
+        href: 'refExample',
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'sm',
