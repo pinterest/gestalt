@@ -51,6 +51,7 @@ type SheetMainProps = {|
   closeOnOutsideClick?: boolean,
   footer?: Node,
   onDismiss: () => void,
+  shouldCloseOnKeyEvent?: () => boolean,
   size?: 'sm' | 'md' | 'lg',
 |};
 
@@ -134,6 +135,7 @@ const SheetWithForwardRef: React$AbstractComponent<
     footer,
     heading,
     onDismiss,
+    shouldCloseOnKeyEvent,
     size = 'sm',
     subHeading,
   } = props;
@@ -147,7 +149,12 @@ const SheetWithForwardRef: React$AbstractComponent<
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
-      if (event.keyCode === ESCAPE) {
+      if (
+        (shouldCloseOnKeyEvent &&
+          shouldCloseOnKeyEvent() &&
+          event.keyCode === ESCAPE) ||
+        (!shouldCloseOnKeyEvent && event.keyCode === ESCAPE)
+      ) {
         onDismiss();
       }
     }
@@ -156,7 +163,7 @@ const SheetWithForwardRef: React$AbstractComponent<
     return function cleanup() {
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [onDismiss]);
+  }, [onDismiss, shouldCloseOnKeyEvent]);
 
   // Handle onDismiss triggering from outside click
   const handleOutsideClick = useCallback(() => {
@@ -334,6 +341,7 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
     heading = undefined,
     size,
     subHeading = undefined,
+    shouldCloseOnKeyEvent,
   } = props;
 
   return (
@@ -349,6 +357,7 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
           heading={heading}
           onDismiss={onDismissStart}
           ref={sheetRef}
+          shouldCloseOnKeyEvent={shouldCloseOnKeyEvent}
           size={size}
           subHeading={
             typeof subHeading === 'function'

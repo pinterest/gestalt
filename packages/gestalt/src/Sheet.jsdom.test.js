@@ -191,6 +191,52 @@ describe('Sheet', () => {
     expect(mockOnDismiss).toHaveBeenCalledTimes(1);
   });
 
+  it('should dismiss from the ESC key if shouldCloseOnKeyEvent returns true', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        onDismiss={mockOnDismiss}
+        shouldCloseOnKeyEvent={() => {
+          return true;
+        }}
+      >
+        <section />
+      </Sheet>
+    );
+    fireEvent.keyUp(window.document, {
+      keyCode: 27,
+    });
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not dismiss from the ESC key if shouldCloseOnKeyEvent returns false', () => {
+    const mockOnDismiss = jest.fn();
+
+    const { container } = render(
+      <Sheet
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilitySheetLabel="Test Sheet"
+        onDismiss={mockOnDismiss}
+        shouldCloseOnKeyEvent={() => {
+          return false;
+        }}
+      >
+        <section />
+      </Sheet>
+    );
+    fireEvent.keyUp(window.document, {
+      keyCode: 27,
+    });
+    fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
+
+    expect(mockOnDismiss).toHaveBeenCalledTimes(0);
+  });
+
   it('should dismiss from clicking outside when closeOnOutsideClick is true', () => {
     const mockOnDismiss = jest.fn();
 
