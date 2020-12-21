@@ -114,9 +114,7 @@ card(
         name: 'shouldCloseOnKeyEvent',
         type: `() => boolean`,
         defaultValue: 'null',
-        description: [
-          'Determine if component should close on key event',
-        ],
+        description: ['Determine if component should close on key event'],
         href: 'refExample',
       },
       {
