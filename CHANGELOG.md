@@ -1,3 +1,9 @@
+## 16.0.2 (Dec 22, 2020)
+
+### Patch
+
+- Modal: fix bad flow types (#1322)
+
 ## 16.0.1 (Dec 22, 2020)
 
 ### Patch
