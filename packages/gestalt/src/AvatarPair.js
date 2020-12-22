@@ -5,7 +5,7 @@ import Avatar from './Avatar.js';
 import Box from './Box.js';
 
 type Props = {|
-  collaborators: Array<{|
+  collaborators: $ReadOnlyArray<{|
     name: string,
     src?: string,
   |}>,

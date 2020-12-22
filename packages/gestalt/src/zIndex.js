@@ -18,9 +18,9 @@ export class FixedZIndex implements Indexable {
 }
 
 export class CompositeZIndex implements Indexable {
-  +deps: Array<FixedZIndex | CompositeZIndex>;
+  +deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>;
 
-  constructor(deps: Array<FixedZIndex | CompositeZIndex>) {
+  constructor(deps: $ReadOnlyArray<FixedZIndex | CompositeZIndex>) {
     this.deps = deps;
   }
 

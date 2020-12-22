@@ -22,9 +22,9 @@ const uniformRowLayout = <T>({
   gutter?: number,
   width?: ?number,
   minCols?: number,
-|}): ((items: Array<T>) => Array<Position>) => (
-  items: Array<T>
-): Array<Position> => {
+|}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => (
+  items: $ReadOnlyArray<T>
+): $ReadOnlyArray<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }

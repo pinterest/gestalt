@@ -9,11 +9,11 @@ type Props = {|
   id: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
-  items: Array<{|
+  items: $ReadOnlyArray<{|
     title: string,
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
-    summary?: Array<string>,
+    summary?: $ReadOnlyArray<string>,
     type?: 'error' | 'info',
     children?: Node,
   |}>,

@@ -22,7 +22,7 @@ export type Functor<T> = (n: T) => Style;
 //     <Box top />
 //
 export const toggle = (
-  ...classNames: Array<string>
+  ...classNames: $ReadOnlyArray<string>
 ): ((val?: boolean) => Style) => (val) =>
   val ? fromClassName(...classNames) : identity();
 
@@ -62,6 +62,6 @@ export function bind<T>(
 
 // This takes a series of the previously defined functors, runs them all
 // against a value and returns the set of their classnames.
-export const union = <T>(...fns: Array<Functor<T>>): ((val: T) => Style) => (
-  val
-) => concat(fns.map((fn) => fn(val)));
+export const union = <T>(
+  ...fns: $ReadOnlyArray<Functor<T>>
+): ((val: T) => Style) => (val) => concat(fns.map((fn) => fn(val)));

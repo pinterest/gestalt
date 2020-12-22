@@ -41,7 +41,9 @@ const defaultLayout = <T>({
   minCols?: number,
   rawItemCount: number,
   width?: ?number,
-|}): ((items: Array<*>) => Array<Position>) => (items): Array<Position> => {
+|}): ((items: $ReadOnlyArray<*>) => $ReadOnlyArray<Position>) => (
+  items
+): $ReadOnlyArray<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }

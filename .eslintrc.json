@@ -28,6 +28,7 @@
   ],
   "rules": {
     "eslint-comments/no-unused-disable": "error",
+    "flowtype/no-mutable-array": "error",
     "flowtype/require-exact-type": ["error", "always"],
     "flowtype/require-valid-file-annotation": [
       "error",
@@ -76,8 +77,15 @@
     {
       "files": ["packages/gestalt-codemods/**/*.js", "scripts/**/*.js"],
       "rules": {
+        "flowtype/no-mutable-array": "off",
         "flowtype/require-exact-type": "off",
         "flowtype/require-valid-file-annotation": "off"
+      }
+    },
+    {
+      "files": [ "docs/**/*.js"],
+      "rules": {
+        "flowtype/no-mutable-array": "off"
       }
     },
     {

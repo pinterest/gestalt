@@ -525,8 +525,8 @@ export function buildStyles<T: Object>({
 }: {|
   baseStyles: string,
   props: T,
-  blocklistProps?: Array<string>,
-  allowlistProps?: Array<string>,
+  blocklistProps?: $ReadOnlyArray<string>,
+  allowlistProps?: $ReadOnlyArray<string>,
 |}): {|
   passthroughProps: T,
   propsStyles: ToPropsOutput,
