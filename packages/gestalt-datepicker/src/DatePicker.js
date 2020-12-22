@@ -20,11 +20,11 @@ import { LocaleDataPropTypes, type LocaleData } from './LocaleDataTypes.js';
 type Props = {|
   disabled?: boolean,
   errorMessage?: string,
-  excludeDates?: Array<Date>,
+  excludeDates?: $ReadOnlyArray<Date>,
   helperText?: string,
   id: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
-  includeDates?: Array<Date>,
+  includeDates?: $ReadOnlyArray<Date>,
   label?: string,
   localeData?: LocaleData,
   maxDate?: Date,
@@ -128,10 +128,10 @@ const DatePickerWithForwardRef: React$AbstractComponent<
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
         endDate={rangeEndDate}
-        excludeDates={excludeDates}
+        excludeDates={excludeDates && [...excludeDates]}
         highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
         id={id}
-        includeDates={includeDates}
+        includeDates={includeDates && [...includeDates]}
         locale={updatedLocale}
         maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
         minDate={

@@ -9,7 +9,10 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Source =
   | string
-  | Array<{| type: 'video/m3u8' | 'video/mp4' | 'video/ogg', src: string |}>;
+  | $ReadOnlyArray<{|
+      type: 'video/m3u8' | 'video/mp4' | 'video/ogg',
+      src: string,
+    |}>;
 
 type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 type CrossOrigin = 'anonymous' | 'use-credentials';

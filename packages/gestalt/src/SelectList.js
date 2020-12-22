@@ -12,11 +12,11 @@ import Icon from './Icon.js';
 import styles from './SelectList.css';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
-type Options = Array<{|
+type Option = {|
   label: string,
   value: string,
   disabled?: boolean,
-|}>;
+|};
 
 type Props = {|
   errorMessage?: string,
@@ -29,7 +29,7 @@ type Props = {|
     SyntheticInputEvent<HTMLSelectElement>,
     {| value: string |}
   >,
-  options: Options,
+  options: $ReadOnlyArray<Option>,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: ?string,

@@ -15,7 +15,7 @@ type OnChange = AbstractEventHandler<
   {| activeIndex: number |}
 >;
 type Props = {|
-  items: Array<Node>,
+  items: $ReadOnlyArray<Node>,
   onChange: OnChange,
   responsive?: boolean,
   selectedItemIndex: number,

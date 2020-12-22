@@ -96,7 +96,7 @@ type Props = {|
   activeTabIndex: number,
   onChange: OnChangeHandler,
   size?: 'md' | 'lg',
-  tabs: Array<{|
+  tabs: $ReadOnlyArray<{|
     href: string,
     id?: string,
     indicator?: 'dot',
