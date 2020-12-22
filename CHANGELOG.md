@@ -1,3 +1,9 @@
+## 16.0.1 (Dec 22, 2020)
+
+### Patch
+
+- Internal: Enable the eslint rule flowtype/no-mutable-array (#1321)
+
 ## 16.0.0 (Dec 18, 2020)
 
 ### Major
