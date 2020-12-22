@@ -5,17 +5,16 @@ import Text from './Text.js';
 
 const Valid = <Modal accessibilityModalLabel="Modal" onDismiss={() => {}} />;
 
-// $FlowExpectedError[incompatible-type]
+// $FlowExpectedError[prop-missing]
 const MissingProp = <Modal />;
 
-// $FlowExpectedError[incompatible-type]
+// $FlowExpectedError[prop-missing]
 const NonExistingProp = <Modal nonexisting={33} />;
 
 const InvalidProp = (
   <Modal
     accessibilityModalLabel="Modal"
     onDismiss={() => {}}
-    // $FlowExpectedError[incompatible-type]
     heading={<Text>Test</Text>}
     subHeading="clever subheading"
   />

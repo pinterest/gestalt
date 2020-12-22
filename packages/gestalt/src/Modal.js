@@ -20,21 +20,15 @@ import modalStyles from './Modal.css';
 
 type Props = {|
   accessibilityModalLabel: string,
+  align?: 'left' | 'center',
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
+  heading?: Node,
   onDismiss: () => void,
   role?: 'alertdialog' | 'dialog',
   size?: 'sm' | 'md' | 'lg' | number,
-  ...
-    | {|
-        heading?: Node,
-      |}
-    | {|
-        heading?: string,
-        subHeading?: string,
-        align?: 'left' | 'center',
-      |},
+  subHeading?: string,
 |};
 
 const SIZE_WIDTH_MAP = {
