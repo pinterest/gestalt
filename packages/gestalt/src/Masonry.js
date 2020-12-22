@@ -46,7 +46,7 @@ type Props<T> = {|
   |}>,
   flexible?: boolean,
   gutterWidth?: number,
-  items: Array<T>,
+  items: $ReadOnlyArray<T>,
   measurementStore?: Cache<T, *>,
   minCols: number,
   layout?: Layout,
@@ -69,7 +69,7 @@ type State<T> = {|
   measurementStore: Cache<T, *>,
   hasPendingMeasurements: boolean,
   isFetching: boolean,
-  items: Array<T>,
+  items: $ReadOnlyArray<T>,
   scrollTop: number,
   width: ?number,
 |};
@@ -312,7 +312,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
   ): null | {|
     hasPendingMeasurements: boolean,
     isFetching?: boolean,
-    items: Array<T>,
+    items: $ReadOnlyArray<T>,
   |} {
     const { items } = props;
     const { measurementStore } = state;

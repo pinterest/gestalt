@@ -13,7 +13,7 @@ type Props = {|
   iconAccessibilityLabel?: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
-  summary?: Array<string>,
+  summary?: $ReadOnlyArray<string>,
   isCollapsed: boolean,
   onModuleClicked: (boolean) => void,
   type?: 'error' | 'info',

@@ -45,7 +45,7 @@ import layoutStyles from './Layout.css';
 
 type Props = {|
   Item: ({| idx: number |}) => Node,
-  layout: Array<{|
+  layout: $ReadOnlyArray<{|
     top: number,
     left: number,
     width: number,
@@ -76,7 +76,7 @@ export default class Collection extends PureComponent<Props, void> {
   };
 
   static defaultProps: {|
-    layout: Array<{|
+    layout: $ReadOnlyArray<{|
       top: number,
       left: number,
       width: number,

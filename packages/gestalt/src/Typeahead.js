@@ -44,7 +44,7 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
   |}) => void,
-  options: Array<{|
+  options: $ReadOnlyArray<{|
     label: string,
     value: string,
   |}>,
@@ -75,7 +75,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
   const dataRef = useRef(options);
 
   // Utility function for filtering data by value
-  const filterOriginalData = (filterValue: string): OptionObject[] =>
+  const filterOriginalData = (
+    filterValue: string
+  ): $ReadOnlyArray<OptionObject> =>
     dataRef.current.filter((item) =>
       item.label.toLowerCase().includes(filterValue.toLowerCase())
     );
@@ -102,9 +104,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
-  const [availableOptions, setAvailableOptions] = useState<OptionObject[]>(
-    dataRef.current
-  );
+  const [availableOptions, setAvailableOptions] = useState<
+    $ReadOnlyArray<OptionObject>
+  >(dataRef.current);
 
   // Ref to the input
   const inputRef = useRef(null);

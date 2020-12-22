@@ -22,7 +22,7 @@ const AVATAR_SIZES = {
 };
 
 type Props = {|
-  collaborators: Array<{|
+  collaborators: $ReadOnlyArray<{|
     name: string,
     src?: string,
   |}>,

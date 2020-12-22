@@ -26,17 +26,18 @@ const fullWidthLayout = <T>({
   idealColumnWidth?: number,
   width?: ?number,
 |}):
-  | ((items: Array<string>) => Array<Position>)
+  | ((items: $ReadOnlyArray<string>) => $ReadOnlyArray<Position>)
   | ((
+      // eslint-disable-next-line flowtype/no-mutable-array
       items: Array<T>
-    ) => Array<{|
+    ) => $ReadOnlyArray<{|
       height: number,
       left: number,
       top: number,
       width: number,
     |}>) => {
   if (width == null) {
-    return (items: Array<string>): Array<Position> =>
+    return (items: $ReadOnlyArray<string>): $ReadOnlyArray<Position> =>
       items.map(() => ({
         top: Infinity,
         left: Infinity,
@@ -55,6 +56,7 @@ const fullWidthLayout = <T>({
   );
   const columnWidth = Math.floor(width / columnCount);
 
+  // eslint-disable-next-line flowtype/no-mutable-array
   return (items: Array<T>) => {
     // the total height of each column
     const heights = new Array(columnCount).fill(0);

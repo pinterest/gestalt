@@ -30,7 +30,9 @@ export const identity = (): Style => ({
   inlineStyle: {},
 });
 
-export const fromClassName = (...classNames: Array<string>): Style => ({
+export const fromClassName = (
+  ...classNames: $ReadOnlyArray<string>
+): Style => ({
   className: new Set(classNames),
   inlineStyle: {},
 });
@@ -40,7 +42,7 @@ export const fromInlineStyle = (inlineStyle: InlineStyle): Style => ({
   inlineStyle,
 });
 
-export const concat = (styles: Array<Style>): Style =>
+export const concat = (styles: $ReadOnlyArray<Style>): Style =>
   styles.reduce(
     (
       { className: classNameA, inlineStyle: inlineStyleA },

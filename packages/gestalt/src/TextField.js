@@ -43,7 +43,7 @@ type Props = {|
     value: string,
   |}) => void,
   placeholder?: string,
-  tags?: Array<Element<typeof Tag>>,
+  tags?: $ReadOnlyArray<Element<typeof Tag>>,
   type?: 'date' | 'email' | 'number' | 'password' | 'text' | 'url',
   size?: 'md' | 'lg',
   value?: string,
