@@ -9,6 +9,8 @@ type Props = {|
   id: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
+  extExpandedId?: ?string,
+  setExtExpandedId?: (?string) => void,
   items: $ReadOnlyArray<{|
     title: string,
     icon?: $Keys<typeof icons>,
@@ -23,9 +25,13 @@ export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
+  extExpandedId,
+  setExtExpandedId,
   items,
 }: Props): Node {
-  const [expandedId, setExpandedId] = useState(-1);
+  const [localExpandedId, setLocalExpandedId] = useState(null);
+  const expandedId = extExpandedId || localExpandedId;
+  const setExpandedId = setExtExpandedId || setLocalExpandedId;
 
   return (
     <Box rounding={2} borderStyle="shadow">
@@ -42,13 +48,13 @@ export default function ModuleExpandable({
                 icon={icon}
                 iconAccessibilityLabel={iconAccessibilityLabel}
                 summary={summary}
-                isCollapsed={expandedId !== index}
+                isCollapsed={expandedId !== `${id}-${index}`}
                 type={type}
                 accessibilityExpandLabel={accessibilityExpandLabel}
                 accessibilityCollapseLabel={accessibilityCollapseLabel}
-                onModuleClicked={(isExpanded) =>
-                  setExpandedId(isExpanded ? -1 : index)
-                }
+                onModuleClicked={(isExpanded) => {
+                  setExpandedId(isExpanded ? null : `${id}-${index}`);
+                }}
               >
                 {children}
               </ModuleExpandableBase>

@@ -7,6 +7,8 @@ const Valid = (
     id="uniqueTestID"
     accessibilityExpandLabel="click to expand"
     accessibilityCollapseLabel="click to collapse"
+    extExpandedId="uniqueTestID-0"
+    setExtExpandedId={() => {}}
     items={[
       {
         title: 'Title',
