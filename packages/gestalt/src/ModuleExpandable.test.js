@@ -53,3 +53,36 @@ test('renders correctly with multiple items', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('renders correctly with multiple items with extExpandedId', () => {
+  const tree = renderer
+    .create(
+      <ModuleExpandable
+        id="uniqueTestID"
+        accessibilityExpandLabel="click to expand"
+        accessibilityCollapseLabel="click to collapse"
+        extExpandedId="uniqueTestID-0"
+        setExtExpandedId={() => {}}
+        items={[
+          {
+            title: 'Title1',
+            summary: ['summary1'],
+            children: 'Children1',
+          },
+          {
+            title: 'Title2',
+            summary: ['summary2'],
+            children: 'Children2',
+          },
+          {
+            title: 'Title3',
+            summary: ['summary3'],
+            children: 'Children3',
+            type: 'error',
+          },
+        ]}
+      />
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
