@@ -115,7 +115,7 @@ card(
         type: `boolean`,
         defaultValue: 'true',
         description: ['Determine if component should close on key event'],
-        href: 'refExample',
+        href: 'shouldCloseOnKeyEventExample',
       },
       {
         name: 'size',
@@ -696,6 +696,60 @@ function RefExample() {
               </Box>
             </Sheet>
             <div ref={callbackRef} />
+          </>
+        </Layer>
+      )}
+    </>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    id="shouldCloseOnKeyEventExample"
+    name="Example: shouldCloseOnKeyEvent"
+    description={`
+    A \`Sheet\` with shouldCloseOnKeyEvent
+  `}
+    defaultCode={`
+function ShouldCloseOnKeyEventExample() {
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const [shouldCloseOnKeyEvent, setShouldCloseOnKeyEvent] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+  return (
+    <>
+      <Button
+        inline
+        text="Open sheet"
+        onClick={() => setShouldShow(true)}
+      />
+      <Button
+        inline
+        text={\`shouldCloseOnKeyEvent: \${shouldCloseOnKeyEvent ? 'Enabled' : 'Disabled'}\`}
+        onClick={() => setShouldCloseOnKeyEvent(!shouldCloseOnKeyEvent)}
+      />
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <>
+            <Sheet
+              accessibilityDismissButtonLabel="Close"
+              accessibilitySheetLabel="Focused sheet"
+              onDismiss={() => setShouldShow(false)}
+              shouldCloseOnKeyEvent={shouldCloseOnKeyEvent}
+              size="md"
+            >
+              <Box color="white" minHeight={400} padding={8}>
+                <Box marginBottom={4}>
+                  <Heading size="md">Sheet</Heading>
+                </Box>
+                <Text>
+                  This sheet {shouldCloseOnKeyEvent ? "CAN" : "CAN'T"} be closed with ESC key.
+                </Text>
+              </Box>
+            </Sheet>
+            <div />
           </>
         </Layer>
       )}
