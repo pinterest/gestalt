@@ -56,7 +56,7 @@ type Props = {|
   |}>,
   placeholder?: string,
   size?: 'md' | 'lg',
-  tags?: Array<Element<typeof Tag>>,
+  tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
 |};
 
