@@ -273,8 +273,8 @@ const SheetWithForwardRef: React$AbstractComponent<
                   flex="grow"
                   overflow="auto"
                   onScroll={updateShadows}
-                  paddingX={4}
-                  marginTop={4}
+                  paddingX={8}
+                  paddingY={4}
                   ref={contentRef}
                 >
                   {children}
