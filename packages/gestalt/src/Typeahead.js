@@ -10,19 +10,15 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
-import MenuOption from './MenuOption.js';
+import MenuOption, { type OptionObject } from './MenuOption.js';
 import Box from './Box.js';
 import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import Tag from './Tag.js';
-import handleContainerScrolling from './utils/keyboardNavigation.js';
-
-type OptionObject = {|
-  label: string,
-  value: string,
-  subtext?: string,
-|};
+import handleContainerScrolling, {
+  type DirectionOptionType,
+} from './utils/keyboardNavigation.js';
 
 type Props = {|
   id: string,
@@ -192,7 +188,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLInputElement>,
-    direction: -1 | 0 | 1
+    direction: DirectionOptionType
   ) => {
     // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
     const newIndex = direction + hoveredItem;

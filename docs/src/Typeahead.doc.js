@@ -206,13 +206,13 @@ card(
     name="With Subtext"
     defaultCode={`
 function Example(props) {
-  const [item, setItem] = React.useState("");
+  const [item, setItem] = React.useState('');
   const [selected, setSelected] = React.useState(null);
 
   const options = Array.from(Array(20).keys()).map((item) => ({
     value: "Value-" + (item + 1),
     label: "Label-" + (item + 1),
-    subtext: "Subtext-"+ (item + 1),
+    subtext: "Subtext-" + (item + 1),
   }));
 
   const handleOnChange = ({ value }) => {
@@ -228,7 +228,7 @@ function Example(props) {
   return (
     <>
       <Box marginBottom={4}>
-       <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+       <Text>{ label }</Text>
       </Box>
 
       <Typeahead

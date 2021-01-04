@@ -1,6 +1,8 @@
 // @flow strict
+export type DirectionOptionType = -1 | 0 | 1;
+
 const handleContainerScrolling = (
-  direction: -1 | 0 | 1,
+  direction: DirectionOptionType,
   containerRef: {| current: ?HTMLElement |},
   selectedElement: ?HTMLElement
 ) => {

@@ -13,6 +13,8 @@ const SIZE_SCALE = {
   lg: 3,
 };
 
+export type FontWeight = 'bold' | 'normal';
+
 type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
   children?: Node,
@@ -39,7 +41,7 @@ type Props = {|
   overflow?: 'normal' | 'breakWord' | 'noWrap',
   size?: 'sm' | 'md' | 'lg',
   truncate?: boolean,
-  weight?: 'bold' | 'normal',
+  weight?: FontWeight,
 |};
 
 export default function Text({

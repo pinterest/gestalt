@@ -1,29 +1,29 @@
 // @flow strict
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
-import MenuOption from './MenuOption.js';
+import MenuOption, { type OptionObject } from './MenuOption.js';
 import DropdownContext from './DropdownContextProvider.js';
 
-type OptionObject = {|
-  label: string,
-  value: string,
-  subtext?: string,
-|};
-
-type OptionProps = {|
+type PublicProps = {|
   badgeText?: string,
   children?: Node,
-  isExternal?: boolean,
-  /* the option with value and label */
-  option: OptionObject,
-  selected?: OptionObject | Array<OptionObject> | null,
   handleSelect?: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
+  isExternal?: boolean,
+  option: OptionObject,
+  selected?: OptionObject | Array<OptionObject> | null,
   url?: string,
-  // Private prop, not listed in props table
+|};
+
+type PrivateProps = {|
   index?: number,
+|};
+
+type Props = {|
+  ...PublicProps,
+  ...PrivateProps,
 |};
 
 export default function DropdownItem({
@@ -35,7 +35,7 @@ export default function DropdownItem({
   option,
   selected,
   url,
-}: OptionProps): Node {
+}: Props): Node {
   return (
     <DropdownContext.Consumer>
       {({ hoveredItem, setHoveredItem, setOptionRef }) => (
@@ -66,7 +66,6 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   badgeText: PropTypes.string,
-  index: PropTypes.number,
   isExternal: PropTypes.bool,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.shape({

@@ -17,8 +17,8 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
-
-type DirectionOptionType = -1 | 0 | 1;
+import { type DirectionOptionType } from './utils/keyboardNavigation.js';
+import { ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 
 type Props = {|
   forwardedRef?: Ref<'input'>,
@@ -113,15 +113,15 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
       ENTER: 0,
     };
     // Up Arrow
-    if (event.keyCode === 38) {
+    if (event.keyCode === UP_ARROW) {
       onKeyNavigation(event, KEYS.UP);
     }
     // Down Arrow
-    else if (event.keyCode === 40) {
+    else if (event.keyCode === DOWN_ARROW) {
       onKeyNavigation(event, KEYS.DOWN);
     }
     // Enter Key
-    else if (event.keyCode === 13) {
+    else if (event.keyCode === ENTER) {
       onKeyNavigation(event, KEYS.ENTER);
     }
 

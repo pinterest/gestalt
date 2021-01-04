@@ -5,15 +5,12 @@ import Box from './Box.js';
 import Text from './Text.js';
 import styles from './Dropdown.css';
 
-type SectionProps = {|
+type Props = {|
   children: Node,
   label: string,
 |};
 
-export default function DropdownSection({
-  label,
-  children,
-}: SectionProps): Node {
+export default function DropdownSection({ label, children }: Props): Node {
   return (
     <div className={styles.DropdownSection} aria-label={label}>
       <Box padding={2} display="flex" role="presentation">

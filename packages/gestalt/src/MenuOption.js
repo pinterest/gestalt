@@ -6,20 +6,20 @@ import Badge from './Badge.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Link from './Link.js';
-import Text from './Text.js';
+import Text, { type FontWeight } from './Text.js';
 import styles from './Touchable.css';
 import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
-type OptionObject = {|
+export type OptionObject = {|
   label: string,
   value: string,
   subtext?: string,
 |};
 
-type OptionProps = {|
+type Props = {|
   badgeText?: string,
   children?: Node,
   index: number,
@@ -35,7 +35,7 @@ type OptionProps = {|
   setHoveredItem: (number) => void,
   setOptionRef: (?HTMLElement) => void,
   shouldTruncate?: boolean,
-  textWeight?: 'bold' | 'normal',
+  textWeight?: FontWeight,
   url?: string,
 |};
 
@@ -54,15 +54,18 @@ export default function MenuOption({
   shouldTruncate = false,
   textWeight = 'normal',
   url,
-}: OptionProps): Node {
-  let foundAMatch = [];
-  if (selected instanceof Array)
-    foundAMatch = selected.filter((item) => item.value === option.value);
+}: Props): Node {
+  // let foundAMatch = [];
+  // if (selected instanceof Array)
+  //   foundAMatch = selected.filter((item) => item.value === option.value);
+  //
 
+  const matches = (Array.isArray(selected) ? selected : []).filter(
+    ({ value }) => value === option.value
+  );
   // Determine if the option is a current selected item
   const isSelectedItem =
-    foundAMatch.length > 0 ||
-    JSON.stringify(option) === JSON.stringify(selected);
+    matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
   const handleOnTap = (event) => {
     if (!url && !children) {
@@ -83,11 +86,8 @@ export default function MenuOption({
     }
   );
 
-  // Default option color
-  let optionStateColor = 'transparent';
-
   // Set color on item hover
-  if (index === hoveredItem) optionStateColor = 'lightGray';
+  const optionStateColor = index === hoveredItem ? 'lightGray' : 'transparent';
 
   const menuOptionContents = (
     <Flex>
@@ -105,6 +105,7 @@ export default function MenuOption({
               </Text>
               {badgeText && (
                 <Box marginStart={2} marginTop={1}>
+                  {/* Adds a pause for screen reader users between the item content and the badge content */}
                   <Box display="visuallyHidden">{`, `}</Box>
                   <Badge text={badgeText} />
                 </Box>

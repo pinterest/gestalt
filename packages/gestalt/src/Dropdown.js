@@ -1,5 +1,11 @@
 // @flow strict
-import React, { useState, useRef, type Node } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  useState,
+  useRef,
+  type Node,
+} from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
@@ -7,25 +13,30 @@ import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 import DropdownContext from './DropdownContextProvider.js';
-import handleContainerScrolling from './utils/keyboardNavigation.js';
+import handleContainerScrolling, {
+  type DirectionOptionType,
+} from './utils/keyboardNavigation.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import { type OptionObject } from './MenuOption.js';
 
-type OptionObject = {|
-  label: string,
-  value: string,
-  subtext?: string,
-|};
 type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
   headerContent?: Node,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
-  onSelect?: ({|
-    event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |},
-    item: ?OptionObject,
-  |}) => void,
+  onSelect?: AbstractEventHandler<
+    SyntheticKeyboardEvent<HTMLElement> | SyntheticMouseEvent<HTMLElement>,
+    {| item: ?OptionObject |}
+  >,
 |};
 
+const KEYS = {
+  UP: -1,
+  DOWN: 1,
+  ENTER: 0,
+};
 export default function Dropdown({
   anchor,
   children,
@@ -34,26 +45,24 @@ export default function Dropdown({
   onDismiss,
   onSelect,
 }: Props): Node {
-  const getFlattenedChildren = () => {
-    const dropdownChildrenArray = React.Children.toArray(children);
-
-    const items = dropdownChildrenArray.map((child) => {
-      if (
-        child.props.children &&
-        child.type.displayName === 'DropdownSection'
-      ) {
-        return child.props.children;
+  const flattenedChildren = Children.toArray(children).reduce(
+    (accumulatedChildren, currentChild) => {
+      const {
+        props: { children: currentItemChildren },
+        type: { displayName },
+      } = currentChild;
+      if (currentItemChildren && displayName === 'DropdownSection') {
+        return [...accumulatedChildren, ...currentItemChildren];
       }
-      if (child.type.displayName === 'DropdownItem') {
-        return child;
+      if (displayName === 'DropdownItem') {
+        return [...accumulatedChildren, currentChild];
       }
-      return null;
-    });
+      return [];
+    },
+    []
+  );
 
-    return items.flat();
-  };
-
-  const availableOptions = getFlattenedChildren();
+  const availableOptions = flattenedChildren;
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
   let selectedElement;
@@ -64,16 +73,9 @@ export default function Dropdown({
 
   const containerRef = useRef();
 
-  const handleKeyNavigation = (
-    event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |},
-    direction: -1 | 0 | 1
-  ) => {
+  const handleKeyNavigation = (event, direction: DirectionOptionType) => {
     const newIndex = direction + hoveredItem;
     const optionsCount = availableOptions.length - 1;
-
-    const KEYS = {
-      ENTER: 0,
-    };
 
     // If there's an existing item, navigate from that position
     let cursorIndex = newIndex;
@@ -87,62 +89,59 @@ export default function Dropdown({
       cursorIndex = optionsCount;
     }
 
-    // $FlowFixMe[incompatible-use] flow 0.135.0 upgrade
-    const newItem = availableOptions[cursorIndex].props.option;
-    setHoveredItem(cursorIndex);
+    if (availableOptions[cursorIndex] && availableOptions[cursorIndex].props) {
+      const newItem = availableOptions[cursorIndex].props.option;
+      setHoveredItem(cursorIndex);
 
-    if (direction === KEYS.ENTER) {
-      if (onSelect) onSelect({ event, item: newItem });
-      // $FlowFixMe[incompatible-use] flow 0.135.0 upgrade
-      if (availableOptions[cursorIndex].props.handleSelect)
-        availableOptions[cursorIndex].props.handleSelect({
-          event,
-          item: newItem,
-        });
+      if (direction === KEYS.ENTER) {
+        // $FlowFixMe[incompatible-call]
+        if (onSelect) onSelect({ event, item: newItem });
+        if (availableOptions[cursorIndex].props.handleSelect)
+          availableOptions[cursorIndex].props.handleSelect({
+            event,
+            item: newItem,
+          });
+      }
     }
+
     // Scrolling
     handleContainerScrolling(direction, containerRef, selectedElement);
   };
 
   const handleKeyDown = (event) => {
-    const KEYS = {
-      UP: -1,
-      DOWN: 1,
-      ENTER: 0,
-    };
     // Up Arrow
-    if (event.keyCode === 38) {
+    if (event.keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
       // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
     // Down Arrow
-    else if (event.keyCode === 40) {
+    else if (event.keyCode === DOWN_ARROW) {
       handleKeyNavigation(event, KEYS.DOWN);
       // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
     // Enter Key
-    else if (event.keyCode === 13) {
+    else if (event.keyCode === ENTER) {
       handleKeyNavigation(event, KEYS.ENTER);
       // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
 
     // ESC Key
-    else if (event.keyCode === 27) {
+    else if (event.keyCode === ESCAPE) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
     }
 
     // Tab Key
-    else if (event.keyCode === 9) {
+    else if (event.keyCode === TAB) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
     }
 
     // Space Key
-    else if (event.keyCode === 32) {
+    else if (event.keyCode === SPACE) {
       // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
@@ -152,7 +151,7 @@ export default function Dropdown({
     return dropdownChildren.map((child, idx) => {
       if (child.type.displayName === 'DropdownItem') {
         const index = idx + idxBase;
-        return React.cloneElement(child, { index });
+        return cloneElement(child, { index });
       }
       return child;
     });
@@ -166,18 +165,16 @@ export default function Dropdown({
     let numItemsRendered = 0;
     const items = [];
 
-    const dropdownChildrenArray = React.Children.toArray(children);
+    const dropdownChildrenArray = Children.toArray(children);
 
     dropdownChildrenArray.forEach((child, index) => {
       if (
         child.props.children &&
         child.type.displayName === 'DropdownSection'
       ) {
-        const sectionChildrenArray = React.Children.toArray(
-          child.props.children
-        );
+        const sectionChildrenArray = Children.toArray(child.props.children);
         items.push(
-          React.cloneElement(child, {
+          cloneElement(child, {
             children: renderDropdownItemsWithIndex(
               sectionChildrenArray,
               numItemsRendered
@@ -186,7 +183,7 @@ export default function Dropdown({
         );
         numItemsRendered += child.props.children.length;
       } else if (child.type.displayName === 'DropdownItem') {
-        items.push(React.cloneElement(child, { index }));
+        items.push(cloneElement(child, { index }));
         numItemsRendered += 1;
       }
     });
