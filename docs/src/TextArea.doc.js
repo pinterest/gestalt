@@ -295,7 +295,7 @@ function Example(props) {
       label="Cities"
       onChange={onChangeTagManagement}
       onKeyDown={onKeyDownTagManagement}
-      placeholder="Cities you've lived in"
+      placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
       tags={renderedTags}
       value={value}
     />

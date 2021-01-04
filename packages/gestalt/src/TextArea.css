@@ -21,7 +21,7 @@
 .unstyledTextArea {
   composes: absolute left0 top0 right0 bottom0 from "./Layout.css";
   height: 100%;
-  padding: calc(var(--g-boint) * 1.5) calc(var(--g-boint) * 2);
+  padding: var(--g-boint) calc(var(--g-boint) * 2);
   width: 100%;
 }
 

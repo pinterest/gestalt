@@ -87,7 +87,7 @@ exports[`TextArea TextArea with tags 1`] = `
     className="textArea base enabled normal textAreaWrapper"
     style={
       Object {
-        "height": 92,
+        "minHeight": 92,
       }
     }
   >
@@ -272,7 +272,7 @@ exports[`TextArea TextArea with tags 1`] = `
       </div>
     </div>
     <div
-      className="box flexGrow relative"
+      className="box flexGrow overflowHidden relative"
       style={
         Object {
           "maxWidth": "100%",
@@ -282,7 +282,9 @@ exports[`TextArea TextArea with tags 1`] = `
       <div
         aria-hidden={true}
         className="textAreaSpacer"
-      />
+      >
+        -
+      </div>
       <textarea
         aria-describedby={null}
         aria-invalid="false"

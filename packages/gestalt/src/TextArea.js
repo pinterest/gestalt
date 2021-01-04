@@ -42,7 +42,7 @@ type Props = {|
   >,
   placeholder?: string,
   rows?: number,
-  tags?: Array<Element<typeof Tag>>,
+  tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
 |};
 
@@ -130,7 +130,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
   );
 
   const tagsWrapperStyle = {
-    height: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
+    minHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
   };
 
   return (
@@ -146,7 +146,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
           <Box
             flex="grow"
             maxWidth="100%"
-            overflow="visible"
+            overflow="hidden"
             position="relative"
           >
             {/* This is an invisible spacer div which mirrors the input's
@@ -154,7 +154,8 @@ const TextAreaWithForwardRef: React$AbstractComponent<
              * which is not supported by inputs, by having the actual input
              * track it with absolute positioning. */}
             <div aria-hidden className={styles.textAreaSpacer}>
-              {value}
+              {/* Keep a non-empty value so that the div doesn't collapse */}
+              {value || '-'}
             </div>
             {inputElement}
           </Box>
