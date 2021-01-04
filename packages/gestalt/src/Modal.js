@@ -40,7 +40,7 @@ function Header({ heading }: {| heading: string | Node |}) {
   }
 
   return (
-    <Heading size="sm" accessibilityLevel={1}>
+    <Heading size="md" accessibilityLevel={1}>
       {heading}
     </Heading>
   );
