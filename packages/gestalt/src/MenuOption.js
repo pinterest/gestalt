@@ -24,7 +24,7 @@ type Props = {|
   children?: Node,
   index: number,
   option: OptionObject,
-  selected?: OptionObject | Array<OptionObject> | null,
+  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   handleSelect?: ({|
     item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,

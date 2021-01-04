@@ -13,7 +13,7 @@ type PublicProps = {|
   |}) => void,
   isExternal?: boolean,
   option: OptionObject,
-  selected?: OptionObject | Array<OptionObject> | null,
+  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   url?: string,
 |};
 
