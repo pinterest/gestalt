@@ -347,6 +347,7 @@ TypeaheadWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onSelect: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.exact({
@@ -356,6 +357,7 @@ TypeaheadWithForwardRef.propTypes = {
   ).isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
+  tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
 };
 

@@ -246,10 +246,12 @@ TypeaheadInputFieldWithForwardRef.propTypes = {
   onClear: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onKeyNavigation: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   setContainer: PropTypes.func,
+  tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
 };
 
