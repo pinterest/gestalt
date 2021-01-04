@@ -159,8 +159,8 @@ const ModalWithForwardRef: React$AbstractComponent<
                   overflow="auto"
                   onScroll={updateShadows}
                   ref={content}
-                  marginTop={4}
-                  paddingX={4}
+                  paddingX={8}
+                  paddingY={4}
                 >
                   {children}
                 </Box>
