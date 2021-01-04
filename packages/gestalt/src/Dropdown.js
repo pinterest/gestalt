@@ -13,6 +13,7 @@ import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 import DropdownContext from './DropdownContextProvider.js';
+import { type Indexable } from './zIndex.js';
 import handleContainerScrolling, {
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
@@ -30,6 +31,7 @@ type Props = {|
     SyntheticKeyboardEvent<HTMLElement> | SyntheticMouseEvent<HTMLElement>,
     {| item: ?OptionObject |}
   >,
+  zIndex?: Indexable,
 |};
 
 const KEYS = {
@@ -44,6 +46,7 @@ export default function Dropdown({
   idealDirection = 'down',
   onDismiss,
   onSelect,
+  zIndex,
 }: Props): Node {
   const flattenedChildren = Children.toArray(children).reduce(
     (accumulatedChildren, currentChild) => {
@@ -192,7 +195,7 @@ export default function Dropdown({
   };
 
   return (
-    <Layer>
+    <Layer zIndex={zIndex}>
       <Flyout
         anchor={anchor}
         color="white"
@@ -237,6 +240,8 @@ Dropdown.propTypes = {
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   onSelect: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  zIndex: PropTypes.any,
 };
 
 Dropdown.Item = DropdownItem;

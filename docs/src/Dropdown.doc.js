@@ -131,6 +131,11 @@ card(
         description: 'Callback when you select an item',
         href: 'default',
       },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        description: 'An object representing the zIndex value of the Tooltip.',
+      },
     ]}
   />
 );
