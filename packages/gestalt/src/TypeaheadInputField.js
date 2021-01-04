@@ -126,7 +126,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     }
 
     if (onKeyDown) {
-      onKeyDown({ event, value });
+      onKeyDown({ event, value: value || '' });
     }
   };
 
