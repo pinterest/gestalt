@@ -79,8 +79,8 @@ function Example() {
   // gets passed down as a prop to <ResilientLayer>.
   // It's very important to pass down any function prop using useCallback,
   // otherwise, each parent re-render would recreate these functions, 
-  // which would force a children re-render as is receives different props.
-  // In our case, our children Layer would re-render and destroy its content.
+  // which would force a children re-render as it receives different props.
+  // In our case, our children Layer would re-render and destroy its contents.
   const onDismiss = React.useCallback(() => setShowLayer(false), []);
 
   return (
