@@ -13,7 +13,7 @@ export default function Layer({
 |}): Portal | null {
   const [mounted, setMounted] = useState(false);
   const element = useRef<?HTMLDivElement>(null);
-  const zIndex: number | null = zIndexIndexable?.index() ?? null;
+  const zIndex = zIndexIndexable?.index();
 
   useEffect(() => {
     setMounted(true);
@@ -34,10 +34,11 @@ export default function Layer({
   }, []);
 
   useEffect(() => {
-    if (element.current) {
-      element.current.style.zIndex = zIndex === null ? '' : `${zIndex}`;
-      element.current.className = zIndex === null ? '' : styles.layer;
+    if (!element.current) {
+      return;
     }
+    element.current.style.zIndex = zIndex === undefined ? '' : `${zIndex}`;
+    element.current.className = zIndex === undefined ? '' : styles.layer;
   }, [zIndex]);
 
   if (!mounted || !element.current) {
