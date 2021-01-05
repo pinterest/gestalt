@@ -1,3 +1,9 @@
+## 16.0.3 (Jan 5, 2021)
+
+### Patch
+
+- Layer: Update documentation examples around avoiding unwanted re-rendering (#1324)
+
 ## 16.0.2 (Dec 22, 2020)
 
 ### Patch
