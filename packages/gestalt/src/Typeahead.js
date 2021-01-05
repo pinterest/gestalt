@@ -83,6 +83,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
   // Store original data
   const dataRef = useRef(options);
 
+  // Parent ref for positioning
+  const wrapperRef = useRef(null);
+
   // Utility function for filtering data by value
   const filterOriginalData = (
     filterValue: string
@@ -267,8 +270,10 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     handleScrolling(direction);
   };
 
+  const positioningRef = tags ? wrapperRef : inputRef;
+
   return (
-    <Box>
+    <Box position="relative" ref={wrapperRef}>
       <TypeaheadInputField
         label={label}
         id={id}
@@ -286,16 +291,16 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
         ref={inputRef}
       />
 
-      {containerOpen && inputRef.current && (
+      {containerOpen && positioningRef.current && (
         <Layer>
           <Flyout
             showCaret={false}
-            anchor={inputRef.current}
+            anchor={positioningRef.current}
             idealDirection="down"
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="flexible"
-            // Forces the flyout to re-render and adjust it's position correctly
+            // Forces the flyout to re-render and adjust its position correctly
             key={availableOptions.length}
           >
             <Box
@@ -308,7 +313,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
               marginTop={2}
               marginBottom={2}
               maxHeight="50vh"
-              width={inputRef?.current?.offsetWidth}
+              width={positioningRef.current?.offsetWidth}
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}

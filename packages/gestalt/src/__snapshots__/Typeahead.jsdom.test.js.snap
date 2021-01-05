@@ -2,7 +2,7 @@
 
 exports[`Typeahead Typeahead with tags 1`] = `
 <div
-  className="box"
+  className="box relative"
 >
   <label
     className="label"
@@ -271,7 +271,7 @@ exports[`Typeahead Typeahead with tags 1`] = `
 
 exports[`Typeahead renders Typeahead normal 1`] = `
 <div
-  className="box"
+  className="box relative"
 >
   <label
     className="label"
