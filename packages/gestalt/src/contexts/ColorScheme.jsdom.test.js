@@ -47,6 +47,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
         --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
@@ -80,6 +81,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
         --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
@@ -113,6 +115,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
         --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
         --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
+        --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
         --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       </style>
@@ -149,6 +152,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentDarkGray: rgba(255, 255, 255, 0.8);
         --g-colorTransparentGray60: rgba(250, 250, 250, 0.5);
         --g-colorTransparentGray100: rgba(250, 250, 250, 0.6);
+        --g-colorTransparentGray500: rgba(0, 0, 0, 0.5);
         --g-colorTransparentWhite: rgba(51, 51, 51, 0.8);
        }
       }
@@ -184,6 +188,7 @@ describe('ColorSchemeProvider', () => {
         --g-colorTransparentDarkGray: rgba(51, 51, 51, 0.8);
         --g-colorTransparentGray60: rgba(0, 0, 0, 0.06);
         --g-colorTransparentGray100: rgba(0, 0, 0, 0.1);
+        --g-colorTransparentGray500: rgba(0, 0, 0, 0.1);
         --g-colorTransparentWhite: rgba(255, 255, 255, 0.8);
        }
       </style>
