@@ -709,27 +709,35 @@ card(
   <Example
     id="shouldCloseOnKeyEventExample"
     name="Example: shouldCloseOnKeyEvent"
-    description={`
-    A \`Sheet\` with shouldCloseOnKeyEvent
-  `}
+    description={`\`shouldCloseOnKeyEvent\` may need to be \`false\` if the Sheet contains components that rely on the ESC key.
+                  When this prop is \`false\`, using the ESC key to close a component will not inadvertently close the Sheet.
+                  This prop should be restored to \`true\` to allow for the ESC key to close the Sheet.`}
     defaultCode={`
 function ShouldCloseOnKeyEventExample() {
   const [shouldShow, setShouldShow] = React.useState(false);
   const [shouldCloseOnKeyEvent, setShouldCloseOnKeyEvent] = React.useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
   return (
     <>
-      <Button
-        inline
-        text="Open sheet"
-        onClick={() => setShouldShow(true)}
-      />
-      <Button
-        inline
-        text={\`shouldCloseOnKeyEvent: \${shouldCloseOnKeyEvent ? 'Enabled' : 'Disabled'}\`}
-        onClick={() => setShouldCloseOnKeyEvent(!shouldCloseOnKeyEvent)}
-      />
+      <Box
+        display="inlineBlock">
+        <Button
+          inline
+          text="Open sheet"
+          onClick={() => setShouldShow(true)}
+        />
+      </Box>
+      <Box
+        paddingX={3}
+        display="inlineBlock">
+        <Button
+          inline
+          text={\`shouldCloseOnKeyEvent: \${shouldCloseOnKeyEvent ? 'Enabled' : 'Disabled'}\`}
+          onClick={() => setShouldCloseOnKeyEvent(!shouldCloseOnKeyEvent)}
+        />
+      </Box>
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
           <>
@@ -747,6 +755,11 @@ function ShouldCloseOnKeyEventExample() {
                 <Text>
                   This sheet {shouldCloseOnKeyEvent ? "CAN" : "CAN'T"} be closed with ESC key.
                 </Text>
+                <DatePicker
+                  id="dp-test"
+                  label="Close DatePicker with ESC key"
+                  onChange={() => {}}
+                />
               </Box>
             </Sheet>
             <div />
