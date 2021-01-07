@@ -100,7 +100,8 @@ card(
       {
         name: 'children',
         required: true,
-        type: 'React.Node',
+        type:
+          'ChildrenArray<Element<typeof DropdownItem | typeof DropdownSection>>',
         description:
           'Should consist of Dropdown.Item and/or Dropdown.Section components',
         href: 'default',
@@ -134,7 +135,8 @@ card(
       {
         name: 'zIndex',
         type: 'interface Indexable { index(): number; }',
-        description: 'An object representing the zIndex value of the Tooltip.',
+        description:
+          'An object representing the zIndex value of the Dropdown menu.',
       },
     ]}
   />
