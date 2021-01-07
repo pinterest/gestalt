@@ -193,21 +193,28 @@ export default function Callout({
             </Box>
           </Box>
         </Box>
-        <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryAction && responsiveMinWidth !== 'xs' && (
-            <CalloutAction type="secondary" data={secondaryAction} />
-          )}
-          {primaryAction && (
-            <CalloutAction type="primary" data={primaryAction} />
-          )}
-          {secondaryAction && responsiveMinWidth === 'xs' && (
-            <CalloutAction
-              type="secondary"
-              data={secondaryAction}
-              stacked={!!secondaryAction}
-            />
-          )}
-        </Box>
+        {(primaryAction || secondaryAction) && (
+          <Box
+            smDisplay="flex"
+            marginStart="auto"
+            smMarginEnd={4}
+            smPaddingY={3}
+          >
+            {secondaryAction && responsiveMinWidth !== 'xs' && (
+              <CalloutAction type="secondary" data={secondaryAction} />
+            )}
+            {primaryAction && (
+              <CalloutAction type="primary" data={primaryAction} />
+            )}
+            {secondaryAction && responsiveMinWidth === 'xs' && (
+              <CalloutAction
+                type="secondary"
+                data={secondaryAction}
+                stacked={!!secondaryAction}
+              />
+            )}
+          </Box>
+        )}
       </Box>
 
       {dismissButton && (
