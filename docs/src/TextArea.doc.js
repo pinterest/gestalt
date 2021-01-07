@@ -85,7 +85,8 @@ card(
       {
         name: 'rows',
         type: 'number',
-        description: 'Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.',
+        description:
+          'Number of text rows to display. Note that tags take up more space, and will show fewer rows than specified.',
         defaultValue: 3,
       },
       {
