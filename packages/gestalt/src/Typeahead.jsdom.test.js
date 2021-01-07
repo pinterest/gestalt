@@ -130,7 +130,7 @@ describe('Typeahead', () => {
     expect(ref.current?.value).toEqual('test');
   });
 
-  it('Typeahead with tags', () => {
+  it('renders tags when supplied', () => {
     const tree = create(
       <Typeahead
         noResultText="No Result"

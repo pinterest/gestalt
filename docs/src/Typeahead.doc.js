@@ -28,7 +28,6 @@ card(
         name: 'value',
         type: 'string',
         description: 'The default value set in the Typeahead',
-        required: false,
         href: 'defaultItemExample',
       },
       {
@@ -52,7 +51,6 @@ card(
         name: 'onBlur',
         type:
           '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
-        required: false,
         description: 'Callback when you focus outside the component ',
         href: 'basicExample',
       },
@@ -60,7 +58,6 @@ card(
       {
         name: 'onChange',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
         description: 'Callback when user types into the control input field',
         href: 'basicExample',
       },
@@ -68,7 +65,6 @@ card(
       {
         name: 'onFocus',
         type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
-        required: false,
         description: 'Callback when you focus on the component',
         href: 'basicExample',
       },
@@ -76,13 +72,13 @@ card(
         name: 'onKeyDown',
         type:
           '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
-        required: false,
-        description: 'Callback for key stroke events',
+        description:
+          'Callback for key stroke events. This callback is useful for tag management.',
+        href: 'tagsExample',
       },
       {
         name: 'onSelect',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
         description: 'Callback when you select an item ',
         href: 'basicExample',
       },
@@ -94,7 +90,6 @@ card(
       {
         name: 'size',
         type: '"md" | "lg"',
-        required: false,
         description: 'md: 40px, lg: 48px',
         defaultValue: 'md',
       },
