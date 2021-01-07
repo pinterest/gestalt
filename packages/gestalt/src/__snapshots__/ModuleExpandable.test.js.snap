@@ -273,7 +273,7 @@ exports[`renders correctly with multiple items 1`] = `
 </div>
 `;
 
-exports[`renders correctly with multiple items with extExpandedId 1`] = `
+exports[`renders correctly with multiple items with expandedId 1`] = `
 <div
   className="box rounding2 shadow"
 >
