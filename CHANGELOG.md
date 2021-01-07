@@ -1,3 +1,9 @@
+## 16.0.4 (Jan 7, 2021)
+
+### Patch
+
+- Bump node-notifier from 8.0.0 to 8.0.1 (#1320)
+
 ## 16.0.3 (Jan 5, 2021)
 
 ### Patch
