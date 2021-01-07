@@ -36,7 +36,7 @@ type Props = {|
   setOptionRef: (?HTMLElement) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
-  url?: string,
+  href?: string,
 |};
 
 export default function MenuOption({
@@ -53,13 +53,8 @@ export default function MenuOption({
   setOptionRef,
   shouldTruncate = false,
   textWeight = 'normal',
-  url,
+  href,
 }: Props): Node {
-  // let foundAMatch = [];
-  // if (selected instanceof Array)
-  //   foundAMatch = selected.filter((item) => item.value === option.value);
-  //
-
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value
   );
@@ -68,7 +63,7 @@ export default function MenuOption({
     matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
   const handleOnTap = (event) => {
-    if (!url && !children) {
+    if (!href && !children) {
       event.preventDefault();
     }
     if (handleSelect) handleSelect({ event, item: option });
@@ -186,8 +181,8 @@ export default function MenuOption({
         display="flex"
         direction="column"
       >
-        {url ? (
-          <Link hoverStyle="none" href={url} target="blank">
+        {href ? (
+          <Link hoverStyle="none" href={href} target="blank">
             {menuOptionContents}
           </Link>
         ) : (

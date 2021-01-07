@@ -17,12 +17,12 @@ describe('DropdownItem', () => {
     expect(handleSelectMock).toHaveBeenCalled();
   });
 
-  test('creates an anchor when url is passed', () => {
+  test('creates an anchor when href is passed', () => {
     render(
       <Dropdown.Item
         handleSelect={handleSelectMock}
         badgeText="New"
-        url="https://www.pinterest.com"
+        href="https://www.pinterest.com"
         option={{ value: 'item 4', label: 'Item 4' }}
       />
     );
@@ -46,6 +46,7 @@ describe('DropdownItem', () => {
     ).toBeInTheDocument();
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
   });
+
   test('adds selected icon when item is selected', () => {
     render(
       <Dropdown.Item

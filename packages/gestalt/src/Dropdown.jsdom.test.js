@@ -29,7 +29,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Item
           isExternal
-          url="https://pinterest.com"
+          href="https://pinterest.com"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -47,12 +47,12 @@ describe('Dropdown', () => {
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
           }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
         <Dropdown.Item
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
       </Dropdown>
     );
@@ -82,7 +82,7 @@ describe('Dropdown', () => {
         <Dropdown.Section label="Section 2">
           <Dropdown.Item
             isExternal
-            url="https://pinterest.com"
+            href="https://pinterest.com"
             option={{
               value: 'item 3',
               label:
@@ -101,12 +101,12 @@ describe('Dropdown', () => {
               value: 'item 5',
               label: 'Item 5 with a really long, detailed name',
             }}
-            url="https://pinterest.com"
+            href="https://pinterest.com"
           />
           <Dropdown.Item
             isExternal
             option={{ value: 'item 6', label: 'Item 6' }}
-            url="https://pinterest.com"
+            href="https://pinterest.com"
           />
         </Dropdown.Section>
       </Dropdown>
@@ -142,7 +142,7 @@ describe('Dropdown', () => {
         <Dropdown.Section label="Section 2">
           <Dropdown.Item
             isExternal
-            url="https://pinterest.com"
+            href="https://pinterest.com"
             option={{
               value: 'item 3',
               label:
@@ -161,12 +161,12 @@ describe('Dropdown', () => {
               value: 'item 5',
               label: 'Item 5 with a really long, detailed name',
             }}
-            url="https://pinterest.com"
+            href="https://pinterest.com"
           />
           <Dropdown.Item
             isExternal
             option={{ value: 'item 6', label: 'Item 6' }}
-            url="https://pinterest.com"
+            href="https://pinterest.com"
           />
         </Dropdown.Section>
       </Dropdown>
@@ -193,7 +193,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Item
           isExternal
-          url="https://pinterest.com"
+          href="https://pinterest.com"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -211,12 +211,12 @@ describe('Dropdown', () => {
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
           }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
         <Dropdown.Item
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
       </Dropdown>
     );
@@ -245,7 +245,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Item
           isExternal
-          url="https://pinterest.com"
+          href="https://pinterest.com"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -263,12 +263,12 @@ describe('Dropdown', () => {
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
           }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
         <Dropdown.Item
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
       </Dropdown>
     );
@@ -298,7 +298,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Item
           isExternal
-          url="https://pinterest.com"
+          href="https://pinterest.com"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -316,12 +316,12 @@ describe('Dropdown', () => {
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
           }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
         <Dropdown.Item
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
       </Dropdown>
     );
@@ -367,7 +367,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Item
           isExternal
-          url="https://pinterest.com"
+          href="https://pinterest.com"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -385,12 +385,12 @@ describe('Dropdown', () => {
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
           }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
         <Dropdown.Item
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
-          url="https://pinterest.com"
+          href="https://pinterest.com"
         />
       </Dropdown>
     );

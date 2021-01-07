@@ -14,7 +14,7 @@ type PublicProps = {|
   isExternal?: boolean,
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
-  url?: string,
+  href?: string,
 |};
 
 type PrivateProps = {|
@@ -34,7 +34,7 @@ export default function DropdownItem({
   isExternal,
   option,
   selected,
-  url,
+  href,
 }: Props): Node {
   return (
     <DropdownContext.Consumer>
@@ -53,7 +53,7 @@ export default function DropdownItem({
           setOptionRef={setOptionRef}
           shouldTruncate
           textWeight="bold"
-          url={url}
+          href={href}
         >
           {children}
         </MenuOption>

@@ -58,7 +58,7 @@ card(
                 />
                 <Dropdown.Item
                   isExternal
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                   option={{ value: 'item 3', label: 'Item 3 with a really long, detailed, complex name' }}
                 />
                 <Dropdown.Item
@@ -71,11 +71,11 @@ card(
                   isExternal
                   badgeText="New"
                   option={{ value: 'item 5', label: 'Item 5 with a really long, detailed name' }}
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                 />
                 <Dropdown.Item
                   option={{ value: 'item 6', label: 'Item 6 navigates internally' }}
-                  url="/typeahead"
+                  href="/typeahead"
                 />
               </Dropdown>
             )}
@@ -192,7 +192,7 @@ card(
         href: 'default',
       },
       {
-        name: 'url',
+        name: 'href',
         type: 'string',
         description:
           'When supplied, wraps the item in a Link, and directs users to the url when item is selected.',
@@ -245,7 +245,7 @@ card(
     description={`
       A Dropdown can be attached to a Button, IconButton or Textfield (via [Typeahead](/Typeahead)) using the \`anchor\` prop and is composed of multiple Dropdown Items.
 
-      If an item navigates to a new page, rather than acting as a selection, a \`url\` should be provided. If the item navigates to a page outside of the app, the \`isExternal\` prop should also be specified. Additionally, each item can contain a badge by specifying \`badgeText\`.
+      If an item navigates to a new page, rather than acting as a selection, an \`href\` should be provided. If the item navigates to a page outside of the app, the \`isExternal\` prop should also be specified. Additionally, each item can contain a badge by specifying \`badgeText\`.
 
       Dropdowns have a minimum width of \`180px\` and a maximum width of \`360px\`, after which the labels will truncate if needed. It will automatically open in the most convenient location, unless an \`idealDirection\` is specified.
 
@@ -285,7 +285,7 @@ card(
                 />
                 <Dropdown.Item
                   isExternal
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                   option={{ value: 'item 3', label: 'Item 3 with a really long, detailed, complex name' }}
                 />
                 <Dropdown.Item
@@ -298,12 +298,12 @@ card(
                   isExternal
                   badgeText="New"
                   option={{ value: 'item 5', label: 'Item 5 with a really long, detailed name' }}
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                 />
                 <Dropdown.Item
                   isExternal
                   option={{ value: 'item 6', label: 'Item 6 navigates internally' }}
-                  url="/typeahead"
+                  href="/typeahead"
                 />
               </Dropdown>
             )}
@@ -367,7 +367,7 @@ card(
                   handleSelect={handleSelect}
                   selected={selected}
                   isExternal
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                   option={{
                     value: 'item 3',
                     label:
@@ -384,7 +384,7 @@ card(
                   handleSelect={handleSelect}
                   selected={selected}
                   isExternal
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                   badgeText="New"
                   option={{
                     value: 'item 5',
@@ -527,7 +527,7 @@ card(
                 />
                 <Dropdown.Item
                   isExternal
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                   option={{ value: 'item 3', label: 'Item 3 with a really long, detailed, complex name', 'subtext': 'Extra subtext details' }}
                 />
                 <Dropdown.Item
@@ -540,7 +540,7 @@ card(
                   isExternal
                   badgeText="New"
                   option={{ value: 'item 5', label: 'Item 5 with a really long name is a new item!' }}
-                  url="https://pinterest.com"
+                  href="https://pinterest.com"
                 />
               </Dropdown>
             )}

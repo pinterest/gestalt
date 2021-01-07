@@ -60,6 +60,10 @@ export default function Dropdown({
       if (displayName === 'DropdownItem') {
         return [...accumulatedChildren, currentChild];
       }
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Only children of type DropdownItem or DropdownSection are allowed.'
+      );
       return [];
     },
     []
@@ -126,9 +130,9 @@ export default function Dropdown({
     }
     // Enter Key
     else if (event.keyCode === ENTER) {
-      handleKeyNavigation(event, KEYS.ENTER);
       // $FlowFixMe[prop-missing]
       event.preventDefault();
+      handleKeyNavigation(event, KEYS.ENTER);
     }
 
     // ESC Key
