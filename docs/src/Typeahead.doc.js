@@ -232,8 +232,8 @@ function Example(props) {
       </Box>
 
       <Typeahead
-        label="Typeahead Example 1"
-        id="Typeahead-example"
+        label="Typeahead Example 3"
+        id="Typeahead-example-subtext"
         noResultText="No Results"
         options={options}
         placeholder="Select a Label"

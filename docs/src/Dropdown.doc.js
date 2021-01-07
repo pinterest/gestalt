@@ -44,7 +44,7 @@ card(
               onClick={ () => setOpen((prevVal) => !prevVal) }
             />
             {open && (
-              <Dropdown anchor={anchorRef.current} onDismiss={() => {console.log("closing");setOpen(false)}}>
+              <Dropdown onSelect={(event, item) => {console.log("selectingg", event, item);}} anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
                 <Dropdown.Item
                 index={20}
                   handleSelect={handleSelect}
@@ -346,7 +346,7 @@ card(
             />
             {open && (
               <Dropdown anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
-              <Dropdown.Section label="Sort by">
+              <Dropdown.Section label="Categories">
                 <Dropdown.Item
                   handleSelect={handleSelect}
                   selected={selected}
