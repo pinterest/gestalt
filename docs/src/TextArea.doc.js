@@ -289,7 +289,7 @@ function Example(props) {
         const newTags = [...tags];
         newTags.splice(idx, 1);
         setTags([...newTags]);
-        ref.current.focus()
+        ref.current.focus();
       }}
       removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
       text={tag}
