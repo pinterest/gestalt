@@ -97,19 +97,19 @@ card(
           'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module"',
       },
       {
-        name: 'extExpandedId',
+        name: 'expandedId',
         type: '?string',
         required: false,
         description: [
-          'The id of the item that the expand/collapse state can be controlled programally from an external component',
+          'The id of the item that the expand/collapse state can be controlled programatically from an external component',
         ],
       },
       {
-        name: 'setExtExpandedId',
+        name: 'setExpandedId',
         type: '(?string) => void',
         required: false,
         description: [
-          'The callback function that controls the expand/collapse state of an item',
+          'The callback function that controls the expand/collapse state of an item if controlled programatically from an external component',
         ],
       },
       {

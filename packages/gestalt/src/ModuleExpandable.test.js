@@ -56,15 +56,15 @@ describe('Module Expandable', () => {
   });
 });
 
-test('renders correctly with multiple items with extExpandedId', () => {
+test('renders correctly with multiple items with expandedId', () => {
   const tree = renderer
     .create(
       <ModuleExpandable
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
-        extExpandedId="uniqueTestID-0"
-        setExtExpandedId={() => {}}
+        expandedId="uniqueTestID-0"
+        setExpandedId={() => {}}
         items={[
           {
             title: 'Title1',

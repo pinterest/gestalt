@@ -9,13 +9,13 @@ export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
-  extExpandedId,
-  setExtExpandedId,
+  expandedId,
+  setExpandedId,
   items,
 }: Props): Node {
   const [localExpandedId, setLocalExpandedId] = useState(null);
-  const expandedId = extExpandedId || localExpandedId;
-  const setExpandedId = setExtExpandedId || setLocalExpandedId;
+  const expId = expandedId || localExpandedId;
+  const setExpId = setExpandedId || setLocalExpandedId;
 
   return (
     <Box rounding={2} borderStyle="shadow">
@@ -32,12 +32,12 @@ export default function ModuleExpandable({
                 icon={icon}
                 iconAccessibilityLabel={iconAccessibilityLabel}
                 summary={summary}
-                isCollapsed={expandedId !== `${id}-${index}`}
+                isCollapsed={expId !== `${id}-${index}`}
                 type={type}
                 accessibilityExpandLabel={accessibilityExpandLabel}
                 accessibilityCollapseLabel={accessibilityCollapseLabel}
                 onModuleClicked={(isExpanded) => {
-                  setExpandedId(isExpanded ? null : `${id}-${index}`);
+                  setExpId(isExpanded ? null : `${id}-${index}`);
                 }}
               >
                 {children}

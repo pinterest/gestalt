@@ -75,11 +75,11 @@ describe('ModuleExpandable', () => {
     expect(screen.getByText(/Children3/i)).toBeInTheDocument();
   });
 
-  it('should expand the module correctly with extExpandedId', () => {
+  it('should expand the module correctly with expandedId', () => {
     const newProps = {
       ...props,
-      extExpandedId: 'uniqueTestID-0',
-      setExtExpandedId: jest.fn(),
+      expandedId: 'uniqueTestID-0',
+      setExpandedId: jest.fn(),
     };
     render(<ModuleExpandable {...newProps} />);
 
@@ -93,7 +93,7 @@ describe('ModuleExpandable', () => {
       name: /click to collapse/i,
     });
     fireEvent.click(button1);
-    expect(newProps.setExtExpandedId).toHaveBeenCalledWith(null);
+    expect(newProps.setExpandedId).toHaveBeenCalledWith(null);
 
     // Click on Item 2 to expand it
     const expandButtons = screen.getAllByRole('button', {
@@ -101,6 +101,6 @@ describe('ModuleExpandable', () => {
     });
     expect(expandButtons).toHaveLength(2);
     fireEvent.click(expandButtons[0]);
-    expect(newProps.setExtExpandedId).toHaveBeenCalledWith('uniqueTestID-1');
+    expect(newProps.setExpandedId).toHaveBeenCalledWith('uniqueTestID-1');
   });
 });
