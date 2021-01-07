@@ -81,7 +81,7 @@ exports[`TextArea TextArea with rows 1`] = `
 </span>
 `;
 
-exports[`TextArea TextArea with tags 1`] = `
+exports[`TextArea renders tags when supplied 1`] = `
 <span>
   <div
     className="textArea base enabled normal textAreaWrapper"
