@@ -62,7 +62,7 @@ describe('TextArea', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('TextArea with tags', () => {
+  it('renders tags when supplied', () => {
     const tree = create(
       <TextArea
         id="test"

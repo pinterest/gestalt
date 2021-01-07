@@ -254,6 +254,7 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(['San Francisco', 'New York']);
+  const ref = React.useRef();
 
   const onChangeTagManagement = ({ value }) => {
     // Create new tags around new lines
@@ -283,6 +284,7 @@ function Example(props) {
         const newTags = [...tags];
         newTags.splice(idx, 1);
         setTags([...newTags]);
+        ref.current.focus()
       }}
       removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
       text={tag}
@@ -293,6 +295,7 @@ function Example(props) {
     <TextArea
       id="cities"
       label="Cities"
+      ref={ref}
       onChange={onChangeTagManagement}
       onKeyDown={onKeyDownTagManagement}
       placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
