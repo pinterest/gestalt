@@ -270,7 +270,12 @@ function Example(props) {
     setValue(tagInput[tagInput.length - 1]);
   }
 
-  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
+  const onKeyDownTagManagement = ({
+    event: {
+      keyCode,
+      target: { selectionEnd },
+    },
+  }) => {
     if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
       // Remove tag on backspace if the cursor is at the beginning of the field
       setTags([...tags.slice(0, -1)]);
