@@ -100,11 +100,19 @@ card(
         name: 'extExpandedId',
         type: '?string',
         required: false,
+        description: [
+          'The id of the item that the expand/collapse state can be controlled programally from an external component',
+        ],
+        href: 'externalControlExample',
       },
       {
         name: 'setExtExpandedId',
         type: '(?string) => void',
         required: false,
+        description: [
+          'The callback function that controls the expand/collapse state of an item',
+        ],
+        href: 'externalControlExample',
       },
       {
         name: 'items',
@@ -337,6 +345,7 @@ function ModuleExample4() {
 
 card(
   <Example
+    id="externalControlExample"
     name="Multiple items with external control"
     defaultCode={`
 function ModuleExample5() {
