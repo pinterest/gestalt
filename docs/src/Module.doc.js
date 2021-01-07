@@ -41,7 +41,8 @@ card(
         type: '?string',
         required: false,
         description: [
-          'The id of the item that the expand/collapse state can be controlled programatically from an external component',
+          'The ID of the item that the expand/collapse state can be controlled programatically from an external component',
+          'expandedId is constructed in the format of {id}-{index of the item}',
         ],
       },
       {
