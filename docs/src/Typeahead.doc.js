@@ -298,7 +298,7 @@ function Example(props) {
       onKeyDown={onKeyDownTagManagement}
       onSelect={onSelectTagManagement}
       options={options}
-      placeholder="Select colors"
+      placeholder={selected.length > 0 ? '' : 'Select colors'}
       tags={renderedTags}
     />
   );
