@@ -1,3 +1,9 @@
+## 16.2.1 (Jan 8, 2021)
+
+### Patch
+
+- Layer: fix a bug where Layer ummounts children on rerender when zIndex changes (#1327)
+
 ## 16.2.0 (Jan 8, 2021)
 
 ### Minor
