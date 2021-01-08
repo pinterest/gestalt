@@ -231,10 +231,18 @@ card(
 card(
   <Card
     description={`
-    Remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
+    <b>Important</b>: remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
 
     * \`aria-haspopup\` lets the screen reader know that there is a Dropdown menu linked to the trigger.
     * \`aria-expanded\` informs the screen reader whether the Dropdown menu is currently open or closed.
+
+    Expected keyboard interaction:
+
+    * Hitting \`Enter\` or \`Space\` key on the Dropdown's trigger opens the menu
+    * \`Escape\` key closes the menu, while moving focus back on the Dropdown's trigger
+    * Arrow keys are used to navigate items within the menu
+    * \`Enter\` key selects an item within the Menu
+    * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
   `}
     name="Accessibility"
   />
@@ -245,7 +253,7 @@ card(
     id="default"
     name="Basic Example"
     description={`
-      A Dropdown can be attached to a Button, IconButton or Textfield (via [Typeahead](/Typeahead)) using the \`anchor\` prop and is composed of multiple Dropdown Items.
+      A Dropdown can be attached to a [Button](/Button), [IconButton](/IconButton) or Textfield (via [Typeahead](/Typeahead)) using the \`anchor\` prop and is composed of multiple Dropdown Items.
 
       If an item navigates to a new page, rather than acting as a selection, an \`href\` should be provided. If the item navigates to a page outside of the app, the \`isExternal\` prop should also be specified. Additionally, each item can contain a badge by specifying \`badgeText\`.
 
@@ -442,12 +450,13 @@ card(
                 onDismiss={() => {setOpen(false)}}
               >
                 <Dropdown.Item
-                  handleSelect={handleSelect}
+                  handleSelect={() => {alert("Pin has been hidden");}}
                   selected={selected}
                   option={{ value: 'item 1', label: 'Hide Pin' }}
                 />
                 <Dropdown.Item
-                  handleSelect={handleSelect}
+                  isExternal
+                  href="https://pinterest.com"
                   selected={selected}
                   option={{
                     value: 'item 2',
@@ -559,7 +568,7 @@ card(
     description={`
       If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link, such as supporting React Router. However, please use with caution and only when absolutely necessary.
 
-      To ensure the entire width of the item is clickable, you will likely need to surround you custom content with a full-width Box.
+      To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
     `}
     defaultCode={`
       function CustomIconButtonFlyoutExample() {
