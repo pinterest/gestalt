@@ -50,10 +50,13 @@ html[dir="rtl"] .icon {
   left: 0;
 }
 
-html:not([dir="rtl"]) .inputWrapper,
-html[dir="rtl"] .inputWrapper {
-  /* Increase specificity for this class to override SearchField defaults */
+.inputWrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+html:not([dir="rtl"]) .inputWrapper,
+html[dir="rtl"] .inputWrapper {
+  /* Increase specificity for the padding to override SearchField defaults */
   padding-bottom: var(--g-boint);
 }
