@@ -2,6 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { render, screen, fireEvent, act } from '@testing-library/react';
+import Tag from './Tag.js';
 import Typeahead from './Typeahead.js';
 
 const TOTAL_OPTIONS = 10;
@@ -127,5 +128,38 @@ describe('Typeahead', () => {
     );
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.value).toEqual('test');
+  });
+
+  it('renders tags when supplied', () => {
+    const tree = create(
+      <Typeahead
+        noResultText="No Result"
+        label="Tag Example"
+        value="test"
+        id="test"
+        options={[{ value: 'test', label: 'test' }]}
+        tags={[
+          <Tag
+            key="a"
+            text="a"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove a tag"
+          />,
+          <Tag
+            key="b"
+            text="b"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove b tag"
+          />,
+          <Tag
+            key="c"
+            text="c"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove c tag"
+          />,
+        ]}
+      />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

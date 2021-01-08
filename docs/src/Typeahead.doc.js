@@ -28,7 +28,6 @@ card(
         name: 'value',
         type: 'string',
         description: 'The default value set in the Typeahead',
-        required: false,
         href: 'defaultItemExample',
       },
       {
@@ -52,7 +51,6 @@ card(
         name: 'onBlur',
         type:
           '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
-        required: false,
         description: 'Callback when you focus outside the component ',
         href: 'basicExample',
       },
@@ -60,7 +58,6 @@ card(
       {
         name: 'onChange',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
         description: 'Callback when user types into the control input field',
         href: 'basicExample',
       },
@@ -68,14 +65,20 @@ card(
       {
         name: 'onFocus',
         type: '({ event: SyntheticFocusEvent<>, value: string }) => void',
-        required: false,
         description: 'Callback when you focus on the component',
         href: 'basicExample',
       },
       {
+        name: 'onKeyDown',
+        type:
+          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
+        description:
+          'Callback for key stroke events. This callback is useful for tag management.',
+        href: 'tagsExample',
+      },
+      {
         name: 'onSelect',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',
-        required: false,
         description: 'Callback when you select an item ',
         href: 'basicExample',
       },
@@ -87,9 +90,14 @@ card(
       {
         name: 'size',
         type: '"md" | "lg"',
-        required: false,
         description: 'md: 40px, lg: 48px',
         defaultValue: 'md',
+      },
+      {
+        name: 'tags',
+        type: 'Array<Element<typeof Tag>>',
+        description: 'List of tags to display in the component',
+        href: 'tagsExample',
       },
       {
         name: 'ref',
@@ -203,24 +211,99 @@ function TypeaheadExample() {
   return (
     <Flex gap={4}>
       <Typeahead
-        label="Select  your favorite shape"
+        label="Select your favorite shape"
         id="favorite-shape"
         noResultText="No Results"
         options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
         onSelect={p => ref.current.focus()}
         placeholder="Select a shape"
       />
-       <Typeahead
-        label="Select  your favorite color"
+      <Typeahead
+        label="Select your favorite color"
         id="favorite-color"
         noResultText="No Results"
         options={[{label:'red', value:'red'}, {label:'blue', value:'blue'}]}
         placeholder="Select a color"
         ref={ref}
-     />
+      />
     </Flex>
   );
 }`}
+  />
+);
+
+card(
+  <Example
+    id="tagsExample"
+    name="Example: Tags"
+    description={`
+    You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
+
+    Note that the \`Typeahead\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
+
+    This example showcases the recommended behavior.`}
+    defaultCode={`
+function Example(props) {
+  const colors = ['blue', 'green', 'orange', 'purple', 'red', 'yellow'];
+  const ref = React.useRef();
+  const [selected, setSelected] = React.useState([]);
+
+  const setFocus = () => {
+    // Focus needs to happen after selection is complete
+    setTimeout(() => {
+      ref.current.focus();
+    }, 0);
+  };
+
+  const onSelectTagManagement = ({ item: { value } }) => {
+    if (!selected.includes(value)) {
+      setSelected([...selected, value]);
+    }
+    setFocus();
+  }
+
+  const onRemoveTagManagement = (value) => {
+    setSelected(selected.filter(color => color !== value));
+    setFocus();
+  }
+
+  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
+    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
+      // Remove tag on backspace if the cursor is at the beginning of the field
+      setSelected([...selected.slice(0, -1)]);
+      setFocus();
+    }
+  }
+
+  const options = colors
+    .filter(color => !selected.includes(color))
+    .map(color => ({ label: color, value: color }));
+
+  const renderedTags = selected.map(color => (
+      <Tag
+        key={color}
+        onRemove={() => onRemoveTagManagement(color)}
+        removeIconAccessibilityLabel={\`Remove \${color} tag\`}
+        text={color}
+      />
+    ));
+
+  return (
+    <Typeahead
+      key={JSON.stringify(selected) /* force update when the options change */}
+      ref={ref}
+      id="favorite-colors"
+      label="Select your favorite colors"
+      noResultText="No Results"
+      onKeyDown={onKeyDownTagManagement}
+      onSelect={onSelectTagManagement}
+      options={options}
+      placeholder={selected.length > 0 ? '' : 'Select colors'}
+      tags={renderedTags}
+    />
+  );
+}
+`}
   />
 );
 

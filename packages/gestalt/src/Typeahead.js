@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useRef,
   useImperativeHandle,
+  type Element,
   type Node,
 } from 'react';
 import PropTypes from 'prop-types';
@@ -14,6 +15,7 @@ import Box from './Box.js';
 import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
+import Tag from './Tag.js';
 
 type OptionObject = {|
   label: string,
@@ -38,6 +40,10 @@ type Props = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
     value: string,
   |}) => void,
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   onSelect?: ({|
     event:
       | SyntheticFocusEvent<HTMLInputElement>
@@ -50,6 +56,7 @@ type Props = {|
   |}>,
   placeholder?: string,
   size?: 'md' | 'lg',
+  tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
 |};
 
@@ -64,15 +71,20 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     onBlur,
     onChange,
     onFocus,
+    onKeyDown,
     onSelect,
     options,
     placeholder,
     size,
+    tags,
     value = null,
   } = props;
 
   // Store original data
   const dataRef = useRef(options);
+
+  // Parent ref for positioning
+  const wrapperRef = useRef(null);
 
   // Utility function for filtering data by value
   const filterOriginalData = (
@@ -258,8 +270,10 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     handleScrolling(direction);
   };
 
+  const positioningRef = tags ? wrapperRef : inputRef;
+
   return (
-    <Box>
+    <Box position="relative" ref={wrapperRef}>
       <TypeaheadInputField
         label={label}
         id={id}
@@ -270,21 +284,23 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
         onFocus={handleFocus}
         onBlur={handleBlur}
         onClear={handleClear}
+        onKeyDown={onKeyDown}
         onKeyNavigation={handleKeyNavigation}
         setContainer={setContainerOpen}
+        tags={tags}
         ref={inputRef}
       />
 
-      {containerOpen && inputRef.current && (
+      {containerOpen && positioningRef.current && (
         <Layer>
           <Flyout
             showCaret={false}
-            anchor={inputRef.current}
+            anchor={positioningRef.current}
             idealDirection="down"
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="flexible"
-            // Forces the flyout to re-render and adjust it's position correctly
+            // Forces the flyout to re-render and adjust its position correctly
             key={availableOptions.length}
           >
             <Box
@@ -297,7 +313,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
               marginTop={2}
               marginBottom={2}
               maxHeight="50vh"
-              width={inputRef?.current?.offsetWidth}
+              width={positioningRef.current?.offsetWidth}
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
@@ -336,6 +352,7 @@ TypeaheadWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onSelect: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.exact({
@@ -345,6 +362,7 @@ TypeaheadWithForwardRef.propTypes = {
   ).isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
+  tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
 };
 
