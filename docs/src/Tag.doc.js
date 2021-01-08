@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Tag"
-    description="Tag is a object that holds text. It also has an x icon to remove it. Tags can appear within a [form field](/TextField#tagsExample) or as standalone components."
+    description="Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](/TextField#tagsExample), [TextAreas](/TextArea#tagsExample), [Typeaheads](/Typeahead#tagsExample), or as standalone components."
   />
 );
 
