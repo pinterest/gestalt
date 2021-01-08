@@ -31,7 +31,7 @@ type Props = {|
     onDismiss: () => void,
   |},
   iconAccessibilityLabel: string,
-  message: string,
+  message: string | Node,
   primaryAction?: ActionData,
   secondaryAction?: ActionData,
   type: 'error' | 'info' | 'warning',
@@ -240,7 +240,7 @@ Callout.propTypes = {
     onDismiss: PropTypes.func.isRequired,
   }),
   iconAccessibilityLabel: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   primaryAction: PropTypes.shape({
     href: PropTypes.string,
