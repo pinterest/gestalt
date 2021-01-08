@@ -1,6 +1,7 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
+import Tag from './Tag.js';
 import TextArea from './TextArea.js';
 
 describe('TextArea', () => {
@@ -57,6 +58,36 @@ describe('TextArea', () => {
   it('TextArea with rows', () => {
     const tree = create(
       <TextArea id="test" onChange={jest.fn()} rows={5} />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders tags when supplied', () => {
+    const tree = create(
+      <TextArea
+        id="test"
+        onChange={jest.fn()}
+        tags={[
+          <Tag
+            key="a"
+            text="a@pinterest.com"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove email tag"
+          />,
+          <Tag
+            key="b"
+            text="b@pinterest.com"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove email tag"
+          />,
+          <Tag
+            key="c"
+            text="c@pinterest.com"
+            onRemove={() => {}}
+            removeIconAccessibilityLabel="Remove email tag"
+          />,
+        ]}
+      />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

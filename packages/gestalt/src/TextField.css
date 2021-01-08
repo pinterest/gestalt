@@ -2,7 +2,7 @@
   composes: borderBox from "./Layout.css";
   composes: Text fontSize3 from "./Text.css";
   composes: xsCol12 from "./Column.css";
-  padding: 8px 16px;
+  padding: calc(var(--g-boint) * 2) calc(var(--g-boint) * 4);
 }
 
 .textField::placeholder {
@@ -12,7 +12,8 @@
 .unstyledTextField, .textFieldSpacer {
   composes: unstyled from "./FormElement.css";
   composes: Text fontSize3 from "./Text.css";
-  margin-bottom: 4px;
+  margin-bottom: var(--g-boint);
+  padding: var(--g-boint) calc(var(--g-boint) * 2);
 }
 
 .unstyledTextField {
@@ -32,5 +33,5 @@
 .textFieldWrapper {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 4px;
+  padding-bottom: var(--g-boint);
 }

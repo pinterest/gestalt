@@ -219,6 +219,7 @@ card(
 function Example(props) {
   const [value, setValue] = React.useState('');
   const [tags, setTags] = React.useState(['a@pinterest.com', 'b@pinterest.com']);
+  const ref = React.useRef();
 
   const onChangeTagManagement = ({ value }) => {
     // Create new tags around spaces, commas, and semicolons.
@@ -252,6 +253,7 @@ function Example(props) {
         const newTags = [...tags];
         newTags.splice(idx, 1);
         setTags([...newTags]);
+        ref.current.focus();
       }}
       removeIconAccessibilityLabel={\`Remove \${tag} tag\`}
       text={tag}
@@ -264,6 +266,7 @@ function Example(props) {
         autoComplete="off"
         id="tags"
         label="Emails"
+        ref={ref}
         onChange={onChangeTagManagement}
         onKeyDown={onKeyDownTagManagement}
         tags={renderedTags}
