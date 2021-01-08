@@ -1,3 +1,9 @@
+## 16.2.0 (Jan 8, 2021)
+
+### Minor
+
+- Typeahead: Add support for Tags (#1317)
+
 ## 16.1.1 (Jan 8, 2021)
 
 ### Patch
