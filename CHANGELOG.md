@@ -1,3 +1,9 @@
+## 16.1.1 (Jan 8, 2021)
+
+### Patch
+
+- Callout: Fix vertical padding in md viewport when no actions present (#1328)
+
 ## 16.1.0 (Jan 8, 2021)
 
 ### Minor
