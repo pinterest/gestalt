@@ -34,6 +34,11 @@
   white-space: nowrap;
 }
 
+.inputWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 html:not([dir="rtl"]) .inputActive {
   padding: 8px 32px 8px 16px;
 }
@@ -48,11 +53,6 @@ html:not([dir="rtl"]) .icon {
 
 html[dir="rtl"] .icon {
   left: 0;
-}
-
-.inputWrapper {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 html:not([dir="rtl"]) .inputWrapper,
