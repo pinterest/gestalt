@@ -1,3 +1,9 @@
+## 16.1.0 (Jan 8, 2021)
+
+### Minor
+
+- TextArea: Add support for Tags (#1315)
+
 ## 16.0.4 (Jan 7, 2021)
 
 ### Patch
