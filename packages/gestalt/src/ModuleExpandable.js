@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
+import React, { useState, useEffect, type Node } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableBase from './ModuleExpandableBase.js';
@@ -9,8 +9,7 @@ type Props = {|
   id: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
-  expandedId?: ?string,
-  setExpandedId?: (?string) => void,
+  expandedIdx?: ?number,
   items: $ReadOnlyArray<{|
     title: string,
     icon?: $Keys<typeof icons>,
@@ -25,13 +24,18 @@ export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
-  expandedId,
-  setExpandedId,
+  expandedIdx,
   items,
 }: Props): Node {
-  const [localExpandedId, setLocalExpandedId] = useState(null);
-  const expId = expandedId || localExpandedId;
-  const setExpId = setExpandedId || setLocalExpandedId;
+  const [localExpandedId, setLocalExpandedId] = useState(
+    expandedIdx ? `${id}-${expandedIdx}` : null
+  );
+
+  useEffect(() => {
+    setLocalExpandedId(
+      expandedIdx || expandedIdx === 0 ? `${id}-${expandedIdx}` : null
+    );
+  }, [id, expandedIdx, setLocalExpandedId]);
 
   return (
     <Box rounding={2} borderStyle="shadow">
@@ -48,12 +52,12 @@ export default function ModuleExpandable({
                 icon={icon}
                 iconAccessibilityLabel={iconAccessibilityLabel}
                 summary={summary}
-                isCollapsed={expId !== `${id}-${index}`}
+                isCollapsed={localExpandedId !== `${id}-${index}`}
                 type={type}
                 accessibilityExpandLabel={accessibilityExpandLabel}
                 accessibilityCollapseLabel={accessibilityCollapseLabel}
                 onModuleClicked={(isExpanded) => {
-                  setExpId(isExpanded ? null : `${id}-${index}`);
+                  setLocalExpandedId(isExpanded ? null : `${id}-${index}`);
                 }}
               >
                 {children}

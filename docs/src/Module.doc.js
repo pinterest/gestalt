@@ -67,20 +67,69 @@ card(
   <Example
     name="Example"
     defaultCode={`
-function ModuleExample1() {
+function ModuleExample5() {
+  const [extExpandedId, setExtExpandedId] = React.useState(null);
+
   return (
     <Box maxWidth={800} padding={2} column={12}>
+      <Box display="flex" paddingY={2}>
+        <Box paddingX={2}>
+          <Button
+            accessibilityExpanded
+            accessibilityControls={extExpandedId}
+            size="sm"
+            text={extExpandedId === 0 ? 'collapse 1' : 'expand 1'}
+            onClick={() =>
+              setExtExpandedId(extExpandedId === 0 ? '-1' : 0)
+            }
+          />
+        </Box>
+        <Box paddingX={2}>
+          <Button
+            accessibilityExpanded
+            accessibilityControls={extExpandedId}
+            size="sm"
+            text={extExpandedId === 1 ? 'collapse 2' : 'expand 2'}
+            onClick={() =>
+              setExtExpandedId(extExpandedId === 1 ? '-1' : 1)
+            }
+          />
+        </Box>
+        <Box paddingX={2}>
+          <Button
+            accessibilityExpanded
+            accessibilityControls={extExpandedId}
+            size="sm"
+            text={extExpandedId === 2 ? 'collapse 3' : 'expand 3'}
+            onClick={() =>
+              setExtExpandedId(extExpandedId === 2 ? '-1' : 2)
+            }
+          />
+        </Box>
+      </Box>
       <Module.Expandable
-        id="ModuleExample1"
+        id="ModuleExample5"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
+        expandedIdx={extExpandedId}
         items={[
           {
-            title: 'Title',
-            summary: ['summary1', 'summary2', 'summary3'],
+            title: 'Title1',
+            summary: ['summary1'],
             children: <Text size="md">Children1</Text>,
-          }]}>
-      </Module.Expandable>
+          },
+          {
+            title: 'Title2',
+            summary: ['summary2'],
+            children: <Text size="md">Children2</Text>,
+          },
+          {
+            title: 'Title3',
+            summary: ['summary3'],
+            children: <Text size="md">Children3</Text>,
+          },
+        ]}
+      />
     </Box>
   );
 }
