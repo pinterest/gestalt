@@ -56,9 +56,6 @@ exports[`<Callout /> Error Callout 1`] = `
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
@@ -119,9 +116,6 @@ exports[`<Callout /> Info Callout 1`] = `
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
@@ -182,9 +176,6 @@ exports[`<Callout /> Warning Callout 1`] = `
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
@@ -735,9 +726,6 @@ exports[`<Callout /> message + title 1`] = `
         </div>
       </div>
     </div>
-    <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
-    />
   </div>
 </div>
 `;
