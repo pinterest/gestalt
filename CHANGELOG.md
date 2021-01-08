@@ -1,3 +1,9 @@
+## 16.2.2 (Jan 8, 2021)
+
+### Patch
+
+- Tag: fix typo in documentation (#1331)
+
 ## 16.2.1 (Jan 8, 2021)
 
 ### Patch
