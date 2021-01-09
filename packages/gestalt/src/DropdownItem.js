@@ -8,8 +8,8 @@ type PublicProps = {|
   badgeText?: string,
   children?: Node,
   handleSelect?: ({|
-    item: OptionObject,
     event: SyntheticFocusEvent<HTMLInputElement>,
+    item: OptionObject,
   |}) => void,
   isExternal?: boolean,
   option: OptionObject,

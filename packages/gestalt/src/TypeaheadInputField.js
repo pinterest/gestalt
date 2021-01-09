@@ -112,16 +112,11 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
       DOWN: 1,
       ENTER: 0,
     };
-    // Up Arrow
     if (event.keyCode === UP_ARROW) {
       onKeyNavigation(event, KEYS.UP);
-    }
-    // Down Arrow
-    else if (event.keyCode === DOWN_ARROW) {
+    } else if (event.keyCode === DOWN_ARROW) {
       onKeyNavigation(event, KEYS.DOWN);
-    }
-    // Enter Key
-    else if (event.keyCode === ENTER) {
+    } else if (event.keyCode === ENTER) {
       onKeyNavigation(event, KEYS.ENTER);
     }
 

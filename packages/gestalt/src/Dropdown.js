@@ -116,39 +116,25 @@ export default function Dropdown({
   };
 
   const handleKeyDown = (event) => {
-    // Up Arrow
     if (event.keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
       // $FlowFixMe[prop-missing]
       event.preventDefault();
-    }
-    // Down Arrow
-    else if (event.keyCode === DOWN_ARROW) {
+    } else if (event.keyCode === DOWN_ARROW) {
       handleKeyNavigation(event, KEYS.DOWN);
       // $FlowFixMe[prop-missing]
       event.preventDefault();
-    }
-    // Enter Key
-    else if (event.keyCode === ENTER) {
+    } else if (event.keyCode === ENTER) {
       // $FlowFixMe[prop-missing]
       event.preventDefault();
       handleKeyNavigation(event, KEYS.ENTER);
-    }
-
-    // ESC Key
-    else if (event.keyCode === ESCAPE) {
+    } else if (event.keyCode === ESCAPE) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
-    }
-
-    // Tab Key
-    else if (event.keyCode === TAB) {
+    } else if (event.keyCode === TAB) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
-    }
-
-    // Space Key
-    else if (event.keyCode === SPACE) {
+    } else if (event.keyCode === SPACE) {
       // $FlowFixMe[prop-missing]
       event.preventDefault();
     }

@@ -12,7 +12,10 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Dropdown"
-    description="A dropdown displays a list of actions or options. It is triggered when a user interacts with a button, textfield or other control."
+    description={`
+    A dropdown displays a list of actions or options. It is triggered when a user interacts with a button, textfield or other control.
+    `}
+    pilot
   />
 );
 
@@ -94,14 +97,15 @@ card(
       {
         name: 'anchor',
         type: '?HTMLElement',
-        description: 'Ref for the element that the Dropdown will attach to',
+        description:
+          'Ref for the element that the Dropdown will attach to, will most likely be a Button',
         href: 'default',
       },
       {
         name: 'children',
         required: true,
         type:
-          'ChildrenArray<Element<typeof DropdownItem | typeof DropdownSection>>',
+          'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
         description:
           'Should consist of Dropdown.Item and/or Dropdown.Section components',
         href: 'default',
@@ -128,7 +132,8 @@ card(
       },
       {
         name: 'onSelect',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        type:
+          '({ event: SyntheticInputEvent<>, item: {label: string, value: string, subtext: string} }) => void',
         description: 'Callback when you select an item',
         href: 'default',
       },
@@ -188,7 +193,7 @@ card(
       {
         name: 'handleSelect',
         type:
-          '({ event: SyntheticInputEvent<>, item: {label: string, value: string, subtext: string} }) => void',
+          '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext: string} |}) => void',
         required: true,
         description: 'Callback when the user selects an item',
         href: 'default',
@@ -212,7 +217,7 @@ card(
     props={[
       {
         name: 'children',
-        type: 'React.Node',
+        type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
         required: true,
         description: 'Any Dropdown.Items to be rendered',
         href: 'withSections',
@@ -636,6 +641,21 @@ card(
           </Box>
         );
       }`}
+  />
+);
+
+card(
+  <Card
+    description={`
+    Dropdowns should be used when offering users complex options to choose from.
+    If an item acts as navigation, it automatically requires the use of the Dropdown component.
+    Items can also be actions (like Logout or Add Account) or selections (like different display modes).
+
+    If users need to select from a simple list of highly related options (without needing sections or subtext details), use a [SelectList](/SelectList).
+
+    If users need the ability to choose an option by typing in an input and filtering a long list of options, use a [Typeahead](/Typeahead).
+  `}
+    name="Related"
   />
 );
 
