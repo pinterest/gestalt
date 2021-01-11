@@ -246,8 +246,9 @@ card(
     description={`
     <b>Important</b>: remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
 
-    * \`aria-haspopup\` lets the screen reader know that there is a Dropdown menu linked to the trigger.
-    * \`aria-expanded\` informs the screen reader whether the Dropdown menu is currently open or closed.
+    * \`aria-controls\`: lets the screen reader know that this element controls the Dropdown menu (should match the \`id\` property passed to Dropdown).
+    * \`aria-haspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger.
+    * \`aria-expanded\`: informs the screen reader whether the Dropdown menu is currently open or closed.
 
     Expected keyboard interaction:
 
