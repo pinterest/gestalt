@@ -10,17 +10,15 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
-import TypeaheadOption from './TypeaheadOption.js';
+import MenuOption, { type OptionObject } from './MenuOption.js';
 import Box from './Box.js';
 import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import Tag from './Tag.js';
-
-type OptionObject = {|
-  label: string,
-  value: string,
-|};
+import handleContainerScrolling, {
+  type DirectionOptionType,
+} from './utils/keyboardNavigation.js';
 
 type Props = {|
   id: string,
@@ -50,10 +48,7 @@ type Props = {|
       | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
   |}) => void,
-  options: $ReadOnlyArray<{|
-    label: string,
-    value: string,
-  |}>,
+  options: $ReadOnlyArray<OptionObject>,
   placeholder?: string,
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
@@ -191,44 +186,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   const containerRef = useRef();
 
-  const handleScrolling = (direction: number) => {
-    const container = containerRef.current;
-
-    // Based on keyboard navigation we get the next or previous option
-    // When we reach the start or end of the list, move to the start or end of the list based on the direction
-    const nextOption =
-      direction > 0
-        ? selectedElement?.nextSibling
-        : selectedElement?.previousSibling;
-
-    // Handles which option to display once we've hit the end of the list range
-    const endRangeOption =
-      direction > 0
-        ? container?.firstChild?.firstChild
-        : container?.firstChild?.lastChild;
-
-    const selectedOption = nextOption || endRangeOption;
-
-    // If one of these nodes is missing exit early
-    if (!container || !selectedOption) return;
-
-    const containerHeight = container.getClientRects()[0].height;
-    const overScroll =
-      selectedOption instanceof HTMLElement && selectedOption?.offsetHeight / 3;
-
-    const scrollPos =
-      selectedOption instanceof HTMLElement &&
-      selectedOption.offsetTop +
-        selectedOption.clientHeight -
-        containerHeight +
-        overScroll;
-
-    container.scrollTop = scrollPos;
-  };
-
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLInputElement>,
-    direction: -1 | 0 | 1
+    direction: DirectionOptionType
   ) => {
     // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
     const newIndex = direction + hoveredItem;
@@ -267,7 +227,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
       handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
-    handleScrolling(direction);
+    handleContainerScrolling(direction, containerRef, selectedElement);
   };
 
   const positioningRef = tags ? wrapperRef : inputRef;
@@ -305,15 +265,13 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
           >
             <Box
               // The returned element is Node which is incompatible with HTMLElement type
-              // $FlowFixMe[incompatible-type]
               ref={containerRef}
               position="relative"
               overflow="auto"
-              padding={1}
-              marginTop={2}
-              marginBottom={2}
+              padding={2}
               maxHeight="50vh"
               width={positioningRef.current?.offsetWidth}
+              role="combobox"
             >
               <Box alignItems="center" direction="column" display="flex">
                 {/* Handle when no results */}
@@ -323,7 +281,8 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                   </Box>
                 ) : (
                   availableOptions.map((option, index) => (
-                    <TypeaheadOption
+                    <MenuOption
+                      id={id}
                       index={index}
                       key={`${option.value + index}`}
                       option={option}
@@ -332,6 +291,8 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                       setHoveredItem={setHoveredItem}
                       handleSelect={handleSelect}
                       setOptionRef={setOptionRef}
+                      textWeight="normal"
+                      role="option"
                     />
                   ))
                 )}
@@ -358,6 +319,8 @@ TypeaheadWithForwardRef.propTypes = {
     PropTypes.exact({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
+      // eslint-disable-next-line react/no-unused-prop-types
+      subtext: PropTypes.string,
     })
   ).isRequired,
   placeholder: PropTypes.string,

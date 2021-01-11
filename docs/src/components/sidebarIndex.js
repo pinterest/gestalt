@@ -56,6 +56,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'ButtonGroup',
       'Checkbox',
       'DatePicker',
+      'Dropdown',
       'Flyout',
       'IconButton',
       'Label',

@@ -1,0 +1,9 @@
+.DropdownSection {
+  width: 100%
+}
+
+.DropdownSection:not(:first-child){
+  margin-top:  calc(var(--g-boint) * 4);
+}
+
+

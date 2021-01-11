@@ -95,7 +95,7 @@ card(
 card(
   <Example
     description={`
-    The Text component allows you to specifiy whether you want \`block\` or \`inline\` text.
+    The Text component allows you to specify whether you want \`block\` or \`inline\` text.
   `}
     id="inline"
     name="Block vs inline"

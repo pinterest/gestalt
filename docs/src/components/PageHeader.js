@@ -6,7 +6,7 @@ import Markdown from './Markdown.js';
 type Props = {|
   name: string,
   description?: string,
-  beta?: boolean,
+  pilot?: boolean,
   fileName?: string, // only use if name !== file name
   showSourceLink?: boolean,
 |};
@@ -25,7 +25,7 @@ const githubUrl = (component) =>
   ].join('/');
 
 export default function ComponentHeader({
-  beta,
+  pilot,
   name,
   description = '',
   fileName,
@@ -36,9 +36,12 @@ export default function ComponentHeader({
       <Box marginBottom={4}>
         <Heading>
           {name}{' '}
-          {beta ? (
-            <Tooltip inline text="Do not use in production code">
-              <Badge text="Beta" position="top" />
+          {pilot ? (
+            <Tooltip
+              inline
+              text={`This is the initial version of ${name}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!`}
+            >
+              <Badge text="Pilot" position="top" />
             </Tooltip>
           ) : null}
         </Heading>

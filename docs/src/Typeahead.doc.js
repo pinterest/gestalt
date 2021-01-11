@@ -20,7 +20,7 @@ card(
         name: 'options',
         type: 'Array<{ label: string, value: string }>',
         description:
-          'The data much be an array with objects containing only label and value properties',
+          'The data must be an array with objects containing only label and value properties',
         required: true,
         href: 'basicExample',
       },
@@ -190,6 +190,52 @@ function Example(props) {
         noResultText="No Results"
         options={options}
         value={defaultOption.value}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        onSelect={handleSelect}
+      />
+    </>
+  );
+}`}
+  />
+);
+
+card(
+  <Example
+    id="with-subtext"
+    name="With Subtext"
+    defaultCode={`
+function Example(props) {
+  const [item, setItem] = React.useState('');
+  const [selected, setSelected] = React.useState(null);
+
+  const options = Array.from(Array(20).keys()).map((item) => ({
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1),
+    subtext: "Subtext-" + (item + 1),
+  }));
+
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
+
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
+
+  const label = "Selected Item: " + (selected && selected.label || '');
+
+  return (
+    <>
+      <Box marginBottom={4}>
+       <Text>{ label }</Text>
+      </Box>
+
+      <Typeahead
+        label="Typeahead Example 3"
+        id="Typeahead-example-subtext"
+        noResultText="No Results"
+        options={options}
         placeholder="Select a Label"
         onChange={handleOnChange}
         onSelect={handleSelect}

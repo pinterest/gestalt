@@ -253,8 +253,8 @@ card(
     description={`
     We recommend passing in the following ARIA attributes to the anchor element:
 
-    * \`aria-haspopup\` lets the screenreader know that there is a flyout linked to the tigger.
-    * \`aria-expanded\` informs the screenreader whether the flyout is currently open or closed.
+    * \`aria-haspopup\` lets the screen reader know that there is a flyout linked to the trigger.
+    * \`aria-expanded\` informs the screen reader whether the flyout is currently open or closed.
   `}
     name="Accessibility"
   />
