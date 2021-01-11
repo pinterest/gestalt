@@ -1,3 +1,9 @@
+## 16.3.0 (Jan 11, 2021)
+
+### Minor
+
+- Dropdown: New component to display actions or selectable options (#1305)
+
 ## 16.2.2 (Jan 8, 2021)
 
 ### Patch
