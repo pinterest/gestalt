@@ -282,6 +282,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
                 ) : (
                   availableOptions.map((option, index) => (
                     <MenuOption
+                      id={id}
                       index={index}
                       key={`${option.value + index}`}
                       option={option}

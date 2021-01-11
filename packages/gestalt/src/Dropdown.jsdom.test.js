@@ -15,7 +15,7 @@ describe('Dropdown', () => {
     const element = document.createElement('button');
 
     const { baseElement } = render(
-      <Dropdown anchor={element} onDismiss={mockOnDismiss}>
+      <Dropdown id="ex-1" anchor={element} onDismiss={mockOnDismiss}>
         <Dropdown.Item
           handleSelect={handleSelectMock}
           option={{ value: 'item 1', label: 'Item 1' }}
@@ -65,7 +65,7 @@ describe('Dropdown', () => {
     const element = document.createElement('button');
 
     render(
-      <Dropdown anchor={element} onDismiss={mockOnDismiss}>
+      <Dropdown id="ex-2" anchor={element} onDismiss={mockOnDismiss}>
         <Dropdown.Section label="Section 1">
           <Dropdown.Item
             handleSelect={handleSelectMock}
@@ -122,6 +122,7 @@ describe('Dropdown', () => {
 
     render(
       <Dropdown
+        id="ex-3"
         anchor={element}
         onDismiss={mockOnDismiss}
         headerContent={<p>This is my custom header</p>}
@@ -179,7 +180,7 @@ describe('Dropdown', () => {
     const handleSelectMock = jest.fn();
     const element = document.createElement('button');
     render(
-      <Dropdown anchor={element} onDismiss={mockOnDismiss}>
+      <Dropdown id="ex-4" anchor={element} onDismiss={mockOnDismiss}>
         <Dropdown.Item
           handleSelect={handleSelectMock}
           option={{ value: 'item 1', label: 'Item 1' }}
@@ -231,7 +232,7 @@ describe('Dropdown', () => {
     const handleSelectMock = jest.fn();
     const element = document.createElement('button');
     render(
-      <Dropdown anchor={element} onDismiss={mockOnDismiss}>
+      <Dropdown id="ex-5" anchor={element} onDismiss={mockOnDismiss}>
         <Dropdown.Item
           handleSelect={handleSelectMock}
           option={{ value: 'item 1', label: 'Item 1' }}
@@ -284,7 +285,7 @@ describe('Dropdown', () => {
     const handleSelectMock = jest.fn();
     const element = document.createElement('button');
     render(
-      <Dropdown anchor={element} onDismiss={mockOnDismiss}>
+      <Dropdown id="ex-6" anchor={element} onDismiss={mockOnDismiss}>
         <Dropdown.Item
           handleSelect={handleSelectMock}
           option={{ value: 'item 1', label: 'Item 1' }}
@@ -326,26 +327,25 @@ describe('Dropdown', () => {
       </Dropdown>
     );
 
-    const menuContainer = screen.getByRole('menu');
-    expect(menuContainer).toHaveAttribute('aria-activedescendant', '0');
+    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
 
-    expect(menuContainer).toHaveAttribute('aria-activedescendant', '1');
+    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
 
-    expect(menuContainer).toHaveAttribute('aria-activedescendant', '2');
+    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-2');
 
     fireEvent.keyDown(window.document, {
       keyCode: UP_ARROW,
     });
 
-    expect(menuContainer).toHaveAttribute('aria-activedescendant', '1');
+    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
   });
 
   it('should call handleSelect when enter key is pressed', () => {
@@ -353,7 +353,7 @@ describe('Dropdown', () => {
     const handleSelectMock = jest.fn();
     const element = document.createElement('button');
     render(
-      <Dropdown anchor={element} onDismiss={mockOnDismiss}>
+      <Dropdown id="ex-7" anchor={element} onDismiss={mockOnDismiss}>
         <Dropdown.Item
           handleSelect={handleSelectMock}
           option={{ value: 'item 1', label: 'Item 1' }}
@@ -395,14 +395,13 @@ describe('Dropdown', () => {
       </Dropdown>
     );
 
-    const menuContainer = screen.getByRole('menu');
-    expect(menuContainer).toHaveAttribute('aria-activedescendant', '0');
+    expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-0');
 
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
 
-    expect(menuContainer).toHaveAttribute('aria-activedescendant', '1');
+    expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-1');
 
     fireEvent.keyDown(window.document, {
       keyCode: ENTER,

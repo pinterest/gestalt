@@ -20,14 +20,14 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
             style="max-width: 360px;"
           >
             <div
-              aria-activedescendant="0"
               class="box flexGrow itemsCenter marginBottom2 marginLeft2 marginRight2 marginTop2 xsDirectionColumn xsDisplayFlex"
+              id="ex-1"
               role="menu"
             >
               <div
                 aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
-                id="0"
+                id="ex-1-item-0"
                 role="menuitem"
                 rounding="2"
                 tabindex="-1"
@@ -66,7 +66,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               <div
                 aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
-                id="1"
+                id="ex-1-item-1"
                 role="menuitem"
                 rounding="2"
                 tabindex="-1"
@@ -105,7 +105,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               <div
                 aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
-                id="2"
+                id="ex-1-item-2"
                 role="menuitem"
                 rounding="2"
                 tabindex="-1"
@@ -167,7 +167,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               <div
                 aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
-                id="3"
+                id="ex-1-item-3"
                 role="menuitem"
                 rounding="2"
                 tabindex="-1"
@@ -220,7 +220,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               <div
                 aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
-                id="4"
+                id="ex-1-item-4"
                 role="menuitem"
                 rounding="2"
                 tabindex="-1"
@@ -296,7 +296,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               <div
                 aria-selected="false"
                 class="rounding2 hideOutline accessibilityOutline fullWidth pointer"
-                id="5"
+                id="ex-1-item-5"
                 role="menuitem"
                 rounding="2"
                 tabindex="-1"

@@ -25,6 +25,7 @@ type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
   headerContent?: Node,
+  id: string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   onSelect?: AbstractEventHandler<
@@ -43,6 +44,7 @@ export default function Dropdown({
   anchor,
   children,
   headerContent,
+  id,
   idealDirection = 'down',
   onDismiss,
   onSelect,
@@ -197,17 +199,17 @@ export default function Dropdown({
         size="xl"
       >
         <Box
+          id={id}
           alignItems="center"
           direction="column"
           display="flex"
           flex="grow"
           margin={2}
           role="menu"
-          aria-activedescendant={hoveredItem}
         >
           {headerContent && <Box padding={2}>{headerContent}</Box>}
           <DropdownContext.Provider
-            value={{ hoveredItem, setHoveredItem, setOptionRef }}
+            value={{ id, hoveredItem, setHoveredItem, setOptionRef }}
           >
             {renderChildrenWithIndex()}
           </DropdownContext.Provider>
@@ -226,6 +228,7 @@ Dropdown.propTypes = {
   }),
   children: PropTypes.node,
   headerContent: PropTypes.node,
+  id: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,

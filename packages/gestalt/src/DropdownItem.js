@@ -38,12 +38,13 @@ export default function DropdownItem({
 }: Props): Node {
   return (
     <DropdownContext.Consumer>
-      {({ hoveredItem, setHoveredItem, setOptionRef }) => (
+      {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <MenuOption
           key={`${option.value + index}`}
           badgeText={badgeText}
           handleSelect={handleSelect}
           hoveredItem={hoveredItem}
+          id={id}
           index={index}
           isExternal={isExternal}
           option={option}

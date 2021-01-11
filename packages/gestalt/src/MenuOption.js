@@ -30,6 +30,7 @@ type Props = {|
     event: SyntheticFocusEvent<HTMLInputElement>,
   |}) => void,
   hoveredItem: ?number,
+  id: string,
   isExternal?: boolean,
   role?: 'option' | 'menuitem',
   setHoveredItem: (number) => void,
@@ -44,6 +45,7 @@ export default function MenuOption({
   children,
   handleSelect,
   hoveredItem,
+  id,
   index,
   isExternal,
   option,
@@ -160,7 +162,7 @@ export default function MenuOption({
       }}
       className={className}
       key={option.value}
-      id={index}
+      id={`${id}-item-${index}`}
       onClick={handleOnTap}
       onMouseDown={(event) => {
         event.preventDefault();
@@ -196,6 +198,7 @@ export default function MenuOption({
 MenuOption.displayName = 'MenuOption';
 
 MenuOption.propTypes = {
+  id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.exact({
