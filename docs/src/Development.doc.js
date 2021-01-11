@@ -281,7 +281,26 @@ git push -f origin HEAD
           <Text>
             Ensure checks pass on your Pull Request - having the &quot;Require
             Semver&nbsp;/ Test (pull_request)&quot; check fail is expected, a
-            Gestalt maintainer needs to add a correct semver label.
+            Gestalt maintainer needs to add a correct semver label. Our
+            versioning guidelines are:
+            <ul>
+              <li>
+                <em>Patch</em>: internal fixes, documentation changes, or
+                package upgrades
+              </li>
+              <li>
+                <em>Minor</em>: new features or properties for a component, or
+                new components
+              </li>
+              <li>
+                <em>Major</em>: any breaking change, whether it be in a specific
+                component or the library itself (will most likely include a{' '}
+                <Link href="#codemods" inline>
+                  <Text weight="bold">codemod</Text>
+                </Link>
+                )
+              </li>
+            </ul>
           </Text>
         </li>
         <li>
