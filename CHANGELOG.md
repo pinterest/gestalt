@@ -1,3 +1,9 @@
+## 16.4.0 (Jan 12, 2021)
+
+### Minor
+
+- Box: Update box-shadow color in dark mode (#1325)
+
 ## 16.3.0 (Jan 11, 2021)
 
 ### Minor
