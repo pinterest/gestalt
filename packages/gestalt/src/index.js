@@ -36,6 +36,7 @@ import Pog from './Pog.js';
 import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
+import ScrollBox from './ScrollBox.js';
 import ScrollFetch from './ScrollFetch.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
@@ -60,6 +61,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
+import { useScroll } from './contexts/Scroll.js';
 
 export {
   ActivationCard,
@@ -101,6 +103,7 @@ export {
   Provider,
   Pulsar,
   RadioButton,
+  ScrollBox,
   ScrollFetch,
   SearchField,
   SegmentedControl,
@@ -124,4 +127,5 @@ export {
   useColorScheme,
   useFocusVisible,
   useReducedMotion,
+  useScroll,
 };
