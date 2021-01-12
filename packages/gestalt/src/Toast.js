@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
 
 type Props = {|
   button?: Node,
@@ -21,27 +20,9 @@ export default function Toast({
   thumbnail,
   thumbnailShape = 'square',
 }: Props): Node {
-  const { name: colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
-      <Box
-        color={color}
-        fit
-        padding={6}
-        rounding="pill"
-        borderStyle={isDarkMode ? undefined : 'shadow'}
-        dangerouslySetInlineStyle={
-          isDarkMode
-            ? {
-                __style: {
-                  boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.5)',
-                },
-              }
-            : undefined
-        }
-      >
+      <Box color={color} fit padding={6} rounding="pill" borderStyle="shadow">
         <Box
           display="flex"
           marginLeft={-2}

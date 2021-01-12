@@ -548,7 +548,6 @@ card(
   >
     <Combination
       id="border"
-      hasCheckerboard={false}
       borderStyle={['sm', 'lg', 'shadow']}
       showHeading={false}
       layout="4column"

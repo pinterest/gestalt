@@ -121,5 +121,5 @@ html[dir="rtl"] .borderLeft {
 }
 
 .shadow {
-  box-shadow: 0 0 8px var(--g-colorTransparentGray100);
+  box-shadow: 0 0 8px var(--g-colorTransparentGray500);
 }
