@@ -6,6 +6,9 @@ import {
   type ColorScheme,
   ColorSchemePropType,
 } from './contexts/ColorScheme.js';
+import {
+  ScrollProvider,
+} from './contexts/Scroll.js';
 
 type Props = {|
   children: Node,
@@ -15,9 +18,11 @@ type Props = {|
 
 export default function Provider({ children, colorScheme, id }: Props): Node {
   return (
-    <ColorSchemeProvider colorScheme={colorScheme} id={id}>
-      {children}
-    </ColorSchemeProvider>
+    <ScrollProvider>
+      <ColorSchemeProvider colorScheme={colorScheme} id={id}>
+        {children}
+      </ColorSchemeProvider>
+    </ScrollProvider>
   );
 }
 
