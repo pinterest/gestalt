@@ -280,8 +280,13 @@ git push -f origin HEAD
         <li>
           <Text>
             Ensure checks pass on your Pull Request - having the &quot;Require
-            Semver&nbsp;/ Test (pull_request)&quot; check fail is expected, a
-            Gestalt maintainer needs to add a correct semver label.
+            Semver&nbsp;/ Test (pull_request)&quot; check fail is expected,
+            because a Gestalt maintainer needs to add a correct semver label.
+            Check out our{' '}
+            <Link href="#versioning" inline>
+              <Text weight="bold">versioning guidelines</Text>
+            </Link>{' '}
+            for more info.
           </Text>
         </li>
         <li>
@@ -306,7 +311,35 @@ card(
         a component, keep the scope of changes to that specific task and get the
         title exactly reflect those changes.
       </Text>
-
+      <Heading id="versioning" size="sm">
+        Versioning
+      </Heading>
+      <Text>
+        Our versioning guidelines follow those outlined at{' '}
+        <Link href="https://semver.org/" inline>
+          <Text weight="bold">semver.org</Text>
+        </Link>
+        :
+        <ul>
+          <li>
+            <em>Patch</em>: internal fixes, documentation changes, or package
+            upgrades (anything that consumers of Gestalt don&apos;t need to
+            worry about)
+          </li>
+          <li>
+            <em>Minor</em>: any new functionality or properties for a component,
+            or net-new components
+          </li>
+          <li>
+            <em>Major</em>: any breaking change, whether it be in a specific
+            component or the library itself (will most likely include a{' '}
+            <Link href="#codemods" inline>
+              <Text weight="bold">codemod</Text>
+            </Link>
+            )
+          </li>
+        </ul>
+      </Text>
       <Heading id="codemods" size="sm">
         Codemods
       </Heading>
