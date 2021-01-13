@@ -1,6 +1,5 @@
 // @flow strict
 import { type Node } from 'react';
-
 import icons from './icons/index.js';
 
 export type BaseProps = {|
