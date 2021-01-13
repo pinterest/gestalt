@@ -146,5 +146,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/pinterest/gestalt"
-  }
+  },
+  "sideEffects": false
 }
