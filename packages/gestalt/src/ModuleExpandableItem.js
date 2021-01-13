@@ -2,25 +2,16 @@
 import React, { type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
-import icons from './icons/index.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
+import { type BaseProps, type ExpandableItemProps } from './ModuleTypes.js';
 
 type Props = {|
-  id: string,
-  title: string,
-  icon?: $Keys<typeof icons>,
-  iconAccessibilityLabel?: string,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  summary?: $ReadOnlyArray<string>,
-  isCollapsed: boolean,
-  onModuleClicked: (boolean) => void,
-  type?: 'error' | 'info',
-  children?: Node,
+  ...BaseProps,
+  ...ExpandableItemProps,
 |};
 
-export default function ModuleExpandableBase({
+export default function ModuleExpandableItem({
   id,
   title,
   icon,

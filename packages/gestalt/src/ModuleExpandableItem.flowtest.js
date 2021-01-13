@@ -1,9 +1,9 @@
 // @flow strict
 import React from 'react';
-import ModuleExpandableBase from './ModuleExpandableBase.js';
+import ModuleExpandableItem from './ModuleExpandableItem.js';
 
 const Valid = (
-  <ModuleExpandableBase
+  <ModuleExpandableItem
     id="uniqueTestID"
     accessibilityExpandLabel="click to expand"
     accessibilityCollapseLabel="click to collapse"
@@ -16,14 +16,14 @@ const Valid = (
     onModuleClicked={() => {}}
   >
     <div>test children</div>
-  </ModuleExpandableBase>
+  </ModuleExpandableItem>
 );
 
 // $FlowExpectedError[prop-missing]
-const MissingProp = <ModuleExpandableBase />;
+const MissingProp = <ModuleExpandableItem />;
 
 // $FlowExpectedError[prop-missing]
-const NonExistingProp = <ModuleExpandableBase nonexisting={33} />;
+const NonExistingProp = <ModuleExpandableItem nonexisting={33} />;
 
 // $FlowExpectedError[prop-missing]
-const InvalidTypeProp = <ModuleExpandableBase size="xxl" />;
+const InvalidTypeProp = <ModuleExpandableItem size="xxl" />;

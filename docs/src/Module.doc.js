@@ -12,35 +12,98 @@ card(
   <PageHeader
     name="Module"
     description="
-The Module component renders detailed information in the expanded state and summarized information in the collapsed state.
-"
+      A Module is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
+    "
   />
 );
 
 card(
   <PropTable
     Component={Module}
+    name="Non-Expandable Module"
+    id="Non-Expandable Module"
     props={[
       {
         name: 'id',
+        href: 'non-expandable-default',
         type: 'string',
         required: true,
+        description: 'Id to identify this Module',
+      },
+      {
+        name: 'title',
+        href: 'non-expandable-default',
+        type: 'string',
+        description: 'Title of this Module',
+      },
+      {
+        name: 'icon',
+        href: 'non-expandable-icon',
+        type: 'string',
+        description: 'Name of icon to display in front of title',
+      },
+      {
+        name: 'iconAccessibilityLabel',
+        href: 'non-expandable-icon',
+        type: 'string',
+        description:
+          'Label to provide information about the icon used for screen readers',
+      },
+      {
+        name: 'type',
+        href: 'non-expandable-error',
+        type: '"info" | "error"',
+        defaultValue: 'info',
+        description:
+          'If set to `error`, displays error icon and changes title to red text',
+      },
+      {
+        name: 'children',
+        href: 'non-expandable-default',
+        type: 'React.Node',
+        description: 'Content to display underneath Module title',
+      },
+    ]}
+  />
+);
+
+card(
+  <PropTable
+    Component={Module.Expandable}
+    name="Expandable Module"
+    id="Expandable Module"
+    props={[
+      {
+        name: 'id',
+        href: 'expandable-default',
+        type: 'string',
+        required: true,
+        description: 'Base Id used to give each item in the Module a unique Id',
       },
       {
         name: 'accessibilityExpandLabel',
+        href: 'expandable-default',
         type: 'string',
         required: true,
+        description:
+          'Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module"',
       },
       {
         name: 'accessibilityCollapseLabel',
+        href: 'expandable-default',
         type: 'string',
         required: true,
+        description:
+          'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module"',
       },
       {
         name: 'items',
+        href: 'expandable-items',
         type:
           'Array<{| title: string, icon?: $Keys<typeof icons>, summary?: Array<string>, type?: "info" | "error", iconAccessibilityLabel?: string, children: ?React.Node |}>',
         required: true,
+        description:
+          'Array of modules to display in a stack - only one item can be expanded at a time',
       },
     ]}
   />
@@ -48,21 +111,83 @@ card(
 
 card(
   <Example
-    name="Default"
+    name="Non-Expandable"
+    description={`A Module is a container that can hold any content, and can optionally have a \`title\` that describes the content inside. The default, non-expandable Module is used to display information that should always be visible.`}
+    id="non-expandable-default"
+    defaultCode={`
+function ModuleExample() {
+  return (
+    <Flex direction="column" gap={2} maxWidth={800}>
+      <Module
+        id="ModuleExample - default - 1"
+        >
+        <Text size="md">This is example content.</Text>
+      </Module>
+      <Module
+        id="ModuleExample - default - 2"
+        title="Title"
+        >
+        <Text size="md">This is example content.</Text>
+      </Module>
+    </Flex>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Non-Expandable - Icon"
+    description={`
+    An Icon can be provided to be placed before the \`title\`.
+
+    It is recommended that icons be used sparingly to convey additional information, and instead should simply reenforce information in the title. If the icon does provide additional information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.
+    `}
+    id="non-expandable-icon"
     defaultCode={`
 function ModuleExample() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <Module
-        id="ModuleExample1"
-        accessibilityExpandLabel="Expand the module"
-        accessibilityCollapseLabel="Collapse the module"
-        items={[
-          {
-            title: 'Title',
-            summary: ['summary1', 'summary2', 'summary3'],
-            children: <Text size="md">Children1</Text>,
-          }]}>
+        id="ModuleExample - icon"
+        title="Title"
+        icon="lock"
+        iconAccessibilityLabel="Module Locked - check permission settings"
+        >
+        <Text size="md">This is example content.</Text>
+      </Module>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Non-Expandable - Error"
+    id="non-expandable-error"
+    defaultCode={`
+function ModuleExample() {
+  const [value, setValue] = React.useState('');
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <Module
+        id="ModuleExample - error"
+        title="Title"
+        type="error"
+        >
+        <Box marginBottom={4}>
+          <Text size="md">This is example content.</Text>
+        </Box>
+        <TextField
+          id="first-name"
+          errorMessage={!value ? "This field can't be blank!" : null}
+          onChange={({ value }) => setValue(value)}
+          label="Enter Your Name"
+          value={value}
+        />
       </Module>
     </Box>
   );
@@ -74,12 +199,14 @@ function ModuleExample() {
 card(
   <Example
     name="Expandable"
+    id="expandable-default"
+    description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present, the collapsed state shows optional \`summary\` content, and the expanded state shows any content desired.`}
     defaultCode={`
 function ModuleExample1() {
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <Module.Expandable
-        id="ModuleExample1"
+        id="ModuleExample - default"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
         items={[
@@ -98,7 +225,9 @@ function ModuleExample1() {
 
 card(
   <Example
-    name="Expandable - Multiple items"
+    name="Expandable - Group"
+    description="Multiple expandable items can be stacked together into a Module group. However, only one Module will be expanded at any time."
+    id="expandable-multiple"
     defaultCode={`
 function ModuleExample2() {
   return (
@@ -133,7 +262,8 @@ function ModuleExample2() {
 
 card(
   <Example
-    name="Example with icon"
+    name="Expandable - Icon"
+    description={`An Icon can be provided to be placed before the \`title\`. If the icon provides information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.`}
     defaultCode={`
 function ModuleExample3() {
   return (
@@ -159,9 +289,10 @@ function ModuleExample3() {
 
 card(
   <Example
-    name="Error state"
+    name="Expandable - Error"
     defaultCode={`
 function ModuleExample4() {
+  const [value, setValue] = React.useState('');
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <Module.Expandable
@@ -170,9 +301,17 @@ function ModuleExample4() {
         accessibilityCollapseLabel="Collapse the module"
         items={[
           {
-            title: 'Error state',
-            summary: ['summary1', 'summary2', 'summary3'],
-            children: <Text size="md">Children1</Text>,
+            title: 'Personal Info',
+            summary: ['Name is missing'],
+            children: <Text size="md">
+              <TextField
+                id="aboutme"
+                errorMessage={!value ? "This field can't be blank!" : null}
+                onChange={({ value }) => setValue(value)}
+                label="Enter Your Name"
+                value={value}
+              />
+            </Text>,
             iconAccessibilityLabel: "error icon",
             type: 'error',
           }]}>

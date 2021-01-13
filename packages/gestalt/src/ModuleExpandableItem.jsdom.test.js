@@ -1,9 +1,9 @@
 // @flow strict
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import ModuleExpandableBase from './ModuleExpandableBase.js';
+import ModuleExpandableItem from './ModuleExpandableItem.js';
 
-describe('ModuleExpandableBase', () => {
+describe('ModuleExpandableItem', () => {
   const baseProps = {
     id: 'uniqueTestID',
     accessibilityExpandLabel: 'click to expand',
@@ -17,7 +17,7 @@ describe('ModuleExpandableBase', () => {
 
   it('should render the collapsed state correctly', () => {
     render(
-      <ModuleExpandableBase {...baseProps}>Children</ModuleExpandableBase>
+      <ModuleExpandableItem {...baseProps}>Children</ModuleExpandableItem>
     );
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('ModuleExpandableBase', () => {
       icon: 'lock',
       iconAccessibilityLabel: 'test label',
     };
-    render(<ModuleExpandableBase {...props}>Children</ModuleExpandableBase>);
+    render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(
       screen.getByRole('img', { name: /test label/i })
@@ -50,7 +50,7 @@ describe('ModuleExpandableBase', () => {
       ...baseProps,
       isCollapsed: false,
     };
-    render(<ModuleExpandableBase {...props}>Children</ModuleExpandableBase>);
+    render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).not.toBeInTheDocument();
     expect(screen.getByText(/Children/i)).toBeInTheDocument();
@@ -69,7 +69,7 @@ describe('ModuleExpandableBase', () => {
       iconAccessibilityLabel: 'error icon label',
       isCollapsed: true,
     };
-    render(<ModuleExpandableBase {...props}>Children</ModuleExpandableBase>);
+    render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(
       screen.getByRole('img', { name: /Error icon/i })
     ).toBeInTheDocument();
