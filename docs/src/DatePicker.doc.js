@@ -197,7 +197,7 @@ card(
     description="
     Use DatePicker to select date inputs.
   "
-    name="Example: Basic Date Picker."
+    name="Example: Basic Date Picker"
     defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -288,7 +288,7 @@ function DatePickerRangeExample() {
 card(
   <Example
     id="disabled"
-    name="Example: Disabled."
+    name="Example: Disabled"
     defaultCode={`
 function DatePickerExample() {
   const [date, setDate] = React.useState(new Date());
@@ -313,7 +313,7 @@ card(
     description="
     Disable dates outside of a min and max date range.
   "
-    name="Example: Delimited selection period."
+    name="Example: Delimited selection period"
     defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -338,7 +338,7 @@ card(
     description="
     Enable an array of dates.
   "
-    name="Example: Enabled dates."
+    name="Example: Enabled dates"
     defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
@@ -362,7 +362,7 @@ card(
     description="
     Disable an array of dates.
   "
-    name="Example: Disabled dates."
+    name="Example: Disabled dates"
     defaultCode={`
 function DatePickerExample() {
   const handleChange = (value) => value;
