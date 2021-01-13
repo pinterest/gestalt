@@ -48,7 +48,32 @@ card(
 
 card(
   <Example
-    name="Example"
+    name="Default"
+    defaultCode={`
+function ModuleExample() {
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <Module
+        id="ModuleExample1"
+        accessibilityExpandLabel="Expand the module"
+        accessibilityCollapseLabel="Collapse the module"
+        items={[
+          {
+            title: 'Title',
+            summary: ['summary1', 'summary2', 'summary3'],
+            children: <Text size="md">Children1</Text>,
+          }]}>
+      </Module>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Expandable"
     defaultCode={`
 function ModuleExample1() {
   return (
@@ -73,7 +98,7 @@ function ModuleExample1() {
 
 card(
   <Example
-    name="Multiple items"
+    name="Expandable - Multiple items"
     defaultCode={`
 function ModuleExample2() {
   return (
