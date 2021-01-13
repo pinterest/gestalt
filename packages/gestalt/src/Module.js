@@ -14,7 +14,7 @@ export default function Module({
   title,
   type = 'info',
 }: BaseProps): Node {
-  const EXPANDABLE_TYPE_ATTRIBUTES = {
+  const MODULE_TYPE_ATTRIBUTES = {
     info: {
       icon,
       color: 'darkGray',
@@ -28,19 +28,19 @@ export default function Module({
     <Box id={id} rounding={2} borderStyle="shadow" direction="column">
       {title && (
         <Box padding={6} display="flex">
-          {EXPANDABLE_TYPE_ATTRIBUTES[type].icon && (
+          {MODULE_TYPE_ATTRIBUTES[type].icon && (
             <Box marginEnd={2}>
               <Icon
-                icon={EXPANDABLE_TYPE_ATTRIBUTES[type].icon}
+                icon={MODULE_TYPE_ATTRIBUTES[type].icon}
                 accessibilityLabel={iconAccessibilityLabel || ''}
-                color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
+                color={MODULE_TYPE_ATTRIBUTES[type].color}
               />
             </Box>
           )}
           <Text
             weight="bold"
             truncate
-            color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
+            color={MODULE_TYPE_ATTRIBUTES[type].color}
           >
             {title}
           </Text>
