@@ -1,3 +1,9 @@
+## 16.4.1 (Jan 13, 2021)
+
+### Patch
+
+- Mark package as not having side effects (#1333)
+
 ## 16.4.0 (Jan 12, 2021)
 
 ### Minor
