@@ -175,8 +175,8 @@ function ModuleExample() {
     <Box maxWidth={800} padding={2} column={12}>
       <Module
         id="ModuleExample - error"
-        title="Title"
-        type="error"
+        title="Personal Info"
+        type={!value ? "error" : "info"}
         >
         <Box marginBottom={4}>
           <Text size="md">This is example content.</Text>
@@ -293,6 +293,8 @@ card(
     defaultCode={`
 function ModuleExample4() {
   const [value, setValue] = React.useState('');
+  const moduleType = !value ? 'error' : 'info';
+  const summaryInfo = !value ? 'Name is missing' : 'Name: ' + value;
   return (
     <Box maxWidth={800} padding={2} column={12}>
       <Module.Expandable
@@ -302,7 +304,7 @@ function ModuleExample4() {
         items={[
           {
             title: 'Personal Info',
-            summary: ['Name is missing'],
+            summary: [summaryInfo],
             children: <Text size="md">
               <TextField
                 id="aboutme"
@@ -313,7 +315,7 @@ function ModuleExample4() {
               />
             </Text>,
             iconAccessibilityLabel: "error icon",
-            type: 'error',
+            type: moduleType
           }]}>
       </Module.Expandable>
     </Box>
