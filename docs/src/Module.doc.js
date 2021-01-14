@@ -20,38 +20,38 @@ card(
 card(
   <PropTable
     Component={Module}
-    name="Non-Expandable Module"
-    id="Non-Expandable Module"
+    name="Static Module"
+    id="static-Module"
     props={[
       {
         name: 'id',
-        href: 'non-expandable-default',
+        href: 'static-default',
         type: 'string',
         required: true,
         description: 'Id to identify this Module',
       },
       {
         name: 'title',
-        href: 'non-expandable-default',
+        href: 'static-default',
         type: 'string',
         description: 'Title of this Module',
       },
       {
         name: 'icon',
-        href: 'non-expandable-icon',
+        href: 'static-icon',
         type: 'string',
         description: 'Name of icon to display in front of title',
       },
       {
         name: 'iconAccessibilityLabel',
-        href: 'non-expandable-icon',
+        href: 'static-icon',
         type: 'string',
         description:
           'Label to provide information about the icon used for screen readers',
       },
       {
         name: 'type',
-        href: 'non-expandable-error',
+        href: 'static-error',
         type: '"info" | "error"',
         defaultValue: 'info',
         description:
@@ -59,7 +59,7 @@ card(
       },
       {
         name: 'children',
-        href: 'non-expandable-default',
+        href: 'static-default',
         type: 'React.Node',
         description: 'Content to display underneath Module title',
       },
@@ -71,7 +71,7 @@ card(
   <PropTable
     Component={Module.Expandable}
     name="Expandable Module"
-    id="Expandable Module"
+    id="expandable-module"
     props={[
       {
         name: 'id',
@@ -111,9 +111,9 @@ card(
 
 card(
   <Example
-    name="Non-Expandable"
-    description={`A Module is a container that can hold any content, and can optionally have a \`title\` that describes the content inside. The default, non-expandable Module is used to display information that should always be visible.`}
-    id="non-expandable-default"
+    name="Static"
+    description={`A Module is a container that can hold any content, and can optionally have a \`title\` that describes the content inside. The default, static Module is used to display information that should always be visible.`}
+    id="static-default"
     defaultCode={`
 function ModuleExample() {
   return (
@@ -138,13 +138,13 @@ function ModuleExample() {
 
 card(
   <Example
-    name="Non-Expandable - Icon"
+    name="Static - Icon"
     description={`
     An Icon can be provided to be placed before the \`title\`.
 
     It is recommended that icons be used sparingly to convey additional information, and instead should simply reenforce information in the title. If the icon does provide additional information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.
     `}
-    id="non-expandable-icon"
+    id="static-icon"
     defaultCode={`
 function ModuleExample() {
   return (
@@ -166,8 +166,8 @@ function ModuleExample() {
 
 card(
   <Example
-    name="Non-Expandable - Error"
-    id="non-expandable-error"
+    name="Static - Error"
+    id="static-error"
     defaultCode={`
 function ModuleExample() {
   const [value, setValue] = React.useState('');
