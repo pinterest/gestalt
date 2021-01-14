@@ -32,3 +32,10 @@ export type ExpandableItemProps = {|
   isCollapsed: boolean,
   onModuleClicked: (boolean) => void,
 |};
+
+export type TitleProps = {|
+  title?: string,
+  icon?: $Keys<typeof icons>,
+  iconAccessibilityLabel?: string,
+  type?: 'error' | 'info',
+|};

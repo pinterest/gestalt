@@ -3,14 +3,14 @@ import React, { type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
+import { type TitleProps } from './moduleTypes.js';
 
-// eslint-disable-next-line import/prefer-default-export
-export function renderModuleTitle(
-  type: string,
-  icon?: string,
-  iconAccessibilityLabel?: string,
-  title?: string
-): Node {
+export default function ModuleTitle({
+  title,
+  icon,
+  iconAccessibilityLabel,
+  type = 'info',
+}: TitleProps): Node {
   const MODULE_TYPE_ATTRIBUTES = {
     info: {
       icon,

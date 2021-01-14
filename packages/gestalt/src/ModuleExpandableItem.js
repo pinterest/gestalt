@@ -5,7 +5,7 @@ import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
 import { type BaseProps, type ExpandableItemProps } from './moduleTypes.js';
-import { renderModuleTitle } from './moduleUtils.js';
+import ModuleTitle from './ModuleTitle.js';
 
 type Props = {|
   ...BaseProps,
@@ -40,7 +40,12 @@ export default function ModuleExpandableItem({
         <Box padding={6} display="flex">
           <Box display="flex" flex="grow" marginEnd={6} alignItems="baseline">
             <Box column={isCollapsed && summary ? 6 : 12} display="flex">
-              {renderModuleTitle(type, icon, iconAccessibilityLabel, title)}
+              <ModuleTitle
+                type={type}
+                title={title}
+                icon={icon}
+                iconAccessibilityLabel={iconAccessibilityLabel}
+              />
             </Box>
             {summary && isCollapsed && (
               <Box column={6} marginStart={6}>
