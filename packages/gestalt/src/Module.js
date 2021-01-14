@@ -1,7 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import Box from './Box.js';
-import { type BaseProps } from './moduleTypes.js';
+import { type BaseProps } from './module-types.js';
 import { renderModuleTitle } from './moduleUtils.js';
 import ModuleExpandable from './ModuleExpandable.js';
 

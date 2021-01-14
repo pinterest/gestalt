@@ -4,7 +4,7 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type BaseProps, type ExpandableItemProps } from './moduleTypes.js';
+import { type BaseProps, type ExpandableItemProps } from './module-types.js';
 import { renderModuleTitle } from './moduleUtils.js';
 
 type Props = {|

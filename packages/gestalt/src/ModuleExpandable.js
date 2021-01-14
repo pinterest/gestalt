@@ -3,7 +3,7 @@ import React, { useState, type Node } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
-import { type ExpandableBaseProps } from './moduleTypes.js';
+import { type ExpandableBaseProps } from './module-types.js';
 
 export default function ModuleExpandable({
   id,
