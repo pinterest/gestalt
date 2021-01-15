@@ -101,7 +101,7 @@ card(
         type: '?number',
         required: false,
         description: [
-          'The index of the item that the expand/collapse state can be controlled programatically from an external component',
+          'The 0-based index of the item that the expand/collapse state can be controlled programatically from an external component',
         ],
       },
       {
@@ -110,6 +110,7 @@ card(
         required: false,
         description: [
           'The callback function that controls the expand/collapse state of an item if controlled programatically from an external component',
+          'The callback receives the index of the module component when expanded, and null when collapsed.',
         ],
       },
       {
