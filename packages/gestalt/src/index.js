@@ -60,7 +60,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
-import { useOnLinkClick } from './contexts/OnLinkClickContext.js';
+import { useOnNavigation } from './contexts/OnNavigationContext.js';
 
 export {
   ActivationCard,
@@ -123,7 +123,7 @@ export {
   Upsell,
   Video,
   useColorScheme,
-  useOnLinkClick,
+  useOnNavigation,
   useFocusVisible,
   useReducedMotion,
 };

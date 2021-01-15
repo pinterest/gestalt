@@ -16,7 +16,7 @@ import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
-import { type onLinkClickContextDataType } from './contexts/OnLinkClickContext.js';
+import { type onNavigationOptionsType } from './contexts/OnNavigationContext.js';
 
 type BaseIconButton = {|
   accessibilityLabel: string,
@@ -55,7 +55,7 @@ type IconButtonType = {|
 type LinkIconButtonType = {|
   ...BaseIconButton,
   href: string,
-  onLinkClickContextData?: onLinkClickContextDataType,
+  onNavigationOptions?: onNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -172,7 +172,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
   };
 
   if (props.role === 'link') {
-    const { onLinkClickContextData, href, rel, target } = props;
+    const { onNavigationOptions, href, rel, target } = props;
 
     return (
       <InternalLink
@@ -180,7 +180,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
         disabled={disabled}
         href={href}
         onClick={handleLinkClick}
-        onLinkClickContextData={onLinkClickContextData}
+        onNavigationOptions={onNavigationOptions}
         onBlur={handleOnBlur}
         onFocus={handleOnFocus}
         onMouseDown={handleOnMouseDown}
@@ -267,7 +267,7 @@ IconButtonWithForwardRef.propTypes = {
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
   // eslint-disable-next-line react/forbid-prop-types
-  onLinkClickContextData: PropTypes.object,
+  onNavigationOptions: PropTypes.object,
   padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
