@@ -9,31 +9,16 @@ import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-
-type ActionData = {|
-  accessibilityLabel?: string,
-  href?: string,
-  label: string,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
-  >,
-|};
+import { type ActionDataType, type DismissButtonType } from './commonTypes.js';
 
 type Props = {|
-  dismissButton?: {|
-    accessibilityLabel: string,
-    onDismiss: () => void,
-  |},
+  dismissButton?: DismissButtonType,
   iconAccessibilityLabel: string,
   message: string,
-  primaryAction?: ActionData,
-  secondaryAction?: ActionData,
+  primaryAction?: ActionDataType,
+  secondaryAction?: ActionDataType,
   type: 'error' | 'info' | 'warning',
   title?: string,
 |};
@@ -61,7 +46,7 @@ const CalloutAction = ({
   stacked,
   type,
 }: {|
-  data: ActionData,
+  data: ActionDataType,
   stacked?: boolean,
   type: string,
 |}): Node => {

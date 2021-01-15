@@ -10,27 +10,17 @@ import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
-
-type ActionData = {|
-  accessibilityLabel?: string,
-  href?: string,
-  label: string,
-  onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLButtonElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
-  >,
-|};
+import {
+  ActionDataPropType,
+  DismissButtonPropType,
+  type ActionDataType,
+  type DismissButtonType,
+} from './commonTypes.js';
 
 type Props = {|
-  dismissButton?: {|
-    accessibilityLabel: string,
-    onDismiss: () => void,
-  |},
+  dismissButton?: DismissButtonType,
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
     mask?: {|
@@ -40,8 +30,8 @@ type Props = {|
     width?: number,
   |},
   message: string,
-  primaryAction?: ActionData,
-  secondaryAction?: ActionData,
+  primaryAction?: ActionDataType,
+  secondaryAction?: ActionDataType,
   title?: string,
 |};
 
@@ -50,7 +40,7 @@ const UpsellAction = ({
   stacked,
   type,
 }: {|
-  data: ActionData,
+  data: ActionDataType,
   stacked?: boolean,
   type: string,
 |}): Node => {
@@ -210,11 +200,7 @@ export default function Upsell({
 }
 
 Upsell.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  dismissButton: PropTypes.exact({
-    accessibilityLabel: PropTypes.string.isRequired,
-    onDismiss: PropTypes.func.isRequired,
-  }),
+  dismissButton: DismissButtonPropType,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   imageData: PropTypes.exact({
     component: PropTypes.node.isRequired,
@@ -225,19 +211,7 @@ Upsell.propTypes = {
     width: PropTypes.number,
   }),
   message: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  primaryAction: PropTypes.shape({
-    href: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    accessibilityLabel: PropTypes.string,
-  }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  secondaryAction: PropTypes.shape({
-    href: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    accessibilityLabel: PropTypes.string,
-  }),
+  primaryAction: ActionDataPropType,
+  secondaryAction: ActionDataPropType,
   title: PropTypes.string,
 };
