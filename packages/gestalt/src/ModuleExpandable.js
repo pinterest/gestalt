@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
+import React, { useState, useEffect, type Node } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableBase from './ModuleExpandableBase.js';
@@ -9,8 +9,7 @@ type Props = {|
   id: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
-  expandedId?: ?string,
-  setExpandedId?: (?string) => void,
+  expandedIndex?: ?number,
   items: $ReadOnlyArray<{|
     title: string,
     icon?: $Keys<typeof icons>,
@@ -19,19 +18,22 @@ type Props = {|
     type?: 'error' | 'info',
     children?: Node,
   |}>,
+  onExpandedChange?: (?number) => void,
 |};
 
 export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
-  expandedId,
-  setExpandedId,
+  expandedIndex,
+  onExpandedChange,
   items,
 }: Props): Node {
-  const [localExpandedId, setLocalExpandedId] = useState(null);
-  const expId = expandedId || localExpandedId;
-  const setExpId = setExpandedId || setLocalExpandedId;
+  const [expandedId, setExpandedId] = useState(expandedIndex || null);
+
+  useEffect(() => {
+    setExpandedId(expandedIndex || expandedIndex === 0 ? expandedIndex : null);
+  }, [expandedIndex, setExpandedId]);
 
   return (
     <Box rounding={2} borderStyle="shadow">
@@ -48,12 +50,15 @@ export default function ModuleExpandable({
                 icon={icon}
                 iconAccessibilityLabel={iconAccessibilityLabel}
                 summary={summary}
-                isCollapsed={expId !== `${id}-${index}`}
+                isCollapsed={expandedId !== index}
                 type={type}
                 accessibilityExpandLabel={accessibilityExpandLabel}
                 accessibilityCollapseLabel={accessibilityCollapseLabel}
                 onModuleClicked={(isExpanded) => {
-                  setExpId(isExpanded ? null : `${id}-${index}`);
+                  if (onExpandedChange) {
+                    onExpandedChange(isExpanded ? null : index);
+                  }
+                  setExpandedId(isExpanded ? null : index);
                 }}
               >
                 {children}
