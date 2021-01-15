@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, useEffect, type Node } from 'react';
+import React, { useState, useEffect, type Node, Fragment } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableBase from './ModuleExpandableBase.js';
@@ -42,7 +42,7 @@ export default function ModuleExpandable({
           { icon, iconAccessibilityLabel, title, type, summary, children },
           index
         ) => (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             <Box>
               <ModuleExpandableBase
                 id={`${id}-${index}`}
@@ -65,7 +65,7 @@ export default function ModuleExpandable({
               </ModuleExpandableBase>
             </Box>
             {index !== items.length - 1 && <Divider />}
-          </React.Fragment>
+          </Fragment>
         )
       )}
     </Box>
