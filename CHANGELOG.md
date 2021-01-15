@@ -1,3 +1,9 @@
+## 16.5.1 (Jan 15, 2021)
+
+### Patch
+
+- Docs: replaced 'eye-icon' icon with Gestalt version (#1342)
+
 ## 16.5.0 (Jan 15, 2021)
 
 ### Minor
