@@ -1,3 +1,9 @@
+## 16.5.0 (Jan 15, 2021)
+
+### Minor
+
+- Icon: Add eye-hide icon. (#1337)
+
 ## 16.4.1 (Jan 13, 2021)
 
 ### Patch
