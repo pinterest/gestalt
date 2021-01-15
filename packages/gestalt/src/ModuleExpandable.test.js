@@ -63,8 +63,8 @@ test('renders correctly with multiple items with expandedId', () => {
         id="uniqueTestID"
         accessibilityExpandLabel="click to expand"
         accessibilityCollapseLabel="click to collapse"
-        expandedId="uniqueTestID-0"
-        setExpandedId={() => {}}
+        expandedIndex={0}
+        onExpandedChange={() => {}}
         items={[
           {
             title: 'Title1',

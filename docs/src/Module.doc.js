@@ -97,17 +97,16 @@ card(
           'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module"',
       },
       {
-        name: 'expandedId',
-        type: '?string',
+        name: 'expandedIndex',
+        type: '?number',
         required: false,
         description: [
-          'The ID of the item that the expand/collapse state can be controlled programatically from an external component',
-          'expandedId is constructed in the format of {id}-{index of the item}',
+          'The index of the item that the expand/collapse state can be controlled programatically from an external component',
         ],
       },
       {
-        name: 'setExpandedId',
-        type: '(?string) => void',
+        name: 'onExpandedChange',
+        type: '(?number) => void',
         required: false,
         description: [
           'The callback function that controls the expand/collapse state of an item if controlled programatically from an external component',
@@ -221,7 +220,7 @@ card(
     defaultCode={`
 function ModuleExample1() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample - default"
         accessibilityExpandLabel="Expand the module"
@@ -248,7 +247,7 @@ card(
     defaultCode={`
 function ModuleExample2() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample2"
         accessibilityExpandLabel="Expand the module"
@@ -284,7 +283,7 @@ card(
     defaultCode={`
 function ModuleExample3() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample3"
         accessibilityExpandLabel="Expand the module"
@@ -335,6 +334,73 @@ function ModuleExample4() {
             type: moduleType
           }]}>
       </Module.Expandable>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Example with external control"
+    defaultCode={`
+function ModuleExample5() {
+  const [extExpandedId, setExtExpandedId] = React.useState(null);
+  const mapIds = {
+      'first-0': 0,
+      'first-1': 1,
+      'second-0': 0,
+      'second-1': 1,
+  }
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <Flex direction='column' gap={3}>
+        <Box padding={1} borderStyle='sm'>
+          <Text>Step 1</Text>
+          <Module.Expandable
+            id="ModuleExample5"
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
+            onExpandedChange={(index) => setExtExpandedId('first-'+index)}
+            items={[
+              {
+                title: 'Title1',
+                summary: ['summary1'],
+                children: <Text size="md">Children1</Text>,
+              },
+              {
+                title: 'Title2',
+                summary: ['summary2'],
+                children: <Text size="md">Children2</Text>,
+              },
+            ]}
+          />
+        </Box>
+        <Box padding={1} borderStyle='sm'>
+          <Text>Step 2</Text>
+          <Module.Expandable
+            id="ModuleExample5"
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            expandedIndex={extExpandedId && extExpandedId.startsWith('second') && mapIds[extExpandedId]}
+            onExpandedChange={(index) => setExtExpandedId('second-'+index)}
+            items={[
+              {
+                title: 'Title1',
+                summary: ['summary1'],
+                children: <Text size="md">Children1</Text>,
+              },
+              {
+                title: 'Title2',
+                summary: ['summary2'],
+                children: <Text size="md">Children2</Text>,
+              },
+            ]}
+          />
+        </Box>
+      </Flex>
     </Box>
   );
 }
