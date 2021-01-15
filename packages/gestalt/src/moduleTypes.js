@@ -2,12 +2,14 @@
 import { type Node } from 'react';
 import icons from './icons/index.js';
 
+type TypeOptions = 'error' | 'info';
+
 export type BaseProps = {|
   id: string,
   title?: string,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
-  type?: 'error' | 'info',
+  type?: TypeOptions,
   children?: Node,
 |};
 
@@ -20,7 +22,7 @@ export type ExpandableBaseProps = {|
     icon?: $Keys<typeof icons>,
     iconAccessibilityLabel?: string,
     summary?: $ReadOnlyArray<string>,
-    type?: 'error' | 'info',
+    type?: TypeOptions,
     children?: Node,
   |}>,
 |};
@@ -37,5 +39,5 @@ export type TitleProps = {|
   title?: string,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
-  type?: 'error' | 'info',
+  type?: TypeOptions,
 |};
