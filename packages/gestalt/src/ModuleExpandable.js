@@ -9,7 +9,7 @@ type Props = {|
   id: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
-  expandedIdx?: ?number,
+  expandedIndex?: ?number,
   items: $ReadOnlyArray<{|
     title: string,
     icon?: $Keys<typeof icons>,
@@ -18,24 +18,26 @@ type Props = {|
     type?: 'error' | 'info',
     children?: Node,
   |}>,
+  onExpandChange?: (?number) => void,
 |};
 
 export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
-  expandedIdx,
+  expandedIndex,
   items,
+  onExpandChange,
 }: Props): Node {
   const [localExpandedId, setLocalExpandedId] = useState(
-    expandedIdx ? `${id}-${expandedIdx}` : null
+    expandedIndex ? `${id}-${expandedIndex}` : null
   );
 
   useEffect(() => {
     setLocalExpandedId(
-      expandedIdx || expandedIdx === 0 ? `${id}-${expandedIdx}` : null
+      expandedIndex || expandedIndex === 0 ? `${id}-${expandedIndex}` : null
     );
-  }, [id, expandedIdx, setLocalExpandedId]);
+  }, [id, expandedIndex, setLocalExpandedId]);
 
   return (
     <Box rounding={2} borderStyle="shadow">
@@ -57,6 +59,9 @@ export default function ModuleExpandable({
                 accessibilityExpandLabel={accessibilityExpandLabel}
                 accessibilityCollapseLabel={accessibilityCollapseLabel}
                 onModuleClicked={(isExpanded) => {
+                  if (onExpandChange) {
+                    onExpandChange(isExpanded ? null : index);
+                  }
                   setLocalExpandedId(isExpanded ? null : `${id}-${index}`);
                 }}
               >

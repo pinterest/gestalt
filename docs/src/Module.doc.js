@@ -69,6 +69,7 @@ card(
     defaultCode={`
 function ModuleExample5() {
   const [extExpandedId, setExtExpandedId] = React.useState(null);
+  const handleChange = (index, id) => setExtExpandedId(index)
 
   return (
     <Box maxWidth={800} padding={2} column={12}>
@@ -111,7 +112,8 @@ function ModuleExample5() {
         id="ModuleExample5"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
-        expandedIdx={extExpandedId}
+        expandedIndex={extExpandedId}
+        onExpandChange={handleChange}
         items={[
           {
             title: 'Title1',
@@ -139,11 +141,79 @@ function ModuleExample5() {
 
 card(
   <Example
+    name="GoodExample"
+    defaultCode={`
+function ModuleExample5() {
+  const [extExpandedId, setExtExpandedId] = React.useState(null);
+  const mapIds = {
+      'first-0': 0,
+      'first-1': 1,
+      'second-0': 0,
+      'second-1': 1,
+  }
+
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <Flex direction='column' gap={3}>
+        <Box padding={2}>
+          <Box padding={2}><Text>Step 1</Text></Box>
+          <Module.Expandable
+            id="ModuleExample5"
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
+            onExpandChange={(index) => setExtExpandedId('first-'+index)}
+            items={[
+              {
+                title: 'Title1',
+                summary: ['summary1'],
+                children: <Text size="md">Children1</Text>,
+              },
+              {
+                title: 'Title2',
+                summary: ['summary2'],
+                children: <Text size="md">Children2</Text>,
+              },
+            ]}
+          />
+        </Box>
+        <Box padding={2}>
+          <Box padding={2}><Text>Step 2</Text></Box>
+          <Module.Expandable
+            id="ModuleExample5"
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            expandedIndex={extExpandedId && extExpandedId.startsWith('second') && mapIds[extExpandedId]}
+            onExpandChange={(index) => setExtExpandedId('second-'+index)}
+            items={[
+              {
+                title: 'Title1',
+                summary: ['summary1'],
+                children: <Text size="md">Children1</Text>,
+              },
+              {
+                title: 'Title2',
+                summary: ['summary2'],
+                children: <Text size="md">Children2</Text>,
+              },
+            ]}
+          />
+        </Box>
+      </Flex>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
     name="Multiple items"
     defaultCode={`
 function ModuleExample2() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample2"
         accessibilityExpandLabel="Expand the module"
