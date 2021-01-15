@@ -20,7 +20,7 @@ import InternalLink from './InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { type onLinkClickContextDataType } from './contexts/OnLinkClickContext.js';
+import { type onNavigationOptionsType } from './contexts/OnNavigationContext.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -80,7 +80,7 @@ type SubmitButtonType = {|
 type LinkButtonType = {|
   ...BaseButton,
   href: string,
-  onLinkClickContextData?: onLinkClickContextDataType,
+  onNavigationOptions?: onNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -206,7 +206,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
   const handleLinkClick = ({ event }) => handleClick(event);
 
   if (props.role === 'link') {
-    const { onLinkClickContextData, href, rel = 'none', target = null } = props;
+    const { onNavigationOptions, href, rel = 'none', target = null } = props;
 
     return (
       <InternalLink
@@ -216,7 +216,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         inline={inline}
         href={href}
         onClick={handleLinkClick}
-        onLinkClickContextData={onLinkClickContextData}
+        onNavigationOptions={onNavigationOptions}
         ref={innerRef}
         rel={rel}
         tabIndex={tabIndex}
@@ -338,7 +338,7 @@ ButtonWithForwardRef.propTypes = {
   name: PropTypes.string,
   onClick: PropTypes.func,
   // eslint-disable-next-line react/forbid-prop-types
-  onLinkClickContextData: PropTypes.object,
+  onNavigationOptions: PropTypes.object,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'
   >),

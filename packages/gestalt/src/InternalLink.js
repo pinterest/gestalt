@@ -22,9 +22,9 @@ import getRoundingClassName, {
   type Rounding,
 } from './getRoundingClassName.js';
 import {
-  useOnLinkClick,
-  type onLinkClickContextDataType,
-} from './contexts/OnLinkClickContext.js';
+  useOnNavigation,
+  type onNavigationOptionsType,
+} from './contexts/OnNavigationContext.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -49,7 +49,7 @@ type Props = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
-  onLinkClickContextData?: onLinkClickContextDataType,
+  onNavigationOptions?: onNavigationOptionsType,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
@@ -84,7 +84,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
     inline,
     mouseCursor,
     onClick,
-    onLinkClickContextData,
+    onNavigationOptions,
     onBlur,
     onFocus,
     onMouseEnter,
@@ -170,7 +170,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
       : {}
   );
 
-  const onLinkClickContext = useOnLinkClick();
+  const onNavigateContext = useOnNavigation();
 
   return (
     <a
@@ -186,10 +186,10 @@ const InternalLinkWithForwardRef: AbstractComponent<
         handleBlur();
       }}
       onClick={(event) => {
-        if (onLinkClickContext) {
-          onLinkClickContext.onLinkClick({
+        if (onNavigateContext) {
+          onNavigateContext.onNavigation({
             href,
-            onLinkClickContextData,
+            onNavigationOptions,
             event,
           });
         }
@@ -275,7 +275,7 @@ InternalLinkWithForwardRef.propTypes = {
   ]),
   onClick: PropTypes.func,
   // eslint-disable-next-line react/forbid-prop-types
-  onLinkClickContextData: PropTypes.object,
+  onNavigationOptions: PropTypes.object,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onMouseDown: PropTypes.func,

@@ -20,9 +20,9 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import {
-  useOnLinkClick,
-  type onLinkClickContextDataType,
-} from './contexts/OnLinkClickContext.js';
+  useOnNavigation,
+  type onNavigationOptionsType,
+} from './contexts/OnNavigationContext.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -37,7 +37,7 @@ type Props = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
   >,
-  onLinkClickContextData?: onLinkClickContextDataType,
+  onNavigationOptions?: onNavigationOptionsType,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
@@ -64,7 +64,7 @@ const LinkWithForwardRef: AbstractComponent<
     inline = false,
     onBlur,
     onClick,
-    onLinkClickContextData,
+    onNavigationOptions,
     onFocus,
     rel = 'none',
     role,
@@ -109,7 +109,7 @@ const LinkWithForwardRef: AbstractComponent<
     }
   );
 
-  const onLinkClickContext = useOnLinkClick();
+  const onNavigationContext = useOnNavigation();
 
   return (
     <a
@@ -125,10 +125,10 @@ const LinkWithForwardRef: AbstractComponent<
         }
       }}
       onClick={(event) => {
-        if (onLinkClickContext) {
-          onLinkClickContext.onLinkClick({
+        if (onNavigationContext) {
+          onNavigationContext.onNavigation({
             href,
-            onLinkClickContextData,
+            onNavigationOptions,
             event,
           });
         }
@@ -185,7 +185,7 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   // eslint-disable-next-line react/forbid-prop-types
-  onLinkClickContextData: PropTypes.object,
+  onNavigationOptions: PropTypes.object,
   onFocus: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
     'none' | 'nofollow'

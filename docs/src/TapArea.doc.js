@@ -166,17 +166,17 @@ card(
         href: 'basic-taparea',
       },
       {
-        name: 'onLinkClickData',
+        name: 'onNavigationOptions',
         type:
           '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
         description: [
-          'onLinkClickData works in pair with a Provider:',
-          '<Provider onLinkClick={({ href, onLinkClickContextData, event}) => {}}>.',
+          'onNavigationOptions works in pair with a Provider:',
+          '<Provider onNavigation={({ href, onNavigationOptions, event}) => {}}>.',
           `- 'href' can be used to check the type of url`,
-          `- 'onLinkClickContextData' can be used to pass any prop to 'onLinkClick', such as props to control when to prevent native Link component events`,
+          `- 'onNavigationOptions' can be used to pass custom props to 'onNavigation'`,
           `- 'event' can be used to prevent native Link component events`,
         ],
-        href: 'OnLinkClickContext',
+        href: 'OnNavigationContext',
       },
       {
         name: 'ref',
@@ -634,12 +634,12 @@ function MenuButtonExample() {
 
 card(
   <Example
-    id="OnLinkClickContext"
-    name="OnLinkClickContext"
+    id="OnNavigationContext"
+    name="OnNavigation Context"
     defaultCode={`
-function LinkWithProvider() {
-  const onLinkClickCallback = ({ href, onLinkClickContextData, event }) => {
-    if (onLinkClickContextData && onLinkClickContextData.stopPropagation) {
+function OnNavigationProvider() {
+  const onNavigation = ({ href, onNavigationOptions, event }) => {
+    if (onNavigationOptions && onNavigationOptions.stopPropagation) {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
       alert("Disabled link. Opening help.pinterest.com instead");
@@ -648,11 +648,11 @@ function LinkWithProvider() {
   };
 
   return (
-    <Provider onLinkClick={onLinkClickCallback}>
+    <Provider onNavigation={onNavigation}>
       <Box width={200}>
         <TapArea
           href="https://www.pinterest.com/search/pins/?rs=ac&len=2&q=antelope%20canyon%20arizona&eq=Antelope%20Canyon"
-          onLinkClickContextData={{stopPropagation: true}}
+          onNavigationOptions={{ stopPropagation: true }}
           role='link'p
           rounding={2}
         >

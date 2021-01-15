@@ -7,28 +7,28 @@ import {
   ColorSchemePropType,
 } from './contexts/ColorScheme.js';
 import {
-  OnLinkClickProvider,
-  type onLinkClickType,
-} from './contexts/OnLinkClickContext.js';
+  OnNavigationProvider,
+  type onNavigationType,
+} from './contexts/OnNavigationContext.js';
 
 type Props = {|
   children: Node,
   colorScheme?: ColorScheme,
   id?: string,
-  onLinkClick?: onLinkClickType,
+  onNavigation?: onNavigationType,
 |};
 
 export default function Provider({
   children,
-  onLinkClick,
+  onNavigation,
   colorScheme,
   id,
 }: Props): Node {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} id={id}>
-      <OnLinkClickProvider onLinkClick={onLinkClick}>
+      <OnNavigationProvider onNavigation={onNavigation}>
         {children}
-      </OnLinkClickProvider>
+      </OnNavigationProvider>
     </ColorSchemeProvider>
   );
 }
@@ -36,5 +36,5 @@ export default function Provider({
 Provider.propTypes = {
   children: PropTypes.node,
   colorScheme: ColorSchemePropType,
-  onLinkClick: PropTypes.func,
+  onNavigation: PropTypes.func,
 };
