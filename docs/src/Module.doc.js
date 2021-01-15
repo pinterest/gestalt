@@ -101,7 +101,7 @@ card(
         type: '?number',
         required: false,
         description: [
-          'The 0-based index of the item that the expand/collapse state can be controlled programatically from an external component',
+          'The 0-based index indicating the item that should currently be expanded. This must be updated via onExpandedChange to ensure the correct item is expanded.',
         ],
       },
       {
@@ -109,8 +109,7 @@ card(
         type: '(?number) => void',
         required: false,
         description: [
-          'The callback function that controls the expand/collapse state of an item if controlled programatically from an external component',
-          'The callback receives the index of the module component when expanded, and null when collapsed.',
+          'This callback is executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
         ],
       },
       {
@@ -364,7 +363,7 @@ function ModuleExample5() {
             accessibilityExpandLabel="Expand the module"
             accessibilityCollapseLabel="Collapse the module"
             expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
-            onExpandedChange={(index) => setExtExpandedId('first-'+index)}
+            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`first-$\{index}\`: index)}
             items={[
               {
                 title: 'Title1',
@@ -386,7 +385,7 @@ function ModuleExample5() {
             accessibilityExpandLabel="Expand the module"
             accessibilityCollapseLabel="Collapse the module"
             expandedIndex={extExpandedId && extExpandedId.startsWith('second') && mapIds[extExpandedId]}
-            onExpandedChange={(index) => setExtExpandedId('second-'+index)}
+            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`second-$\{index}\`: index)}
             items={[
               {
                 title: 'Title1',

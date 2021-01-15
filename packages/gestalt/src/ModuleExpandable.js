@@ -13,10 +13,12 @@ export default function ModuleExpandable({
   onExpandedChange,
   items,
 }: Props): Node {
-  const [expandedId, setExpandedId] = useState(expandedIndex || null);
+  const [expandedId, setExpandedId] = useState<?number>(
+    Number.isFinite(expandedIndex) ? expandedIndex : null
+  );
 
   useEffect(() => {
-    setExpandedId(expandedIndex || expandedIndex === 0 ? expandedIndex : null);
+    setExpandedId(Number.isFinite(expandedIndex) ? expandedIndex : null);
   }, [expandedIndex, setExpandedId]);
 
   return (
