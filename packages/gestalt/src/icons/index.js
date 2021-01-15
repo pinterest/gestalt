@@ -59,6 +59,7 @@ import ellipsis from './ellipsis.svg';
 import ellipsisCircleOutline from './ellipsis-circle-outline.svg';
 import envelope from './envelope.svg';
 import eye from './eye.svg';
+import eyeHide from './eye-hide.svg';
 import facebook from './facebook.svg';
 import faceHappy from './face-happy.svg';
 import faceSad from './face-sad.svg';
@@ -232,6 +233,7 @@ const icons = {
   'ellipsis-circle-outline': ellipsisCircleOutline,
   envelope,
   eye,
+  'eye-hide': eyeHide,
   facebook,
   'face-happy': faceHappy,
   'face-sad': faceSad,
