@@ -360,7 +360,7 @@ function ModuleExample5() {
         <Box padding={1} borderStyle='sm'>
           <Text>Step 1</Text>
           <Module.Expandable
-            id="ModuleExample5"
+            id="ModuleExampleStep1"
             accessibilityExpandLabel="Expand the module"
             accessibilityCollapseLabel="Collapse the module"
             expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
@@ -382,7 +382,7 @@ function ModuleExample5() {
         <Box padding={1} borderStyle='sm'>
           <Text>Step 2</Text>
           <Module.Expandable
-            id="ModuleExample5"
+            id="ModuleExampleStep2"
             accessibilityExpandLabel="Expand the module"
             accessibilityCollapseLabel="Collapse the module"
             expandedIndex={extExpandedId && extExpandedId.startsWith('second') && mapIds[extExpandedId]}
