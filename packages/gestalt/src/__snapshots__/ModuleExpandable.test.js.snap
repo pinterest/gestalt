@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly with multiple items 1`] = `
+exports[`Module Expandable renders correctly with multiple items 1`] = `
 <div
   className="box rounding2 shadow"
 >
@@ -273,7 +273,7 @@ exports[`renders correctly with multiple items 1`] = `
 </div>
 `;
 
-exports[`renders correctly with one item 1`] = `
+exports[`Module Expandable renders correctly with one item 1`] = `
 <div
   className="box rounding2 shadow"
 >

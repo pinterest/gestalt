@@ -1,3 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `null`;
+exports[`Module renders a title correctly 1`] = `
+<div
+  className="box rounding2 shadow xsDirectionColumn"
+  id="module-test"
+>
+  <div
+    className="box paddingX6 paddingY6 xsDisplayFlex"
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+      title="Module Test"
+    >
+      Module Test
+    </div>
+  </div>
+  <div
+    className="box marginTopN6 paddingX6 paddingY6"
+  />
+</div>
+`;
+
+exports[`Module renders an error correctly 1`] = `
+<div
+  className="box rounding2 shadow xsDirectionColumn"
+  id="module-test"
+>
+  <div
+    className="box paddingX6 paddingY6 xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="locked"
+        className="icon red iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
+      title="Testing"
+    >
+      Testing
+    </div>
+  </div>
+  <div
+    className="box marginTopN6 paddingX6 paddingY6"
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Testing
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Module renders an icon correctly 1`] = `
+<div
+  className="box rounding2 shadow xsDirectionColumn"
+  id="module-test"
+>
+  <div
+    className="box paddingX6 paddingY6 xsDisplayFlex"
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="locked"
+        className="icon darkGray iconBlock"
+        height={16}
+        role="img"
+        viewBox="0 0 24 24"
+        width={16}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+      title="Testing"
+    >
+      Testing
+    </div>
+  </div>
+  <div
+    className="box marginTopN6 paddingX6 paddingY6"
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Testing
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Module renders content correctly 1`] = `
+<div
+  className="box rounding2 shadow xsDirectionColumn"
+  id="module-test"
+>
+  <div
+    className="box marginTop0 paddingX6 paddingY6"
+  >
+    <div
+      className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+    >
+      Testing
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Module renders the base correctly 1`] = `
+<div
+  className="box rounding2 shadow xsDirectionColumn"
+  id="module-test"
+>
+  <div
+    className="box marginTop0 paddingX6 paddingY6"
+  />
+</div>
+`;

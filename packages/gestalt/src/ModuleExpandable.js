@@ -2,29 +2,15 @@
 import React, { useState, type Node } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
-import ModuleExpandableBase from './ModuleExpandableBase.js';
-import icons from './icons/index.js';
-
-type Props = {|
-  id: string,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  items: $ReadOnlyArray<{|
-    title: string,
-    icon?: $Keys<typeof icons>,
-    iconAccessibilityLabel?: string,
-    summary?: $ReadOnlyArray<string>,
-    type?: 'error' | 'info',
-    children?: Node,
-  |}>,
-|};
+import ModuleExpandableItem from './ModuleExpandableItem.js';
+import { type ExpandableBaseProps } from './moduleTypes.js';
 
 export default function ModuleExpandable({
   id,
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
   items,
-}: Props): Node {
+}: ExpandableBaseProps): Node {
   const [expandedId, setExpandedId] = useState(-1);
 
   return (
@@ -36,7 +22,7 @@ export default function ModuleExpandable({
         ) => (
           <React.Fragment key={index}>
             <Box>
-              <ModuleExpandableBase
+              <ModuleExpandableItem
                 id={`${id}-${index}`}
                 title={title}
                 icon={icon}
@@ -51,7 +37,7 @@ export default function ModuleExpandable({
                 }
               >
                 {children}
-              </ModuleExpandableBase>
+              </ModuleExpandableItem>
             </Box>
             {index !== items.length - 1 && <Divider />}
           </React.Fragment>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`ModuleExpandableItem renders correctly 1`] = `
 <div
   aria-controls="uniqueTestID"
   aria-disabled={false}
@@ -48,7 +48,7 @@ exports[`renders correctly 1`] = `
 </div>
 `;
 
-exports[`renders correctly with children 1`] = `
+exports[`ModuleExpandableItem renders correctly with children 1`] = `
 <div
   aria-controls="uniqueTestID"
   aria-disabled={false}
@@ -96,7 +96,7 @@ exports[`renders correctly with children 1`] = `
 </div>
 `;
 
-exports[`renders correctly with error 1`] = `
+exports[`ModuleExpandableItem renders correctly with error 1`] = `
 <div
   aria-controls="uniqueTestID"
   aria-disabled={false}
@@ -161,7 +161,7 @@ exports[`renders correctly with error 1`] = `
 </div>
 `;
 
-exports[`renders correctly with icon 1`] = `
+exports[`ModuleExpandableItem renders correctly with icon 1`] = `
 <div
   aria-controls="uniqueTestID"
   aria-disabled={false}
@@ -226,7 +226,7 @@ exports[`renders correctly with icon 1`] = `
 </div>
 `;
 
-exports[`renders correctly with summary 1`] = `
+exports[`ModuleExpandableItem renders correctly with summary 1`] = `
 <div
   aria-controls="uniqueTestID"
   aria-disabled={false}
@@ -308,7 +308,7 @@ exports[`renders correctly with summary 1`] = `
 </div>
 `;
 
-exports[`renders correctly with when expanded 1`] = `
+exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
 Array [
   <div
     aria-controls="uniqueTestID"

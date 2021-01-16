@@ -2,25 +2,17 @@
 import React, { type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
-import icons from './icons/index.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
+import { type BaseProps, type ExpandableItemProps } from './moduleTypes.js';
+import ModuleTitle from './ModuleTitle.js';
 
 type Props = {|
-  id: string,
-  title: string,
-  icon?: $Keys<typeof icons>,
-  iconAccessibilityLabel?: string,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  summary?: $ReadOnlyArray<string>,
-  isCollapsed: boolean,
-  onModuleClicked: (boolean) => void,
-  type?: 'error' | 'info',
-  children?: Node,
+  ...BaseProps,
+  ...ExpandableItemProps,
 |};
 
-export default function ModuleExpandableBase({
+export default function ModuleExpandableItem({
   id,
   title,
   icon,
@@ -33,17 +25,6 @@ export default function ModuleExpandableBase({
   type = 'info',
   children,
 }: Props): Node {
-  const EXPANDABLE_TYPE_ATTRIBUTES = {
-    info: {
-      icon,
-      color: 'darkGray',
-    },
-    error: {
-      icon: 'workflow-status-problem',
-      color: 'red',
-    },
-  };
-
   return (
     <>
       <TapArea
@@ -59,22 +40,12 @@ export default function ModuleExpandableBase({
         <Box padding={6} display="flex">
           <Box display="flex" flex="grow" marginEnd={6} alignItems="baseline">
             <Box column={isCollapsed && summary ? 6 : 12} display="flex">
-              {EXPANDABLE_TYPE_ATTRIBUTES[type].icon && (
-                <Box marginEnd={2}>
-                  <Icon
-                    icon={EXPANDABLE_TYPE_ATTRIBUTES[type].icon}
-                    accessibilityLabel={iconAccessibilityLabel || ''}
-                    color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
-                  />
-                </Box>
-              )}
-              <Text
-                weight="bold"
-                truncate
-                color={EXPANDABLE_TYPE_ATTRIBUTES[type].color}
-              >
-                {title}
-              </Text>
+              <ModuleTitle
+                type={type}
+                title={title}
+                icon={icon}
+                iconAccessibilityLabel={iconAccessibilityLabel}
+              />
             </Box>
             {summary && isCollapsed && (
               <Box column={6} marginStart={6}>
