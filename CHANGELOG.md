@@ -1,3 +1,9 @@
+## 16.6.1 (Jan 16, 2021)
+
+### Patch
+
+- Callout, Upsell: Fix action href type in docs, dedupe type definitions (#1340)
+
 ## 16.6.0 (Jan 16, 2021)
 
 ### Minor
