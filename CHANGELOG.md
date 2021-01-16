@@ -1,3 +1,9 @@
+## 16.6.0 (Jan 16, 2021)
+
+### Minor
+
+- Module: Add Static version and update doc examples (#1336)
+
 ## 16.5.1 (Jan 15, 2021)
 
 ### Patch
