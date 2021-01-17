@@ -12,7 +12,7 @@ export default function ModuleExpandable({
   expandedIndex,
   onExpandedChange,
   items,
-}: Props): Node {
+}: ExpandableBaseProps): Node {
   const [expandedId, setExpandedId] = useState<?number>(
     Number.isFinite(expandedIndex) ? expandedIndex : null
   );

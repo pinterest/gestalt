@@ -17,6 +17,7 @@ export type ExpandableBaseProps = {|
   id: string,
   accessibilityExpandLabel: string,
   accessibilityCollapseLabel: string,
+  expandedIndex?: ?number,
   items: $ReadOnlyArray<{|
     title: string,
     icon?: $Keys<typeof icons>,
@@ -25,6 +26,7 @@ export type ExpandableBaseProps = {|
     type?: TypeOptions,
     children?: Node,
   |}>,
+  onExpandedChange?: (?number) => void,
 |};
 
 export type ExpandableItemProps = {|
