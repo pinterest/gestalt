@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
+import { ScrollContext } from './contexts/Scroll';
 
 type Props = {|
   anchor: HTMLElement,
@@ -17,6 +18,7 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
+  refs: Array<?HTMLDivElement>,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
@@ -50,12 +52,50 @@ type State = {|
 
 function getTriggerRect(
   anchor: HTMLElement,
-  positionRelativeToAnchor: boolean
+  positionRelativeToAnchor: boolean,
+  refs: Array<?HTMLDivElement>
 ) {
   let triggerBoundingRect;
   let relativeOffset;
+
   if (anchor) {
-    triggerBoundingRect = anchor.getBoundingClientRect();
+
+    // find the closest ScrollBox container
+    let containerNode = null;
+    let curNode = anchor;
+    while (!containerNode) {
+      const parentNode = curNode.parentNode;
+      if (parentNode) {
+        refs.forEach((ref) => {
+          if (ref && ref.isSameNode(curNode)) {
+            containerNode = ref;
+          }
+        });
+        curNode = parentNode;
+      } else {
+        break;
+      }
+    }
+
+    const boundingAnchorRect = anchor.getBoundingClientRect();
+    triggerBoundingRect = {
+      bottom: boundingAnchorRect.bottom,
+      left: boundingAnchorRect.left,
+      right: boundingAnchorRect.right,
+      top: boundingAnchorRect.top,
+      height: boundingAnchorRect.height,
+      width: boundingAnchorRect.width
+    };
+
+    if (containerNode) {
+      const boundingContainerRect = containerNode.getBoundingClientRect();
+      triggerBoundingRect.bottom = boundingAnchorRect.bottom - boundingContainerRect.bottom;
+      triggerBoundingRect.left = boundingAnchorRect.left - boundingContainerRect.left;
+      triggerBoundingRect.right = boundingAnchorRect.right - boundingContainerRect.right;
+      triggerBoundingRect.top = boundingAnchorRect.top - boundingContainerRect.top;
+      console.log({boundingAnchorRect, boundingContainerRect, triggerBoundingRect})
+    }
+
 
     // Needed for correct positioning within Contents.js
     relativeOffset = {
@@ -71,7 +111,7 @@ function getTriggerRect(
   return { relativeOffset, triggerBoundingRect };
 }
 
-export default class Controller extends Component<Props, State> {
+export class Controller extends Component<Props, State> {
   static propTypes = {
     anchor: PropTypes.shape({
       contains: PropTypes.func,
@@ -104,11 +144,12 @@ export default class Controller extends Component<Props, State> {
   static getDerivedStateFromProps({
     anchor,
     positionRelativeToAnchor,
+    refs,
   }: Props): {|
     relativeOffset: void | {| x: number, y: number |},
-    triggerBoundingRect: void | ClientRect,
+    triggerBoundingRect: void | ClientRect
   |} {
-    return getTriggerRect(anchor, positionRelativeToAnchor);
+    return getTriggerRect(anchor, positionRelativeToAnchor, refs);
   }
 
   state: State = {
@@ -152,10 +193,12 @@ export default class Controller extends Component<Props, State> {
   updateTriggerRect: (Props) => void = ({
     anchor,
     positionRelativeToAnchor,
+    refs,
   }: Props) => {
     const { relativeOffset, triggerBoundingRect } = getTriggerRect(
       anchor,
-      positionRelativeToAnchor
+      positionRelativeToAnchor,
+      refs
     );
     this.setState({ relativeOffset, triggerBoundingRect });
   };
@@ -198,3 +241,13 @@ export default class Controller extends Component<Props, State> {
     );
   }
 }
+
+const WithContext = (Component) => {
+    return (props) => (
+        <ScrollContext.Consumer>
+            {value => <Component {...props} refs={value.refs} />}
+        </ScrollContext.Consumer>
+    )
+}
+
+export default WithContext(Controller);
