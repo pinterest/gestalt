@@ -25,7 +25,7 @@ type Props = {|
   children: Node,
 |};
 
-const ScrollContext: Context<Scroll> = createContext<Scroll>({
+export const ScrollContext: Context<Scroll> = createContext<Scroll>({
   refs: [],
   addRef: (ref) => {},
   removeRef: (ref) => {},
