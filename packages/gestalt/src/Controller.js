@@ -93,7 +93,6 @@ function getTriggerRect(
       triggerBoundingRect.left = boundingAnchorRect.left - boundingContainerRect.left;
       triggerBoundingRect.right = boundingAnchorRect.right - boundingContainerRect.right;
       triggerBoundingRect.top = boundingAnchorRect.top - boundingContainerRect.top;
-      console.log({boundingAnchorRect, boundingContainerRect, triggerBoundingRect})
     }
 
 
