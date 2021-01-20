@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
-import { ScrollContext } from './contexts/Scroll';
+import { useScrollableBoxStore } from './contexts/ScrollableBoxStore.js';
 
-type Props = {|
+type OwnProps = {|
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
@@ -18,11 +18,16 @@ type Props = {|
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
-  refs: Array<?HTMLDivElement>,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
 |};
+
+type HookProps = {|
+  refs: $ReadOnlyArray<?HTMLDivElement>,
+|};
+
+type Props = {| ...OwnProps, ...HookProps |};
 
 const SIZE_WIDTH_MAP = {
   xs: 180,
@@ -32,15 +37,14 @@ const SIZE_WIDTH_MAP = {
   xl: 360,
 };
 
-type ClientRect = {
+type ClientRect = {|
   bottom: number,
   height: number,
   left: number,
   right: number,
   top: number,
   width: number,
-  ...
-};
+|};
 
 type State = {|
   relativeOffset: {|
@@ -53,64 +57,78 @@ type State = {|
 function getTriggerRect(
   anchor: HTMLElement,
   positionRelativeToAnchor: boolean,
-  refs: Array<?HTMLDivElement>
-) {
-  let triggerBoundingRect;
+  refs: $ReadOnlyArray<?HTMLDivElement>
+): {|
+  relativeOffset: void | {| x: number, y: number |},
+  triggerBoundingRect: void | ClientRect,
+|} {
   let relativeOffset;
+  let triggerBoundingRect;
 
-  if (anchor) {
-
-    // find the closest ScrollBox container
-    let containerNode = null;
-    let curNode = anchor;
-    while (!containerNode) {
-      const parentNode = curNode.parentNode;
-      if (parentNode) {
-        refs.forEach((ref) => {
-          if (ref && ref.isSameNode(curNode)) {
-            containerNode = ref;
-          }
-        });
-        curNode = parentNode;
-      } else {
-        break;
-      }
-    }
-
-    const boundingAnchorRect = anchor.getBoundingClientRect();
-    triggerBoundingRect = {
-      bottom: boundingAnchorRect.bottom,
-      left: boundingAnchorRect.left,
-      right: boundingAnchorRect.right,
-      top: boundingAnchorRect.top,
-      height: boundingAnchorRect.height,
-      width: boundingAnchorRect.width
-    };
-
-    if (containerNode) {
-      const boundingContainerRect = containerNode.getBoundingClientRect();
-      triggerBoundingRect.bottom = boundingAnchorRect.bottom - boundingContainerRect.bottom;
-      triggerBoundingRect.left = boundingAnchorRect.left - boundingContainerRect.left;
-      triggerBoundingRect.right = boundingAnchorRect.right - boundingContainerRect.right;
-      triggerBoundingRect.top = boundingAnchorRect.top - boundingContainerRect.top;
-    }
-
-
-    // Needed for correct positioning within Contents.js
-    relativeOffset = {
-      x: positionRelativeToAnchor
-        ? triggerBoundingRect.left - anchor.offsetLeft
-        : 0,
-      y: positionRelativeToAnchor
-        ? triggerBoundingRect.top - anchor.offsetTop
-        : 0,
-    };
+  if (!anchor) {
+    return { relativeOffset, triggerBoundingRect };
   }
 
-  return { relativeOffset, triggerBoundingRect };
+  // Find the closest ScrollableBox container
+  let containerNode = null;
+  let currentNode = anchor;
+
+  while (!containerNode) {
+    if (refs && currentNode && currentNode.parentNode) {
+      // eslint-disable-next-line no-loop-func
+      refs.forEach((ref) => {
+        if (
+          currentNode instanceof HTMLDivElement &&
+          ref?.isSameNode(currentNode)
+        ) {
+          containerNode = ref;
+        }
+      });
+      currentNode = currentNode.parentNode;
+    } else {
+      break;
+    }
+  }
+
+  const boundingAnchorRect = anchor.getBoundingClientRect();
+  triggerBoundingRect = {
+    bottom: boundingAnchorRect.bottom,
+    left: boundingAnchorRect.left,
+    right: boundingAnchorRect.right,
+    top: boundingAnchorRect.top,
+    height: boundingAnchorRect.height,
+    width: boundingAnchorRect.width,
+  };
+
+  if (containerNode) {
+    const boundingContainerRect = containerNode.getBoundingClientRect();
+    triggerBoundingRect.bottom =
+      boundingAnchorRect.bottom - boundingContainerRect.bottom;
+    triggerBoundingRect.left =
+      boundingAnchorRect.left - boundingContainerRect.left;
+    triggerBoundingRect.right =
+      boundingAnchorRect.right - boundingContainerRect.right;
+    triggerBoundingRect.top =
+      boundingAnchorRect.top - boundingContainerRect.top;
+  }
+
+  // Needed for correct positioning within Contents.js
+  relativeOffset = {
+    x: positionRelativeToAnchor
+      ? triggerBoundingRect.left - anchor.offsetLeft
+      : 0,
+    y: positionRelativeToAnchor
+      ? triggerBoundingRect.top - anchor.offsetTop
+      : 0,
+  };
+
+  return {
+    relativeOffset,
+    triggerBoundingRect,
+  };
 }
 
-export class Controller extends Component<Props, State> {
+class Controller extends Component<Props, State> {
   static propTypes = {
     anchor: PropTypes.shape({
       contains: PropTypes.func,
@@ -140,17 +158,6 @@ export class Controller extends Component<Props, State> {
     size: 'sm',
   };
 
-  static getDerivedStateFromProps({
-    anchor,
-    positionRelativeToAnchor,
-    refs,
-  }: Props): {|
-    relativeOffset: void | {| x: number, y: number |},
-    triggerBoundingRect: void | ClientRect
-  |} {
-    return getTriggerRect(anchor, positionRelativeToAnchor, refs);
-  }
-
   state: State = {
     relativeOffset: {
       x: 0,
@@ -165,6 +172,14 @@ export class Controller extends Component<Props, State> {
       width: 0,
     },
   };
+
+  static getDerivedStateFromProps({
+    anchor,
+    positionRelativeToAnchor,
+    refs,
+  }: Props) {
+    return getTriggerRect(anchor, positionRelativeToAnchor, refs);
+  }
 
   componentDidMount() {
     this.updateTriggerRect(this.props);
@@ -241,12 +256,9 @@ export class Controller extends Component<Props, State> {
   }
 }
 
-const WithContext = (Component) => {
-    return (props) => (
-        <ScrollContext.Consumer>
-            {value => <Component {...props} refs={value.refs} />}
-        </ScrollContext.Consumer>
-    )
-}
+const WrappedController = (props: OwnProps): ReactNode => {
+  const { refs = [] } = useScrollableBoxStore();
+  return <Controller {...props} refs={refs} />;
+};
 
-export default WithContext(Controller);
+export default WrappedController;

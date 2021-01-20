@@ -8,9 +8,9 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="ScrollBox"
-    fileName="ScrollBox"
-    description="ScrollBox is a..."
+    name="ScrollableBox"
+    fileName="ScrollableBox"
+    description="ScrollableBox is a..."
   />
 );
 
@@ -19,21 +19,21 @@ card(
     description={`
 The following example shows ...
   `}
-    id="ScrollBox"
-    name="ScrollBox"
+    id="ScrollableBox"
+    name="ScrollableBox"
     defaultCode={`
-function ScrollBoxExample() {
+function ScrollableBoxExample() {
   const [showLayer, setShowLayer] = React.useState(false);
   const anchorRef = React.useRef();
 
   return (
     <Provider id="docsExample">
-      <ScrollBox height="200px">
+      <ScrollableBox height="200px">
         <Box height="600px">
           <Box ref={anchorRef}>
             <Button
               inline
-              text="Toggle Layer in ScrollBox"
+              text="Toggle Layer in ScrollableBox"
               onClick={() => setShowLayer(!showLayer)}
             />
           </Box>
@@ -54,14 +54,14 @@ function ScrollBoxExample() {
                   column={12}
                 >
                   <Text align="center" weight="bold">
-                    Portal is attached to ScrollBox
+                    Portal is attached to ScrollableBox
                   </Text>
                 </Box>
               </Flyout>
             </Layer>
           )}
         </Box>
-      </ScrollBox>
+      </ScrollableBox>
     </Provider>
   )
 }

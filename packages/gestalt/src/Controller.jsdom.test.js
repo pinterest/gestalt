@@ -7,6 +7,7 @@ test('Controller renders', () => {
   const element = document.createElement('div');
   const component = create(
     <Controller
+      size="xs"
       anchor={element}
       positionRelativeToAnchor
       bgColor="darkGray"

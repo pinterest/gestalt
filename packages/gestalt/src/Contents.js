@@ -31,6 +31,32 @@ const CARET_OFFSET_FROM_SIDE = 24;
 export const CARET_WIDTH = 12;
 const MARGIN = 24;
 
+const ContentProptypes = {
+  bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
+  border: PropTypes.bool,
+  caret: PropTypes.bool,
+  children: PropTypes.node,
+  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  onKeyDown: PropTypes.func.isRequired,
+  onResize: PropTypes.func.isRequired,
+  relativeOffset: PropTypes.shape({
+    x: PropTypes.number,
+    y: PropTypes.number,
+  }),
+  positionRelativeToAnchor: PropTypes.bool,
+  rounding: PropTypes.oneOf([2, 4]),
+  shouldFocus: PropTypes.bool,
+  triggerRect: PropTypes.shape({
+    bottom: PropTypes.number,
+    height: PropTypes.number,
+    left: PropTypes.number,
+    right: PropTypes.number,
+    top: PropTypes.number,
+    width: PropTypes.number,
+  }),
+  width: PropTypes.number,
+};
+
 type MainDir = ?('up' | 'right' | 'down' | 'left');
 type SubDir = 'up' | 'right' | 'down' | 'left' | 'middle';
 
@@ -82,6 +108,17 @@ type ColorSchemeProps = {|
 |};
 
 type Props = {| ...OwnProps, ...ColorSchemeProps |};
+
+type DerivedState = {|
+  caretOffset: {|
+    bottom: null | number,
+    left: null | number,
+    right: null | number,
+    top: null | number,
+  |},
+  flyoutOffset: {| left: number, top: number |},
+  mainDir: 'down' | 'left' | 'right' | 'up',
+|};
 
 type State = {|
   flyoutOffset: {|
@@ -353,32 +390,8 @@ export function baseOffsets(
   return { top, left };
 }
 
-class WrappedContents extends Component<Props, State> {
-  static propTypes = {
-    bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
-    border: PropTypes.bool,
-    caret: PropTypes.bool,
-    children: PropTypes.node,
-    idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
-    onKeyDown: PropTypes.func.isRequired,
-    onResize: PropTypes.func.isRequired,
-    relativeOffset: PropTypes.shape({
-      x: PropTypes.number,
-      y: PropTypes.number,
-    }),
-    positionRelativeToAnchor: PropTypes.bool,
-    rounding: PropTypes.oneOf([2, 4]),
-    shouldFocus: PropTypes.bool,
-    triggerRect: PropTypes.shape({
-      bottom: PropTypes.number,
-      height: PropTypes.number,
-      left: PropTypes.number,
-      right: PropTypes.number,
-      top: PropTypes.number,
-      width: PropTypes.number,
-    }),
-    width: PropTypes.number,
-  };
+class Contents extends Component<Props, State> {
+  static propTypes = ContentProptypes;
 
   static defaultProps: {| border: boolean, caret: boolean |} = {
     border: true,
@@ -422,8 +435,8 @@ class WrappedContents extends Component<Props, State> {
   }
 
   /**
-   * Determines the main direciton, sub direction, and corresponding offsets needed
-   * to correctly position the offset
+   * >> MAIN LOGIC << Determines the main direction, sub direction, and corresponding offsets needed
+   * to correctly position the offset: Flyout and Caret
    */
   static getDerivedStateFromProps(
     {
@@ -435,16 +448,7 @@ class WrappedContents extends Component<Props, State> {
       width,
     }: Props,
     { flyoutRef }: State
-  ): {|
-    caretOffset: {|
-      bottom: null | number,
-      left: null | number,
-      right: null | number,
-      top: null | number,
-    |},
-    flyoutOffset: {| left: number, top: number |},
-    mainDir: 'down' | 'left' | 'right' | 'up',
-  |} {
+  ): DerivedState {
     // Scroll not needed for relative elements
     // We can't use window.scrollX / window.scrollY since it's not supported by IE11
     const scrollX = positionRelativeToAnchor
@@ -548,6 +552,7 @@ class WrappedContents extends Component<Props, State> {
     return (
       <div
         className={styles.container}
+        // flyoutOffset positions the Flyout component
         style={{ stroke, visibility, ...flyoutOffset }}
       >
         <div
@@ -564,6 +569,7 @@ class WrappedContents extends Component<Props, State> {
           {caret && mainDir && (
             <div
               className={classnames(colors[bgColorElevated], styles.caret)}
+              // caretOffset positions the Caret on the Flyout
               style={{ ...caretOffset }}
             >
               <Caret
@@ -594,10 +600,10 @@ class WrappedContents extends Component<Props, State> {
   }
 }
 
-export default function Contents(props: OwnProps): Node {
+export default function WrappedContents(props: OwnProps): Node {
   const { colorGray100, name: colorSchemeName } = useColorScheme();
   return (
-    <WrappedContents
+    <Contents
       {...props}
       colorGray100={colorGray100}
       isDarkMode={colorSchemeName === 'darkMode'}
