@@ -97,6 +97,22 @@ card(
           'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module"',
       },
       {
+        name: 'expandedIndex',
+        type: '?number',
+        required: false,
+        description: [
+          'The 0-based index indicating the item that should currently be expanded. This must be updated via onExpandedChange to ensure the correct item is expanded.',
+        ],
+      },
+      {
+        name: 'onExpandedChange',
+        type: '(?number) => void',
+        required: false,
+        description: [
+          'This callback is executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
+        ],
+      },
+      {
         name: 'items',
         href: 'expandable-items',
         type:
@@ -204,7 +220,7 @@ card(
     defaultCode={`
 function ModuleExample1() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample - default"
         accessibilityExpandLabel="Expand the module"
@@ -231,7 +247,7 @@ card(
     defaultCode={`
 function ModuleExample2() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample2"
         accessibilityExpandLabel="Expand the module"
@@ -267,7 +283,7 @@ card(
     defaultCode={`
 function ModuleExample3() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box maxWidth={800} padding={2} column={12} >
       <Module.Expandable
         id="ModuleExample3"
         accessibilityExpandLabel="Expand the module"
@@ -318,6 +334,73 @@ function ModuleExample4() {
             type: moduleType
           }]}>
       </Module.Expandable>
+    </Box>
+  );
+}
+`}
+  />
+);
+
+card(
+  <Example
+    name="Example with external control"
+    defaultCode={`
+function ModuleExample5() {
+  const [extExpandedId, setExtExpandedId] = React.useState(null);
+  const mapIds = {
+      'first-0': 0,
+      'first-1': 1,
+      'second-0': 0,
+      'second-1': 1,
+  }
+  return (
+    <Box maxWidth={800} padding={2} column={12}>
+      <Flex direction='column' gap={3}>
+        <Box padding={1} borderStyle='sm'>
+          <Text>Step 1</Text>
+          <Module.Expandable
+            id="ModuleExampleStep1"
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
+            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`first-$\{index}\`: index)}
+            items={[
+              {
+                title: 'Title1',
+                summary: ['summary1'],
+                children: <Text size="md">Children1</Text>,
+              },
+              {
+                title: 'Title2',
+                summary: ['summary2'],
+                children: <Text size="md">Children2</Text>,
+              },
+            ]}
+          />
+        </Box>
+        <Box padding={1} borderStyle='sm'>
+          <Text>Step 2</Text>
+          <Module.Expandable
+            id="ModuleExampleStep2"
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            expandedIndex={extExpandedId && extExpandedId.startsWith('second') && mapIds[extExpandedId]}
+            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`second-$\{index}\`: index)}
+            items={[
+              {
+                title: 'Title1',
+                summary: ['summary1'],
+                children: <Text size="md">Children1</Text>,
+              },
+              {
+                title: 'Title2',
+                summary: ['summary2'],
+                children: <Text size="md">Children2</Text>,
+              },
+            ]}
+          />
+        </Box>
+      </Flex>
     </Box>
   );
 }

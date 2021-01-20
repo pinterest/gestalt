@@ -7,6 +7,8 @@ const Valid = (
     id="uniqueTestID"
     accessibilityExpandLabel="click to expand"
     accessibilityCollapseLabel="click to collapse"
+    expandedIndex={0}
+    onExpandedChange={() => {}}
     items={[
       {
         title: 'Title',

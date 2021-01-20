@@ -74,4 +74,33 @@ describe('ModuleExpandable', () => {
     expect(screen.queryByText(/Children2/i)).toBeNull();
     expect(screen.getByText(/Children3/i)).toBeInTheDocument();
   });
+
+  it('should expand the module correctly with expandedId', () => {
+    const newProps = {
+      ...props,
+      expandedIndex: 0,
+      onExpandedChange: jest.fn(),
+    };
+    render(<ModuleExpandable {...newProps} />);
+
+    // Item with index 0 is default to be expanded
+    expect(screen.getByText(/Children1/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Children2/i)).toBeNull();
+    expect(screen.queryByText(/Children3/i)).toBeNull();
+
+    // Click on Item with index 0 to collapse the item
+    const button1 = screen.getByRole('button', {
+      name: /click to collapse/i,
+    });
+    fireEvent.click(button1);
+    expect(newProps.onExpandedChange).toHaveBeenCalledWith(null);
+
+    // Click on with index 1 to expand it
+    const expandButtons = screen.getAllByRole('button', {
+      name: /click to expand/i,
+    });
+    expect(expandButtons).toHaveLength(3);
+    fireEvent.click(expandButtons[1]);
+    expect(newProps.onExpandedChange).toHaveBeenCalledWith(1);
+  });
 });
