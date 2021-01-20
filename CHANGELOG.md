@@ -1,3 +1,9 @@
+## 16.7.0 (Jan 20, 2021)
+
+### Minor
+
+- ModuleExpandable: added external collapsing control (expandedIndex and onExpandedChange) (#1323)
+
 ## 16.6.1 (Jan 16, 2021)
 
 ### Patch
