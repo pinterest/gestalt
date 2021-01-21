@@ -47,8 +47,8 @@ export default function ComponentHeader({
         </Heading>
         {showSourceLink && (
           <Text color="gray">
-            <Link href={githubUrl(fileName || name)} inline>
-              Source
+            <Link href={githubUrl(fileName || name)} inline target="blank">
+              View source on Github
             </Link>
           </Text>
         )}
