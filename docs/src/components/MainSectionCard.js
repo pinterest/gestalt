@@ -6,6 +6,7 @@ import React, { type Node } from 'react';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
+import Markdown from './Markdown.js';
 
 type Props = {|
   defaultCode: string,
@@ -84,8 +85,8 @@ const MainSectionCard = ({
           </Text>
         </Box>
         {description && (
-          <Box width="90%">
-            <Text>{description}</Text>
+          <Box width="90%" marginTop={-3}>
+            <Markdown text={description} />
           </Box>
         )}
       </Box>

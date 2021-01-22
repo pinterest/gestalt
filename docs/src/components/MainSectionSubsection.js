@@ -22,7 +22,7 @@ const MainSectionSubsection = ({
         </Box>
       )}
       {description && (
-        <Box>
+        <Box marginTop={-3}>
           <Markdown text={description} />
         </Box>
       )}
