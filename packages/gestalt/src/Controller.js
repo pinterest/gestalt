@@ -51,7 +51,7 @@ type State = {|
     x: number,
     y: number,
   |},
-  triggerBoundingRect: ClientRect,
+  triggerBoundingClientRect: ClientRect,
 |};
 
 function getTriggerRect(
@@ -60,13 +60,13 @@ function getTriggerRect(
   refs: $ReadOnlyArray<?HTMLDivElement>
 ): {|
   relativeOffset: void | {| x: number, y: number |},
-  triggerBoundingRect: void | ClientRect,
+  triggerBoundingClientRect: void | ClientRect,
 |} {
   let relativeOffset;
-  let triggerBoundingRect;
+  let triggerBoundingClientRect;
 
   if (!anchor) {
-    return { relativeOffset, triggerBoundingRect };
+    return { relativeOffset, triggerBoundingClientRect };
   }
 
   // Find the closest ScrollableBox container
@@ -91,7 +91,7 @@ function getTriggerRect(
   }
 
   const boundingAnchorRect = anchor.getBoundingClientRect();
-  triggerBoundingRect = {
+  triggerBoundingClientRect = {
     bottom: boundingAnchorRect.bottom,
     left: boundingAnchorRect.left,
     right: boundingAnchorRect.right,
@@ -102,29 +102,29 @@ function getTriggerRect(
 
   if (containerNode) {
     const boundingContainerRect = containerNode.getBoundingClientRect();
-    triggerBoundingRect.bottom =
-      boundingAnchorRect.bottom - boundingContainerRect.bottom;
-    triggerBoundingRect.left =
+    triggerBoundingClientRect.bottom =
+      boundingAnchorRect.bottom - boundingContainerRect.top;
+    triggerBoundingClientRect.left =
       boundingAnchorRect.left - boundingContainerRect.left;
-    triggerBoundingRect.right =
-      boundingAnchorRect.right - boundingContainerRect.right;
-    triggerBoundingRect.top =
+    triggerBoundingClientRect.right =
+      boundingAnchorRect.right - boundingContainerRect.left;
+    triggerBoundingClientRect.top =
       boundingAnchorRect.top - boundingContainerRect.top;
   }
 
   // Needed for correct positioning within Contents.js
   relativeOffset = {
     x: positionRelativeToAnchor
-      ? triggerBoundingRect.left - anchor.offsetLeft
+      ? triggerBoundingClientRect.left - anchor.offsetLeft
       : 0,
     y: positionRelativeToAnchor
-      ? triggerBoundingRect.top - anchor.offsetTop
+      ? triggerBoundingClientRect.top - anchor.offsetTop
       : 0,
   };
 
   return {
     relativeOffset,
-    triggerBoundingRect,
+    triggerBoundingClientRect,
   };
 }
 
@@ -163,7 +163,7 @@ class Controller extends Component<Props, State> {
       x: 0,
       y: 0,
     },
-    triggerBoundingRect: {
+    triggerBoundingClientRect: {
       bottom: 0,
       height: 0,
       left: 0,
@@ -209,16 +209,17 @@ class Controller extends Component<Props, State> {
     positionRelativeToAnchor,
     refs,
   }: Props) => {
-    const { relativeOffset, triggerBoundingRect } = getTriggerRect(
+    const { relativeOffset, triggerBoundingClientRect } = getTriggerRect(
       anchor,
       positionRelativeToAnchor,
       refs
     );
-    this.setState({ relativeOffset, triggerBoundingRect });
+    this.setState({ relativeOffset, triggerBoundingClientRect });
   };
 
   render(): ReactNode {
     const {
+      anchor,
       bgColor,
       border,
       caret,
@@ -229,13 +230,14 @@ class Controller extends Component<Props, State> {
       shouldFocus,
       size,
     } = this.props;
-    const { relativeOffset, triggerBoundingRect } = this.state;
+    const { relativeOffset, triggerBoundingClientRect } = this.state;
 
     const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
+          anchor={anchor}
           bgColor={bgColor}
           border={border}
           caret={caret}
@@ -246,7 +248,7 @@ class Controller extends Component<Props, State> {
           relativeOffset={relativeOffset}
           rounding={rounding}
           shouldFocus={shouldFocus}
-          triggerRect={triggerBoundingRect}
+          triggerBoundingClientRect={triggerBoundingClientRect}
           width={width}
         >
           {children}

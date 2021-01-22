@@ -30,8 +30,9 @@ function ScrollableBoxExample() {
     <Provider id="docsExample">
       <ScrollableBox height="200px">
         <Box height="600px">
-          <Box ref={anchorRef}>
+          <Box display='flex' justifyContent='center'>
             <Button
+              ref={anchorRef}
               inline
               text="Toggle Layer in ScrollableBox"
               onClick={() => setShowLayer(!showLayer)}
@@ -45,6 +46,8 @@ function ScrollableBoxExample() {
                 onDismiss={() => setShowLayer(false)}
                 positionRelativeToAnchor={false}
                 size="md"
+                showCaret
+                color='red'
               >
                 <Box
                   padding={3}
@@ -64,8 +67,7 @@ function ScrollableBoxExample() {
       </ScrollableBox>
     </Provider>
   )
-}
-`}
+}`}
   />
 );
 

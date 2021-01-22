@@ -7,6 +7,7 @@ import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
+import { useScrollableBoxStore } from './contexts/ScrollableBoxStore.js';
 
 /* Needed until this Flow issue is fixed: https://github.com/facebook/flow/issues/380 */
 /* eslint quote-props: 0 */
@@ -46,7 +47,7 @@ const ContentProptypes = {
   positionRelativeToAnchor: PropTypes.bool,
   rounding: PropTypes.oneOf([2, 4]),
   shouldFocus: PropTypes.bool,
-  triggerRect: PropTypes.shape({
+  triggerBoundingClientRect: PropTypes.shape({
     bottom: PropTypes.number,
     height: PropTypes.number,
     left: PropTypes.number,
@@ -58,7 +59,7 @@ const ContentProptypes = {
 };
 
 type MainDir = ?('up' | 'right' | 'down' | 'left');
-type SubDir = 'up' | 'right' | 'down' | 'left' | 'middle';
+type CaretPlacement = 'up' | 'right' | 'down' | 'left' | 'middle';
 
 type ClientRect = {
   bottom: number,
@@ -84,6 +85,7 @@ type Shift = {| x: number, y: number |};
 type EdgeShift = {| caret: Shift, flyout: Shift |};
 
 type OwnProps = {|
+  anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
@@ -98,7 +100,7 @@ type OwnProps = {|
   |},
   rounding?: 2 | 4,
   shouldFocus?: boolean,
-  triggerRect: ClientRect,
+  triggerBoundingClientRect: ClientRect,
   width: ?number,
 |};
 
@@ -107,7 +109,11 @@ type ColorSchemeProps = {|
   isDarkMode: boolean,
 |};
 
-type Props = {| ...OwnProps, ...ColorSchemeProps |};
+type HookProps = {|
+  refs: $ReadOnlyArray<?HTMLDivElement>,
+|};
+
+type Props = {| ...OwnProps, ...ColorSchemeProps, ...HookProps |};
 
 type DerivedState = {|
   caretOffset: {|
@@ -138,36 +144,54 @@ type State = {|
 /**
  * Determines the main direction the flyout opens
  */
-export function getMainDir(
+export function getMainDir({
+  flyoutSize,
+  idealDirection,
+  triggerBoundingClientRect,
+  windowSize,
+}: {|
   flyoutSize: Flyout,
   idealDirection: MainDir,
-  triggerRect: ClientRect,
-  windowSize: Window
-): 'down' | 'left' | 'right' | 'up' {
+  triggerBoundingClientRect: ClientRect,
+  windowSize: Window,
+|}): 'down' | 'left' | 'right' | 'up' {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
-  let up = triggerRect.top - flyoutSize.height - CARET_HEIGHT;
-  let right =
-    windowSize.width - flyoutSize.width - CARET_HEIGHT - triggerRect.right;
-  let down =
-    windowSize.height - flyoutSize.height - CARET_HEIGHT - triggerRect.bottom;
-  let left = triggerRect.left - flyoutSize.width - CARET_HEIGHT;
 
-  // overrides available space when the trigger is close to the edge of the screen
-  // trigger is too close to top/bottom of screen for left & right flyouts
-  if (
-    triggerRect.top < BORDER_RADIUS ||
-    windowSize.height - triggerRect.bottom < BORDER_RADIUS
-  ) {
+  let up = triggerBoundingClientRect.top - flyoutSize.height - CARET_HEIGHT;
+  let right =
+    windowSize.width -
+    flyoutSize.width -
+    CARET_HEIGHT -
+    triggerBoundingClientRect.right;
+  let down =
+    windowSize.height -
+    flyoutSize.height -
+    CARET_HEIGHT -
+    triggerBoundingClientRect.bottom;
+  let left = triggerBoundingClientRect.left - flyoutSize.width - CARET_HEIGHT;
+
+  // TOO CLOSE TO EDGE overrides available space when the trigger is close to the edge of the screen
+  // If Flyout is to be positioned within an ScrollableBox, this adjustment is disabled due to the high
+  // probability of not having both top & left edge spaces within the container
+
+  // TOP or BOTTOM: trigger is too close to top/bottom of screen for left & right flyouts
+  const nonTopEdge = triggerBoundingClientRect.top < BORDER_RADIUS;
+  const nonBottomEdge =
+    windowSize.height - triggerBoundingClientRect.bottom < BORDER_RADIUS;
+  const nonLeftEdge = triggerBoundingClientRect.left < BORDER_RADIUS;
+  const nonRightEdge =
+    windowSize.width - triggerBoundingClientRect.right < BORDER_RADIUS;
+
+  const skipNoEdgeCondition =
+    (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
+
+  if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
     right = 0;
   }
-
-  // trigger is too close to the left/right of screen for up & down flyouts
-  if (
-    triggerRect.left < BORDER_RADIUS ||
-    windowSize.width - triggerRect.right < BORDER_RADIUS
-  ) {
+  // LEFT or RIGHT: trigger is too close to the left/right of screen for up & down flyouts
+  if (!skipNoEdgeCondition && (nonLeftEdge || nonRightEdge)) {
     up = 0;
     down = 0;
   }
@@ -186,18 +210,24 @@ export function getMainDir(
     // If no direction pref, chose the direction in which there is the most space available
     mainDir = SPACES_INDEX_MAP[spaces.indexOf(max)];
   }
+
   return mainDir;
 }
 
 /**
  * Determines the sub direction of how the flyout is positioned within the main dir
  */
-export function getSubDir(
+export function getCaretPlacement({
+  flyoutSize,
+  mainDir,
+  triggerBoundingClientRect,
+  windowSize,
+}: {|
   flyoutSize: Flyout,
   mainDir: MainDir,
-  triggerRect: ClientRect,
-  windowSize: Window
-): SubDir {
+  triggerBoundingClientRect: ClientRect,
+  windowSize: Window,
+|}): CaretPlacement {
   // Now that we have the main direction, chose from 3 caret placements for that direction
   let offset;
   let triggerMid;
@@ -205,64 +235,70 @@ export function getSubDir(
 
   if (mainDir === 'right' || mainDir === 'left') {
     offset = flyoutSize.height / 2;
-    triggerMid = triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2;
+    triggerMid =
+      triggerBoundingClientRect.top +
+      (triggerBoundingClientRect.bottom - triggerBoundingClientRect.top) / 2;
     windowSpaceAvailable = windowSize.height;
   } else {
     // (mainDir === 'up' || mainDir === 'down')
     offset = flyoutSize.width / 2;
-    triggerMid = triggerRect.left + (triggerRect.right - triggerRect.left) / 2;
+    triggerMid =
+      triggerBoundingClientRect.left +
+      (triggerBoundingClientRect.right - triggerBoundingClientRect.left) / 2;
     windowSpaceAvailable = windowSize.width;
   }
 
   const aboveOrLeft = triggerMid - offset - MARGIN;
   const belowOrRight = windowSpaceAvailable - triggerMid - offset - MARGIN;
-  let subDir;
+  let caretPlacement;
   if (aboveOrLeft > 0 && belowOrRight > 0) {
     // caret should go in middle b/c it can
-    subDir = 'middle';
+    caretPlacement = 'middle';
   } else if (belowOrRight > 0) {
     // caret should go at top for left/right and left for up/down
-    subDir = mainDir === 'left' || mainDir === 'right' ? 'up' : 'left';
+    caretPlacement = mainDir === 'left' || mainDir === 'right' ? 'up' : 'left';
   } else {
     // caret should go at bottom for left/right and right for up/down
-    subDir = mainDir === 'left' || mainDir === 'right' ? 'down' : 'right';
+    caretPlacement =
+      mainDir === 'left' || mainDir === 'right' ? 'down' : 'right';
   }
-  return subDir;
+  return caretPlacement;
 }
 
 /**
  * Calculates the amount the flyout & caret need to shift over to align with designs
  */
 export function calcEdgeShifts(
-  subDir: SubDir,
-  triggerRect: ClientRect,
+  triggerBoundingClientRect: ClientRect,
   windowSize: Window
 ): {| caret: Shift, flyout: Shift |} {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift =
-    CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
+    CARET_OFFSET_FROM_SIDE -
+    (triggerBoundingClientRect.height - CARET_HEIGHT) / 2;
   let flyoutHorizontalShift =
-    CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
+    CARET_OFFSET_FROM_SIDE -
+    (triggerBoundingClientRect.width - CARET_HEIGHT) / 2;
   let caretVerticalShift = CARET_WIDTH;
   let caretHorizontalShift = CARET_WIDTH;
 
   // Covers edge case where trigger is in a corner and we need to adjust the offset of the caret
   // to something smaller than normal in order
   const isCloseVertically =
-    triggerRect.top - flyoutVerticalShift < 0 ||
-    triggerRect.bottom + flyoutVerticalShift > windowSize.height;
+    triggerBoundingClientRect.top - flyoutVerticalShift < 0 ||
+    triggerBoundingClientRect.bottom + flyoutVerticalShift > windowSize.height;
   if (isCloseVertically) {
     flyoutVerticalShift =
-      BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
+      BORDER_RADIUS - (triggerBoundingClientRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
   const isCloseHorizontally =
-    triggerRect.left - flyoutHorizontalShift < 0 ||
-    triggerRect.right + flyoutHorizontalShift > windowSize.width;
+    triggerBoundingClientRect.left - flyoutHorizontalShift < 0 ||
+    triggerBoundingClientRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseHorizontally) {
     flyoutHorizontalShift =
-      BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
+      BORDER_RADIUS - (triggerBoundingClientRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
   }
 
@@ -286,8 +322,8 @@ export function adjustOffsets(
   edgeShift: EdgeShift,
   flyoutSize: Flyout,
   mainDir: MainDir,
-  subDir: SubDir,
-  triggerRect: ClientRect
+  caretPlacement: CaretPlacement,
+  triggerBoundingClientRect: ClientRect
 ): {|
   caretOffset: {|
     bottom: null | number,
@@ -305,35 +341,40 @@ export function adjustOffsets(
   let caretBottom = mainDir === 'up' ? -CARET_HEIGHT : null;
   let caretLeft = mainDir === 'right' ? -CARET_HEIGHT : null;
 
-  if (subDir === 'up') {
+  if (caretPlacement === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
     caretTop = edgeShift.caret.y + 2;
-  } else if (subDir === 'down') {
+  } else if (caretPlacement === 'down') {
     flyoutTop =
-      base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
+      base.top -
+      flyoutSize.height +
+      triggerBoundingClientRect.height +
+      edgeShift.flyout.y;
     caretBottom = edgeShift.caret.y + 2;
-  } else if (subDir === 'left') {
+  } else if (caretPlacement === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;
-  } else if (subDir === 'right') {
+  } else if (caretPlacement === 'right') {
     flyoutLeft =
-      base.left - flyoutSize.width + triggerRect.width + edgeShift.flyout.x;
+      base.left -
+      flyoutSize.width +
+      triggerBoundingClientRect.width +
+      edgeShift.flyout.x;
     caretRight = edgeShift.caret.x + 2;
-  } else if (subDir === 'middle') {
+  } else if (caretPlacement === 'middle') {
     if (mainDir === 'left' || mainDir === 'right') {
-      const triggerMid = flyoutTop + triggerRect.height / 2;
+      const triggerMid = flyoutTop + triggerBoundingClientRect.height / 2;
       flyoutTop = triggerMid - flyoutSize.height / 2;
       // Vertical positioning of the caret (position along the anchor)
       caretTop = (flyoutSize.height - CARET_WIDTH) / 2;
     }
     if (mainDir === 'up' || mainDir === 'down') {
-      const triggerMid = flyoutLeft + triggerRect.width / 2;
+      const triggerMid = flyoutLeft + triggerBoundingClientRect.width / 2;
       flyoutLeft = triggerMid - flyoutSize.width / 2;
       // Horizontal positioning of the caret (position along the anchor)
       caretLeft = (flyoutSize.width - CARET_WIDTH) / 2;
     }
   }
-
   return {
     flyoutOffset: {
       top: flyoutTop,
@@ -354,21 +395,22 @@ export function baseOffsets(
   relativeOffset: {| x: number, y: number |},
   flyoutSize: Flyout,
   mainDir: MainDir,
-  triggerRect: ClientRect,
+  triggerBoundingClientRect: ClientRect,
   windowSize: Window
 ): {| left: number, top: number |} {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT : 8;
   // TOP OFFSET
   let top;
   if (mainDir === 'down') {
-    top = windowSize.scrollY + triggerRect.bottom + SPACING_OUTSIDE;
+    top =
+      windowSize.scrollY + triggerBoundingClientRect.bottom + SPACING_OUTSIDE;
   } else if (mainDir === 'up') {
     top =
       windowSize.scrollY +
-      (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE);
+      (triggerBoundingClientRect.top - flyoutSize.height - SPACING_OUTSIDE);
   } else {
     // left and right
-    top = windowSize.scrollY + triggerRect.top;
+    top = windowSize.scrollY + triggerBoundingClientRect.top;
   }
 
   // LEFT OFFSET
@@ -376,18 +418,50 @@ export function baseOffsets(
   if (mainDir === 'left') {
     left =
       windowSize.scrollX +
-      (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE);
+      (triggerBoundingClientRect.left - flyoutSize.width - SPACING_OUTSIDE);
   } else if (mainDir === 'right') {
-    left = windowSize.scrollX + triggerRect.right + SPACING_OUTSIDE;
+    left =
+      windowSize.scrollX + triggerBoundingClientRect.right + SPACING_OUTSIDE;
   } else {
     // down and up
-    left = windowSize.scrollX + triggerRect.left;
+    left = windowSize.scrollX + triggerBoundingClientRect.left;
   }
 
   // Adjusts for the relative parent container
+  // Always 0 if positionRelativeToAnchor={false}
   top -= relativeOffset.y;
   left -= relativeOffset.x;
   return { top, left };
+}
+
+function getScrollableBox({
+  anchor,
+  refs,
+}: {|
+  anchor: HTMLElement,
+  refs: $ReadOnlyArray<?HTMLDivElement>,
+|}): ?HTMLElement {
+  // Find the closest ScrollableBox container
+  let containerNode = null;
+  let currentNode = anchor;
+
+  while (!containerNode) {
+    if (refs && currentNode && currentNode.parentNode) {
+      // eslint-disable-next-line no-loop-func
+      refs.forEach((ref) => {
+        if (
+          currentNode instanceof HTMLDivElement &&
+          ref?.isSameNode(currentNode)
+        ) {
+          containerNode = ref;
+        }
+      });
+      currentNode = currentNode.parentNode;
+    } else {
+      break;
+    }
+  }
+  return containerNode;
 }
 
 class Contents extends Component<Props, State> {
@@ -440,11 +514,13 @@ class Contents extends Component<Props, State> {
    */
   static getDerivedStateFromProps(
     {
+      anchor,
       caret,
       idealDirection,
       positionRelativeToAnchor,
       relativeOffset,
-      triggerRect,
+      refs,
+      triggerBoundingClientRect,
       width,
     }: Props,
     { flyoutRef }: State
@@ -462,11 +538,18 @@ class Contents extends Component<Props, State> {
         (document.documentElement && document.documentElement.scrollTop) ||
         0;
 
+    const container = getScrollableBox({
+      anchor,
+      refs,
+    });
+
+    const containerBoundingClientRect = container?.getBoundingClientRect();
+
     const windowSize = {
-      height: window.innerHeight,
-      width: window.innerWidth,
-      scrollX,
-      scrollY,
+      height: containerBoundingClientRect?.height || window.innerHeight,
+      width: containerBoundingClientRect?.width || window.innerWidth,
+      scrollX: container?.scrollLeft ?? scrollX,
+      scrollY: container?.scrollTop ?? scrollY,
     };
 
     const flyoutSize = {
@@ -475,15 +558,20 @@ class Contents extends Component<Props, State> {
     };
 
     // First choose one of 4 main direction
-    const mainDir = getMainDir(
+    const mainDir = getMainDir({
       flyoutSize,
       idealDirection,
-      triggerRect,
-      windowSize
-    );
+      triggerBoundingClientRect,
+      windowSize,
+    });
 
     // Now that we have the main direction, chose from 3 caret placements for that direction
-    const subDir = getSubDir(flyoutSize, mainDir, triggerRect, windowSize);
+    const caretPlacement = getCaretPlacement({
+      flyoutSize,
+      mainDir,
+      triggerBoundingClientRect,
+      windowSize,
+    });
 
     // Gets the base offset that positions the flyout based on the main direction only
     const base = baseOffsets(
@@ -491,12 +579,12 @@ class Contents extends Component<Props, State> {
       relativeOffset,
       flyoutSize,
       mainDir,
-      triggerRect,
+      triggerBoundingClientRect,
       windowSize
     );
 
     // Gets the edge shifts for the flyout
-    const edgeShifts = calcEdgeShifts(subDir, triggerRect, windowSize);
+    const edgeShifts = calcEdgeShifts(triggerBoundingClientRect, windowSize);
 
     // Adjusts for the subdirection of the caret
     const { flyoutOffset, caretOffset } = adjustOffsets(
@@ -504,8 +592,8 @@ class Contents extends Component<Props, State> {
       edgeShifts,
       flyoutSize,
       mainDir,
-      subDir,
-      triggerRect
+      caretPlacement,
+      triggerBoundingClientRect
     );
 
     return {
@@ -602,11 +690,14 @@ class Contents extends Component<Props, State> {
 
 export default function WrappedContents(props: OwnProps): Node {
   const { colorGray100, name: colorSchemeName } = useColorScheme();
+  const { refs = [] } = useScrollableBoxStore();
+
   return (
     <Contents
       {...props}
       colorGray100={colorGray100}
       isDarkMode={colorSchemeName === 'darkMode'}
+      refs={refs}
     />
   );
 }
