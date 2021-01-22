@@ -1,3 +1,9 @@
+## 16.7.1 (Jan 22, 2021)
+
+### Patch
+
+- Docs: component source link tweaks (#1347)
+
 ## 16.7.0 (Jan 20, 2021)
 
 ### Minor
