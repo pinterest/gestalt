@@ -12,10 +12,9 @@ type Props = {|
 |};
 
 const gestaltPath = (component) => {
-  if (component === 'DatePicker') {
-    return `packages/gestalt-datepicker/src/${component}.js`;
-  }
-  return `packages/gestalt/src/${component}.js`;
+  const packageName =
+    component === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
+  return `packages/${packageName}/src/${component}.js`;
 };
 
 const githubUrl = (component) =>
