@@ -2,16 +2,17 @@
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
-
 import React, { type Node } from 'react';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
+import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
 
 type Props = {|
   defaultCode: string,
-  description: string,
+  description?: string,
   type?: 'do' | "don't" | 'info',
   shaded?: boolean,
+  showCode?: boolean,
   cardSize?: 'sm' | 'md',
   title?: string,
 |};
@@ -32,6 +33,7 @@ const MainSectionCard = ({
   description,
   type = 'info',
   shaded = false,
+  showCode = true,
   cardSize = 'md',
   title,
 }: Props): Node => {
@@ -42,11 +44,11 @@ const MainSectionCard = ({
   return (
     <Box
       width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      marginTop={4}
-      marginBottom={2}
+      marginTop={2}
+      marginBottom={12}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
-        <Box padding={0}>
+        <Box>
           <Box
             alignItems="center"
             borderStyle="sm"
@@ -61,13 +63,17 @@ const MainSectionCard = ({
             <LivePreview />
           </Box>
         </Box>
-        <Box padding={2}>
+        {showCode && cardSize !== 'sm' && (
+          <ExampleCode code={code} name={title || ''} />
+        )}
+        <Box paddingX={2}>
           <Text color="watermelon">
             <LiveError />
           </Text>
         </Box>
       </LiveProvider>
       <Box
+        marginTop={2}
         dangerouslySetInlineStyle={{
           __style: { borderTop: borderStyle },
         }}
@@ -77,9 +83,11 @@ const MainSectionCard = ({
             {title || type.charAt(0).toUpperCase() + type.slice(1)}
           </Text>
         </Box>
-        <Box width="90%">
-          <Text>{description}</Text>
-        </Box>
+        {description && (
+          <Box width="90%">
+            <Text>{description}</Text>
+          </Box>
+        )}
       </Box>
     </Box>
   );

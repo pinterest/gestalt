@@ -245,31 +245,20 @@ card(
         type="do"
         description="Do place primary buttons to the right or bottom of other button styles."
         defaultCode={`
-      <ButtonGroup>
-        <Button text="Button" inline color="gray"/>
-        <Button text="Button" inline color="red"/>
-      </ButtonGroup>
+  <ButtonGroup>
+    <Button text="Button" inline color="gray"/>
+    <Button text="Button" inline color="red"/>
+  </ButtonGroup>
     `}
       />
       <MainSection.Card
         description="Don't place more than one primary button per surface."
         type="don't"
         defaultCode={`
-      <ButtonGroup>
-        <Button text="Button" inline color="red"/>
-        <Button text="Button" inline color="red"/>
-      </ButtonGroup>
-    `}
-      />
-      <MainSection.Card
-        description="Don't place more than one primary button per surface."
-        type="info"
-        title="Info Example"
-        defaultCode={`
-      <ButtonGroup>
-        <Button text="Button" inline color="red"/>
-        <Button text="Button" inline color="red"/>
-      </ButtonGroup>
+  <ButtonGroup>
+    <Button text="Button" inline color="red"/>
+    <Button text="Button" inline color="red"/>
+  </ButtonGroup>
     `}
       />
     </MainSection.Subsection>
@@ -308,7 +297,7 @@ function Example() {
         <Tooltip text="Submit button">
           <Button
             type="submit"
-            name="satisfaction-questionaire"
+            name="satisfaction-questionnaire"
             text="Submit your response"
             inline
             disabled={disabled}
@@ -358,17 +347,17 @@ function Example() {
   />
 );
 
-card(
-  <Example
-    name="Size"
-    id="size"
-    defaultCode={`<Flex gap={2}>
-  <Button size="sm" text="Small-sized button" inline />
-  <Button text="Medium-sized button" inline />
-  <Button size="lg" text="Large-sized button" inline />
-</Flex>`}
-  />
-);
+// card(
+//   <Example
+//     name="Size"
+//     id="size"
+//     defaultCode={`<Flex gap={2}>
+//   <Button size="sm" text="Small-sized button" inline />
+//   <Button text="Medium-sized button" inline />
+//   <Button size="lg" text="Large-sized button" inline />
+// </Flex>`}
+//   />
+// );
 
 card(
   <MainSection
@@ -377,7 +366,7 @@ card(
   >
     <MainSection.Subsection
       title="Size"
-      description="There are 3 size options: sm, md, and lg. Lg is the default for Pinner product."
+      description={`There are 3 size options: sm, md, and lg, which can be set using the \`size\` property.`}
     >
       <MainSection.Card
         cardSize="sm"
@@ -409,7 +398,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection title="Hierarchy">
       <MainSection.Card
-        cardSize="sm"
+        cardSize="md"
         title="Primary"
         description="High emphasis, used for primary actions."
         defaultCode={`
@@ -418,7 +407,7 @@ card(
     `}
       />
       <MainSection.Card
-        cardSize="sm"
+        cardSize="md"
         title="Secondary"
         description="Medium emphasis, used for secondary actions."
         defaultCode={`
@@ -427,7 +416,7 @@ card(
     `}
       />
       <MainSection.Card
-        cardSize="sm"
+        cardSize="md"
         title="Tertiary"
         shaded
         description="Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds."

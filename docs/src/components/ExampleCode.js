@@ -34,7 +34,7 @@ export default function ExampleCode({
 
   return (
     <>
-      <Box display="flex" direction="row" justifyContent="center" marginTop={2}>
+      <Box display="flex" direction="row" justifyContent="start" marginTop={2}>
         <Tooltip inline text="Open in CodeSandbox" idealDirection="up">
           <IconButton
             dangerouslySetSvgPath={{
@@ -43,7 +43,7 @@ export default function ExampleCode({
             }}
             accessibilityLabel="Open in CodeSandbox"
             iconColor="darkGray"
-            size="lg"
+            size="sm"
             onClick={() => {
               handleCodeSandbox({ code, title: name });
             }}
@@ -57,7 +57,7 @@ export default function ExampleCode({
             }}
             accessibilityLabel="Copy Code"
             iconColor="darkGray"
-            size="lg"
+            size="sm"
             onClick={() => {
               copyCode({ code });
             }}
@@ -74,7 +74,7 @@ export default function ExampleCode({
             } code for ${name}`}
             iconColor="darkGray"
             icon={expanded ? 'eye-hide' : 'eye'}
-            size="lg"
+            size="sm"
             onClick={() => setExpanded(!expanded)}
           />
         </Tooltip>

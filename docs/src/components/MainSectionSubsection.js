@@ -1,6 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Flex, Heading, Text } from 'gestalt';
+import { Box, Flex, Heading } from 'gestalt';
+import Markdown from './Markdown.js';
 
 type Props = {|
   description?: string,
@@ -14,13 +15,17 @@ const MainSectionSubsection = ({
   title,
 }: Props): Node => {
   return (
-    <Box marginBottom={2}>
+    <Box>
       {title && (
         <Box paddingY={1}>
           <Heading size="sm">{title}</Heading>
         </Box>
       )}
-      {description && <Text>{description}</Text>}
+      {description && (
+        <Box>
+          <Markdown text={description} />
+        </Box>
+      )}
       <Flex wrap gap={4}>
         {children}
       </Flex>
