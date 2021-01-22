@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Badge, Box, Text, Tooltip, Heading, Link } from 'gestalt';
+import { Badge, Box, Flex, Heading, Link, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
 
 type Props = {|
@@ -33,24 +33,26 @@ export default function ComponentHeader({
   return (
     <Box marginBottom={6}>
       <Box marginBottom={4}>
-        <Heading>
-          {name}{' '}
-          {pilot ? (
-            <Tooltip
-              inline
-              text={`This is the initial version of ${name}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!`}
-            >
-              <Badge text="Pilot" position="top" />
-            </Tooltip>
-          ) : null}
-        </Heading>
-        {showSourceLink && (
-          <Text color="gray">
-            <Link href={githubUrl(fileName || name)} inline target="blank">
-            </Link>
-          </Text>
-        )}
+        <Flex direction="column" gap={1}>
+          <Heading>
+            {name}{' '}
+            {pilot ? (
+              <Tooltip
+                inline
+                text={`This is the initial version of ${name}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!`}
+              >
+                <Badge text="Pilot" position="top" />
+              </Tooltip>
+            ) : null}
+          </Heading>
+          {showSourceLink && (
+            <Text color="gray">
+              <Link href={githubUrl(fileName ?? name)} inline target="blank">
                 View source on GitHub
+              </Link>
+            </Text>
+          )}
+        </Flex>
       </Box>
       {description && <Markdown text={description} />}
     </Box>
