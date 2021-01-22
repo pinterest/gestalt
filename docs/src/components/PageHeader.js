@@ -47,10 +47,10 @@ export default function ComponentHeader({
         {showSourceLink && (
           <Text color="gray">
             <Link href={githubUrl(fileName || name)} inline target="blank">
-              View source on Github
             </Link>
           </Text>
         )}
+                View source on GitHub
       </Box>
       {description && <Markdown text={description} />}
     </Box>
