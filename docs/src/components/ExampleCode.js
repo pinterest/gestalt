@@ -22,13 +22,15 @@ export default function ExampleCode({
   name: string,
 |}): Node {
   const [expanded, setExpanded] = useState(true);
+  const [showExpandButton, setShowExpandButton] = useState(false);
   const codeExampleRef = useRef(null);
-  const CODE_EXAMPLE_HEIGHT = 100;
+  const CODE_EXAMPLE_HEIGHT = 152;
 
   useEffect(() => {
     const height = codeExampleRef?.current?.clientHeight ?? 0;
     if (height - 80 > CODE_EXAMPLE_HEIGHT) {
       setExpanded(false);
+      setShowExpandButton(true);
     }
   }, [code]);
 
@@ -49,13 +51,13 @@ export default function ExampleCode({
             }}
           />
         </Tooltip>
-        <Tooltip inline text="Copy Code" idealDirection="up">
+        <Tooltip inline text="Copy code" idealDirection="up">
           <IconButton
             dangerouslySetSvgPath={{
               __path:
                 'M15.25 0h-6.5a1.75 1.75 0 000 3.5h6.5a5.256 5.256 0 015.25 5.25v6.5a1.75 1.75 0 103.5 0v-6.5C24 3.925 20.075 0 15.25 0zm-.75 6.5H3a3 3 0 00-3 3V21a3 3 0 003 3h11.5a3 3 0 003-3V9.5a3 3 0 00-3-3z',
             }}
-            accessibilityLabel="Copy Code"
+            accessibilityLabel="Copy code"
             iconColor="darkGray"
             size="sm"
             onClick={() => {
@@ -63,21 +65,23 @@ export default function ExampleCode({
             }}
           />
         </Tooltip>
-        <Tooltip
-          inline
-          text={`${expanded ? 'Collapse' : 'Expand'} code example`}
-          idealDirection="up"
-        >
-          <IconButton
-            accessibilityLabel={`${
-              expanded ? 'Collapse' : 'Expand'
-            } code for ${name}`}
-            iconColor="darkGray"
-            icon={expanded ? 'eye-hide' : 'eye'}
-            size="sm"
-            onClick={() => setExpanded(!expanded)}
-          />
-        </Tooltip>
+        {showExpandButton && (
+          <Tooltip
+            inline
+            text={`${expanded ? 'Collapse' : 'Expand'} code example`}
+            idealDirection="up"
+          >
+            <IconButton
+              accessibilityLabel={`${
+                expanded ? 'Collapse' : 'Expand'
+              } code for ${name}`}
+              iconColor="darkGray"
+              icon={expanded ? 'eye-hide' : 'eye'}
+              size="sm"
+              onClick={() => setExpanded(!expanded)}
+            />
+          </Tooltip>
+        )}
       </Box>
       <Box display="flex" direction="column" width="100%" marginTop={2}>
         <Box
@@ -100,7 +104,7 @@ export default function ExampleCode({
             {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label>
-              <LiveEditor padding={16} />
+              <LiveEditor style={{ minHeight: '152px' }} padding={16} />
             </label>
           </Box>
         </Box>

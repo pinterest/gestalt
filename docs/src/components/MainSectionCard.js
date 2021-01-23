@@ -46,7 +46,7 @@ const MainSectionCard = ({
     <Box
       width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
       marginTop={2}
-      marginBottom={12}
+      marginBottom={8}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box>
