@@ -1,3 +1,9 @@
+## 16.8.0 (Jan 25, 2021)
+
+### Minor
+
+- Typeahead: add zIndex prop to support component in Modals with zIndex (#1350)
+
 ## 16.7.1 (Jan 22, 2021)
 
 ### Patch
