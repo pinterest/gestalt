@@ -101,7 +101,7 @@ const IconEnd = ({
   icon: $Keys<typeof icons>,
   size: string,
 |}): Node => (
-  <Box justifyContent="center" display="flex">
+  <Box alignItems="center" display="flex">
     {text}
     <Box display="inlineBlock" flex="none" marginStart={2}>
       <Icon

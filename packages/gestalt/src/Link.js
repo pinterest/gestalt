@@ -109,8 +109,6 @@ const LinkWithForwardRef: AbstractComponent<
     }
   );
 
-  const onNavigationContext = useOnNavigation();
-
   return (
     <a
       aria-label={accessibilityLabel}
@@ -125,13 +123,6 @@ const LinkWithForwardRef: AbstractComponent<
         }
       }}
       onClick={(event) => {
-        if (onNavigationContext) {
-          onNavigationContext.onNavigation({
-            href,
-            onNavigationOptions,
-            event,
-          });
-        }
         if (onClick) {
           onClick({ event });
         }

@@ -320,24 +320,79 @@ card(
     id="OnNavigationContext"
     name="OnNavigation Context"
     defaultCode={`
-function OnNavigationProvider() {
+function OnNavigationLink() {
+  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState(true);
   const onNavigation = ({ href, onNavigationOptions, event }) => {
-    if (onNavigationOptions && onNavigationOptions.stopPropagation) {
+    if (onNavigationOptions && onNavigationOptions.navigationMode === 'client') {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
-      alert("Disabled link. Opening help.pinterest.com instead");
-      window.open("https://help.pinterest.com", '_blank')
+      alert('Disabled link. Opening help.pinterest.com instead');
+      window.open('https://help.pinterest.com', '_blank');
     }
+  };
+
+  const WrappedLink = (props) => {
+    const onNavigateContext = useOnNavigation();
+
+    const handleOnClick = React.useCallback(
+      ({ event }) => {
+        if (props.onClick) {
+          props.onClick({ event });
+        }
+
+        if (onNavigateContext) {
+          onNavigateContext.onNavigation({
+            href: props.href,
+            onNavigationOptions: props.onNavigationOptions,
+            event,
+          });
+        }
+      },
+      [onNavigateContext, props.href, props.onNavigationOptions],
+    );
+
+    return (
+      <Link href={props.href} onClick={handleOnClick}>
+        <Text>https://pinterest.com</Text>
+      </Link>
+    );
   };
 
   return (
     <Provider onNavigation={onNavigation}>
-      <Link
-        href="https://pinterest.com"
-        onNavigationOptions={{ stopPropagation: true }}
-      >
-        <Text>https://pinterest.com</Text>
-      </Link>
+      <Flex direction="column" gap={2}>
+        <Flex direction="row" gap={2}>
+          <Switch
+            onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
+            id="disable-buttons"
+            switched={clientOnNavigationMode}
+          />
+          {clientOnNavigationMode ? (
+            <Flex direction="row" gap={2}>
+              <Text weight="bold">Client</Text>
+              <Text>Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          ) : (
+            <Flex direction="row" gap={2}>
+              <Text>Client</Text>
+              <Text weight="bold">Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          )}
+        </Flex>
+        <WrappedLink
+          onClick={() => console.log('This is an external onClick callback')}
+          /* navigationMode = 'server' performs a new server request or full-page/server-side navigation
+           * rather than your internal url to be re-rendered via react-router's history (client-side navigation).
+           * Re-rendering (navigationMode = 'client') is a best practice due to performance optimizations; however, full-page request might
+           * be required if the component's logic/state depends on the page being server rendered.
+           * Use navigationMode = 'server' to keep the behaviour of Gestalt Link (<a> tag).
+           */
+          onNavigationOptions={{ navigationMode: clientOnNavigationMode ? 'client' : 'server' }}
+          href="https://pinterest.com"
+        />
+      </Flex>
     </Provider>
   );
 }

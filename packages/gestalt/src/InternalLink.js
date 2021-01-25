@@ -170,8 +170,6 @@ const InternalLinkWithForwardRef: AbstractComponent<
       : {}
   );
 
-  const onNavigateContext = useOnNavigation();
-
   return (
     <a
       aria-label={accessibilityLabel}
@@ -186,13 +184,6 @@ const InternalLinkWithForwardRef: AbstractComponent<
         handleBlur();
       }}
       onClick={(event) => {
-        if (onNavigateContext) {
-          onNavigateContext.onNavigation({
-            href,
-            onNavigationOptions,
-            event,
-          });
-        }
         if (onClick) {
           onClick({ event });
         }
