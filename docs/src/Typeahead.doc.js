@@ -106,6 +106,13 @@ card(
           'Forward the ref to the underlying component container element',
         href: 'refExample',
       },
+      {
+        name: 'zIndex',
+        type: 'interface Indexable { index(): number; }',
+        description:
+          'An object representing the z-index value of the Typeahead list. Only use when Typeahead is used within a parent component that has a z-index set.',
+        href: 'zIndex',
+      },
     ]}
   />
 );
@@ -249,7 +256,7 @@ function Example(props) {
 card(
   <Example
     id="defaultItemExample2"
-    name="Ref Example"
+    name="With Ref"
     defaultCode={`
 function TypeaheadExample() {
   const ref = React.useRef();
@@ -281,7 +288,7 @@ function TypeaheadExample() {
 card(
   <Example
     id="tagsExample"
-    name="Example: Tags"
+    name="With Tags"
     description={`
     You can include [Tag](/Tag) elements in the input using the \`tags\` prop.
 
@@ -350,6 +357,73 @@ function Example(props) {
   );
 }
 `}
+  />
+);
+
+card(
+  <Example
+    id="zIndex"
+    name="With ZIndex"
+    description={`
+    When Typeahead is used within a parent component that has a z-index set, a z-index will also need to be set on the Typeahead. Otherwise the Typeahead will render behind the parent component in the stacking context.`}
+    defaultCode={`
+function Example(props) {
+  const [open, setOpen] = React.useState(false);
+  const [option, setOption] = React.useState();
+
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const MODAL_ZINDEX = new CompositeZIndex([HEADER_ZINDEX]);
+  const TYPEAHEAD_ZINDEX = new CompositeZIndex([MODAL_ZINDEX]);
+
+  return (
+    <>
+      <Button
+        inline
+        text="Report a stolen account"
+        onClick={() => setOpen(true)}
+      />
+      {open && (
+        <Layer zIndex={MODAL_ZINDEX}>
+          <Modal
+            accessibilityModalLabel="Select the account being reported"
+            onDismiss={() => setOpen(false)}
+            size="sm"
+            heading="Report a stolen account"
+            footer={
+              <Button
+                onClick={() => setOpen(false)}
+                text="Submit"
+                color="red"
+                size="lg"
+                type="submit"
+              />
+            }
+          >
+            <Box padding={8}>
+              <Typeahead
+                zIndex={TYPEAHEAD_ZINDEX}
+                label="Select the account being reported"
+                id="reported_account"
+                noResultText="No Results"
+                options={[
+                  {
+                    label: "basic_user@email.com",
+                    value: "basic_user@email.com"
+                  },
+                  {
+                    label: "business_user@email.com",
+                    value: "business_user@email.com"
+                  },
+                ]}
+                placeholder="Select an account"
+              />
+            </Box>
+          </Modal>
+        </Layer>
+      )}
+    </>
+  );
+}`}
   />
 );
 

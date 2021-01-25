@@ -19,6 +19,7 @@ import Tag from './Tag.js';
 import handleContainerScrolling, {
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
+import { type Indexable } from './zIndex.js';
 
 type Props = {|
   id: string,
@@ -53,6 +54,7 @@ type Props = {|
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
+  zIndex?: Indexable,
 |};
 
 const TypeaheadWithForwardRef: React$AbstractComponent<
@@ -73,6 +75,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
     size,
     tags,
     value = null,
+    zIndex,
   } = props;
 
   // Store original data
@@ -252,7 +255,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
       />
 
       {containerOpen && positioningRef.current && (
-        <Layer>
+        <Layer zIndex={zIndex}>
           <Flyout
             showCaret={false}
             anchor={positioningRef.current}
@@ -327,6 +330,8 @@ TypeaheadWithForwardRef.propTypes = {
   size: PropTypes.oneOf(['md', 'lg']),
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  zIndex: PropTypes.any,
 };
 
 TypeaheadWithForwardRef.displayName = 'Typeahead';
