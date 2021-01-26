@@ -1,22 +1,27 @@
 // @flow strict
-
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import layout from './Layout.css';
-import { type Indexable, FixedZIndex } from './zIndex.js';
+import {
+  FixedZIndex,
+  type Indexable,
+  UnsafeIndexablePropType,
+} from './zIndex.js';
+
+type PositionType = number | string;
 
 type Threshold =
-  | {| top: number | string |}
-  | {| bottom: number | string |}
-  | {| left: number | string |}
-  | {| right: number | string |}
-  | {| top: number | string, bottom: number | string |}
-  | {| left: number | string, right: number | string |}
+  | {| top: PositionType |}
+  | {| bottom: PositionType |}
+  | {| left: PositionType |}
+  | {| right: PositionType |}
+  | {| top: PositionType, bottom: PositionType |}
+  | {| left: PositionType, right: PositionType |}
   | {|
-      top: number | string,
-      left: number | string,
-      right: number | string,
-      bottom: number | string,
+      top: PositionType,
+      left: PositionType,
+      right: PositionType,
+      bottom: PositionType,
     |};
 
 type Props = {|
@@ -46,17 +51,16 @@ export default function Sticky(props: Props): Node {
   );
 }
 
+const PositionPropType: React$PropType$Primitive<PositionType> = PropTypes.oneOfType(
+  [PropTypes.number, PropTypes.string]
+);
+
 Sticky.propTypes = {
   children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  top: PositionPropType,
+  left: PositionPropType,
+  bottom: PositionPropType,
+  right: PositionPropType,
   height: PropTypes.number,
-  // eslint-disable-next-line react/forbid-prop-types
-  zIndex: PropTypes.any,
+  zIndex: UnsafeIndexablePropType,
 };

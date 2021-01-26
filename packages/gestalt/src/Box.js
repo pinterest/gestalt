@@ -24,7 +24,7 @@ import React, {
 import PropTypes from 'prop-types';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
-import { type Indexable } from './zIndex.js';
+import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 import {
   type DangerouslySetInlineStyle,
   type AlignContent,
@@ -327,6 +327,5 @@ BoxWithForwardRef.propTypes = {
 
   role: PropTypes.string,
 
-  // eslint-disable-next-line react/forbid-prop-types
-  zIndex: PropTypes.any,
+  zIndex: UnsafeIndexablePropType,
 };
