@@ -29,6 +29,7 @@ const TYPE_TO_COLOR = {
   info: 'darkGray',
 };
 
+// Colors used here map to colors.css's .red and .green styles
 const COLOR_TO_HEX = {
   green: '#0fa573',
   red: '#e60023',
