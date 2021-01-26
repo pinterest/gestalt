@@ -19,7 +19,7 @@ import Tag from './Tag.js';
 import handleContainerScrolling, {
   type DirectionOptionType,
 } from './utils/keyboardNavigation.js';
-import { type Indexable } from './zIndex.js';
+import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 
 type Props = {|
   id: string,
@@ -330,8 +330,7 @@ TypeaheadWithForwardRef.propTypes = {
   size: PropTypes.oneOf(['md', 'lg']),
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
-  // eslint-disable-next-line react/forbid-prop-types
-  zIndex: PropTypes.any,
+  zIndex: UnsafeIndexablePropType,
 };
 
 TypeaheadWithForwardRef.displayName = 'Typeahead';

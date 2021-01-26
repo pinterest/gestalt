@@ -1,6 +1,9 @@
 // @flow strict
-
 // eslint-disable-next-line max-classes-per-file
+import PropTypes from 'prop-types';
+
+export const UnsafeIndexablePropType = PropTypes.any;
+
 export interface Indexable {
   index(): number;
 }
