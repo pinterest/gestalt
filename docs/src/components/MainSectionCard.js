@@ -9,13 +9,13 @@ import theme from './atomDark.js';
 import Markdown from './Markdown.js';
 
 type Props = {|
+  cardSize?: 'sm' | 'md',
   defaultCode: string,
   description?: string,
-  type?: 'do' | "don't" | 'info',
   shaded?: boolean,
   showCode?: boolean,
-  cardSize?: 'sm' | 'md',
   title?: string,
+  type?: 'do' | "don't" | 'info',
 |};
 
 const CARD_SIZE_NAME_TO_PIXEL = {
@@ -29,19 +29,26 @@ const TYPE_TO_COLOR = {
   info: 'darkGray',
 };
 
+const COLOR_TO_HEX = {
+  green: '#0fa573',
+  red: '#e60023',
+};
+
 const MainSectionCard = ({
+  cardSize = 'md',
   defaultCode,
   description,
-  type = 'info',
   shaded = false,
   showCode = true,
-  cardSize = 'md',
   title,
+  type = 'info',
 }: Props): Node => {
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
   const borderStyle =
-    type !== 'info' ? `3px solid ${TYPE_TO_COLOR[type]}` : undefined;
+    type !== 'info'
+      ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}`
+      : undefined;
   return (
     <Box
       width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
@@ -49,24 +56,24 @@ const MainSectionCard = ({
       marginBottom={8}
     >
       <LiveProvider code={code} scope={scope} theme={theme}>
-        <Box>
-          <Box
-            alignItems="center"
-            borderStyle="sm"
-            color={shaded ? 'lightGray' : 'white'}
-            display="flex"
-            height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-            justifyContent="center"
-            padding={4}
-            position="relative"
-            rounding={2}
-          >
-            <LivePreview />
-          </Box>
+        <Box
+          alignItems="center"
+          borderStyle="sm"
+          color={shaded ? 'lightGray' : 'white'}
+          display="flex"
+          height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+          justifyContent="center"
+          padding={4}
+          position="relative"
+          rounding={2}
+        >
+          <LivePreview />
         </Box>
+
         {showCode && cardSize !== 'sm' && (
           <ExampleCode code={code} name={title || ''} />
         )}
+
         <Box paddingX={2}>
           <Text color="watermelon">
             <LiveError />

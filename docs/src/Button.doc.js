@@ -5,7 +5,8 @@ import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
-import MainSection from './components/MainSection.js';
+// To be used when converting Button docs
+// import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -235,35 +236,36 @@ card(
   />
 );
 
-card(
-  <MainSection
-    name="Best Practices"
-    description="Buttons communicate actions that users can take and are typically placed in UIs including closeup modules, modals, flyouts, forms, cards, and bars."
-  >
-    <MainSection.Subsection>
-      <MainSection.Card
-        type="do"
-        description="Do place primary buttons to the right or bottom of other button styles."
-        defaultCode={`
-  <ButtonGroup>
-    <Button text="Button" inline color="gray"/>
-    <Button text="Button" inline color="red"/>
-  </ButtonGroup>
-    `}
-      />
-      <MainSection.Card
-        description="Don't place more than one primary button per surface."
-        type="don't"
-        defaultCode={`
-  <ButtonGroup>
-    <Button text="Button" inline color="red"/>
-    <Button text="Button" inline color="red"/>
-  </ButtonGroup>
-    `}
-      />
-    </MainSection.Subsection>
-  </MainSection>
-);
+// To be continued when converting Button docs
+// card(
+//   <MainSection
+//     name="Best Practices"
+//     description="Buttons communicate actions that users can take and are typically placed in UIs including closeup modules, modals, flyouts, forms, cards, and bars."
+//   >
+//     <MainSection.Subsection>
+//       <MainSection.Card
+//         type="do"
+//         description="Do place primary buttons to the right or bottom of other button styles."
+//         defaultCode={`
+//   <ButtonGroup>
+//     <Button text="Button" inline color="gray"/>
+//     <Button text="Button" inline color="red"/>
+//   </ButtonGroup>
+//     `}
+//       />
+//       <MainSection.Card
+//         description="Don't place more than one primary button per surface."
+//         type="don't"
+//         defaultCode={`
+//   <ButtonGroup>
+//     <Button text="Button" inline color="red"/>
+//     <Button text="Button" inline color="red"/>
+//   </ButtonGroup>
+//     `}
+//       />
+//     </MainSection.Subsection>
+//   </MainSection>
+// );
 
 card(
   <Example
@@ -347,87 +349,88 @@ function Example() {
   />
 );
 
-// card(
-//   <Example
-//     name="Size"
-//     id="size"
-//     defaultCode={`<Flex gap={2}>
-//   <Button size="sm" text="Small-sized button" inline />
-//   <Button text="Medium-sized button" inline />
-//   <Button size="lg" text="Large-sized button" inline />
-// </Flex>`}
-//   />
-// );
-
 card(
-  <MainSection
-    name="Variants"
-    description="Buttons can vary by size and/or color (hierarchy)."
-  >
-    <MainSection.Subsection
-      title="Size"
-      description={`There are 3 size options: sm, md, and lg, which can be set using the \`size\` property.`}
-    >
-      <MainSection.Card
-        cardSize="sm"
-        title="Lg"
-        description="Large is the only size available in Pinner product and is considered the default size."
-        defaultCode={`
-        <Button text="Button" inline color="red" size="lg"/>
-
-    `}
-      />
-      <MainSection.Card
-        cardSize="sm"
-        title="Md"
-        description="Medium"
-        defaultCode={`
-        <Button text="Button" inline color="red" size="md"/>
-
-    `}
-      />
-      <MainSection.Card
-        cardSize="sm"
-        title="Sm"
-        description="Small"
-        defaultCode={`
-        <Button text="Button" inline color="red" size="sm"/>
-
-    `}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection title="Hierarchy">
-      <MainSection.Card
-        cardSize="md"
-        title="Primary"
-        description="High emphasis, used for primary actions."
-        defaultCode={`
-        <Button text="Button" inline color="red"/>
-
-    `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        title="Secondary"
-        description="Medium emphasis, used for secondary actions."
-        defaultCode={`
-        <Button text="Button" inline color="gray" />
-
-    `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        title="Tertiary"
-        shaded
-        description="Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds."
-        defaultCode={`
-        <Button text="Button" inline color="white"/>
-
-    `}
-      />
-    </MainSection.Subsection>
-  </MainSection>
+  <Example
+    name="Size"
+    id="size"
+    defaultCode={`<Flex gap={2}>
+  <Button size="sm" text="Small-sized button" inline />
+  <Button text="Medium-sized button" inline />
+  <Button size="lg" text="Large-sized button" inline />
+</Flex>`}
+  />
 );
+
+// To be continued when converting Button docs
+// card(
+//   <MainSection
+//     name="Variants"
+//     description="Buttons can vary by size and/or color (hierarchy)."
+//   >
+//     <MainSection.Subsection
+//       title="Size"
+//       description={`There are 3 size options: sm, md, and lg, which can be set using the \`size\` property.`}
+//     >
+//       <MainSection.Card
+//         cardSize="sm"
+//         title="Lg"
+//         description="Large is the only size available in Pinner product and is considered the default size."
+//         defaultCode={`
+//         <Button text="Button" inline color="red" size="lg"/>
+
+//     `}
+//       />
+//       <MainSection.Card
+//         cardSize="sm"
+//         title="Md"
+//         description="Medium"
+//         defaultCode={`
+//         <Button text="Button" inline color="red" size="md"/>
+
+//     `}
+//       />
+//       <MainSection.Card
+//         cardSize="sm"
+//         title="Sm"
+//         description="Small"
+//         defaultCode={`
+//         <Button text="Button" inline color="red" size="sm"/>
+
+//     `}
+//       />
+//     </MainSection.Subsection>
+//     <MainSection.Subsection title="Hierarchy">
+//       <MainSection.Card
+//         cardSize="md"
+//         title="Primary"
+//         description="High emphasis, used for primary actions."
+//         defaultCode={`
+//         <Button text="Button" inline color="red"/>
+
+//     `}
+//       />
+//       <MainSection.Card
+//         cardSize="md"
+//         title="Secondary"
+//         description="Medium emphasis, used for secondary actions."
+//         defaultCode={`
+//         <Button text="Button" inline color="gray" />
+
+//     `}
+//       />
+//       <MainSection.Card
+//         cardSize="md"
+//         title="Tertiary"
+//         shaded
+//         description="Low emphasis when placed on white backgrounds, used for tertiary actions, and medium emphasis, used for secondary actions when placed on dark backgrounds."
+//         defaultCode={`
+//         <Button text="Button" inline color="white"/>
+
+//     `}
+//       />
+//     </MainSection.Subsection>
+//   </MainSection>
+// );
 
 card(
   <Combination

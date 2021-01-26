@@ -4,9 +4,9 @@ import { Box, Flex, Heading } from 'gestalt';
 import Markdown from './Markdown.js';
 
 type Props = {|
+  children: Node,
   description?: string,
   title?: string,
-  children: Node,
 |};
 
 const MainSectionSubsection = ({
@@ -15,7 +15,7 @@ const MainSectionSubsection = ({
   title,
 }: Props): Node => {
   return (
-    <Box>
+    <>
       {title && (
         <Box paddingY={1}>
           <Heading size="sm">{title}</Heading>
@@ -29,7 +29,7 @@ const MainSectionSubsection = ({
       <Flex wrap gap={4}>
         {children}
       </Flex>
-    </Box>
+    </>
   );
 };
 

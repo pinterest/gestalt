@@ -85,11 +85,12 @@ export default function ExampleCode({
       </Box>
       <Box display="flex" direction="column" width="100%" marginTop={2}>
         <Box
-          position="relative"
-          display="flex"
+          borderStyle="sm"
           color="darkGray"
-          ref={codeExampleRef}
+          display="flex"
           overflow="hidden"
+          position="relative"
+          ref={codeExampleRef}
           rounding={2}
           {...(expanded
             ? {}

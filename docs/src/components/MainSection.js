@@ -5,9 +5,9 @@ import Card from './Card.js';
 import MainSectionSubsection from './MainSectionSubsection.js';
 
 type Props = {|
+  children: Node,
   description?: string,
   name: string,
-  children: Node,
 |};
 
 const MainSection = ({ children, description, name }: Props): Node => {
