@@ -1,3 +1,9 @@
+## 16.8.1 (Jan 26, 2021)
+
+### Patch
+
+- Z-Index: Consolidate proptype to reduce needed suppressions (#1351)
+
 ## 16.8.0 (Jan 25, 2021)
 
 ### Minor
