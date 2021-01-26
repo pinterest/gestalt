@@ -57,13 +57,9 @@ const PositionPropType: React$PropType$Primitive<PositionType> = PropTypes.oneOf
 
 Sticky.propTypes = {
   children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   top: PositionPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   left: PositionPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   bottom: PositionPropType,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   right: PositionPropType,
   height: PropTypes.number,
   zIndex: UnsafeIndexablePropType,
