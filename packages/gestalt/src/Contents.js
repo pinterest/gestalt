@@ -268,14 +268,20 @@ export function getCaretPlacement({
 /**
  * Calculates the amount the flyout & caret need to shift over to align with designs
  */
-export function calcEdgeShifts(
+export function calcEdgeShifts({
+  triggerBoundingClientRect,
+  windowSize,
+  isScrollableBox,
+}: {|
   triggerBoundingClientRect: ClientRect,
-  windowSize: Window
-): {| caret: Shift, flyout: Shift |} {
+  windowSize: Window,
+  isScrollableBox: boolean,
+|}): {| caret: Shift, flyout: Shift |} {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift =
     CARET_OFFSET_FROM_SIDE -
     (triggerBoundingClientRect.height - CARET_HEIGHT) / 2;
+
   let flyoutHorizontalShift =
     CARET_OFFSET_FROM_SIDE -
     (triggerBoundingClientRect.width - CARET_HEIGHT) / 2;
@@ -288,8 +294,9 @@ export function calcEdgeShifts(
     triggerBoundingClientRect.top - flyoutVerticalShift < 0 ||
     triggerBoundingClientRect.bottom + flyoutVerticalShift > windowSize.height;
   if (isCloseVertically) {
-    flyoutVerticalShift =
-      BORDER_RADIUS - (triggerBoundingClientRect.height - CARET_HEIGHT) / 2;
+    flyoutVerticalShift = isScrollableBox
+      ? 0
+      : BORDER_RADIUS - (triggerBoundingClientRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
@@ -297,8 +304,9 @@ export function calcEdgeShifts(
     triggerBoundingClientRect.left - flyoutHorizontalShift < 0 ||
     triggerBoundingClientRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseHorizontally) {
-    flyoutHorizontalShift =
-      BORDER_RADIUS - (triggerBoundingClientRect.width - CARET_HEIGHT) / 2;
+    flyoutHorizontalShift = isScrollableBox
+      ? 0
+      : BORDER_RADIUS - (triggerBoundingClientRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
   }
 
@@ -317,14 +325,23 @@ export function calcEdgeShifts(
 /**
  * Calculates flyout and caret offsets for styling
  */
-export function adjustOffsets(
+export function adjustOffsets({
+  base,
+  edgeShift,
+  flyoutSize,
+  mainDir,
+  caretPlacement,
+  triggerBoundingClientRect,
+  isScrollableBox,
+}: {|
   base: {| top: number, left: number |},
   edgeShift: EdgeShift,
   flyoutSize: Flyout,
   mainDir: MainDir,
   caretPlacement: CaretPlacement,
-  triggerBoundingClientRect: ClientRect
-): {|
+  triggerBoundingClientRect: ClientRect,
+  isScrollableBox: boolean,
+|}): {|
   caretOffset: {|
     bottom: null | number,
     left: null | number,
@@ -343,14 +360,14 @@ export function adjustOffsets(
 
   if (caretPlacement === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
-    caretTop = edgeShift.caret.y + 2;
+    caretTop = edgeShift.caret.y + (isScrollableBox ? 4 : 2);
   } else if (caretPlacement === 'down') {
     flyoutTop =
       base.top -
       flyoutSize.height +
       triggerBoundingClientRect.height +
       edgeShift.flyout.y;
-    caretBottom = edgeShift.caret.y + 2;
+    caretBottom = edgeShift.caret.y + (isScrollableBox ? 4 : 2);
   } else if (caretPlacement === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;
@@ -584,17 +601,22 @@ class Contents extends Component<Props, State> {
     );
 
     // Gets the edge shifts for the flyout
-    const edgeShifts = calcEdgeShifts(triggerBoundingClientRect, windowSize);
+    const edgeShifts = calcEdgeShifts({
+      triggerBoundingClientRect,
+      windowSize,
+      isScrollableBox: !!container,
+    });
 
     // Adjusts for the subdirection of the caret
-    const { flyoutOffset, caretOffset } = adjustOffsets(
+    const { flyoutOffset, caretOffset } = adjustOffsets({
       base,
-      edgeShifts,
+      edgeShift: edgeShifts,
       flyoutSize,
       mainDir,
       caretPlacement,
-      triggerBoundingClientRect
-    );
+      triggerBoundingClientRect,
+      isScrollableBox: !!container,
+    });
 
     return {
       caretOffset,
