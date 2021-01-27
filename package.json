@@ -74,8 +74,9 @@
     "xml2js": "^0.4.23"
   },
   "resolutions": {
+    "bl": "4.0.3",
     "serialize-javascript": "3.1.0",
-    "bl": "4.0.3"
+    "immer": "8.0.1"
   },
   "scripts": {
     "a11y:generate": "./scripts/generateAccessibilitySpecs.js",
