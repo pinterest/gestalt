@@ -55,7 +55,7 @@ const Example = ({
           )}
         </Box>
 
-        <Box padding={2}>
+        <Box paddingX={2}>
           <Text color="watermelon">
             <LiveError />
           </Text>

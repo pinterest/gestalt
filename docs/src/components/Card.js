@@ -40,7 +40,7 @@ export default function Card({
             data-anchor
           >
             <Flex alignItems="baseline" gap={2}>
-              <Box>{name}</Box>
+              <Heading size="md">{name}</Heading>
 
               <IconButton
                 dangerouslySetSvgPath={{
