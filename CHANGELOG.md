@@ -1,3 +1,9 @@
+## 16.8.2 (Jan 27, 2021)
+
+### Patch
+
+- Internal: bump resolved version of immer due to security concern (#1352)
+
 ## 16.8.1 (Jan 26, 2021)
 
 ### Patch
