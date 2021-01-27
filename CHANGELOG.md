@@ -1,3 +1,9 @@
+## 16.8.3 (Jan 27, 2021)
+
+### Patch
+
+- Docs: Add shared documentation components for docs redesign (#1345)
+
 ## 16.8.2 (Jan 27, 2021)
 
 ### Patch
