@@ -46,7 +46,7 @@ export default function Layer({
     while (!containerNode) {
       // This loop will traverse currentNode up accessing its parent node until matching with the wrapping-ScrollableBox ref
       // stored in the ScrollableBoxStore context or until reaching the HTML document (loop break)
-      if (refs && currentNode && currentNode.parentNode) {
+      if (refs.length !== 0 && currentNode && currentNode.parentNode) {
         // eslint-disable-next-line no-loop-func
         refs.forEach((ref) => {
           if (
@@ -87,7 +87,7 @@ export default function Layer({
         }
       }
     };
-  }, [zIndex, refs]);
+  }, [zIndex]);
 
   if (!mounted || !portalContainer.current) {
     // The initial mount will temporary render this div to capture the initial position of the DOM node in the DOM tree

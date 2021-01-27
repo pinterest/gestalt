@@ -360,14 +360,14 @@ export function adjustOffsets({
 
   if (caretPlacement === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
-    caretTop = edgeShift.caret.y + (isScrollableBox ? 4 : 2);
+    caretTop = edgeShift.caret.y + (isScrollableBox ? 6 : 2);
   } else if (caretPlacement === 'down') {
     flyoutTop =
       base.top -
       flyoutSize.height +
       triggerBoundingClientRect.height +
       edgeShift.flyout.y;
-    caretBottom = edgeShift.caret.y + (isScrollableBox ? 4 : 2);
+    caretBottom = edgeShift.caret.y + (isScrollableBox ? 6 : 2);
   } else if (caretPlacement === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;

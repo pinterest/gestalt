@@ -17,6 +17,9 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 import React, {
   forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
   type Node,
   type AbstractComponent,
   type Element,
@@ -25,6 +28,8 @@ import PropTypes from 'prop-types';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
+import { useScrollableBoxStore } from './contexts/ScrollableBoxStore.js';
+
 import {
   type DangerouslySetInlineStyle,
   type AlignContent,
@@ -202,14 +207,33 @@ const BoxWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
   HTMLDivElement
 >(function Box(props, ref): Element<'div'> {
+  const innerRef = useRef(null);
+  useImperativeHandle(ref, () => innerRef.current);
+
+  const { addRef, removeRef } = useScrollableBoxStore();
+
   const { passthroughProps, propsStyles } = buildStyles<Props>({
     baseStyles: styles.box,
     props,
     blocklistProps: disallowedProps,
   });
 
+  useEffect(() => {
+    if (
+      ['scroll', 'auto', 'scrollX', 'scrollY'].includes(props.overflow) &&
+      innerRef.current
+    ) {
+      const anchorRef = innerRef.current;
+      addRef(anchorRef);
+      return () => {
+        removeRef(anchorRef);
+      };
+    }
+    return undefined;
+  }, [addRef, removeRef, props.overflow]);
+
   // And... magic!
-  return <div {...passthroughProps} {...propsStyles} ref={ref} />;
+  return <div {...passthroughProps} {...propsStyles} ref={innerRef} />;
 });
 
 BoxWithForwardRef.displayName = 'Box';
