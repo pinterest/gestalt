@@ -13,9 +13,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Box"
-    description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
-
-&mdash; Anon _(Winning Box Haiku, 2017)_`}
+    description="Box is a low level component that can be used to build the foundation of pretty much anything. Using Box allows you to focus on the important content, without worrying about the pixel details."
   />
 );
 
