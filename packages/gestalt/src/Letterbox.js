@@ -21,12 +21,7 @@ type Props = {|
   width: number,
 |};
 
-export default function Letterbox({
-  children,
-  contentAspectRatio,
-  height,
-  width,
-}: Props): Node {
+export default function Letterbox({ children, contentAspectRatio, height, width }: Props): Node {
   const viewportAspectRatio = aspectRatio(width, height);
 
   let contentHeight;

@@ -6,11 +6,7 @@ import * as useReducedMotionHook from './useReducedMotion.js'; // eslint-disable
 
 jest.mock('./useReducedMotion.js');
 
-const AnimatedComponent = ({
-  onDismissStart,
-}: {|
-  onDismissStart: () => void,
-|}) => {
+const AnimatedComponent = ({ onDismissStart }: {| onDismissStart: () => void |}) => {
   const { animationState, onAnimationEnd } = useAnimation();
 
   return (
@@ -35,10 +31,8 @@ describe('AnimationController', () => {
   it('should initial render with animationState in', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => (
-          <AnimatedComponent onDismissStart={onDismissStart} />
-        )}
-      </AnimationController>
+        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+      </AnimationController>,
     );
 
     expect(getNodeText(getByLabelText('animated'))).toEqual('in');
@@ -49,10 +43,8 @@ describe('AnimationController', () => {
 
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => (
-          <AnimatedComponent onDismissStart={onDismissStart} />
-        )}
-      </AnimationController>
+        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+      </AnimationController>,
     );
 
     expect(getNodeText(getByLabelText('animated'))).toEqual('');
@@ -61,10 +53,8 @@ describe('AnimationController', () => {
   it('should transition animationState from in to postIn', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => (
-          <AnimatedComponent onDismissStart={onDismissStart} />
-        )}
-      </AnimationController>
+        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+      </AnimationController>,
     );
     fireEvent.animationEnd(getByLabelText('animated'));
 
@@ -74,10 +64,8 @@ describe('AnimationController', () => {
   it('should transition animationState to out when onDismissStart() is called', () => {
     const { getByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => (
-          <AnimatedComponent onDismissStart={onDismissStart} />
-        )}
-      </AnimationController>
+        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+      </AnimationController>,
     );
     fireEvent.click(getByLabelText('animated'));
 
@@ -87,10 +75,8 @@ describe('AnimationController', () => {
   it('should not render children when animationState is postOut', () => {
     const { getByLabelText, queryByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => (
-          <AnimatedComponent onDismissStart={onDismissStart} />
-        )}
-      </AnimationController>
+        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+      </AnimationController>,
     );
     fireEvent.click(getByLabelText('animated'));
     fireEvent.animationEnd(getByLabelText('animated'));
@@ -103,10 +89,8 @@ describe('AnimationController', () => {
 
     const { getByLabelText, queryByLabelText } = render(
       <AnimationController onDismissEnd={jest.fn()}>
-        {({ onDismissStart }) => (
-          <AnimatedComponent onDismissStart={onDismissStart} />
-        )}
-      </AnimationController>
+        {({ onDismissStart }) => <AnimatedComponent onDismissStart={onDismissStart} />}
+      </AnimationController>,
     );
     fireEvent.click(getByLabelText('animated'));
 

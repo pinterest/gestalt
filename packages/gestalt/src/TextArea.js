@@ -24,21 +24,12 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onBlur?: AbstractEventHandler<
-    SyntheticFocusEvent<HTMLTextAreaElement>,
-    {| value: string |}
-  >,
-  onChange: AbstractEventHandler<
-    SyntheticInputEvent<HTMLTextAreaElement>,
-    {| value: string |}
-  >,
-  onFocus?: AbstractEventHandler<
-    SyntheticFocusEvent<HTMLTextAreaElement>,
-    {| value: string |}
-  >,
+  onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLTextAreaElement>, {| value: string |}>,
+  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLTextAreaElement>, {| value: string |}>,
+  onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLTextAreaElement>, {| value: string |}>,
   onKeyDown?: AbstractEventHandler<
     SyntheticKeyboardEvent<HTMLTextAreaElement>,
-    {| value: string |}
+    {| value: string |},
   >,
   placeholder?: string,
   rows?: number,
@@ -46,10 +37,10 @@ type Props = {|
   value?: string,
 |};
 
-const TextAreaWithForwardRef: React$AbstractComponent<
+const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement> = forwardRef<
   Props,
-  HTMLTextAreaElement
-> = forwardRef<Props, HTMLTextAreaElement>(function TextArea(props, ref): Node {
+  HTMLTextAreaElement,
+>(function TextArea(props, ref): Node {
   const {
     errorMessage,
     disabled = false,
@@ -87,9 +78,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
     }
   };
 
-  const handleKeyDown = (
-    event: SyntheticKeyboardEvent<HTMLTextAreaElement>
-  ) => {
+  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLTextAreaElement>) => {
     if (onKeyDown) {
       onKeyDown({ event, value: event.currentTarget.value });
     }
@@ -99,15 +88,13 @@ const TextAreaWithForwardRef: React$AbstractComponent<
     styles.textArea,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
-    (hasError || errorMessage) && !focused
-      ? formElement.errored
-      : formElement.normal,
+    (hasError || errorMessage) && !focused ? formElement.errored : formElement.normal,
     tags
       ? {
           [focusStyles.accessibilityOutlineFocus]: focused,
           [styles.textAreaWrapper]: true,
         }
-      : {}
+      : {},
   );
 
   const inputElement = (
@@ -143,12 +130,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
               {tag}
             </Box>
           ))}
-          <Box
-            flex="grow"
-            maxWidth="100%"
-            overflow="hidden"
-            position="relative"
-          >
+          <Box flex="grow" maxWidth="100%" overflow="hidden" position="relative">
             {/* This is an invisible spacer div which mirrors the input's
              * content. We use it to implement the flex wrapping behavior
              * which is not supported by inputs, by having the actual input
@@ -163,9 +145,7 @@ const TextAreaWithForwardRef: React$AbstractComponent<
       ) : (
         inputElement
       )}
-      {helperText && !errorMessage ? (
-        <FormHelperText text={helperText} />
-      ) : null}
+      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );

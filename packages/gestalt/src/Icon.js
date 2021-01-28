@@ -75,7 +75,7 @@ export default function Icon(props: Props): Node {
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles.icon,
     colors[color],
-    { [styles.iconBlock]: !inline }
+    { [styles.iconBlock]: !inline },
   );
 
   const path =

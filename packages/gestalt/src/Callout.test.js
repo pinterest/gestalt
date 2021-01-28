@@ -10,7 +10,7 @@ describe('<Callout />', () => {
         message="Insert a clever error callout message here"
         iconAccessibilityLabel="error"
         type="error"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -21,7 +21,7 @@ describe('<Callout />', () => {
         message="Insert a clever warning callout message here"
         iconAccessibilityLabel="warning"
         type="warning"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -32,7 +32,7 @@ describe('<Callout />', () => {
         message="Insert a clever info callout message here"
         iconAccessibilityLabel="info"
         type="info"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -44,7 +44,7 @@ describe('<Callout />', () => {
         iconAccessibilityLabel="info"
         type="info"
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -57,7 +57,7 @@ describe('<Callout />', () => {
         primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         type="info"
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -70,7 +70,7 @@ describe('<Callout />', () => {
         primaryAction={{ label: 'Visit Pinterest' }}
         type="info"
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -84,7 +84,7 @@ describe('<Callout />', () => {
         secondaryAction={{ href: 'pinterest.com/help', label: 'Learn more' }}
         type="info"
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -101,7 +101,7 @@ describe('<Callout />', () => {
         }}
         type="info"
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

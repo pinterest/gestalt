@@ -15,9 +15,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Flyout'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Flyout');
     if (!specifier) {
       return;
     }
@@ -49,8 +47,8 @@ export default function transformer(file, api) {
         attrs.push(
           j.jsxAttribute(
             j.jsxIdentifier('shouldFocus'),
-            j.jsxExpressionContainer(j.literal(false))
-          )
+            j.jsxExpressionContainer(j.literal(false)),
+          ),
         );
 
         j(path).replaceWith(node);

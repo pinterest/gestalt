@@ -10,7 +10,7 @@ test('Flex renders', () => {
       <div />
       <div />
       <div />
-    </Flex>
+    </Flex>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -22,7 +22,7 @@ test('Flex renders with direction: column', () => {
       <div />
       <div />
       <div />
-    </Flex>
+    </Flex>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -34,7 +34,7 @@ test('Flex renders with specified gap', () => {
       <div />
       <div />
       <div />
-    </Flex>
+    </Flex>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -46,7 +46,7 @@ test('Flex aligns items', () => {
       <div />
       <div />
       <div />
-    </Flex>
+    </Flex>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -58,7 +58,7 @@ test('Flex justifies content', () => {
       <div />
       <div />
       <div />
-    </Flex>
+    </Flex>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -72,7 +72,7 @@ test('Flex.Item renders with specified props', () => {
       </Flex.Item>
       <div />
       <div />
-    </Flex>
+    </Flex>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

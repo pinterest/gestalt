@@ -18,9 +18,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Icon'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Icon');
     if (!specifier) {
       return;
     }
@@ -36,20 +34,18 @@ export default function transformer(file, api) {
         return;
       }
 
-      node.openingElement.attributes = node.openingElement.attributes.map(
-        (attr) => {
-          if (attr.name && attr.name.name && attr.name.name === 'icon') {
-            const attribute = attr;
-            const { value } = attribute.value;
+      node.openingElement.attributes = node.openingElement.attributes.map((attr) => {
+        if (attr.name && attr.name.name && attr.name.name === 'icon') {
+          const attribute = attr;
+          const { value } = attribute.value;
 
-            if (iconsToReplace.includes(value)) {
-              attribute.value.value = 'check-circle';
-              return attribute;
-            }
+          if (iconsToReplace.includes(value)) {
+            attribute.value.value = 'check-circle';
+            return attribute;
           }
-          return attr;
         }
-      );
+        return attr;
+      });
 
       j(path).replaceWith(node);
     })

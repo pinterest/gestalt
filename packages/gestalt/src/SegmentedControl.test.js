@@ -9,7 +9,7 @@ test('SegmentedControl renders', () => {
       items={['News', 'You', 'Messages', <div key="dummy" />]}
       selectedItemIndex={0}
       onChange={() => {}}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -21,7 +21,7 @@ test('SegmentedControl with responsive widths renders', () => {
       items={['Short', 'Really really really long title']}
       selectedItemIndex={0}
       onChange={() => {}}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

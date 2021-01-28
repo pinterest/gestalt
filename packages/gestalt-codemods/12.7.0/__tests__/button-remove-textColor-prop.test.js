@@ -8,11 +8,6 @@ jest.mock('../button-remove-textColor-prop', () => {
 
 describe('button-remove-textColor-prop', () => {
   ['button-remove-textColor-prop'].forEach((test) => {
-    defineTest(
-      __dirname,
-      'button-remove-textColor-prop',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'button-remove-textColor-prop', { quote: 'single' }, test);
   });
 });

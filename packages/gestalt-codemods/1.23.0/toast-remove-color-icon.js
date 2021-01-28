@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Toast'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Toast');
     if (!specifier) {
       return;
     }
@@ -34,11 +32,11 @@ export default function transformer(file, api) {
       }
 
       const hasColorAttribute = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'color'
+        (attr) => attr.name && attr.name.name === 'color',
       );
 
       const hasIconAttribute = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'icon'
+        (attr) => attr.name && attr.name.name === 'icon',
       );
 
       if (!hasColorAttribute && !hasIconAttribute) {
@@ -47,10 +45,7 @@ export default function transformer(file, api) {
 
       node.openingElement.attributes = node.openingElement.attributes
         .map((attr) => {
-          if (
-            attr.name &&
-            (attr.name.name === 'color' || attr.name.name === 'icon')
-          ) {
+          if (attr.name && (attr.name.name === 'color' || attr.name.name === 'icon')) {
             return null;
           }
           return attr;

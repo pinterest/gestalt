@@ -63,9 +63,7 @@ describe('Video loading', () => {
     const { container, rerender } = render(<Video {...props} />);
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
-    rerender(
-      <Video {...props} src="http://media.w3.org/2010/05/bunny/movie.mp4" />
-    );
+    rerender(<Video {...props} src="http://media.w3.org/2010/05/bunny/movie.mp4" />);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -89,7 +87,7 @@ describe('Video loading', () => {
             src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
           },
         ]}
-      />
+      />,
     );
     expect(spy).toHaveBeenCalled();
   });
@@ -110,12 +108,7 @@ describe('Video loading', () => {
     const { container, rerender } = render(<Video {...props} />);
     const spy = jest.spyOn(container.querySelector('video'), 'load');
 
-    rerender(
-      <Video
-        {...props}
-        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-      />
-    );
+    rerender(<Video {...props} src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -144,7 +137,7 @@ describe('Video loading', () => {
             src: 'http://media.w3.org/2010/05/bunny/movie.mp4',
           },
         ]}
-      />
+      />,
     );
     expect(spy).toHaveBeenCalled();
   });
@@ -171,15 +164,14 @@ describe('Video loading', () => {
         src={[
           {
             type: 'video/mp4',
-            src:
-              'https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4',
+            src: 'https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4',
           },
           {
             type: 'video/ogg',
             src: 'https://archive.org/download/ElephantsDream/ed_hd.ogv',
           },
         ]}
-      />
+      />,
     );
     expect(spy).toHaveBeenCalled();
   });

@@ -16,7 +16,7 @@ export default function transformer(file, api) {
         node.imported.name === 'Icon' ||
         node.imported.name === 'IconButton' ||
         node.imported.name === 'Modal' ||
-        node.imported.name === 'Spinner'
+        node.imported.name === 'Spinner',
     );
   });
 
@@ -39,7 +39,7 @@ export default function transformer(file, api) {
               attr.name.name === 'ariaHaspopup' ||
               attr.name.name === 'label' ||
               attr.name.name === 'closeLabel' ||
-              attr.name.name === 'ariaLabel'
+              attr.name.name === 'ariaLabel',
           )
         ) {
           return;
@@ -55,18 +55,13 @@ export default function transformer(file, api) {
           if (attribute.name.name === 'closeLabel') {
             attribute.name.name = 'accessibilityCloseLabel';
           }
-          if (
-            attribute.name.name === 'label' ||
-            attribute.name.name === 'ariaLabel'
-          ) {
+          if (attribute.name.name === 'label' || attribute.name.name === 'ariaLabel') {
             attribute.name.name = 'accessibilityLabel';
           }
           return attribute;
         });
 
-        node.openingElement.attributes.sort((a, b) =>
-          a.name.name.localeCompare(b.name.name)
-        );
+        node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
       });
     })
     .toSource();

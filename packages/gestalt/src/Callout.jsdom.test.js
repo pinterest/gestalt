@@ -14,7 +14,7 @@ test('Callout handles onDismiss callback', () => {
       }}
       iconAccessibilityLabel="error"
       type="error"
-    />
+    />,
   );
   getByLabelText('Dismiss banner').click();
   expect(mockOnDismiss).toHaveBeenCalled();

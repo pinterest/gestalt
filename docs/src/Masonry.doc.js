@@ -15,7 +15,7 @@ card(
 Masonry creates a deterministic grid layout, positioning items based on available vertical space.
 It contains performance optimizations like virtualization and support for infinite scrolling.
 "
-  />
+  />,
 );
 
 card(
@@ -107,7 +107,7 @@ card(
           'MasonryUniformRowLayout will make it so that each row is as tall as the tallest item in that row.',
       },
     ]}
-  />
+  />,
 );
 
 type Props = {|
@@ -154,8 +154,7 @@ const pins = [
     height: 632,
     src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
     width: 474,
-    name:
-      'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
+    name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
   },
   {
     color: '#6d6368',
@@ -284,7 +283,7 @@ card(
     ~~~
   `}
     name="Fluid number of columns"
-  />
+  />,
 );
 
 card(
@@ -299,7 +298,7 @@ card(
     name="Flexible item width"
   >
     <ExampleMasonry flexible id="flexible-width" />
-  </Card>
+  </Card>,
 );
 
 card(
@@ -314,7 +313,7 @@ card(
     name="Non-flexible item width"
   >
     <ExampleMasonry id="non-flexible-width" />
-  </Card>
+  </Card>,
 );
 
 card(
@@ -330,7 +329,7 @@ card(
     name="Uniform row heights"
   >
     <ExampleMasonry layout="uniformRow" id="uniform" />
-  </Card>
+  </Card>,
 );
 
 export default cards;

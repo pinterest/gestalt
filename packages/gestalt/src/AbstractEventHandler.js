@@ -5,10 +5,7 @@
  *
  * Why is it non-standard? Gestalt components are controlled - meaning that the can contain state and when that changes it's reflected back to the parent. These state changes are propagated via. event handlers. Often this state doesn't represent what's in the DOM or we just want to abstract the DOM from the consumer. We felt this format struct a good balance between readability and predictability.
  */
-export type AbstractEventHandler<
-  T: SyntheticEvent<HTMLElement> | Event,
-  U = {||}
-> = ({|
+export type AbstractEventHandler<T: SyntheticEvent<HTMLElement> | Event, U = {||}> = ({|
   ...U,
   +event: T,
 |}) => void;

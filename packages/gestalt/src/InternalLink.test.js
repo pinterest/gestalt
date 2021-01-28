@@ -7,31 +7,22 @@ it('default', () =>
   expect(
     renderer
       .create(
-        <InternalLink
-          wrappedComponent="button"
-          href="https://example.com"
-          tabIndex={0}
-        >
+        <InternalLink wrappedComponent="button" href="https://example.com" tabIndex={0}>
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('inline', () =>
   expect(
     renderer
       .create(
-        <InternalLink
-          wrappedComponent="button"
-          href="https://example.com"
-          inline
-          tabIndex={0}
-        >
+        <InternalLink wrappedComponent="button" href="https://example.com" inline tabIndex={0}>
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('target null', () =>
@@ -45,9 +36,9 @@ it('target null', () =>
           tabIndex={0}
         >
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('target self', () =>
@@ -61,9 +52,9 @@ it('target self', () =>
           tabIndex={0}
         >
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('target blank', () =>
@@ -77,9 +68,9 @@ it('target blank', () =>
           tabIndex={0}
         >
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('with nofollow', () =>
@@ -93,9 +84,9 @@ it('with nofollow', () =>
           tabIndex={0}
         >
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('with onTap', () =>
@@ -109,7 +100,7 @@ it('with onTap', () =>
           tabIndex={0}
         >
           InternalLink
-        </InternalLink>
+        </InternalLink>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());

@@ -4,9 +4,7 @@ import Button from './Button.js';
 
 const ValidDefaultButtonType = <Button text="Next" />;
 
-const ValidLinkRole = (
-  <Button text="Next" role="link" href="http://www.pinterest.com" />
-);
+const ValidLinkRole = <Button text="Next" role="link" href="http://www.pinterest.com" />;
 
 const ValidSubmitType = <Button text="Next" type="submit" />;
 

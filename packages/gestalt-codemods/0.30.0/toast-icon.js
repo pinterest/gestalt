@@ -15,9 +15,7 @@ export default function transformer(file, api) {
       return;
     }
 
-    const specifier = decl.specifiers.find(
-      (node) => node.local.name === 'Toast'
-    );
+    const specifier = decl.specifiers.find((node) => node.local.name === 'Toast');
     if (!specifier) {
       return;
     }
@@ -38,12 +36,7 @@ export default function transformer(file, api) {
       }
 
       const attrs = node.openingElement.attributes;
-      attrs.push(
-        j.jsxAttribute(
-          j.jsxIdentifier('icon'),
-          j.literal('arrow-circle-forward')
-        )
-      );
+      attrs.push(j.jsxAttribute(j.jsxIdentifier('icon'), j.literal('arrow-circle-forward')));
 
       j(path).replaceWith(node);
     })

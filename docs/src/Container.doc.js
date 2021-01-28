@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Container"
     description="Containers are useful in responsively laying out content on different screens."
-  />
+  />,
 );
 
 card(
@@ -22,7 +22,7 @@ card(
         type: 'React.Node',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -40,7 +40,7 @@ card(
   </Container>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

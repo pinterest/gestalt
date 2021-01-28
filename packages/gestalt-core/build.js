@@ -30,7 +30,7 @@ const svgPath = () => ({
         const path = result.svg.path[0].$.d;
         const code = `export default '${path}';`;
         return resolve({ code });
-      })
+      }),
     );
   },
 });
@@ -61,9 +61,7 @@ const cssModules = (options = {}) => {
     getJSON: (filePath, exportTokens) => {
       Object.entries(exportTokens).forEach(([className, value]) => {
         if (value.includes('undefined')) {
-          throw new Error(
-            `${filePath} / .${className} composes from an incorrect classname`
-          );
+          throw new Error(`${filePath} / .${className} composes from an incorrect classname`);
         }
       });
       cssExportMap[filePath] = exportTokens;
@@ -133,9 +131,7 @@ const plugins = (name) => [
   }),
   nodeResolve(),
   replace({
-    'process.env.NODE_ENV': JSON.stringify(
-      process.env.NODE_ENV || 'development'
-    ),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   }),
   svgPath(),
   json({
@@ -144,11 +140,7 @@ const plugins = (name) => [
   babel({
     babelrc: false,
     babelHelpers: 'bundled',
-    presets: [
-      ['@babel/preset-env', { modules: false }],
-      '@babel/react',
-      '@babel/flow',
-    ],
+    presets: [['@babel/preset-env', { modules: false }], '@babel/react', '@babel/flow'],
     plugins: ['@babel/proposal-class-properties'],
     exclude: 'node_modules/**',
   }),

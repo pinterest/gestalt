@@ -22,9 +22,7 @@ describe('Layer in browser render', () => {
     });
 
     it('sets the zIndex if it is defined', () => {
-      const { getByText } = render(
-        <Layer zIndex={new FixedZIndex(200)}>content</Layer>
-      );
+      const { getByText } = render(<Layer zIndex={new FixedZIndex(200)}>content</Layer>);
       const element = getByText('content');
       expect(element.style.zIndex).toEqual('200');
     });

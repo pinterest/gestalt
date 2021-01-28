@@ -13,12 +13,7 @@ import layout from './Layout.css';
 import styles from './TextField.css';
 
 type Props = {|
-  autoComplete?:
-    | 'current-password'
-    | 'new-password'
-    | 'on'
-    | 'off'
-    | 'username',
+  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
   errorMessage?: string,
   hasError?: boolean,
@@ -49,10 +44,10 @@ type Props = {|
   value?: string,
 |};
 
-const TextFieldWithForwardRef: React$AbstractComponent<
+const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(function TextField(props, ref): Node {
+  HTMLInputElement,
+>(function TextField(props, ref): Node {
   const {
     autoComplete,
     disabled = false,
@@ -102,16 +97,14 @@ const TextFieldWithForwardRef: React$AbstractComponent<
     styles.textField,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
-    (hasError || errorMessage) && !focused
-      ? formElement.errored
-      : formElement.normal,
+    (hasError || errorMessage) && !focused ? formElement.errored : formElement.normal,
     size === 'md' ? layout.medium : layout.large,
     tags
       ? {
           [focusStyles.accessibilityOutlineFocus]: focused,
           [styles.textFieldWrapper]: true,
         }
-      : {}
+      : {},
   );
 
   // type='number' doesn't work on ios safari without a pattern
@@ -163,9 +156,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<
       ) : (
         inputElement
       )}
-      {helperText && !errorMessage ? (
-        <FormHelperText text={helperText} />
-      ) : null}
+      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );
@@ -173,13 +164,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TextFieldWithForwardRef.propTypes = {
-  autoComplete: PropTypes.oneOf([
-    'current-password',
-    'new-password',
-    'on',
-    'off',
-    'username',
-  ]),
+  autoComplete: PropTypes.oneOf(['current-password', 'new-password', 'on', 'off', 'username']),
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
   hasError: PropTypes.bool,

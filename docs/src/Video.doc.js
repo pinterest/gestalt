@@ -14,7 +14,7 @@ card(
 Like an Image, a Video component is used for media layout. This component is
 supercharged with lots of goodies to turn a regular video in a full blown viewing experience.
 "
-  />
+  />,
 );
 
 card(
@@ -23,48 +23,42 @@ card(
       {
         name: 'accessibilityMaximizeLabel',
         type: 'string',
-        description:
-          'Accessibility label for the fullscreen maximize button if controls are shown',
+        description: 'Accessibility label for the fullscreen maximize button if controls are shown',
         required: true,
         href: 'videoControlsExample',
       },
       {
         name: 'accessibilityMinimizeLabel',
         type: 'string',
-        description:
-          'Accessibility label for the fullscreen minimize button if controls are shown',
+        description: 'Accessibility label for the fullscreen minimize button if controls are shown',
         required: true,
         href: 'videoControlsExample',
       },
       {
         name: 'accessibilityMuteLabel',
         type: 'string',
-        description:
-          'Accessibility label for the mute button if controls are shown',
+        description: 'Accessibility label for the mute button if controls are shown',
         required: true,
         href: 'videoControlsExample',
       },
       {
         name: 'accessibilityPauseLabel',
         type: 'string',
-        description:
-          'Accessibility label for the pause button if controls are shown',
+        description: 'Accessibility label for the pause button if controls are shown',
         required: true,
         href: 'videoControlsExample',
       },
       {
         name: 'accessibilityPlayLabel',
         type: 'string',
-        description:
-          'Accessibility label for the play button if controls are shown',
+        description: 'Accessibility label for the play button if controls are shown',
         required: true,
         href: 'videoControlsExample',
       },
       {
         name: 'accessibilityUnmuteLabel',
         type: 'string',
-        description:
-          'Accessibility label for the unmute button if controls are shown',
+        description: 'Accessibility label for the unmute button if controls are shown',
         required: true,
         href: 'videoControlsExample',
       },
@@ -114,8 +108,7 @@ card(
       },
       {
         name: 'onDurationChange',
-        type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement>, duration: number }) => void',
         description:
           'Sent when the metadata has loaded or changed, indicating a change in duration',
       },
@@ -131,15 +124,13 @@ card(
       },
       {
         name: 'onLoadedChange',
-        type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement>, loaded: number }) => void',
         description: 'Sent when progress happens on downloading the media',
       },
       {
         name: 'onPlay',
         type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
-        description:
-          'Sent when playback of the media starts after having been paused',
+        description: 'Sent when playback of the media starts after having been paused',
         href: 'videoUpdatesExample',
       },
       {
@@ -170,23 +161,20 @@ card(
       },
       {
         name: 'onTimeChange',
-        type:
-          '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
         description:
           "Sent when the time indicated by the element's currentTime attribute has changed",
       },
       {
         name: 'onVolumeChange',
-        type:
-          '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
+        type: '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
         href: 'videoUpdatesExample',
       },
       {
         name: 'playbackRate',
         type: 'number',
-        description:
-          'Specifies the speed at which the video plays: 1 for normal',
+        description: 'Specifies the speed at which the video plays: 1 for normal',
         required: true,
         defaultValue: 1,
         href: 'videoUpdatesExample',
@@ -216,15 +204,13 @@ card(
       {
         name: 'preload',
         type: `"auto" | "metadata" | "none"`,
-        description:
-          'Specifies how, if any, the video should be loaded when the page loads',
+        description: 'Specifies how, if any, the video should be loaded when the page loads',
         required: true,
         defaultValue: 'auto',
       },
       {
         name: 'src',
-        type:
-          'string | Array<{| type: "video/m3u8" | "video/mp4" | "video/ogg, src: string |}>',
+        type: 'string | Array<{| type: "video/m3u8" | "video/mp4" | "video/ogg, src: string |}>',
         description: `The URL of the video file to play. This can also be supplied as a list of video types to respective
           video source urls in fallback order for support on various browsers.`,
         required: true,
@@ -233,14 +219,13 @@ card(
       {
         name: 'volume',
         type: 'number',
-        description:
-          'Specifies the volume of the video audio: 0 for muted, 1 for max',
+        description: 'Specifies the volume of the video audio: 0 for muted, 1 for max',
         required: true,
         defaultValue: 0,
         href: 'nativeVideoAttributesExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -259,7 +244,7 @@ card(
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -286,7 +271,7 @@ card(
   ]}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -306,7 +291,7 @@ card(
   src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -331,7 +316,7 @@ card(
   src="http://media.w3.org/2010/05/bunny/movie.mp4"
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -368,7 +353,7 @@ card(
   </Box>
 </Video>
 `}
-  />
+  />,
 );
 
 card(
@@ -452,7 +437,7 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

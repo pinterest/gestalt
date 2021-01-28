@@ -7,11 +7,7 @@ describe('<SegmentedControl />', () => {
   it('handles a click', () => {
     const mockOnChange = jest.fn();
     const { getByText } = render(
-      <SegmentedControl
-        items={['Item1', 'Item2']}
-        selectedItemIndex={0}
-        onChange={mockOnChange}
-      />
+      <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={mockOnChange} />,
     );
 
     getByText('Item1').click();
@@ -23,11 +19,7 @@ describe('<SegmentedControl />', () => {
 
   it('adds a "medium" classname by default', () => {
     const { container } = render(
-      <SegmentedControl
-        items={['Item1', 'Item2']}
-        selectedItemIndex={0}
-        onChange={() => {}}
-      />
+      <SegmentedControl items={['Item1', 'Item2']} selectedItemIndex={0} onChange={() => {}} />,
     );
     expect(container.querySelector('.medium')).toBeVisible();
   });
@@ -39,7 +31,7 @@ describe('<SegmentedControl />', () => {
         selectedItemIndex={0}
         size="lg"
         onChange={() => {}}
-      />
+      />,
     );
     expect(container.querySelector('.large')).toBeVisible();
   });

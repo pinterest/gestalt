@@ -10,11 +10,11 @@ const directories = process.argv.slice(2);
 const { stdout: transformOutput, stderr: transformError } = shell.exec(
   `jscodeshift --transform ${path.join(
     __dirname,
-    'transform.js'
+    'transform.js',
   )} --parser flow --dry ${directories.join(' ')} | grep "^/"`,
   {
     silent: true,
-  }
+  },
 );
 if (transformError) {
   throw transformError;

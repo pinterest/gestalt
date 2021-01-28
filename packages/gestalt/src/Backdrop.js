@@ -12,12 +12,7 @@ type Props = {|
   onClick?: (event: MouseEvent) => void,
 |};
 
-function Backdrop({
-  animationState,
-  children,
-  closeOnOutsideClick,
-  onClick,
-}: Props): Node {
+function Backdrop({ animationState, children, closeOnOutsideClick, onClick }: Props): Node {
   const handleClick = (event) => {
     if (event.target !== event.currentTarget) {
       return;

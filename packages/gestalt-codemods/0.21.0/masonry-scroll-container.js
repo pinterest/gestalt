@@ -2,8 +2,7 @@ export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
 
-  const isNull = (expression) =>
-    expression.type === 'Literal' && expression.raw === 'null';
+  const isNull = (expression) => expression.type === 'Literal' && expression.raw === 'null';
   const isUndefined = (expression) =>
     expression.type === 'Identifier' && expression.name === 'undefined';
 
@@ -13,10 +12,8 @@ export default function transformer(file, api) {
     attributes.concat(
       j.jsxAttribute(
         j.jsxIdentifier('scrollContainer'),
-        j.jsxExpressionContainer(
-          j.arrowFunctionExpression([], j.identifier('window'))
-        )
-      )
+        j.jsxExpressionContainer(j.arrowFunctionExpression([], j.identifier('window'))),
+      ),
     );
 
   // updates existing scroll container values
@@ -27,13 +24,9 @@ export default function transformer(file, api) {
       case 'ConditionalExpression': {
         const { alternate, consequent, test } = expression;
         const newAlternate =
-          isNull(alternate) || isUndefined(alternate)
-            ? j.identifier('window')
-            : alternate;
+          isNull(alternate) || isUndefined(alternate) ? j.identifier('window') : alternate;
         const newConsequent =
-          isNull(consequent) || isUndefined(consequent)
-            ? j.identifier('window')
-            : consequent;
+          isNull(consequent) || isUndefined(consequent) ? j.identifier('window') : consequent;
         return j.conditionalExpression(test, newConsequent, newAlternate);
       }
       // before: scrollContainer={ foo }
@@ -78,7 +71,7 @@ export default function transformer(file, api) {
       const { attributes } = node;
 
       const hasScrollContainerAttribute = attributes.some(
-        (attribute) => attribute.name.name === 'scrollContainer'
+        (attribute) => attribute.name.name === 'scrollContainer',
       );
 
       node.attributes = hasScrollContainerAttribute

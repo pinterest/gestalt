@@ -54,7 +54,7 @@ describe('Dropdown', () => {
           option={{ value: 'item 6', label: 'Item 6' }}
           href="https://pinterest.com"
         />
-      </Dropdown>
+      </Dropdown>,
     );
     expect(baseElement).toMatchSnapshot();
   });
@@ -85,8 +85,7 @@ describe('Dropdown', () => {
             href="https://pinterest.com"
             option={{
               value: 'item 3',
-              label:
-                'External Item 3 with a really long, detailed, complex name',
+              label: 'External Item 3 with a really long, detailed, complex name',
             }}
           />
           <Dropdown.Item
@@ -109,7 +108,7 @@ describe('Dropdown', () => {
             href="https://pinterest.com"
           />
         </Dropdown.Section>
-      </Dropdown>
+      </Dropdown>,
     );
     const sectionLabels = screen.getAllByRole('presentation');
 
@@ -146,8 +145,7 @@ describe('Dropdown', () => {
             href="https://pinterest.com"
             option={{
               value: 'item 3',
-              label:
-                'External Item 3 with a really long, detailed, complex name',
+              label: 'External Item 3 with a really long, detailed, complex name',
             }}
           />
           <Dropdown.Item
@@ -170,7 +168,7 @@ describe('Dropdown', () => {
             href="https://pinterest.com"
           />
         </Dropdown.Section>
-      </Dropdown>
+      </Dropdown>,
     );
 
     expect(screen.getByText('This is my custom header')).toBeVisible();
@@ -219,7 +217,7 @@ describe('Dropdown', () => {
           option={{ value: 'item 6', label: 'Item 6' }}
           href="https://pinterest.com"
         />
-      </Dropdown>
+      </Dropdown>,
     );
     fireEvent.keyDown(window.document, {
       keyCode: ESCAPE,
@@ -271,7 +269,7 @@ describe('Dropdown', () => {
           option={{ value: 'item 6', label: 'Item 6' }}
           href="https://pinterest.com"
         />
-      </Dropdown>
+      </Dropdown>,
     );
     fireEvent.keyDown(window.document, {
       keyCode: TAB,
@@ -324,7 +322,7 @@ describe('Dropdown', () => {
           option={{ value: 'item 6', label: 'Item 6' }}
           href="https://pinterest.com"
         />
-      </Dropdown>
+      </Dropdown>,
     );
 
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-0');
@@ -392,7 +390,7 @@ describe('Dropdown', () => {
           option={{ value: 'item 6', label: 'Item 6' }}
           href="https://pinterest.com"
         />
-      </Dropdown>
+      </Dropdown>,
     );
 
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-0');

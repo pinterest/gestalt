@@ -18,7 +18,7 @@ card(
       <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible">:focus-visible CSS pseudo-class</a></li>
     </ul>
     `}
-  />
+  />,
 );
 
 card(
@@ -61,7 +61,7 @@ function Example() {
     </Flex>
   );
 }`}
-  />
+  />,
 );
 
 export default cards;

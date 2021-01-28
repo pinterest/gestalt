@@ -16,7 +16,7 @@ card(
 If you have a cell with multiple options that can activated, consider using check marks.
 \`Switch\` component supports right-to-left(RTL) language locales layout
 (auto flip on RTL locales like Arabic).`}
-  />
+  />,
 );
 
 card(
@@ -52,7 +52,7 @@ card(
         href: 'switchCombinations',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -82,7 +82,7 @@ function SwitchExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -103,7 +103,7 @@ card(
         </Box>
       );
     }}
-  </Combination>
+  </Combination>,
 );
 
 export default cards;

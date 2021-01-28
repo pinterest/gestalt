@@ -49,10 +49,7 @@ function throttle(func, wait) {
 }
 
 function useThrottledOnScroll(callback, delay) {
-  const throttledCallback = React.useMemo(() => throttle(callback, delay), [
-    callback,
-    delay,
-  ]);
+  const throttledCallback = React.useMemo(() => throttle(callback, delay), [callback, delay]);
 
   React.useEffect(() => {
     window.addEventListener('scroll', throttledCallback);
@@ -81,10 +78,7 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
       .reverse()
       .every((anchor) => {
         // No hash if we're near the top of the page
-        if (
-          document.documentElement &&
-          document.documentElement.scrollTop < 120
-        ) {
+        if (document.documentElement && document.documentElement.scrollTop < 120) {
           active = { id: null };
           return false;
         }
@@ -92,8 +86,7 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
         if (
           document.documentElement &&
           anchor?.offsetTop <
-            document.documentElement.scrollTop +
-              document.documentElement.clientHeight / 8
+            document.documentElement.scrollTop + document.documentElement.clientHeight / 8
         ) {
           active = anchor;
           return false;
@@ -141,28 +134,21 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
     () => () => {
       clearTimeout(unsetClickedRef.current);
     },
-    []
+    [],
   );
 
   return (
     <Box>
       {anchors.map((anchor, index) => (
         <Box key={index} display="flex">
-          <Box
-            color={activeState === anchor.id ? 'pine' : 'lightGray'}
-            width={1}
-            flex="none"
-          />
+          <Box color={activeState === anchor.id ? 'pine' : 'lightGray'} width={1} flex="none" />
           <Link
             hoverStyle={activeState === anchor.id ? 'none' : 'underline'}
             href={`#${anchor.id}`}
             onClick={({ event }) => handleClick(anchor.id, event)}
           >
             <Box padding={2}>
-              <Text
-                color={activeState === anchor.id ? 'pine' : 'darkGray'}
-                weight="bold"
-              >
+              <Text color={activeState === anchor.id ? 'pine' : 'darkGray'} weight="bold">
                 {anchor.closest('h2')?.textContent}
               </Text>
             </Box>

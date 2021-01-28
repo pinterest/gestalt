@@ -29,9 +29,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Avatar'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Avatar');
     if (!specifier) {
       return;
     }
@@ -47,28 +45,26 @@ export default function transformer(file, api) {
         return;
       }
 
-      node.openingElement.attributes = node.openingElement.attributes.map(
-        (attr) => {
-          if (attr.name && attr.name.name && attr.name.name === 'size') {
-            const attribute = attr;
-            const { value } = attribute.value;
+      node.openingElement.attributes = node.openingElement.attributes.map((attr) => {
+        if (attr.name && attr.name.name && attr.name.name === 'size') {
+          const attribute = attr;
+          const { value } = attribute.value;
 
-            if (convertSizes[value]) {
-              attribute.value.value = convertSizes[value];
-              return attribute;
-            }
-            if (invalidSizes.includes(value)) {
-              throw new Error(
-                `
+          if (convertSizes[value]) {
+            attribute.value.value = convertSizes[value];
+            return attribute;
+          }
+          if (invalidSizes.includes(value)) {
+            throw new Error(
+              `
                 ${file.path}
                 Manually convert the Avatar size: "${value}" to a column based size
-                `
-              );
-            }
+                `,
+            );
           }
-          return attr;
         }
-      );
+        return attr;
+      });
 
       j(path).replaceWith(node);
     })

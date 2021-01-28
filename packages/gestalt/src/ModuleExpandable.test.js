@@ -18,7 +18,7 @@ describe('Module Expandable', () => {
               children: 'Children',
             },
           ]}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -49,7 +49,7 @@ describe('Module Expandable', () => {
               type: 'error',
             },
           ]}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -83,7 +83,7 @@ test('renders correctly with multiple items with expandedId', () => {
             type: 'error',
           },
         ]}
-      />
+      />,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

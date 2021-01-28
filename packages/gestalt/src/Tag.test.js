@@ -6,11 +6,7 @@ import Tag from './Tag.js';
 describe('Tag', () => {
   it('renders', () => {
     const tree = create(
-      <Tag
-        text="New"
-        onRemove={() => {}}
-        removeIconAccessibilityLabel="Remove New tag"
-      />
+      <Tag text="New" onRemove={() => {}} removeIconAccessibilityLabel="Remove New tag" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -27,7 +23,7 @@ describe('Tag', () => {
         onRemove={() => {}}
         removeIconAccessibilityLabel="Remove New tag"
         errorMessage="Something went wrong"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -38,7 +34,7 @@ describe('Tag', () => {
         text="The quick brown fox jumps over the lazy dog"
         onRemove={() => {}}
         removeIconAccessibilityLabel="Remove long example tag"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

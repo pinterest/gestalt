@@ -8,11 +8,6 @@ jest.mock('../deprecatedPadding-box-replace', () => {
 
 describe('deprecatedPadding-box-replace', () => {
   ['deprecatedPadding-box-replace'].forEach((test) => {
-    defineTest(
-      __dirname,
-      'deprecatedPadding-box-replace',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'deprecatedPadding-box-replace', { quote: 'single' }, test);
   });
 });

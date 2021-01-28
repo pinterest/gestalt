@@ -28,7 +28,7 @@ test('VideoControls for single digit seconds', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -58,7 +58,7 @@ test('VideoControls for double digit seconds', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -88,7 +88,7 @@ test('VideoControls for single digit minutes', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -118,7 +118,7 @@ test('VideoControls for double digit minutes', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -148,7 +148,7 @@ test('VideoControls rounds for partial seconds', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

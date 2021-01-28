@@ -17,12 +17,8 @@ const Declaration = ({ property, value }) => `${property}: ${value};`;
 const Ruleset = ({ selector, declarations = [] }) =>
   `${selector} ${Block(
     declarations
-      .reduce(
-        (arr, [property, value]) =>
-          arr.concat(Declaration({ property, value })),
-        []
-      )
-      .join('\n')
+      .reduce((arr, [property, value]) => arr.concat(Declaration({ property, value })), [])
+      .join('\n'),
   )}`;
 
 const AtRule = ({ query, rulesets }) =>
@@ -42,8 +38,7 @@ const Statement = (obj) => {
 // --
 
 module.exports = {
-  stylesheet: (prelude, statements) =>
-    [prelude].concat(statements.map(Statement)).join('\n\n'),
+  stylesheet: (prelude, statements) => [prelude].concat(statements.map(Statement)).join('\n\n'),
   ruleset: (selector, declarations) => ({
     kind: 'ruleset',
     selector,

@@ -11,7 +11,7 @@ describe('<ActivationCard />', () => {
         statusMessage="Pending"
         title="Claiming your website"
         message="We will notify you via email as soon as your site has been successfully claimed"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -23,7 +23,7 @@ describe('<ActivationCard />', () => {
         statusMessage="Needs attention"
         title="Tag is unhealthy"
         message="Oops! Your tag has errors that need to be fixed"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -35,7 +35,7 @@ describe('<ActivationCard />', () => {
         statusMessage="Not started"
         title="Claim your website"
         message="Claim your website to unlock new features"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -47,7 +47,7 @@ describe('<ActivationCard />', () => {
         statusMessage="Complete"
         title="Nice work"
         message="You are all done here"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -59,7 +59,7 @@ describe('<ActivationCard />', () => {
         statusMessage="Needs attention"
         title="Tag is unhealthy"
         message="Oops! Your tag must be healthy to continue."
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -72,7 +72,7 @@ describe('<ActivationCard />', () => {
         title="Tag is unhealthy"
         message="Oops! Your tag must be healthy to continue."
         link={{ href: 'https://pinterest.com', label: 'Learn more' }}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -89,7 +89,7 @@ describe('<ActivationCard />', () => {
           accessibilityLabel: 'Dismiss card',
           onDismiss: jest.fn(),
         }}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

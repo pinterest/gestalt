@@ -35,9 +35,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.local.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.local.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -49,12 +47,7 @@ export default function transformer(file, api) {
     .forEach((path) => {
       const { node } = path;
 
-      if (
-        !(
-          node.name.type === 'JSXIdentifier' &&
-          node.name.name === localIdentifierName
-        )
-      ) {
+      if (!(node.name.type === 'JSXIdentifier' && node.name.name === localIdentifierName)) {
         return;
       }
 
@@ -77,9 +70,7 @@ export default function transformer(file, api) {
       let newAttrs = attrs.filter((attr) => attr.name.name !== 'size');
 
       if (value !== 'md') {
-        newAttrs = newAttrs.concat(
-          j.jsxAttribute(j.jsxIdentifier('size'), j.literal(value))
-        );
+        newAttrs = newAttrs.concat(j.jsxAttribute(j.jsxIdentifier('size'), j.literal(value)));
       }
 
       newAttrs = newAttrs.concat([
@@ -88,9 +79,7 @@ export default function transformer(file, api) {
         j.jsxAttribute(j.jsxIdentifier('lgSize'), valueNode(lg)),
       ]);
 
-      j(path).replaceWith(
-        j.jsxOpeningElement(node.name, newAttrs, node.selfClosing)
-      );
+      j(path).replaceWith(j.jsxOpeningElement(node.name, newAttrs, node.selfClosing));
     })
     .toSource();
 }

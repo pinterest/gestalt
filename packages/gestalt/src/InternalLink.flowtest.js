@@ -3,11 +3,7 @@ import React from 'react';
 import InternalLink from './InternalLink.js';
 
 const Valid = (
-  <InternalLink
-    tabIndex={0}
-    wrappedComponent="button"
-    href="https://example.com"
-  >
+  <InternalLink tabIndex={0} wrappedComponent="button" href="https://example.com">
     content
   </InternalLink>
 );

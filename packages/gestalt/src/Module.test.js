@@ -11,9 +11,7 @@ describe('Module', () => {
   });
 
   test('renders a title correctly', () => {
-    const tree = renderer
-      .create(<Module id="module-test" title="Module Test" />)
-      .toJSON();
+    const tree = renderer.create(<Module id="module-test" title="Module Test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -22,7 +20,7 @@ describe('Module', () => {
       .create(
         <Module id="module-test">
           <Text>Testing</Text>
-        </Module>
+        </Module>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -31,14 +29,9 @@ describe('Module', () => {
   test('renders an icon correctly', () => {
     const tree = renderer
       .create(
-        <Module
-          id="module-test"
-          title="Testing"
-          icon="lock"
-          iconAccessibilityLabel="locked"
-        >
+        <Module id="module-test" title="Testing" icon="lock" iconAccessibilityLabel="locked">
           <Text>Testing</Text>
-        </Module>
+        </Module>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -55,7 +48,7 @@ describe('Module', () => {
           type="error"
         >
           <Text>Testing</Text>
-        </Module>
+        </Module>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

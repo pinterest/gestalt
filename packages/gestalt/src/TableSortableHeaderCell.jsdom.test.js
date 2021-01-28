@@ -18,7 +18,7 @@ test('mouse click calls onSortChange', () => {
           </TableSortableHeaderCell>
         </tr>
       </thead>
-    </table>
+    </table>,
   );
   getByText('column name').click();
   expect(mockOnSortChange).toHaveBeenCalled();
@@ -39,7 +39,7 @@ test('keypress calls onSortChange', () => {
           </TableSortableHeaderCell>
         </tr>
       </thead>
-    </table>
+    </table>,
   );
   const mockEvent = { charCode: 32, preventDefault: jest.fn() };
   fireEvent.keyPress(getByText('column name'), mockEvent);

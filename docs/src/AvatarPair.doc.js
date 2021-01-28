@@ -25,7 +25,7 @@ card(
           'md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -45,7 +45,7 @@ card(
   ]}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -70,7 +70,7 @@ card(
   />
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

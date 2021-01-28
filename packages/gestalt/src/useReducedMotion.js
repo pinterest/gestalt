@@ -6,9 +6,7 @@ export default function useReducedMotion(): boolean {
   const supportsMatchMedia = typeof window !== 'undefined' && window.matchMedia;
 
   const [matches, setMatch] = useState(
-    supportsMatchMedia
-      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      : false
+    supportsMatchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false,
   );
   useEffect(() => {
     if (!supportsMatchMedia) {

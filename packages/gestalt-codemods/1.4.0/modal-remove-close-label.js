@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const modalSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Modal'
-    );
+    const modalSpecifier = decl.specifiers.find((node) => node.imported.name === 'Modal');
     if (!modalSpecifier) {
       return;
     }
@@ -35,7 +33,7 @@ export default function transformer(file, api) {
       }
 
       const hasCloseLabel = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'accessibilityCloseLabel'
+        (attr) => attr.name && attr.name.name === 'accessibilityCloseLabel',
       );
 
       if (!hasCloseLabel) {

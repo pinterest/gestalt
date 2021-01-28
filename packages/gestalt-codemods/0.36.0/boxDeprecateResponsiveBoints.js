@@ -2,13 +2,9 @@ const deprecateResponsiveBoints = (j, attributes) =>
   attributes.reduce((acc, attr) => {
     switch (attr.name.name) {
       case 'margin':
-        return acc.concat(
-          j.jsxAttribute(j.jsxIdentifier('deprecatedMargin'), attr.value)
-        );
+        return acc.concat(j.jsxAttribute(j.jsxIdentifier('deprecatedMargin'), attr.value));
       case 'padding':
-        return acc.concat(
-          j.jsxAttribute(j.jsxIdentifier('deprecatedPadding'), attr.value)
-        );
+        return acc.concat(j.jsxAttribute(j.jsxIdentifier('deprecatedPadding'), attr.value));
       default:
         return acc.concat(attr);
     }
@@ -24,9 +20,7 @@ const promoteStaticBoints = (j, attributes) =>
       attr.name.name.startsWith('_md') ||
       attr.name.name.startsWith('_lg')
     ) {
-      return acc.concat(
-        j.jsxAttribute(j.jsxIdentifier(name.replace(/^_/, '')), attr.value)
-      );
+      return acc.concat(j.jsxAttribute(j.jsxIdentifier(name.replace(/^_/, '')), attr.value));
     }
     return acc.concat(attr);
   }, []);
@@ -65,17 +59,14 @@ export default function transformer(file, api) {
 
       if (attributes.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Dynamic Box properties encountered at ${file.path}:${node.loc.start.line}`
+          `Dynamic Box properties encountered at ${file.path}:${node.loc.start.line}`,
         );
       }
 
       return j.jsxOpeningElement(
         j.jsxIdentifier(node.name.name),
-        promoteStaticBoints(
-          j,
-          deprecateResponsiveBoints(j, node.attributes, file)
-        ),
-        node.selfClosing
+        promoteStaticBoints(j, deprecateResponsiveBoints(j, node.attributes, file)),
+        node.selfClosing,
       );
     })
     .toSource();

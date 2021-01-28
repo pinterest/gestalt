@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Text"
     description="The Text component should be used for all text on the page."
-  />
+  />,
 );
 
 card(
@@ -73,7 +73,7 @@ card(
         href: 'styles',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -89,7 +89,7 @@ card(
   <Text align="justify">Justify</Text>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -109,7 +109,7 @@ card(
   </Box>
 </Flex>
 `}
-  />
+  />,
 );
 
 card(
@@ -128,7 +128,7 @@ card(
   <Text color="red">Red</Text>
 </Flex>
 `}
-  />
+  />,
 );
 
 card(
@@ -167,7 +167,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 card(
   <Example
@@ -204,7 +204,7 @@ card(
   </Flex>
 </Flex>
 `}
-  />
+  />,
 );
 card(
   <Example
@@ -224,7 +224,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

@@ -13,7 +13,7 @@ card(
     description="The Tooltip component allows you to wrap a child with a help tooltip when hovered.
     Tooltips are about way finding, not feature adoption, education, or promotion. They should
     only include short descriptive text and are co-located with the element they describe."
-  />
+  />,
 );
 
 card(
@@ -35,8 +35,7 @@ card(
         name: 'inline',
         type: 'boolean',
         href: 'inline',
-        description:
-          'Flag used to help render the tooltip inline to the element',
+        description: 'Flag used to help render the tooltip inline to the element',
       },
       {
         name: 'text',
@@ -58,7 +57,7 @@ card(
         description: 'An object representing the zIndex value of the Tooltip.',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -75,7 +74,7 @@ card(
   />
 </Tooltip>
 `}
-  />
+  />,
 );
 
 card(
@@ -101,7 +100,7 @@ card(
   />
 </Tooltip>
 `}
-  />
+  />,
 );
 
 card(
@@ -134,7 +133,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -160,7 +159,7 @@ card(
   />
 </Tooltip>
 `}
-  />
+  />,
 );
 
 export default cards;

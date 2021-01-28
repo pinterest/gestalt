@@ -123,13 +123,7 @@ export default function Callout({
       position="relative"
       rounding={4}
     >
-      <Box
-        smDisplay="flex"
-        wrap
-        width="100%"
-        smMarginTop={-3}
-        smMarginBottom={-3}
-      >
+      <Box smDisplay="flex" wrap width="100%" smMarginTop={-3} smMarginBottom={-3}>
         <Box
           display="flex"
           direction="column"
@@ -140,12 +134,7 @@ export default function Callout({
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
-          <Box
-            marginBottom={4}
-            marginTop={0}
-            smMarginBottom="auto"
-            smMarginTop="auto"
-          >
+          <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel}
               color={CALLOUT_TYPE_ATTRIBUTES[type].color}
@@ -164,39 +153,23 @@ export default function Callout({
             >
               {title && (
                 <Box marginBottom={2}>
-                  <Heading
-                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
-                    size="sm"
-                  >
+                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
                     {title}
                   </Heading>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>
-                {message}
-              </Text>
+              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
             </Box>
           </Box>
         </Box>
         {(primaryAction || secondaryAction) && (
-          <Box
-            smDisplay="flex"
-            marginStart="auto"
-            smMarginEnd={4}
-            smPaddingY={3}
-          >
+          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
               <CalloutAction type="secondary" data={secondaryAction} />
             )}
-            {primaryAction && (
-              <CalloutAction type="primary" data={primaryAction} />
-            )}
+            {primaryAction && <CalloutAction type="primary" data={primaryAction} />}
             {secondaryAction && responsiveMinWidth === 'xs' && (
-              <CalloutAction
-                type="secondary"
-                data={secondaryAction}
-                stacked={!!secondaryAction}
-              />
+              <CalloutAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
             )}
           </Box>
         )}

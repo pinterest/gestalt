@@ -16,7 +16,7 @@ const initialState = {
 };
 
 const DropdownContext: Context<DropdownContextType> = createContext<DropdownContextType>(
-  initialState
+  initialState,
 );
 
 export default DropdownContext;

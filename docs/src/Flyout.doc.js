@@ -13,7 +13,7 @@ card(
     name="Flyout"
     description="Flyouts are similar to modals. They’re an alternative when there is less content to display,
 or to make the interaction feel faster."
-  />
+  />,
 );
 
 card(
@@ -46,8 +46,7 @@ card(
         name: 'positionRelativeToAnchor',
         type: 'boolean',
         defaultValue: true,
-        description:
-          'Depicts if the Flyout shares a relative root with the anchor element',
+        description: 'Depicts if the Flyout shares a relative root with the anchor element',
         href: 'anchor',
       },
       {
@@ -80,7 +79,7 @@ card(
         href: 'basicExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -124,7 +123,7 @@ function FlyoutExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -166,7 +165,7 @@ function FlyoutExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -207,7 +206,7 @@ function ErrorFlyoutExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -223,7 +222,7 @@ card(
     positioned correctly relative to the body.
   `}
     name="anchor"
-  />
+  />,
 );
 
 card(
@@ -245,7 +244,7 @@ card(
     regardless of their screen size.
   `}
     name="Ideal Direction Preference"
-  />
+  />,
 );
 
 card(
@@ -257,7 +256,7 @@ card(
     * \`aria-expanded\` informs the screen reader whether the flyout is currently open or closed.
   `}
     name="Accessibility"
-  />
+  />,
 );
 
 export default cards;

@@ -19,7 +19,7 @@ type LinkData = {|
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
 |};
 
@@ -67,13 +67,7 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
   );
 };
 
-const CompletedCard = ({
-  dismissButton,
-  message,
-  status,
-  statusMessage,
-  title,
-}: Props): Node => {
+const CompletedCard = ({ dismissButton, message, status, statusMessage, title }: Props): Node => {
   const icon = STATUS_ICONS[status];
 
   return (
@@ -96,12 +90,7 @@ const CompletedCard = ({
             <Heading size="sm">{title}</Heading>
           </Box>
           {message && (
-            <Box
-              flex="grow"
-              direction="column"
-              alignContent="start"
-              marginTop={2}
-            >
+            <Box flex="grow" direction="column" alignContent="start" marginTop={2}>
               <Text color="gray" size="md">
                 {message}
               </Text>
@@ -247,12 +236,7 @@ ActivationCard.propTypes = {
     accessibilityLabel: PropTypes.string,
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  status: PropTypes.oneOf([
-    'notStarted',
-    'pending',
-    'needsAttention',
-    'complete',
-  ]).isRequired,
+  status: PropTypes.oneOf(['notStarted', 'pending', 'needsAttention', 'complete']).isRequired,
   statusMessage: PropTypes.string,
   title: PropTypes.string.isRequired,
 };

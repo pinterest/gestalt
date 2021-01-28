@@ -6,13 +6,9 @@ import TableSortableHeaderCell from './TableSortableHeaderCell.js';
 test('renders correctly when inactive', () => {
   const tree = renderer
     .create(
-      <TableSortableHeaderCell
-        sortOrder="desc"
-        status="inactive"
-        onSortChange={() => {}}
-      >
+      <TableSortableHeaderCell sortOrder="desc" status="inactive" onSortChange={() => {}}>
         column name
-      </TableSortableHeaderCell>
+      </TableSortableHeaderCell>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -21,13 +17,9 @@ test('renders correctly when inactive', () => {
 test('renders correctly when active', () => {
   const tree = renderer
     .create(
-      <TableSortableHeaderCell
-        sortOrder="asc"
-        status="active"
-        onSortChange={() => {}}
-      >
+      <TableSortableHeaderCell sortOrder="asc" status="active" onSortChange={() => {}}>
         column name
-      </TableSortableHeaderCell>
+      </TableSortableHeaderCell>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

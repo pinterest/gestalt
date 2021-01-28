@@ -9,7 +9,7 @@ describe('Link', () => {
     const { getByText } = render(
       <Link href="https://example.com" onClick={mockOnClick}>
         Link
-      </Link>
+      </Link>,
     );
     getByText('Link').click();
     expect(mockOnClick).toHaveBeenCalled();

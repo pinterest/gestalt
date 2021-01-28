@@ -12,11 +12,7 @@ import 'gestalt-datepicker/dist/gestalt-datepicker.css';
 
 const mapRoutes = (pages) =>
   pages.map((page, i) => (
-    <Route
-      path={`/${page}`}
-      key={i}
-      render={() => <CardPage cards={routes[page]} page={page} />}
-    />
+    <Route path={`/${page}`} key={i} render={() => <CardPage cards={routes[page]} page={page} />} />
   ));
 
 function AppWrapper(): Node {

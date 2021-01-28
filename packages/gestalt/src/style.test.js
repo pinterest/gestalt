@@ -38,9 +38,7 @@ test('concat', () => {
 
 test('mapClassName', () => {
   const style = fromClassName('a', 'b', 'c');
-  expect(mapClassName((s) => s.toUpperCase())(style)).toEqual(
-    fromClassName('A', 'B', 'C')
-  );
+  expect(mapClassName((s) => s.toUpperCase())(style)).toEqual(fromClassName('A', 'B', 'C'));
 });
 
 test('toProps w/ identity', () => {
@@ -48,9 +46,7 @@ test('toProps w/ identity', () => {
 });
 
 test('toProps', () => {
-  expect(
-    toProps(concat([fromClassName('b', 'a'), fromInlineStyle({ c: 'c' })]))
-  ).toEqual({
+  expect(toProps(concat([fromClassName('b', 'a'), fromInlineStyle({ c: 'c' })]))).toEqual({
     className: 'a b',
     style: { c: 'c' },
   });

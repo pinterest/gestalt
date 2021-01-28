@@ -32,10 +32,8 @@ const Declaration = ({ property, value }) => `${property}: ${value};`;
 const Ruleset = ({ selector, declarations }) =>
   `${selector} ${block(
     Object.keys(declarations)
-      .map((property) =>
-        Declaration({ property, value: declarations[property] })
-      )
-      .join('\n')
+      .map((property) => Declaration({ property, value: declarations[property] }))
+      .join('\n'),
   )}`;
 
 const AtRule = ({ query, rulesets }) =>
@@ -52,8 +50,7 @@ const Statement = (obj) => {
   }
 };
 
-const Stylesheet = (statements) =>
-  [PRELUDE].concat(statements.map(Statement)).join('\n\n');
+const Stylesheet = (statements) => [PRELUDE].concat(statements.map(Statement)).join('\n\n');
 
 // --
 
@@ -69,8 +66,7 @@ const atrule = (query, rulesets) => ({
   rulesets,
 });
 
-const capitalize = (str) =>
-  `${str.substring(0, 1).toUpperCase()}${str.substring(1, str.length)}`;
+const capitalize = (str) => `${str.substring(0, 1).toUpperCase()}${str.substring(1, str.length)}`;
 const classname = (namespace, className) =>
   namespace ? `.${namespace}${capitalize(className)}` : `.${className}`;
 
@@ -89,18 +85,12 @@ const rules = (i, prefix) => [
   }),
   ...(i !== 0
     ? [
-        ruleset(
-          `html:not([dir="rtl"]) ${classname(prefix, `marginStartN${i}`)}`,
-          {
-            'margin-left': bt(-i),
-          }
-        ),
-        ruleset(
-          `html:not([dir="rtl"]) ${classname(prefix, `marginEndN${i}`)}`,
-          {
-            'margin-right': bt(-i),
-          }
-        ),
+        ruleset(`html:not([dir="rtl"]) ${classname(prefix, `marginStartN${i}`)}`, {
+          'margin-left': bt(-i),
+        }),
+        ruleset(`html:not([dir="rtl"]) ${classname(prefix, `marginEndN${i}`)}`, {
+          'margin-right': bt(-i),
+        }),
         ruleset(`html[dir="rtl"] ${classname(prefix, `marginStartN${i}`)}`, {
           'margin-right': bt(-i),
         }),
@@ -185,15 +175,15 @@ console.log(
     ...[0, ...SCALE].reduce((arr, i) => arr.concat(rules(i)), []),
     atrule(
       '--g-sm',
-      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'sm')), [])
+      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'sm')), []),
     ),
     atrule(
       '--g-md',
-      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'md')), [])
+      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'md')), []),
     ),
     atrule(
       '--g-lg',
-      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'lg')), [])
+      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'lg')), []),
     ),
 
     // Add margin auto
@@ -201,5 +191,5 @@ console.log(
     atrule('--g-sm', autoRules('sm')),
     atrule('--g-md', autoRules('md')),
     atrule('--g-lg', autoRules('lg')),
-  ])
+  ]),
 );

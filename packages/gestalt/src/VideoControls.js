@@ -22,19 +22,15 @@ type Props = {|
   duration: number,
   fullscreen: boolean,
   onCaptionsChange: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   ) => void,
   onFullscreenChange: () => void,
-  onPause: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
-  ) => void,
-  onPlay: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
-  ) => void,
+  onPause: (event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>) => void,
+  onPlay: (event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>) => void,
   onPlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   onPlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void,
   onVolumeChange: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   ) => void,
   playing: boolean,
   seek: (time: number) => void,
@@ -106,17 +102,14 @@ function VideoControls({
   };
 
   const muted = volume === 0;
-  const showFullscreenButton =
-    typeof document !== 'undefined' && !!fullscreenEnabled();
+  const showFullscreenButton = typeof document !== 'undefined' && !!fullscreenEnabled();
 
   return (
     <div className={styles.controls}>
       <Box padding={2}>
         <TapArea onTap={handlePlayingChange} fullWidth={false}>
           <Icon
-            accessibilityLabel={
-              playing ? accessibilityPauseLabel : accessibilityPlayLabel
-            }
+            accessibilityLabel={playing ? accessibilityPauseLabel : accessibilityPlayLabel}
             color="white"
             icon={playing ? 'pause' : 'play'}
             size={20}
@@ -161,9 +154,7 @@ function VideoControls({
       <Box padding={2}>
         <TapArea onTap={handleVolumeChange} fullWidth={false}>
           <Icon
-            accessibilityLabel={
-              muted ? accessibilityUnmuteLabel : accessibilityMuteLabel
-            }
+            accessibilityLabel={muted ? accessibilityUnmuteLabel : accessibilityMuteLabel}
             color="white"
             icon={muted ? 'mute' : 'sound'}
             size={20}
@@ -175,9 +166,7 @@ function VideoControls({
           <TapArea onTap={handleFullscreenChange} fullWidth={false}>
             <Icon
               accessibilityLabel={
-                fullscreen
-                  ? accessibilityMinimizeLabel
-                  : accessibilityMaximizeLabel
+                fullscreen ? accessibilityMinimizeLabel : accessibilityMaximizeLabel
               }
               color="white"
               icon={fullscreen ? 'minimize' : 'maximize'}

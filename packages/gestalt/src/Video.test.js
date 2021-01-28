@@ -19,7 +19,7 @@ test('Video with source', () => {
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -40,7 +40,7 @@ test('Video with multiple sources', () => {
           src: 'https://archive.org/download/ElephantsDream/ed_hd.ogv',
         },
       ]}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -55,7 +55,7 @@ test('Video with media attributes', () => {
       volume={0}
       preload="metadata"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -77,7 +77,7 @@ test('Video with callbacks', () => {
       onTimeChange={() => {}}
       onVolumeChange={() => {}}
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -92,7 +92,7 @@ test('Video with children', () => {
       controls
     >
       <div>overlay</div>
-    </Video>
+    </Video>,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -105,7 +105,7 @@ test('Video with crossOrigin', () => {
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -118,7 +118,7 @@ test('Video with objectFit', () => {
       aspectRatio={1}
       captions="https://media.w3.org/2010/05/sintel/captions.vtt"
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -99,7 +99,7 @@ export default function PropTable({
       console.warn(
         `${displayName || ''} is missing ${
           missingProps.length
-        } PropTable definitions ${missingProps.join(', ')}`
+        } PropTable definitions ${missingProps.join(', ')}`,
       );
     }
   }
@@ -111,9 +111,7 @@ export default function PropTable({
       toggle={
         <Tooltip
           inline
-          text={`${
-            propTableVariant === 'expanded' ? 'Collapse' : 'Expand'
-          } Props`}
+          text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} Props`}
           idealDirection="up"
         >
           <IconButton
@@ -124,19 +122,14 @@ export default function PropTable({
             iconColor="gray"
             size="sm"
             onClick={() =>
-              setPropTableVariant(
-                propTableVariant === 'expanded' ? 'collapsed' : 'expanded'
-              )
+              setPropTableVariant(propTableVariant === 'expanded' ? 'collapsed' : 'expanded')
             }
           />
         </Tooltip>
       }
     >
       {propTableVariant === 'expanded' ? (
-        <Box
-          overflow="auto"
-          dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}
-        >
+        <Box overflow="auto" dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}>
           <table
             style={{
               width: '100%',
@@ -154,22 +147,11 @@ export default function PropTable({
             </thead>
             <tbody>
               {properties.length > 0 ? (
-                sortBy(
-                  properties,
-                  ({ required, name }) => `${required ? 'a' : 'b'}${name}`
-                ).reduce(
+                sortBy(properties, ({ required, name }) => `${required ? 'a' : 'b'}${name}`).reduce(
                   (
                     acc,
-                    {
-                      defaultValue,
-                      description,
-                      href,
-                      name,
-                      required,
-                      responsive,
-                      type,
-                    },
-                    i
+                    { defaultValue, description, href, name, required, responsive, type },
+                    i,
                   ) => {
                     const propNameHasSecondRow = description || responsive;
                     acc.push(
@@ -209,13 +191,9 @@ export default function PropTable({
                           color={defaultValue != null ? 'darkGray' : 'gray'}
                           border={!propNameHasSecondRow}
                         >
-                          {defaultValue != null ? (
-                            <code>{JSON.stringify(defaultValue)}</code>
-                          ) : (
-                            '-'
-                          )}
+                          {defaultValue != null ? <code>{JSON.stringify(defaultValue)}</code> : '-'}
                         </Td>
-                      </tr>
+                      </tr>,
                     );
                     if (propNameHasSecondRow) {
                       acc.push(
@@ -234,16 +212,14 @@ export default function PropTable({
                             )}
                           </Td>
                           <Td colspan={2} color="gray">
-                            {Array.isArray(description)
-                              ? Description(description)
-                              : description}
+                            {Array.isArray(description) ? Description(description) : description}
                           </Td>
-                        </tr>
+                        </tr>,
                       );
                     }
                     return acc;
                   },
-                  []
+                  [],
                 )
               ) : (
                 <tr>

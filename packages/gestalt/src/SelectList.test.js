@@ -12,21 +12,14 @@ const options = [
 describe('SelectList', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {
     const component = create(
-      <SelectList
-        errorMessage="Error message"
-        id="test"
-        onChange={jest.fn()}
-        options={options}
-      />
+      <SelectList errorMessage="Error message" id="test" onChange={jest.fn()} options={options} />,
     );
 
     expect(JSON.stringify(component.toJSON())).toContain('Error message');
   });
 
   it('Does not render an FormErrorMessage when errorMessage is null', () => {
-    const component = create(
-      <SelectList id="test" onChange={jest.fn()} options={options} />
-    );
+    const component = create(<SelectList id="test" onChange={jest.fn()} options={options} />);
     expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });
 
@@ -37,11 +30,11 @@ describe('SelectList', () => {
         onChange={jest.fn()}
         options={options}
         placeholder="Placeholder text"
-      />
+      />,
     );
-    expect(
-      component.root.findByProps({ hidden: true, disabled: true }).children
-    ).toEqual(['Placeholder text']);
+    expect(component.root.findByProps({ hidden: true, disabled: true }).children).toEqual([
+      'Placeholder text',
+    ]);
   });
 
   it('Renders a disabled option if options includes disabled option', () => {
@@ -49,21 +42,14 @@ describe('SelectList', () => {
       <SelectList
         id="test"
         onChange={jest.fn()}
-        options={[
-          ...options,
-          { label: 'option4', value: 'value4', disabled: true },
-        ]}
-      />
+        options={[...options, { label: 'option4', value: 'value4', disabled: true }]}
+      />,
     );
-    expect(component.root.findByProps({ disabled: true }).children).toEqual([
-      'option4',
-    ]);
+    expect(component.root.findByProps({ disabled: true }).children).toEqual(['option4']);
   });
 
   it('SelectList normal', () => {
-    const tree = create(
-      <SelectList id="test" onChange={jest.fn()} options={options} />
-    ).toJSON();
+    const tree = create(<SelectList id="test" onChange={jest.fn()} options={options} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

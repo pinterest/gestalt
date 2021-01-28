@@ -1,9 +1,7 @@
 // @flow strict
 
 export default function experiments() {
-  const changed = danger.git.modified_files.some((file) =>
-    file.match(/masonry/i)
-  );
+  const changed = danger.git.modified_files.some((file) => file.match(/masonry/i));
   if (changed) {
     const title = ':microscope: Experimental data needed';
     const message =

@@ -6,15 +6,10 @@ import Flyout from './Flyout.js';
 test('Flyout renders', () => {
   const element = document.createElement('div');
   const component = create(
-    <Flyout
-      anchor={element}
-      idealDirection="down"
-      onDismiss={jest.fn()}
-      size="sm"
-    />,
+    <Flyout anchor={element} idealDirection="down" onDismiss={jest.fn()} size="sm" />,
     {
       createNodeMock: () => true,
-    }
+    },
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -23,16 +18,10 @@ test('Flyout renders', () => {
 test('Flyout renders as error', () => {
   const element = document.createElement('div');
   const component = create(
-    <Flyout
-      anchor={element}
-      idealDirection="down"
-      onDismiss={jest.fn()}
-      color="red"
-      size="sm"
-    />,
+    <Flyout anchor={element} idealDirection="down" onDismiss={jest.fn()} color="red" size="sm" />,
     {
       createNodeMock: () => true,
-    }
+    },
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -41,16 +30,10 @@ test('Flyout renders as error', () => {
 test('Flyout renders as blue', () => {
   const element = document.createElement('div');
   const component = create(
-    <Flyout
-      anchor={element}
-      idealDirection="down"
-      onDismiss={jest.fn()}
-      color="blue"
-      size="sm"
-    />,
+    <Flyout anchor={element} idealDirection="down" onDismiss={jest.fn()} color="blue" size="sm" />,
     {
       createNodeMock: () => true,
-    }
+    },
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="ActivationCard"
     description="Activation cards are used in groups to communicate a user’s stage in a series of steps toward an overall action."
-  />
+  />,
 );
 
 card(
@@ -73,9 +73,7 @@ card(
         type: 'string',
         required: true,
         defaultValue: null,
-        description: [
-          'A message to indicate the current status of the activation card.',
-        ],
+        description: ['A message to indicate the current status of the activation card.'],
         href: '',
       },
       {
@@ -89,7 +87,7 @@ card(
         href: '',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -125,7 +123,7 @@ card(
   </Box>
 </Box>
   `}
-  />
+  />,
 );
 
 card(
@@ -156,7 +154,7 @@ card(
   </Box>
 </Box>
   `}
-  />
+  />,
 );
 
 export default cards;

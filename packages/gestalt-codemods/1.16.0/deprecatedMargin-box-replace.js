@@ -29,16 +29,14 @@ export default function transformer(file, api) {
   function createMarginAttribute({ side = '', value }) {
     return j.jsxAttribute(
       j.jsxIdentifier(sideSelector(side)),
-      j.jsxExpressionContainer(j.literal(value))
+      j.jsxExpressionContainer(j.literal(value)),
     );
   }
 
   function modifyAttributes(properties) {
     const newProperties = properties.map(({ key, value }) => {
       if (value.type !== 'Literal') {
-        throw new Error(
-          `Invalid value. Location: ${value.type} @line: ${value.loc.start.line}`
-        );
+        throw new Error(`Invalid value. Location: ${value.type} @line: ${value.loc.start.line}`);
       }
       return createMarginAttribute({ side: key.name, value: value.value });
     });
@@ -74,17 +72,14 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
+          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
       let newAppendAttr = [];
       const newAttrs = attrs
         .map((attr) => {
-          if (
-            !attr?.name?.name ||
-            !['deprecatedMargin'].includes(attr.name.name)
-          ) {
+          if (!attr?.name?.name || !['deprecatedMargin'].includes(attr.name.name)) {
             return attr;
           }
 
@@ -104,7 +99,7 @@ export default function transformer(file, api) {
           }
 
           throw new Error(
-            `This attribute requires a manual fix: ${attr.value.expression.type} @line: ${node.loc.start.line}`
+            `This attribute requires a manual fix: ${attr.value.expression.type} @line: ${node.loc.start.line}`,
           );
         })
         .filter(Boolean);

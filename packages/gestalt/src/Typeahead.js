@@ -16,9 +16,7 @@ import Text from './Text.js';
 import Flyout from './Flyout.js';
 import Layer from './Layer.js';
 import Tag from './Tag.js';
-import handleContainerScrolling, {
-  type DirectionOptionType,
-} from './utils/keyboardNavigation.js';
+import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 
 type Props = {|
@@ -26,9 +24,7 @@ type Props = {|
   label?: string,
   noResultText: string,
   onBlur?: ({|
-    event:
-      | SyntheticFocusEvent<HTMLInputElement>
-      | SyntheticEvent<HTMLInputElement>,
+    event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
   |}) => void,
   onChange?: ({|
@@ -44,9 +40,7 @@ type Props = {|
     value: string,
   |}) => void,
   onSelect?: ({|
-    event:
-      | SyntheticFocusEvent<HTMLInputElement>
-      | SyntheticKeyboardEvent<HTMLInputElement>,
+    event: SyntheticFocusEvent<HTMLInputElement> | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
   |}) => void,
   options: $ReadOnlyArray<OptionObject>,
@@ -57,10 +51,10 @@ type Props = {|
   zIndex?: Indexable,
 |};
 
-const TypeaheadWithForwardRef: React$AbstractComponent<
+const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(function Typeahead(props, ref): Node {
+  HTMLInputElement,
+>(function Typeahead(props, ref): Node {
   const {
     id,
     label,
@@ -85,23 +79,16 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
   const wrapperRef = useRef(null);
 
   // Utility function for filtering data by value
-  const filterOriginalData = (
-    filterValue: string
-  ): $ReadOnlyArray<OptionObject> =>
-    dataRef.current.filter((item) =>
-      item.label.toLowerCase().includes(filterValue.toLowerCase())
-    );
+  const filterOriginalData = (filterValue: string): $ReadOnlyArray<OptionObject> =>
+    dataRef.current.filter((item) => item.label.toLowerCase().includes(filterValue.toLowerCase()));
 
   // Utility function to find default value
-  const findDefaultOption = (
-    defaultValue: string | null
-  ): OptionObject | null => {
+  const findDefaultOption = (defaultValue: string | null): OptionObject | null => {
     if (defaultValue === null) return defaultValue;
 
     return (
-      dataRef.current.find(
-        (item) => item.value.toLowerCase() === defaultValue.toLowerCase()
-      ) || null
+      dataRef.current.find((item) => item.value.toLowerCase() === defaultValue.toLowerCase()) ||
+      null
     );
   };
 
@@ -114,9 +101,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
-  const [availableOptions, setAvailableOptions] = useState<
-    $ReadOnlyArray<OptionObject>
-  >(dataRef.current);
+  const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(
+    dataRef.current,
+  );
 
   // Ref to the input
   const inputRef = useRef(null);
@@ -191,7 +178,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<
 
   const handleKeyNavigation = (
     event: SyntheticKeyboardEvent<HTMLInputElement>,
-    direction: DirectionOptionType
+    direction: DirectionOptionType,
   ) => {
     // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
     const newIndex = direction + hoveredItem;
@@ -324,7 +311,7 @@ TypeaheadWithForwardRef.propTypes = {
       value: PropTypes.string.isRequired,
       // eslint-disable-next-line react/no-unused-prop-types
       subtext: PropTypes.string,
-    })
+    }),
   ).isRequired,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),

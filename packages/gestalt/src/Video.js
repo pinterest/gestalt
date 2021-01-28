@@ -39,27 +39,19 @@ type Props = {|
   |}) => void,
   onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
-  onLoadedChange?: AbstractEventHandler<
-    SyntheticEvent<HTMLVideoElement>,
-    {| loaded: number |}
-  >,
-  onPlay?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
-  >,
+  onLoadedChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| loaded: number |}>,
+  onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
   onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPause?: AbstractEventHandler<
-    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+    SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   >,
   onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onTimeChange?: AbstractEventHandler<
-    SyntheticEvent<HTMLVideoElement>,
-    {| time: number |}
-  >,
+  onTimeChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| time: number |}>,
   onVolumeChange?: AbstractEventHandler<
     SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
-    {| volume: number |}
+    {| volume: number |},
   >,
   playbackRate: number,
   playing: boolean,
@@ -159,7 +151,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
       (source, index) =>
         !Array.isArray(oldSource) ||
         source.type !== oldSource[index].type ||
-        source.src !== oldSource[index].src
+        source.src !== oldSource[index].src,
     );
   }
   // If the sources are both a string, simply compare
@@ -206,10 +198,9 @@ export default class Video extends PureComponent<Props, State> {
       PropTypes.string,
       PropTypes.arrayOf(
         PropTypes.shape({
-          type: PropTypes.oneOf(['video/m3u8', 'video/mp4', 'video/ogg'])
-            .isRequired,
+          type: PropTypes.oneOf(['video/m3u8', 'video/mp4', 'video/ogg']).isRequired,
           src: PropTypes.string.isRequired,
-        })
+        }),
       ),
     ]).isRequired,
     volume: PropTypes.number,
@@ -256,12 +247,7 @@ export default class Video extends PureComponent<Props, State> {
       this.play();
     }
 
-    if (
-      captions &&
-      this.video &&
-      this.video.textTracks &&
-      this.video.textTracks[0]
-    ) {
+    if (captions && this.video && this.video.textTracks && this.video.textTracks[0]) {
       this.video.textTracks[0].mode = 'showing';
     }
   }
@@ -383,9 +369,7 @@ export default class Video extends PureComponent<Props, State> {
    */
 
   // Sent when enough data is available that the media can be played
-  handleCanPlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (
-    event
-  ) => {
+  handleCanPlay: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onReady } = this.props;
 
     if (onReady) {
@@ -395,9 +379,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // The metadata has loaded or changed, indicating a change in
   // duration of the media
-  handleDurationChange: (event: SyntheticEvent<HTMLVideoElement>) => void = (
-    event
-  ) => {
+  handleDurationChange: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onDurationChange } = this.props;
     const duration = (this.video && this.video.duration) || 0;
     this.setState({ duration });
@@ -429,7 +411,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Sent when playback of the media starts after having been paused.
   handlePlay: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   ) => void = (event) => {
     const { onPlay } = this.props;
 
@@ -439,9 +421,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when mouse down event happens on playhead
-  handlePlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
-    event
-  ) => {
+  handlePlayheadDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     const { onPlayheadDown } = this.props;
 
     if (onPlayheadDown) {
@@ -450,9 +430,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when mouse up event happens on playhead
-  handlePlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
-    event
-  ) => {
+  handlePlayheadUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     const { onPlayheadUp } = this.props;
 
     if (onPlayheadUp) {
@@ -462,7 +440,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Sent when playback is paused.
   handlePause: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   ) => void = (event) => {
     const { onPause } = this.props;
 
@@ -472,13 +450,10 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent periodically to inform interested parties of progress downloading the media
-  handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = (
-    event
-  ) => {
+  handleProgress: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onLoadedChange } = this.props;
     const { buffered } = this.video || {};
-    const loaded =
-      buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
+    const loaded = buffered && buffered.length > 0 ? buffered.end(buffered.length - 1) : 0;
 
     if (onLoadedChange) {
       onLoadedChange({ event, loaded });
@@ -495,9 +470,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // The time indicated by the element's currentTime attribute has changed
-  handleTimeUpdate: (event: SyntheticEvent<HTMLVideoElement>) => void = (
-    event
-  ) => {
+  handleTimeUpdate: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onTimeChange } = this.props;
     const currentTime = (this.video && this.video.currentTime) || 0;
     this.setState({ currentTime });
@@ -509,7 +482,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Sent when the audio volume changes
   handleVolumeChange: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>
+    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
   ) => void = (event) => {
     const { onVolumeChange } = this.props;
     const muted = (this.video && this.video.muted) || false;
@@ -565,9 +538,7 @@ export default class Video extends PureComponent<Props, State> {
             |})}
           >
             {Array.isArray(src) &&
-              src.map((source) => (
-                <source key={source.src} src={source.src} type={source.type} />
-              ))}
+              src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
             <track kind="captions" src={captions} />
           </video>
           {children && (
@@ -578,12 +549,8 @@ export default class Video extends PureComponent<Props, State> {
           {/* Need to use full path for these props so Flow can infer correct subtype */}
           {this.props.controls && (
             <VideoControls
-              accessibilityHideCaptionsLabel={
-                this.props.accessibilityHideCaptionsLabel || ''
-              }
-              accessibilityShowCaptionsLabel={
-                this.props.accessibilityShowCaptionsLabel || ''
-              }
+              accessibilityHideCaptionsLabel={this.props.accessibilityHideCaptionsLabel || ''}
+              accessibilityShowCaptionsLabel={this.props.accessibilityShowCaptionsLabel || ''}
               accessibilityMaximizeLabel={this.props.accessibilityMaximizeLabel}
               accessibilityMinimizeLabel={this.props.accessibilityMinimizeLabel}
               accessibilityMuteLabel={this.props.accessibilityMuteLabel}

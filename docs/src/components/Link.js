@@ -15,14 +15,7 @@ type Props = {|
 const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-const Link = ({
-  children,
-  history,
-  onClick,
-  replace = false,
-  target,
-  to,
-}: Props) => {
+const Link = ({ children, history, onClick, replace = false, target, to }: Props) => {
   const href = history.createHref({
     pathname: to,
   });
@@ -46,7 +39,7 @@ const Link = ({
         }
       }
     },
-    [history, onClick, replace, target, to]
+    [history, onClick, replace, target, to],
   );
 
   return (

@@ -33,13 +33,7 @@ const rollupConfig = {
       sourcemap: 'inline',
     },
   ],
-  external: [
-    'react',
-    'prop-types',
-    'classnames/bind',
-    'classnames',
-    'react-dom',
-  ],
+  external: ['react', 'prop-types', 'classnames/bind', 'classnames', 'react-dom'],
   plugins: plugins('gestalt'),
 };
 

@@ -13,7 +13,7 @@ test('renders correctly with colSpan and rowSpan', () => {
     .create(
       <TableCell rowSpan={2} colSpan={3}>
         cell content
-      </TableCell>
+      </TableCell>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

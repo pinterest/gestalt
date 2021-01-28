@@ -8,11 +8,6 @@ jest.mock('../remove-responsive-text-sizing', () => {
 
 describe('remove-responsive-text-sizing', () => {
   ['remove-responsive-text-sizing-transform'].forEach((test) => {
-    defineTest(
-      __dirname,
-      'remove-responsive-text-sizing',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'remove-responsive-text-sizing', { quote: 'single' }, test);
   });
 });

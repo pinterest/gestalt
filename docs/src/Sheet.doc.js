@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Sheet"
     description="Sheets are side surfaces that allow users to view information or complete sub-tasks in a workflow while keeping the context of the current page."
-  />
+  />,
 );
 
 card(
@@ -135,7 +135,7 @@ card(
         href: 'subHeadingExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -208,7 +208,7 @@ function SizesExample(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -320,7 +320,7 @@ function AnimationExample() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -363,7 +363,7 @@ function CloseOnOutsideExample(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -477,7 +477,7 @@ function DefaultPaddingExample(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -635,7 +635,7 @@ function SubheadingExample(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -695,7 +695,7 @@ function RefExample() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -721,7 +721,7 @@ card(
     ~~~
   `}
     name="Accessibility Props"
-  />
+  />,
 );
 
 export default cards;

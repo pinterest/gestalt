@@ -13,7 +13,7 @@ card(
     description="
 The Card component is meant to highlight content in grids. It visually shows that items belong together and highlights the items on hover.
 "
-  />
+  />,
 );
 
 card(
@@ -41,7 +41,7 @@ card(
         type: '({ event: SyntheticMouseEvent<HTMLDivElement> })',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -72,7 +72,7 @@ function CardExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

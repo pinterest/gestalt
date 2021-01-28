@@ -9,8 +9,7 @@ export default function transformer(file, api) {
       return;
     }
     const specifier = decl.specifiers.find(
-      (node) =>
-        node.imported.name === 'IconButton' || node.imported.name === 'Button'
+      (node) => node.imported.name === 'IconButton' || node.imported.name === 'Button',
     );
     if (!specifier) {
       return;
@@ -27,10 +26,7 @@ export default function transformer(file, api) {
       attributes.unshift(j.jsxAttribute(j.jsxIdentifier(attributeName)));
     } else if (propertyValue.value !== false) {
       attributes.unshift(
-        j.jsxAttribute(
-          j.jsxIdentifier(attributeName),
-          j.jsxExpressionContainer(propertyValue)
-        )
+        j.jsxAttribute(j.jsxIdentifier(attributeName), j.jsxExpressionContainer(propertyValue)),
       );
     }
   };
@@ -55,15 +51,8 @@ export default function transformer(file, api) {
 
           // Convert `aria.hasPopup` & `aria.expanded` to `aria-haspopup` & `aria-expanded`
           attr.value.expression.properties.forEach((property) => {
-            if (
-              property.key.name === 'haspopup' ||
-              property.key.name === 'expanded'
-            ) {
-              addAttribute(
-                attributes,
-                `aria-${property.key.name}`,
-                property.value
-              );
+            if (property.key.name === 'haspopup' || property.key.name === 'expanded') {
+              addAttribute(attributes, `aria-${property.key.name}`, property.value);
             }
           });
         }
@@ -71,9 +60,7 @@ export default function transformer(file, api) {
 
       if (hasAria) {
         // Sort attributes alphabetically
-        node.openingElement.attributes.sort((a, b) =>
-          a.name.name.localeCompare(b.name.name)
-        );
+        node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
       }
 
       j(path).replaceWith(node);

@@ -40,7 +40,7 @@ export type Hydra<ContextType> = {|
 
 function formatDisplayName(
   displayName: string,
-  subjectDisplayName?: string
+  subjectDisplayName?: string,
 ): { [string]: string, ... } {
   let slicedDisplayName = displayName.slice(1);
   slicedDisplayName = slicedDisplayName.endsWith('Context')
@@ -60,7 +60,7 @@ function formatDisplayName(
 
 export default function createHydra<ContextType>(
   displayName: string,
-  defaultValue?: ContextType
+  defaultValue?: ContextType,
 ): Hydra<ContextType> {
   const context = createContext<ContextType | void>(defaultValue);
   const { messageDisplayName } = formatDisplayName(displayName);
@@ -75,7 +75,7 @@ export default function createHydra<ContextType>(
 
     if (contextValue === undefined) {
       throw new Error(
-        `${messageDisplayName}Consumer must be used within a ${messageDisplayName}Provider.`
+        `${messageDisplayName}Consumer must be used within a ${messageDisplayName}Provider.`,
       );
     }
     return children(contextValue);
@@ -87,7 +87,7 @@ export default function createHydra<ContextType>(
 
     if (contextValue === undefined) {
       throw new Error(
-        `use${messageDisplayName} must be used within a ${messageDisplayName}Provider.`
+        `use${messageDisplayName} must be used within a ${messageDisplayName}Provider.`,
       );
     }
 

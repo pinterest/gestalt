@@ -45,12 +45,9 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) =>
-    event.stopPropagation();
+  stopClick: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => event.stopPropagation();
 
-  handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
-    event
-  ) => {
+  handleMouseDown: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     event.preventDefault();
     const { onPlayheadDown } = this.props;
     onPlayheadDown(event);
@@ -58,9 +55,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     this.seek(event.clientX);
   };
 
-  handleMouseLeave: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
-    event
-  ) => {
+  handleMouseLeave: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     const { onPlayheadUp } = this.props;
     const { seeking } = this.state;
     // If the user is seeking and mouse leaves playhead then end the seek
@@ -70,9 +65,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseMove: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
-    event
-  ) => {
+  handleMouseMove: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     event.preventDefault();
     const { seeking } = this.state;
     if (seeking) {
@@ -80,9 +73,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     }
   };
 
-  handleMouseUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (
-    event
-  ) => {
+  handleMouseUp: (event: SyntheticMouseEvent<HTMLDivElement>) => void = (event) => {
     const { onPlayheadUp } = this.props;
     this.setState({ seeking: false });
     onPlayheadUp(event);
@@ -92,13 +83,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     const { currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
     return (
-      <Box
-        position="relative"
-        display="flex"
-        flex="grow"
-        alignItems="center"
-        height={16}
-      >
+      <Box position="relative" display="flex" flex="grow" alignItems="center" height={16}>
         <div
           aria-valuemax={duration}
           aria-valuemin="0"
@@ -114,14 +99,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
           role="progressbar"
           tabIndex="-1"
         >
-          <Box
-            left
-            right
-            position="absolute"
-            color="lightGray"
-            rounding={2}
-            height={4}
-          >
+          <Box left right position="absolute" color="lightGray" rounding={2} height={4}>
             <Box color="white" rounding={2} height="100%" width={width} />
           </Box>
           <Box

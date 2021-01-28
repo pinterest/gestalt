@@ -125,9 +125,7 @@ const initialState = {
   setAnimationState: null,
 };
 
-const AnimationContext: Context<AnimationType> = createContext<AnimationType>(
-  initialState
-);
+const AnimationContext: Context<AnimationType> = createContext<AnimationType>(initialState);
 
 export function useAnimation(): UseAnimationType {
   const { animationState, setAnimationState } = useContext(AnimationContext);
@@ -148,12 +146,12 @@ function AnimationController({
 }: AnimationControllerProps): Element<typeof AnimationContext.Provider> | null {
   const shouldAnimate = !useReducedMotion();
   const [animationState, setAnimationState] = useState<AnimationStateType>(
-    shouldAnimate ? 'in' : null
+    shouldAnimate ? 'in' : null,
   );
-  const onDismissStart = useCallback(
-    () => setAnimationState(shouldAnimate ? 'out' : 'postOut'),
-    [setAnimationState, shouldAnimate]
-  );
+  const onDismissStart = useCallback(() => setAnimationState(shouldAnimate ? 'out' : 'postOut'), [
+    setAnimationState,
+    shouldAnimate,
+  ]);
 
   useEffect(() => {
     if (animationState === 'postOut') {

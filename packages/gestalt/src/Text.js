@@ -86,16 +86,14 @@ export default function Text({
     italic && typography.fontStyleItalic,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
-    truncate && typography.truncate
+    truncate && typography.truncate,
   );
   const Tag = inline ? 'span' : 'div';
 
   return (
     <Tag
       className={cs}
-      {...(truncate && typeof children === 'string'
-        ? { title: children }
-        : null)}
+      {...(truncate && typeof children === 'string' ? { title: children } : null)}
     >
       {children}
     </Tag>

@@ -39,7 +39,7 @@ export default function transformer(file, api) {
         if (attr.name && attr.name.name === 'ref') {
           // eslint-disable-next-line no-console
           console.error(
-            `Update legacy ref on Touchable: ${file.path}:${attr.loc.start.line}:${attr.loc.start.column}`
+            `Update legacy ref on Touchable: ${file.path}:${attr.loc.start.line}:${attr.loc.start.column}`,
           );
         }
       });

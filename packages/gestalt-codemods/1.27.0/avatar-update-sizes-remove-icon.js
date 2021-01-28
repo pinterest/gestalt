@@ -23,11 +23,9 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const avatarSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Avatar'
-    );
+    const avatarSpecifier = decl.specifiers.find((node) => node.imported.name === 'Avatar');
     const groupAvatarSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'GroupAvatar'
+      (node) => node.imported.name === 'GroupAvatar',
     );
     if (!avatarSpecifier && !groupAvatarSpecifier) {
       return;
@@ -51,10 +49,10 @@ export default function transformer(file, api) {
       }
 
       const hasSize = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'size'
+        (attr) => attr.name && attr.name.name === 'size',
       );
       const hasIcon = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'icon'
+        (attr) => attr.name && attr.name.name === 'icon',
       );
 
       if (!hasSize && !hasIcon) {

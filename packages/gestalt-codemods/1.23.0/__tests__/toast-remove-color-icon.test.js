@@ -7,14 +7,7 @@ jest.mock('../toast-remove-color-icon', () => {
 });
 
 describe('toast-remove-color-icon', () => {
-  ['toast-remove-color-icon-both', 'toast-remove-color-icon-single'].forEach(
-    (test) => {
-      defineTest(
-        __dirname,
-        'toast-remove-color-icon',
-        { quote: 'single' },
-        test
-      );
-    }
-  );
+  ['toast-remove-color-icon-both', 'toast-remove-color-icon-single'].forEach((test) => {
+    defineTest(__dirname, 'toast-remove-color-icon', { quote: 'single' }, test);
+  });
 });

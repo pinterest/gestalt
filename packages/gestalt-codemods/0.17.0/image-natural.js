@@ -8,9 +8,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Image'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Image');
     if (!specifier) {
       return;
     }
@@ -27,11 +25,7 @@ export default function transformer(file, api) {
       }
 
       const attrs = node.openingElement.attributes;
-      if (
-        !attrs.some(
-          (attr) => attr.name.name === 'width' || attr.name.name === 'height'
-        )
-      ) {
+      if (!attrs.some((attr) => attr.name.name === 'width' || attr.name.name === 'height')) {
         return;
       }
       node.openingElement.attributes = attrs.map((attr) => {
@@ -45,9 +39,7 @@ export default function transformer(file, api) {
         return attribute;
       });
 
-      node.openingElement.attributes.sort((a, b) =>
-        a.name.name.localeCompare(b.name.name)
-      );
+      node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
     })
     .toSource();
 }

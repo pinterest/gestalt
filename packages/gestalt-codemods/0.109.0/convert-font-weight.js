@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -35,7 +33,7 @@ export default function transformer(file, api) {
       }
 
       const hasBold = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'bold'
+        (attr) => attr.name && attr.name.name === 'bold',
       );
 
       if (!hasBold) {
@@ -50,10 +48,7 @@ export default function transformer(file, api) {
 
             if (isExpressionContainer) {
               // <Text bold={false} />
-              if (
-                attr.value.expression &&
-                attr.value.expression.value === false
-              ) {
+              if (attr.value.expression && attr.value.expression.value === false) {
                 return null;
               }
               // <Text bold={expression} />
@@ -63,9 +58,9 @@ export default function transformer(file, api) {
                   j.conditionalExpression(
                     attr.value.expression,
                     j.literal('bold'),
-                    j.literal('normal')
-                  )
-                )
+                    j.literal('normal'),
+                  ),
+                ),
               );
             }
             // <Text bold />

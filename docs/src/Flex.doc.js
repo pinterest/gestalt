@@ -17,7 +17,7 @@ card(
 
       Use this component for flex layouts, especially when even spacing between elements is desired (see the 'gap' property!).
     `}
-  />
+  />,
 );
 
 card(
@@ -114,7 +114,7 @@ card(
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -132,7 +132,7 @@ card(
   </Flex>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -152,7 +152,7 @@ card(
   </Flex>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -179,7 +179,7 @@ card(
         description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Flex relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Flex to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Flex's size based on child content regardless of its container's size.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -206,7 +206,7 @@ card(
         </Flex>
       </Box>
     )}
-  </Combination>
+  </Combination>,
 );
 
 export default cards;

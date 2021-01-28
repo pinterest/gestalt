@@ -10,13 +10,9 @@ describe('Modal', () => {
     test('Modal renders with ref', () => {
       const modalRef = React.createRef();
       const modal = render(
-        <Modal
-          accessibilityModalLabel="Test modal"
-          onDismiss={mockOnDismiss}
-          ref={modalRef}
-        >
+        <Modal accessibilityModalLabel="Test modal" onDismiss={mockOnDismiss} ref={modalRef}>
           Modal content
-        </Modal>
+        </Modal>,
       );
 
       expect(modal).toMatchSnapshot();

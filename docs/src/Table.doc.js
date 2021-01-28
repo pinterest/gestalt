@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="Table"
     description="The Table contains the following composable elements: Table, Table.Body, Table.Cell, Table.Footer, Table.Header, Table.HeaderCell, Table.Row, Table.SortableHeaderCell."
-  />
+  />,
 );
 
 card(
@@ -37,7 +37,7 @@ card(
         href: 'stickyHeader',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -106,7 +106,7 @@ card(
   </Table.Body>
 </Table>
 `}
-  />
+  />,
 );
 
 card(
@@ -120,7 +120,7 @@ card(
         type: 'React.Node',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -144,7 +144,7 @@ card(
         defaultValue: 1,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -158,7 +158,7 @@ card(
         type: 'React.Node',
       },
     ]}
-  />
+  />,
 );
 
 card(<Card name="Table.Header" />);
@@ -182,7 +182,7 @@ card(
           'If true, the table header will be sticky and the table body will be scrollable',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -256,7 +256,7 @@ card(
   </Table.Body>
 </Table>
 `}
-  />
+  />,
 );
 
 card(
@@ -285,7 +285,7 @@ card(
         defaultValue: 1,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -299,14 +299,14 @@ card(
         type: 'React.Node',
       },
     ]}
-  />
+  />,
 );
 
 card(
   <Card
     name="Table.RowExpandable"
     description="Expandable row that is able to hold content that will displayed depending on the clickable expand/collapse button icon."
-  />
+  />,
 );
 
 card(
@@ -358,12 +358,10 @@ card(
         name: 'onExpand',
         type: `({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement>
           | SyntheticKeyboardEvent<HTMLAnchorElement> expanded: boolean }) => void`,
-        description: [
-          'Callback fired when the expand button component is clicked',
-        ],
+        description: ['Callback fired when the expand button component is clicked'],
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -568,14 +566,14 @@ card(
       );
     }
     `}
-  />
+  />,
 );
 
 card(
   <Card
     name="Table.SortableHeaderCell"
     description="Sortable header cells are clickable in an accessible way and have an icon to display whether the table is currently being sorted by that column."
-  />
+  />,
 );
 
 card(
@@ -623,7 +621,7 @@ card(
         href: 'sortableExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -660,7 +658,7 @@ card(
       );
     }
 `}
-  />
+  />,
 );
 
 export default cards;

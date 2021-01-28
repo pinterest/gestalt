@@ -14,13 +14,7 @@ async function copyCode({ code }: {| code: string |}) {
   }
 }
 
-export default function ExampleCode({
-  code,
-  name,
-}: {|
-  code: string,
-  name: string,
-|}): Node {
+export default function ExampleCode({ code, name }: {| code: string, name: string |}): Node {
   const [expanded, setExpanded] = useState(true);
   const [showExpandButton, setShowExpandButton] = useState(false);
   const codeExampleRef = useRef(null);
@@ -72,9 +66,7 @@ export default function ExampleCode({
             idealDirection="up"
           >
             <IconButton
-              accessibilityLabel={`${
-                expanded ? 'Collapse' : 'Expand'
-              } code for ${name}`}
+              accessibilityLabel={`${expanded ? 'Collapse' : 'Expand'} code for ${name}`}
               iconColor="darkGray"
               icon={expanded ? 'eye-hide' : 'eye'}
               size="sm"
@@ -92,9 +84,7 @@ export default function ExampleCode({
           position="relative"
           ref={codeExampleRef}
           rounding={2}
-          {...(expanded
-            ? {}
-            : { maxHeight: CODE_EXAMPLE_HEIGHT, overflow: 'hidden' })}
+          {...(expanded ? {} : { maxHeight: CODE_EXAMPLE_HEIGHT, overflow: 'hidden' })}
         >
           <Box
             flex="grow"

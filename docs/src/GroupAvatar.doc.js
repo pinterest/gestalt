@@ -14,7 +14,7 @@ card(
     name="GroupAvatar"
     description={`You can use an \`GroupAvatar\` to represent a group of users. A light wash is automatically
 applied to each collaborator image to ensure the component retains a circular appearance.`}
-  />
+  />,
 );
 
 card(
@@ -39,7 +39,7 @@ card(
           'xs: 24px, sm: 32px, md: 48px, lg: 64px, xl: 120px. If size is `fit`, GroupAvatar will fill 100% of the parent container width',
       },
     ]}
-  />
+  />,
 );
 
 const user1 = {
@@ -75,7 +75,7 @@ card(
   />
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -85,7 +85,7 @@ card(
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
     {(props) => <GroupAvatar collaborators={[user1]} {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -95,7 +95,7 @@ card(
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
     {(props) => <GroupAvatar collaborators={[user1, user3]} {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -104,10 +104,8 @@ card(
     name="Size Combinations: 3 People"
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
-    {(props) => (
-      <GroupAvatar collaborators={[user1, user3, user2]} {...props} />
-    )}
-  </Combination>
+    {(props) => <GroupAvatar collaborators={[user1, user3, user2]} {...props} />}
+  </Combination>,
 );
 
 card(
@@ -124,7 +122,7 @@ card(
         {...props}
       />
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -141,7 +139,7 @@ card(
         {...props}
       />
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -167,6 +165,6 @@ card(
   </Box>
 </Box>
   `}
-  />
+  />,
 );
 export default cards;

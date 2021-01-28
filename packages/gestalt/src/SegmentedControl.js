@@ -12,7 +12,7 @@ import useFocusVisible from './useFocusVisible.js';
 
 type OnChange = AbstractEventHandler<
   SyntheticMouseEvent<HTMLButtonElement>,
-  {| activeIndex: number |}
+  {| activeIndex: number |},
 >;
 type Props = {|
   items: $ReadOnlyArray<Node>,
@@ -54,12 +54,7 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text
-          color={isSelected ? 'darkGray' : 'gray'}
-          align="center"
-          size={size}
-          weight="bold"
-        >
+        <Text color={isSelected ? 'darkGray' : 'gray'} align="center" size={size} weight="bold">
           {item}
         </Text>
       ) : (
@@ -78,15 +73,10 @@ export default function SegmentedControl({
   selectedItemIndex,
   size = 'md',
 }: Props): Node {
-  const buttonWidth = responsive
-    ? undefined
-    : `${Math.floor(100 / Math.max(1, items.length))}%`;
+  const buttonWidth = responsive ? undefined : `${Math.floor(100 / Math.max(1, items.length))}%`;
   return (
     <div
-      className={classnames(
-        styles.SegmentedControl,
-        size === 'md' ? layout.medium : layout.large
-      )}
+      className={classnames(styles.SegmentedControl, size === 'md' ? layout.medium : layout.large)}
       role="tablist"
     >
       {items.map((item, i) => (

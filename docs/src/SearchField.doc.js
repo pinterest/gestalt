@@ -73,7 +73,7 @@ card(
         type: 'string',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -124,7 +124,7 @@ card(
     );
   }
 `}
-  />
+  />,
 );
 
 export default cards;

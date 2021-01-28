@@ -1,10 +1,5 @@
 // @flow strict
-import React, {
-  isValidElement,
-  type ChildrenArray,
-  type ComponentType,
-  type Node,
-} from 'react';
+import React, { isValidElement, type ChildrenArray, type ComponentType, type Node } from 'react';
 
 // $FlowIgnore[unclear-type]
 type UnknownComponent = ComponentType<any>;
@@ -12,17 +7,12 @@ type UnknownComponent = ComponentType<any>;
 // In development, we compare based on the name of the function because
 // React Hot Loader proxies React components in order to make updates. In
 // production we can simply compare the components for equality.
-const isComponent = (
-  AComponent: UnknownComponent,
-  AnotherComponent: UnknownComponent
-) => AComponent === AnotherComponent;
+const isComponent = (AComponent: UnknownComponent, AnotherComponent: UnknownComponent) =>
+  AComponent === AnotherComponent;
 
 // Checks whether `element` is a React element of type `Component` (or one of
 // the passed components, if `Component` is an array of React components).
-function isElementOfType<P>(
-  element: ?Node,
-  Component: ChildrenArray<ComponentType<P>>
-): boolean {
+function isElementOfType<P>(element: ?Node, Component: ChildrenArray<ComponentType<P>>): boolean {
   if (
     element === null ||
     element === undefined ||
@@ -40,7 +30,7 @@ function isElementOfType<P>(
 
   return Components.some(
     // $FlowFixMe[incompatible-call]
-    (AComponent) => typeof type !== 'string' && isComponent(AComponent, type)
+    (AComponent) => typeof type !== 'string' && isComponent(AComponent, type),
   );
 }
 

@@ -105,32 +105,24 @@ export function getMainDir(
   flyoutSize: Flyout,
   idealDirection: MainDir,
   triggerRect: ClientRect,
-  windowSize: Window
+  windowSize: Window,
 ): 'down' | 'left' | 'right' | 'up' {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
   let up = triggerRect.top - flyoutSize.height - CARET_HEIGHT;
-  let right =
-    windowSize.width - flyoutSize.width - CARET_HEIGHT - triggerRect.right;
-  let down =
-    windowSize.height - flyoutSize.height - CARET_HEIGHT - triggerRect.bottom;
+  let right = windowSize.width - flyoutSize.width - CARET_HEIGHT - triggerRect.right;
+  let down = windowSize.height - flyoutSize.height - CARET_HEIGHT - triggerRect.bottom;
   let left = triggerRect.left - flyoutSize.width - CARET_HEIGHT;
 
   // overrides available space when the trigger is close to the edge of the screen
   // trigger is too close to top/bottom of screen for left & right flyouts
-  if (
-    triggerRect.top < BORDER_RADIUS ||
-    windowSize.height - triggerRect.bottom < BORDER_RADIUS
-  ) {
+  if (triggerRect.top < BORDER_RADIUS || windowSize.height - triggerRect.bottom < BORDER_RADIUS) {
     left = 0;
     right = 0;
   }
 
   // trigger is too close to the left/right of screen for up & down flyouts
-  if (
-    triggerRect.left < BORDER_RADIUS ||
-    windowSize.width - triggerRect.right < BORDER_RADIUS
-  ) {
+  if (triggerRect.left < BORDER_RADIUS || windowSize.width - triggerRect.right < BORDER_RADIUS) {
     up = 0;
     down = 0;
   }
@@ -159,7 +151,7 @@ export function getSubDir(
   flyoutSize: Flyout,
   mainDir: MainDir,
   triggerRect: ClientRect,
-  windowSize: Window
+  windowSize: Window,
 ): SubDir {
   // Now that we have the main direction, chose from 3 caret placements for that direction
   let offset;
@@ -199,13 +191,11 @@ export function getSubDir(
 export function calcEdgeShifts(
   subDir: SubDir,
   triggerRect: ClientRect,
-  windowSize: Window
+  windowSize: Window,
 ): {| caret: Shift, flyout: Shift |} {
   // Target values for flyout and caret shifts
-  let flyoutVerticalShift =
-    CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
-  let flyoutHorizontalShift =
-    CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
+  let flyoutVerticalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
+  let flyoutHorizontalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
   let caretVerticalShift = CARET_WIDTH;
   let caretHorizontalShift = CARET_WIDTH;
 
@@ -215,8 +205,7 @@ export function calcEdgeShifts(
     triggerRect.top - flyoutVerticalShift < 0 ||
     triggerRect.bottom + flyoutVerticalShift > windowSize.height;
   if (isCloseVertically) {
-    flyoutVerticalShift =
-      BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
+    flyoutVerticalShift = BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
@@ -224,8 +213,7 @@ export function calcEdgeShifts(
     triggerRect.left - flyoutHorizontalShift < 0 ||
     triggerRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseHorizontally) {
-    flyoutHorizontalShift =
-      BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
+    flyoutHorizontalShift = BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
   }
 
@@ -250,7 +238,7 @@ export function adjustOffsets(
   flyoutSize: Flyout,
   mainDir: MainDir,
   subDir: SubDir,
-  triggerRect: ClientRect
+  triggerRect: ClientRect,
 ): {|
   caretOffset: {|
     bottom: null | number,
@@ -272,15 +260,13 @@ export function adjustOffsets(
     flyoutTop = base.top - edgeShift.flyout.y;
     caretTop = edgeShift.caret.y + 2;
   } else if (subDir === 'down') {
-    flyoutTop =
-      base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
+    flyoutTop = base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
     caretBottom = edgeShift.caret.y + 2;
   } else if (subDir === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;
   } else if (subDir === 'right') {
-    flyoutLeft =
-      base.left - flyoutSize.width + triggerRect.width + edgeShift.flyout.x;
+    flyoutLeft = base.left - flyoutSize.width + triggerRect.width + edgeShift.flyout.x;
     caretRight = edgeShift.caret.x + 2;
   } else if (subDir === 'middle') {
     if (mainDir === 'left' || mainDir === 'right') {
@@ -318,7 +304,7 @@ export function baseOffsets(
   flyoutSize: Flyout,
   mainDir: MainDir,
   triggerRect: ClientRect,
-  windowSize: Window
+  windowSize: Window,
 ): {| left: number, top: number |} {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT : 8;
   // TOP OFFSET
@@ -326,9 +312,7 @@ export function baseOffsets(
   if (mainDir === 'down') {
     top = windowSize.scrollY + triggerRect.bottom + SPACING_OUTSIDE;
   } else if (mainDir === 'up') {
-    top =
-      windowSize.scrollY +
-      (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE);
+    top = windowSize.scrollY + (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE);
   } else {
     // left and right
     top = windowSize.scrollY + triggerRect.top;
@@ -337,9 +321,7 @@ export function baseOffsets(
   // LEFT OFFSET
   let left;
   if (mainDir === 'left') {
-    left =
-      windowSize.scrollX +
-      (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE);
+    left = windowSize.scrollX + (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE);
   } else if (mainDir === 'right') {
     left = windowSize.scrollX + triggerRect.right + SPACING_OUTSIDE;
   } else {
@@ -426,15 +408,8 @@ class WrappedContents extends Component<Props, State> {
    * to correctly position the offset
    */
   static getDerivedStateFromProps(
-    {
-      caret,
-      idealDirection,
-      positionRelativeToAnchor,
-      relativeOffset,
-      triggerRect,
-      width,
-    }: Props,
-    { flyoutRef }: State
+    { caret, idealDirection, positionRelativeToAnchor, relativeOffset, triggerRect, width }: Props,
+    { flyoutRef }: State,
   ): {|
     caretOffset: {|
       bottom: null | number,
@@ -454,9 +429,7 @@ class WrappedContents extends Component<Props, State> {
         0;
     const scrollY = positionRelativeToAnchor
       ? 0
-      : window.pageYOffset ||
-        (document.documentElement && document.documentElement.scrollTop) ||
-        0;
+      : window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
 
     const windowSize = {
       height: window.innerHeight,
@@ -471,12 +444,7 @@ class WrappedContents extends Component<Props, State> {
     };
 
     // First choose one of 4 main direction
-    const mainDir = getMainDir(
-      flyoutSize,
-      idealDirection,
-      triggerRect,
-      windowSize
-    );
+    const mainDir = getMainDir(flyoutSize, idealDirection, triggerRect, windowSize);
 
     // Now that we have the main direction, chose from 3 caret placements for that direction
     const subDir = getSubDir(flyoutSize, mainDir, triggerRect, windowSize);
@@ -488,7 +456,7 @@ class WrappedContents extends Component<Props, State> {
       flyoutSize,
       mainDir,
       triggerRect,
-      windowSize
+      windowSize,
     );
 
     // Gets the edge shifts for the flyout
@@ -501,7 +469,7 @@ class WrappedContents extends Component<Props, State> {
       flyoutSize,
       mainDir,
       subDir,
-      triggerRect
+      triggerRect,
     );
 
     return {
@@ -515,9 +483,7 @@ class WrappedContents extends Component<Props, State> {
   // derive the flyout location from it in getDerivedStateFromProps, and because
   // this method is static, it doesn't have access to the component instance.
   // Instead, we rely on React passing the state values into that method.
-  setFlyoutRef: (flyoutRef: ?HTMLElement) => void = (
-    flyoutRef: ?HTMLElement
-  ) => {
+  setFlyoutRef: (flyoutRef: ?HTMLElement) => void = (flyoutRef: ?HTMLElement) => {
     if (!this.state.flyoutRef) {
       this.setState({ flyoutRef });
     }
@@ -538,25 +504,21 @@ class WrappedContents extends Component<Props, State> {
 
     // Needed to prevent UI thrashing
     const visibility = mainDir === null ? 'hidden' : 'visible';
-    const background =
-      bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
+    const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
     const stroke = bgColor === 'white' && !isDarkMode ? colorGray100 : null;
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
 
     const isCaretVertical = ['down', 'up'].includes(mainDir);
 
     return (
-      <div
-        className={styles.container}
-        style={{ stroke, visibility, ...flyoutOffset }}
-      >
+      <div className={styles.container} style={{ stroke, visibility, ...flyoutOffset }}>
         <div
           className={classnames(
             rounding === 2 && borders.rounding2,
             rounding === 4 && borders.rounding4,
             styles.contents,
             styles.maxDimensions,
-            width !== null && styles.minDimensions
+            width !== null && styles.minDimensions,
           )}
           ref={this.setFlyoutRef}
           tabIndex={-1}
@@ -582,7 +544,7 @@ class WrappedContents extends Component<Props, State> {
               rounding === 4 && borders.rounding4,
               styles.innerContents,
               styles.maxDimensions,
-              width !== null && styles.minDimensions
+              width !== null && styles.minDimensions,
             )}
             style={{ maxWidth: width }}
           >

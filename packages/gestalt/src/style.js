@@ -30,9 +30,7 @@ export const identity = (): Style => ({
   inlineStyle: {},
 });
 
-export const fromClassName = (
-  ...classNames: $ReadOnlyArray<string>
-): Style => ({
+export const fromClassName = (...classNames: $ReadOnlyArray<string>): Style => ({
   className: new Set(classNames),
   inlineStyle: {},
 });
@@ -46,17 +44,18 @@ export const concat = (styles: $ReadOnlyArray<Style>): Style =>
   styles.reduce(
     (
       { className: classNameA, inlineStyle: inlineStyleA },
-      { className: classNameB, inlineStyle: inlineStyleB }
+      { className: classNameB, inlineStyle: inlineStyleB },
     ) => ({
       className: new Set([...classNameA, ...classNameB]),
       inlineStyle: { ...inlineStyleA, ...inlineStyleB },
     }),
-    identity()
+    identity(),
   );
 
-export const mapClassName = (
-  fn: (x: string) => string
-): ((Style) => Style) => ({ className, inlineStyle }: Style): Style => ({
+export const mapClassName = (fn: (x: string) => string): ((Style) => Style) => ({
+  className,
+  inlineStyle,
+}: Style): Style => ({
   className: new Set(Array.from(className).map(fn)),
   inlineStyle,
 });

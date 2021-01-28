@@ -1,11 +1,5 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useState,
-  useEffect,
-  useRef,
-  type Node,
-} from 'react';
+import React, { forwardRef, useState, useEffect, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
@@ -60,10 +54,10 @@ function Header({
   );
 }
 
-const ModalWithForwardRef: React$AbstractComponent<
+const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
-  HTMLDivElement
-> = forwardRef<Props, HTMLDivElement>(function Modal(props, ref): Node {
+  HTMLDivElement,
+>(function Modal(props, ref): Node {
   const {
     accessibilityModalLabel,
     align = 'center',
@@ -108,8 +102,7 @@ const ModalWithForwardRef: React$AbstractComponent<
     const hasVerticalScrollbar = target.clientHeight < target.scrollHeight;
     setShowTopShadow(hasVerticalScrollbar && target.scrollTop > 0);
     setShowBottomShadow(
-      hasVerticalScrollbar &&
-        target.offsetHeight + target.scrollTop < target.scrollHeight
+      hasVerticalScrollbar && target.offsetHeight + target.scrollTop < target.scrollHeight,
     );
   };
 
@@ -129,31 +122,15 @@ const ModalWithForwardRef: React$AbstractComponent<
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div
-          aria-label={accessibilityModalLabel}
-          className={modalStyles.container}
-          role={role}
-        >
-          <Backdrop
-            closeOnOutsideClick={closeOnOutsideClick}
-            onClick={handleOutsideClick}
-          >
+        <div aria-label={accessibilityModalLabel} className={modalStyles.container} role={role}>
+          <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleOutsideClick}>
             <div
-              className={classnames(
-                modalStyles.wrapper,
-                focusStyles.hideOutline
-              )}
+              className={classnames(modalStyles.wrapper, focusStyles.hideOutline)}
               tabIndex={-1}
               style={{ width }}
               ref={ref}
             >
-              <Box
-                flex="grow"
-                position="relative"
-                display="flex"
-                direction="column"
-                width="100%"
-              >
+              <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {heading && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
@@ -161,22 +138,13 @@ const ModalWithForwardRef: React$AbstractComponent<
                     })}
                   >
                     {typeof heading === 'string' ? (
-                      <Header
-                        align={align}
-                        heading={heading}
-                        subHeading={subHeading}
-                      />
+                      <Header align={align} heading={heading} subHeading={subHeading} />
                     ) : (
                       heading
                     )}
                   </div>
                 )}
-                <Box
-                  flex="grow"
-                  overflow="auto"
-                  onScroll={updateShadows}
-                  ref={content}
-                >
+                <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={content}>
                   {children}
                 </Box>
                 {footer && (
@@ -207,10 +175,7 @@ ModalWithForwardRef.propTypes = {
   heading: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   onDismiss: PropTypes.func,
   role: PropTypes.oneOf(['alertdialog', 'dialog']),
-  size: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.oneOf(['sm', 'md', 'lg']),
-  ]),
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(['sm', 'md', 'lg'])]),
   subHeading: PropTypes.string,
 };
 

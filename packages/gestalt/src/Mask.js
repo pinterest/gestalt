@@ -17,14 +17,7 @@ type Props = {|
 |};
 
 export default function Mask(props: Props): Node {
-  const {
-    children,
-    rounding = 0,
-    width,
-    height,
-    willChangeTransform = true,
-    wash = false,
-  } = props;
+  const { children, rounding = 0, width, height, willChangeTransform = true, wash = false } = props;
   return (
     <div
       className={cx(styles.Mask, getRoundingClassName(rounding), {

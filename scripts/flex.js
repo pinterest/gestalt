@@ -32,14 +32,11 @@ const Declaration = ({ property, value }) => `${property}: ${value};`;
 const Ruleset = ({ selector, declarations }) =>
   `${selector} ${block(
     Object.keys(declarations)
-      .map((property) =>
-        Declaration({ property, value: declarations[property] })
-      )
-      .join('\n')
+      .map((property) => Declaration({ property, value: declarations[property] }))
+      .join('\n'),
   )}`;
 
-const Stylesheet = (statements) =>
-  [PRELUDE].concat(statements.map(Ruleset)).join('\n\n');
+const Stylesheet = (statements) => [PRELUDE].concat(statements.map(Ruleset)).join('\n\n');
 
 // --
 
@@ -89,5 +86,5 @@ console.log(
 
     // Add rules for boints 0 through SCALE_LENGTH
     ...[0, ...SCALE].reduce((arr, i) => arr.concat(rules(i)), []),
-  ])
+  ]),
 );

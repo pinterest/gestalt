@@ -82,7 +82,7 @@ card(
   <PageHeader
     name="DatePicker"
     description="Use Datepicker when the user has to select a date or date range."
-  />
+  />,
 );
 
 card(
@@ -105,8 +105,7 @@ card(
       {
         name: 'helperText',
         type: 'string',
-        description:
-          'More information about how to complete the date picker field.',
+        description: 'More information about how to complete the date picker field.',
         href: 'helperText',
       },
       {
@@ -156,8 +155,7 @@ card(
       {
         name: 'rangeEndDate',
         type: 'Date',
-        description:
-          'Required for date range selection. End date on a date range selection.',
+        description: 'Required for date range selection. End date on a date range selection.',
         href: 'disabled-past',
       },
 
@@ -171,8 +169,7 @@ card(
       {
         name: 'rangeStartDate',
         type: 'Date',
-        description:
-          'Required for date range selection. Start date on a date range selection.',
+        description: 'Required for date range selection. Start date on a date range selection.',
         href: 'disabled-past',
       },
       {
@@ -189,7 +186,7 @@ card(
         href: 'preselectedValue',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -211,7 +208,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -235,7 +232,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -282,7 +279,7 @@ function DatePickerRangeExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -304,7 +301,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -329,7 +326,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -353,7 +350,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -378,7 +375,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -401,7 +398,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -426,7 +423,7 @@ function DatePickerExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -447,7 +444,7 @@ card(
         />
       );
     }}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -480,7 +477,7 @@ import { it } from 'date-fns/locale';
         />
       );
     }}
-  </Combination>
+  </Combination>,
 );
 
 export default cards;

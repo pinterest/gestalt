@@ -8,17 +8,14 @@ import Toast from './Toast.js';
 describe('<Toast />', () => {
   test('Text Only', () => {
     const tree = create(
-      <Toast text="Same great profile, slightly new look. Learn more?" />
+      <Toast text="Same great profile, slightly new look. Learn more?" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('Red Toast', () => {
     const tree = create(
-      <Toast
-        color="red"
-        text="Same great profile, slightly new look. Learn more?"
-      />
+      <Toast color="red" text="Same great profile, slightly new look. Learn more?" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -35,12 +32,10 @@ describe('<Toast />', () => {
         text={
           <>
             Saved to{' '}
-            <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">
-              Home decor
-            </Link>
+            <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">Home decor</Link>
           </>
         }
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -57,13 +52,11 @@ describe('<Toast />', () => {
         text={
           <>
             Saved to{' '}
-            <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">
-              Home decor
-            </Link>
+            <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">Home decor</Link>
           </>
         }
         button={<Button size="lg" text="Undo" />}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

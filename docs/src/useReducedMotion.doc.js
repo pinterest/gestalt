@@ -20,7 +20,7 @@ card(
       <li><a href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39.html">WCAG C39: Using the CSS reduce-motion query to prevent motion</a></li>
     </ul>
     `}
-  />
+  />,
 );
 
 card(
@@ -63,7 +63,7 @@ function Example() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 export default cards;

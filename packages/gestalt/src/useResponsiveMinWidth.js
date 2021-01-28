@@ -22,7 +22,7 @@ export default function useResponsiveMinWidth(): ?MinWidthType {
             sm: window.matchMedia(breakpoints.sm),
           }
         : undefined,
-    [supportsMatchMedia]
+    [supportsMatchMedia],
   );
 
   const getMinWidth = useCallback(
@@ -33,12 +33,10 @@ export default function useResponsiveMinWidth(): ?MinWidthType {
           (mediaQuery.sm.matches && 'sm') ||
           'xs'
         : undefined,
-    [mediaQuery, supportsMatchMedia]
+    [mediaQuery, supportsMatchMedia],
   );
 
-  const [minWidth, setMinWidth] = useState(
-    supportsMatchMedia ? getMinWidth() : undefined
-  );
+  const [minWidth, setMinWidth] = useState(supportsMatchMedia ? getMinWidth() : undefined);
 
   useEffect(() => {
     if (!supportsMatchMedia) {

@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Callout"
     description="Callouts are banners that display short messages that are either helpful information to a task on the page or require user attention."
-  />
+  />,
 );
 
 card(
@@ -107,7 +107,7 @@ card(
         href: '',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -127,7 +127,7 @@ card(
   }}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -145,7 +145,7 @@ card(
   }}
 />
   `}
-  />
+  />,
 );
 
 card(
@@ -158,7 +158,7 @@ card(
   message="This action can't be undone."
 />
   `}
-  />
+  />,
 );
 
 card(
@@ -266,7 +266,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

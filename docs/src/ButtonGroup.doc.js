@@ -7,9 +7,7 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(
-  <PageHeader name="ButtonGroup" description="Group a series of buttons." />
-);
+card(<PageHeader name="ButtonGroup" description="Group a series of buttons." />);
 
 card(
   <PropTable
@@ -21,7 +19,7 @@ card(
         href: 'accessibilityLabel',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -34,7 +32,7 @@ card(
   <Button text="Button 2" />
 </ButtonGroup>
 `}
-  />
+  />,
 );
 
 card(
@@ -51,7 +49,7 @@ card(
   </ButtonGroup>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

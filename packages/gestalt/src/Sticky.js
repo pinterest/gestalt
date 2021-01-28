@@ -2,11 +2,7 @@
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import layout from './Layout.css';
-import {
-  FixedZIndex,
-  type Indexable,
-  UnsafeIndexablePropType,
-} from './zIndex.js';
+import { FixedZIndex, type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 
 type PositionType = number | string;
 
@@ -51,9 +47,10 @@ export default function Sticky(props: Props): Node {
   );
 }
 
-const PositionPropType: React$PropType$Primitive<PositionType> = PropTypes.oneOfType(
-  [PropTypes.number, PropTypes.string]
-);
+const PositionPropType: React$PropType$Primitive<PositionType> = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.string,
+]);
 
 Sticky.propTypes = {
   children: PropTypes.node,

@@ -1,11 +1,5 @@
 // @flow strict
-import React, {
-  Children,
-  cloneElement,
-  useState,
-  useRef,
-  type Node,
-} from 'react';
+import React, { Children, cloneElement, useState, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flyout from './Flyout.js';
@@ -14,9 +8,7 @@ import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
 import DropdownContext from './DropdownContextProvider.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
-import handleContainerScrolling, {
-  type DirectionOptionType,
-} from './utils/keyboardNavigation.js';
+import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import { type OptionObject } from './MenuOption.js';
@@ -30,7 +22,7 @@ type Props = {|
   onDismiss: () => void,
   onSelect?: AbstractEventHandler<
     SyntheticKeyboardEvent<HTMLElement> | SyntheticMouseEvent<HTMLElement>,
-    {| item: ?OptionObject |}
+    {| item: ?OptionObject |},
   >,
   zIndex?: Indexable,
 |};
@@ -63,12 +55,10 @@ export default function Dropdown({
         return [...accumulatedChildren, currentChild];
       }
       // eslint-disable-next-line no-console
-      console.warn(
-        'Only children of type DropdownItem or DropdownSection are allowed.'
-      );
+      console.warn('Only children of type DropdownItem or DropdownSection are allowed.');
       return [];
     },
-    []
+    [],
   );
 
   const availableOptions = flattenedChildren;
@@ -163,18 +153,12 @@ export default function Dropdown({
     const dropdownChildrenArray = Children.toArray(children);
 
     dropdownChildrenArray.forEach((child, index) => {
-      if (
-        child.props.children &&
-        child.type.displayName === 'DropdownSection'
-      ) {
+      if (child.props.children && child.type.displayName === 'DropdownSection') {
         const sectionChildrenArray = Children.toArray(child.props.children);
         items.push(
           cloneElement(child, {
-            children: renderDropdownItemsWithIndex(
-              sectionChildrenArray,
-              numItemsRendered
-            ),
-          })
+            children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
+          }),
         );
         numItemsRendered += child.props.children.length;
       } else if (child.type.displayName === 'DropdownItem') {
@@ -208,9 +192,7 @@ export default function Dropdown({
           role="menu"
         >
           {headerContent && <Box padding={2}>{headerContent}</Box>}
-          <DropdownContext.Provider
-            value={{ id, hoveredItem, setHoveredItem, setOptionRef }}
-          >
+          <DropdownContext.Provider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
             {renderChildrenWithIndex()}
           </DropdownContext.Provider>
         </Box>

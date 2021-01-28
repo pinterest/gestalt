@@ -4,7 +4,7 @@ import { useState } from 'react';
 // Forked from https://usehooks.com/useLocalStorage/
 export default function useLocalStorage<T>(
   key: string,
-  initialValue: T
+  initialValue: T,
 ): [T, (((T) => T) | T) => void] {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once

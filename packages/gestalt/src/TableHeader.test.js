@@ -8,7 +8,7 @@ test('renders correctly', () => {
     .create(
       <TableHeader>
         <div>row with column names</div>
-      </TableHeader>
+      </TableHeader>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -19,7 +19,7 @@ test('sticky header renders correctly', () => {
     .create(
       <TableHeader sticky>
         <div>row with column names</div>
-      </TableHeader>
+      </TableHeader>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

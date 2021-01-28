@@ -3,12 +3,7 @@ import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import { buildStyles } from './boxTransforms.js';
 import styles from './Flex.css';
-import {
-  AlignSelfPropType,
-  FlexPropType,
-  type AlignSelf,
-  type Flex,
-} from './boxTypes.js';
+import { AlignSelfPropType, FlexPropType, type AlignSelf, type Flex } from './boxTypes.js';
 
 export type Props = {|
   alignSelf?: AlignSelf,

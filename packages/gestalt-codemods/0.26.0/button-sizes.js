@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Button'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Button');
     if (!specifier) {
       return;
     }

@@ -34,9 +34,7 @@ const avatarLayout = (n, size) => {
   switch (n) {
     case 0:
     case 1:
-      return [
-        { top: 0, left: 0, width: size, height: size, textLayout: 'center' },
-      ];
+      return [{ top: 0, left: 0, width: size, height: size, textLayout: 'center' }];
     case 2:
       return [
         {
@@ -107,11 +105,9 @@ const DefaultAvatar = (props: {|
         fill={colorGray300}
         dominantBaseline="central"
         textAnchor="middle"
-        className={[
-          typography.antialiased,
-          typography.sansSerif,
-          typography.fontWeightBold,
-        ].join(' ')}
+        className={[typography.antialiased, typography.sansSerif, typography.fontWeightBold].join(
+          ' ',
+        )}
       >
         {name ? [...name][0].toUpperCase() : ''}
       </text>
@@ -216,16 +212,12 @@ export default function GroupAvatar(props: Props): Node {
                   fit="cover"
                 />
               ) : (
-                <DefaultAvatar
-                  name={name}
-                  textLayout={textLayout}
-                  size={height}
-                />
+                <DefaultAvatar name={name} textLayout={textLayout} size={height} />
               )}
               <div className={styles.wash} />
             </Box>
           );
-        }
+        },
       )}
     </Box>
   );
@@ -237,7 +229,7 @@ GroupAvatar.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       src: PropTypes.string,
-    })
+    }),
   ).isRequired,
   outline: PropTypes.bool,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
