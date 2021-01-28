@@ -5,7 +5,7 @@
 You'll first need to install [ESLint](http://eslint.org), then install `eslint-plugin-gestalt`:
 
 ```bash
-$ npm i eslint --save-dev
+$ npm install eslint --save-dev
 $ npm install eslint-plugin-gestalt --save-dev
 ```
 
@@ -70,7 +70,7 @@ Prevent using inline styles on divs that could be gestalt Box props. We prefer u
 
 ## Development
 
-New rules should be developed TDD-style by testing against simplified test cases first. See the \*.test.js files and **fixtures** for examples. Once tests pass, you can check the rules against a project using gestalt through yarn link. For example:
+New rules should be developed TDD-style by testing against simplified test cases first. See the \*.test.js files and fixtures for examples. Once tests pass, you can check the rules against a project using gestalt through yarn link. For example:
 
 ```bash
 cd ~/code/gestalt/packages/gestalt-eslint
