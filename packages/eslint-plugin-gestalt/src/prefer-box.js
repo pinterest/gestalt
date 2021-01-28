@@ -1,0 +1,114 @@
+/**
+ * @fileoverview Prevent using inline styles on divs that could be gestalt Box props
+ * @author Jenny Steele <jsteele@pinterest.com>
+ *
+ * We prefer using gestalt Box over divs with inline styling to get styling consistency
+ * across the app and shared css classes. This linter checks for usage of inline styling
+ * that is available as Box props.
+ */
+
+const {
+  validateBackgroundColor,
+  validateBorderRadius,
+} = require('./validators.js');
+
+function getInlineDefinedStyles(attr) {
+  return attr.value.expression.properties
+    ? attr.value.expression.properties
+    : null;
+}
+
+function getVariableDefinedStyles(ref) {
+  return ref.resolved &&
+    ref.resolved.defs &&
+    ref.resolved.defs[0] &&
+    ref.resolved.defs[0].node &&
+    ref.resolved.defs[0].node.init &&
+    ref.resolved.defs[0].node.init.properties
+    ? ref.resolved.defs[0].node.init.properties
+    : null;
+}
+
+module.exports = {
+  meta: {
+    docs: {
+      description:
+        'linter checks for usage of inline styling that is available as Box props',
+      recommended: false,
+    },
+    schema: [
+      {
+        type: 'object',
+        additionalProperties: false,
+      },
+    ],
+  },
+
+  create(context) {
+    function matchKeyErrors(matchedErrors, key) {
+      let message = '';
+      switch (key.name) {
+        case 'backgroundColor':
+          message = validateBackgroundColor(key.value);
+          if (message) {
+            matchedErrors.push(message);
+          }
+          break;
+        case 'borderRadius':
+          message = validateBorderRadius(key.value);
+          if (message) {
+            matchedErrors.push(message);
+          }
+          break;
+      }
+      return matchedErrors.filter((x) => x);
+    }
+
+    return {
+      JSXOpeningElement(node) {
+        if (node.name.name !== 'div') {
+          return;
+        }
+        for (const attrKey in node.attributes) {
+          const attr = node.attributes[attrKey];
+          const matched = attr.name && attr.name.name === 'style';
+          if (matched) {
+            // If we have style properties here, this is an object declared inline
+            let styleProperties = getInlineDefinedStyles(attr);
+            // Not declared inline? Check to see if there's a variable matching the name defined
+            if (!styleProperties && attr.value.expression.name) {
+              const scope = context.getScope(node);
+              // Look in local scope for variable reference
+              const ref = scope.references.find(
+                (ref) => ref.identifier.name === attr.value.expression.name
+              );
+              if (ref) {
+                styleProperties = getVariableDefinedStyles(ref);
+              }
+            }
+            if (styleProperties) {
+              const errorMessages = styleProperties
+                .map(({ key, type, value }) => {
+                  // Handle things like spread props
+                  if (!key || value.value === undefined) {
+                    return { name: type, value: null };
+                  }
+                  return { name: key.name, value: value.value };
+                })
+                .reduce(matchKeyErrors, []);
+              if (errorMessages.length) {
+                context.report(
+                  attr,
+                  `Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n${errorMessages.join(
+                    '\n'
+                  )}`
+                );
+              }
+            }
+            break;
+          }
+        }
+      },
+    };
+  },
+};
