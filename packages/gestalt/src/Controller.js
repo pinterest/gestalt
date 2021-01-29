@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
+import { useScrollableContainer } from './contexts/ScrollableContainer.js';
+import { getContainerNode } from './Layer.js';
 
-type Props = {|
+type OwnProps = {|
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
@@ -17,8 +19,14 @@ type Props = {|
   positionRelativeToAnchor: boolean,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
 |};
+
+type HookProps = {|
+  scrollableContainerRef: ?HTMLDivElement,
+|};
+
+type Props = {| ...OwnProps, ...HookProps |};
 
 const SIZE_WIDTH_MAP = {
   xs: 180,
@@ -28,15 +36,14 @@ const SIZE_WIDTH_MAP = {
   xl: 360,
 };
 
-type ClientRect = {
+type ClientRect = {|
   bottom: number,
   height: number,
   left: number,
   right: number,
   top: number,
   width: number,
-  ...
-};
+|};
 
 type State = {|
   relativeOffset: {|
@@ -46,23 +53,53 @@ type State = {|
   triggerBoundingRect: ClientRect,
 |};
 
-function getTriggerRect(anchor: HTMLElement, positionRelativeToAnchor: boolean) {
+function getTriggerRect(
+  anchor: HTMLElement,
+  positionRelativeToAnchor: boolean,
+  scrollableContainerRef: ?HTMLDivElement,
+) {
   let triggerBoundingRect;
   let relativeOffset;
-  if (anchor) {
-    triggerBoundingRect = anchor.getBoundingClientRect();
 
-    // Needed for correct positioning within Contents.js
-    relativeOffset = {
-      x: positionRelativeToAnchor ? triggerBoundingRect.left - anchor.offsetLeft : 0,
-      y: positionRelativeToAnchor ? triggerBoundingRect.top - anchor.offsetTop : 0,
-    };
+  if (!anchor) {
+    return { relativeOffset, triggerBoundingRect };
   }
+
+  const containerNode = getContainerNode({ scrollableContainerRef, initialPositionRef: anchor });
+
+  const boundingAnchorRect = anchor.getBoundingClientRect();
+  // triggerBoundingRect is passed to Contents.js where this data will be used for positioning
+  triggerBoundingRect = {
+    bottom: boundingAnchorRect.bottom,
+    left: boundingAnchorRect.left,
+    right: boundingAnchorRect.right,
+    top: boundingAnchorRect.top,
+    height: boundingAnchorRect.height,
+    width: boundingAnchorRect.width,
+  };
+
+  if (containerNode) {
+    // If there's a parent ScrollableContainer, ScrollableContainer's top/left
+    // coordinates are the new reference (rather than the browser's window top and left edges)
+    // and triggerBoundingRect must be corrected
+    const boundingContainerRect = containerNode.getBoundingClientRect();
+    // The differencial from trigger bottom/right to container top/left
+    triggerBoundingRect.bottom = boundingAnchorRect.bottom - boundingContainerRect.top;
+    triggerBoundingRect.right = boundingAnchorRect.right - boundingContainerRect.left;
+    // The differencial from trigger top/left to container top/left
+    triggerBoundingRect.top = boundingAnchorRect.top - boundingContainerRect.top;
+    triggerBoundingRect.left = boundingAnchorRect.left - boundingContainerRect.left;
+  }
+  // relativeOffset is used for correct positioning within Contents.js
+  relativeOffset = {
+    x: positionRelativeToAnchor ? triggerBoundingRect.left - anchor.offsetLeft : 0,
+    y: positionRelativeToAnchor ? triggerBoundingRect.top - anchor.offsetTop : 0,
+  };
 
   return { relativeOffset, triggerBoundingRect };
 }
 
-export default class Controller extends Component<Props, State> {
+class Controller extends Component<Props, State> {
   static propTypes = {
     anchor: PropTypes.shape({
       contains: PropTypes.func,
@@ -95,11 +132,9 @@ export default class Controller extends Component<Props, State> {
   static getDerivedStateFromProps({
     anchor,
     positionRelativeToAnchor,
-  }: Props): {|
-    relativeOffset: void | {| x: number, y: number |},
-    triggerBoundingRect: void | ClientRect,
-  |} {
-    return getTriggerRect(anchor, positionRelativeToAnchor);
+    scrollableContainerRef,
+  }: Props) {
+    return getTriggerRect(anchor, positionRelativeToAnchor, scrollableContainerRef);
   }
 
   state: State = {
@@ -140,16 +175,22 @@ export default class Controller extends Component<Props, State> {
     this.updateTriggerRect(this.props);
   };
 
-  updateTriggerRect: (Props) => void = ({ anchor, positionRelativeToAnchor }: Props) => {
+  updateTriggerRect: (Props) => void = ({
+    anchor,
+    positionRelativeToAnchor,
+    scrollableContainerRef,
+  }: Props) => {
     const { relativeOffset, triggerBoundingRect } = getTriggerRect(
       anchor,
       positionRelativeToAnchor,
+      scrollableContainerRef,
     );
     this.setState({ relativeOffset, triggerBoundingRect });
   };
 
   render(): ReactNode {
     const {
+      anchor,
       bgColor,
       border,
       caret,
@@ -167,6 +208,7 @@ export default class Controller extends Component<Props, State> {
     return (
       <OutsideEventBehavior onClick={this.handlePageClick}>
         <Contents
+          anchor={anchor}
           bgColor={bgColor}
           border={border}
           caret={caret}
@@ -186,3 +228,10 @@ export default class Controller extends Component<Props, State> {
     );
   }
 }
+
+const WrappedController = (props: OwnProps): ReactNode => {
+  const { scrollableContainerRef = null } = useScrollableContainer();
+  return <Controller {...props} scrollableContainerRef={scrollableContainerRef} />;
+};
+
+export default WrappedController;
