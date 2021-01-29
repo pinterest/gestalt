@@ -102,28 +102,16 @@ const rules = (i, prefix) => [
   ruleset(classname(prefix, `marginTop${i}`), {
     'margin-top': bt(i),
   }),
-  ruleset(classname(prefix, `marginRight${i}`), {
-    'margin-right': bt(i),
-  }),
   ruleset(classname(prefix, `marginBottom${i}`), {
     'margin-bottom': bt(i),
-  }),
-  ruleset(classname(prefix, `marginLeft${i}`), {
-    'margin-left': bt(i),
   }),
   ...(i !== 0
     ? [
         ruleset(classname(prefix, `marginTopN${i}`), {
           'margin-top': bt(-i),
         }),
-        ruleset(classname(prefix, `marginRightN${i}`), {
-          'margin-right': bt(-i),
-        }),
         ruleset(classname(prefix, `marginBottomN${i}`), {
           'margin-bottom': bt(-i),
-        }),
-        ruleset(classname(prefix, `marginLeftN${i}`), {
-          'margin-left': bt(-i),
         }),
       ]
     : []),
@@ -154,14 +142,8 @@ const autoRules = (prefix) => [
   ruleset(classname(prefix, `marginTopAuto`), {
     'margin-top': 'auto',
   }),
-  ruleset(classname(prefix, `marginRightAuto`), {
-    'margin-right': 'auto',
-  }),
   ruleset(classname(prefix, `marginBottomAuto`), {
     'margin-bottom': 'auto',
-  }),
-  ruleset(classname(prefix, `marginLeftAuto`), {
-    'margin-left': 'auto',
   }),
 ];
 

@@ -201,34 +201,26 @@ const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (m
 const marginStart: MarginFunctorType = transformNumberOrPassthrough('marginStart');
 const marginEnd: MarginFunctorType = transformNumberOrPassthrough('marginEnd');
 const marginTop: MarginFunctorType = transformNumberOrPassthrough('marginTop');
-const marginRight: MarginFunctorType = transformNumberOrPassthrough('marginRight');
 const marginBottom: MarginFunctorType = transformNumberOrPassthrough('marginBottom');
-const marginLeft: MarginFunctorType = transformNumberOrPassthrough('marginLeft');
-const margin: MarginFunctorType = union(marginTop, marginBottom, marginLeft, marginRight);
+const margin: MarginFunctorType = union(marginTop, marginBottom, marginStart, marginEnd);
 
 const smMarginStart: MarginFunctorType = transformNumberOrPassthrough('smMarginStart');
 const smMarginEnd: MarginFunctorType = transformNumberOrPassthrough('smMarginEnd');
 const smMarginTop: MarginFunctorType = transformNumberOrPassthrough('smMarginTop');
-const smMarginRight: MarginFunctorType = transformNumberOrPassthrough('smMarginRight');
 const smMarginBottom: MarginFunctorType = transformNumberOrPassthrough('smMarginBottom');
-const smMarginLeft: MarginFunctorType = transformNumberOrPassthrough('smMarginLeft');
-const smMargin: MarginFunctorType = union(smMarginTop, smMarginBottom, smMarginLeft, smMarginRight);
+const smMargin: MarginFunctorType = union(smMarginTop, smMarginBottom, smMarginStart, smMarginEnd);
 
 const mdMarginStart: MarginFunctorType = transformNumberOrPassthrough('mdMarginStart');
 const mdMarginEnd: MarginFunctorType = transformNumberOrPassthrough('mdMarginEnd');
 const mdMarginTop: MarginFunctorType = transformNumberOrPassthrough('mdMarginTop');
-const mdMarginRight: MarginFunctorType = transformNumberOrPassthrough('mdMarginRight');
 const mdMarginBottom: MarginFunctorType = transformNumberOrPassthrough('mdMarginBottom');
-const mdMarginLeft: MarginFunctorType = transformNumberOrPassthrough('mdMarginLeft');
-const mdMargin: MarginFunctorType = union(mdMarginTop, mdMarginBottom, mdMarginLeft, mdMarginRight);
+const mdMargin: MarginFunctorType = union(mdMarginTop, mdMarginBottom, mdMarginStart, mdMarginEnd);
 
 const lgMarginStart: MarginFunctorType = transformNumberOrPassthrough('lgMarginStart');
 const lgMarginEnd: MarginFunctorType = transformNumberOrPassthrough('lgMarginEnd');
 const lgMarginTop: MarginFunctorType = transformNumberOrPassthrough('lgMarginTop');
-const lgMarginRight: MarginFunctorType = transformNumberOrPassthrough('lgMarginRight');
 const lgMarginBottom: MarginFunctorType = transformNumberOrPassthrough('lgMarginBottom');
-const lgMarginLeft: MarginFunctorType = transformNumberOrPassthrough('lgMarginLeft');
-const lgMargin: MarginFunctorType = union(lgMarginTop, lgMarginBottom, lgMarginLeft, lgMarginRight);
+const lgMargin: MarginFunctorType = union(lgMarginTop, lgMarginBottom, lgMarginStart, lgMarginEnd);
 
 /* ***************************************** */
 
@@ -338,33 +330,25 @@ export const propToFn = {
 
   margin,
   marginTop,
-  marginRight,
   marginBottom,
-  marginLeft,
   marginStart,
   marginEnd,
 
   smMargin,
   smMarginTop,
-  smMarginRight,
   smMarginBottom,
-  smMarginLeft,
   smMarginStart,
   smMarginEnd,
 
   mdMargin,
   mdMarginTop,
-  mdMarginRight,
   mdMarginBottom,
-  mdMarginLeft,
   mdMarginStart,
   mdMarginEnd,
 
   lgMargin,
   lgMarginTop,
-  lgMarginRight,
   lgMarginBottom,
-  lgMarginLeft,
   lgMarginStart,
   lgMarginEnd,
 

@@ -109,9 +109,7 @@ card(
             'Scale is in 4px increments so a margin of 2 is 8px. Supports 3 responsive breakpoints: sm, md, lg. Each sets the margin from that breakpoint and up.',
         },
         { name: 'marginTop' },
-        { name: 'marginRight' },
         { name: 'marginBottom' },
-        { name: 'marginLeft' },
         { name: 'marginStart' },
         { name: 'marginEnd' },
       ].map((prop: {| name: string, description?: string |}) => ({
@@ -401,6 +399,7 @@ card(
     Margins are applied in 4px increments and are asymmetric. You can set margin to be auto in the left and right axis.
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
     Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL-language-aware \`marginStart\` and \`marginEnd\`.
+
     ~~~jsx
     <Box margin={1} />
     <Box marginTop={1} />
