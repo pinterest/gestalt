@@ -8,19 +8,17 @@ const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
 function Changelog() {
-  const [changelogData, setChangelogData] = React.useState(
-    'Loading changelog from GitHub...'
-  );
+  const [changelogData, setChangelogData] = React.useState('Loading changelog from GitHub...');
 
   useEffect(() => {
     const fetchChangelog = async () => {
       const result = await fetch(
-        'https://cdn.jsdelivr.net/gh/pinterest/gestalt@master/CHANGELOG.md'
+        'https://cdn.jsdelivr.net/gh/pinterest/gestalt@master/CHANGELOG.md',
       );
       setChangelogData(
         result.ok
           ? await result.text()
-          : 'There was error loading the changelog, please try again later.'
+          : 'There was error loading the changelog, please try again later.',
       );
     };
 
@@ -39,11 +37,7 @@ function Changelog() {
             />
           </Link>
 
-          <Link
-            inline
-            target="blank"
-            href="https://npmjs.org/package/gestalt-datepicker"
-          >
+          <Link inline target="blank" href="https://npmjs.org/package/gestalt-datepicker">
             <img
               src="https://img.shields.io/npm/v/gestalt-datepicker.svg?label=gestalt-datepicker"
               alt="Gestalt DatePicker NPM package version badge"
@@ -51,16 +45,14 @@ function Changelog() {
           </Link>
         </Flex>
         <Text>
-          Gestalt is a set of React UI components that enforces Pinterest’s
-          design language. We use it to streamline communication between
-          designers and developers by enforcing a bunch of fundamental UI
-          components. This common set of components helps raise the bar for UX
-          &amp; accessibility across Pinterest.
+          Gestalt is a set of React UI components that enforces Pinterest’s design language. We use
+          it to streamline communication between designers and developers by enforcing a bunch of
+          fundamental UI components. This common set of components helps raise the bar for UX &amp;
+          accessibility across Pinterest.
         </Text>
         <Text>
-          Find information below on all new and updated components by version
-          number, as well as available codemods to help upgrade between
-          versions.
+          Find information below on all new and updated components by version number, as well as
+          available codemods to help upgrade between versions.
         </Text>
       </Flex>
 

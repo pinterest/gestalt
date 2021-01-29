@@ -5,9 +5,7 @@ import FormErrorMessage from './FormErrorMessage.js';
 
 describe('FormErrorMessage', () => {
   it('with errorMessage', () => {
-    const tree = create(
-      <FormErrorMessage id="test" text="some error message" />
-    ).toJSON();
+    const tree = create(<FormErrorMessage id="test" text="some error message" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

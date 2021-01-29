@@ -8,13 +8,7 @@ const fsPromises = require('fs').promises;
 const core = require('@actions/core');
 const { getOctokit, context } = require('@actions/github');
 
-const packageJSON = path.join(
-  __dirname,
-  '..',
-  'packages',
-  'gestalt',
-  'package.json'
-);
+const packageJSON = path.join(__dirname, '..', 'packages', 'gestalt', 'package.json');
 const packageJSONParsed = require(packageJSON);
 
 function capitalizeFirstLetter(string) {
@@ -50,7 +44,7 @@ async function bumpPackageVersion() {
   // - 'major release'
   const types = ['patch', 'minor', 'major'];
   const releaseType = types.find((type) =>
-    (process.env.LABELS || '').toLowerCase().includes(`${type} release`)
+    (process.env.LABELS || '').toLowerCase().includes(`${type} release`),
   );
 
   // Previous version
@@ -60,10 +54,7 @@ async function bumpPackageVersion() {
   const newVersion = semver.inc(previousVersion, releaseType);
   packageJSONParsed.version = newVersion;
 
-  await fsPromises.writeFile(
-    packageJSON,
-    `${JSON.stringify(packageJSONParsed, null, 2)}\n`
-  );
+  await fsPromises.writeFile(packageJSON, `${JSON.stringify(packageJSONParsed, null, 2)}\n`);
 
   return { previousVersion, newVersion, releaseType };
 }
@@ -78,7 +69,7 @@ async function updateChangelog({ releaseNotes }) {
     changelogPath,
     `${releaseNotes}
 
-${previousChangelog}`
+${previousChangelog}`,
   );
 }
 
@@ -118,11 +109,7 @@ async function createGitHubRelease({ newVersion, releaseNotes }) {
   console.log(`Last commit message: ${lastCommitMessage}`);
 
   console.log('\nGet last commit message');
-  const {
-    newVersion,
-    previousVersion,
-    releaseType,
-  } = await bumpPackageVersion();
+  const { newVersion, previousVersion, releaseType } = await bumpPackageVersion();
   console.log(`Release type: ${releaseType}`);
   console.log(`Previous version: ${previousVersion}`);
   console.log(`New version: ${newVersion}`);

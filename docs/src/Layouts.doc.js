@@ -11,7 +11,7 @@ card(
     name="Layouts"
     description="A list of easy-to-copy layouts which have been battle tested."
     showSourceLink={false}
-  />
+  />,
 );
 
 card(
@@ -116,7 +116,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

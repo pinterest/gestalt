@@ -67,7 +67,7 @@ export default function Heading(props: Props): Node {
     align === 'left' && typography.alignLeft,
     align === 'right' && typography.alignRight,
     overflow === 'breakWord' && typography.breakWord,
-    truncate && typography.truncate
+    truncate && typography.truncate,
   );
 
   const headingLevel = accessibilityLevel || defaultHeadingLevels[size];

@@ -12,9 +12,11 @@ import PropTypes from 'prop-types';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
-export const ColorSchemePropType: React$PropType$Primitive<ColorScheme> = PropTypes.oneOf(
-  ['light', 'dark', 'userPreference']
-);
+export const ColorSchemePropType: React$PropType$Primitive<ColorScheme> = PropTypes.oneOf([
+  'light',
+  'dark',
+  'userPreference',
+]);
 
 type Theme = {|
   name: string,
@@ -144,13 +146,9 @@ export function ColorSchemeProvider({
   useEffect(() => {
     setTheme(getTheme(colorScheme));
     if (colorScheme === 'userPreference' && window.matchMedia) {
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addListener(handlePrefChange);
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(handlePrefChange);
       return () =>
-        window
-          .matchMedia('(prefers-color-scheme: dark)')
-          .removeListener(handlePrefChange);
+        window.matchMedia('(prefers-color-scheme: dark)').removeListener(handlePrefChange);
     }
     return undefined; // Flow doesn't like that only userPreference returns a clean up func
   }, [colorScheme]);

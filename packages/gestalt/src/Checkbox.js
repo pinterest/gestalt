@@ -31,22 +31,16 @@ type Props = {|
   indeterminate?: boolean,
   label?: string,
   name?: string,
-  onChange: AbstractEventHandler<
-    SyntheticInputEvent<HTMLInputElement>,
-    {| checked: boolean |}
-  >,
-  onClick?: AbstractEventHandler<
-    SyntheticInputEvent<HTMLInputElement>,
-    {| checked: boolean |}
-  >,
+  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
+  onClick?: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
   size?: 'sm' | 'md',
   subtext?: string,
 |};
 
-const CheckboxWithForwardRef: React$AbstractComponent<
+const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(function Checkbox(props, ref): Node {
+  HTMLInputElement,
+>(function Checkbox(props, ref): Node {
   const {
     checked = false,
     disabled = false,
@@ -111,8 +105,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
     borderStyle = styles.borderHovered;
   }
 
-  const borderRadiusStyle =
-    size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
+  const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
 
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
@@ -154,9 +147,8 @@ const CheckboxWithForwardRef: React$AbstractComponent<
                 styleSize,
                 styles.check,
                 {
-                  [focusStyles.accessibilityOutlineFocus]:
-                    focused && isFocusVisible,
-                }
+                  [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+                },
               )}
             >
               {(checked || indeterminate) && (
@@ -174,10 +166,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
-              <Text
-                color={disabled ? 'gray' : undefined}
-                size={size === 'sm' ? 'md' : 'lg'}
-              >
+              <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? 'md' : 'lg'}>
                 {label}
               </Text>
               {subtext && (

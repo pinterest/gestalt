@@ -17,10 +17,7 @@ import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import getRoundingClassName, {
-  RoundingPropType,
-  type Rounding,
-} from './getRoundingClassName.js';
+import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -32,18 +29,9 @@ type Props = {|
   href: string,
   id?: string,
   inline?: boolean,
-  mouseCursor?:
-    | 'copy'
-    | 'grab'
-    | 'grabbing'
-    | 'move'
-    | 'noDrop'
-    | 'pointer'
-    | 'zoomIn'
-    | 'zoomOut',
+  mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
@@ -60,13 +48,10 @@ type Props = {|
   wrappedComponent: 'button' | 'iconButton' | 'tapArea',
 |};
 
-const InternalLinkWithForwardRef: AbstractComponent<
+const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
-  HTMLAnchorElement
-> = forwardRef<Props, HTMLAnchorElement>(function Link(
-  props,
-  ref
-): Element<'a'> {
+  HTMLAnchorElement,
+>(function Link(props, ref): Element<'a'> {
   const {
     accessibilityLabel,
     children,
@@ -125,8 +110,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
     inline ? linkStyles.inlineBlock : linkStyles.block,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
-      [touchableStyles.tapCompress]:
-        !disabled && tapStyle === 'compress' && isTapping,
+      [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     },
     isButton
@@ -161,7 +145,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
           [iconButtonStyles.disabled]: disabled,
           [iconButtonStyles.enabled]: !disabled,
         }
-      : {}
+      : {},
   );
 
   return (
@@ -227,9 +211,7 @@ const InternalLinkWithForwardRef: AbstractComponent<
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       tabIndex={disabled ? null : tabIndex}
-      {...(tapStyle === 'compress' && compressStyle && !disabled
-        ? { style: compressStyle }
-        : {})}
+      {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       target={target ? `_${target}` : null}
     >
       {children}
@@ -265,17 +247,13 @@ InternalLinkWithForwardRef.propTypes = {
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
-    'none' | 'nofollow'
-  >),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
-    'none' | 'compress'
-  >),
+  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank'
+    null | 'self' | 'blank',
   >),
   wrappedComponent: PropTypes.oneOf(['button', 'iconButton', 'tapArea']),
 };

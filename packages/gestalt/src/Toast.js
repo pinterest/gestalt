@@ -23,19 +23,9 @@ export default function Toast({
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
       <Box color={color} fit padding={6} rounding="pill" borderStyle="shadow">
-        <Box
-          display="flex"
-          marginLeft={-2}
-          marginRight={-2}
-          alignItems="center"
-        >
+        <Box display="flex" marginLeft={-2} marginRight={-2} alignItems="center">
           {thumbnail ? (
-            <Box
-              display="flex"
-              flex="none"
-              justifyContent="center"
-              paddingX={2}
-            >
+            <Box display="flex" flex="none" justifyContent="center" paddingX={2}>
               <Mask
                 rounding={thumbnailShape === 'circle' ? 'circle' : 2}
                 height={thumbnailShape === 'rectangle' ? 64 : 48}
@@ -45,13 +35,7 @@ export default function Toast({
               </Mask>
             </Box>
           ) : null}
-          <Box
-            display="flex"
-            direction="column"
-            flex="grow"
-            justifyContent="center"
-            paddingX={2}
-          >
+          <Box display="flex" direction="column" flex="grow" justifyContent="center" paddingX={2}>
             <Text
               color={color === 'red' ? 'white' : undefined}
               align={!thumbnail && !button ? 'center' : 'left'}

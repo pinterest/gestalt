@@ -58,11 +58,10 @@ export default function MenuOption({
   href,
 }: Props): Node {
   const matches = (Array.isArray(selected) ? selected : []).filter(
-    ({ value }) => value === option.value
+    ({ value }) => value === option.value,
   );
   // Determine if the option is a current selected item
-  const isSelectedItem =
-    matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
+  const isSelectedItem = matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
   const handleOnTap = (event) => {
     if (!href && !children) {
@@ -73,15 +72,11 @@ export default function MenuOption({
 
   const { isFocusVisible } = useFocusVisible();
 
-  const className = classnames(
-    getRoundingClassName(2),
-    focusStyles.hideOutline,
-    {
-      [focusStyles.accessibilityOutline]: isFocusVisible,
-      [styles.fullWidth]: true,
-      [styles.pointer]: true,
-    }
-  );
+  const className = classnames(getRoundingClassName(2), focusStyles.hideOutline, {
+    [focusStyles.accessibilityOutline]: isFocusVisible,
+    [styles.fullWidth]: true,
+    [styles.pointer]: true,
+  });
 
   // Set color on item hover
   const optionStateColor = index === hoveredItem ? 'lightGray' : 'transparent';
@@ -92,12 +87,7 @@ export default function MenuOption({
         <Flex alignItems="center">
           {children || (
             <>
-              <Text
-                truncate={shouldTruncate}
-                weight={textWeight}
-                color="darkGray"
-                inline
-              >
+              <Text truncate={shouldTruncate} weight={textWeight} color="darkGray" inline>
                 {option?.label}
               </Text>
               {badgeText && (
@@ -126,12 +116,7 @@ export default function MenuOption({
         marginStart={2}
       >
         {isSelectedItem && !isExternal ? (
-          <Icon
-            accessibilityLabel="Selected item"
-            color="darkGray"
-            icon="check"
-            size={12}
-          />
+          <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
         ) : (
           <Box width={12} />
         )}
@@ -144,12 +129,7 @@ export default function MenuOption({
           alignItems="center"
           marginStart={2}
         >
-          <Icon
-            accessibilityLabel=", External"
-            color="darkGray"
-            icon="arrow-up-right"
-            size={12}
-          />
+          <Icon accessibilityLabel=", External" color="darkGray" icon="arrow-up-right" size={12} />
         </Box>
       )}
     </Flex>
@@ -176,13 +156,7 @@ export default function MenuOption({
       aria-selected={isSelectedItem}
       tabIndex={-1}
     >
-      <Box
-        padding={2}
-        color={optionStateColor}
-        rounding={2}
-        display="flex"
-        direction="column"
-      >
+      <Box padding={2} color={optionStateColor} rounding={2} display="flex" direction="column">
         {href ? (
           <Link hoverStyle="none" href={href} target="blank">
             {menuOptionContents}
@@ -218,7 +192,7 @@ MenuOption.propTypes = {
         label: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         subtext: PropTypes.string,
-      })
+      }),
     ),
   ]),
   handleSelect: PropTypes.func,

@@ -3,11 +3,7 @@ import React, { PureComponent, type Node } from 'react';
 import PropTypes from 'prop-types';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './ScrollContainer.js';
-import {
-  getElementHeight,
-  getScrollHeight,
-  getScrollPos,
-} from './scrollUtils.js';
+import { getElementHeight, getScrollHeight, getScrollPos } from './scrollUtils.js';
 import throttle from './throttle.js';
 
 type Props = {|
@@ -122,10 +118,7 @@ export default class ScrollFetch extends PureComponent<Props, State> {
       return null;
     }
     return (
-      <ScrollContainer
-        onScroll={this.updatePosition}
-        scrollContainer={container}
-      >
+      <ScrollContainer onScroll={this.updatePosition} scrollContainer={container}>
         <FetchItems {...props} />
       </ScrollContainer>
     );

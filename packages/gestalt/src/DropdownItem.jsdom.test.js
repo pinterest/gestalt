@@ -11,7 +11,7 @@ describe('DropdownItem', () => {
         handleSelect={handleSelectMock}
         badgeText="New"
         option={{ value: 'item 4', label: 'Item 4' }}
-      />
+      />,
     );
     screen.getByText('Item 4').click();
     expect(handleSelectMock).toHaveBeenCalled();
@@ -24,11 +24,11 @@ describe('DropdownItem', () => {
         badgeText="New"
         href="https://www.pinterest.com"
         option={{ value: 'item 4', label: 'Item 4' }}
-      />
+      />,
     );
     expect(screen.getByText('Item 4').closest('a')).toHaveAttribute(
       'href',
-      'https://www.pinterest.com'
+      'https://www.pinterest.com',
     );
   });
 
@@ -39,11 +39,9 @@ describe('DropdownItem', () => {
         badgeText="Beta Badge"
         isExternal
         option={{ value: 'item 4', label: 'Item 4' }}
-      />
+      />,
     );
-    expect(
-      screen.getByRole('img', { name: /, External/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /, External/i })).toBeInTheDocument();
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
   });
 
@@ -54,10 +52,8 @@ describe('DropdownItem', () => {
         badgeText="New"
         selected={{ value: 'item 4', label: 'Item 4' }}
         option={{ value: 'item 4', label: 'Item 4' }}
-      />
+      />,
     );
-    expect(
-      screen.getByRole('img', { name: /Selected Item/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /Selected Item/i })).toBeInTheDocument();
   });
 });

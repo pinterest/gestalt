@@ -15,12 +15,7 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 */
 
-import React, {
-  forwardRef,
-  type Node,
-  type AbstractComponent,
-  type Element,
-} from 'react';
+import React, { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
@@ -200,7 +195,7 @@ const disallowedProps = ['onClick', 'className', 'style'];
 
 const BoxWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
-  HTMLDivElement
+  HTMLDivElement,
 >(function Box(props, ref): Element<'div'> {
   const { passthroughProps, propsStyles } = buildStyles<Props>({
     baseStyles: styles.box,

@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Typeahead"
     description={`Use a \`Typeahead\` when you want to let the user filter a list when selecting.`}
-  />
+  />,
 );
 card(
   <PropTable
@@ -70,10 +70,8 @@ card(
       },
       {
         name: 'onKeyDown',
-        type:
-          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
-        description:
-          'Callback for key stroke events. This callback is useful for tag management.',
+        type: '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
+        description: 'Callback for key stroke events. This callback is useful for tag management.',
         href: 'tagsExample',
       },
       {
@@ -102,8 +100,7 @@ card(
       {
         name: 'ref',
         type: "React.Ref<'input'>",
-        description:
-          'Forward the ref to the underlying component container element',
+        description: 'Forward the ref to the underlying component container element',
         href: 'refExample',
       },
       {
@@ -114,7 +111,7 @@ card(
         href: 'zIndex',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -159,7 +156,7 @@ function Example(props) {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -204,7 +201,7 @@ function Example(props) {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -250,7 +247,7 @@ function Example(props) {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -282,7 +279,7 @@ function TypeaheadExample() {
     </Flex>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -357,7 +354,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -424,7 +421,7 @@ function Example(props) {
     </>
   );
 }`}
-  />
+  />,
 );
 
 export default cards;

@@ -16,9 +16,7 @@ describe('ModuleExpandableItem', () => {
   };
 
   it('should render the collapsed state correctly', () => {
-    render(
-      <ModuleExpandableItem {...baseProps}>Children</ModuleExpandableItem>
-    );
+    render(<ModuleExpandableItem {...baseProps}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();
@@ -38,9 +36,7 @@ describe('ModuleExpandableItem', () => {
     };
     render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /test label/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /test label/i })).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();
   });
@@ -70,9 +66,7 @@ describe('ModuleExpandableItem', () => {
       isCollapsed: true,
     };
     render(<ModuleExpandableItem {...props}>Children</ModuleExpandableItem>);
-    expect(
-      screen.getByRole('img', { name: /Error icon/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /Error icon/i })).toBeInTheDocument();
     expect(screen.getByText(/test title/i)).toBeInTheDocument();
     expect(screen.getByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children/i)).toBeNull();

@@ -24,22 +24,15 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const boxSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Box'
-    );
-    const maskSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Mask'
-    );
-    const touchableSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Touchable'
-    );
+    const boxSpecifier = decl.specifiers.find((node) => node.imported.name === 'Box');
+    const maskSpecifier = decl.specifiers.find((node) => node.imported.name === 'Mask');
+    const touchableSpecifier = decl.specifiers.find((node) => node.imported.name === 'Touchable');
     if (!(boxSpecifier || maskSpecifier || touchableSpecifier)) {
       return;
     }
     boxLocalIdentifierName = boxSpecifier && boxSpecifier.local.name;
     maskLocalIdentifierName = maskSpecifier && maskSpecifier.local.name;
-    touchableLocalIdentifierName =
-      touchableSpecifier && touchableSpecifier.local.name;
+    touchableLocalIdentifierName = touchableSpecifier && touchableSpecifier.local.name;
   });
 
   let hasModifications = false;
@@ -58,7 +51,7 @@ export default function transformer(file, api) {
       }
 
       const hasShape = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'shape'
+        (attr) => attr.name && attr.name.name === 'shape',
       );
 
       if (!hasShape) {
@@ -82,12 +75,10 @@ export default function transformer(file, api) {
                   j.jsxExpressionContainer(
                     j.conditionalExpression(
                       expression.test,
-                      oldToNewMap[expression.consequent.value] ||
-                        expression.consequent,
-                      oldToNewMap[expression.alternate.value] ||
-                        expression.alternate
-                    )
-                  )
+                      oldToNewMap[expression.consequent.value] || expression.consequent,
+                      oldToNewMap[expression.alternate.value] || expression.alternate,
+                    ),
+                  ),
                 );
               }
             }

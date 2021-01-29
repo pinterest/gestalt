@@ -11,7 +11,7 @@ test('Collection with default viewport', () => {
         { top: 0, left: 0, width: 100, height: 100 },
         { top: 100, left: 100, width: 100, height: 100 },
       ]}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -28,7 +28,7 @@ test('Collection with limited viewport', () => {
       viewportLeft={100}
       viewportWidth={50}
       viewportHeight={50}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -47,7 +47,7 @@ test('Collection with limited viewport and a few items', () => {
       viewportLeft={50}
       viewportWidth={100}
       viewportHeight={100}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

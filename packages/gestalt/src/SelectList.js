@@ -25,10 +25,7 @@ type Props = {|
   id: string,
   label?: string,
   name?: string,
-  onChange: AbstractEventHandler<
-    SyntheticInputEvent<HTMLSelectElement>,
-    {| value: string |}
-  >,
+  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLSelectElement>, {| value: string |}>,
   options: $ReadOnlyArray<Option>,
   placeholder?: string,
   size?: 'md' | 'lg',
@@ -50,9 +47,7 @@ export default function SelectList({
 }: Props): Node {
   const [focused, setFocused] = useState(false);
 
-  const handleOnChange: (
-    event: SyntheticInputEvent<HTMLSelectElement>
-  ) => void = (event) => {
+  const handleOnChange: (event: SyntheticInputEvent<HTMLSelectElement>) => void = (event) => {
     if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
     }
@@ -72,7 +67,7 @@ export default function SelectList({
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
     errorMessage ? formElement.errored : formElement.normal,
-    size === 'md' ? layout.medium : layout.large
+    size === 'md' ? layout.medium : layout.large,
   );
 
   const showPlaceholder = placeholder && !value;
@@ -123,19 +118,13 @@ export default function SelectList({
             </option>
           )}
           {options.map((option) => (
-            <option
-              key={option.value}
-              value={option.value}
-              disabled={option.disabled}
-            >
+            <option key={option.value} value={option.value} disabled={option.disabled}>
               {option.label}
             </option>
           ))}
         </select>
       </Box>
-      {helperText && !errorMessage ? (
-        <FormHelperText text={helperText} />
-      ) : null}
+      {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </Box>
   );
@@ -155,7 +144,7 @@ SelectList.propTypes = {
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
       disabled: PropTypes.bool,
-    })
+    }),
   ),
   placeholder: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade

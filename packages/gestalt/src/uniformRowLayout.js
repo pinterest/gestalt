@@ -23,17 +23,14 @@ const uniformRowLayout = <T>({
   width?: ?number,
   minCols?: number,
 |}): ((items: $ReadOnlyArray<T>) => $ReadOnlyArray<Position>) => (
-  items: $ReadOnlyArray<T>
+  items: $ReadOnlyArray<T>,
 ): $ReadOnlyArray<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }
 
   const columnWidthAndGutter = columnWidth + gutter;
-  const columnCount = Math.max(
-    Math.floor((width + gutter) / columnWidthAndGutter),
-    minCols
-  );
+  const columnCount = Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
 
   const positions = [];
   const heights = [];
@@ -52,10 +49,7 @@ const uniformRowLayout = <T>({
         heights[row] = height;
       }
 
-      const top =
-        row > 0
-          ? heights.slice(0, row).reduce((sum, y) => sum + y + gutter, 0)
-          : 0;
+      const top = row > 0 ? heights.slice(0, row).reduce((sum, y) => sum + y + gutter, 0) : 0;
 
       position = {
         top,

@@ -13,7 +13,7 @@ card(
     description="Pulsars bring focus to a specific element on the screen and act like training wheels
 to guide people towards the normal way to perform that action. They are used in isolation
 or combination with other education components for more instructions."
-  />
+  />,
 );
 
 card(
@@ -31,7 +31,7 @@ card(
         defaultValue: 136,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -61,7 +61,7 @@ card(
     );
   }
 `}
-  />
+  />,
 );
 
 card(
@@ -125,7 +125,7 @@ class FlyoutExample extends React.Component {
   }
 }
 `}
-  />
+  />,
 );
 
 export default cards;

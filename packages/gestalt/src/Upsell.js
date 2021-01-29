@@ -104,13 +104,7 @@ export default function Upsell({
       rounding={4}
       borderStyle="shadow"
     >
-      <Box
-        smDisplay="flex"
-        wrap
-        width="100%"
-        smMarginTop={-3}
-        smMarginBottom={-3}
-      >
+      <Box smDisplay="flex" wrap width="100%" smMarginTop={-3} smMarginBottom={-3}>
         <Box
           display="flex"
           direction="column"
@@ -125,15 +119,10 @@ export default function Upsell({
             <Box
               marginBottom={4}
               smMarginBottom={0}
-              width={
-                isImage ? Math.min(imageData.width || 128, 128) : undefined
-              }
+              width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
               flex="none"
             >
-              <Mask
-                rounding={imageData.mask?.rounding || 0}
-                wash={imageData.mask?.wash || false}
-              >
+              <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
                 {imageData.component}
               </Mask>
             </Box>
@@ -153,17 +142,12 @@ export default function Upsell({
             >
               {title && (
                 <Box marginBottom={2}>
-                  <Heading
-                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
-                    size="sm"
-                  >
+                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
                     {title}
                   </Heading>
                 </Box>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>
-                {message}
-              </Text>
+              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
             </Box>
           </Box>
         </Box>
@@ -171,15 +155,9 @@ export default function Upsell({
           {secondaryAction && responsiveMinWidth !== 'xs' && (
             <UpsellAction type="secondary" data={secondaryAction} />
           )}
-          {primaryAction && (
-            <UpsellAction type="primary" data={primaryAction} />
-          )}
+          {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
           {secondaryAction && responsiveMinWidth === 'xs' && (
-            <UpsellAction
-              type="secondary"
-              data={secondaryAction}
-              stacked={!!secondaryAction}
-            />
+            <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
           )}
         </Box>
       </Box>

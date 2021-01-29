@@ -15,9 +15,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Heading'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Heading');
     if (!specifier) {
       return;
     }
@@ -36,7 +34,7 @@ export default function transformer(file, api) {
       }
 
       const hasWeight = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'weight'
+        (attr) => attr.name && attr.name.name === 'weight',
       );
 
       if (!hasWeight) {

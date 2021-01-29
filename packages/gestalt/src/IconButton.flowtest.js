@@ -2,17 +2,10 @@
 import React from 'react';
 import IconButton from './IconButton.js';
 
-const ValidDefaultIconButton = (
-  <IconButton icon="add" accessibilityLabel="Add" />
-);
+const ValidDefaultIconButton = <IconButton icon="add" accessibilityLabel="Add" />;
 
 const ValidLinkRoleIconButton = (
-  <IconButton
-    icon="add"
-    accessibilityLabel="Add"
-    role="link"
-    href="http://www.pinterest.com"
-  />
+  <IconButton icon="add" accessibilityLabel="Add" role="link" href="http://www.pinterest.com" />
 );
 
 // $FlowExpectedError[incompatible-type]

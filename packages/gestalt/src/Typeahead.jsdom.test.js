@@ -105,12 +105,8 @@ describe('Typeahead', () => {
       selectOption.click();
     });
 
-    const selectedOption = FAKE_OPTIONS.find((option) =>
-      option.label.includes('6')
-    );
-    expect(onSelectMock).toHaveBeenCalledWith(
-      expect.objectContaining({ item: selectedOption })
-    );
+    const selectedOption = FAKE_OPTIONS.find((option) => option.label.includes('6'));
+    expect(onSelectMock).toHaveBeenCalledWith(expect.objectContaining({ item: selectedOption }));
     expect(onSelectMock.mock.calls.length).toBe(1);
   });
 
@@ -124,7 +120,7 @@ describe('Typeahead', () => {
         id="test"
         options={[{ value: 'test', label: 'test' }]}
         ref={ref}
-      />
+      />,
     );
     expect(ref.current instanceof HTMLInputElement).toEqual(true);
     expect(ref.current?.value).toEqual('test');
@@ -139,26 +135,11 @@ describe('Typeahead', () => {
         id="test"
         options={[{ value: 'test', label: 'test' }]}
         tags={[
-          <Tag
-            key="a"
-            text="a"
-            onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove a tag"
-          />,
-          <Tag
-            key="b"
-            text="b"
-            onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove b tag"
-          />,
-          <Tag
-            key="c"
-            text="c"
-            onRemove={() => {}}
-            removeIconAccessibilityLabel="Remove c tag"
-          />,
+          <Tag key="a" text="a" onRemove={() => {}} removeIconAccessibilityLabel="Remove a tag" />,
+          <Tag key="b" text="b" onRemove={() => {}} removeIconAccessibilityLabel="Remove b tag" />,
+          <Tag key="c" text="c" onRemove={() => {}} removeIconAccessibilityLabel="Remove c tag" />,
         ]}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

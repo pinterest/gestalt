@@ -12,7 +12,7 @@ card(
     name="Badge"
     description={`The \`Badge\` component helps to label text.
 `}
-  />
+  />,
 );
 
 card(
@@ -22,8 +22,7 @@ card(
         name: 'text',
         type: `string`,
         required: true,
-        description:
-          'Text displayed inside of the Badge. Sentence case is best.',
+        description: 'Text displayed inside of the Badge. Sentence case is best.',
       },
       {
         name: 'position',
@@ -32,7 +31,7 @@ card(
         description: 'Badge position relative to its parent element.',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -43,7 +42,7 @@ card(
     defaultCode={`
 <Text>Some text that uses Badge component as its child <Badge text="New" /></Text>
 `}
-  />
+  />,
 );
 
 card(
@@ -54,7 +53,7 @@ card(
     defaultCode={`
   <Heading>Heading <Badge text="Beta" position="top"/></Heading>
 `}
-  />
+  />,
 );
 
 export default cards;

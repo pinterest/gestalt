@@ -11,9 +11,7 @@ type Props = {|
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  handleKeyDown?: (
-    event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |}
-  ) => void,
+  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |}) => void,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
@@ -48,10 +46,7 @@ type State = {|
   triggerBoundingRect: ClientRect,
 |};
 
-function getTriggerRect(
-  anchor: HTMLElement,
-  positionRelativeToAnchor: boolean
-) {
+function getTriggerRect(anchor: HTMLElement, positionRelativeToAnchor: boolean) {
   let triggerBoundingRect;
   let relativeOffset;
   if (anchor) {
@@ -59,12 +54,8 @@ function getTriggerRect(
 
     // Needed for correct positioning within Contents.js
     relativeOffset = {
-      x: positionRelativeToAnchor
-        ? triggerBoundingRect.left - anchor.offsetLeft
-        : 0,
-      y: positionRelativeToAnchor
-        ? triggerBoundingRect.top - anchor.offsetTop
-        : 0,
+      x: positionRelativeToAnchor ? triggerBoundingRect.left - anchor.offsetLeft : 0,
+      y: positionRelativeToAnchor ? triggerBoundingRect.top - anchor.offsetTop : 0,
     };
   }
 
@@ -149,13 +140,10 @@ export default class Controller extends Component<Props, State> {
     this.updateTriggerRect(this.props);
   };
 
-  updateTriggerRect: (Props) => void = ({
-    anchor,
-    positionRelativeToAnchor,
-  }: Props) => {
+  updateTriggerRect: (Props) => void = ({ anchor, positionRelativeToAnchor }: Props) => {
     const { relativeOffset, triggerBoundingRect } = getTriggerRect(
       anchor,
-      positionRelativeToAnchor
+      positionRelativeToAnchor,
     );
     this.setState({ relativeOffset, triggerBoundingRect });
   };

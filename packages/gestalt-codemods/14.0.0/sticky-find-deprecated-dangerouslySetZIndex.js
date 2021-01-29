@@ -38,7 +38,7 @@ export default function transformer(file, api) {
         if (attr.name && attr.name.name === 'dangerouslySetZIndex') {
           // eslint-disable-next-line no-console
           console.error(
-            `Replace legacy dangerouslySetZIndex with zIndex on Sticky: ${file.path}:${attr.loc.start.line}:${attr.loc.start.column}`
+            `Replace legacy dangerouslySetZIndex with zIndex on Sticky: ${file.path}:${attr.loc.start.line}:${attr.loc.start.column}`,
           );
         }
       });

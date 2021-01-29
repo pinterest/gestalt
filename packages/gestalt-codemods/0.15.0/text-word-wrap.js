@@ -8,9 +8,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'pinterest-gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -29,20 +27,12 @@ export default function transformer(file, api) {
         return;
       }
 
-      node.openingElement.attributes = node.openingElement.attributes.map(
-        (attr) => {
-          if (
-            attr.name.name === 'overflow' &&
-            attr.value.value === 'break-word'
-          ) {
-            return j.jsxAttribute(
-              j.jsxIdentifier('overflow'),
-              j.literal('breakWord')
-            );
-          }
-          return attr;
+      node.openingElement.attributes = node.openingElement.attributes.map((attr) => {
+        if (attr.name.name === 'overflow' && attr.value.value === 'break-word') {
+          return j.jsxAttribute(j.jsxIdentifier('overflow'), j.literal('breakWord'));
         }
-      );
+        return attr;
+      });
 
       j(path).replaceWith(node);
     })

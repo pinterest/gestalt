@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Link"
     description="The Link component allows you to show links on the page, open them in a new window, and change the color."
-  />
+  />,
 );
 
 card(
@@ -108,7 +108,7 @@ card(
         href: 'PreventDefault',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -132,7 +132,7 @@ card(
       </Link>
     </Text>
 </Box>`}
-  />
+  />,
 );
 
 card(
@@ -173,7 +173,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -218,7 +218,7 @@ function TabExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -257,7 +257,7 @@ function PermutationsExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -299,7 +299,7 @@ function PreventDefaultExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

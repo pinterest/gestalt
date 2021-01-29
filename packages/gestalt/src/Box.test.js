@@ -10,7 +10,7 @@ test('Box renders', () => {
 
 test('Box has correct *-hide classes when display is false', () => {
   const tree = create(
-    <Box display="none" smDisplay="none" mdDisplay="none" lgDisplay="none" />
+    <Box display="none" smDisplay="none" mdDisplay="none" lgDisplay="none" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -22,12 +22,7 @@ test('Box has correct classes when display is flex', () => {
 
 test('Box has correct *-flex-column classes when display is flexColumn', () => {
   const tree = create(
-    <Box
-      direction="column"
-      smDirection="column"
-      mdDirection="column"
-      lgDirection="column"
-    />
+    <Box direction="column" smDirection="column" mdDirection="column" lgDirection="column" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -39,7 +34,7 @@ test('Box has correct *-inline-block classes when display is inlineBlock', () =>
       smDisplay="inlineBlock"
       mdDisplay="inlineBlock"
       lgDisplay="inlineBlock"
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -51,9 +46,7 @@ test('Box allows zero values for whitespace', () => {
 
 test('Box dangerouslySetInlineStyle', () => {
   expect(
-    create(
-      <Box dangerouslySetInlineStyle={{ __style: { width: 100 } }} />
-    ).toJSON()
+    create(<Box dangerouslySetInlineStyle={{ __style: { width: 100 } }} />).toJSON(),
   ).toMatchSnapshot();
 });
 

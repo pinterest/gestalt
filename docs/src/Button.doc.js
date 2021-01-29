@@ -15,7 +15,7 @@ card(
   <PageHeader
     name="Button"
     description="Buttons allow users to take actions, and make choices, with a single click. They are typically found in forms, dialog, and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus."
-  />
+  />,
 );
 
 card(
@@ -170,10 +170,7 @@ card(
         type: 'string',
         required: false,
         defaultValue: null,
-        description: [
-          'Specify a link URL.',
-          'Required with link-role buttons.',
-        ],
+        description: ['Specify a link URL.', 'Required with link-role buttons.'],
         href: 'type-roles',
       },
       {
@@ -181,8 +178,7 @@ card(
         type: `React.Ref<'button'> | React.Ref<'a'>`,
         required: false,
         defaultValue: null,
-        description:
-          'Forward the ref to the underlying button or anchor element.',
+        description: 'Forward the ref to the underlying button or anchor element.',
         href: 'ref',
       },
       {
@@ -233,7 +229,7 @@ card(
         href: 'type-roles',
       },
     ]}
-  />
+  />,
 );
 
 // To be continued when converting Button docs
@@ -272,7 +268,7 @@ card(
     name="Basic Button"
     id="basic-button"
     defaultCode={`<Button text="Medium-sized button" inline />`}
-  />
+  />,
 );
 
 card(
@@ -346,7 +342,7 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -358,7 +354,7 @@ card(
   <Button text="Medium-sized button" inline />
   <Button size="lg" text="Large-sized button" inline />
 </Flex>`}
-  />
+  />,
 );
 
 // To be continued when converting Button docs
@@ -433,20 +429,9 @@ card(
 // );
 
 card(
-  <Combination
-    id="color"
-    name="Color"
-    color={['gray', 'red', 'blue', 'white', 'transparent']}
-  >
-    {(props, i) => (
-      <Button
-        id={`example-${i}`}
-        onChange={() => {}}
-        {...props}
-        text="Button"
-      />
-    )}
-  </Combination>
+  <Combination id="color" name="Color" color={['gray', 'red', 'blue', 'white', 'transparent']}>
+    {(props, i) => <Button id={`example-${i}`} onChange={() => {}} {...props} text="Button" />}
+  </Combination>,
 );
 
 card(
@@ -489,7 +474,7 @@ card(
   )
 };
 `}
-  />
+  />,
 );
 
 card(
@@ -505,7 +490,7 @@ card(
     <Button text="Default full-width button" />
   </Box>
 </>`}
-  />
+  />,
 );
 
 card(
@@ -515,7 +500,7 @@ card(
     defaultCode={`
     <Button iconEnd="download" text="Download CVS file" inline />
 `}
-  />
+  />,
 );
 
 card(
@@ -535,7 +520,7 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -572,7 +557,7 @@ function ButtonFlyoutExample() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -593,7 +578,7 @@ function AccessibilityExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -647,7 +632,7 @@ function MenuButtonExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

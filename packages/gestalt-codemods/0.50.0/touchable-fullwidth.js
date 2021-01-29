@@ -32,22 +32,19 @@ export default function transformer(file, api) {
 
       if (attributes.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Dynamic Touchable properties encountered at ${file.path}:${node.loc.start.line}`
+          `Dynamic Touchable properties encountered at ${file.path}:${node.loc.start.line}`,
         );
       }
 
       const attributesWithFullWidth = [
         ...attributes,
-        j.jsxAttribute(
-          j.jsxIdentifier('fullWidth'),
-          j.jsxExpressionContainer(j.literal(false))
-        ),
+        j.jsxAttribute(j.jsxIdentifier('fullWidth'), j.jsxExpressionContainer(j.literal(false))),
       ];
 
       return j.jsxOpeningElement(
         j.jsxIdentifier(node.name.name),
         attributesWithFullWidth,
-        node.selfClosing
+        node.selfClosing,
       );
     })
     .toSource();

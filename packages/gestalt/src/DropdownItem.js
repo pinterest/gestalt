@@ -86,7 +86,7 @@ DropdownItem.propTypes = {
         label: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         subtext: PropTypes.string,
-      })
+      }),
     ),
   ]),
   handleSelect: PropTypes.func,

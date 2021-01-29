@@ -22,11 +22,6 @@ describe('convert-shape-to-rounding', () => {
     'convert-touchable-shape-to-rounding-rounded',
     'convert-touchable-shape-to-rounding-square',
   ].forEach((test) => {
-    defineTest(
-      __dirname,
-      'convert-shape-to-rounding',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'convert-shape-to-rounding', { quote: 'single' }, test);
   });
 });

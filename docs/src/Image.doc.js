@@ -17,7 +17,7 @@ about collecting ideas, then images is how we choose to represent those ideas.
 In response, we've added a few extra superpowers to the regular <code>img</code> tag to
 make it even more awesome.
 `}
-  />
+  />,
 );
 
 card(
@@ -102,7 +102,7 @@ card(
           'A list of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -118,7 +118,7 @@ card(
     source image requested.
   `}
     name="Dimensions"
-  />
+  />,
 );
 
 card(
@@ -141,7 +141,7 @@ card(
   />
 </Column>
 `}
-  />
+  />,
 );
 
 card(
@@ -167,7 +167,7 @@ card(
   </Image>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -312,7 +312,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -333,7 +333,7 @@ card(
   />
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

@@ -42,30 +42,26 @@ const defaultLayout = <T>({
   rawItemCount: number,
   width?: ?number,
 |}): ((items: $ReadOnlyArray<*>) => $ReadOnlyArray<Position>) => (
-  items
+  items,
 ): $ReadOnlyArray<Position> => {
   if (width == null) {
     return items.map(() => offscreen(columnWidth));
   }
 
   const columnWidthAndGutter = columnWidth + gutter;
-  const columnCount = Math.max(
-    Math.floor((width + gutter) / columnWidthAndGutter),
-    minCols
-  );
+  const columnCount = Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
   // the total height of each column
   const heights = new Array(columnCount).fill(0);
 
   let centerOffset;
   if (justify === 'center') {
-    const contentWidth =
-      Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
+    const contentWidth = Math.min(rawItemCount, columnCount) * columnWidthAndGutter + gutter;
 
     centerOffset = Math.max(Math.floor((width - contentWidth) / 2), 0);
   } else {
     centerOffset = Math.max(
       Math.floor((width - columnWidthAndGutter * columnCount + gutter) / 2),
-      0
+      0,
     );
   }
 

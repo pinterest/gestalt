@@ -18,16 +18,13 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const touchableSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Stack'
-    );
+    const touchableSpecifier = decl.specifiers.find((node) => node.imported.name === 'Stack');
 
     if (!touchableSpecifier) {
       return;
     }
 
-    touchableLocalIdentifierName =
-      touchableSpecifier && touchableSpecifier.local.name;
+    touchableLocalIdentifierName = touchableSpecifier && touchableSpecifier.local.name;
 
     const newSpecifiers = [
       // Strip out Stack import
@@ -38,9 +35,7 @@ export default function transformer(file, api) {
     ].filter(Boolean);
 
     // Sort all the imports alphabetically
-    newSpecifiers.sort((a, b) =>
-      a.imported.name.localeCompare(b.imported.name)
-    );
+    newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
 
     const newNode = j.importDeclaration(newSpecifiers, j.literal('gestalt'));
 
@@ -64,52 +59,46 @@ export default function transformer(file, api) {
       }
 
       // Double 'gap'
-      node.openingElement.attributes = node.openingElement.attributes.map(
-        (attr) => {
-          const attribute = attr;
-          if (attribute.name && attribute.name.name === 'gap') {
-            if (Number.isInteger(attribute.value.expression.value)) {
-              const doubledVal = attribute.value.expression.value * 2;
-              attribute.value.expression.value = doubledVal;
-              attribute.value.expression.raw = `${doubledVal}`;
-            } else {
-              throw new Error(`
+      node.openingElement.attributes = node.openingElement.attributes.map((attr) => {
+        const attribute = attr;
+        if (attribute.name && attribute.name.name === 'gap') {
+          if (Number.isInteger(attribute.value.expression.value)) {
+            const doubledVal = attribute.value.expression.value * 2;
+            attribute.value.expression.value = doubledVal;
+            attribute.value.expression.raw = `${doubledVal}`;
+          } else {
+            throw new Error(`
               ${file.path}
               Manually convert the Row gap: "${attribute.value.expression.value}" to a valid number
               `);
-            }
           }
-          return attribute;
         }
-      );
+        return attribute;
+      });
 
-      const propNames = node.openingElement.attributes.map(
-        (attr) => attr.name.name
-      );
+      const propNames = node.openingElement.attributes.map((attr) => attr.name.name);
 
       // Add alignItems with previous default value if not already present
       if (!propNames.includes('alignItems')) {
         node.openingElement.attributes.push(
-          j.jsxAttribute(j.jsxIdentifier('alignItems'), j.literal('start'))
+          j.jsxAttribute(j.jsxIdentifier('alignItems'), j.literal('start')),
         );
       }
 
       // Add justifyContent with previous default value if not already present
       if (!propNames.includes('justifyContent')) {
         node.openingElement.attributes.push(
-          j.jsxAttribute(j.jsxIdentifier('justifyContent'), j.literal('center'))
+          j.jsxAttribute(j.jsxIdentifier('justifyContent'), j.literal('center')),
         );
       }
 
       // Add direction
       node.openingElement.attributes.push(
-        j.jsxAttribute(j.jsxIdentifier('direction'), j.literal('column'))
+        j.jsxAttribute(j.jsxIdentifier('direction'), j.literal('column')),
       );
 
       // Sort attributes alphabetically
-      node.openingElement.attributes.sort((a, b) =>
-        a.name.name.localeCompare(b.name.name)
-      );
+      node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
       node.openingElement.name = 'Flex';
       node.closingElement.name = 'Flex';

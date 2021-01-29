@@ -13,7 +13,7 @@ describe('<SearchField />', () => {
         onChange={() => {}}
         placeholder="Search and explore"
         value="Search"
-      />
+      />,
     );
     expect(container.querySelector('.medium')).toBeVisible();
   });
@@ -27,7 +27,7 @@ describe('<SearchField />', () => {
         placeholder="Search and explore"
         size="lg"
         value="Search"
-      />
+      />,
     );
     expect(container.querySelector('.large')).toBeVisible();
   });
@@ -42,7 +42,7 @@ describe('<SearchField />', () => {
         placeholder="Search and explore"
         size="lg"
         value="Search"
-      />
+      />,
     );
     expect(JSON.stringify(component.toJSON())).toContain('Error message');
   });
@@ -56,7 +56,7 @@ describe('<SearchField />', () => {
         placeholder="Search and explore"
         size="lg"
         value="Search"
-      />
+      />,
     );
     expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });

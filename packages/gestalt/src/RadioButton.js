@@ -18,19 +18,16 @@ type Props = {|
   image?: Node,
   label?: string,
   name?: string,
-  onChange: AbstractEventHandler<
-    SyntheticInputEvent<HTMLInputElement>,
-    {| checked: boolean |}
-  >,
+  onChange: AbstractEventHandler<SyntheticInputEvent<HTMLInputElement>, {| checked: boolean |}>,
   subtext?: string,
   value: string,
   size?: 'sm' | 'md',
 |};
 
-const RadioButtonWithForwardRef: React$AbstractComponent<
+const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(function RadioButton(props, ref): Node {
+  HTMLInputElement,
+>(function RadioButton(props, ref): Node {
   const {
     checked = false,
     disabled = false,
@@ -47,16 +44,14 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 
-  const handleChange: (
-    event: SyntheticInputEvent<HTMLInputElement>
-  ) => mixed = (event) => onChange({ checked: event.target.checked, event });
+  const handleChange: (event: SyntheticInputEvent<HTMLInputElement>) => mixed = (event) =>
+    onChange({ checked: event.target.checked, event });
 
   const handleBlur: () => void = () => setFocused(false);
 
   const handleFocus: () => void = () => setFocused(true);
 
-  const handleHover: (isHovered: boolean) => void = (isHovered: boolean) =>
-    setHover(isHovered);
+  const handleHover: (isHovered: boolean) => void = (isHovered: boolean) => setHover(isHovered);
 
   let borderStyle = styles.Border;
   if (disabled && checked) {
@@ -100,9 +95,8 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
               styleSize,
               styles.RadioButton,
               {
-                [focusStyles.accessibilityOutlineFocus]:
-                  focused && isFocusVisible,
-              }
+                [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+              },
             )}
           >
             <input
@@ -129,10 +123,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<
       {label && (
         <Label htmlFor={id}>
           <Box paddingX={1}>
-            <Text
-              color={disabled ? 'gray' : undefined}
-              size={size === 'sm' ? 'md' : 'lg'}
-            >
+            <Text color={disabled ? 'gray' : undefined} size={size === 'sm' ? 'md' : 'lg'}>
               {label}
             </Text>
             {subtext && (

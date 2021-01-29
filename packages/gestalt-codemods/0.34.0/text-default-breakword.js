@@ -15,9 +15,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -36,10 +34,7 @@ export default function transformer(file, api) {
       const attrs = node.openingElement.attributes;
       const index = attrs.findIndex(
         (attr) =>
-          attr &&
-          attr.name &&
-          attr.name.name === 'overflow' &&
-          attr.value.value === 'breakWord'
+          attr && attr.name && attr.name.name === 'overflow' && attr.value.value === 'breakWord',
       );
 
       if (index !== -1) {

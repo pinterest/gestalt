@@ -12,7 +12,7 @@ type Coordinate = {|
 type TapTargetHTMLElement = HTMLDivElement;
 
 export const keyPressShouldTriggerTap = (
-  event: SyntheticKeyboardEvent<TapTargetHTMLElement>
+  event: SyntheticKeyboardEvent<TapTargetHTMLElement>,
 ): boolean => [ENTER, SPACE].includes(event.charCode);
 
 export default function useTapFeedback({
@@ -55,9 +55,7 @@ export default function useTapFeedback({
     handleBlur: () => setTapping(false),
     handleMouseDown: () => setTapping(true),
     handleMouseUp: () => setTapping(false),
-    handleTouchStart: ({
-      touches,
-    }: SyntheticTouchEvent<TapTargetHTMLElement>) => {
+    handleTouchStart: ({ touches }: SyntheticTouchEvent<TapTargetHTMLElement>) => {
       setTapping(true);
       const [touch] = touches;
       if (touch) {
@@ -67,9 +65,7 @@ export default function useTapFeedback({
         });
       }
     },
-    handleTouchMove: ({
-      touches,
-    }: SyntheticTouchEvent<TapTargetHTMLElement>) => {
+    handleTouchMove: ({ touches }: SyntheticTouchEvent<TapTargetHTMLElement>) => {
       const [touch] = touches;
       if (isTapping && touch) {
         const { x: startX, y: startY } = coordinate;

@@ -5,10 +5,7 @@ import Icon from './Icon.js';
 import Box from './Box.js';
 
 const Valid = (
-  <Upsell
-    message="Upsell message"
-    imageData={{ component: <Icon accessibilityLabel="test" /> }}
-  />
+  <Upsell message="Upsell message" imageData={{ component: <Icon accessibilityLabel="test" /> }} />
 );
 
 // $FlowExpectedError[prop-missing]

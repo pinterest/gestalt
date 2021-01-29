@@ -13,7 +13,7 @@ test('VideoPlayhead handles on mouse down and up events', () => {
       seek={() => {}}
       onPlayheadDown={mockOnPlayheadDown}
       onPlayheadUp={mockOnPlayheadUp}
-    />
+    />,
   );
 
   fireEvent.mouseDown(getByRole('progressbar'), {
@@ -38,7 +38,7 @@ test('VideoPlayhead ends seek when mouse leaves', () => {
       seek={() => {}}
       onPlayheadDown={mockOnPlayheadDown}
       onPlayheadUp={mockOnPlayheadUp}
-    />
+    />,
   );
   fireEvent.mouseDown(getByRole('progressbar'), {
     preventDefault: jest.fn(),

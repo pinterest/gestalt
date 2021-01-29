@@ -14,7 +14,7 @@ test('renders correctly', () => {
         onExpand={() => {}}
       >
         <div>row cells</div>
-      </TableRowExpandable>
+      </TableRowExpandable>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -32,7 +32,7 @@ test('renders correctly with explicit hover', () => {
         onExpand={() => {}}
       >
         <div>row cells</div>
-      </TableRowExpandable>
+      </TableRowExpandable>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -50,7 +50,7 @@ test('renders correctly without hover', () => {
         onExpand={() => {}}
       >
         <div>row cells</div>
-      </TableRowExpandable>
+      </TableRowExpandable>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

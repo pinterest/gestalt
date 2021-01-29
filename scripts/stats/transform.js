@@ -21,16 +21,9 @@ export default function transformer(file, api) {
   src.find(j.JSXOpeningElement).forEach((path) => {
     const { node } = path;
     const { name } = node.name;
-    const isInGestalt = Object.prototype.hasOwnProperty.call(
-      localIdentifierNames,
-      name
-    );
+    const isInGestalt = Object.prototype.hasOwnProperty.call(localIdentifierNames, name);
     const isTest = p.endsWith('test.js');
     // eslint-disable-next-line no-console
-    console.log(
-      `${[p, localIdentifierNames[name] || name, isTest, isInGestalt].join(
-        ';'
-      )}`
-    );
+    console.log(`${[p, localIdentifierNames[name] || name, isTest, isInGestalt].join(';')}`);
   });
 }

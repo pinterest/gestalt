@@ -13,7 +13,7 @@ card(
     description="
 Like Masonry, Collage creates a deterministic grid layout that can absolutely position and virtualize images.
 "
-  />
+  />,
 );
 
 card(
@@ -59,8 +59,7 @@ card(
       },
       {
         name: 'renderImage',
-        type:
-          '({ width: number, height: number, index: number }) => React.Node',
+        type: '({ width: number, height: number, index: number }) => React.Node',
         description: 'Render prop for the collage images',
         required: true,
         href: 'basicExample',
@@ -73,7 +72,7 @@ card(
         href: 'basicExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -140,7 +139,7 @@ card(
   }}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -223,7 +222,7 @@ card(
   ))}
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -293,7 +292,7 @@ card(
   />
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -346,7 +345,7 @@ card(
   />
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -429,7 +428,7 @@ card(
   ))}
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -509,7 +508,7 @@ card(
   ))}
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

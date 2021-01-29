@@ -16,7 +16,7 @@ card(
     A dropdown displays a list of actions or options. It is triggered when a user interacts with a button, textfield or other control.
     `}
     pilot
-  />
+  />,
 );
 
 card(
@@ -85,7 +85,7 @@ card(
           </Box>
         );
       }`}
-  />
+  />,
 );
 
 card(
@@ -104,17 +104,14 @@ card(
       {
         name: 'children',
         required: true,
-        type:
-          'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
-        description:
-          'Should consist of Dropdown.Item and/or Dropdown.Section components',
+        type: 'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
+        description: 'Should consist of Dropdown.Item and/or Dropdown.Section components',
         href: 'default',
       },
       {
         name: 'headerContent',
         type: 'React.Node',
-        description:
-          'Content to display at the top of the Dropdown before any items or sections',
+        description: 'Content to display at the top of the Dropdown before any items or sections',
         href: 'customHeader',
       },
       {
@@ -148,11 +145,10 @@ card(
       {
         name: 'zIndex',
         type: 'interface Indexable { index(): number; }',
-        description:
-          'An object representing the zIndex value of the Dropdown menu.',
+        description: 'An object representing the zIndex value of the Dropdown menu.',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -164,8 +160,7 @@ card(
       {
         name: 'badgeText',
         type: 'string',
-        description:
-          "When supplied, will display a Badge next to the item's label.",
+        description: "When supplied, will display a Badge next to the item's label.",
         href: 'default',
       },
       {
@@ -186,8 +181,7 @@ card(
         name: 'option',
         type: '{| label: string, value: string, subtext: string |}',
         required: true,
-        description:
-          'Object detailing the label, value, and (optional) subtext for this item.',
+        description: 'Object detailing the label, value, and (optional) subtext for this item.',
         href: 'withSubtext',
       },
       {
@@ -214,7 +208,7 @@ card(
         href: 'default',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -238,7 +232,7 @@ card(
         href: 'withSections',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -259,7 +253,7 @@ card(
     * \`Tab\` or \` Shift + Tab\` close the menu and move focus accordingly
   `}
     name="Accessibility"
-  />
+  />,
 );
 
 card(
@@ -335,7 +329,7 @@ function DefaultMenuButtonDropdownExample() {
   );
 }
     `}
-  />
+  />,
 );
 
 card(
@@ -424,7 +418,7 @@ function SectionsIconButtonDropdownExample() {
   );
 }
       `}
-  />
+  />,
 );
 
 card(
@@ -514,7 +508,7 @@ function HeaderButtonFlyoutExample() {
   );
 }
       `}
-  />
+  />,
 );
 
 card(
@@ -580,7 +574,7 @@ function SubtextIconButtonFlyoutExample() {
   );
 }
       `}
-  />
+  />,
 );
 
 card(
@@ -661,7 +655,7 @@ function CustomIconButtonFlyoutExample() {
   );
 }
       `}
-  />
+  />,
 );
 
 card(
@@ -676,7 +670,7 @@ card(
     If users need the ability to choose an option by typing in an input and filtering a long list of options, use a [Typeahead](/Typeahead).
   `}
     name="Related"
-  />
+  />,
 );
 
 export default cards;

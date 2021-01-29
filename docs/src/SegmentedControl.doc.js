@@ -17,7 +17,7 @@ The controls display the current state and related state.
 Create layout to convey clear sense of information hierarchy.
 When a control is engaged, information below the control should get updated.
 "
-  />
+  />,
 );
 
 card(
@@ -54,7 +54,7 @@ card(
         defaultValue: 'md',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -90,7 +90,7 @@ function SegmentedControlExample() {
   );
 }
     `}
-  />
+  />,
 );
 
 card(
@@ -118,7 +118,7 @@ function SegmentedControlExample() {
   );
 }
     `}
-  />
+  />,
 );
 
 export default cards;

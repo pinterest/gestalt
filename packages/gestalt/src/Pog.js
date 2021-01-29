@@ -74,8 +74,7 @@ export default function Pog(props: Props): Node {
   const iconSizeInPx = SIZE_NAME_TO_ICON_SIZE_PIXEL[size];
   const paddingInPx = padding ? padding * 4 : SIZE_NAME_TO_PADDING_PIXEL[size];
 
-  const color =
-    (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
+  const color = (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
 
   const sizeInPx = iconSizeInPx + paddingInPx * 2;
 

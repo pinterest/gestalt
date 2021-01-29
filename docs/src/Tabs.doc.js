@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Tabs"
     description={`Tabs may be used navigate between multiple URLs. Tabs are intended as page-level navigation - if you're looking at just switching panels please use a SegmentedControl.`}
-  />
+  />,
 );
 
 card(
@@ -49,7 +49,7 @@ card(
         description: `By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap onto multiple lines, from top to bottom.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -101,7 +101,7 @@ function TabExample() {
   );
 }
   `}
-  />
+  />,
 );
 
 export default cards;

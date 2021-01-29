@@ -13,12 +13,7 @@ export default function TableHeaderCell(props: Props): Node {
   const { children, colSpan, scope, rowSpan } = props;
 
   return (
-    <th
-      className={styles.th}
-      scope={scope || 'col'}
-      colSpan={colSpan}
-      rowSpan={rowSpan}
-    >
+    <th className={styles.th} scope={scope || 'col'} colSpan={colSpan} rowSpan={rowSpan}>
       {children}
     </th>
   );

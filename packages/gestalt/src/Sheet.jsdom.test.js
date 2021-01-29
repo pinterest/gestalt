@@ -30,7 +30,7 @@ describe('Sheet', () => {
         subHeading={<nav />}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
 
     expect(container).toMatchSnapshot();
@@ -43,21 +43,15 @@ describe('Sheet', () => {
         accessibilityDismissButtonLabel="Dismiss"
         accessibilitySheetLabel="Sheet"
         closeOnOutsideClick
-        footer={({ onDismissStart }) => (
-          <button onClick={onDismissStart} type="submit" />
-        )}
+        footer={({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
         heading="Sheet title"
         onDismiss={jest.fn()}
         ref={sheetRef}
         size="sm"
-        subHeading={({ onDismissStart }) => (
-          <button onClick={onDismissStart} type="submit" />
-        )}
+        subHeading={({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
       >
-        {({ onDismissStart }) => (
-          <button onClick={onDismissStart} type="submit" />
-        )}
-      </Sheet>
+        {({ onDismissStart }) => <button onClick={onDismissStart} type="submit" />}
+      </Sheet>,
     );
 
     expect(container).toMatchSnapshot();
@@ -75,7 +69,7 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
 
     expect(container).toMatchSnapshot();
@@ -93,7 +87,7 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
 
     expect(container).toMatchSnapshot();
@@ -110,7 +104,7 @@ describe('Sheet', () => {
         ref={sheetRef}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
 
     expect(sheetRef.current instanceof HTMLDivElement).toEqual(true);
@@ -124,12 +118,10 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
 
-    expect(container.querySelector('div[role="dialog"]')).toBe(
-      document.activeElement
-    );
+    expect(container.querySelector('div[role="dialog"]')).toBe(document.activeElement);
   });
 
   it('should trigger onAnimationEnd', () => {
@@ -146,7 +138,7 @@ describe('Sheet', () => {
         onDismiss={jest.fn()}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
@@ -163,7 +155,7 @@ describe('Sheet', () => {
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
     getByLabelText('Dismiss').click();
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
@@ -181,7 +173,7 @@ describe('Sheet', () => {
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
     fireEvent.keyUp(window.document, {
       keyCode: 27,
@@ -202,10 +194,9 @@ describe('Sheet', () => {
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
-    const backDrop = container.querySelector('div[role="dialog"]').parentElement
-      .firstElementChild;
+    const backDrop = container.querySelector('div[role="dialog"]').parentElement.firstElementChild;
     fireEvent.click(backDrop);
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 
@@ -227,7 +218,7 @@ describe('Sheet', () => {
             Submit
           </button>
         )}
-      </Sheet>
+      </Sheet>,
     );
     const button = getByText('Submit');
     fireEvent.click(button);
@@ -252,7 +243,7 @@ describe('Sheet', () => {
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
     const button = getByText('Submit');
     fireEvent.click(button);
@@ -278,7 +269,7 @@ describe('Sheet', () => {
         )}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
     const button = getByText('Submit');
     fireEvent.click(button);
@@ -298,10 +289,9 @@ describe('Sheet', () => {
         onDismiss={mockOnDismiss}
       >
         <section />
-      </Sheet>
+      </Sheet>,
     );
-    const backDrop = container.querySelector('div[role="dialog"]').parentElement
-      .firstElementChild;
+    const backDrop = container.querySelector('div[role="dialog"]').parentElement.firstElementChild;
     fireEvent.click(backDrop);
     fireEvent.animationEnd(container.querySelector('div[role="dialog"]'));
 

@@ -15,7 +15,7 @@ card(
     description={`Toasts can educate people on the content of the screen, provide confirmation when people complete an action, or simply communicate a short message.
 
 The Toast component is purely visual. In order to properly handle the showing and dismissing of Toasts, as well as any animations, you will need to implement a Toast manager.`}
-  />
+  />,
 );
 
 card(
@@ -50,7 +50,7 @@ card(
         href: 'textOnlyExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -90,7 +90,7 @@ function ToastExample() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -140,7 +140,7 @@ function ToastExample() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -185,7 +185,7 @@ function ToastExample() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -242,7 +242,7 @@ function ToastExample() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -300,7 +300,7 @@ function ToastExample() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -314,11 +314,7 @@ card(
       <>
         Saved to{' '}
         <Text inline weight="bold">
-          <Link
-            inline
-            target="blank"
-            href="https://www.pinterest.com/search/pins/?q=home%20decor"
-          >
+          <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
             Home decor
           </Link>
         </Text>
@@ -337,7 +333,7 @@ card(
     button={[null, <Button key="button-key" inline text="Undo" size="lg" />]}
   >
     {(props) => <Toast {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -377,7 +373,7 @@ card(
         button={<Button key="button-key" inline text="Undo" size="lg" />}
       />
     )}
-  </Combination>
+  </Combination>,
 );
 
 export default cards;

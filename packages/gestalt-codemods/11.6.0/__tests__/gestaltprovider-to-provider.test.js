@@ -12,11 +12,6 @@ describe('gestaltprovider-to-provider', () => {
     'gestaltprovider-to-provider-2',
     'gestaltprovider-to-provider-3',
   ].forEach((test) => {
-    defineTest(
-      __dirname,
-      'gestaltprovider-to-provider',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'gestaltprovider-to-provider', { quote: 'single' }, test);
   });
 });

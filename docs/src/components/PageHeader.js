@@ -12,16 +12,12 @@ type Props = {|
 |};
 
 const gestaltPath = (component) => {
-  const packageName =
-    component === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
+  const packageName = component === 'DatePicker' ? 'gestalt-datepicker' : 'gestalt';
   return `packages/${packageName}/src/${component}.js`;
 };
 
 const githubUrl = (component) =>
-  [
-    'https://github.com/pinterest/gestalt/blob/master',
-    gestaltPath(component),
-  ].join('/');
+  ['https://github.com/pinterest/gestalt/blob/master', gestaltPath(component)].join('/');
 
 export default function ComponentHeader({
   pilot,

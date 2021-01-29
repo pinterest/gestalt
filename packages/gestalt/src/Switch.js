@@ -23,9 +23,7 @@ export default function Switch({
 }: Props): Node {
   const [focused, setFocused] = useState(false);
 
-  const handleChange: (event: SyntheticInputEvent<>) => void = (
-    event: SyntheticInputEvent<>
-  ) => {
+  const handleChange: (event: SyntheticInputEvent<>) => void = (event: SyntheticInputEvent<>) => {
     const { checked } = event.target;
     onChange({ event, value: checked });
   };
@@ -44,13 +42,13 @@ export default function Switch({
         : styles.switchLightGray
       : switched
       ? styles.switchDarkGray
-      : styles.switchWhite
+      : styles.switchWhite,
   );
 
   const sliderStyles = classnames(
     styles.slider,
     switched ? styles.sliderRight : styles.sliderLeft,
-    switched && !disabled ? styles.sliderDark : styles.sliderLight
+    switched && !disabled ? styles.sliderDark : styles.sliderLight,
   );
 
   const inputStyles = classnames(styles.checkbox, {

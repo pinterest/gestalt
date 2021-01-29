@@ -7,10 +7,7 @@ import { useEffect, useRef } from 'react';
  * unmounts. That way, we avoid React state updates on unmounted components which
  * result in a warning. See https://stackoverflow.com/a/60907638/117193 for more info
  */
-export default function useDebouncedCallback(
-  callback: () => void,
-  wait: number
-): () => void {
+export default function useDebouncedCallback(callback: () => void, wait: number): () => void {
   const timeout = useRef();
 
   function cleanup() {

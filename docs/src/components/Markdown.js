@@ -37,10 +37,7 @@ const makePullRequestLink = (listitem) => {
     pullRequestNum = pullRequestNum[0].replace(/\D/g, '');
     const pullRequestURL = `https://github.com/pinterest/gestalt/pull/${pullRequestNum}`;
     const pullRequestAnchor = `(<a href=${pullRequestURL}>#${pullRequestNum}</a>)\n`;
-    const listItemWithLink = listitem.replace(
-      pullRequestNumRegex,
-      pullRequestAnchor
-    );
+    const listItemWithLink = listitem.replace(pullRequestNumRegex, pullRequestAnchor);
     return listItemWithLink;
   }
   return listitem;
@@ -49,7 +46,7 @@ const makePullRequestLink = (listitem) => {
 const formatComponentName = (listitem) => {
   const currentComponents = sidebarIndex.reduce(
     (acc, currentValue) => [...acc, ...currentValue.pages],
-    []
+    [],
   );
   const namesAndUpdate = listitem.split(':', 2);
 
@@ -98,9 +95,7 @@ export default function Markdown({ text, type }: Props): Node {
   const html = marked(stripIndent(text), {
     renderer,
     highlight(code, language) {
-      const validLanguage = highlightjs.getLanguage(language)
-        ? language
-        : 'plaintext';
+      const validLanguage = highlightjs.getLanguage(language) ? language : 'plaintext';
       return highlightjs.highlight(validLanguage, code).value;
     },
     breaks: true,

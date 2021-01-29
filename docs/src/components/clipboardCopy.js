@@ -8,14 +8,12 @@ export default function clipboardCopy(text: string): Promise<void> {
   // Use the Async Clipboard API when available. Requires a secure browsing
   // context (i.e. HTTPS)
   if (navigator.clipboard) {
-    return navigator.clipboard
-      .writeText(text)
-      .catch(function clipboardError(err) {
-        throw err !== undefined
-          ? err
-          : // $FlowIssue[cannot-resolve-name] DOMException is not part of the internal flow definitions
-            new DOMException('The request is not allowed', 'NotAllowedError');
-      });
+    return navigator.clipboard.writeText(text).catch(function clipboardError(err) {
+      throw err !== undefined
+        ? err
+        : // $FlowIssue[cannot-resolve-name] DOMException is not part of the internal flow definitions
+          new DOMException('The request is not allowed', 'NotAllowedError');
+    });
   }
 
   // ...Otherwise, use document.execCommand() fallback
@@ -56,6 +54,6 @@ export default function clipboardCopy(text: string): Promise<void> {
     ? Promise.resolve()
     : Promise.reject(
         // $FlowIssue[cannot-resolve-name] DOMException is not part of the internal flow definitions
-        new DOMException('The request is not allowed', 'NotAllowedError')
+        new DOMException('The request is not allowed', 'NotAllowedError'),
       );
 }

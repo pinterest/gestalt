@@ -17,10 +17,7 @@ const sizes = {
   lg: 64,
 };
 
-export default function AvatarPair({
-  collaborators,
-  size = 'fit',
-}: Props): Node {
+export default function AvatarPair({ collaborators, size = 'fit' }: Props): Node {
   const width = size === 'fit' ? '100%' : sizes[size];
   return (
     <Box position="relative" width={width}>
@@ -51,7 +48,7 @@ AvatarPair.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       src: PropTypes.string,
-    })
+    }),
   ).isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg', 'fit']),

@@ -65,12 +65,7 @@ describe('Contents', () => {
     it('Chooses the main direction as idealDirection when it fits on screen', () => {
       const triggerRect = centerTriggerRect();
       idealDirections.forEach((idealDir) => {
-        const mainDir = getMainDir(
-          flyoutSize,
-          idealDir,
-          triggerRect,
-          windowSize
-        );
+        const mainDir = getMainDir(flyoutSize, idealDir, triggerRect, windowSize);
         expect(mainDir).toEqual(idealDir);
       });
     });
@@ -78,12 +73,7 @@ describe('Contents', () => {
     it('Opens down when the trigger is too close to the top of screen', () => {
       const triggerRect = centerTriggerRect({ bottom: 40, top: 0 });
       idealDirections.forEach((idealDir) => {
-        const mainDir = getMainDir(
-          flyoutSize,
-          idealDir,
-          triggerRect,
-          windowSize
-        );
+        const mainDir = getMainDir(flyoutSize, idealDir, triggerRect, windowSize);
         expect(mainDir).toEqual('down');
       });
     });
@@ -94,12 +84,7 @@ describe('Contents', () => {
         top: windowSize.height - 40,
       });
       idealDirections.forEach((idealDir) => {
-        const mainDir = getMainDir(
-          flyoutSize,
-          idealDir,
-          triggerRect,
-          windowSize
-        );
+        const mainDir = getMainDir(flyoutSize, idealDir, triggerRect, windowSize);
         expect(mainDir).toEqual('up');
       });
     });
@@ -128,18 +113,9 @@ describe('Contents', () => {
       const mainDir = 'left';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.top,
-        left:
-          windowSize.scrollX +
-          (triggerRect.left - flyoutSize.width - CARET_HEIGHT),
+        left: windowSize.scrollX + (triggerRect.left - flyoutSize.width - CARET_HEIGHT),
       };
-      const base = baseOffsets(
-        hasCaret,
-        fixedOffset,
-        flyoutSize,
-        mainDir,
-        triggerRect,
-        windowSize
-      );
+      const base = baseOffsets(hasCaret, fixedOffset, flyoutSize, mainDir, triggerRect, windowSize);
       expect(base).toEqual(expectedBase);
     });
 
@@ -151,14 +127,7 @@ describe('Contents', () => {
         top: windowSize.scrollY + triggerRect.top,
         left: windowSize.scrollX + triggerRect.right + CARET_HEIGHT,
       };
-      const base = baseOffsets(
-        hasCaret,
-        fixedOffset,
-        flyoutSize,
-        mainDir,
-        triggerRect,
-        windowSize
-      );
+      const base = baseOffsets(hasCaret, fixedOffset, flyoutSize, mainDir, triggerRect, windowSize);
       expect(base).toEqual(expectedBase);
     });
 
@@ -167,19 +136,10 @@ describe('Contents', () => {
       const triggerRect = centerTriggerRect();
       const mainDir = 'up';
       const expectedBase = {
-        top:
-          windowSize.scrollY +
-          (triggerRect.top - flyoutSize.height - CARET_HEIGHT),
+        top: windowSize.scrollY + (triggerRect.top - flyoutSize.height - CARET_HEIGHT),
         left: windowSize.scrollX + triggerRect.left,
       };
-      const base = baseOffsets(
-        hasCaret,
-        fixedOffset,
-        flyoutSize,
-        mainDir,
-        triggerRect,
-        windowSize
-      );
+      const base = baseOffsets(hasCaret, fixedOffset, flyoutSize, mainDir, triggerRect, windowSize);
       expect(base).toEqual(expectedBase);
     });
 
@@ -191,14 +151,7 @@ describe('Contents', () => {
         top: windowSize.scrollY + triggerRect.bottom + CARET_HEIGHT,
         left: windowSize.scrollX + triggerRect.left,
       };
-      const base = baseOffsets(
-        hasCaret,
-        fixedOffset,
-        flyoutSize,
-        mainDir,
-        triggerRect,
-        windowSize
-      );
+      const base = baseOffsets(hasCaret, fixedOffset, flyoutSize, mainDir, triggerRect, windowSize);
       expect(base).toEqual(expectedBase);
     });
 
@@ -210,14 +163,7 @@ describe('Contents', () => {
         top: windowSize.scrollY + triggerRect.top,
         left: windowSize.scrollX + (triggerRect.left - flyoutSize.width - 8),
       };
-      const base = baseOffsets(
-        hasCaret,
-        fixedOffset,
-        flyoutSize,
-        mainDir,
-        triggerRect,
-        windowSize
-      );
+      const base = baseOffsets(hasCaret, fixedOffset, flyoutSize, mainDir, triggerRect, windowSize);
       expect(base).toEqual(expectedBase);
     });
 
@@ -229,14 +175,7 @@ describe('Contents', () => {
         top: windowSize.scrollY + triggerRect.bottom + 8,
         left: windowSize.scrollX + triggerRect.left,
       };
-      const base = baseOffsets(
-        hasCaret,
-        fixedOffset,
-        flyoutSize,
-        mainDir,
-        triggerRect,
-        windowSize
-      );
+      const base = baseOffsets(hasCaret, fixedOffset, flyoutSize, mainDir, triggerRect, windowSize);
       expect(base).toEqual(expectedBase);
     });
   });
@@ -276,7 +215,7 @@ describe('Contents', () => {
         flyoutSize,
         mainDir,
         subDir,
-        triggerRect
+        triggerRect,
       );
       expect(flyoutOffset).toEqual(expectedFlyoutOffset);
       expect(caretOffset).toEqual(expectedCaretOffset);
@@ -317,7 +256,7 @@ describe('Contents', () => {
       flyoutSize,
       mainDir,
       subDir,
-      triggerRect
+      triggerRect,
     );
     expect(flyoutOffset).toEqual(expectedFlyoutOffset);
     expect(caretOffset).toEqual(expectedCaretOffset);

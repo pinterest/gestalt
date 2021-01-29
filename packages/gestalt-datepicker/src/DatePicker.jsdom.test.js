@@ -33,7 +33,7 @@ describe('DatePicker', () => {
         onChange={mockOnChange}
         placeholder="Select date"
         value={initialDate}
-      />
+      />,
     );
 
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
@@ -44,22 +44,14 @@ describe('DatePicker', () => {
 
     fireEvent.click(selectedDay);
 
-    expect(mockOnChange).toHaveBeenCalledWith(
-      expect.objectContaining({ value: newDate })
-    );
+    expect(mockOnChange).toHaveBeenCalledWith(expect.objectContaining({ value: newDate }));
   });
 
   test('opens and closes DatePicker flyout correctly', () => {
     const DatePickerWrap = () => {
       const [date, setDate] = React.useState(initialDate);
 
-      return (
-        <DatePicker
-          id="fake_id"
-          onChange={(e) => setDate(e.value)}
-          value={date}
-        />
-      );
+      return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
     };
 
     render(<DatePickerWrap />);
@@ -70,7 +62,7 @@ describe('DatePicker', () => {
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
     // Test that initial passed value is styled as selected
     expect(screen.getByText('14')).toHaveClass(
-      'react-datepicker__day react-datepicker__day--014 react-datepicker__day--selected'
+      'react-datepicker__day react-datepicker__day--014 react-datepicker__day--selected',
     );
 
     const selectedDay = screen.getByText('13');
@@ -90,13 +82,7 @@ describe('DatePicker', () => {
     const DatePickerWrap = () => {
       const [date, setDate] = React.useState(initialDate);
 
-      return (
-        <DatePicker
-          id="fake_id"
-          onChange={(e) => setDate(e.value)}
-          value={date}
-        />
-      );
+      return <DatePicker id="fake_id" onChange={(e) => setDate(e.value)} value={date} />;
     };
 
     render(<DatePickerWrap />);
@@ -116,7 +102,7 @@ describe('DatePicker', () => {
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
 
     expect(screen.getByText('13')).toHaveClass(
-      'react-datepicker__day react-datepicker__day--013 react-datepicker__day--selected'
+      'react-datepicker__day react-datepicker__day--013 react-datepicker__day--selected',
     );
   });
 });

@@ -7,7 +7,7 @@ import TextArea from './TextArea.js';
 describe('TextArea', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {
     const component = create(
-      <TextArea errorMessage="Error message" id="test" onChange={jest.fn()} />
+      <TextArea errorMessage="Error message" id="test" onChange={jest.fn()} />,
     );
     expect(JSON.stringify(component.toJSON())).toContain('Error message');
   });
@@ -19,12 +19,7 @@ describe('TextArea', () => {
 
   it('TextArea normal', () => {
     const tree = create(
-      <TextArea
-        id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
-      />
+      <TextArea id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -37,28 +32,20 @@ describe('TextArea', () => {
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextArea with hasError', () => {
     const tree = create(
-      <TextArea
-        hasError
-        id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
-      />
+      <TextArea hasError id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextArea with rows', () => {
-    const tree = create(
-      <TextArea id="test" onChange={jest.fn()} rows={5} />
-    ).toJSON();
+    const tree = create(<TextArea id="test" onChange={jest.fn()} rows={5} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -87,7 +74,7 @@ describe('TextArea', () => {
             removeIconAccessibilityLabel="Remove email tag"
           />,
         ]}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

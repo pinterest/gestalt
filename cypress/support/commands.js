@@ -1,9 +1,9 @@
 function logA11yViolations(violations) {
   cy.task(
     'logToTerminal',
-    `${violations.length} accessibility violation${
-      violations.length === 1 ? '' : 's'
-    } ${violations.length === 1 ? 'was' : 'were'} detected`
+    `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'} ${
+      violations.length === 1 ? 'was' : 'were'
+    } detected`,
   );
 
   // Overview of accessibility violations
@@ -14,7 +14,7 @@ function logA11yViolations(violations) {
       impact,
       description,
       nodes: nodes.length,
-    }))
+    })),
   );
 
   // In depth description of each violation
@@ -42,11 +42,11 @@ html:
 ${html}
 
 target:
-${target.join('\n')}`
+${target.join('\n')}`,
           )}
-  `
+  `,
       )
-      .join('\n')
+      .join('\n'),
   );
 }
 

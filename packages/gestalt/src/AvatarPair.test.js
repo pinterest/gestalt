@@ -17,7 +17,7 @@ describe('AvatarPair', () => {
             src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
           },
         ]}
-      />
+      />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -32,7 +32,7 @@ describe('AvatarPair', () => {
             src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
           },
         ]}
-      />
+      />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe('AvatarPair', () => {
             src: 'https://i.ibb.co/7tGKGvb/james.jpg',
           },
         ]}
-      />
+      />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

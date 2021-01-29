@@ -67,7 +67,7 @@ export default class Collection extends PureComponent<Props, void> {
         left: PropTypes.number.isRequired,
         width: PropTypes.number.isRequired,
         height: PropTypes.number.isRequired,
-      }).isRequired
+      }).isRequired,
     ),
     viewportHeight: PropTypes.number,
     viewportLeft: PropTypes.number,

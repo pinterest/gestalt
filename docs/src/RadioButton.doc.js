@@ -15,7 +15,7 @@ card(
     description="Use radio buttons when you have a few options that a user can choose from. Never use
 radio buttons if the user can select more than one option from a list.
 "
-  />
+  />,
 );
 
 card(
@@ -84,7 +84,7 @@ card(
           'Optional description for the radio button, used to provide more detail about an option',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -98,7 +98,7 @@ card(
   onChange={() => {}}
   value="usa"
 />`}
-  />
+  />,
 );
 
 card(
@@ -150,7 +150,7 @@ function RadioButtonExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -206,7 +206,7 @@ function RadioButtonExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -266,7 +266,7 @@ function RadioButtonExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -312,7 +312,7 @@ function RadioButtonExample() {
     </Flex>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -395,7 +395,7 @@ function RadioButtonFlyoutExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -408,14 +408,9 @@ card(
     labelPrefix="radio-state-combos"
   >
     {(props, i) => (
-      <RadioButton
-        id={`radio-state-combos-${i}`}
-        onChange={() => {}}
-        value=""
-        {...props}
-      />
+      <RadioButton id={`radio-state-combos-${i}`} onChange={() => {}} value="" {...props} />
     )}
-  </Combination>
+  </Combination>,
 );
 
 export default cards;

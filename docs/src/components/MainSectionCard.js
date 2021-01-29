@@ -47,15 +47,9 @@ const MainSectionCard = ({
   const code = defaultCode.trim();
   const scope = { ...gestalt, DatePicker };
   const borderStyle =
-    type !== 'info'
-      ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}`
-      : undefined;
+    type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
   return (
-    <Box
-      width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      marginTop={2}
-      marginBottom={8}
-    >
+    <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={2} marginBottom={8}>
       <LiveProvider code={code} scope={scope} theme={theme}>
         <Box
           alignItems="center"
@@ -71,9 +65,7 @@ const MainSectionCard = ({
           <LivePreview />
         </Box>
 
-        {showCode && cardSize !== 'sm' && (
-          <ExampleCode code={code} name={title || ''} />
-        )}
+        {showCode && cardSize !== 'sm' && <ExampleCode code={code} name={title || ''} />}
 
         <Box paddingX={2}>
           <Text color="watermelon">

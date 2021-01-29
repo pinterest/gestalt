@@ -5,15 +5,13 @@ import GroupAvatar from './GroupAvatar.js';
 
 describe('GroupAvatar', () => {
   it('renders multi-byte character initials', () => {
-    const tree = create(
-      <GroupAvatar collaborators={[{ name: '💩 astral' }]} size="md" />
-    ).toJSON();
+    const tree = create(<GroupAvatar collaborators={[{ name: '💩 astral' }]} size="md" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders single-byte character initials for 1 person', () => {
     const tree = create(
-      <GroupAvatar collaborators={[{ name: 'Jane Smith' }]} size="md" />
+      <GroupAvatar collaborators={[{ name: 'Jane Smith' }]} size="md" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -21,13 +19,9 @@ describe('GroupAvatar', () => {
   it('renders single-byte character initials for 3 people', () => {
     const tree = create(
       <GroupAvatar
-        collaborators={[
-          { name: 'Jane Smith' },
-          { name: 'Jane Smith' },
-          { name: 'Jane Smith' },
-        ]}
+        collaborators={[{ name: 'Jane Smith' }, { name: 'Jane Smith' }, { name: 'Jane Smith' }]}
         size="md"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -39,10 +33,7 @@ describe('GroupAvatar', () => {
 
   it('renders avatars for 1 person', () => {
     const tree = create(
-      <GroupAvatar
-        collaborators={[{ name: 'Jane Smith', src: 'foo.png' }]}
-        size="md"
-      />
+      <GroupAvatar collaborators={[{ name: 'Jane Smith', src: 'foo.png' }]} size="md" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -55,7 +46,7 @@ describe('GroupAvatar', () => {
           { name: 'Jane Smith', src: 'foo.png' },
         ]}
         size="md"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -69,7 +60,7 @@ describe('GroupAvatar', () => {
           { name: 'Jane Smith', src: 'foo.png' },
         ]}
         size="md"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -84,7 +75,7 @@ describe('GroupAvatar', () => {
           { name: 'Jane Smith', src: 'foo.png' },
         ]}
         size="md"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -98,7 +89,7 @@ describe('GroupAvatar', () => {
         ]}
         outline
         size="md"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -110,7 +101,7 @@ describe('GroupAvatar', () => {
           { name: 'Jane Smith', src: 'foo.png' },
           { name: 'Jane Smith', src: 'foo.png' },
         ]}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

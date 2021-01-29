@@ -3,11 +3,7 @@ import React from 'react';
 import Callout from './Callout.js';
 
 const Valid = (
-  <Callout
-    message="Callout error message"
-    iconAccessibilityLabel="error"
-    type="error"
-  />
+  <Callout message="Callout error message" iconAccessibilityLabel="error" type="error" />
 );
 
 // $FlowExpectedError[prop-missing]

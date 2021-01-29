@@ -6,10 +6,7 @@ type Props = {|
   onClick?: (event: MouseEvent) => void,
 |};
 
-export default function OutsideEventBehavior({
-  children,
-  onClick,
-}: Props): ReactNode {
+export default function OutsideEventBehavior({ children, onClick }: Props): ReactNode {
   const element = useRef<?HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,9 +14,7 @@ export default function OutsideEventBehavior({
       if (
         !onClick ||
         !element ||
-        (event.target instanceof Node &&
-          element.current &&
-          element.current.contains(event.target))
+        (event.target instanceof Node && element.current && element.current.contains(event.target))
       ) {
         return;
       }

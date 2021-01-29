@@ -15,9 +15,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -36,7 +34,7 @@ export default function transformer(file, api) {
       }
 
       const hasSize = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'size'
+        (attr) => attr.name && attr.name.name === 'size',
       );
 
       if (!hasSize) {
@@ -47,27 +45,18 @@ export default function transformer(file, api) {
         .map((attr) => {
           if (attr.name && attr.name.name === 'size' && attr.value.value) {
             if (attr.value.value === 'xl') {
-              const openingElement = j.jsxOpeningElement(
-                j.jsxIdentifier('span'),
-                [
-                  j.jsxAttribute(
-                    j.jsxIdentifier('style'),
-                    j.jsxExpressionContainer(
-                      j.objectExpression([
-                        j.property(
-                          'init',
-                          j.literal('fontSize'),
-                          j.literal(21)
-                        ),
-                      ])
-                    )
+              const openingElement = j.jsxOpeningElement(j.jsxIdentifier('span'), [
+                j.jsxAttribute(
+                  j.jsxIdentifier('style'),
+                  j.jsxExpressionContainer(
+                    j.objectExpression([j.property('init', j.literal('fontSize'), j.literal(21))]),
                   ),
-                ]
-              );
+                ),
+              ]);
               const element = j.jsxElement(
                 openingElement,
                 j.jsxClosingElement(j.jsxIdentifier('span')),
-                [j.jsxText('\n'), ...node.children, j.jsxText('\n')]
+                [j.jsxText('\n'), ...node.children, j.jsxText('\n')],
               );
               node.children = [j.jsxText('\n'), element, j.jsxText('\n')];
               return null;

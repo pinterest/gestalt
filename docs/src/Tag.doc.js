@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Tag"
     description="Tags are objects that hold text and have a delete icon to remove them. They can appear within [TextFields](/TextField#tagsExample), [TextAreas](/TextArea#tagsExample), [Typeaheads](/Typeahead#tagsExample), or as standalone components."
-  />
+  />,
 );
 
 card(
@@ -49,7 +49,7 @@ card(
         description: 'Short text to render inside the tag.',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -68,7 +68,7 @@ function Example(props) {
   ) : null;
 }
   `}
-  />
+  />,
 );
 
 card(
@@ -78,7 +78,7 @@ card(
     defaultCode={`
 <Tag disabled text="New" />
   `}
-  />
+  />,
 );
 
 card(
@@ -98,7 +98,7 @@ function Example(props) {
   ) : null;
 }
   `}
-  />
+  />,
 );
 
 card(
@@ -117,7 +117,7 @@ function Example(props) {
   ) : null;
 }
   `}
-  />
+  />,
 );
 
 export default cards;

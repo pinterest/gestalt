@@ -41,13 +41,10 @@ type Props = {|
   value?: Date,
 |};
 
-const DatePickerWithForwardRef: React$AbstractComponent<
+const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
-  HTMLDivElement
-> = forwardRef<Props, HTMLDivElement>(function DatePicker(
-  props,
-  ref
-): Element<'div'> {
+  HTMLDivElement,
+>(function DatePicker(props, ref): Element<'div'> {
   const {
     disabled,
     errorMessage,
@@ -134,21 +131,11 @@ const DatePickerWithForwardRef: React$AbstractComponent<
         includeDates={includeDates && [...includeDates]}
         locale={updatedLocale}
         maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
-        minDate={
-          rangeSelector === 'start' ? minDate : rangeStartDate || minDate
-        }
+        minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
         nextMonthButtonLabel={
-          <Icon
-            accessibilityLabel=""
-            color="darkGray"
-            icon="arrow-forward"
-            size={16}
-          />
+          <Icon accessibilityLabel="" color="darkGray" icon="arrow-forward" size={16} />
         }
-        onChange={(
-          value: Date,
-          event: SyntheticInputEvent<HTMLInputElement>
-        ) => {
+        onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
           setSelected(value);
           onChange({ event, value });
           updateNextRef(event.type === 'click');
@@ -158,16 +145,11 @@ const DatePickerWithForwardRef: React$AbstractComponent<
         placeholderText={placeholder || format?.toUpperCase() || 'MM/DD/YYYY'}
         popperClassName={classnames(
           styles['react-datepicker-popper'],
-          styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`]
+          styles[`react-datepicker-popper-${popperPlacement[idealDirection]}`],
         )}
         popperPlacement={popperPlacement[idealDirection]}
         previousMonthButtonLabel={
-          <Icon
-            accessibilityLabel=""
-            color="darkGray"
-            icon="arrow-back"
-            size={16}
-          />
+          <Icon accessibilityLabel="" color="darkGray" icon="arrow-back" size={16} />
         }
         ref={(refElement) => {
           if (!innerRef || !refElement) {

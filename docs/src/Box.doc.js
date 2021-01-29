@@ -16,7 +16,7 @@ card(
     description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
 
 &mdash; Anon _(Winning Box Haiku, 2017)_`}
-  />
+  />,
 );
 
 card(
@@ -222,7 +222,7 @@ card(
         description: `An object representing the zIndex value of the Box.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -250,7 +250,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -279,7 +279,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -295,7 +295,7 @@ card(
   <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
 </>
 `}
-  />
+  />,
 );
 
 card(
@@ -316,7 +316,7 @@ card(
         <Box margin={1} color="gray" height={32} width={8} />
       </Box>
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -327,7 +327,7 @@ card(
     If you need to use these features, please use a \`<div>\` instead.
   `}
     name="Disallowed properties"
-  />
+  />,
 );
 
 const PaddingSwatch = (props: *) => (
@@ -357,18 +357,12 @@ card(
     id="padding"
     name="Padding"
   >
-    <Box
-      display="flex"
-      direction="row"
-      justifyContent="between"
-      alignItems="center"
-      wrap
-    >
+    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
       <PaddingSwatch padding={1} label="1" />
       <PaddingSwatch paddingX={1} label="X=1" />
       <PaddingSwatch paddingY={1} label="Y=1" />
     </Box>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -383,7 +377,7 @@ function ResponsivePadding() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 const MarginSwatch = (props: *) => (
@@ -425,33 +419,21 @@ card(
     id="margins"
     name="Margins"
   >
-    <Box
-      display="flex"
-      direction="row"
-      justifyContent="between"
-      alignItems="center"
-      wrap
-    >
+    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
       <MarginSwatch margin={1} />
       <MarginSwatch marginTop={1} />
       <MarginSwatch marginBottom={1} />
       <MarginSwatch marginStart={1} />
       <MarginSwatch marginEnd={1} />
     </Box>
-    <Box
-      display="flex"
-      direction="row"
-      justifyContent="between"
-      alignItems="center"
-      wrap
-    >
+    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
       <MarginSwatch margin={-1} />
       <MarginSwatch marginTop={-1} />
       <MarginSwatch marginBottom={-1} />
       <MarginSwatch marginStart={-1} />
       <MarginSwatch marginEnd={-1} />
     </Box>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -475,11 +457,9 @@ card(
     <Box display="flex" direction="column" height={120} color="green">
       <Box>This is a title!</Box>
       <Box>This one is a subtitle.</Box>
-      <Box marginTop="auto">
-        I’m pushed to the bottom due to marginTop: auto.
-      </Box>
+      <Box marginTop="auto">I’m pushed to the bottom due to marginTop: auto.</Box>
     </Box>
-  </Card>
+  </Card>,
 );
 
 const toggleRTL = () => {
@@ -509,7 +489,7 @@ card(
       <MarginSwatch marginStart={-1} />
       <MarginSwatch marginEnd={-1} />
     </Box>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -535,7 +515,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -552,17 +532,9 @@ card(
       showHeading={false}
       layout="4column"
     >
-      {(props) => (
-        <Box
-          width={60}
-          height={60}
-          rounding="circle"
-          color="white"
-          {...props}
-        />
-      )}
+      {(props) => <Box width={60} height={60} rounding="circle" color="white" {...props} />}
     </Combination>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -595,7 +567,7 @@ card(
     ]}
   >
     {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -612,15 +584,10 @@ card(
       showHeading={false}
     >
       {(props) => (
-        <Box
-          color="gray"
-          width={props.rounding === 'pill' ? 120 : 70}
-          height={70}
-          {...props}
-        />
+        <Box color="gray" width={props.rounding === 'pill' ? 120 : 70} height={70} {...props} />
       )}
     </Combination>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -638,7 +605,7 @@ card(
     >
       {(props) => <Box color="darkGray" width={60} height={60} {...props} />}
     </Combination>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -684,7 +651,7 @@ function ButtonFlyoutExample() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -701,7 +668,7 @@ function Example() {
   return <Box color="blue" width={60} height={60} zIndex={zIndex} />
 }
 `}
-  />
+  />,
 );
 
 export default cards;

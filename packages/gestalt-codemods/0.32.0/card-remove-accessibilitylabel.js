@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Card'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Card');
     if (!specifier) {
       return;
     }
@@ -33,9 +31,7 @@ export default function transformer(file, api) {
       }
 
       const attrs = node.openingElement.attributes;
-      const index = attrs.findIndex(
-        (attr) => attr.name.name === 'accessibilityLabel'
-      );
+      const index = attrs.findIndex((attr) => attr.name.name === 'accessibilityLabel');
 
       if (index !== -1) {
         attrs.splice(index, 1);

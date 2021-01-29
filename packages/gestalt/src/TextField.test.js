@@ -7,7 +7,7 @@ import TextField from './TextField.js';
 describe('TextField', () => {
   it('Renders an FormErrorMessage if an error message is passed in', () => {
     const component = create(
-      <TextField errorMessage="Error message" id="test" onChange={jest.fn()} />
+      <TextField errorMessage="Error message" id="test" onChange={jest.fn()} />,
     );
     expect(JSON.stringify(component.toJSON())).toContain('Error message');
   });
@@ -19,12 +19,7 @@ describe('TextField', () => {
 
   it('TextField normal', () => {
     const tree = create(
-      <TextField
-        id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
-      />
+      <TextField id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -37,20 +32,14 @@ describe('TextField', () => {
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('TextField with hasError', () => {
     const tree = create(
-      <TextField
-        hasError
-        id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
-      />
+      <TextField hasError id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -63,7 +52,7 @@ describe('TextField', () => {
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -76,7 +65,7 @@ describe('TextField', () => {
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -107,7 +96,7 @@ describe('TextField', () => {
             removeIconAccessibilityLabel="Remove email tag"
           />,
         ]}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

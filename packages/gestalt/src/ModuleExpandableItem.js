@@ -31,9 +31,7 @@ export default function ModuleExpandableItem({
         onTap={() => {
           onModuleClicked(!isCollapsed);
         }}
-        accessibilityLabel={
-          isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
-        }
+        accessibilityLabel={isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel}
         accessibilityControls={id}
         accessibilityExpanded={!isCollapsed}
       >
@@ -67,9 +65,7 @@ export default function ModuleExpandableItem({
                   color="darkGray"
                   size="12"
                   accessibilityLabel={
-                    isCollapsed
-                      ? accessibilityExpandLabel
-                      : accessibilityCollapseLabel
+                    isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
                   }
                 />
               </Box>

@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Modal"
     description="Modals are light temporary views; general purpose containers allowing for a multitude of design choices."
-  />
+  />,
 );
 
 card(
@@ -30,8 +30,7 @@ card(
         name: 'align',
         type: `"center" | "left"`,
         defaultValue: 'center',
-        description:
-          'Use to specify the alignment of `heading` & `subHeading` strings',
+        description: 'Use to specify the alignment of `heading` & `subHeading` strings',
         href: 'headingOptions',
       },
       {
@@ -89,7 +88,7 @@ card(
         href: 'headingOptions',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -195,7 +194,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -238,7 +237,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -284,7 +283,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -367,7 +366,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -441,7 +440,7 @@ function HeadingExample(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -490,7 +489,7 @@ function ModalRefExample() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -555,7 +554,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -656,7 +655,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -723,7 +722,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -787,7 +786,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -811,7 +810,7 @@ card(
     ~~~
   `}
     name="Accessibility Props"
-  />
+  />,
 );
 
 export default cards;

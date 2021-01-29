@@ -28,22 +28,11 @@ export default function App({ children }: Props): Node {
                   </Box>
                   <Divider />
                   <Box width="100%">
-                    <Box
-                      padding={4}
-                      mdPadding={6}
-                      lgPadding={8}
-                      width="100%"
-                      role="main"
-                    >
+                    <Box padding={4} mdPadding={6} lgPadding={8} width="100%" role="main">
                       {children}
                     </Box>
                     <Divider />
-                    <Box
-                      padding={4}
-                      mdPadding={6}
-                      lgPadding={8}
-                      role="contentinfo"
-                    >
+                    <Box padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
                       <Box paddingX={2} paddingY={1}>
                         <Text align="right">
                           <Link href="https://www.netlify.com/">

@@ -15,7 +15,7 @@ test('ActivationCard handles onDismiss callback', () => {
         accessibilityLabel: 'Dismiss card',
         onDismiss: mockOnDismiss,
       }}
-    />
+    />,
   );
   getByLabelText('Dismiss card').click();
   expect(mockOnDismiss).toHaveBeenCalled();

@@ -48,7 +48,7 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
+          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
@@ -59,9 +59,8 @@ export default function transformer(file, api) {
           attr.name.name === 'xs'
             ? property.key.name
             : `${attr.name.name}${
-                property.key.name.charAt(0).toUpperCase() +
-                property.key.name.slice(1)
-              }`
+                property.key.name.charAt(0).toUpperCase() + property.key.name.slice(1)
+              }`,
         );
       };
 
@@ -81,26 +80,16 @@ export default function transformer(file, api) {
           return null;
         }
 
-        if (
-          typeof property.value.value === 'boolean' &&
-          !property.value.value
-        ) {
+        if (typeof property.value.value === 'boolean' && !property.value.value) {
           return j.jsxAttribute(buildProp(attr, property), j.literal('none'));
         }
 
-        if (
-          typeof property.value.value === 'string' &&
-          property.value.value === 'flexColumn'
-        ) {
+        if (typeof property.value.value === 'string' && property.value.value === 'flexColumn') {
           return [
             j.jsxAttribute(buildProp(attr, property), j.literal('flex')),
             j.jsxAttribute(
-              j.jsxIdentifier(
-                attr.name.name === 'xs'
-                  ? 'direction'
-                  : `${attr.name.name}Direction`
-              ),
-              j.literal('column')
+              j.jsxIdentifier(attr.name.name === 'xs' ? 'direction' : `${attr.name.name}Direction`),
+              j.literal('column'),
             ),
           ];
         }
@@ -110,29 +99,24 @@ export default function transformer(file, api) {
 
       const newAttrs = attrs
         .map((attr) => {
-          if (
-            attr?.name?.name &&
-            ['xs', 'sm', 'md', 'lg'].includes(attr.name.name)
-          ) {
+          if (attr?.name?.name && ['xs', 'sm', 'md', 'lg'].includes(attr.name.name)) {
             if (
               attr.value.type !== 'JSXExpressionContainer' ||
               attr.value.expression.type !== 'ObjectExpression'
             ) {
               throw new Error(
-                `Replace deprecated ${attr.name.name} prop manually. Location: ${file.path} @line: ${node.loc.start.line}`
+                `Replace deprecated ${attr.name.name} prop manually. Location: ${file.path} @line: ${node.loc.start.line}`,
               );
             }
             attr.value.expression.properties.forEach((property) => {
               if (property.value.type !== 'Literal') {
                 throw new Error(
-                  `Replace deprecated ${attr.name.name} prop manually. Location: ${file.path} @line: ${node.loc.start.line}`
+                  `Replace deprecated ${attr.name.name} prop manually. Location: ${file.path} @line: ${node.loc.start.line}`,
                 );
               }
               const newAttribute = buildAttribute(attr, property);
               const pushAttr = (atr) =>
-                Array.isArray(atr)
-                  ? newAppendAttr.push(...atr)
-                  : newAppendAttr.push(atr);
+                Array.isArray(atr) ? newAppendAttr.push(...atr) : newAppendAttr.push(atr);
               return newAttribute ? pushAttr(newAttribute) : null;
             });
 

@@ -11,7 +11,7 @@ test('Controller renders', () => {
       positionRelativeToAnchor
       bgColor="darkGray"
       onDismiss={() => {}}
-    />
+    />,
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

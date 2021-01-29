@@ -17,7 +17,7 @@ card(
     description="
 Show icons with different colors and sizes in an accessible way.
 "
-  />
+  />,
 );
 
 card(
@@ -61,7 +61,7 @@ card(
         description: `When using this prop, make sure that the viewbox around the SVG path is 24x24`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -79,15 +79,13 @@ card(
   </Text>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
   <Combination id="iconCombinations" name="Icon Combinations" icon={icons}>
-    {(props) => (
-      <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />
-    )}
-  </Combination>
+    {(props) => <Icon color="darkGray" accessibilityLabel="" size={32} {...props} />}
+  </Combination>,
 );
 
 card(
@@ -97,10 +95,8 @@ card(
     size={[16, 24, 32]}
     color={['gray', 'darkGray', 'red']}
   >
-    {(props, i) => (
-      <Icon key={i} icon="heart" accessibilityLabel="" {...props} />
-    )}
-  </Combination>
+    {(props, i) => <Icon key={i} icon="heart" accessibilityLabel="" {...props} />}
+  </Combination>,
 );
 
 export default cards;

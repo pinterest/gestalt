@@ -14,7 +14,7 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={() => {}}
-      />
+      />,
     ).root;
     const links = instance.findAll((element) => element.type === 'a');
     expect(links && links[0].props['aria-selected']).toEqual(true);
@@ -31,7 +31,7 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={() => {}}
-      />
+      />,
     ).root;
 
     const links = instance.findAll((element) => element.type === 'a');
@@ -48,7 +48,7 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={() => {}}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -64,7 +64,7 @@ describe('<Tabs />', () => {
         onChange={() => {}}
         size="lg"
         wrap
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -78,7 +78,7 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={() => {}}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -25,7 +25,7 @@ test('TableRowExpandable handles expand contents call', () => {
           </TableCell>
         </TableRowExpandable>
       </TableBody>
-    </Table>
+    </Table>,
   );
   expect(() => {
     getByText('Hello');
@@ -52,7 +52,7 @@ test('TableRowExpandable handles onExpand callback', () => {
           </TableCell>
         </TableRowExpandable>
       </TableBody>
-    </Table>
+    </Table>,
   );
   expect(() => {
     getByText('Hello');

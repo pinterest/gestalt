@@ -29,7 +29,7 @@ test('VideoControls handles play events', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   );
   fireEvent.click(getByLabelText('Play'));
   expect(mockOnPlay).toHaveBeenCalled();
@@ -61,7 +61,7 @@ test('VideoControls handles pause events', () => {
       playing
       seek={() => {}}
       volume={0}
-    />
+    />,
   );
   fireEvent.click(getByLabelText('Pause'));
   expect(mockOnPause).toHaveBeenCalled();
@@ -93,7 +93,7 @@ test('VideoControls handles volume events', () => {
       playing={false}
       seek={() => {}}
       volume={0}
-    />
+    />,
   );
   fireEvent.click(getByLabelText('Unmute'));
   expect(mockOnVolumeChange).toHaveBeenCalled();

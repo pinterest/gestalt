@@ -13,7 +13,7 @@ export default function transformer(file, api) {
         node.imported.name === 'Icon' ||
         node.imported.name === 'Heading' ||
         node.imported.name === 'IconButton' ||
-        node.imported.name === 'Text'
+        node.imported.name === 'Text',
     );
   });
 
@@ -34,7 +34,7 @@ export default function transformer(file, api) {
             (attr) =>
               attr.name.name === 'color' ||
               attr.name.name === 'iconColor' ||
-              attr.name.name === 'bgColor'
+              attr.name.name === 'bgColor',
           )
         ) {
           return;
@@ -59,9 +59,7 @@ export default function transformer(file, api) {
           return attribute;
         });
 
-        node.openingElement.attributes.sort((a, b) =>
-          a.name.name.localeCompare(b.name.name)
-        );
+        node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
       });
     })
     .toSource();

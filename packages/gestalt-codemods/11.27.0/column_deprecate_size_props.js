@@ -44,7 +44,7 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
+          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
@@ -52,13 +52,9 @@ export default function transformer(file, api) {
 
       const newAttrs = attrs
         .map((attr) => {
-          if (
-            attr?.name?.name &&
-            ['xs', 'sm', 'md', 'lg'].includes(attr.name.name)
-          ) {
+          if (attr?.name?.name && ['xs', 'sm', 'md', 'lg'].includes(attr.name.name)) {
             const renamedAttr = { ...attr };
-            renamedAttr.name.name =
-              attr.name.name === 'xs' ? 'span' : `${attr.name.name}Span`;
+            renamedAttr.name.name = attr.name.name === 'xs' ? 'span' : `${attr.name.name}Span`;
             return renamedAttr;
           }
           return attr;

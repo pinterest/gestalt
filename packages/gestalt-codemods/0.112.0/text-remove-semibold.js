@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -35,7 +33,7 @@ export default function transformer(file, api) {
       }
 
       const hasWeight = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'weight'
+        (attr) => attr.name && attr.name.name === 'weight',
       );
 
       if (!hasWeight) {
@@ -51,23 +49,17 @@ export default function transformer(file, api) {
               const { consequent, alternate, test } = attr.value.expression;
 
               if (
-                (consequent.value === 'bold' &&
-                  alternate.value === 'semibold') ||
+                (consequent.value === 'bold' && alternate.value === 'semibold') ||
                 (consequent.value === 'semibold' && alternate.value === 'bold')
               ) {
                 // <Text weight={a ? 'semibold' : 'bold'} />
                 // <Text weight={a ? 'bold' : 'semibold'} />
-                return j.jsxAttribute(
-                  j.jsxIdentifier('weight'),
-                  j.literal('bold')
-                );
+                return j.jsxAttribute(j.jsxIdentifier('weight'), j.literal('bold'));
               }
 
               if (
-                (consequent.value === 'normal' &&
-                  alternate.value === 'semibold') ||
-                (consequent.value === 'semibold' &&
-                  alternate.value === 'normal')
+                (consequent.value === 'normal' && alternate.value === 'semibold') ||
+                (consequent.value === 'semibold' && alternate.value === 'normal')
               ) {
                 // <Text weight={a ? 'normal' : 'semibold'} />
                 // <Text weight={a ? 'semibold' : 'bold'} />
@@ -76,27 +68,16 @@ export default function transformer(file, api) {
                   j.jsxExpressionContainer(
                     j.conditionalExpression(
                       test,
-                      consequent.value === 'normal'
-                        ? j.literal('normal')
-                        : j.literal('bold'),
-                      alternate.value === 'semibold'
-                        ? j.literal('bold')
-                        : j.literal('normal')
-                    )
-                  )
+                      consequent.value === 'normal' ? j.literal('normal') : j.literal('bold'),
+                      alternate.value === 'semibold' ? j.literal('bold') : j.literal('normal'),
+                    ),
+                  ),
                 );
               }
             }
             // <Text weight="semibold" />
-            if (
-              attr.value &&
-              attr.value.type === 'Literal' &&
-              attr.value.value === 'semibold'
-            ) {
-              return j.jsxAttribute(
-                j.jsxIdentifier('weight'),
-                j.literal('bold')
-              );
+            if (attr.value && attr.value.type === 'Literal' && attr.value.value === 'semibold') {
+              return j.jsxAttribute(j.jsxIdentifier('weight'), j.literal('bold'));
             }
           }
           return attr;

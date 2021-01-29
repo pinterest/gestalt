@@ -13,7 +13,7 @@ test('InternalLink handles onClick callback', () => {
       tabIndex={0}
     >
       InternalLink
-    </InternalLink>
+    </InternalLink>,
   );
   getByText('InternalLink').click();
   expect(mockOnClick).toHaveBeenCalled();

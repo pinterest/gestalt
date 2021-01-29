@@ -20,7 +20,7 @@ export default function Column(props: ColumnProps): Node {
     props.span != null && styles[`xsCol${props.span}`],
     props.smSpan != null && styles[`smCol${props.smSpan}`],
     props.mdSpan != null && styles[`mdCol${props.mdSpan}`],
-    props.lgSpan != null && styles[`lgCol${props.lgSpan}`]
+    props.lgSpan != null && styles[`lgCol${props.lgSpan}`],
   );
   return <div className={cs}>{children}</div>;
 }

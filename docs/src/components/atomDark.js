@@ -22,15 +22,7 @@ const atomDark = {
       },
     },
     {
-      types: [
-        'boolean',
-        'constant',
-        'keyword',
-        'number',
-        'property',
-        'symbol',
-        'tag',
-      ],
+      types: ['boolean', 'constant', 'keyword', 'number', 'property', 'symbol', 'tag'],
       style: {
         color: 'hsl(350, 40%, 70%)',
       },

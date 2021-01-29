@@ -8,12 +8,7 @@ import Card from './components/Card.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(
-  <PageHeader
-    name="TextArea"
-    description="TextArea allows for multi-line input."
-  />
-);
+card(<PageHeader name="TextArea" description="TextArea allows for multi-line input." />);
 
 card(
   <PropTable
@@ -57,25 +52,21 @@ card(
       },
       {
         name: 'onBlur',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
+        type: '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
       },
       {
         name: 'onChange',
-        type:
-          '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
+        type: '({ event: SyntheticInputEvent<HTMLTextAreaElement>, value: string }) => void',
         required: true,
         href: 'basicExample',
       },
       {
         name: 'onFocus',
-        type:
-          '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
+        type: '({ event: SyntheticFocusEvent<HTMLTextAreaElement>, value: string }) => void',
       },
       {
         name: 'onKeyDown',
-        type:
-          '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
+        type: '({ event: SyntheticKeyboardEvent<HTMLTextAreaElement>, value: string }) => void',
       },
       {
         name: 'placeholder',
@@ -101,7 +92,7 @@ card(
         href: 'basicExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -125,7 +116,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -147,7 +138,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -172,7 +163,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -213,7 +204,7 @@ function TextAreaFlyoutExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -238,7 +229,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -311,7 +302,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -322,7 +313,7 @@ card(
     anti-pattern for accessibility.
   `}
     name="Autofocus"
-  />
+  />,
 );
 
 card(
@@ -338,7 +329,7 @@ card(
     in a \`form\` and attach an \`onSubmit\` handler to that \`form\`.
   `}
     name="onSubmit"
-  />
+  />,
 );
 
 export default cards;

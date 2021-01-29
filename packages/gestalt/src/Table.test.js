@@ -8,7 +8,7 @@ test('renders correctly', () => {
     .create(
       <Table>
         <div>rest of table</div>
-      </Table>
+      </Table>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -19,7 +19,7 @@ test('renders correctly with border', () => {
     .create(
       <Table borderStyle="sm">
         <div>rest of table</div>
-      </Table>
+      </Table>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
@@ -30,7 +30,7 @@ test('renders correctly with maxHeight', () => {
     .create(
       <Table maxHeight={100}>
         <div>rest of table</div>
-      </Table>
+      </Table>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

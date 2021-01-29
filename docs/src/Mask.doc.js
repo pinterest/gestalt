@@ -15,7 +15,7 @@ card(
     description={`If you have an item you need to fit into a shape, you can achieve this by
 putting a \`Mask\` on it.
 `}
-  />
+  />,
 );
 
 card(
@@ -56,7 +56,7 @@ card(
         href: 'willChangeTransform',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -68,7 +68,7 @@ card(
   <div style={{ backgroundColor: '#0fa573', width: 70, height: 70 }} />
 </Mask>
 `}
-  />
+  />,
 );
 
 card(
@@ -88,7 +88,7 @@ card(
   </Mask>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -109,7 +109,7 @@ card(
   </Mask>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -123,7 +123,7 @@ card(
         <div style={{ backgroundColor: '#e3780c', width: 70, height: 70 }} />
       </Mask>
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -144,7 +144,7 @@ card(
   </Mask>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;
