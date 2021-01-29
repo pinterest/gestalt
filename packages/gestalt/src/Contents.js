@@ -7,6 +7,8 @@ import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
+import { useScrollableContainer } from './contexts/ScrollableContainer.js';
+import { getContainerNode } from './Layer.js';
 
 /* Needed until this Flow issue is fixed: https://github.com/facebook/flow/issues/380 */
 /* eslint quote-props: 0 */
@@ -34,15 +36,14 @@ const MARGIN = 24;
 type MainDir = ?('up' | 'right' | 'down' | 'left');
 type SubDir = 'up' | 'right' | 'down' | 'left' | 'middle';
 
-type ClientRect = {
+type ClientRect = {|
   bottom: number,
   height: number,
   left: number,
   right: number,
   top: number,
   width: number,
-  ...
-};
+|};
 
 type Window = {|
   height: number,
@@ -58,6 +59,7 @@ type Shift = {| x: number, y: number |};
 type EdgeShift = {| caret: Shift, flyout: Shift |};
 
 type OwnProps = {|
+  anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
@@ -76,12 +78,15 @@ type OwnProps = {|
   width: ?number,
 |};
 
+type HookProps = {|
+  scrollableContainerRef: ?HTMLDivElement,
+|};
 type ColorSchemeProps = {|
   colorGray100: string,
   isDarkMode: boolean,
 |};
 
-type Props = {| ...OwnProps, ...ColorSchemeProps |};
+type Props = {| ...OwnProps, ...ColorSchemeProps, ...HookProps |};
 
 type State = {|
   flyoutOffset: {|
@@ -114,15 +119,25 @@ export function getMainDir(
   let down = windowSize.height - flyoutSize.height - CARET_HEIGHT - triggerRect.bottom;
   let left = triggerRect.left - flyoutSize.width - CARET_HEIGHT;
 
-  // overrides available space when the trigger is close to the edge of the screen
-  // trigger is too close to top/bottom of screen for left & right flyouts
-  if (triggerRect.top < BORDER_RADIUS || windowSize.height - triggerRect.bottom < BORDER_RADIUS) {
+  // TOO CLOSE TO EDGE overrides available space when the trigger is close to the edge of the screen
+
+  // TOP or BOTTOM: trigger is too close to top/bottom of screen for left & right flyouts
+  const nonTopEdge = triggerRect.top < BORDER_RADIUS;
+  const nonBottomEdge = windowSize.height - triggerRect.bottom < BORDER_RADIUS;
+  const nonLeftEdge = triggerRect.left < BORDER_RADIUS;
+  const nonRightEdge = windowSize.width - triggerRect.right < BORDER_RADIUS;
+
+  // skipNoEdgeCondition is mostly an edge case within ScrollableContainers because trigger elements are more likely
+  // to touch both edges of the parent ScrollableContainers without margins/paddings
+  const skipNoEdgeCondition = (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
+
+  if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
     right = 0;
   }
 
-  // trigger is too close to the left/right of screen for up & down flyouts
-  if (triggerRect.left < BORDER_RADIUS || windowSize.width - triggerRect.right < BORDER_RADIUS) {
+  // LEFT or RIGHT: trigger is too close to the left/right of screen for up & down flyouts\
+  if (!skipNoEdgeCondition && (nonLeftEdge || nonRightEdge)) {
     up = 0;
     down = 0;
   }
@@ -189,9 +204,9 @@ export function getSubDir(
  * Calculates the amount the flyout & caret need to shift over to align with designs
  */
 export function calcEdgeShifts(
-  subDir: SubDir,
   triggerRect: ClientRect,
   windowSize: Window,
+  isScrollableBox: boolean,
 ): {| caret: Shift, flyout: Shift |} {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
@@ -205,7 +220,11 @@ export function calcEdgeShifts(
     triggerRect.top - flyoutVerticalShift < 0 ||
     triggerRect.bottom + flyoutVerticalShift > windowSize.height;
   if (isCloseVertically) {
-    flyoutVerticalShift = BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
+    // If there's a parent ScrollableContainer and trigger is close vertically and/or horizontally,
+    // skip the flyout shift adjusments so that the flyout is right in the edge.
+    flyoutVerticalShift = isScrollableBox
+      ? 0
+      : BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
@@ -213,7 +232,9 @@ export function calcEdgeShifts(
     triggerRect.left - flyoutHorizontalShift < 0 ||
     triggerRect.right + flyoutHorizontalShift > windowSize.width;
   if (isCloseHorizontally) {
-    flyoutHorizontalShift = BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
+    flyoutHorizontalShift = isScrollableBox
+      ? 0
+      : BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
   }
 
@@ -239,6 +260,7 @@ export function adjustOffsets(
   mainDir: MainDir,
   subDir: SubDir,
   triggerRect: ClientRect,
+  isScrollableBox: boolean,
 ): {|
   caretOffset: {|
     bottom: null | number,
@@ -258,10 +280,12 @@ export function adjustOffsets(
 
   if (subDir === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
-    caretTop = edgeShift.caret.y + 2;
+    // If there's a parent ScrollableContainer and caret direction is up or down,
+    // adjust the caret position to correctly match flyout position.
+    caretTop = edgeShift.caret.y + (isScrollableBox ? 6 : 2);
   } else if (subDir === 'down') {
     flyoutTop = base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
-    caretBottom = edgeShift.caret.y + 2;
+    caretBottom = edgeShift.caret.y + (isScrollableBox ? 6 : 2);
   } else if (subDir === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;
@@ -335,7 +359,7 @@ export function baseOffsets(
   return { top, left };
 }
 
-class WrappedContents extends Component<Props, State> {
+class Contents extends Component<Props, State> {
   static propTypes = {
     bgColor: PropTypes.oneOf(['blue', 'darkGray', 'orange', 'red', 'white']),
     border: PropTypes.bool,
@@ -404,11 +428,20 @@ class WrappedContents extends Component<Props, State> {
   }
 
   /**
-   * Determines the main direciton, sub direction, and corresponding offsets needed
-   * to correctly position the offset
+   * >> MAIN LOGIC << Determines the main direction, sub direction, and corresponding offsets needed
+   * to correctly position the offset: Flyout and Caret
    */
   static getDerivedStateFromProps(
-    { caret, idealDirection, positionRelativeToAnchor, relativeOffset, triggerRect, width }: Props,
+    {
+      anchor,
+      caret,
+      idealDirection,
+      positionRelativeToAnchor,
+      relativeOffset,
+      scrollableContainerRef,
+      triggerRect,
+      width,
+    }: Props,
     { flyoutRef }: State,
   ): {|
     caretOffset: {|
@@ -431,11 +464,15 @@ class WrappedContents extends Component<Props, State> {
       ? 0
       : window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
 
+    const containerNode = getContainerNode({ scrollableContainerRef, initialPositionRef: anchor });
+    const containerBoundingClientRect = containerNode?.getBoundingClientRect();
+
+    // If there's a parent ScrollableContainer, replace window's dimensions and scroll with the ScrollableContainer node ones
     const windowSize = {
-      height: window.innerHeight,
-      width: window.innerWidth,
-      scrollX,
-      scrollY,
+      height: containerBoundingClientRect?.height || window.innerHeight,
+      width: containerBoundingClientRect?.width || window.innerWidth,
+      scrollX: containerNode?.scrollLeft ?? scrollX,
+      scrollY: containerNode?.scrollTop ?? scrollY,
     };
 
     const flyoutSize = {
@@ -460,7 +497,7 @@ class WrappedContents extends Component<Props, State> {
     );
 
     // Gets the edge shifts for the flyout
-    const edgeShifts = calcEdgeShifts(subDir, triggerRect, windowSize);
+    const edgeShifts = calcEdgeShifts(triggerRect, windowSize, !!containerNode);
 
     // Adjusts for the subdirection of the caret
     const { flyoutOffset, caretOffset } = adjustOffsets(
@@ -470,6 +507,7 @@ class WrappedContents extends Component<Props, State> {
       mainDir,
       subDir,
       triggerRect,
+      !!containerNode,
     );
 
     return {
@@ -511,7 +549,11 @@ class WrappedContents extends Component<Props, State> {
     const isCaretVertical = ['down', 'up'].includes(mainDir);
 
     return (
-      <div className={styles.container} style={{ stroke, visibility, ...flyoutOffset }}>
+      <div
+        className={styles.container}
+        // flyoutOffset positions the Flyout component
+        style={{ stroke, visibility, ...flyoutOffset }}
+      >
         <div
           className={classnames(
             rounding === 2 && borders.rounding2,
@@ -526,6 +568,7 @@ class WrappedContents extends Component<Props, State> {
           {caret && mainDir && (
             <div
               className={classnames(colors[bgColorElevated], styles.caret)}
+              // caretOffset positions the Caret on the Flyout
               style={{ ...caretOffset }}
             >
               <Caret
@@ -556,13 +599,16 @@ class WrappedContents extends Component<Props, State> {
   }
 }
 
-export default function Contents(props: OwnProps): Node {
+export default function WrappedContents(props: OwnProps): Node {
   const { colorGray100, name: colorSchemeName } = useColorScheme();
+  const { scrollableContainerRef = null } = useScrollableContainer();
+
   return (
-    <WrappedContents
+    <Contents
       {...props}
       colorGray100={colorGray100}
       isDarkMode={colorSchemeName === 'darkMode'}
+      scrollableContainerRef={scrollableContainerRef}
     />
   );
 }
