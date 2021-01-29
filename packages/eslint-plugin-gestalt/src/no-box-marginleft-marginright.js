@@ -41,20 +41,20 @@ const rule = {
         }
 
         const isMarginLeftRightAttribute = Object.entries(
-          node.attributes
+          node.attributes,
           // eslint-disable-next-line no-unused-vars
         ).find(([key, value]) =>
           ['marginLeft', 'marginRight'].includes(
             // $FlowFixMe[incompatible-use]
-            value && value.name && value.name.name
-          )
+            value && value.name && value.name.name,
+          ),
         );
 
         // No marginLeft or marginRight attributes on Box
         if (isMarginLeftRightAttribute) {
           context.report(
             node,
-            'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box'
+            'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box',
           );
         }
       },

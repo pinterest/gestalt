@@ -16,49 +16,46 @@ const parserOptions = {
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-medium-formfields/valid.js'),
-  'utf-8'
+  'utf-8',
 );
 const invalidTextfieldDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-default.js'
+    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-default.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidTextfieldMedium = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-medium.js'
+    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-medium.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidTextfieldRenamed = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-renamed.js'
+    './__fixtures__/no-medium-formfields/invalid/invalid-textfield-renamed.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidSearchFieldDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-searchfield-default.js'
+    './__fixtures__/no-medium-formfields/invalid/invalid-searchfield-default.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidTabsDefault = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-tabs-default.js'
-  ),
-  'utf-8'
+  path.resolve(__dirname, './__fixtures__/no-medium-formfields/invalid/invalid-tabs-default.js'),
+  'utf-8',
 );
 const invalidSelectListDefault = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-medium-formfields/invalid/invalid-selectlist-default.js'
+    './__fixtures__/no-medium-formfields/invalid/invalid-selectlist-default.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 
 ruleTester.run('no-medium-formfields', rule, {

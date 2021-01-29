@@ -15,39 +15,36 @@ const parserOptions = {
 };
 
 const validCode = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/no-box-marginleft-marginright/valid.js'
-  ),
-  'utf-8'
+  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid.js'),
+  'utf-8',
 );
 const invalidLeftCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left.js'
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidRightCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right.js'
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidRightStartCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start.js'
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const invalidLeftStartCode = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start.js'
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start.js',
   ),
-  'utf-8'
+  'utf-8',
 );
 const errorMessage =
   'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';

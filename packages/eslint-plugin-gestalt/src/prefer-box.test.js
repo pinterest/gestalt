@@ -16,21 +16,15 @@ const parserOptions = {
 
 const validCode = readFileSync(
   path.resolve(__dirname, './__fixtures__/prefer-box/valid.js'),
-  'utf-8'
+  'utf-8',
 );
 const invalidBackgroundColor = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box/invalid/invalid-backgroundColor.js'
-  ),
-  'utf-8'
+  path.resolve(__dirname, './__fixtures__/prefer-box/invalid/invalid-backgroundColor.js'),
+  'utf-8',
 );
 const invalidBorderRadius = readFileSync(
-  path.resolve(
-    __dirname,
-    './__fixtures__/prefer-box/invalid/invalid-borderRadius.js'
-  ),
-  'utf-8'
+  path.resolve(__dirname, './__fixtures__/prefer-box/invalid/invalid-borderRadius.js'),
+  'utf-8',
 );
 
 ruleTester.run('prefer-box', rule, {
