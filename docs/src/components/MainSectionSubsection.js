@@ -17,7 +17,7 @@ const MainSectionSubsection = ({
   return (
     <>
       {title && (
-        <Box paddingY={1}>
+        <Box paddingY={2}>
           <Heading size="sm">{title}</Heading>
         </Box>
       )}
