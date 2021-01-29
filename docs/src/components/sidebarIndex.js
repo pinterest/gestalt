@@ -16,14 +16,7 @@ export type sidebarIndexType = {|
 const sidebarIndex: Array<sidebarIndexType> = [
   {
     sectionName: 'Getting Started',
-    pages: [
-      "What's New",
-      'Installation',
-      'Development',
-      'Eslint Plugin',
-      'Layouts',
-      'Faq',
-    ],
+    pages: ["What's New", 'Installation', 'Development', 'Eslint Plugin', 'Layouts', 'Faq'],
   },
   {
     sectionName: 'Foundation',

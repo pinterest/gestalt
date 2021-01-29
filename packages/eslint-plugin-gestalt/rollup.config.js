@@ -24,17 +24,12 @@ const rollupConfig = {
   plugins: [
     nodeResolve(),
     replace({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
-      ),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     }),
     babel({
       babelrc: false,
       babelHelpers: 'bundled',
-      presets: [
-        ['@babel/preset-env', { targets: { node: true } }],
-        '@babel/flow',
-      ],
+      presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/flow'],
       plugins: ['@babel/proposal-class-properties'],
       exclude: 'node_modules/**',
     }),
