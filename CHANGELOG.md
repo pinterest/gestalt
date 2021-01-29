@@ -1,3 +1,9 @@
+## 16.8.4 (Jan 29, 2021)
+
+### Patch
+
+- Internal: match Prettier config to Pinboard (#1355)
+
 ## 16.8.3 (Jan 27, 2021)
 
 ### Patch
