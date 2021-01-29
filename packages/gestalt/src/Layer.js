@@ -4,38 +4,7 @@ import { createPortal } from 'react-dom';
 import { type Indexable } from './zIndex.js';
 import styles from './Layer.css';
 import { useScrollableContainer } from './contexts/ScrollableContainer.js';
-
-export const getContainerNode = ({
-  scrollableContainerRef,
-  initialPositionRef,
-}: {|
-  scrollableContainerRef: ?HTMLDivElement,
-  initialPositionRef: ?HTMLElement,
-|}): ?HTMLDivElement => {
-  // containerNode references the ScrollableContainer node to which
-  // append the portal
-  let containerNode = null;
-  // currentNode references the DOM node used while traversing up nodes in the DOM tree
-  let currentNode = initialPositionRef;
-
-  while (!containerNode) {
-    // To find ScrollableContainer parents, currentNode is traversed up accessing its parent node
-    // until matching with the ScrollableContainer ref passed via context
-    // or until reaching the HTML document (loop break)
-    if (scrollableContainerRef && currentNode && currentNode.parentNode) {
-      if (
-        currentNode instanceof HTMLDivElement &&
-        scrollableContainerRef?.isSameNode(currentNode)
-      ) {
-        containerNode = scrollableContainerRef;
-      }
-      currentNode = currentNode.parentNode;
-    } else {
-      break;
-    }
-  }
-  return containerNode;
-};
+import { getContainerNode } from './utils/positioningUtils.js';
 
 export default function Layer({
   children,
