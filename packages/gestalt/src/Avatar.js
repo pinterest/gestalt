@@ -10,10 +10,7 @@ import { useColorScheme } from './contexts/ColorScheme.js';
 
 const Square = (props: *) => (
   <Box {...props} position="relative">
-    <Box
-      dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }}
-      position="relative"
-    />
+    <Box dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }} position="relative" />
     <Box position="absolute" top left bottom right>
       {props.children}
     </Box>
@@ -46,11 +43,9 @@ const DefaultAvatar = ({
           fill={colorGray300}
           dy="0.35em"
           textAnchor="middle"
-          className={[
-            typography.antialiased,
-            typography.sansSerif,
-            typography.fontWeightBold,
-          ].join(' ')}
+          className={[typography.antialiased, typography.sansSerif, typography.fontWeightBold].join(
+            ' ',
+          )}
         >
           {firstInitial}
         </text>
@@ -79,14 +74,7 @@ const sizes = {
 export default function Avatar(props: Props): Node {
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const { colorGray0, colorGray100 } = useColorScheme();
-  const {
-    accessibilityLabel,
-    name,
-    outline,
-    size = 'fit',
-    src,
-    verified,
-  } = props;
+  const { accessibilityLabel, name, outline, size = 'fit', src, verified } = props;
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
 
@@ -139,12 +127,7 @@ export default function Avatar(props: Props): Node {
           }}
         >
           <Box color="white" width="100%" height="100%" rounding="circle">
-            <Icon
-              color="red"
-              icon="check-circle"
-              accessibilityLabel=""
-              size="100%"
-            />
+            <Icon color="red" icon="check-circle" accessibilityLabel="" size="100%" />
           </Box>
         </Box>
       )}

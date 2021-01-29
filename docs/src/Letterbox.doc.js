@@ -19,7 +19,7 @@ always be possible for either cost or performance reasons.
 
 Letterbox should be used in situations where you would otherwise use the
 CSS property \`background-size: cover\`.`}
-  />
+  />,
 );
 
 card(
@@ -33,8 +33,7 @@ card(
         name: 'contentAspectRatio',
         type: 'number',
         required: true,
-        description:
-          'Proportional relationship between width and height of element',
+        description: 'Proportional relationship between width and height of element',
       },
       {
         name: 'height',
@@ -49,7 +48,7 @@ card(
         description: 'Desired final width of element',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -65,7 +64,7 @@ card(
   />
 </Letterbox>
 `}
-  />
+  />,
 );
 
 card(
@@ -81,7 +80,7 @@ card(
   />
 </Letterbox>
 `}
-  />
+  />,
 );
 
 card(
@@ -97,7 +96,7 @@ card(
   />
 </Letterbox>
 `}
-  />
+  />,
 );
 
 card(
@@ -113,7 +112,7 @@ card(
   />
 </Letterbox>
 `}
-  />
+  />,
 );
 
 card(
@@ -129,7 +128,7 @@ card(
   />
 </Letterbox>
 `}
-  />
+  />,
 );
 
 export default cards;

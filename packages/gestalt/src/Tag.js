@@ -60,7 +60,7 @@ export default function Tag(props: Props): Node {
     touchableStyles.tapTransition,
     {
       [focusStyles.accessibilityOutline]: isFocusVisible,
-    }
+    },
   );
 
   const borderStyle =
@@ -98,11 +98,7 @@ export default function Tag(props: Props): Node {
         </div>
         <Box marginStart={disabled ? 2 : 1}>
           {!disabled && (
-            <button
-              className={removeIconClasses}
-              onClick={onRemove}
-              type="button"
-            >
+            <button className={removeIconClasses} onClick={onRemove} type="button">
               <Icon
                 accessibilityLabel={removeIconAccessibilityLabel}
                 color={fgColor}

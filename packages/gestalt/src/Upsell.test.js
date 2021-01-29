@@ -6,15 +6,13 @@ import Upsell from './Upsell.js';
 
 describe('<Upsell />', () => {
   test('Basic Upsell', () => {
-    const tree = create(
-      <Upsell message="Insert a clever upsell message here" />
-    ).toJSON();
+    const tree = create(<Upsell message="Insert a clever upsell message here" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('message + title', () => {
     const tree = create(
-      <Upsell message="Insert a clever upsell message here" title="A Title" />
+      <Upsell message="Insert a clever upsell message here" title="A Title" />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -25,7 +23,7 @@ describe('<Upsell />', () => {
         message="Insert a clever upsell message here"
         primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -36,7 +34,7 @@ describe('<Upsell />', () => {
         message="Insert a clever upsell message here"
         primaryAction={{ label: 'Visit Pinterest' }}
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -48,7 +46,7 @@ describe('<Upsell />', () => {
         primaryAction={{ href: 'pinterest.com', label: 'Visit Pinterest' }}
         secondaryAction={{ href: 'pinterest.com/help', label: 'Learn more' }}
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -63,7 +61,7 @@ describe('<Upsell />', () => {
           onDismiss: () => {},
         }}
         title="A Title"
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -79,16 +77,9 @@ describe('<Upsell />', () => {
         }}
         title="A Title"
         imageData={{
-          component: (
-            <Icon
-              icon="pinterest"
-              accessibilityLabel="Pin"
-              color="darkGray"
-              size={32}
-            />
-          ),
+          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32} />,
         }}
-      />
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

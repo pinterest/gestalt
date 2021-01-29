@@ -10,7 +10,7 @@ export type ActionDataType = {|
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
 |};
 
@@ -20,20 +20,16 @@ export type DismissButtonType = {|
 |};
 
 // $FlowFixMe[incompatible-exact]
-export const ActionDataPropType: React$PropType$Primitive<ActionDataType> = PropTypes.exact(
-  {
-    href: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    // $FlowFixMe[incompatible-type]
-    onClick: PropTypes.func,
-    accessibilityLabel: PropTypes.string,
-  }
-);
+export const ActionDataPropType: React$PropType$Primitive<ActionDataType> = PropTypes.exact({
+  href: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  // $FlowFixMe[incompatible-type]
+  onClick: PropTypes.func,
+  accessibilityLabel: PropTypes.string,
+});
 // $FlowFixMe[incompatible-exact]
 // $FlowFixMe[incompatible-type]
-export const DismissButtonPropType: React$PropType$Primitive<DismissButtonType> = PropTypes.exact(
-  {
-    accessibilityLabel: PropTypes.string.isRequired,
-    onDismiss: PropTypes.func.isRequired,
-  }
-);
+export const DismissButtonPropType: React$PropType$Primitive<DismissButtonType> = PropTypes.exact({
+  accessibilityLabel: PropTypes.string.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+});

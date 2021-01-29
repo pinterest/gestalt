@@ -1,11 +1,6 @@
 // @flow strict
 
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  type Node,
-} from 'react';
+import React, { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -38,13 +33,7 @@ const SIZE_NAME_TO_PIXEL = {
 
 type BaseButton = {|
   accessibilityLabel?: string,
-  color?:
-    | 'gray'
-    | 'red'
-    | 'blue'
-    | 'transparent'
-    | 'transparentWhiteText'
-    | 'white',
+  color?: 'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
@@ -53,7 +42,7 @@ type BaseButton = {|
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLButtonElement>
+    | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
@@ -102,20 +91,15 @@ const IconEnd = ({
   <Box alignItems="center" display="flex">
     {text}
     <Box display="inlineBlock" flex="none" marginStart={2}>
-      <Icon
-        accessibilityLabel=""
-        color={textColor}
-        icon={icon}
-        size={SIZE_NAME_TO_PIXEL[size]}
-      />
+      <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
     </Box>
   </Box>
 );
 
-const ButtonWithForwardRef: React$AbstractComponent<
+const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
-  unionRefs
-> = forwardRef<unionProps, unionRefs>(function Button(props, ref): Node {
+  unionRefs,
+>(function Button(props, ref): Node {
   const {
     accessibilityLabel,
     color = 'gray',
@@ -177,10 +161,9 @@ const ButtonWithForwardRef: React$AbstractComponent<
       [styles.enabled]: !disabled,
       [styles.inline]: props.role !== 'link' && inline,
       [styles.block]: props.role !== 'link' && !inline,
-      [touchableStyles.tapCompress]:
-        props.role !== 'link' && !disabled && isTapping,
+      [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-    }
+    },
   );
 
   const textColor =
@@ -222,12 +205,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         wrappedComponent="button"
       >
         {iconEnd ? (
-          <IconEnd
-            text={buttonText}
-            textColor={textColor}
-            icon={iconEnd}
-            size={size}
-          />
+          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
         ) : (
           buttonText
         )}
@@ -258,12 +236,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
         type="submit"
       >
         {iconEnd ? (
-          <IconEnd
-            text={buttonText}
-            textColor={textColor}
-            icon={iconEnd}
-            size={size}
-          />
+          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
         ) : (
           buttonText
         )}
@@ -271,12 +244,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
     );
   }
 
-  const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-    name,
-  } = props;
+  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, name } = props;
 
   return (
     <button
@@ -301,12 +269,7 @@ const ButtonWithForwardRef: React$AbstractComponent<
       type="button"
     >
       {iconEnd ? (
-        <IconEnd
-          text={buttonText}
-          textColor={textColor}
-          icon={iconEnd}
-          size={size}
-        />
+        <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
       ) : (
         buttonText
       )}
@@ -320,29 +283,20 @@ ButtonWithForwardRef.propTypes = {
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
   accessibilityLabel: PropTypes.string,
-  color: PropTypes.oneOf([
-    'blue',
-    'gray',
-    'red',
-    'transparent',
-    'transparentWhiteText',
-    'white',
-  ]),
+  color: PropTypes.oneOf(['blue', 'gray', 'red', 'transparent', 'transparentWhiteText', 'white']),
   disabled: PropTypes.bool,
   href: PropTypes.string,
   iconEnd: PropTypes.oneOf(Object.keys(icons)),
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
-    'none' | 'nofollow'
-  >),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['button', 'link']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank'
+    null | 'self' | 'blank',
   >),
   text: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['button', 'submit']),

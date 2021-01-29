@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="Checkbox"
     description="We recommending using a Checkbox over a Switch when you have a long list (>3) of toggles."
-  />
+  />,
 );
 
 card(
@@ -100,7 +100,7 @@ a checkbox and its indeterminism are independent.`,
           'Optional description for the checkbox, used to provide more detail about an option',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -124,7 +124,7 @@ function CheckboxExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -177,7 +177,7 @@ function CheckboxExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -233,7 +233,7 @@ function CheckboxExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -279,7 +279,7 @@ function CheckboxExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -300,7 +300,7 @@ function CheckboxExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -346,7 +346,7 @@ function CheckboxExample() {
     </Flex>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -403,7 +403,7 @@ function CheckboxFlyoutExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -417,14 +417,8 @@ card(
     size={['sm', 'md']}
     labelPrefix="checkbox-combinations"
   >
-    {(props, i) => (
-      <Checkbox
-        id={`checkbox-combinations-${i}`}
-        onChange={() => {}}
-        {...props}
-      />
-    )}
-  </Combination>
+    {(props, i) => <Checkbox id={`checkbox-combinations-${i}`} onChange={() => {}} {...props} />}
+  </Combination>,
 );
 
 export default cards;

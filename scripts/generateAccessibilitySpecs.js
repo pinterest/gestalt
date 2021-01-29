@@ -6,7 +6,7 @@ const sidebarIndex = require('../docs/src/components/sidebarIndex.js');
 async function generate() {
   const pages = sidebarIndex.default.reduce(
     (acc, currentValue) => [...acc, ...currentValue.pages],
-    []
+    [],
   );
 
   await Promise.all(
@@ -23,9 +23,9 @@ async function generate() {
     cy.checkA11y();
   });
 });
-`
+`,
       );
-    })
+    }),
   );
 }
 

@@ -13,7 +13,7 @@ card(
     description={`
 The \`Heading\` component allows you to show headings on the page & has a bigger line height than regular text.
 `}
-  />
+  />,
 );
 
 card(
@@ -65,7 +65,7 @@ card(
         href: 'overflowTruncation',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -90,7 +90,7 @@ card(
   </span>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -120,7 +120,7 @@ card(
   </Heading>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -151,7 +151,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -166,7 +166,7 @@ card(
   <Heading align="justify" size="sm">Justify-aligned heading</Heading>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -188,7 +188,7 @@ card(
   </Heading>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Avatar"
     description="You can use an `Avatar` to represent a user. Every Avatar image has a subtle color wash."
-  />
+  />,
 );
 
 card(
@@ -51,7 +51,7 @@ card(
         defaultValue: false,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -99,7 +99,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -125,7 +125,7 @@ card(
   </Box>
 </Box>
   `}
-  />
+  />,
 );
 
 card(
@@ -141,7 +141,7 @@ card(
   size="lg"
 />
   `}
-  />
+  />,
 );
 
 card(
@@ -158,7 +158,7 @@ card(
   verified
 />
   `}
-  />
+  />,
 );
 
 export default cards;

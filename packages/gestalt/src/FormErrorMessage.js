@@ -5,13 +5,7 @@ import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
 
-export default function FormErrorMessage({
-  id,
-  text = '',
-}: {|
-  id: string,
-  text?: string,
-|}): Node {
+export default function FormErrorMessage({ id, text = '' }: {| id: string, text?: string |}): Node {
   return (
     <Box marginTop={2}>
       <Text color="red" size="sm">

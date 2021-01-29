@@ -1,9 +1,6 @@
 // @flow strict
 
-export function addListener(
-  mediaQuery: MediaQueryList,
-  callback: MediaQueryListListener
-): void {
+export function addListener(mediaQuery: MediaQueryList, callback: MediaQueryListListener): void {
   // addEventListener on mediaQuery is not supported in all browsers (Edge / Safari)
   // https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/addListener
   if (mediaQuery.addEventListener) {
@@ -14,10 +11,7 @@ export function addListener(
   }
 }
 
-export function removeListener(
-  mediaQuery: MediaQueryList,
-  callback: MediaQueryListListener
-): void {
+export function removeListener(mediaQuery: MediaQueryList, callback: MediaQueryListListener): void {
   if (mediaQuery.removeEventListener) {
     // $FlowFixMe[incompatible-call]
     mediaQuery.removeEventListener('change', callback);

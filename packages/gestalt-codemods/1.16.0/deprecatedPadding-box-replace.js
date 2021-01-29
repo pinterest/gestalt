@@ -14,7 +14,7 @@ export default function transformer(file, api) {
   function createPaddingAttribute({ axis = '', value }) {
     return j.jsxAttribute(
       j.jsxIdentifier(`padding${axis.toUpperCase()}`),
-      j.jsxExpressionContainer(j.literal(value))
+      j.jsxExpressionContainer(j.literal(value)),
     );
   }
 
@@ -54,17 +54,14 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
+          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
       let newAppendAttr = [];
       const newAttrs = attrs
         .map((attr) => {
-          if (
-            !attr?.name?.name ||
-            !['deprecatedPadding'].includes(attr.name.name)
-          ) {
+          if (!attr?.name?.name || !['deprecatedPadding'].includes(attr.name.name)) {
             return attr;
           }
 
@@ -84,7 +81,7 @@ export default function transformer(file, api) {
           }
 
           throw new Error(
-            `This attribute requires a manual fix: ${attr.value.expression.type} @line: ${node.loc.start.line}`
+            `This attribute requires a manual fix: ${attr.value.expression.type} @line: ${node.loc.start.line}`,
           );
         })
         .filter(Boolean);

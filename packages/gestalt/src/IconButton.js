@@ -1,11 +1,5 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useState,
-  useRef,
-  type Node,
-} from 'react';
+import React, { forwardRef, useImperativeHandle, useState, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
@@ -34,7 +28,7 @@ type BaseIconButton = {|
     | SyntheticMouseEvent<HTMLButtonElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
@@ -63,10 +57,10 @@ type unionProps = IconButtonType | LinkIconButtonType;
 
 type unionRefs = HTMLButtonElement | HTMLAnchorElement;
 
-const IconButtonWithForwardRef: React$AbstractComponent<
+const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
-  unionRefs
-> = forwardRef<unionProps, unionRefs>(function IconButton(props, ref): Node {
+  unionRefs,
+>(function IconButton(props, ref): Node {
   const {
     accessibilityLabel,
     bgColor,
@@ -106,16 +100,11 @@ const IconButtonWithForwardRef: React$AbstractComponent<
 
   const { isFocusVisible } = useFocusVisible();
 
-  const buttonRoleClasses = classnames(
-    styles.button,
-    touchableStyles.tapTransition,
-    {
-      [styles.disabled]: disabled,
-      [styles.enabled]: !disabled,
-      [touchableStyles.tapCompress]:
-        props.role !== 'link' && !disabled && isTapping,
-    }
-  );
+  const buttonRoleClasses = classnames(styles.button, touchableStyles.tapTransition, {
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: props.role !== 'link' && !disabled && isTapping,
+  });
 
   const renderPogComponent = (selected?: boolean): Node => {
     return (
@@ -195,12 +184,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<
     );
   }
 
-  const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-    selected,
-  } = props;
+  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup, selected } = props;
 
   return (
     <button
@@ -264,15 +248,13 @@ IconButtonWithForwardRef.propTypes = {
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
   padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
-    'none' | 'nofollow'
-  >),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['button', 'link']),
   selected: PropTypes.bool,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank'
+    null | 'self' | 'blank',
   >),
 };
 

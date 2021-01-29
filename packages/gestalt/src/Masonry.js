@@ -1,9 +1,5 @@
 // @flow strict
-import React, {
-  Component as ReactComponent,
-  type ComponentType,
-  type Node,
-} from 'react';
+import React, { Component as ReactComponent, type ComponentType, type Node } from 'react';
 import PropTypes from 'prop-types';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
@@ -12,15 +8,8 @@ import ScrollContainer from './ScrollContainer.js';
 import throttle from './throttle.js';
 import type { Cache } from './Cache.js';
 import MeasurementStore from './MeasurementStore.js';
-import {
-  getElementHeight,
-  getRelativeScrollTop,
-  getScrollPos,
-} from './scrollUtils.js';
-import {
-  DefaultLayoutSymbol,
-  UniformRowLayoutSymbol,
-} from './legacyLayoutSymbols.js';
+import { getElementHeight, getRelativeScrollTop, getScrollPos } from './scrollUtils.js';
+import { DefaultLayoutSymbol, UniformRowLayoutSymbol } from './legacyLayoutSymbols.js';
 import defaultLayout from './defaultLayout.js';
 import uniformRowLayout from './uniformRowLayout.js';
 import fullWidthLayout from './fullWidthLayout.js';
@@ -57,7 +46,7 @@ type Props<T> = {|
     | ((
         ?{|
           from: number,
-        |}
+        |},
       ) => void | boolean | { ... }),
   scrollContainer?: () => HTMLElement,
   virtualBoundsTop?: number,
@@ -81,10 +70,7 @@ const VIRTUAL_BUFFER_FACTOR = 0.7;
 
 const layoutNumberToCssDimension = (n) => (n !== Infinity ? n : undefined);
 
-export default class Masonry<T: { ... }> extends ReactComponent<
-  Props<T>,
-  State<T>
-> {
+export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1: { ... }, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -209,7 +195,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
       | ((
           ?{|
             from: number,
-          |}
+          |},
         ) => void | boolean | { ... }),
     minCols: number,
     virtualize?: boolean,
@@ -231,9 +217,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.state = {
-      hasPendingMeasurements: props.items.some(
-        (item) => !!item && !measurementStore.has(item)
-      ),
+      hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
       isFetching: false,
       items: props.items,
       measurementStore,
@@ -274,9 +258,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
       measurementStore.reset();
     }
     // calculate whether we still have pending measurements
-    const hasPendingMeasurements = items.some(
-      (item) => !!item && !measurementStore.has(item)
-    );
+    const hasPendingMeasurements = items.some((item) => !!item && !measurementStore.has(item));
     if (
       hasPendingMeasurements ||
       hasPendingMeasurements !== this.state.hasPendingMeasurements ||
@@ -308,7 +290,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
 
   static getDerivedStateFromProps(
     props: Props<T>,
-    state: State<T>
+    state: State<T>,
   ): null | {|
     hasPendingMeasurements: boolean,
     isFetching?: boolean,
@@ -319,9 +301,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
 
     // whenever we're receiving new props, determine whether any items need to be measured
     // TODO - we should treat items as immutable
-    const hasPendingMeasurements = items.some(
-      (item) => !measurementStore.has(item)
-    );
+    const hasPendingMeasurements = items.some((item) => !measurementStore.has(item));
 
     // Shallow compare all items, if any change reflow the grid.
     for (let i = 0; i < items.length; i += 1) {
@@ -374,9 +354,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     this.gridWrapper = ref;
   };
 
-  setScrollContainerRef: (ref: ?ScrollContainer) => void = (
-    ref: ?ScrollContainer
-  ) => {
+  setScrollContainerRef: (ref: ?ScrollContainer) => void = (ref: ?ScrollContainer) => {
     this.scrollContainer = ref;
   };
 
@@ -387,7 +365,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
         {
           isFetching: true,
         },
-        () => loadItems({ from: items.length })
+        () => loadItems({ from: items.length }),
       );
     }
   };
@@ -401,8 +379,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
         const el = this.gridWrapper;
         if (el instanceof HTMLElement) {
           const relativeScrollTop = getRelativeScrollTop(scrollContainerRef);
-          this.containerOffset =
-            el.getBoundingClientRect().top + relativeScrollTop;
+          this.containerOffset = el.getBoundingClientRect().top + relativeScrollTop;
         }
       }
     }
@@ -447,10 +424,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
         ? offsetScrollPos + this.containerHeight + virtualBoundsBottom
         : offsetScrollPos + this.containerHeight + virtualBuffer;
 
-      isVisible = !(
-        position.top + position.height < viewportTop ||
-        position.top > viewportBottom
-      );
+      isVisible = !(position.top + position.height < viewportTop || position.top > viewportBottom);
     } else {
       // if no scroll container is passed in, items should always be visible
       isVisible = true;
@@ -459,9 +433,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
     const itemComponent = (
       <div
         key={`item-${idx}`}
-        className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(
-          ' '
-        )}
+        className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
         data-grid-item
         style={{
           top: 0,
@@ -571,9 +543,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
       gridBody = <div style={{ width: '100%' }} ref={this.setGridWrapperRef} />;
     } else {
       // Full layout is possible
-      const itemsToRender = items.filter(
-        (item) => item && measurementStore.has(item)
-      );
+      const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, minCols);
@@ -591,7 +561,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
           <div className={styles.Masonry} style={{ height, width }}>
             {itemsToRender.map((item, i) =>
               // $FlowFixMe[incompatible-call]
-              this.renderMasonryComponent(item, i, positions[i])
+              this.renderMasonryComponent(item, i, positions[i]),
             )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
@@ -618,11 +588,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
                     }
                   }}
                 >
-                  <Component
-                    data={data}
-                    itemIdx={measurementIndex}
-                    isMeasuring
-                  />
+                  <Component data={data} itemIdx={measurementIndex} isMeasuring />
                 </div>
               );
             })}
@@ -632,9 +598,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<
             <FetchItems
               containerHeight={this.containerHeight}
               fetchMore={this.fetchMore}
-              isFetching={
-                this.state.isFetching || this.state.hasPendingMeasurements
-              }
+              isFetching={this.state.isFetching || this.state.hasPendingMeasurements}
               scrollHeight={height + this.containerOffset}
               scrollTop={this.state.scrollTop}
             />

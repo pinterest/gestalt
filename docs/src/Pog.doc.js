@@ -17,7 +17,7 @@ A lower-level functional component to show the active, hovered, & focused states
 
 This abstraction to allow for links that look like an IconButton.
 "
-  />
+  />,
 );
 
 card(
@@ -90,7 +90,7 @@ card(
         href: 'sizeCombinations',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -102,7 +102,7 @@ card(
   iconColor="red"
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -114,7 +114,7 @@ card(
     active={[false, true]}
   >
     {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -124,7 +124,7 @@ card(
     size={['xs', 'sm', 'md', 'lg', 'xl']}
   >
     {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -135,7 +135,7 @@ card(
     padding={[1, 2, 3, 4, 5]}
   >
     {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -145,24 +145,17 @@ card(
     iconColor={['darkGray', 'gray', 'red', 'white']}
   >
     {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 card(
   <Combination
     id="backgroundColorCombinations"
     name="Combinations: Background Color"
-    bgColor={[
-      'transparent',
-      'transparentDarkGray',
-      'darkGray',
-      'white',
-      'lightGray',
-      'gray',
-    ]}
+    bgColor={['transparent', 'transparentDarkGray', 'darkGray', 'white', 'lightGray', 'gray']}
   >
     {(props) => <Pog icon="heart" {...props} />}
-  </Combination>
+  </Combination>,
 );
 
 export default cards;

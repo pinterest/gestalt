@@ -14,7 +14,7 @@ export default function ModuleExpandable({
   items,
 }: ExpandableBaseProps): Node {
   const [expandedId, setExpandedId] = useState<?number>(
-    Number.isFinite(expandedIndex) ? expandedIndex : null
+    Number.isFinite(expandedIndex) ? expandedIndex : null,
   );
 
   useEffect(() => {
@@ -23,37 +23,32 @@ export default function ModuleExpandable({
 
   return (
     <Box rounding={2} borderStyle="shadow">
-      {items.map(
-        (
-          { icon, iconAccessibilityLabel, title, type, summary, children },
-          index
-        ) => (
-          <React.Fragment key={index}>
-            <Box>
-              <ModuleExpandableItem
-                id={`${id}-${index}`}
-                title={title}
-                icon={icon}
-                iconAccessibilityLabel={iconAccessibilityLabel}
-                summary={summary}
-                isCollapsed={expandedId !== index}
-                type={type}
-                accessibilityExpandLabel={accessibilityExpandLabel}
-                accessibilityCollapseLabel={accessibilityCollapseLabel}
-                onModuleClicked={(isExpanded) => {
-                  if (onExpandedChange) {
-                    onExpandedChange(isExpanded ? null : index);
-                  }
-                  setExpandedId(isExpanded ? null : index);
-                }}
-              >
-                {children}
-              </ModuleExpandableItem>
-            </Box>
-            {index !== items.length - 1 && <Divider />}
-          </React.Fragment>
-        )
-      )}
+      {items.map(({ icon, iconAccessibilityLabel, title, type, summary, children }, index) => (
+        <React.Fragment key={index}>
+          <Box>
+            <ModuleExpandableItem
+              id={`${id}-${index}`}
+              title={title}
+              icon={icon}
+              iconAccessibilityLabel={iconAccessibilityLabel}
+              summary={summary}
+              isCollapsed={expandedId !== index}
+              type={type}
+              accessibilityExpandLabel={accessibilityExpandLabel}
+              accessibilityCollapseLabel={accessibilityCollapseLabel}
+              onModuleClicked={(isExpanded) => {
+                if (onExpandedChange) {
+                  onExpandedChange(isExpanded ? null : index);
+                }
+                setExpandedId(isExpanded ? null : index);
+              }}
+            >
+              {children}
+            </ModuleExpandableItem>
+          </Box>
+          {index !== items.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
     </Box>
   );
 }

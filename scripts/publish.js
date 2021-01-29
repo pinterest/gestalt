@@ -3,13 +3,7 @@
 const path = require('path');
 const shell = require('shelljs');
 
-const json = require(path.join(
-  __dirname,
-  '..',
-  'packages',
-  'gestalt',
-  'package.json'
-));
+const json = require(path.join(__dirname, '..', 'packages', 'gestalt', 'package.json'));
 const { version } = json;
 console.log(`Publishing version: ${version}`);
 
@@ -20,7 +14,7 @@ const packages = ['gestalt', 'gestalt-datepicker'];
 packages.forEach((packageName) => {
   shell.cd(path.join(__dirname, '..', 'packages', packageName));
   shell.exec(
-    `yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${version}`
+    `yarn publish --registry=https://registry.npmjs.org --no-git-tag-version --new-version ${version}`,
   );
 });
 

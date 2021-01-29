@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Label"
     description="Use the Label component to connect a label with a form component in an accessible way."
-  />
+  />,
 );
 
 card(
@@ -28,7 +28,7 @@ card(
         description: 'Id of the element this label is describing',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -57,7 +57,7 @@ function LabelExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

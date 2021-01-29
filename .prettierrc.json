@@ -2,7 +2,15 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": "*.js"
+      "files": "*.js",
+      "options": {
+        "arrowParens": "always",
+        "jsxBracketSameLine": false,
+        "printWidth": 100,
+        "quoteProps": "preserve",
+        "tabWidth": 2,
+        "trailingComma": "all"
+      }
     },
     {
       "files": "*.css",

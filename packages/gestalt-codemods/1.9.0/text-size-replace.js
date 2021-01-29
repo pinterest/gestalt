@@ -17,9 +17,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Text'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Text');
     if (!specifier) {
       return;
     }
@@ -38,7 +36,7 @@ export default function transformer(file, api) {
       }
 
       const hasSize = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'size'
+        (attr) => attr.name && attr.name.name === 'size',
       );
 
       if (!hasSize) {
@@ -72,23 +70,18 @@ export default function transformer(file, api) {
       if (hasSizeXL) {
         let hasBold = false;
         let hasInvalidProp = false;
-        const newAttrs = node.openingElement.attributes.reduce(
-          (attrs, attr) => {
-            if (attr.name.name === 'weight' && attr.value.value === 'bold') {
-              hasBold = true;
-            } else if (attr.name.name === 'size' && attr.value.value === 'xl') {
-              attrs.push(
-                j.jsxAttribute(j.jsxIdentifier('size'), j.literal('sm'))
-              );
-            } else if (validHeadingProps.includes(attr.name.name)) {
-              attrs.push(attr);
-            } else {
-              hasInvalidProp = true;
-            }
-            return attrs;
-          },
-          []
-        );
+        const newAttrs = node.openingElement.attributes.reduce((attrs, attr) => {
+          if (attr.name.name === 'weight' && attr.value.value === 'bold') {
+            hasBold = true;
+          } else if (attr.name.name === 'size' && attr.value.value === 'xl') {
+            attrs.push(j.jsxAttribute(j.jsxIdentifier('size'), j.literal('sm')));
+          } else if (validHeadingProps.includes(attr.name.name)) {
+            attrs.push(attr);
+          } else {
+            hasInvalidProp = true;
+          }
+          return attrs;
+        }, []);
         if (hasBold && !hasInvalidProp) {
           let headingIdentifierName = 'Heading';
           // Check what we imported Heading as (if it isn't already there, manually add import after codemod)
@@ -98,7 +91,7 @@ export default function transformer(file, api) {
               return;
             }
             const specifier = decl.specifiers.find(
-              (importNode) => importNode.imported.name === 'Heading'
+              (importNode) => importNode.imported.name === 'Heading',
             );
             if (!specifier) {
               return;

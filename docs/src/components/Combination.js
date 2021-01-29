@@ -29,9 +29,7 @@ const combinations = (variationsByField) => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
-      throw new Error(
-        `Please provide a non-empty array of possible values for prop ${fieldName}`
-      );
+      throw new Error(`Please provide a non-empty array of possible values for prop ${fieldName}`);
     }
 
     const vs = variationsForField.map((fieldValue) => ({
@@ -99,13 +97,7 @@ export default function Combination({
 }: Props): Node {
   const { column, mdColumn, lgColumn } = layoutReducer(layout);
   return (
-    <Card
-      name={name}
-      description={description}
-      id={id}
-      stacked={stacked}
-      showHeading={showHeading}
-    >
+    <Card name={name} description={description} id={id} stacked={stacked} showHeading={showHeading}>
       <Box display="flex" wrap>
         {combinations(props).map((combination, i) => {
           const combinationTitles = Object.keys(combination).map((key) => (
@@ -127,9 +119,7 @@ export default function Combination({
               {showValues && (
                 <Box marginBottom={2}>
                   {labelPrefix ? (
-                    <Label htmlFor={`${labelPrefix}-${i}`}>
-                      {combinationTitles}
-                    </Label>
+                    <Label htmlFor={`${labelPrefix}-${i}`}>{combinationTitles}</Label>
                   ) : (
                     combinationTitles
                   )}

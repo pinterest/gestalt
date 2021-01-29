@@ -8,11 +8,6 @@ jest.mock('../deprecatedMargin-box-replace', () => {
 
 describe('deprecatedMargin-box-replace', () => {
   ['deprecatedMargin-box-replace'].forEach((test) => {
-    defineTest(
-      __dirname,
-      'deprecatedMargin-box-replace',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'deprecatedMargin-box-replace', { quote: 'single' }, test);
   });
 });

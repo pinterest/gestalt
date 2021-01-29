@@ -10,7 +10,7 @@ if (container instanceof Element) {
     <React.StrictMode>
       <AppWrapper />
     </React.StrictMode>,
-    container
+    container,
   );
 } else {
   throw new Error("No element with id 'root' found in index.html file");

@@ -1,29 +1,21 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  type Node,
-} from 'react';
+import React, { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
 import InternalLink from './InternalLink.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, {
-  RoundingPropType,
-  type Rounding,
-} from './getRoundingClassName.js';
+import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 
 type FocusEventHandler = AbstractEventHandler<
-  SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>
+  SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
 >;
 
 type MouseEventHandler = AbstractEventHandler<
-  SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>
+  SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
 >;
 
 type BaseTapArea = {|
@@ -32,15 +24,7 @@ type BaseTapArea = {|
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
-  mouseCursor?:
-    | 'copy'
-    | 'grab'
-    | 'grabbing'
-    | 'move'
-    | 'noDrop'
-    | 'pointer'
-    | 'zoomIn'
-    | 'zoomOut',
+  mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onBlur?: FocusEventHandler,
   onFocus?: FocusEventHandler,
   onMouseEnter?: MouseEventHandler,
@@ -49,7 +33,7 @@ type BaseTapArea = {|
     | SyntheticMouseEvent<HTMLDivElement>
     | SyntheticKeyboardEvent<HTMLDivElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   tabIndex?: -1 | 0,
   rounding?: Rounding,
@@ -74,10 +58,10 @@ type LinkTapAreaType = {|
 type unionProps = TapAreaType | LinkTapAreaType;
 type unionRefs = HTMLDivElement | HTMLAnchorElement;
 
-const TapAreaWithForwardRef: React$AbstractComponent<
+const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
   unionProps,
-  unionRefs
-> = forwardRef<unionProps, unionRefs>(function TapArea(props, ref): Node {
+  unionRefs,
+>(function TapArea(props, ref): Node {
   const {
     accessibilityLabel,
     children,
@@ -126,11 +110,8 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       [styles.fullWidth]: fullWidth,
       [styles[mouseCursor]]: !disabled,
       [styles.tapCompress]:
-        props.role !== 'link' &&
-        !disabled &&
-        tapStyle === 'compress' &&
-        isTapping,
-    }
+        props.role !== 'link' && !disabled && tapStyle === 'compress' && isTapping,
+    },
   );
 
   const handleClick = (event) => {
@@ -202,11 +183,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
     );
   }
 
-  const {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
-  } = props;
+  const { accessibilityControls, accessibilityExpanded, accessibilityHaspopup } = props;
   return (
     <div
       aria-controls={accessibilityControls}
@@ -240,9 +217,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<
       onTouchEnd={handleTouchEnd}
       ref={innerRef}
       role="button"
-      {...(tapStyle === 'compress' && compressStyle && !disabled
-        ? { style: compressStyle }
-        : {})}
+      {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       tabIndex={disabled ? null : tabIndex}
     >
       {children}
@@ -271,31 +246,20 @@ TapAreaWithForwardRef.propTypes = {
     'zoomIn',
     'zoomOut',
   ]): React$PropType$Primitive<
-    | 'copy'
-    | 'grab'
-    | 'grabbing'
-    | 'move'
-    | 'noDrop'
-    | 'pointer'
-    | 'zoomIn'
-    | 'zoomOut'
+    'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   >),
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
-    'none' | 'nofollow'
-  >),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['tapArea', 'link']),
   rounding: RoundingPropType,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
-    'none' | 'compress'
-  >),
+  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank'
+    null | 'self' | 'blank',
   >),
 };
 

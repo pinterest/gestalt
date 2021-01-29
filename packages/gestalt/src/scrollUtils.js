@@ -14,10 +14,7 @@ export function getWindowScrollPos(): number {
     // Modern browser
     return window.scrollY;
   }
-  if (
-    document.documentElement &&
-    document.documentElement.scrollTop !== undefined
-  ) {
+  if (document.documentElement && document.documentElement.scrollTop !== undefined) {
     // IE support.
     return document.documentElement.scrollTop;
   }

@@ -35,9 +35,7 @@ describe('ModuleExpandable', () => {
     render(<ModuleExpandable {...props} />);
 
     expect(screen.getByText(/Title1/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /lock icon label/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /lock icon label/i })).toBeInTheDocument();
     expect(screen.queryByText(/summary1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children1/i)).toBeNull();
 
@@ -46,9 +44,7 @@ describe('ModuleExpandable', () => {
     expect(screen.queryByText(/Children2/i)).toBeNull();
 
     expect(screen.getByText(/Title3/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole('img', { name: /Error icon/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /Error icon/i })).toBeInTheDocument();
     expect(screen.queryByText(/summary3/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children3/i)).toBeNull();
   });

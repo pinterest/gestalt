@@ -15,7 +15,7 @@ describe('ModuleExpandableItem', () => {
           isCollapsed
           type="info"
           onModuleClicked={() => {}}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -34,7 +34,7 @@ describe('ModuleExpandableItem', () => {
           iconAccessibilityLabel="lock icon label"
           type="info"
           onModuleClicked={() => {}}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe('ModuleExpandableItem', () => {
           summary={['summary1', 'summary2', 'summary3']}
           type="info"
           onModuleClicked={() => {}}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('ModuleExpandableItem', () => {
           isCollapsed
           type="error"
           onModuleClicked={() => {}}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -86,7 +86,7 @@ describe('ModuleExpandableItem', () => {
           isCollapsed
           type="info"
           onModuleClicked={() => {}}
-        />
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -106,7 +106,7 @@ describe('ModuleExpandableItem', () => {
           onModuleClicked={() => {}}
         >
           <div>test children</div>
-        </ModuleExpandableItem>
+        </ModuleExpandableItem>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

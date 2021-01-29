@@ -24,18 +24,17 @@ function logSuccess(message) {
 async function generateFile({ componentName, outputPath, template, log }) {
   await fs.promises.writeFile(
     outputPath,
-    (
-      await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8')
-    ).replace(/ComponentName/g, componentName)
+    (await fs.promises.readFile(path.join(currentDirectory, template), 'utf-8')).replace(
+      /ComponentName/g,
+      componentName,
+    ),
   );
 
   logSuccess(log);
 }
 
 async function appendToExportIndex({ componentName }) {
-  const [imports, exports] = (
-    await fs.promises.readFile(indexFile, 'utf-8')
-  ).split('export {');
+  const [imports, exports] = (await fs.promises.readFile(indexFile, 'utf-8')).split('export {');
 
   const importsTransformed = imports
     .split('\n')
@@ -58,7 +57,7 @@ async function appendToExportIndex({ componentName }) {
 export {
 ${exportsTransformed}
 };
-`
+`,
   );
 }
 
@@ -98,7 +97,7 @@ async function generateComponentFiles(componentName) {
       componentName,
       outputPath: path.join(
         accessibilityIntegrationTests,
-        `accessibility_${componentName}_spec.js`
+        `accessibility_${componentName}_spec.js`,
       ),
       template: 'templates/accessibility_ComponentName_spec.js',
       log: 'Generated accessibility integration test',

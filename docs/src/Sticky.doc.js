@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Sticky"
     description="Sticky allows an element to become fixed when it reaches a threshold (top, left, bottom, or right)."
-  />
+  />,
 );
 
 card(
@@ -52,7 +52,7 @@ card(
         description: `An object representing the zIndex value of the Sticky.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -104,7 +104,7 @@ function Example() {
   )
 }
 `}
-  />
+  />,
 );
 
 export default cards;

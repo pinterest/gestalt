@@ -15,7 +15,7 @@ describe('ButtonGroup', () => {
     const tree = create(
       <ButtonGroup>
         <Button text="Button 1" />
-      </ButtonGroup>
+      </ButtonGroup>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -25,7 +25,7 @@ describe('ButtonGroup', () => {
       <ButtonGroup>
         <Button text="Button 1" />
         <Button text="Button 2" />
-      </ButtonGroup>
+      </ButtonGroup>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

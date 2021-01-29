@@ -12,7 +12,7 @@ card(
   <PageHeader
     name="Layer"
     description="Layers allow you to render children outside the DOM hierarchy of the parent. It's a wrapper around React createPortal that lets you use it as a component. This is particularly useful for places you might have needed to use z-index to overlay the screen before."
-  />
+  />,
 );
 
 card(
@@ -29,7 +29,7 @@ card(
         description: `An object representing the zIndex value of the Layer.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -39,7 +39,7 @@ card(
     such as in a server rendering environment, the children will not be rendered.
   "
     name="Server Rendering"
-  />
+  />,
 );
 
 card(
@@ -80,7 +80,7 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -123,7 +123,7 @@ function zIndexExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

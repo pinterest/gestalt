@@ -23,9 +23,7 @@ type Props = {|
 |};
 
 function getScrollContainer(scrollContainer) {
-  return typeof scrollContainer === 'function'
-    ? scrollContainer()
-    : scrollContainer;
+  return typeof scrollContainer === 'function' ? scrollContainer() : scrollContainer;
 }
 
 export default class ScrollContainer extends Component<Props> {
@@ -34,8 +32,7 @@ export default class ScrollContainer extends Component<Props> {
   static propTypes = {
     children: PropTypes.node.isRequired,
     onScroll: PropTypes.func.isRequired,
-    scrollContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
-      .isRequired,
+    scrollContainer: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
   };
 
   componentDidMount() {

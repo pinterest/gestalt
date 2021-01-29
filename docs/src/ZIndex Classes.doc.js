@@ -14,15 +14,15 @@ card(
     name="zIndex Classes"
     fileName="zIndex"
     description="FixedZIndex and CompositeZIndex are 2 classes that generate z-index for the Box and Sticky components."
-  />
+  />,
 );
 
 card(
   <Card name="FixedZIndex">
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
-        FixedZIndex is used for setting fixed z-index values. FixedZIndex must
-        be instantiated with a number.
+        FixedZIndex is used for setting fixed z-index values. FixedZIndex must be instantiated with
+        a number.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
         <Markdown
@@ -35,16 +35,15 @@ const fixedZindex = new FixedZIndex(1);
         />
       </Box>
     </Flex>
-  </Card>
+  </Card>,
 );
 
 card(
   <Card name="CompositeZIndex">
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
-        CompositeZIndex is used for dynamically composing z-index values.
-        CompositeZIndex must be instantiated with an array of FixedZIndex or
-        CompositeZIndex instances.
+        CompositeZIndex is used for dynamically composing z-index values. CompositeZIndex must be
+        instantiated with an array of FixedZIndex or CompositeZIndex instances.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
         <Markdown
@@ -59,7 +58,7 @@ const highestCompositeZIndex = new CompositeZIndex([fixedZIndex, compositeZIndex
         />
       </Box>
     </Flex>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -104,17 +103,16 @@ function ZIndexBoxExample() {
   )
 }
 `}
-  />
+  />,
 );
 
 card(
   <Card name="Note">
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
-        FixedZIndex and CompositeZIndex work with Box and Sticky components. To
-        stay consistent across your codebase using zIndex classes, you can
-        extract zIndex values from both zIndex classes in cases where the zIndex
-        receptor does not accept zIndex classes.
+        FixedZIndex and CompositeZIndex work with Box and Sticky components. To stay consistent
+        across your codebase using zIndex classes, you can extract zIndex values from both zIndex
+        classes in cases where the zIndex receptor does not accept zIndex classes.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
         <Markdown
@@ -142,9 +140,9 @@ const compositeZIndexValue = compositeZIndex.index(); // 2
         />
       </Box>
       <Text>
-        However, this is an escape hatch that should only be used in cases like
-        needing to work with a third party library. For any other case, a better
-        approach is to wrap the component that needs a zIndex in a Box.
+        However, this is an escape hatch that should only be used in cases like needing to work with
+        a third party library. For any other case, a better approach is to wrap the component that
+        needs a zIndex in a Box.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
         <Markdown
@@ -177,7 +175,7 @@ const customButton = <Box zIndex={fixedZindex}> <CustomButton/> </Box>;
         </Flex>
       </Box>
     </Flex>
-  </Card>
+  </Card>,
 );
 
 export default cards;

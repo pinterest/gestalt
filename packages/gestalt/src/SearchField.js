@@ -30,10 +30,10 @@ type Props = {|
   errorMessage?: string,
 |};
 
-const SearchFieldWithForwardRef: React$AbstractComponent<
+const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
-  HTMLInputElement
-> = forwardRef<Props, HTMLInputElement>(function SearchField(props, ref): Node {
+  HTMLInputElement,
+>(function SearchField(props, ref): Node {
   const {
     accessibilityLabel,
     autoComplete,
@@ -93,7 +93,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
       [styles.inputActive]: focused || hasValue,
       [styles.inputHovered]: hovered,
     },
-    errorMessage ? formElement.errored : formElement.normal
+    errorMessage ? formElement.errored : formElement.normal,
   );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
@@ -144,12 +144,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<
         />
 
         {hasValue && (
-          <button
-            className={styles.clear}
-            onClick={handleClear}
-            tabIndex={-1}
-            type="button"
-          >
+          <button className={styles.clear} onClick={handleClear} tabIndex={-1} type="button">
             <Box
               alignItems="center"
               color={focused ? 'darkGray' : 'transparent'}

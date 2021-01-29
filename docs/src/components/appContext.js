@@ -27,19 +27,19 @@ const {
 }: Hydra<AppContextType> = createHydra<AppContextType>('AppContext');
 
 function AppContextProvider({ children }: {| children?: Node |}): Node {
-  const [
-    propTableVariant,
-    setPropTableVariant,
-  ] = useLocalStorage<PropTableVariant>(propTableVariantKey, 'expanded');
+  const [propTableVariant, setPropTableVariant] = useLocalStorage<PropTableVariant>(
+    propTableVariantKey,
+    'expanded',
+  );
 
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>(
     localStorageColorSchemeKey,
-    'light'
+    'light',
   );
 
   const [textDirection, setTextDirection] = useLocalStorage<DirectionScheme>(
     localStorageTextDirectionKey,
-    'ltr'
+    'ltr',
   );
 
   useEffect(() => {

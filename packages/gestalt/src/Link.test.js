@@ -4,14 +4,10 @@ import renderer from 'react-test-renderer';
 import Link from './Link.js';
 
 it('default', () =>
-  expect(
-    renderer.create(<Link href="https://example.com">Link</Link>).toJSON()
-  ).toMatchSnapshot());
+  expect(renderer.create(<Link href="https://example.com">Link</Link>).toJSON()).toMatchSnapshot());
 
 it('regular', () =>
-  expect(
-    renderer.create(<Link href="https://example.com">Link</Link>).toJSON()
-  ).toMatchSnapshot());
+  expect(renderer.create(<Link href="https://example.com">Link</Link>).toJSON()).toMatchSnapshot());
 
 it('inline', () =>
   expect(
@@ -19,9 +15,9 @@ it('inline', () =>
       .create(
         <Link href="https://example.com" inline>
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('target null', () =>
@@ -30,9 +26,9 @@ it('target null', () =>
       .create(
         <Link href="https://example.com" target={null}>
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('target self', () =>
@@ -41,9 +37,9 @@ it('target self', () =>
       .create(
         <Link href="https://example.com" target="self">
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('target blank', () =>
@@ -52,9 +48,9 @@ it('target blank', () =>
       .create(
         <Link href="https://example.com" target="blank">
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('with nofollow', () =>
@@ -63,9 +59,9 @@ it('with nofollow', () =>
       .create(
         <Link href="https://example.com" rel="nofollow">
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('with onTap', () =>
@@ -74,25 +70,20 @@ it('with onTap', () =>
       .create(
         <Link href="https://example.com" onClick={() => {}}>
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('with custom rounding, hoverStyle, and tapStyle', () =>
   expect(
     renderer
       .create(
-        <Link
-          href="https://example.com"
-          rounding="pill"
-          hoverStyle="none"
-          tapStyle="compress"
-        >
+        <Link href="https://example.com" rounding="pill" hoverStyle="none" tapStyle="compress">
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());
 
 it('with accessibilitySelected and role', () =>
@@ -101,7 +92,7 @@ it('with accessibilitySelected and role', () =>
       .create(
         <Link href="https://example.com" accessibilitySelected role="tab">
           Link
-        </Link>
+        </Link>,
       )
-      .toJSON()
+      .toJSON(),
   ).toMatchSnapshot());

@@ -19,31 +19,21 @@ export default Demo;`;
 
 const dedupeArray = <T>(arr: Array<T>): Array<T> => [...new Set(arr)];
 
-const handleCodeSandbox = async ({
-  code,
-  title,
-}: {|
-  code: string,
-  title: string,
-|}) => {
+const handleCodeSandbox = async ({ code, title }: {| code: string, title: string |}) => {
   const gestaltComponents = Object.keys(gestalt);
   const additionalGestaltComponents = ['DatePicker'];
 
   const usedComponents = dedupeArray([
-    ...(code.match(/<((\w+))/g) || []).map((component) =>
-      component.replace('<', '')
+    ...(code.match(/<((\w+))/g) || []).map((component) => component.replace('<', '')),
+    ...(code.match(/(new FixedZIndex)|(new CompositeZIndex)/g) || []).map((component) =>
+      component.replace('new ', ''),
     ),
-    ...(
-      code.match(/(new FixedZIndex)|(new CompositeZIndex)/g) || []
-    ).map((component) => component.replace('new ', '')),
   ]);
 
-  const baseComponents = gestaltComponents.filter((x) =>
-    usedComponents.includes(x)
-  );
+  const baseComponents = gestaltComponents.filter((x) => usedComponents.includes(x));
 
   const additionalComponents = additionalGestaltComponents.filter((x) =>
-    usedComponents.includes(x)
+    usedComponents.includes(x),
   );
 
   const getPackagedComponents = () => {
@@ -51,7 +41,7 @@ const handleCodeSandbox = async ({
     if (additionalComponents.includes('DatePicker')) {
       imports.push(
         'import "../node_modules/gestalt-datepicker/dist/gestalt-datepicker.css";',
-        'import DatePicker from "gestalt-datepicker";'
+        'import DatePicker from "gestalt-datepicker";',
       );
     }
     if (baseComponents.length > 0) {
@@ -110,14 +100,11 @@ ${exportDefaultMaybe({ code })}`,
   const formData = new FormData();
   formData.append('parameters', parameters);
 
-  const url = await fetch(
-    'https://codesandbox.io/api/v1/sandboxes/define?json=1',
-    {
-      method: 'post',
-      body: formData,
-      mode: 'cors',
-    }
-  )
+  const url = await fetch('https://codesandbox.io/api/v1/sandboxes/define?json=1', {
+    method: 'post',
+    body: formData,
+    mode: 'cors',
+  })
     .then((response) => response.json())
     .then(({ errors, sandbox_id: id }) => {
       if (errors) throw errors;

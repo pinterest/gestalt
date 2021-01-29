@@ -42,9 +42,7 @@ export default function transformer(file, api) {
     ].filter(Boolean);
 
     // Sort all the imports alphabetically
-    newSpecifiers.sort((a, b) =>
-      a.imported.name.localeCompare(b.imported.name)
-    );
+    newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
 
     const newNode = j.importDeclaration(newSpecifiers, j.literal('gestalt'));
 
@@ -61,51 +59,34 @@ export default function transformer(file, api) {
 
     const { attributes } = node.openingElement;
 
-    const hasSizeAttribute = attributes.some(
-      (attribute) => attribute.name.name === 'size'
-    );
+    const hasSizeAttribute = attributes.some((attribute) => attribute.name.name === 'size');
 
     // Inject the old props with new props to mimic the Tooltip
     const attributesWithTooltipProps = [
       ...attributes,
-      j.jsxAttribute(
-        j.jsxIdentifier('shouldFocus'),
-        j.jsxExpressionContainer(j.literal(false))
-      ),
+      j.jsxAttribute(j.jsxIdentifier('shouldFocus'), j.jsxExpressionContainer(j.literal(false))),
       j.jsxAttribute(j.jsxIdentifier('color'), j.stringLiteral('darkGray')),
-      !hasSizeAttribute &&
-        j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('md')),
+      !hasSizeAttribute && j.jsxAttribute(j.jsxIdentifier('size'), j.stringLiteral('md')),
     ].filter(Boolean);
 
     // Sort all the props alphabetically
-    attributesWithTooltipProps.sort((a, b) =>
-      a.name.name.localeCompare(b.name.name)
-    );
+    attributesWithTooltipProps.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
     // Create a new child for the Flyout that is the old child wrapped in a Box
     const newChild = j.jsxElement(
       j.jsxOpeningElement(j.jsxIdentifier('Box'), [
-        j.jsxAttribute(
-          j.jsxIdentifier('column'),
-          j.jsxExpressionContainer(j.literal(12))
-        ),
-        j.jsxAttribute(
-          j.jsxIdentifier('padding'),
-          j.jsxExpressionContainer(j.literal(3))
-        ),
+        j.jsxAttribute(j.jsxIdentifier('column'), j.jsxExpressionContainer(j.literal(12))),
+        j.jsxAttribute(j.jsxIdentifier('padding'), j.jsxExpressionContainer(j.literal(3))),
       ]),
       j.jsxClosingElement(j.jsxIdentifier('Box')),
-      node.children
+      node.children,
     );
 
     // Create the new node that is a Flyout with the new props and new child
     const newNode = j.jsxElement(
-      j.jsxOpeningElement(
-        j.jsxIdentifier('Flyout'),
-        attributesWithTooltipProps
-      ),
+      j.jsxOpeningElement(j.jsxIdentifier('Flyout'), attributesWithTooltipProps),
       j.jsxClosingElement(j.jsxIdentifier('Flyout')),
-      [newChild]
+      [newChild],
     );
 
     // Finally, replace the old Tooltip with the new Flyout

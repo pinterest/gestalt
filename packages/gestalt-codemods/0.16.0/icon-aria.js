@@ -8,9 +8,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'pinterest-gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Icon'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Icon');
     if (!specifier) {
       return;
     }

@@ -9,11 +9,7 @@ type Props = {|
   title?: string,
 |};
 
-const MainSectionSubsection = ({
-  children,
-  description,
-  title,
-}: Props): Node => {
+const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   return (
     <>
       {title && (

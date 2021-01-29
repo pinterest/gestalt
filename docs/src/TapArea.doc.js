@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="TapArea"
     description="TapArea allows components to be clickable & touchable in an accessible way."
-  />
+  />,
 );
 
 card(
@@ -89,8 +89,7 @@ card(
         type: 'boolean',
         required: false,
         defaultValue: null,
-        description:
-          'Set the TapArea height to expand to the full height of the parent.',
+        description: 'Set the TapArea height to expand to the full height of the parent.',
         href: 'fullHeightWidth',
       },
       {
@@ -98,8 +97,7 @@ card(
         type: 'boolean',
         required: false,
         defaultValue: true,
-        description:
-          'Set the TapArea width to expand to the full width of the parent.',
+        description: 'Set the TapArea width to expand to the full width of the parent.',
         href: 'fullHeightWidth',
       },
       {
@@ -107,9 +105,7 @@ card(
         type: `"copy" | "grab" | "grabbing" | "move" | "noDrop" | "pointer" | "zoomIn" | "zoomOut"`,
         required: false,
         defaultValue: 'pointer',
-        description: [
-          'Select a mouse cursor type to convey the TapArea expected behavior .',
-        ],
+        description: ['Select a mouse cursor type to convey the TapArea expected behavior .'],
         href: 'mouseCursor',
       },
       {
@@ -138,9 +134,7 @@ card(
           '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
-        description: [
-          'Callback fired when a mouse pointer moves onto a TapArea component.',
-        ],
+        description: ['Callback fired when a mouse pointer moves onto a TapArea component.'],
         href: 'basicExample',
       },
       {
@@ -149,9 +143,7 @@ card(
           '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
         required: false,
         defaultValue: null,
-        description: [
-          'Callback fired when a mouse pointer moves out a TapArea component.',
-        ],
+        description: ['Callback fired when a mouse pointer moves out a TapArea component.'],
         href: 'basicExample',
       },
       {
@@ -252,7 +244,7 @@ card(
         href: 'roles',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -283,7 +275,7 @@ function TapAreaExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -331,7 +323,7 @@ function TapAreaExample() {
     </Box>  );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -431,7 +423,7 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -460,23 +452,14 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
   <Combination
     id="mouseCursor"
     name="Mouse Cursor"
-    mouseCursor={[
-      'copy',
-      'grab',
-      'grabbing',
-      'move',
-      'noDrop',
-      'pointer',
-      'zoomIn',
-      'zoomOut',
-    ]}
+    mouseCursor={['copy', 'grab', 'grabbing', 'move', 'noDrop', 'pointer', 'zoomIn', 'zoomOut']}
   >
     {(props, i) => (
       <TapArea id={`example-${i}`} {...props}>
@@ -485,7 +468,7 @@ card(
         </Box>
       </TapArea>
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -510,7 +493,7 @@ card(
         </Box>
       </TapArea>
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -544,7 +527,7 @@ function TapAreaRefExample() {
     </Flex>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -616,7 +599,7 @@ function MenuButtonExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

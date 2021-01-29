@@ -18,19 +18,14 @@ const {
   Provider,
   Consumer: NavigationContextConsumer,
   useHook: useNavigationContext,
-}: Hydra<NavigationContextType> = createHydra<NavigationContextType>(
-  'NavigationContext'
-);
+}: Hydra<NavigationContextType> = createHydra<NavigationContextType>('NavigationContext');
 
 function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [
-    sidebarOrganisedBy,
-    setSidebarOrganizedBy,
-  ] = useLocalStorage<SidebarOrganisedBy>(
+  const [sidebarOrganisedBy, setSidebarOrganizedBy] = useLocalStorage<SidebarOrganisedBy>(
     localStorageOrganizedByKey,
-    'categorized'
+    'categorized',
   );
 
   return (
@@ -47,8 +42,4 @@ function NavigationContextProvider({ children }: {| children?: Node |}): Node {
   );
 }
 
-export {
-  NavigationContextProvider,
-  NavigationContextConsumer,
-  useNavigationContext,
-};
+export { NavigationContextProvider, NavigationContextConsumer, useNavigationContext };

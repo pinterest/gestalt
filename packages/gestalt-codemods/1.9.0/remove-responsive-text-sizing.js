@@ -17,10 +17,7 @@ export default function transformer(file, api) {
     }
 
     localIdentifierName = decl.specifiers
-      .filter(
-        (node) =>
-          node.imported.name === 'Text' || node.imported.name === 'Heading'
-      )
+      .filter((node) => node.imported.name === 'Text' || node.imported.name === 'Heading')
       .map((node) => node.local.name); // Save Alias for Gestalt Text / Heading
     return null;
   });
@@ -43,7 +40,7 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
+          `Remove Dynamic ${node.openingElement.name.name} properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
@@ -58,9 +55,7 @@ export default function transformer(file, api) {
 
           if (attr.name.name === 'size') {
             oldSizes.hasSize = true;
-            return attr.value.type === 'Literal' && attr.value.value === 'md'
-              ? null
-              : attr;
+            return attr.value.type === 'Literal' && attr.value.value === 'md' ? null : attr;
           }
 
           oldSizes.hasResponsiveSizes = true;
@@ -69,14 +64,14 @@ export default function transformer(file, api) {
             oldSizes.skipTransform = true;
 
             throw new Error(
-              `Replace Text size attributes from ${attr.value.type} to strings and rerun codemod if needed. Location: ${file.path} @line: ${node.loc.start.line}`
+              `Replace Text size attributes from ${attr.value.type} to strings and rerun codemod if needed. Location: ${file.path} @line: ${node.loc.start.line}`,
             );
           }
           if (!['xs', 'sm', 'md', 'lg', 'xl'].includes(attr.value.value)) {
             oldSizes.skipTransform = true;
 
             throw new Error(
-              `Replace invalid Text size attributes to be 'xs', 'sm', 'md', 'lg' or 'xl' and rerun codemod if needed. Location: ${file.path} @line: ${node.loc.start.line}`
+              `Replace invalid Text size attributes to be 'xs', 'sm', 'md', 'lg' or 'xl' and rerun codemod if needed. Location: ${file.path} @line: ${node.loc.start.line}`,
             );
           }
 
@@ -94,9 +89,7 @@ export default function transformer(file, api) {
 
       if (!oldSizes.hasSize && !oldSizes.skipTransform && newSize) {
         if (newSize !== 'md') {
-          newAttrs.unshift(
-            j.jsxAttribute(j.jsxIdentifier('size'), j.literal(newSize))
-          );
+          newAttrs.unshift(j.jsxAttribute(j.jsxIdentifier('size'), j.literal(newSize)));
         }
         node.openingElement.attributes = newAttrs;
       }

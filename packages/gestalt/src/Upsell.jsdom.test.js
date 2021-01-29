@@ -12,7 +12,7 @@ test('Upsell handles onDismiss callback', () => {
         accessibilityLabel: 'Dismiss banner',
         onDismiss: mockOnDismiss,
       }}
-    />
+    />,
   );
   getByLabelText('Dismiss banner').click();
   expect(mockOnDismiss).toHaveBeenCalled();

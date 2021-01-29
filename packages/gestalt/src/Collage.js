@@ -59,11 +59,9 @@ const paddingAll = (gutter, positions) =>
     height: height - gutter,
   }));
 
-const mindex = (arr) =>
-  arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
+const mindex = (arr) => arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
 
-const columnsForCollageWithCover = (numOfColumns: Column) =>
-  numOfColumns === 4 ? 2 : 1;
+const columnsForCollageWithCover = (numOfColumns: Column) => (numOfColumns === 4 ? 2 : 1);
 
 function getCollageLayout({
   gutter,
@@ -156,15 +154,7 @@ type Props = {|
 |};
 
 export default function Collage(props: Props): Node {
-  const {
-    columns,
-    cover,
-    gutter,
-    height,
-    layoutKey,
-    renderImage,
-    width,
-  } = props;
+  const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;
   const positions = getCollageLayout({
     columns,
     cover: !!cover,

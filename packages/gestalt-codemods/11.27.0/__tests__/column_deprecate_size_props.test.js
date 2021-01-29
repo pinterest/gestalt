@@ -8,11 +8,6 @@ jest.mock('../column_deprecate_size_props', () => {
 
 describe('column_deprecate_size_props', () => {
   ['column_deprecate_size_props'].forEach((test) => {
-    defineTest(
-      __dirname,
-      'column_deprecate_size_props',
-      { quote: 'single' },
-      test
-    );
+    defineTest(__dirname, 'column_deprecate_size_props', { quote: 'single' }, test);
   });
 });

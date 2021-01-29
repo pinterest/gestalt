@@ -29,7 +29,7 @@ const fullWidthLayout = <T>({
   | ((items: $ReadOnlyArray<string>) => $ReadOnlyArray<Position>)
   | ((
       // eslint-disable-next-line flowtype/no-mutable-array
-      items: Array<T>
+      items: Array<T>,
     ) => $ReadOnlyArray<{|
       height: number,
       left: number,
@@ -50,10 +50,7 @@ const fullWidthLayout = <T>({
   // Yes, indeed. The "guessing" here is meant to replicate the pass that the
   // original implementation takes with CSS.
   const colguess = Math.floor(width / idealColumnWidth);
-  const columnCount = Math.max(
-    Math.floor((width - colguess * gutter) / idealColumnWidth),
-    minCols
-  );
+  const columnCount = Math.max(Math.floor((width - colguess * gutter) / idealColumnWidth), minCols);
   const columnWidth = Math.floor(width / columnCount);
 
   // eslint-disable-next-line flowtype/no-mutable-array

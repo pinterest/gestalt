@@ -40,7 +40,7 @@ card(
         defaultValue: 'md',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -70,7 +70,7 @@ function SpinnerExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

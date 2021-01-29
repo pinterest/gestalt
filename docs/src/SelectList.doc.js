@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="SelectList"
     description={`Use a \`SelectList\` when you have four or more items you want a user to choose from.`}
-  />
+  />,
 );
 
 card(
@@ -79,7 +79,7 @@ card(
         href: 'basicExample',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -117,7 +117,7 @@ function Example(props) {
   );
 }
     `}
-  />
+  />,
 );
 
 card(
@@ -158,7 +158,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -198,7 +198,7 @@ function Example(props) {
   );
 }
     `}
-  />
+  />,
 );
 
 export default cards;

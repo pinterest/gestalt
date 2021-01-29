@@ -15,9 +15,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'TextField'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'TextField');
     if (!specifier) {
       return;
     }
@@ -35,7 +33,7 @@ export default function transformer(file, api) {
 
       const attrs = node.openingElement.attributes;
       const index = attrs.findIndex(
-        (attr) => attr && attr.name && attr.name.name === 'idealErrorDirection'
+        (attr) => attr && attr.name && attr.name.name === 'idealErrorDirection',
       );
 
       if (index !== -1) {

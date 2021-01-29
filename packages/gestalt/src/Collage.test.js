@@ -27,26 +27,20 @@ describe('<Collage />', () => {
   });
 
   it('should match the snapshot for 3 columns', () => {
-    expect(
-      create(<Collage {...collageProps} columns={3} />).toJSON()
-    ).toMatchSnapshot();
+    expect(create(<Collage {...collageProps} columns={3} />).toJSON()).toMatchSnapshot();
   });
 
   it('should match the snapshot for 4 columns', () => {
-    expect(
-      create(<Collage {...collageProps} columns={4} />).toJSON()
-    ).toMatchSnapshot();
+    expect(create(<Collage {...collageProps} columns={4} />).toJSON()).toMatchSnapshot();
   });
 
   it('should match the snapshot for 4 columns with a custom layout key', () => {
     expect(
-      create(<Collage {...collageProps} columns={4} layoutKey={1} />).toJSON()
+      create(<Collage {...collageProps} columns={4} layoutKey={1} />).toJSON(),
     ).toMatchSnapshot();
   });
 
   it('should match the snapshot when cover image is used', () => {
-    expect(
-      create(<Collage {...collageProps} cover />).toJSON()
-    ).toMatchSnapshot();
+    expect(create(<Collage {...collageProps} cover />).toJSON()).toMatchSnapshot();
   });
 });

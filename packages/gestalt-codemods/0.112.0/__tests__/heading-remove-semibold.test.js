@@ -7,14 +7,7 @@ jest.mock('../heading-remove-semibold', () => {
 });
 
 describe('heading-remove-semibold', () => {
-  ['heading-remove-semibold-dynamic', 'heading-remove-semibold-static'].forEach(
-    (test) => {
-      defineTest(
-        __dirname,
-        'heading-remove-semibold',
-        { quote: 'single' },
-        test
-      );
-    }
-  );
+  ['heading-remove-semibold-dynamic', 'heading-remove-semibold-static'].forEach((test) => {
+    defineTest(__dirname, 'heading-remove-semibold', { quote: 'single' }, test);
+  });
 });

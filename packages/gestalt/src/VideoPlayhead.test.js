@@ -11,7 +11,7 @@ test('VideoPlayhead', () => {
       seek={() => {}}
       onPlayheadDown={() => {}}
       onPlayheadUp={() => {}}
-    />
+    />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

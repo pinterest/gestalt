@@ -14,9 +14,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Heading'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'Heading');
     if (!specifier) {
       return;
     }
@@ -35,7 +33,7 @@ export default function transformer(file, api) {
       }
 
       const hasSize = node.openingElement.attributes.find(
-        (attr) => attr.name && attr.name.name === 'size'
+        (attr) => attr.name && attr.name.name === 'size',
       );
 
       if (!hasSize) {

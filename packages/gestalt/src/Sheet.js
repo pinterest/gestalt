@@ -22,14 +22,7 @@ e. Sheet is the actual component logic which includes the internal components <H
 
 */
 
-import React, {
-  forwardRef,
-  useCallback,
-  useState,
-  useEffect,
-  useRef,
-  type Node,
-} from 'react';
+import React, { forwardRef, useCallback, useState, useEffect, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
@@ -74,9 +67,7 @@ type AnimatedSheetWithHeadingProps = {|
   subHeading?: NodeOrRenderProp,
 |};
 
-type AnimatedSheetProps =
-  | AnimatedSheetMainProps
-  | AnimatedSheetWithHeadingProps;
+type AnimatedSheetProps = AnimatedSheetMainProps | AnimatedSheetWithHeadingProps;
 
 const SIZE_WIDTH_MAP = {
   sm: 540,
@@ -119,13 +110,10 @@ const DismissButton = ({
 <SheetWithForwardRef> component: wrapper for forwarding ref to <Sheet>
 
  */
-const SheetWithForwardRef: React$AbstractComponent<
+const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> = forwardRef<
   SheetProps,
-  HTMLDivElement
-> = forwardRef<SheetProps, HTMLDivElement>(function Sheet(
-  props,
-  sheetRef
-): Node {
+  HTMLDivElement,
+>(function Sheet(props, sheetRef): Node {
   const {
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
@@ -174,8 +162,7 @@ const SheetWithForwardRef: React$AbstractComponent<
     const hasVerticalScrollbar = target.clientHeight < target.scrollHeight;
     setShowTopShadow(hasVerticalScrollbar && target.scrollTop > 0);
     setShowBottomShadow(
-      hasVerticalScrollbar &&
-        target.offsetHeight + target.scrollTop < target.scrollHeight
+      hasVerticalScrollbar && target.offsetHeight + target.scrollTop < target.scrollHeight,
     );
   }, []);
 
@@ -198,46 +185,30 @@ const SheetWithForwardRef: React$AbstractComponent<
           >
             <div
               aria-label={accessibilitySheetLabel}
-              className={classnames(
-                sheetStyles.wrapper,
-                focusStyles.hideOutline,
-                {
-                  [sheetStyles.wrapperAnimationIn]: animationState === 'in',
-                  [sheetStyles.wrapperAnimationOut]: animationState === 'out',
-                }
-              )}
+              className={classnames(sheetStyles.wrapper, focusStyles.hideOutline, {
+                [sheetStyles.wrapperAnimationIn]: animationState === 'in',
+                [sheetStyles.wrapperAnimationOut]: animationState === 'out',
+              })}
               onAnimationEnd={onAnimationEnd}
               ref={sheetRef}
               role="dialog"
               style={{ width: SIZE_WIDTH_MAP[size] }}
               tabIndex={-1}
             >
-              <Box
-                flex="grow"
-                position="relative"
-                display="flex"
-                direction="column"
-                width="100%"
-              >
+              <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
                 {heading && (
                   <div
                     className={classnames(sheetStyles.shadowContainer, {
                       [sheetStyles.shadow]: showTopShadow,
                     })}
                   >
-                    <Flex
-                      alignItems="center"
-                      flex="grow"
-                      justifyContent="between"
-                    >
+                    <Flex alignItems="center" flex="grow" justifyContent="between">
                       <Box flex="grow">
                         <Header heading={heading} />
                       </Box>
                       <Box flex="none" paddingX={6} paddingY={7}>
                         <DismissButton
-                          accessibilityDismissButtonLabel={
-                            accessibilityDismissButtonLabel
-                          }
+                          accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
                           onClick={onDismiss}
                         />
                       </Box>
@@ -246,22 +217,10 @@ const SheetWithForwardRef: React$AbstractComponent<
                   </div>
                 )}
                 {!heading && (
-                  <Box
-                    display="flex"
-                    flex="grow"
-                    justifyContent="end"
-                    marginBottom={8}
-                  >
-                    <Box
-                      flex="none"
-                      paddingX={6}
-                      paddingY={7}
-                      position="absolute"
-                    >
+                  <Box display="flex" flex="grow" justifyContent="end" marginBottom={8}>
+                    <Box flex="none" paddingX={6} paddingY={7} position="absolute">
                       <DismissButton
-                        accessibilityDismissButtonLabel={
-                          accessibilityDismissButtonLabel
-                        }
+                        accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
                         onClick={onDismiss}
                       />
                     </Box>
@@ -319,11 +278,8 @@ SheetWithForwardRef.propTypes = {
  */
 const AnimatedSheetWithForwardRef: React$AbstractComponent<
   AnimatedSheetProps,
-  HTMLDivElement
-> = forwardRef<AnimatedSheetProps, HTMLDivElement>(function AnimatedSheet(
-  props,
-  sheetRef
-): Node {
+  HTMLDivElement,
+> = forwardRef<AnimatedSheetProps, HTMLDivElement>(function AnimatedSheet(props, sheetRef): Node {
   const {
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
@@ -343,22 +299,16 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
           accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
           accessibilitySheetLabel={accessibilitySheetLabel}
           closeOnOutsideClick={closeOnOutsideClick}
-          footer={
-            typeof footer === 'function' ? footer({ onDismissStart }) : footer
-          }
+          footer={typeof footer === 'function' ? footer({ onDismissStart }) : footer}
           heading={heading}
           onDismiss={onDismissStart}
           ref={sheetRef}
           size={size}
           subHeading={
-            typeof subHeading === 'function'
-              ? subHeading({ onDismissStart })
-              : subHeading
+            typeof subHeading === 'function' ? subHeading({ onDismissStart }) : subHeading
           }
         >
-          {typeof children === 'function'
-            ? children({ onDismissStart })
-            : children}
+          {typeof children === 'function' ? children({ onDismissStart }) : children}
         </SheetWithForwardRef>
       )}
     </AnimationController>

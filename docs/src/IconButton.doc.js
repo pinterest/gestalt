@@ -13,7 +13,7 @@ card(
   <PageHeader
     name="IconButton"
     description="IconButton allows users to take actions and make choices with a single click on a specific Icon. IconButton is typically found in forms, dialog, and toolbars. Some buttons are specialized for particular tasks, such as navigation or presenting menus."
-  />
+  />,
 );
 
 card(
@@ -119,10 +119,7 @@ card(
         type: 'string',
         required: false,
         defaultValue: null,
-        description: [
-          'Specify a link URL.',
-          'Required with link-role buttons.',
-        ],
+        description: ['Specify a link URL.', 'Required with link-role buttons.'],
         href: 'roles',
       },
       {
@@ -160,8 +157,7 @@ card(
       {
         name: 'ref',
         type: `React.Ref<'button'> | React.Ref<'a'>`,
-        description:
-          'Forward the ref to the underlying button or anchor element',
+        description: 'Forward the ref to the underlying button or anchor element',
         href: 'ref',
       },
       {
@@ -224,7 +220,7 @@ card(
         href: 'roles',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -237,7 +233,7 @@ card(
   icon="edit"
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -301,19 +297,15 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
   <Combination id="size" name="Size" size={['xs', 'sm', 'md', 'lg', 'xl']}>
     {(props) => (
-      <IconButton
-        accessibilityLabel={`Size ${props.color}`}
-        icon="angled-pin"
-        {...props}
-      />
+      <IconButton accessibilityLabel={`Size ${props.color}`} icon="angled-pin" {...props} />
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -331,7 +323,7 @@ card(
         {...props}
       />
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -356,15 +348,11 @@ card(
         {...props}
       />
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
-  <Combination
-    id="iconColor"
-    name="Icon Color"
-    iconColor={['darkGray', 'gray', 'red', 'white']}
-  >
+  <Combination id="iconColor" name="Icon Color" iconColor={['darkGray', 'gray', 'red', 'white']}>
     {(props) => (
       <IconButton
         icon="angled-pin"
@@ -373,7 +361,7 @@ card(
         {...props}
       />
     )}
-  </Combination>
+  </Combination>,
 );
 
 card(
@@ -393,7 +381,7 @@ function Example() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -415,7 +403,7 @@ card(
   </Tooltip>
 </Flex>
 `}
-  />
+  />,
 );
 
 card(
@@ -453,7 +441,7 @@ function IconButtonFlyoutExample() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -509,7 +497,7 @@ function MenuIconButtonExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

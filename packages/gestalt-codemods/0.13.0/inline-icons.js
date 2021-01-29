@@ -9,9 +9,7 @@ export default function transformer(file, api) {
         return;
       }
 
-      node.openingElement.attributes.push(
-        j.jsxAttribute(j.jsxIdentifier('inline'))
-      );
+      node.openingElement.attributes.push(j.jsxAttribute(j.jsxIdentifier('inline')));
 
       j(path).replaceWith(node);
     })

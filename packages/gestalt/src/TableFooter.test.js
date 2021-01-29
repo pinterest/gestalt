@@ -8,7 +8,7 @@ test('renders correctly', () => {
     .create(
       <TableFooter>
         <div>footer table row</div>
-      </TableFooter>
+      </TableFooter>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

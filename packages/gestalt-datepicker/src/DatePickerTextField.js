@@ -42,13 +42,7 @@ function DatePickerTextField(props: Props) {
 
   return (
     <Label htmlFor={id}>
-      <Box
-        alignItems="center"
-        column={12}
-        display="flex"
-        flex="grow"
-        position="relative"
-      >
+      <Box alignItems="center" column={12} display="flex" flex="grow" position="relative">
         <Box column={12} flex="grow">
           <TextField
             autoComplete="off"
@@ -87,9 +81,10 @@ function textFieldForwardRef(props, ref) {
 
 textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
 
-export default (forwardRef<Props, HTMLInputElement>(
-  textFieldForwardRef
-): React$AbstractComponent<Props, HTMLInputElement>);
+export default (forwardRef<Props, HTMLInputElement>(textFieldForwardRef): React$AbstractComponent<
+  Props,
+  HTMLInputElement,
+>);
 
 DatePickerTextField.propTypes = {
   disabled: PropTypes.bool,

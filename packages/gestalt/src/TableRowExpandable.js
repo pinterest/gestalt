@@ -17,7 +17,7 @@ type Props = {|
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| expanded: boolean |}
+    {| expanded: boolean |},
   >,
   hoverStyle?: 'gray' | 'none',
   id: string,
@@ -50,9 +50,7 @@ export default function TableRowExpandable(props: Props): Node {
           <IconButton
             accessibilityExpanded={expanded}
             accessibilityControls={id}
-            accessibilityLabel={
-              expanded ? accessibilityCollapseLabel : accessibilityExpandLabel
-            }
+            accessibilityLabel={expanded ? accessibilityCollapseLabel : accessibilityExpandLabel}
             icon={expanded ? 'arrow-up' : 'arrow-down'}
             iconColor="darkGray"
             onClick={handleButtonClick}

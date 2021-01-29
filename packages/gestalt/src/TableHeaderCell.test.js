@@ -4,9 +4,7 @@ import renderer from 'react-test-renderer';
 import TableHeaderCell from './TableHeaderCell.js';
 
 test('renders correctly', () => {
-  const tree = renderer
-    .create(<TableHeaderCell>column name</TableHeaderCell>)
-    .toJSON();
+  const tree = renderer.create(<TableHeaderCell>column name</TableHeaderCell>).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -15,7 +13,7 @@ test('renders correctly with props', () => {
     .create(
       <TableHeaderCell rowSpan={2} colSpan={3} scope="row">
         row name
-      </TableHeaderCell>
+      </TableHeaderCell>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

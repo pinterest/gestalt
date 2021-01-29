@@ -15,9 +15,7 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const specifier = decl.specifiers.find(
-      (node) => node.imported.name === 'SegmentedControl'
-    );
+    const specifier = decl.specifiers.find((node) => node.imported.name === 'SegmentedControl');
     if (!specifier) {
       return;
     }
@@ -28,10 +26,7 @@ export default function transformer(file, api) {
     .find(j.JSXElement)
     .forEach((path) => {
       const { node } = path;
-      if (
-        !localIdentifierName ||
-        node.openingElement.name.name !== localIdentifierName
-      ) {
+      if (!localIdentifierName || node.openingElement.name.name !== localIdentifierName) {
         return;
       }
       const attrs = node.openingElement.attributes;

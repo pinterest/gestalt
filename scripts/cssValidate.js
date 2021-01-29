@@ -13,7 +13,7 @@ const duplicateVariablesDifferentValues = async () => {
     await Promise.all(
       files.map(async (file) => {
         return await fs.promises.readFile(file, 'utf8');
-      })
+      }),
     )
   ).join('');
 
@@ -23,7 +23,7 @@ const duplicateVariablesDifferentValues = async () => {
   astRoot.walkDecls(/^--g/, ({ prop, value }) => {
     if (lookup[prop] && lookup[prop] !== value) {
       throw new Error(
-        `CSS Validate error: ${prop} is defined multiple times with different values: ${lookup[prop]} & ${value}.\nPlease make these the same`
+        `CSS Validate error: ${prop} is defined multiple times with different values: ${lookup[prop]} & ${value}.\nPlease make these the same`,
       );
     }
     lookup[prop] = value;

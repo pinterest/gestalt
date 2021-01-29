@@ -14,15 +14,7 @@ import {
   type ToPropsOutput,
 } from './style.js';
 import omit from './utils/omit.js';
-import {
-  union,
-  bind,
-  range,
-  toggle,
-  mapping,
-  rangeWithZero,
-  type Functor,
-} from './transforms.js';
+import { union, bind, range, toggle, mapping, rangeWithZero, type Functor } from './transforms.js';
 import { getRoundingStyle } from './getRoundingClassName.js';
 import { type Indexable } from './zIndex.js';
 import {
@@ -138,10 +130,7 @@ const bottom: Functor<boolean> = toggle(layout.bottom0);
 const borderStyle: Functor<BorderStyle> = (value) => {
   const borderProps =
     value === 'sm' || value === 'lg'
-      ? [
-          fromClassName(borders.solid),
-          fromClassName(borders.borderColorLightGray),
-        ]
+      ? [fromClassName(borders.solid), fromClassName(borders.borderColorLightGray)]
       : [];
   return concat([
     mapping({
@@ -197,9 +186,7 @@ const left: Functor<boolean> = toggle(layout.left0);
 
 type MarginFunctorType = Functor<Margin>;
 
-const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (
-  m
-) => {
+const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (m) => {
   if (typeof m === 'number') {
     return bind(rangeWithZero(selector), whitespace)(m);
   }
@@ -211,106 +198,57 @@ const transformNumberOrPassthrough = (selector: string): MarginFunctorType => (
   return identity();
 };
 
-const marginStart: MarginFunctorType = transformNumberOrPassthrough(
-  'marginStart'
-);
+const marginStart: MarginFunctorType = transformNumberOrPassthrough('marginStart');
 const marginEnd: MarginFunctorType = transformNumberOrPassthrough('marginEnd');
 const marginTop: MarginFunctorType = transformNumberOrPassthrough('marginTop');
-const marginRight: MarginFunctorType = transformNumberOrPassthrough(
-  'marginRight'
-);
-const marginBottom: MarginFunctorType = transformNumberOrPassthrough(
-  'marginBottom'
-);
-const marginLeft: MarginFunctorType = transformNumberOrPassthrough(
-  'marginLeft'
-);
-const margin: MarginFunctorType = union(
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight
-);
+const marginRight: MarginFunctorType = transformNumberOrPassthrough('marginRight');
+const marginBottom: MarginFunctorType = transformNumberOrPassthrough('marginBottom');
+const marginLeft: MarginFunctorType = transformNumberOrPassthrough('marginLeft');
+const margin: MarginFunctorType = union(marginTop, marginBottom, marginLeft, marginRight);
 
-const smMarginStart: MarginFunctorType = transformNumberOrPassthrough(
-  'smMarginStart'
-);
-const smMarginEnd: MarginFunctorType = transformNumberOrPassthrough(
-  'smMarginEnd'
-);
-const smMarginTop: MarginFunctorType = transformNumberOrPassthrough(
-  'smMarginTop'
-);
-const smMarginRight: MarginFunctorType = transformNumberOrPassthrough(
-  'smMarginRight'
-);
-const smMarginBottom: MarginFunctorType = transformNumberOrPassthrough(
-  'smMarginBottom'
-);
-const smMarginLeft: MarginFunctorType = transformNumberOrPassthrough(
-  'smMarginLeft'
-);
+const smMarginStart: MarginFunctorType = transformNumberOrPassthrough('smMarginStart');
+const smMarginEnd: MarginFunctorType = transformNumberOrPassthrough('smMarginEnd');
+const smMarginTop: MarginFunctorType = transformNumberOrPassthrough('smMarginTop');
+const smMarginRight: MarginFunctorType = transformNumberOrPassthrough('smMarginRight');
+const smMarginBottom: MarginFunctorType = transformNumberOrPassthrough('smMarginBottom');
+const smMarginLeft: MarginFunctorType = transformNumberOrPassthrough('smMarginLeft');
 const smMargin: MarginFunctorType = union(
   smMarginTop,
   smMarginBottom,
   smMarginLeft,
   smMarginRight,
   smMarginStart,
-  smMarginEnd
+  smMarginEnd,
 );
 
-const mdMarginStart: MarginFunctorType = transformNumberOrPassthrough(
-  'mdMarginStart'
-);
-const mdMarginEnd: MarginFunctorType = transformNumberOrPassthrough(
-  'mdMarginEnd'
-);
-const mdMarginTop: MarginFunctorType = transformNumberOrPassthrough(
-  'mdMarginTop'
-);
-const mdMarginRight: MarginFunctorType = transformNumberOrPassthrough(
-  'mdMarginRight'
-);
-const mdMarginBottom: MarginFunctorType = transformNumberOrPassthrough(
-  'mdMarginBottom'
-);
-const mdMarginLeft: MarginFunctorType = transformNumberOrPassthrough(
-  'mdMarginLeft'
-);
+const mdMarginStart: MarginFunctorType = transformNumberOrPassthrough('mdMarginStart');
+const mdMarginEnd: MarginFunctorType = transformNumberOrPassthrough('mdMarginEnd');
+const mdMarginTop: MarginFunctorType = transformNumberOrPassthrough('mdMarginTop');
+const mdMarginRight: MarginFunctorType = transformNumberOrPassthrough('mdMarginRight');
+const mdMarginBottom: MarginFunctorType = transformNumberOrPassthrough('mdMarginBottom');
+const mdMarginLeft: MarginFunctorType = transformNumberOrPassthrough('mdMarginLeft');
 const mdMargin: MarginFunctorType = union(
   mdMarginTop,
   mdMarginBottom,
   mdMarginLeft,
   mdMarginRight,
   mdMarginStart,
-  mdMarginEnd
+  mdMarginEnd,
 );
 
-const lgMarginStart: MarginFunctorType = transformNumberOrPassthrough(
-  'lgMarginStart'
-);
-const lgMarginEnd: MarginFunctorType = transformNumberOrPassthrough(
-  'lgMarginEnd'
-);
-const lgMarginTop: MarginFunctorType = transformNumberOrPassthrough(
-  'lgMarginTop'
-);
-const lgMarginRight: MarginFunctorType = transformNumberOrPassthrough(
-  'lgMarginRight'
-);
-const lgMarginBottom: MarginFunctorType = transformNumberOrPassthrough(
-  'lgMarginBottom'
-);
-const lgMarginLeft: MarginFunctorType = transformNumberOrPassthrough(
-  'lgMarginLeft'
-);
+const lgMarginStart: MarginFunctorType = transformNumberOrPassthrough('lgMarginStart');
+const lgMarginEnd: MarginFunctorType = transformNumberOrPassthrough('lgMarginEnd');
+const lgMarginTop: MarginFunctorType = transformNumberOrPassthrough('lgMarginTop');
+const lgMarginRight: MarginFunctorType = transformNumberOrPassthrough('lgMarginRight');
+const lgMarginBottom: MarginFunctorType = transformNumberOrPassthrough('lgMarginBottom');
+const lgMarginLeft: MarginFunctorType = transformNumberOrPassthrough('lgMarginLeft');
 const lgMargin: MarginFunctorType = union(
   lgMarginTop,
   lgMarginBottom,
   lgMarginLeft,
   lgMarginRight,
   lgMarginStart,
-  lgMarginEnd
+  lgMarginEnd,
 );
 
 /* ***************************************** */
@@ -343,34 +281,16 @@ const paddingX: PaddingFunctor = bind(rangeWithZero('paddingX'), whitespace);
 const paddingY: PaddingFunctor = bind(rangeWithZero('paddingY'), whitespace);
 const padding: PaddingFunctor = union(paddingX, paddingY);
 
-const smPaddingX: PaddingFunctor = bind(
-  rangeWithZero('smPaddingX'),
-  whitespace
-);
-const smPaddingY: PaddingFunctor = bind(
-  rangeWithZero('smPaddingY'),
-  whitespace
-);
+const smPaddingX: PaddingFunctor = bind(rangeWithZero('smPaddingX'), whitespace);
+const smPaddingY: PaddingFunctor = bind(rangeWithZero('smPaddingY'), whitespace);
 const smPadding: PaddingFunctor = union(smPaddingX, smPaddingY);
 
-const mdPaddingX: PaddingFunctor = bind(
-  rangeWithZero('mdPaddingX'),
-  whitespace
-);
-const mdPaddingY: PaddingFunctor = bind(
-  rangeWithZero('mdPaddingY'),
-  whitespace
-);
+const mdPaddingX: PaddingFunctor = bind(rangeWithZero('mdPaddingX'), whitespace);
+const mdPaddingY: PaddingFunctor = bind(rangeWithZero('mdPaddingY'), whitespace);
 const mdPadding: PaddingFunctor = union(mdPaddingX, mdPaddingY);
 
-const lgPaddingX: PaddingFunctor = bind(
-  rangeWithZero('lgPaddingX'),
-  whitespace
-);
-const lgPaddingY: PaddingFunctor = bind(
-  rangeWithZero('lgPaddingY'),
-  whitespace
-);
+const lgPaddingX: PaddingFunctor = bind(rangeWithZero('lgPaddingX'), whitespace);
+const lgPaddingY: PaddingFunctor = bind(rangeWithZero('lgPaddingY'), whitespace);
 const lgPadding: PaddingFunctor = union(lgPaddingX, lgPaddingY);
 
 /* ***************************************** */
@@ -390,9 +310,7 @@ const userSelect: Functor<UserSelect> = mapping({
 });
 const width: Functor<Dimension> = (w) => fromInlineStyle({ width: w });
 const wrap: Functor<boolean> = toggle(layout.flexWrap);
-const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (
-  value
-) => {
+const dangerouslySetInlineStyle: Functor<DangerouslySetInlineStyle> = (value) => {
   // eslint-disable-next-line no-underscore-dangle
   return value && value.__style ? fromInlineStyle(value.__style) : identity();
 };

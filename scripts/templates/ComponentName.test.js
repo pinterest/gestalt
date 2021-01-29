@@ -10,9 +10,7 @@ describe('ComponentName', () => {
   });
 
   it('renders an accessibility label', () => {
-    const tree = create(
-      <ComponentName accessibilityLabel="Test Accessibility Label" />
-    ).toJSON();
+    const tree = create(<ComponentName accessibilityLabel="Test Accessibility Label" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

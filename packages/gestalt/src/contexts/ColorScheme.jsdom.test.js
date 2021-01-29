@@ -10,9 +10,7 @@ function ThemeAwareComponent() {
 
 describe('ColorSchemeProvider', () => {
   it('renders child content in a div', () => {
-    const { container } = render(
-      <ColorSchemeProvider>Child 1</ColorSchemeProvider>
-    );
+    const { container } = render(<ColorSchemeProvider>Child 1</ColorSchemeProvider>);
     expect(container.querySelector('div')).toMatchInlineSnapshot(`
         <div>
           Child 1
@@ -20,9 +18,7 @@ describe('ColorSchemeProvider', () => {
       `);
   });
   it('renders styling for light mode when no color scheme specified', () => {
-    const { container } = render(
-      <ColorSchemeProvider>Content</ColorSchemeProvider>
-    );
+    const { container } = render(<ColorSchemeProvider>Content</ColorSchemeProvider>);
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
         :root {
@@ -55,7 +51,7 @@ describe('ColorSchemeProvider', () => {
   });
   it('renders styling for light mode when specified', () => {
     const { container } = render(
-      <ColorSchemeProvider colorScheme="light">Content</ColorSchemeProvider>
+      <ColorSchemeProvider colorScheme="light">Content</ColorSchemeProvider>,
     );
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
@@ -89,7 +85,7 @@ describe('ColorSchemeProvider', () => {
   });
   it('renders styling for dark mode when specified', () => {
     const { container } = render(
-      <ColorSchemeProvider colorScheme="dark">Content</ColorSchemeProvider>
+      <ColorSchemeProvider colorScheme="dark">Content</ColorSchemeProvider>,
     );
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
@@ -123,9 +119,7 @@ describe('ColorSchemeProvider', () => {
   });
   it('renders styling with media query when userPreference', () => {
     const { container } = render(
-      <ColorSchemeProvider colorScheme="userPreference">
-        Content
-      </ColorSchemeProvider>
+      <ColorSchemeProvider colorScheme="userPreference">Content</ColorSchemeProvider>,
     );
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
@@ -160,9 +154,7 @@ describe('ColorSchemeProvider', () => {
     `);
   });
   it('renders styling with a custom class if has an id', () => {
-    const { container } = render(
-      <ColorSchemeProvider id="testId">Content</ColorSchemeProvider>
-    );
+    const { container } = render(<ColorSchemeProvider id="testId">Content</ColorSchemeProvider>);
     expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
     expect(container.querySelector('style')).toMatchInlineSnapshot(`
       <style>
@@ -204,7 +196,7 @@ describe('useColorScheme', () => {
     const { getByText } = render(
       <ColorSchemeProvider colorScheme="light">
         <ThemeAwareComponent />
-      </ColorSchemeProvider>
+      </ColorSchemeProvider>,
     );
     expect(getByText('lightMode')).toBeTruthy();
   });
@@ -212,7 +204,7 @@ describe('useColorScheme', () => {
     const { getByText } = render(
       <ColorSchemeProvider colorScheme="dark">
         <ThemeAwareComponent />
-      </ColorSchemeProvider>
+      </ColorSchemeProvider>,
     );
     expect(getByText('darkMode')).toBeTruthy();
   });
@@ -227,7 +219,7 @@ describe('useColorScheme', () => {
     const { getByText } = render(
       <ColorSchemeProvider colorScheme="userPreference">
         <ThemeAwareComponent />
-      </ColorSchemeProvider>
+      </ColorSchemeProvider>,
     );
     expect(getByText('lightMode')).toBeTruthy();
     act(() => listener({ matches: true }));

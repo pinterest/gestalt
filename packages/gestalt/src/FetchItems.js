@@ -42,14 +42,7 @@ export default class FetchItems extends PureComponent<Props> {
   }
 
   check: () => void = () => {
-    const {
-      containerHeight,
-      isAtEnd,
-      isFetching,
-      fetchMore,
-      scrollHeight,
-      scrollTop,
-    } = this.props;
+    const { containerHeight, isAtEnd, isFetching, fetchMore, scrollHeight, scrollTop } = this.props;
 
     if (isAtEnd || isFetching || !fetchMore) {
       return;

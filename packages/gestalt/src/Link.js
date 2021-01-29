@@ -12,10 +12,7 @@ import classnames from 'classnames';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
-import getRoundingClassName, {
-  RoundingPropType,
-  type Rounding,
-} from './getRoundingClassName.js';
+import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
@@ -30,8 +27,7 @@ type Props = {|
   inline?: boolean,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onClick?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>
+    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
@@ -43,13 +39,10 @@ type Props = {|
   disabled?: boolean,
 |};
 
-const LinkWithForwardRef: AbstractComponent<
+const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardRef<
   Props,
-  HTMLAnchorElement
-> = forwardRef<Props, HTMLAnchorElement>(function Link(
-  props,
-  ref
-): Element<'a'> {
+  HTMLAnchorElement,
+>(function Link(props, ref): Element<'a'> {
   const {
     accessibilityLabel,
     accessibilitySelected,
@@ -100,7 +93,7 @@ const LinkWithForwardRef: AbstractComponent<
       [styles.hoverUnderline]: hoverStyle === 'underline',
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
-    }
+    },
   );
 
   return (
@@ -145,9 +138,7 @@ const LinkWithForwardRef: AbstractComponent<
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
-      {...(compressStyle && tapStyle === 'compress'
-        ? { style: compressStyle }
-        : {})}
+      {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
       role={role}
       target={target ? `_${target}` : null}
     >
@@ -162,7 +153,7 @@ LinkWithForwardRef.propTypes = {
   accessibilitySelected: PropTypes.bool,
   children: PropTypes.node,
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
-    'none' | 'underline'
+    'none' | 'underline',
   >),
   href: PropTypes.string.isRequired,
   id: PropTypes.string,
@@ -170,16 +161,12 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<
-    'none' | 'nofollow'
-  >),
+  rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,
-  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<
-    'none' | 'compress'
-  >),
+  tapStyle: (PropTypes.oneOf(['none', 'compress']): React$PropType$Primitive<'none' | 'compress'>),
   target: (PropTypes.oneOf([null, 'self', 'blank']): React$PropType$Primitive<
-    null | 'self' | 'blank'
+    null | 'self' | 'blank',
   >),
   disabled: PropTypes.bool,
 };

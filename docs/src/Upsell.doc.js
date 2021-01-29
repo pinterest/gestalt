@@ -11,7 +11,7 @@ card(
   <PageHeader
     name="Upsell"
     description="Upsells are banners that display short messages that focus on selling or upgrading something the user already has."
-  />
+  />,
 );
 
 card(
@@ -93,7 +93,7 @@ card(
         href: '',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -108,7 +108,7 @@ card(
   }}
 />
   `}
-  />
+  />,
 );
 
 card(
@@ -128,7 +128,7 @@ card(
   }}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -157,7 +157,7 @@ card(
     }}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -178,7 +178,7 @@ card(
   }}
 />
 `}
-  />
+  />,
 );
 
 card(
@@ -246,7 +246,7 @@ function Example(props) {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

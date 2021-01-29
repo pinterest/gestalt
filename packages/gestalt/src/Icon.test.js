@@ -15,10 +15,7 @@ test('Icon has correct aria-hidden property applied when accessibilityLabel is a
 
 test('Icon uses the dangerouslySetSvgPath prop when icon path is not specified', () => {
   const tree = create(
-    <Icon
-      dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }}
-      accessibilityLabel="Line"
-    />
+    <Icon dangerouslySetSvgPath={{ __path: 'M13.00,20.00' }} accessibilityLabel="Line" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

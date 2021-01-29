@@ -34,6 +34,6 @@ colors.forEach((color) => {
 
 .bg-${color}-hover:hover {
   background-color: var(--${color});
-}`
+}`,
   );
 });

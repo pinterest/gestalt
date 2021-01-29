@@ -8,9 +8,8 @@ import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type OnChangeHandler = AbstractEventHandler<
-  | SyntheticMouseEvent<HTMLAnchorElement>
-  | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  {| +activeTabIndex: number |}
+  SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  {| +activeTabIndex: number |},
 >;
 
 function Circle() {
@@ -62,11 +61,7 @@ function Tab({
       >
         <Box
           alignItems="center"
-          color={
-            (isActive && 'darkGray') ||
-            ((hovered || focused) && 'lightGray') ||
-            'white'
-          }
+          color={(isActive && 'darkGray') || ((hovered || focused) && 'lightGray') || 'white'}
           display="flex"
           height={size === 'lg' ? 48 : 40}
           justifyContent="center"
@@ -78,11 +73,7 @@ function Tab({
           rounding="pill"
           userSelect="none"
         >
-          <Text
-            color={isActive ? 'white' : 'darkGray'}
-            weight="bold"
-            overflow="noWrap"
-          >
+          <Text color={isActive ? 'white' : 'darkGray'} weight="bold" overflow="noWrap">
             {children}
           </Text>
           {indicator === 'dot' && <Circle />}
@@ -105,13 +96,7 @@ type Props = {|
   wrap?: boolean,
 |};
 
-export default function Tabs({
-  activeTabIndex,
-  onChange,
-  size = 'md',
-  tabs,
-  wrap,
-}: Props): Node {
+export default function Tabs({ activeTabIndex, onChange, size = 'md', tabs, wrap }: Props): Node {
   return (
     <Flex alignItems="center" justifyContent="start" wrap={wrap}>
       {tabs.map(({ id, href, text, indicator }, index) => (
@@ -144,7 +129,7 @@ Tabs.propTypes = {
       id: PropTypes.string,
       indicator: PropTypes.string,
       text: PropTypes.node.isRequired,
-    })
+    }),
   ).isRequired,
   wrap: PropTypes.bool,
 };

@@ -1,12 +1,6 @@
 // @flow strict
 
-import React, {
-  forwardRef,
-  useState,
-  type Element,
-  type Node,
-  type Ref,
-} from 'react';
+import React, { forwardRef, useState, type Element, type Node, type Ref } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
@@ -40,10 +34,7 @@ type Props = {|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onKeyNavigation: (
-    SyntheticKeyboardEvent<HTMLInputElement>,
-    DirectionOptionType
-  ) => void,
+  onKeyNavigation: (SyntheticKeyboardEvent<HTMLInputElement>, DirectionOptionType) => void,
   placeholder?: string,
   setContainer: (boolean) => void,
   size?: 'md' | 'lg',
@@ -53,7 +44,7 @@ type Props = {|
 
 const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   Props,
-  HTMLInputElement
+  HTMLInputElement,
 > = forwardRef<Props, HTMLInputElement>(function InputField(props, ref): Node {
   const {
     id,
@@ -141,7 +132,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
           [focusStyles.accessibilityOutlineFocus]: focused,
           [typeaheadStyle.inputWrapper]: true,
         }
-      : {}
+      : {},
   );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;

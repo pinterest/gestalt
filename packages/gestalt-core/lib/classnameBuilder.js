@@ -71,9 +71,7 @@ class ClassnameBuilder {
     /* eslint-disable no-bitwise */
     while (remainder > 0 || result.length < minLength) {
       result =
-        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'[
-          remainder & 63
-        ] + result;
+        '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'[remainder & 63] + result;
       remainder >>>= 6;
     }
     /* eslint-enable no-bitwise */

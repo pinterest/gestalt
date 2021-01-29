@@ -19,9 +19,7 @@ const combinations = (variationsByField) => {
     const variationsForField = variationsByField[fieldName];
 
     if (!Array.isArray(variationsForField) || !variationsForField.length) {
-      throw new Error(
-        `Please provide a non-empty array of possible values for prop ${fieldName}`
-      );
+      throw new Error(`Please provide a non-empty array of possible values for prop ${fieldName}`);
     }
 
     const vs = variationsForField.map((fieldValue) => ({
@@ -49,22 +47,13 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default function CombinationNew({
-  children,
-  shaded,
-  ...props
-}: Props): Node {
+export default function CombinationNew({ children, shaded, ...props }: Props): Node {
   const CardArray = combinations(props).map((combination, i) => {
     const combinationTitles = Object.keys(combination).map((key) =>
-      toReactAttribute(key, combination[key])
+      toReactAttribute(key, combination[key]),
     );
     return (
-      <MainSectionCard
-        key={i}
-        cardSize="sm"
-        shaded={shaded}
-        title={combinationTitles}
-      >
+      <MainSectionCard key={i} cardSize="sm" shaded={shaded} title={combinationTitles}>
         {children(combination, i)}
       </MainSectionCard>
     );

@@ -14,7 +14,7 @@ card(
     description="
       A Module is a container that holds content about one subject. Its contents can be visible at all times, or expand and collapse as individual modules or a group of modules.
     "
-  />
+  />,
 );
 
 card(
@@ -46,16 +46,14 @@ card(
         name: 'iconAccessibilityLabel',
         href: 'static-icon',
         type: 'string',
-        description:
-          'Label to provide information about the icon used for screen readers',
+        description: 'Label to provide information about the icon used for screen readers',
       },
       {
         name: 'type',
         href: 'static-error',
         type: '"info" | "error"',
         defaultValue: 'info',
-        description:
-          'If set to `error`, displays error icon and changes title to red text',
+        description: 'If set to `error`, displays error icon and changes title to red text',
       },
       {
         name: 'children',
@@ -64,7 +62,7 @@ card(
         description: 'Content to display underneath Module title',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -122,7 +120,7 @@ card(
           'Array of modules to display in a stack - only one item can be expanded at a time',
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -149,7 +147,7 @@ function ModuleExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -177,7 +175,7 @@ function ModuleExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -209,7 +207,7 @@ function ModuleExample() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -236,7 +234,7 @@ function ModuleExample1() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -273,7 +271,7 @@ function ModuleExample2() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -300,7 +298,7 @@ function ModuleExample3() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -338,7 +336,7 @@ function ModuleExample4() {
   );
 }
 `}
-  />
+  />,
 );
 
 card(
@@ -405,7 +403,7 @@ function ModuleExample5() {
   );
 }
 `}
-  />
+  />,
 );
 
 export default cards;

@@ -8,12 +8,7 @@ import PageHeader from './components/PageHeader.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(
-  <PageHeader
-    name="Column"
-    description="Gestalt supports a 12-column system."
-  />
-);
+card(<PageHeader name="Column" description="Gestalt supports a 12-column system." />);
 
 card(
   <PropTable
@@ -29,7 +24,7 @@ card(
         responsive: true,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -40,7 +35,7 @@ card(
     dictate the percent width an element can occupy.
   `}
     name="Static columns"
-  />
+  />,
 );
 
 card(
@@ -59,7 +54,7 @@ card(
   ))}
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -90,7 +85,7 @@ card(
   </Column>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -114,7 +109,7 @@ card(
   </Column>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -138,7 +133,7 @@ card(
   </Column>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -149,7 +144,7 @@ card(
     column to be responsive, only set the \`span\` prop.
   `}
     name="Responsive columns"
-  />
+  />,
 );
 
 card(
@@ -183,7 +178,7 @@ card(
   </Column>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -207,7 +202,7 @@ card(
   ))}
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -231,7 +226,7 @@ card(
   </Column>
 </Box>
 `}
-  />
+  />,
 );
 
 card(
@@ -270,7 +265,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 export default cards;

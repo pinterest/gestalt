@@ -22,15 +22,7 @@ type Props = {|
 |};
 
 export default function TableSortableHeaderCell(props: Props): Node {
-  const {
-    children,
-    colSpan,
-    scope,
-    rowSpan,
-    status,
-    sortOrder,
-    onSortChange,
-  } = props;
+  const { children, colSpan, scope, rowSpan, status, sortOrder, onSortChange } = props;
 
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
@@ -60,9 +52,7 @@ export default function TableSortableHeaderCell(props: Props): Node {
               <Icon
                 accessibilityLabel=""
                 icon={
-                  status === 'active' && sortOrder === 'asc'
-                    ? 'sort-ascending'
-                    : 'sort-descending'
+                  status === 'active' && sortOrder === 'asc' ? 'sort-ascending' : 'sort-descending'
                 }
                 color={status === 'active' ? 'darkGray' : 'gray'}
               />

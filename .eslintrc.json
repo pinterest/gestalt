@@ -61,7 +61,7 @@
     "no-return-await": "off",
     "prettier/prettier": [
       "error",
-      { "trailingComma": "es5", "singleQuote": true }
+      { "singleQuote": true }
     ],
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",

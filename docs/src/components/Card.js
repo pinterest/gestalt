@@ -57,12 +57,7 @@ export default function Card({
           </Box>
         </Heading>
       )}
-      <Box
-        marginLeft={-2}
-        marginRight={-2}
-        display="flex"
-        direction={stacked ? 'column' : 'row'}
-      >
+      <Box marginLeft={-2} marginRight={-2} display="flex" direction={stacked ? 'column' : 'row'}>
         <Box marginTop={1} paddingX={2} column={12}>
           {description && <Markdown text={description} />}
           {children}

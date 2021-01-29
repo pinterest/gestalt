@@ -15,21 +15,21 @@ describe('<Tabs />', () => {
         ]}
         activeTabIndex={0}
         onChange={mockOnChange}
-      />
+      />,
     );
 
     getByText('News').click();
     expect(mockOnChange).toHaveBeenCalledWith(
       expect.objectContaining({
         activeTabIndex: 0,
-      })
+      }),
     );
 
     getByText('You').click();
     expect(mockOnChange).toHaveBeenCalledWith(
       expect.objectContaining({
         activeTabIndex: 1,
-      })
+      }),
     );
   });
 });

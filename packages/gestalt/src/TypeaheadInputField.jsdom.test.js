@@ -23,7 +23,7 @@ describe('<TypeaheadInputField />', () => {
         onKeyNavigation={onKeyNavigationMock}
         placeholder="Search and explore"
         value="Search"
-      />
+      />,
     );
     expect(container.querySelector('.medium')).toBeVisible();
   });
@@ -42,7 +42,7 @@ describe('<TypeaheadInputField />', () => {
         placeholder="Search and explore"
         size="lg"
         value="Search"
-      />
+      />,
     );
     expect(container.querySelector('.large')).toBeVisible();
   });

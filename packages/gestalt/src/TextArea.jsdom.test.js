@@ -6,12 +6,7 @@ import TextArea from './TextArea.js';
 describe('TextArea', () => {
   it('TextArea with errorMessage prop change', () => {
     const { getByText, rerender } = render(
-      <TextArea
-        id="test"
-        onChange={jest.fn()}
-        onFocus={jest.fn()}
-        onBlur={jest.fn()}
-      />
+      <TextArea id="test" onChange={jest.fn()} onFocus={jest.fn()} onBlur={jest.fn()} />,
     );
     expect(() => {
       getByText('Error message');
@@ -24,7 +19,7 @@ describe('TextArea', () => {
         onChange={jest.fn()}
         onFocus={jest.fn()}
         onBlur={jest.fn()}
-      />
+      />,
     );
     expect(getByText('Error message')).toBeVisible();
   });
@@ -32,12 +27,7 @@ describe('TextArea', () => {
   it('handles blur events', () => {
     const mockBlur = jest.fn();
     const { getByDisplayValue } = render(
-      <TextArea
-        id="test"
-        onBlur={mockBlur}
-        onChange={jest.fn()}
-        value="TextArea Text"
-      />
+      <TextArea id="test" onBlur={mockBlur} onChange={jest.fn()} value="TextArea Text" />,
     );
 
     fireEvent.blur(getByDisplayValue('TextArea Text'));
@@ -47,7 +37,7 @@ describe('TextArea', () => {
   it('handles change events', () => {
     const mockChange = jest.fn();
     const { container } = render(
-      <TextArea id="test" onChange={mockChange} value="TextArea Text" />
+      <TextArea id="test" onChange={mockChange} value="TextArea Text" />,
     );
 
     const textarea = container.querySelector('textarea');
@@ -64,12 +54,7 @@ describe('TextArea', () => {
   it('handles focus events', () => {
     const mockFocus = jest.fn();
     const { getByDisplayValue } = render(
-      <TextArea
-        id="test"
-        onChange={jest.fn()}
-        onFocus={mockFocus}
-        value="TextArea Text"
-      />
+      <TextArea id="test" onChange={jest.fn()} onFocus={mockFocus} value="TextArea Text" />,
     );
 
     fireEvent.focus(getByDisplayValue('TextArea Text'));
@@ -79,12 +64,7 @@ describe('TextArea', () => {
   it('handles key down events', () => {
     const mockKeyDown = jest.fn();
     const { container } = render(
-      <TextArea
-        id="test"
-        onChange={() => {}}
-        onKeyDown={mockKeyDown}
-        value="TextArea Text"
-      />
+      <TextArea id="test" onChange={() => {}} onKeyDown={mockKeyDown} value="TextArea Text" />,
     );
 
     const textarea = container.querySelector('textarea');
@@ -108,7 +88,7 @@ describe('TextArea', () => {
         onBlur={jest.fn()}
         value="TextArea Text"
         ref={ref}
-      />
+      />,
     );
     expect(ref.current instanceof HTMLTextAreaElement).toEqual(true);
     expect(ref.current?.value).toEqual('TextArea Text');
@@ -121,7 +101,7 @@ describe('TextArea', () => {
         label="Label for the text area"
         onChange={() => {}}
         value="TextArea Text"
-      />
+      />,
     );
     expect(getByText('Label for the text area')).toBeVisible();
   });
@@ -134,7 +114,7 @@ describe('TextArea', () => {
         helperText="Helper text for the text area"
         onChange={() => {}}
         value="TextArea Text"
-      />
+      />,
     );
     expect(getByText('Helper text for the text area')).toBeVisible();
   });
@@ -148,12 +128,10 @@ describe('TextArea', () => {
         errorMessage="Error message for the text area"
         onChange={() => {}}
         value="TextArea Text"
-      />
+      />,
     );
     expect(() => {
       getByText('Helper text for the text area');
-    }).toThrow(
-      'Unable to find an element with the text: Helper text for the text area'
-    );
+    }).toThrow('Unable to find an element with the text: Helper text for the text area');
   });
 });

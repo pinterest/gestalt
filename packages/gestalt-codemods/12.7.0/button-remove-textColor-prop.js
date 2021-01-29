@@ -38,7 +38,7 @@ export default function transformer(file, api) {
 
       if (attrs.some((attr) => attr.type === 'JSXSpreadAttribute')) {
         throw new Error(
-          `Remove Dynamic Text properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`
+          `Remove Dynamic Text properties and rerun codemod. Location: ${file.path} @line: ${node.loc.start.line}`,
         );
       }
 
@@ -58,10 +58,7 @@ export default function transformer(file, api) {
           if (attr?.name?.name && attr.name.name === 'textColor') {
             if (attr.value.value === 'white') {
               newAttribute = [
-                j.jsxAttribute(
-                  j.jsxIdentifier('color'),
-                  j.literal('transparentWhiteText')
-                ),
+                j.jsxAttribute(j.jsxIdentifier('color'), j.literal('transparentWhiteText')),
               ];
             }
             return null;
@@ -75,9 +72,7 @@ export default function transformer(file, api) {
       let appendedAttr = tempAttr || false;
       appendedAttr = tempAttr && newAttribute ? newAttribute : tempAttr;
 
-      node.openingElement.attributes = appendedAttr
-        ? [...newAttrs, ...appendedAttr]
-        : newAttrs;
+      node.openingElement.attributes = appendedAttr ? [...newAttrs, ...appendedAttr] : newAttrs;
       return null;
     })
     .toSource();

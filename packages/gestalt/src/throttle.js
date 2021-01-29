@@ -7,7 +7,7 @@
 // @flow strict
 export default function throttle(
   fn: (...args: *) => void,
-  threshhold: number = 100
+  threshhold: number = 100,
   // $FlowFixMe[signature-verification-failure]
 ) {
   let last: number | void;

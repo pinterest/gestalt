@@ -12,12 +12,7 @@ describe('<SelectList />', () => {
 
   it('Renders an FormErrorMessage if an error message is passed in', () => {
     const { getByText } = render(
-      <SelectList
-        errorMessage="Error message"
-        id="test"
-        onChange={jest.fn()}
-        options={options}
-      />
+      <SelectList errorMessage="Error message" id="test" onChange={jest.fn()} options={options} />,
     );
 
     expect(getByText('Error message')).toBeVisible();
@@ -25,12 +20,7 @@ describe('<SelectList />', () => {
 
   it('SelectList with name', () => {
     const { container } = render(
-      <SelectList
-        name="select_name"
-        id="select_id"
-        onChange={jest.fn()}
-        options={options}
-      />
+      <SelectList name="select_name" id="select_id" onChange={jest.fn()} options={options} />,
     );
     expect(container.querySelector('[name="select_name"]')).toBeVisible();
   });
@@ -38,7 +28,7 @@ describe('<SelectList />', () => {
   it('SelectList with errorMessage prop change', () => {
     const handleChange = jest.fn();
     const { getByText, rerender } = render(
-      <SelectList id="test" onChange={handleChange} options={options} />
+      <SelectList id="test" onChange={handleChange} options={options} />,
     );
     expect(() => {
       getByText('Error message');
@@ -49,14 +39,14 @@ describe('<SelectList />', () => {
         onChange={handleChange}
         options={options}
         errorMessage="Error message"
-      />
+      />,
     );
     expect(getByText('Error message')).toBeVisible();
   });
 
   it('SelectList with disabled', () => {
     const { container } = render(
-      <SelectList disabled id="test" onChange={jest.fn()} options={options} />
+      <SelectList disabled id="test" onChange={jest.fn()} options={options} />,
     );
     expect(container.querySelector('select[disabled]')).toBeVisible();
   });
@@ -68,7 +58,7 @@ describe('<SelectList />', () => {
         onChange={jest.fn()}
         options={options}
         placeholder={options[0].label}
-      />
+      />,
     );
     expect(container.querySelector('option')).toBeDisabled();
   });
@@ -78,11 +68,8 @@ describe('<SelectList />', () => {
       <SelectList
         id="test"
         onChange={jest.fn()}
-        options={[
-          ...options,
-          { label: 'option4', value: 'value4', disabled: true },
-        ]}
-      />
+        options={[...options, { label: 'option4', value: 'value4', disabled: true }]}
+      />,
     );
     expect(container.querySelector('option[value="value4"]')).toBeDisabled();
   });
@@ -95,7 +82,7 @@ describe('<SelectList />', () => {
         onChange={jest.fn()}
         options={options}
         placeholder={options[0].label}
-      />
+      />,
     );
     expect(getByText('Label for the select list')).toBeVisible();
   });
@@ -109,7 +96,7 @@ describe('<SelectList />', () => {
         onChange={jest.fn()}
         options={options}
         placeholder={options[0].label}
-      />
+      />,
     );
     expect(getByText('Helper text for the select list')).toBeVisible();
   });
@@ -124,23 +111,16 @@ describe('<SelectList />', () => {
         onChange={jest.fn()}
         options={options}
         placeholder={options[0].label}
-      />
+      />,
     );
     expect(() => {
       getByText('Helper text for the select list');
-    }).toThrow(
-      'Unable to find an element with the text: Helper text for the select list'
-    );
+    }).toThrow('Unable to find an element with the text: Helper text for the select list');
   });
 
   it('adds a "medium" classname by default', () => {
     const { container } = render(
-      <SelectList
-        name="select_name"
-        id="select_id"
-        onChange={jest.fn()}
-        options={options}
-      />
+      <SelectList name="select_name" id="select_id" onChange={jest.fn()} options={options} />,
     );
     expect(container.querySelector('.medium')).toBeVisible();
   });
@@ -153,7 +133,7 @@ describe('<SelectList />', () => {
         onChange={jest.fn()}
         options={options}
         size="lg"
-      />
+      />,
     );
     expect(container.querySelector('.large')).toBeVisible();
   });

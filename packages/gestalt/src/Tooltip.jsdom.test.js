@@ -11,7 +11,7 @@ test('Tooltip renders', () => {
   const component = create(
     <Tooltip text="This is a tooltip">
       <div>Hi</div>
-    </Tooltip>
+    </Tooltip>,
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -30,7 +30,7 @@ test('Tooltip renders the link when hovered', () => {
       text="This is a tooltip"
     >
       <div>Hi</div>
-    </Tooltip>
+    </Tooltip>,
   );
 
   const ariaContainer = container.querySelector('[aria-label]');
@@ -48,7 +48,7 @@ test('Tooltip should render as expected when hovered', () => {
   const { container, getByText } = render(
     <Tooltip text="This is a tooltip">
       <div>Hi</div>
-    </Tooltip>
+    </Tooltip>,
   );
 
   const ariaContainer = container.querySelector('[aria-label]');
@@ -65,7 +65,7 @@ test('Tooltip renders with idealDirection', () => {
   const component = create(
     <Tooltip text="This is a tooltip" idealDirection="up">
       <div>Hi</div>
-    </Tooltip>
+    </Tooltip>,
   );
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -76,7 +76,7 @@ test('Tooltip renders with zIndex', () => {
   const { container, getByText } = render(
     <Tooltip text="This is a tooltip" zIndex={fixedZIndex}>
       <div>Hi</div>
-    </Tooltip>
+    </Tooltip>,
   );
   const ariaContainer = container.querySelector('[aria-label]');
   expect(ariaContainer).not.toBe(null);

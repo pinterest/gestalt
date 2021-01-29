@@ -16,7 +16,7 @@ card(
   <PageHeader
     name="Box"
     description="Box is a low level component that can be used to build the foundation of pretty much anything. Using Box allows you to focus on the important content, without worrying about the pixel details."
-  />
+  />,
 );
 
 card(
@@ -149,7 +149,7 @@ card(
 `}
       />
     </MainSection.Subsection>
-  </MainSection>
+  </MainSection>,
 );
 
 card(
@@ -355,7 +355,7 @@ card(
         description: `An object representing the zIndex value of the Box.`,
       },
     ]}
-  />
+  />,
 );
 
 card(
@@ -379,7 +379,7 @@ card(
 `}
       />
     </MainSection.Subsection>
-  </MainSection>
+  </MainSection>,
 );
 
 card(
@@ -442,7 +442,7 @@ card(
 `}
       />
     </MainSection.Subsection>
-  </MainSection>
+  </MainSection>,
 );
 
 card(
@@ -520,19 +520,12 @@ card(
     >
       <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
         {(props) => (
-          <Box
-            color="gray"
-            width={props.rounding === 'pill' ? 120 : 70}
-            height={70}
-            {...props}
-          />
+          <Box color="gray" width={props.rounding === 'pill' ? 120 : 70} height={70} {...props} />
         )}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection description="" title="Opacity">
-      <CombinationNew
-        opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
-      >
+      <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
         {(props) => <Box color="darkGray" width={60} height={60} {...props} />}
       </CombinationNew>
     </MainSection.Subsection>
@@ -547,13 +540,7 @@ card(
         alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
       >
         {(props) => (
-          <Box
-            display="flex"
-            width="75%"
-            height="75%"
-            {...props}
-            borderStyle="shadow"
-          >
+          <Box display="flex" width="75%" height="75%" {...props} borderStyle="shadow">
             <Box margin={1} color="gray" height={8} width={8} />
             <Box margin={1} color="gray" height={16} width={8} />
             <Box margin={1} color="gray" height={32} width={8} />
@@ -561,7 +548,7 @@ card(
         )}
       </CombinationNew>
     </MainSection.Subsection>
-  </MainSection>
+  </MainSection>,
 );
 
 // card(
@@ -650,7 +637,7 @@ card(
     If you need to use these features, please use a \`<div>\` instead.
   `}
     name="Disallowed properties"
-  />
+  />,
 );
 
 const PaddingSwatch = (props: *) => (
@@ -680,18 +667,12 @@ card(
     id="padding"
     name="Padding"
   >
-    <Box
-      display="flex"
-      direction="row"
-      justifyContent="between"
-      alignItems="center"
-      wrap
-    >
+    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
       <PaddingSwatch padding={1} label="1" />
       <PaddingSwatch paddingX={1} label="X=1" />
       <PaddingSwatch paddingY={1} label="Y=1" />
     </Box>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -706,7 +687,7 @@ function ResponsivePadding() {
     </Box>
   );
 }`}
-  />
+  />,
 );
 
 const MarginSwatch = (props: *) => (
@@ -748,33 +729,21 @@ card(
     id="margins"
     name="Margins"
   >
-    <Box
-      display="flex"
-      direction="row"
-      justifyContent="between"
-      alignItems="center"
-      wrap
-    >
+    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
       <MarginSwatch margin={1} />
       <MarginSwatch marginTop={1} />
       <MarginSwatch marginBottom={1} />
       <MarginSwatch marginStart={1} />
       <MarginSwatch marginEnd={1} />
     </Box>
-    <Box
-      display="flex"
-      direction="row"
-      justifyContent="between"
-      alignItems="center"
-      wrap
-    >
+    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
       <MarginSwatch margin={-1} />
       <MarginSwatch marginTop={-1} />
       <MarginSwatch marginBottom={-1} />
       <MarginSwatch marginStart={-1} />
       <MarginSwatch marginEnd={-1} />
     </Box>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -798,11 +767,9 @@ card(
     <Box display="flex" direction="column" height={120} color="green">
       <Box>This is a title!</Box>
       <Box>This one is a subtitle.</Box>
-      <Box marginTop="auto">
-        I’m pushed to the bottom due to marginTop: auto.
-      </Box>
+      <Box marginTop="auto">I’m pushed to the bottom due to marginTop: auto.</Box>
     </Box>
-  </Card>
+  </Card>,
 );
 
 card(
@@ -828,7 +795,7 @@ card(
   </Box>
 </Box>
 `}
-  />
+  />,
 );
 
 // card(
@@ -977,7 +944,7 @@ function ButtonFlyoutExample() {
     </>
   );
 }`}
-  />
+  />,
 );
 
 card(
@@ -994,7 +961,7 @@ function Example() {
   return <Box color="blue" width={60} height={60} zIndex={zIndex} />
 }
 `}
-  />
+  />,
 );
 
 export default cards;

@@ -14,16 +14,13 @@ export default function transformer(file, api) {
     if (decl.source.value !== 'gestalt') {
       return;
     }
-    const touchableSpecifier = decl.specifiers.find(
-      (node) => node.imported.name === 'Touchable'
-    );
+    const touchableSpecifier = decl.specifiers.find((node) => node.imported.name === 'Touchable');
 
     if (!touchableSpecifier) {
       return;
     }
 
-    touchableLocalIdentifierName =
-      touchableSpecifier && touchableSpecifier.local.name;
+    touchableLocalIdentifierName = touchableSpecifier && touchableSpecifier.local.name;
 
     const newSpecifiers = [
       // Strip out Touchable import
@@ -34,9 +31,7 @@ export default function transformer(file, api) {
     ].filter(Boolean);
 
     // Sort all the imports alphabetically
-    newSpecifiers.sort((a, b) =>
-      a.imported.name.localeCompare(b.imported.name)
-    );
+    newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
 
     const newNode = j.importDeclaration(newSpecifiers, j.literal('gestalt'));
 
@@ -59,20 +54,16 @@ export default function transformer(file, api) {
         return;
       }
 
-      node.openingElement.attributes = node.openingElement.attributes.map(
-        (attr) => {
-          const attribute = attr;
-          if (attribute.name && attribute.name.name === 'onTouch') {
-            attribute.name.name = 'onTap';
-          }
-          return attribute;
+      node.openingElement.attributes = node.openingElement.attributes.map((attr) => {
+        const attribute = attr;
+        if (attribute.name && attribute.name.name === 'onTouch') {
+          attribute.name.name = 'onTap';
         }
-      );
+        return attribute;
+      });
 
       // Sort attributes alphabetically
-      node.openingElement.attributes.sort((a, b) =>
-        a.name.name.localeCompare(b.name.name)
-      );
+      node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
       node.openingElement.name = 'TapArea';
       node.closingElement.name = 'TapArea';
