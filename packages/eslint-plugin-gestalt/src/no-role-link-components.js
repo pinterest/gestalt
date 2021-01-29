@@ -33,9 +33,7 @@ const rule = {
         }
         importedComponent = decl.specifiers.some((node) => {
           importedName = node.imported.name;
-          return ['Button', 'TapArea', 'IconButton'].includes(
-            node.imported.name
-          );
+          return ['Button', 'TapArea', 'IconButton'].includes(node.imported.name);
         });
       },
       JSXOpeningElement(node) {
@@ -51,13 +49,13 @@ const rule = {
             value.name.name === 'role' &&
             value.value &&
             // $FlowFixMe[incompatible-use]
-            value.value.value === 'link'
+            value.value.value === 'link',
         );
 
         if (isRoleLink) {
           context.report(
             node,
-            `${importedName} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${importedName}Link.js instead.`
+            `${importedName} Components with role-link are disallowed in Pinboard. Please use app/common/react/ui/${importedName}Link.js instead.`,
           );
         }
       },

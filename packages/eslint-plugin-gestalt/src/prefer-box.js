@@ -11,9 +11,7 @@
 import { validateBackgroundColor, validateBorderRadius } from './validators.js';
 
 function getInlineDefinedStyles(attr) {
-  return attr.value.expression.properties
-    ? attr.value.expression.properties
-    : null;
+  return attr.value.expression.properties ? attr.value.expression.properties : null;
 }
 
 function getVariableDefinedStyles(ref) {
@@ -30,8 +28,7 @@ function getVariableDefinedStyles(ref) {
 const rule = {
   meta: {
     docs: {
-      description:
-        'linter checks for usage of inline styling that is available as Box props',
+      description: 'linter checks for usage of inline styling that is available as Box props',
       recommended: false,
     },
     schema: [
@@ -81,8 +78,7 @@ const rule = {
               const scope = context.getScope(node);
               // Look in local scope for variable reference
               const ref = scope.references.find(
-                (reference) =>
-                  reference.identifier.name === attr.value.expression.name
+                (reference) => reference.identifier.name === attr.value.expression.name,
               );
               if (ref) {
                 styleProperties = getVariableDefinedStyles(ref);
@@ -102,8 +98,8 @@ const rule = {
                 context.report(
                   attr,
                   `Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n${errorMessages.join(
-                    '\n'
-                  )}`
+                    '\n',
+                  )}`,
                 );
               }
             }

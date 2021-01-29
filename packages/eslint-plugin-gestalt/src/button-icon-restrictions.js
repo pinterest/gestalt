@@ -35,7 +35,7 @@ const rule = {
         // eslint-disable-next-line no-unused-vars
         ([key, value]) =>
           // $FlowFixMe[incompatible-use]
-          value && value.name && value.name.name === attributeName
+          value && value.name && value.name.name === attributeName,
       );
     }
 
@@ -80,7 +80,7 @@ const rule = {
         if (!isCorrectColor || !isCorrectIcon || !isCorrectSize) {
           context.report(
             node,
-            'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"'
+            'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
           );
         }
       },

@@ -2,7 +2,7 @@
 export function genBointLookup(
   propName: string,
   start: number,
-  end: number = 12
+  end: number = 12,
 ): {| [string | number]: string |} {
   const lookupMap = {};
   for (let i = start; i <= end; i += 1) {
@@ -10,8 +10,7 @@ export function genBointLookup(
     let msg = `  Use prop \`${propName}={${i}}\` instead`;
     // Special case for marginLeft and marginRight
     if (['marginLeft', 'marginRight'].includes(propName)) {
-      const recommendedProp =
-        propName === 'marginLeft' ? 'marginStart' : 'marginEnd';
+      const recommendedProp = propName === 'marginLeft' ? 'marginStart' : 'marginEnd';
       msg = `  Use prop \`${recommendedProp}={${i}}\` instead`;
     }
     lookupMap[px] = msg;

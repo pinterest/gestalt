@@ -48,16 +48,13 @@ const rule = {
           // eslint-disable-next-line no-unused-vars
           ([key, value]) =>
             // $FlowFixMe[incompatible-use]
-            value && value.name && value.name.name === 'size'
+            value && value.name && value.name.name === 'size',
         );
 
         // No size defined or size is not "lg"
         // $FlowFixMe[incompatible-use]
         if (!sizeAttribute || sizeAttribute[1].value.value === 'md') {
-          context.report(
-            node,
-            'Gestalt form fields should always have size="lg" set on them'
-          );
+          context.report(node, 'Gestalt form fields should always have size="lg" set on them');
         }
       },
     };

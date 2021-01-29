@@ -8,11 +8,7 @@
  */
 
 // @flow strict
-import {
-  genBointLookup,
-  validateBackgroundColor,
-  validateBorderRadius,
-} from './validators.js';
+import { genBointLookup, validateBackgroundColor, validateBorderRadius } from './validators.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression &&
@@ -139,19 +135,16 @@ const rule = {
           }
           break;
         case 'bottom':
-          if (
-            (includeKey('bottom') && key.value === '0px') ||
-            key.value === 0
-          ) {
+          if ((includeKey('bottom') && key.value === '0px') || key.value === 0) {
             matchedErrors.push(
-              '  Instead of dangerously styling bottom, use the "bottom" boolean prop'
+              '  Instead of dangerously styling bottom, use the "bottom" boolean prop',
             );
           }
           break;
         case 'left':
           if ((includeKey('left') && key.value === '0px') || key.value === 0) {
             matchedErrors.push(
-              '  Instead of dangerously styling left, use the "left" boolean prop'
+              '  Instead of dangerously styling left, use the "left" boolean prop',
             );
           }
           break;
@@ -203,28 +196,28 @@ const rule = {
         case 'maxHeight':
           if (includeKey('maxHeight')) {
             matchedErrors.push(
-              '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead'
+              '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead',
             );
           }
           break;
         case 'minHeight':
           if (includeKey('minHeight')) {
             matchedErrors.push(
-              '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead'
+              '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead',
             );
           }
           break;
         case 'maxWidth':
           if (includeKey('maxWidth')) {
             matchedErrors.push(
-              '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead'
+              '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead',
             );
           }
           break;
         case 'minWidth':
           if (includeKey('minWidth')) {
             matchedErrors.push(
-              '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead'
+              '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead',
             );
           }
           break;
@@ -273,15 +266,13 @@ const rule = {
         case 'right':
           if ((includeKey('right') && key.value === '0px') || key.value === 0) {
             matchedErrors.push(
-              '  Instead of dangerously styling right, use the "right" boolean prop'
+              '  Instead of dangerously styling right, use the "right" boolean prop',
             );
           }
           break;
         case 'top':
           if ((includeKey('top') && key.value === '0px') || key.value === 0) {
-            matchedErrors.push(
-              '  Instead of dangerously styling top, use the "top" boolean prop'
-            );
+            matchedErrors.push('  Instead of dangerously styling top, use the "top" boolean prop');
           }
           break;
         default:
@@ -309,8 +300,7 @@ const rule = {
         }
         Object.keys(node.attributes).some((attrKey) => {
           const attr = node.attributes[attrKey];
-          const matched =
-            attr.name && attr.name.name === 'dangerouslySetInlineStyle';
+          const matched = attr.name && attr.name.name === 'dangerouslySetInlineStyle';
           if (matched) {
             // If we have style properties here, this is an object declared inline
             let styleProperties = getInlineDefinedStyles(attr);
@@ -319,8 +309,7 @@ const rule = {
               const scope = context.getScope(node);
               // Look in local scope for variable reference
               const ref = scope.references.find(
-                (reference) =>
-                  reference.identifier.name === attr.value.expression.name
+                (reference) => reference.identifier.name === attr.value.expression.name,
               );
               if (ref) {
                 styleProperties = getVariableDefinedStyles(ref);
@@ -340,8 +329,8 @@ const rule = {
                 context.report(
                   attr,
                   `Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n${errorMessages.join(
-                    '\n'
-                  )}`
+                    '\n',
+                  )}`,
                 );
               }
             }
