@@ -1,3 +1,9 @@
+## 16.9.0 (Jan 29, 2021)
+
+### Minor
+
+- Add eslint plugin for gestalt (#1353)
+
 ## 16.8.4 (Jan 29, 2021)
 
 ### Patch
