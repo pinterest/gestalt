@@ -8,7 +8,12 @@ const fsPromises = require('fs').promises;
 const core = require('@actions/core');
 const { getOctokit, context } = require('@actions/github');
 
-const packageJSON = path.join(__dirname, '..', 'packages', 'gestalt', 'package.json');
+function packageJSONPath(item) {
+  return path.join(__dirname, '..', 'packages', item, 'package.json');
+}
+
+const packages = ['gestalt', 'gestalt-datepicker', 'eslint-plugin-gestalt'];
+const packageJSON = packageJSONPath('gestalt');
 const packageJSONParsed = require(packageJSON);
 
 function capitalizeFirstLetter(string) {
@@ -52,9 +57,19 @@ async function bumpPackageVersion() {
 
   // Bump gestalt version number
   const newVersion = semver.inc(previousVersion, releaseType);
-  packageJSONParsed.version = newVersion;
 
-  await fsPromises.writeFile(packageJSON, `${JSON.stringify(packageJSONParsed, null, 2)}\n`);
+  await Promise.all(
+    packages.map(async (item) => {
+      const individualPackageJSON = packageJSONPath(item);
+      // eslint-disable-next-line global-require
+      const individualPackageJSONParsed = require(individualPackageJSON);
+      individualPackageJSONParsed.version = newVersion;
+      await fsPromises.writeFile(
+        individualPackageJSON,
+        `${JSON.stringify(individualPackageJSONParsed, null, 2)}\n`,
+      );
+    }),
+  );
 
   return { previousVersion, newVersion, releaseType };
 }
