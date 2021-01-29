@@ -4,3 +4,5 @@ flow-typed
 node_modules
 packages/gestalt/dist
 packages/gestalt-datepicker/dist
+packages/eslint-plugin-gestalt/dist
+packages/eslint-plugin-gestalt/src/__fixtures__

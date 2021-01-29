@@ -81,11 +81,11 @@
   "scripts": {
     "a11y:generate": "./scripts/generateAccessibilitySpecs.js",
     "a11y:validate": "./scripts/validateAccessibilitySpecs.js",
-    "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build",
+    "build": "cd packages/gestalt && yarn build && cd ../gestalt-datepicker && yarn build && cd ../eslint-plugin-gestalt && yarn build",
     "codemod": "jscodeshift --ignore-pattern=**/node_modules/**",
     "css:validate": "./scripts/cssValidate.js",
     "generate": "./scripts/generateComponent.js",
-    "dev": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch)",
+    "dev": "(cd docs && yarn start) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-datepicker && yarn watch) & (cd packages/eslint-plugin-gestalt && yarn watch)",
     "docs": "(cd docs && yarn start)",
     "flow-generate:css": "(css-modules-flow-types packages/gestalt/src/ >/dev/null) && (css-modules-flow-types packages/gestalt-datepicker/src/ >/dev/null)",
     "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
