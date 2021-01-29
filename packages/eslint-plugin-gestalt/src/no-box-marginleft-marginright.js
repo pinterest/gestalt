@@ -6,22 +6,24 @@
  * we update all of them to marginStart/marginEnd
  */
 
-module.exports = {
+// @flow strict
+const rule = {
   meta: {
     docs: {
-      description: 'Enforce usage of Right-to-Left (RTL)-compliant marginStart/marginEnd over marginLeft/marginRight',
+      description:
+        'Enforce usage of Right-to-Left (RTL)-compliant marginStart/marginEnd over marginLeft/marginRight',
       recommended: false,
     },
     schema: [
       {
         type: 'object',
-        properties: {},
         additionalProperties: false,
       },
     ],
   },
 
-  create(context) {
+  // $FlowFixMe[unclear-type]
+  create(context: Object): Object {
     let importedComponent = false;
 
     return {
@@ -38,8 +40,14 @@ module.exports = {
           return;
         }
 
-        const isMarginLeftRightAttribute = Object.entries(node.attributes).find(
-          ([key, value]) => ['marginLeft',  'marginRight'].includes(value && value.name && value.name.name)
+        const isMarginLeftRightAttribute = Object.entries(
+          node.attributes
+          // eslint-disable-next-line no-unused-vars
+        ).find(([key, value]) =>
+          ['marginLeft', 'marginRight'].includes(
+            // $FlowFixMe[incompatible-use]
+            value && value.name && value.name.name
+          )
         );
 
         // No marginLeft or marginRight attributes on Box
@@ -53,3 +61,5 @@ module.exports = {
     };
   },
 };
+
+export default rule;

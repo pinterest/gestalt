@@ -9,7 +9,8 @@
  * - size "lg"
  */
 
-module.exports = {
+// @flow strict
+const rule = {
   meta: {
     docs: {
       description: 'Button icon restrictions',
@@ -18,25 +19,29 @@ module.exports = {
     schema: [
       {
         type: 'object',
-        properties: {},
         additionalProperties: false,
       },
     ],
   },
 
-  create(context) {
+  // $FlowFixMe[unclear-type]
+  create(context: Object): Object {
     let importedComponent = false;
     let localIdentifierName;
     const componentName = 'Button';
 
     function getAttribute(node, attributeName) {
       return Object.entries(node.attributes).find(
-        ([key, value]) => value && value.name && value.name.name === attributeName,
+        // eslint-disable-next-line no-unused-vars
+        ([key, value]) =>
+          // $FlowFixMe[incompatible-use]
+          value && value.name && value.name.name === attributeName
       );
     }
 
     function getValue(attribute) {
-      return Boolean(attribute) ? attribute[1].value.value : null;
+      // $FlowFixMe[incompatible-use]
+      return attribute ? attribute[1].value.value : null;
     }
 
     return {
@@ -75,10 +80,12 @@ module.exports = {
         if (!isCorrectColor || !isCorrectIcon || !isCorrectSize) {
           context.report(
             node,
-            'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
+            'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"'
           );
         }
       },
     };
   },
 };
+
+export default rule;

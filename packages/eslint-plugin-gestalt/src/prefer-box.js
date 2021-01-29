@@ -7,10 +7,8 @@
  * that is available as Box props.
  */
 
-const {
-  validateBackgroundColor,
-  validateBorderRadius,
-} = require('./validators.js');
+// @flow strict
+import { validateBackgroundColor, validateBorderRadius } from './validators.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties
@@ -29,7 +27,7 @@ function getVariableDefinedStyles(ref) {
     : null;
 }
 
-module.exports = {
+const rule = {
   meta: {
     docs: {
       description:
@@ -44,7 +42,8 @@ module.exports = {
     ],
   },
 
-  create(context) {
+  // $FlowFixMe[unclear-type]
+  create(context: Object): Object {
     function matchKeyErrors(matchedErrors, key) {
       let message = '';
       switch (key.name) {
@@ -60,6 +59,8 @@ module.exports = {
             matchedErrors.push(message);
           }
           break;
+        default:
+          break;
       }
       return matchedErrors.filter((x) => x);
     }
@@ -69,7 +70,7 @@ module.exports = {
         if (node.name.name !== 'div') {
           return;
         }
-        for (const attrKey in node.attributes) {
+        Object.keys(node.attributes).some((attrKey) => {
           const attr = node.attributes[attrKey];
           const matched = attr.name && attr.name.name === 'style';
           if (matched) {
@@ -80,7 +81,8 @@ module.exports = {
               const scope = context.getScope(node);
               // Look in local scope for variable reference
               const ref = scope.references.find(
-                (ref) => ref.identifier.name === attr.value.expression.name
+                (reference) =>
+                  reference.identifier.name === attr.value.expression.name
               );
               if (ref) {
                 styleProperties = getVariableDefinedStyles(ref);
@@ -105,10 +107,12 @@ module.exports = {
                 );
               }
             }
-            break;
           }
-        }
+          return matched;
+        });
       },
     };
   },
 };
+
+export default rule;

@@ -1,7 +1,8 @@
-const { RuleTester } = require('eslint');
-const { readFileSync } = require('fs');
-const path = require('path');
-const rule = require('./no-box-marginleft-marginright');
+// @flow strict
+import { RuleTester } from 'eslint';
+import { readFileSync } from 'fs';
+import path from 'path';
+import rule from './no-box-marginleft-marginright.js';
 
 const ruleTester = new RuleTester();
 
@@ -14,26 +15,42 @@ const parserOptions = {
 };
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/valid.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-marginleft-marginright/valid.js'
+  ),
+  'utf-8'
 );
 const invalidLeftCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left.js'
+  ),
+  'utf-8'
 );
 const invalidRightCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right.js'
+  ),
+  'utf-8'
 );
 const invalidRightStartCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-right-margin-start.js'
+  ),
+  'utf-8'
 );
 const invalidLeftStartCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-box-marginleft-marginright/invalid/invalid-margin-left-margin-start.js'
+  ),
+  'utf-8'
 );
-const errorMessage = 'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
+const errorMessage =
+  'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
 
 ruleTester.run('no-box-marginleft-marginright', rule, {
   valid: [
@@ -49,7 +66,7 @@ ruleTester.run('no-box-marginleft-marginright', rule, {
       errors: [
         {
           message: errorMessage,
-        }
+        },
       ],
     },
     {
@@ -58,7 +75,7 @@ ruleTester.run('no-box-marginleft-marginright', rule, {
       errors: [
         {
           message: errorMessage,
-        }
+        },
       ],
     },
     {
@@ -67,7 +84,7 @@ ruleTester.run('no-box-marginleft-marginright', rule, {
       errors: [
         {
           message: errorMessage,
-        }
+        },
       ],
     },
     {
@@ -76,7 +93,7 @@ ruleTester.run('no-box-marginleft-marginright', rule, {
       errors: [
         {
           message: errorMessage,
-        }
+        },
       ],
     },
   ],

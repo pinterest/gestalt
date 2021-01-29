@@ -1,7 +1,8 @@
-const { RuleTester } = require('eslint');
-const { readFileSync } = require('fs');
-const path = require('path');
-const rule = require('./prefer-box');
+// @flow strict
+import { RuleTester } from 'eslint';
+import { readFileSync } from 'fs';
+import path from 'path';
+import rule from './prefer-box.js';
 
 const ruleTester = new RuleTester();
 

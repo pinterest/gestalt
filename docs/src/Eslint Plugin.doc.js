@@ -156,7 +156,7 @@ yarn link eslint-plugin-gestalt
       </Text>
       <Markdown
         text="
-~~~jsx
+~~~bash
 cd ~/code/project-using-gestalt
 yarn unlink eslint-plugin-gestalt
 ~~~

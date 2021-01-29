@@ -6,7 +6,8 @@
  * Pinboard alternative with additional functionalityp must be used instead.
  */
 
-module.exports = {
+// @flow strict
+const rule = {
   meta: {
     docs: {
       description: 'Disallow role-link on Gestalt components',
@@ -15,13 +16,13 @@ module.exports = {
     schema: [
       {
         type: 'object',
-        properties: {},
         additionalProperties: false,
       },
     ],
   },
 
-  create(context) {
+  // $FlowFixMe[unclear-type]
+  create(context: Object): Object {
     let importedComponent = false;
     let importedName;
 
@@ -32,7 +33,9 @@ module.exports = {
         }
         importedComponent = decl.specifiers.some((node) => {
           importedName = node.imported.name;
-          return ['Button','TapArea','IconButton'].includes(node.imported.name);
+          return ['Button', 'TapArea', 'IconButton'].includes(
+            node.imported.name
+          );
         });
       },
       JSXOpeningElement(node) {
@@ -40,7 +43,16 @@ module.exports = {
           return;
         }
 
-        const isRoleLink = Object.entries(node.attributes).find(([key, value]) => value && value.name && value.name.name === 'role' && value.value && value.value.value === 'link');
+        const isRoleLink = Object.entries(node.attributes).find(
+          // eslint-disable-next-line no-unused-vars
+          ([key, value]) =>
+            value &&
+            value.name &&
+            value.name.name === 'role' &&
+            value.value &&
+            // $FlowFixMe[incompatible-use]
+            value.value.value === 'link'
+        );
 
         if (isRoleLink) {
           context.report(
@@ -52,3 +64,5 @@ module.exports = {
     };
   },
 };
+
+export default rule;

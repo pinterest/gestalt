@@ -1,7 +1,8 @@
-const { RuleTester } = require('eslint');
-const { readFileSync } = require('fs');
-const path = require('path');
-const rule = require('./button-icon-restrictions');
+// @flow strict
+import { RuleTester } from 'eslint';
+import { readFileSync } from 'fs';
+import path from 'path';
+import rule from './button-icon-restrictions.js';
 
 const ruleTester = new RuleTester();
 
@@ -14,48 +15,54 @@ const parserOptions = {
 };
 
 const validWithSize = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/valid/valid-size.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/button-icon-restrictions/valid/valid-size.js'
+  ),
+  'utf-8'
 );
 
 const invalidMissingColor = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/button-icon-restrictions/invalid/invalid-no-color.js',
+    './__fixtures__/button-icon-restrictions/invalid/invalid-no-color.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidWrongColor = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-color.js',
+    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-color.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidRenamed = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/button-icon-restrictions/invalid/invalid-renamed.js',
+    './__fixtures__/button-icon-restrictions/invalid/invalid-renamed.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidWrongIcon = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-icon.js',
+    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-icon.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidWrongSize = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-size.js',
+    './__fixtures__/button-icon-restrictions/invalid/invalid-wrong-size.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidWithoutSize = readFileSync(
-  path.resolve(__dirname, './__fixtures__/button-icon-restrictions/invalid/invalid-no-size.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/button-icon-restrictions/invalid/invalid-no-size.js'
+  ),
+  'utf-8'
 );
 
 ruleTester.run('button-icon-restrictions', rule, {
@@ -75,7 +82,8 @@ ruleTester.run('button-icon-restrictions', rule, {
     parserOptions,
     errors: [
       {
-        message: 'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
+        message:
+          'Buttons using iconEnd must use "arrow-down", color "white", and size "lg"',
       },
     ],
   })),

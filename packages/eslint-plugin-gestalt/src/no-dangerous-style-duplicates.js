@@ -7,15 +7,20 @@
  * available props as dangerous styles and suggests the alternative
  */
 
-const { genBointLookup, validateBackgroundColor, validateBorderRadius } = require('./validators.js')
+// @flow strict
+import {
+  genBointLookup,
+  validateBackgroundColor,
+  validateBorderRadius,
+} from './validators.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression &&
     attr.value.expression.properties &&
     attr.value.expression.properties[0] &&
     attr.value.expression.properties[0].key.name === '__style'
-      ? attr.value.expression.properties[0].value.properties
-      : null;
+    ? attr.value.expression.properties[0].value.properties
+    : null;
 }
 
 function getVariableDefinedStyles(ref) {
@@ -27,14 +32,14 @@ function getVariableDefinedStyles(ref) {
     ref.resolved.defs[0].node.init.properties &&
     ref.resolved.defs[0].node.init.properties[0] &&
     ref.resolved.defs[0].node.init.properties[0].key.name === '__style'
-      ? ref.resolved.defs[0].node.init.properties[0].value.properties
-      : null;
+    ? ref.resolved.defs[0].node.init.properties[0].value.properties
+    : null;
 }
 
 function genOpacityLookup() {
   const lookupMap = {};
-  for(let i=0; i<=10; i=i+1){
-    const val = i/10; // Why not increment i by 0.1? Floats
+  for (let i = 0; i <= 10; i += 1) {
+    const val = i / 10; // Why not increment i by 0.1? Floats
     const msg = `  Use prop \`opacity={${val}}\` instead`;
     lookupMap[val] = msg;
     lookupMap[`${val}`] = msg;
@@ -49,10 +54,11 @@ const overflowLookup = {
   auto: '  Use prop `overflow="auto"` instead',
 };
 
-module.exports = {
+const rule = {
   meta: {
     docs: {
-      description: 'Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented',
+      description:
+        'Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented',
       recommended: false,
     },
     schema: [
@@ -70,7 +76,8 @@ module.exports = {
     ],
   },
 
-  create(context) {
+  // $FlowFixMe[unclear-type]
+  create(context: Object): Object {
     let importedBox = false;
     let localIdentifierName = 'Box';
     const { onlyKeys } = context.options[0] || {};
@@ -90,11 +97,11 @@ module.exports = {
     const paddingLookup = genBointLookup('padding', 0);
 
     function matchKeyErrors(matchedErrors, key) {
-      switch(key.name) {
+      switch (key.name) {
         case 'backgroundColor':
           if (includeKey('backgroundColor')) {
             const message = validateBackgroundColor(key.value);
-            if(message){
+            if (message) {
               matchedErrors.push(message);
             }
           }
@@ -102,7 +109,7 @@ module.exports = {
         case 'borderRadius':
           if (includeKey('borderRadius')) {
             const message = validateBorderRadius(key.value);
-            if(message){
+            if (message) {
               matchedErrors.push(message);
             }
           }
@@ -112,89 +119,113 @@ module.exports = {
             // If the value is a string:
             // 1) convert everything to lowerCase (css is case-insensitive)
             // 2) sort the values since some found uses have the wrong order
-            const value = key.value && key.value.toLowerCase ?
-              key.value.toLowerCase().split(' ').sort().join(' ') :
-              key.value;
-            if(value === '#efefef 1px solid' || value === '#eee 1px solid' || value === '1px lightgray solid') {
+            const value =
+              key.value && key.value.toLowerCase
+                ? key.value.toLowerCase().split(' ').sort().join(' ')
+                : key.value;
+            if (
+              value === '#efefef 1px solid' ||
+              value === '#eee 1px solid' ||
+              value === '1px lightgray solid'
+            ) {
               matchedErrors.push('  Use prop `borderSize="sm"` instead');
-            } else if(value === '#efefef 2px solid' || value === '#eee 2px solid' || value === '2px lightgray solid') {
+            } else if (
+              value === '#efefef 2px solid' ||
+              value === '#eee 2px solid' ||
+              value === '2px lightgray solid'
+            ) {
               matchedErrors.push('  Use prop `borderSize="lg"` instead');
             }
           }
           break;
         case 'bottom':
-          if (includeKey('bottom') && key.value === '0px' || key.value === 0) {
-            matchedErrors.push('  Instead of dangerously styling bottom, use the "bottom" boolean prop');
+          if (
+            (includeKey('bottom') && key.value === '0px') ||
+            key.value === 0
+          ) {
+            matchedErrors.push(
+              '  Instead of dangerously styling bottom, use the "bottom" boolean prop'
+            );
           }
           break;
         case 'left':
-          if (includeKey('left') && key.value === '0px' || key.value === 0) {
-            matchedErrors.push('  Instead of dangerously styling left, use the "left" boolean prop');
+          if ((includeKey('left') && key.value === '0px') || key.value === 0) {
+            matchedErrors.push(
+              '  Instead of dangerously styling left, use the "left" boolean prop'
+            );
           }
           break;
         case 'margin':
           if (includeKey('margin')) {
-            if(key.value === 'auto') {
+            if (key.value === 'auto') {
               matchedErrors.push('  Use prop `margin="auto"` instead');
-            } else{
+            } else {
               matchedErrors.push(marginLookup[key.value]);
             }
           }
           break;
         case 'marginBottom':
           if (includeKey('marginBottom')) {
-            if(key.value === 'auto') {
+            if (key.value === 'auto') {
               matchedErrors.push('  Use prop `marginBottom="auto"` instead');
-            } else{
+            } else {
               matchedErrors.push(marginBottomLookup[key.value]);
             }
           }
           break;
         case 'marginLeft':
           if (includeKey('marginTop')) {
-            if(key.value === 'auto') {
+            if (key.value === 'auto') {
               matchedErrors.push('  Use prop `marginStart="auto"` instead');
-            } else{
+            } else {
               matchedErrors.push(marginLeftLookup[key.value]);
             }
           }
           break;
         case 'marginRight':
           if (includeKey('marginRight')) {
-            if(key.value === 'auto') {
+            if (key.value === 'auto') {
               matchedErrors.push('  Use prop `marginEnd="auto"` instead');
-            } else{
+            } else {
               matchedErrors.push(marginRightLookup[key.value]);
             }
           }
           break;
         case 'marginTop':
           if (includeKey('marginTop')) {
-            if(key.value === 'auto') {
+            if (key.value === 'auto') {
               matchedErrors.push('  Use prop `marginTop="auto"` instead');
-            } else{
+            } else {
               matchedErrors.push(marginTopLookup[key.value]);
             }
           }
           break;
         case 'maxHeight':
           if (includeKey('maxHeight')) {
-              matchedErrors.push('  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead');
+            matchedErrors.push(
+              '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead'
+            );
           }
           break;
         case 'minHeight':
           if (includeKey('minHeight')) {
-              matchedErrors.push('  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead');
+            matchedErrors.push(
+              '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead'
+            );
           }
           break;
         case 'maxWidth':
           if (includeKey('maxWidth')) {
-              matchedErrors.push('  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead');
+            matchedErrors.push(
+              '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead'
+            );
           }
           break;
         case 'minWidth':
           if (includeKey('minWidth')) {
-              matchedErrors.push('  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead');
+            matchedErrors.push(
+              '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead'
+            );
           }
           break;
         case 'opacity':
@@ -209,14 +240,14 @@ module.exports = {
           break;
         case 'overflow-x':
           if (includeKey('overflow')) {
-            if(key.value === 'scroll') {
+            if (key.value === 'scroll') {
               matchedErrors.push('  Use prop `overflow="scrollX"` instead');
             }
           }
           break;
         case 'overflow-y':
           if (includeKey('overflow')) {
-            if(key.value === 'scroll') {
+            if (key.value === 'scroll') {
               matchedErrors.push('  Use prop `overflow="scrollY"` instead');
             }
           }
@@ -228,26 +259,32 @@ module.exports = {
           break;
         case 'position':
           if (includeKey('position')) {
-            if(key.value === 'absolute') {
+            if (key.value === 'absolute') {
               matchedErrors.push('  Use prop `position="absolute"` instead');
-            } else if(key.value === 'static') {
+            } else if (key.value === 'static') {
               matchedErrors.push('  Use prop `position="static"` instead');
-            } else if(key.value === 'relative') {
+            } else if (key.value === 'relative') {
               matchedErrors.push('  Use prop `position="relative"` instead');
-            } else if(key.value === 'fixed') {
+            } else if (key.value === 'fixed') {
               matchedErrors.push('  Use prop `position="fixed"` instead');
             }
           }
           break;
         case 'right':
-          if (includeKey('right') && key.value === '0px' || key.value === 0) {
-            matchedErrors.push('  Instead of dangerously styling right, use the "right" boolean prop');
+          if ((includeKey('right') && key.value === '0px') || key.value === 0) {
+            matchedErrors.push(
+              '  Instead of dangerously styling right, use the "right" boolean prop'
+            );
           }
           break;
         case 'top':
-          if (includeKey('top') && key.value === '0px' || key.value === 0) {
-            matchedErrors.push('  Instead of dangerously styling top, use the "top" boolean prop');
+          if ((includeKey('top') && key.value === '0px') || key.value === 0) {
+            matchedErrors.push(
+              '  Instead of dangerously styling top, use the "top" boolean prop'
+            );
           }
+          break;
+        default:
           break;
       }
       return matchedErrors.filter((x) => x);
@@ -260,19 +297,20 @@ module.exports = {
         }
         importedBox = decl.specifiers.some((node) => {
           const isBox = node.imported.name === 'Box';
-          if(isBox) {
+          if (isBox) {
             localIdentifierName = node.local.name;
           }
           return isBox;
         });
       },
       JSXOpeningElement(node) {
-        if(!importedBox || localIdentifierName !== node.name.name) {
+        if (!importedBox || localIdentifierName !== node.name.name) {
           return;
         }
-        for(let attrKey in node.attributes) {
+        Object.keys(node.attributes).some((attrKey) => {
           const attr = node.attributes[attrKey];
-          const matched = attr.name && attr.name.name === 'dangerouslySetInlineStyle';
+          const matched =
+            attr.name && attr.name.name === 'dangerouslySetInlineStyle';
           if (matched) {
             // If we have style properties here, this is an object declared inline
             let styleProperties = getInlineDefinedStyles(attr);
@@ -280,27 +318,39 @@ module.exports = {
             if (!styleProperties && attr.value.expression.name) {
               const scope = context.getScope(node);
               // Look in local scope for variable reference
-              let ref = scope.references.find((ref) => ref.identifier.name === attr.value.expression.name);
-              if(ref) {
+              const ref = scope.references.find(
+                (reference) =>
+                  reference.identifier.name === attr.value.expression.name
+              );
+              if (ref) {
                 styleProperties = getVariableDefinedStyles(ref);
               }
             }
             if (styleProperties) {
-              const errorMessages = styleProperties.map(({ key, type, value }) => {
-                // Handle things like spread props
-                if (!key || value.value === undefined) {
-                  return { name: type, value: null };
-                }
-                return { name: key.name, value: value.value };
-              }).reduce(matchKeyErrors, []);
-              if(errorMessages.length) {
-                context.report(attr, `Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n${errorMessages.join('\n')}`);
+              const errorMessages = styleProperties
+                .map(({ key, type, value }) => {
+                  // Handle things like spread props
+                  if (!key || value.value === undefined) {
+                    return { name: type, value: null };
+                  }
+                  return { name: key.name, value: value.value };
+                })
+                .reduce(matchKeyErrors, []);
+              if (errorMessages.length) {
+                context.report(
+                  attr,
+                  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n${errorMessages.join(
+                    '\n'
+                  )}`
+                );
               }
             }
-            break;
           }
-        };
+          return matched;
+        });
       },
     };
   },
 };
+
+export default rule;

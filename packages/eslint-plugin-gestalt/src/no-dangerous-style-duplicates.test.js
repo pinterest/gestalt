@@ -1,7 +1,8 @@
-const { RuleTester } = require('eslint');
-const { readFileSync } = require('fs');
-const path = require('path');
-const rule = require('./no-dangerous-style-duplicates');
+// @flow strict
+import { RuleTester } from 'eslint';
+import { readFileSync } from 'fs';
+import path from 'path';
+import rule from './no-dangerous-style-duplicates.js';
 
 const ruleTester = new RuleTester();
 
@@ -14,104 +15,151 @@ const parserOptions = {
 };
 
 const validCode = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/valid.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/valid.js'
+  ),
+  'utf-8'
 );
 const invalidMultiple = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-multiple.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-multiple.js'
+  ),
+  'utf-8'
 );
 const invalidInVariable = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-in-variable.js'),
-  'utf-8',
-);
-const invalidRenamedImport = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-renamed-import.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-in-variable.js'
+  ),
+  'utf-8'
 );
 const invalidBackgroundColor = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-backgroundColor.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-backgroundColor.js'
+  ),
+  'utf-8'
 );
 const invalidBottom = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-bottom.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-bottom.js'
+  ),
+  'utf-8'
 );
 const invalidBorder = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-border.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-border.js'
+  ),
+  'utf-8'
 );
 const invalidBorderRadius = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-borderRadius.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-borderRadius.js'
+  ),
+  'utf-8'
 );
 const invalidLeft = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-left.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-left.js'
+  ),
+  'utf-8'
 );
 const invalidMarginNegative = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-margin-negative.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-margin-negative.js'
+  ),
+  'utf-8'
 );
 const invalidMarginLeft = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-marginLeft.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-marginLeft.js'
+  ),
+  'utf-8'
 );
 const invalidMarginTop = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-marginTop.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-marginTop.js'
+  ),
+  'utf-8'
 );
 const invalidMaxHeight = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-maxHeight.js',
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-maxHeight.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidMaxWidth = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-maxWidth.js',
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-maxWidth.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidMinHeight = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-minHeight.js',
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-minHeight.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidMinWidth = readFileSync(
   path.resolve(
     __dirname,
-    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-minWidth.js',
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-minWidth.js'
   ),
-  'utf-8',
+  'utf-8'
 );
 const invalidPadding = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-padding.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-padding.js'
+  ),
+  'utf-8'
 );
 const invalidOpacity = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-opacity.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-opacity.js'
+  ),
+  'utf-8'
 );
 const invalidOverflow = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-overflow.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-overflow.js'
+  ),
+  'utf-8'
 );
 const invalidPosition = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-position.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-position.js'
+  ),
+  'utf-8'
 );
 const invalidTop = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-top.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-top.js'
+  ),
+  'utf-8'
 );
 const invalidRight = readFileSync(
-  path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-right.js'),
-  'utf-8',
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-right.js'
+  ),
+  'utf-8'
 );
 
 ruleTester.run('no-dangerous-style-duplicates', rule, {
@@ -127,9 +175,10 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `color="white"` instead\n' +
-            '  Instead of dangerously styling top, use the \"top\" boolean prop',
+            '  Instead of dangerously styling top, use the "top" boolean prop',
         },
       ],
     },
@@ -143,8 +192,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       ],
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Instead of dangerously styling top, use the \"top\" boolean prop',
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Instead of dangerously styling top, use the "top" boolean prop',
         },
       ],
     },
@@ -153,8 +203,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Use prop `color="white"` instead'
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Use prop `color="white"` instead',
         },
       ],
     },
@@ -163,8 +214,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Use prop `color="white"` instead'
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Use prop `color="white"` instead',
         },
       ],
     },
@@ -173,7 +225,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `borderSize="lg"` instead',
         },
       ],
@@ -183,7 +236,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `rounding="circle"` instead',
         },
       ],
@@ -193,8 +247,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Instead of dangerously styling bottom, use the \"bottom\" boolean prop',
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Instead of dangerously styling bottom, use the "bottom" boolean prop',
         },
       ],
     },
@@ -203,8 +258,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Instead of dangerously styling left, use the \"left\" boolean prop',
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Instead of dangerously styling left, use the "left" boolean prop',
         },
       ],
     },
@@ -213,7 +269,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `margin={-2}` instead',
         },
       ],
@@ -223,7 +280,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `marginStart={2}` instead',
         },
       ],
@@ -233,7 +291,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `marginTop={1}` instead',
         },
       ],
@@ -287,7 +346,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `padding={0}` instead',
         },
       ],
@@ -297,7 +357,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `opacity={0.9}` instead',
         },
       ],
@@ -307,7 +368,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `overflow="auto"` instead',
         },
       ],
@@ -317,7 +379,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Use prop `position="absolute"` instead',
         },
       ],
@@ -327,8 +390,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Instead of dangerously styling top, use the \"top\" boolean prop',
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Instead of dangerously styling top, use the "top" boolean prop',
         },
       ],
     },
@@ -337,8 +401,9 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       parserOptions,
       errors: [
         {
-          message: 'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Instead of dangerously styling right, use the \"right\" boolean prop',
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Instead of dangerously styling right, use the "right" boolean prop',
         },
       ],
     },
