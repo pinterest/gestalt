@@ -57,7 +57,6 @@ card(
         description:
           'Establishes the main axis, thus defining the direction flex items are placed in the flex container.',
       },
-      { name: 'fit', type: 'boolean', defaultValue: false },
       {
         name: 'flex',
         type: '"grow" | "shrink" | "none"',

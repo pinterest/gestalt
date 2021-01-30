@@ -5,7 +5,7 @@ import Card from './Card.js';
 import MainSectionSubsection from './MainSectionSubsection.js';
 
 type Props = {|
-  children: Node,
+  children?: Node,
   description?: string,
   name: string,
   showHeading?: boolean,
