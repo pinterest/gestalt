@@ -81,7 +81,7 @@ const MainSectionCard = ({
             position="relative"
             rounding={2}
           >
-            <LivePreview />
+            <LivePreview style={{ display: 'contents' }} />
           </Box>
 
           {showCode && code && cardSize !== 'sm' && (

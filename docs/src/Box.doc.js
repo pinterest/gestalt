@@ -25,124 +25,124 @@ card(
         title="Media Object"
         description={`
            The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
+
+           In the double-sided example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
+
         `}
-        cardSize="md"
+        cardSize="lg"
         defaultCode={`
-<Box
-  alignItems="center"
-  direction="row"
-  display="flex"
-  marginStart={-1}
-  marginEnd={-1}
->
-  <Box paddingX={1}>
-    <Avatar name="chrislloyd" size="md" />
+<Box column={10}>
+  <Box
+    alignItems="center"
+    direction="row"
+    display="flex"
+    width={300}
+    marginStart={-1}
+    marginEnd={-1}
+    paddingY={2}
+  >
+    <Box paddingX={1}>
+      <Avatar name="chrislloyd" size="md" />
+    </Box>
+    <Box paddingX={1}>
+      <Text weight="bold">Chris Lloyd</Text>
+      <Text>joined 2 years ago</Text>
+    </Box>
   </Box>
-  <Box paddingX={1}>
-    <Text weight="bold">Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
-  </Box>
-</Box>
-`}
-      />
-      <MainSection.Card
-        title="Double-sided Media Object"
-        description={`
-           In this example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
-         `}
-        cardSize="md"
-        defaultCode={`
-<Box
-  alignItems="center"
-  direction="row"
-  display="flex"
-  marginStart={-1}
-  marginEnd={-1}
->
-  <Box paddingX={1}>
-    <Avatar name="chrislloyd" size="md" />
-  </Box>
-  <Box paddingX={1} flex="grow">
-    <Text weight="bold">Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
-  </Box>
-  <Box paddingX={1}>
-    <Button text="Follow" size="sm" color="red" />
+  <Box
+    alignItems="center"
+    direction="row"
+    display="flex"
+    marginStart={-1}
+    marginEnd={-1}
+  >
+    <Box paddingX={1}>
+      <Avatar name="chrislloyd" size="md" />
+    </Box>
+    <Box paddingX={1} flex="grow">
+      <Text weight="bold">Chris Lloyd</Text>
+      <Text>joined 2 years ago</Text>
+    </Box>
+    <Box paddingX={1}>
+      <Button text="Follow" size="sm" color="red" />
+    </Box>
   </Box>
 </Box>
 `}
       />
       <MainSection.Card
         cardSize="md"
+        title="Expandable Module"
+        description="Underneath the hood, [Expandable Module](/Module) uses Box to create the styling of the rounded edges and shadow, while also ensuring the title can grow while keeping the icon aligned to the end."
         defaultCode={`
-    <Box maxWidth={390}>
-      <Module.Expandable
-        id="ModuleExample3"
-        accessibilityExpandLabel="Expand the module"
-        accessibilityCollapseLabel="Collapse the module"
-        items={[
-          {
-            title: 'Example with icon',
-            children: <Text size="md">Children1</Text>,
-            iconAccessibilityLabel: 'title icon',
-            icon: 'lock',
-          },
-        ]}
-      />
-    </Box>
+  <Module.Expandable
+    id="ModuleExample3"
+    accessibilityExpandLabel="Expand the module"
+    accessibilityCollapseLabel="Collapse the module"
+    items={[
+      {
+        title: 'Example with icon',
+        children: <Text size="md">Children1</Text>,
+        iconAccessibilityLabel: 'title icon',
+        icon: 'lock',
+      },
+    ]}
+  />
 `}
       />
       <MainSection.Card
         cardSize="md"
+        title="Stacked Checkboxes"
+        description="In this example, Box is used to create spacing between [Checkbox](/Checkbox) items, as well as set the height of the image in each item."
         defaultCode={`
-        <Box margin={-2}>
-      <Box padding={2}>
-        <Checkbox
-          checked={false}
-          id="coral"
-          label="Coral"
-          subtext="Botanical art in coral and green"
-          image={
-            <Box height={100} width={80}>
-              <Image
-                alt="Botanical art in coral and green"
-                src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-                fit="contain"
-                naturalWidth={1}
-                naturalHeight={1}
-              />
-            </Box>
-          }
-          name="favorite art"
-          onChange={({ checked }) => {
-            console.log('Checked Coral');
-          }}
-        />
-      </Box>
-      <Box padding={2}>
-        <Checkbox
-          checked
-          id="blue"
-          label="Blue"
-          subtext="Typography and shoe in blue"
-          image={
-            <Box height={100} width={80}>
-              <Image
-                alt="Typography and shoe in blue"
-                src="https://i.ibb.co/jVR29XV/stock5.jpg"
-                fit="contain"
-                naturalWidth={1}
-                naturalHeight={1}
-              />
-            </Box>
-          }
-          name="favorite art"
-          onChange={({ checked }) => {
-            console.log('Checked Blue');
-          }}
-        />
-      </Box>
-    </Box>
+<Box margin={-2}>
+  <Box padding={2}>
+    <Checkbox
+      checked={false}
+      id="coral"
+      label="Coral"
+      subtext="Botanical art in coral and green"
+      image={
+        <Box height={100} width={80}>
+          <Image
+            alt="Botanical art in coral and green"
+            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+            fit="contain"
+            naturalWidth={1}
+            naturalHeight={1}
+          />
+        </Box>
+      }
+      name="favorite art"
+      onChange={({ checked }) => {
+        console.log('Checked Coral');
+      }}
+    />
+  </Box>
+  <Box padding={2}>
+    <Checkbox
+      checked
+      id="blue"
+      label="Blue"
+      subtext="Typography and shoe in blue"
+      image={
+        <Box height={100} width={80}>
+          <Image
+            alt="Typography and shoe in blue"
+            src="https://i.ibb.co/jVR29XV/stock5.jpg"
+            fit="contain"
+            naturalWidth={1}
+            naturalHeight={1}
+          />
+        </Box>
+      }
+      name="favorite art"
+      onChange={({ checked }) => {
+        console.log('Checked Blue');
+      }}
+    />
+  </Box>
+</Box>
 `}
       />
     </MainSection.Subsection>
