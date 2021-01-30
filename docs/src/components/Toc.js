@@ -137,9 +137,9 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
     [],
   );
   return (
-    <Box overflow="scroll">
+    <Box>
       {anchors.map((anchor, index) => (
-        <Box key={index} display="flex" overflow="scroll">
+        <Box key={index} display="flex">
           <Box color={activeState === anchor.id ? 'pine' : 'lightGray'} width={1} flex="none" />
           <Link
             hoverStyle={activeState === anchor.id ? 'none' : 'underline'}
