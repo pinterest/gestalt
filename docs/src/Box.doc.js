@@ -19,7 +19,7 @@ card(
 card(
   <MainSection name="Examples" showHeading={false}>
     <MainSection.Subsection
-      description={`The following examples are all built using the \`Box\` component and its various properties. `}
+      description={`The following examples are all built using the \`Box\` component and its various props. `}
     >
       <MainSection.Card
         title="Media Object"
@@ -34,7 +34,6 @@ card(
 <Box column={10}>
   <Box
     alignItems="center"
-    direction="row"
     display="flex"
     width={300}
     marginStart={-1}
@@ -114,9 +113,7 @@ card(
         </Box>
       }
       name="favorite art"
-      onChange={({ checked }) => {
-        console.log('Checked Coral');
-      }}
+      onChange={() => {}}
     />
   </Box>
   <Box padding={2}>
@@ -137,9 +134,7 @@ card(
         </Box>
       }
       name="favorite art"
-      onChange={({ checked }) => {
-        console.log('Checked Blue');
-      }}
+      onChange={() => {}}
     />
   </Box>
 </Box>
@@ -420,7 +415,6 @@ If you need to use these features, please use a \`<div>\` or the appropriate sem
         color="midnight"
         height={50}
         marginTop={3}
-        padding={2}
       >
         <Text color="white"weight="bold">
           These all collapsed
@@ -432,13 +426,11 @@ If you need to use these features, please use a \`<div>\` or the appropriate sem
     <Box
       color="green"
       height={100}
-      marginTop={2}
-      paddingY={1}
+      paddingY={2}
     >
       <Box
         color="midnight"
         height={100}
-        marginTop={2}
         padding={2}
       >
         <Text color="white" weight="bold">
