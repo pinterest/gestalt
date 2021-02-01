@@ -136,7 +136,6 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
     },
     [],
   );
-
   return (
     <Box>
       {anchors.map((anchor, index) => (
@@ -148,9 +147,21 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
             onClick={({ event }) => handleClick(anchor.id, event)}
           >
             <Box padding={2}>
-              <Text color={activeState === anchor.id ? 'pine' : 'darkGray'} weight="bold">
-                {anchor.closest('h2')?.textContent}
-              </Text>
+              {anchor.closest('h2') ? (
+                <Text color={activeState === anchor.id ? 'pine' : 'darkGray'} weight="bold">
+                  {anchor.closest('h2')?.textContent}
+                </Text>
+              ) : (
+                <Box paddingX={3}>
+                  <Text
+                    size="md"
+                    color={activeState === anchor.id ? 'pine' : 'darkGray'}
+                    weight="bold"
+                  >
+                    {anchor.innerText}
+                  </Text>
+                </Box>
+              )}
             </Box>
           </Link>
         </Box>

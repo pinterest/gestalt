@@ -5,14 +5,15 @@ import Card from './Card.js';
 import MainSectionSubsection from './MainSectionSubsection.js';
 
 type Props = {|
-  children: Node,
+  children?: Node,
   description?: string,
   name: string,
+  showHeading?: boolean,
 |};
 
-const MainSection = ({ children, description, name }: Props): Node => {
+const MainSection = ({ children, description, name, showHeading = true }: Props): Node => {
   return (
-    <Card name={name} description={description}>
+    <Card name={name} showHeading={showHeading} description={description}>
       {children}
     </Card>
   );

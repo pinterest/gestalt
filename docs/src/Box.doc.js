@@ -14,7 +14,6 @@ card(
   <PageHeader
     name="Box"
     description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
-
 &mdash; Anon _(Winning Box Haiku, 2017)_`}
   />,
 );
@@ -229,7 +228,6 @@ card(
   <Example
     description={`
     The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
-
     Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you lose flexibility and have to change styling if you make changes to the structure.
   `}
     name="Example: Media object"
@@ -323,7 +321,6 @@ card(
   <Card
     description={`
     Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. There are exceptions, however. \`onClick\`, \`className\` and \`style\` aren't passed to the child component. The former is for accessibility reasons, and the latter two are to ensure style encapsulation.
-
     If you need to use these features, please use a \`<div>\` instead.
   `}
     name="Disallowed properties"
@@ -347,7 +344,6 @@ card(
   <Card
     description={`
     Padding is applied in 4px increments and is always symmetric. You should try to use padding before you use margins as they compose better and don't collapse.
-
     ~~~jsx
     <Box padding={1} />
     <Box paddingX={1} />
@@ -403,11 +399,8 @@ card(
   <Card
     description={`
     Margins are applied in 4px increments and are asymmetric. You can set margin to be auto in the left and right axis.
-
     In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
-
     Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL-language-aware \`marginStart\` and \`marginEnd\`.
-
     ~~~jsx
     <Box margin={1} />
     <Box marginTop={1} />
@@ -440,7 +433,6 @@ card(
   <Card
     description={`
     Auto margin is a useful tool when using flexbox layouts. When a flex container has extra space and no components are set to grow, the browser would normally place elements next to each other. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
-
     ~~~jsx
     <Box display="flex" direction="column" height={120} color="green">
       <Box>This is a title!</Box>
@@ -473,11 +465,8 @@ card(
   <Card
     description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
-
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
-
     \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
-
     You can toggle the page direction using the button below to see this behavior.
     `}
     name="Page Direction"
@@ -619,9 +608,7 @@ card(
 function ButtonFlyoutExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
-
   const anchorRef = React.useRef(null);
-
   return (
     <>
       <Flex alignItems="start" direction="column" gap={6}>

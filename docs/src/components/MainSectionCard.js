@@ -9,18 +9,20 @@ import theme from './atomDark.js';
 import Markdown from './Markdown.js';
 
 type Props = {|
-  cardSize?: 'sm' | 'md',
-  defaultCode: string,
+  cardSize?: 'sm' | 'md' | 'lg',
+  children?: Node,
+  defaultCode?: string,
   description?: string,
   shaded?: boolean,
   showCode?: boolean,
-  title?: string,
+  title?: string | Array<string>,
   type?: 'do' | "don't" | 'info',
 |};
 
 const CARD_SIZE_NAME_TO_PIXEL = {
   sm: 236,
   md: 362,
+  lg: '100%',
 };
 
 const TYPE_TO_COLOR = {
@@ -37,6 +39,7 @@ const COLOR_TO_HEX = {
 
 const MainSectionCard = ({
   cardSize = 'md',
+  children,
   defaultCode,
   description,
   shaded = false,
@@ -44,13 +47,14 @@ const MainSectionCard = ({
   title,
   type = 'info',
 }: Props): Node => {
-  const code = defaultCode.trim();
+  const code = defaultCode?.trim();
   const scope = { ...gestalt, DatePicker };
   const borderStyle =
     type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
+  const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   return (
     <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={2} marginBottom={8}>
-      <LiveProvider code={code} scope={scope} theme={theme}>
+      {children ? (
         <Box
           alignItems="center"
           borderStyle="sm"
@@ -62,28 +66,48 @@ const MainSectionCard = ({
           position="relative"
           rounding={2}
         >
-          <LivePreview />
+          {children}
         </Box>
+      ) : (
+        <LiveProvider code={code} scope={scope} theme={theme}>
+          <Box
+            alignItems="center"
+            borderStyle="sm"
+            color={shaded ? 'lightGray' : 'white'}
+            display="flex"
+            height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+            justifyContent="center"
+            padding={4}
+            position="relative"
+            rounding={2}
+          >
+            <LivePreview style={{ display: 'contents' }} />
+          </Box>
 
-        {showCode && cardSize !== 'sm' && <ExampleCode code={code} name={title || ''} />}
+          {showCode && code && cardSize !== 'sm' && (
+            <ExampleCode code={code} name={cardTitle || ''} />
+          )}
 
-        <Box paddingX={2}>
-          <Text color="watermelon">
-            <LiveError />
-          </Text>
-        </Box>
-      </LiveProvider>
+          <Box paddingX={2}>
+            <Text color="watermelon">
+              <LiveError />
+            </Text>
+          </Box>
+        </LiveProvider>
+      )}
       <Box
         marginTop={2}
         dangerouslySetInlineStyle={{
           __style: { borderTop: borderStyle },
         }}
       >
-        <Box paddingY={1}>
-          <Text weight="bold" color={TYPE_TO_COLOR[type]}>
-            {title || type.charAt(0).toUpperCase() + type.slice(1)}
-          </Text>
-        </Box>
+        {(title || type !== 'info') && (
+          <Box paddingY={1}>
+            <Text weight="bold" color={TYPE_TO_COLOR[type]}>
+              {cardTitle || type.charAt(0).toUpperCase() + type.slice(1)}
+            </Text>
+          </Box>
+        )}
         {description && (
           <Box width="90%" marginTop={-3}>
             <Markdown text={description} />
