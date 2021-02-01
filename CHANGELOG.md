@@ -1,3 +1,9 @@
+## 16.9.1 (Feb 1, 2021)
+
+### Patch
+
+- Docs: Update shared components for new Docs design (#1359)
+
 ## 16.9.0 (Jan 29, 2021)
 
 ### Minor
