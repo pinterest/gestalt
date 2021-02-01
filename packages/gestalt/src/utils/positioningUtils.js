@@ -149,7 +149,6 @@ export function getFlyoutDir({
   // skipNoEdgeCondition is mostly an edge case within ScrollableContainers because trigger elements are more likely
   // to touch both edges of the parent ScrollableContainers without margins/paddings
   const skipNoEdgeCondition = (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
-
   if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
     right = 0;
@@ -160,12 +159,10 @@ export function getFlyoutDir({
     up = 0;
     down = 0;
   }
-
   const spaces = [up, right, down, left];
 
   // Identify best direction of available spaces
   const max = Math.max(...spaces);
-
   // Chose the main direction for the flyout based on available spaces & user preference
   let flyoutDir;
   if (idealDirection && spaces[DIR_INDEX_MAP[idealDirection]] > 0) {
@@ -175,6 +172,7 @@ export function getFlyoutDir({
     // If no direction pref, chose the direction in which there is the most space available
     flyoutDir = SPACES_INDEX_MAP[spaces.indexOf(max)];
   }
+
   return flyoutDir;
 }
 

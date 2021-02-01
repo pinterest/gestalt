@@ -38,7 +38,7 @@ card(
 
 card(
   <Example
-    id="ScrollableContainer"
+    id="ScrollableContainerWithFlyout"
     name="With Flyout"
     defaultCode={`
 function ScrollableContainerExample() {
@@ -93,7 +93,7 @@ function ScrollableContainerExample() {
 
 card(
   <Example
-    id="ScrollableContainer"
+    id="ScrollableContainerWithTooltip"
     name="With Tooltip"
     defaultCode={`
 function ScrollableContainerExample() {
@@ -121,7 +121,7 @@ function ScrollableContainerExample() {
           <Box paddingY={1}>
               <RadioButton
                 checked={content === "all"}
-                id="all"
+                id="allcontent"
                 label="All"
                 name="content"
                 onChange={() => setContent( "all" )}
@@ -167,7 +167,7 @@ function ScrollableContainerExample() {
           <Box paddingY={1}>
               <RadioButton
                 checked={claimed === "all"}
-                id="all"
+                id="allclaimed"
                 label="All Pins"
                 name="claimed"
                 onChange={() => setClaimed( "all" )}
@@ -212,7 +212,7 @@ function ScrollableContainerExample() {
           <Box paddingY={1}>
               <RadioButton
                 checked={device === "all"}
-                id="all"
+                id="alldevices"
                 label="All"
                 name="device"
                 onChange={() => setDevice( "all" )}

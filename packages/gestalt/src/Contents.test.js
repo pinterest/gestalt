@@ -28,37 +28,34 @@ const fixedOffset = {
 };
 
 const centerTriggerRect = (props = {}) => ({
-  bottom: 470,
+  bottom: props.bottom ?? 470,
   height: 40,
   left: 700,
   right: 740,
-  top: 430,
+  top: props.top ?? 430,
   width: 40,
-  ...props,
 });
 
 const upperMiddleTriggerRect = (props = {}) => ({
   bottom: 40,
   height: 40,
-  left: 700,
-  right: 740,
+  left: props.left ?? 700,
+  right: props.right ?? 740,
   top: 0,
   width: 40,
-  ...props,
 });
 
 // between BORDER_RADIUS & CARET_HEIGHT away from the edge of the screen
 const upperLeftTriggerRect = (props = {}) => ({
-  bottom: 50,
-  height: 40,
-  left: 10,
-  right: 50,
-  top: 10,
-  width: 40,
-  ...props,
+  bottom: props.bottom ?? 50,
+  height: props.height ?? 40,
+  left: props.left ?? 10,
+  right: props.right ?? 50,
+  top: props.top ?? 10,
+  width: props.width ?? 40,
 });
 
-const idealDirections = ['up', 'right', 'down', 'left'];
+const idealDirections = ['up', 'right', 'left', 'down'];
 
 describe('Contents', () => {
   describe('Main Direction chosen correctly', () => {
@@ -86,6 +83,39 @@ describe('Contents', () => {
       idealDirections.forEach((idealDirection) => {
         const mainDir = getFlyoutDir({ flyoutSize, idealDirection, triggerRect, windowSize });
         expect(mainDir).toEqual('up');
+      });
+    });
+
+    it('Opens right or bottom when the trigger is right on the top/left corner', () => {
+      const centerRightTriggerRect = {
+        bottom: 40,
+        height: 40,
+        left: 0,
+        right: 40,
+        top: 0,
+        width: 40,
+      };
+
+      const scrollableContainerSize = {
+        height: 100,
+        width: 100,
+        scrollX: 0,
+        scrollY: 0,
+      };
+
+      const reducedFlyoutSize = {
+        height: 30,
+        width: 30,
+      };
+
+      idealDirections.forEach((idealDirection) => {
+        const mainDir = getFlyoutDir({
+          idealDirection,
+          flyoutSize: reducedFlyoutSize,
+          triggerRect: centerRightTriggerRect,
+          windowSize: scrollableContainerSize,
+        });
+        expect(mainDir).toEqual(mainDir === 'down' ? 'down' : 'right');
       });
     });
 

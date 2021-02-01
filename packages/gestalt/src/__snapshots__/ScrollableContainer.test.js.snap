@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollableContainer ScrollableContainer correctly sets height and overflow props 1`] = `
+<div
+  className="box overflowScroll relative"
+  style={
+    Object {
+      "height": 200,
+    }
+  }
+>
+  <div
+    className="box"
+  />
+</div>
+`;
+
+exports[`ScrollableContainer renders 1`] = `
+<div
+  className="box overflowAuto relative"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <div
+    className="box"
+  />
+</div>
+`;
