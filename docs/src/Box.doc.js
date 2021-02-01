@@ -1,11 +1,10 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Button } from 'gestalt';
+import { Box } from 'gestalt';
 import PropTable from './components/PropTable.js';
-import Example from './components/Example.js';
-import Combination from './components/Combination.js';
+import CombinationNew from './components/CombinationNew.js';
 import PageHeader from './components/PageHeader.js';
-import Card from './components/Card.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -13,9 +12,136 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Box"
-    description={`In the darkest night, Box will rise to bring the light. The Lloyd has spoken.
-&mdash; Anon _(Winning Box Haiku, 2017)_`}
+    description="Box is a low level component that can be used to build the foundation of pretty much anything. Using Box allows you to focus on the important content, without worrying about the pixel details."
   />,
+);
+
+card(
+  <MainSection name="Examples" showHeading={false}>
+    <MainSection.Subsection
+      description={`The following examples are all built using the \`Box\` component and its various props. `}
+    >
+      <MainSection.Card
+        title="Media Object"
+        description={`
+           The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
+
+           In the double-sided example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
+
+        `}
+        cardSize="lg"
+        defaultCode={`
+<Box column={10}>
+  <Box
+    alignItems="center"
+    display="flex"
+    width={300}
+    marginStart={-1}
+    marginEnd={-1}
+    paddingY={2}
+  >
+    <Box paddingX={1}>
+      <Avatar name="chrislloyd" size="md" />
+    </Box>
+    <Box paddingX={1}>
+      <Text weight="bold">Chris Lloyd</Text>
+      <Text>joined 2 years ago</Text>
+    </Box>
+  </Box>
+  <Box
+    alignItems="center"
+    direction="row"
+    display="flex"
+    marginStart={-1}
+    marginEnd={-1}
+  >
+    <Box paddingX={1}>
+      <Avatar name="chrislloyd" size="md" />
+    </Box>
+    <Box paddingX={1} flex="grow">
+      <Text weight="bold">Chris Lloyd</Text>
+      <Text>joined 2 years ago</Text>
+    </Box>
+    <Box paddingX={1}>
+      <Button text="Follow" size="sm" color="red" />
+    </Box>
+  </Box>
+</Box>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        title="Expandable Module"
+        description="Underneath the hood, [Expandable Module](/Module) uses Box to create the styling of the rounded edges and shadow, while also ensuring the title can grow while keeping the icon aligned to the end."
+        defaultCode={`
+  <Module.Expandable
+    id="ModuleExample3"
+    accessibilityExpandLabel="Expand the module"
+    accessibilityCollapseLabel="Collapse the module"
+    items={[
+      {
+        title: 'Example with icon',
+        children: <Text size="md">Children1</Text>,
+        iconAccessibilityLabel: 'title icon',
+        icon: 'lock',
+      },
+    ]}
+  />
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        title="Stacked Checkboxes"
+        description="In this example, Box is used to create spacing between [Checkbox](/Checkbox) items, as well as set the height of the image in each item."
+        defaultCode={`
+<Box margin={-2}>
+  <Box padding={2}>
+    <Checkbox
+      checked={false}
+      id="coral"
+      label="Coral"
+      subtext="Botanical art in coral and green"
+      image={
+        <Box height={100} width={80}>
+          <Image
+            alt="Botanical art in coral and green"
+            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+            fit="contain"
+            naturalWidth={1}
+            naturalHeight={1}
+          />
+        </Box>
+      }
+      name="favorite art"
+      onChange={() => {}}
+    />
+  </Box>
+  <Box padding={2}>
+    <Checkbox
+      checked
+      id="blue"
+      label="Blue"
+      subtext="Typography and shoe in blue"
+      image={
+        <Box height={100} width={80}>
+          <Image
+            alt="Typography and shoe in blue"
+            src="https://i.ibb.co/jVR29XV/stock5.jpg"
+            fit="contain"
+            naturalWidth={1}
+            naturalHeight={1}
+          />
+        </Box>
+      }
+      name="favorite art"
+      onChange={() => {}}
+    />
+  </Box>
+</Box>
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
@@ -35,7 +161,6 @@ card(
         type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
         defaultValue: 'block',
         responsive: true,
-        href: 'display',
       },
       {
         name: 'direction',
@@ -58,7 +183,7 @@ card(
         defaultValue: 'stretch',
         description:
           'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
-        href: 'layout',
+        href: 'Flex-Layout',
       },
       {
         name: 'alignSelf',
@@ -71,15 +196,14 @@ card(
         name: 'borderStyle',
         type: `"sm" | "lg" | "shadow" | "none"`,
         defaultValue: 'none',
-        description:
-          'Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. Alternatively, "shadow" can be specified to add a box shadow instead of a solid border',
-        href: 'border',
+        description: `Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the Borders section for more details.`,
+        href: 'Borders',
       },
       {
         name: 'color',
         type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
         defaultValue: 'transparent',
-        href: 'color',
+        href: 'Colors',
       },
       { name: 'fit', type: 'boolean', defaultValue: false },
       {
@@ -94,13 +218,13 @@ card(
         defaultValue: 'start',
         description:
           'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
-        href: 'layout',
+        href: 'Flex-Layout',
       },
       ...['left', 'right', 'top', 'bottom'].map((name) => ({
         name,
         type: 'boolean',
         defaultValue: false,
-        href: 'absolutePositioning',
+        href: 'Absolute-Positioning',
       })),
       ...[
         {
@@ -120,7 +244,6 @@ card(
         defaultValue: 0,
         responsive: true,
         description: prop.description,
-        href: 'margins',
       })),
       {
         name: 'column',
@@ -179,19 +302,18 @@ card(
         type: '0 .. 12',
         defaultValue: 0,
         responsive: true,
-        href: 'padding',
       })),
       {
         name: 'position',
         type: `"static" | "absolute" | "relative" | "fixed"`,
         defaultValue: 'static',
-        href: 'absolutePositioning',
+        href: 'Absolute-Positioning',
       },
       {
         name: 'ref',
         type: "React.Ref<'div'>",
         description: 'Forward the ref to the underlying div element',
-        href: 'refExample',
+        href: 'Using-as-a-ref',
       },
       {
         name: 'role',
@@ -200,7 +322,7 @@ card(
       {
         name: 'rounding',
         type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        href: 'rounding',
+        href: 'Rounding',
       },
       {
         name: 'userSelect',
@@ -216,7 +338,7 @@ card(
       },
       {
         name: 'zIndex',
-        href: 'zindex',
+        href: 'Z-Index',
         type: 'interface Indexable { index(): number; }',
         description: `An object representing the zIndex value of the Box.`,
       },
@@ -225,13 +347,13 @@ card(
 );
 
 card(
-  <Example
-    description={`
-    The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
-    Also, this is a good example of symmetrical padding. Try re-ordering the \`Avatar\` and the \`Box\` containing the text. You don't need to do any styling to keep the padding the same because it's symmetrical (\`paddingX\`). People often use something like \`marginStart\` here but in doing so you lose flexibility and have to change styling if you make changes to the structure.
-  `}
-    name="Example: Media object"
-    defaultCode={`
+  <MainSection name="Best Practices">
+    <MainSection.Subsection>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Use Box as a building block when creating other components or layouts. The included properties, detailed below, should cover any variations needed to create a diverse range of options."
+        defaultCode={`
 <Box
   alignItems="center"
   direction="row"
@@ -248,17 +370,19 @@ card(
   </Box>
 </Box>
 `}
-  />,
-);
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
 
-card(
-  <Example
-    description={`
-    In this example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
-  `}
-    name="Example: Double-sided media object"
-    defaultCode={`
+Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, and removing \`className\` and \`style\` ensures style encapsulation.
+
+If you need to use these features, please use a \`<div>\` or the appropriate semantic element (such as Button) instead.`}
+        defaultCode={`
 <Box
+  className="This class name will not appear"
+  style={{backgroundColor: "red"}}
   alignItems="center"
   direction="row"
   display="flex"
@@ -268,347 +392,380 @@ card(
   <Box paddingX={1}>
     <Avatar name="chrislloyd" size="md" />
   </Box>
-  <Box paddingX={1}  flex="grow">
+  <Box paddingX={1}>
     <Text weight="bold">Chris Lloyd</Text>
     <Text>joined 2 years ago</Text>
   </Box>
-  <Box paddingX={1}>
-    <Button text="Follow" size="sm" color="red" />
+</Box>
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing]("https://css-tricks.com/what-you-should-know-about-collapsing-margins/"). `}
+        defaultCode={`
+<Box>
+  <Box marginTop={4} color="blue" width={200} height={50}>
+    <Box
+      color="green"
+      height={50}
+      marginTop={2}
+    >
+      <Box
+        color="midnight"
+        height={50}
+        marginTop={3}
+      >
+        <Text color="white"weight="bold">
+          These all collapsed
+        </Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box marginTop={4} paddingY={1} color="blue" width={200} height={100}>
+    <Box
+      color="green"
+      height={100}
+      paddingY={2}
+    >
+      <Box
+        color="midnight"
+        height={100}
+        padding={2}
+      >
+        <Text color="white" weight="bold">
+          These are not collapsed, because they use padding
+        </Text>
+      </Box>
+    </Box>
   </Box>
 </Box>
 `}
-  />,
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`Avoid using \`marginLeft\` and \`marginRight\` properties, favoring \`marginStart\` and \`marginEnd\` instead to account for right-to-left languages `}
+        defaultCode={`
+function Example() {
+  const MarginSwatch = (props) => (
+    <Box
+      margin={1}
+      dangerouslySetInlineStyle={{
+        __style: { backgroundColor: 'rgba(255, 0, 0, 0.2)' },
+      }}
+    >
+      <Box
+        padding={1}
+        {...props}
+        dangerouslySetInlineStyle={{
+          __style: { backgroundColor: 'rgba(0, 0, 255, 0.2)' },
+        }}
+      >
+        {JSON.stringify(props)}
+      </Box>
+    </Box>
+  );
+
+  const toggleRTL = () => {
+    if (document.documentElement) {
+      const isRTL = document.documentElement.dir === 'rtl';
+      document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+    }
+  };
+
+  return (
+    <Box maxWidth={200} marginBottom={2}>
+      <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
+      <MarginSwatch marginStart={2} />
+      <MarginSwatch marginEnd={2} />
+      <MarginSwatch marginStart={-2} />
+      <MarginSwatch marginEnd={-2} />
+      <Text> These won't change </Text>
+      <MarginSwatch marginLeft={2} />
+      <MarginSwatch marginRight={2} />
+    </Box>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
-  <Example
-    description={`
-    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still be read by screenreaders.
+  <MainSection
+    name="Accessibility"
+    description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes). `}
+  >
+    <MainSection.Subsection
+      title="Visually Hidden Content"
+      description={`
+    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still be read by screen readers.
   `}
-    id="display"
-    name="Example: Visually Hidden"
-    defaultCode={`
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
 <>
-  <Text>Enable your screenreader to hear the following text:</Text>
+  <Text>Enable your screen reader to hear the following text:</Text>
   <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
 </>
 `}
-  />,
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
-  <Combination
-    description={`
-    Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
-  `}
-    id="layout"
-    name="Layout"
-    justifyContent={['start', 'end', 'center', 'between', 'around']}
-    alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
-    layout="4column"
+  <MainSection
+    name="Localization and Inclusion"
+    description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties (instead of left and right specifics) will account for right-to-left languages and maintain proper spacing.`}
   >
-    {(props) => (
-      <Box display="flex" width={96} {...props}>
-        <Box margin={1} color="gray" height={8} width={8} />
-        <Box margin={1} color="gray" height={16} width={8} />
-        <Box margin={1} color="gray" height={32} width={8} />
-      </Box>
-    )}
-  </Combination>,
-);
-
-card(
-  <Card
-    description={`
-    Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. There are exceptions, however. \`onClick\`, \`className\` and \`style\` aren't passed to the child component. The former is for accessibility reasons, and the latter two are to ensure style encapsulation.
-    If you need to use these features, please use a \`<div>\` instead.
-  `}
-    name="Disallowed properties"
-  />,
-);
-
-const PaddingSwatch = (props: *) => (
-  <Box
-    {...props}
-    dangerouslySetInlineStyle={{
-      __style: { backgroundColor: 'rgba(0, 0, 255, 0.2)' },
-    }}
-  >
-    <Box color="white" padding={1}>
-      {props.label}
-    </Box>
-  </Box>
-);
-
-card(
-  <Card
-    description={`
-    Padding is applied in 4px increments and is always symmetric. You should try to use padding before you use margins as they compose better and don't collapse.
-    ~~~jsx
-    <Box padding={1} />
-    <Box paddingX={1} />
-    <Box paddingY={1} />
-    ~~~
-  `}
-    id="padding"
-    name="Padding"
-  >
-    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
-      <PaddingSwatch padding={1} label="1" />
-      <PaddingSwatch paddingX={1} label="X=1" />
-      <PaddingSwatch paddingY={1} label="Y=1" />
-    </Box>
-  </Card>,
-);
-
-card(
-  <Example
-    name="Responsive padding"
-    description="Control the padding on different screen sizes by setting the `smPadding`, `mdPadding` or `lgPadding` properties. In the example, we increase the padding by 4px for every breakpoint."
-    defaultCode={`
-function ResponsivePadding() {
-  return (
-    <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="lightGray">
-      <Box width={40} height={40} color="green" />
-    </Box>
-  );
-}`}
-  />,
-);
-
-const MarginSwatch = (props: *) => (
-  <Box
-    margin={1}
-    dangerouslySetInlineStyle={{
-      __style: { backgroundColor: 'rgba(255, 0, 0, 0.2)' },
-    }}
-  >
-    <Box
-      padding={1}
-      {...props}
-      dangerouslySetInlineStyle={{
-        __style: { backgroundColor: 'rgba(0, 0, 255, 0.2)' },
-      }}
-    >
-      {JSON.stringify(props)}
-    </Box>
-  </Box>
-);
-
-card(
-  <Card
-    description={`
-    Margins are applied in 4px increments and are asymmetric. You can set margin to be auto in the left and right axis.
-    In the example on the right the outer \`Box\` is in transparent red, and the inner \`Box\` is transparent blue.
-    Instead of using \`marginLeft\` and \`marginRight\`, opt for the RTL-language-aware \`marginStart\` and \`marginEnd\`.
-    ~~~jsx
-    <Box margin={1} />
-    <Box marginTop={1} />
-    <Box marginBottom={1} />
-    <Box marginStart={1} />
-    <Box marginEnd={1} />
-    ~~~
-  `}
-    id="margins"
-    name="Margins"
-  >
-    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
-      <MarginSwatch margin={1} />
-      <MarginSwatch marginTop={1} />
-      <MarginSwatch marginBottom={1} />
-      <MarginSwatch marginStart={1} />
-      <MarginSwatch marginEnd={1} />
-    </Box>
-    <Box display="flex" direction="row" justifyContent="between" alignItems="center" wrap>
-      <MarginSwatch margin={-1} />
-      <MarginSwatch marginTop={-1} />
-      <MarginSwatch marginBottom={-1} />
-      <MarginSwatch marginStart={-1} />
-      <MarginSwatch marginEnd={-1} />
-    </Box>
-  </Card>,
-);
-
-card(
-  <Card
-    description={`
-    Auto margin is a useful tool when using flexbox layouts. When a flex container has extra space and no components are set to grow, the browser would normally place elements next to each other. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
-    ~~~jsx
-    <Box display="flex" direction="column" height={120} color="green">
-      <Box>This is a title!</Box>
-      <Box>This one is a subtitle.</Box>
-      <Box marginTop="auto">
-        I’m pushed to the bottom due to marginTop: auto.
-      </Box>
-    </Box>
-    ~~~
-  `}
-    id="auto-margin"
-    name="Auto Margin"
-  >
-    <Box display="flex" direction="column" height={120} color="green">
-      <Box>This is a title!</Box>
-      <Box>This one is a subtitle.</Box>
-      <Box marginTop="auto">I’m pushed to the bottom due to marginTop: auto.</Box>
-    </Box>
-  </Card>,
-);
-
-const toggleRTL = () => {
-  if (document.documentElement) {
-    const isRTL = document.documentElement.dir === 'rtl';
-    document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-  }
-};
-
-card(
-  <Card
-    description={`
+    <MainSection.Subsection
+      description={`
     Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
+
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
+
     \`marginEnd\` is a right margin that flips to a left margin in a RTL layout.
+
     You can toggle the page direction using the button below to see this behavior.
     `}
-    name="Page Direction"
-  >
+      title="Page Direction"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function Example() {
+  const MarginSwatch = (props) => (
+    <Box
+      margin={1}
+      dangerouslySetInlineStyle={{
+        __style: { backgroundColor: 'rgba(255, 0, 0, 0.2)' },
+      }}
+    >
+      <Box
+        padding={1}
+        {...props}
+        dangerouslySetInlineStyle={{
+          __style: { backgroundColor: 'rgba(0, 0, 255, 0.2)' },
+        }}
+      >
+        {JSON.stringify(props)}
+      </Box>
+    </Box>
+  );
+
+  const toggleRTL = () => {
+    if (document.documentElement) {
+      const isRTL = document.documentElement.dir === 'rtl';
+      document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
+    }
+  };
+
+  return (
     <Box maxWidth={200} marginBottom={2}>
       <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
-      <MarginSwatch marginStart={1} />
-      <MarginSwatch marginEnd={1} />
-      <MarginSwatch marginStart={-1} />
-      <MarginSwatch marginEnd={-1} />
+      <MarginSwatch marginStart={2} />
+      <MarginSwatch marginEnd={2} />
+      <MarginSwatch marginStart={-2} />
+      <MarginSwatch marginEnd={-2} />
+      <Text> These won't change </Text>
+      <MarginSwatch marginLeft={2} />
+      <MarginSwatch marginRight={2} />
     </Box>
-  </Card>,
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
-  <Example
-    description={`
-    Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
+      title="Borders"
+    >
+      <MainSection.Card
+        cardSize="sm"
+        title='borderStyle="sm"'
+        defaultCode={`<Box
+        width={60}
+        height={60}
+        rounding="circle"
+        color="white"
+        borderStyle="sm"
+      />`}
+      />
+      <MainSection.Card
+        cardSize="sm"
+        title='borderStyle="lg"'
+        defaultCode={`<Box
+        width={60}
+        height={60}
+        rounding="circle"
+        color="white"
+        borderStyle="lg"
+      />`}
+      />
+      <MainSection.Card
+        cardSize="sm"
+        title='borderStyle="shadow"'
+        defaultCode={`<Box
+        width={60}
+        height={60}
+        rounding="circle"
+        color="white"
+        borderStyle="shadow"
+      />`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection description="" title="Colors">
+      <CombinationNew
+        color={[
+          'red',
+          'white',
+          'lightGray',
+          'gray',
+          'darkGray',
+          'green',
+          'pine',
+          'olive',
+          'blue',
+          'navy',
+          'midnight',
+          'purple',
+          'orchid',
+          'eggplant',
+          'maroon',
+          'watermelon',
+          'orange',
+          'transparent',
+          'transparentDarkGray',
+          'lightWash',
+          'darkWash',
+        ]}
+      >
+        {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`The \`rounding\` property sets a border radius for the \`Box\`. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in 4px increments.`}
+      title="Rounding"
+    >
+      <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
+        {(props) => (
+          <Box color="gray" width={props.rounding === 'pill' ? 120 : 70} height={70} {...props} />
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection description="" title="Opacity">
+      <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
+        {(props) => <Box color="darkGray" width={60} height={60} {...props} />}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`
+    Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
   `}
-    id="absolutePositioning"
-    name="Example: Absolute positioning"
-    defaultCode={`
-<Box position="relative" color="white" height={200}>
-  <Box position="absolute" top left padding={1}>
-    Top, left
-  </Box>
-  <Box position="absolute" top right padding={1}>
-    Top, right
-  </Box>
-  <Box position="absolute" bottom left padding={1}>
-    Bottom, left
-  </Box>
-  <Box position="absolute" bottom right padding={1}>
-    Bottom, right
-  </Box>
+      title="Flex Layout"
+    >
+      <CombinationNew
+        justifyContent={['start', 'end', 'center', 'between', 'around']}
+        alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
+      >
+        {(props) => (
+          <Box display="flex" width="75%" height="75%" {...props} borderStyle="shadow">
+            <Box margin={1} color="gray" height={8} width={8} />
+            <Box margin={1} color="gray" height={16} width={8} />
+            <Box margin={1} color="gray" height={32} width={8} />
+          </Box>
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`
+      Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint.`}
+      title="Responsive Padding"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="lightGray">
+  <Box width={40} height={40} color="green" />
 </Box>
 `}
-  />,
-);
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`
+      Auto margin is a useful tool when using flexbox layouts. When a flex container has extra space and no components are set to grow, the browser would normally place elements next to each other. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
 
-card(
-  <Card
-    description={`
-    Borders are controlled by the "borderStyle" prop. Specifying a size ("sm" or "lg") enables a solid light gray color in that width, while specifying "shadow" adds a box-shadow instead.
-  `}
-    id="border"
-    name="Borders"
-  >
-    <Combination
-      id="border"
-      borderStyle={['sm', 'lg', 'shadow']}
-      showHeading={false}
-      layout="4column"
+      This can be seen in our Callout component, where the actions container uses \`marginStart="auto"\` to automatically adjust the actions at smaller screen sizes.
+      `}
+      title="Auto Margins"
     >
-      {(props) => <Box width={60} height={60} rounding="circle" color="white" {...props} />}
-    </Combination>
-  </Card>,
-);
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Box marginStart={12} marginEnd={12}>
+  <Callout
+    type="info"
+    iconAccessibilityLabel="Info icon"
+    title="Your business account was created!"
+    message="Apply to the Verified Merchant Program!"
+    primaryAction={{href: "https://pinterest.com", label:"Get started"}}
+    secondaryAction={{href: "https://pinterest.com", label:"Learn more"}}
+    dismissButton={{
+      accessibilityLabel: 'Dismiss banner',
+      onDismiss: ()=>{},
+    }}
+  />
+</Box>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`
+    Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
 
-card(
-  <Combination
-    id="color"
-    name="Colors"
-    layout="4column"
-    color={[
-      'red',
-      'white',
-      'lightGray',
-      'gray',
-      'darkGray',
-      'green',
-      'pine',
-      'olive',
-      'blue',
-      'navy',
-      'midnight',
-      'purple',
-      'orchid',
-      'eggplant',
-      'maroon',
-      'watermelon',
-      'orange',
-      'transparent',
-      'transparentDarkGray',
-      'lightWash',
-      'darkWash',
-    ]}
-  >
-    {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
-  </Combination>,
-);
-
-card(
-  <Card
-    description={`
-    Sets a border radius for the Box. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in 4px increments.
-  `}
-    id="rounding"
-    name="Rounding"
-  >
-    <Combination
-      id="rounding"
-      rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}
-      showHeading={false}
+    The SearchField uses absolute positioning to position the search Icon at the beginning of the input.
+    `}
+      title="Absolute Positioning"
     >
-      {(props) => (
-        <Box color="gray" width={props.rounding === 'pill' ? 120 : 70} height={70} {...props} />
-      )}
-    </Combination>
-  </Card>,
-);
-
-card(
-  <Card
-    description={`
-    Sets a css opacity value for the Box. Be sure to maintain accessibility when using this prop. The contrast of the text should still be <a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" target="_blank">WCAG 2.0 AA compatible</a>.
-  `}
-    id="opacity"
-    name="Opacity"
-  >
-    <Combination
-      id="opacity"
-      opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}
-      showHeading={false}
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+  <Box display="flex" alignItems="center" height={100}>
+    <Box position="absolute" top left padding={2} color="midnight">
+      <Text color="white">Change the helpers to move me around</Text>
+    </Box>
+    <SearchField
+      accessibilityLabel="Demo Search Field"
+      id="searchField"
+      onChange={({value}) => console.log(value)}
+      placeholder="Search and explore"
+    />
+  </Box>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`The \`ref\` property can be used to anchor a [Flyout](/Flyout) to a Box.`}
+      title="Using as a ref"
     >
-      {(props) => <Box color="darkGray" width={60} height={60} {...props} />}
-    </Combination>
-  </Card>,
-);
-
-card(
-  <Example
-    id="refExample"
-    name="Example: ref"
-    description={`
-    A \`Box\` with an anchor ref to a Flyout component
-  `}
-    defaultCode={`
-function ButtonFlyoutExample() {
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function BoxFlyoutExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
+
   const anchorRef = React.useRef(null);
+
   return (
     <>
       <Flex alignItems="start" direction="column" gap={6}>
@@ -638,23 +795,38 @@ function ButtonFlyoutExample() {
     </>
   );
 }`}
-  />,
-);
-
-card(
-  <Example
-    description={`
-It's possible to use box with external elements using the css \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it.
-  `}
-    id="zindex"
-    name="ZIndex"
-    defaultCode={`
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`It's possible to use Box with external elements using the css \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it.`}
+      title="Z-Index"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
 function Example() {
   const HEADER_ZINDEX = new FixedZIndex(100);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return <Box color="blue" width={60} height={60} zIndex={zIndex} />
 }
 `}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection
+    name="Related"
+    description={`
+      [Flex](/Flex)
+
+      - Use Flex and Flex.Item for flex layouts when you don't need the extra functionality in Box, and could benefit from the ability to supply a gap between items.
+
+      [Container](/Container)
+
+      - Use Container to responsively layout content at different screen sizes.
+    `}
   />,
 );
 
