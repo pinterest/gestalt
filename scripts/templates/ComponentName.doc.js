@@ -9,7 +9,7 @@ import MainSection from './components/MainSection.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Component Name" description="Brief description of this cmp" />);
+card(<PageHeader name="Component Name" description="Brief description of this component" />);
 
 card(
   <MainSection name="Examples" showHeading={false}>
@@ -50,7 +50,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Description about what you should Do"
+        description={`Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
         defaultCode={`
 Code for this example goes here
 `}
@@ -153,11 +153,11 @@ card(
     description={`
       [Component Name](/component-name)
 
-      - Details about why to use this over current cmp.
+      - Details about why to use this over current component.
 
       [Component Name](/component-name)
 
-      - Details about why to use this over current cmp.
+      - Details about why to use this over current component.
 
       Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")
     `}

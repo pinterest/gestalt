@@ -5,9 +5,12 @@
         "package.json",
         "docs/package.json",
         "packages/gestalt/package.json",
-        "packages/gestalt-datepicker/package.json"
+        "packages/gestalt-datepicker/package.json",
+        "packages/eslint-plugin-gestalt/package.json"
       ]
     }
   },
-  "ignore": ["flow-bin"]
+  "ignore": [
+    "flow-bin"
+  ]
 }

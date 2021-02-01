@@ -4,7 +4,7 @@ import React, { type Node } from 'react';
 import MainSectionCard from './MainSectionCard.js';
 
 type Props = {
-  children: (Object, number) => Node, // flowlint-line unclear-type:off
+  children: (props: { [key: string]: any, ... }, index?: number) => Node, // flowlint-line unclear-type:off
   shaded?: boolean,
   ...
 };
