@@ -62,9 +62,7 @@ export default function Layer({
         }
       }
     };
-    // IMPORTANT: Do not add refs to dependency array in useEffect as it will cause an infinite loop
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [zIndex]);
+  }, [zIndex, scrollableContainerRef]);
 
   if (!mounted || !portalContainer.current) {
     // The initial render will be this temporary div
