@@ -1,3 +1,9 @@
+## 16.9.2 (Feb 2, 2021)
+
+### Patch
+
+- Docs: copyPaste functionality implemented into linking icon (#1360)
+
 ## 16.9.1 (Feb 1, 2021)
 
 ### Patch
