@@ -249,4 +249,30 @@ function Example(props) {
   />,
 );
 
+card(
+  <Example
+    name="Form"
+    description={`
+      NEW DESCRIPTION
+    `}
+    defaultCode={`
+<Upsell
+  title="Join the Verified Merchant Program"
+  message="Apply to the Verified Merchant Program—it’s free"
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  formFields={[
+    { id: "name", onChange: ()=>{}, placeholder: "Name", },
+    { id: "phone", onChange: ()=>{}, placeholder: "Phone", }
+  ]}
+  onFormSubmit={
+    { onClick: () => {}, label:"Send invite", }
+  }
+/>
+`}
+  />,
+);
+
 export default cards;

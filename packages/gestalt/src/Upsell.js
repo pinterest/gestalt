@@ -10,6 +10,7 @@ import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import TextField from './TextField.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import {
@@ -19,8 +20,19 @@ import {
   type DismissButtonType,
 } from './commonTypes.js';
 
+type TextFieldProps = {|
+  id: string,
+  onChange: ({|
+    event: SyntheticInputEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
+  placeholder?: string,
+  value?: string,
+|};
+
 type Props = {|
   dismissButton?: DismissButtonType,
+  formFields?: $ReadOnlyArray<TextFieldProps>,
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
     mask?: {|
@@ -30,6 +42,7 @@ type Props = {|
     width?: number,
   |},
   message: string,
+  onFormSubmit?: ActionDataType,
   primaryAction?: ActionDataType,
   secondaryAction?: ActionDataType,
   title?: string,
@@ -84,8 +97,10 @@ const UpsellAction = ({
 
 export default function Upsell({
   dismissButton,
+  formFields,
   imageData,
   message,
+  onFormSubmit,
   primaryAction,
   secondaryAction,
   title,
@@ -151,15 +166,32 @@ export default function Upsell({
             </Box>
           </Box>
         </Box>
-        <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryAction && responsiveMinWidth !== 'xs' && (
-            <UpsellAction type="secondary" data={secondaryAction} />
-          )}
-          {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
-          {secondaryAction && responsiveMinWidth === 'xs' && (
-            <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
-          )}
-        </Box>
+        {formFields && onFormSubmit ? (
+          <Box smDisplay="flex" marginStart="auto">
+            {/* only render up to two text fields */}
+            {formFields.slice(0, 2).map((form) => (
+              <TextField
+                key={form.id}
+                id={form.id}
+                onChange={form.onChange}
+                placeholder={form.placeholder}
+                size="lg"
+                value={form.value}
+              />
+            ))}
+            <UpsellAction data={onFormSubmit} type="primary" />
+          </Box>
+        ) : (
+          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+            {secondaryAction && responsiveMinWidth !== 'xs' && (
+              <UpsellAction type="secondary" data={secondaryAction} />
+            )}
+            {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
+            {secondaryAction && responsiveMinWidth === 'xs' && (
+              <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
+            )}
+          </Box>
+        )}
       </Box>
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
