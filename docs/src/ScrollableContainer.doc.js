@@ -1,8 +1,8 @@
 // @flow strict
 import React, { type Node } from 'react';
-import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import PropTable from './components/PropTable.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -10,109 +10,117 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="ScrollableContainer"
-    fileName="ScrollableContainer"
     description="ScrollableContainer is used with anchored, hovering components such Flyout, Tooltip, Dropdown, or Typeahead. This is needed for proper positioning when the anchor component could scroll within the viewport."
   />,
 );
 
 card(
-  <PropTable
-    props={[
-      {
-        name: 'height',
-        type: `number | string`,
-        defaultValue: '100%',
-        description: [
-          `Use numbers for pixels: height={100} and strings for percentages: height="100%".`,
-          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets height.`,
-        ],
-      },
-      {
-        name: 'overflow',
-        type: `'scroll' | 'scrollX' | 'scrollY' | 'auto'`,
-        defaultValue: 'auto',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Example
-    id="ScrollableContainerWithFlyout"
-    name="With Flyout"
-    defaultCode={`
-function ScrollableContainerExample() {
+  <MainSection name="Examples">
+    <MainSection.Subsection
+      description={`The following examples are all built using the \`ScrollableContainer\` component.`}
+    >
+      <MainSection.Card
+        title="Flyout within ScrollableContainer"
+        cardSize="lg"
+        defaultCode={`
+function Example() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
 
   return (
-    <ScrollableContainer height={150}>
-      <Flex gap={4}>
-        <Box width={200}>
-          <Text>
-            You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website. If there are any errors with your data source file, you can learn how to troubleshoot them below.
-          </Text>
-        </Box>
-        <Button
-          ref={anchorRef}
-          inline
-          text="Help"
-          onClick={() => setOpen(!open)}
-        />
-        {open && (
-          <Layer>
-            <Flyout
-              anchor={anchorRef.current}
-              idealDirection="down"
-              onDismiss={() => setOpen(false)}
-              positionRelativeToAnchor={false}
-              size="md"
-            >
-              <Box padding={3} display="flex" alignItems="center" direction="column" column={12}>
-                <Text align="center">
-                  Need help with something? Check out our Help Center.
-                </Text>
-                <Box paddingX={2} marginTop={3}>
-                  <Button
-                    color="red"
-                    role="link"
-                    target="blank"
-                    text="Visit the help center"
-                    href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-                  />
+    <ScrollableContainer height={200}>
+      <Box padding={4} width={600}>
+        <Flex gap={4}>
+          <Box width={200}>
+            <Text>
+              You need to add your data source URL to Pinterest so we can access your data source file and create Pins for your products. Before you do this, make sure you have prepared your data source and that you have claimed your website. If there are any errors with your data source file, you can learn how to troubleshoot them below. After you click Create Pins, you'll land back at the main data source page while your feed is being processed. Wait for a confirmation email from Pinterest about the status of your data source submission.
+            </Text>
+          </Box>
+          <Button
+            ref={anchorRef}
+            inline
+            text="Help"
+            onClick={() => setOpen(!open)}
+          />
+          {open && (
+            <Layer>
+              <Flyout
+                anchor={anchorRef.current}
+                idealDirection="right"
+                onDismiss={() => setOpen(false)}
+                positionRelativeToAnchor={false}
+                size="sm"
+              >
+                <Box
+                  padding={3}
+                  display="flex"
+                  alignItems="center"
+                  direction="column"
+                  column={12}
+                >
+                  <Text align="center">
+                    Need help with something? Check out our Help Center.
+                  </Text>
+                  <Box paddingX={2} marginTop={3}>
+                    <Button
+                      color="red"
+                      role="link"
+                      target="blank"
+                      text="Visit the help center"
+                      href="https://help.pinterest.com/en/business/article/data-source-ingestion"
+                    />
+                  </Box>
                 </Box>
-              </Box>
-            </Flyout>
-          </Layer>
-        )}
-      </Flex>
+              </Flyout>
+            </Layer>
+          )}
+        </Flex>
+      </Box>
     </ScrollableContainer>
-  )
-}`}
-  />,
-);
-
-card(
-  <Example
-    id="ScrollableContainerWithTooltip"
-    name="With Tooltip"
-    defaultCode={`
+)}`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        title="Tooltips with ScrollableContainer"
+        defaultCode={`
 function ScrollableContainerExample() {
-    const [content, setContent] = React.useState(undefined);
-    const [claimed, setClaimed] = React.useState(undefined);
-    const [device, setDevice] = React.useState(undefined);
+  const [content, setContent] = React.useState(null);
+  const [claimed, setClaimed] = React.useState(null);
+  const [device, setDevice] = React.useState(null);
 
   return (
-    <ScrollableContainer overflow="scrollY" height={150}>
-      <Flex direction="column" gap={4}>
-        <Flex direction="column" gap={2}>
-          <Flex alignItems="center" gap={1}>
-            <Text weight="bold" size="lg">Content type</Text>
+    <ScrollableContainer
+      overflow="scrollY"
+      height={200}
+    >
+      <Flex
+        width={300}
+        direction="column"
+        gap={4}
+      >
+        <Flex
+          direction="column"
+          gap={2}
+        >
+          <Flex
+            alignItems="center"
+            gap={1}
+          >
+            <Text
+              weight="bold"
+              size="lg"
+            >
+              Content type
+            </Text>
             <Tooltip
               idealDirection="right"
               text="See stats about different types of content created by you and/or others on Pinterest. Filter to get more details on your organic (not an ad) and paid (promoted as an ad) content."
             >
-              <Icon icon="info-circle" accessibilityLabel="Information" color="darkGray"/>
+              <Icon
+                icon="info-circle"
+                accessibilityLabel="Information"
+                color="gray"
+              />
             </Tooltip>
           </Flex>
           <Box
@@ -151,14 +159,29 @@ function ScrollableContainerExample() {
             </Box>
           </Box>
         </Flex>
-        <Flex direction="column" gap={2}>
-          <Flex alignItems="center" gap={1}>
-            <Text weight="bold" size="lg">Claimed account</Text>
+        <Flex
+          direction="column"
+          gap={2}
+        >
+          <Flex
+            alignItems="center"
+            gap={1}
+          >
+            <Text
+              weight="bold"
+              size="lg"
+            >
+              Claimed account
+            </Text>
             <Tooltip
               idealDirection="right"
               text="See stats for Pins linked to your claimed accounts like websites, Etsy, Instagram or Youtube. The Other Pins category includes Pins you’ve published or saved that don’t link to any of your claimed accounts."
             >
-              <Icon icon="info-circle" accessibilityLabel="Information" color="darkGray"/>
+              <Icon
+                icon="info-circle"
+                accessibilityLabel="Information"
+                color="gray"
+              />
             </Tooltip>
           </Flex>
           <Box
@@ -166,14 +189,14 @@ function ScrollableContainerExample() {
             direction="column"
           >
           <Box paddingY={1}>
-              <RadioButton
-                checked={claimed === "all"}
-                id="allclaimed"
-                label="All Pins"
-                name="claimed"
-                onChange={() => setClaimed( "all" )}
-                value="all"
-              />
+            <RadioButton
+              checked={claimed === "all"}
+              id="allclaimed"
+              label="All Pins"
+              name="claimed"
+              onChange={() => setClaimed( "all" )}
+              value="all"
+            />
             </Box>
             <Box paddingY={1}>
               <RadioButton
@@ -197,13 +220,28 @@ function ScrollableContainerExample() {
             </Box>
           </Box>
         </Flex>
-        <Flex direction="column" gap={2}>
-          <Flex alignItems="center" gap={1}>
-            <Text weight="bold" size="lg">Device</Text>
+        <Flex
+          direction="column"
+          gap={2}
+        >
+          <Flex
+            alignItems="center"
+            gap={1}
+          >
+            <Text
+              weight="bold"
+              size="lg"
+            >
+              Device
+            </Text>
             <Tooltip
               idealDirection="right"
               text="See stats for the different devices your Pinterest traffic is coming from.">
-              <Icon icon="info-circle" accessibilityLabel="Information" color="darkGray"/>
+              <Icon
+                icon="info-circle"
+                accessibilityLabel="Information"
+                color="gray"
+              />
             </Tooltip>
           </Flex>
           <Box
@@ -211,14 +249,14 @@ function ScrollableContainerExample() {
             direction="column"
           >
           <Box paddingY={1}>
-              <RadioButton
-                checked={device === "all"}
-                id="alldevices"
-                label="All"
-                name="device"
-                onChange={() => setDevice( "all" )}
-                value="all"
-              />
+            <RadioButton
+              checked={device === "all"}
+              id="alldevices"
+              label="All"
+              name="device"
+              onChange={() => setDevice( "all" )}
+              value="all"
+            />
             </Box>
             <Box paddingY={1}>
               <RadioButton
@@ -254,17 +292,13 @@ function ScrollableContainerExample() {
         </Flex>
       </Flex>
     </ScrollableContainer>
-
-  )
-}`}
-  />,
-);
-
-card(
-  <Example
-    id="ScrollableContainerModal"
-    name="With Modal, DropDown, and Typeahed"
-    defaultCode={`
+)}`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        title="Modal, DropDown, and Typeahead with ScrollableContainer"
+        description="In this example, the content in Modal extends the modal's dimensions. It requires ScrollableContainer so that Typeahead and Dropdown components stay correctly anchored after scrolling."
+        defaultCode={`
 function ScrollableContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -276,7 +310,10 @@ function ScrollableContainerExample() {
 
   return (
     <>
-      <Box display="flex" justifyContent="center">
+      <Box
+        display="flex"
+        justifyContent="center"
+      >
         <Button
           inline
           text="Update Billing Address"
@@ -284,14 +321,18 @@ function ScrollableContainerExample() {
         />
       </Box>
       {showModal && (
-        <Layer>
+        <Layer zIndex={new FixedZIndex(11)}>
           <Modal
             accessibilityModalLabel="test"
             heading="Billing Information"
             size="lg"
             onDismiss={() => setShowModal(false)}
             footer={
-              <Box flex="grow" paddingX={3} paddingY={3}>
+              <Box
+                flex="grow"
+                paddingX={3}
+                paddingY={3}
+              >
                 <Box
                   justifyContent="end"
                   marginStart={-1}
@@ -301,7 +342,10 @@ function ScrollableContainerExample() {
                   display="flex"
                   wrap
                 >
-                  <Box paddingX={1} paddingY={1}>
+                  <Box
+                    paddingX={1}
+                    paddingY={1}
+                  >
                     <Button
                       text="Cancel"
                       size="lg"
@@ -309,7 +353,10 @@ function ScrollableContainerExample() {
                       onClick={() => setShowModal(false)}
                     />
                   </Box>
-                  <Box paddingX={1} paddingY={1}>
+                  <Box
+                    paddingX={1}
+                    paddingY={1}
+                  >
                     <Button
                       text="Save"
                       color="red"
@@ -322,8 +369,11 @@ function ScrollableContainerExample() {
               </Box>
             }
           >
-            <ScrollableContainer height={400}>
-              <Box display="flex" justifyContent="center">
+            <ScrollableContainer>
+              <Box
+                display="flex"
+                justifyContent="center"
+              >
                 <Box
                   direction="column"
                   display="flex"
@@ -335,7 +385,12 @@ function ScrollableContainerExample() {
                   width="100%"
                   wrap
                 >
-                  <Box display="flex" justifyContent="start" paddingX={3} paddingY={3}>
+                  <Box
+                    display="flex"
+                    justifyContent="start"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <Button
                       accessibilityControls="subtext-dropdown-example"
                       accessibilityHaspopup
@@ -357,50 +412,83 @@ function ScrollableContainerExample() {
                         <Dropdown.Item
                           handleSelect={handleSelect}
                           selected={selected}
-                          option={{ value: "Headquarters San Francisco", label: "Headquarters San Francisco", subtext: "516 Natoma Street, Suite # 23" }}
+                          option={{
+                            value: "Headquarters San Francisco",
+                            label: "Headquarters San Francisco",
+                            subtext: "516 Natoma Street, Suite # 23" }}
                         />
                         <Dropdown.Item
                           handleSelect={handleSelect}
                           selected={selected}
-                          option={{ value: "Headquarters Seattle", label: "Headquarters Seattle", subtext: "123 Main Street, Suite # 48" }}
+                          option={{
+                            value: "Headquarters Seattle",
+                            label: "Headquarters Seattle",
+                            subtext: "123 Main Street, Suite # 48" }}
                         />
                       </Dropdown>
                     )}
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
-                    <Heading size="sm" accessibilityLevel={2}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
+                    <Heading
+                      size="sm"
+                      accessibilityLevel={2}
+                    >
                       Billing Address
                     </Heading>
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <TextField
                       label="Address Name"
                       id="Address_Name"
                       onChange={() => {}}
                     />
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <TextField
                       label="Business Name"
                       id="Business_Name"
                       onChange={() => {}}
                     />
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <TextField
                       label="Address Line 1"
                       id="Address_Line_1"
                       onChange={() => {}}
                     />
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <TextField
                       label="Address Line 2"
                       id="Address_Line_2"
                       onChange={() => {}}
                     />
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <Box
                       display="flex"
                       wrap
@@ -409,14 +497,22 @@ function ScrollableContainerExample() {
                       marginBottom={-3}
                       marginTop={-3}
                     >
-                      <Box flex="grow" paddingX={3} paddingY={3}>
+                      <Box
+                        flex="grow"
+                        paddingX={3}
+                        paddingY={3}
+                      >
                         <TextField
                           label="City"
                           id="City"
                           onChange={() => {}}
                         />
                       </Box>
-                      <Box flex="grow" paddingX={3} paddingY={3}>
+                      <Box
+                        flex="grow"
+                        paddingX={3}
+                        paddingY={3}
+                      >
                         <TextField
                           label="State/Province/Region"
                           id="State_Province_Region"
@@ -425,7 +521,11 @@ function ScrollableContainerExample() {
                       </Box>
                     </Box>
                   </Box>
-                  <Box flex="grow" paddingX={3} paddingY={3}>
+                  <Box
+                    flex="grow"
+                    paddingX={3}
+                    paddingY={3}
+                  >
                     <Typeahead
                       autocomplete={false}
                       label="Country"
@@ -464,6 +564,29 @@ function ScrollableContainerExample() {
     </>
   )
 }`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <PropTable
+    props={[
+      {
+        name: 'height',
+        type: `number | string`,
+        defaultValue: '100%',
+        description: [
+          `Use numbers for pixels: height={100} and strings for percentages: height="100%".`,
+          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets height.`,
+        ],
+      },
+      {
+        name: 'overflow',
+        type: `'scroll' | 'scrollX' | 'scrollY' | 'auto'`,
+        defaultValue: 'auto',
+      },
+    ]}
   />,
 );
 
