@@ -15,11 +15,20 @@ describe('ScrollableContainer', () => {
   });
 
   it('ScrollableContainer correctly sets height and overflow props', () => {
-    const tree = create(
-      <ScrollableContainer height={200} overflow="scroll">
+    const props = { height: 200, overflow: 'scroll' };
+
+    const component = create(
+      <ScrollableContainer {...props}>
         <Box />
       </ScrollableContainer>,
-    ).toJSON();
+    );
+
+    const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+
+    const instance = component.root;
+    const element = instance.findByType('div');
+    expect(element.props.className.includes('overflowScroll')).toBe(true);
+    expect(element.props.style.height).toEqual(200);
   });
 });

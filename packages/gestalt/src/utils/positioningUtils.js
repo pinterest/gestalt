@@ -7,6 +7,7 @@ import type {
   Dimensions,
   EdgeShift,
   FlyoutDir,
+  MainDirections,
   Window,
   Offset,
 } from './positioningTypes.js';
@@ -130,7 +131,7 @@ export function getFlyoutDir({
   idealDirection: FlyoutDir,
   triggerRect: ClientRect,
   windowSize: Window,
-|}): 'down' | 'left' | 'right' | 'up' {
+|}): MainDirections {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
   let up = triggerRect.top - flyoutSize.height - CARET_HEIGHT;

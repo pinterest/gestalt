@@ -167,8 +167,8 @@ class Contents extends Component<Props, State> {
 
     // If there's a parent ScrollableContainer, replace window's dimensions and scroll with the ScrollableContainer node ones
     const windowSize = {
-      height: containerBoundingClientRect?.height || window.innerHeight,
-      width: containerBoundingClientRect?.width || window.innerWidth,
+      height: containerBoundingClientRect?.height ?? window.innerHeight,
+      width: containerBoundingClientRect?.width ?? window.innerWidth,
       scrollX: containerNode?.scrollLeft ?? scrollX,
       scrollY: containerNode?.scrollTop ?? scrollY,
     };

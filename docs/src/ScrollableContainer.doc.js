@@ -44,6 +44,7 @@ card(
 function ScrollableContainerExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
+
   return (
     <ScrollableContainer height={150}>
       <Flex gap={4}>
@@ -273,9 +274,6 @@ function ScrollableContainerExample() {
     setSelected(item);
   };
 
-  const anchorWhiteRef = React.useRef();
-  const anchorRedRef = React.useRef();
-  const anchorBlueRef = React.useRef();
   return (
     <>
       <Box display="flex" justifyContent="center">
@@ -308,7 +306,7 @@ function ScrollableContainerExample() {
                       text="Cancel"
                       size="lg"
                       inline
-                      onClick={() => setOpen(false)}
+                      onClick={() => setShowModal(false)}
                     />
                   </Box>
                   <Box paddingX={1} paddingY={1}>
@@ -317,7 +315,7 @@ function ScrollableContainerExample() {
                       color="red"
                       size="lg"
                       type="submit"
-                      onClick={() => setOpen(false)}
+                      onClick={() => setShowModal(false)}
                     />
                   </Box>
                 </Box>

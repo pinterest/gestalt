@@ -36,6 +36,7 @@ describe('ScrollableContainer', () => {
         <TestBox />
       </ScrollableContainer>,
     );
+
     expect(scrollableContainer.current instanceof HTMLDivElement).toEqual(true);
   });
 });

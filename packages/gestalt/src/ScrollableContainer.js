@@ -18,12 +18,9 @@ import {
   useScrollableContainer,
 } from './contexts/ScrollableContainer.js';
 import Box from './Box.js';
-import {
-  type Dimension,
-  type ScrollableOverflow,
-  DimensionPropType,
-  ScrollableOverflowPropType,
-} from './boxTypes.js';
+import { type Dimension, DimensionPropType } from './boxTypes.js';
+
+type ScrollableOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
 
 type Props = {|
   children: Node,
@@ -60,8 +57,15 @@ ScrollableContainerWithProvider.displayName = ScrollableContainer;
 
 export default ScrollableContainerWithProvider;
 
+const ScrollableOverflowPropType: React$PropType$Primitive<ScrollableOverflow> = PropTypes.oneOf([
+  'scroll',
+  'scrollX',
+  'scrollY',
+  'auto',
+]);
+
 ScrollableContainer.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   height: DimensionPropType,
   overflow: ScrollableOverflowPropType,
 };

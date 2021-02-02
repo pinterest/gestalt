@@ -82,7 +82,6 @@ export type Position = 'static' | 'absolute' | 'relative' | 'fixed';
 export type Right = boolean;
 export type Role = string;
 export type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'circle' | 'pill';
-export type ScrollableOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto';
 export type Top = boolean;
 export type UserSelect = 'auto' | 'none';
 export type Wrap = boolean;
@@ -253,9 +252,6 @@ export const OverflowPropType: React$PropType$Primitive<Overflow> = PropTypes.on
   'scrollY',
   'auto',
 ]);
-export const ScrollableOverflowPropType: React$PropType$Primitive<ScrollableOverflow> = PropTypes.oneOf(
-  ['scroll', 'scrollX', 'scrollY', 'auto'],
-);
 export const PaddingPropType: React$PropType$Primitive<Padding> = PropTypes.oneOf([
   0,
   1,
