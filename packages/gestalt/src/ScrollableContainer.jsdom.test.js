@@ -6,28 +6,26 @@ import { useScrollableContainer } from './contexts/ScrollableContainer.js';
 import Box from './Box.js';
 
 describe('ScrollableContainer', () => {
-  it('renders correctly', () => {
+  it('renders successfully', () => {
     const ref = createRef();
 
-    const TestBox = () => {
-      const { addRef, scrollableContainerRef } = useScrollableContainer();
-      return addRef && scrollableContainerRef ? <Box ref={ref} /> : null;
-    };
-
-    render(
-      <ScrollableContainer>
-        <TestBox />
+    const { getByTestId } = render(
+      <ScrollableContainer overflow="scroll">
+        <Box data-testid="childrenId" ref={ref} />
       </ScrollableContainer>,
     );
-    expect(ref.current instanceof HTMLDivElement).toEqual(true);
+
+    expect(getByTestId('childrenId')).toBeTruthy();
   });
 
-  it('stores ScrollableContainer node in scrollableContainerRef in context', () => {
+  it('passes default ScrollableContainer props through context correctly', () => {
     const scrollableContainer = createRef();
 
     const TestBox = () => {
       const { scrollableContainerRef } = useScrollableContainer();
+
       scrollableContainer.current = scrollableContainerRef;
+
       return <Box />;
     };
 
@@ -37,6 +35,32 @@ describe('ScrollableContainer', () => {
       </ScrollableContainer>,
     );
 
+    // scrollableContainer.current is a div tag
     expect(scrollableContainer.current instanceof HTMLDivElement).toEqual(true);
+    expect(scrollableContainer.current?.className.includes('overflowAuto')).toBe(true);
+    expect(scrollableContainer.current?.style.height).toEqual('100%');
+  });
+
+  it('passes custom ScrollableContainer props through context correctly', () => {
+    const scrollableContainer = createRef();
+
+    const TestBox = () => {
+      const { scrollableContainerRef } = useScrollableContainer();
+
+      scrollableContainer.current = scrollableContainerRef;
+
+      return <Box />;
+    };
+
+    render(
+      <ScrollableContainer height={100} overflow="scroll">
+        <TestBox />
+      </ScrollableContainer>,
+    );
+
+    // scrollableContainer.current is a div tag
+    expect(scrollableContainer.current instanceof HTMLDivElement).toEqual(true);
+    expect(scrollableContainer.current?.className.includes('overflowScroll')).toBe(true);
+    expect(scrollableContainer.current?.style.height).toEqual('100px');
   });
 });
