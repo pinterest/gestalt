@@ -54,7 +54,7 @@ const rule = {
         if (isMarginLeftRightAttribute) {
           context.report(
             node,
-            'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box',
+            'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box',
           );
         }
       },
