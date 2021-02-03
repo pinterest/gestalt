@@ -3,6 +3,7 @@ import React, { Fragment, type Node } from 'react';
 import { Box, Flex, Heading, IconButton } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
+import { copyToClipboard } from './Card.js';
 
 type Props = {|
   children: Node,
@@ -35,6 +36,9 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
               accessibilityLabel={`${title} - Anchor tag`}
               size="xs"
               href={`#${slugifiedId}`}
+              onClick={() => {
+                copyToClipboard(slugifiedId);
+              }}
               role="link"
             />
           </Flex>
