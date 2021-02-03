@@ -104,6 +104,7 @@ card(
         type: 'boolean',
         defaultValue: false,
         href: 'Absolute-Positioning',
+        description: 'Helper to specify location when using absolute positioning.',
       })),
       ...[
         {
@@ -113,8 +114,16 @@ card(
         },
         { name: 'marginTop' },
         { name: 'marginBottom' },
-        { name: 'marginStart' },
-        { name: 'marginEnd' },
+        {
+          name: 'marginStart',
+          description:
+            'Applies margin to the left in left-to-right languages, and to the right in right-to-left languages.',
+        },
+        {
+          name: 'marginEnd',
+          description:
+            'Applies margin to the right in left-to-right languages, and to the left in right-to-left languages.',
+        },
       ].map((prop: {| name: string, description?: string |}) => ({
         name: prop.name,
         type: '-12 ... 12 | "auto"',
@@ -289,7 +298,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
   padding={4}
 >
   <Box
-    onClick={() => {"You clicked maroon"}}
+    onClick={() => {console.log("This won't get logged.");}}
     paddingX={1}
     color="maroon"
     height={50}
@@ -771,11 +780,15 @@ card(
     description={`
       [Flex](/Flex)
 
-      - Use Flex and Flex.Item for flex layouts when you want to separate layout concerns from the extra functionality in Box. Flex is also extremely beneficial when trying to arrange items with consistent, repetitive gutters using the \`gap\` property.
+      - Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
       [Container](/Container)
 
-      - Use Container to responsively layout content at different screen sizes.
+      - Use Container to responsively layout content with a max-width on large screens.
+
+      [ScrollableContainer](/ScrollableContainer)
+
+      - For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
 
       [TapArea](/TapArea)
 
