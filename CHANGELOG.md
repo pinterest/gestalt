@@ -1,3 +1,9 @@
+## 16.10.0 (Feb 3, 2021)
+
+### Minor
+
+- Gestalt: ScrollableContainer - new component with built-in scrollability logic to allow anchored-based components get correctly positioned inside scrolling containers (#1357)
+
 ## 16.9.2 (Feb 2, 2021)
 
 ### Patch
