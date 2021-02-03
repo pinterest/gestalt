@@ -67,6 +67,8 @@
     "react-hooks/rules-of-hooks": "error",
     "react/destructuring-assignment": "off",
     "react/jsx-filename-extension": "off",
+    "react/jsx-fragments": ["error", "element"],
+    "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
     "react/require-default-props": "off",

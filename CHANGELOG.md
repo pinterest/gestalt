@@ -1,3 +1,21 @@
+## 16.10.1 (Feb 3, 2021)
+
+### Patch
+
+- Internal: Add lint rules to enforce fragment style and use of keys (#1361)
+
+## 16.10.0 (Feb 3, 2021)
+
+### Minor
+
+- Gestalt: ScrollableContainer - new component with built-in scrollability logic to allow anchored-based components get correctly positioned inside scrolling containers (#1357)
+
+## 16.9.2 (Feb 2, 2021)
+
+### Patch
+
+- Docs: copyPaste functionality implemented into linking icon (#1360)
+
 ## 16.9.1 (Feb 1, 2021)
 
 ### Patch

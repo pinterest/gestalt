@@ -416,7 +416,7 @@ function IconButtonFlyoutExample() {
   const [checked, setChecked] = React.useState(false);
   const anchorRef = React.useRef(null);
   return (
-    <>
+    <React.Fragment>
       <IconButton
         accessibilityLabel="Love Reaction to a Pin"
         bgColor="white"
@@ -438,7 +438,7 @@ function IconButtonFlyoutExample() {
           </Box>
         </Flyout>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
   />,
@@ -453,7 +453,7 @@ function MenuIconButtonExample() {
   const [selected, setSelected] = React.useState(false);
   const anchorRef = React.useRef();
   return (
-    <>
+    <React.Fragment>
       <IconButton
         accessibilityLabel="Open the options menu"
         accessibilityControls="menu"
@@ -493,7 +493,7 @@ function MenuIconButtonExample() {
           </Flyout>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}

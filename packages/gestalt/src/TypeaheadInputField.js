@@ -1,6 +1,5 @@
 // @flow strict
-
-import React, { forwardRef, useState, type Element, type Node, type Ref } from 'react';
+import React, { forwardRef, Fragment, type Element, type Node, type Ref, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
@@ -184,7 +183,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     </button>
   );
   return (
-    <>
+    <Fragment>
       {label && <FormLabel id={id} label={label} />}
       <Box
         alignItems="center"
@@ -214,13 +213,13 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
             {iconButton}
           </div>
         ) : (
-          <>
+          <Fragment>
             {inputElement}
             {iconButton}
-          </>
+          </Fragment>
         )}
       </Box>
-    </>
+    </Fragment>
   );
 });
 

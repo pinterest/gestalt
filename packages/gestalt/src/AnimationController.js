@@ -3,8 +3,8 @@
 
 # Welcome to AnimationController!
 
-An <AnimationController> is a wrapper to control animation of its wrapped components. 
-It works with a Context.Provider which holds the state for animationState. 
+An <AnimationController> is a wrapper to control animation of its wrapped components.
+It works with a Context.Provider which holds the state for animationState.
 Finally, it provides the custom hook useAnimation which provides an object { animationState, onAnimationEnd } where:
 - animationState: the current animation state. Possible values are: null, "in", "postIn", "out", "postOut".
 - onAnimationEnd: the callback function to be passed to onAnimationEnd event handlers on the element that is being animated.
@@ -18,61 +18,61 @@ function AnimationExample() {
     onDismissStart,
   }) => {
     const { animationState, onAnimationEnd } = useAnimation();
-       
+
     let className;
     if (['in', 'out'].includes(animationState)) {
         className = 'slide-' + animationState;
     }
-  
+
     return (
-      <>
+      <React.Fragment>
         <style>{\`
           @keyframes slide-in {
             from {
               margin-left: 100%;
-              width: 300%; 
+              width: 300%;
             }
-          
+
             to {
               margin-left: 0%;
               width: 100%;
             }
-          } 
+          }
 
           @keyframes slide-out {
             from {
               margin-left: 0%;
               width: 100%;
             }
-            
+
             to {
               margin-left: 100%;
-              width: 300%; 
+              width: 300%;
             }
-          } 
+          }
 
           .slide-in {
             animation: slide-in 1s ease-in-out;
           }
-                   
+
           .slide-out {
             animation: slide-out 1s ease-in-out;
-          }          
+          }
         \`}</style>
         <Box marginTop={4} marginBottom={4}>
           <Text>Animation state: <b>{animationState}</b></Text>
         </Box>
         <div onAnimationEnd={onAnimationEnd} className={className}>
-          <Button color="red" inline onClick={onDismissStart} text="Click me!" />          
+          <Button color="red" inline onClick={onDismissStart} text="Click me!" />
         </div>
-      </>
+      </React.Fragment>
     );
   };
 
   const [shouldShow, setShouldShow] = React.useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Show animation"
@@ -85,7 +85,7 @@ function AnimationExample() {
           )}
         </AnimationController>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
 

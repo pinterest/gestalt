@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import { Box, Flex, Heading, IconButton } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
@@ -13,7 +13,7 @@ type Props = {|
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
   return (
-    <>
+    <Fragment>
       {title && (
         <Box
           dangerouslySetInlineStyle={{
@@ -48,7 +48,7 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
       <Flex wrap gap={4}>
         {children}
       </Flex>
-    </>
+    </Fragment>
   );
 };
 

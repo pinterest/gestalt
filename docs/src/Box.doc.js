@@ -415,10 +415,10 @@ card(
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<>
+<React.Fragment>
   <Text>Enable your screen reader to hear the following text:</Text>
   <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
-</>
+</React.Fragment>
 `}
       />
     </MainSection.Subsection>
@@ -726,7 +726,7 @@ function BoxFlyoutExample() {
   const anchorRef = React.useRef(null);
 
   return (
-    <>
+    <React.Fragment>
       <Flex alignItems="start" direction="column" gap={6}>
         <Button
           inline
@@ -751,7 +751,7 @@ function BoxFlyoutExample() {
           </Box>
         </Flyout>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
       />

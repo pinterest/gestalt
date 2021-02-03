@@ -54,7 +54,7 @@ function Example() {
   const [showLayer, setShowLayer] = React.useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Show Layer"
@@ -76,7 +76,7 @@ function Example() {
           </Box>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}
@@ -97,7 +97,7 @@ function zIndexExample() {
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Show Layer"
@@ -119,7 +119,7 @@ function zIndexExample() {
           </Box>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}

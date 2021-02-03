@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import React, { Fragment } from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
 import Link from './Link.js';
@@ -30,10 +30,10 @@ describe('<Toast />', () => {
           />
         }
         text={
-          <>
+          <Fragment>
             Saved to{' '}
             <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">Home decor</Link>
-          </>
+          </Fragment>
         }
       />,
     ).toJSON();
@@ -50,10 +50,10 @@ describe('<Toast />', () => {
           />
         }
         text={
-          <>
+          <Fragment>
             Saved to{' '}
             <Link href="https://www.pinterest.com/search/pins/?q=home%20decor">Home decor</Link>
-          </>
+          </Fragment>
         }
         button={<Button size="lg" text="Undo" />}
       />,

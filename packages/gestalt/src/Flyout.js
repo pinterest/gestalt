@@ -27,7 +27,7 @@ export default function Flyout(props: Props): null | Node {
     color = 'white',
     shouldFocus = true,
     showCaret = false,
-    size,
+    size = 'sm',
   } = props;
 
   if (!anchor) {

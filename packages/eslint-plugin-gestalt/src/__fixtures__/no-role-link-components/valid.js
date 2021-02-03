@@ -1,9 +1,12 @@
+import { Fragment } from 'react';
 import { Button, IconButton, TapArea } from 'gestalt';
 
 export default function TestElement() {
-  return <>
-    <TapArea role='button'/>
-    <IconButton role='button' />
-    <Button />
-  </>;
+  return (
+    <Fragment>
+      <TapArea role="button" />
+      <IconButton role="button" />
+      <Button />
+    </Fragment>
+  );
 }

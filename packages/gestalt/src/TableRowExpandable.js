@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node, useState } from 'react';
+import React, { Children, Fragment, type Node, useState } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
@@ -44,7 +44,7 @@ export default function TableRowExpandable(props: Props): Node {
   };
 
   return (
-    <>
+    <Fragment>
       <tr className={cs}>
         <TableCell>
           <IconButton
@@ -61,11 +61,11 @@ export default function TableRowExpandable(props: Props): Node {
       </tr>
       {expanded && (
         <tr id={id}>
-          <td colSpan={React.Children.count(children) + 1}>
+          <td colSpan={Children.count(children) + 1}>
             <Box padding={6}>{expandedContents}</Box>
           </td>
         </tr>
       )}
-    </>
+    </Fragment>
   );
 }

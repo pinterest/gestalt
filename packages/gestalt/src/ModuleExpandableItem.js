@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import TapArea from './TapArea.js';
@@ -26,7 +26,7 @@ export default function ModuleExpandableItem({
   children,
 }: Props): Node {
   return (
-    <>
+    <Fragment>
       <TapArea
         onTap={() => {
           onModuleClicked(!isCollapsed);
@@ -78,6 +78,6 @@ export default function ModuleExpandableItem({
           {children}
         </Box>
       )}
-    </>
+    </Fragment>
   );
 }
