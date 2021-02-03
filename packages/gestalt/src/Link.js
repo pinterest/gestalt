@@ -16,6 +16,7 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import { useOnNavigation, type onNavigationOptionsType } from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -30,6 +31,7 @@ type Props = {|
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
+  onNavigationOptions?: onNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,
@@ -53,6 +55,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     onBlur,
     onClick,
     onFocus,
+    onNavigationOptions,
     rel = 'none',
     role,
     rounding = 0,
@@ -96,6 +99,17 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     },
   );
 
+  // useOnNavigation is only accessible with Gestalt Provider
+  // and when onNavigation prop is passed to it
+  const { onNavigation } = useOnNavigation() || {};
+
+  const onNavigationClick =
+    onNavigation &&
+    onNavigation({
+      href,
+      onNavigationOptions,
+    });
+
   return (
     <a
       aria-label={accessibilityLabel}
@@ -110,6 +124,9 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         }
       }}
       onClick={(event) => {
+        if (onNavigationClick) {
+          onNavigationClick({ event });
+        }
         if (onClick) {
           onClick({ event });
         }
@@ -161,6 +178,8 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  onNavigationOptions: PropTypes.object,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,
