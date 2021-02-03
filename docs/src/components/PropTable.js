@@ -36,7 +36,7 @@ const Description = (lines: Array<string>): Node => (
 const Th = ({ children }: {| children?: Node |}) => (
   <th style={{ borderBottom: '2px solid #ddd' }}>
     <Box padding={2}>
-      <Text size="md" color="gray" overflow="normal" weight="bold">
+      <Text size="md" overflow="normal" weight="bold">
         {children}
       </Text>
     </Box>
@@ -195,9 +195,10 @@ export default function PropTable({
                               </Box>
                             )}
                           </Td>
-                          <Td colspan={2} color="gray">
+                          <Td colspan={1} color="gray">
                             {Array.isArray(description) ? Description(description) : description}
                           </Td>
+                          <Td />
                         </tr>,
                       );
                     }
