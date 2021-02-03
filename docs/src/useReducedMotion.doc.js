@@ -32,7 +32,7 @@ function Example() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <>
+    <React.Fragment>
       <style dangerouslySetInnerHTML={{__html: \`
         @keyframes vibrate {
           0% {
@@ -60,7 +60,7 @@ function Example() {
           <Text color="white">{shouldReduceMotion ? 'Reduced motion enabled' : 'Reduced motion disabled'}</Text>
         </Box>
       </div>
-    </>
+    </React.Fragment>
   );
 }`}
   />,

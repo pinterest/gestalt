@@ -210,7 +210,7 @@ card(
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Open modal"
@@ -233,7 +233,7 @@ function Example(props) {
           </Modal>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}

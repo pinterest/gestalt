@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useEffect, useRef, useState, type Node } from 'react';
+import React, { Fragment, type Node, useEffect, useRef, useState } from 'react';
 import { Box, IconButton, Tooltip } from 'gestalt';
 import { LiveEditor } from 'react-live';
 import handleCodeSandbox from './handleCodeSandbox.js';
@@ -29,7 +29,7 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
   }, [code]);
 
   return (
-    <>
+    <Fragment>
       <Box display="flex" direction="row" justifyContent="start" marginTop={2}>
         <Tooltip inline text="Open in CodeSandbox" idealDirection="up">
           <IconButton
@@ -100,6 +100,6 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
           </Box>
         </Box>
       </Box>
-    </>
+    </Fragment>
   );
 }

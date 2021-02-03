@@ -288,10 +288,10 @@ card(
     id="display"
     name="Example: Visually Hidden"
     defaultCode={`
-<>
+<React.Fragment>
   <Text>Enable your screenreader to hear the following text:</Text>
   <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
-</>
+</React.Fragment>
 `}
   />,
 );
@@ -610,7 +610,7 @@ function ButtonFlyoutExample() {
   const [checked, setChecked] = React.useState(false);
   const anchorRef = React.useRef(null);
   return (
-    <>
+    <React.Fragment>
       <Flex alignItems="start" direction="column" gap={6}>
         <Button
           inline
@@ -635,7 +635,7 @@ function ButtonFlyoutExample() {
           </Box>
         </Flyout>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
   />,

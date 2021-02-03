@@ -378,14 +378,14 @@ card(
     name="Width"
     id="widths"
     defaultCode={`
-<>
+<React.Fragment>
   <Box padding={2}>
     <Button text="Inline button" inline />
   </Box>
   <Box padding={2}>
     <Button text="Default full-width button" />
   </Box>
-</>`}
+</React.Fragment>`}
   />,
 );
 
@@ -430,7 +430,7 @@ function ButtonFlyoutExample() {
   const anchorRef = React.useRef(null);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         onClick={() => setSelected(!selected)}
@@ -450,7 +450,7 @@ function ButtonFlyoutExample() {
           </Box>
         </Flyout>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
   />,
@@ -487,7 +487,7 @@ function MenuButtonExample() {
   const anchorRef = React.useRef();
 
   return (
-    <>
+    <React.Fragment>
       <Box display="inlineBlock" ref={anchorRef}>
         <Button
           accessibilityControls="menu"
@@ -524,7 +524,7 @@ function MenuButtonExample() {
           </Flyout>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}

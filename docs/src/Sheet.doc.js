@@ -168,7 +168,7 @@ function SizesExample(props) {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Box padding={1}>
         <Button
           inline
@@ -204,7 +204,7 @@ function SizesExample(props) {
           </Sheet>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}
@@ -268,7 +268,7 @@ function AnimationExample() {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Open sheet"
@@ -317,7 +317,7 @@ function AnimationExample() {
           </Sheet>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
   />,
@@ -339,7 +339,7 @@ function CloseOnOutsideExample(props) {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Open sheet"
@@ -359,7 +359,7 @@ function CloseOnOutsideExample(props) {
           </Sheet>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}
@@ -382,7 +382,7 @@ function DefaultPaddingExample(props) {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="View default padding & styling"
@@ -473,7 +473,7 @@ function DefaultPaddingExample(props) {
           </Sheet>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}
@@ -620,7 +620,7 @@ function SubheadingExample(props) {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="View subheading"
@@ -631,7 +631,7 @@ function SubheadingExample(props) {
           <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}
@@ -660,7 +660,7 @@ function RefExample() {
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Open sheet"
@@ -668,7 +668,7 @@ function RefExample() {
       />
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <>
+          <React.Fragment>
             <Sheet
               accessibilityDismissButtonLabel="Close"
               accessibilitySheetLabel="Focused sheet"
@@ -689,10 +689,10 @@ function RefExample() {
               </Box>
             </Sheet>
             <div ref={callbackRef} />
-          </>
+          </React.Fragment>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
   />,

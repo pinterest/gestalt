@@ -1,6 +1,5 @@
 // @flow strict
-
-import React, { Children, type Node } from 'react';
+import React, { Children, Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 
@@ -11,7 +10,7 @@ function ButtonGroup({ children }: {| children?: Node |}): Node {
     return null;
   }
   if (count === 1) {
-    return <>{children}</>;
+    return <Fragment>{children}</Fragment>;
   }
 
   return (
