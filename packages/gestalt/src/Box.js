@@ -183,7 +183,19 @@ type Props = {
 // back to the underlying `<div/>`. That's generally useful, but we'd also like
 // to strip out a few naughty properties that break style encapsulation
 // (className, style) or accessibility (onClick).
-const disallowedProps = ['onClick', 'className', 'style'];
+const disallowedProps = [
+  'onClick',
+  'className',
+  'style',
+  'marginLeft',
+  'smMarginLeft',
+  'mdMarginLeft',
+  'lgMarginLeft',
+  'marginRight',
+  'smMarginRight',
+  'mdMarginRight',
+  'lgMarginRight',
+];
 
 const BoxWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
