@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';
@@ -86,7 +86,7 @@ export default function MenuOption({
       <Flex flex="grow" direction="column">
         <Flex alignItems="center">
           {children || (
-            <>
+            <Fragment>
               <Text truncate={shouldTruncate} weight={textWeight} color="darkGray" inline>
                 {option?.label}
               </Text>
@@ -97,7 +97,7 @@ export default function MenuOption({
                   <Badge text={badgeText} />
                 </Box>
               )}
-            </>
+            </Fragment>
           )}
         </Flex>
         {option.subtext && (

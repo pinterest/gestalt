@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Backdrop.css';
@@ -24,7 +24,7 @@ function Backdrop({ animationState, children, closeOnOutsideClick, onClick }: Pr
   };
 
   return (
-    <>
+    <Fragment>
       {/* Disabling the linters below is fine, we don't want key event listeners (ESC handled elsewhere) */}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
@@ -36,7 +36,7 @@ function Backdrop({ animationState, children, closeOnOutsideClick, onClick }: Pr
         onClick={handleClick}
       />
       {children}
-    </>
+    </Fragment>
   );
 }
 

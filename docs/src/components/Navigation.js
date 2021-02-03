@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import { Box } from 'gestalt';
 import HeaderMenu from './HeaderMenu.js';
 import SidebarSection from './SidebarSection.js';
@@ -22,7 +22,7 @@ export default function Navigation(): Node {
   const { sidebarOrganisedBy, isSidebarOpen } = useNavigationContext();
 
   const navList = (
-    <>
+    <Fragment>
       {sidebarOrganisedBy === 'categorized' ? (
         sidebarIndex.map((section) => (
           <SidebarSection section={section} key={section.sectionName} />
@@ -34,18 +34,18 @@ export default function Navigation(): Node {
           ))}
         </Box>
       )}
-    </>
+    </Fragment>
   );
 
   return (
     <Box role="navigation">
       {isSidebarOpen && (
-        <>
+        <Fragment>
           <HeaderMenu />
           <Box height={350} overflow="scroll" display="block" mdDisplay="none" padding={4}>
             {navList}
           </Box>
-        </>
+        </Fragment>
       )}
 
       <Box display="none" mdDisplay="block" color="white">

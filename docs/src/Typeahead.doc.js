@@ -139,7 +139,7 @@ function Example(props) {
   const label = "Selected Item: " + (selected && selected.label || '');
 
   return (
-    <>
+    <React.Fragment>
       <Box marginBottom={4}>
        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
       </Box>
@@ -153,7 +153,7 @@ function Example(props) {
         onChange={handleOnChange}
         onSelect={handleSelect}
       />
-    </>
+    </React.Fragment>
   );
 }`}
   />,
@@ -183,7 +183,7 @@ function Example(props) {
   };
 
   return (
-    <>
+    <React.Fragment>
       <Box marginBottom={4}>
        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
       </Box>
@@ -198,7 +198,7 @@ function Example(props) {
         onChange={handleOnChange}
         onSelect={handleSelect}
       />
-    </>
+    </React.Fragment>
   );
 }`}
   />,
@@ -230,7 +230,7 @@ function Example(props) {
   const label = "Selected Item: " + (selected && selected.label || '');
 
   return (
-    <>
+    <React.Fragment>
       <Box marginBottom={4}>
        <Text>{ label }</Text>
       </Box>
@@ -244,7 +244,7 @@ function Example(props) {
         onChange={handleOnChange}
         onSelect={handleSelect}
       />
-    </>
+    </React.Fragment>
   );
 }`}
   />,
@@ -373,7 +373,7 @@ function Example(props) {
   const TYPEAHEAD_ZINDEX = new CompositeZIndex([MODAL_ZINDEX]);
 
   return (
-    <>
+    <React.Fragment>
       <Button
         inline
         text="Report a stolen account"
@@ -418,7 +418,7 @@ function Example(props) {
           </Modal>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }`}
   />,

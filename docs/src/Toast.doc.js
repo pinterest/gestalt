@@ -124,14 +124,14 @@ function ToastExample() {
           {showToast && (
             <Toast
               text={
-                <>
+                <React.Fragment>
                   Saved to{' '}
                   <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
                   </Text>
-                </>
+                </React.Fragment>
               }
             />
           )}
@@ -174,9 +174,9 @@ function ToastExample() {
             <Toast
               color="red"
               text={
-                <>
+                <React.Fragment>
                   Oops! Something went wrong. Please try again later.
-                </>
+                </React.Fragment>
               }
             />
           )}
@@ -226,14 +226,14 @@ function ToastExample() {
                 />
               }
               text={
-                <>
+                <React.Fragment>
                   Saved to{' '}
                   <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
                   </Text>
-                </>
+                </React.Fragment>
               }
             />
           )}
@@ -283,14 +283,14 @@ function ToastExample() {
                 />
               }
               text={
-                <>
+                <React.Fragment>
                   Saved to{' '}
                   <Text inline weight="bold">
                     <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
                       Home decor
                     </Link>
                   </Text>
-                </>
+                </React.Fragment>
               }
               button={<Button key="button-key" inline text="Undo" size="lg" />}
             />
@@ -311,14 +311,14 @@ card(
     showValues={false}
     text={[
       'Section created!',
-      <>
+      <React.Fragment>
         Saved to{' '}
         <Text inline weight="bold">
           <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
             Home decor
           </Link>
         </Text>
-      </>,
+      </React.Fragment>,
     ]}
     thumbnail={[
       null,
@@ -357,7 +357,7 @@ card(
           />
         }
         text={
-          <>
+          <React.Fragment>
             Saved to{' '}
             <Text inline weight="bold">
               <Link
@@ -368,7 +368,7 @@ card(
                 Home decor
               </Link>
             </Text>
-          </>
+          </React.Fragment>
         }
         button={<Button key="button-key" inline text="Undo" size="lg" />}
       />

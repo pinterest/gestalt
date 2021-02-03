@@ -1,6 +1,5 @@
 // @flow strict
-
-import React, { forwardRef, useState, type Node } from 'react';
+import React, { forwardRef, Fragment, type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -100,7 +99,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <>
+    <Fragment>
       <Box
         alignItems="center"
         display="flex"
@@ -165,7 +164,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         )}
       </Box>
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-    </>
+    </Fragment>
   );
 });
 

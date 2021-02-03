@@ -540,7 +540,7 @@ function MenuButtonExample() {
   const anchorRef = React.useRef();
 
   return (
-    <>
+    <React.Fragment>
         <TapArea
           accessibilityLabel="Open the options menu"
           accessibilityControls="menu"
@@ -595,7 +595,7 @@ function MenuButtonExample() {
           </Flyout>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   );
 }
 `}

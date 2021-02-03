@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -71,7 +71,7 @@ const CompletedCard = ({ dismissButton, message, status, statusMessage, title }:
   const icon = STATUS_ICONS[status];
 
   return (
-    <>
+    <Fragment>
       <Box display="flex">
         {icon && (
           <Box display="flex" alignContent="center">
@@ -110,7 +110,7 @@ const CompletedCard = ({ dismissButton, message, status, statusMessage, title }:
           />
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
 
@@ -126,7 +126,7 @@ const UncompletedCard = ({
   const icon = STATUS_ICONS[status];
 
   return (
-    <>
+    <Fragment>
       <Box display="flex" alignContent="center" height={24}>
         {icon && (
           <Box marginEnd={2}>
@@ -171,7 +171,7 @@ const UncompletedCard = ({
           />
         </div>
       )}
-    </>
+    </Fragment>
   );
 };
 

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
@@ -22,7 +22,7 @@ export default function ModuleTitle({
     },
   };
   return (
-    <>
+    <Fragment>
       {MODULE_TYPE_ATTRIBUTES[type].icon && (
         <Box marginEnd={2}>
           <Icon
@@ -35,6 +35,6 @@ export default function ModuleTitle({
       <Text weight="bold" truncate color={MODULE_TYPE_ATTRIBUTES[type].color}>
         {title}
       </Text>
-    </>
+    </Fragment>
   );
 }

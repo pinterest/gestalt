@@ -44,7 +44,7 @@ export default function Card({
   const slugifiedId = id ?? slugify(name);
 
   return (
-    <>
+    <React.Fragment>
       {showHeading && (
         <Heading size={headingSize}>
           <Box
@@ -83,6 +83,6 @@ export default function Card({
           {children}
         </Box>
       </Box>
-    </>
+    </React.Fragment>
   );
 }
