@@ -78,8 +78,8 @@ card(
 
 card(
   <MainSection
-    name="Localization and Inclusion"
-    description={`\`Localization and Inclusion\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+    name="Localization"
+    description={`\`Localization\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
   />,
 );
 

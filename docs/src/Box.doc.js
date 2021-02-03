@@ -23,16 +23,19 @@ card(
       {
         name: 'dangerouslySetInlineStyle',
         type: '{ __style: { [key: string]: string | number | void } }',
+        href: 'Best-Practices',
       },
       {
         name: 'children',
         type: 'React.Node',
+        href: 'Best-Practices',
       },
       {
         name: 'display',
         type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
         defaultValue: 'block',
         responsive: true,
+        href: 'Column-Layout',
       },
       {
         name: 'direction',
@@ -55,7 +58,6 @@ card(
         defaultValue: 'stretch',
         description:
           'Defines the default behaviour for how flex items are laid out along the cross-axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).',
-        href: 'Flex-Layout',
       },
       {
         name: 'alignSelf',
@@ -77,7 +79,13 @@ card(
         defaultValue: 'transparent',
         href: 'Colors',
       },
-      { name: 'fit', type: 'boolean', defaultValue: false },
+      {
+        name: 'fit',
+        type: 'boolean',
+        defaultValue: false,
+        description: 'Sets the max-width of the Box to 100%',
+        href: 'Sizing',
+      },
       {
         name: 'flex',
         type: '"grow" | "shrink" | "none"',
@@ -90,7 +98,6 @@ card(
         defaultValue: 'start',
         description:
           'Defines the alignment along the main axis. It helps distribute extra free space left over when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.',
-        href: 'Flex-Layout',
       },
       ...['left', 'right', 'top', 'bottom'].map((name) => ({
         name,
@@ -114,49 +121,60 @@ card(
         defaultValue: 0,
         responsive: true,
         description: prop.description,
+        href: 'Auto-Margins',
       })),
       {
         name: 'column',
         type: `0 .. 12`,
         responsive: true,
+        href: 'Column-Layout',
       },
       {
         name: 'maxHeight',
         type: `number | string`,
+        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
+        href: 'Sizing',
       },
       {
         name: 'maxWidth',
         type: `number | string`,
         description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%"`,
+        href: 'Sizing',
       },
       {
         name: 'minHeight',
         type: `number | string`,
         description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%"`,
+        href: 'Sizing',
       },
       {
         name: 'minWidth',
         type: `number | string`,
         description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%"`,
+        href: 'Sizing',
       },
       {
         name: 'height',
         type: `number | string`,
         description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
+        href: 'Sizing',
       },
       {
         name: 'width',
         type: `number | string`,
         description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
+        href: 'Sizing',
       },
       {
         name: 'opacity',
         type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
+        href: 'Opacity',
       },
       {
         name: 'overflow',
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
+        href: 'Sizing',
       },
       ...[
         {
@@ -172,6 +190,7 @@ card(
         type: '0 .. 12',
         defaultValue: 0,
         responsive: true,
+        href: 'Responsive-Padding',
       })),
       {
         name: 'position',
@@ -188,6 +207,8 @@ card(
       {
         name: 'role',
         type: 'string',
+        href: 'Using-Role',
+        description: 'Used to designate the Box as a type of element or landmark using ARIA roles.',
       },
       {
         name: 'rounding',
@@ -198,7 +219,7 @@ card(
         name: 'userSelect',
         type: `"auto" | "none"`,
         defaultValue: 'auto',
-        description: `controls whether or not user can select text`,
+        description: `Controls whether or not user can select text`,
       },
       {
         name: 'wrap',
@@ -331,10 +352,7 @@ function MenuButtonExample() {
   const secondBoxHeight = 25;
 
   return (
-    <Box
-      height={100}
-      paddingY={2}
-    >
+    <Box paddingY={2}>
       <Box
         color="midnight"
         height={firstBoxHeight}
@@ -382,7 +400,7 @@ card(
     <MainSection.Subsection
       title="Visually Hidden Content"
       description={`
-    Setting \`display="visuallyHidden"\` on \`Box\` allows for an element to be visually hidden but still be read by screen readers.
+    Setting \`display="visuallyHidden"\` on Box allows for an element to be visually hidden but still be read by screen readers.
   `}
     >
       <MainSection.Card
@@ -395,12 +413,46 @@ card(
 `}
       />
     </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Using Role"
+      description={`
+    Setting the  \`role\` property on Box classifies the Box as a type of user interface element. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page, allowing assistive technology to classify the Box appropriately.
+
+    Only use the \`role\` property when needed. Learn more about [ARIA roles]("https://www.w3.org/TR/wai-aria/#usage_intro").
+  `}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Box column={12}>
+  <Box column={12}>
+    <Box role="banner" color="midnight" height={50} width="100%">
+      <Text color="white" weight="bold">Header: role="banner"</Text>
+    </Box>
+    <Box column={8} display="inlineBlock">
+      <Box role="main" color="maroon" height={50} width="100%">
+        <Text color="white" weight="bold">Main Content: role="main"</Text>
+      </Box>
+    </Box>
+    <Box column={4} display="inlineBlock">
+      <Box role="form" color="eggplant" height={50} width="100%">
+        <Text color="white" weight="bold">Contact Form: role="form"</Text>
+      </Box>
+    </Box>
+    <Box role="navigation" color="midnight" height={50} width="100%">
+      <Text color="white" weight="bold">Site Map: role="navigation"</Text>
+    </Box>
+  </Box>
+</Box>
+`}
+      />
+    </MainSection.Subsection>
   </MainSection>,
 );
 
 card(
   <MainSection
-    name="Localization and Inclusion"
+    name="Localization"
     description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties will account for right-to-left languages and maintain proper spacing.`}
   >
     <MainSection.Subsection
@@ -557,15 +609,51 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       description={`
-      Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint.`}
+    Box can also be sized using a mixture of \`width\`, \`height\`, \`max/min width\`, \`max/min height\`, and \`fit\`.
+
+    When setting the size of a Box, the \`overflow\` property may need to be set in order to hide or scroll content that is outside the bounds of the Box.
+    `}
+      title="Sizing"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Box borderStyle="lg" column={12}>
+  <Box width="25%" minHeight={25} maxHeight={100} overflow="auto" padding={2} borderStyle="sm" color="eggplant">
+    <Text color="white"> Add or remove text in the editor to see the min and max heights take affect. Overflowing text will scroll. </Text>
+  </Box>
+  <Box width="50%" height={100} padding={2} borderStyle="sm" color="maroon">
+    <Text color="white">Width and Height can be specified with numbers for "px" values or percentages</Text>
+  </Box>
+  <Box width="75%" minWidth={100} maxWidth={500} padding={2} borderStyle="sm" color="eggplant">
+    <Text color="white">Change the screen width to see the min and max widths take affect </Text>
+  </Box>
+  <Box fit padding={2} borderStyle="sm" color="maroon">
+    <Text color="white">"fit" sets width to 100% </Text>
+  </Box>
+</Box>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`
+      Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint in either all directions, the x-axis only or the y-axis only.`}
       title="Responsive Padding"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="lightGray">
-  <Box width={40} height={40} color="maroon" />
-</Box>
+<Flex gap={3}>
+  <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="darkWash">
+    <Box width={40} height={40} color="maroon" />
+  </Box>
+  <Box paddingX={0} smPaddingX={1} mdPaddingX={2} lgPaddingX={3} color="darkWash">
+    <Box width={40} height={40} color="midnight" />
+  </Box>
+  <Box paddingY={0} smPaddingY={1} mdPaddingY={2} lgPaddingY={3} color="darkWash">
+    <Box width={40} height={40} color="eggplant" />
+  </Box>
+</Flex>
 `}
       />
     </MainSection.Subsection>
@@ -581,9 +669,8 @@ card(
         cardSize="lg"
         defaultCode={`
 <Box color="midnight" marginStart={12} marginEnd={12} column={12}>
-  <Box color="maroon" margin="auto" column="5" height={100}/>
-  <Box color="eggplant" marginStart="auto" column="3" height={100}/>
-
+  <Box borderStyle="sm" color="maroon" margin="auto" column="5" height={100}/>
+  <Box borderStyle="sm" color="eggplant" marginStart="auto" column="3" height={100}/>
 </Box>
 `}
       />
@@ -692,7 +779,7 @@ card(
 
       [TapArea](/TapArea)
 
-      - If a tap target is needed in order to click on a portion of the page, use TapArea, since onClick is not supported on Box.
+      - If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
 
       [Sticky](/Sticky)
 
