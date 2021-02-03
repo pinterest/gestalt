@@ -12,136 +12,8 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Box"
-    description="Box is a low level component that can be used to build the foundation of pretty much anything. Using Box allows you to focus on the important content, without worrying about the pixel details."
+    description="Box is a component primitive that can be used to build the foundation of pretty much any other component. Using Box allows users to focus on the content, while keeping the pixel details, like spacing, borders, or colors, automatically consistent with the rest of Gestalt."
   />,
-);
-
-card(
-  <MainSection name="Examples" showHeading={false}>
-    <MainSection.Subsection
-      description={`The following examples are all built using the \`Box\` component and its various props. `}
-    >
-      <MainSection.Card
-        title="Media Object"
-        description={`
-           The [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) is a common pattern for displaying data. What's interesting about this example is the use of \`flex\` to align the items. If you try changing the size of the \`Avatar\` or the number of lines of \`Text\`, both will stay aligned because they are center aligned.
-
-           In the double-sided example we use \`flex="grow"\` to mark a flex child as something that can expand. Try removing the \`grow\` property and see what happens.
-
-        `}
-        cardSize="lg"
-        defaultCode={`
-<Box column={10}>
-  <Box
-    alignItems="center"
-    display="flex"
-    width={300}
-    marginStart={-1}
-    marginEnd={-1}
-    paddingY={2}
-  >
-    <Box paddingX={1}>
-      <Avatar name="chrislloyd" size="md" />
-    </Box>
-    <Box paddingX={1}>
-      <Text weight="bold">Chris Lloyd</Text>
-      <Text>joined 2 years ago</Text>
-    </Box>
-  </Box>
-  <Box
-    alignItems="center"
-    direction="row"
-    display="flex"
-    marginStart={-1}
-    marginEnd={-1}
-  >
-    <Box paddingX={1}>
-      <Avatar name="chrislloyd" size="md" />
-    </Box>
-    <Box paddingX={1} flex="grow">
-      <Text weight="bold">Chris Lloyd</Text>
-      <Text>joined 2 years ago</Text>
-    </Box>
-    <Box paddingX={1}>
-      <Button text="Follow" size="sm" color="red" />
-    </Box>
-  </Box>
-</Box>
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        title="Expandable Module"
-        description="Underneath the hood, [Expandable Module](/Module) uses Box to create the styling of the rounded edges and shadow, while also ensuring the title can grow while keeping the icon aligned to the end."
-        defaultCode={`
-  <Module.Expandable
-    id="ModuleExample3"
-    accessibilityExpandLabel="Expand the module"
-    accessibilityCollapseLabel="Collapse the module"
-    items={[
-      {
-        title: 'Example with icon',
-        children: <Text size="md">Children1</Text>,
-        iconAccessibilityLabel: 'title icon',
-        icon: 'lock',
-      },
-    ]}
-  />
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        title="Stacked Checkboxes"
-        description="In this example, Box is used to create spacing between [Checkbox](/Checkbox) items, as well as set the height of the image in each item."
-        defaultCode={`
-<Box margin={-2}>
-  <Box padding={2}>
-    <Checkbox
-      checked={false}
-      id="coral"
-      label="Coral"
-      subtext="Botanical art in coral and green"
-      image={
-        <Box height={100} width={80}>
-          <Image
-            alt="Botanical art in coral and green"
-            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-            fit="contain"
-            naturalWidth={1}
-            naturalHeight={1}
-          />
-        </Box>
-      }
-      name="favorite art"
-      onChange={() => {}}
-    />
-  </Box>
-  <Box padding={2}>
-    <Checkbox
-      checked
-      id="blue"
-      label="Blue"
-      subtext="Typography and shoe in blue"
-      image={
-        <Box height={100} width={80}>
-          <Image
-            alt="Typography and shoe in blue"
-            src="https://i.ibb.co/jVR29XV/stock5.jpg"
-            fit="contain"
-            naturalWidth={1}
-            naturalHeight={1}
-          />
-        </Box>
-      }
-      name="favorite art"
-      onChange={() => {}}
-    />
-  </Box>
-</Box>
-`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
 );
 
 card(
@@ -233,9 +105,7 @@ card(
             'Scale is in 4px increments so a margin of 2 is 8px. Supports 3 responsive breakpoints: sm, md, lg. Each sets the margin from that breakpoint and up.',
         },
         { name: 'marginTop' },
-        { name: 'marginRight' },
         { name: 'marginBottom' },
-        { name: 'marginLeft' },
         { name: 'marginStart' },
         { name: 'marginEnd' },
       ].map((prop: {| name: string, description?: string |}) => ({
@@ -352,21 +222,30 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Use Box as a building block when creating other components or layouts. The included properties, detailed below, should cover any variations needed to create a diverse range of options."
+        description={`
+        Use Box as a building block when creating other components or layouts that do not rely on Flexbox. The included properties should cover any variations needed to create a diverse range of options.
+
+        If you find yourself using Box for Flexbox layouts, consider [Flex](/Flex) instead.
+        `}
         defaultCode={`
-<Box
-  alignItems="center"
-  direction="row"
-  display="flex"
-  marginStart={-1}
-  marginEnd={-1}
->
-  <Box paddingX={1}>
-    <Avatar name="chrislloyd" size="md" />
-  </Box>
-  <Box paddingX={1}>
-    <Text weight="bold">Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
+<Box column={12}>
+  <Box column={12}>
+    <Box color="midnight" height={50} width="100%">
+      <Text color="white" weight="bold">Header</Text>
+    </Box>
+    <Box column={6} display="inlineBlock">
+      <Box color="maroon" height={50} width="100%">
+        <Text color="white" weight="bold">Body 50% Content</Text>
+      </Box>
+    </Box>
+    <Box column={6} display="inlineBlock">
+      <Box color="eggplant" height={50} width="100%">
+        <Text color="white" weight="bold">Body 50% Content</Text>
+      </Box>
+    </Box>
+    <Box color="midnight" height={50} width="100%">
+      <Text color="white" weight="bold">Footer</Text>
+    </Box>
   </Box>
 </Box>
 `}
@@ -376,25 +255,25 @@ card(
         type="don't"
         description={`Don’t use the \`onClick\`, \`className\` and \`style\` properties.
 
-Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, and removing \`className\` and \`style\` ensures style encapsulation.
+Box is a pass-through component, meaning that any other properties you provide to it will be directly applied to the underlying \`<div>\`. The above properties are exceptions, however.  We don’t allow  \`onClick\`  for  accessibility reasons, so consider a [Button](/Button) or [TapArea](/TapArea) instead. We remove \`className\` and \`style\` to ensure style encapsulation. If necessary, \`dangerouslySetInlineStyle\` can be used to supply a style not supported by Box props.
 
-If you need to use these features, please use a \`<div>\` or the appropriate semantic element (such as Button) instead.`}
+If you need to use these features for animation purposes, use a \`<div>\` instead.`}
         defaultCode={`
 <Box
   className="This class name will not appear"
-  style={{backgroundColor: "red"}}
-  alignItems="center"
-  direction="row"
-  display="flex"
-  marginStart={-1}
-  marginEnd={-1}
+  style={{backgroundColor: "orange"}}
+  color="midnight"
+  column={12}
+  height={100}
+  padding={4}
 >
-  <Box paddingX={1}>
-    <Avatar name="chrislloyd" size="md" />
-  </Box>
-  <Box paddingX={1}>
-    <Text weight="bold">Chris Lloyd</Text>
-    <Text>joined 2 years ago</Text>
+  <Box
+    onClick={() => {"You clicked maroon"}}
+    paddingX={1}
+    color="maroon"
+    height={50}
+  >
+    <Text color="white" weight="bold">Clicking here will do nothing</Text>
   </Box>
 </Box>
 `}
@@ -416,7 +295,7 @@ If you need to use these features, please use a \`<div>\` or the appropriate sem
         height={50}
         marginTop={3}
       >
-        <Text color="white"weight="bold">
+        <Text color="white" weight="bold">
           These all collapsed
         </Text>
       </Box>
@@ -445,45 +324,47 @@ If you need to use these features, please use a \`<div>\` or the appropriate sem
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description={`Avoid using \`marginLeft\` and \`marginRight\` properties, favoring \`marginStart\` and \`marginEnd\` instead to account for right-to-left languages `}
+        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box.`}
         defaultCode={`
-function Example() {
-  const MarginSwatch = (props) => (
-    <Box
-      margin={1}
-      dangerouslySetInlineStyle={{
-        __style: { backgroundColor: 'rgba(255, 0, 0, 0.2)' },
-      }}
-    >
-      <Box
-        padding={1}
-        {...props}
-        dangerouslySetInlineStyle={{
-          __style: { backgroundColor: 'rgba(0, 0, 255, 0.2)' },
-        }}
-      >
-        {JSON.stringify(props)}
-      </Box>
-    </Box>
-  );
-
-  const toggleRTL = () => {
-    if (document.documentElement) {
-      const isRTL = document.documentElement.dir === 'rtl';
-      document.documentElement.dir = isRTL ? 'ltr' : 'rtl';
-    }
-  };
+function MenuButtonExample() {
+  const firstBoxHeight = 50;
+  const secondBoxHeight = 25;
 
   return (
-    <Box maxWidth={200} marginBottom={2}>
-      <Button size="sm" onClick={toggleRTL} text="Toggle Page Direction" />
-      <MarginSwatch marginStart={2} />
-      <MarginSwatch marginEnd={2} />
-      <MarginSwatch marginStart={-2} />
-      <MarginSwatch marginEnd={-2} />
-      <Text> These won't change </Text>
-      <MarginSwatch marginLeft={2} />
-      <MarginSwatch marginRight={2} />
+    <Box
+      height={100}
+      paddingY={2}
+    >
+      <Box
+        color="midnight"
+        height={firstBoxHeight}
+        padding={2}
+        marginBottom={1}
+      >
+        <Text color="white" weight="bold">
+          This uses a proper, Gestalt colored Box
+        </Text>
+      </Box>
+      <div
+        style={{backgroundColor: '#6e0f3c', color: 'white'}}
+      >
+        This could be using Box, but isn't.
+      </div>
+      <Box
+        color="eggplant"
+        dangerouslySetInlineStyle={{
+          __style: {
+            paddingBottom: '${50 + 25}px',
+          },
+        }}
+        height={50}
+        padding={2}
+        marginTop={1}
+      >
+        <Text color="white" weight="bold">
+          This uses dangerouslySetInlineStyle to add a calculated paddingBottom
+        </Text>
+      </Box>
     </Box>
   );
 }
@@ -520,11 +401,11 @@ card(
 card(
   <MainSection
     name="Localization and Inclusion"
-    description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties (instead of left and right specifics) will account for right-to-left languages and maintain proper spacing.`}
+    description={`Utilizing the \`marginStart\` and \`marginEnd\`  properties will account for right-to-left languages and maintain proper spacing.`}
   >
     <MainSection.Subsection
       description={`
-    Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. \`marginStart\` and \`marginEnd\` are margins that offer RTL support.
+    Some languages (ex. Arabic, Hebrew) read from right to left (RTL) instead of from left to right. For this reason, we use \`marginStart\` and \`marginEnd\` (as opposed to left and right options) to support RTL. If specific left and right options are needed, use \`dangerouslySetInlineStyle\`.
 
     \`marginStart\` is a left margin that flips to a right margin in a RTL layout.
 
@@ -542,14 +423,14 @@ function Example() {
     <Box
       margin={1}
       dangerouslySetInlineStyle={{
-        __style: { backgroundColor: 'rgba(255, 0, 0, 0.2)' },
+        __style: { backgroundColor: 'rgba(110, 15, 60, 0.2)' },
       }}
     >
       <Box
         padding={1}
         {...props}
         dangerouslySetInlineStyle={{
-          __style: { backgroundColor: 'rgba(0, 0, 255, 0.2)' },
+          __style: { backgroundColor: 'rgba(19, 58, 94, 0.2)' },
         }}
       >
         {JSON.stringify(props)}
@@ -571,9 +452,6 @@ function Example() {
       <MarginSwatch marginEnd={2} />
       <MarginSwatch marginStart={-2} />
       <MarginSwatch marginEnd={-2} />
-      <Text> These won't change </Text>
-      <MarginSwatch marginLeft={2} />
-      <MarginSwatch marginRight={2} />
     </Box>
   );
 }
@@ -653,7 +531,7 @@ card(
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`The \`rounding\` property sets a border radius for the \`Box\`. Options are "circle" or "pill" for fully rounded corners or 0-8 representing the radius in 4px increments.`}
+      description={`The \`rounding\` property sets a border radius for the Box. Options are \`circle\` or \`pill\` for fully rounded corners or 0-8 representing the radius in 4px increments.`}
       title="Rounding"
     >
       <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
@@ -669,21 +547,12 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       description={`
-    Box uses Flexbox to achieve layout. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+    The \`column\` property allows for automatic widths based on a 12-column grid. To create responsive layouts, specify different values for \`smColumn\`, \`mdColumn\`, and \`lgColumn\`.
   `}
-      title="Flex Layout"
+      title="Column Layout"
     >
-      <CombinationNew
-        justifyContent={['start', 'end', 'center', 'between', 'around']}
-        alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
-      >
-        {(props) => (
-          <Box display="flex" width="75%" height="75%" {...props} borderStyle="shadow">
-            <Box margin={1} color="gray" height={8} width={8} />
-            <Box margin={1} color="gray" height={16} width={8} />
-            <Box margin={1} color="gray" height={32} width={8} />
-          </Box>
-        )}
+      <CombinationNew column={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']}>
+        {(props) => <Box height={100} color="midnight" {...props} />}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -695,35 +564,26 @@ card(
         cardSize="lg"
         defaultCode={`
 <Box padding={0} smPadding={1} mdPadding={2} lgPadding={3} color="lightGray">
-  <Box width={40} height={40} color="green" />
+  <Box width={40} height={40} color="maroon" />
 </Box>
 `}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
       description={`
-      Auto margin is a useful tool when using flexbox layouts. When a flex container has extra space and no components are set to grow, the browser would normally place elements next to each other. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
+      Auto margin is a useful tool when positioning items without using flexbox layouts. By setting any of the margin properties to "auto", the margin will extend to fill the extra space.
 
-      This can be seen in our Callout component, where the actions container uses \`marginStart="auto"\` to automatically adjust the actions at smaller screen sizes.
+      This can be seen below, where the 5-column width Box is centered using \`margin="auto"\` and the 3-column width Box uses \`marginStart="auto"\` to automatically adjust the Box to the far edge.
       `}
       title="Auto Margins"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Box marginStart={12} marginEnd={12}>
-  <Callout
-    type="info"
-    iconAccessibilityLabel="Info icon"
-    title="Your business account was created!"
-    message="Apply to the Verified Merchant Program!"
-    primaryAction={{href: "https://pinterest.com", label:"Get started"}}
-    secondaryAction={{href: "https://pinterest.com", label:"Learn more"}}
-    dismissButton={{
-      accessibilityLabel: 'Dismiss banner',
-      onDismiss: ()=>{},
-    }}
-  />
+<Box color="midnight" marginStart={12} marginEnd={12} column={12}>
+  <Box color="maroon" margin="auto" column="5" height={100}/>
+  <Box color="eggplant" marginStart="auto" column="3" height={100}/>
+
 </Box>
 `}
       />
@@ -732,24 +592,27 @@ card(
       description={`
     Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
 
-    The SearchField uses absolute positioning to position the search Icon at the beginning of the input.
     `}
       title="Absolute Positioning"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-  <Box display="flex" alignItems="center" height={100}>
-    <Box position="absolute" top left padding={2} color="midnight">
-      <Text color="white">Change the helpers to move me around</Text>
-    </Box>
-    <SearchField
-      accessibilityLabel="Demo Search Field"
-      id="searchField"
-      onChange={({value}) => console.log(value)}
-      placeholder="Search and explore"
-    />
+<Box height={100}>
+  <Box position="absolute" top left padding={2} color="midnight">
+    <Text color="white">Top Left</Text>
   </Box>
+  <Box position="absolute" top right padding={2} color="midnight">
+    <Text color="white">Top Right</Text>
+  </Box>
+  <Box position="absolute" bottom left padding={2} color="midnight">
+    <Text color="white">Bottom Left</Text>
+  </Box>
+  <Box position="absolute" bottom right padding={2} color="midnight">
+    <Text color="white">Bottom Right</Text>
+  </Box>
+  <Box color="maroon" width={400} height="100%"/>
+</Box>
 `}
       />
     </MainSection.Subsection>
@@ -807,7 +670,7 @@ function BoxFlyoutExample() {
 function Example() {
   const HEADER_ZINDEX = new FixedZIndex(100);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-  return <Box color="blue" width={60} height={60} zIndex={zIndex} />
+  return <Box color="midnight" width={60} height={60} zIndex={zIndex} />
 }
 `}
       />
@@ -821,11 +684,20 @@ card(
     description={`
       [Flex](/Flex)
 
-      - Use Flex and Flex.Item for flex layouts when you don't need the extra functionality in Box, and could benefit from the ability to supply a gap between items.
+      - Use Flex and Flex.Item for flex layouts when you want to separate layout concerns from the extra functionality in Box. Flex is also extremely beneficial when trying to arrange items with consistent, repetitive gutters using the \`gap\` property.
 
       [Container](/Container)
 
       - Use Container to responsively layout content at different screen sizes.
+
+      [TapArea](/TapArea)
+
+      - If a tap target is needed in order to click on a portion of the page, use TapArea, since onClick is not supported on Box.
+
+      [Sticky](/Sticky)
+
+      - Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
+
     `}
   />,
 );
