@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { Fragment, type Node } from 'react';
 import { Button, Link, Image, Text, Toast } from 'gestalt';
 import Combination from './components/Combination.js';
 import Example from './components/Example.js';
@@ -311,14 +311,14 @@ card(
     showValues={false}
     text={[
       'Section created!',
-      <React.Fragment>
+      <Fragment key="saved-text">
         Saved to{' '}
         <Text inline weight="bold">
           <Link inline target="blank" href="https://www.pinterest.com/search/pins/?q=home%20decor">
             Home decor
           </Link>
         </Text>
-      </React.Fragment>,
+      </Fragment>,
     ]}
     thumbnail={[
       null,
@@ -357,7 +357,7 @@ card(
           />
         }
         text={
-          <React.Fragment>
+          <Fragment>
             Saved to{' '}
             <Text inline weight="bold">
               <Link
@@ -368,7 +368,7 @@ card(
                 Home decor
               </Link>
             </Text>
-          </React.Fragment>
+          </Fragment>
         }
         button={<Button key="button-key" inline text="Undo" size="lg" />}
       />
