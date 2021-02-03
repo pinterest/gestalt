@@ -1,5 +1,5 @@
 /**
- * ScrollableContainer is an optional wrapper component that ensures that flyout-based
+ * ScrollableContainer is an optional wrapper component that ensures that anchor-based
  * components such as Flyout, Tooltip, Dropdown, and Typeahead, are  correctly positioned inside
  * scrolling containers.
  *
@@ -37,7 +37,6 @@ function ScrollableContainer({ children, height = '100%', overflow = 'auto' }: P
       const ref = anchorRef.current;
       addRef(ref);
     }
-    return undefined;
   }, [addRef]);
 
   return (

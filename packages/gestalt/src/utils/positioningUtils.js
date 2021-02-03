@@ -126,11 +126,13 @@ export function getFlyoutDir({
   idealDirection,
   triggerRect,
   windowSize,
+  isScrollableContainer,
 }: {|
   flyoutSize: Dimensions,
   idealDirection: FlyoutDir,
   triggerRect: ClientRect,
   windowSize: Window,
+  isScrollableContainer?: boolean,
 |}): MainDirections {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
@@ -149,7 +151,9 @@ export function getFlyoutDir({
 
   // skipNoEdgeCondition is mostly an edge case within ScrollableContainers because trigger elements are more likely
   // to touch both edges of the parent ScrollableContainers without margins/paddings
-  const skipNoEdgeCondition = (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
+  const skipNoEdgeCondition =
+    isScrollableContainer && (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
+
   if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
     right = 0;
@@ -229,11 +233,11 @@ export function getCaretDir({
 export function calcEdgeShifts({
   triggerRect,
   windowSize,
-  isScrollableBox,
+  isScrollableContainer,
 }: {|
   triggerRect: ClientRect,
   windowSize: Window,
-  isScrollableBox: boolean,
+  isScrollableContainer: boolean,
 |}): {| caret: Coordinates, flyout: Coordinates |} {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
@@ -253,14 +257,14 @@ export function calcEdgeShifts({
   // If there's a parent ScrollableContainer and trigger is close vertically and/or horizontally,
   // skip the flyout shift adjusments so that the flyout is right in the edge.
   if (isCloseVertically) {
-    flyoutVerticalShift = isScrollableBox
+    flyoutVerticalShift = isScrollableContainer
       ? 0
       : BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
   if (isCloseHorizontally) {
-    flyoutHorizontalShift = isScrollableBox
+    flyoutHorizontalShift = isScrollableContainer
       ? 0
       : BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
@@ -288,7 +292,7 @@ export function adjustOffsets({
   flyoutDir,
   caretDir,
   triggerRect,
-  isScrollableBox,
+  isScrollableContainer,
 }: {|
   base: {| top: number, left: number |},
   edgeShift: EdgeShift,
@@ -296,7 +300,7 @@ export function adjustOffsets({
   flyoutDir: FlyoutDir,
   caretDir: CaretDir,
   triggerRect: ClientRect,
-  isScrollableBox: boolean,
+  isScrollableContainer: boolean,
 |}): {|
   caretOffset: CaretOffset,
   flyoutOffset: Offset,
@@ -313,10 +317,10 @@ export function adjustOffsets({
   // adjust the caret position to correctly match its flyout.
   if (caretDir === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
-    caretTop = edgeShift.caret.y + (isScrollableBox ? 6 : 2);
+    caretTop = edgeShift.caret.y + (isScrollableContainer ? 6 : 2);
   } else if (caretDir === 'down') {
     flyoutTop = base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
-    caretBottom = edgeShift.caret.y + (isScrollableBox ? 6 : 2);
+    caretBottom = edgeShift.caret.y + (isScrollableContainer ? 6 : 2);
   } else if (caretDir === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;

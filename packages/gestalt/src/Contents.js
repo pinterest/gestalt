@@ -177,7 +177,13 @@ class Contents extends Component<Props, State> {
       height: flyoutRef ? flyoutRef.clientHeight : 0,
       width: (flyoutRef ? flyoutRef.clientWidth : width) || 0,
     };
-    const flyoutDir = getFlyoutDir({ flyoutSize, idealDirection, triggerRect, windowSize });
+    const flyoutDir = getFlyoutDir({
+      flyoutSize,
+      idealDirection,
+      triggerRect,
+      windowSize,
+      isScrollableContainer: !!containerNode,
+    });
     const flyoutData = { flyoutDir, flyoutSize };
 
     // Adjusts for the subdirection of the caret
@@ -194,13 +200,13 @@ class Contents extends Component<Props, State> {
       edgeShift: calcEdgeShifts({
         triggerRect,
         windowSize,
-        isScrollableBox: !!containerNode,
+        isScrollableContainer: !!containerNode,
       }),
       ...flyoutData,
       // Now that we have the main direction, chose from 3 caret placements for that direction
       caretDir: getCaretDir({ flyoutSize, flyoutDir, triggerRect, windowSize }),
       triggerRect,
-      isScrollableBox: !!containerNode,
+      isScrollableContainer: !!containerNode,
     });
 
     return {

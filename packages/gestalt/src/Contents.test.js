@@ -86,7 +86,13 @@ describe('Contents', () => {
       });
     });
 
-    it('Opens right or bottom when the trigger is right on the top/left corner', () => {
+    it('Chooses the direction in which there is the most space if idealDirection is not given', () => {
+      const triggerRect = upperMiddleTriggerRect({ left: 40, right: 80 });
+      const mainDir = getFlyoutDir({ flyoutSize, idealDirection: null, triggerRect, windowSize });
+      expect(mainDir).toEqual('down');
+    });
+
+    it('Chooses the direction within ScrollableBox, opens right or bottom when the trigger is right on the top/left corner', () => {
       const centerRightTriggerRect = {
         bottom: 40,
         height: 40,
@@ -114,15 +120,10 @@ describe('Contents', () => {
           flyoutSize: reducedFlyoutSize,
           triggerRect: centerRightTriggerRect,
           windowSize: scrollableContainerSize,
+          isScrollableContainer: true,
         });
         expect(mainDir).toEqual(mainDir === 'down' ? 'down' : 'right');
       });
-    });
-
-    it('Chooses the direction in which there is the most space if idealDirection is not given', () => {
-      const triggerRect = upperMiddleTriggerRect({ left: 40, right: 80 });
-      const mainDir = getFlyoutDir({ flyoutSize, idealDirection: null, triggerRect, windowSize });
-      expect(mainDir).toEqual('down');
     });
   });
 
@@ -288,7 +289,7 @@ describe('Contents', () => {
         flyoutDir,
         caretDir,
         triggerRect,
-        isScrollableBox: false,
+        isScrollableContainer: false,
       });
       expect(flyoutOffset).toEqual(expectedFlyoutOffset);
       expect(caretOffset).toEqual(expectedCaretOffset);
@@ -330,7 +331,7 @@ describe('Contents', () => {
       flyoutDir,
       caretDir,
       triggerRect,
-      isScrollableBox: false,
+      isScrollableContainer: false,
     });
     expect(flyoutOffset).toEqual(expectedFlyoutOffset);
     expect(caretOffset).toEqual(expectedCaretOffset);
@@ -339,7 +340,11 @@ describe('Contents', () => {
   describe('Edge shifts calculated correctly', () => {
     it('Keeps Container on screen when trigger is on the edge', () => {
       const triggerRect = upperLeftTriggerRect();
-      const { flyout, caret } = calcEdgeShifts({ triggerRect, windowSize, isScrollableBox: false });
+      const { flyout, caret } = calcEdgeShifts({
+        triggerRect,
+        windowSize,
+        isScrollableContainer: false,
+      });
       expect(triggerRect.bottom - flyout.y).toBeGreaterThan(0);
       expect(flyout.x).toBeLessThan(BORDER_RADIUS);
       expect(caret.x).toEqual(caret.y);

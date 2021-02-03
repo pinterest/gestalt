@@ -15,12 +15,30 @@ card(
 );
 
 card(
-  <MainSection name="Examples">
-    <MainSection.Subsection
-      description={`The following examples are all built using the \`ScrollableContainer\` component.`}
-    >
+  <PropTable
+    props={[
+      {
+        name: 'height',
+        type: `number | string`,
+        defaultValue: '100%',
+        description: [
+          `Use numbers for pixels: height={100} and strings for percentages: height="100%".`,
+          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets height.`,
+        ],
+      },
+      {
+        name: 'overflow',
+        type: `'scroll' | 'scrollX' | 'scrollY' | 'auto'`,
+        defaultValue: 'auto',
+      },
+    ]}
+  />,
+);
+
+card(
+  <MainSection name="Variants">
+    <MainSection.Subsection title="Flyout within ScrollableContainer">
       <MainSection.Card
-        title="Flyout within ScrollableContainer"
         cardSize="lg"
         defaultCode={`
 function Example() {
@@ -79,9 +97,10 @@ function Example() {
     </ScrollableContainer>
 )}`}
       />
+    </MainSection.Subsection>
+    <MainSection.Subsection title="Tooltips with ScrollableContainer">
       <MainSection.Card
         cardSize="lg"
-        title="Tooltips with ScrollableContainer"
         defaultCode={`
 function ScrollableContainerExample() {
   const [content, setContent] = React.useState(null);
@@ -294,10 +313,13 @@ function ScrollableContainerExample() {
     </ScrollableContainer>
 )}`}
       />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Modal, DropDown, and Typeahead with ScrollableContainer"
+      description="In this example, the content in Modal extends the modal's dimensions. It requires ScrollableContainer so that Typeahead and Dropdown components stay correctly anchored after scrolling."
+    >
       <MainSection.Card
         cardSize="lg"
-        title="Modal, DropDown, and Typeahead with ScrollableContainer"
-        description="In this example, the content in Modal extends the modal's dimensions. It requires ScrollableContainer so that Typeahead and Dropdown components stay correctly anchored after scrolling."
         defaultCode={`
 function ScrollableContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
@@ -567,27 +589,6 @@ function ScrollableContainerExample() {
       />
     </MainSection.Subsection>
   </MainSection>,
-);
-
-card(
-  <PropTable
-    props={[
-      {
-        name: 'height',
-        type: `number | string`,
-        defaultValue: '100%',
-        description: [
-          `Use numbers for pixels: height={100} and strings for percentages: height="100%".`,
-          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets height.`,
-        ],
-      },
-      {
-        name: 'overflow',
-        type: `'scroll' | 'scrollX' | 'scrollY' | 'auto'`,
-        defaultValue: 'auto',
-      },
-    ]}
-  />,
 );
 
 export default cards;
