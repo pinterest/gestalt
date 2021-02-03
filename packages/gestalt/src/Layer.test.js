@@ -13,6 +13,6 @@ describe('Layer in server render', () => {
     }
 
     const tree = create(<Layer>content</Layer>).toJSON();
-    expect(tree).toEqual(null);
+    expect(tree?.type).toBe('div');
   });
 });

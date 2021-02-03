@@ -37,6 +37,7 @@ import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
 import ScrollFetch from './ScrollFetch.js';
+import ScrollableContainer from './ScrollableContainer.js';
 import SearchField from './SearchField.js';
 import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
@@ -102,6 +103,7 @@ export {
   Pulsar,
   RadioButton,
   ScrollFetch,
+  ScrollableContainer,
   SearchField,
   SegmentedControl,
   SelectList,
