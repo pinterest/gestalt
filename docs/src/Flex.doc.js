@@ -195,7 +195,14 @@ card(
         alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
       >
         {(props) => (
-          <Box display="flex" width="75%" height="75%" {...props} borderStyle="shadow">
+          <Box
+            display="flex"
+            width="75%"
+            height="75%"
+            borderStyle="shadow"
+            justifyContent={props.justifyContent}
+            alignItems={props.alignItems}
+          >
             <Box margin={1} color="gray" height={8} width={8} />
             <Box margin={1} color="gray" height={16} width={8} />
             <Box margin={1} color="gray" height={32} width={8} />

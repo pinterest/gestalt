@@ -588,7 +588,7 @@ card(
           'darkWash',
         ]}
       >
-        {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
+        {(props) => <Box width={60} height={60} rounding="circle" color={props.color} />}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -597,13 +597,18 @@ card(
     >
       <CombinationNew rounding={['pill', 'circle', 0, 1, 2, 3, 4, 5, 6, 7, 8]}>
         {(props) => (
-          <Box color="gray" width={props.rounding === 'pill' ? 120 : 70} height={70} {...props} />
+          <Box
+            color="gray"
+            width={props.rounding === 'pill' ? 120 : 70}
+            height={70}
+            rounding={props.rounding}
+          />
         )}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection description="" title="Opacity">
       <CombinationNew opacity={[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}>
-        {(props) => <Box color="darkGray" width={60} height={60} {...props} />}
+        {(props) => <Box color="darkGray" width={60} height={60} opacity={props.opacity} />}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -613,7 +618,7 @@ card(
       title="Column Layout"
     >
       <CombinationNew column={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']}>
-        {(props) => <Box height={100} color="midnight" {...props} />}
+        {(props) => <Box height={100} color="midnight" column={props.column} />}
       </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection
