@@ -1,3 +1,9 @@
+## 16.10.1 (Feb 3, 2021)
+
+### Patch
+
+- Internal: Add lint rules to enforce fragment style and use of keys (#1361)
+
 ## 16.10.0 (Feb 3, 2021)
 
 ### Minor
