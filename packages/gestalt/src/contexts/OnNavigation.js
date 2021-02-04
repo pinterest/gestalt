@@ -10,15 +10,14 @@ export type onNavigationOptionsType = {|
 |};
 export type onNavigationType = ({|
   href: string,
-  event: SyntheticMouseEvent<> | SyntheticKeyboardEvent<>,
   onNavigationOptions?: onNavigationOptionsType,
-|}) => void;
+|}) => ?EventHandlerType;
+
 type OnNavigationType = {| onNavigation: onNavigationType |};
 
 type Props = {|
   children: Node,
   onNavigation?: onNavigationType,
-  onNavigationOptions?: onNavigationOptionsType,
 |};
 
 const OnNavigation: Context<OnNavigationType | void> = createContext<OnNavigationType | void>();

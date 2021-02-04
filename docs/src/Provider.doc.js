@@ -34,9 +34,9 @@ card(
       {
         name: 'onNavigation',
         type:
-          '{ href: string, onNavigationOptions:  ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void , event }',
+          '{ href: string, onNavigationOptions:  ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) }',
         description: [
-          `If passed in, consumer components (Link, Button, IconButton, and TapArea) call the onNavigation callback function inside the onClick event handler. These consumer components pass 3 named parameters to the onNavigation function: an href, the onNavigationOptions object, and the event`,
+          `onNavigation is a high-order function. If passed in, consumer components (Link, Button, IconButton, and TapArea) call the onNavigation function with 2 named parameters (href and onNavigationOptions) that returns a function that gets called inside the onClick event handler.`,
           `"onNavigationOptions" is an object that acts as a flexible API for your onNavigation external logic.`,
         ],
         href: 'onNavigation',
@@ -98,18 +98,23 @@ card(
 function OnNavigation() {
   const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState(true);
 
-  const onNavigation = ({ href, onNavigationOptions, event }) => {
-    if (onNavigationOptions && onNavigationOptions.navigationMode === 'client') {
-      event.nativeEvent.preventDefault();
-      // eslint-disable-next-line no-alert
-      alert("Disabled link. Opening help.pinterest.com instead");
-      window.open("https://help.pinterest.com", '_blank')
-    }
-  };
+  const onNavigation = ({ href, onNavigationOptions }) => {
+
+    const onNavigationClick = ({ event }) => {
+        event.nativeEvent.preventDefault();
+        // eslint-disable-next-line no-alert
+        alert('Disabled link. Opening help.pinterest.com instead');
+        window.open('https://help.pinterest.com', '_blank');
+      }
+
+    return onNavigationOptions && onNavigationOptions.navigationMode === 'client' ? onNavigationClick: null;
+  }
 
   const linkProps = {
     href: "https://pinterest.com",
-    onNavigationOptions: { navigationMode: clientOnNavigationMode ? 'client' : 'server' },
+    onNavigationOptions: {
+      navigationMode: clientOnNavigationMode ? 'client' : 'server'
+    },
     target: "blank",
   }
 

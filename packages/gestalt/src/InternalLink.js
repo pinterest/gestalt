@@ -151,7 +151,14 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
   );
 
-  const onNavigateContext = useOnNavigation();
+  const { onNavigation } = useOnNavigation() || {};
+
+  const onNavigationClick =
+    onNavigation &&
+    onNavigation({
+      href,
+      onNavigationOptions,
+    });
 
   return (
     <a
@@ -167,12 +174,8 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
         handleBlur();
       }}
       onClick={(event) => {
-        if (onNavigateContext) {
-          onNavigateContext.onNavigation({
-            href,
-            onNavigationOptions,
-            event,
-          });
+        if (onNavigationClick) {
+          onNavigationClick({ event });
         }
         if (onClick) {
           onClick({ event });

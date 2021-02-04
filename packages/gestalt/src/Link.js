@@ -99,7 +99,14 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     },
   );
 
-  const onNavigationContext = useOnNavigation();
+  const { onNavigation } = useOnNavigation() || {};
+
+  const onNavigationClick =
+    onNavigation &&
+    onNavigation({
+      href,
+      onNavigationOptions,
+    });
 
   return (
     <a
@@ -115,12 +122,8 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         }
       }}
       onClick={(event) => {
-        if (onNavigationContext) {
-          onNavigationContext.onNavigation({
-            href,
-            onNavigationOptions,
-            event,
-          });
+        if (onNavigationClick) {
+          onNavigationClick({ event });
         }
         if (onClick) {
           onClick({ event });
