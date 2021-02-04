@@ -242,8 +242,8 @@ card(
     display="flex"
     direction="row"
     paddingY={2}
-    marginLeft={-2}
-    marginRight={-2}
+    marginStart={-2}
+    marginEnd={-2}
     color="gray"
     wrap
   >

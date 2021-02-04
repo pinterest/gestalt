@@ -123,7 +123,7 @@ function Example(props) {
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -252,7 +252,7 @@ card(
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -314,7 +314,7 @@ function Example(props) {
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -388,7 +388,7 @@ function HeadingExample(props) {
   }
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -464,7 +464,7 @@ function ModalRefExample() {
   }, [showModal, modalRef]);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -504,7 +504,7 @@ card(
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -568,7 +568,7 @@ function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -586,8 +586,8 @@ function Example(props) {
                   justifyContent="between"
                   display="flex"
                   direction="row"
-                  marginLeft={-1}
-                  marginRight={-1}
+                  marginStart={-1}
+                  marginEnd={-1}
                 >
                   <Box column={12} smColumn={6} paddingX={1}>
                     <Button text="Delete Board" inline size="lg" />
@@ -679,7 +679,7 @@ function Example(props) {
   }
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline
@@ -735,7 +735,7 @@ function Example(props) {
   const [showFlyout, setShowFlyout] = React.useState(false);
   const anchorRef = React.useRef();
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Box padding={1}>
         <Button
           inline

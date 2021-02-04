@@ -113,7 +113,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
               width={16}
               height={16}
               color="white"
-              marginLeft={-2}
+              marginStart={-2}
               dangerouslySetInlineStyle={{ __style: { marginTop: -6 } }}
             />
           </Box>

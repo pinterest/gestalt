@@ -117,8 +117,8 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
         alignItems={subtext || image ? 'start' : 'center'}
         display="flex"
         justifyContent="start"
-        marginLeft={-1}
-        marginRight={-1}
+        marginStart={-1}
+        marginEnd={-1}
       >
         <Label htmlFor={id}>
           <Box paddingX={1} position="relative">

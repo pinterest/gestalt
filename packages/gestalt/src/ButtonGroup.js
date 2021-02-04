@@ -14,7 +14,7 @@ function ButtonGroup({ children }: {| children?: Node |}): Node {
   }
 
   return (
-    <Box marginStart={-1} marginRight={-1} marginTop={-1} marginBottom={-1} display="flex" wrap>
+    <Box marginStart={-1} marginEnd={-1} marginTop={-1} marginBottom={-1} display="flex" wrap>
       {Children.map(children, (child) =>
         child !== null && child !== undefined ? (
           <Box paddingX={1} paddingY={1}>
