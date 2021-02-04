@@ -18,6 +18,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
+import { useOnNavigation, type onNavigationOptionsType } from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -39,6 +40,7 @@ type Props = {|
   onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onNavigationOptions?: onNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,
@@ -70,6 +72,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     onMouseLeave,
     onMouseDown,
     onMouseUp,
+    onNavigationOptions,
     rel,
     tabIndex = 0,
     rounding,
@@ -148,6 +151,17 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
   );
 
+  // useOnNavigation is only accessible with Gestalt Provider
+  // and when onNavigation prop is passed to it
+  const { onNavigation } = useOnNavigation() || {};
+
+  const onNavigationClick =
+    onNavigation &&
+    onNavigation({
+      href,
+      onNavigationOptions,
+    });
+
   return (
     <a
       aria-label={accessibilityLabel}
@@ -162,6 +176,9 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
         handleBlur();
       }}
       onClick={(event) => {
+        if (onNavigationClick) {
+          onNavigationClick({ event });
+        }
         if (onClick) {
           onClick({ event });
         }
@@ -247,6 +264,8 @@ InternalLinkWithForwardRef.propTypes = {
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  onNavigationOptions: PropTypes.object,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,
