@@ -187,6 +187,8 @@ const disallowedProps = [
   'onClick',
   'className',
   'style',
+  // We're currently also explicitly disallowing the deprecated marginLeft/Right
+  // props, as they're not RTL-friendly.
   'marginLeft',
   'smMarginLeft',
   'mdMarginLeft',
