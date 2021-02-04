@@ -247,7 +247,7 @@ card(
 );
 
 card(
-  <MainSection name="Best Practices">
+  <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card
         cardSize="md"
@@ -407,7 +407,7 @@ card(
     description={`The \`visuallyHidden\` option of the \`display\` property can be used to prevent content from being visible while ensuring that screen readers still have access to the content. This can be useful when adding context for screen reader users, such as adding a pause to the labels of [Checkboxes](/checkboxes). `}
   >
     <MainSection.Subsection
-      title="Visually Hidden Content"
+      title="Visually hidden content"
       description={`
     Setting \`display="visuallyHidden"\` on Box allows for an element to be visually hidden but still be read by screen readers.
   `}
@@ -423,34 +423,32 @@ card(
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="Using Role"
+      title="Using role"
       description={`
-    Setting the  \`role\` property on Box classifies the Box as a type of user interface element. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page, allowing assistive technology to classify the Box appropriately.
+    Setting the  \`role\` property on Box classifies the Box as the semantically appropriate HTML element. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page, allowing assistive technology to classify the Box appropriately.
 
-    Only use the \`role\` property when needed. Learn more about [ARIA roles]("https://www.w3.org/TR/wai-aria/#usage_intro").
+    Using the \`role\` property can prevent an excess of generic \`<div>s\` and give the user better context. Learn more about [ARIA roles]("https://www.w3.org/TR/wai-aria/#usage_intro").
   `}
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
 <Box column={12}>
-  <Box column={12}>
-    <Box role="banner" color="midnight" height={50} width="100%">
-      <Text color="white" weight="bold">Header: role="banner"</Text>
-    </Box>
+  <Box role="feed" color="midnight" width="100%" padding={2}>
+    <Text color="white" weight="bold">Container: role="feed"</Text>
     <Box column={8} display="inlineBlock">
-      <Box role="main" color="maroon" height={50} width="100%">
-        <Text color="white" weight="bold">Main Content: role="main"</Text>
+      <Box role="article" title="Article 1" color="maroon" height={50} width="100%" padding={2}>
+        <Text color="white" weight="bold">Content: role="article"</Text>
       </Box>
     </Box>
     <Box column={4} display="inlineBlock">
-      <Box role="form" color="eggplant" height={50} width="100%">
+      <Box role="form" color="eggplant" height={50} width="100%" padding={2}>
         <Text color="white" weight="bold">Contact Form: role="form"</Text>
       </Box>
     </Box>
-    <Box role="navigation" color="midnight" height={50} width="100%">
-      <Text color="white" weight="bold">Site Map: role="navigation"</Text>
-    </Box>
+  </Box>
+  <Box role="navigation" title="Site Map" color="pine" height={50} width="100%" padding={2}>
+    <Text color="white" weight="bold">Site Map: role="navigation"</Text>
   </Box>
 </Box>
 `}
@@ -474,7 +472,7 @@ card(
 
     You can toggle the page direction using the button below to see this behavior.
     `}
-      title="Page Direction"
+      title="Page direction"
     >
       <MainSection.Card
         cardSize="lg"
@@ -615,9 +613,9 @@ card(
       description={`
     The \`column\` property allows for automatic widths based on a 12-column grid. To create responsive layouts, specify different values for \`smColumn\`, \`mdColumn\`, and \`lgColumn\`.
   `}
-      title="Column Layout"
+      title="Column layout"
     >
-      <CombinationNew column={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']}>
+      <CombinationNew column={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}>
         {(props) => <Box height={100} color="midnight" column={props.column} />}
       </CombinationNew>
     </MainSection.Subsection>
@@ -633,8 +631,8 @@ card(
         cardSize="lg"
         defaultCode={`
 <Box borderStyle="lg" column={12}>
-  <Box width="25%" minHeight={25} maxHeight={100} overflow="auto" padding={2} borderStyle="sm" color="eggplant">
-    <Text color="white"> Add or remove text in the editor to see the min and max heights take affect. Overflowing text will scroll. </Text>
+  <Box width="25%" minHeight={25} maxHeight={100} overflow="hidden" padding={2} borderStyle="sm" color="eggplant">
+    <Text color="white"> Add or remove text in the editor to see the min and max heights take affect.</Text>
   </Box>
   <Box width="50%" height={100} padding={2} borderStyle="sm" color="maroon">
     <Text color="white">Width and Height can be specified with numbers for "px" values or percentages</Text>
@@ -652,7 +650,7 @@ card(
     <MainSection.Subsection
       description={`
       Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint in either all directions, the x-axis only or the y-axis only.`}
-      title="Responsive Padding"
+      title="Responsive padding"
     >
       <MainSection.Card
         cardSize="lg"
@@ -677,7 +675,7 @@ card(
 
       This can be seen below, where the 5-column width Box is centered using \`margin="auto"\` and the 3-column width Box uses \`marginStart="auto"\` to automatically adjust the Box to the far edge.
       `}
-      title="Auto Margins"
+      title="Auto margins"
     >
       <MainSection.Card
         cardSize="lg"
@@ -694,7 +692,7 @@ card(
     Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
 
     `}
-      title="Absolute Positioning"
+      title="Absolute positioning"
     >
       <MainSection.Card
         cardSize="lg"
