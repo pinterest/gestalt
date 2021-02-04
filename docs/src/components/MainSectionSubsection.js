@@ -11,8 +11,8 @@ type Props = {|
   title?: string,
 |};
 
-export const convertToSentenceCase = (name) => {
-  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+export const convertToSentenceCase = (title: string) => {
+  return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
 };
 
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
@@ -28,7 +28,7 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           }}
           id={slugifiedId}
           data-anchor
-          paddingY={2}
+          marginTop={8}
         >
           <Flex alignItems="baseline" gap={2}>
             <Heading size="sm">{convertToSentenceCase(title)}</Heading>
@@ -48,11 +48,11 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           </Flex>
         </Box>
       )}
-      {description && (
-        <Box width="80%" marginTop={-3}>
-          <Markdown text={description} />
-        </Box>
-      )}
+
+      <Box width="80%" marginTop={-2} marginBottom={6}>
+        {description && <Markdown text={description} />}
+      </Box>
+
       <Flex wrap gap={4}>
         {children}
       </Flex>

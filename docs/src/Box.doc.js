@@ -560,7 +560,7 @@ card(
       />`}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection description="" title="Colors">
+    <MainSection.Subsection title="Colors">
       <CombinationNew
         color={[
           'red',
