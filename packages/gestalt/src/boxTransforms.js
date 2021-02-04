@@ -212,14 +212,7 @@ const smMarginTop: MarginFunctorType = transformNumberOrPassthrough('smMarginTop
 const smMarginRight: MarginFunctorType = transformNumberOrPassthrough('smMarginRight');
 const smMarginBottom: MarginFunctorType = transformNumberOrPassthrough('smMarginBottom');
 const smMarginLeft: MarginFunctorType = transformNumberOrPassthrough('smMarginLeft');
-const smMargin: MarginFunctorType = union(
-  smMarginTop,
-  smMarginBottom,
-  smMarginLeft,
-  smMarginRight,
-  smMarginStart,
-  smMarginEnd,
-);
+const smMargin: MarginFunctorType = union(smMarginTop, smMarginBottom, smMarginLeft, smMarginRight);
 
 const mdMarginStart: MarginFunctorType = transformNumberOrPassthrough('mdMarginStart');
 const mdMarginEnd: MarginFunctorType = transformNumberOrPassthrough('mdMarginEnd');
@@ -227,14 +220,7 @@ const mdMarginTop: MarginFunctorType = transformNumberOrPassthrough('mdMarginTop
 const mdMarginRight: MarginFunctorType = transformNumberOrPassthrough('mdMarginRight');
 const mdMarginBottom: MarginFunctorType = transformNumberOrPassthrough('mdMarginBottom');
 const mdMarginLeft: MarginFunctorType = transformNumberOrPassthrough('mdMarginLeft');
-const mdMargin: MarginFunctorType = union(
-  mdMarginTop,
-  mdMarginBottom,
-  mdMarginLeft,
-  mdMarginRight,
-  mdMarginStart,
-  mdMarginEnd,
-);
+const mdMargin: MarginFunctorType = union(mdMarginTop, mdMarginBottom, mdMarginLeft, mdMarginRight);
 
 const lgMarginStart: MarginFunctorType = transformNumberOrPassthrough('lgMarginStart');
 const lgMarginEnd: MarginFunctorType = transformNumberOrPassthrough('lgMarginEnd');
@@ -242,14 +228,7 @@ const lgMarginTop: MarginFunctorType = transformNumberOrPassthrough('lgMarginTop
 const lgMarginRight: MarginFunctorType = transformNumberOrPassthrough('lgMarginRight');
 const lgMarginBottom: MarginFunctorType = transformNumberOrPassthrough('lgMarginBottom');
 const lgMarginLeft: MarginFunctorType = transformNumberOrPassthrough('lgMarginLeft');
-const lgMargin: MarginFunctorType = union(
-  lgMarginTop,
-  lgMarginBottom,
-  lgMarginLeft,
-  lgMarginRight,
-  lgMarginStart,
-  lgMarginEnd,
-);
+const lgMargin: MarginFunctorType = union(lgMarginTop, lgMarginBottom, lgMarginLeft, lgMarginRight);
 
 /* ***************************************** */
 
