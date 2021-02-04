@@ -28,8 +28,8 @@ function Header() {
                 display="flex"
                 direction="row"
                 alignItems="center"
-                marginLeft={-1}
-                marginRight={-1}
+                marginStart={-1}
+                marginEnd={-1}
               >
                 <Box paddingX={1}>
                   <Icon
