@@ -3,6 +3,17 @@
  *  <Box marginLeft={...} marginRight={...} /> to <Box marginStart={...} marginEnd={...} />
  */
 
+const transformMap = {
+  marginLeft: 'marginStart',
+  smMarginLeft: 'smMarginStart',
+  mdMarginLeft: 'mdMarginStart',
+  lgMarginLeft: 'lgMarginStart',
+  marginRight: 'marginEnd',
+  smMarginRight: 'smMarginEnd',
+  mdMarginRight: 'mdMarginEnd',
+  lgMarginRight: 'lgMarginEnd',
+};
+
 export default function transformer(file, api) {
   const j = api.jscodeshift;
   const src = j(file.source);
@@ -39,14 +50,12 @@ export default function transformer(file, api) {
       const newAppendAttr = [];
       const newAttrs = attrs
         .map((attr) => {
-          if (attr?.name?.name && attr.name.name === 'marginLeft') {
+          const attrName = attr?.name?.name;
+          const disallowedProps = Object.keys(transformMap);
+
+          if (attrName && disallowedProps.includes(attrName)) {
             const renamedAttr = { ...attr };
-            renamedAttr.name.name = 'marginStart';
-            return renamedAttr;
-          }
-          if (attr?.name?.name && attr.name.name === 'marginRight') {
-            const renamedAttr = { ...attr };
-            renamedAttr.name.name = 'marginEnd';
+            renamedAttr.name.name = transformMap[attrName];
             return renamedAttr;
           }
           return attr;
