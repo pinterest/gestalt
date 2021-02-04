@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Provider"
-    description="An app may optionally have a `Provider` to set up context for components further down the tree. The first usecase is setting the color scheme, but other uses such as right to left support will be added in the future."
+    description="An app may optionally have a `Provider` to set up context for components further down the tree."
   />,
 );
 
@@ -30,6 +30,16 @@ card(
         type: 'string',
         description:
           'An optional id for your provider. If not passed in, settings will be applied as globally as possible (example: it sets color scheme variables at :root).',
+      },
+      {
+        name: 'onNavigation',
+        type:
+          '{ href: string, onNavigationOptions:  ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void , event }',
+        description: [
+          `If passed in, consumer components (Link, Button, IconButton, and TapArea) call the onNavigation callback function inside the onClick event handler. These consumer components pass 3 named parameters to the onNavigation function: an href, the onNavigationOptions object, and the event`,
+          `"onNavigationOptions" is an object that acts as a flexible API for your onNavigation external logic.`,
+        ],
+        href: 'onNavigation',
       },
     ]}
   />,
@@ -77,6 +87,93 @@ function Example(props) {
     </Provider>
   );
 }`}
+  />,
+);
+
+card(
+  <Example
+    id="OnNavigation"
+    name="OnNavigation"
+    defaultCode={`
+function OnNavigation() {
+  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState(true);
+
+  const onNavigation = ({ href, onNavigationOptions, event }) => {
+    if (onNavigationOptions && onNavigationOptions.navigationMode === 'client') {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert("Disabled link. Opening help.pinterest.com instead");
+      window.open("https://help.pinterest.com", '_blank')
+    }
+  };
+
+  const linkProps = {
+    href: "https://pinterest.com",
+    onNavigationOptions: { navigationMode: clientOnNavigationMode ? 'client' : 'server' },
+    target: "blank",
+  }
+
+  return (
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="row" gap={2}>
+          <Switch
+            onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
+            id="disable-buttons"
+            switched={clientOnNavigationMode}
+          />
+          {clientOnNavigationMode ? (
+            <Flex direction="row" gap={2}>
+              <Text weight="bold">Client</Text>
+              <Text>Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          ) : (
+            <Flex direction="row" gap={2}>
+              <Text>Client</Text>
+              <Text weight="bold">Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          )}
+        </Flex>
+        <Link {...linkProps}>
+          <Text>https://pinterest.com</Text>
+        </Link>
+        <Button
+          {...linkProps}
+          inline
+          role="link"
+          text="Visit pinterest.com"
+        />
+        <IconButton
+          {...linkProps}
+          accessibilityLabel="Link IconButton"
+          icon="link"
+          role="link"
+        />
+         <Box width={200}>
+        <TapArea
+          {...linkProps}
+          role="link"
+          rounding={2}
+        >
+          <Box color="darkGray" rounding={4} borderStyle="sm">
+            <Mask rounding={2}>
+              <Image
+                alt="Antelope Canyon"
+                naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/DwYrGy6/stock14.jpg"
+              />
+            </Mask>
+          </Box>
+        </TapArea>
+      </Box>
+      </Flex>
+    </Provider>
+  );
+}
+`}
   />,
 );
 
