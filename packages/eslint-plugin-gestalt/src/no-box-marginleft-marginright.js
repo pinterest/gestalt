@@ -7,6 +7,17 @@
  */
 
 // @flow strict
+const disallowedProps = [
+  'marginLeft',
+  'smMarginLeft',
+  'mdMarginLeft',
+  'lgMarginLeft',
+  'marginRight',
+  'smMarginRight',
+  'mdMarginRight',
+  'lgMarginRight',
+];
+
 const rule = {
   meta: {
     docs: {
@@ -44,7 +55,7 @@ const rule = {
           node.attributes,
           // eslint-disable-next-line no-unused-vars
         ).find(([key, value]) =>
-          ['marginLeft', 'marginRight'].includes(
+          disallowedProps.includes(
             // $FlowFixMe[incompatible-use]
             value && value.name && value.name.name,
           ),
