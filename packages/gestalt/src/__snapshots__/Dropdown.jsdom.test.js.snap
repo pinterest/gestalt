@@ -20,7 +20,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
             style="max-width: 360px;"
           >
             <div
-              class="box flexGrow itemsCenter marginBottom2 marginLeft2 marginRight2 marginTop2 xsDirectionColumn xsDisplayFlex"
+              class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
               id="ex-1"
               role="menu"
             >

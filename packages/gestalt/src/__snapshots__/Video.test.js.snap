@@ -279,7 +279,7 @@ exports[`Video with children 1`] = `
               }
             >
               <div
-                className="box circle marginLeftN2 whiteBg"
+                className="box circle marginStartN2 whiteBg"
                 style={
                   Object {
                     "height": 16,

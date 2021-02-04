@@ -2,7 +2,7 @@
 
 exports[`ButtonGroup Renders container with children when multiple children are passed in 1`] = `
 <div
-  className="box flexWrap marginBottomN1 marginRightN1 marginStartN1 marginTopN1 xsDisplayFlex"
+  className="box flexWrap marginBottomN1 marginEndN1 marginStartN1 marginTopN1 xsDisplayFlex"
 >
   <div
     className="box paddingX1 paddingY1"
