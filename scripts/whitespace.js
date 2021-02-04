@@ -167,6 +167,12 @@ const autoRules = (prefix) => [
 
 console.log(
   Stylesheet([
+    // margin auto FIRST, so it gets overriden
+    ...autoRules(),
+    atrule('--g-sm', autoRules('sm')),
+    atrule('--g-md', autoRules('md')),
+    atrule('--g-lg', autoRules('lg')),
+
     ruleset(':root', {
       '--g-boint': `${BOINT_SIZE_PX}px`,
     }),
