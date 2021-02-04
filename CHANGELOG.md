@@ -1,3 +1,9 @@
+## 16.10.3 (Feb 4, 2021)
+
+### Patch
+
+- Internal: update ScrollableContainer a11y test (#1365)
+
 ## 16.10.2 (Feb 4, 2021)
 
 ### Patch
