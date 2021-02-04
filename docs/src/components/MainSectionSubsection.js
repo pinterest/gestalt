@@ -11,7 +11,7 @@ type Props = {|
   title?: string,
 |};
 
-export const convertToSentenceCase = (title: string) => {
+export const convertToSentenceCase = (title: string): string => {
   return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
 };
 
