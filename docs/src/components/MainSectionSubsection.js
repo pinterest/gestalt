@@ -11,6 +11,10 @@ type Props = {|
   title?: string,
 |};
 
+export const convertToSentenceCase = (name) => {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+};
+
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
   return (
@@ -27,7 +31,7 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           paddingY={2}
         >
           <Flex alignItems="baseline" gap={2}>
-            <Heading size="sm">{title}</Heading>
+            <Heading size="sm">{convertToSentenceCase(title)}</Heading>
             <IconButton
               dangerouslySetSvgPath={{
                 __path:
