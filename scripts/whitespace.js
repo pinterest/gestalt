@@ -171,25 +171,27 @@ console.log(
       '--g-boint': `${BOINT_SIZE_PX}px`,
     }),
 
-    // Add margin/padding for boints -12 through 12
+    // Add margin/padding for auto + boints -12 through 12 (keep non-@media first,
+    // followed by sequential sm/md/lg @media rules to allow proper @media overriding)
+    ...autoRules(),
     ...[0, ...SCALE].reduce((arr, i) => arr.concat(rules(i)), []),
+
+    atrule('--g-sm', autoRules('sm')),
     atrule(
       '--g-sm',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'sm')), []),
     ),
+
+    atrule('--g-md', autoRules('md')),
     atrule(
       '--g-md',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'md')), []),
     ),
+
+    atrule('--g-lg', autoRules('lg')),
     atrule(
       '--g-lg',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'lg')), []),
     ),
-
-    // Add margin auto
-    ...autoRules(),
-    atrule('--g-sm', autoRules('sm')),
-    atrule('--g-md', autoRules('md')),
-    atrule('--g-lg', autoRules('lg')),
   ]),
 );
