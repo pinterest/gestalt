@@ -2,7 +2,7 @@
 import { RuleTester } from 'eslint';
 import { readFileSync } from 'fs';
 import path from 'path';
-import rule from './no-box-marginleft-marginright.js';
+import rule, { errorMessage } from './no-box-marginleft-marginright.js';
 
 const ruleTester = new RuleTester();
 
@@ -46,8 +46,6 @@ const invalidLeftStartCode = readFileSync(
   ),
   'utf-8',
 );
-const errorMessage =
-  'Box should use marginStart/marginEnd instead of marginLeft/marginRight to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
 
 ruleTester.run('no-box-marginleft-marginright', rule, {
   valid: [

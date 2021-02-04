@@ -18,6 +18,9 @@ const disallowedProps = [
   'lgMarginRight',
 ];
 
+export const errorMessage =
+  'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box';
+
 const rule = {
   meta: {
     docs: {
@@ -63,10 +66,7 @@ const rule = {
 
         // No marginLeft or marginRight attributes on Box
         if (isMarginLeftRightAttribute) {
-          context.report(
-            node,
-            'marginLeft/marginRight have been deprecated. Please use marginStart/marginEnd to support Right-to-Left (RTL)\nhttps://gestalt.netlify.app/Box',
-          );
+          context.report(node, errorMessage);
         }
       },
     };
