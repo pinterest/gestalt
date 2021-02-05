@@ -1,3 +1,9 @@
+## 17.0.1 (Feb 5, 2021)
+
+### Patch
+
+- Box: Add design guidelines and update documentation to new style (#1358)
+
 ## 17.0.0 (Feb 5, 2021)
 
 ### Major
