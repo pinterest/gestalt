@@ -67,6 +67,12 @@ card(
         defaultValue: false,
       },
       {
+        name: 'underline',
+        type: 'boolean',
+        defaultValue: false,
+        href: 'styles',
+      },
+      {
         name: 'weight',
         type: `"bold" | "normal"`,
         defaultValue: 'normal',
@@ -221,6 +227,9 @@ card(
   </Box>
   <Box marginBottom={2}>
     <Text italic>Italic</Text>
+  </Box>
+  <Box marginBottom={2}>
+    <Text underline>Underline</Text>
   </Box>
 </Box>
 `}
