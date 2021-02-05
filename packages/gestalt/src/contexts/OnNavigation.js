@@ -8,6 +8,9 @@ type EventHandlerType = ({|
 export type onNavigationOptionsType = {|
   [string]: Node | EventHandlerType,
 |};
+
+export const onNavigationOptionsPropType: React$PropType$Primitive<{ +[string]: mixed }> =
+  PropTypes.object;
 export type onNavigationType = ({|
   href: string,
   onNavigationOptions?: onNavigationOptionsType,
@@ -34,6 +37,6 @@ function useOnNavigation(): OnNavigationType | void {
 export { OnNavigationProvider, useOnNavigation };
 
 OnNavigationProvider.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   onNavigation: PropTypes.func,
 };

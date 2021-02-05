@@ -18,7 +18,11 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
-import { useOnNavigation, type onNavigationOptionsType } from './contexts/OnNavigation.js';
+import {
+  useOnNavigation,
+  type onNavigationOptionsType,
+  onNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -264,8 +268,7 @@ InternalLinkWithForwardRef.propTypes = {
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  onNavigationOptions: PropTypes.object,
+  onNavigationOptions: onNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,

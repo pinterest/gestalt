@@ -16,7 +16,11 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import { useOnNavigation, type onNavigationOptionsType } from './contexts/OnNavigation.js';
+import {
+  useOnNavigation,
+  type onNavigationOptionsType,
+  onNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -178,8 +182,7 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  onNavigationOptions: PropTypes.object,
+  onNavigationOptions: onNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,

@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Provider"
-    description="An app may optionally have a `Provider` to set up context for components further down the tree. This provider implements high-level contexts meant to cover most of the apps tree rather than isolated branches."
+    description="An app may optionally have a `Provider` to set up context for components further down the tree. This provider implements high-level contexts meant to cover most of the app tree rather than isolated branches."
   />,
 );
 
@@ -21,14 +21,14 @@ card(
         name: 'colorScheme',
         type: `'light' | 'dark' | 'userPreference'`,
         defaultValue: 'light',
-        description: `The color scheme for components inside the provider. Specify 'userPreference' to use 'prefers-color-scheme' media query.`,
+        description: `The color scheme for components inside the provider. Use 'userPreference' to allow the end user to specify the color scheme via their browser settings, using the 'prefers-color-scheme' media query.`,
         href: 'Color-scheme',
       },
       {
         name: 'id',
         type: 'string',
         description:
-          'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (example: it sets color scheme variables at :root).',
+          'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (example: setting color scheme variables at :root).',
         href: 'Color-scheme',
       },
       {
@@ -94,7 +94,7 @@ function Example(props) {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="OnNavigation"
-      description="This example illustrates the implemention of `onNavigation` context so that the link functionality of Gestalt components can be controlled externally. This example had 4 rellevant parts: a Provider, an `onNavigation` high-order function, consumer components (Link, Button, IconButton, TapArea), and `onNavigationOptions` props. The top Provider will pass to the consumer components the `onNavigation` function which will make accessible a final function that will be called during the `onClick` event handler. The `onNavigation` function can contain complex logic including React hooks to perform side effects. In this case, we are using `onNavigation` to disable the link, show an alert message, and open a different url in a new window. Finally, the `onNavigationOptions` props provides a flexible API. In this case, `navigationMode` allows to disable/enable the `onNavigation` logic. Other uses could be accessing `event.stopPropagation`."
+      description="This example illustrates the implementation of `onNavigation` context to control the link functionality of Gestalt components externally. This example has 4 relevant parts: a Provider, an `onNavigation` high-order function, consumer components (Link, Button, IconButton, TapArea), and `onNavigationOptions` props. The top Provider passes the `onNavigation` function to consumer components. Then, `onNavigation` returns a function that gets called during the `onClick` event handler. The `onNavigation` function can contain complex logic including React hooks to perform side effects. In this case, `onNavigation` is used to disable the link, show an alert message, and open a different URL in a new window. Finally, the `onNavigationOptions` prop provides a flexible API. In this case, `navigationMode` allows to disable/enable the `onNavigation` logic. Other uses could be accessing `event.stopPropagation`."
     >
       <MainSection.Card
         cardSize="lg"
@@ -107,77 +107,77 @@ function OnNavigation() {
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
-      alert('Disabled link. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', '_blank');
+      alert("Disabled link. Opening help.pinterest.com instead.");
+      window.open("https://help.pinterest.com", "_blank");
     }
 
-    return onNavigationOptions && onNavigationOptions.navigationMode === 'client'
+    return onNavigationOptions && onNavigationOptions.navigationMode === "client"
       ? onNavigationClick
       : null;
   }
 
   const linkProps = {
-    href: 'https://pinterest.com',
+    href: "https://pinterest.com",
     onNavigationOptions: {
-      navigationMode: clientOnNavigationMode ? 'client' : 'server'
+      navigationMode: clientOnNavigationMode ? "client" : "server"
     },
-    target: 'blank',
+    target: "blank",
   }
 
   return (
     <Provider onNavigation={onNavigation}>
-      <Flex direction='column' gap={2}>
-        <Flex direction='row' gap={2}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="row" gap={2}>
           <Switch
             onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
-            id='disable-buttons'
+            id="disable-buttons"
             switched={clientOnNavigationMode}
           />
           {clientOnNavigationMode ? (
-            <Flex direction='row' gap={2}>
-              <Text weight='bold'>Client</Text>
+            <Flex direction="row" gap={2}>
+              <Text weight="bold">Client</Text>
               <Text>Server</Text>
               <Text>Navigation</Text>
             </Flex>
           ) : (
-            <Flex direction='row' gap={2}>
+            <Flex direction="row" gap={2}>
               <Text>Client</Text>
-              <Text weight='bold'>Server</Text>
+              <Text weight="bold">Server</Text>
               <Text>Navigation</Text>
             </Flex>
           )}
         </Flex>
-        <Flex gap={4} alignItems='center'>
+        <Flex gap={4} alignItems="center">
           <Text>
-            <Link {...linkProps}> Visit pinterest.com</Link>
+            <Link {...linkProps}>Visit pinterest.com</Link>
           </Text>
           <Box>
             <Button
               {...linkProps}
               inline
-              role='link'
-              text='Visit pinterest.com'
+              role="link"
+              text="Visit pinterest.com"
             />
           </Box>
           <IconButton
             {...linkProps}
-            accessibilityLabel='Link IconButton'
-            icon='link'
-            role='link'
+            accessibilityLabel="Link IconButton"
+            icon="link"
+            role="link"
           />
           <Box width={100}>
             <TapArea
               {...linkProps}
-              role='link'
+              role="link"
               rounding={2}
             >
-              <Box color='darkGray' rounding={4} borderStyle='sm'>
+              <Box color="darkGray" rounding={4} borderStyle="sm">
                 <Mask rounding={2}>
                   <Image
-                    alt='Antelope Canyon'
+                    alt="Antelope Canyon"
                     naturalHeight={1}
                     naturalWidth={1}
-                    src='https://i.ibb.co/DwYrGy6/stock14.jpg'
+                    src="https://i.ibb.co/DwYrGy6/stock14.jpg"
                   />
                 </Mask>
               </Box>
