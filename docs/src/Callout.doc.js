@@ -172,7 +172,7 @@ function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Callout
         type="info"
         iconAccessibilityLabel="Info icon"
@@ -198,8 +198,8 @@ function Example(props) {
                 justifyContent="between"
                 display="flex"
                 direction="row"
-                marginLeft={-1}
-                marginRight={-1}
+                marginStart={-1}
+                marginEnd={-1}
               >
                 <Box column={12} smColumn={6} paddingX={1}>
                   <Button text="Delete Board" inline size="lg" />

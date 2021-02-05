@@ -61,7 +61,7 @@ card(
   `}
     name="Fixed Sizes"
     defaultCode={`
-<Box display="flex" direction="row" marginLeft={-2} marginRight={-2} wrap>
+<Box display="flex" direction="row" marginStart={-2} marginEnd={-2} wrap>
   <Box paddingX={2}>
     <Avatar
       size="xs"

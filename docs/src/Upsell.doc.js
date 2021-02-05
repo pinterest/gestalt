@@ -192,7 +192,7 @@ function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
 
   return (
-    <Box marginLeft={-1} marginRight={-1}>
+    <Box marginStart={-1} marginEnd={-1}>
       <Upsell
         title="Give $30, get $60 in ads credit"
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"

@@ -2,7 +2,7 @@
 
 exports[`Box allows auto margin 1`] = `
 <div
-  className="box marginRightAuto"
+  className="box marginEndAuto"
 />
 `;
 

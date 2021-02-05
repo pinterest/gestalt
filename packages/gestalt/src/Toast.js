@@ -23,7 +23,7 @@ export default function Toast({
   return (
     <Box marginBottom={3} paddingX={4} maxWidth={360} width="100vw">
       <Box color={color} fit padding={6} rounding="pill" borderStyle="shadow">
-        <Box display="flex" marginLeft={-2} marginRight={-2} alignItems="center">
+        <Box display="flex" marginStart={-2} marginEnd={-2} alignItems="center">
           {thumbnail ? (
             <Box display="flex" flex="none" justifyContent="center" paddingX={2}>
               <Mask

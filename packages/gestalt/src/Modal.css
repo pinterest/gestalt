@@ -8,7 +8,7 @@
   composes: relative overflowAuto flex from "./Layout.css";
   composes: whiteBgElevated from "./Colors.css";
   composes: rounding8 from "./Borders.css";
-  composes: marginLeft4 marginRight4 from "./boxWhitespace.css";
+  composes: marginStart4 marginEnd4 from "./boxWhitespace.css";
   max-height: calc(100vh - 32px);
 }
 

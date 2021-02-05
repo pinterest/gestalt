@@ -1,3 +1,15 @@
+## 17.0.0 (Feb 5, 2021)
+
+### Major
+
+- Box: Remove marginLeft and marginRight props (#1363)
+
+## 16.10.4 (Feb 5, 2021)
+
+### Patch
+
+- Docs: update Prop Table design (#1367)
+
 ## 16.10.3 (Feb 4, 2021)
 
 ### Patch

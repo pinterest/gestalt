@@ -109,33 +109,25 @@ type Props = {
 
   margin?: Margin,
   marginTop?: Margin,
-  marginRight?: Margin,
   marginBottom?: Margin,
-  marginLeft?: Margin,
   marginStart?: Margin,
   marginEnd?: Margin,
 
   smMargin?: Margin,
   smMarginTop?: Margin,
-  smMarginRight?: Margin,
   smMarginBottom?: Margin,
-  smMarginLeft?: Margin,
   smMarginStart?: Margin,
   smMarginEnd?: Margin,
 
   mdMargin?: Margin,
   mdMarginTop?: Margin,
-  mdMarginRight?: Margin,
   mdMarginBottom?: Margin,
-  mdMarginLeft?: Margin,
   mdMarginStart?: Margin,
   mdMarginEnd?: Margin,
 
   lgMargin?: Margin,
   lgMarginTop?: Margin,
-  lgMarginRight?: Margin,
   lgMarginBottom?: Margin,
-  lgMarginLeft?: Margin,
   lgMarginStart?: Margin,
   lgMarginEnd?: Margin,
 
@@ -191,7 +183,21 @@ type Props = {
 // back to the underlying `<div/>`. That's generally useful, but we'd also like
 // to strip out a few naughty properties that break style encapsulation
 // (className, style) or accessibility (onClick).
-const disallowedProps = ['onClick', 'className', 'style'];
+const disallowedProps = [
+  'onClick',
+  'className',
+  'style',
+  // We're currently also explicitly disallowing the deprecated marginLeft/Right
+  // props, as they're not RTL-friendly.
+  'marginLeft',
+  'smMarginLeft',
+  'mdMarginLeft',
+  'lgMarginLeft',
+  'marginRight',
+  'smMarginRight',
+  'mdMarginRight',
+  'lgMarginRight',
+];
 
 const BoxWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
@@ -256,33 +262,25 @@ BoxWithForwardRef.propTypes = {
 
   margin: MarginPropType,
   marginTop: MarginPropType,
-  marginRight: MarginPropType,
   marginBottom: MarginPropType,
-  marginLeft: MarginPropType,
   marginStart: MarginPropType,
   marginEnd: MarginPropType,
 
   smMargin: MarginPropType,
   smMarginTop: MarginPropType,
-  smMarginRight: MarginPropType,
   smMarginBottom: MarginPropType,
-  smMarginLeft: MarginPropType,
   smMarginStart: MarginPropType,
   smMarginEnd: MarginPropType,
 
   mdMargin: MarginPropType,
   mdMarginTop: MarginPropType,
-  mdMarginRight: MarginPropType,
   mdMarginBottom: MarginPropType,
-  mdMarginLeft: MarginPropType,
   mdMarginStart: MarginPropType,
   mdMarginEnd: MarginPropType,
 
   lgMargin: MarginPropType,
   lgMarginTop: MarginPropType,
-  lgMarginRight: MarginPropType,
   lgMarginBottom: MarginPropType,
-  lgMarginLeft: MarginPropType,
   lgMarginStart: MarginPropType,
   lgMarginEnd: MarginPropType,
 

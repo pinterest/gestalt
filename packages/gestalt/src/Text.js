@@ -41,6 +41,7 @@ type Props = {|
   overflow?: 'normal' | 'breakWord' | 'noWrap',
   size?: 'sm' | 'md' | 'lg',
   truncate?: boolean,
+  underline?: boolean,
   weight?: FontWeight,
 |};
 
@@ -53,6 +54,7 @@ export default function Text({
   overflow = 'breakWord',
   size = 'lg',
   truncate = false,
+  underline = false,
   weight = 'normal',
 }: Props): Node {
   const scale = SIZE_SCALE[size];
@@ -84,6 +86,7 @@ export default function Text({
     overflow === 'breakWord' && typography.breakWord,
     overflow === 'noWrap' && typography.noWrap,
     italic && typography.fontStyleItalic,
+    underline && typography.underline,
     weight === 'bold' && typography.fontWeightBold,
     weight === 'normal' && typography.fontWeightNormal,
     truncate && typography.truncate,

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node, type ComponentType } from 'react';
-import { Box, Flex, Icon, IconButton, Link, Text, Tooltip } from 'gestalt';
+import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
 import { useAppContext } from './appContext.js';
 
@@ -36,7 +36,7 @@ const Description = (lines: Array<string>): Node => (
 const Th = ({ children }: {| children?: Node |}) => (
   <th style={{ borderBottom: '2px solid #ddd' }}>
     <Box padding={2}>
-      <Text size="md" color="gray" overflow="normal" weight="bold">
+      <Text size="md" overflow="normal" weight="bold">
         {children}
       </Text>
     </Box>
@@ -82,7 +82,6 @@ export default function PropTable({
   id = '',
   Component,
 }: Props): Node {
-  const hasRequired = properties.some((prop) => prop.required);
   const { propTableVariant, setPropTableVariant } = useAppContext();
 
   if (process.env.NODE_ENV === 'development' && Component) {
@@ -144,7 +143,6 @@ export default function PropTable({
           >
             <thead>
               <tr>
-                {hasRequired && <Th />}
                 <Th>Name</Th>
                 <Th>Type</Th>
                 <Th>Default</Th>
@@ -161,23 +159,9 @@ export default function PropTable({
                     const propNameHasSecondRow = description || responsive;
                     acc.push(
                       <tr key={i}>
-                        {hasRequired && (
-                          <Td shrink border={!propNameHasSecondRow}>
-                            {required && (
-                              <Box paddingY={1}>
-                                <Icon
-                                  icon="check-circle"
-                                  size={16}
-                                  color="darkGray"
-                                  accessibilityLabel={`Property ${name} is required`}
-                                />
-                              </Box>
-                            )}
-                          </Td>
-                        )}
                         <Td shrink border={!propNameHasSecondRow}>
-                          <Box>
-                            <Text overflow="normal" weight="bold">
+                          <Flex gap={2}>
+                            <Text overflow="normal" underline={!!href}>
                               {href ? (
                                 <Link href={`#${href}`}>
                                   <code>{name}</code>
@@ -186,7 +170,8 @@ export default function PropTable({
                                 <code>{name}</code>
                               )}
                             </Text>
-                          </Box>
+                            {required && <Badge text="Required" />}
+                          </Flex>
                         </Td>
                         <Td border={!propNameHasSecondRow}>
                           <code>{unifyQuotes(type)}</code>
@@ -203,7 +188,6 @@ export default function PropTable({
                     if (propNameHasSecondRow) {
                       acc.push(
                         <tr key={`${i}-second-row`}>
-                          {hasRequired && <Td colspan={1} />}
                           <Td colspan={1}>
                             {responsive && (
                               <Box>
@@ -216,9 +200,10 @@ export default function PropTable({
                               </Box>
                             )}
                           </Td>
-                          <Td colspan={2} color="gray">
+                          <Td colspan={1} color="gray">
                             {Array.isArray(description) ? Description(description) : description}
                           </Td>
+                          <Td />
                         </tr>,
                       );
                     }
