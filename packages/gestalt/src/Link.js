@@ -105,14 +105,11 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  const { onNavigation } = useOnNavigation() || {};
-
-  const onNavigationClick =
-    onNavigation &&
-    onNavigation({
+  const onNavigation =
+    useOnNavigation({
       href,
       onNavigationOptions,
-    });
+    }) ?? {};
 
   return (
     <a
@@ -128,9 +125,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         }
       }}
       onClick={(event) => {
-        if (onNavigationClick) {
-          onNavigationClick({ event });
-        }
+        onNavigation({ event });
         if (onClick) {
           onClick({ event });
         }

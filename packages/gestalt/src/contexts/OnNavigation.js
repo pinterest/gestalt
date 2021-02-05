@@ -30,8 +30,18 @@ function OnNavigationProvider({ onNavigation, children }: Props): Element<typeof
   return <Provider value={onNavigation ? { onNavigation } : undefined}>{children}</Provider>;
 }
 
-function useOnNavigation(): OnNavigationType | void {
-  return useContext(OnNavigation);
+function useOnNavigation({
+  href,
+  onNavigationOptions,
+}: {|
+  href: string,
+  onNavigationOptions?: onNavigationOptionsType,
+|}): EventHandlerType {
+  const { onNavigation } = useContext(OnNavigation) ?? {};
+
+  const noop = () => {};
+
+  return onNavigation?.({ href, onNavigationOptions }) ?? noop;
 }
 
 export { OnNavigationProvider, useOnNavigation };
