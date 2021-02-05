@@ -3,6 +3,10 @@ import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
 import DropdownContext from './DropdownContextProvider.js';
+import {
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type PublicProps = {|
   badgeText?: string,
@@ -15,6 +19,7 @@ type PublicProps = {|
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   href?: string,
+  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 type PrivateProps = {|
@@ -35,6 +40,7 @@ export default function DropdownItem({
   option,
   selected,
   href,
+  onNavigationOptions,
 }: Props): Node {
   return (
     <DropdownContext.Consumer>
@@ -55,6 +61,7 @@ export default function DropdownItem({
           shouldTruncate
           textWeight="bold"
           href={href}
+          onNavigationOptions={onNavigationOptions || {}}
         >
           {children}
         </MenuOption>
@@ -90,4 +97,6 @@ DropdownItem.propTypes = {
     ),
   ]),
   handleSelect: PropTypes.func,
+  href: PropTypes.string,
+  onNavigationOptions: OnNavigationOptionsPropType,
 };

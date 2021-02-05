@@ -219,6 +219,16 @@ card(
         ],
         href: 'roles',
       },
+      {
+        name: 'onNavigationOptions',
+        type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        description: [
+          'Pass custom props to onNavigation.',
+          'onNavigationOptions works in pair with a Provider. See Provider for examples.',
+          'Optional with role=link.',
+        ],
+        href: 'OnNavigationContext',
+      },
     ]}
   />,
 );

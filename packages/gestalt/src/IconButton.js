@@ -10,6 +10,10 @@ import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
+import {
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type BaseIconButton = {|
   accessibilityLabel: string,
@@ -48,6 +52,7 @@ type IconButtonType = {|
 type LinkIconButtonType = {|
   ...BaseIconButton,
   href: string,
+  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -159,7 +164,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   };
 
   if (props.role === 'link') {
-    const { href, rel, target } = props;
+    const { href, onNavigationOptions, rel, target } = props;
 
     return (
       <InternalLink
@@ -173,6 +178,7 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
         onMouseUp={handleOnMouseUp}
         onMouseEnter={handleOnMouseEnter}
         onMouseLeave={handleOnMouseLeave}
+        onNavigationOptions={onNavigationOptions}
         ref={innerRef}
         rel={rel}
         tabIndex={tabIndex}
@@ -247,6 +253,7 @@ IconButtonWithForwardRef.propTypes = {
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
+  onNavigationOptions: OnNavigationOptionsPropType,
   padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
