@@ -358,7 +358,7 @@ function ScrollableContainerExample() {
                 <Box
                   justifyContent="end"
                   marginStart={-1}
-                  marginRight={-1}
+                  marginEnd={-1}
                   marginTop={-1}
                   marginBottom={-1}
                   display="flex"
@@ -399,8 +399,8 @@ function ScrollableContainerExample() {
                 <Box
                   direction="column"
                   display="flex"
-                  marginLeft={-3}
-                  marginRight={-3}
+                  marginStart={-3}
+                  marginEnd={-3}
                   marginBottom={-3}
                   marginTop={-3}
                   maxWidth={800}
@@ -514,8 +514,8 @@ function ScrollableContainerExample() {
                     <Box
                       display="flex"
                       wrap
-                      marginLeft={-3}
-                      marginRight={-3}
+                      marginStart={-3}
+                      marginEnd={-3}
                       marginBottom={-3}
                       marginTop={-3}
                     >

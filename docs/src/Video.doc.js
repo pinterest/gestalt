@@ -378,7 +378,7 @@ function Example() {
             <Text>Video source URL</Text>
           </Label>
         </Box>
-        <Box display="flex" marginLeft={-1} marginRight={-1}>
+        <Box display="flex" marginStart={-1} marginEnd={-1}>
           <Box flex="grow" paddingX={1}>
             <TextField
               id="video-source"
@@ -401,7 +401,7 @@ function Example() {
           onClick={() => setVolume(volume === 0 ? 1 : 0)}
         />
       </Box>
-      <Box display="flex" paddingY={2} marginLeft={-1} marginRight={-1}>
+      <Box display="flex" paddingY={2} marginStart={-1} marginEnd={-1}>
         <Box paddingX={1} column={6}>
           <Button
             text="Playback x0.5"

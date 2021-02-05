@@ -206,8 +206,8 @@ card(
         color="darkGray"
         height={200}
         width={200}
-        marginLeft={4}
-        marginRight={4}
+        marginStart={4}
+        marginEnd={4}
       >
         <Image
           alt="square"
@@ -222,8 +222,8 @@ card(
         color="darkGray"
         height={200}
         width={200}
-        marginLeft={4}
-        marginRight={4}
+        marginStart={4}
+        marginEnd={4}
       >
         <Image
           alt="square"
@@ -243,8 +243,8 @@ card(
         color="darkGray"
         height={200}
         width={200}
-        marginLeft={4}
-        marginRight={4}
+        marginStart={4}
+        marginEnd={4}
       >
         <Image
           alt="wide"
@@ -259,8 +259,8 @@ card(
         color="darkGray"
         height={200}
         width={200}
-        marginLeft={4}
-        marginRight={4}
+        marginStart={4}
+        marginEnd={4}
       >
         <Image
           alt="wide"
@@ -280,8 +280,8 @@ card(
         color="darkGray"
         height={200}
         width={200}
-        marginLeft={4}
-        marginRight={4}
+        marginStart={4}
+        marginEnd={4}
       >
         <Image
           alt="tall"
@@ -296,8 +296,8 @@ card(
         color="darkGray"
         height={200}
         width={200}
-        marginLeft={4}
-        marginRight={4}
+        marginStart={4}
+        marginEnd={4}
       >
         <Image
           alt="tall"

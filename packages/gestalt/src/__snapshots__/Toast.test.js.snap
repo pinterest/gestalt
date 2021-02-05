@@ -14,7 +14,7 @@ exports[`<Toast /> Red Toast 1`] = `
     className="box fit paddingX6 paddingY6 pill redBg shadow"
   >
     <div
-      className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
+      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
     >
       <div
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
@@ -44,7 +44,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
     className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
-      className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
+      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
     >
       <div
         className="box flexNone justifyCenter paddingX2 xsDisplayFlex"
@@ -135,7 +135,7 @@ exports[`<Toast /> Text + Image 1`] = `
     className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
-      className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
+      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
     >
       <div
         className="box flexNone justifyCenter paddingX2 xsDisplayFlex"
@@ -202,7 +202,7 @@ exports[`<Toast /> Text Only 1`] = `
     className="box fit paddingX6 paddingY6 pill shadow whiteBg"
   >
     <div
-      className="box itemsCenter marginLeftN2 marginRightN2 xsDisplayFlex"
+      className="box itemsCenter marginEndN2 marginStartN2 xsDisplayFlex"
     >
       <div
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
