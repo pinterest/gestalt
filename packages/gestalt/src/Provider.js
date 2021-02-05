@@ -1,7 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
-import { OnNavigationProvider, type onNavigationType } from './contexts/OnNavigation.js';
+import { OnNavigationProvider, type OnNavigationType } from './contexts/OnNavigation.js';
 import {
   ColorSchemeProvider,
   type ColorScheme,
@@ -12,7 +12,7 @@ type Props = {|
   children: Node,
   colorScheme?: ColorScheme,
   id?: string,
-  onNavigation?: onNavigationType,
+  onNavigation?: OnNavigationType,
 |};
 
 export default function Provider({ children, colorScheme, id, onNavigation }: Props): Node {
