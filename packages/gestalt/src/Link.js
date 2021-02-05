@@ -109,6 +109,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     useOnNavigation({
       href,
       onNavigationOptions,
+      target,
     }) ?? {};
 
   return (

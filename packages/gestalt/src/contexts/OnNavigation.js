@@ -7,15 +7,16 @@ type EventHandlerType = ({|
 |}) => void;
 
 export type onNavigationOptionsType = {|
-  [string]: Node | EventHandlerType,
+  +[string]: Node | EventHandlerType,
 |};
 
-export const onNavigationOptionsPropType: React$PropType$Primitive<{ +[string]: mixed }> =
+export const onNavigationOptionsPropType: React$PropType$Primitive<{| +[string]: * |}> =
   PropTypes.object;
 
 type OnNavigationArgs = {|
   href: string,
   onNavigationOptions?: onNavigationOptionsType,
+  target?: null | 'self' | 'blank',
 |};
 
 export type OnNavigationType = ({|

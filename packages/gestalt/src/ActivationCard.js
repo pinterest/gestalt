@@ -10,6 +10,10 @@ import Button from './Button.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
+import {
+  type onNavigationOptionsType,
+  onNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type LinkData = {|
   accessibilityLabel?: string,
@@ -21,6 +25,7 @@ type LinkData = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
+  onNavigationOptions?: onNavigationOptionsType,
 |};
 
 type Props = {|
@@ -43,7 +48,7 @@ const STATUS_ICONS = {
 };
 
 const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
-  const { accessibilityLabel, href, label, onClick } = data;
+  const { accessibilityLabel, href, label, onClick, onNavigationOptions } = data;
 
   return (
     <Box
@@ -62,6 +67,7 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
         role="link"
         size="lg"
         text={label}
+        onNavigationOptions={onNavigationOptions}
       />
     </Box>
   );
@@ -234,6 +240,7 @@ ActivationCard.propTypes = {
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
+    onNavigationOptions: onNavigationOptionsPropType,
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   status: PropTypes.oneOf(['notStarted', 'pending', 'needsAttention', 'complete']).isRequired,

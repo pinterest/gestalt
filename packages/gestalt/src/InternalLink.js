@@ -161,6 +161,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     useOnNavigation({
       href,
       onNavigationOptions,
+      target,
     }) ?? {};
 
   return (

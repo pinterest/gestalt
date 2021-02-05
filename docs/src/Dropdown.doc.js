@@ -207,6 +207,14 @@ card(
           'When supplied, wraps the item in a Link, and directs users to the url when item is selected.',
         href: 'default',
       },
+      {
+        name: 'onNavigationOptions',
+        type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        description: [
+          'Pass custom props to onNavigation.',
+          'onNavigationOptions works in pair with a Provider. See Provider for examples.',
+        ],
+      },
     ]}
   />,
 );

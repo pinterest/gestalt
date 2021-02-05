@@ -78,11 +78,8 @@ card(
         name: 'onNavigationOptions',
         type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
         description: [
-          'onNavigationOptions works in pair with a Provider:',
-          '<Provider onNavigation={({ href, onNavigationOptions, event}) => {}}>.',
-          `- 'href' can be used to check the type of url`,
-          `- 'onNavigationOptions' can be used to pass custom props to 'onNavigation'`,
-          `- 'event' can be used to prevent native Link component events`,
+          'Pass custom props to onNavigation.',
+          'onNavigationOptions works in pair with a Provider. See Provider for examples.',
         ],
         href: 'OnNavigationContext',
       },

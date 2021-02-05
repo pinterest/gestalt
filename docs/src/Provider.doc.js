@@ -93,7 +93,7 @@ function Example(props) {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="OnNavigation"
+      title="On Navigation"
       description="This example illustrates the implementation of `onNavigation` context to control the link functionality of Gestalt components externally. This example has 4 relevant parts: a Provider, an `onNavigation` high-order function, consumer components (Link, Button, IconButton, TapArea), and `onNavigationOptions` props. The top Provider passes the `onNavigation` function to consumer components. Then, `onNavigation` returns a function that gets called during the `onClick` event handler. The `onNavigation` function can contain complex logic including React hooks to perform side effects. In this case, `onNavigation` is used to disable the link, show an alert message, and open a different URL in a new window. Finally, the `onNavigationOptions` prop provides a flexible API. In this case, `navigationMode` allows to disable/enable the `onNavigation` logic. Other uses could be accessing `event.stopPropagation`."
     >
       <MainSection.Card
@@ -184,6 +184,195 @@ function OnNavigation() {
             </TapArea>
           </Box>
         </Flex>
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState(true);
+
+  const onNavigation = ({ href, onNavigationOptions }) => {
+
+    const onNavigationClick = ({ event }) => {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert("Disabled link. Opening help.pinterest.com instead.");
+      window.open("https://help.pinterest.com", "_blank");
+    }
+
+    return onNavigationOptions && onNavigationOptions.navigationMode === "client"
+      ? onNavigationClick
+      : null;
+  }
+
+  const linkProps = {
+    href: "https://pinterest.com",
+    onNavigationOptions: {
+      navigationMode: clientOnNavigationMode ? "client" : "server"
+    },
+  }
+
+  return (
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="row" gap={2}>
+          <Switch
+            onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
+            id="disable-buttons"
+            switched={clientOnNavigationMode}
+          />
+          {clientOnNavigationMode ? (
+            <Flex direction="row" gap={2}>
+              <Text weight="bold">Client</Text>
+              <Text>Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          ) : (
+            <Flex direction="row" gap={2}>
+              <Text>Client</Text>
+              <Text weight="bold">Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          )}
+        </Flex>
+        <Flex direction="column" gap={4} alignItems="center">
+          <Callout
+            type="info"
+            iconAccessibilityLabel="Info icon"
+            title="Your business account was created!"
+            message="Apply to the Verified Merchant Program!"
+            primaryAction={
+              { ...linkProps,
+                label:"Get started",
+              }}
+            secondaryAction={
+              { ...linkProps,
+                label:"Learn more",
+              }}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss banner',
+              onDismiss: ()=>{},
+            }}
+          />
+          <Upsell
+            title="Give $30, get $60 in ads credit"
+            message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+            primaryAction={
+              { ...linkProps,
+                label:"Send invite"
+              }}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss banner',
+              onDismiss: ()=>{},
+            }}
+            imageData={{
+              component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+            }}
+          />
+          <ActivationCard
+            status="notStarted"
+            statusMessage="Not started"
+            title="Claim your website"
+            message="Grow distribution and track Pins linked to your website"
+            link={{
+              ...linkProps,
+              label:"Claim your website now"
+            }}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss card',
+              onDismiss: ()=>{},
+            }}
+          />
+        </Flex>
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState(null);
+  const anchorRef = React.useRef(null);
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
+
+  const onNavigation = ({ href, onNavigationOptions }) => {
+
+    const onNavigationClick = ({ event }) => {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert("Disabled link. Opening help.pinterest.com instead.");
+      window.open("https://help.pinterest.com", "_blank");
+    }
+
+    return onNavigationOptions && onNavigationOptions.navigationMode === "client"
+      ? onNavigationClick
+      : null;
+  }
+
+  const linkProps = {
+    href: "https://pinterest.com",
+    onNavigationOptions: {
+      navigationMode: clientOnNavigationMode ? "client" : "server"
+    },
+  }
+
+  return (
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="row" gap={2}>
+          <Switch
+            onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
+            id="disable-buttons"
+            switched={clientOnNavigationMode}
+          />
+          {clientOnNavigationMode ? (
+            <Flex direction="row" gap={2}>
+              <Text weight="bold">Client</Text>
+              <Text>Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          ) : (
+            <Flex direction="row" gap={2}>
+              <Text>Client</Text>
+              <Text weight="bold">Server</Text>
+              <Text>Navigation</Text>
+            </Flex>
+          )}
+        </Flex>
+        <Box display="flex" justifyContent="center">
+          <Button
+            accessibilityControls="basic-dropdown-example"
+            accessibilityHaspopup
+            accessibilityExpanded={open}
+            iconEnd="arrow-down"
+            text="Menu"
+            inline
+            ref={anchorRef}
+            selected={open}
+            onClick={ () => setOpen((prevVal) => !prevVal) }
+          />
+          {open && (
+            <Dropdown id="basic-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+              <Dropdown.Item
+                { ...linkProps }
+                isExternal
+                option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
+              />
+            </Dropdown>
+          )}
+        </Box>
       </Flex>
     </Provider>
   );
