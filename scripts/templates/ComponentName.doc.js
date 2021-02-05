@@ -13,9 +13,14 @@ card(<PageHeader name="Component Name" description="Brief description of this co
 
 card(
   <MainSection name="Examples" showHeading={false}>
-    <MainSection.Subsection>
+    <MainSection.Subsection
+      title="Optional subsection title - should be sentence case"
+      description={`
+           Optional description about this \`Subsection\`
+        `}
+    >
       <MainSection.Card
-        title="Optional Card Title"
+        title="Optional Card Title - displays below the Live Code Editor"
         description={`
            Optional description about this \`Example\`
         `}
@@ -45,7 +50,7 @@ card(
 );
 
 card(
-  <MainSection name="Best Practices">
+  <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card
         cardSize="md"
@@ -78,8 +83,8 @@ card(
 
 card(
   <MainSection
-    name="Localization and Inclusion"
-    description={`\`Localization and Inclusion\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+    name="Localization"
+    description={`\`Localization\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
   />,
 );
 
@@ -87,18 +92,18 @@ card(
   <MainSection name="Variants">
     <MainSection.Subsection
       description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
-      title="Variant 1"
+      title="Variant name (sentence case)"
     >
       <MainSection.Card
         cardSize="md"
-        title="example title"
+        title="Example title"
         defaultCode={`
 Code for this example goes here
 `}
       />
       <MainSection.Card
         cardSize="md"
-        title="example title"
+        title="Example title"
         defaultCode={`
 Code for this example goes here
 `}

@@ -2,7 +2,7 @@
 import React, { type Node } from 'react';
 import MainSectionCard from './MainSectionCard.js';
 import Card from './Card.js';
-import MainSectionSubsection from './MainSectionSubsection.js';
+import MainSectionSubsection, { convertToSentenceCase } from './MainSectionSubsection.js';
 
 type Props = {|
   children?: Node,
@@ -13,7 +13,7 @@ type Props = {|
 
 const MainSection = ({ children, description, name, showHeading = true }: Props): Node => {
   return (
-    <Card name={name} showHeading={showHeading} description={description}>
+    <Card name={convertToSentenceCase(name)} showHeading={showHeading} description={description}>
       {children}
     </Card>
   );

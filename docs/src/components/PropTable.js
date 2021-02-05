@@ -128,7 +128,12 @@ export default function PropTable({
       }
     >
       {propTableVariant === 'expanded' ? (
-        <Box overflow="auto" dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}>
+        <Box
+          marginTop={8}
+          marginBottom={4}
+          overflow="auto"
+          dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}
+        >
           <table
             style={{
               width: '100%',

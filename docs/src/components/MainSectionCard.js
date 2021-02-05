@@ -53,7 +53,7 @@ const MainSectionCard = ({
     type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   return (
-    <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={2} marginBottom={8}>
+    <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={4} marginBottom={4}>
       {children ? (
         <Box
           alignItems="center"
@@ -96,7 +96,7 @@ const MainSectionCard = ({
         </LiveProvider>
       )}
       <Box
-        marginTop={2}
+        marginTop={4}
         dangerouslySetInlineStyle={{
           __style: { borderTop: borderStyle },
         }}

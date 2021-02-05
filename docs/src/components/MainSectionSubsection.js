@@ -3,12 +3,17 @@ import React, { Fragment, type Node } from 'react';
 import { Box, Flex, Heading, IconButton } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
+import { copyToClipboard } from './Card.js';
 
 type Props = {|
   children: Node,
   description?: string,
   title?: string,
 |};
+
+export const convertToSentenceCase = (title: string): string => {
+  return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
+};
 
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
@@ -23,10 +28,10 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           }}
           id={slugifiedId}
           data-anchor
-          paddingY={2}
+          marginTop={8}
         >
           <Flex alignItems="baseline" gap={2}>
-            <Heading size="sm">{title}</Heading>
+            <Heading size="sm">{convertToSentenceCase(title)}</Heading>
             <IconButton
               dangerouslySetSvgPath={{
                 __path:
@@ -35,19 +40,26 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
               accessibilityLabel={`${title} - Anchor tag`}
               size="xs"
               href={`#${slugifiedId}`}
+              onClick={() => {
+                copyToClipboard(slugifiedId);
+              }}
               role="link"
             />
           </Flex>
         </Box>
       )}
+
       {description && (
-        <Box width="80%" marginTop={-3}>
+        <Box width="80%" marginTop={-2}>
           <Markdown text={description} />
         </Box>
       )}
-      <Flex wrap gap={4}>
-        {children}
-      </Flex>
+
+      <Box marginTop={4}>
+        <Flex wrap gap={4}>
+          {children}
+        </Flex>
+      </Box>
     </Fragment>
   );
 };

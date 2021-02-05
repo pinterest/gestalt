@@ -3,8 +3,9 @@ import React, { type Node } from 'react';
 import { Box, Flex } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
-import Combination from './components/Combination.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
+import CombinationNew from './components/CombinationNew.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -13,7 +14,7 @@ card(
   <PageHeader
     name="Flex"
     description={`
-      Flex is a layout component with a very limited subset of the props available to Box and a few special props of its own.
+      Flex is a layout component with a very limited subset of the props available to [Box](/Box) and a few special props of its own.
 
       Use this component for flex layouts, especially when even spacing between elements is desired (see the 'gap' property!).
     `}
@@ -182,30 +183,34 @@ card(
 );
 
 card(
-  <Combination
-    description={`
-    Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      description={`
+      Flex is strictly for flex layouts. If you're new to flex layout, please read the excellent [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
   `}
-    id="layout"
-    name="Layout"
-    justifyContent={['start', 'end', 'center', 'between', 'around']}
-    alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
-  >
-    {({ alignItems, justifyContent, ...rest }) => (
-      <Box height={96} width={96} {...rest}>
-        <Flex
-          direction="column"
-          alignItems={alignItems}
-          height="100%"
-          justifyContent={justifyContent}
-        >
-          <Box margin={1} color="gray" width={8} height={8} />
-          <Box margin={1} color="gray" width={16} height={8} />
-          <Box margin={1} color="gray" width={32} height={8} />
-        </Flex>
-      </Box>
-    )}
-  </Combination>,
+      title="Flex Layout"
+    >
+      <CombinationNew
+        justifyContent={['start', 'end', 'center', 'between', 'around']}
+        alignItems={['start', 'end', 'center', 'baseline', 'stretch']}
+      >
+        {(props) => (
+          <Box
+            display="flex"
+            width="75%"
+            height="75%"
+            borderStyle="shadow"
+            justifyContent={props.justifyContent}
+            alignItems={props.alignItems}
+          >
+            <Box margin={1} color="gray" height={8} width={8} />
+            <Box margin={1} color="gray" height={16} width={8} />
+            <Box margin={1} color="gray" height={32} width={8} />
+          </Box>
+        )}
+      </CombinationNew>
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 export default cards;
