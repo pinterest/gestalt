@@ -1,3 +1,9 @@
+## 17.1.0 (Feb 5, 2021)
+
+### Minor
+
+- Provider/Link/Button/IconButton/TapArea: implement OnNavigation context for advanced link navigation (#1364)
+
 ## 17.0.1 (Feb 5, 2021)
 
 ### Patch
