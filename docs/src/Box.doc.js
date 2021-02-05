@@ -12,7 +12,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Box"
-    description="Box is a component primitive that can be used to build the foundation of pretty much any other component. Using Box allows users to focus on the content, while keeping the pixel details, like spacing, borders, or colors, automatically consistent with the rest of Gestalt."
+    description="Box is a component primitive that can be used to build the foundation of pretty much any other component. It keeps details like spacing, borders and colors consistent with the rest of Gestalt, while allowing the developer to focus on the content."
   />,
 );
 
@@ -253,9 +253,9 @@ card(
         cardSize="md"
         type="do"
         description={`
-        Use Box as a building block when creating other components or layouts that do not rely on Flexbox. The included properties should cover any variations needed to create a diverse range of options.
+        Use Box as a building block when creating other components or layouts that do not rely on flexbox. The included properties should cover any variations needed to create a diverse range of options.
 
-        If you find yourself using Box for Flexbox layouts, consider [Flex](/Flex) instead.
+        If you find yourself using Box for flexbox layouts, consider [Flex](/Flex) instead.
         `}
         defaultCode={`
 <Box column={12}>
@@ -354,7 +354,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box.`}
+        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule]("https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-dangerous-style-duplicates.js") to prevent this from happening.`}
         defaultCode={`
 function MenuButtonExample() {
   const firstBoxHeight = 50;
@@ -681,8 +681,8 @@ card(
         cardSize="lg"
         defaultCode={`
 <Box color="midnight" marginStart={12} marginEnd={12} column={12}>
-  <Box borderStyle="sm" color="maroon" margin="auto" column="5" height={100}/>
-  <Box borderStyle="sm" color="eggplant" marginStart="auto" column="3" height={100}/>
+  <Box borderStyle="sm" color="maroon" margin="auto" column={5} height={100}/>
+  <Box borderStyle="sm" color="eggplant" marginStart="auto" column={3} height={100}/>
 </Box>
 `}
       />
@@ -734,9 +734,9 @@ function BoxFlyoutExample() {
         <Button
           inline
           color="red"
-          onClick={() => setOpen(true)}
+          onClick={ () => setOpen((prevVal) => !prevVal) }
           size="sm"
-          text="Anchor a Flyout to Box"
+          text={open ? "Close Flyout" : "Anchor a Flyout to Box"}
         />
         <Box borderStyle='sm' padding={3} ref={anchorRef} rounding={1}>
           <Text>I'm a Box</Text>
@@ -746,7 +746,7 @@ function BoxFlyoutExample() {
         <Flyout
           anchor={anchorRef.current}
           idealDirection="right"
-          onDismiss={() => setOpen(false)}
+          onDismiss={() => {}}
           shouldFocus={false}
         >
           <Box padding={3}>
@@ -760,7 +760,7 @@ function BoxFlyoutExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`It's possible to use Box with external elements using the css \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it.`}
+      description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it.`}
       title="Z-Index"
     >
       <MainSection.Card
@@ -769,8 +769,21 @@ function BoxFlyoutExample() {
 function Example() {
   const HEADER_ZINDEX = new FixedZIndex(100);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
-  return <Box color="midnight" width={60} height={60} zIndex={zIndex} />
-}
+  return (
+    <Box height={150} column={12} overflow="scroll" tabIndex={0}>
+      <Sticky top={0} zIndex={HEADER_ZINDEX}>
+        <Box color="maroon" width="80%" height={60} padding={2}>
+          <Text color="white">This is sticky and won't move when scrolling</Text>
+        </Box>
+      </Sticky>
+      <Box color="midnight" width="50%" height={100} zIndex={zIndex} position="relative" padding={2}>
+        <Text color="white">This will float above the maroon Box when scrolling</Text>
+      </Box>
+      <Box color="pine" width="30%" height={120} padding={2}>
+        <Text color="white">This will go behind the maroon Box</Text>
+      </Box>
+    </Box>
+)}
 `}
       />
     </MainSection.Subsection>
