@@ -61,7 +61,7 @@ export default function DropdownItem({
           shouldTruncate
           textWeight="bold"
           href={href}
-          onNavigationOptions={onNavigationOptions || {}}
+          onNavigationOptions={onNavigationOptions ?? {}}
         >
           {children}
         </MenuOption>

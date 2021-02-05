@@ -79,7 +79,7 @@ card(
         type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
         description: [
           'Pass custom props to onNavigation.',
-          'onNavigationOptions works in pair with a Provider. See Provider for examples.',
+          'onNavigationOptions works in conjunction with a Provider. See Provider for examples.',
         ],
         href: 'OnNavigationContext',
       },
