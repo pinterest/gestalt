@@ -10,7 +10,10 @@ import styles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useTapFeedback from './useTapFeedback.js';
 import useFocusVisible from './useFocusVisible.js';
-import { type onNavigationOptionsType } from './contexts/OnNavigation.js';
+import {
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type BaseIconButton = {|
   accessibilityLabel: string,
@@ -49,7 +52,7 @@ type IconButtonType = {|
 type LinkIconButtonType = {|
   ...BaseIconButton,
   href: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -250,8 +253,7 @@ IconButtonWithForwardRef.propTypes = {
   icon: PropTypes.oneOf(Object.keys(icons)),
   iconColor: PropTypes.oneOf(['gray', 'darkGray', 'red', 'white']),
   onClick: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  onNavigationOptions: PropTypes.object,
+  onNavigationOptions: OnNavigationOptionsPropType,
   padding: PropTypes.oneOf([1, 2, 3, 4, 5]),
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),

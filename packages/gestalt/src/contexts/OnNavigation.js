@@ -6,22 +6,22 @@ type EventHandlerType = ({|
   +event: SyntheticEvent<>,
 |}) => void;
 
-export type onNavigationOptionsType = {|
+export type OnNavigationOptionsType = {|
   +[string]: Node | EventHandlerType,
 |};
 
-export const onNavigationOptionsPropType: React$PropType$Primitive<{| +[string]: * |}> =
+export const OnNavigationOptionsPropType: React$PropType$Primitive<{| +[string]: * |}> =
   PropTypes.object;
 
 type OnNavigationArgs = {|
   href: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
   target?: null | 'self' | 'blank',
 |};
 
 export type OnNavigationType = ({|
   href: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
 |}) => ?EventHandlerType;
 
 type OnNavigationContextType = {| onNavigation: OnNavigationType |};
@@ -39,10 +39,10 @@ function OnNavigationProvider({ onNavigation, children }: Props): Element<typeof
   return <Provider value={onNavigation ? { onNavigation } : undefined}>{children}</Provider>;
 }
 
+const noop = () => {};
+
 function useOnNavigation({ href, onNavigationOptions }: OnNavigationArgs): EventHandlerType {
   const { onNavigation } = useContext(OnNavigationContext) ?? {};
-
-  const noop = () => {};
 
   return onNavigation?.({ href, onNavigationOptions }) ?? noop;
 }

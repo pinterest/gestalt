@@ -15,7 +15,10 @@ import InternalLink from './InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import { type onNavigationOptionsType } from './contexts/OnNavigation.js';
+import {
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -69,7 +72,7 @@ type SubmitButtonType = {|
 type LinkButtonType = {|
   ...BaseButton,
   href: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -293,8 +296,7 @@ ButtonWithForwardRef.propTypes = {
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  onNavigationOptions: PropTypes.object,
+  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['button', 'link']),

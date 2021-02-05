@@ -18,8 +18,8 @@ import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import {
   useOnNavigation,
-  type onNavigationOptionsType,
-  onNavigationOptionsPropType,
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
 } from './contexts/OnNavigation.js';
 
 type Props = {|
@@ -35,7 +35,7 @@ type Props = {|
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,
@@ -178,7 +178,7 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  onNavigationOptions: onNavigationOptionsPropType,
+  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,

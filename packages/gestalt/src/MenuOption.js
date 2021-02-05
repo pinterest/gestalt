@@ -13,8 +13,8 @@ import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
 import {
-  type onNavigationOptionsType,
-  onNavigationOptionsPropType,
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
 } from './contexts/OnNavigation.js';
 
 export type OptionObject = {|
@@ -42,7 +42,7 @@ type Props = {|
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
   href?: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 export default function MenuOption({
@@ -211,5 +211,5 @@ MenuOption.propTypes = {
   setHoveredItem: PropTypes.func,
   setOptionRef: PropTypes.func,
   href: PropTypes.string,
-  onNavigationOptions: onNavigationOptionsPropType,
+  onNavigationOptions: OnNavigationOptionsPropType,
 };

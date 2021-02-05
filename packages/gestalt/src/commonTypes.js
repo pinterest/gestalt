@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import {
-  type onNavigationOptionsType,
-  onNavigationOptionsPropType,
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
 } from './contexts/OnNavigation.js';
 
 export type ActionDataType = {|
@@ -16,7 +16,7 @@ export type ActionDataType = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 export type DismissButtonType = {|
@@ -31,7 +31,7 @@ export const ActionDataPropType: React$PropType$Primitive<ActionDataType> = Prop
   // $FlowFixMe[incompatible-type]
   onClick: PropTypes.func,
   accessibilityLabel: PropTypes.string,
-  onNavigationOptions: onNavigationOptionsPropType,
+  onNavigationOptions: OnNavigationOptionsPropType,
 });
 // $FlowFixMe[incompatible-exact]
 // $FlowFixMe[incompatible-type]

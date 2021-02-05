@@ -9,7 +9,10 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import { type onNavigationOptionsType } from './contexts/OnNavigation.js';
+import {
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 type FocusEventHandler = AbstractEventHandler<
   SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
@@ -51,7 +54,7 @@ type TapAreaType = {|
 type LinkTapAreaType = {|
   ...BaseTapArea,
   href: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -256,8 +259,7 @@ TapAreaWithForwardRef.propTypes = {
   onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  onNavigationOptions: PropTypes.object,
+  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['tapArea', 'link']),

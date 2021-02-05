@@ -55,37 +55,37 @@ card(
         cardSize="lg"
         defaultCode={`
 function Example(props) {
-  const [scheme, setScheme] = React.useState('light')
+  const [scheme, setScheme] = React.useState("light")
   const schemeOptions = [
     {
-      value: 'light',
-      label: 'Light'
+      value: "light",
+      label: "Light"
     },
     {
-      value: 'dark',
-      label: 'Dark'
+      value: "dark",
+      label: "Dark"
     },
     {
-      value: 'userPreference',
-      label: 'User Preference'
+      value: "userPreference",
+      label: "User Preference"
     }
   ];
   return (
-    <Provider colorScheme={scheme} id='docsExample'>
-      <Box color='white' padding={2}>
+    <Provider colorScheme={scheme} id="docsExample">
+      <Box color="white" padding={2}>
         <SelectList
-          id='scheme'
-          name='scheme'
+          id="scheme"
+          name="scheme"
           onChange={({ value }) => setScheme(value)}
           options={schemeOptions}
-          placeholder='Select color scheme'
-          label='Color scheme'
+          placeholder="Select color scheme"
+          label="Color scheme"
           value={scheme}
         />
         <Box padding={2}>
           <Text>Some content</Text>
         </Box>
-        <Button text='Example button' inline /> <Button color='red' text='Red Button' inline />
+        <Button text="Example button" inline /> <Button color="red" text="Red Button" inline />
       </Box>
     </Provider>
   );
@@ -223,7 +223,7 @@ function OnNavigation() {
         <Flex direction="row" gap={2}>
           <Switch
             onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
-            id="disable-buttons"
+            id="disable-buttons-2"
             switched={clientOnNavigationMode}
           />
           {clientOnNavigationMode ? (
@@ -255,7 +255,7 @@ function OnNavigation() {
                 label:"Learn more",
               }}
             dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
+              accessibilityLabel: "Dismiss banner",
               onDismiss: ()=>{},
             }}
           />
@@ -267,7 +267,7 @@ function OnNavigation() {
                 label:"Send invite"
               }}
             dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
+              accessibilityLabel: "Dismiss banner",
               onDismiss: ()=>{},
             }}
             imageData={{
@@ -284,7 +284,7 @@ function OnNavigation() {
               label:"Claim your website now"
             }}
             dismissButton={{
-              accessibilityLabel: 'Dismiss card',
+              accessibilityLabel: "Dismiss card",
               onDismiss: ()=>{},
             }}
           />
@@ -334,7 +334,7 @@ function OnNavigation() {
         <Flex direction="row" gap={2}>
           <Switch
             onChange={() => setClientOnNavigationMode(!clientOnNavigationMode)}
-            id="disable-buttons"
+            id="disable-buttons-3"
             switched={clientOnNavigationMode}
           />
           {clientOnNavigationMode ? (

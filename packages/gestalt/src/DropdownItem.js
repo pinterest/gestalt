@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
 import DropdownContext from './DropdownContextProvider.js';
 import {
-  type onNavigationOptionsType,
-  onNavigationOptionsPropType,
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
 } from './contexts/OnNavigation.js';
 
 type PublicProps = {|
@@ -19,7 +19,7 @@ type PublicProps = {|
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   href?: string,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 type PrivateProps = {|
@@ -98,5 +98,5 @@ DropdownItem.propTypes = {
   ]),
   handleSelect: PropTypes.func,
   href: PropTypes.string,
-  onNavigationOptions: onNavigationOptionsPropType,
+  onNavigationOptions: OnNavigationOptionsPropType,
 };

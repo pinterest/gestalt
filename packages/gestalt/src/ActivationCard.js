@@ -11,8 +11,8 @@ import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
 import {
-  type onNavigationOptionsType,
-  onNavigationOptionsPropType,
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
 } from './contexts/OnNavigation.js';
 
 type LinkData = {|
@@ -25,7 +25,7 @@ type LinkData = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
-  onNavigationOptions?: onNavigationOptionsType,
+  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 type Props = {|
@@ -240,7 +240,7 @@ ActivationCard.propTypes = {
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
-    onNavigationOptions: onNavigationOptionsPropType,
+    onNavigationOptions: OnNavigationOptionsPropType,
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   status: PropTypes.oneOf(['notStarted', 'pending', 'needsAttention', 'complete']).isRequired,
