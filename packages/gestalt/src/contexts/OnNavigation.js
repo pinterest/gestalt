@@ -19,10 +19,7 @@ type OnNavigationArgs = {|
   target?: null | 'self' | 'blank',
 |};
 
-export type OnNavigationType = ({|
-  href: string,
-  onNavigationOptions?: OnNavigationOptionsType,
-|}) => ?EventHandlerType;
+export type OnNavigationType = (OnNavigationArgs) => ?EventHandlerType;
 
 type OnNavigationContextType = {| onNavigation: OnNavigationType |};
 
@@ -41,10 +38,14 @@ function OnNavigationProvider({ onNavigation, children }: Props): Element<typeof
 
 const noop = () => {};
 
-function useOnNavigation({ href, onNavigationOptions }: OnNavigationArgs): EventHandlerType {
+function useOnNavigation({
+  href,
+  onNavigationOptions,
+  target,
+}: OnNavigationArgs): EventHandlerType {
   const { onNavigation } = useContext(OnNavigationContext) ?? {};
 
-  return onNavigation?.({ href, onNavigationOptions }) ?? noop;
+  return onNavigation?.({ href, onNavigationOptions, target }) ?? noop;
 }
 
 export { OnNavigationProvider, useOnNavigation };

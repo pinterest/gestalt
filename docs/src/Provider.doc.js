@@ -28,17 +28,17 @@ card(
         name: 'id',
         type: 'string',
         description:
-          'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (example: setting color scheme variables at :root).',
+          'An optional id for your color scheme provider. If not passed in, settings will be applied as globally as possible (ex. setting color scheme variables at :root).',
         href: 'Color-scheme',
       },
       {
         name: 'onNavigation',
         type:
-          '{ href: string, onNavigationOptions:  ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) }',
+          '{| href: string, onNavigationOptions?:  ({ [string]: Node | ({| +event: SyntheticEvent<>, target?: null | "self" | "blank" |}) => void }) |}',
         description: [
-          'Components with link functionality use simple `<a>` tags. In order to replace the default link functionality with more complex ones (ex. withRouter or spam checking), onNavigation provides an interface to implement external logic into the onClick event handler in links.',
-          ` 'onNavigation' is a high-order function. If passed into the provider, consumer components (ex. Link, Button, IconButton, and TapArea) call the 'onNavigation' function with 2 named parameters ('href' and 'onNavigationOptions') that returns a function that gets called inside the 'onClick' event handler. 'onNavigationOptions' is an object that acts as a flexible API for your onNavigation external logic.`,
-          `onNavigation's type is flexible. Each key's value is a React.Node or an event handler function.`,
+          `Components with link functionality use simple <a> tags. In order to replace the default link functionality with more complex ones (ex. withRouter or spam checking), onNavigation provides an interface to implement external logic into the 'onClick' event handler in links.`,
+          `onNavigation is a high-order function. If passed into the provider, consumer components (ex. Link, Button, IconButton and TapArea) call the onNavigation function with three named parameters ('href', 'onNavigationOptions' and 'target') that returns a function that gets called inside the 'onClick' event handler. `,
+          `'onNavigationOptions' is an object that acts as a flexible API for your onNavigation external logic. The onNavigationOptions's type is flexible. Each key's value is a React.Node or an event handler function.`,
         ],
         href: 'Custom-navigation-context',
       },
@@ -98,14 +98,14 @@ function Example(props) {
       description={`
         These examples illustrate a custom implementation of \`onNavigation\` context to control the link functionality of Gestalt components externally.
 
-        This example has 4 relevant parts: a Provider, an \`onNavigation\` high-order function, consumer components, and \`onNavigationOptions\` props.
+        This example has four relevant parts: a Provider, an \`onNavigation\` high-order function, consumer components and \`onNavigationOptions\` props.
 
-        The top Provider passes the custom \`onNavigation\` function to consumer components. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
+        The top Provider passes the custom \`onNavigation\` function to consumer components which execute it. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
 
-        The \`onNavigation\` function can contain complex logic, including React hooks, to perform side effects. In this case, \`onNavigation\` is used to
-          - disable the default Link behavior,
-          - show an alert message, and
-          - open a different URL in a new window.
+        The \`onNavigation\` function can contain complex logic, including React hooks, to perform side effects. It also takes named arguments: \`href\`, \`onNavigationOptions\` and \`target\`. In this case, \`onNavigation\` executes the following actions:
+          - Disable the default Link behavior
+          - Show an alert message
+          - Open a different URL in a new window
 
         Finally, the \`onNavigationOptions\` prop provides a flexible API. The \`onNavigationOptions\` prop is passed as an argument to the \`onNavigation\` function, providing external control to the logic inside the function. In this case, \`onNavigationOptions\` toggles a \`navigationMode\` key between \`default\` and \`navigation\` values. Then, inside the \`onNavigation\` function, the \`navigationMode\` value toggles between the default link behavior and the custom navigation context behavior. Other uses for this level of customization could be accessing \`event.stopPropagation\`.
       `}
@@ -122,8 +122,8 @@ function OnNavigation() {
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
-      alert('Disabled link. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', target === 'blank' && '_blank');
+      alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
+      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
     }
 
     return onNavigationOptions && onNavigationOptions.navigationMode === 'navigation'
@@ -152,7 +152,7 @@ function OnNavigation() {
           />
           <RadioButton
             checked={clientOnNavigationMode === 'navigation'}
-            id="onNavigation1"
+            id="navigation1"
             label="Custom Navigation Context"
             name="navigation"
             onChange={() => setClientOnNavigationMode('navigation')}
@@ -215,7 +215,7 @@ function OnNavigation() {
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
-      alert('Disabled link. Opening help.pinterest.com instead.');
+      alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
       window.open('https://help.pinterest.com', '_blank');
     }
 
@@ -246,7 +246,7 @@ function OnNavigation() {
           />
           <RadioButton
             checked={clientOnNavigationMode === 'navigation'}
-            id="onNavigation1"
+            id="navigation2"
             label="Custom Navigation Context"
             name="navigation"
             onChange={() => setClientOnNavigationMode('navigation')}
@@ -327,7 +327,7 @@ function OnNavigation() {
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
-      alert('Disabled link. Opening help.pinterest.com instead.');
+      alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
       window.open('https://help.pinterest.com', '_blank');
     }
 
@@ -358,7 +358,7 @@ function OnNavigation() {
           />
           <RadioButton
             checked={clientOnNavigationMode === 'navigation'}
-            id="onNavigation1"
+            id="navigation3"
             label="Custom Navigation Context"
             name="navigation"
             onChange={() => setClientOnNavigationMode('navigation')}
