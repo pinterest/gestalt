@@ -1,3 +1,9 @@
+## 17.1.2 (Feb 8, 2021)
+
+### Patch
+
+- Provider: fixes in Provider, Provider Docs and OnNavigation-related component Docs (#1369)
+
 ## 17.1.1 (Feb 8, 2021)
 
 ### Patch
