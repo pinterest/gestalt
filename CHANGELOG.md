@@ -1,3 +1,9 @@
+## 17.1.3 (Feb 8, 2021)
+
+### Patch
+
+- Internal: Rename codemod folder (#1372)
+
 ## 17.1.2 (Feb 8, 2021)
 
 ### Patch
