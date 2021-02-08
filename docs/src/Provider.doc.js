@@ -102,7 +102,7 @@ function Example(props) {
 
         The top Provider passes the custom \`onNavigation\` function to consumer components which execute it. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
 
-        The \`onNavigation\` function can contain complex logic, including React hooks, to perform side effects. It also takes named arguments: \`href\`, \`onNavigationOptions\` and \`target\`. In this case, \`onNavigation\` executes the following actions:
+        The \`onNavigation\` function can contain complex logic, including React hooks, to perform side effects. It also takes named arguments: \`href\`, \`onNavigationOptions\` and \`target\`. In the examples below, \`onNavigation\` executes the following actions:
           - Disable the default Link behavior
           - Show an alert message
           - Open a different URL in a new window
@@ -341,6 +341,7 @@ function OnNavigation() {
     onNavigationOptions: {
       navigationMode: clientOnNavigationMode
     },
+    target: 'blank',
   }
 
   return (
