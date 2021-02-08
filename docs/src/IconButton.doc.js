@@ -22,7 +22,6 @@ card(
       {
         name: 'accessibilityLabel',
         type: 'string',
-        required: true,
         defaultValue: null,
         description: [
           'Supply a short, descriptive label for screen-readers to provide context about the icon button component behavior. IconButton does not have text for screen reader to read and provide context. Therefore, we must pass an alternative text.',
