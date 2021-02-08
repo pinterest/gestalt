@@ -1,3 +1,9 @@
+## 17.1.1 (Feb 8, 2021)
+
+### Patch
+
+- Internal: disable Mergify (#1368)
+
 ## 17.1.0 (Feb 5, 2021)
 
 ### Minor
