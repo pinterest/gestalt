@@ -1,3 +1,9 @@
+## 17.1.6 (Feb 9, 2021)
+
+### Patch
+
+- Docs: Update cypress accessibility testing, remove disabled contrast rules (#1373)
+
 ## 17.1.5 (Feb 9, 2021)
 
 ### Patch
