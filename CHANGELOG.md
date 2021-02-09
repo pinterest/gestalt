@@ -1,3 +1,9 @@
+## 17.1.5 (Feb 9, 2021)
+
+### Patch
+
+- Docs: Add ability for Do/Don't in bullet lists (#1378)
+
 ## 17.1.4 (Feb 8, 2021)
 
 ### Patch
