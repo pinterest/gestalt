@@ -70,6 +70,16 @@ Code for this example goes here
 Code for this example goes here
 `}
       />
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description={`
+        Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")
+
+        - You do not need code for these
+        - You can instead use bulleted lists of Dos
+        `}
+      />
     </MainSection.Subsection>
   </MainSection>,
 );
@@ -158,11 +168,11 @@ card(
     description={`
       [Component Name](/component-name)
 
-      - Details about why to use this over current component.
+      Details about why to use this over current component.
 
       [Component Name](/component-name)
 
-      - Details about why to use this over current component.
+      Details about why to use this over current component.
 
       Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")
     `}

@@ -15,6 +15,10 @@ import InternalLink from './InternalLink.js';
 import Icon, { type IconColor } from './Icon.js';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import {
+  type OnNavigationOptionsType,
+  OnNavigationOptionsPropType,
+} from './contexts/OnNavigation.js';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'white',
@@ -68,6 +72,7 @@ type SubmitButtonType = {|
 type LinkButtonType = {|
   ...BaseButton,
   href: string,
+  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -187,7 +192,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   const handleLinkClick = ({ event }) => handleClick(event);
 
   if (props.role === 'link') {
-    const { href, rel = 'none', target = null } = props;
+    const { href, onNavigationOptions, rel = 'none', target = null } = props;
 
     return (
       <InternalLink
@@ -197,6 +202,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         inline={inline}
         href={href}
         onClick={handleLinkClick}
+        onNavigationOptions={onNavigationOptions}
         ref={innerRef}
         rel={rel}
         tabIndex={tabIndex}
@@ -290,6 +296,7 @@ ButtonWithForwardRef.propTypes = {
   inline: PropTypes.bool,
   name: PropTypes.string,
   onClick: PropTypes.func,
+  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['button', 'link']),

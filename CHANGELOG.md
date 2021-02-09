@@ -1,3 +1,39 @@
+## 17.1.5 (Feb 9, 2021)
+
+### Patch
+
+- Docs: Add ability for Do/Don't in bullet lists (#1378)
+
+## 17.1.4 (Feb 8, 2021)
+
+### Patch
+
+- Bump marked from 1.1.1 to 2.0.0 (#1371)
+
+## 17.1.3 (Feb 8, 2021)
+
+### Patch
+
+- Internal: Rename codemod folder (#1372)
+
+## 17.1.2 (Feb 8, 2021)
+
+### Patch
+
+- Provider: fixes in Provider, Provider Docs and OnNavigation-related component Docs (#1369)
+
+## 17.1.1 (Feb 8, 2021)
+
+### Patch
+
+- Internal: disable Mergify (#1368)
+
+## 17.1.0 (Feb 5, 2021)
+
+### Minor
+
+- Provider/Link/Button/IconButton/TapArea: implement OnNavigation context for advanced link navigation (#1364)
+
 ## 17.0.1 (Feb 5, 2021)
 
 ### Patch

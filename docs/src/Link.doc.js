@@ -75,6 +75,15 @@ card(
         type: '() => void',
       },
       {
+        name: 'onNavigationOptions',
+        type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        description: [
+          'onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples.',
+          `onNavigation's type is flexible. Each key's value is a React.Node or an event handler function.`,
+        ],
+        href: 'OnNavigationContext',
+      },
+      {
         name: 'ref',
         type: "React.Ref<'a'>",
         description: 'Forward the ref to the underlying anchor element',
