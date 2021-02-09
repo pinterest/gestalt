@@ -5,7 +5,6 @@ describe('Pulsar Accessibility check', () => {
   });
 
   it('Tests accessibility on the Pulsar page', () => {
-
     cy.checkA11y();
   });
 });

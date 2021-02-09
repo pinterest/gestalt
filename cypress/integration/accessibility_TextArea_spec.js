@@ -5,7 +5,6 @@ describe('TextArea Accessibility check', () => {
   });
 
   it('Tests accessibility on the TextArea page', () => {
-
     cy.checkA11y();
   });
 });

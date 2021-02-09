@@ -5,7 +5,6 @@ describe('Module Accessibility check', () => {
   });
 
   it('Tests accessibility on the Module page', () => {
-
     cy.checkA11y();
   });
 });

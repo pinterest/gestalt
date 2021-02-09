@@ -5,7 +5,6 @@ describe('Modal Accessibility check', () => {
   });
 
   it('Tests accessibility on the Modal page', () => {
-
     cy.checkA11y();
   });
 });

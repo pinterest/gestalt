@@ -5,7 +5,6 @@ describe('Text Accessibility check', () => {
   });
 
   it('Tests accessibility on the Text page', () => {
-
     cy.checkA11y();
   });
 });
