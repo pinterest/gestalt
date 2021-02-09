@@ -117,7 +117,7 @@ export default function Combination({
               alignItems="center"
             >
               {showValues && (
-                <Box marginBottom={2}>
+                <Box color="white" marginBottom={2}>
                   {labelPrefix ? (
                     <Label htmlFor={`${labelPrefix}-${i}`}>{combinationTitles}</Label>
                   ) : (

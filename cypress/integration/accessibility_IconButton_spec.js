@@ -5,14 +5,6 @@ describe('IconButton Accessibility check', () => {
   });
 
   it('Tests accessibility on the IconButton page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

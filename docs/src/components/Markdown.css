@@ -4,6 +4,19 @@
   padding: 5px;
 }
 
+.Markdown code {
+  background-color: var(--g-colorGray0);
+}
+
+.Markdown p {
+  background-color: var(--g-colorGray0);
+  margin: 0;
+}
+
+.Markdown p + p {
+  margin-top: 14px;
+}
+
 .Markdown ul + pre {
   margin-left: 40px;
 }

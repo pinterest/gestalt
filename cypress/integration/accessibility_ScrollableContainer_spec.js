@@ -5,14 +5,6 @@ describe('ScrollableContainer Accessibility check', () => {
   });
 
   it('Tests accessibility on the ScrollableContainer page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

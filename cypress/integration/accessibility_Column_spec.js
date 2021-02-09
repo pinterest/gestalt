@@ -5,14 +5,6 @@ describe('Column Accessibility check', () => {
   });
 
   it('Tests accessibility on the Column page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

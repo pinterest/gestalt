@@ -8,10 +8,6 @@ describe('Table Accessibility check', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'color-contrast',
-          enabled: false,
-        },
-        {
           // Disabled to avoid confusion for sticky header example
           id: 'scrollable-region-focusable',
           enabled: false,

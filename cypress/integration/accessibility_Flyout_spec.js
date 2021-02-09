@@ -5,14 +5,6 @@ describe('Flyout Accessibility check', () => {
   });
 
   it('Tests accessibility on the Flyout page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

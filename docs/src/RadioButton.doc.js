@@ -321,6 +321,7 @@ card(
     description={`
     A \`RadioButton\` with an anchor ref to a Flyout component doesn't pass the correct positioning to the Flyout. Instead set the anchor ref to the parent container.
   `}
+    skipContrastCheck
     defaultCode={`
 
 function RadioButtonFlyoutExample() {

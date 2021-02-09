@@ -5,14 +5,6 @@ describe('ActivationCard Accessibility check', () => {
   });
 
   it('Tests accessibility on the ActivationCard page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });

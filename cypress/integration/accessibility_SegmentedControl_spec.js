@@ -5,6 +5,7 @@ describe('SegmentedControl Accessibility check', () => {
   });
 
   it('Tests accessibility on the SegmentedControl page', () => {
+    // Contrast on unselected tabs does not pass guidelines
     cy.configureAxe({
       rules: [
         {
