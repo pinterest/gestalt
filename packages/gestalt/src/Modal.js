@@ -10,6 +10,7 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import ScrollableContainer from './ScrollableContainer.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
@@ -144,9 +145,11 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
-                <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={content}>
-                  {children}
-                </Box>
+                <ScrollableContainer>
+                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={content}>
+                    {children}
+                  </Box>
+                </ScrollableContainer>
                 {footer && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
