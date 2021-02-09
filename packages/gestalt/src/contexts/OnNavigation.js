@@ -10,7 +10,8 @@ export type OnNavigationOptionsType = {|
   +[string]: Node | EventHandlerType,
 |};
 
-export const OnNavigationOptionsPropType: React$PropType$Primitive<{| +[string]: * |}> =
+export const OnNavigationOptionsPropType: React$PropType$Primitive<OnNavigationOptionsType> =
+  // $FlowFixMe[incompatible-type]
   PropTypes.object;
 
 type OnNavigationArgs = {|
