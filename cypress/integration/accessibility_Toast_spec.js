@@ -5,6 +5,7 @@ describe('Toast Accessibility check', () => {
   });
 
   it('Tests accessibility on the Toast page', () => {
+    // Keep disabled until converted to new docs components
     cy.configureAxe({
       rules: [
         {

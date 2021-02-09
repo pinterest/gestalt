@@ -5,14 +5,7 @@ describe('TextArea Accessibility check', () => {
   });
 
   it('Tests accessibility on the TextArea page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
+
     cy.checkA11y();
   });
 });

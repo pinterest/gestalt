@@ -51,7 +51,12 @@ ${target.join('\n')}`,
 }
 
 Cypress.Commands.overwrite('checkA11y', (originalFn, context, options) => {
-  return originalFn(context, options, logA11yViolations);
+  // Do not test accessibility on the live code editors, or anything with class="cypress-skip-a11y"
+  const accessibilityExcludes = {
+    'exclude': [['.live-editor-pane'], ['.cypress-skip-a11y']],
+  };
+  const updatedContext = { ...context, ...accessibilityExcludes };
+  return originalFn(updatedContext, options, logA11yViolations);
 });
 
 // ***********************************************

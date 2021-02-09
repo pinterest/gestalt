@@ -5,6 +5,7 @@ describe('ZIndex Classes Accessibility check', () => {
   });
 
   it('Tests accessibility on the ZIndex Classes page', () => {
+    // Keep disabled until docs are converted to new design
     cy.configureAxe({
       rules: [
         {

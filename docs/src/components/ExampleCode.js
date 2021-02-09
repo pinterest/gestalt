@@ -78,7 +78,6 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
       <Box display="flex" direction="column" width="100%" marginTop={2}>
         <Box
           borderStyle="sm"
-          color="darkGray"
           display="flex"
           overflow="hidden"
           position="relative"
@@ -95,7 +94,13 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
             {/* We can not pass in an id for LiveEditor which links to the underlying text area */}
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label>
-              <LiveEditor style={{ minHeight: '152px' }} padding={16} />
+              <LiveEditor
+                className="live-editor-pane"
+                style={{
+                  minHeight: '152px',
+                }}
+                padding={16}
+              />
             </label>
           </Box>
         </Box>

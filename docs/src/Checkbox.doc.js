@@ -287,6 +287,7 @@ card(
     description="Here is an example of a checkbox showing an error message."
     id="hasError"
     name="Example: Error state"
+    skipContrastCheck
     defaultCode={`
 function CheckboxExample() {
   return (

@@ -5,6 +5,7 @@ describe('TapArea Accessibility check', () => {
   });
 
   it('Tests accessibility on the TapArea page', () => {
+    // Keep disabled until converted to new docs components
     cy.configureAxe({
       rules: [
         {

@@ -26,14 +26,14 @@ const CARD_SIZE_NAME_TO_PIXEL = {
 };
 
 const TYPE_TO_COLOR = {
-  do: 'green',
+  do: 'pine',
   "don't": 'red',
   info: 'darkGray',
 };
 
-// Colors used here map to colors.css's .red and .green styles
+// Colors used here map to colors.css's .pine and .red styles
 const COLOR_TO_HEX = {
-  green: '#0fa573',
+  pine: '#0a6955',
   red: '#e60023',
 };
 
@@ -97,6 +97,7 @@ const MainSectionCard = ({
       )}
       <Box
         marginTop={4}
+        color="white"
         dangerouslySetInlineStyle={{
           __style: { borderTop: borderStyle },
         }}
@@ -109,7 +110,7 @@ const MainSectionCard = ({
           </Box>
         )}
         {description && (
-          <Box width="90%" marginTop={-3}>
+          <Box width="90%" marginTop={2} color="white">
             <Markdown text={description} />
           </Box>
         )}

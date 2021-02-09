@@ -5,14 +5,6 @@ describe('Image Accessibility check', () => {
   });
 
   it('Tests accessibility on the Image page', () => {
-    cy.configureAxe({
-      rules: [
-        {
-          id: 'color-contrast',
-          enabled: false,
-        },
-      ],
-    });
     cy.checkA11y();
   });
 });
