@@ -36,8 +36,11 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import { ScrollableContainerWithForwardRef as InternalScrollableContainer } from './ScrollableContainer.js';
+import { ScrollableContainerProvider } from './contexts/ScrollableContainer.js';
 
 type SheetMainProps = {|
+  _dangerouslySetExperimentalProp?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
   children: Node,
@@ -115,6 +118,7 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
   HTMLDivElement,
 >(function Sheet(props, sheetRef): Node {
   const {
+    _dangerouslySetExperimentalProp,
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
     children,
@@ -226,15 +230,27 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
                     </Box>
                   </Box>
                 )}
-                <Box
-                  flex="grow"
-                  overflow="auto"
-                  onScroll={updateShadows}
-                  padding={8}
-                  ref={contentRef}
-                >
-                  {children}
-                </Box>
+                {_dangerouslySetExperimentalProp ? (
+                  <ScrollableContainerProvider>
+                    <InternalScrollableContainer
+                      onScroll={updateShadows}
+                      padding={8}
+                      ref={contentRef}
+                    >
+                      {children}
+                    </InternalScrollableContainer>
+                  </ScrollableContainerProvider>
+                ) : (
+                  <Box
+                    flex="grow"
+                    overflow="auto"
+                    onScroll={updateShadows}
+                    padding={8}
+                    ref={contentRef}
+                  >
+                    {children}
+                  </Box>
+                )}
                 {footer && (
                   <div
                     className={classnames(sheetStyles.shadowContainer, {
@@ -259,6 +275,7 @@ SheetWithForwardRef.displayName = 'Sheet';
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 SheetWithForwardRef.propTypes = {
+  _dangerouslySetExperimentalProp: PropTypes.bool,
   accessibilityDismissButtonLabel: PropTypes.string.isRequired,
   accessibilitySheetLabel: PropTypes.string.isRequired,
   children: PropTypes.node,
@@ -281,6 +298,7 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
   HTMLDivElement,
 > = forwardRef<AnimatedSheetProps, HTMLDivElement>(function AnimatedSheet(props, sheetRef): Node {
   const {
+    _dangerouslySetExperimentalProp = false,
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
     children,
@@ -296,6 +314,7 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
     <AnimationController onDismissEnd={onDismiss}>
       {({ onDismissStart }) => (
         <SheetWithForwardRef
+          _dangerouslySetExperimentalProp={_dangerouslySetExperimentalProp}
           accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
           accessibilitySheetLabel={accessibilitySheetLabel}
           closeOnOutsideClick={closeOnOutsideClick}

@@ -2,7 +2,7 @@
 
 exports[`ScrollableContainer ScrollableContainer correctly sets height and overflow props 1`] = `
 <div
-  className="box overflowScroll relative"
+  className="box overflowScroll paddingXundefined paddingYundefined relative"
   style={
     Object {
       "height": 200,
@@ -17,7 +17,7 @@ exports[`ScrollableContainer ScrollableContainer correctly sets height and overf
 
 exports[`ScrollableContainer renders 1`] = `
 <div
-  className="box overflowAuto relative"
+  className="box overflowAuto paddingXundefined paddingYundefined relative"
   style={
     Object {
       "height": "100%",
