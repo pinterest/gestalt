@@ -19,6 +19,10 @@ type Props = {|
   type?: 'do' | "don't" | 'info',
 |};
 
+type PreviewCardProps = {|
+  children?: Node,
+|};
+
 const CARD_SIZE_NAME_TO_PIXEL = {
   sm: 236,
   md: 362,
@@ -52,41 +56,37 @@ const MainSectionCard = ({
   const borderStyle =
     type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
+  const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
+
+  const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => {
+    return (
+      <Box
+        alignItems="center"
+        borderStyle="sm"
+        color={shaded ? 'lightGray' : 'white'}
+        display="flex"
+        height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+        justifyContent="center"
+        padding={4}
+        position="relative"
+        rounding={2}
+      >
+        {cardChildren}
+      </Box>
+    );
+  };
+
   return (
     <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={4} marginBottom={4}>
-      {children ? (
-        <Box
-          alignItems="center"
-          borderStyle="sm"
-          color={shaded ? 'lightGray' : 'white'}
-          display="flex"
-          height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-          justifyContent="center"
-          padding={4}
-          position="relative"
-          rounding={2}
-        >
-          {children}
-        </Box>
-      ) : (
-        <LiveProvider code={code} scope={scope} theme={theme}>
-          <Box
-            alignItems="center"
-            borderStyle="sm"
-            color={shaded ? 'lightGray' : 'white'}
-            display="flex"
-            height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-            justifyContent="center"
-            padding={4}
-            position="relative"
-            rounding={2}
-          >
-            <LivePreview style={{ display: 'contents' }} />
-          </Box>
+      {children && <PreviewCard>{children}</PreviewCard>}
 
-          {showCode && code && cardSize !== 'sm' && (
-            <ExampleCode code={code} name={cardTitle || ''} />
-          )}
+      {code && (
+        <LiveProvider code={code} scope={scope} theme={theme}>
+          <PreviewCard>
+            <LivePreview style={{ display: 'contents' }} />
+          </PreviewCard>
+
+          {shouldShowCode && <ExampleCode code={code} name={cardTitle || ''} />}
 
           <Box paddingX={2}>
             <Text color="watermelon">
@@ -95,8 +95,9 @@ const MainSectionCard = ({
           </Box>
         </LiveProvider>
       )}
+
       <Box
-        marginTop={4}
+        marginTop={borderStyle ? 4 : 3}
         dangerouslySetInlineStyle={{
           __style: { borderTop: borderStyle },
         }}
