@@ -10,7 +10,7 @@ export type OnNavigationOptionsType = {|
   +[string]: Node | EventHandlerType,
 |};
 
-export const OnNavigationOptionsPropType: React$PropType$Primitive<{| +[string]: * |}> =
+export const OgamNavigationOptionsPropType: React$PropType$Primitive<{| +[string]: * |}> =
   PropTypes.object;
 
 type OnNavigationArgs = {|
