@@ -40,7 +40,7 @@ type Props = {|
     value: string,
   |}) => void,
   onSelect?: ({|
-    event: SyntheticFocusEvent<HTMLInputElement> | SyntheticKeyboardEvent<HTMLInputElement>,
+    event: SyntheticInputEvent<HTMLInputElement> | SyntheticKeyboardEvent<HTMLInputElement>,
     item: ?OptionObject,
   |}) => void,
   options: $ReadOnlyArray<OptionObject>,

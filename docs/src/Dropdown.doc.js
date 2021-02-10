@@ -138,7 +138,7 @@ card(
       {
         name: 'onSelect',
         type:
-          '({ event: SyntheticInputEvent<>, item: {label: string, value: string, subtext: string} }) => void',
+          '({ event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} }) => void',
         description: 'Callback when you select an item',
         href: 'default',
       },
@@ -179,7 +179,7 @@ card(
       },
       {
         name: 'option',
-        type: '{| label: string, value: string, subtext: string |}',
+        type: '{| label: string, value: string, subtext?: string |}',
         required: true,
         description: 'Object detailing the label, value, and (optional) subtext for this item.',
         href: 'withSubtext',
@@ -187,7 +187,7 @@ card(
       {
         name: 'selected',
         type:
-          '{| label: string, value: string, subtext: string |} | Array<{| label: string, value: string, subtext: string |}>',
+          '{| label: string, value: string, subtext?: string |} | Array<{| label: string, value: string, subtext?: string |}>',
         description:
           'Either the selected item info or an array of selected items, used to determine when the "selected" icon appears on an item',
         href: 'default',
@@ -195,7 +195,7 @@ card(
       {
         name: 'handleSelect',
         type:
-          '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext: string} |}) => void',
+          '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
         required: true,
         description: 'Callback when the user selects an item',
         href: 'default',

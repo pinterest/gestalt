@@ -31,7 +31,7 @@ type Props = {|
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   handleSelect?: ({|
     item: OptionObject,
-    event: SyntheticFocusEvent<HTMLInputElement>,
+    event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
   hoveredItem: ?number,
   id: string,

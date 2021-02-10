@@ -22,7 +22,7 @@ type Props = {|
   onDismiss: () => void,
   onSelect?: AbstractEventHandler<
     SyntheticKeyboardEvent<HTMLElement> | SyntheticMouseEvent<HTMLElement>,
-    {| item: ?OptionObject |},
+    {| item: OptionObject |},
   >,
   zIndex?: Indexable,
 |};
