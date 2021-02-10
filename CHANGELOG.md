@@ -1,3 +1,9 @@
+## 17.2.0 (Feb 10, 2021)
+
+### Minor
+
+- update types to match doc (#1380)
+
 ## 17.1.7 (Feb 10, 2021)
 
 ### Patch
