@@ -79,6 +79,7 @@ const MainSectionCard = ({
   const TitleAndDescription = (
     <Box
       marginTop={borderStyle ? 4 : 3}
+      marginBottom={cardSize === 'lg' ? 4 : 0}
       dangerouslySetInlineStyle={{
         __style: { borderTop: borderStyle },
       }}
@@ -91,7 +92,7 @@ const MainSectionCard = ({
         </Box>
       )}
       {description && (
-        <Box width="90%" marginTop={-3}>
+        <Box width="90%" marginTop={2} color="white">
           <Markdown text={description} />
         </Box>
       )}
