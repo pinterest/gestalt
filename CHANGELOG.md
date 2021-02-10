@@ -1,3 +1,9 @@
+## 17.3.0 (Feb 10, 2021)
+
+### Minor
+
+- [Eslint] Add border to prefer-box eslint rule (#1381)
+
 ## 17.2.0 (Feb 10, 2021)
 
 ### Minor
