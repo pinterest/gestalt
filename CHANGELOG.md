@@ -1,3 +1,9 @@
+## 17.1.7 (Feb 10, 2021)
+
+### Patch
+
+- Docs: Adjust spacing for large examples with titles (#1379)
+
 ## 17.1.6 (Feb 9, 2021)
 
 ### Patch
