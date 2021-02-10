@@ -97,3 +97,26 @@ export const validateBorderRadius = (value: string): number | string => {
   }
   return roundingLookup[value];
 };
+
+export const validateBorder = (value: string): ?string => {
+  // If the value is a string:
+  // 1) convert everything to lowerCase (css is case-insensitive)
+  // 2) sort the values since some found uses have the wrong order
+  const cleanValue =
+    value && value.toLowerCase ? value.toLowerCase().split(' ').sort().join(' ') : value;
+  if (
+    cleanValue === '#efefef 1px solid' ||
+    cleanValue === '#eee 1px solid' ||
+    cleanValue === '1px lightgray solid'
+  ) {
+    return '  Use prop `borderSize="sm"` instead';
+  }
+  if (
+    cleanValue === '#efefef 2px solid' ||
+    cleanValue === '#eee 2px solid' ||
+    cleanValue === '2px lightgray solid'
+  ) {
+    return '  Use prop `borderSize="lg"` instead';
+  }
+  return undefined;
+};

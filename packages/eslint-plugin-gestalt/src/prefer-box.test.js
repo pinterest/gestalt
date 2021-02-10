@@ -26,6 +26,10 @@ const invalidBorderRadius = readFileSync(
   path.resolve(__dirname, './__fixtures__/prefer-box/invalid/invalid-borderRadius.js'),
   'utf-8',
 );
+const invalidBorder = readFileSync(
+  path.resolve(__dirname, './__fixtures__/prefer-box/invalid/invalid-border.js'),
+  'utf-8',
+);
 
 ruleTester.run('prefer-box', rule, {
   valid: [
@@ -54,6 +58,17 @@ ruleTester.run('prefer-box', rule, {
           message:
             'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
             '  Use prop `rounding="circle"` instead',
+        },
+      ],
+    },
+    {
+      code: invalidBorder,
+      parserOptions,
+      errors: [
+        {
+          message:
+            'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
+            '  Use prop `borderSize="lg"` instead',
         },
       ],
     },

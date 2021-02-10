@@ -8,7 +8,7 @@
  */
 
 // @flow strict
-import { validateBackgroundColor, validateBorderRadius } from './validators.js';
+import { validateBackgroundColor, validateBorder, validateBorderRadius } from './validators.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression.properties ? attr.value.expression.properties : null;
@@ -52,6 +52,12 @@ const rule = {
           break;
         case 'borderRadius':
           message = validateBorderRadius(key.value);
+          if (message) {
+            matchedErrors.push(message);
+          }
+          break;
+        case 'border':
+          message = validateBorder(key.value);
           if (message) {
             matchedErrors.push(message);
           }
