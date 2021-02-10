@@ -76,8 +76,32 @@ const MainSectionCard = ({
     );
   };
 
+  const TitleAndDescription = (
+    <Box
+      marginTop={borderStyle ? 4 : 3}
+      dangerouslySetInlineStyle={{
+        __style: { borderTop: borderStyle },
+      }}
+    >
+      {(title || type !== 'info') && (
+        <Box paddingY={1}>
+          <Text weight="bold" color={TYPE_TO_COLOR[type]}>
+            {cardTitle || type.charAt(0).toUpperCase() + type.slice(1)}
+          </Text>
+        </Box>
+      )}
+      {description && (
+        <Box width="90%" marginTop={-3}>
+          <Markdown text={description} />
+        </Box>
+      )}
+    </Box>
+  );
+
   return (
     <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={4} marginBottom={4}>
+      {cardSize === 'lg' && TitleAndDescription}
+
       {children && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
@@ -95,27 +119,7 @@ const MainSectionCard = ({
           </Box>
         </LiveProvider>
       )}
-
-      <Box
-        color="white"
-        marginTop={borderStyle ? 4 : 3}
-        dangerouslySetInlineStyle={{
-          __style: { borderTop: borderStyle },
-        }}
-      >
-        {(title || type !== 'info') && (
-          <Box paddingY={1}>
-            <Text weight="bold" color={TYPE_TO_COLOR[type]}>
-              {cardTitle || type.charAt(0).toUpperCase() + type.slice(1)}
-            </Text>
-          </Box>
-        )}
-        {description && (
-          <Box width="90%" marginTop={2} color="white">
-            <Markdown text={description} />
-          </Box>
-        )}
-      </Box>
+      {cardSize !== 'lg' && TitleAndDescription}
     </Box>
   );
 };

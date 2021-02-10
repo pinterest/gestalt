@@ -311,6 +311,7 @@ function OnNavigation() {
       />
       <MainSection.Card
         title="Example above: Dropdown"
+        description="kdshf iodfusf sjfh dsenbfr dkfuys adfejfha fdjkhfusiadf sjdhfasd "
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
