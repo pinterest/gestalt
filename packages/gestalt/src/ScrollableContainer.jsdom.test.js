@@ -37,6 +37,9 @@ describe('ScrollableContainer', () => {
 
     // scrollableContainer.current is a div tag
     expect(scrollableContainer.current instanceof HTMLDivElement).toEqual(true);
+    expect(scrollableContainer.current?.className.includes('relative')).toBe(true);
+    expect(scrollableContainer.current?.className.includes('paddingX0')).toBe(true);
+    expect(scrollableContainer.current?.className.includes('paddingX0')).toBe(true);
     expect(scrollableContainer.current?.className.includes('overflowAuto')).toBe(true);
     expect(scrollableContainer.current?.style.height).toEqual('100%');
   });

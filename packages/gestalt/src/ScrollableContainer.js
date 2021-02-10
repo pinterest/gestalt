@@ -51,7 +51,7 @@ const ScrollableContainerWithForwardRef: AbstractComponent<
   InternalProps,
   HTMLDivElement,
 > = forwardRef<InternalProps, HTMLDivElement>(function ScrollableContainer(
-  { children, onScroll, padding, height = '100%', overflow = 'auto' },
+  { children, onScroll, padding = 0, height = '100%', overflow = 'auto' },
   ref,
 ): Node {
   const { addRef } = useScrollableContainer();

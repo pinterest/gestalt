@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="ScrollableContainer"
-    description="ScrollableContainer is used with anchored components such Flyout, Tooltip, Dropdown, or Typeahead. A ScrollableContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures the Tooltip remains attached to its anchor when scrolling."
+    description="ScrollableContainer is used with anchored components such Flyout, Tooltip, Dropdown or Typeahead. A ScrollableContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures the Tooltip remains attached to its anchor when scrolling."
   />,
 );
 
@@ -321,7 +321,13 @@ function ScrollableContainerExample() {
     </ScrollableContainer>
 )}`}
     />
-    <MainSection.Subsection title="TEMPORARY FOR TESTING PURPOSES">
+    <MainSection.Subsection
+      title="Built-in component"
+      description={`
+Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
+
+The following example shows the internal ScrollableContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and Typeahead.`}
+    >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
@@ -329,6 +335,7 @@ function ScrollableContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
+  const [parentComponent, setParentComponent] = React.useState('modal');
   const anchorDropdownRef = React.useRef(null);
   const handleSelect = ({ item }) => {
     setSelected(item);
@@ -336,28 +343,46 @@ function ScrollableContainerExample() {
 
   const MODAL_Z_INDEX = new FixedZIndex(11)
   const ANCHORED_Z_INDEX = new CompositeZIndex([MODAL_Z_INDEX])
-
+  const ParentComponent = parentComponent === 'modal' ? Modal : Sheet
+  const props =
+    parentComponent === 'modal'
+      ? { accessibilityModalLabel: '' }
+      : {
+          accessibilityDismissButtonLabel: 'Dismiss Billing Information Sheet',
+          accessibilitySheetLabel: '',
+        };
 
   return (
-    <>
-      <Box
-        display="flex"
-        justifyContent="center"
-      >
+    <React.Fragment>
+      <Flex alignItems="center" gap={3}>
+        <RadioButton
+          checked={parentComponent === 'modal'}
+          id="modal"
+          label="Open Modal"
+          name="parentComponent"
+          onChange={() => setParentComponent('modal')}
+          value="modal"
+        />
+        <RadioButton
+          checked={parentComponent === 'sheet'}
+          id="sheet"
+          label="Open Sheet"
+          name="parentComponent"
+          onChange={() => setParentComponent('sheet')}
+          value="sheet"
+        />
         <Button
           inline
           text="Update Billing Address"
           onClick={() => setShowModal(true)}
         />
-      </Box>
+      </Flex>
       {showModal && (
         <Layer zIndex={MODAL_Z_INDEX}>
-          <Modal
-            _dangerouslySetExperimentalProp
-            accessibilityModalLabel="test"
+          <ParentComponent
+            _dangerousScrollableExperimentEnabled
+            {...props}
             heading="Billing Information"
-            size="lg"
-            onDismiss={() => setShowModal(false)}
             footer={
               <Box
                 flex="grow"
@@ -399,11 +424,10 @@ function ScrollableContainerExample() {
                 </Box>
               </Box>
             }
+            onDismiss={() => setShowModal(false)}
+            size="lg"
           >
-            <Box
-              display="flex"
-              justifyContent="center"
-            >
+            <Flex justifyContent="center">
               <Box
                 direction="column"
                 display="flex"
@@ -418,8 +442,7 @@ function ScrollableContainerExample() {
                 <Box
                   display="flex"
                   justifyContent="start"
-                  paddingX={3}
-                  paddingY={3}
+                  padding={3}
                 >
                   <Button
                     accessibilityControls="subtext-dropdown-example"
@@ -435,26 +458,26 @@ function ScrollableContainerExample() {
                   />
                   {open && (
                     <Dropdown
-                      id="subtext-dropdown-example"
                       anchor={anchorDropdownRef.current}
+                      id="subtext-dropdown-example"
                       onDismiss={() => {setOpen(false)}}
                       zIndex={ANCHORED_Z_INDEX}
                     >
                       <Dropdown.Item
                         handleSelect={handleSelect}
-                        selected={selected}
                         option={{
                           value: "Headquarters San Francisco",
                           label: "Headquarters San Francisco",
-                          subtext: "516 Natoma Street, Suite # 23" }}
+                          subtext: "321 Inspiration Street, Suite # 12" }}
+                        selected={selected}
                       />
                       <Dropdown.Item
                         handleSelect={handleSelect}
-                        selected={selected}
                         option={{
                           value: "Headquarters Seattle",
                           label: "Headquarters Seattle",
-                          subtext: "123 Main Street, Suite # 48" }}
+                          subtext: "123 Creativity Street, Suite # 21" }}
+                        selected={selected}
                       />
                     </Dropdown>
                   )}
@@ -465,8 +488,8 @@ function ScrollableContainerExample() {
                   paddingY={3}
                 >
                   <Heading
-                    size="sm"
                     accessibilityLevel={2}
+                    size="sm"
                   >
                     Billing Address
                   </Heading>
@@ -477,8 +500,8 @@ function ScrollableContainerExample() {
                   paddingY={3}
                 >
                   <TextField
-                    label="Address Name"
                     id="Address_Name"
+                    label="Address Name"
                     onChange={() => {}}
                   />
                 </Box>
@@ -488,8 +511,8 @@ function ScrollableContainerExample() {
                   paddingY={3}
                 >
                   <TextField
-                    label="Business Name"
                     id="Business_Name"
+                    label="Business Name"
                     onChange={() => {}}
                   />
                 </Box>
@@ -499,8 +522,8 @@ function ScrollableContainerExample() {
                   paddingY={3}
                 >
                   <TextField
-                    label="Address Line 1"
                     id="Address_Line_1"
+                    label="Address Line 1"
                     onChange={() => {}}
                   />
                 </Box>
@@ -510,8 +533,8 @@ function ScrollableContainerExample() {
                   paddingY={3}
                 >
                   <TextField
-                    label="Address Line 2"
                     id="Address_Line_2"
+                    label="Address Line 2"
                     onChange={() => {}}
                   />
                 </Box>
@@ -522,11 +545,11 @@ function ScrollableContainerExample() {
                 >
                   <Box
                     display="flex"
-                    wrap
                     marginStart={-3}
                     marginEnd={-3}
                     marginBottom={-3}
                     marginTop={-3}
+                    wrap
                   >
                     <Box
                       flex="grow"
@@ -534,8 +557,8 @@ function ScrollableContainerExample() {
                       paddingY={3}
                     >
                       <TextField
-                        label="City"
                         id="City"
+                        label="City"
                         onChange={() => {}}
                       />
                     </Box>
@@ -545,8 +568,8 @@ function ScrollableContainerExample() {
                       paddingY={3}
                     >
                       <TextField
-                        label="State/Province/Region"
                         id="State_Province_Region"
+                        label="State/Province/Region"
                         onChange={() => {}}
                       />
                     </Box>
@@ -558,11 +581,8 @@ function ScrollableContainerExample() {
                   paddingY={3}
                 >
                   <Typeahead
-                    zIndex={ANCHORED_Z_INDEX}
                     autocomplete={false}
-                    label="Country"
                     id="Country"
-                    noResultText="No Results"
                     options={[
                       {
                         value: "United States",
@@ -581,18 +601,21 @@ function ScrollableContainerExample() {
                         label: "Japan" ,
                       }
                     ]}
-                    value="United States"
-                    placeholder="Select a Country"
                     onChange={() => {}}
                     onSelect={() => {}}
+                    placeholder="Select a Country"
+                    noResultText="No Results"
+                    label="Country"
+                    value="United States"
+                    zIndex={ANCHORED_Z_INDEX}
                   />
                 </Box>
               </Box>
-            </Box>
-          </Modal>
+            </Flex>
+          </ParentComponent>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   )
 }`}
       />
@@ -606,11 +629,12 @@ card(
     description={`
 [Modal](/Modal) / [Sheet](/Sheet)
 
-Modal and Sheet components have built ScrollableContainer internally to support the correct positioning of children on scroll as well as to keep the header and footer shadows when scrolling the content. Do not pass children to Modal and Sheet wrapped in ScrollableContainer so that they don’t loose the scrolling shadows.
+Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
+
 
 [Tooltip](/Tooltip) / [Flyout](/Flyout) / [Typeahead](/Typeahead) / [Dropdown](/Dropdown)
 
-These are anchored components. When they are anchored to elements located within a scrolling container, they require ScrollableContainer for proper positioning and ensuring they remained attached to its anchor when scrolling. If they are located within scrolling Modal and Sheet components, ScrollableContainer isn't needed as ScrollableContainer is already built-in.
+ScrollableContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal and Sheet components, ScrollableContainer isn't needed as ScrollableContainer is already built-in.
     `}
   />,
 );

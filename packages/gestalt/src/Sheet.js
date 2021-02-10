@@ -40,7 +40,7 @@ import { ScrollableContainerWithForwardRef as InternalScrollableContainer } from
 import { ScrollableContainerProvider } from './contexts/ScrollableContainer.js';
 
 type SheetMainProps = {|
-  _dangerouslySetExperimentalProp?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
+  _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
   accessibilityDismissButtonLabel: string,
   accessibilitySheetLabel: string,
   children: Node,
@@ -118,7 +118,7 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
   HTMLDivElement,
 >(function Sheet(props, sheetRef): Node {
   const {
-    _dangerouslySetExperimentalProp,
+    _dangerousScrollableExperimentEnabled,
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
     children,
@@ -230,7 +230,7 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
                     </Box>
                   </Box>
                 )}
-                {_dangerouslySetExperimentalProp ? (
+                {_dangerousScrollableExperimentEnabled ? (
                   <ScrollableContainerProvider>
                     <InternalScrollableContainer
                       onScroll={updateShadows}
@@ -275,7 +275,7 @@ SheetWithForwardRef.displayName = 'Sheet';
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 SheetWithForwardRef.propTypes = {
-  _dangerouslySetExperimentalProp: PropTypes.bool,
+  _dangerousScrollableExperimentEnabled: PropTypes.bool,
   accessibilityDismissButtonLabel: PropTypes.string.isRequired,
   accessibilitySheetLabel: PropTypes.string.isRequired,
   children: PropTypes.node,
@@ -298,7 +298,7 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
   HTMLDivElement,
 > = forwardRef<AnimatedSheetProps, HTMLDivElement>(function AnimatedSheet(props, sheetRef): Node {
   const {
-    _dangerouslySetExperimentalProp = false,
+    _dangerousScrollableExperimentEnabled = false,
     accessibilityDismissButtonLabel,
     accessibilitySheetLabel,
     children,
@@ -314,7 +314,7 @@ const AnimatedSheetWithForwardRef: React$AbstractComponent<
     <AnimationController onDismissEnd={onDismiss}>
       {({ onDismissStart }) => (
         <SheetWithForwardRef
-          _dangerouslySetExperimentalProp={_dangerouslySetExperimentalProp}
+          _dangerousScrollableExperimentEnabled={_dangerousScrollableExperimentEnabled}
           accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
           accessibilitySheetLabel={accessibilitySheetLabel}
           closeOnOutsideClick={closeOnOutsideClick}

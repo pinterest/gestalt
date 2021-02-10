@@ -15,7 +15,7 @@ import { ScrollableContainerProvider } from './contexts/ScrollableContainer.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
-  _dangerouslySetExperimentalProp?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
+  _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
   accessibilityModalLabel: string,
   align?: 'left' | 'center',
   children?: Node,
@@ -62,7 +62,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
   HTMLDivElement,
 >(function Modal(props, ref): Node {
   const {
-    _dangerouslySetExperimentalProp = false,
+    _dangerousScrollableExperimentEnabled = false,
     accessibilityModalLabel,
     align = 'center',
     children,
@@ -148,7 +148,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
-                {_dangerouslySetExperimentalProp ? (
+                {_dangerousScrollableExperimentEnabled ? (
                   <ScrollableContainerProvider>
                     <InternalScrollableContainer onScroll={updateShadows} ref={contentRef}>
                       {children}
@@ -179,7 +179,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
-  _dangerouslySetExperimentalProp: PropTypes.bool,
+  _dangerousScrollableExperimentEnabled: PropTypes.bool,
   accessibilityModalLabel: PropTypes.string.isRequired,
   align: PropTypes.oneOf(['left', 'center']),
   children: PropTypes.node,
