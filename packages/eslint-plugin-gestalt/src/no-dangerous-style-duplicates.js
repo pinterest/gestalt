@@ -8,7 +8,12 @@
  */
 
 // @flow strict
-import { genBointLookup, validateBackgroundColor, validateBorderRadius } from './validators.js';
+import {
+  genBointLookup,
+  validateBackgroundColor,
+  validateBorder,
+  validateBorderRadius,
+} from './validators.js';
 
 function getInlineDefinedStyles(attr) {
   return attr.value.expression &&
@@ -112,25 +117,9 @@ const rule = {
           break;
         case 'border':
           if (includeKey('border')) {
-            // If the value is a string:
-            // 1) convert everything to lowerCase (css is case-insensitive)
-            // 2) sort the values since some found uses have the wrong order
-            const value =
-              key.value && key.value.toLowerCase
-                ? key.value.toLowerCase().split(' ').sort().join(' ')
-                : key.value;
-            if (
-              value === '#efefef 1px solid' ||
-              value === '#eee 1px solid' ||
-              value === '1px lightgray solid'
-            ) {
-              matchedErrors.push('  Use prop `borderSize="sm"` instead');
-            } else if (
-              value === '#efefef 2px solid' ||
-              value === '#eee 2px solid' ||
-              value === '2px lightgray solid'
-            ) {
-              matchedErrors.push('  Use prop `borderSize="lg"` instead');
+            const message = validateBorder(key.value);
+            if (message) {
+              matchedErrors.push(message);
             }
           }
           break;
