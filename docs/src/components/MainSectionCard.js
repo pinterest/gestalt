@@ -7,6 +7,7 @@ import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
 import Markdown from './Markdown.js';
+import { capitalizeFirstLetter } from './utils.js';
 
 type Props = {|
   cardSize?: 'sm' | 'md' | 'lg',
@@ -87,7 +88,7 @@ const MainSectionCard = ({
       {(title || type !== 'info') && (
         <Box paddingY={1}>
           <Text weight="bold" color={TYPE_TO_COLOR[type]}>
-            {cardTitle || type.charAt(0).toUpperCase() + type.slice(1)}
+            {cardTitle || capitalizeFirstLetter(type)}
           </Text>
         </Box>
       )}

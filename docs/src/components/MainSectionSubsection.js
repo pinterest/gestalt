@@ -4,16 +4,13 @@ import { Box, Flex, Heading, IconButton } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
 import { copyToClipboard } from './Card.js';
+import { convertToSentenceCase } from './utils.js';
 
 type Props = {|
   children: Node,
   description?: string,
   title?: string,
 |};
-
-export const convertToSentenceCase = (title: string): string => {
-  return title.charAt(0).toUpperCase() + title.slice(1).toLowerCase();
-};
 
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
