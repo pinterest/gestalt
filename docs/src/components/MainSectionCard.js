@@ -7,6 +7,7 @@ import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
 import Markdown from './Markdown.js';
+import { capitalizeFirstLetter } from './utils.js';
 
 type Props = {|
   cardSize?: 'sm' | 'md' | 'lg',
@@ -76,8 +77,33 @@ const MainSectionCard = ({
     );
   };
 
+  const TitleAndDescription = (
+    <Box
+      marginTop={borderStyle ? 4 : 3}
+      marginBottom={cardSize === 'lg' ? 4 : 0}
+      dangerouslySetInlineStyle={{
+        __style: { borderTop: borderStyle },
+      }}
+    >
+      {(title || type !== 'info') && (
+        <Box paddingY={1}>
+          <Text weight="bold" color={TYPE_TO_COLOR[type]}>
+            {cardTitle || capitalizeFirstLetter(type)}
+          </Text>
+        </Box>
+      )}
+      {description && (
+        <Box width="90%" marginTop={2} color="white">
+          <Markdown text={description} />
+        </Box>
+      )}
+    </Box>
+  );
+
   return (
     <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={4} marginBottom={4}>
+      {cardSize === 'lg' && TitleAndDescription}
+
       {children && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
@@ -95,27 +121,7 @@ const MainSectionCard = ({
           </Box>
         </LiveProvider>
       )}
-
-      <Box
-        color="white"
-        marginTop={borderStyle ? 4 : 3}
-        dangerouslySetInlineStyle={{
-          __style: { borderTop: borderStyle },
-        }}
-      >
-        {(title || type !== 'info') && (
-          <Box paddingY={1}>
-            <Text weight="bold" color={TYPE_TO_COLOR[type]}>
-              {cardTitle || type.charAt(0).toUpperCase() + type.slice(1)}
-            </Text>
-          </Box>
-        )}
-        {description && (
-          <Box width="90%" marginTop={2} color="white">
-            <Markdown text={description} />
-          </Box>
-        )}
-      </Box>
+      {cardSize !== 'lg' && TitleAndDescription}
     </Box>
   );
 };

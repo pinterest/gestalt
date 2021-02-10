@@ -3,6 +3,7 @@ import React, { type Node, type ComponentType } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
 import { useAppContext } from './appContext.js';
+import { capitalizeFirstLetter } from './utils.js';
 
 type Props = {|
   props: Array<{|
@@ -73,7 +74,6 @@ const Td = ({
   </td>
 );
 
-const upcase = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 const sortBy = (list, fn) => list.sort((a, b) => fn(a).localeCompare(fn(b)));
 
 export default function PropTable({
@@ -193,8 +193,8 @@ export default function PropTable({
                               <Box>
                                 <Text>
                                   <code>
-                                    sm{upcase(name)}, md{upcase(name)}, lg
-                                    {upcase(name)}
+                                    sm{capitalizeFirstLetter(name)}, md{capitalizeFirstLetter(name)}
+                                    , lg{capitalizeFirstLetter(name)}
                                   </code>
                                 </Text>
                               </Box>

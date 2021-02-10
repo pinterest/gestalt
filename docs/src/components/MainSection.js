@@ -2,7 +2,8 @@
 import React, { type Node } from 'react';
 import MainSectionCard from './MainSectionCard.js';
 import Card from './Card.js';
-import MainSectionSubsection, { convertToSentenceCase } from './MainSectionSubsection.js';
+import MainSectionSubsection from './MainSectionSubsection.js';
+import { convertToSentenceCase } from './utils.js';
 
 type Props = {|
   children?: Node,

@@ -111,7 +111,7 @@ function Example(props) {
       `}
     >
       <MainSection.Card
-        title="Examples above from left to right: (1) Link, (2) Button, (3) IconButton, (4) TapArea"
+        title="Examples from start to end: Link, Button, IconButton, TapArea"
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
@@ -204,7 +204,7 @@ function OnNavigation() {
 `}
       />
       <MainSection.Card
-        title="Examples above from top to bottom: (1) Callout, (2) Upsell, (3) ActivationCard"
+        title="Examples from top to bottom: Callout, Upsell, ActivationCard"
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
@@ -310,7 +310,7 @@ function OnNavigation() {
 `}
       />
       <MainSection.Card
-        title="Example above: Dropdown"
+        title="With a Dropdown"
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
