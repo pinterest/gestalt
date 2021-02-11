@@ -1,3 +1,9 @@
+## 17.5.0 (Feb 11, 2021)
+
+### Minor
+
+- Docs: fix right sidebar scrolling bug (#1385)
+
 ## 17.4.0 (Feb 11, 2021)
 
 ### Minor
