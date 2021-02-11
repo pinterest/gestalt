@@ -25,7 +25,7 @@ card(
         defaultValue: null,
         description: [
           'Supply a short, descriptive label for screen-readers as a text alternative to the Dismiss button.',
-          'Accessibility: It populates aria-label on the <button> element for the Dismiss button.',
+          'Accessibility: It populates aria-label on the `<button>` element for the Dismiss button.',
         ],
         href: 'accessibilityExample',
       },
@@ -37,7 +37,7 @@ card(
         description: [
           'Supply a short, descriptive label for screen-readers to contextualize the purpose of Sheet.',
           'Please do not repeat the same text being passed in the "heading" prop, but instead provide something that summarizes the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
-          'Accessibility: It populates aria-label on the <div role="dialog"> element which represents the Sheet component.',
+          'Accessibility: It populates aria-label on the `<div role="dialog">` element which represents the Sheet component.',
         ],
         href: 'accessibilityExample',
       },
@@ -49,7 +49,7 @@ card(
         description: [
           'Supply the container element or render prop that is going to be used as the Sheet main content.',
           'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
-          'Obs: This element will be padded by 32px, differently than <Modal>.',
+          'Obs: This element will be padded by 32px, differently than `<Modal>`.',
         ],
         href: 'defaultPaddingAndStylingExample',
       },
@@ -74,7 +74,7 @@ card(
         description: [
           'Supply the container element or render prop that is going to be used as the Sheet custom footer.',
           'When using a render prop, just pass the argument onDismissStart to your exitpoint action elements.',
-          'Obs: This element will be padded by 32px, similarly to <Modal>.',
+          'Obs: This element will be padded by 32px, similarly to `<Modal>`.',
         ],
         href: 'defaultPaddingAndStylingExample',
       },
@@ -86,7 +86,7 @@ card(
         description: [
           'Supply the text that is going to be placed as the Sheet text heading.',
           'Please do not repeat the same text being passed in the "accessibilitySheetLabel" prop, but instead provide something that identifies the Sheet. For instance, if the heading is "Pin Builder", the accessibilitySheetLabel can be "Create a new Pin".',
-          'Obs: This element will be padded by 32px, similarly to <Modal>.',
+          'Obs: This element will be padded by 32px, similarly to `<Modal>`.',
         ],
         href: 'defaultPaddingAndStylingExample',
       },
@@ -107,7 +107,7 @@ card(
         name: 'ref',
         type: "React.Ref<'div'>",
         description:
-          'Forward the ref to the underlying <div role="dialog"> element which represents the Sheet component.',
+          'Forward the ref to the underlying `<div role="dialog">` element which represents the Sheet component.',
         href: 'refExample',
       },
       {

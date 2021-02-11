@@ -36,6 +36,7 @@ card(
         defaultValue: 'block',
         responsive: true,
         href: 'Column-Layout',
+        description: `The display style, which can be customized at different breakpoints. See the [Accessibility guidelines](#Visually-hidden-content) to learn more about using \`visuallyHidden\`.`,
       },
       {
         name: 'direction',

@@ -104,7 +104,7 @@ card(
         name: 'objectFit',
         type: "'fill' | 'contain' | 'cover' | 'none' | 'scale-down'",
         description:
-          'Sets how the content of the replaced <video> element should be resized to fit its container',
+          'Sets how the content of the replaced `<video>` element should be resized to fit its container',
       },
       {
         name: 'onDurationChange',
