@@ -1,3 +1,9 @@
+## 17.4.0 (Feb 11, 2021)
+
+### Minor
+
+- Modal, Sheet: Implemented InternalScrollableContainer (#1376)
+
 ## 17.3.1 (Feb 11, 2021)
 
 ### Patch
