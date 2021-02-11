@@ -142,7 +142,17 @@ export default function Toc({ cards }: Props): Node {
   );
 
   return (
-    <Box maxHeight="calc(100% - 60px)" minWidth={240} overflow="auto" position="fixed">
+    <Box
+      // These margins counter the padding set on the <Box role="main"> in App.js
+      marginTop={-4}
+      mdMarginTop={-6}
+      lgMarginTop={-8}
+      maxHeight="calc(100% - 60px)"
+      minWidth={240}
+      overflow="auto"
+      paddingY={8} // re-apply just the padding we need
+      position="fixed"
+    >
       {anchors.map((anchor) => {
         const isActive = activeState === anchor.id;
         return (

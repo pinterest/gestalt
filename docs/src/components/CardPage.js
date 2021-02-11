@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, FixedZIndex, Flex, Link, Sticky, Text } from 'gestalt';
+import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
 
@@ -9,11 +9,11 @@ type Props = {|
   page: string,
 |};
 
-const CardPage = ({ cards, page }: Props): Node => {
+export default function CardPage({ cards, page }: Props): Node {
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/src/${page}.doc.js`;
 
   return (
-    <Box display="flex">
+    <Flex>
       <Box flex="grow" maxWidth={800}>
         <SearchContent>
           {cards.map((card, i) => (
@@ -40,6 +40,7 @@ const CardPage = ({ cards, page }: Props): Node => {
           </Link>
         </Box>
       </Box>
+
       <Box
         minWidth={200}
         maxWidth={240}
@@ -50,12 +51,8 @@ const CardPage = ({ cards, page }: Props): Node => {
         lgDisplay="block"
         flex="none"
       >
-        <Sticky top={90} zIndex={new FixedZIndex(0)}>
-          <Toc cards={cards} />
-        </Sticky>
+        <Toc cards={cards} />
       </Box>
-    </Box>
+    </Flex>
   );
-};
-
-export default CardPage;
+}
