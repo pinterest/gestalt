@@ -1,5 +1,5 @@
 // @flow strict
-import React, { forwardRef, useState, useEffect, useRef, type Node } from 'react';
+import React, { useCallback, forwardRef, useState, useEffect, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
@@ -10,9 +10,12 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
+import { ScrollableContainerWithForwardRef as InternalScrollableContainer } from './ScrollableContainer.js';
+import { ScrollableContainerProvider } from './contexts/ScrollableContainer.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
+  _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
   accessibilityModalLabel: string,
   align?: 'left' | 'center',
   children?: Node,
@@ -59,6 +62,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
   HTMLDivElement,
 >(function Modal(props, ref): Node {
   const {
+    _dangerousScrollableExperimentEnabled = false,
     accessibilityModalLabel,
     align = 'center',
     children,
@@ -73,7 +77,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
-  const content = useRef<?HTMLDivElement>(null);
+  const contentRef = useRef<?HTMLDivElement>(null);
 
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {
@@ -94,8 +98,8 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
     }
   };
 
-  const updateShadows = () => {
-    const target = content.current;
+  const updateShadows = useCallback(() => {
+    const target = contentRef.current;
     if (!target) {
       return;
     }
@@ -104,18 +108,18 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
     setShowBottomShadow(
       hasVerticalScrollbar && target.offsetHeight + target.scrollTop < target.scrollHeight,
     );
-  };
+  }, []);
 
   useEffect(() => {
     window.addEventListener('resize', updateShadows);
     return () => {
       window.removeEventListener('resize', updateShadows);
     };
-  }, []);
+  }, [updateShadows]);
 
   useEffect(() => {
     updateShadows();
-  }, []);
+  }, [updateShadows]);
 
   const width = typeof size === 'string' ? SIZE_WIDTH_MAP[size] : size;
 
@@ -144,9 +148,17 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
-                <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={content}>
-                  {children}
-                </Box>
+                {_dangerousScrollableExperimentEnabled ? (
+                  <ScrollableContainerProvider>
+                    <InternalScrollableContainer onScroll={updateShadows} ref={contentRef}>
+                      {children}
+                    </InternalScrollableContainer>
+                  </ScrollableContainerProvider>
+                ) : (
+                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
+                    {children}
+                  </Box>
+                )}
                 {footer && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
@@ -167,6 +179,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
+  _dangerousScrollableExperimentEnabled: PropTypes.bool,
   accessibilityModalLabel: PropTypes.string.isRequired,
   align: PropTypes.oneOf(['left', 'center']),
   children: PropTypes.node,

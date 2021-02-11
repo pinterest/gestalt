@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="ScrollableContainer"
-    description="ScrollableContainer is used with anchored, hovering components such Flyout, Tooltip, Dropdown, or Typeahead. This is needed for proper positioning when the anchor component could scroll within the viewport."
+    description="ScrollableContainer is used with anchored components such Flyout, Tooltip, Dropdown or Typeahead. A ScrollableContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures the Tooltip remains attached to its anchor when scrolling."
   />,
 );
 
@@ -23,8 +23,9 @@ card(
         defaultValue: '100%',
         description: [
           `Use numbers for pixels: height={100} and strings for percentages: height="100%".`,
-          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets height.`,
+          `Overflow property only works for elements with a specified height, however, it is not required if the parent component sets the height.`,
         ],
+        href: `Height`,
       },
       {
         name: 'overflow',
@@ -37,8 +38,15 @@ card(
 
 card(
   <MainSection name="Variants">
-    <MainSection.Subsection title="Flyout within ScrollableContainer">
+    <MainSection.Subsection
+      title="Height"
+      description={`
+When scrolling is desired, we must explicitly set a height. Unless a height is set, the content will push the parent container's height.
+
+In ScrollableContainer, height is an optional prop with a default value of \`100%\`. If ScrollableContainer’s immediate parent is a component with a fixed height, do not pass a height to ScrollableContainer as seen in first example below. On the other hand, if there isn’t an immediate parent fixing the height, you must specify the ScrollableContainer height as seen in the  second example below.`}
+    >
       <MainSection.Card
+        title="Flyout within ScrollableContainer"
         cardSize="lg"
         defaultCode={`
 function Example() {
@@ -98,10 +106,10 @@ function Example() {
 )}`}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection title="Tooltips with ScrollableContainer">
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
+    <MainSection.Card
+      title="Tooltips within ScrollableContainer"
+      cardSize="lg"
+      defaultCode={`
 function ScrollableContainerExample() {
   const [content, setContent] = React.useState(null);
   const [claimed, setClaimed] = React.useState(null);
@@ -138,7 +146,7 @@ function ScrollableContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="gray"
+                color="darkGray"
               />
             </Tooltip>
           </Flex>
@@ -199,7 +207,7 @@ function ScrollableContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="gray"
+                color="darkGray"
               />
             </Tooltip>
           </Flex>
@@ -259,7 +267,7 @@ function ScrollableContainerExample() {
               <Icon
                 icon="info-circle"
                 accessibilityLabel="Information"
-                color="gray"
+                color="darkGray"
               />
             </Tooltip>
           </Flex>
@@ -312,11 +320,13 @@ function ScrollableContainerExample() {
       </Flex>
     </ScrollableContainer>
 )}`}
-      />
-    </MainSection.Subsection>
+    />
     <MainSection.Subsection
-      title="Modal, DropDown, and Typeahead with ScrollableContainer"
-      description="In this example, the content in Modal extends the modal's dimensions. It requires ScrollableContainer so that Typeahead and Dropdown components stay correctly anchored after scrolling."
+      title="Built-in component"
+      description={`
+Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
+
+The following example shows the internal ScrollableContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and Typeahead.`}
     >
       <MainSection.Card
         cardSize="lg"
@@ -325,30 +335,54 @@ function ScrollableContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
+  const [parentComponent, setParentComponent] = React.useState('modal');
   const anchorDropdownRef = React.useRef(null);
   const handleSelect = ({ item }) => {
     setSelected(item);
   };
 
+  const MODAL_Z_INDEX = new FixedZIndex(11)
+  const ANCHORED_Z_INDEX = new CompositeZIndex([MODAL_Z_INDEX])
+  const ParentComponent = parentComponent === 'modal' ? Modal : Sheet
+  const props =
+    parentComponent === 'modal'
+      ? { accessibilityModalLabel: '' }
+      : {
+          accessibilityDismissButtonLabel: 'Dismiss Billing Information Sheet',
+          accessibilitySheetLabel: '',
+        };
+
   return (
-    <>
-      <Box
-        display="flex"
-        justifyContent="center"
-      >
+    <React.Fragment>
+      <Flex alignItems="center" gap={3}>
+        <RadioButton
+          checked={parentComponent === 'modal'}
+          id="modal"
+          label="Open Modal"
+          name="parentComponent"
+          onChange={() => setParentComponent('modal')}
+          value="modal"
+        />
+        <RadioButton
+          checked={parentComponent === 'sheet'}
+          id="sheet"
+          label="Open Sheet"
+          name="parentComponent"
+          onChange={() => setParentComponent('sheet')}
+          value="sheet"
+        />
         <Button
           inline
           text="Update Billing Address"
           onClick={() => setShowModal(true)}
         />
-      </Box>
+      </Flex>
       {showModal && (
-        <Layer zIndex={new FixedZIndex(11)}>
-          <Modal
-            accessibilityModalLabel="test"
+        <Layer zIndex={MODAL_Z_INDEX}>
+          <ParentComponent
+            _dangerousScrollableExperimentEnabled
+            {...props}
             heading="Billing Information"
-            size="lg"
-            onDismiss={() => setShowModal(false)}
             footer={
               <Box
                 flex="grow"
@@ -390,205 +424,219 @@ function ScrollableContainerExample() {
                 </Box>
               </Box>
             }
+            onDismiss={() => setShowModal(false)}
+            size="lg"
           >
-            <ScrollableContainer>
+            <Flex justifyContent="center">
               <Box
+                direction="column"
                 display="flex"
-                justifyContent="center"
+                marginStart={-3}
+                marginEnd={-3}
+                marginBottom={-3}
+                marginTop={-3}
+                maxWidth={800}
+                width="100%"
+                wrap
               >
                 <Box
-                  direction="column"
                   display="flex"
-                  marginStart={-3}
-                  marginEnd={-3}
-                  marginBottom={-3}
-                  marginTop={-3}
-                  maxWidth={800}
-                  width="100%"
-                  wrap
+                  justifyContent="start"
+                  padding={3}
+                >
+                  <Button
+                    accessibilityControls="subtext-dropdown-example"
+                    accessibilityHaspopup
+                    accessibilityExpanded={open}
+                    accessibilityLabel="Select Previous Address"
+                    selected={open}
+                    inline
+                    iconEnd="arrow-down"
+                    text="Select Previous Address"
+                    onClick={ () => setOpen((prevVal) => !prevVal) }
+                    ref={anchorDropdownRef}
+                  />
+                  {open && (
+                    <Dropdown
+                      anchor={anchorDropdownRef.current}
+                      id="subtext-dropdown-example"
+                      onDismiss={() => {setOpen(false)}}
+                      zIndex={ANCHORED_Z_INDEX}
+                    >
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        option={{
+                          value: "Headquarters San Francisco",
+                          label: "Headquarters San Francisco",
+                          subtext: "321 Inspiration Street, Suite # 12" }}
+                        selected={selected}
+                      />
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        option={{
+                          value: "Headquarters Seattle",
+                          label: "Headquarters Seattle",
+                          subtext: "123 Creativity Street, Suite # 21" }}
+                        selected={selected}
+                      />
+                    </Dropdown>
+                  )}
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
+                >
+                  <Heading
+                    accessibilityLevel={2}
+                    size="sm"
+                  >
+                    Billing Address
+                  </Heading>
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
+                >
+                  <TextField
+                    id="Address_Name"
+                    label="Address Name"
+                    onChange={() => {}}
+                  />
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
+                >
+                  <TextField
+                    id="Business_Name"
+                    label="Business Name"
+                    onChange={() => {}}
+                  />
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
+                >
+                  <TextField
+                    id="Address_Line_1"
+                    label="Address Line 1"
+                    onChange={() => {}}
+                  />
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
+                >
+                  <TextField
+                    id="Address_Line_2"
+                    label="Address Line 2"
+                    onChange={() => {}}
+                  />
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
                 >
                   <Box
                     display="flex"
-                    justifyContent="start"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <Button
-                      accessibilityControls="subtext-dropdown-example"
-                      accessibilityHaspopup
-                      accessibilityExpanded={open}
-                      accessibilityLabel="Select Previous Address"
-                      selected={open}
-                      inline
-                      iconEnd="arrow-down"
-                      text="Select Previous Address"
-                      onClick={ () => setOpen((prevVal) => !prevVal) }
-                      ref={anchorDropdownRef}
-                    />
-                    {open && (
-                      <Dropdown
-                        id="subtext-dropdown-example"
-                        anchor={anchorDropdownRef.current}
-                        onDismiss={() => {setOpen(false)}}
-                      >
-                        <Dropdown.Item
-                          handleSelect={handleSelect}
-                          selected={selected}
-                          option={{
-                            value: "Headquarters San Francisco",
-                            label: "Headquarters San Francisco",
-                            subtext: "516 Natoma Street, Suite # 23" }}
-                        />
-                        <Dropdown.Item
-                          handleSelect={handleSelect}
-                          selected={selected}
-                          option={{
-                            value: "Headquarters Seattle",
-                            label: "Headquarters Seattle",
-                            subtext: "123 Main Street, Suite # 48" }}
-                        />
-                      </Dropdown>
-                    )}
-                  </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <Heading
-                      size="sm"
-                      accessibilityLevel={2}
-                    >
-                      Billing Address
-                    </Heading>
-                  </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <TextField
-                      label="Address Name"
-                      id="Address_Name"
-                      onChange={() => {}}
-                    />
-                  </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <TextField
-                      label="Business Name"
-                      id="Business_Name"
-                      onChange={() => {}}
-                    />
-                  </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <TextField
-                      label="Address Line 1"
-                      id="Address_Line_1"
-                      onChange={() => {}}
-                    />
-                  </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <TextField
-                      label="Address Line 2"
-                      id="Address_Line_2"
-                      onChange={() => {}}
-                    />
-                  </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
+                    marginStart={-3}
+                    marginEnd={-3}
+                    marginBottom={-3}
+                    marginTop={-3}
+                    wrap
                   >
                     <Box
-                      display="flex"
-                      wrap
-                      marginStart={-3}
-                      marginEnd={-3}
-                      marginBottom={-3}
-                      marginTop={-3}
+                      flex="grow"
+                      paddingX={3}
+                      paddingY={3}
                     >
-                      <Box
-                        flex="grow"
-                        paddingX={3}
-                        paddingY={3}
-                      >
-                        <TextField
-                          label="City"
-                          id="City"
-                          onChange={() => {}}
-                        />
-                      </Box>
-                      <Box
-                        flex="grow"
-                        paddingX={3}
-                        paddingY={3}
-                      >
-                        <TextField
-                          label="State/Province/Region"
-                          id="State_Province_Region"
-                          onChange={() => {}}
-                        />
-                      </Box>
+                      <TextField
+                        id="City"
+                        label="City"
+                        onChange={() => {}}
+                      />
+                    </Box>
+                    <Box
+                      flex="grow"
+                      paddingX={3}
+                      paddingY={3}
+                    >
+                      <TextField
+                        id="State_Province_Region"
+                        label="State/Province/Region"
+                        onChange={() => {}}
+                      />
                     </Box>
                   </Box>
-                  <Box
-                    flex="grow"
-                    paddingX={3}
-                    paddingY={3}
-                  >
-                    <Typeahead
-                      autocomplete={false}
-                      label="Country"
-                      id="Country"
-                      noResultText="No Results"
-                      options={[
-                        {
-                          value: "United States",
-                          label: "United States" ,
-                        },{
-                          value: "Canada",
-                          label: "Canada" ,
-                        },{
-                          value: "United Kingdom",
-                          label: "United Kingdom" ,
-                        },{
-                          value: "Brazil",
-                          label: "Brazil" ,
-                        },{
-                          value: "Japan",
-                          label: "Japan" ,
-                        }
-                      ]}
-                      value="United States"
-                      placeholder="Select a Country"
-                      onChange={() => {}}
-                      onSelect={() => {}}
-                    />
-                  </Box>
+                </Box>
+                <Box
+                  flex="grow"
+                  paddingX={3}
+                  paddingY={3}
+                >
+                  <Typeahead
+                    autocomplete={false}
+                    id="Country"
+                    options={[
+                      {
+                        value: "United States",
+                        label: "United States" ,
+                      },{
+                        value: "Canada",
+                        label: "Canada" ,
+                      },{
+                        value: "United Kingdom",
+                        label: "United Kingdom" ,
+                      },{
+                        value: "Brazil",
+                        label: "Brazil" ,
+                      },{
+                        value: "Japan",
+                        label: "Japan" ,
+                      }
+                    ]}
+                    onChange={() => {}}
+                    onSelect={() => {}}
+                    placeholder="Select a Country"
+                    noResultText="No Results"
+                    label="Country"
+                    value="United States"
+                    zIndex={ANCHORED_Z_INDEX}
+                  />
                 </Box>
               </Box>
-            </ScrollableContainer>
-          </Modal>
+            </Flex>
+          </ParentComponent>
         </Layer>
       )}
-    </>
+    </React.Fragment>
   )
 }`}
       />
     </MainSection.Subsection>
   </MainSection>,
+);
+
+card(
+  <MainSection
+    name="Related"
+    description={`
+[Modal](/Modal) / [Sheet](/Sheet)
+
+Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
+
+
+[Tooltip](/Tooltip) / [Flyout](/Flyout) / [Typeahead](/Typeahead) / [Dropdown](/Dropdown)
+
+ScrollableContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal and Sheet components, ScrollableContainer isn't needed as ScrollableContainer is already built-in.
+    `}
+  />,
 );
 
 export default cards;
