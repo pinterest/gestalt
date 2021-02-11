@@ -46,7 +46,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Either <Image /> or <Icon /> to render on left side of banner. Width is not used with Icon. Image width defaults to 128 px. Max width of image is 128 px.',
+          'Either `<Image />` or `<Icon />` to render on left side of banner. Width is not used with Icon. Image width defaults to 128 px. Max width of image is 128 px.',
         ],
         href: 'Image',
       },
