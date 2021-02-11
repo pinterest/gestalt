@@ -1,3 +1,9 @@
+## 17.3.1 (Feb 11, 2021)
+
+### Patch
+
+- Provider: onNavigationOptions proptype fix (#1377)
+
 ## 17.3.0 (Feb 10, 2021)
 
 ### Minor
