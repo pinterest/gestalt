@@ -14,7 +14,7 @@
 
 ### Minor
 
-- update types to match doc (#1380)
+- Dropdown/Typeahead: update types to match doc (#1380)
 
 ## 17.1.7 (Feb 10, 2021)
 
@@ -104,7 +104,7 @@
 
 ### Minor
 
-- Gestalt: ScrollableContainer - new component with built-in scrollability logic to allow anchored-based components get correctly positioned inside scrolling containers (#1357)
+- ScrollableContainer: new component with built-in scrollability logic to allow anchored-based components get correctly positioned inside scrolling containers (#1357)
 
 ## 16.9.2 (Feb 2, 2021)
 
@@ -122,7 +122,7 @@
 
 ### Minor
 
-- Add eslint plugin for gestalt (#1353)
+- Eslint Plugin: Add eslint plugin for gestalt (#1353)
 
 ## 16.8.4 (Jan 29, 2021)
 
