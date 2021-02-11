@@ -22,16 +22,21 @@ export default function App({ children }: Props): Node {
             <NavigationContextProvider>
               <Box minHeight="100vh" color="white">
                 <Header />
+
                 <Box mdDisplay="flex">
                   <Box minWidth={240}>
                     <Navigation />
                   </Box>
+
                   <Divider />
+
                   <Box width="100%">
                     <Box padding={4} mdPadding={6} lgPadding={8} width="100%" role="main">
                       {children}
                     </Box>
+
                     <Divider />
+
                     <Box padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
                       <Box paddingX={2} paddingY={1}>
                         <Text align="right">

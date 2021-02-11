@@ -1,6 +1,6 @@
 // @flow strict
-import React, { useEffect, useState, type Node } from 'react';
-import { Box, Text, Link } from 'gestalt';
+import React, { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Box, Flex, Link, Text } from 'gestalt';
 
 function throttle(func, wait) {
   let context;
@@ -49,9 +49,9 @@ function throttle(func, wait) {
 }
 
 function useThrottledOnScroll(callback, delay) {
-  const throttledCallback = React.useMemo(() => throttle(callback, delay), [callback, delay]);
+  const throttledCallback = useMemo(() => throttle(callback, delay), [callback, delay]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', throttledCallback);
     return () => {
       window.removeEventListener('scroll', throttledCallback);
@@ -59,13 +59,17 @@ function useThrottledOnScroll(callback, delay) {
   }, [throttledCallback]);
 }
 
-export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
-  const [anchors, setAnchors] = useState([]);
-  const [activeState, setActiveState] = React.useState(null);
-  const clickedRef = React.useRef(false);
-  const unsetClickedRef = React.useRef(null);
+type Props = {|
+  cards: Array<Node>,
+|};
 
-  const findActiveIndex = React.useCallback(() => {
+export default function Toc({ cards }: Props): Node {
+  const [anchors, setAnchors] = useState([]);
+  const [activeState, setActiveState] = useState(null);
+  const clickedRef = useRef(false);
+  const unsetClickedRef = useRef(null);
+
+  const findActiveIndex = useCallback(() => {
     // Don't set the active index based on scroll if a link was just clicked
     if (clickedRef.current) {
       return;
@@ -130,42 +134,54 @@ export default function Toc({ cards }: {| cards: Array<Node> |}): Node {
     }
   };
 
-  React.useEffect(
+  useEffect(
     () => () => {
       clearTimeout(unsetClickedRef.current);
     },
     [],
   );
+
   return (
-    <Box>
-      {anchors.map((anchor, index) => (
-        <Box key={index} display="flex">
-          <Box color={activeState === anchor.id ? 'pine' : 'lightGray'} width={1} flex="none" />
-          <Link
-            hoverStyle={activeState === anchor.id ? 'none' : 'underline'}
-            href={`#${anchor.id}`}
-            onClick={({ event }) => handleClick(anchor.id, event)}
-          >
-            <Box padding={2}>
-              {anchor.closest('h2') ? (
-                <Text color={activeState === anchor.id ? 'pine' : 'darkGray'} weight="bold">
-                  {anchor.closest('h2')?.textContent}
-                </Text>
-              ) : (
-                <Box paddingX={3}>
-                  <Text
-                    size="md"
-                    color={activeState === anchor.id ? 'pine' : 'darkGray'}
-                    weight="bold"
-                  >
-                    {anchor.innerText}
+    <Box
+      // These margins counter the padding set on the <Box role="main"> in App.js
+      marginTop={-4}
+      mdMarginTop={-6}
+      lgMarginTop={-8}
+      maxHeight="calc(100% - 60px)"
+      minWidth={240}
+      overflow="auto"
+      paddingY={8} // re-apply just the padding we need
+      position="fixed"
+    >
+      {anchors.map((anchor) => {
+        const isActive = activeState === anchor.id;
+        return (
+          <Flex key={anchor.id}>
+            {/* INDICATOR */}
+            <Box color={isActive ? 'pine' : 'lightGray'} width={1} flex="none" />
+
+            <Link
+              hoverStyle={isActive ? 'none' : 'underline'}
+              href={`#${anchor.id}`}
+              onClick={({ event }) => handleClick(anchor.id, event)}
+            >
+              <Box padding={2}>
+                {anchor.closest('h2') ? (
+                  <Text color={isActive ? 'pine' : 'darkGray'} weight="bold">
+                    {anchor.closest('h2')?.textContent}
                   </Text>
-                </Box>
-              )}
-            </Box>
-          </Link>
-        </Box>
-      ))}
+                ) : (
+                  <Box paddingX={3}>
+                    <Text size="md" color={isActive ? 'pine' : 'darkGray'} weight="bold">
+                      {anchor.innerText}
+                    </Text>
+                  </Box>
+                )}
+              </Box>
+            </Link>
+          </Flex>
+        );
+      })}
     </Box>
   );
 }
