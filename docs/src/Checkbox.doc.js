@@ -51,7 +51,7 @@ card(
         type: 'React.Node',
         href: 'images',
         description:
-          'An optional <Image/> component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
+          'An optional `<Image/>` component can be supplied to add an image to each checkbox. Spacing is already accounted for, simply specify the width and height.',
       },
       {
         name: 'indeterminate',

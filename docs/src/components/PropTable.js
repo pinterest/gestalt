@@ -28,7 +28,7 @@ const unifyQuotes = (input) => {
 const Description = (lines: Array<string>): Node => (
   <Flex alignItems="start" direction="column" gap={2}>
     {lines.map((line, idx) => (
-      <Markdown key={idx} text={line} color="gray" />
+      <Markdown key={idx} text={line} textColor="gray" />
     ))}
   </Flex>
 );
@@ -203,7 +203,7 @@ export default function PropTable({
                             {Array.isArray(description) ? (
                               Description(description)
                             ) : (
-                              <Markdown text={description} color="gray" />
+                              <Markdown text={description} textColor="gray" />
                             )}
                           </Td>
                           <Td />
