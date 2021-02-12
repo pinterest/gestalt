@@ -1,3 +1,9 @@
+## 17.5.1 (Feb 12, 2021)
+
+### Patch
+
+- Docs: Update Prop Table to support Markdown for descriptions (#1382)
+
 ## 17.5.0 (Feb 11, 2021)
 
 ### Minor
