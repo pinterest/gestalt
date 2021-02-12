@@ -26,6 +26,8 @@ type LinkData = {|
     | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
   onNavigationOptions?: OnNavigationOptionsType,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
 |};
 
 type Props = {|
@@ -48,7 +50,7 @@ const STATUS_ICONS = {
 };
 
 const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
-  const { accessibilityLabel, href, label, onClick, onNavigationOptions } = data;
+  const { accessibilityLabel, href, label, onClick, onNavigationOptions, rel, target } = data;
 
   return (
     <Box
@@ -64,10 +66,12 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
         color="gray"
         href={href}
         onClick={onClick}
+        rel={rel}
         role="link"
         size="lg"
         text={label}
         onNavigationOptions={onNavigationOptions}
+        target={target}
       />
     </Box>
   );
@@ -241,6 +245,8 @@ ActivationCard.propTypes = {
     onClick: PropTypes.func,
     accessibilityLabel: PropTypes.string,
     onNavigationOptions: OnNavigationOptionsPropType,
+    rel: PropTypes.oneOf(['none', 'nofollow']),
+    target: PropTypes.oneOf([null, 'self', 'blank']),
   }),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   status: PropTypes.oneOf(['notStarted', 'pending', 'needsAttention', 'complete']).isRequired,

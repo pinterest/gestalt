@@ -17,6 +17,8 @@ export type ActionDataType = {|
     | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
   onNavigationOptions?: OnNavigationOptionsType,
+  rel?: 'none' | 'nofollow',
+  target?: null | 'self' | 'blank',
 |};
 
 export type DismissButtonType = {|
@@ -32,6 +34,8 @@ export const ActionDataPropType: React$PropType$Primitive<ActionDataType> = Prop
   onClick: PropTypes.func,
   accessibilityLabel: PropTypes.string,
   onNavigationOptions: OnNavigationOptionsPropType,
+  rel: PropTypes.oneOf(['none', 'nofollow']),
+  target: PropTypes.oneOf([null, 'self', 'blank']),
 });
 // $FlowFixMe[incompatible-exact]
 // $FlowFixMe[incompatible-type]

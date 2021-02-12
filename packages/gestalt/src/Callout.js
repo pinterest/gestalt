@@ -56,7 +56,7 @@ const CalloutAction = ({
   if (isDarkMode && type === 'secondary') {
     color = 'transparentWhiteText';
   }
-  const { accessibilityLabel, label, onClick, onNavigationOptions, href } = data;
+  const { accessibilityLabel, label, onClick, onNavigationOptions, href, rel, target } = data;
 
   return (
     <Box
@@ -76,8 +76,10 @@ const CalloutAction = ({
           href={href}
           onClick={onClick}
           onNavigationOptions={onNavigationOptions}
+          rel={rel}
           role="link"
           size="lg"
+          target={target}
           text={label}
         />
       ) : (
