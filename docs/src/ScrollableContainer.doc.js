@@ -627,6 +627,12 @@ card(
   <MainSection
     name="Related"
     description={`
+
+[Box](/Box)
+
+Box's overflow prop specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollableContainer if the goal is simply to allow the Box to scroll when content overflows. ScrollableContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Flyout](/Flyout), [Typeahead](/Typeahead) and [Dropdown](/Dropdown), are used within a container that could potentially scroll.
+
+
 [Modal](/Modal) / [Sheet](/Sheet)
 
 Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
