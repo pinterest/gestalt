@@ -4,6 +4,7 @@ import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
 import { useAppContext } from './appContext.js';
 import { capitalizeFirstLetter } from './utils.js';
+import Markdown from './Markdown.js';
 
 type Props = {|
   props: Array<{|
@@ -27,9 +28,7 @@ const unifyQuotes = (input) => {
 const Description = (lines: Array<string>): Node => (
   <Flex alignItems="start" direction="column" gap={2}>
     {lines.map((line, idx) => (
-      <Text key={idx} color="gray">
-        {line}
-      </Text>
+      <Markdown key={idx} text={line} textColor="gray" />
     ))}
   </Flex>
 );
@@ -153,7 +152,7 @@ export default function PropTable({
                 sortBy(properties, ({ required, name }) => `${required ? 'a' : 'b'}${name}`).reduce(
                   (
                     acc,
-                    { defaultValue, description, href, name, required, responsive, type },
+                    { defaultValue, description = '', href, name, required, responsive, type },
                     i,
                   ) => {
                     const propNameHasSecondRow = description || responsive;
@@ -201,7 +200,11 @@ export default function PropTable({
                             )}
                           </Td>
                           <Td colspan={1} color="gray">
-                            {Array.isArray(description) ? Description(description) : description}
+                            {Array.isArray(description) ? (
+                              Description(description)
+                            ) : (
+                              <Markdown text={description} textColor="gray" />
+                            )}
                           </Td>
                           <Td />
                         </tr>,

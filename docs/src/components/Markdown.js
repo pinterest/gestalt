@@ -8,6 +8,24 @@ import 'highlight.js/styles/a11y-light.css';
 import sidebarIndex from './sidebarIndex.js';
 
 type Props = {|
+  textColor?:
+    | 'green'
+    | 'pine'
+    | 'olive'
+    | 'blue'
+    | 'navy'
+    | 'midnight'
+    | 'purple'
+    | 'orchid'
+    | 'eggplant'
+    | 'maroon'
+    | 'watermelon'
+    | 'orange'
+    | 'darkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'red'
+    | 'white',
   text: string,
   type?: string,
 |};
@@ -65,7 +83,7 @@ const formatComponentName = (listitem) => {
   return listitem;
 };
 
-export default function Markdown({ text, type }: Props): Node {
+export default function Markdown({ textColor, text, type }: Props): Node {
   const renderer = new Renderer();
   renderer.heading = (input, level) => {
     const escapedText = input
@@ -102,7 +120,7 @@ export default function Markdown({ text, type }: Props): Node {
   });
 
   return (
-    <Text>
+    <Text color={textColor}>
       <div
         className="Markdown"
         dangerouslySetInnerHTML={{ __html: html }} // eslint-disable-line react/no-danger

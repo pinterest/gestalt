@@ -36,7 +36,7 @@ card(
         type:
           '{| href: string, onNavigationOptions?:  ({ [string]: Node | ({| +event: SyntheticEvent<>, target?: null | "self" | "blank" |}) => void }) |}',
         description: [
-          `Components with link functionality use simple <a> tags. In order to replace the default link functionality with more complex ones (ex. withRouter or spam checking), onNavigation provides an interface to implement external logic into the 'onClick' event handler in links.`,
+          `Components with link functionality use simple \`<a>\` tags. In order to replace the default link functionality with more complex ones (ex. withRouter or spam checking), onNavigation provides an interface to implement external logic into the 'onClick' event handler in links.`,
           `onNavigation is a high-order function. If passed into the provider, consumer components (ex. Link, Button, IconButton and TapArea) call the onNavigation function with three named parameters ('href', 'onNavigationOptions' and 'target') that returns a function that gets called inside the 'onClick' event handler. `,
           `'onNavigationOptions' is an object that acts as a flexible API for your onNavigation external logic. The onNavigationOptions's type is flexible. Each key's value is a React.Node or an event handler function.`,
         ],

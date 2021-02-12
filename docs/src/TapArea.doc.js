@@ -203,8 +203,8 @@ card(
         defaultValue: 'button',
         description: [
           `Select a TapArea variant:`,
-          `- 'button': Use for TapArea to act like buttons. The TapArea is rendered as a '<div>'.`,
-          `- 'link': Use for TapArea to act like links. The button is rendered as an '<a>'.`,
+          `- 'button': Use for TapArea to act like buttons. The TapArea is rendered as a \`<div>\`.`,
+          `- 'link': Use for TapArea to act like links. The button is rendered as an \`<a>\`.`,
           `Required with role=link.`,
         ],
         href: 'roles',

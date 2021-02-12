@@ -179,8 +179,8 @@ card(
         defaultValue: 'button',
         description: [
           `Select a button variant:`,
-          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a '<button>'.`,
-          `- 'link': Use for buttons to act like links. The button is rendered as an '<a>'.`,
+          `- 'button': Use to render 'submit' or 'button'-type buttons. The button is rendered as a \`<button>\`.`,
+          `- 'link': Use for buttons to act like links. The button is rendered as an \`<a>\`.`,
           `Required with link-role buttons.`,
         ],
         href: 'roles',
