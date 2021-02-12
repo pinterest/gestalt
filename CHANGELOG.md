@@ -1,3 +1,9 @@
+## 17.5.2 (Feb 12, 2021)
+
+### Patch
+
+- Callout, Upsell, ActivationCard: implemented missing target, ref props for link functionality (#1384)
+
 ## 17.5.1 (Feb 12, 2021)
 
 ### Patch
