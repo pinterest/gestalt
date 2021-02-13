@@ -47,7 +47,7 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
       )}
 
       {description && (
-        <Box width="80%" marginTop={2}>
+        <Box width="80%" marginTop={2} color="white">
           <Markdown text={description} />
         </Box>
       )}

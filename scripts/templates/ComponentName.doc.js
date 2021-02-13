@@ -106,14 +106,19 @@ card(
     >
       <MainSection.Card
         cardSize="md"
-        title="Example title"
+        title="Example title (optional)"
         defaultCode={`
 Code for this example goes here
 `}
       />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+      title="Variant name (sentence case)"
+    >
       <MainSection.Card
         cardSize="md"
-        title="Example title"
+        title="Example title (optional)"
         defaultCode={`
 Code for this example goes here
 `}
