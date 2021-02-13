@@ -155,7 +155,7 @@ card(
       `}
     >
       <MainSection.Card
-        cardSize="ls"
+        cardSize="lg"
         defaultCode={`
 <Callout
   type="info"
@@ -182,7 +182,7 @@ card(
   >
     <MainSection.Subsection>
       <MainSection.Card
-        cardSize="ls"
+        cardSize="lg"
         defaultCode={`
 <Callout
   type="info"
