@@ -1,3 +1,9 @@
+## 17.5.5 (Feb 17, 2021)
+
+### Patch
+
+- Tooltip: update Tooltip documentation, add best practices (#1370)
+
 ## 17.5.4 (Feb 17, 2021)
 
 ### Patch
