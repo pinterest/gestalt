@@ -48,16 +48,16 @@ card(
         required: true,
         defaultValue: null,
         description: `
-          Main content of the Callout. Content should be localized.
+          Main content of Callout. Content should be localized.
 
-          See [Best Practices](#Best-practices) for more info`,
+          See [Best Practices](#Best-practices) for more info.`,
       },
       {
         name: 'dismissButton',
         type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
         defaultValue: null,
         description: `
-          When specified, adds a dismiss button to the Callout. See the [Dismissible variant](#Dismissible) for more info.
+          When specified, adds a dismiss button to Callout. See the [Dismissible variant](#Dismissible) for more info.
 
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).`,
       },
@@ -67,9 +67,7 @@ card(
         required: true,
         defaultValue: null,
         description: `
-          Label to describe the icon’s purpose
-
-          See the [Accessibility guidelines](#Accessibility) for details on proper usage
+          Label to describe the icon’s purpose. See the [Accessibility guidelines](#Accessibility) for details on proper usage.
         `,
       },
       {
@@ -78,9 +76,7 @@ card(
           '{| accessibilityLabel?: string, href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void, rel: "none" | "nofollow", target: "null" | "self" | "blank" |}',
         defaultValue: null,
         description: `
-          Main action for people to take on the Callout
-
-          href: If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
+          Main action for people to take on Callout. If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
 
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
@@ -92,9 +88,7 @@ card(
           '{| accessibilityLabel?: string , href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void, rel: "none" | "nofollow", target: "null" | "self" | "blank" |}',
         defaultValue: null,
         description: `
-          Secondary action for people to take on the Callout
-
-          href: If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
+          Secondary action for people to take on Callout. If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
 
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
@@ -106,14 +100,14 @@ card(
         required: true,
         defaultValue: null,
         description: `
-        The type of Callout. See the [Variants](#Variants) to learn more
+        The type of Callout. See the [Variants](#Variants) to learn more.
         `,
       },
       {
         name: 'title',
         type: 'string',
         defaultValue: null,
-        description: `Brief title summarizing the Callout. Content should be localized.`,
+        description: `Brief title summarizing Callout. Content should be localized.`,
       },
     ]}
   />,
@@ -168,7 +162,6 @@ card(
                 }}
               />
             </Box>
-            <Box height={150}/>
           </Box>
         `}
       />
@@ -176,7 +169,7 @@ card(
         cardSize="lg"
         type="don't"
         description={`
-        Use Callouts for marketing new products or features. Use an [Upsell](/Upsell) instead.
+        Use Callouts for marketing new products or features. Use [Upsell](/Upsell) instead.
         `}
         defaultCode={`
           <Callout
@@ -197,7 +190,7 @@ card(
         cardSize="lg"
         type="don't"
         description={`
-        - Stack Callouts. In the case that banners must be stacked, Callouts will usually come before Upsells.
+        Stack Callouts. In the case that banners must be stacked, Callouts will usually come before Upsells.
         `}
         defaultCode={`
         <Box>
@@ -234,7 +227,6 @@ card(
               />
             </Flex>
           </Box>
-          <Box height={150}/>
         </Box>
         `}
       />
@@ -247,11 +239,11 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      The \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\`, and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate intent or visually describe what any icons might mean, such as “error”, “info” or “warning”. They should also be localized.
+      \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\`, and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate intent or visually describe what any icons might mean, such as “error”, “info” or “warning”. They should also be localized.
 
-      In the case of [Buttons](/Button), alternative text should be provided to replace vague text like "Visit" or "Learn more" with more descriptive information, like ‘Learn more about our work from home resources’.
+      In the case of [Buttons](/Button), alternative text should be provided to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources".
 
-      For [IconButtons](/IconButtons), like the \`dismissButton\`, the label provided should indicate the intent, like “Dismiss this banner”.
+      For the \`dismissButton\` [IconButton](/IconButton), the label provided should indicate the intent, like “Dismiss this banner”.
       `}
     >
       <MainSection.Card
@@ -278,7 +270,7 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Remember to localize all Link or Button labels, as well as the \`title\` and \`message\`.`}
+    description={`Remember to localize all Link or Button labels, as well as \`title\` and \`message\`.`}
   >
     <MainSection.Subsection>
       <MainSection.Card
@@ -328,7 +320,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Warning"
-      description="Warning Callouts communicate cautionary messages to users. Action should not be required. The Callout should provide clear guidance on how to correct an issue and/or learn more about it."
+      description="Warning Callouts communicate cautionary messages to users. Action shouldn't be required. The Callout should provide clear guidance on how to correct an issue and/or learn more about it."
     >
       <MainSection.Card
         cardSize="lg"
@@ -349,7 +341,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Error"
-      description="Error Callouts inform users of problems that require immediate action to correct. Further actions on the page might be blocked if users do not correct the problems. The Callout should also provide clear guidance on how to correct the issue and/or learn more about it."
+      description="Error Callouts inform users of problems that require immediate action to correct. Further actions on the page might be blocked if users don't correct the problems. The Callout should also provide clear guidance on how to correct the issue and/or learn more about it."
     >
       <MainSection.Card
         cardSize="lg"
@@ -368,7 +360,7 @@ card(
     <MainSection.Subsection
       title="Actions"
       description={`
-        Callouts can have either one primary action, or a secondary action and a primary action. These actions can be [Links](/Link), by specifying the \`href\` property, or [Buttons](/Buttons), when no \`href\` is supplied.
+        Callouts can have either one primary action, or a primary action and a secondary action. These actions can be [Links](/Link), by specifying the \`href\` property, or [Buttons](/Buttons), when no \`href\` is supplied.
 
         For example, “Learn more” may link to a separate documentation site, while “Apply now” could be a Button that opens a [Modal](/Modal) with an application flow. Be sure to localize the labels of the actions.
         `}
@@ -457,12 +449,12 @@ function Example(props) {
     <MainSection.Subsection
       title="Dismissible"
       description={`
-        A \`dismissButton\` can be used when a Callout does not indicate a persistent state. This will most commonly be used in info Callouts.
+        \`dismissButton\` can be used when Callout doesn't indicate a persistent state. This will most commonly be used in info Callouts.
 
-        Do not use dismiss buttons in the following cases:
+        Don't use dismiss buttons in the following cases:
 
         - There is a persistent account or page status that the user must address.
-        - The user must access this information again in order to perform a task.
+        - The user must access Callout's information again in order to perform a task.
         `}
     >
       <MainSection.Card
@@ -492,11 +484,16 @@ card(
     description={`
       [Upsell](/upsell)
 
-      If marketing new products or features, or encouraging upgrades, use an Upsell instead.
+      If marketing new products or features, or encouraging upgrades, use Upsell instead.
 
       [Toast](/toast)
 
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and typically disappear after a certain duration.
+
+      [ActivationCard](/ActivationCard)
+
+      ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
+
     `}
   />,
 );
