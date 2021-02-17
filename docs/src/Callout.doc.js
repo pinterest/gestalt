@@ -140,7 +140,7 @@ card(
         defaultCode={`
           <Box>
             <Box marginBottom={4} display="flex" alignItems="center">
-              <Icon icon="pinterest" color="red" size={32}/>
+              <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
               <ButtonGroup>
                 <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
                 <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
@@ -155,7 +155,7 @@ card(
                 iconAccessibilityLabel="Info"
                 title="We have not yet detected your tag"
                 message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
-                primaryAction={{label: "Verify Tag", accessibilityLabel:""}}
+                primaryAction={{label: "Verify Tag"}}
                 dismissButton={{
                   accessibilityLabel: 'Dismiss this banner',
                   onDismiss: ()=>{},
@@ -177,7 +177,7 @@ card(
             iconAccessibilityLabel="Info"
             title="Give $30, get $60 in ads credit"
             message="Earn $60 of ads credit, and send $30 of ads credit to a friend"
-            primaryAction={{label: "Send invite", accessibilityLabel:""}}
+            primaryAction={{label: "Send invite"}}
             dismissButton={{
               accessibilityLabel: 'Dismiss this banner',
               onDismiss: ()=>{},
@@ -195,7 +195,7 @@ card(
         defaultCode={`
         <Box>
           <Box marginBottom={4} display="flex" alignItems="center">
-            <Icon icon="pinterest" color="red" size={32}/>
+            <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
             <ButtonGroup>
               <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
               <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
@@ -212,14 +212,14 @@ card(
                 }}
                 title="So close! Finish installing your pinterest tag, get $10 in ads credit"
                 message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-                primaryAction={{label: "Claim now", accessibilityLabel:""}}
+                primaryAction={{label: "Claim now"}}
               />
               <Callout
                 type="info"
                 iconAccessibilityLabel="Info"
                 title="We have not yet detected your tag"
                 message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
-                primaryAction={{label: "Verify Tag", accessibilityLabel:""}}
+                primaryAction={{label: "Verify Tag"}}
                 dismissButton={{
                   accessibilityLabel: 'Dismiss this banner',
                   onDismiss: ()=>{},
