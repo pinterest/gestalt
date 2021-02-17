@@ -359,7 +359,7 @@ function SectionsIconButtonDropdownExample() {
 
   return (
     <Box width={600}>
-      <Heading>Sugar-Free Strawberry-Chocolate Greek Yogurt Bark Three-Step Recipe.
+      <Heading accessibilityLevel={4}>Sugar-Free Strawberry-Chocolate Greek Yogurt Bark Three-Step Recipe.
         <Tooltip inline text="More board options" idealDirection="right">
           <IconButton
             accessibilityControls="sections-dropdown-example"
@@ -467,6 +467,7 @@ function ScrollableContainerExample() {
       {showModal && (
         <Layer zIndex={MODAL_Z_INDEX}>
           <Modal
+            _dangerousScrollableExperimentEnabled
             accessibilityModalLabel="Edit Pin"
             heading="Edit"
             size="lg"
@@ -513,73 +514,71 @@ function ScrollableContainerExample() {
               </Box>
             }
           >
-            <ScrollableContainer>
               <Box
                 column={12}
                 display="flex"
                 justifyContent="center"
               >
-                  <Box column={6} paddingX={4}>
-                    <Image
-                      alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
-                      color="rgb(231, 186, 176)"
-                      naturalHeight={751}
-                      naturalWidth={564}
-                      src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-                    >
-                      <Box padding={3}>
-                        <Heading
-                          align={alignText}
-                          color="white"
-                          size="lg"
-                        >
-                          Tropic greens: The taste of Petrol and Porcelain
-                        </Heading>
-                      </Box>
-                    </Image>
-                  </Box>
-                  <Flex direction="column" gap={4}>
-                    <Heading size="sm" weight="bold">Text Overlay</Heading>
-                    <Text size="lg">Add text directly onto your Pin</Text>
-                    <Text size="lg" weight="bold">Alignment</Text>
-                    <Flex>
-                      <Tooltip text="Align left" zIndex={TOOLTIP_Z_INDEX}>
-                        <IconButton
-                          accessibilityLabel="Align left"
-                          bgColor="white"
-                          icon="text-align-left"
-                          iconColor="darkGray"
-                          onClick={() => setAlignText('left')}
-                          size="lg"
-                          selected={alignText === 'left'}
-                        />
-                      </Tooltip>
-                      <Tooltip text="Align center" zIndex={TOOLTIP_Z_INDEX}>
-                        <IconButton
-                          accessibilityLabel="Align center"
-                          bgColor="white"
-                          icon="text-align-center"
-                          iconColor="darkGray"
-                          onClick={() => setAlignText('center')}
-                          size="lg"
-                          selected={alignText === 'center'}
-                        />
-                      </Tooltip>
-                      <Tooltip text="Align right" zIndex={TOOLTIP_Z_INDEX}>
-                        <IconButton
-                          accessibilityLabel="Align right"
-                          bgColor="white"
-                          icon="text-align-right"
-                          iconColor="darkGray"
-                          onClick={() => setAlignText('right')}
-                          size="lg"
-                          selected={alignText === 'right'}
-                        />
-                      </Tooltip>
-                    </Flex>
+                <Box column={6} paddingX={4}>
+                  <Image
+                    alt="Tropic greens: The taste of Petrol and Porcelain | Interior design, Vintage Sets and Unique Pieces agave"
+                    color="rgb(231, 186, 176)"
+                    naturalHeight={751}
+                    naturalWidth={564}
+                    src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+                  >
+                    <Box padding={3}>
+                      <Heading
+                        align={alignText}
+                        color="white"
+                        size="lg"
+                      >
+                        Tropic greens: The taste of Petrol and Porcelain
+                      </Heading>
+                    </Box>
+                  </Image>
+                </Box>
+                <Flex direction="column" gap={4}>
+                  <Heading size="sm" weight="bold">Text Overlay</Heading>
+                  <Text size="lg">Add text directly onto your Pin</Text>
+                  <Text size="lg" weight="bold">Alignment</Text>
+                  <Flex>
+                    <Tooltip text="Align left" zIndex={TOOLTIP_Z_INDEX}>
+                      <IconButton
+                        accessibilityLabel="Align left"
+                        bgColor="white"
+                        icon="text-align-left"
+                        iconColor="darkGray"
+                        onClick={() => setAlignText('left')}
+                        size="lg"
+                        selected={alignText === 'left'}
+                      />
+                    </Tooltip>
+                    <Tooltip text="Align center" zIndex={TOOLTIP_Z_INDEX}>
+                      <IconButton
+                        accessibilityLabel="Align center"
+                        bgColor="white"
+                        icon="text-align-center"
+                        iconColor="darkGray"
+                        onClick={() => setAlignText('center')}
+                        size="lg"
+                        selected={alignText === 'center'}
+                      />
+                    </Tooltip>
+                    <Tooltip text="Align right" zIndex={TOOLTIP_Z_INDEX}>
+                      <IconButton
+                        accessibilityLabel="Align right"
+                        bgColor="white"
+                        icon="text-align-right"
+                        iconColor="darkGray"
+                        onClick={() => setAlignText('right')}
+                        size="lg"
+                        selected={alignText === 'right'}
+                      />
+                    </Tooltip>
                   </Flex>
-              </Box>
-            </ScrollableContainer>
+                </Flex>
+            </Box>
           </Modal>
         </Layer>
       )}
@@ -589,7 +588,7 @@ function ScrollableContainerExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="With ScrollableContainer"
+      title="Within scrolling containers"
       description="ScrollableContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures Tooltip remains attached to its anchor when scrolling."
     >
       <MainSection.Card
@@ -848,7 +847,7 @@ Flyout displays a lightweight task related to the content on screen. One example
 
 [ScrollableContainer](/ScrollableContainer)
 
-ScrollableContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures Tooltip remains attached to its anchor when scrolling. See the [With ScrollableContainer](#With-ScrollableContainer) variant to learn more.
+ScrollableContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures Tooltip remains attached to its anchor when scrolling. See the [Within scrolling containers](#Within-scrolling-containers) variant to learn more.
 
 [Toast](/Toast)
 
