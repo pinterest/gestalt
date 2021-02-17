@@ -365,60 +365,47 @@ card(
     When Typeahead is used within a parent component that has a z-index set, a z-index will also need to be set on the Typeahead. Otherwise the Typeahead will render behind the parent component in the stacking context.`}
     defaultCode={`
 function Example(props) {
-  const [open, setOpen] = React.useState(false);
-  const [option, setOption] = React.useState();
+  const optionsA = Array.from(Array(20).keys()).map((item) => ({
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1)
+  }));
+  const optionsB = [{ label: "apple", value: "apple" }, { label: 'banana', value: 'banana' }];
 
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const MODAL_ZINDEX = new CompositeZIndex([HEADER_ZINDEX]);
-  const TYPEAHEAD_ZINDEX = new CompositeZIndex([MODAL_ZINDEX]);
+  const [options, setOptions] = React.useState(optionsA);
+  const defaultOption = options[0];
+  const [item, setItem] = React.useState(defaultOption.label);
+  const [selected, setSelected] = React.useState(defaultOption);
+
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
+
+  const handleSelect = ({ item }) => {
+    setSelected(item);
+  };
 
   return (
-    <React.Fragment>
-      <Button
-        inline
-        text="Report a stolen account"
-        onClick={() => setOpen(true)}
+    <>
+      <Box marginBottom={4}>
+        <Flex>
+          <Button text="A" onClick={() => setOptions(optionsA)} />
+          <Button text="B" onClick={() => setOptions(optionsB)} />
+        </Flex>
+
+        <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      </Box>
+
+      <Typeahead
+        label="Typeahead Example 2"
+        id="Typeahead-example-defaultItem"
+        noResultText="No Results"
+        options={options}
+        value={defaultOption.value}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        onSelect={handleSelect}
       />
-      {open && (
-        <Layer zIndex={MODAL_ZINDEX}>
-          <Modal
-            accessibilityModalLabel="Select the account being reported"
-            onDismiss={() => setOpen(false)}
-            size="sm"
-            heading="Report a stolen account"
-            footer={
-              <Button
-                onClick={() => setOpen(false)}
-                text="Submit"
-                color="red"
-                size="lg"
-                type="submit"
-              />
-            }
-          >
-            <Box padding={8}>
-              <Typeahead
-                zIndex={TYPEAHEAD_ZINDEX}
-                label="Select the account being reported"
-                id="reported_account"
-                noResultText="No Results"
-                options={[
-                  {
-                    label: "basic_user@email.com",
-                    value: "basic_user@email.com"
-                  },
-                  {
-                    label: "business_user@email.com",
-                    value: "business_user@email.com"
-                  },
-                ]}
-                placeholder="Select an account"
-              />
-            </Box>
-          </Modal>
-        </Layer>
-      )}
-    </React.Fragment>
+    </>
   );
 }`}
   />,
