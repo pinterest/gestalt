@@ -11,32 +11,21 @@ card(
   <PageHeader
     name="Callout"
     description="Callout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention."
+    defaultCode={`
+    <Callout
+      type="info"
+      iconAccessibilityLabel="Info"
+      title="Your business account was created!"
+      message="Apply to the Verified Merchant Program"
+      primaryAction={{href: "https://pinterest.com", label: "Get started", target: "blank", accessibilityLabel: "Get started: Verified Merchant Program"}}
+      secondaryAction={{href: "https://pinterest.com", label: "Learn more", target: "blank", accessibilityLabel: "Learn more: Verified Merchant Program"}}
+      dismissButton={{
+        accessibilityLabel: 'Dismiss this banner',
+        onDismiss: ()=>{},
+      }}
+    />
+    `}
   />,
-);
-
-card(
-  <MainSection name="Examples" showHeading={false}>
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="lg"
-        showCode={false}
-        defaultCode={`
-<Callout
-  type="info"
-  iconAccessibilityLabel="Info"
-  title="Your business account was created!"
-  message="Apply to the Verified Merchant Program"
-  primaryAction={{href: "https://pinterest.com", label: "Get started", accessibilityLabel:"Get started: Verified Merchant Program"}}
-  secondaryAction={{href: "https://pinterest.com", label: "Learn more", accessibilityLabel:"Learn more: Verified Merchant Program"}}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss this banner',
-    onDismiss: ()=>{},
-  }}
-/>
-`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
 );
 
 card(
@@ -57,7 +46,7 @@ card(
         type: '{| accessibilityLabel: string, onDismiss: () => void, |}',
         defaultValue: null,
         description: `
-          When specified, adds a dismiss button to Callout. See the [Dismissible variant](#Dismissible) for more info.
+          Adds a dismiss button to Callout. See the [Dismissible variant](#Dismissible) for more info.
 
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).`,
       },
@@ -100,7 +89,7 @@ card(
         required: true,
         defaultValue: null,
         description: `
-        The type of Callout. See the [Variants](#Variants) to learn more.
+        The category of Callout. See the [Variants](#Variants) to learn more.
         `,
       },
       {
@@ -126,7 +115,7 @@ card(
             title="Pinterest tag needs attention"
             iconAccessibilityLabel="Error"
             message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
-            primaryAction={{href: "https://pinterest.com", label:"Fix tag"}}
+            primaryAction={{href: "https://pinterest.com", label: "Fix tag", target: "blank",}}
 
           />
         `}
@@ -135,7 +124,7 @@ card(
         cardSize="lg"
         type="do"
         description={`
-        Place the Callout at the top of the page under the primary navigation or page header when possible.
+        Place Callout at the top of the page under the primary navigation or page header when possible.
         `}
         defaultCode={`
           <Box>
@@ -190,7 +179,7 @@ card(
         cardSize="lg"
         type="don't"
         description={`
-        Stack Callouts. In the case that banners must be stacked, Callouts will usually come before Upsells.
+        Stack Callouts. In the case that banners must be stacked, Callouts should come before Upsells.
         `}
         defaultCode={`
         <Box>
@@ -239,7 +228,7 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\`, and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate intent or visually describe what any icons might mean, such as “error”, “info” or “warning”. They should also be localized.
+      \`iconAccessibilityLabel\`, \`dismissButton\`, \`primaryAction\`, and \`secondaryAction\` each require a short, descriptive label for screen readers. These labels should communicate the intent of the icon, such as “Error”, “Info” or “Warning”. They should also be localized.
 
       In the case of [Buttons](/Button), alternative text should be provided to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources".
 
@@ -254,8 +243,8 @@ card(
   iconAccessibilityLabel="Info"
   title="Your business account was created!"
   message="Apply to the Verified Merchant Program"
-  primaryAction={{href: "https://pinterest.com", label: "Get started", accessibilityLabel:"Get started: Verified Merchant Program"}}
-  secondaryAction={{href: "https://pinterest.com", label: "Learn more", accessibilityLabel:"Learn more: Verified Merchant Program"}}
+  primaryAction={{href: "https://pinterest.com", label: "Get started", target: "blank", accessibilityLabel: "Get started: Verified Merchant Program"}}
+  secondaryAction={{href: "https://pinterest.com", label: "Learn more", target: "blank", accessibilityLabel: "Learn more: Verified Merchant Program"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss this banner',
     onDismiss: ()=>{},
@@ -270,7 +259,7 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Remember to localize all Link or Button labels, as well as \`title\` and \`message\`.`}
+    description={`Remember to localize all link or button labels, as well as \`title\` and \`message\`.`}
   >
     <MainSection.Subsection>
       <MainSection.Card
@@ -281,8 +270,8 @@ card(
   iconAccessibilityLabel="Info"
   title="Ihr Geschäftskonto wurde erstellt!"
   message="Bewerben Sie sich beim Verified Merchant Program"
-  primaryAction={{href: "https://pinterest.com", label: "Loslegen", accessibilityLabel:"Loslegen: Verified Merchant Program"}}
-  secondaryAction={{href: "https://pinterest.com", label: "Erfahren Sie mehr", accessibilityLabel:"Erfahren Sie mehr: Verified Merchant Program"}}
+  primaryAction={{href: "https://pinterest.com", label: "Loslegen", target: "blank", accessibilityLabel: "Loslegen: Verified Merchant Program"}}
+  secondaryAction={{href: "https://pinterest.com", label: "Erfahren Sie mehr", target: "blank", accessibilityLabel: "Erfahren Sie mehr: Verified Merchant Program"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss this banner',
     onDismiss: ()=>{},
@@ -308,8 +297,8 @@ card(
   iconAccessibilityLabel="Info"
   title="Your business account was created!"
   message="Apply to the Verified Merchant Program"
-  primaryAction={{href: "https://pinterest.com", label: "Get started", accessibilityLabel:"Get started: Verified Merchant Program"}}
-  secondaryAction={{href: "https://pinterest.com", label: "Learn more", accessibilityLabel:"Learn more: Verified Merchant Program"}}
+  primaryAction={{href: "https://pinterest.com", label: "Get started", target: "blank", accessibilityLabel: "Get started: Verified Merchant Program"}}
+  secondaryAction={{href: "https://pinterest.com", label: "Learn more", target: "blank", accessibilityLabel: "Learn more: Verified Merchant Program"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss this banner',
     onDismiss: ()=>{},
@@ -328,9 +317,9 @@ card(
 <Callout
   type="warning"
   iconAccessibilityLabel="Warning"
-  title="Unused ActAlike audiences are going away"
-  message="We have noticed that you have ActAlike audiences in your advertiser account that have been used in an ad campaign. Pinterest will be deleting any unused ActAlike audiences on May 30, 2020."
-  primaryAction={{href: "https://pinterest.com", label:"View audiences"}}
+  title="Unused audiences are going away"
+  message="We have noticed that you have audiences in your advertiser account that have been used in an ad campaign. Pinterest will be deleting any unused audiences on May 30, 2020."
+  primaryAction={{href: "https://pinterest.com", target: "blank", label: "View audiences"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss warning',
     onDismiss: ()=>{},
@@ -351,7 +340,7 @@ card(
   title="Pinterest tag needs attention"
   iconAccessibilityLabel="Error"
   message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
-  primaryAction={{href: "https://pinterest.com", label:"Fix tag"}}
+  primaryAction={{href: "https://pinterest.com", target: "blank", label: "Fix tag"}}
 
 />
 `}
@@ -379,13 +368,14 @@ function Example(props) {
         title="Your business account was created!"
         message="Apply to the Verified Merchant Program"
         primaryAction={{
-          label:"Apply now",
+          label: "Apply now",
           onClick: () => { setShowModal(!showModal) }
         }}
         secondaryAction={{
           href: "https://help.pinterest.com/en/business/article/verified-merchant-program",
           label: "Learn more",
-          accessibilityLabel:"Learn more: Verified Merchant Program"
+          target: "blank",
+          accessibilityLabel: "Learn more: Verified Merchant Program"
         }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
@@ -465,8 +455,8 @@ function Example(props) {
   iconAccessibilityLabel="Info"
   title="Your business account was created!"
   message="Apply to the Verified Merchant Program"
-  primaryAction={{href: "https://pinterest.com", label: "Get started", accessibilityLabel:"Get started: Verified Merchant Program"}}
-  secondaryAction={{href: "https://pinterest.com", label: "Learn more", accessibilityLabel:"Learn more: Verified Merchant Program"}}
+  primaryAction={{href: "https://pinterest.com", label: "Get started", target: "blank", accessibilityLabel: "Get started: Verified Merchant Program"}}
+  secondaryAction={{href: "https://pinterest.com", label: "Learn more", target: "blank", accessibilityLabel: "Learn more: Verified Merchant Program"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss this banner',
     onDismiss: ()=>{},
