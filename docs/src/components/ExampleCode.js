@@ -39,7 +39,7 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
             }}
             accessibilityLabel="Open in CodeSandbox"
             iconColor="darkGray"
-            size="sm"
+            size="xs"
             onClick={() => {
               handleCodeSandbox({ code, title: name });
             }}
@@ -47,13 +47,10 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
         </Tooltip>
         <Tooltip inline text="Copy code" idealDirection="up">
           <IconButton
-            dangerouslySetSvgPath={{
-              __path:
-                'M15.25 0h-6.5a1.75 1.75 0 000 3.5h6.5a5.256 5.256 0 015.25 5.25v6.5a1.75 1.75 0 103.5 0v-6.5C24 3.925 20.075 0 15.25 0zm-.75 6.5H3a3 3 0 00-3 3V21a3 3 0 003 3h11.5a3 3 0 003-3V9.5a3 3 0 00-3-3z',
-            }}
+            icon="drag-drop"
             accessibilityLabel="Copy code"
             iconColor="darkGray"
-            size="sm"
+            size="xs"
             onClick={() => {
               copyCode({ code });
             }}
@@ -68,8 +65,8 @@ export default function ExampleCode({ code, name }: {| code: string, name: strin
             <IconButton
               accessibilityLabel={`${expanded ? 'Collapse' : 'Expand'} code for ${name}`}
               iconColor="darkGray"
-              icon={expanded ? 'eye-hide' : 'eye'}
-              size="sm"
+              icon={expanded ? 'minimize' : 'maximize'}
+              size="xs"
               onClick={() => setExpanded(!expanded)}
             />
           </Tooltip>
