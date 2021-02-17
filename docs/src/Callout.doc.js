@@ -123,19 +123,119 @@ card(
   <MainSection name="Best practices">
     <MainSection.Subsection>
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
         type="do"
-        description={`
-        - Use Callouts for messages coming from the product or user interaction.
-        - Place the Callout at the top of the page under the primary navigation when possible.
+        description="Use Callouts for messages coming from the product or user interaction."
+        defaultCode={`
+          <Callout
+            type="error"
+            title="Pinterest tag needs attention"
+            iconAccessibilityLabel="Error"
+            message="Your tag has errors, so information may be outdated. Fix your tag for the most accurate metrics."
+            primaryAction={{href: "https://pinterest.com", label:"Fix tag"}}
+
+          />
         `}
       />
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
+        type="do"
+        description={`
+        Place the Callout at the top of the page under the primary navigation or page header when possible.
+        `}
+        defaultCode={`
+          <Box>
+            <Box marginBottom={4} display="flex" alignItems="center">
+              <Icon icon="pinterest" color="red" size={32}/>
+              <ButtonGroup>
+                <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
+                <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
+                <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
+                <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
+              </ButtonGroup>
+            </Box>
+            <Divider/>
+            <Box marginTop={8}>
+              <Callout
+                type="info"
+                iconAccessibilityLabel="Info"
+                title="We have not yet detected your tag"
+                message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
+                primaryAction={{label: "Verify Tag", accessibilityLabel:""}}
+                dismissButton={{
+                  accessibilityLabel: 'Dismiss this banner',
+                  onDismiss: ()=>{},
+                }}
+              />
+            </Box>
+            <Box height={150}/>
+          </Box>
+        `}
+      />
+      <MainSection.Card
+        cardSize="lg"
         type="don't"
         description={`
-        - Use Callouts for marketing new products or features. Use an [Upsell](/Upsell) instead.
+        Use Callouts for marketing new products or features. Use an [Upsell](/Upsell) instead.
+        `}
+        defaultCode={`
+          <Callout
+            type="info"
+            iconAccessibilityLabel="Info"
+            title="Give $30, get $60 in ads credit"
+            message="Earn $60 of ads credit, and send $30 of ads credit to a friend"
+            primaryAction={{label: "Send invite", accessibilityLabel:""}}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss this banner',
+              onDismiss: ()=>{},
+            }}
+          />
+        `}
+      />
+
+      <MainSection.Card
+        cardSize="lg"
+        type="don't"
+        description={`
         - Stack Callouts. In the case that banners must be stacked, Callouts will usually come before Upsells.
+        `}
+        defaultCode={`
+        <Box>
+          <Box marginBottom={4} display="flex" alignItems="center">
+            <Icon icon="pinterest" color="red" size={32}/>
+            <ButtonGroup>
+              <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
+              <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
+              <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
+              <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
+            </ButtonGroup>
+          </Box>
+          <Divider/>
+          <Box marginTop={8}>
+            <Flex gap={2} direction="column">
+              <Upsell
+                imageData={{
+                  component: <Icon icon="send" accessibilityLabel="Send" color="darkGray" size={32}/>
+                }}
+                title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+                message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
+                primaryAction={{label: "Claim now", accessibilityLabel:""}}
+              />
+              <Callout
+                type="info"
+                iconAccessibilityLabel="Info"
+                title="We have not yet detected your tag"
+                message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
+                primaryAction={{label: "Verify Tag", accessibilityLabel:""}}
+                dismissButton={{
+                  accessibilityLabel: 'Dismiss this banner',
+                  onDismiss: ()=>{},
+                }}
+              />
+            </Flex>
+          </Box>
+          <Box height={150}/>
+        </Box>
         `}
       />
     </MainSection.Subsection>

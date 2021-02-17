@@ -58,7 +58,7 @@ const MainSectionCard = ({
     type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
-
+  const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
   const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => {
     return (
       <Box
@@ -102,7 +102,7 @@ const MainSectionCard = ({
 
   return (
     <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={4} marginBottom={4}>
-      {cardSize === 'lg' && TitleAndDescription}
+      {showTitleAndDescriptionAboveExample && TitleAndDescription}
 
       {children && <PreviewCard>{children}</PreviewCard>}
 
@@ -121,7 +121,7 @@ const MainSectionCard = ({
           </Box>
         </LiveProvider>
       )}
-      {cardSize !== 'lg' && TitleAndDescription}
+      {!showTitleAndDescriptionAboveExample && TitleAndDescription}
     </Box>
   );
 };
