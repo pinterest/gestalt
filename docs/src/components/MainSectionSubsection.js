@@ -7,7 +7,7 @@ import { copyToClipboard } from './Card.js';
 import { convertToSentenceCase } from './utils.js';
 
 type Props = {|
-  children: Node,
+  children?: Node,
   description?: string,
   title?: string,
 |};
@@ -51,12 +51,13 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           <Markdown text={description} />
         </Box>
       )}
-
-      <Box marginTop={4}>
-        <Flex wrap gap={4}>
-          {children}
-        </Flex>
-      </Box>
+      {children && (
+        <Box marginTop={4}>
+          <Flex wrap gap={4}>
+            {children}
+          </Flex>
+        </Box>
+      )}
     </Fragment>
   );
 };

@@ -11,6 +11,10 @@ describe('Tooltip Accessibility check', () => {
           id: 'color-contrast',
           enabled: false,
         },
+        {
+          id: 'button-name',
+          enabled: false,
+        },
       ],
     });
     cy.checkA11y();
