@@ -72,24 +72,18 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     zIndex,
   } = props;
 
-  // Store original data
-  const dataRef = useRef(options);
-
   // Parent ref for positioning
   const wrapperRef = useRef(null);
 
   // Utility function for filtering data by value
   const filterOriginalData = (filterValue: string): $ReadOnlyArray<OptionObject> =>
-    dataRef.current.filter((item) => item.label.toLowerCase().includes(filterValue.toLowerCase()));
+    options.filter((item) => item.label.toLowerCase().includes(filterValue.toLowerCase()));
 
   // Utility function to find default value
   const findDefaultOption = (defaultValue: string | null): OptionObject | null => {
     if (defaultValue === null) return defaultValue;
 
-    return (
-      dataRef.current.find((item) => item.value.toLowerCase() === defaultValue.toLowerCase()) ||
-      null
-    );
+    return options.find((item) => item.value.toLowerCase() === defaultValue.toLowerCase()) || null;
   };
 
   // Track input value
@@ -101,9 +95,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(0);
 
-  const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(
-    dataRef.current,
-  );
+  const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
 
   // Ref to the input
   const inputRef = useRef(null);
@@ -113,8 +105,8 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
   // Reset search options when the container is closed
   useEffect(() => {
-    if (containerOpen === false) setAvailableOptions(dataRef.current);
-  }, [containerOpen]);
+    if (containerOpen === false) setAvailableOptions(options);
+  }, [containerOpen, options]);
 
   const handleFocus = ({ event }) => {
     // Run focus callback
@@ -125,7 +117,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     // Clear input and reset options when no results
     if (availableOptions.length === 0) {
       setSearch('');
-      setAvailableOptions(dataRef.current);
+      setAvailableOptions(options);
     }
 
     setContainerOpen(false);
@@ -135,21 +127,20 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   };
 
   // Handler for when text is typed
-  // eslint-disable-next-line no-shadow
-  const handleChange = ({ event, value }) => {
+  const handleChange = ({ event, value: newValue }) => {
     if (containerOpen === false) setContainerOpen(true);
 
     // Filter the available options using original data
-    const updatedOptions = filterOriginalData(value);
+    const updatedOptions = filterOriginalData(newValue);
 
     // Update the available options
     setAvailableOptions(updatedOptions);
 
     // Update the search value
-    setSearch(value);
+    setSearch(newValue);
 
     // Run onChange callback
-    if (onChange) onChange({ event, value });
+    if (onChange) onChange({ event, value: newValue });
   };
 
   const handleClear = () => {
