@@ -72,9 +72,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     zIndex,
   } = props;
 
-  // Store original data
-  // const dataRef = useRef(options);
-
   // Parent ref for positioning
   const wrapperRef = useRef(null);
 
