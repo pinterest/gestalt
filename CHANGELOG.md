@@ -1,3 +1,9 @@
+## 17.6.1 (Feb 18, 2021)
+
+### Patch
+
+- Docs: Update IconButton styling and size across docs (#1389)
+
 ## 17.6.0 (Feb 18, 2021)
 
 ### Minor
