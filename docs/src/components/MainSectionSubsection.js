@@ -47,16 +47,14 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
       )}
 
       {description && (
-        <Box width="80%" marginTop={2} color="white">
+        <Box maxWidth={572} marginTop={2} marginBottom={4} color="white">
           <Markdown text={description} />
         </Box>
       )}
 
-      <Box marginTop={4}>
-        <Flex wrap gap={4}>
-          {children}
-        </Flex>
-      </Box>
+      <Flex wrap gap={4}>
+        {children}
+      </Flex>
     </Fragment>
   );
 };

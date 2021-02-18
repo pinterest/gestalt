@@ -2,6 +2,7 @@
 import React, { type Node } from 'react';
 import { Badge, Box, Flex, Heading, Link, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
+import MainSection from './MainSection.js';
 
 type Props = {|
   name: string,
@@ -9,6 +10,7 @@ type Props = {|
   pilot?: boolean,
   fileName?: string, // only use if name !== file name
   showSourceLink?: boolean,
+  defaultCode?: string,
 |};
 
 const gestaltPath = (component) => {
@@ -25,11 +27,12 @@ export default function ComponentHeader({
   description = '',
   fileName,
   showSourceLink = true,
+  defaultCode,
 }: Props): Node {
   return (
     <Box marginBottom={6}>
-      <Box marginBottom={4}>
-        <Flex direction="column" gap={1}>
+      <Box marginBottom={2}>
+        <Flex direction="row" gap={2} justifyContent="between" alignItems="baseline">
           <Heading>
             {name}{' '}
             {pilot ? (
@@ -51,6 +54,11 @@ export default function ComponentHeader({
         </Flex>
       </Box>
       {description && <Markdown text={description} />}
+      {defaultCode && (
+        <Box marginTop={8}>
+          <MainSection.Card cardSize="lg" showCode={false} defaultCode={defaultCode} />
+        </Box>
+      )}
     </Box>
   );
 }

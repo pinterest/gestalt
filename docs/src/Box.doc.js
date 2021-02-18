@@ -259,7 +259,7 @@ card(
         If you find yourself using Box for flexbox layouts, consider [Flex](/Flex) instead.
         `}
         defaultCode={`
-<Box column={12}>
+<Box column={12} accessibility-labelledby="testing">
   <Box column={12}>
     <Box color="midnight" height={50} width="100%">
       <Text color="white" weight="bold">Header</Text>
@@ -690,7 +690,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       description={`
-    Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
+    Position is static by default but can be made absolute. Box has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
 
     `}
       title="Absolute positioning"
@@ -795,24 +795,19 @@ card(
   <MainSection
     name="Related"
     description={`
-      [Flex](/Flex)
-
+      **[Flex](/Flex)**
       Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
-      [Container](/Container)
-
+      **[Container](/Container)**
       Use Container to responsively layout content with a max-width on large screens.
 
-      [ScrollableContainer](/ScrollableContainer)
-
+      **[ScrollableContainer](/ScrollableContainer)**
       For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
 
-      [TapArea](/TapArea)
-
+      **[TapArea](/TapArea)**
       If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
 
-      [Sticky](/Sticky)
-
+      **[Sticky](/Sticky)**
       Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
 
     `}

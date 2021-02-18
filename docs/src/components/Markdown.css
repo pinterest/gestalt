@@ -5,16 +5,21 @@
 }
 
 .Markdown code {
-  background-color: var(--g-colorGray0);
+  background-color: var(--g-colorGray100);
+  color: var(--g-colorGray300);
+  padding: 2px 4px;
+  font-size: var(--g-text-font-size-2);
+  font-family: SFMono-Medium, "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace;
 }
 
 .Markdown p {
   background-color: var(--g-colorGray0);
   margin: 0;
+  line-height: 1.5;
 }
 
 .Markdown p + p {
-  margin-top: 14px;
+  margin-top: 24px;
 }
 
 .Markdown ul + pre {
@@ -31,12 +36,10 @@ html[dir="rtl"] .Markdown ul + pre {
 }
 
 .Markdown a {
-  color: var(--g-navy);
-  font-weight: bold;
+  color: var(--g-colorGray300);
 }
 
 .Markdown a:hover {
-  color: var(--g-midnight);
   text-decoration: none;
 }
 

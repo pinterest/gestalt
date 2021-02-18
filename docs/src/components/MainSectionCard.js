@@ -93,7 +93,7 @@ const MainSectionCard = ({
         </Box>
       )}
       {description && (
-        <Box width="90%" marginTop={2} color="white">
+        <Box maxWidth={572} marginTop={2} color="white">
           <Markdown text={description} />
         </Box>
       )}
@@ -101,8 +101,12 @@ const MainSectionCard = ({
   );
 
   return (
-    <Box width={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginTop={4} marginBottom={4}>
-      {showTitleAndDescriptionAboveExample && TitleAndDescription}
+    <Box
+      width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
+      minWidth={cardSize === 'lg' && 740}
+      marginBottom={12}
+    >
+      {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
       {children && <PreviewCard>{children}</PreviewCard>}
 
