@@ -12,6 +12,10 @@
   padding: 2px 4px;
 }
 
+.Markdown .language-jsx {
+  background-color: var(--g-colorGray0);
+}
+
 .Markdown p {
   background-color: var(--g-colorGray0);
   line-height: 1.5;
