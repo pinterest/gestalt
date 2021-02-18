@@ -1,3 +1,15 @@
+## 17.5.5 (Feb 17, 2021)
+
+### Patch
+
+- Tooltip: update Tooltip documentation, add best practices (#1370)
+
+## 17.5.4 (Feb 17, 2021)
+
+### Patch
+
+- Update to React 17 (#1388)
+
 ## 17.5.3 (Feb 12, 2021)
 
 ### Patch
