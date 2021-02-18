@@ -1,3 +1,9 @@
+## 17.5.6 (Feb 18, 2021)
+
+### Patch
+
+- Docs: Make sure right sidebar doesn't extend over footer (#1391)
+
 ## 17.5.5 (Feb 17, 2021)
 
 ### Patch
