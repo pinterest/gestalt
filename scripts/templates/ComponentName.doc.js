@@ -9,28 +9,14 @@ import MainSection from './components/MainSection.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<PageHeader name="Component Name" description="Brief description of this component" />);
-
 card(
-  <MainSection name="Examples" showHeading={false}>
-    <MainSection.Subsection
-      title="Optional subsection title - should be sentence case"
-      description={`
-           Optional description about this \`Subsection\`
-        `}
-    >
-      <MainSection.Card
-        title="Optional Card Title - displays below the Live Code Editor"
-        description={`
-           Optional description about this \`Example\`
-        `}
-        cardSize="lg"
-        defaultCode={`
-Code for this example goes here
+  <PageHeader
+    name="Component Name"
+    description="Brief description of this component"
+    defaultCode={`
+Code for the default, standard example goes here (no code is shown)
 `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
+  />,
 );
 
 // Specifying Component gives auto warnings about missing props
@@ -163,25 +149,23 @@ Code for this example goes here
 card(
   <MainSection
     name="Writing"
-    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/"). Can also use Do/Don't cards without any code (like Tooltip)`}
   />,
 );
 
 card(
-  <MainSection
-    name="Related"
-    description={`
-      [Component Name](/component-name)
-
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+      **[ComponentName](/ComponentName)**
       Details about why to use this over current component.
 
-      [Component Name](/component-name)
-
+      **[ComponentName](/ComponentName)**
       Details about why to use this over current component.
 
-      Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")
     `}
-  />,
+    />
+  </MainSection>,
 );
 
 export default cards;

@@ -18,7 +18,7 @@ export default function CardPage({ cards, page }: Props): Node {
         <SearchContent>
           {cards.map((card, i) => (
             <Box
-              marginBottom={12}
+              marginBottom={4}
               id={`card-${i}`}
               key={i}
               dangerouslySetInlineStyle={{

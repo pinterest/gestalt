@@ -469,9 +469,9 @@ function Example(props) {
 );
 
 card(
-  <MainSection
-    name="Related"
-    description={`
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
       **[Upsell](/upsell)**
       If marketing new products or features, or encouraging upgrades, use Upsell instead.
 
@@ -482,7 +482,8 @@ card(
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
 
     `}
-  />,
+    />
+  </MainSection>,
 );
 
 export default cards;

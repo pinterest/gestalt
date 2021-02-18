@@ -52,8 +52,13 @@ export default function CombinationNew({ children, shaded, ...props }: Props): N
     const combinationTitles = Object.keys(combination).map((key) =>
       toReactAttribute(key, combination[key]),
     );
+    const shadeCard =
+      shaded ||
+      combinationTitles.some((title) => {
+        return title.includes('color') && title.includes('white');
+      });
     return (
-      <MainSectionCard key={i} cardSize="sm" shaded={shaded} title={combinationTitles}>
+      <MainSectionCard key={i} cardSize="sm" shaded={shadeCard} title={combinationTitles}>
         {children(combination, i)}
       </MainSectionCard>
     );

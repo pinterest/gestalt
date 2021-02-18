@@ -59,6 +59,7 @@ const MainSectionCard = ({
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
+
   const PreviewCard = ({ children: cardChildren }: PreviewCardProps): Node => {
     return (
       <Box
@@ -68,7 +69,7 @@ const MainSectionCard = ({
         display="flex"
         height={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
         justifyContent="center"
-        padding={4}
+        padding={8}
         position="relative"
         rounding={2}
       >
@@ -103,7 +104,7 @@ const MainSectionCard = ({
   return (
     <Box
       width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      minWidth={cardSize === 'lg' && 740}
+      minWidth={cardSize === 'lg' ? 740 : undefined}
       marginBottom={12}
     >
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}

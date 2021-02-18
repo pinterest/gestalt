@@ -22,6 +22,10 @@
   margin-top: 24px;
 }
 
+.Markdown ul {
+  padding-inline-start: 20px;
+}
+
 .Markdown ul + pre {
   margin-left: 40px;
 }
