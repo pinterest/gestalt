@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "17.5.3",
+  "version": "17.5.5",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.netlify.app",
   "description": "A set of React UI components which enforce Pinterest’s design language",
@@ -17,8 +17,8 @@
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.13.1 || 17.x",
+    "react-dom": "^16.13.1 || 17.x"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
