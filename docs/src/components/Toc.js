@@ -143,11 +143,13 @@ export default function Toc({ cards }: Props): Node {
 
   return (
     <Box
+      // Accounting for the footer height as set in App.js
+      dangerouslySetInlineStyle={{ __style: { marginBottom: '90px' } }}
       // These margins counter the padding set on the <Box role="main"> in App.js
       marginTop={-4}
       mdMarginTop={-6}
       lgMarginTop={-8}
-      maxHeight="calc(100% - 60px)"
+      maxHeight="calc(100% - 60px - 90px)"
       minWidth={240}
       overflow="auto"
       paddingY={8} // re-apply just the padding we need
