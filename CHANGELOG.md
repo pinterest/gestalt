@@ -1,3 +1,9 @@
+## 17.6.0 (Feb 18, 2021)
+
+### Minor
+
+- Typeahead: Bugfix to ensure the current value of `options` is used, not just the initial (#1390)
+
 ## 17.5.6 (Feb 18, 2021)
 
 ### Patch
