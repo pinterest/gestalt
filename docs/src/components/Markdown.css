@@ -12,7 +12,7 @@
   padding: 2px 4px;
 }
 
-.Markdown .language-jsx {
+.Markdown .language-jsx, .Markdown .language-bash {
   background-color: var(--g-colorGray0);
 }
 
