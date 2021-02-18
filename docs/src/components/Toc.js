@@ -166,9 +166,9 @@ export default function Toc({ cards }: Props): Node {
               onClick={({ event }) => handleClick(anchor.id, event)}
             >
               <Box padding={2}>
-                {anchor.closest('h2') ? (
+                {anchor.getElementsByTagName('h2').length > 0 ? (
                   <Text color={isActive ? 'pine' : 'darkGray'} weight="bold">
-                    {anchor.closest('h2')?.textContent}
+                    {anchor.innerText}
                   </Text>
                 ) : (
                   <Box paddingX={3}>
