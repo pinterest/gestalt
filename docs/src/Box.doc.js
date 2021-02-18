@@ -259,7 +259,7 @@ card(
         If you find yourself using Box for flexbox layouts, consider [Flex](/Flex) instead.
         `}
         defaultCode={`
-<Box column={12} accessibility-labelledby="testing">
+<Box column={12}>
   <Box column={12}>
     <Box color="midnight" height={50} width="100%">
       <Text color="white" weight="bold">Header</Text>

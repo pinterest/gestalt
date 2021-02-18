@@ -838,22 +838,19 @@ card(
 );
 
 card(
-  <MainSection
-    name="Related"
-    description={`
-[Flyout](/Flyout)
-
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+**[Flyout](/Flyout)**
 Flyout displays a lightweight task related to the content on screen. One example of Flyout is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Flyouts offer broader content options, such as [Buttons](/Buttons) and [Images](/Images).
 
-[ScrollableContainer](/ScrollableContainer)
-
+**[ScrollableContainer](/ScrollableContainer)**
 ScrollableContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures Tooltip remains attached to its anchor when scrolling. See the [Within scrolling containers](#Within-scrolling-containers) variant to learn more.
 
-[Toast](/Toast)
-
+**[Toast](/Toast)**
 Toast provides feedback on an interaction. One example of Toast is the confirmation that appears when a Pin has been saved. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.
-
     `}
-  />,
+    />
+  </MainSection>,
 );
 export default cards;
