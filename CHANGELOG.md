@@ -1,3 +1,9 @@
+## 17.6.2 (Feb 19, 2021)
+
+### Patch
+
+- Docs: Update Callout documentation, add Best practices (#1387)
+
 ## 17.6.1 (Feb 18, 2021)
 
 ### Patch
