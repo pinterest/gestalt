@@ -107,18 +107,14 @@ export default function PropTable({
       id={`${id}Props`}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={
-        <Tooltip
-          inline
-          text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} Props`}
-          idealDirection="up"
-        >
+        <Tooltip inline text={`${propTableVariant === 'expanded' ? 'Collapse' : 'Expand'} props`}>
           <IconButton
-            icon={propTableVariant === 'expanded' ? 'arrow-up' : 'arrow-down'}
+            icon={propTableVariant === 'expanded' ? 'minimize' : 'maximize'}
             accessibilityLabel={`${
               propTableVariant === 'expanded' ? 'Collapse' : 'Expand'
             } props for ${Component?.displayName || ''}`}
-            iconColor="gray"
-            size="sm"
+            iconColor="darkGray"
+            size="xs"
             onClick={() =>
               setPropTableVariant(propTableVariant === 'expanded' ? 'collapsed' : 'expanded')
             }

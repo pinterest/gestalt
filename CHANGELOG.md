@@ -1,3 +1,21 @@
+## 17.6.1 (Feb 18, 2021)
+
+### Patch
+
+- Docs: Update IconButton styling and size across docs (#1389)
+
+## 17.6.0 (Feb 18, 2021)
+
+### Minor
+
+- Typeahead: Bugfix to ensure the current value of `options` is used, not just the initial (#1390)
+
+## 17.5.6 (Feb 18, 2021)
+
+### Patch
+
+- Docs: Make sure right sidebar doesn't extend over footer (#1391)
+
 ## 17.5.5 (Feb 17, 2021)
 
 ### Patch
