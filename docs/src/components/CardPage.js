@@ -16,20 +16,21 @@ export default function CardPage({ cards, page }: Props): Node {
     <Flex>
       <Box flex="grow" maxWidth={800}>
         <SearchContent>
-          {cards.map((card, i) => (
-            <Box
-              marginBottom={4}
-              id={`card-${i}`}
-              key={i}
-              dangerouslySetInlineStyle={{
-                __style: {
-                  scrollMarginTop: 60,
-                },
-              }}
-            >
-              {card}
-            </Box>
-          ))}
+          <Flex gap={8} direction="column">
+            {cards.map((card, i) => (
+              <Box
+                id={`card-${i}`}
+                key={i}
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    scrollMarginTop: 60,
+                  },
+                }}
+              >
+                {card}
+              </Box>
+            ))}
+          </Flex>
         </SearchContent>
 
         <Box marginTop={12} display="flex">

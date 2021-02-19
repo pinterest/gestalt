@@ -15,7 +15,7 @@ type Props = {|
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
   return (
-    <Box marginBottom={4}>
+    <Box marginTop={4}>
       <Box marginBottom={title || description ? 8 : 0}>
         {title && (
           <Box

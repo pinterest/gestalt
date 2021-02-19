@@ -44,7 +44,7 @@ export default function Card({
   const slugifiedId = id ?? slugify(name);
 
   return (
-    <React.Fragment>
+    <Box>
       {showHeading && (
         <Box
           dangerouslySetInlineStyle={{
@@ -54,7 +54,7 @@ export default function Card({
           }}
           id={slugifiedId}
           data-anchor
-          marginBottom={description ? 2 : 8}
+          marginBottom={description ? 2 : 4}
         >
           <Flex alignItems="center" gap={2}>
             <Heading size={headingSize}>{name}</Heading>
@@ -87,6 +87,6 @@ export default function Card({
           {children}
         </Box>
       </Box>
-    </React.Fragment>
+    </Box>
   );
 }

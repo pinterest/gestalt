@@ -30,7 +30,14 @@ export default function ComponentHeader({
   defaultCode,
 }: Props): Node {
   return (
-    <Box marginBottom={defaultCode ? 8 : 12}>
+    <Box
+      marginBottom={defaultCode ? 0 : 12}
+      dangerouslySetInlineStyle={{
+        __style: {
+          paddingBottom: '1px',
+        },
+      }}
+    >
       <Box marginBottom={2}>
         <Flex direction="row" gap={2} justifyContent="between" alignItems="baseline">
           <Heading>
@@ -53,7 +60,7 @@ export default function ComponentHeader({
       </Box>
       {description && <Markdown text={description} />}
       {defaultCode && (
-        <Box marginTop={7} paddingY={1} marginBottom={3}>
+        <Box marginTop={8}>
           <MainSection.Card cardSize="lg" showCode={false} defaultCode={defaultCode} />
         </Box>
       )}

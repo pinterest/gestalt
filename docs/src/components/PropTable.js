@@ -125,6 +125,7 @@ export default function PropTable({
       {propTableVariant === 'expanded' ? (
         <Box
           marginBottom={12}
+          marginTop={4}
           overflow="auto"
           dangerouslySetInlineStyle={{ __style: { overflowY: 'hidden' } }}
         >
@@ -223,7 +224,9 @@ export default function PropTable({
             </tbody>
           </table>
         </Box>
-      ) : null}
+      ) : (
+        <Box marginBottom={8} />
+      )}
     </Card>
   );
 }
