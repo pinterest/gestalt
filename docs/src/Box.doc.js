@@ -649,7 +649,7 @@ card(
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`When content overflows the bounds of the Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`.`}
+      description={`When content overflows the bounds of Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`.`}
       title="Overflow"
     >
       <MainSection.Card
@@ -668,18 +668,18 @@ card(
     </Box>
   </Flex>
   <Flex gap={6} direction="column">
-    <Box overflow="scrollX" width={300} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
-      <Box width={350} padding={2} borderStyle="sm" color="maroon">
+    <Box overflow="scrollX" width={300} padding={2} borderStyle="sm" color="eggplant">
+      <Box width={350} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
         <Text color="white">Scroll horizontally here. Because the outer container has overflow="scrollX", the extra content will scroll horizontally when it overflows the bounds of the container.</Text>
       </Box>
     </Box>
-    <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
-      <Box width={350} height={150} padding={2} borderStyle="sm" color="eggplant">
+    <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon">
+      <Box width={350} height={150} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
         <Text color="white">Scroll vertically here. Because the outer container has overflow="scrollY", the extra content will scroll vertically (but not horizontally) when it overflows the bounds of the container.</Text>
       </Box>
     </Box>
-    <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
-      <Box width={350} height={150} padding={2} borderStyle="sm" color="maroon">
+    <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
+      <Box width={350} height={150} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
         <Text color="white">Scroll any direction here. Because the outer container has overflow="auto", the extra content will scroll in any direction that overflows the bounds of the container.</Text>
       </Box>
     </Box>
@@ -842,7 +842,7 @@ card(
         Use Container to responsively layout content with a max-width on large screens.
 
         **[ScrollableContainer](/ScrollableContainer)**
-        For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
+        For proper positioning when using anchored components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
 
         **[TapArea](/TapArea)**
         If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
