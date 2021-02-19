@@ -35,7 +35,7 @@ export default function CardPage({ cards, page }: Props): Node {
         <Box marginTop={12} display="flex">
           <Link href={editPageUrl} target="blank" inline>
             <Flex gap={2}>
-              <Text weight="bold">Edit page on GitHub</Text>
+              <Text underline>Edit page on GitHub</Text>
             </Flex>
           </Link>
         </Box>

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Badge, Box, Flex, Heading, Link, Text, Tooltip } from 'gestalt';
+import { Badge, Box, Flex, Heading, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
 
@@ -30,7 +30,7 @@ export default function ComponentHeader({
   defaultCode,
 }: Props): Node {
   return (
-    <Box marginBottom={6}>
+    <Box marginBottom={defaultCode ? 8 : 12}>
       <Box marginBottom={2}>
         <Flex direction="row" gap={2} justifyContent="between" alignItems="baseline">
           <Heading>
@@ -45,17 +45,15 @@ export default function ComponentHeader({
             ) : null}
           </Heading>
           {showSourceLink && (
-            <Text color="gray">
-              <Link href={githubUrl(fileName ?? name)} inline target="blank">
-                View source on GitHub
-              </Link>
-            </Text>
+            <a href={githubUrl(fileName ?? name)} target="blank">
+              <Text underline>View source on GitHub</Text>
+            </a>
           )}
         </Flex>
       </Box>
       {description && <Markdown text={description} />}
       {defaultCode && (
-        <Box marginTop={8}>
+        <Box marginTop={7} paddingY={1} marginBottom={3}>
           <MainSection.Card cardSize="lg" showCode={false} defaultCode={defaultCode} />
         </Box>
       )}

@@ -188,7 +188,7 @@ export default function PropTable({
                         <tr key={`${i}-second-row`}>
                           <Td colspan={1}>
                             {responsive && (
-                              <Box>
+                              <Box marginTop={6}>
                                 <Text>
                                   <code>
                                     sm{capitalizeFirstLetter(name)}, md{capitalizeFirstLetter(name)}
@@ -198,11 +198,15 @@ export default function PropTable({
                               </Box>
                             )}
                           </Td>
-                          <Td colspan={1} color="gray">
-                            {Array.isArray(description) ? (
-                              Description(description)
-                            ) : (
-                              <Markdown text={description} textColor="gray" />
+                          <Td colspan={1} color="darkGray">
+                            {description && (
+                              <Box marginTop={6}>
+                                {Array.isArray(description) ? (
+                                  Description(description)
+                                ) : (
+                                  <Markdown text={description} textColor="darkGray" />
+                                )}
+                              </Box>
                             )}
                           </Td>
                           <Td />
