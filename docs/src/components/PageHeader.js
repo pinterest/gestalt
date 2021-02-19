@@ -1,7 +1,8 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Badge, Box, Flex, Heading, Link, Text, Tooltip } from 'gestalt';
+import { Badge, Box, Flex, Heading, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
+import MainSection from './MainSection.js';
 
 type Props = {|
   name: string,
@@ -9,6 +10,7 @@ type Props = {|
   pilot?: boolean,
   fileName?: string, // only use if name !== file name
   showSourceLink?: boolean,
+  defaultCode?: string,
 |};
 
 const gestaltPath = (component) => {
@@ -25,11 +27,19 @@ export default function ComponentHeader({
   description = '',
   fileName,
   showSourceLink = true,
+  defaultCode,
 }: Props): Node {
   return (
-    <Box marginBottom={6}>
-      <Box marginBottom={4}>
-        <Flex direction="column" gap={1}>
+    <Box
+      marginBottom={defaultCode ? 0 : 12}
+      dangerouslySetInlineStyle={{
+        __style: {
+          paddingBottom: '1px',
+        },
+      }}
+    >
+      <Box marginBottom={2}>
+        <Flex direction="row" gap={2} justifyContent="between" alignItems="baseline">
           <Heading>
             {name}{' '}
             {pilot ? (
@@ -42,15 +52,18 @@ export default function ComponentHeader({
             ) : null}
           </Heading>
           {showSourceLink && (
-            <Text color="gray">
-              <Link href={githubUrl(fileName ?? name)} inline target="blank">
-                View source on GitHub
-              </Link>
-            </Text>
+            <a href={githubUrl(fileName ?? name)} target="blank">
+              <Text underline>View source on GitHub</Text>
+            </a>
           )}
         </Flex>
       </Box>
       {description && <Markdown text={description} />}
+      {defaultCode && (
+        <Box marginTop={8}>
+          <MainSection.Card cardSize="lg" showCode={false} defaultCode={defaultCode} />
+        </Box>
+      )}
     </Box>
   );
 }

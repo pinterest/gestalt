@@ -118,7 +118,7 @@ padding 0 .. 12
         Add the following to your import declarations:
         <Markdown
           text="
-~~~js
+~~~jsx
 import { Button, Text } from 'gestalt';
 ~~~"
         />
@@ -131,7 +131,7 @@ import { Button, Text } from 'gestalt';
         should go in the &lt;head /&gt; of your html.
         <Markdown
           text={`
-~~~js
+~~~jsx
 // Load polyfills for IE 11
 if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {
   document.write(
@@ -164,7 +164,7 @@ card(
         Run the following and replace &quot;ComponentName&quot; with the name of your component.
         <Markdown
           text="
-~~~js
+~~~jsx
 yarn generate ComponentName
 ~~~"
         />

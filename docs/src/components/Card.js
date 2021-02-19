@@ -44,7 +44,7 @@ export default function Card({
   const slugifiedId = id ?? slugify(name);
 
   return (
-    <React.Fragment>
+    <Box>
       {showHeading && (
         <Box
           dangerouslySetInlineStyle={{
@@ -54,10 +54,10 @@ export default function Card({
           }}
           id={slugifiedId}
           data-anchor
+          marginBottom={description ? 2 : 4}
         >
           <Flex alignItems="center" gap={2}>
             <Heading size={headingSize}>{name}</Heading>
-
             <Tooltip inline text="Copy link">
               <IconButton
                 dangerouslySetSvgPath={{
@@ -78,11 +78,15 @@ export default function Card({
         </Box>
       )}
       <Box marginStart={-2} marginEnd={-2} display="flex" direction={stacked ? 'column' : 'row'}>
-        <Box marginTop={2} paddingX={2} column={12} color="white">
-          {description && <Markdown text={description} />}
+        <Box paddingX={2} column={12} color="white">
+          {description && (
+            <Box marginBottom={8} maxWidth={572}>
+              <Markdown text={description} />
+            </Box>
+          )}
           {children}
         </Box>
       </Box>
-    </React.Fragment>
+    </Box>
   );
 }

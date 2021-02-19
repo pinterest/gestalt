@@ -690,7 +690,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       description={`
-    Position is static by default but can be made absolute. \`Box\` has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
+    Position is static by default but can be made absolute. Box has helpers to help align to absolute edges (top, bottom, left, right). These can be used in combination with padding to achieve desired offsets from edges.
 
     `}
       title="Absolute positioning"
@@ -792,31 +792,27 @@ function Example() {
 );
 
 card(
-  <MainSection
-    name="Related"
-    description={`
-      [Flex](/Flex)
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+    **[Flex](/Flex)**
+    Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
-      Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
+    **[Container](/Container)**
+    Use Container to responsively layout content with a max-width on large screens.
 
-      [Container](/Container)
+    **[ScrollableContainer](/ScrollableContainer)**
+    For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
 
-      Use Container to responsively layout content with a max-width on large screens.
+    **[TapArea](/TapArea)**
+    If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
 
-      [ScrollableContainer](/ScrollableContainer)
+    **[Sticky](/Sticky)**
+    Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
 
-      For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
-
-      [TapArea](/TapArea)
-
-      If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
-
-      [Sticky](/Sticky)
-
-      Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
-
-    `}
-  />,
+  `}
+    />
+  </MainSection>,
 );
 
 export default cards;

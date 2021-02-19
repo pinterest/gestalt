@@ -106,7 +106,7 @@ card(
       </Text>
       <Markdown
         text='
-~~~js
+~~~jsx
 { "plugins": ["gestalt"] }
 ~~~
 '
@@ -114,7 +114,7 @@ card(
       <Text>Then configure the rules you want to use under the rules section.</Text>
       <Markdown
         text='
-~~~js
+~~~jsx
 { "rules": {
     "gestalt/rule-name": 2
   } }
