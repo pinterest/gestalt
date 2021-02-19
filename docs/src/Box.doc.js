@@ -663,22 +663,22 @@ card(
     <Box overflow="visible" width={300} maxHeight={75} padding={2} borderStyle="sm" color="purple">
       <Text> This has overflow="visible". Add text in the editor to see the max height take affect. Any text that goes over the bounds will still be visible.</Text>
     </Box>
-    <Box overflow="scroll" width={300} height={50} padding={2} borderStyle="sm" color="maroon">
+    <Box overflow="scroll" width={300} height={50} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
       <Text color="white">Scroll here. Because this has overflow="scroll", the extra content will scroll when it overflows the bounds of the Box. Scrolling the Box will show you all the content.</Text>
     </Box>
   </Flex>
   <Flex gap={6} direction="column">
-    <Box overflow="scrollX" width={300} padding={2} borderStyle="sm" color="eggplant">
+    <Box overflow="scrollX" width={300} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
       <Box width={350} padding={2} borderStyle="sm" color="maroon">
         <Text color="white">Scroll horizontally here. Because the outer container has overflow="scrollX", the extra content will scroll horizontally when it overflows the bounds of the container.</Text>
       </Box>
     </Box>
-    <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon">
+    <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
       <Box width={350} height={150} padding={2} borderStyle="sm" color="eggplant">
         <Text color="white">Scroll vertically here. Because the outer container has overflow="scrollY", the extra content will scroll vertically (but not horizontally) when it overflows the bounds of the container.</Text>
       </Box>
     </Box>
-    <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
+    <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
       <Box width={350} height={150} padding={2} borderStyle="sm" color="maroon">
         <Text color="white">Scroll any direction here. Because the outer container has overflow="auto", the extra content will scroll in any direction that overflows the bounds of the container.</Text>
       </Box>
