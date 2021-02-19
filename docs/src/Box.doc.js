@@ -184,7 +184,7 @@ card(
         name: 'overflow',
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
-        href: 'Sizing',
+        href: 'Overflow',
       },
       ...[
         {
@@ -649,6 +649,46 @@ card(
       />
     </MainSection.Subsection>
     <MainSection.Subsection
+      description={`When content overflows the bounds of the Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`.`}
+      title="Overflow"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Flex gap={3} direction="row">
+  <Flex gap={6} direction="column">
+    <Box overflow="hidden" width={300} maxHeight={55} padding={2} borderStyle="sm" color="eggplant">
+      <Text color="white"> This has overflow="hidden". Add text in the editor to see the max height take affect. Anything over the bounds will not be visible.</Text>
+    </Box>
+    <Box overflow="visible" width={300} maxHeight={75} padding={2} borderStyle="sm" color="purple">
+      <Text> This has overflow="visible". Add text in the editor to see the max height take affect. Any text that goes over the bounds will still be visible.</Text>
+    </Box>
+    <Box overflow="scroll" width={300} height={50} padding={2} borderStyle="sm" color="maroon">
+      <Text color="white">Scroll here. Because this has overflow="scroll", the extra content will scroll when it overflows the bounds of the Box. Scrolling the Box will show you all the content.</Text>
+    </Box>
+  </Flex>
+  <Flex gap={6} direction="column">
+    <Box overflow="scrollX" width={300} padding={2} borderStyle="sm" color="eggplant">
+      <Box width={350} padding={2} borderStyle="sm" color="maroon">
+        <Text color="white">Scroll horizontally here. Because the outer container has overflow="scrollX", the extra content will scroll horizontally when it overflows the bounds of the container.</Text>
+      </Box>
+    </Box>
+    <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon">
+      <Box width={350} height={150} padding={2} borderStyle="sm" color="eggplant">
+        <Text color="white">Scroll vertically here. Because the outer container has overflow="scrollY", the extra content will scroll vertically (but not horizontally) when it overflows the bounds of the container.</Text>
+      </Box>
+    </Box>
+    <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
+      <Box width={350} height={150} padding={2} borderStyle="sm" color="maroon">
+        <Text color="white">Scroll any direction here. Because the outer container has overflow="auto", the extra content will scroll in any direction that overflows the bounds of the container.</Text>
+      </Box>
+    </Box>
+  </Flex>
+</Flex>
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
       description={`
       Control the padding on different screen sizes by setting the \`smPadding\`, \`mdPadding\` or \`lgPadding\` properties. In the example, we increase the padding by 4px for every breakpoint in either all directions, the x-axis only or the y-axis only.`}
       title="Responsive padding"
@@ -795,22 +835,21 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-    **[Flex](/Flex)**
-    Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
+        **[Flex](/Flex)**
+        Use Flex for flexbox layouts, especially when even spacing between elements is desired, by using the \`gap\` property.
 
-    **[Container](/Container)**
-    Use Container to responsively layout content with a max-width on large screens.
+        **[Container](/Container)**
+        Use Container to responsively layout content with a max-width on large screens.
 
-    **[ScrollableContainer](/ScrollableContainer)**
-    For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
+        **[ScrollableContainer](/ScrollableContainer)**
+        For proper positioning when using anchor components (Flyout, Tooltip, etc.) that can scroll within the viewport, use a ScrollableContainer.
 
-    **[TapArea](/TapArea)**
-    If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
+        **[TapArea](/TapArea)**
+        If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.
 
-    **[Sticky](/Sticky)**
-    Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
-
-  `}
+        **[Sticky](/Sticky)**
+        Use Sticky if a portion of the page should stick to either the top or bottom when scrolling.
+      `}
     />
   </MainSection>,
 );
