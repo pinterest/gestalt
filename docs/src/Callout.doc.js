@@ -37,8 +37,7 @@ card(
         required: true,
         defaultValue: null,
         description: `
-          Main content of Callout. Content should be localized.
-
+          Main content of Callout. Content should be [localized](#Localization).
           See [Best Practices](#Best-practices) for more info.`,
       },
       {
@@ -47,7 +46,6 @@ card(
         defaultValue: null,
         description: `
           Adds a dismiss button to Callout. See the [Dismissible variant](#Dismissible) for more info.
-
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).`,
       },
       {
@@ -66,7 +64,6 @@ card(
         defaultValue: null,
         description: `
           Main action for people to take on Callout. If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
-
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
         href: '',
@@ -78,7 +75,6 @@ card(
         defaultValue: null,
         description: `
           Secondary action for people to take on Callout. If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
-
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
         href: '',
@@ -96,7 +92,7 @@ card(
         name: 'title',
         type: 'string',
         defaultValue: null,
-        description: `Brief title summarizing Callout. Content should be localized.`,
+        description: `Brief title summarizing Callout. Content should be [localized](#Localization).`,
       },
     ]}
   />,
