@@ -180,6 +180,14 @@ card(
         href: 'rangePicker',
       },
       {
+        name: 'timezone',
+        type: `'local' | 'utc'`,
+        defaultValue: 'local',
+        description:
+          "Timezone that input dates are in. While `local` uses the local timezone provided by the user's browser, `utc` provides the equivalent Coordinated Universal Time or UTC date, the primary time standard by which the world regulates clocks and time.",
+        href: 'utcTimezone',
+      },
+      {
         name: 'value',
         type: 'Date',
         description: 'Pre-selected date value.',
@@ -423,6 +431,29 @@ function DatePickerExample() {
   )
 }
 `}
+  />,
+);
+
+card(
+  <Example
+    id="utcTimezone"
+    description="Use dates in UTC timezone"
+    name="Example: UTC Dates"
+    defaultCode={`
+    function DatePickerExample() {
+      const [date, setDate] = React.useState(new Date(Date.UTC(2021, 1, 15)));
+
+      return (
+        <DatePicker
+          id="example-utc"
+          label="Select a date"
+          value={date}
+          onChange={({value}) => setDate(value)}
+          timezone="utc"
+        />
+      )
+    }
+    `}
   />,
 );
 

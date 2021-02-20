@@ -105,4 +105,29 @@ describe('DatePicker', () => {
       'react-datepicker__day react-datepicker__day--013 react-datepicker__day--selected',
     );
   });
+
+  test('accepts utc timezone dates', () => {
+    const initialUTCDate = new Date(Date.UTC(2018, 2, 24));
+    const expectedNewDate = new Date(Date.UTC(2018, 2, 14));
+
+    render(
+      <DatePicker
+        id="fake_id"
+        onChange={mockOnChange}
+        placeholder="Select date"
+        timezone="utc"
+        value={initialUTCDate}
+      />,
+    );
+
+    fireEvent.focus(screen.getByDisplayValue('03/24/2018'));
+
+    expect(screen.queryByText('March 2018')).toBeInTheDocument();
+
+    const selectedDay = screen.getByText('14');
+
+    fireEvent.click(selectedDay);
+
+    expect(mockOnChange).toHaveBeenCalledWith(expect.objectContaining({ value: expectedNewDate }));
+  });
 });

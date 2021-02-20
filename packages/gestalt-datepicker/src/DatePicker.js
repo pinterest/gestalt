@@ -17,6 +17,7 @@ import styles from './DatePicker.css';
 import dateFormat from './dateFormat.js';
 import { LocaleDataPropTypes, type LocaleData } from './LocaleDataTypes.js';
 
+type Timezone = 'utc' | 'local';
 type Props = {|
   disabled?: boolean,
   errorMessage?: string,
@@ -38,8 +39,25 @@ type Props = {|
   rangeEndDate?: Date,
   rangeSelector?: 'start' | 'end',
   rangeStartDate?: Date,
+  timezone?: Timezone,
   value?: Date,
 |};
+
+export const getDisplayDate = (date: Date, timezone: Timezone): Date => {
+  if (timezone === 'utc') {
+    return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+  }
+
+  return date;
+};
+
+export const getUpdatedDate = (date: Date, timezone: Timezone): Date => {
+  if (timezone === 'utc') {
+    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  }
+
+  return date;
+};
 
 const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forwardRef<
   Props,
@@ -63,6 +81,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
     rangeEndDate,
     rangeSelector,
     rangeStartDate,
+    timezone = 'local',
     value: dateValue,
   } = props;
 
@@ -71,7 +90,9 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
 
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
   // in the month and we need to keep the flyout pointed at the input correctly
-  const [selected, setSelected] = useState<?Date>(dateValue);
+  const [selected, setSelected] = useState<?Date>(
+    dateValue ? getDisplayDate(dateValue, timezone) : null,
+  );
   const [, setMonth] = useState<?number>();
   const [format, setFormat] = useState<?string>();
   const [updatedLocale, setUpdatedLocale] = useState<?string>();
@@ -109,6 +130,9 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
     }
   };
 
+  const max = rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate;
+  const min = rangeSelector === 'start' ? minDate : rangeStartDate || minDate;
+
   return (
     <div className="_gestalt">
       {label && (
@@ -124,20 +148,20 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         dateFormat={format}
         dayClassName={() => classnames(styles['react-datepicker__days'])}
         disabled={disabled}
-        endDate={rangeEndDate}
-        excludeDates={excludeDates && [...excludeDates]}
-        highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
+        endDate={rangeEndDate && getDisplayDate(rangeEndDate, timezone)}
+        excludeDates={excludeDates && excludeDates.map((date) => getDisplayDate(date, timezone))}
+        highlightDates={initRangeHighlight ? [getDisplayDate(initRangeHighlight, timezone)] : []}
         id={id}
-        includeDates={includeDates && [...includeDates]}
+        includeDates={includeDates && includeDates.map((date) => getDisplayDate(date, timezone))}
         locale={updatedLocale}
-        maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
-        minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
+        maxDate={max && getDisplayDate(max, timezone)}
+        minDate={min && getDisplayDate(min, timezone)}
         nextMonthButtonLabel={
           <Icon accessibilityLabel="" color="darkGray" icon="arrow-forward" size={16} />
         }
         onChange={(value: Date, event: SyntheticInputEvent<HTMLInputElement>) => {
           setSelected(value);
-          onChange({ event, value });
+          onChange({ event, value: getUpdatedDate(value, timezone) });
           updateNextRef(event.type === 'click');
         }}
         onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
@@ -164,7 +188,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
         selectsEnd={rangeSelector === 'end'}
         selectsStart={rangeSelector === 'start'}
         showPopperArrow={false}
-        startDate={rangeStartDate}
+        startDate={rangeStartDate && getDisplayDate(rangeStartDate, timezone)}
       />
       {(!!errorMessage || !!helperText) && (
         <Box marginTop={2}>
@@ -201,6 +225,7 @@ DatePickerWithForwardRef.propTypes = {
   rangeEndDate: PropTypes.instanceOf(Date),
   rangeSelector: PropTypes.oneOf(['start', 'end']),
   rangeStartDate: PropTypes.instanceOf(Date),
+  timezone: PropTypes.oneOf(['local', 'utc']),
   value: PropTypes.instanceOf(Date),
 };
 
