@@ -649,42 +649,66 @@ card(
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`When content overflows the bounds of Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`.`}
+      description={`When content overflows the bounds of Box, there are multiple options to control the overflow behavior. The default is \`overflow="visible"\`, but the most common use case is supplying \`overflow="auto"\` to ensure overflow content can be accessed. Learn more about [CSS overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow).`}
       title="Overflow"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Flex gap={3} direction="row">
-  <Flex gap={6} direction="column">
-    <Box overflow="hidden" width={300} maxHeight={55} padding={2} borderStyle="sm" color="eggplant">
-      <Text color="white"> This has overflow="hidden". Add text in the editor to see the max height take affect. Anything over the bounds will not be visible.</Text>
-    </Box>
-    <Box overflow="visible" width={300} maxHeight={75} padding={2} borderStyle="sm" color="purple">
-      <Text> This has overflow="visible". Add text in the editor to see the max height take affect. Any text that goes over the bounds will still be visible.</Text>
-    </Box>
-    <Box overflow="scroll" width={300} height={50} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
-      <Text color="white">Scroll here. Because this has overflow="scroll", the extra content will scroll when it overflows the bounds of the Box. Scrolling the Box will show you all the content.</Text>
-    </Box>
-  </Flex>
-  <Flex gap={6} direction="column">
-    <Box overflow="scrollX" width={300} padding={2} borderStyle="sm" color="eggplant">
-      <Box width={350} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
-        <Text color="white">Scroll horizontally here. Because the outer container has overflow="scrollX", the extra content will scroll horizontally when it overflows the bounds of the container.</Text>
-      </Box>
-    </Box>
-    <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon">
-      <Box width={350} height={150} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
-        <Text color="white">Scroll vertically here. Because the outer container has overflow="scrollY", the extra content will scroll vertically (but not horizontally) when it overflows the bounds of the container.</Text>
-      </Box>
-    </Box>
-    <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
-      <Box width={350} height={150} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
-        <Text color="white">Scroll any direction here. Because the outer container has overflow="auto", the extra content will scroll in any direction that overflows the bounds of the container.</Text>
-      </Box>
-    </Box>
-  </Flex>
-</Flex>
+function BoxFlyoutExample() {
+  const longText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. Maecenas tincidunt neque elit, eu pretium arcu dictum ac. Donec vehicula mauris ut erat dictum, eget tempus elit luctus. In volutpat felis justo, et venenatis arcu viverra in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin enim lorem, vulputate eget imperdiet nec, dapibus sed diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse rhoncus ut leo non gravida. Nulla tincidunt tellus sit amet ornare venenatis. Sed quis lorem cursus, porttitor tellus sed, commodo ex. Praesent blandit pretium faucibus. Aenean orci tellus, vulputate id sapien sit amet, porta fermentum quam. Praesent sem risus, tristique sit amet pulvinar in, scelerisque sit amet massa."
+
+  return (
+    <Flex gap={4} direction="row">
+      <Flex gap={8} direction="column">
+        <Box>
+          <Text>Overflow Hidden</Text>
+          <Box overflow="hidden" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
+            <Text color="white">{longText}</Text>
+          </Box>
+        </Box>
+        <Box>
+          <Text>Overflow Scroll</Text>
+          <Box overflow="scroll" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
+            <Text color="white">{longText}</Text>
+          </Box>
+        </Box>
+        <Box>
+          <Text>Overflow Visible</Text>
+          <Box overflow="visible" width={300} maxHeight={100} padding={2} borderStyle="sm" color="purple">
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. </Text>
+          </Box>
+        </Box>
+      </Flex>
+      <Flex gap={8} direction="column">
+        <Box>
+          <Text>Overflow Auto</Text>
+          <Box overflow="auto" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
+            <Box width={350} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
+              <Text color="white">{longText}</Text>
+            </Box>
+          </Box>
+        </Box>
+        <Box>
+          <Text>Overflow scrollX</Text>
+          <Box overflow="scrollX" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
+            <Box width={350} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
+              <Text color="white">{longText}</Text>
+            </Box>
+          </Box>
+        </Box>
+        <Box>
+          <Text>Overflow scrollY</Text>
+          <Box overflow="scrollY" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon">
+            <Box width={350} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
+              <Text color="white">{longText}</Text>
+            </Box>
+          </Box>
+        </Box>
+      </Flex>
+    </Flex>
+    );
+  }
 `}
       />
     </MainSection.Subsection>
