@@ -691,8 +691,8 @@ function BoxFlyoutExample() {
         </Box>
         <Box>
           <Text>Overflow scrollX</Text>
-          <Box overflow="scrollX" width={300} maxHeight={100} padding={2} borderStyle="sm" color="eggplant">
-            <Box width={350} padding={2} borderStyle="sm" color="maroon" tabIndex={0}>
+          <Box overflow="scrollX" width={300} maxHeight={100} padding={2} borderStyle="sm" color="maroon">
+            <Box width={350} padding={2} borderStyle="sm" color="eggplant" tabIndex={0}>
               <Text color="white">{longText}</Text>
             </Box>
           </Box>
