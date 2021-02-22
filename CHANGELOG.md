@@ -1,3 +1,9 @@
+## 17.6.3 (Feb 22, 2021)
+
+### Patch
+
+- Box: Add Overflow variant and examples (#1392)
+
 ## 17.6.2 (Feb 19, 2021)
 
 ### Patch
