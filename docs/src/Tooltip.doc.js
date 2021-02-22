@@ -12,46 +12,38 @@ card(
     name="Tooltip"
     description={`
 Tooltip is a floating text label that succinctly describes the function of an interactive element, typically [Icon Button](/IconButton). It’s displayed continuously as long as the user hovers over or focuses on the element.`}
+    defaultCode={`
+      <Flex>
+        <Tooltip text="Align left">
+          <IconButton
+            accessibilityLabel="Align left"
+            bgColor="white"
+            icon="text-align-left"
+            iconColor="darkGray"
+            size="lg"
+          />
+        </Tooltip>
+        <Tooltip text="Align center">
+          <IconButton
+            accessibilityLabel="Align center"
+            bgColor="white"
+            icon="text-align-center"
+            iconColor="darkGray"
+            size="lg"
+          />
+        </Tooltip>
+        <Tooltip text="Align right">
+          <IconButton
+            accessibilityLabel="Align right"
+            bgColor="white"
+            icon="text-align-right"
+            iconColor="darkGray"
+            size="lg"
+          />
+        </Tooltip>
+      </Flex>
+    `}
   />,
-);
-
-card(
-  <MainSection name="Example" showHeading={false}>
-    <MainSection.Card
-      cardSize="lg"
-      defaultCode={`
-<Flex>
-  <Tooltip text="Align left">
-    <IconButton
-      accessibilityLabel="Align left"
-      bgColor="white"
-      icon="text-align-left"
-      iconColor="darkGray"
-      size="lg"
-    />
-  </Tooltip>
-  <Tooltip text="Align center">
-    <IconButton
-      accessibilityLabel="Align center"
-      bgColor="white"
-      icon="text-align-center"
-      iconColor="darkGray"
-      size="lg"
-    />
-  </Tooltip>
-  <Tooltip text="Align right">
-    <IconButton
-      accessibilityLabel="Align right"
-      bgColor="white"
-      icon="text-align-right"
-      iconColor="darkGray"
-      size="lg"
-    />
-  </Tooltip>
-</Flex>`}
-      showCode={false}
-    />
-  </MainSection>,
 );
 
 card(
