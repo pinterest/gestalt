@@ -92,7 +92,7 @@ describe('Contents', () => {
       expect(mainDir).toEqual('down');
     });
 
-    it('Chooses the direction within ScrollableBox, opens right or bottom when the trigger is right on the top/left corner', () => {
+    it('Chooses the direction within ScrollBoundaryContainer, opens right or bottom when the trigger is right on the top/left corner', () => {
       const centerRightTriggerRect = {
         bottom: 40,
         height: 40,
@@ -102,7 +102,7 @@ describe('Contents', () => {
         width: 40,
       };
 
-      const scrollableContainerSize = {
+      const scrollBoundaryContainerSize = {
         height: 100,
         width: 100,
         scrollX: 0,
@@ -119,8 +119,8 @@ describe('Contents', () => {
           idealDirection,
           flyoutSize: reducedFlyoutSize,
           triggerRect: centerRightTriggerRect,
-          windowSize: scrollableContainerSize,
-          isScrollableContainer: true,
+          windowSize: scrollBoundaryContainerSize,
+          isScrollBoundaryContainer: true,
         });
         expect(mainDir).toEqual(mainDir === 'down' ? 'down' : 'right');
       });
@@ -289,7 +289,7 @@ describe('Contents', () => {
         flyoutDir,
         caretDir,
         triggerRect,
-        isScrollableContainer: false,
+        isScrollBoundaryContainer: false,
       });
       expect(flyoutOffset).toEqual(expectedFlyoutOffset);
       expect(caretOffset).toEqual(expectedCaretOffset);
@@ -331,7 +331,7 @@ describe('Contents', () => {
       flyoutDir,
       caretDir,
       triggerRect,
-      isScrollableContainer: false,
+      isScrollBoundaryContainer: false,
     });
     expect(flyoutOffset).toEqual(expectedFlyoutOffset);
     expect(caretOffset).toEqual(expectedCaretOffset);
@@ -343,7 +343,7 @@ describe('Contents', () => {
       const { flyout, caret } = calcEdgeShifts({
         triggerRect,
         windowSize,
-        isScrollableContainer: false,
+        isScrollBoundaryContainer: false,
       });
       expect(triggerRect.bottom - flyout.y).toBeGreaterThan(0);
       expect(flyout.x).toBeLessThan(BORDER_RADIUS);

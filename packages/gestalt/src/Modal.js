@@ -10,8 +10,8 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import Text from './Text.js';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { ScrollableContainerWithForwardRef as InternalScrollableContainer } from './ScrollableContainer.js';
-import { ScrollableContainerProvider } from './contexts/ScrollableContainer.js';
+import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContainer } from './ScrollBoundaryContainer.js';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 import modalStyles from './Modal.css';
 
 type Props = {|
@@ -149,11 +149,11 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                   </div>
                 )}
                 {_dangerousScrollableExperimentEnabled ? (
-                  <ScrollableContainerProvider>
-                    <InternalScrollableContainer onScroll={updateShadows} ref={contentRef}>
+                  <ScrollBoundaryContainerProvider>
+                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
                       {children}
-                    </InternalScrollableContainer>
-                  </ScrollableContainerProvider>
+                    </InternalScrollBoundaryContainer>
+                  </ScrollBoundaryContainerProvider>
                 ) : (
                   <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
                     {children}

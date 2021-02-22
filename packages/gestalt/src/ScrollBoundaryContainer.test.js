@@ -1,26 +1,26 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
-import ScrollableContainer from './ScrollableContainer.js';
+import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
 import Box from './Box.js';
 
-describe('ScrollableContainer', () => {
+describe('ScrollBoundaryContainer', () => {
   it('renders', () => {
     const tree = create(
-      <ScrollableContainer>
+      <ScrollBoundaryContainer>
         <Box />
-      </ScrollableContainer>,
+      </ScrollBoundaryContainer>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('ScrollableContainer correctly sets height and overflow props', () => {
+  it('ScrollBoundaryContainer correctly sets height and overflow props', () => {
     const props = { height: 200, overflow: 'scroll' };
 
     const component = create(
-      <ScrollableContainer {...props}>
+      <ScrollBoundaryContainer {...props}>
         <Box />
-      </ScrollableContainer>,
+      </ScrollBoundaryContainer>,
     );
 
     const tree = component.toJSON();

@@ -36,8 +36,8 @@ import Heading from './Heading.js';
 import StopScrollBehavior from './behaviors/StopScrollBehavior.js';
 import sheetStyles from './Sheet.css';
 import TrapFocusBehavior from './behaviors/TrapFocusBehavior.js';
-import { ScrollableContainerWithForwardRef as InternalScrollableContainer } from './ScrollableContainer.js';
-import { ScrollableContainerProvider } from './contexts/ScrollableContainer.js';
+import { ScrollBoundaryContainerWithForwardRef as InternalScrollBoundaryContainer } from './ScrollBoundaryContainer.js';
+import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainer.js';
 
 type SheetMainProps = {|
   _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
@@ -231,15 +231,15 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
                   </Box>
                 )}
                 {_dangerousScrollableExperimentEnabled ? (
-                  <ScrollableContainerProvider>
-                    <InternalScrollableContainer
+                  <ScrollBoundaryContainerProvider>
+                    <InternalScrollBoundaryContainer
                       onScroll={updateShadows}
                       padding={8}
                       ref={contentRef}
                     >
                       {children}
-                    </InternalScrollableContainer>
-                  </ScrollableContainerProvider>
+                    </InternalScrollBoundaryContainer>
+                  </ScrollBoundaryContainerProvider>
                 ) : (
                   <Box
                     flex="grow"

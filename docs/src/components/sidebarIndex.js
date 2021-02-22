@@ -86,7 +86,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Module',
       'Layer',
       'Masonry',
-      'ScrollableContainer',
+      'ScrollBoundaryContainer',
       'Sheet',
       'Sticky',
       'ZIndex Classes',
