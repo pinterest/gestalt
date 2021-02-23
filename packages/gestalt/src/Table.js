@@ -10,15 +10,18 @@ import TableHeaderCell from './TableHeaderCell.js';
 import TableRowExpandable from './TableRowExpandable.js';
 import TableRow from './TableRow.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
+import TableContext from './TableContextProvider.js';
 
 type Props = {|
   children: Node,
   borderStyle?: 'sm' | 'none',
   maxHeight?: number | string,
+  stickyColumn?: number,
+  stickyInclusive?: boolean,
 |};
 
 export default function Table(props: Props): Node {
-  const { borderStyle, children, maxHeight } = props;
+  const { borderStyle, children, maxHeight, stickyColumn = -1, stickyInclusive = true } = props;
 
   return (
     <Box
@@ -26,7 +29,11 @@ export default function Table(props: Props): Node {
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       maxHeight={maxHeight}
     >
-      <table className={styles.table}>{children}</table>
+      <table className={styles.table}>
+        <TableContext.Provider value={{ stickyColumn, stickyInclusive }}>
+          {children}
+        </TableContext.Provider>
+      </table>
     </Box>
   );
 }

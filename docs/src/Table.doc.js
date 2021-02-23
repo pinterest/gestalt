@@ -260,6 +260,208 @@ card(
 );
 
 card(
+  <Example
+    id="stickyColumn"
+    name="Example: Sticky Column"
+    defaultCode={`
+<Box width={"60%"} overflow="auto">
+<Table maxHeight={200} stickyColumn={1}>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>
+        <Text weight="bold">Image</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">Name</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">House</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">jfh</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">fgreg</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">yrwey</Text>
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Luna"
+              src="https://i.ibb.co/QY9qR7h/luna.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Luna Lovegood</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Draco"
+              src="https://i.ibb.co/Hzcfxjt/draco.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Draco Malfoy</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Neville"
+              src="https://i.ibb.co/JvY9DKK/neville.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Neville Longbottom</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+
+    </Table.Row>
+  </Table.Body>
+</Table>
+</Box>
+
+`}
+  />,
+);
+
+card(
+  <Example
+    id="stickyColumn2"
+    name="Example: Sticky 2nd or 3rd Column"
+    defaultCode={`
+<Box width={"60%"} overflow="auto">
+<Table maxHeight={200} stickyColumn={3}>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>
+        <Text weight="bold">Image</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">Name</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">House</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">jfh</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">fgreg</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">yrwey</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">jfh</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">fgreg</Text>
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        <Text weight="bold">yrwey</Text>
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Luna"
+              src="https://i.ibb.co/QY9qR7h/luna.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Luna Lovegood</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
+
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Draco"
+              src="https://i.ibb.co/Hzcfxjt/draco.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Draco Malfoy</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+      <Table.Cell><Text>Slytherin</Text></Table.Cell>
+
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        <Box width={50}>
+          <Mask rounding="circle">
+            <Image
+              alt="Neville"
+              src="https://i.ibb.co/JvY9DKK/neville.png"
+              naturalHeight={50}
+              naturalWidth={50}
+            />
+          </Mask>
+        </Box>
+      </Table.Cell>
+      <Table.Cell><Text>Neville Longbottom</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+      <Table.Cell><Text>Gryffindor</Text></Table.Cell>
+
+    </Table.Row>
+  </Table.Body>
+</Table>
+</Box>
+
+`}
+  />,
+);
+
+card(
   <PropTable
     name="Table.HeaderCell"
     id="Table.HeaderCell"

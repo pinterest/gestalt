@@ -19,7 +19,18 @@
   background-color: var(--g-colorGray0);
   position: sticky;
   top: 0;
+  z-index: 2;
+}
+
+.columnSticky {
+  background-color: yellow;
+  position:sticky;
+  left: 0;
   z-index: 1;
+}
+
+.sticky th.columnSticky {
+  z-index: 3;
 }
 
 .thead tr:last-child th {
