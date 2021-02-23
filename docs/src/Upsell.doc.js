@@ -251,4 +251,38 @@ function Example(props) {
   />,
 );
 
+card(
+  <Example
+    name="Upsell with Form"
+    description={`
+      Form doc stuff
+    `}
+    defaultCode={`
+<Upsell
+  title="Give $30, get $60 in ads credit"
+  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+  primaryAction={{href: "https://pinterest.com", label:"Send invite"}}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: ()=>{},
+  }}
+  imageData={{
+    component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+  }}
+>
+  <Upsell.Form
+  onSubmit={()=>{}}
+  submitButtonText="Submit"
+  submitButtonAccessibilityLabel="Submit button"
+  >
+    <TextField
+      id="name"
+      placeholder="Name"
+    />
+  </Upsell.Form>
+</Upsell>
+`}
+  />,
+);
+
 export default cards;

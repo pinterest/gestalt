@@ -10,6 +10,7 @@ import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import {
@@ -20,6 +21,7 @@ import {
 } from './commonTypes.js';
 
 type Props = {|
+  children: Node,
   dismissButton?: DismissButtonType,
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
@@ -86,6 +88,7 @@ const UpsellAction = ({
 };
 
 export default function Upsell({
+  children,
   dismissButton,
   imageData,
   message,
@@ -154,15 +157,21 @@ export default function Upsell({
             </Box>
           </Box>
         </Box>
-        <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryAction && responsiveMinWidth !== 'xs' && (
-            <UpsellAction type="secondary" data={secondaryAction} />
-          )}
-          {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
-          {secondaryAction && responsiveMinWidth === 'xs' && (
-            <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
-          )}
-        </Box>
+        {children ? (
+          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+            {children}
+          </Box>
+        ) : (
+          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+            {secondaryAction && responsiveMinWidth !== 'xs' && (
+              <UpsellAction type="secondary" data={secondaryAction} />
+            )}
+            {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
+            {secondaryAction && responsiveMinWidth === 'xs' && (
+              <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
+            )}
+          </Box>
+        )}
       </Box>
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
@@ -196,3 +205,5 @@ Upsell.propTypes = {
   secondaryAction: ActionDataPropType,
   title: PropTypes.string,
 };
+
+Upsell.Form = UpsellForm;

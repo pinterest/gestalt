@@ -1,3 +1,5 @@
+
+
 // @flow strict
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
@@ -56,6 +58,7 @@ import Toast from './Toast.js';
 import Tooltip from './Tooltip.js';
 import Typeahead from './Typeahead.js';
 import Upsell from './Upsell.js';
+import UpsellForm from './UpsellForm.js';
 import Video from './Video.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
@@ -122,6 +125,7 @@ export {
   Tooltip,
   Typeahead,
   Upsell,
+  UpsellForm,
   Video,
   useColorScheme,
   useFocusVisible,
