@@ -17,11 +17,10 @@ type Props = {|
   borderStyle?: 'sm' | 'none',
   maxHeight?: number | string,
   stickyColumn?: number,
-  stickyInclusive?: boolean,
 |};
 
 export default function Table(props: Props): Node {
-  const { borderStyle, children, maxHeight, stickyColumn = -1, stickyInclusive = true } = props;
+  const { borderStyle, children, maxHeight, stickyColumn = -1 } = props;
 
   return (
     <Box
@@ -30,9 +29,7 @@ export default function Table(props: Props): Node {
       maxHeight={maxHeight}
     >
       <table className={styles.table}>
-        <TableContext.Provider value={{ stickyColumn, stickyInclusive }}>
-          {children}
-        </TableContext.Provider>
+        <TableContext.Provider value={{ stickyColumn }}>{children}</TableContext.Provider>
       </table>
     </Box>
   );

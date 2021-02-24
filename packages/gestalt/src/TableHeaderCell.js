@@ -9,14 +9,21 @@ type Props = {|
   colSpan?: number,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
+  previousTotalWidth?: number,
 |};
 
 export default function TableHeaderCell(props: Props): Node {
-  const { children, colSpan, scope, rowSpan, shouldBeSticky } = props;
+  const { children, colSpan, scope, rowSpan, shouldBeSticky, previousTotalWidth } = props;
   const cs = cx(styles.th, shouldBeSticky && styles.columnSticky);
 
   return (
-    <th className={cs} scope={scope || 'col'} colSpan={colSpan} rowSpan={rowSpan}>
+    <th
+      className={cs}
+      scope={scope || 'col'}
+      colSpan={colSpan}
+      rowSpan={rowSpan}
+      style={{ left: shouldBeSticky ? previousTotalWidth : undefined }}
+    >
       {children}
     </th>
   );

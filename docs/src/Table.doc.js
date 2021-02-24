@@ -264,7 +264,7 @@ card(
     id="stickyColumn"
     name="Example: Sticky Column"
     defaultCode={`
-<Box width={"60%"} overflow="auto">
+<Box width={"75%"} overflow="auto">
 <Table maxHeight={200} stickyColumn={1}>
   <Table.Header>
     <Table.Row>
@@ -278,13 +278,13 @@ card(
         <Text weight="bold">House</Text>
       </Table.HeaderCell>
       <Table.HeaderCell>
-        <Text weight="bold">jfh</Text>
+        <Text weight="bold">Favorite Spell</Text>
       </Table.HeaderCell>
       <Table.HeaderCell>
-        <Text weight="bold">fgreg</Text>
+        <Text weight="bold">Patronus</Text>
       </Table.HeaderCell>
       <Table.HeaderCell>
-        <Text weight="bold">yrwey</Text>
+        <Text weight="bold">Birthday</Text>
       </Table.HeaderCell>
     </Table.Row>
   </Table.Header>
@@ -304,8 +304,9 @@ card(
       </Table.Cell>
       <Table.Cell><Text>Luna Lovegood</Text></Table.Cell>
       <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
-      <Table.Cell><Text>Ravenclaw</Text></Table.Cell>
-
+      <Table.Cell><Text>Expelliarmus</Text></Table.Cell>
+      <Table.Cell><Text>Hare</Text></Table.Cell>
+      <Table.Cell><Text>June 25, 1993</Text></Table.Cell>
     </Table.Row>
     <Table.Row>
       <Table.Cell>
@@ -577,7 +578,8 @@ card(
       };
 
       return(
-        <Table>
+        <Box width={"60%"} overflow="auto">
+        <Table stickyColumn={2}>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>
@@ -765,6 +767,7 @@ card(
             </Table.RowExpandable>
           </Table.Body>
         </Table>
+        </Box>
       );
     }
     `}

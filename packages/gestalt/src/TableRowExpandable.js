@@ -1,11 +1,12 @@
 // @flow strict
-import React, { Children, Fragment, type Node, useState } from 'react';
+import React, { Children, Fragment, type Node, useState, useContext } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
 import TableCell from './TableCell.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import TableContext from './TableContextProvider.js';
 
 type Props = {|
   accessibilityExpandLabel: string,
@@ -35,6 +36,7 @@ export default function TableRowExpandable(props: Props): Node {
   const [expanded, setExpanded] = useState(false);
   const hoverStyle = props.hoverStyle || 'gray';
   const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
+  const { stickyColumn = -1 } = useContext(TableContext);
 
   const handleButtonClick = ({ event }) => {
     setExpanded(!expanded);
@@ -46,7 +48,7 @@ export default function TableRowExpandable(props: Props): Node {
   return (
     <Fragment>
       <tr className={cs}>
-        <TableCell>
+        <TableCell shouldBeSticky={stickyColumn > 0} previousTotalWidth={0}>
           <IconButton
             accessibilityExpanded={expanded}
             accessibilityControls={id}

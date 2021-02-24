@@ -7,12 +7,12 @@ type Props = {|
 |};
 
 export default function TableRow(props: Props): Node {
-  const { stickyColumn = -1, stickyInclusive } = useContext(TableContext);
+  const { stickyColumn = -1 } = useContext(TableContext);
   const rowRef = React.useRef();
   const [columnWidths, setColumnWidths] = useState([]);
 
   useEffect(() => {
-    if (rowRef && rowRef.current) {
+    if (rowRef && rowRef.current && stickyColumn > 0) {
       const colWidths = [];
       const tableRowChildrenArray = [...rowRef.current.children];
       tableRowChildrenArray.forEach((child) => {
@@ -20,34 +20,21 @@ export default function TableRow(props: Props): Node {
       });
       setColumnWidths(colWidths);
     }
-  }, [columnWidths, props.children]);
+  }, [rowRef, stickyColumn]);
 
-  const renderCellsWithIndex = React.useCallback(() => {
+  const renderCellsWithIndex = () => {
     const cells = [];
     const tableRowChildrenArray = Children.toArray(props.children);
 
     tableRowChildrenArray.forEach((child, index) => {
-      const shouldBeSticky =
-        stickyColumn >= 0 &&
-        ((index < stickyColumn && stickyInclusive) ||
-          (!stickyInclusive && index === stickyColumn - 1));
-      console.log({ columnWidths });
-      // this doesn't re-run after columnWidths changes
-      // or
-      // columnWidths isn't changing
-      if (columnWidths.length > 0) {
-        if (
-          child.type.displayName === 'TableCell' ||
-          child.type.displayName === 'TableHeaderCell'
-        ) {
-          const previousWidths = columnWidths.slice(0, index);
-          const previousTotalWidth = previousWidths.reduce((a, b) => a + b);
-          cells.push(cloneElement(child, { shouldBeSticky, previousTotalWidth }));
-        }
-      }
+      const shouldBeSticky = stickyColumn >= 0 && index < stickyColumn;
+      const previousWidths = columnWidths.slice(0, index);
+      const previousTotalWidth =
+        previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+      cells.push(cloneElement(child, { shouldBeSticky, previousTotalWidth }));
     });
     return cells;
-  }, [columnWidths, props.children, stickyInclusive, stickyColumn]);
+  };
 
-  return <tr ref={rowRef}>{renderCellsWithIndex()}</tr>;
+  return <tr ref={rowRef}>{stickyColumn > 0 ? renderCellsWithIndex() : props.children}</tr>;
 }
