@@ -109,14 +109,48 @@ export const validateBorder = (value: string): ?string => {
     cleanValue === '#eee 1px solid' ||
     cleanValue === '1px lightgray solid'
   ) {
-    return '  Use prop `borderSize="sm"` instead';
+    return '  Use prop `borderStyle="sm"` instead';
   }
   if (
     cleanValue === '#efefef 2px solid' ||
     cleanValue === '#eee 2px solid' ||
     cleanValue === '2px lightgray solid'
   ) {
-    return '  Use prop `borderSize="lg"` instead';
+    return '  Use prop `borderStyle="lg"` instead';
+  }
+  return undefined;
+};
+
+export const validateBoxShadow = (value: string): ?string => {
+  // If the value is a string:
+  // 1) strip out the rgba portion
+  // 2) convert the pixel portion to only numbers
+  // 3) If both pieces match, recommend borderStyle="shadow"
+
+  const rgbaRegex =
+    '/rgba\\(\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(%?)\\s*,\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(\\2)\\s*,\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(\\2)\\s*,\\s*(-?\\d+|-?\\d*.\\d+)\\s*\\)/g';
+  const rgbaPortion = value.match(rgbaRegex);
+  const cleanRgbaPortion =
+    rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].split(' ').join('') : undefined;
+
+  const pixelPortion = value.replace(rgbaRegex, '');
+  // $FlowIssue[prop-missing] Flow can't find replaceAll
+  const cleanPixelPortion = pixelPortion.replaceAll('px', '').replaceAll(' ', '');
+
+  let rgbaMatch = false;
+  let pixelsMatch = false;
+  if (
+    cleanRgbaPortion &&
+    (cleanRgbaPortion === 'rgba(0,0,0,0.1)' || cleanRgbaPortion === 'rgba(0,0,0,.1)')
+  ) {
+    rgbaMatch = true;
+  }
+  if (cleanPixelPortion === '008' || cleanPixelPortion === '0080') {
+    pixelsMatch = true;
+  }
+
+  if (rgbaMatch && pixelsMatch) {
+    return '  Use prop `borderStyle="shadow"` instead';
   }
   return undefined;
 };

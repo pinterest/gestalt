@@ -47,6 +47,13 @@ const invalidBorder = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-border.js'),
   'utf-8',
 );
+const invalidBoxShadow = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-boxShadow.js',
+  ),
+  'utf-8',
+);
 const invalidBorderRadius = readFileSync(
   path.resolve(
     __dirname,
@@ -209,7 +216,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
         {
           message:
             'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Use prop `borderSize="lg"` instead',
+            '  Use prop `borderStyle="lg"` instead',
         },
       ],
     },
@@ -386,6 +393,17 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
           message:
             'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
             '  Instead of dangerously styling right, use the "right" boolean prop',
+        },
+      ],
+    },
+    {
+      code: invalidBoxShadow,
+      parserOptions,
+      errors: [
+        {
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            '  Use prop `borderStyle="shadow"` instead',
         },
       ],
     },

@@ -13,6 +13,7 @@ import {
   validateBackgroundColor,
   validateBorder,
   validateBorderRadius,
+  validateBoxShadow,
 } from './validators.js';
 
 function getInlineDefinedStyles(attr) {
@@ -118,6 +119,14 @@ const rule = {
         case 'border':
           if (includeKey('border')) {
             const message = validateBorder(key.value);
+            if (message) {
+              matchedErrors.push(message);
+            }
+          }
+          break;
+        case 'boxShadow':
+          if (includeKey('boxShadow')) {
+            const message = validateBoxShadow(key.value);
             if (message) {
               matchedErrors.push(message);
             }

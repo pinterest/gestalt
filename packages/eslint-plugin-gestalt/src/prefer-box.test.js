@@ -68,7 +68,7 @@ ruleTester.run('prefer-box', rule, {
         {
           message:
             'Replace this div with a gestalt Box. https://gestalt.netlify.app/Box\n' +
-            '  Use prop `borderSize="lg"` instead',
+            '  Use prop `borderStyle="lg"` instead',
         },
       ],
     },
