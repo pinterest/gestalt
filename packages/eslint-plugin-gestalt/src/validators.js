@@ -131,11 +131,10 @@ export const validateBoxShadow = (value: string): ?string => {
     '/rgba\\(\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(%?)\\s*,\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(\\2)\\s*,\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(\\2)\\s*,\\s*(-?\\d+|-?\\d*.\\d+)\\s*\\)/g';
   const rgbaPortion = value.match(rgbaRegex);
   const cleanRgbaPortion =
-    rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].split(' ').join('') : undefined;
+    rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].replace(/ /g, '') : undefined;
 
   const pixelPortion = value.replace(rgbaRegex, '');
-  // $FlowIssue[prop-missing] Flow can't find replaceAll
-  const cleanPixelPortion = pixelPortion.replaceAll('px', '').replaceAll(' ', '');
+  const cleanPixelPortion = pixelPortion.replace(/px/g, '').replace(/ /g, '');
 
   let rgbaMatch = false;
   let pixelsMatch = false;
