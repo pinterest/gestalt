@@ -309,7 +309,6 @@ function Example(props) {
     <Upsell
       title="Give $30, get $60 in ads credit"
       message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-      primaryAction={{href: "https://pinterest.com", label:"Send invite"}}
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
         onDismiss: ()=>{},

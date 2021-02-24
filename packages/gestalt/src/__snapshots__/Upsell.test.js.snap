@@ -126,6 +126,11 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
     >
       <form
         onSubmit={[Function]}
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
       >
         <div
           className="Flex rowGap2 flexWrap xsDirectionRow"
