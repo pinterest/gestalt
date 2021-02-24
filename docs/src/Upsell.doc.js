@@ -305,29 +305,36 @@ card(
     id="formExample"
     name="Example: Upsell with Form"
     defaultCode={`
-<Upsell
-  title="Give $30, get $60 in ads credit"
-  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{href: "https://pinterest.com", label:"Send invite"}}
-  dismissButton={{
-    accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
-  }}
-  imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
-  }}
->
-  <Upsell.Form
-  onSubmit={()=>{}}
-  submitButtonText="Submit"
-  submitButtonAccessibilityLabel="Submit button"
-  >
-    <TextField
-      id="name"
-      placeholder="Name"
-    />
-  </Upsell.Form>
-</Upsell>
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <Upsell
+      title="Give $30, get $60 in ads credit"
+      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+      primaryAction={{href: "https://pinterest.com", label:"Send invite"}}
+      dismissButton={{
+        accessibilityLabel: 'Dismiss banner',
+        onDismiss: ()=>{},
+      }}
+      imageData={{
+        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+      }}
+    >
+      <Upsell.Form
+      onSubmit={(event) => {event.preventDefault();}}
+      submitButtonText="Submit"
+      submitButtonAccessibilityLabel="Submit button"
+      >
+        <TextField
+          id="name"
+          onChange={({ value }) => setValue(value)}
+          placeholder="Name"
+          value={value}
+        />
+      </Upsell.Form>
+    </Upsell>
+  );
+}
 `}
   />,
 );
