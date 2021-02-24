@@ -8,7 +8,7 @@ exports[`UpsellForm renders 1`] = `
     className="Flex rowGap2 flexWrap xsDirectionRow"
   >
     <div
-      className="FlexItem"
+      className="FlexItem flexGrow"
     >
       <span>
         <input
