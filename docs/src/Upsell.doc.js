@@ -1,5 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
+import { Upsell } from 'gestalt';
+import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
@@ -26,6 +28,10 @@ card(
           'Text to render inside the Upsell to convey detailed information to the user. The message text has a fixed size.',
         ],
         href: '',
+      },
+      {
+        name: 'children',
+        type: 'React.Node',
       },
       {
         name: 'dismissButton',
@@ -252,11 +258,52 @@ function Example(props) {
 );
 
 card(
+  <Card
+    name="Upsell.Form"
+    description="Upsell.Form can be used to include form fields and a submit button within Upsell."
+  />,
+);
+
+card(
+  <PropTable
+    name="Upsell.Form"
+    id="Upsell.Form"
+    Component={Upsell?.Form}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+      },
+      {
+        name: 'scope',
+        defaultValue: 'col',
+        type: '"col" | "row" | "colgroup" | "rowgroup"',
+      },
+      {
+        name: 'colSpan',
+        type: 'number',
+        defaultValue: 1,
+      },
+      {
+        name: 'rowSpan',
+        type: 'number',
+        defaultValue: 1,
+      },
+      {
+        name: 'onSortChange',
+        required: true,
+        type:
+          '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
+        href: 'sortableExample',
+      },
+    ]}
+  />,
+);
+
+card(
   <Example
-    name="Upsell with Form"
-    description={`
-      Form doc stuff
-    `}
+    id="formExample"
+    name="Example: Upsell with Form"
     defaultCode={`
 <Upsell
   title="Give $30, get $60 in ads credit"

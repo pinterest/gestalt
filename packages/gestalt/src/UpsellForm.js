@@ -29,7 +29,7 @@ export default function UpsellForm({
 
   return (
     <form onSubmit={onSubmit}>
-      <Flex gap={2} direction={responsiveMinWidth === 'xs' ? 'column' : 'row'}>
+      <Flex gap={2} direction={responsiveMinWidth === 'xs' ? 'column' : 'row'} wrap>
         {children}
         <Button
           accessibilityLabel={submitButtonAccessibilityLabel}

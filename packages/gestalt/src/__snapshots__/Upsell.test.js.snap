@@ -41,6 +41,191 @@ exports[`<Upsell /> Basic Upsell 1`] = `
 </div>
 `;
 
+exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
+<div
+  className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+>
+  <div
+    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+    >
+      <div
+        className="box flexNone marginBottom4 smMarginBottom0"
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="Mask rounding0 willChangeTransform"
+          style={
+            Object {
+              "height": undefined,
+              "width": undefined,
+            }
+          }
+        >
+          <svg
+            aria-hidden={null}
+            aria-label="Pin"
+            className="icon darkGray iconBlock"
+            height={32}
+            role="img"
+            viewBox="0 0 24 24"
+            width={32}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        className="box"
+        style={
+          Object {
+            "maxWidth": 648,
+          }
+        }
+      >
+        <div
+          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+        >
+          <div
+            className="box marginBottom2"
+          >
+            <h3
+              className="Heading fontSize1 darkGray alignLeft breakWord"
+            >
+              A Title
+            </h3>
+          </div>
+          <div
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+          >
+            Insert a clever upsell message here
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="box justifyEnd smDisplayFlex smMarginEnd4 smPaddingY3"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="Flex rowGap2 flexWrap xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <span>
+              <input
+                aria-describedby={null}
+                aria-invalid="false"
+                className="textField base enabled normal medium"
+                disabled={false}
+                id="name"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Name"
+                type="text"
+              />
+            </span>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <button
+              aria-label="Submit button"
+              className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="submit"
+            >
+              <div
+                className="Text fontSize3 white alignCenter fontWeightBold"
+              >
+                Submit
+              </div>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    className="rtlPos"
+  >
+    <button
+      aria-label="Dismiss banner"
+      className="button tapTransition enabled"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="pog transparent"
+        style={
+          Object {
+            "height": 48,
+            "width": 48,
+          }
+        }
+      >
+        <svg
+          aria-hidden={true}
+          aria-label=""
+          className="icon darkGray iconBlock"
+          height={16}
+          role="img"
+          viewBox="0 0 24 24"
+          width={16}
+        >
+          <path
+            d="test-file-stub"
+          />
+        </svg>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] = `
 <div
   className="box paddingX6 paddingY6 relative rounding4 shadow smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"

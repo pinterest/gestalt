@@ -21,7 +21,7 @@ import {
 } from './commonTypes.js';
 
 type Props = {|
-  children: Node,
+  children?: Node,
   dismissButton?: DismissButtonType,
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
@@ -158,7 +158,7 @@ export default function Upsell({
           </Box>
         </Box>
         {children ? (
-          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+          <Box smDisplay="flex" width="100%" justifyContent="end" smMarginEnd={4} smPaddingY={3}>
             {children}
           </Box>
         ) : (
@@ -190,6 +190,7 @@ export default function Upsell({
 }
 
 Upsell.propTypes = {
+  children: PropTypes.node,
   dismissButton: DismissButtonPropType,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   imageData: PropTypes.exact({

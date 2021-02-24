@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpsellForm renders 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="Flex rowGap2 flexWrap xsDirectionRow"
+  >
+    <div
+      className="FlexItem"
+    >
+      <span>
+        <input
+          aria-describedby={null}
+          aria-invalid="false"
+          className="textField base enabled normal medium"
+          disabled={false}
+          id="name"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Name"
+          type="text"
+        />
+      </span>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <button
+        aria-label="Submit button"
+        className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="submit"
+      >
+        <div
+          className="Text fontSize3 white alignCenter fontWeightBold"
+        >
+          Submit
+        </div>
+      </button>
+    </div>
+  </div>
+</form>
+`;
