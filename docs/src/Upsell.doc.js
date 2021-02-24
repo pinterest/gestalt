@@ -275,26 +275,24 @@ card(
         type: 'React.Node',
       },
       {
-        name: 'scope',
-        defaultValue: 'col',
-        type: '"col" | "row" | "colgroup" | "rowgroup"',
-      },
-      {
-        name: 'colSpan',
-        type: 'number',
-        defaultValue: 1,
-      },
-      {
-        name: 'rowSpan',
-        type: 'number',
-        defaultValue: 1,
-      },
-      {
-        name: 'onSortChange',
-        required: true,
+        name: 'onSubmit',
         type:
-          '({ event: SyntheticMouseEvent<HTMLTableCellElement> | SyntheticKeyboardEvent<HTMLTableCellElement> }) => void',
-        href: 'sortableExample',
+          '({ event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
+        required: true,
+      },
+      {
+        name: 'submitButtonText',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'submitButtonAccessibilityLabel',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'submitButtonDisabled',
+        type: 'boolean',
       },
     ]}
   />,
@@ -306,7 +304,7 @@ card(
     name="Example: Upsell with Form"
     defaultCode={`
 function Example(props) {
-  const [value, setValue] = React.useState('')
+  const [value, setValue] = React.useState('');
   return (
     <Upsell
       title="Give $30, get $60 in ads credit"
