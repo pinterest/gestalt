@@ -132,9 +132,10 @@ export const validateBoxShadow = (value: string): ?string => {
   const rgbaPortion = value.match(rgbaRegex);
   const cleanRgbaPortion =
     rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].replace(/ /g, '') : undefined;
-
+  console.log(cleanRgbaPortion);
   const pixelPortion = value.replace(rgbaRegex, '');
   const cleanPixelPortion = pixelPortion.replace(/px/g, '').replace(/ /g, '');
+  console.log(cleanPixelPortion);
 
   let rgbaMatch = false;
   let pixelsMatch = false;
