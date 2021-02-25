@@ -318,9 +318,9 @@ function Example(props) {
       }}
     >
       <Upsell.Form
-      onSubmit={(event) => {event.preventDefault();}}
-      submitButtonText="Submit"
-      submitButtonAccessibilityLabel="Submit button"
+        onSubmit={(event) => {event.preventDefault();}}
+        submitButtonText="Submit"
+        submitButtonAccessibilityLabel="Submit button"
       >
         <TextField
           id="name"

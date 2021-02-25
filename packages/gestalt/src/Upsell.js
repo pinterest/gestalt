@@ -158,7 +158,14 @@ export default function Upsell({
           </Box>
         </Box>
         {children ? (
-          <Box smDisplay="flex" width="100%" justifyContent="end" smMarginEnd={4} smPaddingY={3}>
+          <Box
+            smDisplay="flex"
+            width="100%"
+            justifyContent="end"
+            smMarginEnd={4}
+            smPaddingY={3}
+            marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+          >
             {children}
           </Box>
         ) : (
