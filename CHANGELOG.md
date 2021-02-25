@@ -1,3 +1,9 @@
+## 17.7.0 (Feb 25, 2021)
+
+### Minor
+
+- ESLint: Add rule to check for unnecessary boxShadow (#1397)
+
 ## 17.6.3 (Feb 22, 2021)
 
 ### Patch
