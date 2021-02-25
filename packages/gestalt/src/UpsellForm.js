@@ -30,7 +30,7 @@ export default function UpsellForm({
   return (
     <form onSubmit={onSubmit} style={{ width: '100%' }}>
       <Flex gap={2} direction={responsiveMinWidth === 'xs' ? 'column' : 'row'} wrap>
-        <Flex.Item flex="grow">{children}</Flex.Item>
+        <Flex.Item flex={responsiveMinWidth === 'xs' ? 'shrink' : 'grow'}>{children}</Flex.Item>
         <Flex.Item>
           <Button
             accessibilityLabel={submitButtonAccessibilityLabel}
