@@ -336,4 +336,55 @@ function Example(props) {
   />,
 );
 
+card(
+  <Example
+    id="formExample"
+    name="Example: Upsell with Form- 2 TextFields"
+    defaultCode={`
+function Example(props) {
+  const [nameValue, setNameValue] = React.useState('');
+  const [emailValue, setEmailValue] = React.useState('');
+  return (
+    <Upsell
+      title="Give $30, get $60 in ads credit"
+      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+      dismissButton={{
+        accessibilityLabel: 'Dismiss banner',
+        onDismiss: ()=>{},
+      }}
+      imageData={{
+        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+      }}
+    >
+      <Upsell.Form
+        onSubmit={(event) => {event.preventDefault();}}
+        submitButtonText="Submit"
+        submitButtonAccessibilityLabel="Submit button"
+      >
+        <Box display="block" smDisplay="flex">
+          <Box flex="grow" smMarginEnd={1} marginEnd={0} marginBottom={2}>
+            <TextField
+              id="name"
+              onChange={({ value }) => setNameValue(value)}
+              placeholder="Name"
+              value={nameValue}
+            />
+          </Box>
+          <Box flex="grow" smMarginStart={1} marginStart={0}>
+            <TextField
+              id="email"
+              onChange={({ value }) => setEmailValue(value)}
+              placeholder="Email"
+              value={emailValue}
+            />
+          </Box>
+        </Box>
+      </Upsell.Form>
+    </Upsell>
+  );
+}
+`}
+  />,
+);
+
 export default cards;
