@@ -13,6 +13,7 @@ import {
   validateBackgroundColor,
   validateBorder,
   validateBorderRadius,
+  validateBoxShadow,
 } from './validators.js';
 
 function getInlineDefinedStyles(attr) {
@@ -118,6 +119,14 @@ const rule = {
         case 'border':
           if (includeKey('border')) {
             const message = validateBorder(key.value);
+            if (message) {
+              matchedErrors.push(message);
+            }
+          }
+          break;
+        case 'boxShadow':
+          if (includeKey('boxShadow')) {
+            const message = validateBoxShadow(key.value);
             if (message) {
               matchedErrors.push(message);
             }
@@ -317,7 +326,7 @@ const rule = {
               if (errorMessages.length) {
                 context.report(
                   attr,
-                  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n${errorMessages.join(
+                  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n${errorMessages.join(
                     '\n',
                   )}`,
                 );

@@ -109,14 +109,46 @@ export const validateBorder = (value: string): ?string => {
     cleanValue === '#eee 1px solid' ||
     cleanValue === '1px lightgray solid'
   ) {
-    return '  Use prop `borderSize="sm"` instead';
+    return '  Use prop `borderStyle="sm"` instead';
   }
   if (
     cleanValue === '#efefef 2px solid' ||
     cleanValue === '#eee 2px solid' ||
     cleanValue === '2px lightgray solid'
   ) {
-    return '  Use prop `borderSize="lg"` instead';
+    return '  Use prop `borderStyle="lg"` instead';
+  }
+  return undefined;
+};
+
+export const validateBoxShadow = (value: string): ?string => {
+  // If the value is a string:
+  // 1) strip out the rgba portion
+  // 2) convert the pixel portion to only numbers
+  // 3) If both pieces match, recommend borderStyle="shadow"
+
+  const rgbaRegex = new RegExp(
+    /rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)/,
+    'g',
+  );
+  const rgbaPortion = value.match(rgbaRegex);
+  const cleanRgbaPortion =
+    rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].replace(/ /g, '') : undefined;
+
+  const pixelPortion = value.replace(rgbaRegex, '');
+  const cleanPixelPortion = pixelPortion.replace(/px/g, '').replace(/ /g, '');
+
+  let rgbaMatch = false;
+  let pixelsMatch = false;
+  if (cleanRgbaPortion && ['rgba(0,0,0,0.1)', 'rgba(0,0,0,.1)'].includes(cleanRgbaPortion)) {
+    rgbaMatch = true;
+  }
+  if (['008', '0080'].includes(cleanPixelPortion)) {
+    pixelsMatch = true;
+  }
+
+  if (rgbaMatch && pixelsMatch) {
+    return '  Use prop `borderStyle="shadow"` instead';
   }
   return undefined;
 };

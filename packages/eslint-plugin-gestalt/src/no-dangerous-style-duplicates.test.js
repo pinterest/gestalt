@@ -47,6 +47,13 @@ const invalidBorder = readFileSync(
   path.resolve(__dirname, './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-border.js'),
   'utf-8',
 );
+const invalidBoxShadow = readFileSync(
+  path.resolve(
+    __dirname,
+    './__fixtures__/no-dangerous-style-duplicates/invalid/invalid-boxShadow.js',
+  ),
+  'utf-8',
+);
 const invalidBorderRadius = readFileSync(
   path.resolve(
     __dirname,
@@ -158,7 +165,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `color="white"` instead\n' +
             '  Instead of dangerously styling top, use the "top" boolean prop',
         },
@@ -175,7 +182,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Instead of dangerously styling top, use the "top" boolean prop',
         },
       ],
@@ -186,7 +193,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `color="white"` instead',
         },
       ],
@@ -197,7 +204,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `color="white"` instead',
         },
       ],
@@ -208,8 +215,8 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
-            '  Use prop `borderSize="lg"` instead',
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
+            '  Use prop `borderStyle="lg"` instead',
         },
       ],
     },
@@ -219,7 +226,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `rounding="circle"` instead',
         },
       ],
@@ -230,7 +237,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Instead of dangerously styling bottom, use the "bottom" boolean prop',
         },
       ],
@@ -241,7 +248,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Instead of dangerously styling left, use the "left" boolean prop',
         },
       ],
@@ -252,7 +259,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `margin={-2}` instead',
         },
       ],
@@ -263,7 +270,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `marginStart={2}` instead',
         },
       ],
@@ -274,7 +281,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `marginTop={1}` instead',
         },
       ],
@@ -285,7 +292,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `maxHeight={pixels}` or `maxHeight="percentage%"` instead',
         },
       ],
@@ -296,7 +303,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `maxWidth={pixels}` or `maxWidth="percentage%"` instead',
         },
       ],
@@ -307,7 +314,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `minHeight={pixels}` or `minHeight="percentage%"` instead',
         },
       ],
@@ -318,7 +325,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `minWidth={pixels}` or `minWidth="percentage%"` instead',
         },
       ],
@@ -329,7 +336,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `padding={0}` instead',
         },
       ],
@@ -340,7 +347,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `opacity={0.9}` instead',
         },
       ],
@@ -351,7 +358,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `overflow="auto"` instead',
         },
       ],
@@ -362,7 +369,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Use prop `position="absolute"` instead',
         },
       ],
@@ -373,7 +380,7 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Instead of dangerously styling top, use the "top" boolean prop',
         },
       ],
@@ -384,8 +391,19 @@ ruleTester.run('no-dangerous-style-duplicates', rule, {
       errors: [
         {
           message:
-            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n' +
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
             '  Instead of dangerously styling right, use the "right" boolean prop',
+        },
+      ],
+    },
+    {
+      code: invalidBoxShadow,
+      parserOptions,
+      errors: [
+        {
+          message:
+            'Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n' +
+            '  Use prop `borderStyle="shadow"` instead',
         },
       ],
     },
