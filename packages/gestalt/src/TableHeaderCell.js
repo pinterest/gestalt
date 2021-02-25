@@ -22,7 +22,10 @@ export default function TableHeaderCell(props: Props): Node {
       scope={scope || 'col'}
       colSpan={colSpan}
       rowSpan={rowSpan}
-      style={{ left: shouldBeSticky ? previousTotalWidth : undefined }}
+      style={{
+        left: shouldBeSticky ? previousTotalWidth : undefined,
+        right: shouldBeSticky ? previousTotalWidth : undefined,
+      }}
     >
       {children}
     </th>

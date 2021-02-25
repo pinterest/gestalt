@@ -19,7 +19,10 @@ export default function TableCell(props: Props): Node {
       className={cs}
       colSpan={colSpan}
       rowSpan={rowSpan}
-      style={{ left: shouldBeSticky ? previousTotalWidth : undefined }}
+      style={{
+        left: shouldBeSticky ? previousTotalWidth : undefined,
+        right: shouldBeSticky ? previousTotalWidth : undefined,
+      }}
     >
       {children}
     </td>
