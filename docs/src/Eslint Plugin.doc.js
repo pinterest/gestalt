@@ -130,8 +130,18 @@ card(
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
         New rules should be developed TDD-style by testing against simplified test cases first. See
-        the \*.test.js files and fixtures for examples. Once tests pass, you can check the rules
-        against a project using gestalt through yarn link. For example:
+        the \*.test.js files and fixtures for examples. You can test locally by running:
+      </Text>
+      <Markdown
+        text="
+~~~bash
+yarn jest --watch eslint-plugin-gestalt/src/[name-of-test-file]
+~~~
+"
+      />
+      <Text>
+        Once tests pass, you can check the rules against a project using gestalt through yarn link.
+        For example:
       </Text>
       <Markdown
         text="

@@ -127,15 +127,16 @@ export const validateBoxShadow = (value: string): ?string => {
   // 2) convert the pixel portion to only numbers
   // 3) If both pieces match, recommend borderStyle="shadow"
 
-  const rgbaRegex =
-    '/rgba\\(\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(%?)\\s*,\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(\\2)\\s*,\\s*(-?\\d+|-?\\d*\\.\\d+(?=%))(\\2)\\s*,\\s*(-?\\d+|-?\\d*.\\d+)\\s*\\)/g';
+  const rgbaRegex = new RegExp(
+    /rgba\(\s*(-?\d+|-?\d*\.\d+(?=%))(%?)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*\.\d+(?=%))(\2)\s*,\s*(-?\d+|-?\d*.\d+)\s*\)/,
+    'g',
+  );
   const rgbaPortion = value.match(rgbaRegex);
   const cleanRgbaPortion =
     rgbaPortion && rgbaPortion.length > 0 ? rgbaPortion[0].replace(/ /g, '') : undefined;
-  console.log(cleanRgbaPortion);
+
   const pixelPortion = value.replace(rgbaRegex, '');
   const cleanPixelPortion = pixelPortion.replace(/px/g, '').replace(/ /g, '');
-  console.log(cleanPixelPortion);
 
   let rgbaMatch = false;
   let pixelsMatch = false;
