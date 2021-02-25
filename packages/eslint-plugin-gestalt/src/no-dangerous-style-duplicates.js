@@ -326,7 +326,7 @@ const rule = {
               if (errorMessages.length) {
                 context.report(
                   attr,
-                  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/gestalt/#/Box\n${errorMessages.join(
+                  `Un-needed Box dangerous styles found. https://gestalt.netlify.app/Box\n${errorMessages.join(
                     '\n',
                   )}`,
                 );

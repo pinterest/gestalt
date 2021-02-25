@@ -140,13 +140,10 @@ export const validateBoxShadow = (value: string): ?string => {
 
   let rgbaMatch = false;
   let pixelsMatch = false;
-  if (
-    cleanRgbaPortion &&
-    (cleanRgbaPortion === 'rgba(0,0,0,0.1)' || cleanRgbaPortion === 'rgba(0,0,0,.1)')
-  ) {
+  if (cleanRgbaPortion && ['rgba(0,0,0,0.1)', 'rgba(0,0,0,.1)'].includes(cleanRgbaPortion)) {
     rgbaMatch = true;
   }
-  if (cleanPixelPortion === '008' || cleanPixelPortion === '0080') {
+  if (['008', '0080'].includes(cleanPixelPortion)) {
     pixelsMatch = true;
   }
 
