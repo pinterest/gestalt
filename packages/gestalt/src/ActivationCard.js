@@ -10,13 +10,11 @@ import Button from './Button.js';
 import Text from './Text.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './ActivationCard.css';
-import {
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
+import { CustomOnNavigationPropType, type CustomOnNavigation } from './contexts/OnNavigation.js';
 
 type LinkData = {|
   accessibilityLabel?: string,
+  customOnNavigation?: CustomOnNavigation,
   href: string,
   label: string,
   onClick?: AbstractEventHandler<
@@ -25,7 +23,6 @@ type LinkData = {|
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
   >,
-  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
@@ -50,7 +47,7 @@ const STATUS_ICONS = {
 };
 
 const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
-  const { accessibilityLabel, href, label, onClick, onNavigationOptions, rel, target } = data;
+  const { accessibilityLabel, href, label, onClick, customOnNavigation, rel, target } = data;
 
   return (
     <Box
@@ -63,6 +60,7 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
     >
       <Button
         accessibilityLabel={accessibilityLabel}
+        customOnNavigation={customOnNavigation}
         color="gray"
         href={href}
         onClick={onClick}
@@ -70,7 +68,6 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
         role="link"
         size="lg"
         text={label}
-        onNavigationOptions={onNavigationOptions}
         target={target}
       />
     </Box>
@@ -240,11 +237,12 @@ ActivationCard.propTypes = {
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   link: PropTypes.shape({
+    customOnNavigation: CustomOnNavigationPropType,
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+
     accessibilityLabel: PropTypes.string,
-    onNavigationOptions: OnNavigationOptionsPropType,
     rel: PropTypes.oneOf(['none', 'nofollow']),
     target: PropTypes.oneOf([null, 'self', 'blank']),
   }),

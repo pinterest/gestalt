@@ -9,6 +9,11 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {
+  useOnNavigation,
+  CustomOnNavigationPropType,
+  type CustomOnNavigation,
+} from './contexts/OnNavigation.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
@@ -16,11 +21,6 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import {
-  useOnNavigation,
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -35,7 +35,7 @@ type Props = {|
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onNavigationOptions?: OnNavigationOptionsType,
+  customOnNavigation?: CustomOnNavigation,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,
@@ -59,7 +59,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     onBlur,
     onClick,
     onFocus,
-    onNavigationOptions,
+    customOnNavigation,
     rel = 'none',
     role,
     rounding = 0,
@@ -105,12 +105,25 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  const onNavigation =
-    useOnNavigation({
+  const defaultOnNavigation = useOnNavigation({
+    href,
+    onClick,
+    target,
+  });
+
+  let onNavigation = defaultOnNavigation;
+
+  // customOnNavigation allows to directly control the link logic without <Provider onNavigation={onNavigation}/>
+  // If customOnNavigation is passed, it also overrides/disables any OnNavigation logic from Provider
+  if (customOnNavigation && customOnNavigation === 'disabled') {
+    onNavigation = undefined;
+  } else if (customOnNavigation && customOnNavigation !== 'disabled') {
+    onNavigation = customOnNavigation({
       href,
-      onNavigationOptions,
+      onClick,
       target,
-    }) ?? {};
+    });
+  }
 
   return (
     <a
@@ -126,7 +139,10 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         }
       }}
       onClick={(event) => {
-        onNavigation({ event });
+        if (onNavigation) {
+          onNavigation({ event });
+        }
+
         if (onClick) {
           onClick({ event });
         }
@@ -178,7 +194,7 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  onNavigationOptions: OnNavigationOptionsPropType,
+  customOnNavigation: CustomOnNavigationPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,

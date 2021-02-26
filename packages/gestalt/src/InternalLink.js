@@ -20,14 +20,15 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
 import {
   useOnNavigation,
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
+  CustomOnNavigationPropType,
+  type CustomOnNavigation,
 } from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
+  customOnNavigation?: CustomOnNavigation,
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
@@ -44,7 +45,6 @@ type Props = {|
   onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,
@@ -62,6 +62,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     accessibilityLabel,
     children,
     colorClass,
+    customOnNavigation,
     disabled,
     fullHeight,
     fullWidth,
@@ -76,7 +77,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     onMouseLeave,
     onMouseDown,
     onMouseUp,
-    onNavigationOptions,
     rel,
     tabIndex = 0,
     rounding,
@@ -157,12 +157,25 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  const onNavigation =
-    useOnNavigation({
+  const defaultOnNavigation = useOnNavigation({
+    href,
+    onClick,
+    target,
+  });
+
+  let onNavigation = defaultOnNavigation;
+
+  // customOnNavigation allows to directly control the link logic without <Provider onNavigation={onNavigation}/>
+  // If customOnNavigation is passed, it also overrides/disables any OnNavigation logic from Provider
+  if (customOnNavigation && customOnNavigation === 'disabled') {
+    onNavigation = undefined;
+  } else if (customOnNavigation && customOnNavigation !== 'disabled') {
+    onNavigation = customOnNavigation({
       href,
-      onNavigationOptions,
+      onClick,
       target,
-    }) ?? {};
+    });
+  }
 
   return (
     <a
@@ -178,7 +191,9 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
         handleBlur();
       }}
       onClick={(event) => {
-        onNavigation({ event });
+        if (onNavigation) {
+          onNavigation({ event });
+        }
         if (onClick) {
           onClick({ event });
         }
@@ -241,6 +256,7 @@ InternalLinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   colorClass: PropTypes.string,
+  customOnNavigation: CustomOnNavigationPropType,
   disabled: PropTypes.bool,
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,
@@ -264,7 +280,6 @@ InternalLinkWithForwardRef.propTypes = {
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,

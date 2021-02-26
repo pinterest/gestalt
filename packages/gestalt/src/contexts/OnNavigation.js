@@ -22,9 +22,11 @@ type OnNavigationArgs = {|
 
 export type OnNavigationType = (OnNavigationArgs) => ?EventHandlerType;
 
-export const OnNavigationPropType: React$PropType$Primitive<OnNavigationType> =
-  // $FlowFixMe[incompatible-type]
-  PropTypes.func;
+export type CustomOnNavigation = OnNavigationType | 'disabled';
+
+export const CustomOnNavigationPropType: React$PropType$Primitive<CustomOnNavigation> = PropTypes.oneOf(
+  [PropTypes.func, 'disabled'],
+);
 
 type OnNavigationContextType = {| onNavigation: OnNavigationType |};
 

@@ -47,7 +47,7 @@ const UpsellAction = ({
   type: string,
 |}): Node => {
   const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, href, label, onClick, onNavigationOptions, rel, target } = data;
+  const { accessibilityLabel, customOnNavigation, href, label, onClick, rel, target } = data;
 
   return (
     <Box
@@ -64,9 +64,9 @@ const UpsellAction = ({
         <Button
           accessibilityLabel={accessibilityLabel}
           color={color}
+          customOnNavigation={customOnNavigation}
           href={href}
           onClick={onClick}
-          onNavigationOptions={onNavigationOptions}
           rel={rel}
           role="link"
           size="lg"
