@@ -18,11 +18,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
-import {
-  useOnNavigation,
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
+import { useOnNavigation } from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -37,6 +33,7 @@ type Props = {|
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation?: () => void |},
   >,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
@@ -44,7 +41,6 @@ type Props = {|
   onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
-  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
   rounding?: Rounding,
@@ -76,7 +72,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     onMouseLeave,
     onMouseDown,
     onMouseUp,
-    onNavigationOptions,
     rel,
     tabIndex = 0,
     rounding,
@@ -157,12 +152,11 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  const onNavigation =
-    useOnNavigation({
-      href,
-      onNavigationOptions,
-      target,
-    }) ?? {};
+  let defaultOnNavigation = useOnNavigation({ href, target });
+
+  const disableOnNavigation = () => {
+    defaultOnNavigation = undefined;
+  };
 
   return (
     <a
@@ -178,9 +172,14 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
         handleBlur();
       }}
       onClick={(event) => {
-        onNavigation({ event });
         if (onClick) {
-          onClick({ event });
+          onClick({
+            event,
+            disableOnNavigation,
+          });
+        }
+        if (defaultOnNavigation) {
+          defaultOnNavigation({ event });
         }
       }}
       onFocus={(event) => {
@@ -264,7 +263,6 @@ InternalLinkWithForwardRef.propTypes = {
   onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   rounding: RoundingPropType,

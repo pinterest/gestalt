@@ -9,10 +9,6 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import {
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
 
 type FocusEventHandler = AbstractEventHandler<
   SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
@@ -38,6 +34,7 @@ type BaseTapArea = {|
     | SyntheticKeyboardEvent<HTMLDivElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation?: () => void |},
   >,
   tabIndex?: -1 | 0,
   rounding?: Rounding,
@@ -54,7 +51,6 @@ type TapAreaType = {|
 type LinkTapAreaType = {|
   ...BaseTapArea,
   href: string,
-  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -119,13 +115,13 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     },
   );
 
-  const handleClick = (event) => {
-    if (!disabled && onTap) {
-      onTap({ event });
-    }
-  };
+  const handleClick = (event, disableOnNavigation) =>
+    !disabled && onTap
+      ? onTap(disableOnNavigation ? { event, disableOnNavigation } : { event })
+      : undefined;
 
-  const handleLinkClick = ({ event }) => handleClick(event);
+  const handleLinkClick = ({ event, disableOnNavigation }) =>
+    handleClick(event, disableOnNavigation);
 
   const handleOnBlur = (event) => {
     if (!disabled && onBlur) {
@@ -160,7 +156,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   const handleLinkOnMouseLeave = ({ event }) => handleOnMouseLeave(event);
 
   if (props.role === 'link') {
-    const { href, onNavigationOptions, rel = 'none', target = null } = props;
+    const { href, rel = 'none', target = null } = props;
 
     return (
       <InternalLink
@@ -171,7 +167,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         fullWidth={fullWidth}
         mouseCursor={mouseCursor}
         onClick={handleLinkClick}
-        onNavigationOptions={onNavigationOptions}
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
         onMouseEnter={handleLinkOnMouseEnter}
@@ -259,7 +254,6 @@ TapAreaWithForwardRef.propTypes = {
   onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['tapArea', 'link']),

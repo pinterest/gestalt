@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { useOnNavigation } from './contexts/OnNavigation.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
@@ -16,11 +17,6 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import {
-  useOnNavigation,
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -33,9 +29,9 @@ type Props = {|
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation?: () => void |},
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   role?: 'tab',
   rounding?: Rounding,
@@ -59,7 +55,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     onBlur,
     onClick,
     onFocus,
-    onNavigationOptions,
     rel = 'none',
     role,
     rounding = 0,
@@ -105,12 +100,11 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  const onNavigation =
-    useOnNavigation({
-      href,
-      onNavigationOptions,
-      target,
-    }) ?? {};
+  let defaultOnNavigation = useOnNavigation({ href, target });
+
+  const disableOnNavigation = () => {
+    defaultOnNavigation = undefined;
+  };
 
   return (
     <a
@@ -126,9 +120,14 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
         }
       }}
       onClick={(event) => {
-        onNavigation({ event });
         if (onClick) {
-          onClick({ event });
+          onClick({
+            event,
+            disableOnNavigation,
+          });
+        }
+        if (defaultOnNavigation) {
+          defaultOnNavigation({ event });
         }
       }}
       onFocus={(event) => {
@@ -178,7 +177,6 @@ LinkWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onClick: PropTypes.func,
   onFocus: PropTypes.func,
-  onNavigationOptions: OnNavigationOptionsPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   role: (PropTypes.oneOf(['tab']): React$PropType$Primitive<'tab'>),
   rounding: RoundingPropType,
