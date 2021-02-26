@@ -5,6 +5,8 @@ import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
+import MainSection from './components/MainSection.js';
+import { customNavigationDescription } from './components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -208,12 +210,12 @@ card(
         href: 'default',
       },
       {
-        name: 'onNavigationOptions',
-        type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        name: 'onClick',
+        type:
+          'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation?: () => void |}',
         description: [
-          'onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples.',
-          `onNavigation's type is flexible. Each key's value is a React.Node or an event handler function.`,
-          'Optional with href.',
+          'Callback fired when a button component is clicked (pressed and released) with a mouse or keyboard. ',
+          'See [custom navigation](#Custom-navigation) variant for examples.',
         ],
       },
     ]}
@@ -668,18 +670,134 @@ function CustomIconButtonPopoverExample() {
 );
 
 card(
-  <Card
-    description={`
-    Dropdowns should be used when offering users complex options to choose from.
-    If an item acts as navigation, it automatically requires the use of the Dropdown component.
-    Items can also be actions (like Logout or Add Account) or selections (like different display modes).
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={customNavigationDescription('Dropdown')}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
-    If users need to select from a simple list of highly related options (without needing sections or subtext details), use a [SelectList](/SelectList).
+  const onNavigation = ({ href,target }) => {
+    const onNavigationClick = ({ event }) => {
+      event.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
 
-    If users need the ability to choose an option by typing in an input and filtering a long list of options, use a [Typeahead](/Typeahead).
-  `}
-    name="Related"
-  />,
+  const customOnNavigation = () => {
+    // eslint-disable-next-line no-alert
+    alert('CUSTOM NAVIGATION set on <Dropdown.Item onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
+    window.open('https://help.pinterest.com', '_blank');
+  }
+
+  const onClickHandler = ({ event, disableOnNavigation }) => {
+    if (onNavigationMode === 'provider_disabled') {
+      disableOnNavigation()
+    } else if (onNavigationMode === 'link_custom') {
+      event.preventDefault();
+      disableOnNavigation();
+      customOnNavigation();
+    }
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    onClick: onClickHandler,
+    target:"blank",
+  }
+
+  return (
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default navigation (disabled custom navigation set on Provider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom navigation set on Provider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom navigation set on Link"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
+        </Flex>
+        <Box display="flex" justifyContent="center">
+        <Button
+          accessibilityControls="basic-dropdown-example"
+          accessibilityHaspopup
+          accessibilityExpanded={open}
+          iconEnd="arrow-down"
+          text="Menu"
+          inline
+          ref={anchorRef}
+          selected={open}
+          onClick={ () => setOpen((prevVal) => !prevVal) }
+        />
+        {open && (
+          <Dropdown id="basic-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+            <Dropdown.Item
+              { ...linkProps }
+              isExternal
+              option={{ value: 'item 3', label: 'Visit Settings page' }}
+            />
+          </Dropdown>
+        )}
+      </Box>
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+Dropdowns should be used when offering users complex options to choose from.
+If an item acts as navigation, it automatically requires the use of the Dropdown component.
+Items can also be actions (like Logout or Add Account) or selections (like different display modes).
+
+**[Provider](/Provider)**
+Provider allows external link navigation control across all children components with link behavior.
+See [custom navigation](#Custom-navigation) variant for examples.
+
+**[SelectList](/SelectList)**
+If users need to select from a simple list of highly related options (without needing sections or subtext details), use a [SelectList](/SelectList).
+
+**[Typeahead](/Typeahead)**
+If users need the ability to choose an option by typing in an input and filtering a long list of options, use a [Typeahead](/Typeahead).
+      `}
+    />
+  </MainSection>,
 );
 
 export default cards;

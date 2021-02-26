@@ -3,6 +3,8 @@ import React, { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
+import { customNavigationDescription } from './components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -67,21 +69,14 @@ card(
       {
         name: 'onClick',
         type:
-          '({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> }) => void',
-        href: 'PreventDefault',
+          'AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| disableOnNavigation?: () => void |}>',
+        description:
+          'Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [custom navigation](#Custom-navigation) variant for examples.',
+        href: 'Custom-navigation',
       },
       {
         name: 'onFocus',
         type: '() => void',
-      },
-      {
-        name: 'onNavigationOptions',
-        type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
-        description: [
-          'onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples.',
-          `onNavigation's type is flexible. Each key's value is a React.Node or an event handler function.`,
-        ],
-        href: 'OnNavigationContext',
       },
       {
         name: 'ref',
@@ -270,45 +265,105 @@ function PermutationsExample() {
 );
 
 card(
-  <Example
-    id="PreventDefault"
-    name="Prevent default"
-    defaultCode={`
-function PreventDefaultExample() {
-  const [preventDefault, setPreventDefault] = React.useState(true);
-  const onClick = ({ event }) => {
-    if (preventDefault) {
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={customNavigationDescription('Link')}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+
+  const onNavigation = ({ href,target }) => {
+    const onNavigationClick = ({ event }) => {
       event.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
     }
-  };
+    return onNavigationClick;
+  }
+
+  const customOnNavigation = () => {
+    // eslint-disable-next-line no-alert
+    alert('CUSTOM NAVIGATION set on <Link onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
+    window.open('https://help.pinterest.com', '_blank');
+  }
+
+  const onClickHandler = ({ event, disableOnNavigation }) => {
+    if (onNavigationMode === 'provider_disabled') {
+      disableOnNavigation()
+    } else if (onNavigationMode === 'link_custom') {
+      event.preventDefault();
+      disableOnNavigation();
+      customOnNavigation();
+    }
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    onClick: onClickHandler,
+    target:"blank",
+  }
 
   return (
-    <Box>
-      <Box padding={2}>
-        <Flex alignItems="center" gap={4}>
-          <Label htmlFor="preventDefault">
-            <Text>Prevent default on tap</Text>
-          </Label>
-          <Switch
-            id="preventDefault"
-            onChange={() => setPreventDefault(!preventDefault)}
-            switched={preventDefault}
-          />
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default navigation (disabled custom navigation set on Provider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom navigation set on Provider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom navigation set on Link"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
         </Flex>
-      </Box>
-      <Divider />
-      <Box padding={2}>
-        <Text>
-          <Link href="https://pinterest.com" onClick={onClick} target='blank'>
-            https://pinterest.com
-          </Link>
-        </Text>
-      </Box>
-    </Box>
+          <Text>
+            <Link {...linkProps}>
+              Visit pinterest.com
+            </Link>
+          </Text>
+      </Flex>
+    </Provider>
   );
 }
 `}
-  />,
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+**[Provider](/Provider)**
+Provider allows external link navigation control across all children components with link behavior.
+See [custom navigation](#Custom-navigation) variant for examples.
+      `}
+    />
+  </MainSection>,
 );
 
 export default cards;
