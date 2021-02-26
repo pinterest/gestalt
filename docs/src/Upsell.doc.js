@@ -323,7 +323,7 @@ function Example(props) {
         submitButtonAccessibilityLabel="Submit button"
       >
         <TextField
-          id="name"
+          id="nameField"
           onChange={({ value }) => setValue(value)}
           placeholder="Name"
           value={value}
