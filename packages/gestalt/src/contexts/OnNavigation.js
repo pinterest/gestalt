@@ -6,17 +6,8 @@ type EventHandlerType = ({|
   +event: SyntheticEvent<>,
 |}) => void;
 
-export type OnNavigationOptionsType = {|
-  +[string]: Node | EventHandlerType,
-|};
-
-export const OnNavigationOptionsPropType: React$PropType$Primitive<OnNavigationOptionsType> =
-  // $FlowFixMe[incompatible-type]
-  PropTypes.object;
-
 type OnNavigationArgs = {|
   href: string,
-  onNavigationOptions?: OnNavigationOptionsType,
   target?: null | 'self' | 'blank',
 |};
 
@@ -37,16 +28,10 @@ function OnNavigationProvider({ onNavigation, children }: Props): Element<typeof
   return <Provider value={onNavigation ? { onNavigation } : undefined}>{children}</Provider>;
 }
 
-const noop = () => {};
-
-function useOnNavigation({
-  href,
-  onNavigationOptions,
-  target,
-}: OnNavigationArgs): EventHandlerType {
-  const { onNavigation } = useContext(OnNavigationContext) ?? {};
-
-  return onNavigation?.({ href, onNavigationOptions, target }) ?? noop;
+function useOnNavigation({ href, target }: OnNavigationArgs): ?EventHandlerType {
+  const onNavigationContext = useContext(OnNavigationContext);
+  const onNavigationHandler = onNavigationContext?.onNavigation({ href, target });
+  return onNavigationHandler;
 }
 
 export { OnNavigationProvider, useOnNavigation };
