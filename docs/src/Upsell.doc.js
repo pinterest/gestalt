@@ -338,7 +338,7 @@ function Example(props) {
 
 card(
   <Example
-    id="formExample"
+    id="twoFormsExample"
     name="Example: Upsell with Form- 2 TextFields"
     defaultCode={`
 function Example(props) {
@@ -346,19 +346,28 @@ function Example(props) {
   const [emailValue, setEmailValue] = React.useState('');
   return (
     <Upsell
-      title="Give $30, get $60 in ads credit"
-      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+      title="Interested in a free ads consultation?"
+      message="Learn how to grow your business with a Pinterest ads expert today!"
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
         onDismiss: ()=>{},
       }}
       imageData={{
-        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+        component:
+          <Image
+            alt="Check out our resources for adapting to these times."
+            color="rgb(231, 186, 176)"
+            naturalHeight={751}
+            naturalWidth={564}
+            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+          />,
+          mask: {rounding: 4},
+        width: 128,
       }}
     >
       <Upsell.Form
         onSubmit={(event) => {event.preventDefault();}}
-        submitButtonText="Submit"
+        submitButtonText="Contact me"
         submitButtonAccessibilityLabel="Submit button"
       >
         <Box display="block" smDisplay="flex">
