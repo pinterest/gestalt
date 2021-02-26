@@ -16,15 +16,15 @@ exports[`<Upsell /> Basic Upsell 1`] = `
       className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -54,10 +54,10 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
     }
   >
     <div
-      className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box flexGrow itemsStart justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box flexNone marginBottom4 smMarginBottom0"
+        className="box flexNone marginBottom4 marginTop0 smMarginBottom0 smMarginTop1"
         style={
           Object {
             "width": undefined,
@@ -89,15 +89,15 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
         </div>
       </div>
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box flexGrow itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
@@ -114,73 +114,73 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
             Insert a clever upsell message here
           </div>
         </div>
-      </div>
-    </div>
-    <div
-      className="box justifyEnd smDisplayFlex smMarginEnd4 smPaddingY3"
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
-    >
-      <form
-        onSubmit={[Function]}
-        style={
-          Object {
-            "width": "100%",
-          }
-        }
-      >
         <div
-          className="Flex rowGap2 flexWrap xsDirectionRow"
+          className="box flexGrow justifyEnd smDisplayFlex smMarginEnd4 smPaddingY3"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
         >
-          <div
-            className="FlexItem flexGrow"
+          <form
+            onSubmit={[Function]}
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
           >
-            <span>
-              <input
-                aria-describedby={null}
-                aria-invalid="false"
-                className="textField base enabled normal medium"
-                disabled={false}
-                id="name"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                placeholder="Name"
-                type="text"
-              />
-            </span>
-          </div>
-          <div
-            className="FlexItem"
-          >
-            <button
-              aria-label="Submit button"
-              className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
-              disabled={false}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="submit"
+            <div
+              className="Flex rowGap2 flexWrap justifyEnd xsDirectionRow"
             >
               <div
-                className="Text fontSize3 white alignCenter fontWeightBold"
+                className="FlexItem flexGrow"
               >
-                Submit
+                <span>
+                  <input
+                    aria-describedby={null}
+                    aria-invalid="false"
+                    className="textField base enabled normal medium"
+                    disabled={false}
+                    id="name"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Name"
+                    type="text"
+                  />
+                </span>
               </div>
-            </button>
-          </div>
+              <div
+                className="FlexItem"
+              >
+                <button
+                  aria-label="Submit button"
+                  className="button hideOutline tapTransition md red enabled inline accessibilityOutline"
+                  disabled={false}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchCancel={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="submit"
+                >
+                  <div
+                    className="Text fontSize3 white alignCenter fontWeightBold"
+                  >
+                    Submit
+                  </div>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
   <div
@@ -247,7 +247,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box flexNone marginBottom4 smMarginBottom0"
+        className="box flexNone marginBottom4 marginTop0 smMarginBottom0 smMarginTop0"
         style={
           Object {
             "width": undefined,
@@ -279,15 +279,15 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         </div>
       </div>
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart6 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
@@ -405,15 +405,15 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
@@ -531,15 +531,15 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
@@ -642,15 +642,15 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
@@ -723,15 +723,15 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
@@ -798,15 +798,15 @@ exports[`<Upsell /> message + title 1`] = `
       className="box itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box"
-        style={
-          Object {
-            "maxWidth": 648,
-          }
-        }
+        className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="box itemsCenter marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd6 smMarginStart0 xsDirectionColumn xsDisplayFlex"
+          className="box"
+          style={
+            Object {
+              "maxWidth": 648,
+            }
+          }
         >
           <div
             className="box marginBottom2"
