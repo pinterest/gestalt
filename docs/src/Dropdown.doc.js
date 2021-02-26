@@ -5,6 +5,7 @@ import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
 import Card from './components/Card.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -208,13 +209,15 @@ card(
         href: 'default',
       },
       {
-        name: 'onNavigationOptions',
-        type: '({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+        name: 'customOnNavigation',
+        type:
+          '"disabled" | ({| href: string, onClick?: ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void,  target?: null | "self" | "blank" |}) => ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
         description: [
-          'onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples.',
-          `onNavigation's type is flexible. Each key's value is a React.Node or an event handler function.`,
-          'Optional with href.',
+          'Provides custom control on the link functionality.',
+          'Overrides or disables onNavigation logic set by Provider.',
+          'See [custom navigation](#Custom-navigation) variant for examples.',
         ],
+        href: 'Custom-navigation',
       },
     ]}
   />,
@@ -668,18 +671,159 @@ function CustomIconButtonPopoverExample() {
 );
 
 card(
-  <Card
-    description={`
-    Dropdowns should be used when offering users complex options to choose from.
-    If an item acts as navigation, it automatically requires the use of the Dropdown component.
-    Items can also be actions (like Logout or Add Account) or selections (like different display modes).
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={`
+These examples illustrate a custom navigation implementation to externally control the link functionality within Dropdown.
 
-    If users need to select from a simple list of highly related options (without needing sections or subtext details), use a [SelectList](/SelectList).
+If passed to Provider's \`onNavigation\` prop, \`useCustomOnNavigationProvider\`, a high-order function, is passed down to Dropdown where it's executed. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
 
-    If users need the ability to choose an option by typing in an input and filtering a long list of options, use a [Typeahead](/Typeahead).
-  `}
-    name="Related"
-  />,
+The \`useCustomOnNavigationProvider\` function can contain complex logic, including [React hooks](https://reactjs.org/docs/hooks-reference.html), to perform side effects. It takes named arguments: \`href\`, \`onClick\` and \`target\`.
+
+In the examples below, \`useCustomOnNavigationProvider\` executes the following actions:
+- Disable the default link behavior
+- Show an alert message
+- Open a different URL in a new window
+
+Finally, \`useCustomOnNavigationLink\` gets passed to Dropdown using the \`customOnNavigation\` prop. It has the same structure as \`useCustomOnNavigationProvider\`. Dropdown's \`customOnNavigation\` prop also takes "disabled" to disable the Provider's \`onNavigation\` prop logic and restore the default link behaviour.
+
+The returned \`onNavigationClick\` function inside both hook functions uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
+      `}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+  const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState(null);
+  const anchorRef = React.useRef(null);
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
+
+  const useCustomOnNavigationProvider = ({ href, target }) => {
+
+    const onNavigationClick = ({ event }) => {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  const useCustomOnNavigationLink = ({ href, target }) => {
+
+    const onNavigationClick = ({ event }) => {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Dropdown.Item customOnNavigation/>. Disabled link: '+href+'. Opening help.pinterest.com instead.');
+      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  let customOnNavigation;
+
+  if (onNavigationMode === 'provider_disabled') {
+    customOnNavigation = "disabled";
+  }
+
+  if (onNavigationMode === 'link_custom') {
+    customOnNavigation = useCustomOnNavigationLink;
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    customOnNavigation,
+    target:"blank",
+  }
+
+  return (
+    <Provider onNavigation={useCustomOnNavigationProvider}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation Controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default Navigation (disabled Custom Navigation set on Provider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom Navigation set on Provider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom Navigation set on Button"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
+        </Flex>
+        <Box display="flex" justifyContent="center">
+          <Button
+            accessibilityControls="basic-dropdown-example"
+            accessibilityHaspopup
+            accessibilityExpanded={open}
+            iconEnd="arrow-down"
+            text="Menu"
+            inline
+            ref={anchorRef}
+            selected={open}
+            onClick={ () => setOpen((prevVal) => !prevVal) }
+          />
+          {open && (
+            <Dropdown id="basic-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+              <Dropdown.Item
+                { ...linkProps }
+                isExternal
+                option={{ value: 'item 3', label: 'Item 3 with a really long, detailed, complex name' }}
+              />
+            </Dropdown>
+          )}
+        </Box>
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+Dropdowns should be used when offering users complex options to choose from.
+If an item acts as navigation, it automatically requires the use of the Dropdown component.
+Items can also be actions (like Logout or Add Account) or selections (like different display modes).
+
+**[Provider](/Provider)**
+Provider allows external link navigation control across all children components with link behavior. Dropdown's \`customOnNavigation\` prop can override or disable the Provider navigation logic.
+See [custom navigation](#Custom-navigation) variant for examples.
+
+**[SelectList](/SelectList)**
+If users need to select from a simple list of highly related options (without needing sections or subtext details), use a [SelectList](/SelectList).
+
+**[Typeahead](/Typeahead)**
+If users need the ability to choose an option by typing in an input and filtering a long list of options, use a [Typeahead](/Typeahead).
+      `}
+    />
+  </MainSection>,
 );
 
 export default cards;

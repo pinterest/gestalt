@@ -34,11 +34,11 @@ card(
       {
         name: 'onNavigation',
         type:
-          '{| href: string, onNavigationOptions?:  ({ [string]: Node | ({| +event: SyntheticEvent<>, target?: null | "self" | "blank" |}) => void }) |}',
+          '{| href: string, onClick?: ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void, target?: null | "self" | "blank" |}) => void }) |}',
         description: [
-          `Components with link functionality use simple \`<a>\` tags. In order to replace the default link functionality with more complex ones (ex. withRouter or spam checking), onNavigation provides an interface to implement external logic into the 'onClick' event handler in links.`,
-          `onNavigation is a high-order function. If passed into the provider, consumer components (ex. Link, Button, IconButton and TapArea) call the onNavigation function with three named parameters ('href', 'onNavigationOptions' and 'target') that returns a function that gets called inside the 'onClick' event handler. `,
-          `'onNavigationOptions' is an object that acts as a flexible API for your onNavigation external logic. The onNavigationOptions's type is flexible. Each key's value is a React.Node or an event handler function.`,
+          "Components with links use simple `<a>` tags. In order to replace the default link behavior with custom ones (e.g. withRouter), `onNavigation` provides an interface to pass external logic into the 'onClick' event handler in links.",
+          "`onNavigation` is a high-order function. If passed to Provider, consumer components (e.g. [Link](/Link), [Button](/Button), [IconButton](/IconButton) and [TapArea](/TapArea)) call the onNavigation function with three named parameters ('href', 'onClick' and 'target') returning a function that will get executed inside the 'onClick' event handler.",
+          'The external on `OnNavigation` logic passed by Provider can get overriden or disabled by `customOnNavigation` prop on consumer components.',
         ],
         href: 'Custom-navigation-context',
       },
@@ -96,18 +96,18 @@ function Example(props) {
     <MainSection.Subsection
       title="Custom navigation context"
       description={`
-        These examples illustrate a custom implementation of \`onNavigation\` context to control the link functionality of Gestalt components externally.
+These examples illustrate a custom navigation implementation to externally control the link functionality of components with link behavior.
 
-        This example has four relevant parts: a Provider, an \`onNavigation\` high-order function, consumer components and \`onNavigationOptions\` props.
+If passed to Provider's \`onNavigation\` prop, \`useCustomOnNavigationProvider\`, a high-order function, is passed down to Button where it's executed. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
 
-        The top Provider passes the custom \`onNavigation\` function to consumer components which execute it. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
+The \`useCustomOnNavigationProvider\` function can contain complex logic, including [React hooks](https://reactjs.org/docs/hooks-reference.html), to perform side effects. It takes named arguments: \`href\`, \`onClick\` and \`target\`.
 
-        The \`onNavigation\` function can contain complex logic, including React hooks, to perform side effects. It also takes named arguments: \`href\`, \`onNavigationOptions\` and \`target\`. In the examples below, \`onNavigation\` executes the following actions:
-          - Disable the default Link behavior
-          - Show an alert message
-          - Open a different URL in a new window
+In the examples below, \`useCustomOnNavigationProvider\` executes the following actions:
+- Disable the default link behavior
+- Show an alert message
+- Open a different URL in a new window
 
-        Finally, the \`onNavigationOptions\` prop provides a flexible API. The \`onNavigationOptions\` prop is passed as an argument to the \`onNavigation\` function, providing external control to the logic inside the function. In this case, \`onNavigationOptions\` toggles a \`navigationMode\` key between \`default\` and \`navigation\` values. Then, inside the \`onNavigation\` function, the \`navigationMode\` value toggles between the default link behavior and the custom navigation context behavior. Other uses for this level of customization could be accessing \`event.stopPropagation\`.
+The returned \`onNavigationClick\` function inside the hook function uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
       `}
     >
       <MainSection.Card
@@ -115,9 +115,9 @@ function Example(props) {
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
-  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState('navigation');
+  const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
 
-  const onNavigation = ({ href, onNavigationOptions, target }) => {
+  const useCustomOnNavigationProvider = ({ href, target }) => {
 
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
@@ -126,37 +126,34 @@ function OnNavigation() {
       window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
     }
 
-    return onNavigationOptions && onNavigationOptions.navigationMode === 'navigation'
-      ? onNavigationClick
-      : null;
+    return onNavigationClick;
   }
 
   const linkProps = {
     href: 'https://pinterest.com',
-    onNavigationOptions: { navigationMode: clientOnNavigationMode },
     target: 'blank',
   }
 
   return (
-    <Provider onNavigation={onNavigation}>
+    <Provider onNavigation={onNavigationMode === 'custom' ? useCustomOnNavigationProvider : undefined}>
       <Flex direction="column" gap={2}>
         <Flex direction="column" gap={2}>
           <Text>Navigation type:</Text>
           <RadioButton
-            checked={clientOnNavigationMode === 'link'}
-            id="link1"
-            label="Default Link"
-            name="navigation"
-            onChange={() => setClientOnNavigationMode('link')}
-            value="link"
+            checked={onNavigationMode === 'default'}
+            id="default1"
+            label="Default Link Navigation"
+            name="default"
+            onChange={() => setOnNavigationMode('default')}
+            value="default"
           />
           <RadioButton
-            checked={clientOnNavigationMode === 'navigation'}
-            id="navigation1"
-            label="Custom Navigation Context"
-            name="navigation"
-            onChange={() => setClientOnNavigationMode('navigation')}
-            value="navigation"
+            checked={onNavigationMode === 'custom'}
+            id="custom1"
+            label="Custom Provider Navigation"
+            name="custom"
+            onChange={() => setOnNavigationMode('custom')}
+            value="custom"
           />
           <Divider/>
         </Flex>
@@ -208,49 +205,45 @@ function OnNavigation() {
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
-  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState('navigation');
+  const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
 
-  const onNavigation = ({ href, onNavigationOptions }) => {
+  const useCustomOnNavigationProvider = ({ href, target }) => {
 
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
       alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', '_blank');
+      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
     }
 
-    return onNavigationOptions && onNavigationOptions.navigationMode === 'navigation'
-      ? onNavigationClick
-      : null;
+    return onNavigationClick;
   }
 
   const linkProps = {
     href: 'https://pinterest.com',
-    onNavigationOptions: { navigationMode: clientOnNavigationMode },
     target: 'blank',
   }
 
-
   return (
-    <Provider onNavigation={onNavigation}>
+    <Provider onNavigation={onNavigationMode === 'custom' ? useCustomOnNavigationProvider : undefined}>
       <Flex direction="column" gap={2}>
         <Flex direction="column" gap={2}>
           <Text>Navigation type:</Text>
           <RadioButton
-            checked={clientOnNavigationMode === 'link'}
-            id="link2"
-            label="Default Link"
-            name="navigation2"
-            onChange={() => setClientOnNavigationMode('link')}
-            value="link"
+            checked={onNavigationMode === 'default'}
+            id="default2
+            label="Default Link Navigation"
+            name="default"
+            onChange={() => setOnNavigationMode('default')}
+            value="default"
           />
           <RadioButton
-            checked={clientOnNavigationMode === 'navigation'}
-            id="navigation2"
-            label="Custom Navigation Context"
-            name="navigation"
-            onChange={() => setClientOnNavigationMode('navigation')}
-            value="navigation"
+            checked={onNavigationMode === 'custom'}
+            id="custom"
+            label="Custom Provider Navigation"
+            name="custom2"
+            onChange={() => setOnNavigationMode('custom')}
+            value="custom"
           />
           <Divider/>
         </Flex>
@@ -314,7 +307,7 @@ function OnNavigation() {
         cardSize="lg"
         defaultCode={`
 function OnNavigation() {
-  const [clientOnNavigationMode, setClientOnNavigationMode] = React.useState('navigation');
+  const [ onNavigationMode, setOnNavigationMode ] = React.useState('default');
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorRef = React.useRef(null);
@@ -322,48 +315,43 @@ function OnNavigation() {
     setSelected(item);
   };
 
-  const onNavigation = ({ href, onNavigationOptions }) => {
+  const useCustomOnNavigationProvider = ({ href, target }) => {
 
     const onNavigationClick = ({ event }) => {
       event.nativeEvent.preventDefault();
       // eslint-disable-next-line no-alert
       alert('Disabled link: '+href+'. Opening help.pinterest.com instead.');
-      window.open('https://help.pinterest.com', '_blank');
+      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
     }
 
-    return onNavigationOptions && onNavigationOptions.navigationMode === 'navigation'
-      ? onNavigationClick
-      : null;
+    return onNavigationClick;
   }
 
   const linkProps = {
     href: 'https://pinterest.com',
-    onNavigationOptions: {
-      navigationMode: clientOnNavigationMode
-    },
     target: 'blank',
   }
 
   return (
-    <Provider onNavigation={onNavigation}>
+    <Provider onNavigation={onNavigationMode === 'custom' ? useCustomOnNavigationProvider : undefined}>
       <Flex direction="column" gap={2}>
         <Flex direction="column" gap={2}>
           <Text>Navigation type:</Text>
           <RadioButton
-            checked={clientOnNavigationMode === 'link'}
-            id="link3"
-            label="Default Link"
-            name="navigation3"
-            onChange={() => setClientOnNavigationMode('link')}
-            value="link"
+            checked={onNavigationMode === 'default'}
+            id="default3"
+            label="Default Link Navigation"
+            name="default"
+            onChange={() => setOnNavigationMode('default')}
+            value="default"
           />
           <RadioButton
-            checked={clientOnNavigationMode === 'navigation'}
-            id="navigation3"
-            label="Custom Navigation Context"
-            name="navigation"
-            onChange={() => setClientOnNavigationMode('navigation')}
-            value="navigation"
+            checked={onNavigationMode === 'custom'}
+            id="custom3"
+            label="Custom Provider Navigation"
+            name="custom"
+            onChange={() => setOnNavigationMode('custom')}
+            value="custom"
           />
           <Divider/>
         </Flex>
@@ -396,6 +384,17 @@ function OnNavigation() {
 `}
       />
     </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+      **[Link](/Link)** / **[Button](/Button)** / **[IconButton](/IconButton)** / **[TapArea](/TapArea)**  / **[DropDown](/DropDown)** / **[Callout](/Callout)** / **[Upsell](/Upsell)** / **[ActivationCard](/ActivationCard)**
+      ScrollableContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollableContainer isn't needed as it's already built-in.
+    `}
+    />
   </MainSection>,
 );
 

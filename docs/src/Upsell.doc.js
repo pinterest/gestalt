@@ -5,6 +5,7 @@ import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -59,7 +60,7 @@ card(
       {
         name: 'primaryAction',
         type:
-          '{| accessibilityLabel?: string , href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+          '{| accessibilityLabel?: string, href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, customOnNavigation: "disabled" | ({| href: string, onClick?: ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void,  target?: null | "self" | "blank" |}) => ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
         required: false,
         defaultValue: null,
         description: [
@@ -68,7 +69,6 @@ card(
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
-          `- onNavigationOptions: onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples. onNavigation's type is flexible. Each key's value is a React.Node or an event handler function. Optional with href.`,
           'Accessibility: `accessibilityLabel` populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the button `text`.',
         ],
         href: '',
@@ -76,7 +76,7 @@ card(
       {
         name: 'secondaryAction',
         type:
-          '{| accessibilityLabel?: string , href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void, rel: "none" | "nofollow", target: "null" | "self" | "blank" |}',
+          '{| accessibilityLabel?: string, href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, customOnNavigation: "disabled" | ({| href: string, onClick?: ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void,  target?: null | "self" | "blank" |}) => ({| event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
         required: false,
         defaultValue: null,
         description: [
@@ -85,7 +85,6 @@ card(
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
           '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
-          `- onNavigationOptions: onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples. onNavigation's type is flexible. Each key's value is a React.Node or an event handler function. Optional with href.`,
           'Accessibility: `accessibilityLabel` populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the button `text`.',
         ],
         href: '',
@@ -402,6 +401,136 @@ function Example(props) {
 }
 `}
   />,
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={`
+These examples illustrate a custom navigation implementation to externally control the link functionality within TapArea.
+
+If passed to Provider's \`onNavigation\` prop, \`useCustomOnNavigationProvider\`, a high-order function, is passed down to TapArea where it's executed. Then, \`onNavigation\` returns a function that gets called during the \`onClick\` event handler.
+
+The \`useCustomOnNavigationProvider\` function can contain complex logic, including [React hooks](https://reactjs.org/docs/hooks-reference.html), to perform side effects. It takes named arguments: \`href\`, \`onClick\` and \`target\`.
+
+In the examples below, \`useCustomOnNavigationProvider\` executes the following actions:
+- Disable the default link behavior
+- Show an alert message
+- Open a different URL in a new window
+
+Finally, \`useCustomOnNavigationLink\` gets passed to TapArea using the \`customOnNavigation\` prop. It has the same structure as \`useCustomOnNavigationProvider\`. TapArea's \`customOnNavigation\` prop also takes "disabled" to disable the Provider's \`onNavigation\` prop logic and restore the default link behaviour.
+
+The returned \`onNavigationClick\` function inside both hook functions uses the event access to [preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault). It could also be used to [stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation).
+      `}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+
+  const useCustomOnNavigationProvider = ({ href, target }) => {
+
+    const onNavigationClick = ({ event }) => {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  const useCustomOnNavigationLink = ({ href, target }) => {
+
+    const onNavigationClick = ({ event }) => {
+      event.nativeEvent.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Upsell primaryAction secondaryAction/>. Disabled link: '+href+'. Opening help.pinterest.com instead.');
+      window.open('https://help.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  let customOnNavigation;
+
+  if (onNavigationMode === 'provider_disabled') {
+    customOnNavigation = "disabled";
+  }
+
+  if (onNavigationMode === 'link_custom') {
+    customOnNavigation = useCustomOnNavigationLink;
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    customOnNavigation,
+    target:"blank",
+  }
+
+  return (
+    <Provider onNavigation={useCustomOnNavigationProvider}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation Controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default Navigation (disabled Custom Navigation set on Provider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom Navigation set on Provider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom Navigation set on Button"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
+        </Flex>
+        <Upsell
+          title="Give $30, get $60 in ads credit"
+          message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+          primaryAction={
+            { ...linkProps,
+              label: 'Send invite'
+            }}
+          dismissButton={{
+            accessibilityLabel: 'Dismiss banner',
+            onDismiss: () => {},
+          }}
+          imageData={{
+            component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+          }}
+        />
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+**[Provider](/Provider)**
+Provider allows external link navigation control across all children components with link behavior. Upsell's \`customOnNavigation\` prop can override or disable the Provider navigation logic.
+See [custom navigation](#Custom-navigation) variant for examples.
+      `}
+    />
+  </MainSection>,
 );
 
 export default cards;
