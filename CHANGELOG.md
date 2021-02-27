@@ -1,3 +1,9 @@
+## 18.0.0 (Feb 27, 2021)
+
+### Major
+
+- ScrollBoundaryContainer: ScrollableContainer renamed to ScrollBoundaryContainer (#1394)
+
 ## 17.7.0 (Feb 25, 2021)
 
 ### Minor
