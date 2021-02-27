@@ -10,7 +10,10 @@ jest.mock('../scrollableContainer-rename-scrollBoundaryContainer', () => {
 });
 
 describe('scrollableContainer-rename-scrollBoundaryContainer', () => {
-  ['scrollableContainer-rename-scrollBoundaryContainer'].forEach((test) => {
+  [
+    'scrollableContainer-rename-scrollBoundaryContainer',
+    'scrollableContainerAlias-rename-scrollBoundaryContainer',
+  ].forEach((test) => {
     defineTest(
       __dirname,
       'scrollableContainer-rename-scrollBoundaryContainer',

@@ -13,6 +13,7 @@ export default function transformer(file, api) {
 
   src.find(j.ImportDeclaration).forEach((path) => {
     const decl = path.node;
+
     if (decl.source.value !== 'gestalt') {
       return;
     }
@@ -34,7 +35,6 @@ export default function transformer(file, api) {
         return node;
       }),
     ];
-
     // Sort all the imports alphabetically
     newSpecifiers.sort((a, b) => a.imported.name.localeCompare(b.imported.name));
 
