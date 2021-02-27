@@ -34,28 +34,28 @@ const DIR_INDEX_MAP = {
 };
 
 export const getContainerNode = ({
-  scrollableContainerRef,
+  scrollBoundaryContainerRef,
   initialPositionRef,
 }: {|
-  scrollableContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLDivElement,
   initialPositionRef: ?HTMLElement,
 |}): ?HTMLDivElement => {
-  // containerNode references the ScrollableContainer node to which
+  // containerNode references the ScrollBoundaryContainer node to which
   // append the portal
   let containerNode = null;
   // currentNode references the DOM node used while traversing up nodes in the DOM tree
   let currentNode = initialPositionRef;
 
   while (!containerNode) {
-    // To find ScrollableContainer parents, currentNode is traversed up accessing its parent node
-    // until matching with the ScrollableContainer ref passed via context
+    // To find ScrollBoundaryContainer parents, currentNode is traversed up accessing its parent node
+    // until matching with the ScrollBoundaryContainer ref passed via context
     // or until reaching the HTML document (loop break)
-    if (scrollableContainerRef && currentNode && currentNode.parentNode) {
+    if (scrollBoundaryContainerRef && currentNode && currentNode.parentNode) {
       if (
         currentNode instanceof HTMLDivElement &&
-        scrollableContainerRef?.isSameNode(currentNode)
+        scrollBoundaryContainerRef?.isSameNode(currentNode)
       ) {
-        containerNode = scrollableContainerRef;
+        containerNode = scrollBoundaryContainerRef;
       }
       currentNode = currentNode.parentNode;
     } else {
@@ -71,11 +71,11 @@ export const getContainerNode = ({
 export const getTriggerRect = ({
   anchor,
   positionRelativeToAnchor,
-  scrollableContainerRef,
+  scrollBoundaryContainerRef,
 }: {|
   anchor: HTMLElement,
   positionRelativeToAnchor: boolean,
-  scrollableContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLDivElement,
 |}): * => {
   let triggerBoundingRect;
   let relativeOffset;
@@ -84,7 +84,10 @@ export const getTriggerRect = ({
     return { relativeOffset, triggerBoundingRect };
   }
 
-  const containerNode = getContainerNode({ scrollableContainerRef, initialPositionRef: anchor });
+  const containerNode = getContainerNode({
+    scrollBoundaryContainerRef,
+    initialPositionRef: anchor,
+  });
 
   const boundingAnchorRect = anchor.getBoundingClientRect();
   // triggerBoundingRect is passed to Contents.js where this data will be used for positioning
@@ -98,7 +101,7 @@ export const getTriggerRect = ({
   };
 
   if (containerNode) {
-    // If there's a parent ScrollableContainer, ScrollableContainer's top/left
+    // If there's a parent ScrollBoundaryContainer, ScrollBoundaryContainer's top/left
     // coordinates are the new reference (rather than the browser's window top and left edges)
     // and triggerBoundingRect must be corrected
     const boundingContainerRect = containerNode.getBoundingClientRect();
@@ -126,13 +129,13 @@ export function getFlyoutDir({
   idealDirection,
   triggerRect,
   windowSize,
-  isScrollableContainer,
+  isScrollBoundaryContainer,
 }: {|
   flyoutSize: Dimensions,
   idealDirection: FlyoutDir,
   triggerRect: ClientRect,
   windowSize: Window,
-  isScrollableContainer?: boolean,
+  isScrollBoundaryContainer?: boolean,
 |}): MainDirections {
   // Calculates the available space if we were to place the flyout in the 4 main directions
   // to determine which 'quadrant' to position the flyout inside of
@@ -149,10 +152,10 @@ export function getFlyoutDir({
   const nonLeftEdge = triggerRect.left < BORDER_RADIUS;
   const nonRightEdge = windowSize.width - triggerRect.right < BORDER_RADIUS;
 
-  // skipNoEdgeCondition is mostly an edge case within ScrollableContainers because trigger elements are more likely
-  // to touch both edges of the parent ScrollableContainers without margins/paddings
+  // skipNoEdgeCondition is mostly an edge case within ScrollBoundaryContainers because trigger elements are more likely
+  // to touch both edges of the parent ScrollBoundaryContainers without margins/paddings
   const skipNoEdgeCondition =
-    isScrollableContainer && (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
+    isScrollBoundaryContainer && (nonTopEdge || nonBottomEdge) && (nonLeftEdge || nonRightEdge);
 
   if (!skipNoEdgeCondition && (nonTopEdge || nonBottomEdge)) {
     left = 0;
@@ -233,11 +236,11 @@ export function getCaretDir({
 export function calcEdgeShifts({
   triggerRect,
   windowSize,
-  isScrollableContainer,
+  isScrollBoundaryContainer,
 }: {|
   triggerRect: ClientRect,
   windowSize: Window,
-  isScrollableContainer: boolean,
+  isScrollBoundaryContainer: boolean,
 |}): {| caret: Coordinates, flyout: Coordinates |} {
   // Target values for flyout and caret shifts
   let flyoutVerticalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
@@ -254,17 +257,17 @@ export function calcEdgeShifts({
     triggerRect.left - flyoutHorizontalShift < 0 ||
     triggerRect.right + flyoutHorizontalShift > windowSize.width;
 
-  // If there's a parent ScrollableContainer and trigger is close vertically and/or horizontally,
+  // If there's a parent ScrollBoundaryContainer and trigger is close vertically and/or horizontally,
   // skip the flyout shift adjusments so that the flyout is right in the edge.
   if (isCloseVertically) {
-    flyoutVerticalShift = isScrollableContainer
+    flyoutVerticalShift = isScrollBoundaryContainer
       ? 0
       : BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
   if (isCloseHorizontally) {
-    flyoutHorizontalShift = isScrollableContainer
+    flyoutHorizontalShift = isScrollBoundaryContainer
       ? 0
       : BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
@@ -292,7 +295,7 @@ export function adjustOffsets({
   flyoutDir,
   caretDir,
   triggerRect,
-  isScrollableContainer,
+  isScrollBoundaryContainer,
 }: {|
   base: {| top: number, left: number |},
   edgeShift: EdgeShift,
@@ -300,7 +303,7 @@ export function adjustOffsets({
   flyoutDir: FlyoutDir,
   caretDir: CaretDir,
   triggerRect: ClientRect,
-  isScrollableContainer: boolean,
+  isScrollBoundaryContainer: boolean,
 |}): {|
   caretOffset: CaretOffset,
   flyoutOffset: Offset,
@@ -313,14 +316,14 @@ export function adjustOffsets({
   let caretBottom = flyoutDir === 'up' ? -CARET_HEIGHT : null;
   let caretLeft = flyoutDir === 'right' ? -CARET_HEIGHT : null;
 
-  // If there's a parent ScrollableContainer and caret direction is up or down,
+  // If there's a parent ScrollBoundaryContainer and caret direction is up or down,
   // adjust the caret position to correctly match its flyout.
   if (caretDir === 'up') {
     flyoutTop = base.top - edgeShift.flyout.y;
-    caretTop = edgeShift.caret.y + (isScrollableContainer ? 6 : 2);
+    caretTop = edgeShift.caret.y + (isScrollBoundaryContainer ? 6 : 2);
   } else if (caretDir === 'down') {
     flyoutTop = base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
-    caretBottom = edgeShift.caret.y + (isScrollableContainer ? 6 : 2);
+    caretBottom = edgeShift.caret.y + (isScrollBoundaryContainer ? 6 : 2);
   } else if (caretDir === 'left') {
     flyoutLeft = base.left - edgeShift.flyout.x;
     caretLeft = edgeShift.caret.x + 2;

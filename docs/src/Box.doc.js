@@ -911,8 +911,8 @@ card(
         **[Container](/Container)**
         Use Container to responsively layout content with a max-width on large screens.
 
-        **[ScrollableContainer](/ScrollableContainer)**
-        For proper positioning when using anchored components (Flyout, Tooltip, etc.) within a container that could scroll, use a ScrollableContainer.
+        **[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
+        For proper positioning when using anchored components (Flyout, Tooltip, etc.) within a container that could scroll, use ScrollBoundaryContainer.
 
         **[TapArea](/TapArea)**
         If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.

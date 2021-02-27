@@ -3,7 +3,7 @@ import React, { useRef, useState, type Portal, type Node, useEffect } from 'reac
 import { createPortal } from 'react-dom';
 import { type Indexable } from './zIndex.js';
 import styles from './Layer.css';
-import { useScrollableContainer } from './contexts/ScrollableContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import { getContainerNode } from './utils/positioningUtils.js';
 
 export default function Layer({
@@ -17,22 +17,22 @@ export default function Layer({
   const portalContainer = useRef<?HTMLDivElement>(null);
   const zIndex = zIndexIndexable?.index();
 
-  // If ScrollableContainer is parent of Layer, useScrollableContainer provides access to
-  // the  ScrollableContainer node ref.
-  const { scrollableContainerRef } = useScrollableContainer();
+  // If ScrollBoundaryContainer is parent of Layer, useScrollBoundaryContainer provides access to
+  // the  ScrollBoundaryContainer node ref.
+  const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
 
   // initialPositionRef is a temporary-placed DOM Node from which to traverse up to find
-  // any ScrollableContainer parent. After mounting, it's replaced with a portal.
+  // any ScrollBoundaryContainer parent. After mounting, it's replaced with a portal.
   const initialPositionRef = useRef<?HTMLDivElement>(null);
 
   useEffect(() => {
     // After the initial mount, useEffect gets called
     setMounted(true);
 
-    // containerNode stores the ScrollableContainer node to use
+    // containerNode stores the ScrollBoundaryContainer node to use
     // as container in the portal -createPortal(child, container)-.
     const containerNode = getContainerNode({
-      scrollableContainerRef,
+      scrollBoundaryContainerRef,
       initialPositionRef: initialPositionRef?.current,
     });
 
@@ -62,7 +62,7 @@ export default function Layer({
         }
       }
     };
-  }, [zIndex, scrollableContainerRef]);
+  }, [zIndex, scrollBoundaryContainerRef]);
 
   if (!mounted || !portalContainer.current) {
     // The initial render will be this temporary div

@@ -9,8 +9,8 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="ScrollableContainer"
-    description="ScrollableContainer is used with anchored components such Flyout, Tooltip, Dropdown or Typeahead. A ScrollableContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures the Tooltip remains attached to its anchor when scrolling."
+    name="ScrollBoundaryContainer"
+    description="ScrollBoundaryContainer is used with anchored components such Flyout, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling."
   />,
 );
 
@@ -43,10 +43,10 @@ card(
       description={`
 When scrolling is desired, we must explicitly set a height. Unless a height is set, the content will push the parent container's height.
 
-In ScrollableContainer, height is an optional prop with a default value of \`100%\`. If ScrollableContainer’s immediate parent is a component with a fixed height, do not pass a height to ScrollableContainer as seen in first example below. On the other hand, if there isn’t an immediate parent fixing the height, you must specify the ScrollableContainer height as seen in the  second example below.`}
+In ScrollBoundaryContainer, height is an optional prop with a default value of \`100%\`. If ScrollBoundaryContainer’s immediate parent is a component with a fixed height, do not pass a height to ScrollBoundaryContainer as seen in first example below. On the other hand, if there isn’t an immediate parent fixing the height, you must specify the ScrollBoundaryContainer height as seen in the  second example below.`}
     >
       <MainSection.Card
-        title="Flyout within ScrollableContainer"
+        title="Flyout within ScrollBoundaryContainer"
         cardSize="lg"
         defaultCode={`
 function Example() {
@@ -54,7 +54,7 @@ function Example() {
   const anchorRef = React.useRef();
 
   return (
-    <ScrollableContainer height={200}>
+    <ScrollBoundaryContainer height={200}>
       <Box padding={4} width={600}>
         <Flex gap={4}>
           <Box width={200}>
@@ -102,21 +102,21 @@ function Example() {
           )}
         </Flex>
       </Box>
-    </ScrollableContainer>
+    </ScrollBoundaryContainer>
 )}`}
       />
     </MainSection.Subsection>
     <MainSection.Card
-      title="Tooltips within ScrollableContainer"
+      title="Tooltips within ScrollBoundaryContainer"
       cardSize="lg"
       defaultCode={`
-function ScrollableContainerExample() {
+function ScrollBoundaryContainerExample() {
   const [content, setContent] = React.useState(null);
   const [claimed, setClaimed] = React.useState(null);
   const [device, setDevice] = React.useState(null);
 
   return (
-    <ScrollableContainer
+    <ScrollBoundaryContainer
       overflow="scrollY"
       height={200}
     >
@@ -318,20 +318,20 @@ function ScrollableContainerExample() {
           </Box>
         </Flex>
       </Flex>
-    </ScrollableContainer>
+    </ScrollBoundaryContainer>
 )}`}
     />
     <MainSection.Subsection
       title="Built-in component"
       description={`
-Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
+Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-The following example shows the internal ScrollableContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and Typeahead.`}
+The following example shows the internal ScrollBoundaryContainer in action. The main content of both Modal and Sheet is a form which includes Dropdown and Typeahead.`}
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function ScrollableContainerExample() {
+function ScrollBoundaryContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
@@ -628,13 +628,13 @@ card(
     <MainSection.Subsection
       description={`
       **[Box](/Box)**
-      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollableContainer if the goal is simply to allow Box to scroll when content overflows. ScrollableContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Flyout](/Flyout), [Typeahead](/Typeahead) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
+      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Flyout](/Flyout), [Typeahead](/Typeahead) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
 
       **[Modal](/Modal)** / **[Sheet](/Sheet)**
-      Modal and Sheet come with ScrollableContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollableContainer will break the existing styling on scroll.
+      Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
       **[Tooltip](/Tooltip)** / **[Flyout](/Flyout)** / **[Typeahead](/Typeahead)** / **[Dropdown](/Dropdown)**
-      ScrollableContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollableContainer isn't needed as it's already built-in.
+      ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
     />
   </MainSection>,

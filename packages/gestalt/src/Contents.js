@@ -7,7 +7,7 @@ import styles from './Contents.css';
 import borders from './Borders.css';
 import colors from './Colors.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
-import { useScrollableContainer } from './contexts/ScrollableContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import type {
   CaretOffset,
   ClientRect,
@@ -45,7 +45,7 @@ type OwnProps = {|
 |};
 
 type HookProps = {|
-  scrollableContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLDivElement,
 |};
 type ColorSchemeProps = {|
   colorGray100: string,
@@ -145,7 +145,7 @@ class Contents extends Component<Props, State> {
       idealDirection,
       positionRelativeToAnchor,
       relativeOffset,
-      scrollableContainerRef,
+      scrollBoundaryContainerRef,
       triggerRect,
       width,
     }: Props,
@@ -162,10 +162,13 @@ class Contents extends Component<Props, State> {
       ? 0
       : window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
 
-    const containerNode = getContainerNode({ scrollableContainerRef, initialPositionRef: anchor });
+    const containerNode = getContainerNode({
+      scrollBoundaryContainerRef,
+      initialPositionRef: anchor,
+    });
     const containerBoundingClientRect = containerNode?.getBoundingClientRect();
 
-    // If there's a parent ScrollableContainer, replace window's dimensions and scroll with the ScrollableContainer node ones
+    // If there's a parent ScrollBoundaryContainer, replace window's dimensions and scroll with the ScrollBoundaryContainer node ones
     const windowSize = {
       height: containerBoundingClientRect?.height ?? window.innerHeight,
       width: containerBoundingClientRect?.width ?? window.innerWidth,
@@ -182,7 +185,7 @@ class Contents extends Component<Props, State> {
       idealDirection,
       triggerRect,
       windowSize,
-      isScrollableContainer: !!containerNode,
+      isScrollBoundaryContainer: !!containerNode,
     });
     const flyoutData = { flyoutDir, flyoutSize };
 
@@ -200,13 +203,13 @@ class Contents extends Component<Props, State> {
       edgeShift: calcEdgeShifts({
         triggerRect,
         windowSize,
-        isScrollableContainer: !!containerNode,
+        isScrollBoundaryContainer: !!containerNode,
       }),
       ...flyoutData,
       // Now that we have the main direction, chose from 3 caret placements for that direction
       caretDir: getCaretDir({ flyoutSize, flyoutDir, triggerRect, windowSize }),
       triggerRect,
-      isScrollableContainer: !!containerNode,
+      isScrollBoundaryContainer: !!containerNode,
     });
 
     return {
@@ -299,14 +302,14 @@ class Contents extends Component<Props, State> {
 
 export default function WrappedContents(props: OwnProps): Node {
   const { colorGray100, name: colorSchemeName } = useColorScheme();
-  const { scrollableContainerRef = null } = useScrollableContainer();
+  const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
 
   return (
     <Contents
       {...props}
       colorGray100={colorGray100}
       isDarkMode={colorSchemeName === 'darkMode'}
-      scrollableContainerRef={scrollableContainerRef}
+      scrollBoundaryContainerRef={scrollBoundaryContainerRef}
     />
   );
 }

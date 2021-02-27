@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScrollableContainer ScrollableContainer correctly sets height and overflow props 1`] = `
+exports[`ScrollBoundaryContainer ScrollBoundaryContainer correctly sets height and overflow props 1`] = `
 <div
   className="box overflowScroll paddingX0 paddingY0 relative"
   style={
@@ -15,7 +15,7 @@ exports[`ScrollableContainer ScrollableContainer correctly sets height and overf
 </div>
 `;
 
-exports[`ScrollableContainer renders 1`] = `
+exports[`ScrollBoundaryContainer renders 1`] = `
 <div
   className="box overflowAuto paddingX0 paddingY0 relative"
   style={

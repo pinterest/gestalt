@@ -435,7 +435,7 @@ function SectionsIconButtonDropdownExample() {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function ScrollableContainerExample() {
+function ScrollBoundaryContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [alignText, setAlignText] = React.useState('left')
   const MODAL_Z_INDEX = new FixedZIndex(11);
@@ -581,18 +581,18 @@ function ScrollableContainerExample() {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Within scrolling containers"
-      description="ScrollableContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures Tooltip remains attached to its anchor when scrolling."
+      description="ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling."
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function ScrollableContainerExample() {
+function ScrollBoundaryContainerExample() {
   const [content, setContent] = React.useState(null);
   const [claimed, setClaimed] = React.useState(null);
   const [device, setDevice] = React.useState(null);
 
   return (
-    <ScrollableContainer
+    <ScrollBoundaryContainer
       overflow="scrollY"
       height={200}
     >
@@ -795,7 +795,7 @@ function ScrollableContainerExample() {
           </Box>
         </Flex>
       </Flex>
-    </ScrollableContainer>
+    </ScrollBoundaryContainer>
 )}`}
       />
     </MainSection.Subsection>
@@ -836,8 +836,8 @@ card(
 **[Flyout](/Flyout)**
 Flyout displays a lightweight task related to the content on screen. One example of Flyout is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Flyouts offer broader content options, such as [Buttons](/Buttons) and [Images](/Images).
 
-**[ScrollableContainer](/ScrollableContainer)**
-ScrollableContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollableContainer ensures Tooltip remains attached to its anchor when scrolling. See the [Within scrolling containers](#Within-scrolling-containers) variant to learn more.
+**[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
+ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling. See the [within scrolling containers](#Within-scrolling-containers) variant to learn more.
 
 **[Toast](/Toast)**
 Toast provides feedback on an interaction. One example of Toast is the confirmation that appears when a Pin has been saved. Toasts appear at the bottom of a desktop screen or top of a mobile screen, instead of being attached to any particular element on the interface.

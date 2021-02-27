@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
 import Contents from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
-import { useScrollableContainer } from './contexts/ScrollableContainer.js';
+import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import type { ClientRect, Coordinates } from './utils/positioningTypes.js';
 import { getTriggerRect } from './utils/positioningUtils.js';
 
@@ -31,7 +31,7 @@ type OwnProps = {|
 |};
 
 type HookProps = {|
-  scrollableContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLDivElement,
 |};
 
 type Props = {| ...OwnProps, ...HookProps |};
@@ -91,9 +91,9 @@ class Controller extends Component<Props, State> {
   static getDerivedStateFromProps({
     anchor,
     positionRelativeToAnchor,
-    scrollableContainerRef,
+    scrollBoundaryContainerRef,
   }: Props) {
-    return getTriggerRect({ anchor, positionRelativeToAnchor, scrollableContainerRef });
+    return getTriggerRect({ anchor, positionRelativeToAnchor, scrollBoundaryContainerRef });
   }
 
   componentDidMount() {
@@ -122,12 +122,12 @@ class Controller extends Component<Props, State> {
   updateTriggerRect: (Props) => void = ({
     anchor,
     positionRelativeToAnchor,
-    scrollableContainerRef,
+    scrollBoundaryContainerRef,
   }: Props) => {
     const { relativeOffset, triggerBoundingRect } = getTriggerRect({
       anchor,
       positionRelativeToAnchor,
-      scrollableContainerRef,
+      scrollBoundaryContainerRef,
     });
     this.setState({ relativeOffset, triggerBoundingRect });
   };
@@ -174,8 +174,8 @@ class Controller extends Component<Props, State> {
 }
 
 const WrappedController = (props: OwnProps): ReactNode => {
-  const { scrollableContainerRef = null } = useScrollableContainer();
-  return <Controller {...props} scrollableContainerRef={scrollableContainerRef} />;
+  const { scrollBoundaryContainerRef = null } = useScrollBoundaryContainer();
+  return <Controller {...props} scrollBoundaryContainerRef={scrollBoundaryContainerRef} />;
 };
 
 export default WrappedController;

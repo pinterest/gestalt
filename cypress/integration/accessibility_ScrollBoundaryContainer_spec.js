@@ -1,10 +1,10 @@
-describe('ScrollableContainer Accessibility check', () => {
+describe('ScrollBoundaryContainer Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/ScrollableContainer');
+    cy.visit('/ScrollBoundaryContainer');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the ScrollableContainer page', () => {
+  it('Tests accessibility on the ScrollBoundaryContainer page', () => {
     // color-contrast test disabled temporarily until individual sections can be disabled
     cy.configureAxe({
       rules: [
