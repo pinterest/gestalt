@@ -188,6 +188,7 @@ SearchFieldWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,
