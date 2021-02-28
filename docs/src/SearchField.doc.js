@@ -49,6 +49,10 @@ card(
       }) => void`,
       },
       {
+        name: 'onKeyDown',
+        type: '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
+      },
+      {
         name: 'placeholder',
         type: 'string',
       },
