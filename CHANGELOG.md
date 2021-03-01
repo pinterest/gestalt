@@ -1,3 +1,9 @@
+## 18.1.0 (Mar 1, 2021)
+
+### Minor
+
+- Icon: Add History Icon (#1399)
+
 ## 18.0.0 (Feb 27, 2021)
 
 ### Major
