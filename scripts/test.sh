@@ -17,6 +17,9 @@ yarn jest --coverage
 echo "a11y:validate"
 yarn a11y:validate
 
+echo "svgIcons:validate"
+yarn svgIcons:validate
+
 echo "flow"
 yarn flow check --max-warnings 0
 
