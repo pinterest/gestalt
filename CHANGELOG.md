@@ -1,3 +1,9 @@
+## 18.1.1 (Mar 1, 2021)
+
+### Patch
+
+- Docs: fix Box z-index bug (#1403)
+
 ## 18.1.0 (Mar 1, 2021)
 
 ### Minor
