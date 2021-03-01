@@ -371,7 +371,13 @@ function Example(props) {
         submitButtonAccessibilityLabel="Submit button"
       >
         <Box display="block" smDisplay="flex">
-          <Box flex="grow" smMarginEnd={1} marginEnd={0} marginBottom={2}>
+          <Box
+            flex="grow"
+            smMarginEnd={1}
+            marginEnd={0}
+            smMarginBottom={0}
+            marginBottom={2}
+          >
             <TextField
               id="name"
               onChange={({ value }) => setNameValue(value)}

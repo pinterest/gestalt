@@ -136,21 +136,25 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
               <div
                 className="FlexItem flexGrow"
               >
-                <span>
-                  <input
-                    aria-describedby={null}
-                    aria-invalid="false"
-                    className="textField base enabled normal medium"
-                    disabled={false}
-                    id="name"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    placeholder="Name"
-                    type="text"
-                  />
-                </span>
+                <div
+                  className="box marginBottom0 smMarginBottom2"
+                >
+                  <span>
+                    <input
+                      aria-describedby={null}
+                      aria-invalid="false"
+                      className="textField base enabled normal medium"
+                      disabled={false}
+                      id="name"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      placeholder="Name"
+                      type="text"
+                    />
+                  </span>
+                </div>
               </div>
               <div
                 className="FlexItem"

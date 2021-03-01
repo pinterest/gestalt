@@ -1,5 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
+import Box from './Box.js';
 import Button from './Button.js';
 import Flex from './Flex.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
@@ -35,7 +36,11 @@ export default function UpsellForm({
         wrap
         justifyContent="end"
       >
-        <Flex.Item flex={responsiveMinWidth === 'xs' ? 'shrink' : 'grow'}>{children}</Flex.Item>
+        <Flex.Item flex={responsiveMinWidth === 'xs' ? 'shrink' : 'grow'}>
+          <Box smMarginBottom={2} marginBottom={0}>
+            {children}
+          </Box>
+        </Flex.Item>
         <Flex.Item>
           <Button
             accessibilityLabel={submitButtonAccessibilityLabel}
