@@ -526,6 +526,10 @@ function Example(props) {
         `}
       />
     </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Forms"
+      description="More details on adding forms to Upsells coming soon!"
+    />
   </MainSection>,
 );
 
