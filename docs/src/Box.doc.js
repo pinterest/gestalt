@@ -881,7 +881,13 @@ function Example() {
   const HEADER_ZINDEX = new FixedZIndex(100);
   const zIndex = new CompositeZIndex([HEADER_ZINDEX]);
   return (
-    <Box height={150} column={12} overflow="scroll" tabIndex={0}>
+    <Box
+      column={12}
+      dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
+      height={150}
+      overflow="scroll"
+      tabIndex={0}
+    >
       <Sticky top={0} zIndex={HEADER_ZINDEX}>
         <Box color="maroon" width="80%" height={60} padding={2}>
           <Text color="white">This is sticky and won't move when scrolling</Text>
