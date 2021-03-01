@@ -85,6 +85,7 @@ import handPointing from './hand-pointing.svg';
 import heart from './heart.svg';
 import heartOutline from './heart-outline.svg';
 import heartBroken from './heart-broken.svg';
+import history from './history.svg';
 import impressum from './impressum.svg';
 import infoCircle from './info-circle.svg';
 import key from './key.svg';
@@ -259,6 +260,7 @@ const icons = {
   heart,
   'heart-outline': heartOutline,
   'heart-broken': heartBroken,
+  history,
   impressum,
   'info-circle': infoCircle,
   key,
