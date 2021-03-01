@@ -200,7 +200,7 @@ card(
                 imageData={{
                   component: <Icon icon="send" accessibilityLabel="Send" color="darkGray" size={32}/>
                 }}
-                title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+                title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
                 message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
                 primaryAction={{label: "Claim now"}}
               />
