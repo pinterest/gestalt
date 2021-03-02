@@ -11,8 +11,8 @@ export default function FeedbackCallout(): Node {
         <Callout
           type="info"
           iconAccessibilityLabel="Info icon"
-          title="We'd love your feedback!"
-          message="The Gestalt team has been working hard to extend our documentation to include design best practices, as well as create a standardized documentation format. Let us know what you think so far by answering 2 quick questions."
+          title="Got feedback?"
+          message="Answer two quick questions to let the Gestalt team know what you think of our new standardized documentation format (now with design best practices!)"
           primaryAction={{
             label: 'Give feedback',
             href: 'https://forms.gle/mi1A1hxYGG6V39AH9',
