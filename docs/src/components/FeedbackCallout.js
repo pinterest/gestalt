@@ -1,8 +1,8 @@
 // @flow strict
 import { Box, Button, Callout, Flex, Layer, Modal } from 'gestalt';
-import React from 'react';
+import React, { type Node } from 'react';
 
-const FeedbackCallout = () => {
+const FeedbackCallout = (): Node => {
   const [showCallout, setShowCallout] = React.useState(true);
   const [showModal, setShowModal] = React.useState(false);
 
