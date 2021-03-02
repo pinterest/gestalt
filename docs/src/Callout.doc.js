@@ -3,9 +3,12 @@ import React, { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
+
+card(<FeedbackCallout />);
 
 card(
   <PageHeader
@@ -391,7 +394,6 @@ function Example(props) {
                     <Button color="red" inline text="Save" size="lg" />
                   </ButtonGroup>
               </Flex>
-
             }
             size="md"
           >

@@ -3,9 +3,12 @@ import React, { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
+
+card(<FeedbackCallout />);
 
 card(
   <PageHeader
@@ -399,7 +402,7 @@ function SectionsIconButtonDropdownExample() {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-  <Flex gap={2} justifyContent="center">
+  <Flex gap={2} justifyContent="center" alignItems="center">
     <Text>Enable expanded targeting</Text>
     <Tooltip
       text="Use your Pin to expand your targeting."
@@ -419,7 +422,7 @@ function SectionsIconButtonDropdownExample() {
         bgColor="white"
         icon="info-circle"
         iconColor="darkGray"
-        size={16}
+        size="sm"
       />
     </Tooltip>
   </Flex>
