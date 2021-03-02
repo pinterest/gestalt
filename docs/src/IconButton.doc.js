@@ -270,7 +270,7 @@ function Example() {
         <Tooltip text="Link IconButton">
           <IconButton
             accessibilityLabel="Link IconButton"
-            icon="link"
+            icon="visit"
             role="link"
             target="blank"
             href="https://www.pinterest.com"

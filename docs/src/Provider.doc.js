@@ -175,7 +175,7 @@ function OnNavigation() {
           <IconButton
             {...linkProps}
             accessibilityLabel="Link IconButton"
-            icon="link"
+            icon="visit"
             role="link"
           />
           <Box width={100}>
