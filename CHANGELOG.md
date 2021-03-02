@@ -1,3 +1,9 @@
+## 19.0.0 (Mar 2, 2021)
+
+### Major
+
+- Icon: Rename 'link' Icon to 'visit' + codemod, add new 'link' Icon, update Docs (#1406)
+
 ## 18.1.2 (Mar 2, 2021)
 
 ### Patch
