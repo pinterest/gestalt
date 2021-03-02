@@ -1,3 +1,9 @@
+## 18.1.2 (Mar 2, 2021)
+
+### Patch
+
+- Internal: add CI for Icon svg file validation (#1402)
+
 ## 18.1.1 (Mar 1, 2021)
 
 ### Patch
