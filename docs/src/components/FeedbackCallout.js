@@ -2,7 +2,11 @@
 import { Box, Callout } from 'gestalt';
 import React, { type Node } from 'react';
 
-export default function FeedbackCallout(): Node {
+type Props = {|
+  link: string,
+|};
+
+export default function FeedbackCallout({ link }: Props): Node {
   const [showCallout, setShowCallout] = React.useState(true);
 
   return (
@@ -15,7 +19,7 @@ export default function FeedbackCallout(): Node {
           message="Answer two quick questions to let the Gestalt team know what you think of our new standardized documentation format (now with design best practices!)"
           primaryAction={{
             label: 'Give feedback',
-            href: 'https://forms.gle/mi1A1hxYGG6V39AH9',
+            href: link,
             target: 'blank',
           }}
           dismissButton={{
