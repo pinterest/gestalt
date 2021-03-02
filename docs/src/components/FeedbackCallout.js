@@ -1,10 +1,9 @@
 // @flow strict
-import { Box, Button, Callout, Flex, Layer, Modal } from 'gestalt';
+import { Box, Callout } from 'gestalt';
 import React, { type Node } from 'react';
 
 const FeedbackCallout = (): Node => {
   const [showCallout, setShowCallout] = React.useState(true);
-  const [showModal, setShowModal] = React.useState(false);
 
   return (
     <Box marginLeft={-1} marginRight={-1}>
@@ -16,9 +15,8 @@ const FeedbackCallout = (): Node => {
           message="The Gestalt team has been working hard to extend our documentation to include design best practices, as well as create a standardized documentation format. Let us know what you think so far by filling out our survey."
           primaryAction={{
             label: 'Give feedback',
-            onClick: () => {
-              setShowModal(!showModal);
-            },
+            href: 'https://forms.gle/mi1A1hxYGG6V39AH9',
+            target: 'blank',
           }}
           dismissButton={{
             accessibilityLabel: 'Dismiss banner',
@@ -27,43 +25,6 @@ const FeedbackCallout = (): Node => {
             },
           }}
         />
-      )}
-      {showModal && (
-        <Layer>
-          <Modal
-            accessibilityModalLabel="Send Gestalt Team Feedback"
-            heading="What do you think of the new docs design?"
-            subHeading="Note: Only Pinterest employees will be able to submit a response."
-            onDismiss={() => {
-              setShowModal(!showModal);
-            }}
-            footer={
-              <Flex flex="grow" justifyContent="end">
-                <Button
-                  text="Close"
-                  inline
-                  onClick={() => {
-                    setShowModal(!showModal);
-                  }}
-                  size="lg"
-                />
-              </Flex>
-            }
-            size="lg"
-          >
-            <iframe
-              title="feedback"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?embedded=true"
-              width="900"
-              height="350"
-              frameBorder="0"
-              marginHeight="0"
-              marginWidth="0"
-            >
-              Loading…
-            </iframe>
-          </Modal>
-        </Layer>
       )}
     </Box>
   );
