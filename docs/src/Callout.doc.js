@@ -472,11 +472,11 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-      **[Upsell](/upsell)**
+      **[Upsell](/Upsell)**
       If marketing new products or features, or encouraging upgrades, use Upsell instead.
 
-      **[Toast](/toast)**
-      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and typically disappear after a certain duration.
+      **[Toast](/Toast)**
+      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
       **[ActivationCard](/ActivationCard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.

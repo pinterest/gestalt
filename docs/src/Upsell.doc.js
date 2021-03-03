@@ -17,18 +17,18 @@ card(
     name="Upsell"
     description="Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has."
     defaultCode={`
-    <Upsell
-      title="Give $30, get $60 in ads credit"
-      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-      primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
-      dismissButton={{
-        accessibilityLabel: 'Dismiss banner',
-        onDismiss: ()=>{},
-      }}
-      imageData={{
-        component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
-      }}
-    />
+      <Upsell
+        title="Give $30, get $60 in ads credit"
+        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
+        imageData={{
+          component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+        }}
+      />;
     `}
   />,
 );
@@ -102,18 +102,18 @@ card(
         type="do"
         description="Use Upsells for marketing new products or encouraging upgrades."
         defaultCode={`
-          <Upsell
-            title="Give $30, get $60 in ads credit"
-            message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-            primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
-              onDismiss: ()=>{},
-            }}
-            imageData={{
-              component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
-            }}
-          />
+<Upsell
+  title="Give $30, get $60 in ads credit"
+  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+  primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: () => {},
+  }}
+  imageData={{
+    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+  }}
+/>;
         `}
       />
       <MainSection.Card
@@ -123,32 +123,32 @@ card(
         Place Upsell at the top of the page under the primary navigation when possible.
         `}
         defaultCode={`
-          <Box>
-            <Box marginBottom={4} display="flex" alignItems="center">
-              <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
-              <ButtonGroup>
-                <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
-              </ButtonGroup>
-            </Box>
-            <Divider/>
-            <Box marginTop={8}>
-            <Upsell
-              title="Give $30, get $60 in ads credit"
-              message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-              primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
-              dismissButton={{
-                accessibilityLabel: 'Dismiss banner',
-                onDismiss: ()=>{},
-              }}
-              imageData={{
-                component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
-              }}
-            />
-            </Box>
-          </Box>
+<Box>
+  <Box marginBottom={4} display="flex" alignItems="center">
+    <Icon accessibilityLabel="" icon="pinterest" color="red" size={32} />
+    <ButtonGroup>
+      <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
+      <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
+      <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
+      <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
+    </ButtonGroup>
+  </Box>
+  <Divider />
+  <Box marginTop={8}>
+    <Upsell
+      title="Give $30, get $60 in ads credit"
+      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+      primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+      dismissButton={{
+        accessibilityLabel: 'Dismiss banner',
+        onDismiss: () => {},
+      }}
+      imageData={{
+        component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+      }}
+    />
+  </Box>
+</Box>;
         `}
       />
       <MainSection.Card
@@ -158,28 +158,28 @@ card(
         Plan for the timing of your Upsells with new product launches. Try to create different messages for each time an Upsell appears to the user.
         `}
         defaultCode={`
-          <Flex gap={4} direction="column">
-            <Upsell
-              title="Measure ad performance"
-              message="Install the Pinterest tag to track your website traffic, conversions and more."
-              primaryAction={{label: "Install now"}}
-              dismissButton={{
-                accessibilityLabel: 'Dismiss banner',
-                onDismiss: ()=>{},
-              }}
-              imageData={{
-                component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32}/>
-              }}
-            />
-            <Upsell
-              imageData={{
-                component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32}/>
-              }}
-              title="So close! Finish installing your pinterest tag, get $10 in ads credit"
-              message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-              primaryAction={{label: "Claim now"}}
-            />
-          </Flex>
+<Flex gap={4} direction="column">
+  <Upsell
+    title="Measure ad performance"
+    message="Install the Pinterest tag to track your website traffic, conversions and more."
+    primaryAction={{ label: 'Install now' }}
+    dismissButton={{
+      accessibilityLabel: 'Dismiss banner',
+      onDismiss: () => {},
+    }}
+    imageData={{
+      component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
+    }}
+  />
+  <Upsell
+    imageData={{
+      component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
+    }}
+    title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+    message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
+    primaryAction={{ label: 'Claim now' }}
+  />
+</Flex>;
         `}
       />
       <MainSection.Card
@@ -189,18 +189,18 @@ card(
           Use Upsells for critical information, such as errors or warnings. Use [Callout](/Callout) instead. Upsells should not be used for general information either.
         `}
         defaultCode={`
-          <Upsell
-            title="Could not link account"
-            message="There was a problem connecting your account."
-            primaryAction={{label: "Try again"}}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
-              onDismiss: ()=>{},
-            }}
-            imageData={{
-              component: <Icon icon="warning" accessibilityLabel="Warning" color="darkGray" size={32}/>
-            }}
-          />
+<Upsell
+  title="Could not link account"
+  message="There was a problem connecting your account."
+  primaryAction={{ label: 'Try again' }}
+  dismissButton={{
+    accessibilityLabel: 'Dismiss banner',
+    onDismiss: () => {},
+  }}
+  imageData={{
+    component: <Icon icon="warning" accessibilityLabel="Warning" color="darkGray" size={32} />,
+  }}
+/>;
         `}
       />
       <MainSection.Card
@@ -210,42 +210,42 @@ card(
         Stack Upsells on a page. In the case that they must be stacked, [Callouts](/Callout) will appear above Upsells.
         `}
         defaultCode={`
-          <Box>
-            <Box marginBottom={4} display="flex" alignItems="center">
-              <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
-              <ButtonGroup>
-                <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
-              </ButtonGroup>
-            </Box>
-            <Divider/>
-            <Box marginTop={8}>
-              <Flex gap={2} direction="column">
-                <Upsell
-                  imageData={{
-                    component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32}/>
-                  }}
-                  title="So close! Finish installing your pinterest tag, get $10 in ads credit"
-                  message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-                  primaryAction={{label: "Claim now"}}
-                />
-                <Upsell
-                  title="Give $30, get $60 in ads credit"
-                  message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-                  primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
-                  dismissButton={{
-                    accessibilityLabel: 'Dismiss banner',
-                    onDismiss: ()=>{},
-                  }}
-                  imageData={{
-                    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
-                  }}
-                />
-              </Flex>
-            </Box>
-          </Box>
+<Box>
+  <Box marginBottom={4} display="flex" alignItems="center">
+    <Icon accessibilityLabel="" icon="pinterest" color="red" size={32} />
+    <ButtonGroup>
+      <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
+      <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
+      <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
+      <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
+    </ButtonGroup>
+  </Box>
+  <Divider />
+  <Box marginTop={8}>
+    <Flex gap={2} direction="column">
+      <Upsell
+        imageData={{
+          component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
+        }}
+        title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+        message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
+        primaryAction={{ label: 'Claim now' }}
+      />
+      <Upsell
+        title="Give $30, get $60 in ads credit"
+        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
+        imageData={{
+          component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
+        }}
+      />
+    </Flex>
+  </Box>
+</Box>;
         `}
       />
       <MainSection.Card
@@ -255,32 +255,32 @@ card(
         Keep showing the same Upsell once it has been dismissed. Upsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
         defaultCode={`
-        <Flex gap={4} direction="column">
-          <Upsell
-            title="Measure ad performance"
-            message="Install the Pinterest tag to track your website traffic, conversions and more."
-            primaryAction={{label: "Install now"}}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
-              onDismiss: ()=>{},
-            }}
-            imageData={{
-              component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32}/>
-            }}
-          />
-          <Upsell
-            title="Measure ad performance"
-            message="Install the Pinterest tag to track your website traffic, conversions and more."
-            primaryAction={{label: "Install now"}}
-            dismissButton={{
-              accessibilityLabel: 'Dismiss banner',
-              onDismiss: ()=>{},
-            }}
-            imageData={{
-              component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32}/>
-            }}
-          />
-        </Flex>
+<Flex gap={4} direction="column">
+  <Upsell
+    title="Measure ad performance"
+    message="Install the Pinterest tag to track your website traffic, conversions and more."
+    primaryAction={{ label: 'Install now' }}
+    dismissButton={{
+      accessibilityLabel: 'Dismiss banner',
+      onDismiss: () => {},
+    }}
+    imageData={{
+      component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
+    }}
+  />
+  <Upsell
+    title="Measure ad performance"
+    message="Install the Pinterest tag to track your website traffic, conversions and more."
+    primaryAction={{ label: 'Install now' }}
+    dismissButton={{
+      accessibilityLabel: 'Dismiss banner',
+      onDismiss: () => {},
+    }}
+    imageData={{
+      component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
+    }}
+  />
+</Flex>;
         `}
       />
     </MainSection.Subsection>
@@ -307,15 +307,20 @@ card(
 <Upsell
   title="Give $30, get $60 in ads credit"
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{href: "https://pinterest.com", label: "Send invite", accessibilityLabel: "Invite friend to use ads", target: "blank"}}
+  primaryAction={{
+    href: 'https://pinterest.com',
+    label: 'Send invite',
+    accessibilityLabel: 'Invite friend to use ads',
+    target: 'blank',
+  }}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
+    onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
+    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
   }}
-/>
+/>;
         `}
       />
     </MainSection.Subsection>
@@ -333,12 +338,16 @@ card(
         defaultCode={`
 <Upsell
   imageData={{
-    component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32}/>
+    component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
   }}
   title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
   message="Verfolgen Sie die Anzeigenkonvertierung - Umsatz, Traffic und mehr - mit dem Pinterest Tag"
-  primaryAction={{label: "Beanspruche jetzt", accessibilityLabel: "Beanspruche Guthaben jetzt", target: "blank"}}
-/>
+  primaryAction={{
+    label: 'Beanspruche jetzt',
+    accessibilityLabel: 'Beanspruche Guthaben jetzt',
+    target: 'blank',
+  }}
+/>;
         `}
       />
     </MainSection.Subsection>
@@ -358,9 +367,9 @@ card(
   message="Single line Upsell with no title or call to action."
   dismissButton={{
     accessibilityLabel: 'Dismiss this banner',
-    onDismiss: ()=>{},
+    onDismiss: () => {},
   }}
-/>
+/>;
 `}
       />
     </MainSection.Subsection>
@@ -374,16 +383,21 @@ card(
 <Upsell
   title="Give $30, get $60 in ads credit"
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{href: "https://pinterest.com", label: "Send invite", accessibilityLabel: "Invite friend to use ads", target: "blank"}}
+  primaryAction={{
+    href: 'https://pinterest.com',
+    label: 'Send invite',
+    accessibilityLabel: 'Invite friend to use ads',
+    target: 'blank',
+  }}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
+    onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
+    component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
   }}
-/>
-`}
+/>;
+        `}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -396,33 +410,39 @@ card(
 <Upsell
   title="Stay healthy and safe"
   message="Check out our resources for adapting to these times."
-  primaryAction={{href: "https://pinterest.com", label: "Visit", accessibilityLabel: "Visit our Stay Safe resources", target: "blank"}}
+  primaryAction={{
+    href: 'https://pinterest.com',
+    label: 'Visit',
+    accessibilityLabel: 'Visit our Stay Safe resources',
+    target: 'blank',
+  }}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
-    onDismiss: ()=>{},
+    onDismiss: () => {},
   }}
   imageData={{
-      component:
-        <Image
-          alt=""
-          color="rgb(231, 186, 176)"
-          naturalHeight={751}
-          naturalWidth={564}
-          src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-        />,
-        mask: {rounding: 4},
-      width: 128,
-    }}
-/>
+    component: (
+      <Image
+        alt=""
+        color="rgb(231, 186, 176)"
+        naturalHeight={751}
+        naturalWidth={564}
+        src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+      />
+    ),
+    mask: { rounding: 4 },
+    width: 128,
+  }}
+/>;
         `}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Actions"
       description={`
-      Upsells can have either one primary action, or a primary action and a secondary action. These actions can be Buttons, when no \`href\` is supplied, or Links, by specifying the \`href\`  property.
+      Upsells can have either one primary action, or a primary action and a secondary action. These actions can be buttons, when no \`href\` is supplied, or links, by specifying the \`href\`  property.
 
-      For example, “Learn more” may link to a separate documentation site, while “Send invite” could be a Button that opens a [Modal](/Modal) with an invite flow. Be sure to localize the labels of the actions.`}
+      For example, “Learn more” may link to a separate documentation site, while “Send invite” could be a button that opens a [Modal](/Modal) with an invite flow. Be sure to localize the labels of the actions.`}
     >
       <MainSection.Card
         cardSize="lg"
@@ -436,18 +456,20 @@ function Example(props) {
         title="Give $30, get $60 in ads credit"
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{
-          label: "Send invite",
-          onClick: () => { setShowModal(!showModal) }
+          label: 'Send invite',
+          onClick: () => {
+            setShowModal(!showModal);
+          },
         }}
         secondaryAction={{
-          href: "https://help.pinterest.com/en/business/article/verified-merchant-program",
-          label: "Learn more",
-          target: "blank",
-          accessibilityLabel: "Learn more: Verified Merchant Program"
+          href: 'https://help.pinterest.com/en/business/article/verified-merchant-program',
+          label: 'Learn more',
+          target: 'blank',
+          accessibilityLabel: 'Learn more: Verified Merchant Program',
         }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
-          onDismiss: ()=>{},
+          onDismiss: () => {},
         }}
       />
       {showModal && (
@@ -456,15 +478,23 @@ function Example(props) {
             accessibilityModalLabel="Invite a friend to the Verified Merchant Program"
             heading="Verified Merchant Program Invitation"
             subHeading="When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too."
-            onDismiss={() => { setShowModal(!showModal) }}
+            onDismiss={() => {
+              setShowModal(!showModal);
+            }}
             footer={
               <Flex flex="grow" justifyContent="end">
-                  <ButtonGroup>
-                    <Button text="Cancel" inline onClick={() => { setShowModal(!showModal) }} size="lg" />
-                    <Button color="red" inline text="Send invite" size="lg" />
-                  </ButtonGroup>
+                <ButtonGroup>
+                  <Button
+                    text="Cancel"
+                    inline
+                    onClick={() => {
+                      setShowModal(!showModal);
+                    }}
+                    size="lg"
+                  />
+                  <Button color="red" inline text="Send invite" size="lg" />
+                </ButtonGroup>
               </Flex>
-
             }
             size="md"
           >
@@ -528,11 +558,11 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-      **[Callout](/callout)**
+      **[Callout](/Callout)**
       Use Callout when communicating critical information, such as an error or warning. Callout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
 
-      **[Toast](/toast)**
-      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and typically disappear after a certain duration.
+      **[Toast](/Toast)**
+      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
       **[ActivationCard](/ActivationCard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
