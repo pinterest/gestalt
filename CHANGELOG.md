@@ -1,3 +1,9 @@
+## 19.1.1 (Mar 3, 2021)
+
+### Patch
+
+- Docs: Add Feedback Callout component for docs (#1405)
+
 ## 19.1.0 (Mar 3, 2021)
 
 ### Minor
