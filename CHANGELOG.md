@@ -1,3 +1,9 @@
+## 19.1.0 (Mar 3, 2021)
+
+### Minor
+
+- Icon: update Dash icon (#1407)
+
 ## 19.0.0 (Mar 2, 2021)
 
 ### Major
