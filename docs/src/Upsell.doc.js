@@ -3,9 +3,14 @@ import React, { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
+
+card(
+  <FeedbackCallout link="https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=Upsell" />,
+);
 
 card(
   <PageHeader
@@ -15,7 +20,7 @@ card(
     <Upsell
       title="Give $30, get $60 in ads credit"
       message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-      primaryAction={{href: "https://pinterest.com", label: "Send invite"}}
+      primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
       dismissButton={{
         accessibilityLabel: 'Dismiss banner',
         onDismiss: ()=>{},
@@ -36,7 +41,7 @@ card(
         type: 'string',
         required: true,
         defaultValue: null,
-        description: `Main content of Upsell, explains what is being offered or recommended. Content should be [localized](/Localization). See [Best Practices](#Best-practices) for more info.`,
+        description: `Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.`,
       },
       {
         name: 'dismissButton',
@@ -44,7 +49,7 @@ card(
         required: false,
         defaultValue: null,
         description: `
-        Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#accessibility)
+        Adds a dismiss button to the Upsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility)
         `,
       },
       {
@@ -53,9 +58,8 @@ card(
           '{| component: typeof Image | typeof Icon, width?: number, mask: { rounding: "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8, wash: boolean} |}',
         required: false,
         defaultValue: null,
-        description: [
-          'Either an [Icon](/icon) or an [Image](/image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
-        ],
+        description:
+          'Either an [Icon](/Icon) or an [Image](/Image) to render at the start of the banner. Width is not used with Icon. Image width defaults to 128px. See the [Icon](#Icon) and [Image](#Image) variants for more info.',
       },
       {
         name: 'primaryAction',
@@ -84,7 +88,7 @@ card(
         type: 'string',
         required: false,
         defaultValue: null,
-        description: `Brief title summarizing the Upsell. Content should be [localized](/Localization).`,
+        description: `Brief title summarizing the Upsell. Content should be [localized](#Localization).`,
       },
     ]}
   />,
@@ -101,7 +105,7 @@ card(
           <Upsell
             title="Give $30, get $60 in ads credit"
             message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-            primaryAction={{href: "https://pinterest.com", label: "Send invite"}}
+            primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
             dismissButton={{
               accessibilityLabel: 'Dismiss banner',
               onDismiss: ()=>{},
@@ -116,7 +120,7 @@ card(
         cardSize="lg"
         type="do"
         description={`
-        Place the Upsell at the top of the page under the primary navigation when possible.
+        Place Upsell at the top of the page under the primary navigation when possible.
         `}
         defaultCode={`
           <Box>
@@ -134,7 +138,7 @@ card(
             <Upsell
               title="Give $30, get $60 in ads credit"
               message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-              primaryAction={{href: "https://pinterest.com", label: "Send invite"}}
+              primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',
                 onDismiss: ()=>{},
@@ -154,32 +158,28 @@ card(
         Plan for the timing of your Upsells with new product launches. Try to create different messages for each time an Upsell appears to the user.
         `}
         defaultCode={`
-          <Box>
-            <Box marginBottom={4} display="flex" alignItems="center">
-              <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
-              <ButtonGroup>
-                <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
-              </ButtonGroup>
-            </Box>
-            <Divider/>
-            <Box marginTop={8}>
+          <Flex gap={4} direction="column">
             <Upsell
-              title="Give $30, get $60 in ads credit"
-              message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-              primaryAction={{href: "https://pinterest.com", label: "Send invite"}}
+              title="Measure ad performance"
+              message="Install the Pinterest tag to track your website traffic, conversions and more."
+              primaryAction={{label: "Install now"}}
               dismissButton={{
                 accessibilityLabel: 'Dismiss banner',
                 onDismiss: ()=>{},
               }}
               imageData={{
-                component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32}/>
+                component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32}/>
               }}
             />
-            </Box>
-          </Box>
+            <Upsell
+              imageData={{
+                component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32}/>
+              }}
+              title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+              message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
+              primaryAction={{label: "Claim now"}}
+            />
+          </Flex>
         `}
       />
       <MainSection.Card
@@ -234,7 +234,7 @@ card(
                 <Upsell
                   title="Give $30, get $60 in ads credit"
                   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-                  primaryAction={{href: "https://pinterest.com", label: "Send invite"}}
+                  primaryAction={{href: "https://pinterest.com", label: "Send invite", target: "blank"}}
                   dismissButton={{
                     accessibilityLabel: 'Dismiss banner',
                     onDismiss: ()=>{},
@@ -255,41 +255,32 @@ card(
         Keep showing the same Upsell once it has been dismissed. Upsells should only appear a maximum of 2 times to the same user, as they have diminishing returns.
         `}
         defaultCode={`
-          <Box>
-            <Box marginBottom={4} display="flex" alignItems="center">
-              <Icon accessibilityLabel="" icon="pinterest" color="red" size={32}/>
-              <ButtonGroup>
-                <Button color="transparent" iconEnd="arrow-down" text="Business" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Create" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Analytics" inline />
-                <Button color="transparent" iconEnd="arrow-down" text="Ads" inline />
-              </ButtonGroup>
-            </Box>
-            <Divider/>
-            <Box marginTop={8}>
-              <Flex gap={2} direction="column">
-                <Upsell
-                  imageData={{
-                    component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32}/>
-                  }}
-                  title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
-                  message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
-                  primaryAction={{label: "Claim now"}}
-                />
-                <Callout
-                  type="info"
-                  iconAccessibilityLabel="Info"
-                  title="We have not yet detected your tag"
-                  message="It may take up to 10 minutes to automatically detect a newly installed tag. If you'd like to manually verify your tag, please click the Verify Tag button."
-                  primaryAction={{label: "Verify Tag"}}
-                  dismissButton={{
-                    accessibilityLabel: 'Dismiss this banner',
-                    onDismiss: ()=>{},
-                  }}
-                />
-              </Flex>
-            </Box>
-          </Box>
+        <Flex gap={4} direction="column">
+          <Upsell
+            title="Measure ad performance"
+            message="Install the Pinterest tag to track your website traffic, conversions and more."
+            primaryAction={{label: "Install now"}}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss banner',
+              onDismiss: ()=>{},
+            }}
+            imageData={{
+              component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32}/>
+            }}
+          />
+          <Upsell
+            title="Measure ad performance"
+            message="Install the Pinterest tag to track your website traffic, conversions and more."
+            primaryAction={{label: "Install now"}}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss banner',
+              onDismiss: ()=>{},
+            }}
+            imageData={{
+              component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32}/>
+            }}
+          />
+        </Flex>
         `}
       />
     </MainSection.Subsection>
@@ -316,7 +307,7 @@ card(
 <Upsell
   title="Give $30, get $60 in ads credit"
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{href: "https://pinterest.com", label: "Send invite", accessibilityLabel: "Invite friend to use ads"}}
+  primaryAction={{href: "https://pinterest.com", label: "Send invite", accessibilityLabel: "Invite friend to use ads", target: "blank"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -346,7 +337,7 @@ card(
   }}
   title="Fast fertig! Beenden Sie die Installation Ihres Pinterest-Tags und erhalten Sie ein Guthaben von 10 Euro"
   message="Verfolgen Sie die Anzeigenkonvertierung - Umsatz, Traffic und mehr - mit dem Pinterest Tag"
-  primaryAction={{label: "Beanspruche jetzt", accessibilityLabel: "Beanspruche Guthaben jetzt"}}
+  primaryAction={{label: "Beanspruche jetzt", accessibilityLabel: "Beanspruche Guthaben jetzt", target: "blank"}}
 />
         `}
       />
@@ -383,7 +374,7 @@ card(
 <Upsell
   title="Give $30, get $60 in ads credit"
   message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-  primaryAction={{href: "https://pinterest.com", label: "Send invite", accessibilityLabel: "Invite friend to use ads"}}
+  primaryAction={{href: "https://pinterest.com", label: "Send invite", accessibilityLabel: "Invite friend to use ads", target: "blank"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
@@ -405,7 +396,7 @@ card(
 <Upsell
   title="Stay healthy and safe"
   message="Check out our resources for adapting to these times."
-  primaryAction={{href: "https://pinterest.com", label:"Visit", accessibilityLabel: "Visit our Stay Safe resources"}}
+  primaryAction={{href: "https://pinterest.com", label: "Visit", accessibilityLabel: "Visit our Stay Safe resources", target: "blank"}}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: ()=>{},
