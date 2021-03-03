@@ -41,7 +41,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description={`Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+        description="Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
         defaultCode={`
 Code for this example goes here
 `}
@@ -50,7 +50,7 @@ Code for this example goes here
         cardSize="md"
         type="don't"
         description={`
-          What not to do goes \`here\`. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")
+          What not to do goes \`here\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
         `}
         defaultCode={`
 Code for this example goes here
@@ -60,7 +60,7 @@ Code for this example goes here
         cardSize="md"
         type="do"
         description={`
-        Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")
+        Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
 
         - You do not need code for these
         - You can instead use bulleted lists of Dos
@@ -73,21 +73,21 @@ Code for this example goes here
 card(
   <MainSection
     name="Accessibility"
-    description={`\`Accessibility\` guidelines go here. Can also include SubSections and Cards for detailed examples (see Box). Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+    description={`\`Accessibility\` guidelines go here. Can also include SubSections and Cards for detailed examples (see Box). Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
   />,
 );
 
 card(
   <MainSection
     name="Localization"
-    description={`\`Localization\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+    description={`\`Localization\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
   />,
 );
 
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
       title="Variant name (sentence case)"
     >
       <MainSection.Card
@@ -99,7 +99,7 @@ Code for this example goes here
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
       title="Variant name (sentence case)"
     >
       <MainSection.Card
@@ -112,7 +112,7 @@ Code for this example goes here
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/")`}
+      description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
       title="Variant using CombinationNew"
     >
       <CombinationNew
@@ -149,7 +149,7 @@ Code for this example goes here
 card(
   <MainSection
     name="Writing"
-    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown]("https://www.markdownguide.org/"). Can also use Do/Don't cards without any code (like Tooltip)`}
+    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/). Can also use Do/Don't cards without any code (like Tooltip)`}
   />,
 );
 

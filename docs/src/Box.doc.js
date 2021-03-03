@@ -317,7 +317,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
       <MainSection.Card
         cardSize="md"
         type="do"
-        description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing]("https://css-tricks.com/what-you-should-know-about-collapsing-margins/"). `}
+        description={`When addressing the spacing of the Box, use padding before you use margins, as padding will compose better and won't collapse. Padding is applied in 4px increments and is always symmetric. Learn more about [margin collapsing](https://css-tricks.com/what-you-should-know-about-collapsing-margins/).`}
         defaultCode={`
 <Box>
   <Box marginTop={4} color="blue" width={200} height={50}>
@@ -360,7 +360,7 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule]("https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-dangerous-style-duplicates.js") to prevent this from happening.`}
+        description={`Avoid using arbitrary \`<div>\` elements. Instead, when building a component, prioritize using Box. If you need to set a custom style, you can do so using the \`dangerouslySetInlineStyle\` prop. However, this should be avoided whenever possible by utilizing the other props provided in Box. We provide a [lint rule](https://github.com/pinterest/gestalt/blob/master/packages/eslint-plugin-gestalt/src/no-dangerous-style-duplicates.js) to prevent this from happening.`}
         defaultCode={`
 function MenuButtonExample() {
   const firstBoxHeight = 50;
@@ -433,7 +433,7 @@ card(
       description={`
     Setting the  \`role\` property on Box classifies the Box as the semantically appropriate HTML element. For example, setting \`role="banner"\` will designate that Box to be the equivalent of a \`<header>\` within the page, allowing assistive technology to classify the Box appropriately.
 
-    Using the \`role\` property can prevent an excess of generic \`<div>s\` and give the user better context. Learn more about [ARIA roles]("https://www.w3.org/TR/wai-aria/#usage_intro").
+    Using the \`role\` property can prevent an excess of generic \`<div>s\` and give the user better context. Learn more about [ARIA roles](https://www.w3.org/TR/wai-aria/#usage_intro).
   `}
     >
       <MainSection.Card
