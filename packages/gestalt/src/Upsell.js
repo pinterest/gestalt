@@ -21,7 +21,7 @@ import {
 } from './commonTypes.js';
 
 type Props = {|
-  children?: Node,
+  children?: Element<typeof UpsellForm>,
   dismissButton?: DismissButtonType,
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
