@@ -1,16 +1,37 @@
 // @flow strict
 import React, { type Node } from 'react';
-import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
 card(
+  <FeedbackCallout link="https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=SelectList" />,
+);
+
+card(
   <PageHeader
     name="SelectList"
-    description={`Use a \`SelectList\` when you have four or more items you want a user to choose from.`}
+    description={`
+    SelectList displays a list of actions or options using the browser’s native select.`}
+    defaultCode={`
+      <Flex>
+          <SelectList
+            id="selectlistexample"
+            onChange={() => {}}
+            options={[
+              {label:'Austin', value: 'austin'},
+              {label:'Los Angeles', value: 'la'},
+              {label:'New York', value: 'nyc'},
+              {label:'San Francisco', value: 'sf'},
+              {label:'Seattle', value: 'seattle'},
+            ]}
+          />
+      </Flex>
+    `}
   />,
 );
 
@@ -20,62 +41,73 @@ card(
       {
         name: 'disabled',
         type: 'boolean',
+        description: `Used to disable the entire SelectList. See the [states](#States) variant to learn more.`,
         defaultValue: 'false',
       },
       {
         name: 'errorMessage',
         type: 'string',
+        description: `Used to communicate error information to the user. Be sure to localize the text. See the [states](#States) variant to learn more.`,
         href: 'exampleWithError',
       },
       {
         name: 'helperText',
         type: 'string',
-        description: 'More information about how to complete the form field',
+        description: `Used to provide more information about the form field. Be sure to localize the text. See the [helper text](#Helper-text) variant to learn more.`,
         href: 'helperText',
       },
       {
         name: 'id',
         type: 'string',
+        description:
+          'A unique identifier to connect the underlying `<select>` with the associated label',
         required: true,
         href: 'basicExample',
       },
       {
         name: 'label',
         type: 'string',
+        description: 'The label shown above the input. Be sure to localize the label.',
       },
       {
         name: 'name',
         type: 'string',
+        description: 'Used to specify the name of the control.',
         href: 'basicExample',
       },
       {
         name: 'onChange',
-        type: '({ event: SyntheticInputEvent<>, value: string }) => void',
+        type: '({| event: SyntheticInputEvent<>, value: string |}) => void',
+        description: 'Callback triggered when the user makes any changes',
         required: true,
         href: 'basicExample',
       },
       {
         name: 'options',
-        type: 'Array<{ label: string, value: string, disabled?: boolean }>',
+        type: 'Array<{| label: string, value: string, disabled?: boolean |}>',
+        description:
+          'The options displayed in the dropdown list. Note that ``disabled`` here is used to disable a single option. Be sure to localize the label.',
         required: true,
         href: 'basicExample',
       },
       {
         name: 'placeholder',
         type: 'string',
+        description:
+          'If not provided, the first item in the list will be shown. Be sure to localize the text.',
         href: 'basicExample',
       },
       {
         name: 'size',
         type: '"md" | "lg"',
         required: false,
-        description: 'md: 40px, lg: 48px',
+        description: `md: 40px, lg: 48px. See the [size](#Size) variant to learn more.`,
         defaultValue: 'md',
       },
       {
         name: 'value',
         type: 'string',
-        description: 'Value that is selected.',
+        description: 'The currently-selected value',
         href: 'basicExample',
       },
     ]}
@@ -83,122 +115,295 @@ card(
 );
 
 card(
-  <Example
-    id="basicExample"
-    name="Example"
-    description={`Make sure to attach a \`Label\` to every SelectList.`}
-    defaultCode={`
-function Example(props) {
-  const [city, setCity] = React.useState('la')
-  const cityOptions = [
-    {
-      value: "bos",
-      label: "Boston"
-    },
-    {
-      value: "la",
-      label: "Los Angeles"
-    },
-    {
-      value: "sf",
-      label: "San Francisco"
-    }
-  ];
-  return (
-    <SelectList
-      id="city"
-      name="city"
-      onChange={({ value }) => setCity(value)}
-      options={cityOptions}
-      placeholder="Select city"
-      label="City"
-      value={city}
-    />
-  );
-}
-    `}
-  />,
-);
-
-card(
-  <Example
-    id="helperText"
-    name="Example: Helper Text"
-    description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
-    defaultCode={`
-function Example(props) {
-  const [country, setCountry] = React.useState('belgium')
-  const countries = [
-    {
-      value: "belgium",
-      label: "Belgium"
-    },
-    {
-      value: "france",
-      label: "France"
-    },
-    {
-      value: "usa",
-      label: "USA"
-    }
-  ];
-  return (
-    <Box padding={2} color="white">
-      <SelectList
-        id="country"
-        name="country"
-        onChange={({ value }) => setCountry(value)}
-        options={countries}
-        placeholder="Select country"
-        label="Country"
-        helperText="Pick your favourite country (the one with the best fries)"
-        value={country}
+  <MainSection name="Best practices">
+    <MainSection.Subsection>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Use SelectList when the user needs to select from a simple list of items."
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label:'Austin', value: 'austin'},
+    {label:'Los Angeles', value: 'la'},
+    {label:'New York', value: 'nyc'},
+    {label:'San Francisco', value: 'sf'},
+    {label:'Seattle', value: 'seattle'},
+  ]}
+  label='City'
+/>`}
       />
-    </Box>
-  );
-}
-`}
-  />,
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description="Use SelectList when additional functionality such as subtext or images are needed. Use Dropdown instead."
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label:'List item 1', value: 'Value'},
+    {label:'I want to put an image here, but I can’t :( ', value: 'Value'},
+    {label:'List item 3', value: 'Value'},
+    {label:'List item 4', value: 'Value'},
+    {label:'List item 5', value: 'Value'},
+  ]}
+  label=''
+/>`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Order the list items in SelectList either alphabetically or by usage."
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label:'Alberto', value: 'alberto'},
+    {label:'Annie', value: 'annie'},
+    {label:'Ashley', value: 'ashley'},
+    {label:'Ayesha', value: 'ayesha'},
+    {label:'Ryan', value: 'ryan'},
+  ]}
+  label='People who are awesome'
+/>`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use RadioButtons instead."
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label:'No', value: 'no'},
+    {label:'Absolutely not', value: 'noagain'},
+  ]}
+  label='Is this a good use of a SelectList?'
+/>`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use Dropdown, use Dropdown for all the items in the group."
+        defaultCode={`
+<Flex>
+  <SelectList
+    id="selectlistexample"
+    onChange={() => {}}
+    options={[
+      {label:'Filter value 1', value: 'fv11'},
+      {label:'Filter value 2', value: 'fv12'},
+    ]}
+    placeholder='Filter 1'
+  />
+  <SelectList
+    id="selectlistexample"
+    onChange={() => {}}
+    options={[
+      {label:'Filter value 1', value: 'fv21'},
+      {label:'Filter value 2', value: 'fv22'},
+    ]}
+    placeholder='Filter 2'
+  />
+</Flex>`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description="Mix Dropdown and SelectList in a group of items."
+        defaultCode={`
+<Flex>
+  <SelectList
+    id="selectlistexample"
+    onChange={() => {}}
+    options={[
+      {label:'Filter value 1', value: 'fv11'},
+      {label:'Filter value 2', value: 'fv12'},
+    ]}
+    placeholder='SelectList'
+  />
+  <Button
+    accessibilityControls="basic-dropdown-example"
+    accessibilityHaspopup
+    iconEnd="arrow-down"
+    text="Dropdown"
+    inline
+  />
+</Flex>`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
-  <Example
-    id="exampleWithError"
-    name="Example: With Error Message"
-    description={`SelectList can display error messages if you'd like.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present.`}
-    defaultCode={`
-function Example(props) {
-  const [hobby, setHobby] = React.useState('sailing')
-  const hobbies = [
-    {
-      value: "sailing",
-      label: "Sailing"
-    },
-    {
-      value: "skiing",
-      label: "Skiing"
-    },
-    {
-      value: "cycling",
-      label: "Cycling"
-    }
-  ];
-  return (
-    <SelectList
-      id="hobby"
-      name="hobby"
-      errorMessage={ hobby === 'sailing' ? 'Sailing is not a hobby, it is a passion' : null}
-      onChange={({ value }) => setHobby(value)}
-      options={hobbies}
-      placeholder="Select hobby"
-      label="Hobby"
-      value={hobby}
+  <MainSection name="Accessibility">
+    <MainSection.Subsection
+      title="Labels"
+      description={`
+      SelectList comes with Label built-in: just use the \`label\` prop. Be sure to provide a unique id so the Label is associated with the correct SelectList.`}
     />
-  );
-}
-    `}
-  />,
+  </MainSection>,
 );
 
+card(
+  <MainSection name="Variants">
+    <MainSection.Subsection title="Size">
+      <MainSection.Card
+        cardSize="md"
+        title="Large"
+        description={`Use \`lg\` as the default size within Pinterest products.`}
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Austin', value: 'austin'},
+          {label:'Los Angeles', value: 'la'},
+          {label:'New York', value: 'nyc'},
+          {label:'San Francisco', value: 'sf'},
+          {label:'Seattle', value: 'seattle'},
+        ]}
+        size='lg'
+      />`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        title="Medium"
+        description={`Use \`md\` on denser surfaces, such as Business products or internal tools.`}
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Austin', value: 'austin'},
+          {label:'Los Angeles', value: 'la'},
+          {label:'New York', value: 'nyc'},
+          {label:'San Francisco', value: 'sf'},
+          {label:'Seattle', value: 'seattle'},
+        ]}
+        size='md'
+      />`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Helper text"
+      description="Helper text should be used when additional description may be required to understand the SelectList. Most commonly, this could be text that is legally required to be displayed, or instructions to fill out a form (e.g. proper formatting). If the text is optional, Tooltip could be used instead."
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Belgium', value: 'belgium'},
+          {label:'Brazil', value: 'brazil'},
+          {label:'Japan', value: 'japan'},
+          {label:'New Zealand', value: 'newzealand'},
+          {label:'Tanzania', value: 'tanzania'},
+          {label:'United States', value: 'usa'},
+        ]}
+        label='Country'
+        helperText='Pick your favorite country (the one with the best fries)'
+      />`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="States">
+    <MainSection.Subsection>
+      <MainSection.Card
+        cardSize="lg"
+        title="Default"
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Austin', value: 'austin'},
+          {label:'Los Angeles', value: 'la'},
+          {label:'New York', value: 'nyc'},
+          {label:'San Francisco', value: 'sf'},
+          {label:'Seattle', value: 'seattle'},
+        ]}
+        label='City'
+      />`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        title="Focused"
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Austin', value: 'austin'},
+          {label:'Los Angeles', value: 'la'},
+          {label:'New York', value: 'nyc'},
+          {label:'San Francisco', value: 'sf'},
+          {label:'Seattle', value: 'seattle'},
+        ]}
+        label='City'
+        focus
+      />`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        title="Error"
+        description={`Use \`errorMessage\` to pass in a description of the error in SelectList.`}
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Basketweaving', value: 'basketweaving'},
+          {label:'Bird watching', value: 'birdwatching'},
+          {label:'Comic books', value: 'comicbooks'},
+          {label:'Juggling', value: 'juggling'},
+          {label:'Sailing', value: 'sailing'},
+        ]}
+        value='sailing'
+        label='Hobby'
+        errorMessage='Sailing is not a hobby, it is a passion'
+      />`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        title="Disabled"
+        defaultCode={`<SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Austin', value: 'austin'},
+          {label:'Los Angeles', value: 'la'},
+          {label:'New York', value: 'nyc'},
+          {label:'San Francisco', value: 'sf'},
+          {label:'Seattle', value: 'seattle'},
+        ]}
+        label='City'
+        disabled={true}
+      />`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+**[Dropdown](/Dropdown)**
+If additional functionality is needed in the menu, such as subtext, headers or custom styling, use Dropdown.
+
+**[Typeahead](/Typeahead)**
+If users need the ability to choose an option by entering text to filter a long list of options, use Typeahead.
+`}
+    />
+  </MainSection>,
+);
 export default cards;
