@@ -582,7 +582,9 @@ function OnNavigation() {
           {...linkProps}
           accessibilityLabel="Link IconButton"
           icon="visit"
+          iconColor="darkGray"
           role="link"
+          size="lg"
         />
       </Flex>
     </Provider>

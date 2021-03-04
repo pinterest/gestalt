@@ -168,7 +168,9 @@ function OnNavigation() {
             {...linkProps}
             accessibilityLabel="Link IconButton"
             icon="visit"
+            iconColor="darkGray"
             role="link"
+            size="lg"
           />
           <Box width={100}>
             <TapArea
