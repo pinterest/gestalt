@@ -48,13 +48,11 @@ card(
         name: 'errorMessage',
         type: 'string',
         description: `Used to communicate error information to the user. Be sure to localize the text. See the [states](#States) variant to learn more.`,
-        href: 'exampleWithError',
       },
       {
         name: 'helperText',
         type: 'string',
         description: `Used to provide more information about the form field. Be sure to localize the text. See the [helper text](#Helper-text) variant to learn more.`,
-        href: 'helperText',
       },
       {
         name: 'id',
@@ -62,7 +60,6 @@ card(
         description:
           'A unique identifier to connect the underlying `<select>` with the associated label',
         required: true,
-        href: 'basicExample',
       },
       {
         name: 'label',
@@ -73,14 +70,12 @@ card(
         name: 'name',
         type: 'string',
         description: 'Used to specify the name of the control.',
-        href: 'basicExample',
       },
       {
         name: 'onChange',
         type: '({| event: SyntheticInputEvent<>, value: string |}) => void',
         description: 'Callback triggered when the user makes any changes',
         required: true,
-        href: 'basicExample',
       },
       {
         name: 'options',
@@ -88,14 +83,12 @@ card(
         description:
           'The options displayed in the dropdown list. Note that ``disabled`` here is used to disable a single option. Be sure to localize the label.',
         required: true,
-        href: 'basicExample',
       },
       {
         name: 'placeholder',
         type: 'string',
         description:
           'If not provided, the first item in the list will be shown. Be sure to localize the text.',
-        href: 'basicExample',
       },
       {
         name: 'size',
@@ -108,7 +101,6 @@ card(
         name: 'value',
         type: 'string',
         description: 'The currently-selected value',
-        href: 'basicExample',
       },
     ]}
   />,
