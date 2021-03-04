@@ -159,6 +159,7 @@ card(
         `}
         defaultCode={`
 <Flex gap={4} direction="column">
+  <Text>First Upsell:</Text>
   <Upsell
     title="Measure ad performance"
     message="Install the Pinterest tag to track your website traffic, conversions and more."
@@ -171,11 +172,12 @@ card(
       component: <Icon icon="ads-stats" accessibilityLabel="" color="darkGray" size={32} />,
     }}
   />
+  <Text>Follow-up Upsell:</Text>
   <Upsell
     imageData={{
       component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
     }}
-    title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+    title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
     message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
     primaryAction={{ label: 'Claim now' }}
   />
@@ -198,7 +200,7 @@ card(
     onDismiss: () => {},
   }}
   imageData={{
-    component: <Icon icon="warning" accessibilityLabel="Warning" color="darkGray" size={32} />,
+    component: <Icon icon="workflow-status-warning" accessibilityLabel="Warning" color="darkGray" size={32} />,
   }}
 />;
         `}
@@ -227,7 +229,7 @@ card(
         imageData={{
           component: <Icon icon="send" accessibilityLabel="" color="darkGray" size={32} />,
         }}
-        title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+        title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
         message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
         primaryAction={{ label: 'Claim now' }}
       />
