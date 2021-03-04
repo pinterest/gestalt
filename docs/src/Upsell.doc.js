@@ -154,7 +154,7 @@ card(
   imageData={{
       component:
         <Image
-          alt="Check out our resources for adapting to these times."
+          alt="Succulent plant against pink background"
           color="rgb(231, 186, 176)"
           naturalHeight={751}
           naturalWidth={564}
@@ -320,7 +320,7 @@ function Example(props) {
       <Upsell.Form
         onSubmit={(event) => {event.preventDefault();}}
         submitButtonText="Submit"
-        submitButtonAccessibilityLabel="Submit button"
+        submitButtonAccessibilityLabel="Submit name for ads credit"
       >
         <TextField
           id="nameField"
@@ -355,7 +355,7 @@ function Example(props) {
       imageData={{
         component:
           <Image
-            alt="Check out our resources for adapting to these times."
+            alt="Succulent plant against pink background"
             color="rgb(231, 186, 176)"
             naturalHeight={751}
             naturalWidth={564}
@@ -368,7 +368,7 @@ function Example(props) {
       <Upsell.Form
         onSubmit={(event) => {event.preventDefault();}}
         submitButtonText="Contact me"
-        submitButtonAccessibilityLabel="Submit button"
+        submitButtonAccessibilityLabel="Submit info for contact"
       >
         <Box display="block" smDisplay="flex">
           <Box
@@ -390,6 +390,7 @@ function Example(props) {
               id="email"
               onChange={({ value }) => setEmailValue(value)}
               placeholder="Email"
+              type="email"
               value={emailValue}
             />
           </Box>
