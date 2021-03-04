@@ -31,7 +31,7 @@ card(
       },
       {
         name: 'children',
-        type: 'React.Node',
+        type: 'typeof UpsellForm',
       },
       {
         name: 'dismissButton',
@@ -273,6 +273,7 @@ card(
       {
         name: 'children',
         type: 'React.Node',
+        required: true,
       },
       {
         name: 'onSubmit',
