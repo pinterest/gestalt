@@ -231,7 +231,7 @@ function OnNavigation() {
           <Text>Navigation type:</Text>
           <RadioButton
             checked={onNavigationMode === 'default'}
-            id="default2
+            id="default2"
             label="Default Link Navigation"
             name="default"
             onChange={() => setOnNavigationMode('default')}
