@@ -54,10 +54,10 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
     }
   >
     <div
-      className="box flexGrow itemsStart justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
+      className="box flexGrow itemsCenter justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box flexNone marginBottom4 marginTop0 smMarginBottom0 smMarginTop1"
+        className="box flexNone marginBottom4 smMarginBottom0"
         style={
           Object {
             "width": undefined,
@@ -251,7 +251,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
       className="box itemsCenter justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex"
     >
       <div
-        className="box flexNone marginBottom4 marginTop0 smMarginBottom0 smMarginTop0"
+        className="box flexNone marginBottom4 smMarginBottom0"
         style={
           Object {
             "width": undefined,

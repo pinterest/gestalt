@@ -117,7 +117,7 @@ export default function Upsell({
           direction="column"
           smDirection="row"
           justifyContent="center"
-          alignItems={children ? 'start' : 'center'}
+          alignItems="center"
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
@@ -126,8 +126,6 @@ export default function Upsell({
             <Box
               marginBottom={4}
               smMarginBottom={0}
-              marginTop={0}
-              smMarginTop={children ? 1 : 0}
               width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
               flex="none"
               alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
