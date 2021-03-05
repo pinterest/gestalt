@@ -13,7 +13,7 @@ import TypeaheadInputField from './TypeaheadInputField.js';
 import MenuOption, { type OptionObject } from './MenuOption.js';
 import Box from './Box.js';
 import Text from './Text.js';
-import Flyout from './Flyout.js';
+import Popover from './Popover.js';
 import Layer from './Layer.js';
 import Tag from './Tag.js';
 import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
@@ -234,14 +234,14 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
       {containerOpen && positioningRef.current && (
         <Layer zIndex={zIndex}>
-          <Flyout
+          <Popover
             showCaret={false}
             anchor={positioningRef.current}
             idealDirection="down"
             onDismiss={() => {}}
             positionRelativeToAnchor={false}
             size="flexible"
-            // Forces the flyout to re-render and adjust its position correctly
+            // Forces the popover to re-render and adjust its position correctly
             key={availableOptions.length}
           >
             <Box
@@ -279,7 +279,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                 )}
               </Box>
             </Box>
-          </Flyout>
+          </Popover>
         </Layer>
       )}
     </Box>

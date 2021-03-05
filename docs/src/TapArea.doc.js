@@ -583,7 +583,7 @@ function MenuButtonExample() {
       </TapArea>
       {selected && (
         <Layer>
-          <Flyout
+          <Popover
             anchor={anchorRef.current}
             idealDirection="down"
             onDismiss={() => setSelected(false)}
@@ -602,7 +602,7 @@ function MenuButtonExample() {
                 </Text>
               </Box>
             </Box>
-          </Flyout>
+          </Popover>
         </Layer>
       )}
     </React.Fragment>

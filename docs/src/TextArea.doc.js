@@ -171,24 +171,24 @@ card(
     id="refExample"
     name="Example: ref"
     description={`
-    A \`TextArea\` with an anchor ref to a Flyout component
+    A \`TextArea\` with an anchor ref to a Popover component
   `}
     defaultCode={`
-function TextAreaFlyoutExample() {
+function TextAreaPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
   return (
     <Box marginBottom={12}>
       <TextArea
         ref={anchorRef}
-        label="Focus the TextArea to show the Flyout"
+        label="Focus the TextArea to show the Popover"
         id="my-example"
         onChange={() => {}}
         onBlur={() => setOpen(false)}
         onFocus={() => setOpen(true)}
       />
       {open && (
-        <Flyout
+        <Popover
           anchor={anchorRef.current}
           idealDirection="down"
           onDismiss={() => setOpen(false)}
@@ -196,9 +196,9 @@ function TextAreaFlyoutExample() {
           size="md"
         >
           <Box padding={3}>
-            <Text weight="bold">Example with Flyout</Text>
+            <Text weight="bold">Example with Popover</Text>
           </Box>
-        </Flyout>
+        </Popover>
       )}
     </Box>
   );

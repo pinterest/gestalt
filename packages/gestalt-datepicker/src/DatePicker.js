@@ -70,7 +70,7 @@ const DatePickerWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> =
   useImperativeHandle(ref, () => innerRef.current);
 
   // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
-  // in the month and we need to keep the flyout pointed at the input correctly
+  // in the month and we need to keep the popover pointed at the input correctly
   const [selected, setSelected] = useState<?Date>(dateValue);
   const [, setMonth] = useState<?number>();
   const [format, setFormat] = useState<?string>();

@@ -838,8 +838,8 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Flyout](/Flyout)**
-Flyout displays a lightweight task related to the content on screen. One example of Flyout is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Flyouts offer broader content options, such as [Buttons](/Buttons) and [Images](/Images).
+**[Popover](/Popover)**
+Popover displays a lightweight task related to the content on screen. One example of Popover is the board picker, which allows people to choose the board to save a Pin to. While Tooltips are purely text-based, Popovers offer broader content options, such as [Buttons](/Buttons) and [Images](/Images).
 
 **[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
 ScrollBoundaryContainer is needed for proper positioning when Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Tooltip remains attached to its anchor when scrolling. See the [within scrolling containers](#Within-scrolling-containers) variant to learn more.

@@ -6,7 +6,7 @@ import type {
   Coordinates,
   Dimensions,
   EdgeShift,
-  FlyoutDir,
+  PopoverDir,
   MainDirections,
   Window,
   Offset,
@@ -122,31 +122,31 @@ export const getTriggerRect = ({
 };
 
 /**
- * Determines the main direction the flyout opens
+ * Determines the main direction the popover opens
  */
-export function getFlyoutDir({
-  flyoutSize,
+export function getPopoverDir({
+  popoverSize,
   idealDirection,
   triggerRect,
   windowSize,
   isScrollBoundaryContainer,
 }: {|
-  flyoutSize: Dimensions,
-  idealDirection: FlyoutDir,
+  popoverSize: Dimensions,
+  idealDirection: PopoverDir,
   triggerRect: ClientRect,
   windowSize: Window,
   isScrollBoundaryContainer?: boolean,
 |}): MainDirections {
-  // Calculates the available space if we were to place the flyout in the 4 main directions
-  // to determine which 'quadrant' to position the flyout inside of
-  let up = triggerRect.top - flyoutSize.height - CARET_HEIGHT;
-  let right = windowSize.width - flyoutSize.width - CARET_HEIGHT - triggerRect.right;
-  let down = windowSize.height - flyoutSize.height - CARET_HEIGHT - triggerRect.bottom;
-  let left = triggerRect.left - flyoutSize.width - CARET_HEIGHT;
+  // Calculates the available space if we were to place the popover in the 4 main directions
+  // to determine which 'quadrant' to position the popover inside of
+  let up = triggerRect.top - popoverSize.height - CARET_HEIGHT;
+  let right = windowSize.width - popoverSize.width - CARET_HEIGHT - triggerRect.right;
+  let down = windowSize.height - popoverSize.height - CARET_HEIGHT - triggerRect.bottom;
+  let left = triggerRect.left - popoverSize.width - CARET_HEIGHT;
 
   // TOO CLOSE TO EDGE overrides available space when the trigger is close to the edge of the screen
 
-  // TOP or BOTTOM: trigger is too close to top/bottom of screen for left & right flyouts
+  // TOP or BOTTOM: trigger is too close to top/bottom of screen for left & right popovers
   const nonTopEdge = triggerRect.top < BORDER_RADIUS;
   const nonBottomEdge = windowSize.height - triggerRect.bottom < BORDER_RADIUS;
   const nonLeftEdge = triggerRect.left < BORDER_RADIUS;
@@ -162,7 +162,7 @@ export function getFlyoutDir({
     right = 0;
   }
 
-  // LEFT or RIGHT: trigger is too close to the left/right of screen for up & down flyouts\
+  // LEFT or RIGHT: trigger is too close to the left/right of screen for up & down popovers\
   if (!skipNoEdgeCondition && (nonLeftEdge || nonRightEdge)) {
     up = 0;
     down = 0;
@@ -171,30 +171,30 @@ export function getFlyoutDir({
 
   // Identify best direction of available spaces
   const max = Math.max(...spaces);
-  // Chose the main direction for the flyout based on available spaces & user preference
-  let flyoutDir;
+  // Chose the main direction for the popover based on available spaces & user preference
+  let popoverDir;
   if (idealDirection && spaces[DIR_INDEX_MAP[idealDirection]] > 0) {
     // user pref
-    flyoutDir = idealDirection;
+    popoverDir = idealDirection;
   } else {
     // If no direction pref, chose the direction in which there is the most space available
-    flyoutDir = SPACES_INDEX_MAP[spaces.indexOf(max)];
+    popoverDir = SPACES_INDEX_MAP[spaces.indexOf(max)];
   }
 
-  return flyoutDir;
+  return popoverDir;
 }
 
 /**
- * Determines the sub direction of how the flyout is positioned within the main dir
+ * Determines the sub direction of how the popover is positioned within the main dir
  */
 export function getCaretDir({
-  flyoutSize,
-  flyoutDir,
+  popoverSize,
+  popoverDir,
   triggerRect,
   windowSize,
 }: {|
-  flyoutSize: Dimensions,
-  flyoutDir: FlyoutDir,
+  popoverSize: Dimensions,
+  popoverDir: PopoverDir,
   triggerRect: ClientRect,
   windowSize: Window,
 |}): CaretDir {
@@ -203,13 +203,13 @@ export function getCaretDir({
   let triggerMid;
   let windowSpaceAvailable;
 
-  if (flyoutDir === 'right' || flyoutDir === 'left') {
-    offset = flyoutSize.height / 2;
+  if (popoverDir === 'right' || popoverDir === 'left') {
+    offset = popoverSize.height / 2;
     triggerMid = triggerRect.top + (triggerRect.bottom - triggerRect.top) / 2;
     windowSpaceAvailable = windowSize.height;
   } else {
-    // (flyoutDir === 'up' || flyoutDir === 'down')
-    offset = flyoutSize.width / 2;
+    // (popoverDir === 'up' || popoverDir === 'down')
+    offset = popoverSize.width / 2;
     triggerMid = triggerRect.left + (triggerRect.right - triggerRect.left) / 2;
     windowSpaceAvailable = windowSize.width;
   }
@@ -222,16 +222,16 @@ export function getCaretDir({
     caretDir = 'middle';
   } else if (belowOrRight > 0) {
     // caret should go at top for left/right and left for up/down
-    caretDir = flyoutDir === 'left' || flyoutDir === 'right' ? 'up' : 'left';
+    caretDir = popoverDir === 'left' || popoverDir === 'right' ? 'up' : 'left';
   } else {
     // caret should go at bottom for left/right and right for up/down
-    caretDir = flyoutDir === 'left' || flyoutDir === 'right' ? 'down' : 'right';
+    caretDir = popoverDir === 'left' || popoverDir === 'right' ? 'down' : 'right';
   }
   return caretDir;
 }
 
 /**
- * Calculates the amount the flyout & caret need to shift over to align with designs
+ * Calculates the amount the popover & caret need to shift over to align with designs
  */
 export function calcEdgeShifts({
   triggerRect,
@@ -241,42 +241,42 @@ export function calcEdgeShifts({
   triggerRect: ClientRect,
   windowSize: Window,
   isScrollBoundaryContainer: boolean,
-|}): {| caret: Coordinates, flyout: Coordinates |} {
-  // Target values for flyout and caret shifts
-  let flyoutVerticalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
-  let flyoutHorizontalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
+|}): {| caret: Coordinates, popover: Coordinates |} {
+  // Target values for popover and caret shifts
+  let popoverVerticalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.height - CARET_HEIGHT) / 2;
+  let popoverHorizontalShift = CARET_OFFSET_FROM_SIDE - (triggerRect.width - CARET_HEIGHT) / 2;
   let caretVerticalShift = CARET_WIDTH;
   let caretHorizontalShift = CARET_WIDTH;
 
   // Covers edge case where trigger is in a corner and we need to adjust the offset of the caret
   // to something smaller than normal in order
   const isCloseVertically =
-    triggerRect.top - flyoutVerticalShift < 0 ||
-    triggerRect.bottom + flyoutVerticalShift > windowSize.height;
+    triggerRect.top - popoverVerticalShift < 0 ||
+    triggerRect.bottom + popoverVerticalShift > windowSize.height;
   const isCloseHorizontally =
-    triggerRect.left - flyoutHorizontalShift < 0 ||
-    triggerRect.right + flyoutHorizontalShift > windowSize.width;
+    triggerRect.left - popoverHorizontalShift < 0 ||
+    triggerRect.right + popoverHorizontalShift > windowSize.width;
 
   // If there's a parent ScrollBoundaryContainer and trigger is close vertically and/or horizontally,
-  // skip the flyout shift adjusments so that the flyout is right in the edge.
+  // skip the popover shift adjusments so that the popover is right in the edge.
   if (isCloseVertically) {
-    flyoutVerticalShift = isScrollBoundaryContainer
+    popoverVerticalShift = isScrollBoundaryContainer
       ? 0
       : BORDER_RADIUS - (triggerRect.height - CARET_HEIGHT) / 2;
     caretVerticalShift = BORDER_RADIUS;
   }
 
   if (isCloseHorizontally) {
-    flyoutHorizontalShift = isScrollBoundaryContainer
+    popoverHorizontalShift = isScrollBoundaryContainer
       ? 0
       : BORDER_RADIUS - (triggerRect.width - CARET_HEIGHT) / 2;
     caretHorizontalShift = BORDER_RADIUS;
   }
 
   return {
-    flyout: {
-      x: flyoutHorizontalShift,
-      y: flyoutVerticalShift,
+    popover: {
+      x: popoverHorizontalShift,
+      y: popoverVerticalShift,
     },
     caret: {
       x: caretHorizontalShift,
@@ -286,69 +286,69 @@ export function calcEdgeShifts({
 }
 
 /**
- * Calculates flyout and caret offsets for styling
+ * Calculates popover and caret offsets for styling
  */
 export function adjustOffsets({
   base,
   edgeShift,
-  flyoutSize,
-  flyoutDir,
+  popoverSize,
+  popoverDir,
   caretDir,
   triggerRect,
   isScrollBoundaryContainer,
 }: {|
   base: {| top: number, left: number |},
   edgeShift: EdgeShift,
-  flyoutSize: Dimensions,
-  flyoutDir: FlyoutDir,
+  popoverSize: Dimensions,
+  popoverDir: PopoverDir,
   caretDir: CaretDir,
   triggerRect: ClientRect,
   isScrollBoundaryContainer: boolean,
 |}): {|
   caretOffset: CaretOffset,
-  flyoutOffset: Offset,
+  popoverOffset: Offset,
 |} {
-  let flyoutLeft = base.left;
-  let flyoutTop = base.top;
+  let popoverLeft = base.left;
+  let popoverTop = base.top;
 
-  let caretTop = flyoutDir === 'down' ? -CARET_HEIGHT : null;
-  let caretRight = flyoutDir === 'left' ? -CARET_HEIGHT : null;
-  let caretBottom = flyoutDir === 'up' ? -CARET_HEIGHT : null;
-  let caretLeft = flyoutDir === 'right' ? -CARET_HEIGHT : null;
+  let caretTop = popoverDir === 'down' ? -CARET_HEIGHT : null;
+  let caretRight = popoverDir === 'left' ? -CARET_HEIGHT : null;
+  let caretBottom = popoverDir === 'up' ? -CARET_HEIGHT : null;
+  let caretLeft = popoverDir === 'right' ? -CARET_HEIGHT : null;
 
   // If there's a parent ScrollBoundaryContainer and caret direction is up or down,
-  // adjust the caret position to correctly match its flyout.
+  // adjust the caret position to correctly match its popover.
   if (caretDir === 'up') {
-    flyoutTop = base.top - edgeShift.flyout.y;
+    popoverTop = base.top - edgeShift.popover.y;
     caretTop = edgeShift.caret.y + (isScrollBoundaryContainer ? 6 : 2);
   } else if (caretDir === 'down') {
-    flyoutTop = base.top - flyoutSize.height + triggerRect.height + edgeShift.flyout.y;
+    popoverTop = base.top - popoverSize.height + triggerRect.height + edgeShift.popover.y;
     caretBottom = edgeShift.caret.y + (isScrollBoundaryContainer ? 6 : 2);
   } else if (caretDir === 'left') {
-    flyoutLeft = base.left - edgeShift.flyout.x;
+    popoverLeft = base.left - edgeShift.popover.x;
     caretLeft = edgeShift.caret.x + 2;
   } else if (caretDir === 'right') {
-    flyoutLeft = base.left - flyoutSize.width + triggerRect.width + edgeShift.flyout.x;
+    popoverLeft = base.left - popoverSize.width + triggerRect.width + edgeShift.popover.x;
     caretRight = edgeShift.caret.x + 2;
   } else if (caretDir === 'middle') {
-    if (flyoutDir === 'left' || flyoutDir === 'right') {
-      const triggerMid = flyoutTop + triggerRect.height / 2;
-      flyoutTop = triggerMid - flyoutSize.height / 2;
+    if (popoverDir === 'left' || popoverDir === 'right') {
+      const triggerMid = popoverTop + triggerRect.height / 2;
+      popoverTop = triggerMid - popoverSize.height / 2;
       // Vertical positioning of the caret (position along the anchor)
-      caretTop = (flyoutSize.height - CARET_WIDTH) / 2;
+      caretTop = (popoverSize.height - CARET_WIDTH) / 2;
     }
-    if (flyoutDir === 'up' || flyoutDir === 'down') {
-      const triggerMid = flyoutLeft + triggerRect.width / 2;
-      flyoutLeft = triggerMid - flyoutSize.width / 2;
+    if (popoverDir === 'up' || popoverDir === 'down') {
+      const triggerMid = popoverLeft + triggerRect.width / 2;
+      popoverLeft = triggerMid - popoverSize.width / 2;
       // Horizontal positioning of the caret (position along the anchor)
-      caretLeft = (flyoutSize.width - CARET_WIDTH) / 2;
+      caretLeft = (popoverSize.width - CARET_WIDTH) / 2;
     }
   }
 
   return {
-    flyoutOffset: {
-      top: flyoutTop,
-      left: flyoutLeft,
+    popoverOffset: {
+      top: popoverTop,
+      left: popoverLeft,
     },
     caretOffset: {
       top: caretTop,
@@ -359,29 +359,29 @@ export function adjustOffsets({
   };
 }
 
-/* Calculates baseline top and left offset for flyout */
+/* Calculates baseline top and left offset for popover */
 export function baseOffsets({
   hasCaret,
   relativeOffset,
-  flyoutSize,
-  flyoutDir,
+  popoverSize,
+  popoverDir,
   triggerRect,
   windowSize,
 }: {|
   hasCaret: boolean,
   relativeOffset: Coordinates,
-  flyoutSize: Dimensions,
-  flyoutDir: FlyoutDir,
+  popoverSize: Dimensions,
+  popoverDir: PopoverDir,
   triggerRect: ClientRect,
   windowSize: Window,
 |}): Offset {
   const SPACING_OUTSIDE = hasCaret ? CARET_HEIGHT : 8;
   // TOP OFFSET
   let top;
-  if (flyoutDir === 'down') {
+  if (popoverDir === 'down') {
     top = windowSize.scrollY + triggerRect.bottom + SPACING_OUTSIDE;
-  } else if (flyoutDir === 'up') {
-    top = windowSize.scrollY + (triggerRect.top - flyoutSize.height - SPACING_OUTSIDE);
+  } else if (popoverDir === 'up') {
+    top = windowSize.scrollY + (triggerRect.top - popoverSize.height - SPACING_OUTSIDE);
   } else {
     // left and right
     top = windowSize.scrollY + triggerRect.top;
@@ -389,9 +389,9 @@ export function baseOffsets({
 
   // LEFT OFFSET
   let left;
-  if (flyoutDir === 'left') {
-    left = windowSize.scrollX + (triggerRect.left - flyoutSize.width - SPACING_OUTSIDE);
-  } else if (flyoutDir === 'right') {
+  if (popoverDir === 'left') {
+    left = windowSize.scrollX + (triggerRect.left - popoverSize.width - SPACING_OUTSIDE);
+  } else if (popoverDir === 'right') {
     left = windowSize.scrollX + triggerRect.right + SPACING_OUTSIDE;
   } else {
     // down and up

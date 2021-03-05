@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="ScrollBoundaryContainer"
-    description="ScrollBoundaryContainer is used with anchored components such Flyout, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling."
+    description="ScrollBoundaryContainer is used with anchored components such Popover, Tooltip, Dropdown or Typeahead. A ScrollBoundaryContainer is needed for proper positioning when the Tooltip is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures the Tooltip remains attached to its anchor when scrolling."
   />,
 );
 
@@ -46,7 +46,7 @@ When scrolling is desired, we must explicitly set a height. Unless a height is s
 In ScrollBoundaryContainer, height is an optional prop with a default value of \`100%\`. If ScrollBoundaryContainer’s immediate parent is a component with a fixed height, do not pass a height to ScrollBoundaryContainer as seen in first example below. On the other hand, if there isn’t an immediate parent fixing the height, you must specify the ScrollBoundaryContainer height as seen in the  second example below.`}
     >
       <MainSection.Card
-        title="Flyout within ScrollBoundaryContainer"
+        title="Popover within ScrollBoundaryContainer"
         cardSize="lg"
         defaultCode={`
 function Example() {
@@ -70,7 +70,7 @@ function Example() {
           />
           {open && (
             <Layer>
-              <Flyout
+              <Popover
                 anchor={anchorRef.current}
                 idealDirection="right"
                 onDismiss={() => setOpen(false)}
@@ -97,7 +97,7 @@ function Example() {
                     />
                   </Box>
                 </Box>
-              </Flyout>
+              </Popover>
             </Layer>
           )}
         </Flex>
@@ -628,12 +628,12 @@ card(
     <MainSection.Subsection
       description={`
       **[Box](/Box)**
-      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Flyout](/Flyout), [Typeahead](/Typeahead) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
+      Box's [\`overflow\` prop](/Box#Overflow) specifies what should happen if the content is larger than the bounding box. Box should not be replaced with ScrollBoundaryContainer if the goal is simply to allow Box to scroll when content overflows. ScrollBoundaryContainer is only needed when anchored components, such as [Tooltip](/Tooltip), [Popover](/Popover), [Typeahead](/Typeahead) or [Dropdown](/Dropdown), are used within a container that could potentially scroll.
 
       **[Modal](/Modal)** / **[Sheet](/Sheet)**
       Modal and Sheet come with ScrollBoundaryContainer built-in, so any anchored components used in their children tree should work out-of-the-box. Passing an additional ScrollBoundaryContainer will break the existing styling on scroll.
 
-      **[Tooltip](/Tooltip)** / **[Flyout](/Flyout)** / **[Typeahead](/Typeahead)** / **[Dropdown](/Dropdown)**
+      **[Tooltip](/Tooltip)** / **[Popover](/Popover)** / **[Typeahead](/Typeahead)** / **[Dropdown](/Dropdown)**
       ScrollBoundaryContainer must be used around any of these components if they are used within a container that could possibly scroll. This is necessary to ensure the component remains attached to its anchor on scroll. If they are located within scrolling Modal or Sheet components, ScrollBoundaryContainer isn't needed as it's already built-in.
     `}
     />

@@ -47,7 +47,7 @@ describe('DatePicker', () => {
     expect(mockOnChange).toHaveBeenCalledWith(expect.objectContaining({ value: newDate }));
   });
 
-  test('opens and closes DatePicker flyout correctly', () => {
+  test('opens and closes DatePicker popover correctly', () => {
     const DatePickerWrap = () => {
       const [date, setDate] = React.useState(initialDate);
 
@@ -58,7 +58,7 @@ describe('DatePicker', () => {
 
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
 
-    // Test correct render of DatePicker flyout
+    // Test correct render of DatePicker popover
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
     // Test that initial passed value is styled as selected
     expect(screen.getByText('14')).toHaveClass(
@@ -69,12 +69,12 @@ describe('DatePicker', () => {
 
     fireEvent.click(selectedDay);
 
-    // Test correct unmount of DatePicker flyout
+    // Test correct unmount of DatePicker popover
     expect(screen.getByDisplayValue('12/13/2018')).toBeInTheDocument();
 
     fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
 
-    // Test correct render of DatePicker flyout
+    // Test correct render of DatePicker popover
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
   });
 
@@ -93,12 +93,12 @@ describe('DatePicker', () => {
 
     fireEvent.change(selectedInput, { target: { value: '12/13/2018' } });
 
-    // Test correct unmount of DatePicker flyout
+    // Test correct unmount of DatePicker popover
     expect(screen.getByDisplayValue('12/13/2018')).toBeInTheDocument();
 
     fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
 
-    // Test correct render of DatePicker flyout
+    // Test correct render of DatePicker popover
     expect(screen.queryByText('December 2018')).toBeInTheDocument();
 
     expect(screen.getByText('13')).toHaveClass(

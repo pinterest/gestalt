@@ -434,7 +434,7 @@ card(
     id="ref"
     name="ref"
     defaultCode={`
-function ButtonFlyoutExample() {
+function ButtonPopoverExample() {
   const [selected, setSelected] = React.useState(false);
 
   const anchorRef = React.useRef(null);
@@ -446,19 +446,19 @@ function ButtonFlyoutExample() {
         onClick={() => setSelected(!selected)}
         ref={anchorRef}
         selected={selected}
-        text={selected ? "Hide Flyout" : "Show Flyout"}
+        text={selected ? "Hide Popover" : "Show Popover"}
       />
       {selected && (
-        <Flyout
+        <Popover
           anchor={anchorRef.current}
           idealDirection="right"
           onDismiss={() => setSelected(false)}
           shouldFocus={false}
         >
           <Box padding={3}>
-            <Text weight="bold">This is a Button with an anchor ref to a Flyout component</Text>
+            <Text weight="bold">This is a Button with an anchor ref to a Popover component</Text>
           </Box>
-        </Flyout>
+        </Popover>
       )}
     </React.Fragment>
   );
@@ -512,7 +512,7 @@ function MenuButtonExample() {
 
       {selected && (
         <Layer>
-          <Flyout
+          <Popover
             anchor={anchorRef.current}
             idealDirection="down"
             onDismiss={() => setSelected(false)}
@@ -531,7 +531,7 @@ function MenuButtonExample() {
                 </Text>
               </Box>
             </Box>
-          </Flyout>
+          </Popover>
         </Layer>
       )}
     </React.Fragment>

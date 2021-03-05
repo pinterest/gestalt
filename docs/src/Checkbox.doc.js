@@ -352,13 +352,13 @@ function CheckboxExample() {
 
 card(
   <Example
-    name="Example: Checkbox and Flyout"
+    name="Example: Checkbox and Popover"
     description={`
-    A \`Checkbox\` with an anchor ref to a Flyout component doesn't pass the correct positioning to the Flyout. Instead set the anchor ref to the parent container.
+    A \`Checkbox\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
   `}
     defaultCode={`
 
-function CheckboxFlyoutExample() {
+function CheckboxPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
   const termsA = React.useRef();
@@ -380,7 +380,7 @@ function CheckboxFlyoutExample() {
         </Box>
       {open &&
         <Layer>
-          <Flyout
+          <Popover
             anchor={termsA.current}
             color="red"
             idealDirection="right"
@@ -397,7 +397,7 @@ function CheckboxFlyoutExample() {
                   Change your primary email in Settings
               </Text>
             </Box>
-          </Flyout>
+          </Popover>
         </Layer>
       }
     </Box>
