@@ -49,7 +49,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 > = forwardRef<Props, HTMLInputElement>(function InputField(props, ref): Node {
   const {
     id,
-    disabled = false,
+    disabled,
     label,
     onBlur,
     onChange,

@@ -55,8 +55,8 @@ type Props = {|
 const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function Typeahead(
-  {
+>(function Typeahead(props, ref): Node {
+  const {
     disabled = false,
     id,
     label,
@@ -72,9 +72,8 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     tags,
     value = null,
     zIndex,
-  },
-  ref,
-): Node {
+  } = props;
+
   // Parent ref for positioning
   const wrapperRef = useRef(null);
 
