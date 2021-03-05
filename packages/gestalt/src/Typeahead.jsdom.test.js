@@ -44,6 +44,24 @@ describe('Typeahead', () => {
     expect(resultsContainer.length).toBe(TOTAL_OPTIONS);
   });
 
+  it('is disabled', () => {
+    const { container } = render(
+      <Typeahead
+        disabled
+        id="Typeahead"
+        noResultText="No Result"
+        options={FAKE_OPTIONS}
+        placeholder="Select a Label"
+        onChange={onChangeMock}
+        onBlur={onBlurMock}
+        onSelect={onSelectMock}
+        label="Typeahead Example"
+      />,
+    );
+    expect(container.querySelector('input[disabled]')).toBeVisible();
+    expect(container.querySelector('button[disabled]')).toBeVisible();
+  });
+
   it('clears menu on blur', () => {
     render(Component);
     const textField = screen.getByRole('textbox', { id: 'Typeahead' });

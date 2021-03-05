@@ -26,7 +26,8 @@ exports[`Typeahead renders Typeahead normal 1`] = `
     <input
       aria-label="Typeahead Example"
       autoComplete="off"
-      className="input inputActive inputRadius medium"
+      className="input inputActive enabled inputRadius medium"
+      disabled={false}
       id="Typeahead"
       onBlur={[Function]}
       onChange={[Function]}
@@ -39,6 +40,7 @@ exports[`Typeahead renders Typeahead normal 1`] = `
     />
     <button
       className="icon"
+      disabled={false}
       onClick={[Function]}
       tabIndex={-1}
       type="button"
@@ -95,7 +97,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className="input inputActive inputRadius medium inputWrapper"
+      className="input inputActive enabled inputRadius medium inputWrapper"
     >
       <div
         className="box marginBottom1 marginEnd1"
@@ -295,6 +297,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
           aria-label="Tag Example"
           autoComplete="off"
           className="unstyledInput"
+          disabled={false}
           id="test"
           onBlur={[Function]}
           onChange={[Function]}
@@ -307,6 +310,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
       </div>
       <button
         className="clear"
+        disabled={false}
         onClick={[Function]}
         tabIndex={-1}
         type="button"
