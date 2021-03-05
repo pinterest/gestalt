@@ -1,83 +1,88 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
+import React, { type Node } from 'react';
 import Box from './Box.js';
+import Flex from './Flex.js';
 import Icon from './Icon.js';
+import ModuleTitle from './ModuleTitle.js';
 import TapArea from './TapArea.js';
 import Text from './Text.js';
-import { type BaseProps, type ExpandableItemProps } from './moduleTypes.js';
-import ModuleTitle from './ModuleTitle.js';
+import { type ModuleExpandableItemBaseProps } from './moduleTypes.js';
 
 type Props = {|
-  ...BaseProps,
-  ...ExpandableItemProps,
+  ...ModuleExpandableItemBaseProps,
+  accessibilityExpandLabel: string,
+  accessibilityCollapseLabel: string,
+  id: string,
+  isCollapsed: boolean,
+  onModuleClicked: (boolean) => void,
 |};
 
 export default function ModuleExpandableItem({
-  id,
-  title,
+  accessibilityCollapseLabel,
+  accessibilityExpandLabel,
+  children,
   icon,
   iconAccessibilityLabel,
-  accessibilityExpandLabel,
-  accessibilityCollapseLabel,
-  summary,
+  id,
   isCollapsed,
   onModuleClicked,
+  summary,
+  title,
   type = 'info',
-  children,
 }: Props): Node {
   return (
-    <Fragment>
-      <TapArea
-        onTap={() => {
-          onModuleClicked(!isCollapsed);
-        }}
-        accessibilityLabel={isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel}
-        accessibilityControls={id}
-        accessibilityExpanded={!isCollapsed}
-      >
-        <Box padding={6} display="flex">
-          <Box display="flex" flex="grow" marginEnd={6} alignItems="baseline">
-            <Box column={isCollapsed && summary ? 6 : 12} display="flex">
-              <ModuleTitle
-                type={type}
-                title={title}
-                icon={icon}
-                iconAccessibilityLabel={iconAccessibilityLabel}
-              />
-            </Box>
-            {summary && isCollapsed && (
-              <Box column={6} marginStart={6}>
-                {summary.map((item, i) => (
-                  <Box key={i} marginBottom={i === summary.length - 1 ? 0 : 2}>
-                    <Text size="md" truncate>
-                      {item}
-                    </Text>
-                  </Box>
-                ))}
+    <Box padding={6}>
+      <Flex direction="column" gap={6}>
+        <TapArea
+          accessibilityControls={id}
+          accessibilityExpanded={!isCollapsed}
+          accessibilityLabel={isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel}
+          onTap={() => {
+            onModuleClicked(!isCollapsed);
+          }}
+        >
+          <Flex>
+            <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
+              <Box column={isCollapsed && summary ? 6 : 12}>
+                <ModuleTitle
+                  icon={icon}
+                  iconAccessibilityLabel={iconAccessibilityLabel}
+                  title={title}
+                  type={type}
+                />
               </Box>
-            )}
-          </Box>
-          <Box id={id}>
+
+              {summary && isCollapsed && (
+                <Box column={6} marginStart={6}>
+                  <Flex direction="column" gap={2}>
+                    {summary.map((item, i) => (
+                      <Text key={i} size="md" truncate>
+                        {item}
+                      </Text>
+                    ))}
+                  </Flex>
+                </Box>
+              )}
+            </Box>
+
             {children && (
-              <Box padding={1}>
+              <Box id={id} padding={1}>
                 <Icon
-                  icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
-                  color="darkGray"
-                  size="12"
                   accessibilityLabel={
                     isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
                   }
+                  color="darkGray"
+                  icon={isCollapsed ? 'arrow-down' : 'arrow-up'}
+                  size="12"
                 />
               </Box>
             )}
-          </Box>
-        </Box>
-      </TapArea>
-      {!isCollapsed && (
-        <Box marginTop={-6} padding={6}>
-          {children}
-        </Box>
-      )}
-    </Fragment>
+          </Flex>
+        </TapArea>
+
+        {/* Flex.Item necessary to prevent gap from being applied to each child */}
+        {!isCollapsed && <Flex.Item>{children}</Flex.Item>}
+      </Flex>
+    </Box>
   );
 }
