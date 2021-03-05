@@ -18,17 +18,12 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
-import {
-  useOnNavigation,
-  CustomOnNavigationPropType,
-  type CustomOnNavigation,
-} from './contexts/OnNavigation.js';
+import { useOnNavigation } from './contexts/OnNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
   children?: Node,
   colorClass?: string,
-  customOnNavigation?: CustomOnNavigation,
   disabled?: boolean,
   fullHeight?: boolean,
   fullWidth?: boolean,
@@ -38,6 +33,7 @@ type Props = {|
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| defaultOnNavigation?: () => void |},
   >,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
@@ -62,7 +58,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     accessibilityLabel,
     children,
     colorClass,
-    customOnNavigation,
     disabled,
     fullHeight,
     fullWidth,
@@ -157,25 +152,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  const defaultOnNavigation = useOnNavigation({
-    href,
-    onClick,
-    target,
-  });
-
-  let onNavigation = defaultOnNavigation;
-
-  // customOnNavigation allows to directly control the link logic without <Provider onNavigation={onNavigation}/>
-  // If customOnNavigation is passed, it also overrides/disables any OnNavigation logic from Provider
-  if (customOnNavigation && customOnNavigation === 'disabled') {
-    onNavigation = undefined;
-  } else if (customOnNavigation && customOnNavigation !== 'disabled') {
-    onNavigation = customOnNavigation({
-      href,
-      onClick,
-      target,
-    });
-  }
+  const defaultOnNavigation = useOnNavigation({ href, target });
 
   return (
     <a
@@ -191,11 +168,10 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
         handleBlur();
       }}
       onClick={(event) => {
-        if (onNavigation) {
-          onNavigation({ event });
-        }
         if (onClick) {
-          onClick({ event });
+          onClick({ event, defaultOnNavigation: () => defaultOnNavigation?.({ event }) });
+        } else if (!onClick && defaultOnNavigation) {
+          defaultOnNavigation({ event });
         }
       }}
       onFocus={(event) => {
@@ -256,7 +232,6 @@ InternalLinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,
   colorClass: PropTypes.string,
-  customOnNavigation: CustomOnNavigationPropType,
   disabled: PropTypes.bool,
   fullHeight: PropTypes.bool,
   fullWidth: PropTypes.bool,

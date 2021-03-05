@@ -9,7 +9,6 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import { CustomOnNavigationPropType, type CustomOnNavigation } from './contexts/OnNavigation.js';
 
 type FocusEventHandler = AbstractEventHandler<
   SyntheticFocusEvent<HTMLDivElement> | SyntheticFocusEvent<HTMLAnchorElement>,
@@ -51,7 +50,6 @@ type TapAreaType = {|
 type LinkTapAreaType = {|
   ...BaseTapArea,
   href: string,
-  customOnNavigation?: CustomOnNavigation,
   rel?: 'none' | 'nofollow',
   role: 'link',
   target?: null | 'self' | 'blank',
@@ -157,7 +155,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   const handleLinkOnMouseLeave = ({ event }) => handleOnMouseLeave(event);
 
   if (props.role === 'link') {
-    const { href, customOnNavigation, rel = 'none', target = null } = props;
+    const { href, rel = 'none', target = null } = props;
 
     return (
       <InternalLink
@@ -168,7 +166,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         fullWidth={fullWidth}
         mouseCursor={mouseCursor}
         onClick={handleLinkClick}
-        customOnNavigation={customOnNavigation}
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
         onMouseEnter={handleLinkOnMouseEnter}
@@ -256,7 +253,6 @@ TapAreaWithForwardRef.propTypes = {
   onTap: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
-  customOnNavigation: CustomOnNavigationPropType,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['tapArea', 'link']),

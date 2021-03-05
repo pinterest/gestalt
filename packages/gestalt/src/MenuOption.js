@@ -12,7 +12,6 @@ import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import { CustomOnNavigationPropType, type CustomOnNavigation } from './contexts/OnNavigation.js';
 
 export type OptionObject = {|
   label: string,
@@ -23,7 +22,6 @@ export type OptionObject = {|
 type Props = {|
   badgeText?: string,
   children?: Node,
-  customOnNavigation?: CustomOnNavigation,
   index: number,
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
@@ -45,7 +43,6 @@ type Props = {|
 export default function MenuOption({
   badgeText,
   children,
-  customOnNavigation,
   handleSelect,
   hoveredItem,
   id,
@@ -161,12 +158,7 @@ export default function MenuOption({
     >
       <Box padding={2} color={optionStateColor} rounding={2} display="flex" direction="column">
         {href ? (
-          <Link
-            customOnNavigation={customOnNavigation}
-            hoverStyle="none"
-            href={href}
-            target="blank"
-          >
+          <Link hoverStyle="none" href={href} target="blank">
             {menuOptionContents}
           </Link>
         ) : (
@@ -180,7 +172,6 @@ export default function MenuOption({
 MenuOption.displayName = 'MenuOption';
 
 MenuOption.propTypes = {
-  customOnNavigation: CustomOnNavigationPropType,
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade

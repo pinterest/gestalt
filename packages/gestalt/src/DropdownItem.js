@@ -3,12 +3,10 @@ import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
 import DropdownContext from './DropdownContextProvider.js';
-import { CustomOnNavigationPropType, type CustomOnNavigation } from './contexts/OnNavigation.js';
 
 type PublicProps = {|
   badgeText?: string,
   children?: Node,
-  customOnNavigation?: CustomOnNavigation,
   handleSelect?: ({|
     event: SyntheticInputEvent<HTMLInputElement>,
     item: OptionObject,
@@ -37,7 +35,6 @@ export default function DropdownItem({
   option,
   selected,
   href,
-  customOnNavigation,
 }: Props): Node {
   return (
     <DropdownContext.Consumer>
@@ -45,7 +42,6 @@ export default function DropdownItem({
         <MenuOption
           key={`${option.value + index}`}
           badgeText={badgeText}
-          customOnNavigation={customOnNavigation}
           handleSelect={handleSelect}
           hoveredItem={hoveredItem}
           id={id}
@@ -71,7 +67,6 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
   badgeText: PropTypes.string,
-  customOnNavigation: CustomOnNavigationPropType,
   isExternal: PropTypes.bool,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.shape({

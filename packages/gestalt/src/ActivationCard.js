@@ -47,7 +47,7 @@ const STATUS_ICONS = {
 };
 
 const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
-  const { accessibilityLabel, href, label, onClick, customOnNavigation, rel, target } = data;
+  const { accessibilityLabel, href, label, onClick, rel, target } = data;
 
   return (
     <Box
@@ -60,7 +60,6 @@ const ActivationCardLink = ({ data }: {| data: LinkData |}): Node => {
     >
       <Button
         accessibilityLabel={accessibilityLabel}
-        customOnNavigation={customOnNavigation}
         color="gray"
         href={href}
         onClick={onClick}
@@ -237,7 +236,6 @@ ActivationCard.propTypes = {
   message: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   link: PropTypes.shape({
-    customOnNavigation: CustomOnNavigationPropType,
     href: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
