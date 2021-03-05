@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SearchField.css';
+import formElement from './FormElement.css';
 import typeaheadStyle from './TypeaheadInputField.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
@@ -122,6 +123,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   const className = classnames(
     styles.input,
     styles.inputActive,
+    disabled ? formElement.disabled : formElement.enabled,
     typeaheadStyle.inputRadius,
     {
       [layout.medium]: size === 'md',
@@ -158,7 +160,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     />
   );
 
-  const iconButton = (
+  const iconButton = !disabled && (
     <button
       className={hasValue ? styles.clear : typeaheadStyle.icon}
       onClick={!hasValue ? handleClick : handleClear}

@@ -59,6 +59,7 @@ card(
         type: 'boolean',
         required: false,
         description: 'Set disabled state so typeahead looks inactive and cannot be interacted with',
+        href: 'disabledExample',
       },
       {
         name: 'onChange',
@@ -282,6 +283,29 @@ function TypeaheadExample() {
         ref={ref}
       />
     </Flex>
+  );
+}`}
+  />,
+);
+
+card(
+  <Example
+    id="disabledExample"
+    name="Disabled"
+    defaultCode={`
+function TypeaheadExample() {
+  const ref = React.useRef();
+  const [option, setOption] = React.useState();
+  return (
+      <Typeahead
+        disabled
+        label="This typeahead is disabled"
+        id="favorite-shape"
+        noResultText="No Results"
+        options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
+        onSelect={p => ref.current.focus()}
+        placeholder="Select a shape"
+      />
   );
 }`}
   />,
