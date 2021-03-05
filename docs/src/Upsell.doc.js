@@ -1,7 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Upsell } from 'gestalt';
-import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
@@ -37,6 +36,8 @@ card(
 
 card(
   <PropTable
+    name="Upsell"
+    Component={Upsell}
     props={[
       {
         name: 'message',
@@ -48,6 +49,7 @@ card(
       {
         name: 'children',
         type: 'typeof UpsellForm',
+        description: `To create forms within Upsell, pass an Upsell.Form as children`,
       },
       {
         name: 'dismissButton',
@@ -95,6 +97,46 @@ card(
         required: false,
         defaultValue: null,
         description: `Brief title summarizing the Upsell. Content should be [localized](#Localization).`,
+      },
+    ]}
+  />,
+);
+
+card(
+  <PropTable
+    name="Upsell.Form"
+    id="Upsell.Form"
+    Component={Upsell?.Form}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+        required: true,
+        description: `Contents of the form, typically inputs like [TextField(s)](/TextField).`,
+      },
+      {
+        name: 'onSubmit',
+        type:
+          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
+        required: true,
+        description: `Actions to perform when the form has been submitted.`,
+      },
+      {
+        name: 'submitButtonText',
+        type: 'string',
+        required: true,
+        description: `Content of the submit button.`,
+      },
+      {
+        name: 'submitButtonAccessibilityLabel',
+        type: 'string',
+        required: true,
+        description: `Label for the submit button used for screen readers. Should follow the [Accessibility guidelines](#Accessibility).`,
+      },
+      {
+        name: 'submitButtonDisabled',
+        type: 'boolean',
+        description: `Disables the submit button when \`true\`.`,
       },
     ]}
   />,
@@ -300,9 +342,9 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      \`dismissButton\`, \`primaryAction\`, and \`secondaryAction\` each require a short, descriptive label for screen readers, should also be localized.
+      \`dismissButton\`, \`primaryAction\`, \`secondaryAction\`, and \`submitButtonAccessibilityLabel\` each require a short, descriptive label for screen readers, which should also be localized.
 
-      In the case of [Buttons](/Button), alternative text should be provided to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources".
+      In the case of [Buttons](/Button), alternative text should be provided to replace vague text like "Visit" or "Learn more" with more descriptive information, like "Learn more about work from home resources". Avoid using the word "button" in the label, as this becomes repetitive.
 
       For the \`dismissButton\` [IconButton](/IconButton), the label provided should indicate the intent, like “Dismiss this banner”.
 
@@ -557,77 +599,13 @@ function Example(props) {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Forms"
-      description="More details on adding forms to Upsells coming soon!"
-    />
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
-      **[Callout](/Callout)**
-      Use Callout when communicating critical information, such as an error or warning. Callout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
-
-      **[Toast](/Toast)**
-      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
-
-      **[ActivationCard](/ActivationCard)**
-      ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
-
-    `}
-    />
-  </MainSection>,
-);
-
-card(
-  <Card
-    name="Upsell.Form"
-    description="Upsell.Form can be used to include form fields and a submit button within Upsell."
-  />,
-);
-
-card(
-  <PropTable
-    name="Upsell.Form"
-    id="Upsell.Form"
-    Component={Upsell?.Form}
-    props={[
-      {
-        name: 'children',
-        type: 'React.Node',
-        required: true,
-      },
-      {
-        name: 'onSubmit',
-        type:
-          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
-        required: true,
-      },
-      {
-        name: 'submitButtonText',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'submitButtonAccessibilityLabel',
-        type: 'string',
-        required: true,
-      },
-      {
-        name: 'submitButtonDisabled',
-        type: 'boolean',
-      },
-    ]}
-  />,
-);
-
-card(
-  <Example
-    id="formExample"
-    name="Example: Upsell with Form"
-    defaultCode={`
-function Example(props) {
+      description={`Inputs can be added to Upsells to collect information from users (ex: name or email) through the use of \`Upsell.Form\`. Most Upsells should have no more than 2 inputs. If more inputs are needed, direct users to a full page using the \`primaryAction\`.`}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        title="Single TextField"
+        defaultCode={`
+function FormExample(props) {
   const [value, setValue] = React.useState('');
   return (
     <Upsell
@@ -656,15 +634,12 @@ function Example(props) {
     </Upsell>
   );
 }
-`}
-  />,
-);
-
-card(
-  <Example
-    id="twoFormsExample"
-    name="Example: Upsell with Form- 2 TextFields"
-    defaultCode={`
+      `}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        title="Multiple TextFields"
+        defaultCode={`
 function Example(props) {
   const [nameValue, setNameValue] = React.useState('');
   const [emailValue, setEmailValue] = React.useState('');
@@ -724,7 +699,27 @@ function Example(props) {
   );
 }
 `}
-  />,
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+      **[Callout](/Callout)**
+      Use Callout when communicating critical information, such as an error or warning. Callout can also be used to present the user with general information and further actions they can take, like the successful creation of a business account.
+
+      **[Toast](/Toast)**
+      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
+
+      **[ActivationCard](/ActivationCard)**
+      ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.
+
+    `}
+    />
+  </MainSection>,
 );
 
 export default cards;
