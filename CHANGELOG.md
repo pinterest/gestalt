@@ -1,3 +1,9 @@
+## 19.2.1 (Mar 5, 2021)
+
+### Patch
+
+- Module: Fix border-radius + misc cleanup (#1410)
+
 ## 19.2.0 (Mar 5, 2021)
 
 ### Minor
