@@ -450,4 +450,61 @@ function Example(props) {
   />,
 );
 
+card(
+  <Example
+    id="programaticallySetExample"
+    name="Set Programatically"
+    defaultCode={`
+function Example(props) {
+  const [item, setItem] = React.useState('');
+  const [selected, setSelected] = React.useState(null);
+
+  const options = Array.from(Array(20).keys()).map((item) => ({
+    value: 'Value-' + (item + 1),
+    label: 'Label-' + (item + 1),
+  }));
+
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
+
+  const handleSelect = ({ item }) => {
+    setSelected(item);
+  };
+
+  if (selected !== null) console.log(selected.value);
+
+  const label = 'Selected Item: ' + ((selected && selected.label) || '');
+
+  return (
+    <React.Fragment>
+      <Box marginBottom={4}>
+        <Text>Selected Item: {(selected && selected.label) || ''}</Text>
+      </Box>
+
+      <Typeahead
+        label="Typeahead Example 1"
+        id="Typeahead-example"
+        noResultText="No Results"
+        options={options}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        onSelect={handleSelect}
+      />
+      <Typeahead
+        label="Typeahead Example 2"
+        id="Typeahead-example"
+        noResultText="No Results"
+        options={options}
+        value={(selected && selected.value) || 'Value-5'}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        onSelect={handleSelect}
+      />
+    </React.Fragment>
+  );
+}`}
+  />,
+);
+
 export default cards;

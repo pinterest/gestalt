@@ -64,6 +64,8 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     value,
   } = props;
 
+  console.log('VALUE', value);
+
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState(false);
 

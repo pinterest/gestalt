@@ -91,6 +91,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   // Track input value
   const defaultOption: OptionObject | null = findDefaultOption(value);
   const [search, setSearch] = useState<string>(defaultOption?.label || '');
+  console.log('defaultOption:', defaultOption?.label, value, search);
 
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<OptionObject | null>(defaultOption);
