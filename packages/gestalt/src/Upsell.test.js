@@ -2,6 +2,7 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import Icon from './Icon.js';
+import TextField from './TextField.js';
 import Upsell from './Upsell.js';
 
 describe('<Upsell />', () => {
@@ -80,6 +81,31 @@ describe('<Upsell />', () => {
           component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32} />,
         }}
       />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('message + title + dismissButton + image + form', () => {
+    const tree = create(
+      <Upsell
+        message="Insert a clever upsell message here"
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
+        title="A Title"
+        imageData={{
+          component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32} />,
+        }}
+      >
+        <Upsell.Form
+          onSubmit={() => {}}
+          submitButtonText="Submit"
+          submitButtonAccessibilityLabel="Submit button"
+        >
+          <TextField id="name" placeholder="Name" onChange={() => {}} />
+        </Upsell.Form>
+      </Upsell>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });

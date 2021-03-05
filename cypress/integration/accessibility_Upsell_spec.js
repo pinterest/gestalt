@@ -5,6 +5,14 @@ describe('Upsell Accessibility check', () => {
   });
 
   it('Tests accessibility on the Upsell page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'scrollable-region-focusable',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });

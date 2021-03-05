@@ -10,6 +10,7 @@ import IconButton from './IconButton.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
 import Text from './Text.js';
+import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import {
@@ -20,6 +21,7 @@ import {
 } from './commonTypes.js';
 
 type Props = {|
+  children?: Element<typeof UpsellForm>,
   dismissButton?: DismissButtonType,
   imageData?: {|
     component: Element<typeof Image | typeof Icon>,
@@ -86,6 +88,7 @@ const UpsellAction = ({
 };
 
 export default function Upsell({
+  children,
   dismissButton,
   imageData,
   message,
@@ -110,6 +113,7 @@ export default function Upsell({
       <Box smDisplay="flex" wrap width="100%" smMarginTop={-3} smMarginBottom={-3}>
         <Box
           display="flex"
+          flex={children ? 'grow' : 'shrink'}
           direction="column"
           smDirection="row"
           justifyContent="center"
@@ -124,25 +128,27 @@ export default function Upsell({
               smMarginBottom={0}
               width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
               flex="none"
+              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
             >
               <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
                 {imageData.component}
               </Mask>
             </Box>
           )}
-          <Box maxWidth={648}>
-            <Box
-              display="flex"
-              smDisplay="block"
-              direction="column"
-              alignItems="center"
-              marginBottom="auto"
-              marginTop="auto"
-              marginEnd={0}
-              marginStart={0}
-              smMarginEnd={6}
-              smMarginStart={imageData ? 6 : 0}
-            >
+          <Box
+            display="flex"
+            flex={children ? 'grow' : 'shrink'}
+            smDisplay="block"
+            direction="column"
+            alignItems="center"
+            marginBottom="auto"
+            marginTop="auto"
+            marginEnd={0}
+            marginStart={0}
+            smMarginEnd={6}
+            smMarginStart={imageData ? 6 : 0}
+          >
+            <Box maxWidth={648}>
               {title && (
                 <Box marginBottom={2}>
                   <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
@@ -152,17 +158,32 @@ export default function Upsell({
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
             </Box>
+            {children && (
+              <Box
+                smDisplay="flex"
+                flex="grow"
+                width="100%"
+                justifyContent="end"
+                smMarginEnd={4}
+                smPaddingY={3}
+                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+              >
+                {children}
+              </Box>
+            )}
           </Box>
         </Box>
-        <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-          {secondaryAction && responsiveMinWidth !== 'xs' && (
-            <UpsellAction type="secondary" data={secondaryAction} />
-          )}
-          {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
-          {secondaryAction && responsiveMinWidth === 'xs' && (
-            <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
-          )}
-        </Box>
+        {!children && (
+          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+            {secondaryAction && responsiveMinWidth !== 'xs' && (
+              <UpsellAction type="secondary" data={secondaryAction} />
+            )}
+            {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
+            {secondaryAction && responsiveMinWidth === 'xs' && (
+              <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
+            )}
+          </Box>
+        )}
       </Box>
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
@@ -181,6 +202,7 @@ export default function Upsell({
 }
 
 Upsell.propTypes = {
+  children: PropTypes.node,
   dismissButton: DismissButtonPropType,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   imageData: PropTypes.exact({
@@ -196,3 +218,5 @@ Upsell.propTypes = {
   secondaryAction: ActionDataPropType,
   title: PropTypes.string,
 };
+
+Upsell.Form = UpsellForm;
