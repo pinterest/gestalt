@@ -2,44 +2,18 @@
 import { type Node } from 'react';
 import icons from './icons/index.js';
 
-type TypeOptions = 'error' | 'info';
+export type TypeOptions = 'error' | 'info';
 
-export type BaseProps = {|
-  id: string,
-  title?: string,
-  icon?: $Keys<typeof icons>,
-  iconAccessibilityLabel?: string,
-  type?: TypeOptions,
+export type BaseModuleProps = {|
   children?: Node,
-|};
-
-export type ExpandableBaseProps = {|
-  id: string,
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  expandedIndex?: ?number,
-  items: $ReadOnlyArray<{|
-    title: string,
-    icon?: $Keys<typeof icons>,
-    iconAccessibilityLabel?: string,
-    summary?: $ReadOnlyArray<string>,
-    type?: TypeOptions,
-    children?: Node,
-  |}>,
-  onExpandedChange?: (?number) => void,
-|};
-
-export type ExpandableItemProps = {|
-  accessibilityExpandLabel: string,
-  accessibilityCollapseLabel: string,
-  summary?: $ReadOnlyArray<string>,
-  isCollapsed: boolean,
-  onModuleClicked: (boolean) => void,
-|};
-
-export type TitleProps = {|
-  title?: string,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
+  title?: string,
   type?: TypeOptions,
+|};
+
+export type ModuleExpandableItemBaseProps = {|
+  ...BaseModuleProps,
+  summary?: $ReadOnlyArray<string>,
+  title: string, // overwriting base to be required
 |};

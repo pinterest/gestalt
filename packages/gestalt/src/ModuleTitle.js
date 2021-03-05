@@ -1,14 +1,22 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
-import Box from './Box.js';
+import React, { type Node } from 'react';
+import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
-import { type TitleProps } from './moduleTypes.js';
+import icons from './icons/index.js';
+import { type TypeOptions } from './moduleTypes.js';
+
+type TitleProps = {|
+  icon?: $Keys<typeof icons>,
+  iconAccessibilityLabel?: string,
+  title: string,
+  type: TypeOptions,
+|};
 
 export default function ModuleTitle({
-  title,
   icon,
   iconAccessibilityLabel,
+  title,
   type = 'info',
 }: TitleProps): Node {
   const MODULE_TYPE_ATTRIBUTES = {
@@ -21,20 +29,18 @@ export default function ModuleTitle({
       color: 'red',
     },
   };
+
+  const { color, icon: iconName } = MODULE_TYPE_ATTRIBUTES[type];
+
   return (
-    <Fragment>
-      {MODULE_TYPE_ATTRIBUTES[type].icon && (
-        <Box marginEnd={2}>
-          <Icon
-            icon={MODULE_TYPE_ATTRIBUTES[type].icon}
-            accessibilityLabel={iconAccessibilityLabel || ''}
-            color={MODULE_TYPE_ATTRIBUTES[type].color}
-          />
-        </Box>
+    <Flex gap={2}>
+      {iconName && (
+        <Icon accessibilityLabel={iconAccessibilityLabel ?? ''} color={color} icon={iconName} />
       )}
-      <Text weight="bold" truncate color={MODULE_TYPE_ATTRIBUTES[type].color}>
+
+      <Text color={color} truncate weight="bold">
         {title}
       </Text>
-    </Fragment>
+    </Flex>
   );
 }
