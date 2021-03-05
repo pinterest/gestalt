@@ -11,8 +11,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Popover"
-    description="Popovers are similar to modals. They’re an alternative when there is less content to display,
-or to make the interaction feel faster."
+    description="Popovers (formerly known as Flyouts) are similar to modals. They’re an alternative when there is less content to display, or to make the interaction feel faster."
   />,
 );
 
