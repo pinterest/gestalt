@@ -2,383 +2,481 @@
 
 exports[`ModuleExpandableItem renders correctly 1`] = `
 <div
-  aria-controls="uniqueTestID"
-  aria-disabled={false}
-  aria-expanded={false}
-  aria-label="click to expand"
-  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onContextMenu={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex={0}
+  className="box paddingX6 paddingY6"
 >
   <div
-    className="box paddingX6 paddingY6 xsDisplayFlex"
+    className="Flex columnGap6 xsDirectionColumn"
   >
     <div
-      className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+      className="FlexItem"
     >
       <div
-        className="box xsCol12 xsDisplayFlex"
+        aria-controls="uniqueTestID"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-label="click to expand"
+        className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-          title="test title"
+          className="Flex rowGap0 xsDirectionRow"
         >
-          test title
+          <div
+            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+          >
+            <div
+              className="box xsCol12"
+            >
+              <div
+                className="Flex rowGap2 xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                    title="test title"
+                  >
+                    test title
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      className="box"
-      id="uniqueTestID"
-    />
   </div>
 </div>
 `;
 
 exports[`ModuleExpandableItem renders correctly with children 1`] = `
 <div
-  aria-controls="uniqueTestID"
-  aria-disabled={false}
-  aria-expanded={false}
-  aria-label="click to expand"
-  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onContextMenu={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex={0}
+  className="box paddingX6 paddingY6"
 >
   <div
-    className="box paddingX6 paddingY6 xsDisplayFlex"
+    className="Flex columnGap6 xsDirectionColumn"
   >
     <div
-      className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+      className="FlexItem"
     >
       <div
-        className="box xsCol12 xsDisplayFlex"
+        aria-controls="uniqueTestID"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-label="click to expand"
+        className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-          title="test title"
+          className="Flex rowGap0 xsDirectionRow"
         >
-          test title
+          <div
+            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+          >
+            <div
+              className="box xsCol12"
+            >
+              <div
+                className="Flex rowGap2 xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                    title="test title"
+                  >
+                    test title
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      className="box"
-      id="uniqueTestID"
-    />
   </div>
 </div>
 `;
 
 exports[`ModuleExpandableItem renders correctly with error 1`] = `
 <div
-  aria-controls="uniqueTestID"
-  aria-disabled={false}
-  aria-expanded={false}
-  aria-label="click to expand"
-  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onContextMenu={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex={0}
+  className="box paddingX6 paddingY6"
 >
   <div
-    className="box paddingX6 paddingY6 xsDisplayFlex"
+    className="Flex columnGap6 xsDirectionColumn"
   >
     <div
-      className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+      className="FlexItem"
     >
       <div
-        className="box xsCol12 xsDisplayFlex"
+        aria-controls="uniqueTestID"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-label="click to expand"
+        className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="box marginEnd2"
+          className="Flex rowGap0 xsDirectionRow"
         >
-          <svg
-            aria-hidden={true}
-            aria-label=""
-            className="icon red iconBlock"
-            height={16}
-            role="img"
-            viewBox="0 0 24 24"
-            width={16}
+          <div
+            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
           >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
-        <div
-          className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
-          title="test title"
-        >
-          test title
+            <div
+              className="box xsCol12"
+            >
+              <div
+                className="Flex rowGap2 xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <svg
+                    aria-hidden={true}
+                    aria-label=""
+                    className="icon red iconBlock"
+                    height={16}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={16}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
+                    title="test title"
+                  >
+                    test title
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      className="box"
-      id="uniqueTestID"
-    />
   </div>
 </div>
 `;
 
 exports[`ModuleExpandableItem renders correctly with icon 1`] = `
 <div
-  aria-controls="uniqueTestID"
-  aria-disabled={false}
-  aria-expanded={false}
-  aria-label="click to expand"
-  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onContextMenu={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex={0}
+  className="box paddingX6 paddingY6"
 >
   <div
-    className="box paddingX6 paddingY6 xsDisplayFlex"
+    className="Flex columnGap6 xsDirectionColumn"
   >
     <div
-      className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+      className="FlexItem"
     >
       <div
-        className="box xsCol12 xsDisplayFlex"
+        aria-controls="uniqueTestID"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-label="click to expand"
+        className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="box marginEnd2"
+          className="Flex rowGap0 xsDirectionRow"
         >
-          <svg
-            aria-hidden={null}
-            aria-label="lock icon label"
-            className="icon darkGray iconBlock"
-            height={16}
-            role="img"
-            viewBox="0 0 24 24"
-            width={16}
+          <div
+            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
           >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
-        <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-          title="test title"
-        >
-          test title
+            <div
+              className="box xsCol12"
+            >
+              <div
+                className="Flex rowGap2 xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <svg
+                    aria-hidden={null}
+                    aria-label="lock icon label"
+                    className="icon darkGray iconBlock"
+                    height={16}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={16}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                    title="test title"
+                  >
+                    test title
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      className="box"
-      id="uniqueTestID"
-    />
   </div>
 </div>
 `;
 
 exports[`ModuleExpandableItem renders correctly with summary 1`] = `
 <div
-  aria-controls="uniqueTestID"
-  aria-disabled={false}
-  aria-expanded={false}
-  aria-label="click to expand"
-  className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onContextMenu={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex={0}
+  className="box paddingX6 paddingY6"
 >
   <div
-    className="box paddingX6 paddingY6 xsDisplayFlex"
+    className="Flex columnGap6 xsDirectionColumn"
   >
     <div
-      className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+      className="FlexItem"
     >
       <div
-        className="box xsCol6 xsDisplayFlex"
+        aria-controls="uniqueTestID"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-label="click to expand"
+        className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-          title="test title"
-        >
-          test title
-        </div>
-      </div>
-      <div
-        className="box marginStart6 xsCol6"
-      >
-        <div
-          className="box marginBottom2"
+          className="Flex rowGap0 xsDirectionRow"
         >
           <div
-            className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-            title="summary1"
+            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
           >
-            summary1
-          </div>
-        </div>
-        <div
-          className="box marginBottom2"
-        >
-          <div
-            className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-            title="summary2"
-          >
-            summary2
-          </div>
-        </div>
-        <div
-          className="box marginBottom0"
-        >
-          <div
-            className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
-            title="summary3"
-          >
-            summary3
+            <div
+              className="box xsCol6"
+            >
+              <div
+                className="Flex rowGap2 xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                    title="test title"
+                  >
+                    test title
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="box marginStart6 xsCol6"
+            >
+              <div
+                className="Flex columnGap2 xsDirectionColumn"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary1"
+                  >
+                    summary1
+                  </div>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary2"
+                  >
+                    summary2
+                  </div>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                    title="summary3"
+                  >
+                    summary3
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div
-      className="box"
-      id="uniqueTestID"
-    />
   </div>
 </div>
 `;
 
 exports[`ModuleExpandableItem renders correctly with when expanded 1`] = `
-Array [
+<div
+  className="box paddingX6 paddingY6"
+>
   <div
-    aria-controls="uniqueTestID"
-    aria-disabled={false}
-    aria-expanded={true}
-    aria-label="click to collapse"
-    className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onContextMenu={[Function]}
-    onFocus={[Function]}
-    onKeyPress={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchCancel={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="button"
-    tabIndex={0}
+    className="Flex columnGap6 xsDirectionColumn"
   >
     <div
-      className="box paddingX6 paddingY6 xsDisplayFlex"
+      className="FlexItem"
     >
       <div
-        className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
+        aria-controls="uniqueTestID"
+        aria-disabled={false}
+        aria-expanded={true}
+        aria-label="click to collapse"
+        className="hideOutline tapTransition rounding0 accessibilityOutline fullWidth pointer"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
       >
         <div
-          className="box xsCol12 xsDisplayFlex"
+          className="Flex rowGap0 xsDirectionRow"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
-            title="test title"
+            className="box flexGrow itemsBaseline marginEnd6 xsDisplayFlex"
           >
-            test title
+            <div
+              className="box xsCol12"
+            >
+              <div
+                className="Flex rowGap2 xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                    title="test title"
+                  >
+                    test title
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="box paddingX1 paddingY1"
+            id="uniqueTestID"
+          >
+            <svg
+              aria-hidden={null}
+              aria-label="click to collapse"
+              className="icon darkGray iconBlock"
+              height="12"
+              role="img"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path
+                d="test-file-stub"
+              />
+            </svg>
           </div>
         </div>
       </div>
-      <div
-        className="box"
-        id="uniqueTestID"
-      >
-        <div
-          className="box paddingX1 paddingY1"
-        >
-          <svg
-            aria-hidden={null}
-            aria-label="click to collapse"
-            className="icon darkGray iconBlock"
-            height="12"
-            role="img"
-            viewBox="0 0 24 24"
-            width="12"
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div>
+        test children
       </div>
     </div>
-  </div>,
-  <div
-    className="box marginTopN6 paddingX6 paddingY6"
-  >
-    <div>
-      test children
-    </div>
-  </div>,
-]
+  </div>
+</div>
 `;

@@ -1,3 +1,21 @@
+## 19.2.2 (Mar 5, 2021)
+
+### Patch
+
+- FeedbackCallout: Simplify API (#1413)
+
+## 19.2.1 (Mar 5, 2021)
+
+### Patch
+
+- Module: Fix border-radius + misc cleanup (#1410)
+
+## 19.2.0 (Mar 5, 2021)
+
+### Minor
+
+- Upsell: Add Upsell.Form component (#1396)
+
 ## 19.1.2 (Mar 3, 2021)
 
 ### Patch

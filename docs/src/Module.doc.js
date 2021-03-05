@@ -132,15 +132,11 @@ card(
 function ModuleExample() {
   return (
     <Flex direction="column" gap={2} maxWidth={800}>
-      <Module
-        id="ModuleExample - default - 1"
-        >
+      <Module id="ModuleExample - default - 1">
         <Text size="md">This is example content.</Text>
       </Module>
-      <Module
-        id="ModuleExample - default - 2"
-        title="Title"
-        >
+
+      <Module id="ModuleExample - default - 2" title="Title">
         <Text size="md">This is example content.</Text>
       </Module>
     </Flex>
@@ -162,12 +158,12 @@ card(
     defaultCode={`
 function ModuleExample() {
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box column={12} maxWidth={800} padding={2}>
       <Module
-        id="ModuleExample - icon"
-        title="Title"
         icon="lock"
         iconAccessibilityLabel="Module Locked - check permission settings"
+        id="ModuleExample - icon"
+        title="Title"
         >
         <Text size="md">This is example content.</Text>
       </Module>
@@ -185,23 +181,25 @@ card(
     defaultCode={`
 function ModuleExample() {
   const [value, setValue] = React.useState('');
+
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box column={12} maxWidth={800} padding={2}>
       <Module
         id="ModuleExample - error"
         title="Personal Info"
         type={!value ? "error" : "info"}
-        >
-        <Box marginBottom={4}>
+      >
+        <Flex direction="column" gap={4}>
           <Text size="md">This is example content.</Text>
-        </Box>
-        <TextField
-          id="first-name"
-          errorMessage={!value ? "This field can't be blank!" : null}
-          onChange={({ value }) => setValue(value)}
-          label="Enter Your Name"
-          value={value}
-        />
+
+          <TextField
+            errorMessage={!value ? "This field can't be blank!" : null}
+            id="first-name"
+            label="Enter Your Name"
+            onChange={({ value }) => setValue(value)}
+            value={value}
+          />
+        </Flex>
       </Module>
     </Box>
   );
@@ -218,16 +216,16 @@ card(
     defaultCode={`
 function ModuleExample1() {
   return (
-    <Box maxWidth={800} padding={2} column={12} >
+    <Box column={12} maxWidth={800} padding={2}>
       <Module.Expandable
-        id="ModuleExample - default"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
+        id="ModuleExample - default"
         items={[
           {
-            title: 'Title',
-            summary: ['summary1', 'summary2', 'summary3'],
             children: <Text size="md">Children1</Text>,
+            summary: ['summary1', 'summary2', 'summary3'],
+            title: 'Title',
           }]}>
       </Module.Expandable>
     </Box>
@@ -245,26 +243,26 @@ card(
     defaultCode={`
 function ModuleExample2() {
   return (
-    <Box maxWidth={800} padding={2} column={12} >
+    <Box column={12} maxWidth={800} padding={2}>
       <Module.Expandable
         id="ModuleExample2"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
         items={[
           {
-            title: 'Title1',
-            summary: ['summary1'],
             children: <Text size="md">Children1</Text>,
+            summary: ['summary1'],
+            title: 'Title1',
           },
           {
-            title: 'Title2',
-            summary: ['summary2'],
             children: <Text size="md">Children2</Text>,
+            summary: ['summary2'],
+            title: 'Title2',
           },
           {
-            title: 'Title3',
-            summary: ['summary3'],
             children: <Text size="md">Children3</Text>,
+            summary: ['summary3'],
+            title: 'Title3',
           }]}>
       </Module.Expandable>
     </Box>
@@ -281,17 +279,17 @@ card(
     defaultCode={`
 function ModuleExample3() {
   return (
-    <Box maxWidth={800} padding={2} column={12} >
+    <Box column={12} maxWidth={800} padding={2}>
       <Module.Expandable
-        id="ModuleExample3"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
+        id="ModuleExample3"
         items={[
           {
-            title: 'Example with icon',
             children: <Text size="md">Children1</Text>,
             iconAccessibilityLabel: "title icon",
             icon: 'lock',
+            title: 'Example with icon',
           }]}>
       </Module.Expandable>
     </Box>
@@ -309,26 +307,27 @@ function ModuleExample4() {
   const [value, setValue] = React.useState('');
   const moduleType = !value ? 'error' : 'info';
   const summaryInfo = !value ? 'Name is missing' : 'Name: ' + value;
+
   return (
-    <Box maxWidth={800} padding={2} column={12}>
+    <Box column={12} maxWidth={800} padding={2}>
       <Module.Expandable
-        id="ModuleExample4"
         accessibilityExpandLabel="Expand the module"
         accessibilityCollapseLabel="Collapse the module"
+        id="ModuleExample4"
         items={[
           {
-            title: 'Personal Info',
-            summary: [summaryInfo],
             children: <Text size="md">
               <TextField
-                id="aboutme"
                 errorMessage={!value ? "This field can't be blank!" : null}
-                onChange={({ value }) => setValue(value)}
+                id="aboutme"
                 label="Enter Your Name"
+                onChange={({ value }) => setValue(value)}
                 value={value}
               />
             </Text>,
             iconAccessibilityLabel: "error icon",
+            summary: [summaryInfo],
+            title: 'Personal Info',
             type: moduleType
           }]}>
       </Module.Expandable>
@@ -352,16 +351,18 @@ function ModuleExample5() {
       'second-1': 1,
   }
   return (
-    <Box maxWidth={800} padding={2} column={12}>
-      <Flex direction='column' gap={3}>
-        <Box padding={1} borderStyle='sm'>
-          <Text>Step 1</Text>
+    <Box column={12} maxWidth={800} padding={2}>
+      <Flex direction="column" gap={4}>
+        <Flex direction="column" gap={2}>
+          <Box marginStart={2}>
+            <Text>Step 1</Text>
+          </Box>
+
           <Module.Expandable
-            id="ModuleExampleStep1"
             accessibilityExpandLabel="Expand the module"
             accessibilityCollapseLabel="Collapse the module"
             expandedIndex={extExpandedId && extExpandedId.startsWith('first') && mapIds[extExpandedId]}
-            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`first-$\{index}\`: index)}
+            id="ModuleExampleStep1"
             items={[
               {
                 title: 'Title1',
@@ -374,10 +375,15 @@ function ModuleExample5() {
                 children: <Text size="md">Children2</Text>,
               },
             ]}
+            onExpandedChange={(index) => setExtExpandedId(Number.isFinite(index) ? \`first-$\{index}\`: index)}
           />
-        </Box>
-        <Box padding={1} borderStyle='sm'>
-          <Text>Step 2</Text>
+        </Flex>
+
+        <Flex direction="column" gap={2}>
+          <Box marginStart={2}>
+            <Text>Step 2</Text>
+          </Box>
+
           <Module.Expandable
             id="ModuleExampleStep2"
             accessibilityExpandLabel="Expand the module"
@@ -397,7 +403,7 @@ function ModuleExample5() {
               },
             ]}
           />
-        </Box>
+        </Flex>
       </Flex>
     </Box>
   );
