@@ -1,5 +1,7 @@
 // @flow strict
 import React, { type Node } from 'react';
+import { Upsell } from 'gestalt';
+import Card from './components/Card.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
@@ -42,6 +44,10 @@ card(
         required: true,
         defaultValue: null,
         description: `Main content of Upsell, explains what is being offered or recommended. Content should be [localized](#Localization). See [Best Practices](#Best-practices) for more info.`,
+      },
+      {
+        name: 'children',
+        type: 'typeof UpsellForm',
       },
       {
         name: 'dismissButton',
@@ -572,6 +578,153 @@ card(
     `}
     />
   </MainSection>,
+);
+
+card(
+  <Card
+    name="Upsell.Form"
+    description="Upsell.Form can be used to include form fields and a submit button within Upsell."
+  />,
+);
+
+card(
+  <PropTable
+    name="Upsell.Form"
+    id="Upsell.Form"
+    Component={Upsell?.Form}
+    props={[
+      {
+        name: 'children',
+        type: 'React.Node',
+        required: true,
+      },
+      {
+        name: 'onSubmit',
+        type:
+          '({| event: SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> |}) => void',
+        required: true,
+      },
+      {
+        name: 'submitButtonText',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'submitButtonAccessibilityLabel',
+        type: 'string',
+        required: true,
+      },
+      {
+        name: 'submitButtonDisabled',
+        type: 'boolean',
+      },
+    ]}
+  />,
+);
+
+card(
+  <Example
+    id="formExample"
+    name="Example: Upsell with Form"
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('');
+  return (
+    <Upsell
+      title="Give $30, get $60 in ads credit"
+      message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+      dismissButton={{
+        accessibilityLabel: 'Dismiss banner',
+        onDismiss: ()=>{},
+      }}
+      imageData={{
+        component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+      }}
+    >
+      <Upsell.Form
+        onSubmit={(event) => {event.preventDefault();}}
+        submitButtonText="Submit"
+        submitButtonAccessibilityLabel="Submit name for ads credit"
+      >
+        <TextField
+          id="nameField"
+          onChange={({ value }) => setValue(value)}
+          placeholder="Name"
+          value={value}
+        />
+      </Upsell.Form>
+    </Upsell>
+  );
+}
+`}
+  />,
+);
+
+card(
+  <Example
+    id="twoFormsExample"
+    name="Example: Upsell with Form- 2 TextFields"
+    defaultCode={`
+function Example(props) {
+  const [nameValue, setNameValue] = React.useState('');
+  const [emailValue, setEmailValue] = React.useState('');
+  return (
+    <Upsell
+      title="Interested in a free ads consultation?"
+      message="Learn how to grow your business with a Pinterest ads expert today!"
+      dismissButton={{
+        accessibilityLabel: 'Dismiss banner',
+        onDismiss: ()=>{},
+      }}
+      imageData={{
+        component:
+          <Image
+            alt="Succulent plant against pink background"
+            color="rgb(231, 186, 176)"
+            naturalHeight={751}
+            naturalWidth={564}
+            src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+          />,
+          mask: {rounding: 4},
+        width: 128,
+      }}
+    >
+      <Upsell.Form
+        onSubmit={(event) => {event.preventDefault();}}
+        submitButtonText="Contact me"
+        submitButtonAccessibilityLabel="Submit info for contact"
+      >
+        <Box display="block" smDisplay="flex">
+          <Box
+            flex="grow"
+            smMarginEnd={1}
+            marginEnd={0}
+            smMarginBottom={0}
+            marginBottom={2}
+          >
+            <TextField
+              id="name"
+              onChange={({ value }) => setNameValue(value)}
+              placeholder="Name"
+              value={nameValue}
+            />
+          </Box>
+          <Box flex="grow" smMarginStart={1} marginStart={0}>
+            <TextField
+              id="email"
+              onChange={({ value }) => setEmailValue(value)}
+              placeholder="Email"
+              type="email"
+              value={emailValue}
+            />
+          </Box>
+        </Box>
+      </Upsell.Form>
+    </Upsell>
+  );
+}
+`}
+  />,
 );
 
 export default cards;

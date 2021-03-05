@@ -1,3 +1,9 @@
+## 19.1.2 (Mar 3, 2021)
+
+### Patch
+
+- Docs: fixes inlinks (#1408)
+
 ## 19.1.1 (Mar 3, 2021)
 
 ### Patch

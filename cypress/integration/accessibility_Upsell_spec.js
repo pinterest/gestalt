@@ -12,6 +12,10 @@ describe('Upsell Accessibility check', () => {
           id: 'heading-order',
           enabled: false,
         },
+        {
+          id: 'scrollable-region-focusable',
+          enabled: false,
+        },
       ],
     });
     cy.checkA11y();
