@@ -401,6 +401,9 @@ function Example(props) {
 }
 `}
   />,
+);
+
+card(
   <MainSection name="Variants">
     <MainSection.Subsection
       title="Custom navigation"
