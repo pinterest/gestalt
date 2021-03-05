@@ -16,7 +16,7 @@ import { ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 
 type Props = {|
   forwardedRef?: Ref<'input'>,
-  disabled: boolean,
+  disabled?: boolean,
   id: string,
   label?: string,
   onBlur: ({|
@@ -160,8 +160,9 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     />
   );
 
-  const iconButton = !disabled && (
+  const iconButton = (
     <button
+      disabled={disabled}
       className={hasValue ? styles.clear : typeaheadStyle.icon}
       onClick={!hasValue ? handleClick : handleClear}
       tabIndex={-1}

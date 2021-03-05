@@ -20,7 +20,7 @@ import handleContainerScrolling, { type DirectionOptionType } from './utils/keyb
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 
 type Props = {|
-  disabled: boolean,
+  disabled?: boolean,
   id: string,
   label?: string,
   noResultText: string,
@@ -159,6 +159,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
     setSearch(item.label);
     setContainerOpen(false);
+
     if (inputRef.current) inputRef.current.focus();
     if (onSelect) onSelect({ event, item });
   };

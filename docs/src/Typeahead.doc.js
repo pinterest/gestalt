@@ -294,8 +294,6 @@ card(
     name="Disabled"
     defaultCode={`
 function TypeaheadExample() {
-  const ref = React.useRef();
-  const [option, setOption] = React.useState();
   return (
       <Typeahead
         disabled
@@ -303,8 +301,7 @@ function TypeaheadExample() {
         id="favorite-shape"
         noResultText="No Results"
         options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
-        onSelect={p => ref.current.focus()}
-        placeholder="Select a shape"
+        placeholder="This Typeahead is disabled"
       />
   );
 }`}
