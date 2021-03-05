@@ -1,3 +1,9 @@
+## 19.2.0 (Mar 5, 2021)
+
+### Minor
+
+- Upsell: Add Upsell.Form component (#1396)
+
 ## 19.1.2 (Mar 3, 2021)
 
 ### Patch
