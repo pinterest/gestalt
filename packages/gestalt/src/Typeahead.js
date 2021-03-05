@@ -20,6 +20,7 @@ import handleContainerScrolling, { type DirectionOptionType } from './utils/keyb
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 
 type Props = {|
+  disabled: boolean,
   id: string,
   label?: string,
   noResultText: string,
@@ -54,8 +55,9 @@ type Props = {|
 const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
   Props,
   HTMLInputElement,
->(function Typeahead(props, ref): Node {
-  const {
+>(function Typeahead(
+  {
+    disabled = false,
     id,
     label,
     noResultText,
@@ -70,8 +72,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     tags,
     value = null,
     zIndex,
-  } = props;
-
+  },
+  ref,
+): Node {
   // Parent ref for positioning
   const wrapperRef = useRef(null);
 
@@ -216,6 +219,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   return (
     <Box position="relative" ref={wrapperRef}>
       <TypeaheadInputField
+        disabled={disabled}
         label={label}
         id={id}
         value={search}
@@ -288,6 +292,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TypeaheadWithForwardRef.propTypes = {
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   noResultText: PropTypes.string.isRequired,

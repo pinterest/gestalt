@@ -51,10 +51,15 @@ card(
         name: 'onBlur',
         type:
           '({ event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement> , value: string }) => void',
-        description: 'Callback when you focus outside the component ',
+        description: 'Callback when you focus outside the component',
         href: 'basicExample',
       },
-
+      {
+        name: 'disabled',
+        type: 'boolean',
+        required: false,
+        description: 'Set disabled state so typeahead looks inactive and cannot be interacted with',
+      },
       {
         name: 'onChange',
         type: '({ event: SyntheticInputEvent<>, value: string }) => void',

@@ -15,6 +15,7 @@ import { ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 
 type Props = {|
   forwardedRef?: Ref<'input'>,
+  disabled: boolean,
   id: string,
   label?: string,
   onBlur: ({|
@@ -47,6 +48,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 > = forwardRef<Props, HTMLInputElement>(function InputField(props, ref): Node {
   const {
     id,
+    disabled = false,
     label,
     onBlur,
     onChange,
@@ -140,6 +142,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   const inputElement = (
     <input
       ref={ref}
+      disabled={disabled}
       autoComplete="off"
       aria-label={label}
       className={tags ? typeaheadStyle.unstyledInput : className}
@@ -225,6 +228,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TypeaheadInputFieldWithForwardRef.propTypes = {
+  disabled: PropTypes.bool,
   label: PropTypes.string,
   id: PropTypes.string.isRequired,
   onBlur: PropTypes.func,
