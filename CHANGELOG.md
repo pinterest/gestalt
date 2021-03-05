@@ -1,3 +1,9 @@
+## 19.2.2 (Mar 5, 2021)
+
+### Patch
+
+- FeedbackCallout: Simplify API (#1413)
+
 ## 19.2.1 (Mar 5, 2021)
 
 ### Patch
