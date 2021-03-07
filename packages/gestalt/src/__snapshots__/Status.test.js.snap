@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status renders 1`] = `
+<svg
+  aria-hidden={null}
+  aria-label="foo"
+  className="icon red iconBlock"
+  height={16}
+  role="img"
+  viewBox="0 0 24 24"
+  width={16}
+>
+  <path
+    d="test-file-stub"
+  />
+</svg>
+`;
+
+exports[`Status renders an accessibility label 1`] = `
+<svg
+  aria-hidden={null}
+  aria-label="foo"
+  className="icon red iconBlock"
+  height={16}
+  role="img"
+  viewBox="0 0 24 24"
+  width={16}
+>
+  <path
+    d="test-file-stub"
+  />
+</svg>
+`;

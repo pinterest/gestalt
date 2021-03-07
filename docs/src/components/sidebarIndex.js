@@ -43,6 +43,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Modal',
       'Pulsar',
       'Spinner',
+      'Status',
       'Toast',
       'Tooltip',
       'Upsell',
