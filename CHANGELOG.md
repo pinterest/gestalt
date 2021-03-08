@@ -1,3 +1,9 @@
+## 20.0.1 (Mar 8, 2021)
+
+### Patch
+
+- Internal: Bump elliptic from 6.5.3 to 6.5.4 (#1414)
+
 ## 20.0.0 (Mar 8, 2021)
 
 ### Major
