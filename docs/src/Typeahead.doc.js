@@ -294,15 +294,23 @@ card(
     name="Disabled"
     defaultCode={`
 function TypeaheadExample() {
+  const [disabled, setDisabled] = React.useState(true)
+  const label = "Typeahead is " + (disabled ? "disabled" : "enabled");
+
   return (
+    <Box>
+      <Box marginBottom={6} >
+        <Button text={(!disabled ? "Disable" : "Enable") + " typeahead"} onClick={()=>{setDisabled(prev => !prev)}} />
+      </Box>
       <Typeahead
-        disabled
-        label="This typeahead is disabled"
-        id="favorite-shape"
+        disabled={disabled}
+        label={label}
+        id="disabled-example"
         noResultText="No Results"
         options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
-        placeholder="This Typeahead is disabled"
+        placeholder={label}
       />
+    </Box>
   );
 }`}
   />,
