@@ -9,9 +9,7 @@ import FeedbackCallout from './components/FeedbackCallout.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(
-  <FeedbackCallout link="https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=Upsell" />,
-);
+card(<FeedbackCallout componentName="Upsell" />);
 
 card(
   <PageHeader
