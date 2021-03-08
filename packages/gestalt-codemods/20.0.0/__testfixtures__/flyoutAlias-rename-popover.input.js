@@ -6,7 +6,7 @@ export default function TestComp() {
     const anchorRef = React.useRef();
 
   return (
-    <Renamed anchor={anchorRef} onDismiss={() => {}}>
+    <Renamed onDismiss={() => {}} anchor={anchorRef}>
       <Box/>
     </Renamed>
   );

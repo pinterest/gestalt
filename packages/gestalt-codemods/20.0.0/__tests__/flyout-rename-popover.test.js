@@ -7,7 +7,7 @@ jest.mock('../flyout-rename-popover', () => {
 });
 
 describe('flyout-rename-popover', () => {
-  ['flyoutAlias-rename-popover'].forEach((test) => {
+  ['flyoutAlias-rename-popover', 'flyout-rename-popover'].forEach((test) => {
     defineTest(__dirname, 'flyout-rename-popover', { quote: 'single' }, test);
   });
 });
