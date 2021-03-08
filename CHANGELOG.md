@@ -1,3 +1,9 @@
+## 20.0.0 (Mar 8, 2021)
+
+### Major
+
+- Popover: Rename Flyout to Popover + Codemod (#1411)
+
 ## 19.2.2 (Mar 5, 2021)
 
 ### Patch
