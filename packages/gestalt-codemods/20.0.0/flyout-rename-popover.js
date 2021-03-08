@@ -33,9 +33,12 @@ export default function transformer(file, api) {
       // Rename ScrollableContainer import
       ...decl.specifiers.map((node) => {
         if (node.imported.name === OLD_NAME) {
-          const importCmp = { ...node };
-          importCmp.imported.name = NEW_NAME;
-          return importCmp;
+          if (targetLocalIdentifierName !== OLD_NAME) {
+            const importCmp = { ...node };
+            importCmp.imported.name = NEW_NAME;
+            return importCmp;
+          }
+          return j.importSpecifier(j.identifier(NEW_NAME));
         }
         return node;
       }),
@@ -68,7 +71,7 @@ export default function transformer(file, api) {
       node.openingElement.attributes.sort((a, b) => a.name.name.localeCompare(b.name.name));
 
       // Skip changing tags if cmp mport is aliased
-      if (!targetLocalIdentifierName) {
+      if (targetLocalIdentifierName === OLD_NAME) {
         node.openingElement.name = NEW_NAME;
         node.closingElement.name = NEW_NAME;
       }

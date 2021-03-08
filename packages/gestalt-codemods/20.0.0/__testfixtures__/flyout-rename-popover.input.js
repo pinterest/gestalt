@@ -6,7 +6,7 @@ export default function TestComp() {
     const anchorRef = React.useRef();
 
   return (
-    <Flyout anchor={anchorRef} onDismiss={() => {}}>
+    <Flyout onDismiss={() => {}} anchor={anchorRef} >
       <Box/>
     </Flyout>
   );
