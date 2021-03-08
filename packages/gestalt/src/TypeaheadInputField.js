@@ -64,8 +64,6 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     value,
   } = props;
 
-  console.log('VALUE', value);
-
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState(false);
 
@@ -140,6 +138,15 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
       : {},
   );
 
+  const highlightSelectedInput = () => {
+    // Highlight selected text on click
+    if (ref.current) {
+      // $FlowFixMe[unclear-type]
+      const inputField: HTMLInputElement = (ref.current: any);
+      inputField.select();
+    }
+  };
+
   const clearButtonSize = size === 'lg' ? 24 : 20;
   const clearIconSize = size === 'lg' ? 12 : 10;
 
@@ -153,7 +160,11 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
       id={id}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      onClick={() => setContainer(true)}
+      onClick={() => {
+        setContainer(true);
+
+        highlightSelectedInput();
+      }}
       onChange={handleChange}
       placeholder={placeholder}
       type="text"
