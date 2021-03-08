@@ -1,3 +1,9 @@
+## 20.0.2 (Mar 8, 2021)
+
+### Patch
+
+- Popover: fix codemod (#1415)
+
 ## 20.0.1 (Mar 8, 2021)
 
 ### Patch
