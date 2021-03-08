@@ -80,8 +80,8 @@ card(
   <Example
     description={`
     We want to make sure every button on the page is unique when being read by screenreader.
-    \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Flyout) is open.
-    \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Flyout).
+    \`accessibilityExpanded\` allows us to specify that the associated content (i.e. Popover) is open.
+    \`accessibilityHaspopup\` allows us to specify that the button has associated content (i.e. Popover).
     \`accessibilityLabel\` allows us to update the spoken text.
 
     Be sure to internationalize your \`accessibilityLabel\`.

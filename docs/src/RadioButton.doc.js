@@ -317,14 +317,14 @@ function RadioButtonExample() {
 
 card(
   <Example
-    name="Example: RadioButton and Flyout"
+    name="Example: RadioButton and Popover"
     description={`
-    A \`RadioButton\` with an anchor ref to a Flyout component doesn't pass the correct positioning to the Flyout. Instead set the anchor ref to the parent container.
+    A \`RadioButton\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
   `}
     skipContrastCheck
     defaultCode={`
 
-function RadioButtonFlyoutExample() {
+function RadioButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [option, setOption] = React.useState(false);
   const anchorCatRef = React.useRef();
@@ -360,7 +360,7 @@ function RadioButtonFlyoutExample() {
       </Flex>
       {open &&
         <Layer>
-          <Flyout
+          <Popover
             anchor={option === "cat" ? anchorCatRef.current  : anchorDogRef.current}
             color="red"
             idealDirection="right"
@@ -389,7 +389,7 @@ function RadioButtonFlyoutExample() {
                 </Text>
               </Box>
             </Link>
-          </Flyout>
+          </Popover>
         </Layer>
       }
     </Box>

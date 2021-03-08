@@ -12,7 +12,7 @@ import type {
   CaretOffset,
   ClientRect,
   DerivedState,
-  FlyoutDir,
+  PopoverDir,
   MainDirections,
   Coordinates,
 } from './utils/positioningTypes.js';
@@ -24,7 +24,7 @@ import {
   CARET_WIDTH,
   getCaretDir,
   getContainerNode,
-  getFlyoutDir,
+  getPopoverDir,
 } from './utils/positioningUtils.js';
 
 type OwnProps = {|
@@ -55,13 +55,13 @@ type ColorSchemeProps = {|
 type Props = {| ...OwnProps, ...ColorSchemeProps, ...HookProps |};
 
 type State = {|
-  flyoutOffset: {|
+  popoverOffset: {|
     top: ?number,
     left: ?number,
   |},
   caretOffset: CaretOffset,
-  flyoutDir: ?FlyoutDir,
-  flyoutRef: ?HTMLElement,
+  popoverDir: ?PopoverDir,
+  popoverRef: ?HTMLElement,
 |};
 
 const ContentProptypes = {
@@ -99,7 +99,7 @@ class Contents extends Component<Props, State> {
   };
 
   state = {
-    flyoutOffset: {
+    popoverOffset: {
       top: undefined,
       left: undefined,
     },
@@ -109,17 +109,17 @@ class Contents extends Component<Props, State> {
       bottom: null,
       left: null,
     },
-    flyoutDir: null,
-    flyoutRef: null,
+    popoverDir: null,
+    popoverRef: null,
   };
 
   componentDidMount() {
     const { onResize, onKeyDown } = this.props;
-    const { flyoutRef } = this.state;
+    const { popoverRef } = this.state;
 
     setTimeout(() => {
-      if (this.props.shouldFocus && flyoutRef) {
-        flyoutRef.focus();
+      if (this.props.shouldFocus && popoverRef) {
+        popoverRef.focus();
       }
     });
 
@@ -136,7 +136,7 @@ class Contents extends Component<Props, State> {
 
   /**
    * >> MAIN LOGIC << Determines the main direction, sub direction, and corresponding offsets needed
-   * to correctly position the offset: Flyout and Caret
+   * to correctly position the offset: Popover and Caret
    */
   static getDerivedStateFromProps(
     {
@@ -149,7 +149,7 @@ class Contents extends Component<Props, State> {
       triggerRect,
       width,
     }: Props,
-    { flyoutRef }: State,
+    { popoverRef }: State,
   ): DerivedState {
     // Scroll not needed for relative elements
     // We can't use window.scrollX / window.scrollY since it's not supported by IE11
@@ -176,56 +176,56 @@ class Contents extends Component<Props, State> {
       scrollY: containerNode?.scrollTop ?? scrollY,
     };
 
-    const flyoutSize = {
-      height: flyoutRef ? flyoutRef.clientHeight : 0,
-      width: (flyoutRef ? flyoutRef.clientWidth : width) || 0,
+    const popoverSize = {
+      height: popoverRef ? popoverRef.clientHeight : 0,
+      width: (popoverRef ? popoverRef.clientWidth : width) || 0,
     };
-    const flyoutDir = getFlyoutDir({
-      flyoutSize,
+    const popoverDir = getPopoverDir({
+      popoverSize,
       idealDirection,
       triggerRect,
       windowSize,
       isScrollBoundaryContainer: !!containerNode,
     });
-    const flyoutData = { flyoutDir, flyoutSize };
+    const popoverData = { popoverDir, popoverSize };
 
     // Adjusts for the subdirection of the caret
-    const { flyoutOffset, caretOffset } = adjustOffsets({
-      // Gets the base offset that positions the flyout based on the main direction only
+    const { popoverOffset, caretOffset } = adjustOffsets({
+      // Gets the base offset that positions the popover based on the main direction only
       base: baseOffsets({
         hasCaret: Boolean(caret),
         relativeOffset,
-        ...flyoutData,
+        ...popoverData,
         triggerRect,
         windowSize,
       }),
-      // Gets the edge shifts for the flyout
+      // Gets the edge shifts for the popover
       edgeShift: calcEdgeShifts({
         triggerRect,
         windowSize,
         isScrollBoundaryContainer: !!containerNode,
       }),
-      ...flyoutData,
+      ...popoverData,
       // Now that we have the main direction, chose from 3 caret placements for that direction
-      caretDir: getCaretDir({ flyoutSize, flyoutDir, triggerRect, windowSize }),
+      caretDir: getCaretDir({ popoverSize, popoverDir, triggerRect, windowSize }),
       triggerRect,
       isScrollBoundaryContainer: !!containerNode,
     });
 
     return {
       caretOffset,
-      flyoutOffset,
-      flyoutDir,
+      popoverOffset,
+      popoverDir,
     };
   }
 
-  // Copy the flyout DOM node to state. This is required because we need to
-  // derive the flyout location from it in getDerivedStateFromProps, and because
+  // Copy the popover DOM node to state. This is required because we need to
+  // derive the popover location from it in getDerivedStateFromProps, and because
   // this method is static, it doesn't have access to the component instance.
   // Instead, we rely on React passing the state values into that method.
-  setFlyoutRef: (flyoutRef: ?HTMLElement) => void = (flyoutRef: ?HTMLElement) => {
-    if (!this.state.flyoutRef) {
-      this.setState({ flyoutRef });
+  setPopoverRef: (popoverRef: ?HTMLElement) => void = (popoverRef: ?HTMLElement) => {
+    if (!this.state.popoverRef) {
+      this.setState({ popoverRef });
     }
   };
 
@@ -240,20 +240,20 @@ class Contents extends Component<Props, State> {
       rounding,
       width,
     } = this.props;
-    const { caretOffset, flyoutOffset, flyoutDir } = this.state;
+    const { caretOffset, popoverOffset, popoverDir } = this.state;
 
     // Needed to prevent UI thrashing
-    const visibility = flyoutDir === null ? 'hidden' : 'visible';
+    const visibility = popoverDir === null ? 'hidden' : 'visible';
     const background = bgColor === 'white' ? `${bgColor}BgElevated` : `${bgColor}Bg`;
     const stroke = bgColor === 'white' && !isDarkMode ? colorGray100 : null;
     const bgColorElevated = bgColor === 'white' ? 'whiteElevated' : bgColor;
-    const isCaretVertical = ['down', 'up'].includes(flyoutDir);
+    const isCaretVertical = ['down', 'up'].includes(popoverDir);
 
     return (
       <div
         className={styles.container}
-        // flyoutOffset positions the Flyout component
-        style={{ stroke, visibility, ...flyoutOffset }}
+        // popoverOffset positions the Popover component
+        style={{ stroke, visibility, ...popoverOffset }}
       >
         <div
           className={classnames(
@@ -263,17 +263,17 @@ class Contents extends Component<Props, State> {
             styles.maxDimensions,
             width !== null && styles.minDimensions,
           )}
-          ref={this.setFlyoutRef}
+          ref={this.setPopoverRef}
           tabIndex={-1}
         >
-          {caret && flyoutDir && (
+          {caret && popoverDir && (
             <div
               className={classnames(colors[bgColorElevated], styles.caret)}
-              // caretOffset positions the Caret on the Flyout
+              // caretOffset positions the Caret on the Popover
               style={{ ...caretOffset }}
             >
               <Caret
-                direction={flyoutDir}
+                direction={popoverDir}
                 height={isCaretVertical ? CARET_HEIGHT : CARET_WIDTH}
                 width={isCaretVertical ? CARET_WIDTH : CARET_HEIGHT}
               />

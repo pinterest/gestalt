@@ -1,6 +1,6 @@
 // @flow strict
 import {
-  getFlyoutDir,
+  getPopoverDir,
   getCaretDir,
   calcEdgeShifts,
   baseOffsets,
@@ -17,7 +17,7 @@ const windowSize = {
   scrollY: 0,
 };
 
-const flyoutSize = {
+const popoverSize = {
   height: 360,
   width: 180,
 };
@@ -62,7 +62,7 @@ describe('Contents', () => {
     it('Chooses the main direction as idealDirection when it fits on screen', () => {
       const triggerRect = centerTriggerRect();
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getFlyoutDir({ flyoutSize, idealDirection, triggerRect, windowSize });
+        const mainDir = getPopoverDir({ popoverSize, idealDirection, triggerRect, windowSize });
         expect(mainDir).toEqual(idealDirection);
       });
     });
@@ -70,7 +70,7 @@ describe('Contents', () => {
     it('Opens down when the trigger is too close to the top of screen', () => {
       const triggerRect = centerTriggerRect({ bottom: 40, top: 0 });
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getFlyoutDir({ flyoutSize, idealDirection, triggerRect, windowSize });
+        const mainDir = getPopoverDir({ popoverSize, idealDirection, triggerRect, windowSize });
         expect(mainDir).toEqual('down');
       });
     });
@@ -81,14 +81,14 @@ describe('Contents', () => {
         top: windowSize.height - 40,
       });
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getFlyoutDir({ flyoutSize, idealDirection, triggerRect, windowSize });
+        const mainDir = getPopoverDir({ popoverSize, idealDirection, triggerRect, windowSize });
         expect(mainDir).toEqual('up');
       });
     });
 
     it('Chooses the direction in which there is the most space if idealDirection is not given', () => {
       const triggerRect = upperMiddleTriggerRect({ left: 40, right: 80 });
-      const mainDir = getFlyoutDir({ flyoutSize, idealDirection: null, triggerRect, windowSize });
+      const mainDir = getPopoverDir({ popoverSize, idealDirection: null, triggerRect, windowSize });
       expect(mainDir).toEqual('down');
     });
 
@@ -109,15 +109,15 @@ describe('Contents', () => {
         scrollY: 0,
       };
 
-      const reducedFlyoutSize = {
+      const reducedPopoverSize = {
         height: 30,
         width: 30,
       };
 
       idealDirections.forEach((idealDirection) => {
-        const mainDir = getFlyoutDir({
+        const mainDir = getPopoverDir({
           idealDirection,
-          flyoutSize: reducedFlyoutSize,
+          popoverSize: reducedPopoverSize,
           triggerRect: centerRightTriggerRect,
           windowSize: scrollBoundaryContainerSize,
           isScrollBoundaryContainer: true,
@@ -130,37 +130,37 @@ describe('Contents', () => {
   describe('Sub direction chosen correctly', () => {
     it('Chooses the middle as sub direction when it fits on the screen', () => {
       const triggerRect = centerTriggerRect();
-      idealDirections.forEach((flyoutDir) => {
-        const subDir = getCaretDir({ flyoutSize, flyoutDir, triggerRect, windowSize });
+      idealDirections.forEach((popoverDir) => {
+        const subDir = getCaretDir({ popoverSize, popoverDir, triggerRect, windowSize });
         expect(subDir).toEqual('middle');
       });
     });
   });
 
   describe('Base offsets chosen correctly', () => {
-    it('Left opening flyouts', () => {
+    it('Left opening popovers', () => {
       const hasCaret = true;
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'left';
+      const popoverDir = 'left';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.top,
-        left: windowSize.scrollX + (triggerRect.left - flyoutSize.width - CARET_HEIGHT),
+        left: windowSize.scrollX + (triggerRect.left - popoverSize.width - CARET_HEIGHT),
       };
       const base = baseOffsets({
         hasCaret,
         relativeOffset: fixedOffset,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         triggerRect,
         windowSize,
       });
       expect(base).toEqual(expectedBase);
     });
 
-    it('Right opening flyouts', () => {
+    it('Right opening popovers', () => {
       const hasCaret = true;
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'right';
+      const popoverDir = 'right';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.top,
         left: windowSize.scrollX + triggerRect.right + CARET_HEIGHT,
@@ -168,37 +168,37 @@ describe('Contents', () => {
       const base = baseOffsets({
         hasCaret,
         relativeOffset: fixedOffset,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         triggerRect,
         windowSize,
       });
       expect(base).toEqual(expectedBase);
     });
 
-    it('Up opening flyouts', () => {
+    it('Up opening popovers', () => {
       const hasCaret = true;
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'up';
+      const popoverDir = 'up';
       const expectedBase = {
-        top: windowSize.scrollY + (triggerRect.top - flyoutSize.height - CARET_HEIGHT),
+        top: windowSize.scrollY + (triggerRect.top - popoverSize.height - CARET_HEIGHT),
         left: windowSize.scrollX + triggerRect.left,
       };
       const base = baseOffsets({
         hasCaret,
         relativeOffset: fixedOffset,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         triggerRect,
         windowSize,
       });
       expect(base).toEqual(expectedBase);
     });
 
-    it('Down opening flyouts', () => {
+    it('Down opening popovers', () => {
       const hasCaret = true;
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'down';
+      const popoverDir = 'down';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.bottom + CARET_HEIGHT,
         left: windowSize.scrollX + triggerRect.left,
@@ -206,37 +206,37 @@ describe('Contents', () => {
       const base = baseOffsets({
         hasCaret,
         relativeOffset: fixedOffset,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         triggerRect,
         windowSize,
       });
       expect(base).toEqual(expectedBase);
     });
 
-    it('Left opening flyouts without caret', () => {
+    it('Left opening popovers without caret', () => {
       const hasCaret = false;
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'left';
+      const popoverDir = 'left';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.top,
-        left: windowSize.scrollX + (triggerRect.left - flyoutSize.width - 8),
+        left: windowSize.scrollX + (triggerRect.left - popoverSize.width - 8),
       };
       const base = baseOffsets({
         hasCaret,
         relativeOffset: fixedOffset,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         triggerRect,
         windowSize,
       });
       expect(base).toEqual(expectedBase);
     });
 
-    it('Down opening flyouts without caret', () => {
+    it('Down opening popovers without caret', () => {
       const hasCaret = false;
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'down';
+      const popoverDir = 'down';
       const expectedBase = {
         top: windowSize.scrollY + triggerRect.bottom + 8,
         left: windowSize.scrollX + triggerRect.left,
@@ -244,8 +244,8 @@ describe('Contents', () => {
       const base = baseOffsets({
         hasCaret,
         relativeOffset: fixedOffset,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         triggerRect,
         windowSize,
       });
@@ -254,16 +254,16 @@ describe('Contents', () => {
   });
 
   describe('Adjusted offsets chosen correctly', () => {
-    it('Left-up opening flyouts with caret shifted left past rounded corners', () => {
+    it('Left-up opening popovers with caret shifted left past rounded corners', () => {
       const triggerRect = centerTriggerRect();
-      const flyoutDir = 'left';
+      const popoverDir = 'left';
       const caretDir = 'up';
       const base = {
         top: 100,
         left: 100,
       };
       const edgeShift = {
-        flyout: {
+        popover: {
           x: 24,
           y: 24,
         },
@@ -272,8 +272,8 @@ describe('Contents', () => {
           y: 24,
         },
       };
-      const expectedFlyoutOffset = {
-        top: base.top - edgeShift.flyout.y,
+      const expectedPopoverOffset = {
+        top: base.top - edgeShift.popover.y,
         left: base.left,
       };
       const expectedCaretOffset = {
@@ -282,30 +282,30 @@ describe('Contents', () => {
         bottom: null,
         left: null,
       };
-      const { flyoutOffset, caretOffset } = adjustOffsets({
+      const { popoverOffset, caretOffset } = adjustOffsets({
         base,
         edgeShift,
-        flyoutSize,
-        flyoutDir,
+        popoverSize,
+        popoverDir,
         caretDir,
         triggerRect,
         isScrollBoundaryContainer: false,
       });
-      expect(flyoutOffset).toEqual(expectedFlyoutOffset);
+      expect(popoverOffset).toEqual(expectedPopoverOffset);
       expect(caretOffset).toEqual(expectedCaretOffset);
     });
   });
 
-  it('Right-up opening flyouts with caret shifted right past rounded corners', () => {
+  it('Right-up opening popovers with caret shifted right past rounded corners', () => {
     const triggerRect = centerTriggerRect();
-    const flyoutDir = 'right';
+    const popoverDir = 'right';
     const caretDir = 'up';
     const base = {
       top: 100,
       left: 100,
     };
     const edgeShift = {
-      flyout: {
+      popover: {
         x: 24,
         y: 24,
       },
@@ -314,8 +314,8 @@ describe('Contents', () => {
         y: 24,
       },
     };
-    const expectedFlyoutOffset = {
-      top: base.top - edgeShift.flyout.y,
+    const expectedPopoverOffset = {
+      top: base.top - edgeShift.popover.y,
       left: base.left,
     };
     const expectedCaretOffset = {
@@ -324,29 +324,29 @@ describe('Contents', () => {
       bottom: null,
       left: -CARET_HEIGHT,
     };
-    const { flyoutOffset, caretOffset } = adjustOffsets({
+    const { popoverOffset, caretOffset } = adjustOffsets({
       base,
       edgeShift,
-      flyoutSize,
-      flyoutDir,
+      popoverSize,
+      popoverDir,
       caretDir,
       triggerRect,
       isScrollBoundaryContainer: false,
     });
-    expect(flyoutOffset).toEqual(expectedFlyoutOffset);
+    expect(popoverOffset).toEqual(expectedPopoverOffset);
     expect(caretOffset).toEqual(expectedCaretOffset);
   });
 
   describe('Edge shifts calculated correctly', () => {
     it('Keeps Container on screen when trigger is on the edge', () => {
       const triggerRect = upperLeftTriggerRect();
-      const { flyout, caret } = calcEdgeShifts({
+      const { popover, caret } = calcEdgeShifts({
         triggerRect,
         windowSize,
         isScrollBoundaryContainer: false,
       });
-      expect(triggerRect.bottom - flyout.y).toBeGreaterThan(0);
-      expect(flyout.x).toBeLessThan(BORDER_RADIUS);
+      expect(triggerRect.bottom - popover.y).toBeGreaterThan(0);
+      expect(popover.x).toBeLessThan(BORDER_RADIUS);
       expect(caret.x).toEqual(caret.y);
       expect(caret.x).toEqual(CARET_WIDTH);
     });

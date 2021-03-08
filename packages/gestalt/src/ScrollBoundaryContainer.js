@@ -1,6 +1,6 @@
 /**
  * ScrollBoundaryContainer is an optional wrapper component that ensures that anchor-based
- * components such as Flyout, Tooltip, Dropdown, and Typeahead, are  correctly positioned inside
+ * components such as Popover, Tooltip, Dropdown, and Typeahead, are  correctly positioned inside
  * scrolling containers.
  *
  * Note that this component requires ScrollBoundaryContainerProvider to store in context a node ref that

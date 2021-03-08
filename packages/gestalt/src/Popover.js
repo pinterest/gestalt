@@ -16,7 +16,7 @@ type Props = {|
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number,
 |};
 
-export default function Flyout(props: Props): null | Node {
+export default function Popover(props: Props): null | Node {
   const {
     anchor,
     children,
@@ -53,7 +53,7 @@ export default function Flyout(props: Props): null | Node {
   );
 }
 
-Flyout.propTypes = {
+Popover.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   anchor: PropTypes.shape({
     contains: PropTypes.func,

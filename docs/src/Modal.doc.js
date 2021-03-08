@@ -727,12 +727,12 @@ function Example(props) {
 
 card(
   <Example
-    name="Flyout inside of Modal Example"
-    description="Opens a Flyout inside of a Modal and verifies that outside events work as expected with portals"
+    name="Popover inside of Modal Example"
+    description="Opens a Popover inside of a Modal and verifies that outside events work as expected with portals"
     defaultCode={`
 function Example(props) {
   const [showModal, setShowModal] = React.useState(false);
-  const [showFlyout, setShowFlyout] = React.useState(false);
+  const [showPopover, setShowPopover] = React.useState(false);
   const anchorRef = React.useRef();
   return (
     <Box marginStart={-1} marginEnd={-1}>
@@ -745,23 +745,23 @@ function Example(props) {
         {showModal && (
           <Layer>
             <Modal
-              accessibilityModalLabel="View flyout modal"
+              accessibilityModalLabel="View popover modal"
               heading="Modal"
               onDismiss={() => {
-                setShowFlyout(false);
+                setShowPopover(false);
                 setShowModal(false)
               }}
             >
               <Box margin={4} ref={anchorRef}>
-                <Button text="Open Flyout" onClick={() => setShowFlyout(true)} />
+                <Button text="Open Popover" onClick={() => setShowPopover(true)} />
               </Box>
-              {showFlyout && (
+              {showPopover && (
                 <Layer>
-                  <Flyout
+                  <Popover
                     anchor={anchorRef.current}
                     color="blue"
                     idealDirection="up"
-                    onDismiss={() => setShowFlyout(false)}
+                    onDismiss={() => setShowPopover(false)}
                     positionRelativeToAnchor={false}
                     showCaret
                     shouldFocus={false}
@@ -769,13 +769,13 @@ function Example(props) {
                   >
                     <Box padding={3}>
                       <Text color="white" weight="bold">
-                        This flyout is in a React portal.
+                        This popover is in a React portal.
                       </Text>
                       <Box marginTop={3}>
                         <Button text="Click me and the modal should not close" />
                       </Box>
                     </Box>
-                  </Flyout>
+                  </Popover>
                 </Layer>
               )}
             </Modal>

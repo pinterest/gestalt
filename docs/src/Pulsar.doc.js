@@ -69,9 +69,9 @@ card(
     description="
 
   "
-    name="Example: Flyout"
+    name="Example: Popover"
     defaultCode={`
-class FlyoutExample extends React.Component {
+class PopoverExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = { open: false };
@@ -102,11 +102,11 @@ class FlyoutExample extends React.Component {
             accessibilityExpanded={!!this.state.open}
             accessibilityHaspopup
             onClick={this.handleClick}
-            text={this.state.open ? 'Hide Flyout' : 'Show Flyout'}
+            text={this.state.open ? 'Hide Popover' : 'Show Popover'}
           />
         </Box>
         {this.state.open && (
-          <Flyout
+          <Popover
             anchor={this.anchorRef.current}
             color="darkGray"
             idealDirection="right"
@@ -118,7 +118,7 @@ class FlyoutExample extends React.Component {
                 Create a board to save Pins about Kitchen Design for later
               </Text>
             </Box>
-          </Flyout>
+          </Popover>
         )}
       </Box>
     );

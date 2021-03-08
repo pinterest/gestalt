@@ -111,7 +111,7 @@ card(
       {
         name: 'idealDirection',
         type: `'up'|'right'|'down'|'left'`,
-        description: 'Preferred direction for the calendar flyout to open.',
+        description: 'Preferred direction for the calendar popover to open.',
         href: 'idealDirection',
         defaultValue: 'down',
       },
@@ -430,7 +430,7 @@ card(
   <Combination
     id="idealDirection"
     name="Example: Ideal Direction"
-    description="Define the preferred direction for the DatePicker flyout to open. If that placement doesn't fit, the opposite direction will be used."
+    description="Define the preferred direction for the DatePicker popover to open. If that placement doesn't fit, the opposite direction will be used."
     layout="4column"
     idealDirection={['down', 'left', 'right', 'up']}
   >

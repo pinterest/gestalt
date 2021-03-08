@@ -438,7 +438,7 @@ card(
       A Dropdown can also contain a custom header by specifying \`headerContent\`, which always appears at the very top of the menu.
     `}
     defaultCode={`
-function HeaderButtonFlyoutExample() {
+function HeaderButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorRef = React.useRef(null);
@@ -528,7 +528,7 @@ card(
       Each Dropdown Item can also contain \`subtext\` below the label. This \`subtext\` will wrap if needed.
     `}
     defaultCode={`
-function SubtextIconButtonFlyoutExample() {
+function SubtextIconButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorRef = React.useRef(null);
@@ -596,7 +596,7 @@ card(
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
     `}
     defaultCode={`
-function CustomIconButtonFlyoutExample() {
+function CustomIconButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorRef = React.useRef(null);
