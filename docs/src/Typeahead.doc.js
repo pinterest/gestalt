@@ -454,14 +454,16 @@ card(
   <Example
     id="programaticallySetExample"
     name="Set Programatically"
+    description={`
+    When Typeahead needs to be set based on another value or programically you can use the \`key={}\` to trigger a component refresh which will rerender the component with the new value.`}
     defaultCode={`
 function Example(props) {
-  const [item, setItem] = React.useState('');
+  const [item, setItem] = React.useState("");
   const [selected, setSelected] = React.useState(null);
 
   const options = Array.from(Array(20).keys()).map((item) => ({
-    value: 'Value-' + (item + 1),
-    label: 'Label-' + (item + 1),
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1),
   }));
 
   const handleOnChange = ({ value }) => {
@@ -472,31 +474,29 @@ function Example(props) {
     setSelected(item);
   };
 
-  if (selected !== null) console.log(selected.value);
-
-  const label = 'Selected Item: ' + ((selected && selected.label) || '');
+  const label = "Selected Item: " + ((selected && selected.label) || "");
 
   return (
     <React.Fragment>
       <Box marginBottom={4}>
-        <Text>Selected Item: {(selected && selected.label) || ''}</Text>
+        <Button
+          text="Set Value 6"
+          onClick={() => {
+            setSelected({
+              value: "Value-6",
+              label: "Label-6",
+            });
+          }}
+        />
       </Box>
 
       <Typeahead
-        label="Typeahead Example 1"
+        key={label}
+        label="Typeahead Example"
         id="Typeahead-example"
         noResultText="No Results"
         options={options}
-        placeholder="Select a Label"
-        onChange={handleOnChange}
-        onSelect={handleSelect}
-      />
-      <Typeahead
-        label="Typeahead Example 2"
-        id="Typeahead-example"
-        noResultText="No Results"
-        options={options}
-        value={(selected && selected.value) || 'Value-5'}
+        value={(selected && selected.value) || "Value-5"}
         placeholder="Select a Label"
         onChange={handleOnChange}
         onSelect={handleSelect}
