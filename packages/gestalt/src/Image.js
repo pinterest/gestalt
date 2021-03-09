@@ -10,6 +10,7 @@ type Props = {|
   alt: string,
   children?: Node,
   color: string,
+  elementTiming?: string,
   fit?: 'contain' | 'cover' | 'none',
   importance?: 'high' | 'low' | 'auto',
   loading?: 'eager' | 'lazy' | 'auto',
@@ -27,6 +28,7 @@ export default class Image extends PureComponent<Props> {
     alt: PropTypes.string.isRequired,
     children: PropTypes.node,
     color: PropTypes.string,
+    elementTiming: PropTypes.string,
     fit: PropTypes.oneOf(['contain', 'cover', 'none']),
     importance: PropTypes.oneOf(['high', 'low', 'auto']),
     loading: PropTypes.oneOf(['eager', 'lazy', 'auto']),
@@ -90,6 +92,7 @@ export default class Image extends PureComponent<Props> {
       alt,
       color,
       children,
+      elementTiming,
       fit,
       importance,
       loading,
@@ -132,6 +135,7 @@ export default class Image extends PureComponent<Props> {
         <img
           alt={alt}
           className={styles.img}
+          elementtiming={elementTiming}
           importance={importance}
           loading={loading}
           onError={this.handleError}
