@@ -134,13 +134,13 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'List item 1', value: 'Value'},
-    {label:'I want to put an image here, but I can’t :( ', value: 'Value'},
-    {label:'List item 3', value: 'Value'},
-    {label:'List item 4', value: 'Value'},
-    {label:'List item 5', value: 'Value'},
+    {label:'Austin', value: 'austin'},
+    {label:'I want to put an image of Los Angeles here, but I can’t :( ', value: 'la'},
+    {label:'New York', value: 'nyc'},
+    {label:'San Francisco - there should be subtext for this option. D:', value: 'sf'},
+    {label:'Seattle', value: 'seattle'},
   ]}
-  label=''
+  label='City'
 />`}
       />
     </MainSection.Subsection>
