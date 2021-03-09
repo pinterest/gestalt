@@ -39,6 +39,12 @@ card(
         href: 'placeholders',
       },
       {
+        name: 'elementtiming',
+        type: 'string',
+        description:
+          'HTML attribute For performance profiling. See https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API',
+      },
+      {
         name: 'fit',
         type: `"cover" | "contain" | "none"`,
         defaultValue: 'none',
