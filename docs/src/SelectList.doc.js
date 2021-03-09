@@ -157,13 +157,14 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'Alberto', value: 'alberto'},
-    {label:'Annie', value: 'annie'},
-    {label:'Ashley', value: 'ashley'},
-    {label:'Ayesha', value: 'ayesha'},
-    {label:'Ryan', value: 'ryan'},
+    {label:'Alergia', value: 'alergia'},
+    {label:'Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'Denmark', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
   ]}
-  label='People who are awesome'
+  label='Country'
   size='lg'
 />`}
       />
@@ -176,10 +177,11 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'No', value: 'no'},
-    {label:'Absolutely not', value: 'noagain'},
+    {label:'Male', value: 'male'},
+    {label:'Female', value: 'female'},
+    {label:'Non-binary', value: 'nonbinary'},
   ]}
-  label='Is this a good use of a SelectList?'
+  label='Gender'
   size='lg'
 />`}
       />
