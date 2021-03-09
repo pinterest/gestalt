@@ -195,20 +195,26 @@ card(
     id="selectlistexample"
     onChange={() => {}}
     options={[
-      {label:'Filter value 1', value: 'fv11'},
-      {label:'Filter value 2', value: 'fv12'},
+      {label:'Impressions', value: 'v1'},
+      {label:'Pin clicks', value: 'v2'},
+      {label:'Outbound clicks', value: 'v3'},
+      {label:'Saves', value: 'v4'},
+      {label:'Engagement rate', value: 'v5'},
     ]}
-    placeholder='Filter 1'
+    value='v1'
     size='lg'
   />
   <SelectList
     id="selectlistexample"
     onChange={() => {}}
     options={[
-      {label:'Filter value 1', value: 'fv21'},
-      {label:'Filter value 2', value: 'fv22'},
+      {label:'Engagement', value: 'v1'},
+      {label:'Pin clicks', value: 'v2'},
+      {label:'Outbound clicks', value: 'v3'},
+      {label:'Saves', value: 'v4'},
+      {label:'Engagement rate', value: 'v5'},
     ]}
-    placeholder='Filter 2'
+    value='v1'
     size='lg'
   />
 </Flex>`}
