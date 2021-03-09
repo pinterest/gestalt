@@ -185,7 +185,7 @@ card(
         type="do"
         description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use Dropdown, use Dropdown for all the items in the group."
         defaultCode={`
-<Flex>
+<Flex gap={2}>
   <SelectList
     id="selectlistexample"
     onChange={() => {}}
@@ -211,7 +211,7 @@ card(
         type="don't"
         description="Mix Dropdown and SelectList in a group of items."
         defaultCode={`
-<Flex>
+<Flex gap={2}>
   <SelectList
     id="selectlistexample"
     onChange={() => {}}
