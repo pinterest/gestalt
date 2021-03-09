@@ -39,7 +39,7 @@ card(
         href: 'placeholders',
       },
       {
-        name: 'elementtiming',
+        name: 'elementTiming',
         type: 'string',
         description:
           'HTML attribute For performance profiling. See https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API',
