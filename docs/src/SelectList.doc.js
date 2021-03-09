@@ -309,15 +309,16 @@ card(
         id="selectlistexample"
         onChange={() => {}}
         options={[
-          {label:'Belgium', value: 'belgium'},
-          {label:'Brazil', value: 'brazil'},
-          {label:'Japan', value: 'japan'},
-          {label:'New Zealand', value: 'newzealand'},
-          {label:'Tanzania', value: 'tanzania'},
-          {label:'United States', value: 'usa'},
+          {label: 'ARS - Argentine peso', value: 'ars'},
+          {label: 'AUD - Australian dollar', value: 'aud'},
+          {label: 'ERN - Eritrean nakfa', value: 'ern'},
+          {label: 'EUR - Euro', value: 'eur'},
+          {label: 'GBP - British pound', value: 'gbp'},
+          {label: 'JPY - Japanese yen', value: 'jpy'},
+          {label: 'USD - United States Dollar', value: 'usd'},
         ]}
-        label='Country'
-        helperText='Pick your favorite country (the one with the best fries)'
+        label='Default currency'
+        helperText='Product prices in your data source without an ISO currency code will default to this currency'
         size='lg'
       />`}
       />
