@@ -248,7 +248,7 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      SelectList comes with Label built-in: just use the \`label\` prop. Be sure to provide a unique id so the Label is associated with the correct SelectList.`}
+      SelectList comes with a built-in label: just use the \`label\` prop. Be sure to provide a unique id so the Label is associated with the correct SelectList.`}
     />
   </MainSection>,
 );
