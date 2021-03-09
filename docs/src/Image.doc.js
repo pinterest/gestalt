@@ -41,8 +41,7 @@ card(
       {
         name: 'elementTiming',
         type: 'string',
-        description:
-          'HTML attribute For performance profiling. See https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API',
+        description: `HTML attribute For performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the ‘fit‘ prop is not set to ‘cover‘ or ‘contain‘.`,
       },
       {
         name: 'fit',
