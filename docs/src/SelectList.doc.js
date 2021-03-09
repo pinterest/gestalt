@@ -22,11 +22,12 @@ card(
         id="selectlistexample"
         onChange={() => {}}
         options={[
-          {label:'Austin', value: 'austin'},
-          {label:'Los Angeles', value: 'la'},
-          {label:'New York', value: 'nyc'},
-          {label:'San Francisco', value: 'sf'},
-          {label:'Seattle', value: 'seattle'},
+          {label:'Alergia', value: 'alergia'},
+          {label:'Belgium', value: 'belgium'},
+          {label:'Canada', value: 'canada'},
+          {label:'Denmark', value: 'denmark'},
+          {label:'Egypt', value: 'egypt'},
+          {label:'France', value: 'france'},
         ]}
         size='lg'
       />
@@ -117,13 +118,14 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'Austin', value: 'austin'},
-    {label:'Los Angeles', value: 'la'},
-    {label:'New York', value: 'nyc'},
-    {label:'San Francisco', value: 'sf'},
-    {label:'Seattle', value: 'seattle'},
+    {label:'Alergia', value: 'alergia'},
+    {label:'Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'Denmark', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
   ]}
-  label='City'
+  label='Country'
   size='lg'
 />`}
       />
@@ -136,11 +138,12 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'Austin', value: 'austin'},
-    {label:'I want to put an image of Los Angeles here, but I can’t :( ', value: 'la'},
-    {label:'New York', value: 'nyc'},
-    {label:'San Francisco - there should be subtext for this option. D:', value: 'sf'},
-    {label:'Seattle', value: 'seattle'},
+    {label:'Alergia', value: 'alergia'},
+    {label:'An image of Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'A longer description of Denmark with subtext', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
   ]}
   label='City'
   size='lg'
@@ -231,17 +234,19 @@ card(
     id="selectlistexample"
     onChange={() => {}}
     options={[
-      {label:'Filter value 1', value: 'fv11'},
-      {label:'Filter value 2', value: 'fv12'},
+      {label:'Impressions', value: 'v1'},
+      {label:'Pin clicks', value: 'v2'},
+      {label:'Outbound clicks', value: 'v3'},
+      {label:'Saves', value: 'v4'},
+      {label:'Engagement rate', value: 'v5'},
     ]}
-    placeholder='SelectList'
     size='lg'
   />
   <Button
     accessibilityControls="basic-dropdown-example"
     accessibilityHaspopup
     iconEnd="arrow-down"
-    text="Dropdown"
+    text="Menu"
     size='lg'
     inline
   />
@@ -272,11 +277,12 @@ card(
         id="selectlistexample"
         onChange={() => {}}
         options={[
-          {label:'Austin', value: 'austin'},
-          {label:'Los Angeles', value: 'la'},
-          {label:'New York', value: 'nyc'},
-          {label:'San Francisco', value: 'sf'},
-          {label:'Seattle', value: 'seattle'},
+          {label:'Alergia', value: 'alergia'},
+          {label:'Belgium', value: 'belgium'},
+          {label:'Canada', value: 'canada'},
+          {label:'Denmark', value: 'denmark'},
+          {label:'Egypt', value: 'egypt'},
+          {label:'France', value: 'france'},
         ]}
         size='lg'
       />`}
@@ -289,11 +295,12 @@ card(
         id="selectlistexample"
         onChange={() => {}}
         options={[
-          {label:'Austin', value: 'austin'},
-          {label:'Los Angeles', value: 'la'},
-          {label:'New York', value: 'nyc'},
-          {label:'San Francisco', value: 'sf'},
-          {label:'Seattle', value: 'seattle'},
+          {label:'Alergia', value: 'alergia'},
+          {label:'Belgium', value: 'belgium'},
+          {label:'Canada', value: 'canada'},
+          {label:'Denmark', value: 'denmark'},
+          {label:'Egypt', value: 'egypt'},
+          {label:'France', value: 'france'},
         ]}
         size='md'
       />`}
@@ -333,15 +340,16 @@ card(
         id="selectlistexample"
         onChange={() => {}}
         options={[
-          {label:'Basketweaving', value: 'basketweaving'},
-          {label:'Bird watching', value: 'birdwatching'},
-          {label:'Comic books', value: 'comicbooks'},
-          {label:'Juggling', value: 'juggling'},
-          {label:'Sailing', value: 'sailing'},
+          {label:'Alergia', value: 'alergia'},
+          {label:'Belgium', value: 'belgium'},
+          {label:'Canada', value: 'canada'},
+          {label:'Denmark', value: 'denmark'},
+          {label:'Egypt', value: 'egypt'},
+          {label:'France', value: 'france'},
         ]}
-        value='sailing'
-        label='Hobby'
-        errorMessage='Sailing is not a hobby, it is a passion'
+        placeholder=' '
+        label='Country'
+        errorMessage='You must select a country'
         size='lg'
       />`}
       />
