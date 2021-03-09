@@ -18,19 +18,17 @@ card(
     description={`
     SelectList displays a list of actions or options using the browser’s native select.`}
     defaultCode={`
-      <Flex>
-          <SelectList
-            id="selectlistexample"
-            onChange={() => {}}
-            options={[
-              {label:'Austin', value: 'austin'},
-              {label:'Los Angeles', value: 'la'},
-              {label:'New York', value: 'nyc'},
-              {label:'San Francisco', value: 'sf'},
-              {label:'Seattle', value: 'seattle'},
-            ]}
-          />
-      </Flex>
+      <SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Austin', value: 'austin'},
+          {label:'Los Angeles', value: 'la'},
+          {label:'New York', value: 'nyc'},
+          {label:'San Francisco', value: 'sf'},
+          {label:'Seattle', value: 'seattle'},
+        ]}
+      />
     `}
   />,
 );
