@@ -40,13 +40,13 @@ card(
       {
         name: 'disabled',
         type: 'boolean',
-        description: `Used to disable the entire SelectList. See the [states](#States) variant to learn more.`,
+        description: `Used to disable the entire SelectList.`,
         defaultValue: 'false',
       },
       {
         name: 'errorMessage',
         type: 'string',
-        description: `Used to communicate error information to the user. Be sure to localize the text. See the [states](#States) variant to learn more.`,
+        description: `Used to communicate error information to the user. Be sure to localize the text. See the [error message](##Error-message) variant to learn more.`,
       },
       {
         name: 'helperText',
@@ -314,51 +314,12 @@ card(
       />`}
       />
     </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="States">
-    <MainSection.Subsection>
+    <MainSection.Subsection
+      title="Error message"
+      description="Error message should be used to denote an error state in the specific SelectList and to provide a message for how the user can fix it."
+    >
       <MainSection.Card
         cardSize="lg"
-        title="Default"
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label:'Austin', value: 'austin'},
-          {label:'Los Angeles', value: 'la'},
-          {label:'New York', value: 'nyc'},
-          {label:'San Francisco', value: 'sf'},
-          {label:'Seattle', value: 'seattle'},
-        ]}
-        label='City'
-        size='lg'
-      />`}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        title="Focused"
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label:'Austin', value: 'austin'},
-          {label:'Los Angeles', value: 'la'},
-          {label:'New York', value: 'nyc'},
-          {label:'San Francisco', value: 'sf'},
-          {label:'Seattle', value: 'seattle'},
-        ]}
-        label='City'
-        focus
-        size='lg'
-      />`}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        title="Error"
-        description={`Use \`errorMessage\` to pass in a description of the error in SelectList.`}
         defaultCode={`<SelectList
         id="selectlistexample"
         onChange={() => {}}
@@ -372,24 +333,6 @@ card(
         value='sailing'
         label='Hobby'
         errorMessage='Sailing is not a hobby, it is a passion'
-        size='lg'
-      />`}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        title="Disabled"
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label:'Austin', value: 'austin'},
-          {label:'Los Angeles', value: 'la'},
-          {label:'New York', value: 'nyc'},
-          {label:'San Francisco', value: 'sf'},
-          {label:'Seattle', value: 'seattle'},
-        ]}
-        label='City'
-        disabled={true}
         size='lg'
       />`}
       />
