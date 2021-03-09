@@ -13,7 +13,7 @@ card(
     name="DataPoint"
     description="Brief description of this component"
     defaultCode={`
-<DataPoint title="I love you" value="3,000" delta={30} helperText="Sorry, this is a blatant Marvel reference" />
+<DataPoint title="Datapoint title" value="1.23M" delta={30} helperText="Datapoint helper text" />
 `}
   />,
 );
