@@ -37,6 +37,28 @@ export default function DataPoint({
   const valueSize = size === 'lg' ? 'md' : 'sm';
   const valueDeltaGap = size === 'lg' ? 4 : 2;
 
+  let deltaIcon;
+  let deltaColor;
+  if (delta > 0) {
+    deltaColor = 'green';
+    deltaIcon = (
+      <Icon accessibilityLabel={accessibilityLabel} size={16} icon="arrow-up" color={deltaColor} />
+    );
+  } else if (delta < 0) {
+    deltaColor = 'red';
+    deltaIcon = (
+      <Icon
+        accessibilityLabel={accessibilityLabel}
+        size={16}
+        icon="arrow-down"
+        color={deltaColor}
+      />
+    );
+  } else {
+    deltaColor = 'darkGray';
+    deltaIcon = null;
+  }
+
   return (
     <Flex gap={2} direction="column">
       <Flex gap={2}>
@@ -46,8 +68,8 @@ export default function DataPoint({
       <Flex gap={valueDeltaGap} alignItems="center">
         <Heading size={valueSize}>{value}</Heading>
         <Flex gap={1}>
-          <Icon accessibilityLabel={accessibilityLabel} size={16} icon="arrow-up" color="green" />
-          <Text size="sm" color="green" weight="bold">
+          {deltaIcon}
+          <Text size="sm" color={deltaColor} weight="bold">
             {delta}%
           </Text>
         </Flex>
