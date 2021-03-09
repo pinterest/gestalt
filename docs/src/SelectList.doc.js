@@ -56,7 +56,7 @@ card(
         name: 'id',
         type: 'string',
         description:
-          'A unique identifier to connect the underlying `<select>` with the associated label',
+          'A unique identifier to connect the underlying `<select>` with the associated label.',
         required: true,
       },
       {
@@ -72,7 +72,7 @@ card(
       {
         name: 'onChange',
         type: '({| event: SyntheticInputEvent<>, value: string |}) => void',
-        description: 'Callback triggered when the user makes any changes',
+        description: 'Callback triggered when the user makes any changes.',
         required: true,
       },
       {
@@ -98,7 +98,7 @@ card(
       {
         name: 'value',
         type: 'string',
-        description: 'The currently-selected value',
+        description: 'The currently-selected value.',
       },
     ]}
   />,
