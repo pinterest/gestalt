@@ -1,3 +1,9 @@
+## 20.1.0 (Mar 9, 2021)
+
+### Minor
+
+- Image: add elementtiming attribute for profiling (#1418)
+
 ## 20.0.2 (Mar 8, 2021)
 
 ### Patch
