@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
+  useState,
   type AbstractComponent,
   type Node,
   type Element,
@@ -29,7 +30,7 @@ type Props = {|
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| defaultOnNavigation?: () => void |},
+    {| disableOnNavigation?: () => void |},
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
@@ -101,6 +102,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
   const defaultOnNavigation = useOnNavigation({ href, target });
+  const [disabledOnNavigation, setDisabledOnNavigation] = useState(true);
 
   return (
     <a
@@ -117,8 +119,9 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       }}
       onClick={(event) => {
         if (onClick) {
-          onClick({ event, defaultOnNavigation: () => defaultOnNavigation?.({ event }) });
-        } else if (!onClick && defaultOnNavigation) {
+          onClick({ event, disableOnNavigation: () => setDisabledOnNavigation(true) });
+        }
+        if (!disabledOnNavigation && defaultOnNavigation) {
           defaultOnNavigation({ event });
         }
       }}
