@@ -28,6 +28,7 @@ card(
           {label:'San Francisco', value: 'sf'},
           {label:'Seattle', value: 'seattle'},
         ]}
+        size='lg'
       />
     `}
   />,
@@ -123,6 +124,7 @@ card(
     {label:'Seattle', value: 'seattle'},
   ]}
   label='City'
+  size='lg'
 />`}
       />
       <MainSection.Card
@@ -141,6 +143,7 @@ card(
     {label:'Seattle', value: 'seattle'},
   ]}
   label='City'
+  size='lg'
 />`}
       />
     </MainSection.Subsection>
@@ -161,6 +164,7 @@ card(
     {label:'Ryan', value: 'ryan'},
   ]}
   label='People who are awesome'
+  size='lg'
 />`}
       />
       <MainSection.Card
@@ -176,6 +180,7 @@ card(
     {label:'Absolutely not', value: 'noagain'},
   ]}
   label='Is this a good use of a SelectList?'
+  size='lg'
 />`}
       />
     </MainSection.Subsection>
@@ -194,6 +199,7 @@ card(
       {label:'Filter value 2', value: 'fv12'},
     ]}
     placeholder='Filter 1'
+    size='lg'
   />
   <SelectList
     id="selectlistexample"
@@ -203,6 +209,7 @@ card(
       {label:'Filter value 2', value: 'fv22'},
     ]}
     placeholder='Filter 2'
+    size='lg'
   />
 </Flex>`}
       />
@@ -220,12 +227,14 @@ card(
       {label:'Filter value 2', value: 'fv12'},
     ]}
     placeholder='SelectList'
+    size='lg'
   />
   <Button
     accessibilityControls="basic-dropdown-example"
     accessibilityHaspopup
     iconEnd="arrow-down"
     text="Dropdown"
+    size='lg'
     inline
   />
 </Flex>`}
@@ -301,6 +310,7 @@ card(
         ]}
         label='Country'
         helperText='Pick your favorite country (the one with the best fries)'
+        size='lg'
       />`}
       />
     </MainSection.Subsection>
@@ -324,6 +334,7 @@ card(
           {label:'Seattle', value: 'seattle'},
         ]}
         label='City'
+        size='lg'
       />`}
       />
       <MainSection.Card
@@ -341,6 +352,7 @@ card(
         ]}
         label='City'
         focus
+        size='lg'
       />`}
       />
       <MainSection.Card
@@ -360,6 +372,7 @@ card(
         value='sailing'
         label='Hobby'
         errorMessage='Sailing is not a hobby, it is a passion'
+        size='lg'
       />`}
       />
       <MainSection.Card
@@ -377,6 +390,7 @@ card(
         ]}
         label='City'
         disabled={true}
+        size='lg'
       />`}
       />
     </MainSection.Subsection>
