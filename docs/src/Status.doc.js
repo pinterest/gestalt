@@ -37,6 +37,24 @@ card(
         description: '[Briefly describe the goal of this prop]',
         href: '[Name of the section demonstrating this prop]',
       },
+      {
+        name: 'accessibilityLabel',
+        type: 'string',
+        description: '[Briefly describe the goal of this prop]',
+        href: '[Name of the section demonstrating this prop]',
+      },
+      {
+        name: 'name',
+        type: 'string',
+        description: '[Briefly describe the goal of this prop]',
+        href: '[Name of the section demonstrating this prop]',
+      },
+      {
+        name: 'subText',
+        type: 'string',
+        description: '[Briefly describe the goal of this prop]',
+        href: '[Name of the section demonstrating this prop]',
+      },
     ]}
   />,
 );
@@ -49,7 +67,7 @@ card(
         type="do"
         description="Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
         defaultCode={`
-Code for this example goes here
+<Status accessilbityLabel='Unstarted - Updated 2 days ago' type='unstarted'  name='Unstarted' subText='Updated 2 days ago' />
 `}
       />
       <MainSection.Card
@@ -59,7 +77,7 @@ Code for this example goes here
           What not to do goes \`here\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
         `}
         defaultCode={`
-Code for this example goes here
+        <Status accessilbityLabel='Unstarted - Updated 2 days ago' type='unstarted'  name='Unstarted' />
 `}
       />
       <MainSection.Card
