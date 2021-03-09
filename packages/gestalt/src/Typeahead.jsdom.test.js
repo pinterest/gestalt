@@ -62,6 +62,32 @@ describe('Typeahead', () => {
     expect(container.querySelector('button[disabled]')).toBeVisible();
   });
 
+  it('value highlighted on activation', () => {
+    const { container } = render(
+      <Typeahead
+        disabled
+        id="Typeahead"
+        noResultText="No Result"
+        options={FAKE_OPTIONS}
+        placeholder="Select a Label"
+        onChange={onChangeMock}
+        onBlur={onBlurMock}
+        onSelect={onSelectMock}
+        value="Value-5"
+        label="Typeahead Example"
+      />,
+    );
+    expect(container.querySelector('input')).toBeVisible();
+    expect(container.querySelector('input').value).toBe('label-5');
+
+    const textField = screen.getByRole('textbox', { id: 'Typeahead' });
+    textField.click();
+
+    const selectedValue = textField.value.substr(0, textField.selectionEnd);
+
+    expect(selectedValue.toLowerCase()).toBe('label-5');
+  });
+
   it('clears menu on blur', () => {
     render(Component);
     const textField = screen.getByRole('textbox', { id: 'Typeahead' });

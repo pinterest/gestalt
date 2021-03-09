@@ -1,5 +1,13 @@
 // @flow strict
-import React, { forwardRef, Fragment, type Element, type Node, type Ref, useState } from 'react';
+import React, {
+  useImperativeHandle,
+  forwardRef,
+  Fragment,
+  type Element,
+  type Node,
+  useState,
+  useRef,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
@@ -15,7 +23,6 @@ import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 
 type Props = {|
-  forwardedRef?: Ref<'input'>,
   disabled?: boolean,
   id: string,
   label?: string,
@@ -63,6 +70,12 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     tags,
     value,
   } = props;
+
+  const innerRef = useRef(null);
+
+  // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
+  // that renders <Typeahead ref={inputRef} /> to call inputRef.current.focus()
+  useImperativeHandle(ref, () => innerRef.current);
 
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState(false);
@@ -140,10 +153,8 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 
   const highlightSelectedInput = () => {
     // Highlight selected text on click
-    if (ref.current) {
-      // $FlowFixMe[unclear-type]
-      const inputField: HTMLInputElement = (ref.current: any);
-      inputField.select();
+    if (innerRef && innerRef.current) {
+      innerRef.current.select();
     }
   };
 
@@ -152,7 +163,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 
   const inputElement = (
     <input
-      ref={ref}
+      ref={innerRef}
       disabled={disabled}
       autoComplete="off"
       aria-label={label}
