@@ -1,3 +1,9 @@
+## 20.1.1 (Mar 9, 2021)
+
+### Patch
+
+- Upsell: Update docs and add Best Practices (#1404)
+
 ## 20.1.0 (Mar 9, 2021)
 
 ### Minor
