@@ -38,11 +38,40 @@ card(
     Component={Box}
     props={[
       {
-        name: 'dummyProp',
-        type: 'dummyType',
+        name: 'valueChangeIconAccessibilityLabel',
+        type: 'string',
         defaultValue: 'dummyDefault',
         description: '[Briefly describe the goal of this prop]',
-        href: '[Name of the section demonstrating this prop]',
+      },
+      {
+        name: 'infoIconAccessibilityLabel',
+        type: 'string',
+        defaultValue: 'dummyDefault',
+        description: '[Briefly describe the goal of this prop]',
+      },
+      {
+        name: 'title',
+        type: 'string',
+        defaultValue: 'dummyDefault',
+        description: '[Briefly describe the goal of this prop]',
+      },
+      {
+        name: 'size',
+        type: `'sm' | 'lg'`,
+        defaultValue: 'dummyDefault',
+        description: '[Briefly describe the goal of this prop]',
+      },
+      {
+        name: 'value',
+        type: 'string',
+        defaultValue: 'dummyDefault',
+        description: '[Briefly describe the goal of this prop]',
+      },
+      {
+        name: 'valueChange',
+        type: 'number',
+        defaultValue: 'dummyDefault',
+        description: '[Briefly describe the goal of this prop]',
       },
     ]}
   />,
