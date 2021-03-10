@@ -5,85 +5,106 @@ import Text from './Text.js';
 import Heading from './Heading.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
+import IconButton from './IconButton.js';
 import Tooltip from './Tooltip.js';
 
 type Props = {|
-  accessibilityLabel: string,
+  valueChangeIconAccessibilityLabel: string,
+  infoIconAccessibilityLabel: string,
   title?: string,
   value?: string,
-  delta?: number,
+  valueChange?: number,
   helperText?: string,
-  size?: 'sm' | 'md' | 'lg',
+  size?: 'sm' | 'lg',
 |};
 
 export default function DataPoint({
-  accessibilityLabel,
+  infoIconAccessibilityLabel,
+  valueChangeIconAccessibilityLabel,
   title,
   value,
-  delta,
+  valueChange,
   helperText,
-  size,
+  size = 'sm',
 }: Props): Node {
   const helperTextNode = helperText ? (
     <Tooltip text={helperText}>
-      <Icon accessibilityLabel={accessibilityLabel} icon="info-circle" color="gray" />
+      <IconButton
+        accessibilityLabel={infoIconAccessibilityLabel}
+        size="sm"
+        icon="info-circle"
+        iconColor="gray"
+        padding={1}
+      />
     </Tooltip>
   ) : null;
 
   /*
    * TODO: We need arrow-up and arrow-down icons added to Gestalt
    */
-
   const valueSize = size === 'lg' ? 'md' : 'sm';
-  const valueDeltaGap = size === 'lg' ? 4 : 2;
+  const valueChangeGap = size === 'lg' ? 4 : 2;
 
-  let deltaIcon;
-  let deltaColor;
-  if (delta > 0) {
-    deltaColor = 'green';
-    deltaIcon = (
-      <Icon accessibilityLabel={accessibilityLabel} size={16} icon="arrow-up" color={deltaColor} />
+  let valueChangeNode;
+  if (valueChange === undefined || valueChange === null) {
+    valueChangeNode = null;
+  } else if (valueChange > 0) {
+    valueChangeNode = (
+      <Flex gap={1}>
+        <Icon
+          accessibilityLabel={valueChangeIconAccessibilityLabel}
+          size={16}
+          icon="arrow-up"
+          color="green"
+        />
+        <Text size="sm" color="green" weight="bold">
+          {valueChange}%
+        </Text>
+      </Flex>
     );
-  } else if (delta < 0) {
-    deltaColor = 'red';
-    deltaIcon = (
-      <Icon
-        accessibilityLabel={accessibilityLabel}
-        size={16}
-        icon="arrow-down"
-        color={deltaColor}
-      />
+  } else if (valueChange < 0) {
+    valueChangeNode = (
+      <Flex gap={1}>
+        <Icon
+          accessibilityLabel={valueChangeIconAccessibilityLabel}
+          size={16}
+          icon="arrow-down"
+          color="red"
+        />
+        <Text size="sm" color="red" weight="bold">
+          {valueChange}%
+        </Text>
+      </Flex>
     );
   } else {
-    deltaColor = 'darkGray';
-    deltaIcon = null;
+    valueChangeNode = (
+      <Text size="sm" color="darkGray" weight="bold">
+        {valueChange}%
+      </Text>
+    );
   }
 
   return (
-    <Flex gap={2} direction="column">
-      <Flex gap={2}>
+    <Flex gap={1} direction="column">
+      <Flex gap={1} alignItems="center" minHeight={24}>
         <Text size="sm">{title}</Text>
         {helperTextNode}
       </Flex>
-      <Flex gap={valueDeltaGap} alignItems="center">
+      <Flex gap={valueChangeGap} alignItems="center">
         <Heading size={valueSize}>{value}</Heading>
-        <Flex gap={1}>
-          {deltaIcon}
-          <Text size="sm" color={deltaColor} weight="bold">
-            {delta}%
-          </Text>
-        </Flex>
+        {valueChangeNode}
       </Flex>
     </Flex>
   );
 }
 
 DataPoint.propTypes = {
-  accessibilityLabel: PropTypes.string,
-  title: PropTypes.string,
-  value: PropTypes.string,
-  delta: PropTypes.number,
+  valueChangeIconAccessibilityLabel: PropTypes.string.isRequired,
+  infoIconAccessibilityLabel: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  valueChange: PropTypes.number,
   helperText: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'lg']),
 };

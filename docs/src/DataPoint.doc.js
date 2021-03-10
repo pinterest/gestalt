@@ -13,8 +13,22 @@ card(
     name="DataPoint"
     description="Brief description of this component"
     defaultCode={`
-<DataPoint title="Datapoint title" value="1.23M" delta={30} helperText="Datapoint helper text" />
+    <Flex gap={4} direction="column">
+    <Flex gap={6}>
+    <DataPoint title="Datapoint title" value="1.23M" />
+    <DataPoint title="Datapoint title" value="1.23M" valueChange={0} />
+    <DataPoint title="Datapoint title" value="1.23M" valueChange={-30} valueChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+    <DataPoint title="Datapoint title" value="1.23M" valueChange={30} valueChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+</Flex>
+<Flex gap={6}>
+<DataPoint size="lg" title="Datapoint title" value="1.23M" />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" valueChange={0} />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" valueChange={-30} valueChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" valueChange={30} valueChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+</Flex>
+</Flex>
 `}
+    pilot
   />,
 );
 
