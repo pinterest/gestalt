@@ -5,10 +5,10 @@ import DataPoint from './DataPoint.js';
 const Valid = (
   <DataPoint
     infoIconAccessibilityLabel="Info icon accessibility label"
-    valueChangeIconAccessibilityLabel="Value change icon accessibility label"
+    valuePercentChangeIconAccessibilityLabel="Value change icon accessibility label"
     title="Title"
     value="1M"
-    valueChange={30}
+    valuePercentChange={30}
   />
 );
 

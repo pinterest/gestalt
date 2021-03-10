@@ -16,15 +16,15 @@ card(
     <Flex gap={4} direction="column">
     <Flex gap={6}>
     <DataPoint title="Datapoint title" value="1.23M" />
-    <DataPoint title="Datapoint title" value="1.23M" valueChange={0} />
-    <DataPoint title="Datapoint title" value="1.23M" valueChange={-30} valueChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
-    <DataPoint title="Datapoint title" value="1.23M" valueChange={30} valueChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+    <DataPoint title="Datapoint title" value="1.23M" valuePercentChange={0} />
+    <DataPoint title="Datapoint title" value="1.23M" valuePercentChange={-30} valuePercentChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+    <DataPoint title="Datapoint title" value="1.23M" valuePercentChange={30} valuePercentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
 </Flex>
 <Flex gap={6}>
 <DataPoint size="lg" title="Datapoint title" value="1.23M" />
-<DataPoint size="lg" title="Datapoint title" value="1.23M" valueChange={0} />
-<DataPoint size="lg" title="Datapoint title" value="1.23M" valueChange={-30} valueChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
-<DataPoint size="lg" title="Datapoint title" value="1.23M" valueChange={30} valueChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" valuePercentChange={0} />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" valuePercentChange={-30} valuePercentChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" valuePercentChange={30} valuePercentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
 </Flex>
 </Flex>
 `}
@@ -38,7 +38,7 @@ card(
     Component={Box}
     props={[
       {
-        name: 'valueChangeIconAccessibilityLabel',
+        name: 'valuePercentChangeIconAccessibilityLabel',
         type: 'string',
         defaultValue: 'dummyDefault',
         description: '[Briefly describe the goal of this prop]',
@@ -68,48 +68,13 @@ card(
         description: '[Briefly describe the goal of this prop]',
       },
       {
-        name: 'valueChange',
+        name: 'valuePercentChange',
         type: 'number',
         defaultValue: 'dummyDefault',
         description: '[Briefly describe the goal of this prop]',
       },
     ]}
   />,
-);
-
-card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
-        defaultCode={`
-Code for this example goes here
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
-          What not to do goes \`here\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
-        `}
-        defaultCode={`
-Code for this example goes here
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
-        Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
-
-        - You do not need code for these
-        - You can instead use bulleted lists of Dos
-        `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
 );
 
 card(
@@ -156,28 +121,6 @@ Code for this example goes here
     <MainSection.Subsection
       description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
       title="Variant using CombinationNew"
-    />
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Writing"
-    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/). Can also use Do/Don't cards without any code (like Tooltip)`}
-  />,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
-      **[DataPoint](/DataPoint)**
-      Details about why to use this over current component.
-
-      **[DataPoint](/DataPoint)**
-      Details about why to use this over current component.
-
-    `}
     />
   </MainSection>,
 );
