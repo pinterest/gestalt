@@ -366,6 +366,12 @@ If additional functionality is needed in the menu, such as subtext, headers or c
 
 **[Typeahead](/Typeahead)**
 If users need the ability to choose an option by entering text to filter a long list of options, use Typeahead.
+
+**[RadioButton](/RadioButton)**
+If users need the ability to choose between fewer than 4 options, use RadioButton.
+
+**[Checkbox](/Checkbox)**
+If users need the ability to choose between a yes/no option, use Checkbox.
 `}
     />
   </MainSection>,
