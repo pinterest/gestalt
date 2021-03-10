@@ -54,7 +54,7 @@ export default function DataPoint({
         <Icon
           accessibilityLabel={valueChangeIconAccessibilityLabel}
           size={16}
-          icon="arrow-up"
+          icon="sort-ascending"
           color="green"
         />
         <Text size="sm" color="green" weight="bold">
@@ -68,7 +68,7 @@ export default function DataPoint({
         <Icon
           accessibilityLabel={valueChangeIconAccessibilityLabel}
           size={16}
-          icon="arrow-down"
+          icon="sort-descending"
           color="red"
         />
         <Text size="sm" color="red" weight="bold">
