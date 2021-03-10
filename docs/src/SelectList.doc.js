@@ -229,28 +229,79 @@ card(
         type="don't"
         description="Mix Dropdown and SelectList in a group of items."
         defaultCode={`
-<Flex gap={2}>
-  <SelectList
-    id="selectlistexample"
-    onChange={() => {}}
-    options={[
-      {label:'Impressions', value: 'v1'},
-      {label:'Pin clicks', value: 'v2'},
-      {label:'Outbound clicks', value: 'v3'},
-      {label:'Saves', value: 'v4'},
-      {label:'Engagement rate', value: 'v5'},
-    ]}
-    size='lg'
-  />
-  <Button
-    accessibilityControls="basic-dropdown-example"
-    accessibilityHaspopup
-    iconEnd="arrow-down"
-    text="Menu"
-    size='lg'
-    inline
-  />
-</Flex>`}
+
+
+  function SubtextIconButtonFlyoutExample() {
+    const [open, setOpen] = React.useState(false);
+    const [selected, setSelected] = React.useState(null);
+    const anchorRef = React.useRef(null);
+    const handleSelect = ({ item }) => {
+      setSelected(item);
+    };
+
+    return (
+      <Flex gap={2}>
+      <SelectList
+        id="selectlistexample"
+        onChange={() => {}}
+        options={[
+          {label:'Impressions', value: 'v1'},
+          {label:'Pin clicks', value: 'v2'},
+          {label:'Outbound clicks', value: 'v3'},
+          {label:'Saves', value: 'v4'},
+          {label:'Engagement rate', value: 'v5'},
+        ]}
+        size='lg'
+      />
+      <Box display="flex" justifyContent="center">
+
+        <Button
+          accessibilityControls="header-dropdown-example"
+          accessibilityHaspopup
+          accessibilityExpanded={ open }
+          iconEnd="arrow-down"
+          text="Menu"
+          inline
+          selected={open}
+          icon="add"
+          size="lg"
+          onClick={ () => setOpen((prevVal) => !prevVal) }
+          ref={anchorRef}
+        />
+        {open && (
+          <Dropdown id="subtext-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+            <Dropdown.Item
+              handleSelect={handleSelect}
+              selected={selected}
+              option={{ value: "item 2", label: "Engagement" }}
+            />
+            <Dropdown.Item
+              handleSelect={handleSelect}
+              selected={selected}
+              option={{ value: "item 2", label: "Pin clicks" }}
+            />
+            <Dropdown.Item
+              handleSelect={handleSelect}
+              selected={selected}
+              option={{ value: "item 2", label: "Outbound clicks" }}
+            />
+            <Dropdown.Item
+              handleSelect={handleSelect}
+              selected={selected}
+              option={{ value: "item 2", label: "Saves" }}
+            />
+            <Dropdown.Item
+              handleSelect={handleSelect}
+              selected={selected}
+              option={{ value: "item 2", label: "Engagement rate" }}
+            />
+          </Dropdown>
+        )}
+      </Box>
+      </Flex>
+    );
+  }
+`}
       />
     </MainSection.Subsection>
   </MainSection>,
