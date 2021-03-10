@@ -22,6 +22,7 @@ card(
 <Status type='warning' />
 </Flex>
 `}
+    pilot
   />,
 );
 
@@ -60,41 +61,6 @@ card(
 );
 
 card(
-  <MainSection name="Best practices">
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
-        defaultCode={`
-<Status accessilbityLabel='Unstarted - Updated 2 days ago' type='unstarted'  name='Unstarted' subText='Updated 2 days ago' />
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
-          What not to do goes \`here\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
-        `}
-        defaultCode={`
-        <Status accessilbityLabel='Unstarted - Updated 2 days ago' type='unstarted'  name='Unstarted' />
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
-        Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
-
-        - You do not need code for these
-        - You can instead use bulleted lists of Dos
-        `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
   <MainSection
     name="Accessibility"
     description={`\`Accessibility\` guidelines go here. Can also include SubSections and Cards for detailed examples (see Box). Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
@@ -112,7 +78,7 @@ card(
   <MainSection name="Variants">
     <MainSection.Subsection
       description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-      title="Variant name (sentence case)"
+      title="Text additions"
     >
       <MainSection.Card
         cardSize="md"
@@ -121,41 +87,14 @@ card(
         <Status type='ok' name='OK' />
 `}
       />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-      title="Variant name (sentence case)"
-    >
       <MainSection.Card
         cardSize="md"
-        title="Example title (optional)"
+        title="Status subtext"
         defaultCode={`
         <Status type='warning' name='Warning' subText='Updated 2 days ago' />
 `}
       />
     </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Writing"
-    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/). Can also use Do/Don't cards without any code (like Tooltip)`}
-  />,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
-      **[Status](/Status)**
-      Details about why to use this over current component.
-
-      **[Status](/Status)**
-      Details about why to use this over current component.
-
-    `}
-    />
   </MainSection>,
 );
 
