@@ -8,14 +8,14 @@ import Text from './Text.js';
 export type StatusColor = 'gray' | 'green' | 'orange' | 'red';
 
 type Props = {|
-  type?: string,
+  type?: 'unstarted' | 'in-progress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning',
   name?: string,
   subText?: string,
   accessibilityLabel: string,
 |};
 
 export default function Status(props: Props): Node {
-  const { accessibilityLabel, type, name, subText } = props;
+  const { accessibilityLabel, type = 'unstarted', name, subText } = props;
 
   let color;
   let icon;
@@ -93,7 +93,16 @@ export default function Status(props: Props): Node {
 }
 
 Status.propTypes = {
-  type: PropTypes.string.isRequired,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  type: PropTypes.oneOf([
+    'unstarted',
+    'in-progress',
+    'halted',
+    'ok',
+    'problem',
+    'canceled',
+    'warning',
+  ]).isRequired,
   name: PropTypes.string,
   subText: PropTypes.string,
   accessibilityLabel: PropTypes.string.isRequired,

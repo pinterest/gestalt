@@ -32,28 +32,28 @@ card(
     props={[
       {
         name: 'type',
-        type: 'string',
+        type: `'unstarted' | 'in-progress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning'`,
         defaultValue: 'unstarted',
-        description: '[Briefly describe the goal of this prop]',
-        href: '[Name of the section demonstrating this prop]',
+        required: true,
+        description: 'The type of status to display',
       },
       {
         name: 'accessibilityLabel',
         type: 'string',
-        description: '[Briefly describe the goal of this prop]',
+        required: true,
+        description:
+          'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
         href: '[Name of the section demonstrating this prop]',
       },
       {
         name: 'name',
         type: 'string',
-        description: '[Briefly describe the goal of this prop]',
-        href: '[Name of the section demonstrating this prop]',
+        description: 'A label to reinforce the meaning of the status icon',
       },
       {
         name: 'subText',
         type: 'string',
-        description: '[Briefly describe the goal of this prop]',
-        href: '[Name of the section demonstrating this prop]',
+        description: 'Additional contextual information around the status',
       },
     ]}
   />,
@@ -116,9 +116,9 @@ card(
     >
       <MainSection.Card
         cardSize="md"
-        title="Example title (optional)"
+        title="Status name"
         defaultCode={`
-Code for this example goes here
+        <Status type='ok' name='OK' />
 `}
       />
     </MainSection.Subsection>
@@ -130,7 +130,7 @@ Code for this example goes here
         cardSize="md"
         title="Example title (optional)"
         defaultCode={`
-Code for this example goes here
+        <Status type='warning' name='Warning' subText='Updated 2 days ago' />
 `}
       />
     </MainSection.Subsection>
