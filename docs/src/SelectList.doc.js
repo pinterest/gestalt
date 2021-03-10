@@ -22,7 +22,7 @@ card(
         id="selectlistexample"
         onChange={() => {}}
         options={[
-          {label:'Alergia', value: 'alergia'},
+          {label:'Algeria', value: 'algeria'},
           {label:'Belgium', value: 'belgium'},
           {label:'Canada', value: 'canada'},
           {label:'Denmark', value: 'denmark'},
@@ -118,7 +118,7 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'Alergia', value: 'alergia'},
+    {label:'Algeria', value: 'algeria'},
     {label:'Belgium', value: 'belgium'},
     {label:'Canada', value: 'canada'},
     {label:'Denmark', value: 'denmark'},
@@ -138,7 +138,7 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'Alergia', value: 'alergia'},
+    {label:'Algeria', value: 'algeria'},
     {label:'An image of Belgium', value: 'belgium'},
     {label:'Canada', value: 'canada'},
     {label:'A longer description of Denmark with subtext', value: 'denmark'},
@@ -160,7 +160,7 @@ card(
   id="selectlistexample"
   onChange={() => {}}
   options={[
-    {label:'Alergia', value: 'alergia'},
+    {label:'Algeria', value: 'algeria'},
     {label:'Belgium', value: 'belgium'},
     {label:'Canada', value: 'canada'},
     {label:'Denmark', value: 'denmark'},
@@ -229,8 +229,6 @@ card(
         type="don't"
         description="Mix Dropdown and SelectList in a group of items."
         defaultCode={`
-
-
   function SubtextIconButtonFlyoutExample() {
     const [open, setOpen] = React.useState(false);
     const [selected, setSelected] = React.useState(null);
@@ -324,37 +322,39 @@ card(
         cardSize="md"
         title="Large"
         description={`Use \`lg\` as the default size within Pinterest products.`}
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label:'Alergia', value: 'alergia'},
-          {label:'Belgium', value: 'belgium'},
-          {label:'Canada', value: 'canada'},
-          {label:'Denmark', value: 'denmark'},
-          {label:'Egypt', value: 'egypt'},
-          {label:'France', value: 'france'},
-        ]}
-        size='lg'
-      />`}
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label:'Algeria', value: 'algeria'},
+    {label:'Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'Denmark', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
+  ]}
+  size='lg'
+/>`}
       />
       <MainSection.Card
         cardSize="md"
         title="Medium"
         description={`Use \`md\` on denser surfaces, such as Business products or internal tools.`}
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label:'Alergia', value: 'alergia'},
-          {label:'Belgium', value: 'belgium'},
-          {label:'Canada', value: 'canada'},
-          {label:'Denmark', value: 'denmark'},
-          {label:'Egypt', value: 'egypt'},
-          {label:'France', value: 'france'},
-        ]}
-        size='md'
-      />`}
+        defaultCode={`
+  <SelectList
+    id="selectlistexample"
+    onChange={() => {}}
+    options={[
+      {label:'Algeria', value: 'algeria'},
+      {label:'Belgium', value: 'belgium'},
+      {label:'Canada', value: 'canada'},
+      {label:'Denmark', value: 'denmark'},
+      {label:'Egypt', value: 'egypt'},
+      {label:'France', value: 'france'},
+    ]}
+    size='md'
+  />`}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -363,22 +363,23 @@ card(
     >
       <MainSection.Card
         cardSize="lg"
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label: 'ARS - Argentine peso', value: 'ars'},
-          {label: 'AUD - Australian dollar', value: 'aud'},
-          {label: 'ERN - Eritrean nakfa', value: 'ern'},
-          {label: 'EUR - Euro', value: 'eur'},
-          {label: 'GBP - British pound', value: 'gbp'},
-          {label: 'JPY - Japanese yen', value: 'jpy'},
-          {label: 'USD - United States Dollar', value: 'usd'},
-        ]}
-        label='Default currency'
-        helperText='Product prices in your data source without an ISO currency code will default to this currency'
-        size='lg'
-      />`}
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label: 'ARS - Argentine peso', value: 'ars'},
+    {label: 'AUD - Australian dollar', value: 'aud'},
+    {label: 'ERN - Eritrean nakfa', value: 'ern'},
+    {label: 'EUR - Euro', value: 'eur'},
+    {label: 'GBP - British pound', value: 'gbp'},
+    {label: 'JPY - Japanese yen', value: 'jpy'},
+    {label: 'USD - United States Dollar', value: 'usd'},
+  ]}
+  label='Default currency'
+  helperText='Product prices in your data source without an ISO currency code will default to this currency'
+  size='lg'
+/>`}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -387,22 +388,23 @@ card(
     >
       <MainSection.Card
         cardSize="lg"
-        defaultCode={`<SelectList
-        id="selectlistexample"
-        onChange={() => {}}
-        options={[
-          {label:'Alergia', value: 'alergia'},
-          {label:'Belgium', value: 'belgium'},
-          {label:'Canada', value: 'canada'},
-          {label:'Denmark', value: 'denmark'},
-          {label:'Egypt', value: 'egypt'},
-          {label:'France', value: 'france'},
-        ]}
-        placeholder=' '
-        label='Country'
-        errorMessage='You must select a country'
-        size='lg'
-      />`}
+        defaultCode={`
+<SelectList
+  id="selectlistexample"
+  onChange={() => {}}
+  options={[
+    {label:'Algeria', value: 'algeria'},
+    {label:'Belgium', value: 'belgium'},
+    {label:'Canada', value: 'canada'},
+    {label:'Denmark', value: 'denmark'},
+    {label:'Egypt', value: 'egypt'},
+    {label:'France', value: 'france'},
+  ]}
+  placeholder=' '
+  label='Country'
+  errorMessage='You must select a country'
+  size='lg'
+/>`}
       />
     </MainSection.Subsection>
   </MainSection>,
