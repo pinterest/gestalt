@@ -52,7 +52,7 @@ card(
         description: 'A label to reinforce the meaning of the status icon',
       },
       {
-        name: 'subText',
+        name: 'subtext',
         type: 'string',
         description: 'Additional contextual information around the status',
       },
@@ -84,14 +84,14 @@ card(
         cardSize="md"
         title="Status name"
         defaultCode={`
-        <Status type='ok' name='OK' />
+        <Status type='ok' title='OK' />
 `}
       />
       <MainSection.Card
         cardSize="md"
         title="Status subtext"
         defaultCode={`
-        <Status type='warning' name='Warning' subText='Updated 2 days ago' />
+        <Status type='warning' title='Warning' subtext='Updated 2 days ago' />
 `}
       />
     </MainSection.Subsection>

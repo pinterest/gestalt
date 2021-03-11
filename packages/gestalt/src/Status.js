@@ -9,13 +9,13 @@ export type StatusColor = 'gray' | 'green' | 'orange' | 'red';
 
 type Props = {|
   type?: 'unstarted' | 'in-progress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning',
-  name?: string,
-  subText?: string,
+  title?: string,
+  subtext?: string,
   accessibilityLabel: string,
 |};
 
 export default function Status(props: Props): Node {
-  const { accessibilityLabel, type = 'unstarted', name, subText } = props;
+  const { accessibilityLabel, type = 'unstarted', title, subtext } = props;
 
   let color;
   let icon;
@@ -62,27 +62,16 @@ export default function Status(props: Props): Node {
       color = 'darkGray';
   }
 
-  const nameNode = name ? <Text size="md">{name}</Text> : null;
-  const subTextNode = subText ? (
-    <Text size="md" color="gray">
-      {subText}
-    </Text>
-  ) : null;
-
-  /*
-   * QUESTION: This whole section seems janky. Would love to get your take on how to improve
-   */
-  let textNode = null;
-  if (name && subText) {
-    textNode = (
-      <Flex direction="column">
-        {nameNode}
-        {subTextNode}
-      </Flex>
-    );
-  } else if (name) {
-    textNode = <React.Fragment>{nameNode}</React.Fragment>;
-  }
+  const textNode = title && (
+    <Flex direction="column">
+      <Text size="md">{title}</Text>
+      {subtext ? (
+        <Text size="md" color="gray">
+          {subtext}
+        </Text>
+      ) : null}
+    </Flex>
+  );
 
   return (
     <Flex gap={2}>
@@ -103,7 +92,7 @@ Status.propTypes = {
     'canceled',
     'warning',
   ]).isRequired,
-  name: PropTypes.string,
-  subText: PropTypes.string,
+  title: PropTypes.string,
+  subtext: PropTypes.string,
   accessibilityLabel: PropTypes.string.isRequired,
 };
