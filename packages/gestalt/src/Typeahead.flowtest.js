@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Typeahead from './Typeahead.js';
 
 const Valid = (

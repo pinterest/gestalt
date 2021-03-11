@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Fragment, type Node, useState, useEffect } from 'react';
+import type { Node } from 'react';
+
+import { Fragment, useState, useEffect } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';

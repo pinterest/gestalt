@@ -1,5 +1,7 @@
 // @flow strict-local
-import React, { type Node } from 'react';
+import type { Node } from 'react';
+
+import { useState } from 'react';
 import DatePicker from 'gestalt-datepicker';
 import {
   arSA,
@@ -465,7 +467,7 @@ import { it } from 'date-fns/locale';
     localeDataCode={Object.keys(localeMap)}
   >
     {({ localeDataCode }) => {
-      const [date, setDate] = React.useState(new Date());
+      const [date, setDate] = useState(new Date());
 
       return (
         <DatePicker

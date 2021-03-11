@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Provider from './Provider.js';
 
 const Valid = <Provider>Test</Provider>;

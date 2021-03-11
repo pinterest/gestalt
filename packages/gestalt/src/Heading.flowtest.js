@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Heading from './Heading.js';
 
 const Valid = <Heading size="sm">Heading</Heading>;

@@ -1,5 +1,7 @@
 // @flow strict
-import React, { PureComponent, type Node } from 'react';
+import type { Node } from 'react';
+
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import FetchItems from './FetchItems.js';
 import ScrollContainer from './ScrollContainer.js';

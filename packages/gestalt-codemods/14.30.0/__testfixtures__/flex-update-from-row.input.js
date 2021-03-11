@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Row } from 'gestalt';
 
 export default function TestComp() {

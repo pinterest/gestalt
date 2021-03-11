@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, useEffect } from 'react';
+import type { Node } from 'react';
+
+import { useState, useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import Markdown from './components/Markdown.js';
 import PageHeader from './components/PageHeader.js';
@@ -8,7 +10,7 @@ const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
 function Changelog() {
-  const [changelogData, setChangelogData] = React.useState('Loading changelog from GitHub...');
+  const [changelogData, setChangelogData] = useState('Loading changelog from GitHub...');
 
   useEffect(() => {
     const fetchChangelog = async () => {

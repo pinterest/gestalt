@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { ScrollableContainer, Box } from 'gestalt';
 
 export default function TestComp() {

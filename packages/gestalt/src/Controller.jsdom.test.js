@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Controller from './Controller.js';
 

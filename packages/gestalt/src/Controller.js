@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Component, type Node as ReactNode } from 'react';
+import type { Node as ReactNode } from 'react';
+
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
 import Contents from './Contents.js';

@@ -1,13 +1,7 @@
 // @flow strict-local
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useState,
-  useRef,
-  type ElementRef,
-  type Element,
-} from 'react';
+import type { ElementRef, Element } from 'react';
+
+import { forwardRef, useEffect, useImperativeHandle, useState, useRef } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import classnames from 'classnames';
 import { Icon, Box, Label, Text } from 'gestalt';

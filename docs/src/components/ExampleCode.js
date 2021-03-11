@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Fragment, type Node, useEffect, useRef, useState } from 'react';
+import type { Node } from 'react';
+
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { Box, IconButton, Tooltip } from 'gestalt';
 import { LiveEditor } from 'react-live';
 import handleCodeSandbox from './handleCodeSandbox.js';

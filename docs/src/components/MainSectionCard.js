@@ -2,7 +2,7 @@
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';

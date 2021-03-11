@@ -1,5 +1,7 @@
 // @flow strict
-import React, { useRef, useState, type Portal, type Node, useEffect } from 'react';
+import type { Portal, Node } from 'react';
+
+import { useRef, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { type Indexable } from './zIndex.js';
 import styles from './Layer.css';

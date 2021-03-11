@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
 
 const Valid = (

@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
 import Icon from './Icon.js';

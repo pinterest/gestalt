@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Flex } from "gestalt";
 
 export default function TestComp() {

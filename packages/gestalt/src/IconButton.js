@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, useImperativeHandle, useState, useRef, type Node } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useImperativeHandle, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';

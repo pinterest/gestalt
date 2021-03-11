@@ -1,13 +1,7 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useState,
-  useEffect,
-  useRef,
-  useImperativeHandle,
-  type Element,
-  type Node,
-} from 'react';
+import type { Element, Node } from 'react';
+
+import { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
 import MenuOption, { type OptionObject } from './MenuOption.js';

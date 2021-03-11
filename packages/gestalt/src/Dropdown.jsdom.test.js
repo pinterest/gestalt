@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes.js';
 import Dropdown from './Dropdown.js';

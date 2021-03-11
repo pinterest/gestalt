@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node, type ComponentType } from 'react';
+import type { Node, ComponentType } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import Card from './Card.js';
 import { useAppContext } from './appContext.js';

@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';

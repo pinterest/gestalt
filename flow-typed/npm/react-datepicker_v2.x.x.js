@@ -1,6 +1,6 @@
 // react-datepicker flow-typed version based on https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md
 // LocaleData type from https://github.com/date-fns/date-fns/blob/81ab18785146405ca2ae28710cdfbb13a294ec50/src/locale/af/index.js.flow
-import React from 'react';
+import * as React from 'react';
 
 declare module 'react-datepicker' {
 

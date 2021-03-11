@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Letterbox from './Letterbox.js';
 
 const Valid = (

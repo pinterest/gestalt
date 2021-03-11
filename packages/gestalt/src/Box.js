@@ -15,7 +15,9 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 */
 
-import React, { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
+import type { Node, AbstractComponent, Element } from 'react';
+
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';

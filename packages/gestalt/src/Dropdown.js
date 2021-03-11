@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Children, cloneElement, useState, useRef, type Node } from 'react';
+import type { Node } from 'react';
+
+import { Children, cloneElement, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Popover from './Popover.js';

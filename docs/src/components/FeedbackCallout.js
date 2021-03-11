@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, useState } from 'react';
+import type { Node } from 'react';
+
+import { useState } from 'react';
 import { Box, Callout } from 'gestalt';
 
 const BASE_LINK =

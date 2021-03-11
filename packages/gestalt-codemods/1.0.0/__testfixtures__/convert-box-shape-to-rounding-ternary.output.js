@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Box } from 'gestalt';
 
 const value = true;

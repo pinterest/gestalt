@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Box, Callout, Callout as Renamed } from 'gestalt';
 
 export default function TestBox() {

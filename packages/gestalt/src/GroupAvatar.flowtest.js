@@ -1,8 +1,7 @@
 // @flow strict
-import React from 'react';
 import GroupAvatar from './GroupAvatar.js';
 
-const Valid = <GroupAvatar collaborators={[{ name: '💩 astral' }]} size="md" />;
+const Valid = <GroupAvatar collaborators={[{ name: '💩 astral' }]} size="md" />
 
 // $FlowExpectedError[prop-missing]
 const MissingProp = <GroupAvatar />;

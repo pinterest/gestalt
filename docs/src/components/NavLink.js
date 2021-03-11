@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { Box, Link, Text } from 'gestalt';
 import { withRouter, Route } from 'react-router-dom';
 import { useNavigationContext } from './navigationContext.js';

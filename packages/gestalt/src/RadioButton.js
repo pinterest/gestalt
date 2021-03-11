@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, useState, type Node } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
