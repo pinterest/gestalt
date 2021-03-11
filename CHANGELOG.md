@@ -1,3 +1,9 @@
+## 20.1.2 (Mar 11, 2021)
+
+### Patch
+
+- Internal: Upgrade JSX transform so React no longer needs to be in scope (#1420)
+
 ## 20.1.1 (Mar 9, 2021)
 
 ### Patch
