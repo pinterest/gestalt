@@ -74,7 +74,7 @@ card(
       {
         name: 'onChange',
         type: '({| event: SyntheticInputEvent<>, value: string |}) => void',
-        description: 'Callback triggered when the user makes any changes.',
+        description: 'Callback triggered when the user selects a new option',
         required: true,
       },
       {
