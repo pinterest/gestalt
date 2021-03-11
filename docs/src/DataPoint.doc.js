@@ -16,15 +16,15 @@ card(
     <Flex gap={4} direction="column">
     <Flex gap={6}>
     <DataPoint title="Datapoint title" value="1.23M" />
-    <DataPoint title="Datapoint title" value="1.23M" valuePercentChange={0} />
-    <DataPoint title="Datapoint title" value="1.23M" valuePercentChange={-30} valuePercentChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
-    <DataPoint title="Datapoint title" value="1.23M" valuePercentChange={30} valuePercentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+    <DataPoint title="Datapoint title" value="1.23M" percentChange={0} />
+    <DataPoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+    <DataPoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
 </Flex>
 <Flex gap={6}>
 <DataPoint size="lg" title="Datapoint title" value="1.23M" />
-<DataPoint size="lg" title="Datapoint title" value="1.23M" valuePercentChange={0} />
-<DataPoint size="lg" title="Datapoint title" value="1.23M" valuePercentChange={-30} valuePercentChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
-<DataPoint size="lg" title="Datapoint title" value="1.23M" valuePercentChange={30} valuePercentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" percentChange={0} />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" percentChange={-30} percentChangeIconAccessibilityLabel="Arrow down" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+<DataPoint size="lg" title="Datapoint title" value="1.23M" percentChange={30} percentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
 </Flex>
 </Flex>
 `}
@@ -38,7 +38,7 @@ card(
     Component={Box}
     props={[
       {
-        name: 'valuePercentChangeIconAccessibilityLabel',
+        name: 'percentChangeIconAccessibilityLabel',
         type: 'string',
         defaultValue: 'dummyDefault',
         description: '[Briefly describe the goal of this prop]',
@@ -68,7 +68,7 @@ card(
         description: '[Briefly describe the goal of this prop]',
       },
       {
-        name: 'valuePercentChange',
+        name: 'percentChange',
         type: 'number',
         defaultValue: 'dummyDefault',
         description: '[Briefly describe the goal of this prop]',

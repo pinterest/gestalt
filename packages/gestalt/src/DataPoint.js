@@ -9,33 +9,25 @@ import IconButton from './IconButton.js';
 import Tooltip from './Tooltip.js';
 
 type Props = {|
-  valuePercentChangeIconAccessibilityLabel: string,
-  infoIconAccessibilityLabel: string,
+  percentChangeAccessibilityLabel: string,
   title?: string,
   value?: string,
-  valuePercentChange?: number,
+  percentChange?: number,
   infoText?: string,
   size?: 'sm' | 'lg',
 |};
 
 export default function DataPoint({
-  infoIconAccessibilityLabel,
-  valuePercentChangeIconAccessibilityLabel,
+  percentChangeAccessibilityLabel,
   title,
   value,
-  valuePercentChange,
+  percentChange,
   infoText,
   size = 'sm',
 }: Props): Node {
   const infoTextNode = infoText ? (
     <Tooltip text={infoText}>
-      <IconButton
-        accessibilityLabel={infoIconAccessibilityLabel}
-        size="sm"
-        icon="info-circle"
-        iconColor="gray"
-        padding={1}
-      />
+      <IconButton accessibilityLabel="" size="sm" icon="info-circle" iconColor="gray" padding={1} />
     </Tooltip>
   ) : null;
 
@@ -43,43 +35,43 @@ export default function DataPoint({
    * TODO: We need arrow-up and arrow-down icons added to Gestalt
    */
   const valueSize = size === 'lg' ? 'md' : 'sm';
-  const valuePercentChangeGap = size === 'lg' ? 4 : 2;
+  const percentChangeGap = size === 'lg' ? 4 : 2;
 
-  let valuePercentChangeNode;
-  if (valuePercentChange === undefined || valuePercentChange === null) {
-    valuePercentChangeNode = null;
-  } else if (valuePercentChange > 0) {
-    valuePercentChangeNode = (
+  let percentChangeNode;
+  if (percentChange === undefined || percentChange === null) {
+    percentChangeNode = null;
+  } else if (percentChange > 0) {
+    percentChangeNode = (
       <Flex gap={1}>
         <Icon
-          accessibilityLabel={valuePercentChangeIconAccessibilityLabel}
+          accessibilityLabel={percentChangeAccessibilityLabel}
           size={16}
           icon="sort-ascending"
           color="green"
         />
         <Text size="sm" color="green" weight="bold">
-          {valuePercentChange}%
+          {percentChange}%
         </Text>
       </Flex>
     );
-  } else if (valuePercentChange < 0) {
-    valuePercentChangeNode = (
+  } else if (percentChange < 0) {
+    percentChangeNode = (
       <Flex gap={1}>
         <Icon
-          accessibilityLabel={valuePercentChangeIconAccessibilityLabel}
+          accessibilityLabel={percentChangeAccessibilityLabel}
           size={16}
           icon="sort-descending"
           color="red"
         />
         <Text size="sm" color="red" weight="bold">
-          {valuePercentChange}%
+          {percentChange}%
         </Text>
       </Flex>
     );
   } else {
-    valuePercentChangeNode = (
+    percentChangeNode = (
       <Text size="sm" color="darkGray" weight="bold">
-        {valuePercentChange}%
+        {percentChange}%
       </Text>
     );
   }
@@ -90,20 +82,19 @@ export default function DataPoint({
         <Text size="sm">{title}</Text>
         {infoTextNode}
       </Flex>
-      <Flex gap={valuePercentChangeGap} alignItems="center">
+      <Flex gap={percentChangeGap} alignItems="center">
         <Heading size={valueSize}>{value}</Heading>
-        {valuePercentChangeNode}
+        {percentChangeNode}
       </Flex>
     </Flex>
   );
 }
 
 DataPoint.propTypes = {
-  valuePercentChangeIconAccessibilityLabel: PropTypes.string.isRequired,
-  infoIconAccessibilityLabel: PropTypes.string.isRequired,
+  percentChangeAccessibilityLabel: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  valuePercentChange: PropTypes.number,
+  percentChange: PropTypes.number,
   infoText: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['sm', 'lg']),
