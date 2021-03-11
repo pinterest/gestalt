@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, useEffect, type Node } from 'react';
+import { useState, useEffect, type Node } from 'react';
 import { Box, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
