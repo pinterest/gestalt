@@ -310,7 +310,7 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      SelectList comes with a built-in label: just use the \`label\` prop. Be sure to provide a unique id so the Label is associated with the correct SelectList.`}
+      SelectList comes with Label built-in: just use the \`label\` prop. Be sure to provide a unique id so the Label is associated with the correct SelectList.`}
     />
   </MainSection>,
 );
@@ -380,6 +380,102 @@ card(
   helperText='Product prices in your data source without an ISO currency code will default to this currency'
   size='lg'
 />`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="On change"
+      description="I'm going to need Ryan / Alberto to write this description."
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function Example(props) {
+  const [country, setCountry] = React.useState('denmark')
+  const countryOptions = [
+    {
+      label:'Algeria',
+      value: 'algeria'
+    },
+    {
+      label:'Belgium',
+      value: 'belgium'
+    },
+    {
+      label:'Canada',
+      value: 'canada'
+    },
+    {
+      label:'Denmark',
+      value: 'denmark'
+    },
+    {
+      label:'Egypt',
+      value: 'egypt'
+    },
+    {
+      label:'France',
+      value: 'france'
+    },
+  ];
+  return (
+    <SelectList
+      id="selectlistexample"
+      name="country"
+      onChange={({ value }) => setCountry(value)}
+      options={countryOptions}
+      label="Country"
+      value={country}
+    />
+  );
+}`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Placeholder"
+      description="A placeholder should be used to describe the purpose of a SelectList when a label cannot be used."
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function Example(props) {
+  const [country, setCountry] = React.useState('')
+  const countryOptions = [
+    {
+      label:'Algeria',
+      value: 'algeria'
+    },
+    {
+      label:'Belgium',
+      value: 'belgium'
+    },
+    {
+      label:'Canada',
+      value: 'canada'
+    },
+    {
+      label:'Denmark',
+      value: 'denmark'
+    },
+    {
+      label:'Egypt',
+      value: 'egypt'
+    },
+    {
+      label:'France',
+      value: 'france'
+    },
+  ];
+  return (
+    <SelectList
+      id="selectlistexample"
+      name="country"
+      onChange={({ value }) => setCountry(value)}
+      options={countryOptions}
+      placeholder="Select a country"
+      value={country}
+    />
+  );
+}`}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
