@@ -8,12 +8,24 @@ type Props = {|
   colSpan?: number,
   rowSpan?: number,
   shouldBeSticky?: boolean,
+  shouldHaveShadow?: boolean,
   previousTotalWidth?: number,
 |};
 
 export default function TableCell(props: Props): Node {
-  const { children, colSpan, rowSpan, shouldBeSticky, previousTotalWidth } = props;
-  const cs = cx(styles.td, shouldBeSticky && styles.columnSticky);
+  const {
+    children,
+    colSpan,
+    rowSpan,
+    shouldBeSticky,
+    previousTotalWidth,
+    shouldHaveShadow,
+  } = props;
+  const cs = cx(
+    styles.td,
+    shouldBeSticky && styles.columnSticky,
+    shouldHaveShadow && styles.columnStickyShadow,
+  );
   return (
     <td
       className={cs}

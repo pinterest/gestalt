@@ -2,11 +2,11 @@
 import { createContext, type Context } from 'react';
 
 type TableContextType = {|
-  stickyColumn?: number,
+  stickyColumns?: number,
 |};
 
 const initialState = {
-  stickyColumn: -1,
+  stickyColumns: undefined,
 };
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>(initialState);

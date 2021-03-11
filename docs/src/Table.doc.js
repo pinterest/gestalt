@@ -264,8 +264,8 @@ card(
     id="stickyColumn"
     name="Example: Sticky Column"
     defaultCode={`
-<Box width={"75%"} overflow="auto">
-<Table maxHeight={200} stickyColumn={1}>
+<Box width={"50%"} overflow="auto">
+<Table maxHeight={200} stickyColumns={1}>
   <Table.Header>
     <Table.Row>
       <Table.HeaderCell>
@@ -357,8 +357,8 @@ card(
     id="stickyColumn2"
     name="Example: Sticky 2nd or 3rd Column"
     defaultCode={`
-<Box width={"60%"} overflow="auto">
-<Table maxHeight={200} stickyColumn={3}>
+<Box width={"75%"} overflow="auto">
+<Table maxHeight={200} stickyColumns={3} borderStyle="none">
   <Table.Header>
     <Table.Row>
       <Table.HeaderCell>

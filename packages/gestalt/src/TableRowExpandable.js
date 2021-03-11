@@ -36,7 +36,7 @@ export default function TableRowExpandable(props: Props): Node {
   const [expanded, setExpanded] = useState(false);
   const hoverStyle = props.hoverStyle || 'gray';
   const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
-  const { stickyColumn = -1 } = useContext(TableContext);
+  const { stickyColumns } = useContext(TableContext);
 
   const handleButtonClick = ({ event }) => {
     setExpanded(!expanded);
@@ -48,7 +48,7 @@ export default function TableRowExpandable(props: Props): Node {
   return (
     <Fragment>
       <tr className={cs}>
-        <TableCell shouldBeSticky={stickyColumn > 0} previousTotalWidth={0}>
+        <TableCell shouldBeSticky={stickyColumns > 0} previousTotalWidth={0}>
           <IconButton
             accessibilityExpanded={expanded}
             accessibilityControls={id}

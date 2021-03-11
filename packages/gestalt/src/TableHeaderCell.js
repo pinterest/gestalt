@@ -5,7 +5,8 @@ import styles from './Table.css';
 
 type Props = {|
   children: Node,
-  shouldBeSticky?: Boolean,
+  shouldBeSticky?: boolean,
+  shouldHaveShadow?: boolean,
   colSpan?: number,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
@@ -13,8 +14,20 @@ type Props = {|
 |};
 
 export default function TableHeaderCell(props: Props): Node {
-  const { children, colSpan, scope, rowSpan, shouldBeSticky, previousTotalWidth } = props;
-  const cs = cx(styles.th, shouldBeSticky && styles.columnSticky);
+  const {
+    children,
+    colSpan,
+    scope,
+    rowSpan,
+    shouldBeSticky,
+    previousTotalWidth,
+    shouldHaveShadow,
+  } = props;
+  const cs = cx(
+    styles.th,
+    shouldBeSticky && styles.columnSticky,
+    shouldHaveShadow && styles.columnStickyShadow,
+  );
 
   return (
     <th

@@ -7,12 +7,12 @@ type Props = {|
 |};
 
 export default function TableRow(props: Props): Node {
-  const { stickyColumn = -1 } = useContext(TableContext);
+  const { stickyColumns } = useContext(TableContext);
   const rowRef = React.useRef();
   const [columnWidths, setColumnWidths] = useState([]);
 
   useEffect(() => {
-    if (rowRef && rowRef.current && stickyColumn > 0) {
+    if (rowRef && rowRef.current && stickyColumns) {
       const colWidths = [];
       const tableRowChildrenArray = [...rowRef.current.children];
       tableRowChildrenArray.forEach((child) => {
@@ -20,21 +20,22 @@ export default function TableRow(props: Props): Node {
       });
       setColumnWidths(colWidths);
     }
-  }, [rowRef, stickyColumn]);
+  }, [rowRef, stickyColumns]);
 
   const renderCellsWithIndex = () => {
     const cells = [];
     const tableRowChildrenArray = Children.toArray(props.children);
 
     tableRowChildrenArray.forEach((child, index) => {
-      const shouldBeSticky = stickyColumn >= 0 && index < stickyColumn;
+      const shouldBeSticky = stickyColumns >= 0 && index < stickyColumns;
+      const shouldHaveShadow = stickyColumns - 1 === index;
       const previousWidths = columnWidths.slice(0, index);
       const previousTotalWidth =
         previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
-      cells.push(cloneElement(child, { shouldBeSticky, previousTotalWidth }));
+      cells.push(cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow }));
     });
     return cells;
   };
 
-  return <tr ref={rowRef}>{stickyColumn > 0 ? renderCellsWithIndex() : props.children}</tr>;
+  return <tr ref={rowRef}>{stickyColumns > 0 ? renderCellsWithIndex() : props.children}</tr>;
 }

@@ -2,6 +2,7 @@
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
+  isolation: isolate;
 }
 
 .th {
@@ -13,24 +14,64 @@
 .td {
   composes: paddingY3 from "./boxWhitespace.css";
   composes: paddingX3 from "./boxWhitespace.css";
+  position: relative;
+}
+
+td div{
+  z-index: 1;
+  position: relative;
 }
 
 .sticky tr th {
   background-color: var(--g-colorGray0);
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 6;
 }
 
 .columnSticky {
-  background-color: yellow;
+  background-color: var(--g-colorGray0);
   position:sticky;
   left: 0;
-  z-index: 1;
+  z-index: 3;
+}
+
+.columnSticky div {
+  z-index: 4;
+  isolation: isolate;
+}
+
+.columnStickyShadow div {
+  z-index: 3;
+  position: relative;
+}
+
+
+.columnStickyShadow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 8px 0px 8px -8px var(--g-colorGray150);
+}
+
+
+.columnStickyShadow + td::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  background-color: transparent;
+  box-shadow: inset 8px -8px white;
 }
 
 .sticky th.columnSticky {
-  z-index: 3;
+  z-index: 7;
 }
 
 .thead tr:last-child th {
