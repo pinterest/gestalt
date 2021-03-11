@@ -8,7 +8,7 @@ import Text from './Text.js';
 export type StatusColor = 'gray' | 'green' | 'orange' | 'red';
 
 type Props = {|
-  type?: 'unstarted' | 'in-progress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning',
+  type?: 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning',
   title?: string,
   subtext?: string,
   accessibilityLabel: string,
@@ -28,7 +28,7 @@ export default function Status(props: Props): Node {
       icon = 'workflow-status-unstarted';
       color = 'darkGray';
       break;
-    case 'in-progress':
+    case 'inProgress':
       icon = 'workflow-status-in-progress';
       color = 'green';
       break;
@@ -85,7 +85,7 @@ Status.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   type: PropTypes.oneOf([
     'unstarted',
-    'in-progress',
+    'inProgress',
     'halted',
     'ok',
     'problem',

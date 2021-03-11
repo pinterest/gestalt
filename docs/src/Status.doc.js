@@ -15,7 +15,7 @@ card(
     defaultCode={`
     <Flex gap={4}>
 <Status type='unstarted' />
-<Status type='in-progress' />
+<Status type='inProgress' />
 <Status type='halted' />
 <Status type='ok' />
 <Status type='problem' />
@@ -33,7 +33,7 @@ card(
     props={[
       {
         name: 'type',
-        type: `'unstarted' | 'in-progress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning'`,
+        type: `'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning'`,
         defaultValue: 'unstarted',
         required: true,
         description: 'The type of status to display',
