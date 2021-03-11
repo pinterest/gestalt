@@ -38,7 +38,6 @@ td div{
 
 .columnSticky div {
   z-index: 4;
-  isolation: isolate;
 }
 
 .columnStickyShadow div {
@@ -56,7 +55,6 @@ td div{
   right: 0;
   box-shadow: 8px 0px 8px -8px var(--g-colorGray150);
 }
-
 
 .columnStickyShadow + td::before {
   content: "";
