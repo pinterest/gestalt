@@ -128,3 +128,5 @@ export default function Tooltip({
     </Box>
   );
 }
+
+Tooltip.displayName = 'Tooltip';

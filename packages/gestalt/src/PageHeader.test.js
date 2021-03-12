@@ -5,12 +5,12 @@ import PageHeader from './PageHeader.js';
 
 describe('PageHeader', () => {
   it('renders', () => {
-    const tree = create(<PageHeader name="" />).toJSON();
+    const tree = create(<PageHeader title="Settings" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders an accessibility label', () => {
-    const tree = create(<PageHeader accessibilityLabel="Test Accessibility Label" />).toJSON();
+  it('renders subtext', () => {
+    const tree = create(<PageHeader title="Settings" subtext="5 followers" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
