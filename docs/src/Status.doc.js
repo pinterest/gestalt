@@ -13,13 +13,8 @@ card(
     name="Status"
     description="Brief description of this component"
     defaultCode={`
-    <Flex gap={4}>
-<Status type='unstarted' />
-<Status type='inProgress' />
-<Status type='halted' />
-<Status type='ok' />
-<Status type='problem' />
-<Status type='warning' />
+<Flex>
+  <Status type='ok' title="OK" subtext="Updated 2 days ago" />
 </Flex>
 `}
     pilot
@@ -39,16 +34,9 @@ card(
         description: 'The type of status to display',
       },
       {
-        name: 'accessibilityLabel',
-        type: 'string',
-        required: true,
-        description:
-          'String that clients such as VoiceOver will read to describe the element. Always localize the label.',
-        href: '[Name of the section demonstrating this prop]',
-      },
-      {
         name: 'name',
         type: 'string',
+        required: true,
         description: 'A label to reinforce the meaning of the status icon',
       },
       {

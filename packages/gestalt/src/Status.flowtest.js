@@ -2,7 +2,7 @@
 import React from 'react';
 import Status from './Status.js';
 
-const Valid = <Status type="unstarted" accessibilityLabel="Unstarted" />;
+const Valid = <Status type="unstarted" />;
 
 // $FlowExpectedError[prop-missing]
 const InvalidProps = <Status nonexisting={33} />;

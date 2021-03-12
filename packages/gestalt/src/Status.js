@@ -11,11 +11,10 @@ type Props = {|
   type?: 'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning',
   title?: string,
   subtext?: string,
-  accessibilityLabel: string,
 |};
 
 export default function Status(props: Props): Node {
-  const { accessibilityLabel, type = 'unstarted', title, subtext } = props;
+  const { type = 'unstarted', title, subtext } = props;
 
   let color;
   let icon;
@@ -75,7 +74,7 @@ export default function Status(props: Props): Node {
 
   return (
     <Flex gap={2}>
-      <Icon accessibilityLabel={accessibilityLabel} size={20} color={color} icon={icon} />
+      <Icon accessibilityLabel="" size={20} color={color} icon={icon} />
       {textNode}
     </Flex>
   );
@@ -94,5 +93,4 @@ Status.propTypes = {
   ]).isRequired,
   title: PropTypes.string,
   subtext: PropTypes.string,
-  accessibilityLabel: PropTypes.string.isRequired,
 };
