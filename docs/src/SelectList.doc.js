@@ -74,7 +74,8 @@ card(
       {
         name: 'onChange',
         type: '({| event: SyntheticInputEvent<>, value: string |}) => void',
-        description: 'Callback triggered when the user selects a new option',
+        description:
+          'Callback triggered when the user selects a new option.  See the [controlled component](#Controlled-component) variant to learn more.',
         required: true,
       },
       {
@@ -88,7 +89,7 @@ card(
         name: 'placeholder',
         type: 'string',
         description:
-          'If not provided, the first item in the list will be shown. Be sure to localize the text.',
+          'If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](#Controlled-component) variant to learn more.',
       },
       {
         name: 'size',
@@ -100,7 +101,8 @@ card(
       {
         name: 'value',
         type: 'string',
-        description: 'The currently-selected value.',
+        description:
+          'The currently-selected value. See the [controlled component](#Controlled-component) variant to learn more.',
       },
     ]}
   />,
@@ -310,7 +312,7 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      SelectList comes with Label built-in: just use the \`label\` prop. Be sure to provide a unique id so the Label is associated with the correct SelectList.`}
+      SelectList comes with Label built-in: just use the \`label\` prop. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.`}
     />
   </MainSection>,
 );
@@ -383,56 +385,8 @@ card(
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="On change"
-      description="I'm going to need Ryan / Alberto to write this description."
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
-function Example(props) {
-  const [country, setCountry] = React.useState('denmark')
-  const countryOptions = [
-    {
-      label:'Algeria',
-      value: 'algeria'
-    },
-    {
-      label:'Belgium',
-      value: 'belgium'
-    },
-    {
-      label:'Canada',
-      value: 'canada'
-    },
-    {
-      label:'Denmark',
-      value: 'denmark'
-    },
-    {
-      label:'Egypt',
-      value: 'egypt'
-    },
-    {
-      label:'France',
-      value: 'france'
-    },
-  ];
-  return (
-    <SelectList
-      id="selectlistexample"
-      name="country"
-      onChange={({ value }) => setCountry(value)}
-      options={countryOptions}
-      label="Country"
-      value={country}
-    />
-  );
-}`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
-      title="Placeholder"
-      description="A placeholder should be used to describe the purpose of a SelectList when a label cannot be used."
+      title="Controlled component"
+      description="The controlled variant allows form data to be handled by the component. You will ned to use this pattern in situations where you want to explicitly set `value` or `placeholder` props."
     >
       <MainSection.Card
         cardSize="lg"
