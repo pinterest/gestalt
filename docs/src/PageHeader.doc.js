@@ -11,88 +11,101 @@ const card = (c) => cards.push(c);
 card(
   <DocsPageHeader
     name="Page Header"
-    description="PageHeader is used to indicate the current page’s title, as well as optional actions."
+    description="PageHeader is used to indicate the title of the current page, as well as optional actions."
     defaultCode={`
-    function IntroPageHeaderExample() {
-      const [open, setOpen] = React.useState(false);
-      const [selected, setSelected] = React.useState([]);
-      const anchorRef = React.useRef(null);
-      const handleSelect = ({item}) => {
-        if(selected.some(selectedItem => selectedItem.value === item.value )) {
-          setSelected(selected => selected.filter(selectedItem => selectedItem.value != item.value));
-        } else {
-          setSelected(selected => [...selected, item]);
-        }
-      };
+      function IntroPageHeaderExample() {
+        const [open, setOpen] = React.useState(false);
+        const [selected, setSelected] = React.useState([]);
+        const anchorRef = React.useRef(null);
+        const handleSelect = ({ item }) => {
+          if (selected.some((selectedItem) => selectedItem.value === item.value)) {
+            setSelected((selected) =>
+              selected.filter((selectedItem) => selectedItem.value != item.value),
+            );
+          } else {
+            setSelected((selected) => [...selected, item]);
+          }
+        };
 
-      return (
-      <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
-        secondaryAction={<React.Fragment><Tooltip idealDirection="up" text="More options"><IconButton
-          accessibilityControls="sections-dropdown-example"
-          accessibilityHaspopup
-          accessibilityExpanded={open}
-          accessibilityLabel=""
-          icon="ellipsis"
-          iconColor="darkGray"
-          selected={open}
-          onClick={ () => setOpen((prevVal) => !prevVal) }
-          ref={anchorRef}
-        /></Tooltip>
-        {open && (
-          <Dropdown id="sections-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
-          <Dropdown.Section label="Categories">
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              option={{ value: "item 1", label: "Item 1" }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              option={{
-                value: "item 2",
-                label:
-                  "Item 2 with a really long, detailed, complex name",
-              }}
-            />
-          </Dropdown.Section>
-          <Dropdown.Section label="View options">
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              isExternal
-              href="https://pinterest.com"
-              option={{
-                value: "item 3",
-                label:
-                  "Item 3 with a really long, detailed, complex name",
-              }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              badgeText="New"
-              option={{ value: "item 4", label: "Item 4" }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              isExternal
-              href="https://pinterest.com"
-              badgeText="New"
-              option={{
-                value: "item 5",
-                label: "Item 5 with a really long name is a new item!",
-              }}
-            />
-          </Dropdown.Section>
-        </Dropdown>
-        )}</React.Fragment>}
-        primaryAction={<Button color="red" text="Create product group" />}
-
-      />);}
+        return (
+          <PageHeader
+            title="Product groups"
+            subtext="S. E. All products USD"
+            secondaryAction={
+              <React.Fragment>
+                <Tooltip idealDirection="up" text="More options">
+                  <IconButton
+                    accessibilityControls="sections-dropdown-example"
+                    accessibilityHaspopup
+                    accessibilityExpanded={open}
+                    accessibilityLabel=""
+                    icon="ellipsis"
+                    iconColor="darkGray"
+                    selected={open}
+                    onClick={() => setOpen((prevVal) => !prevVal)}
+                    ref={anchorRef}
+                  />
+                </Tooltip>
+                {open && (
+                  <Dropdown
+                    id="sections-dropdown-example"
+                    anchor={anchorRef.current}
+                    onDismiss={() => {
+                      setOpen(false);
+                    }}
+                  >
+                    <Dropdown.Section label="Categories">
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        selected={selected}
+                        option={{ value: 'item 1', label: 'Item 1' }}
+                      />
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        selected={selected}
+                        option={{
+                          value: 'item 2',
+                          label: 'Item 2 with a really long, detailed, complex name',
+                        }}
+                      />
+                    </Dropdown.Section>
+                    <Dropdown.Section label="View options">
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        selected={selected}
+                        isExternal
+                        href="https://pinterest.com"
+                        option={{
+                          value: 'item 3',
+                          label: 'Item 3 with a really long, detailed, complex name',
+                        }}
+                      />
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        selected={selected}
+                        badgeText="New"
+                        option={{ value: 'item 4', label: 'Item 4' }}
+                      />
+                      <Dropdown.Item
+                        handleSelect={handleSelect}
+                        selected={selected}
+                        isExternal
+                        href="https://pinterest.com"
+                        badgeText="New"
+                        option={{
+                          value: 'item 5',
+                          label: 'Item 5 with a really long name is a new item!',
+                        }}
+                      />
+                    </Dropdown.Section>
+                  </Dropdown>
+                )}
+              </React.Fragment>
+            }
+            primaryAction={<Button color="red" text="Create product group" />}
+          />
+        );
+      }
     `}
   />,
 );
@@ -141,11 +154,11 @@ card(
         type="do"
         description="Use only one primary style action in PageHeader ."
         defaultCode={`
-        <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
-        primaryAction={<Button color="red" text="Create group"/>}
-        />
+<PageHeader
+  title="Product groups"
+  subtext="S. E. All products USD"
+  primaryAction={<Button color="red" text="Create group" />}
+/>;
         `}
       />
       <MainSection.Card
@@ -155,10 +168,14 @@ card(
         Ensure the title of PageHeader matches the title of the item that navigated the user to this page. For instance, if the user selects "Settings" from an overflow menu, the title of PageHeader should also say "Settings".
         `}
         defaultCode={`
-        <PageHeader
-          title="Settings"
-          primaryAction={<Tooltip text="Additional options"><IconButton icon="ellipsis" iconColor="darkGray"/></Tooltip>}
-        />
+<PageHeader
+  title="Settings"
+  primaryAction={
+    <Tooltip text="Additional options">
+      <IconButton icon="ellipsis" iconColor="darkGray" />
+    </Tooltip>
+  }
+/>;
         `}
       />
       <MainSection.Card
@@ -169,86 +186,81 @@ card(
         `}
         defaultCode={`
 <Flex gap={4} direction="column" flex="grow">
-<PageHeader
-title="Settings"
-primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButton icon="ellipsis" iconColor="darkGray"/></Tooltip>}
-/>
-<Box
-  display="flex"
-  marginStart={-3}
-  marginEnd={-3}
-  marginBottom={-3}
-  marginTop={-3}
-  wrap
-  width="80%"
-  direction="column"
->
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <Heading size="md">
-      Edit profile
-    </Heading>
-  </Box>
+  <PageHeader
+    title="Settings"
+    primaryAction={
+      <Tooltip text="Additional options" idealDirection="up">
+        <IconButton icon="ellipsis" iconColor="darkGray" />
+      </Tooltip>
+    }
+  />
+  <Box
+    display="flex"
+    marginStart={-3}
+    marginEnd={-3}
+    marginBottom={-3}
+    marginTop={-3}
+    wrap
+    width="80%"
+    direction="column"
+  >
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <Heading size="md">Edit profile</Heading>
+    </Box>
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <TextField
-      label="TextField 1"
-      id="textfield1"
-      onChange={() => {}}
-      placeholder="Placeholder"
-    />
-  </Box>
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <TextField
+        label="TextField 1"
+        id="textfield1"
+        onChange={() => {}}
+        placeholder="Placeholder"
+      />
+    </Box>
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <Box
-      display="flex"
-      wrap
-      marginStart={-3}
-      marginEnd={-3}
-      marginBottom={-3}
-      marginTop={-3}
-    >
-      <Box flex="grow" paddingX={3} paddingY={3}>
-        <TextField
-          label="TextField 2"
-          id="textfield2"
-          onChange={() => {}}
-          placeholder="Placeholder"
-        />
-      </Box>
-      <Box flex="grow" paddingX={3} paddingY={3}>
-        <TextField
-          label="TextField 3"
-          id="textfield3"
-          onChange={() => {}}
-          placeholder="Placeholder"
-        />
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
+        <Box flex="grow" paddingX={3} paddingY={3}>
+          <TextField
+            label="TextField 2"
+            id="textfield2"
+            onChange={() => {}}
+            placeholder="Placeholder"
+          />
+        </Box>
+        <Box flex="grow" paddingX={3} paddingY={3}>
+          <TextField
+            label="TextField 3"
+            id="textfield3"
+            onChange={() => {}}
+            placeholder="Placeholder"
+          />
+        </Box>
       </Box>
     </Box>
-  </Box>
 
-  <Box flex="grow" paddingX={3} paddingY={3}>
-    <SelectList
-      label="SelectList"
-      id="selectlist"
-      options={[
-        {
-          value: 'belgium',
-          label: 'Belgium',
-        },
-        {
-          value: 'france',
-          label: 'France',
-        },
-        {
-          value: 'usa',
-          label: 'USA',
-        },
-      ]}
-      placeholder="Placeholder"
-      onChange={() => {}}
-    />
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <SelectList
+        label="SelectList"
+        id="selectlist"
+        options={[
+          {
+            value: 'belgium',
+            label: 'Belgium',
+          },
+          {
+            value: 'france',
+            label: 'France',
+          },
+          {
+            value: 'usa',
+            label: 'USA',
+          },
+        ]}
+        placeholder="Placeholder"
+        onChange={() => {}}
+      />
+    </Box>
   </Box>
-</Box>
 </Flex>;
         `}
       />
@@ -257,12 +269,12 @@ primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButto
         type="don't"
         description="Supply more than one primary style action."
         defaultCode={`
-        <PageHeader
-        title="Product groups"
-        subtext="S. E. All products USD"
-        primaryAction={<Button color="red" text="Create product group"/>}
-        secondaryAction={<Button color="red" text="Promote"/>}
-        />
+<PageHeader
+  title="Product groups"
+  subtext="S. E. All products USD"
+  primaryAction={<Button color="red" text="Create product group" />}
+  secondaryAction={<Button color="red" text="Promote" />}
+/>;
         `}
       />
       <MainSection.Card
@@ -272,12 +284,12 @@ primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButto
         Use subtext to add a description about the page. It should only be used for metadata.
         `}
         defaultCode={`
-        <PageHeader
-        title="Product groups"
-        subtext="Product groups are created in order to relate certain products together for tracking purposes"
-        primaryAction={<Button color="red" text="Create product group"/>}
-        secondaryAction={<Button text="Promote"/>}
-        />
+<PageHeader
+  title="Product groups"
+  subtext="Product groups are created in order to relate certain products together for tracking purposes"
+  primaryAction={<Button color="red" text="Create product group" />}
+  secondaryAction={<Button text="Promote" />}
+/>;
         `}
       />
       <MainSection.Card
@@ -287,89 +299,84 @@ primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButto
         Use \`maxWidth\` when the content of the page is not center aligned.
         `}
         defaultCode={`
-        <Flex gap={4} direction="column" flex="grow">
-        <PageHeader
-        title="Settings"
-        maxWidth={"50%"}
-        primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButton icon="ellipsis" iconColor="darkGray"/></Tooltip>}
-        />
-        <Box
-          display="flex"
-          marginStart={-3}
-          marginEnd={-3}
-          marginBottom={-3}
-          marginTop={-3}
-          wrap
-          width="80%"
-          direction="column"
-        >
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <Heading size="md">
-              Edit profile
-            </Heading>
-          </Box>
+<Flex gap={4} direction="column" flex="grow">
+  <PageHeader
+    title="Settings"
+    maxWidth="50%"
+    primaryAction={
+      <Tooltip text="Additional options" idealDirection="up">
+        <IconButton icon="ellipsis" iconColor="darkGray" />
+      </Tooltip>
+    }
+  />
+  <Box
+    display="flex"
+    marginStart={-3}
+    marginEnd={-3}
+    marginBottom={-3}
+    marginTop={-3}
+    wrap
+    width="80%"
+    direction="column"
+  >
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <Heading size="md">Edit profile</Heading>
+    </Box>
 
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <TextField
-              label="TextField 4"
-              id="textfield4"
-              onChange={() => {}}
-              placeholder="Placeholder"
-            />
-          </Box>
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <TextField
+        label="TextField 4"
+        id="textfield4"
+        onChange={() => {}}
+        placeholder="Placeholder"
+      />
+    </Box>
 
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <Box
-              display="flex"
-              wrap
-              marginStart={-3}
-              marginEnd={-3}
-              marginBottom={-3}
-              marginTop={-3}
-            >
-              <Box flex="grow" paddingX={3} paddingY={3}>
-                <TextField
-                  label="TextField 5"
-                  id="textfield5"
-                  onChange={() => {}}
-                  placeholder="Placeholder"
-                />
-              </Box>
-              <Box flex="grow" paddingX={3} paddingY={3}>
-                <TextField
-                  label="TextField 6"
-                  id="textfield6"
-                  onChange={() => {}}
-                  placeholder="Placeholder"
-                />
-              </Box>
-            </Box>
-          </Box>
-
-          <Box flex="grow" paddingX={3} paddingY={3}>
-            <SelectList
-              label="SelectList"
-              id="selectlist"
-              options={[
-                {
-                  value: 'belgium',
-                  label: 'Belgium',
-                },
-                {
-                  value: 'france',
-                  label: 'France',
-                },
-                {
-                  value: 'usa',
-                  label: 'USA',
-                },
-              ]}
-              placeholder="Placeholder"
-              onChange={() => {}}
-            />
-          </Box>
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
+        <Box flex="grow" paddingX={3} paddingY={3}>
+          <TextField
+            label="TextField 5"
+            id="textfield5"
+            onChange={() => {}}
+            placeholder="Placeholder"
+          />
         </Box>
-        </Flex>;
+        <Box flex="grow" paddingX={3} paddingY={3}>
+          <TextField
+            label="TextField 6"
+            id="textfield6"
+            onChange={() => {}}
+            placeholder="Placeholder"
+          />
+        </Box>
+      </Box>
+    </Box>
+
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <SelectList
+        label="SelectList"
+        id="selectlist0"
+        options={[
+          {
+            value: 'belgium',
+            label: 'Belgium',
+          },
+          {
+            value: 'france',
+            label: 'France',
+          },
+          {
+            value: 'usa',
+            label: 'USA',
+          },
+        ]}
+        placeholder="Placeholder"
+        onChange={() => {}}
+      />
+    </Box>
+  </Box>
+</Flex>;
         `}
       />
     </MainSection.Subsection>
@@ -379,110 +386,113 @@ primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButto
 card(
   <MainSection
     name="Accessibility"
-    description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as an H1, so ensure there are no other H1 headings present on the page. `}
+    description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as a level 1 heading, so ensure there are no other level 1 headings present on the page. `}
   />,
 );
 
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize the \`title\`, \`subtext\`, and actions within PageHeader.`}
+    description={`Be sure to localize the \`title\`, \`subtext\` and actions within PageHeader.`}
   />,
 );
 
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      description={`PageHeader can support an optional \`primaryAction\`, which can be a [Button](Button), an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown) or a [Link](/Link)`}
+      description={`PageHeader can support an optional \`primaryAction\`, which can be a [Button](Button), a [Link](/Link) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown).`}
       title="Primary action"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function IntroMenuButtonDropdownExample() {
+function PrimaryActionExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    if(selected.some(selectedItem => selectedItem.value === item.value )) {
-      setSelected(selected => selected.filter(selectedItem => selectedItem.value != item.value));
+  const handleSelect = ({ item }) => {
+    if (selected.some((selectedItem) => selectedItem.value === item.value)) {
+      setSelected((selected) =>
+        selected.filter((selectedItem) => selectedItem.value != item.value),
+      );
     } else {
-      setSelected(selected => [...selected, item]);
+      setSelected((selected) => [...selected, item]);
     }
   };
 
   return (
-<Flex gap={8} direction="column" flex="grow">
-  <PageHeader
-    title="Product groups"
-    subtext="S. E. All products USD"
-    primaryAction={<Button color="red" text="Create group" />}
-  />
-  <Divider/>
-  <PageHeader
-    title="Kitchen Reno Ideas"
-    primaryAction={
-      <React.Fragment>
-        <Tooltip idealDirection="up" text="Board options">
-          <IconButton
-            accessibilityControls="page-header-example"
-            accessibilityHaspopup
-            accessibilityExpanded={open}
-            accessibilityLabel=""
-            icon="ellipsis"
-            iconColor="darkGray"
-            selected={open}
-            onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
-          />
-        </Tooltip>
-        {open && (
-          <Dropdown
-            id="page-header-example"
-            anchor={anchorRef.current}
-            onDismiss={() => {
-              setOpen(false);
-            }}
-          >
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              option={{
-                value: 'Edit Board',
-                label: 'Edit Board',
-              }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              option={{ value: 'Share', label: 'Share' }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              badgeText="New"
-              option={{
-                value: 'Merge',
-                label: 'Merge',
-              }}
-            />
-          </Dropdown>
-        )}
-      </React.Fragment>
-    }
-  />
-  <Divider/>
-  <PageHeader
-    title="Create campaign"
-    primaryAction={
-      <Link>
-        <Text weight="bold">Switch to quick ad creation</Text>
-      </Link>
-    }
-  />
-</Flex>
-)};
-`}
+    <Flex gap={8} direction="column" flex="grow">
+      <PageHeader
+        title="Product groups"
+        subtext="S. E. All products USD"
+        primaryAction={<Button color="red" text="Create group" />}
+      />
+      <Divider />
+      <PageHeader
+        title="Kitchen Reno Ideas"
+        primaryAction={
+          <React.Fragment>
+            <Tooltip idealDirection="up" text="Board options">
+              <IconButton
+                accessibilityControls="page-header-example"
+                accessibilityHaspopup
+                accessibilityExpanded={open}
+                accessibilityLabel=""
+                icon="ellipsis"
+                iconColor="darkGray"
+                selected={open}
+                onClick={() => setOpen((prevVal) => !prevVal)}
+                ref={anchorRef}
+              />
+            </Tooltip>
+            {open && (
+              <Dropdown
+                id="page-header-example"
+                anchor={anchorRef.current}
+                onDismiss={() => {
+                  setOpen(false);
+                }}
+              >
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{
+                    value: 'Edit Board',
+                    label: 'Edit Board',
+                  }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{ value: 'Share', label: 'Share' }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{
+                    value: 'Merge',
+                    label: 'Merge',
+                  }}
+                />
+              </Dropdown>
+            )}
+          </React.Fragment>
+        }
+      />
+      <Divider />
+      <PageHeader
+        title="Create campaign"
+        primaryAction={
+          <Link>
+            <Text weight="bold">Switch to quick ad creation</Text>
+          </Link>
+        }
+      />
+    </Flex>
+  );
+}
+        `}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
@@ -492,83 +502,86 @@ function IntroMenuButtonDropdownExample() {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function IntroMenuButtonDropdownExample() {
+function SecondaryActionExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState([]);
   const anchorRef = React.useRef(null);
-  const handleSelect = ({item}) => {
-    if(selected.some(selectedItem => selectedItem.value === item.value )) {
-      setSelected(selected => selected.filter(selectedItem => selectedItem.value != item.value));
+  const handleSelect = ({ item }) => {
+    if (selected.some((selectedItem) => selectedItem.value === item.value)) {
+      setSelected((selected) =>
+        selected.filter((selectedItem) => selectedItem.value != item.value),
+      );
     } else {
-      setSelected(selected => [...selected, item]);
+      setSelected((selected) => [...selected, item]);
     }
   };
 
   return (
-<Flex gap={8} direction="column" flex="grow">
-  <PageHeader
-    title="Product groups"
-    subtext="S. E. All products USD"
-    primaryAction={<Button color="red" text="Create product group" />}
-    secondaryAction={<Button text="Promote"/>}
-  />
-  <Divider/>
-  <PageHeader
-    title="Custom reports"
-    primaryAction={<Button color="red" text="Create new report"/>}
-    secondaryAction={
-      <React.Fragment>
-        <Tooltip idealDirection="up" text="Board options">
-          <IconButton
-            accessibilityControls="page-header-example"
-            accessibilityHaspopup
-            accessibilityExpanded={open}
-            accessibilityLabel=""
-            icon="ellipsis"
-            iconColor="darkGray"
-            selected={open}
-            onClick={() => setOpen((prevVal) => !prevVal)}
-            ref={anchorRef}
-          />
-        </Tooltip>
-        {open && (
-          <Dropdown
-            id="page-header-example"
-            anchor={anchorRef.current}
-            onDismiss={() => {
-              setOpen(false);
-            }}
-          >
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              option={{
-                value: 'Share Report',
-                label: 'Share Report',
-              }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              option={{ value: 'Help center', label: 'Help center' }}
-            />
-            <Dropdown.Item
-              handleSelect={handleSelect}
-              selected={selected}
-              badgeText="New"
-              option={{
-                value: 'Delete',
-                label: 'Delete',
-              }}
-            />
-          </Dropdown>
-        )}
-      </React.Fragment>
-    }
-  />
-</Flex>
-)};
-`}
+    <Flex gap={8} direction="column" flex="grow">
+      <PageHeader
+        title="Product groups"
+        subtext="S. E. All products USD"
+        primaryAction={<Button color="red" text="Create product group" />}
+        secondaryAction={<Button text="Promote" />}
+      />
+      <Divider />
+      <PageHeader
+        title="Custom reports"
+        primaryAction={<Button color="red" text="Create new report" />}
+        secondaryAction={
+          <React.Fragment>
+            <Tooltip idealDirection="up" text="Board options">
+              <IconButton
+                accessibilityControls="page-header-example"
+                accessibilityHaspopup
+                accessibilityExpanded={open}
+                accessibilityLabel=""
+                icon="ellipsis"
+                iconColor="darkGray"
+                selected={open}
+                onClick={() => setOpen((prevVal) => !prevVal)}
+                ref={anchorRef}
+              />
+            </Tooltip>
+            {open && (
+              <Dropdown
+                id="page-header-example"
+                anchor={anchorRef.current}
+                onDismiss={() => {
+                  setOpen(false);
+                }}
+              >
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{
+                    value: 'Share Report',
+                    label: 'Share Report',
+                  }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  option={{ value: 'Help center', label: 'Help center' }}
+                />
+                <Dropdown.Item
+                  handleSelect={handleSelect}
+                  selected={selected}
+                  badgeText="New"
+                  option={{
+                    value: 'Delete',
+                    label: 'Delete',
+                  }}
+                />
+              </Dropdown>
+            )}
+          </React.Fragment>
+        }
+      />
+    </Flex>
+  );
+}
+        `}
       />
     </MainSection.Subsection>
 
@@ -579,12 +592,12 @@ function IntroMenuButtonDropdownExample() {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-      <PageHeader
-      title="Create product group"
-      subtext="2,131 products"
-      primaryAction={<Button color="red" text="Quick create" />}
-    />
-`}
+<PageHeader
+  title="Create product group"
+  subtext="2,131 products"
+  primaryAction={<Button color="red" text="Quick create" />}
+/>;
+        `}
       />
     </MainSection.Subsection>
 
@@ -595,23 +608,23 @@ function IntroMenuButtonDropdownExample() {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-    <Flex gap={4} direction="column" flex="grow">
-      <PageHeader
-        title="All boards"
-        maxWidth={"65%"}
-        primaryAction={<Tooltip text="Additional options" idealDirection="up"><IconButton icon="ellipsis" iconColor="darkGray"/></Tooltip>}
-      />
-      <Box display="flex" justifyContent="center" direction="column" alignItems="center" marginTop={4}>
-        <Avatar
-          size="lg"
-          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
-          name="Keerthi"
-        />
-        <Heading size="md">Keerthi M.</Heading>
-        <Text>@kreethiM</Text>
-        <Text weight="bold">4 followers · 0 following </Text>
-      </Box>
-    </Flex>
+<Flex gap={4} direction="column" flex="grow">
+  <PageHeader
+    title="All boards"
+    maxWidth="65%"
+    primaryAction={
+      <Tooltip text="Additional options" idealDirection="up">
+        <IconButton icon="ellipsis" iconColor="darkGray" />
+      </Tooltip>
+    }
+  />
+  <Box display="flex" justifyContent="center" direction="column" alignItems="center" marginTop={4}>
+    <Avatar size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />
+    <Heading size="md">Keerthi M.</Heading>
+    <Text>@kreethiM</Text>
+    <Text weight="bold">4 followers · 0 following </Text>
+  </Box>
+</Flex>;
       `}
       />
     </MainSection.Subsection>
@@ -623,7 +636,7 @@ card(
     <MainSection.Subsection
       description={`
       **[Heading](/Heading)**
-      Heading should be used to create Level 2-6 headings on a page. If a Level 1 heading is needed, use PageHeader.
+      Heading should be used to create level 2-6 headings on a page. If a level 1 heading is needed, use PageHeader.
     `}
     />
   </MainSection>,
