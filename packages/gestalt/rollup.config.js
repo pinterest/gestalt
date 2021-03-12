@@ -10,7 +10,6 @@ const rollupConfig = {
       name: 'gestalt',
       exports: 'named',
       globals: {
-        react: 'React',
         'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',
@@ -24,7 +23,6 @@ const rollupConfig = {
       name: 'gestalt',
       exports: 'named',
       globals: {
-        react: 'React',
         'prop-types': 'PropTypes',
         classnames: 'classnames',
         'classnames/bind': 'classnames',

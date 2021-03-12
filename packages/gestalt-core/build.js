@@ -141,7 +141,18 @@ const plugins = (name) => [
     babelrc: false,
     babelHelpers: 'bundled',
     presets: [['@babel/preset-env', { modules: false }], '@babel/react', '@babel/flow'],
-    plugins: ['@babel/proposal-class-properties'],
+    plugins: [
+      '@babel/proposal-class-properties',
+      [
+        process.env.NODE_ENV === 'development'
+          ? '@babel/plugin-transform-react-jsx-self'
+          : '@babel/plugin-transform-react-jsx',
+        {
+          runtime: 'automatic',
+          useBuiltIns: true,
+        },
+      ],
+    ],
     exclude: 'node_modules/**',
   }),
 ];
