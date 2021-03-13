@@ -110,6 +110,11 @@ card(
           'An object representing the z-index value of the Typeahead list. Only use when Typeahead is used within a parent component that has a z-index set.',
         href: 'zIndex',
       },
+      {
+        name: 'errorMessage',
+        type: 'string',
+        href: 'errorExample',
+      },
     ]}
   />,
 );
@@ -418,6 +423,52 @@ function Example(props) {
           </Modal>
         </Layer>
       )}
+    </React.Fragment>
+  );
+}`}
+  />,
+);
+
+card(
+  <Example
+    id="errorExample"
+    name="Error Message Example"
+    defaultCode={`
+function Example(props) {
+  const [item, setItem] = React.useState("");
+  const [selected, setSelected] = React.useState(null);
+
+  const options = Array.from(Array(20).keys()).map((item) => ({
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1),
+  }));
+
+  const handleOnChange = ({ value }) => {
+    setItem(value);
+  };
+
+  const handleSelect = ({item}) => {
+    setSelected(item);
+  };
+
+  const label = "Selected Item: " + (selected && selected.label || '');
+
+  return (
+    <React.Fragment>
+      <Box marginBottom={4}>
+       <Text>Selected Item: {(selected && selected.label) || ""}</Text>
+      </Box>
+
+      <Typeahead
+        label="Typeahead Example With Error"
+        id="Typeahead-example-with-error"
+        noResultText="No Results"
+        options={options}
+        placeholder="Select a Label"
+        onChange={handleOnChange}
+        onSelect={handleSelect}
+        errorMessage="Oops! An Error Occurred."
+      />
     </React.Fragment>
   );
 }`}
