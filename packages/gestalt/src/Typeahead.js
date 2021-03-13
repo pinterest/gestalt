@@ -71,7 +71,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     tags,
     value = null,
     zIndex,
-    errorMessage = null,
+    errorMessage,
   } = props;
 
   // Parent ref for positioning
