@@ -49,6 +49,7 @@ type Props = {|
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
   zIndex?: Indexable,
+  errorMessage?: string,
 |};
 
 const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
@@ -70,6 +71,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     tags,
     value = null,
     zIndex,
+    errorMessage = null,
   } = props;
 
   // Parent ref for positioning
@@ -230,6 +232,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
         setContainer={setContainerOpen}
         tags={tags}
         ref={inputRef}
+        errorMessage={errorMessage}
       />
 
       {containerOpen && positioningRef.current && (
@@ -309,6 +312,7 @@ TypeaheadWithForwardRef.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
   zIndex: UnsafeIndexablePropType,
+  errorMessage: PropTypes.string,
 };
 
 TypeaheadWithForwardRef.displayName = 'Typeahead';

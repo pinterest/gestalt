@@ -1,6 +1,7 @@
 // @flow strict
 import React from 'react';
 import { render } from '@testing-library/react';
+import { create } from 'react-test-renderer';
 import TypeaheadInputField from './TypeaheadInputField.js';
 
 describe('<TypeaheadInputField />', () => {
@@ -45,5 +46,40 @@ describe('<TypeaheadInputField />', () => {
       />,
     );
     expect(container.querySelector('.large')).toBeVisible();
+  });
+
+  it('Renders a FormErrorMessage if an error message is passed in', () => {
+    const component = create(
+      <TypeaheadInputField
+        label="Demo Typeahead Field"
+        errorMessage="Error message"
+        id="InputField"
+        onChange={onChangeMock}
+        onClear={onClearMock}
+        onBlur={onBlurMock}
+        setContainer={setContainerMock}
+        onFocus={onFocusMock}
+        onKeyNavigation={onKeyNavigationMock}
+        value="Start Typing..."
+      />,
+    );
+    expect(JSON.stringify(component.toJSON())).toContain('Error message');
+  });
+
+  it('Does not render a FormErrorMessage when errorMessage is null', () => {
+    const component = create(
+      <TypeaheadInputField
+        label="Demo Typeahead Field"
+        id="InputField"
+        onChange={onChangeMock}
+        onClear={onClearMock}
+        onBlur={onBlurMock}
+        setContainer={setContainerMock}
+        onFocus={onFocusMock}
+        onKeyNavigation={onKeyNavigationMock}
+        value="Start Typing..."
+      />,
+    );
+    expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
   });
 });

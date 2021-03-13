@@ -6,12 +6,14 @@ import focusStyles from './Focus.css';
 import layout from './Layout.css';
 import styles from './SearchField.css';
 import typeaheadStyle from './TypeaheadInputField.css';
+import formElement from './FormElement.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import FormLabel from './FormLabel.js';
 import Tag from './Tag.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import FormErrorMessage from './FormErrorMessage.js';
 
 type Props = {|
   forwardedRef?: Ref<'input'>,
@@ -39,6 +41,7 @@ type Props = {|
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
+  errorMessage?: string,
 |};
 
 const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
@@ -59,6 +62,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     size = 'md',
     tags,
     value,
+    errorMessage,
   } = props;
 
   const [hovered, setHovered] = useState<boolean>(false);
@@ -132,6 +136,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
           [typeaheadStyle.inputWrapper]: true,
         }
       : {},
+    errorMessage ? formElement.errored : formElement.normal,
   );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
@@ -139,6 +144,8 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 
   const inputElement = (
     <input
+      aria-describedby={errorMessage && focused ? `${id}-error` : null}
+      aria-invalid={errorMessage ? 'true' : 'false'}
       ref={ref}
       autoComplete="off"
       aria-label={label}
@@ -219,6 +226,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
           </Fragment>
         )}
       </Box>
+      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </Fragment>
   );
 });
@@ -238,6 +246,7 @@ TypeaheadInputFieldWithForwardRef.propTypes = {
   setContainer: PropTypes.func,
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
+  errorMessage: PropTypes.string,
 };
 
 TypeaheadInputFieldWithForwardRef.displayName = 'TypeaheadInputField';

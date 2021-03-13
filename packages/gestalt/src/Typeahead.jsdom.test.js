@@ -143,4 +143,31 @@ describe('Typeahead', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('Renders a FormErrorMessage if an error message is passed in', () => {
+    const component = create(
+      <Typeahead
+        noResultText="No Result"
+        label="Ref Example"
+        value="test"
+        id="test"
+        options={[{ value: 'test', label: 'test' }]}
+        errorMessage="Error message"
+      />,
+    );
+    expect(JSON.stringify(component.toJSON())).toContain('Error message');
+  });
+
+  it('Does not render a FormErrorMessage when errorMessage is null', () => {
+    const component = create(
+      <Typeahead
+        noResultText="No Result"
+        label="Ref Example"
+        value="test"
+        id="test"
+        options={[{ value: 'test', label: 'test' }]}
+      />,
+    );
+    expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
+  });
 });
