@@ -3,6 +3,7 @@ import React, { type Node } from 'react';
 import { Badge, Box, Flex, Heading, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 
 type Props = {|
   name: string,
@@ -52,7 +53,11 @@ export default function ComponentHeader({
             ) : null}
           </Heading>
           {showSourceLink && (
-            <a href={githubUrl(fileName ?? name)} target="blank">
+            <a
+              href={githubUrl(fileName ?? name)}
+              onClick={() => trackButtonClick('View source on GitHub', fileName ?? name)}
+              target="blank"
+            >
               <Text underline>View source on GitHub</Text>
             </a>
           )}

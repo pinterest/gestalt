@@ -1,8 +1,9 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box, Flex, Heading, IconButton, Tooltip } from 'gestalt';
+import { Box, Flex, Heading } from 'gestalt';
 import slugify from 'slugify';
 import Markdown from './Markdown.js';
+import CopyLinkButton from './buttons/CopyLinkButton.js';
 
 type Props = {|
   children?: Node,
@@ -58,22 +59,18 @@ export default function Card({
         >
           <Flex alignItems="center" gap={2}>
             <Heading size={headingSize}>{name}</Heading>
-            <Tooltip inline text="Copy link">
-              <IconButton
-                accessibilityLabel={`Copy link to ${name}`}
-                icon="link"
-                onClick={() => {
-                  copyToClipboard(slugifiedId);
-                }}
-                size="xs"
-                iconColor="darkGray"
-              />
-            </Tooltip>
+            <CopyLinkButton
+              name={name}
+              onClick={() => {
+                copyToClipboard(slugifiedId);
+              }}
+            />
 
             {toggle}
           </Flex>
         </Box>
       )}
+
       <Box marginStart={-2} marginEnd={-2} display="flex" direction={stacked ? 'column' : 'row'}>
         <Box paddingX={2} column={12} color="white">
           {description && (

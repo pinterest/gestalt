@@ -5,7 +5,7 @@ import useLocalStorage from './useLocalStorage.js';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by';
 
-type SidebarOrganisedBy = 'categorized' | 'alphabetical';
+export type SidebarOrganisedBy = 'categorized' | 'alphabetical';
 
 export type NavigationContextType = {|
   isSidebarOpen: boolean,
