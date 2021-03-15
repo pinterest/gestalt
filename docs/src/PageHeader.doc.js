@@ -36,10 +36,10 @@ card(
               <React.Fragment>
                 <Tooltip idealDirection="up" text="More options">
                   <IconButton
-                    accessibilityControls="sections-dropdown-example"
+                    accessibilityControls="intro-ph-dropdown-example"
                     accessibilityHaspopup
                     accessibilityExpanded={open}
-                    accessibilityLabel=""
+                    accessibilityLabel="More options"
                     icon="ellipsis"
                     iconColor="darkGray"
                     selected={open}
@@ -50,7 +50,7 @@ card(
                 </Tooltip>
                 {open && (
                   <Dropdown
-                    id="sections-dropdown-example"
+                    id="intro-ph-dropdown-example"
                     anchor={anchorRef.current}
                     onDismiss={() => {
                       setOpen(false);
@@ -99,27 +99,27 @@ card(
         type: 'string',
         required: true,
         description:
-          'Page title, will always be a level 1 heading. Content should be [Localized](/Localized).',
+          'Page title, will always be a level 1 heading. Content should be [localized](#Localization).',
       },
       {
         name: 'maxWidth',
         type: `number | string`,
-        description: `Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`.`,
+        description: `Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`. See the [max width](#Max-width) variant for more info.`,
       },
       {
         name: 'primaryAction',
         type: `Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>`,
-        description: `The primary action of the page. Can be a [Button](/Button), [IconButton](/IconButton), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of an IconButton, Tooltip, and [Dropdown](/Dropdown).`,
+        description: `The primary action of the page. Can be [Button](/Button), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of IconButton, Tooltip and [Dropdown](/Dropdown).`,
       },
       {
         name: 'secondaryAction',
         type: `Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>`,
-        description: `A secondary action for the page. Can be a [Button](/Button), [IconButton](/IconButton), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of an IconButton, Tooltip, and [Dropdown](/Dropdown).`,
+        description: `A secondary action for the page. Can be [Button](/Button), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of IconButton, Tooltip and [Dropdown](/Dropdown).`,
       },
       {
         name: 'subtext',
         type: `string`,
-        description: `Used for metadata related to the current page, not designed to describe the title or the current surface. Content should be [Localized](/Localized).`,
+        description: `Used for metadata related to the current page, not designed to describe the title or the current surface. Content should be [localized](#Localization).`,
       },
     ]}
   />,
@@ -152,7 +152,7 @@ card(
   title="Settings"
   primaryAction={
     <Tooltip text="Additional options">
-      <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="" />
+      <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options" />
     </Tooltip>
   }
 />;
@@ -171,7 +171,7 @@ card(
     title="Settings"
     primaryAction={
       <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel=""/>
+        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
       </Tooltip>
     }
   />
@@ -188,7 +188,7 @@ card(
 
     <Box flex="grow" paddingX={3} paddingY={3}>
       <TextField
-        label="TextField 1"
+        label="Name"
         id="textfield1"
         onChange={() => {}}
         placeholder="Placeholder"
@@ -199,7 +199,7 @@ card(
       <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
-            label="TextField 2"
+            label="Phone"
             id="textfield2"
             onChange={() => {}}
             placeholder="Placeholder"
@@ -207,7 +207,7 @@ card(
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
-            label="TextField 3"
+            label="Email"
             id="textfield3"
             onChange={() => {}}
             placeholder="Placeholder"
@@ -218,7 +218,7 @@ card(
 
     <Box flex="grow" paddingX={3} paddingY={3}>
       <SelectList
-        label="SelectList"
+        label="Location"
         id="selectlist"
         options={[
           {
@@ -286,7 +286,7 @@ card(
     maxWidth="50%"
     primaryAction={
       <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel=""/>
+        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
       </Tooltip>
     }
   />
@@ -303,7 +303,7 @@ card(
 
     <Box flex="grow" paddingX={3} paddingY={3}>
       <TextField
-        label="TextField 4"
+        label="Name"
         id="textfield4"
         onChange={() => {}}
         placeholder="Placeholder"
@@ -314,7 +314,7 @@ card(
       <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
-            label="TextField 5"
+            label="Phone"
             id="textfield5"
             onChange={() => {}}
             placeholder="Placeholder"
@@ -322,7 +322,7 @@ card(
         </Box>
         <Box flex="grow" paddingX={3} paddingY={3}>
           <TextField
-            label="TextField 6"
+            label="Email"
             id="textfield6"
             onChange={() => {}}
             placeholder="Placeholder"
@@ -333,8 +333,8 @@ card(
 
     <Box flex="grow" paddingX={3} paddingY={3}>
       <SelectList
-        label="SelectList"
-        id="selectlist0"
+        label="Location"
+        id="selectlist-location"
         options={[
           {
             value: 'belgium',
@@ -365,8 +365,66 @@ card(
 card(
   <MainSection
     name="Accessibility"
-    description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as a level 1 heading, so ensure there are no other level 1 headings present on the page. `}
-  />,
+    description={`Be sure to follow any accessibility guidelines for the components used within PageHeader. The heading within PageHeader will be rendered as a level 1 heading, so ensure there are no other level 1 headings present on the page. For headings level 2-6, use [Heading](/Heading). Learn more about <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="blank">creating accessible headings</a>.`}
+  >
+    <MainSection.Card
+      cardSize="lg"
+      defaultCode={`
+<Flex direction="column" flex="grow">
+  <PageHeader
+    title="Settings"
+    primaryAction={
+      <Tooltip text="Additional options" idealDirection="up">
+        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
+      </Tooltip>
+    }
+  />
+  <Box
+    display="flex"
+    wrap
+    width="80%"
+    direction="column"
+    marginStart={5}
+  >
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <Heading size="sm" accessibilityLevel={2}>Edit profile</Heading>
+    </Box>
+
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <TextField
+        label="Name"
+        id="textfield1"
+        onChange={() => {}}
+        placeholder="Placeholder"
+      />
+    </Box>
+
+    <Box flex="grow" paddingX={3} paddingY={3}>
+      <Box display="flex" wrap marginStart={-3} marginEnd={-3} marginBottom={-3} marginTop={-3}>
+        <Box flex="grow" paddingX={3} paddingY={3}>
+          <TextField
+            label="Phone"
+            id="textfield2"
+            onChange={() => {}}
+            placeholder="Placeholder"
+          />
+        </Box>
+        <Box flex="grow" paddingX={3} paddingY={3}>
+          <TextField
+            label="Email"
+            id="textfield3"
+            onChange={() => {}}
+            placeholder="Placeholder"
+          />
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+</Flex>;
+        `}
+      shaded
+    />
+  </MainSection>,
 );
 
 card(
@@ -428,7 +486,7 @@ function PrimaryActionExample() {
                 accessibilityControls="page-header-example"
                 accessibilityHaspopup
                 accessibilityExpanded={open}
-                accessibilityLabel=""
+                accessibilityLabel="Board options"
                 icon="ellipsis"
                 iconColor="darkGray"
                 selected={open}
@@ -520,7 +578,7 @@ function SecondaryActionExample() {
       <Divider />
       <PageHeader
         title="Custom reports"
-        primaryAction={<Button color="red" text="Create new report" />}
+        primaryAction={<Button color="red" size="lg" text="Create new report" />}
         secondaryAction={
           <React.Fragment>
             <Tooltip idealDirection="up" text="Board options">
@@ -528,7 +586,7 @@ function SecondaryActionExample() {
                 accessibilityControls="page-header-example"
                 accessibilityHaspopup
                 accessibilityExpanded={open}
-                accessibilityLabel=""
+                accessibilityLabel="Board options"
                 icon="ellipsis"
                 iconColor="darkGray"
                 selected={open}
@@ -611,7 +669,7 @@ function SecondaryActionExample() {
       maxWidth="65%"
       primaryAction={
         <Tooltip text="Additional options" idealDirection="up">
-          <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel=""/>
+          <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="Additional options"/>
         </Tooltip>
       }
     />

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node, Children, type Element } from 'react';
+import React, { type Node, type Element } from 'react';
 import Box from './Box.js';
 import Button from './Button.js';
 import IconButton from './IconButton.js';
@@ -28,7 +28,7 @@ export default function PageHeader({
   return (
     <Box color="white" paddingX={8} width="100%">
       <Flex flex="grow" justifyContent="center" maxWidth="100%">
-        <Flex justifyContent="between" alignItems="center" width={maxWidth}>
+        <Flex alignItems="center" flex="grow" justifyContent="between" maxWidth={maxWidth}>
           <Box marginEnd={4} minWidth={0} marginTop={2} marginBottom={2}>
             <Heading size="md" truncate accessibilityLevel={1}>
               {title}
@@ -40,9 +40,10 @@ export default function PageHeader({
             )}
           </Box>
           {primaryAction && (
-            <Flex gap={2} flex="none" alignItems="center">
+            <Flex alignItems="center" gap={2} flex="none">
               {secondaryAction}
-              <Box display="flex" alignItems="center" marginTop={4} marginBottom={4} height="48px">
+              {/* 48px height needed to maintain proper sizing when action is a Link */}
+              <Box alignItems="center" display="flex" marginTop={4} marginBottom={4} height="48px">
                 {primaryAction}
               </Box>
             </Flex>
