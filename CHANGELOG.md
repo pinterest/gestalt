@@ -1,3 +1,9 @@
+## 20.2.0 (Mar 15, 2021)
+
+### Minor
+
+- Icon: add workflow-status-canceled icon (#1427)
+
 ## 20.1.3 (Mar 13, 2021)
 
 ### Patch
