@@ -153,6 +153,7 @@ describe('Typeahead', () => {
         id="test"
         options={[{ value: 'test', label: 'test' }]}
         errorMessage="Error message"
+        hasError
       />,
     );
     expect(JSON.stringify(component.toJSON())).toContain('Error message');

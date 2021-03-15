@@ -48,7 +48,7 @@ describe('<TypeaheadInputField />', () => {
     expect(container.querySelector('.large')).toBeVisible();
   });
 
-  it('Renders a FormErrorMessage if an error message is passed in', () => {
+  it('Renders a FormErrorMessage if error message is passed in', () => {
     const component = create(
       <TypeaheadInputField
         label="Demo Typeahead Field"
@@ -61,6 +61,7 @@ describe('<TypeaheadInputField />', () => {
         onFocus={onFocusMock}
         onKeyNavigation={onKeyNavigationMock}
         value="Start Typing..."
+        hasError
       />,
     );
     expect(JSON.stringify(component.toJSON())).toContain('Error message');

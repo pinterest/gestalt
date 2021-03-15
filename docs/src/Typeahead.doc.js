@@ -111,6 +111,11 @@ card(
         href: 'zIndex',
       },
       {
+        name: 'hasError',
+        type: 'boolean',
+        href: 'errorExample',
+      },
+      {
         name: 'errorMessage',
         type: 'string',
         href: 'errorExample',
@@ -468,6 +473,7 @@ function Example(props) {
         onChange={handleOnChange}
         onSelect={handleSelect}
         errorMessage="Oops! An Error Occurred."
+        hasError
       />
     </React.Fragment>
   );

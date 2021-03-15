@@ -49,6 +49,7 @@ type Props = {|
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
   zIndex?: Indexable,
+  hasError?: boolean,
   errorMessage?: string,
 |};
 
@@ -71,6 +72,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     tags,
     value = null,
     zIndex,
+    hasError = false,
     errorMessage,
   } = props;
 
@@ -232,6 +234,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
         setContainer={setContainerOpen}
         tags={tags}
         ref={inputRef}
+        hasError={hasError}
         errorMessage={errorMessage}
       />
 
@@ -312,6 +315,7 @@ TypeaheadWithForwardRef.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
   zIndex: UnsafeIndexablePropType,
+  hasError: PropTypes.bool,
   errorMessage: PropTypes.string,
 };
 

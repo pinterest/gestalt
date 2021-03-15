@@ -41,6 +41,7 @@ type Props = {|
   size?: 'md' | 'lg',
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
+  hasError?: boolean,
   errorMessage?: string,
 |};
 
@@ -62,6 +63,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
     size = 'md',
     tags,
     value,
+    hasError = false,
     errorMessage,
   } = props;
 
@@ -136,7 +138,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
           [typeaheadStyle.inputWrapper]: true,
         }
       : {},
-    errorMessage ? formElement.errored : formElement.normal,
+    (hasError || errorMessage) && !focused ? formElement.errored : formElement.normal,
   );
 
   const clearButtonSize = size === 'lg' ? 24 : 20;
@@ -145,7 +147,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   const inputElement = (
     <input
       aria-describedby={errorMessage && focused ? `${id}-error` : null}
-      aria-invalid={errorMessage ? 'true' : 'false'}
+      aria-invalid={errorMessage || hasError ? 'true' : 'false'}
       ref={ref}
       autoComplete="off"
       aria-label={label}
@@ -246,6 +248,7 @@ TypeaheadInputFieldWithForwardRef.propTypes = {
   setContainer: PropTypes.func,
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
+  hasError: PropTypes.bool,
   errorMessage: PropTypes.string,
 };
 
