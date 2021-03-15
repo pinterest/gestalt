@@ -12,6 +12,7 @@ card(
   <DocsPageHeader
     name="Page Header"
     description="PageHeader is used to indicate the title of the current page, as well as optional actions."
+    shadedCodeExample
     defaultCode={`
       function IntroPageHeaderExample() {
         const [open, setOpen] = React.useState(false);
@@ -44,6 +45,7 @@ card(
                     selected={open}
                     onClick={() => setOpen((prevVal) => !prevVal)}
                     ref={anchorRef}
+                    size="lg"
                   />
                 </Tooltip>
                 {open && (
@@ -102,7 +104,7 @@ card(
                 )}
               </React.Fragment>
             }
-            primaryAction={<Button color="red" text="Create product group" />}
+            primaryAction={<Button color="red" size="lg" text="Create product group" />}
           />
         );
       }
@@ -110,7 +112,6 @@ card(
   />,
 );
 
-// Specifying Component gives auto warnings about missing props
 card(
   <PropTable
     Component={PageHeader}
@@ -120,22 +121,22 @@ card(
         type: 'string',
         required: true,
         description:
-          'Page title, will always be an level 1 heading. Content should be [Localized](/Localized).',
+          'Page title, will always be a level 1 heading. Content should be [Localized](/Localized).',
       },
       {
         name: 'maxWidth',
         type: `number | string`,
-        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%."`,
+        description: `Use numbers for pixels: \`maxWidth={100}\` and strings for percentages: \`maxWidth="100%"\`.`,
       },
       {
         name: 'primaryAction',
-        type: `React Node`,
+        type: `Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>`,
         description: `The primary action of the page. Can be a [Button](/Button), [IconButton](/IconButton), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of an IconButton, Tooltip, and [Dropdown](/Dropdown).`,
       },
       {
         name: 'secondaryAction',
-        type: `React Node`,
-        description: `A secondary action for the page. Can be a [Button](/Button), [IconButton](/IconButton), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of an IconButton, Tooltip, and [Dropdown](/Dropdown)`,
+        type: `Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>`,
+        description: `A secondary action for the page. Can be a [Button](/Button), [IconButton](/IconButton), [Link](/Link), [Tooltip](/Tooltip) surrounding an IconButton or a combination of an IconButton, Tooltip, and [Dropdown](/Dropdown).`,
       },
       {
         name: 'subtext',
@@ -157,9 +158,10 @@ card(
 <PageHeader
   title="Product groups"
   subtext="S. E. All products USD"
-  primaryAction={<Button color="red" text="Create group" />}
+  primaryAction={<Button color="red" size="lg" text="Create group" />}
 />;
         `}
+        shaded
       />
       <MainSection.Card
         cardSize="lg"
@@ -172,11 +174,12 @@ card(
   title="Settings"
   primaryAction={
     <Tooltip text="Additional options">
-      <IconButton icon="ellipsis" iconColor="darkGray" />
+      <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel="" />
     </Tooltip>
   }
 />;
         `}
+        shaded
       />
       <MainSection.Card
         cardSize="lg"
@@ -185,27 +188,24 @@ card(
         Plan for most PageHeaders to be full width. A \`maxWidth\` should only be supplied when the content of the page is center aligned.
         `}
         defaultCode={`
-<Flex gap={4} direction="column" flex="grow">
+<Flex direction="column" flex="grow">
   <PageHeader
     title="Settings"
     primaryAction={
       <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" />
+        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel=""/>
       </Tooltip>
     }
   />
   <Box
     display="flex"
-    marginStart={-3}
-    marginEnd={-3}
-    marginBottom={-3}
-    marginTop={-3}
     wrap
     width="80%"
     direction="column"
+    marginStart={5}
   >
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="md">Edit profile</Heading>
+      <Heading size="sm" accessibilityLevel={2}>Edit profile</Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
@@ -263,6 +263,7 @@ card(
   </Box>
 </Flex>;
         `}
+        shaded
       />
       <MainSection.Card
         cardSize="lg"
@@ -272,10 +273,11 @@ card(
 <PageHeader
   title="Product groups"
   subtext="S. E. All products USD"
-  primaryAction={<Button color="red" text="Create product group" />}
-  secondaryAction={<Button color="red" text="Promote" />}
+  primaryAction={<Button color="red" size="lg" text="Create product group" />}
+  secondaryAction={<Button color="red" size="lg" text="Promote" />}
 />;
         `}
+        shaded
       />
       <MainSection.Card
         cardSize="lg"
@@ -287,10 +289,11 @@ card(
 <PageHeader
   title="Product groups"
   subtext="Product groups are created in order to relate certain products together for tracking purposes"
-  primaryAction={<Button color="red" text="Create product group" />}
-  secondaryAction={<Button text="Promote" />}
+  primaryAction={<Button color="red" size="lg" text="Create product group" />}
+  secondaryAction={<Button text="Promote" size="lg" />}
 />;
         `}
+        shaded
       />
       <MainSection.Card
         cardSize="lg"
@@ -305,22 +308,19 @@ card(
     maxWidth="50%"
     primaryAction={
       <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" />
+        <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel=""/>
       </Tooltip>
     }
   />
   <Box
     display="flex"
-    marginStart={-3}
-    marginEnd={-3}
-    marginBottom={-3}
-    marginTop={-3}
     wrap
     width="80%"
     direction="column"
+    marginStart={5}
   >
     <Box flex="grow" paddingX={3} paddingY={3}>
-      <Heading size="md">Edit profile</Heading>
+      <Heading size="sm" accessibilityLevel={2}>Edit profile</Heading>
     </Box>
 
     <Box flex="grow" paddingX={3} paddingY={3}>
@@ -378,6 +378,7 @@ card(
   </Box>
 </Flex>;
         `}
+        shaded
       />
     </MainSection.Subsection>
   </MainSection>,
@@ -394,13 +395,25 @@ card(
   <MainSection
     name="Localization"
     description={`Be sure to localize the \`title\`, \`subtext\` and actions within PageHeader.`}
-  />,
+  >
+    <MainSection.Card
+      shaded
+      cardSize="lg"
+      defaultCode={`
+<PageHeader
+  title="Langer Seitentitel, der in einigen Sprachen möglicherweise abgeschnitten wird"
+  subtext="2.131 Produkte"
+  primaryAction={<Button color="red" size="lg" text="Schnell erstellen" />}
+/>;
+  `}
+    />
+  </MainSection>,
 );
 
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      description={`PageHeader can support an optional \`primaryAction\`, which can be a [Button](Button), a [Link](/Link) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown).`}
+      description={`PageHeader supports an optional \`primaryAction\`. It can be a [Button](Button), a [Link](/Link) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown). Any Buttons or IconButtons should be \`size="lg"\`.`}
       title="Primary action"
     >
       <MainSection.Card
@@ -425,7 +438,7 @@ function PrimaryActionExample() {
       <PageHeader
         title="Product groups"
         subtext="S. E. All products USD"
-        primaryAction={<Button color="red" text="Create group" />}
+        primaryAction={<Button color="red" size="lg" text="Create group" />}
       />
       <Divider />
       <PageHeader
@@ -443,6 +456,7 @@ function PrimaryActionExample() {
                 selected={open}
                 onClick={() => setOpen((prevVal) => !prevVal)}
                 ref={anchorRef}
+                size="lg"
               />
             </Tooltip>
             {open && (
@@ -484,7 +498,7 @@ function PrimaryActionExample() {
       <PageHeader
         title="Create campaign"
         primaryAction={
-          <Link>
+          <Link href="www.pinterest.com">
             <Text weight="bold">Switch to quick ad creation</Text>
           </Link>
         }
@@ -493,10 +507,11 @@ function PrimaryActionExample() {
   );
 }
         `}
+        shaded
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`PageHeader can also support an optional \`secondaryAction\`, which will likely be a [Button](Button) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown)`}
+      description={`PageHeader also supports an optional \`secondaryAction\`. It will likely be a [Button](Button) or an [IconButton](/IconButton) with a [Tooltip](/Tooltip) and optional [Dropdown](/Dropdown). Any Buttons or IconButtons should be \`size="lg"\`.`}
       title="Secondary action"
     >
       <MainSection.Card
@@ -521,8 +536,8 @@ function SecondaryActionExample() {
       <PageHeader
         title="Product groups"
         subtext="S. E. All products USD"
-        primaryAction={<Button color="red" text="Create product group" />}
-        secondaryAction={<Button text="Promote" />}
+        primaryAction={<Button color="red" size="lg" text="Create product group" />}
+        secondaryAction={<Button text="Promote" size="lg"/>}
       />
       <Divider />
       <PageHeader
@@ -541,6 +556,7 @@ function SecondaryActionExample() {
                 selected={open}
                 onClick={() => setOpen((prevVal) => !prevVal)}
                 ref={anchorRef}
+                size="lg"
               />
             </Tooltip>
             {open && (
@@ -582,6 +598,7 @@ function SecondaryActionExample() {
   );
 }
         `}
+        shaded
       />
     </MainSection.Subsection>
 
@@ -590,41 +607,44 @@ function SecondaryActionExample() {
       title="Subtext"
     >
       <MainSection.Card
+        shaded
         cardSize="lg"
         defaultCode={`
 <PageHeader
   title="Create product group"
   subtext="2,131 products"
-  primaryAction={<Button color="red" text="Quick create" />}
+  primaryAction={<Button color="red" size="lg" text="Quick create" />}
 />;
         `}
       />
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`\`maxWidth\` should be set when the content of the page is centered and has a maximum width itself.`}
+      description={`\`maxWidth\` should be set when the content of the page is centered and/or has a maximum width itself.`}
       title="Max width"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Flex gap={4} direction="column" flex="grow">
-  <PageHeader
-    title="All boards"
-    maxWidth="65%"
-    primaryAction={
-      <Tooltip text="Additional options" idealDirection="up">
-        <IconButton icon="ellipsis" iconColor="darkGray" />
-      </Tooltip>
-    }
-  />
-  <Box display="flex" justifyContent="center" direction="column" alignItems="center" marginTop={4}>
+<Box width="100%" color="lightGray" padding={2}>
+  <Box color="white" marginBottom={4} >
+    <PageHeader
+      title="All boards"
+      maxWidth="65%"
+      primaryAction={
+        <Tooltip text="Additional options" idealDirection="up">
+          <IconButton icon="ellipsis" iconColor="darkGray" size="lg" accessibilityLabel=""/>
+        </Tooltip>
+      }
+    />
+  </Box>
+  <Flex direction="column" alignItems="center" justifyContent="center" gap={1}>
     <Avatar size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" name="Keerthi" />
     <Heading size="md">Keerthi M.</Heading>
     <Text>@kreethiM</Text>
     <Text weight="bold">4 followers · 0 following </Text>
-  </Box>
-</Flex>;
+  </Flex>
+</Box>;
       `}
       />
     </MainSection.Subsection>

@@ -1,6 +1,10 @@
 // @flow strict
-import React, { type Node, Children } from 'react';
+import React, { type Node, Children, type Element } from 'react';
 import Box from './Box.js';
+import Button from './Button.js';
+import IconButton from './IconButton.js';
+import Link from './Link.js';
+import Tooltip from './Tooltip.js';
 import Flex from './Flex.js';
 import Heading from './Heading.js';
 import Text from './Text.js';
@@ -9,8 +13,8 @@ import { type Dimension } from './boxTypes.js';
 type Props = {|
   title: string,
   maxWidth?: Dimension,
-  primaryAction?: Node,
-  secondaryAction?: Node,
+  primaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
+  secondaryAction?: Element<typeof Button | typeof IconButton | typeof Link | typeof Tooltip>,
   subtext?: string,
 |};
 
@@ -21,52 +25,30 @@ export default function PageHeader({
   subtext,
   title,
 }: Props): Node {
-  const renderAction = (action?: Node): Node => {
-    // This is technically all temporary, until we create a proper Menu component
-    // Then, we could type check using Flow for Buttons, Links, or Menus
-    let allowedChildFound = false;
-    if (
-      action.type?.displayName &&
-      ['IconButton', 'Button', 'Link', 'Tooltip'].includes(action.type.displayName)
-    ) {
-      allowedChildFound = true;
-    } else if (action.props?.children) {
-      const actionChildrenArray = Children.toArray(action.props.children);
-      actionChildrenArray.forEach((child) => {
-        if (
-          child.type &&
-          ['IconButton', 'Button', 'Link', 'Tooltip'].includes(child.type.displayName)
-        ) {
-          allowedChildFound = true;
-        }
-      });
-    }
-    if (!allowedChildFound) {
-      throw new Error('PageHeader actions must be of type Button, IconButton, Link, or Tooltip.');
-    }
-
-    return allowedChildFound ? action : <div />;
-  };
   return (
-    <Flex flex="grow" justifyContent="center" maxWidth="100%">
-      <Flex justifyContent="between" alignItems="center" width={maxWidth}>
-        <Flex direction="column" gap={subtext ? 2 : 0} minWidth={0}>
-          <Box marginEnd={4}>
-            <Heading truncate>{title}</Heading>
+    <Box color="white" paddingX={8} width="100%">
+      <Flex flex="grow" justifyContent="center" maxWidth="100%">
+        <Flex justifyContent="between" alignItems="center" width={maxWidth}>
+          <Box marginEnd={4} minWidth={0} marginTop={2} marginBottom={2}>
+            <Heading size="md" truncate accessibilityLevel={1}>
+              {title}
+            </Heading>
+            {subtext && (
+              <Box marginTop={2}>
+                <Text truncate>{subtext}</Text>
+              </Box>
+            )}
           </Box>
-          {subtext && (
-            <Box marginEnd={4}>
-              <Text truncate>{subtext}</Text>
-            </Box>
+          {primaryAction && (
+            <Flex gap={2} flex="none" alignItems="center">
+              {secondaryAction}
+              <Box display="flex" alignItems="center" marginTop={4} marginBottom={4} height="48px">
+                {primaryAction}
+              </Box>
+            </Flex>
           )}
         </Flex>
-        {primaryAction && (
-          <Flex gap={2} flex="none">
-            {secondaryAction && renderAction(secondaryAction)}
-            {renderAction(primaryAction)}
-          </Flex>
-        )}
       </Flex>
-    </Flex>
+    </Box>
   );
 }
