@@ -166,6 +166,7 @@ import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 import visit from './visit.svg';
 import workflowStatusAll from './workflow-status-all.svg';
+import workflowStatusCanceled from './workflow-status-canceled.svg';
 import workflowStatusHalted from './workflow-status-halted.svg';
 import workflowStatusInProgress from './workflow-status-in-progress.svg';
 import workflowStatusOk from './workflow-status-ok.svg';
@@ -341,6 +342,7 @@ const icons = {
   'view-type-list': viewTypeList,
   visit,
   'workflow-status-all': workflowStatusAll,
+  'workflow-status-canceled': workflowStatusCanceled,
   'workflow-status-halted': workflowStatusHalted,
   'workflow-status-in-progress': workflowStatusInProgress,
   'workflow-status-ok': workflowStatusOk,
