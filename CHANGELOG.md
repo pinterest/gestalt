@@ -1,3 +1,9 @@
+## 20.2.1 (Mar 15, 2021)
+
+### Patch
+
+- Docs: Add event tracking for buttons (#1419)
+
 ## 20.2.0 (Mar 15, 2021)
 
 ### Minor
