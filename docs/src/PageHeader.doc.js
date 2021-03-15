@@ -56,50 +56,28 @@ card(
                       setOpen(false);
                     }}
                   >
-                    <Dropdown.Section label="Categories">
-                      <Dropdown.Item
-                        handleSelect={handleSelect}
-                        selected={selected}
-                        option={{ value: 'item 1', label: 'Item 1' }}
-                      />
-                      <Dropdown.Item
-                        handleSelect={handleSelect}
-                        selected={selected}
-                        option={{
-                          value: 'item 2',
-                          label: 'Item 2 with a really long, detailed, complex name',
-                        }}
-                      />
-                    </Dropdown.Section>
-                    <Dropdown.Section label="View options">
-                      <Dropdown.Item
-                        handleSelect={handleSelect}
-                        selected={selected}
-                        isExternal
-                        href="https://pinterest.com"
-                        option={{
-                          value: 'item 3',
-                          label: 'Item 3 with a really long, detailed, complex name',
-                        }}
-                      />
-                      <Dropdown.Item
-                        handleSelect={handleSelect}
-                        selected={selected}
-                        badgeText="New"
-                        option={{ value: 'item 4', label: 'Item 4' }}
-                      />
-                      <Dropdown.Item
-                        handleSelect={handleSelect}
-                        selected={selected}
-                        isExternal
-                        href="https://pinterest.com"
-                        badgeText="New"
-                        option={{
-                          value: 'item 5',
-                          label: 'Item 5 with a really long name is a new item!',
-                        }}
-                      />
-                    </Dropdown.Section>
+                    <Dropdown.Item
+                      handleSelect={handleSelect}
+                      selected={selected}
+                      option={{
+                        value: 'Share Group',
+                        label: 'Share Group',
+                      }}
+                    />
+                    <Dropdown.Item
+                      handleSelect={handleSelect}
+                      selected={selected}
+                      option={{ value: 'Help center', label: 'Help center' }}
+                    />
+                    <Dropdown.Item
+                      handleSelect={handleSelect}
+                      selected={selected}
+                      badgeText="New"
+                      option={{
+                        value: 'Edit groups',
+                        label: 'Edit groups',
+                      }}
+                    />
                   </Dropdown>
                 )}
               </React.Fragment>
