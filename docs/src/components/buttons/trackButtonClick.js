@@ -1,6 +1,7 @@
 // @flow strict
 
-// Since some buttons have text and some only have icons, we'll use the a11yLabel for consistency
+// `buttonLabel` should be relatively generic.
+// pass `value` to provide more context, such as the current component
 export default function trackButtonClick(buttonLabel: string, value?: string) {
   if (!window.gtag) {
     return;
