@@ -323,7 +323,7 @@ card(
       <MainSection.Card
         cardSize="md"
         title="Large"
-        description={`Use \`lg\` as the default size within Pinterest products.`}
+        description={`Use \`lg\` as the standard size within Pinterest products.`}
         defaultCode={`
 <SelectList
   id="selectlistexample"
