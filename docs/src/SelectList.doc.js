@@ -386,7 +386,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Controlled component"
-      description="The controlled variant allows form data to be handled by the component. You will ned to use this pattern in situations where you want to explicitly set `value` or `placeholder` props."
+      description="SelectList must be used as a controlled component when the `placeholder` or `value` props are needed. When used in this manner, `onChange` and `value` are required, while `placeholder` is optional."
     >
       <MainSection.Card
         cardSize="lg"
