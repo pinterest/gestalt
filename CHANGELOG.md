@@ -1,3 +1,9 @@
+## 20.3.0 (Mar 16, 2021)
+
+### Minor
+
+- PageHeader: New component and documentation (#1423)
+
 ## 20.2.1 (Mar 15, 2021)
 
 ### Patch
