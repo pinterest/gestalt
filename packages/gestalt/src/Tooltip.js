@@ -66,13 +66,15 @@ export default function Tooltip({
   const childRef = React.useRef<?HTMLDivElement>(null);
   const { current: anchor } = childRef;
 
+  const mouseLeaveDelay = link ? TIMEOUT : 0;
+
   const handleIconMouseEnter = () => {
     dispatch({ type: 'hoverInIcon' });
   };
 
   const handleIconMouseLeave = useDebouncedCallback(() => {
     dispatch({ type: 'hoverOutIcon' });
-  }, TIMEOUT);
+  }, mouseLeaveDelay);
 
   const handleTextMouseEnter = () => {
     dispatch({ type: 'hoverInText' });
@@ -80,7 +82,7 @@ export default function Tooltip({
 
   const handleTextMouseLeave = useDebouncedCallback(() => {
     dispatch({ type: 'hoverOutText' });
-  }, TIMEOUT);
+  }, mouseLeaveDelay);
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
