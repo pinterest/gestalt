@@ -9,7 +9,10 @@ const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
 card(
-  <FeedbackCallout link="https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=SelectList" />,
+  <FeedbackCallout
+    link="https://docs.google.com/forms/d/e/1FAIpQLSe7h8kVcD7QqvPvjkE8s8WvnuFfhYvAEQ6L7tZwPgHjJPAbSw/viewform?usp=pp_url&entry.847151274=SelectList"
+    componentName="SelectList"
+  />,
 );
 
 card(
@@ -19,7 +22,7 @@ card(
     SelectList displays a list of actions or options using the browser’s native select.`}
     defaultCode={`
       <SelectList
-        id="selectlistexample"
+        id="selectlistexample1"
         onChange={() => {}}
         options={[
           {label:'Algeria', value: 'algeria'},
@@ -117,7 +120,7 @@ card(
         description="Use SelectList when the user needs to select from a simple list of items."
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample2"
   onChange={() => {}}
   options={[
     {label:'Algeria', value: 'algeria'},
@@ -137,7 +140,7 @@ card(
         description="Use SelectList when additional functionality such as subtext or images are needed. Use Dropdown instead."
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample3"
   onChange={() => {}}
   options={[
     {label:'Algeria', value: 'algeria'},
@@ -159,7 +162,7 @@ card(
         description="Order the list items in SelectList either alphabetically or by usage."
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample4"
   onChange={() => {}}
   options={[
     {label:'Algeria', value: 'algeria'},
@@ -179,7 +182,7 @@ card(
         description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use RadioButtons instead."
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample5"
   onChange={() => {}}
   options={[
     {label:'Male', value: 'male'},
@@ -199,7 +202,7 @@ card(
         defaultCode={`
 <Flex gap={2}>
   <SelectList
-    id="selectlistexample"
+    id="selectlistexample6"
     onChange={() => {}}
     options={[
       {label:'Impressions', value: 'v1'},
@@ -212,7 +215,7 @@ card(
     size='lg'
   />
   <SelectList
-    id="selectlistexample"
+    id="selectlistexample7"
     onChange={() => {}}
     options={[
       {label:'Engagement', value: 'v1'},
@@ -242,7 +245,7 @@ card(
     return (
       <Flex gap={2}>
       <SelectList
-        id="selectlistexample"
+        id="selectlistexample8"
         onChange={() => {}}
         options={[
           {label:'Impressions', value: 'v1'},
@@ -269,7 +272,7 @@ card(
           ref={anchorRef}
         />
         {open && (
-          <Dropdown id="subtext-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+          <Dropdown id="selectlistexample9" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
@@ -326,7 +329,7 @@ card(
         description={`Use \`lg\` as the recommended size within Pinterest products.`}
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample10"
   onChange={() => {}}
   options={[
     {label:'Algeria', value: 'algeria'},
@@ -345,7 +348,7 @@ card(
         description={`Use \`md\` on denser surfaces, such as Business products or internal tools.`}
         defaultCode={`
   <SelectList
-    id="selectlistexample"
+    id="selectlistexample11"
     onChange={() => {}}
     options={[
       {label:'Algeria', value: 'algeria'},
@@ -367,7 +370,7 @@ card(
         cardSize="lg"
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample12"
   onChange={() => {}}
   options={[
     {label: 'ARS - Argentine peso', value: 'ars'},
@@ -421,7 +424,7 @@ function Example(props) {
   ];
   return (
     <SelectList
-      id="selectlistexample"
+      id="selectlistexample13"
       name="country"
       onChange={({ value }) => setCountry(value)}
       options={countryOptions}
@@ -440,7 +443,7 @@ function Example(props) {
         cardSize="lg"
         defaultCode={`
 <SelectList
-  id="selectlistexample"
+  id="selectlistexample14"
   onChange={() => {}}
   options={[
     {label:'Algeria', value: 'algeria'},
