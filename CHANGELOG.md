@@ -1,3 +1,9 @@
+## 20.3.1 (Mar 16, 2021)
+
+### Patch
+
+- Tooltip: Only delay visibility on interaction if `link` present (#1430)
+
 ## 20.3.0 (Mar 16, 2021)
 
 ### Minor
