@@ -1,3 +1,9 @@
+## 20.3.2 (Mar 16, 2021)
+
+### Patch
+
+- SearchField: Add onKeyDown prop  (#1400)
+
 ## 20.3.1 (Mar 16, 2021)
 
 ### Patch
