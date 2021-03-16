@@ -4,9 +4,12 @@ import { PageHeader } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import DocsPageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
+
+card(<FeedbackCallout componentName="PageHeader" />);
 
 card(
   <DocsPageHeader
