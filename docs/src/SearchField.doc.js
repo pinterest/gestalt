@@ -51,6 +51,7 @@ card(
       {
         name: 'onKeyDown',
         type: '({ event: SyntheticKeyboardEvent<HTMLInputElement>, value: string }) => void',
+        description: 'Callback for key stroke events.',
       },
       {
         name: 'placeholder',
