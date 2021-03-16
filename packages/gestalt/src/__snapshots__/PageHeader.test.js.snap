@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader renders 1`] = `
+<div
+  className="box paddingX8 whiteBg"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        className="box marginBottom2 marginEnd4 marginTop2"
+        style={
+          Object {
+            "minWidth": 0,
+          }
+        }
+      >
+        <h1
+          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          title="Settings"
+        >
+          Settings
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageHeader renders primary action 1`] = `
+<div
+  className="box paddingX8 whiteBg"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        className="box marginBottom2 marginEnd4 marginTop2"
+        style={
+          Object {
+            "minWidth": 0,
+          }
+        }
+      >
+        <h1
+          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          title="Settings"
+        >
+          Settings
+        </h1>
+      </div>
+      <div
+        className="Flex rowGap2 flexNone itemsCenter xsDirectionRow"
+      >
+        <div
+          className="FlexItem"
+        >
+          <div
+            className="box itemsCenter marginBottom4 marginTop4 xsDisplayFlex"
+            style={
+              Object {
+                "height": "48px",
+              }
+            }
+          >
+            <button
+              className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <div
+                className="Text fontSize3 white alignCenter fontWeightBold"
+              >
+                Create
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageHeader renders secondary action 1`] = `
+<div
+  className="box paddingX8 whiteBg"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        className="box marginBottom2 marginEnd4 marginTop2"
+        style={
+          Object {
+            "minWidth": 0,
+          }
+        }
+      >
+        <h1
+          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          title="Settings"
+        >
+          Settings
+        </h1>
+      </div>
+      <div
+        className="Flex rowGap2 flexNone itemsCenter xsDirectionRow"
+      >
+        <div
+          className="FlexItem"
+        >
+          <a
+            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            href="www.pinterest.com"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+            target={null}
+          >
+            Help center
+          </a>
+        </div>
+        <div
+          className="FlexItem"
+        >
+          <div
+            className="box itemsCenter marginBottom4 marginTop4 xsDisplayFlex"
+            style={
+              Object {
+                "height": "48px",
+              }
+            }
+          >
+            <button
+              className="button hideOutline tapTransition lg red enabled block accessibilityOutline"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <div
+                className="Text fontSize3 white alignCenter fontWeightBold"
+              >
+                Create
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageHeader renders subtext 1`] = `
+<div
+  className="box paddingX8 whiteBg"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      style={
+        Object {
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        className="box marginBottom2 marginEnd4 marginTop2"
+        style={
+          Object {
+            "minWidth": 0,
+          }
+        }
+      >
+        <h1
+          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          title="Settings"
+        >
+          Settings
+        </h1>
+        <div
+          className="box marginTop2"
+        >
+          <div
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"
+            title="5 followers"
+          >
+            5 followers
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageHeader renders within a max width 1`] = `
+<div
+  className="box paddingX8 whiteBg"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap0 flexGrow justifyCenter xsDirectionRow"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap0 flexGrow itemsCenter justifyBetween xsDirectionRow"
+      style={
+        Object {
+          "maxWidth": "60%",
+        }
+      }
+    >
+      <div
+        className="box marginBottom2 marginEnd4 marginTop2"
+        style={
+          Object {
+            "minWidth": 0,
+          }
+        }
+      >
+        <h1
+          className="Heading fontSize2 darkGray alignLeft breakWord truncate"
+          title="Settings"
+        >
+          Settings
+        </h1>
+        <div
+          className="box marginTop2"
+        >
+          <div
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal truncate"
+            title="5 followers"
+          >
+            5 followers
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

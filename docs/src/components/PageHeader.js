@@ -12,6 +12,7 @@ type Props = {|
   fileName?: string, // only use if name !== file name
   showSourceLink?: boolean,
   defaultCode?: string,
+  shadedCodeExample?: boolean,
 |};
 
 const gestaltPath = (component) => {
@@ -29,6 +30,7 @@ export default function ComponentHeader({
   fileName,
   showSourceLink = true,
   defaultCode,
+  shadedCodeExample,
 }: Props): Node {
   return (
     <Box
@@ -66,7 +68,12 @@ export default function ComponentHeader({
       {description && <Markdown text={description} />}
       {defaultCode && (
         <Box marginTop={8}>
-          <MainSection.Card cardSize="lg" showCode={false} defaultCode={defaultCode} />
+          <MainSection.Card
+            cardSize="lg"
+            showCode={false}
+            defaultCode={defaultCode}
+            shaded={shadedCodeExample}
+          />
         </Box>
       )}
     </Box>

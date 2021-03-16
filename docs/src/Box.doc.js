@@ -530,39 +530,17 @@ card(
       description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
       title="Borders"
     >
-      <MainSection.Card
-        cardSize="sm"
-        title='borderStyle="sm"'
-        defaultCode={`<Box
-        width={60}
-        height={60}
-        rounding="circle"
-        color="white"
-        borderStyle="sm"
-      />`}
-      />
-      <MainSection.Card
-        cardSize="sm"
-        title='borderStyle="lg"'
-        defaultCode={`<Box
-        width={60}
-        height={60}
-        rounding="circle"
-        color="white"
-        borderStyle="lg"
-      />`}
-      />
-      <MainSection.Card
-        cardSize="sm"
-        title='borderStyle="shadow"'
-        defaultCode={`<Box
-        width={60}
-        height={60}
-        rounding="circle"
-        color="white"
-        borderStyle="shadow"
-      />`}
-      />
+      <CombinationNew borderStyle={['sm', 'lg', 'shadow']}>
+        {(props) => (
+          <Box
+            width={60}
+            height={60}
+            rounding="circle"
+            color="white"
+            borderStyle={props.borderStyle}
+          />
+        )}
+      </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection title="Colors">
       <CombinationNew

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node, Children } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import slugify from 'slugify';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
@@ -15,6 +15,7 @@ type Props = {|
 
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
+  const arrayChildren = Children.toArray(children);
 
   return (
     <Box marginTop={4}>
@@ -47,10 +48,13 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           </Box>
         )}
       </Box>
-
-      {children && (
+      {arrayChildren && (
         <Flex wrap gap={4}>
-          {children}
+          {arrayChildren.map((child, idx) => (
+            <Flex.Item flex="grow" key={idx}>
+              {child}
+            </Flex.Item>
+          ))}
         </Flex>
       )}
     </Box>
