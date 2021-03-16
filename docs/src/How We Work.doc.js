@@ -8,127 +8,121 @@ const card = (c) => cards.push(c);
 function Changelog() {
   return (
     <Box>
-      <PageHeader name="How We Work" showSourceLink={false} />
+      <PageHeader name="How to work with us" showSourceLink={false} />
       <Flex alignItems="start" direction="column" gap={4}>
         <Text>
-          A design system is a collection of reusable components and clear standards to create
-          products at scale. Our team is composed of designers and engineers who are passionate
-          about building quality products at scale.
+          Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute
         </Text>
-        <Heading size="md">Values</Heading>
+        <Heading size="md">What goes into Gestalt?</Heading>
         <Text>
-          <ul>
-            <li>We work in service to other teams.</li>
-            <li>We enable accessibility within our products.</li>
-            <li>We are the floor not the ceiling on product.</li>
-            <li>We are the foundation of velocity and product excellence.</li>
-          </ul>
+          The goal of Gestalt is to create a shared library of design best practices, React
+          components, and documentation. Therefore, the best contenders for addition to Gestalt are
+          designs or components that benefit multiple teams and are used regularly throughout our
+          products.
         </Text>
-        <Heading size="md">Prioritization</Heading>
+        <Heading size="md">What is the process to request new additions or changes?</Heading>
         <Text>
-          We prioritize work following the same cycles as product teams within Pinterest. Knowing
-          other teams needs before prioritization starts will help inform our roadmap.
-        </Text>
-        <Heading size="sm">Some questions we ask ourselves when prioritizing:</Heading>
-        <Text>
-          <ul>
-            <li>How many products/surfaces will benefit?</li>
-            <li>How easy or difficult is it to build?</li>
-            <li>Is it a dependency to other future work we need to do within Gestalt?</li>
-          </ul>
+          What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair
+          with you early and often! The process starts in the design phase. Seeing early mocks,
+          wireframes or even product roadmaps in our partnership meetings to learn where your
+          project may be going helps inform our team OKRs. The earlier we see the work, the better
+          we’re able to plan and the higher the likelihood we’ll be able to help.
         </Text>
         <Text>
-          The more products that benefit, the easier the task and the more functionality we can
-          unlock will allow for us to prioritize those changes higher than changes that benefit few
-          surfaces, are very difficult or won’t unlock and additional functionality within Gestalt.
+          We ask that any ideas that change the functionality of an existing Gestalt component or
+          introduce a net-new component go through the following process:
         </Text>
-        <Heading size="md">Design driven approach</Heading>
-        <Text>
-          What we build into Gestalt comes from the teams across Pinterest. This begins with the
-          design explorations that are brought to Business Component Crit or Design System Office
-          Hours. Anything that affects the functionality of a component needs to be reviewed by
-          design first.
-        </Text>
-        <Text>
-          <ol>
-            <li>
-              <strong>Come early to one of these meetings:</strong> Help us understand your needs by
-              explaining project goals and showing us multiple options explored with and without
-              Gestalt components. Have an idea on what your project timelines are. Coordinate with
-              other designers when possible if there are overlapping needs. This helps us prioritize
-              in our roadmap your needs when it is a common need with other teams.
-            </li>
-            <li>
-              <strong>Iterate on solutions:</strong> We will better be able to prioritize your needs
-              when your designs have been reviewed through multiple crits and have explored all edge
-              cases. Some things we need to know for building components: - Empty states -
-              Truncation/internationalization - Responsive behavior - Dark mode If our team needs to
-              take on the work, we will add it to our backlog and prioritize it appropriately.
-            </li>
-            <li>
-              <strong>Deliver final designs:</strong> Final design specs will be delivered to
-              engineering for build. This also means developing documentation, creating Figma
-              library files and being part of the code review process. This is something our team
-              takes which is why it is important to come early in your design process so we can
-              prioritize appropriately.
-            </li>
-          </ol>
-        </Text>
-        <Heading size="md">Engineering contribution for new or added functionality</Heading>
-        <Text>
-          We always appreciate the help and contributions of other engineers across Pinterest. It
-          could be simple bug fixes or building out entire components. Anything added to Gestalt
-          that is new functionality should come from designs that have been through Business
-          Component Crit or Design System Office Hours.
-        </Text>
-        <Text>
-          <ol>
-            <li>
-              <strong>Talk to your designer:</strong> Checking in with your designers to make sure
-              they’ve done their part in reviewing their work with the Gestalt Design Team will
-              assure that changes are approved to go into Gestalt. We do not recommend starting a PR
-              on new functionality without confirming this as you may spend time on changes that
-              won’t be approved to merge into Gestalt.
-            </li>
-            <li>
-              <strong>Tech Design Doc:</strong> We require a tech design doc for most components and
-              larger add ons within Gestalt. This allows everyone to discuss the component API and
-              functionality before starting to build. We provide a helpful template to start this
-              process.
-            </li>
-            <li>
-              <strong>Pull request:</strong> Make a pull request for your changes. Follow the pull
-              request guidelines. Your changes will be reviewed the the Gestalt Core Team. We ensure
-              each component is accessible, performant and works with other components.
-            </li>
-            <li>
-              <strong>Release:</strong> The fun part is you get to release your component! Feel free
-              to announce it on gestalt-web slack channel.
-            </li>
-          </ol>
-        </Text>
-        <Heading size="md">Engineering bug fixes</Heading>
+        <Heading size="md">How can you contribute to Gestalt as an engineer?</Heading>
+        <Text />
+        <Heading size="md">Other ways to contribute</Heading>
+        <Text />
+        <Heading size="md">What kind of support can you expect from the team?</Heading>
+        <Text />
+        <Heading size="md">Resources, Slack, and Meetings - oh my!</Heading>
 
-        <Heading size="md">Communication</Heading>
-
+        <Heading size="sm">Meetings and Events </Heading>
         <Text>
-          The best way to reach the team is on Slack either{' '}
-          <Link inline target="blank" href="https://pinterest.slack.com/archives/C0HUV5J93">
-            #gestalt-design
-          </Link>{' '}
-          or{' '}
-          <Link inline target="blank" href="https://pinterest.slack.com/archives/C13KLG5P0">
-            #gestalt-web
-          </Link>{' '}
-          channels. Before reaching out, have a look at our{' '}
+          Our meetings, events, and timelines can be found on our{' '}
           <Link
             inline
             target="blank"
-            href="https://paper.dropbox.com/doc/Gestalt-Design-Slack-Communication-Guidelines--BGwCp_OTSWeAEcvTJw0XYDUvAQ-2CXysUNfbx9mq0b6ge53Y"
+            href="https://calendar.google.com/calendar/u/0?cid=Y19ubnVsdjdjNGRsY3RxbG1jcHVlOWVyaHFuc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
           >
-            Gestalt Design Slack Communication
+            Gestalt Event Calendar
+          </Link>
+          .
+        </Text>
+
+        <Heading size="sm">Dashboards, JIRA, and OKRs</Heading>
+        <Text>
+          If you’re curious what we’re working on, you can check out our Gestalt{' '}
+          <Link inline target="blank" href="">
+            Sprint Dashboard
+          </Link>
+          , our full backlog, and our Bugs Dashboard. You can also reference our go/GestaltTracker
+          to see the immediate, larger component changes that are in the pipeline.
+        </Text>
+        <Text>
+          To see the bigger picture, you can view our OKRs to understand our roadmap and priorities
+          for each quarter. These priorities are determined through our partnership meetings, which
+          we use to learn about component needs and coordinate with designers to determine the
+          timelines.
+        </Text>
+
+        <Heading size="sm">Slack Channels</Heading>
+        <Text>
+          Before reaching out, take a look at our{' '}
+          <Link inline target="blank" href="http://gestalt.netlifyapp.com/">
+            documentation
           </Link>{' '}
-          and take a look at our documentation to see if it answers your question.
+          to see if it answers your question, because it will likely get you the fastest answer.
+          Still need help? Try searching Slack for your question, and then feel free to ask if your
+          question hasn’t been answered in the past. You can also reference our{' '}
+          <Link inline target="blank" href="https://paper.dropbox.com/doc/2CXysUNfbx9mq0b6ge53Y">
+            Communication Guidelines
+          </Link>{' '}
+          for more info.
+        </Text>
+        <Text>
+          <Link inline target="blank" href="https://pinterest.slack.com/archives/C0HUV5J93">
+            #gestalt-design
+          </Link>{' '}
+          is the best way to reach the Gestalt design team for design focused questions.
+        </Text>
+        <Text>
+          <Link inline target="blank" href="https://pinterest.slack.com/archives/C13KLG5P0">
+            #gestalt-web
+          </Link>{' '}
+          is for more engineering-focused questions.{' '}
+        </Text>
+
+        <Heading size="sm">Meetings and Events</Heading>
+        <Text>
+          We offer two different meetings for the community to come with questions, comments, ideas,
+          and feedback.
+          <ul>
+            <li>
+              Business Component Crit: Geared toward design work for our business products.{' '}
+              <Link
+                inline
+                target="blank"
+                href="https://paper.dropbox.com/doc/Meeting-notes-Ads-Design-Component-Crit--A0OnUFBJPWygCqBU2aMrhAaGAQ-9bkQ0frWwmRxkYRRq5fOm"
+              >
+                Sign up sheet and notes
+              </Link>
+            </li>
+            <li>
+              Design System Office Hours: Open space for discussing designs and getting feedback on
+              component usage within the Pinner product.{' '}
+              <Link
+                inline
+                target="blank"
+                href="https://paper.dropbox.com/doc/Design-systems-office-hours-signup-sheet--BGF2OO1W31I96Pss5qFZ1Pz1Ag-oBkTKg5JUNO0POAzPxNl6"
+              >
+                Sign up sheet
+              </Link>
+            </li>
+          </ul>
         </Text>
       </Flex>
     </Box>
