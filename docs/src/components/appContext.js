@@ -8,7 +8,7 @@ const localStorageColorSchemeKey = 'gestalt-color-scheme';
 const localStorageTextDirectionKey = 'gestalt-text-direction';
 
 type PropTableVariant = 'collapsed' | 'expanded';
-type ColorScheme = 'light' | 'dark' | 'userPreference';
+export type ColorScheme = 'light' | 'dark' | 'userPreference';
 type DirectionScheme = 'ltr' | 'rtl';
 
 export type AppContextType = {|

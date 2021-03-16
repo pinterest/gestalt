@@ -1,3 +1,21 @@
+## 20.2.1 (Mar 15, 2021)
+
+### Patch
+
+- Docs: Add event tracking for buttons (#1419)
+
+## 20.2.0 (Mar 15, 2021)
+
+### Minor
+
+- Icon: add workflow-status-canceled icon (#1427)
+
+## 20.1.3 (Mar 13, 2021)
+
+### Patch
+
+- Bump react-dev-utils from 11.0.0 to 11.0.4 (#1426)
+
 ## 20.1.2 (Mar 11, 2021)
 
 ### Patch
