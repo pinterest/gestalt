@@ -23,6 +23,10 @@ type Props = {|
     value: string,
     syntheticEvent: SyntheticEvent<HTMLInputElement>,
   |}) => void,
+  onKeyDown?: ({|
+    event: SyntheticKeyboardEvent<HTMLInputElement>,
+    value: string,
+  |}) => void,
   placeholder?: string,
   size?: 'md' | 'lg',
   value?: string,
@@ -40,6 +44,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     onBlur,
     onChange,
     onFocus,
+    onKeyDown,
     placeholder,
     size = 'md',
     value,
@@ -78,6 +83,12 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
     setFocused(false);
     if (onBlur) {
       onBlur({ event });
+    }
+  };
+
+  const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    if (onKeyDown) {
+      onKeyDown({ event, value: event.currentTarget.value });
     }
   };
 
@@ -136,6 +147,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           className={className}
           id={id}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           placeholder={placeholder}
           role="searchbox"
           type="search"
@@ -176,6 +188,7 @@ SearchFieldWithForwardRef.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['md', 'lg']),
   value: PropTypes.string,

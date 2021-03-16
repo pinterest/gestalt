@@ -1,6 +1,6 @@
 // @flow strict
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { create } from 'react-test-renderer';
 import SearchField from './SearchField.js';
 
@@ -59,5 +59,26 @@ describe('<SearchField />', () => {
       />,
     );
     expect(JSON.stringify(component.toJSON())).not.toContain('Error message');
+  });
+
+  it('should call onKeyDown callback when keyboard input is entered', () => {
+    return new Promise((resolve) => {
+      const { getByRole } = render(
+        <SearchField
+          accessibilityLabel="Demo Search Field"
+          id="searchField"
+          onChange={() => {}}
+          onKeyDown={({ event, value }) => {
+            expect(value).toEqual('Search');
+            expect(event.key).toEqual('a');
+            resolve();
+          }}
+          placeholder="Search and explore"
+          size="lg"
+          value="Search"
+        />,
+      );
+      fireEvent.keyDown(getByRole('searchbox'), { key: 'a' });
+    });
   });
 });
