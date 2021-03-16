@@ -18,9 +18,9 @@ const sidebarIndex: Array<sidebarIndexType> = [
     sectionName: 'Getting Started',
     pages: [
       "What's New",
+      'How To Work With Us',
       'Installation',
       'Development',
-      'How We Work',
       'Eslint Plugin',
       'Layouts',
       'Faq',
