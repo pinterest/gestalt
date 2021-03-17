@@ -46,7 +46,7 @@ card(
       {
         name: 'errorMessage',
         type: 'string',
-        description: `Used to communicate error information to the user. Be sure to localize the text. See the [error message](##Error-message) variant to learn more.`,
+        description: `Used to communicate error information to the user. Be sure to localize the text. See the [error message](#Error-message) variant to learn more.`,
       },
       {
         name: 'helperText',
