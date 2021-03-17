@@ -2,7 +2,7 @@
 
 exports[`Status renders 1`] = `
 <div
-  className="Flex rowGap2 xsDirectionRow"
+  className="Flex rowGap2 itemsCenter xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -11,10 +11,10 @@ exports[`Status renders 1`] = `
       aria-hidden={true}
       aria-label=""
       className="icon darkGray iconBlock"
-      height={20}
+      height={16}
       role="img"
       viewBox="0 0 24 24"
-      width={20}
+      width={16}
     >
       <path
         d="test-file-stub"
@@ -26,6 +26,7 @@ exports[`Status renders 1`] = `
   >
     <div
       className="Flex columnGap0 xsDirectionColumn"
+      style={null}
     >
       <div
         className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
