@@ -69,7 +69,7 @@ export default function Status(props: Props): Node {
 
   return (
     <Flex gap={2} alignItems={subtext ? 'start' : 'center'}>
-      <Icon accessibilityLabel="" size={20} color={color} icon={icon} />
+      <Icon accessibilityLabel="" size={16} color={color} icon={icon} />
       {textNode}
     </Flex>
   );
