@@ -34,7 +34,7 @@ card(
         description: 'The type of status to display',
       },
       {
-        name: 'name',
+        name: 'title',
         type: 'string',
         required: true,
         description: 'A label to reinforce the meaning of the status icon',
@@ -50,15 +50,8 @@ card(
 
 card(
   <MainSection
-    name="Accessibility"
-    description={`\`Accessibility\` guidelines go here. Can also include SubSections and Cards for detailed examples (see Box). Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-  />,
-);
-
-card(
-  <MainSection
     name="Localization"
-    description={`\`Localization\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
+    description={`Be sure to localize the \`title\` and \`subtext\` props. Note that localization can lengthen text by 20 to 30 percent.`}
   />,
 );
 

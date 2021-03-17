@@ -1,33 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Status renders 1`] = `
-<svg
-  aria-hidden={null}
-  aria-label="foo"
-  className="icon red iconBlock"
-  height={16}
-  role="img"
-  viewBox="0 0 24 24"
-  width={16}
+<div
+  className="Flex rowGap2 xsDirectionRow"
 >
-  <path
-    d="test-file-stub"
-  />
-</svg>
-`;
-
-exports[`Status renders an accessibility label 1`] = `
-<svg
-  aria-hidden={null}
-  aria-label="foo"
-  className="icon red iconBlock"
-  height={16}
-  role="img"
-  viewBox="0 0 24 24"
-  width={16}
->
-  <path
-    d="test-file-stub"
-  />
-</svg>
+  <div
+    className="FlexItem"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon darkGray iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Flex columnGap0 xsDirectionColumn"
+    >
+      <div
+        className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        Unstarted
+      </div>
+    </div>
+  </div>
+</div>
 `;

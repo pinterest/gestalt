@@ -43,15 +43,10 @@ export default function Status(props: Props): Node {
       icon = 'workflow-status-problem';
       color = 'red';
       break;
-    /*
-     * TODO: We're missing the canceled icon - so that'll need to be added to the Icon component
-     */
-    /*
     case 'canceled':
       icon = 'workflow-status-canceled';
-      color = 'green';
+      color = 'gray';
       break;
-    */
     case 'warning':
       icon = 'workflow-status-warning';
       color = 'orange';

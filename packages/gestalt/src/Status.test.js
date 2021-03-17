@@ -5,7 +5,7 @@ import Status from './Status.js';
 
 describe('Status', () => {
   it('renders', () => {
-    const tree = create(<Status type="unstarted" />).toJSON();
+    const tree = create(<Status type="unstarted" title="Unstarted" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
