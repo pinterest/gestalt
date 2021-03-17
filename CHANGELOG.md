@@ -1,3 +1,9 @@
+## 20.3.4 (Mar 17, 2021)
+
+### Patch
+
+- SelectList: Update docs and add Best Practices (#1409)
+
 ## 20.3.3 (Mar 16, 2021)
 
 ### Patch
