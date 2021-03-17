@@ -21,7 +21,11 @@ function HowToWorkWithUs() {
 
   return (
     <Box>
-      <PageHeader name="How to work with us" showSourceLink={false} />
+      <PageHeader
+        name="How to work with us"
+        description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute"
+        showSourceLink={false}
+      />
 
       <Markdown text={content} />
     </Box>

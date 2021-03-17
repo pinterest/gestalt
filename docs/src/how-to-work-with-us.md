@@ -1,5 +1,3 @@
-Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute
-
 ## What goes into Gestalt?
 
 The goal of Gestalt is to create a shared library of design best practices, React components, and documentation. Therefore, the best contenders for addition to Gestalt are designs or components that benefit multiple teams and are used regularly throughout our products.
