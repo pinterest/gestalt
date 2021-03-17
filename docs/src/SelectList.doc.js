@@ -28,6 +28,7 @@ card(
           {label:'France', value: 'france'},
         ]}
         size='lg'
+        label='Country'
       />
     `}
   />,
@@ -145,7 +146,7 @@ card(
     {label:'Egypt', value: 'egypt'},
     {label:'France', value: 'france'},
   ]}
-  label='City'
+  label='Country'
   size='lg'
 />`}
       />
@@ -200,27 +201,31 @@ card(
     id="selectlistexample6"
     onChange={() => {}}
     options={[
-      {label:'Impressions', value: 'v1'},
-      {label:'Pin clicks', value: 'v2'},
-      {label:'Outbound clicks', value: 'v3'},
-      {label:'Saves', value: 'v4'},
-      {label:'Engagement rate', value: 'v5'},
+      {label:'Revenue', value: 'v1'},
+      {label:'Checkouts', value: 'v2'},
+      {label:'Purchasers', value: 'v3'},
+      {label:'Page visits', value: 'v4'},
+      {label:'Add to cart', value: 'v5'},
+      {label:'Pin clicks', value: 'v6'},
     ]}
     value='v1'
     size='lg'
+    label='Metric'
   />
   <SelectList
     id="selectlistexample7"
     onChange={() => {}}
     options={[
-      {label:'Engagement', value: 'v1'},
-      {label:'Pin clicks', value: 'v2'},
-      {label:'Outbound clicks', value: 'v3'},
-      {label:'Saves', value: 'v4'},
-      {label:'Engagement rate', value: 'v5'},
+      {label:'Last 7 days', value: 'v1'},
+      {label:'Last 14 days', value: 'v2'},
+      {label:'Last 21 days', value: 'v3'},
+      {label:'Last 30 days', value: 'v4'},
+      {label:'Last 60 days', value: 'v5'},
+      {label:'Last 90 days', value: 'v6'},
     ]}
     value='v1'
     size='lg'
+    label='Date range'
   />
 </Flex>`}
       />
@@ -238,18 +243,20 @@ card(
     };
 
     return (
-      <Flex gap={2}>
+      <Flex gap={2} alignItems='end'>
       <SelectList
         id="selectlistexample8"
         onChange={() => {}}
         options={[
-          {label:'Impressions', value: 'v1'},
-          {label:'Pin clicks', value: 'v2'},
-          {label:'Outbound clicks', value: 'v3'},
-          {label:'Saves', value: 'v4'},
-          {label:'Engagement rate', value: 'v5'},
+          {label:'Revenue', value: 'v1'},
+          {label:'Checkouts', value: 'v2'},
+          {label:'Purchasers', value: 'v3'},
+          {label:'Page visits', value: 'v4'},
+          {label:'Add to cart', value: 'v5'},
+          {label:'Pin clicks', value: 'v6'},
         ]}
         size='lg'
+        label='Metric'
       />
       <Box display="flex" justifyContent="center">
 
@@ -258,7 +265,7 @@ card(
           accessibilityHaspopup
           accessibilityExpanded={ open }
           iconEnd="arrow-down"
-          text="Menu"
+          text="Date range"
           inline
           selected={open}
           icon="add"
@@ -271,27 +278,32 @@ card(
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
-              option={{ value: "item 2", label: "Engagement" }}
+              option={{ value: "item 1", label: "Last 7 days" }}
             />
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
-              option={{ value: "item 2", label: "Pin clicks" }}
+              option={{ value: "item 2", label: "Last 14 days" }}
             />
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
-              option={{ value: "item 2", label: "Outbound clicks" }}
+              option={{ value: "item 3", label: "Last 21 days" }}
             />
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
-              option={{ value: "item 2", label: "Saves" }}
+              option={{ value: "item 4", label: "Last 30 days" }}
             />
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
-              option={{ value: "item 2", label: "Engagement rate" }}
+              option={{ value: "item 5", label: "Last 60 days" }}
+            />
+            <Dropdown.Item
+              handleSelect={handleSelect}
+              selected={selected}
+              option={{ value: "item 6", label: "Last 90 days" }}
             />
           </Dropdown>
         )}
@@ -310,7 +322,7 @@ card(
     <MainSection.Subsection
       title="Labels"
       description={`
-      SelectList comes with Label built-in: just use the \`label\` prop. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.`}
+      SelectList comes with Label built-in: just use the \`label\` prop - we strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct SelectList.`}
     />
   </MainSection>,
 );
@@ -335,6 +347,7 @@ card(
     {label:'France', value: 'france'},
   ]}
   size='lg'
+  label='Country'
 />`}
       />
       <MainSection.Card
@@ -354,6 +367,7 @@ card(
       {label:'France', value: 'france'},
     ]}
     size='md'
+    label='Country'
   />`}
       />
     </MainSection.Subsection>
@@ -425,6 +439,7 @@ function Example(props) {
       options={countryOptions}
       placeholder="Select a country"
       value={country}
+      label='Country'
     />
   );
 }`}
