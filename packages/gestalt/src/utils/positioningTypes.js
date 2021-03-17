@@ -2,7 +2,7 @@
 
 export type MainDirections = 'up' | 'right' | 'down' | 'left';
 
-export type FlyoutDir = ?MainDirections;
+export type PopoverDir = ?MainDirections;
 
 export type CaretDir = MainDirections | 'middle';
 
@@ -24,7 +24,7 @@ export type Window = {|
   scrollX: number,
 |};
 
-export type EdgeShift = {| caret: Coordinates, flyout: Coordinates |};
+export type EdgeShift = {| caret: Coordinates, popover: Coordinates |};
 
 export type Offset = {|
   left: number,
@@ -40,6 +40,6 @@ export type CaretOffset = {|
 
 export type DerivedState = {|
   caretOffset: CaretOffset,
-  flyoutOffset: Offset,
-  flyoutDir: MainDirections,
+  popoverOffset: Offset,
+  popoverDir: MainDirections,
 |};

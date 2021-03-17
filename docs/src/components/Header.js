@@ -1,9 +1,10 @@
 // @flow strict
-import React, { useState, useEffect, type Node } from 'react';
+import { useState, useEffect, type Node } from 'react';
 import { Box, FixedZIndex, Text, Icon, IconButton, Sticky } from 'gestalt';
 import DocSearch from './DocSearch.js';
 import HeaderMenu from './HeaderMenu.js';
 import Link from './Link.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 import { useNavigationContext } from './navigationContext.js';
 
 function Header() {
@@ -22,7 +23,7 @@ function Header() {
     >
       <Box marginStart={-2} marginEnd={-2}>
         <Text color="white" weight="bold">
-          <Link to="/">
+          <Link to="/" onClick={() => trackButtonClick('Pinterest logo')}>
             <Box padding={2}>
               <Box
                 display="flex"

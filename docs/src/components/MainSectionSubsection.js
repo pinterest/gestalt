@@ -1,7 +1,8 @@
 // @flow strict
-import React, { type Node } from 'react';
-import { Box, Flex, Heading, IconButton, Tooltip } from 'gestalt';
+import React, { type Node, Children } from 'react';
+import { Box, Flex, Heading } from 'gestalt';
 import slugify from 'slugify';
+import CopyLinkButton from './buttons/CopyLinkButton.js';
 import Markdown from './Markdown.js';
 import { copyToClipboard } from './Card.js';
 import { convertToSentenceCase } from './utils.js';
@@ -14,6 +15,8 @@ type Props = {|
 
 const MainSectionSubsection = ({ children, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
+  const arrayChildren = Children.toArray(children);
+
   return (
     <Box marginTop={4}>
       <Box marginBottom={title || description ? 8 : 0}>
@@ -29,29 +32,29 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           >
             <Flex alignItems="center" gap={2}>
               <Heading size="sm">{convertToSentenceCase(title)}</Heading>
-              <Tooltip inline text="Copy link">
-                <IconButton
-                  accessibilityLabel={`Copy link to ${title}`}
-                  icon="link"
-                  size="xs"
-                  onClick={() => {
-                    copyToClipboard(slugifiedId);
-                  }}
-                  iconColor="darkGray"
-                />
-              </Tooltip>
+              <CopyLinkButton
+                name={title}
+                onClick={() => {
+                  copyToClipboard(slugifiedId);
+                }}
+              />
             </Flex>
           </Box>
         )}
+
         {description && (
           <Box maxWidth={572} marginTop={title ? 2 : 0} color="white">
             <Markdown text={description} />
           </Box>
         )}
       </Box>
-      {children && (
+      {arrayChildren && (
         <Flex wrap gap={4}>
-          {children}
+          {arrayChildren.map((child, idx) => (
+            <Flex.Item flex="grow" key={idx}>
+              {child}
+            </Flex.Item>
+          ))}
         </Flex>
       )}
     </Box>

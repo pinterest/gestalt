@@ -530,39 +530,17 @@ card(
       description={`Borders are controlled by the \`borderStyle\` property. Specifying a size ("sm" or "lg") enables a solid, light gray color in that width, while specifying "shadow" adds a box-shadow instead.`}
       title="Borders"
     >
-      <MainSection.Card
-        cardSize="sm"
-        title='borderStyle="sm"'
-        defaultCode={`<Box
-        width={60}
-        height={60}
-        rounding="circle"
-        color="white"
-        borderStyle="sm"
-      />`}
-      />
-      <MainSection.Card
-        cardSize="sm"
-        title='borderStyle="lg"'
-        defaultCode={`<Box
-        width={60}
-        height={60}
-        rounding="circle"
-        color="white"
-        borderStyle="lg"
-      />`}
-      />
-      <MainSection.Card
-        cardSize="sm"
-        title='borderStyle="shadow"'
-        defaultCode={`<Box
-        width={60}
-        height={60}
-        rounding="circle"
-        color="white"
-        borderStyle="shadow"
-      />`}
-      />
+      <CombinationNew borderStyle={['sm', 'lg', 'shadow']}>
+        {(props) => (
+          <Box
+            width={60}
+            height={60}
+            rounding="circle"
+            color="white"
+            borderStyle={props.borderStyle}
+          />
+        )}
+      </CombinationNew>
     </MainSection.Subsection>
     <MainSection.Subsection title="Colors">
       <CombinationNew
@@ -658,7 +636,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function BoxFlyoutExample() {
+function BoxPopoverExample() {
   const longText =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. Maecenas tincidunt neque elit, eu pretium arcu dictum ac. Donec vehicula mauris ut erat dictum, eget tempus elit luctus. In volutpat felis justo, et venenatis arcu viverra in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin enim lorem, vulputate eget imperdiet nec, dapibus sed diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse rhoncus ut leo non gravida. Nulla tincidunt tellus sit amet ornare venenatis. Sed quis lorem cursus, porttitor tellus sed, commodo ex. Praesent blandit pretium faucibus. Aenean orci tellus, vulputate id sapien sit amet, porta fermentum quam. Praesent sem risus, tristique sit amet pulvinar in, scelerisque sit amet massa.';
 
@@ -830,13 +808,13 @@ function BoxFlyoutExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`The \`ref\` property can be used to anchor a [Flyout](/Flyout) to a Box.`}
+      description={`The \`ref\` property can be used to anchor a [Popover](/Popover) to a Box.`}
       title="Using as a ref"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function BoxFlyoutExample() {
+function BoxPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
 
@@ -850,23 +828,23 @@ function BoxFlyoutExample() {
           color="red"
           onClick={ () => setOpen((prevVal) => !prevVal) }
           size="sm"
-          text={open ? "Close Flyout" : "Anchor a Flyout to Box"}
+          text={open ? "Close Popover" : "Anchor a Popover to Box"}
         />
         <Box borderStyle='sm' padding={3} ref={anchorRef} rounding={1}>
           <Text>I'm a Box</Text>
         </Box>
       </Flex>
       {open && (
-        <Flyout
+        <Popover
           anchor={anchorRef.current}
           idealDirection="right"
           onDismiss={() => {}}
           shouldFocus={false}
         >
           <Box padding={3}>
-            <Text weight="bold">I'm a Flyout anchored to a Box</Text>
+            <Text weight="bold">I'm a Popover anchored to a Box</Text>
           </Box>
-        </Flyout>
+        </Popover>
       )}
     </React.Fragment>
   );
@@ -921,7 +899,7 @@ card(
         Use Container to responsively layout content with a max-width on large screens.
 
         **[ScrollBoundaryContainer](/ScrollBoundaryContainer)**
-        For proper positioning when using anchored components (Flyout, Tooltip, etc.) within a container that could scroll, use ScrollBoundaryContainer.
+        For proper positioning when using anchored components (Popover, Tooltip, etc.) within a container that could scroll, use ScrollBoundaryContainer.
 
         **[TapArea](/TapArea)**
         If a tap target is needed in order to click on a portion of the page, use TapArea, since \`onClick\` is not supported on Box.

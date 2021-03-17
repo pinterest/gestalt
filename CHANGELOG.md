@@ -1,3 +1,81 @@
+## 20.3.3 (Mar 16, 2021)
+
+### Patch
+
+- PageHeader: Add feedback Callout to docs (#1431)
+
+## 20.3.2 (Mar 16, 2021)
+
+### Patch
+
+- SearchField: Add onKeyDown prop  (#1400)
+
+## 20.3.1 (Mar 16, 2021)
+
+### Patch
+
+- Tooltip: Only delay visibility on interaction if `link` present (#1430)
+
+## 20.3.0 (Mar 16, 2021)
+
+### Minor
+
+- PageHeader: New component and documentation (#1423)
+
+## 20.2.1 (Mar 15, 2021)
+
+### Patch
+
+- Docs: Add event tracking for buttons (#1419)
+
+## 20.2.0 (Mar 15, 2021)
+
+### Minor
+
+- Icon: add workflow-status-canceled icon (#1427)
+
+## 20.1.3 (Mar 13, 2021)
+
+### Patch
+
+- Bump react-dev-utils from 11.0.0 to 11.0.4 (#1426)
+
+## 20.1.2 (Mar 11, 2021)
+
+### Patch
+
+- Internal: Upgrade JSX transform so React no longer needs to be in scope (#1420)
+
+## 20.1.1 (Mar 9, 2021)
+
+### Patch
+
+- Upsell: Update docs and add Best Practices (#1404)
+
+## 20.1.0 (Mar 9, 2021)
+
+### Minor
+
+- Image: add elementtiming attribute for profiling (#1418)
+
+## 20.0.2 (Mar 8, 2021)
+
+### Patch
+
+- Popover: fix codemod (#1415)
+
+## 20.0.1 (Mar 8, 2021)
+
+### Patch
+
+- Internal: Bump elliptic from 6.5.3 to 6.5.4 (#1414)
+
+## 20.0.0 (Mar 8, 2021)
+
+### Major
+
+- Popover: Rename Flyout to Popover + Codemod (#1411)
+
 ## 19.2.2 (Mar 5, 2021)
 
 ### Patch

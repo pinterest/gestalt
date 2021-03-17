@@ -39,6 +39,11 @@ card(
         href: 'placeholders',
       },
       {
+        name: 'elementTiming',
+        type: 'string',
+        description: `HTML attribute for performance profiling (see https://developer.mozilla.org/en-US/docs/Web/API/Element_timing_API). Note that it only works if the ‘fit‘ prop is not set to ‘cover‘ or ‘contain‘.`,
+      },
+      {
         name: 'fit',
         type: `"cover" | "contain" | "none"`,
         defaultValue: 'none',

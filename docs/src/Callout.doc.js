@@ -198,7 +198,7 @@ card(
                 imageData={{
                   component: <Icon icon="send" accessibilityLabel="Send" color="darkGray" size={32}/>
                 }}
-                title="So close! Finish installing your pinterest tag, get $10 in ads credit"
+                title="So close! Finish installing your Pinterest tag, get $10 in ads credit"
                 message="Track ads conversion—sales, traffic and more—with the Pinterest tag"
                 primaryAction={{label: "Claim now"}}
               />
@@ -470,11 +470,11 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-      **[Upsell](/upsell)**
+      **[Upsell](/Upsell)**
       If marketing new products or features, or encouraging upgrades, use Upsell instead.
 
-      **[Toast](/toast)**
-      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and typically disappear after a certain duration.
+      **[Toast](/Toast)**
+      Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
 
       **[ActivationCard](/ActivationCard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.

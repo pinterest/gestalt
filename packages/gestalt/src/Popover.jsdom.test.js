@@ -1,12 +1,12 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
-import Flyout from './Flyout.js';
+import Popover from './Popover.js';
 
-test('Flyout renders', () => {
+test('Popover renders', () => {
   const element = document.createElement('div');
   const component = create(
-    <Flyout anchor={element} idealDirection="down" onDismiss={jest.fn()} size="sm" />,
+    <Popover anchor={element} idealDirection="down" onDismiss={jest.fn()} size="sm" />,
     {
       createNodeMock: () => true,
     },
@@ -15,10 +15,10 @@ test('Flyout renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Flyout renders as error', () => {
+test('Popover renders as error', () => {
   const element = document.createElement('div');
   const component = create(
-    <Flyout anchor={element} idealDirection="down" onDismiss={jest.fn()} color="red" size="sm" />,
+    <Popover anchor={element} idealDirection="down" onDismiss={jest.fn()} color="red" size="sm" />,
     {
       createNodeMock: () => true,
     },
@@ -27,10 +27,10 @@ test('Flyout renders as error', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Flyout renders as blue', () => {
+test('Popover renders as blue', () => {
   const element = document.createElement('div');
   const component = create(
-    <Flyout anchor={element} idealDirection="down" onDismiss={jest.fn()} color="blue" size="sm" />,
+    <Popover anchor={element} idealDirection="down" onDismiss={jest.fn()} color="blue" size="sm" />,
     {
       createNodeMock: () => true,
     },
@@ -39,7 +39,7 @@ test('Flyout renders as blue', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Flyout does not render when the anchor is null', () => {
-  const tree = create(<Flyout anchor={null} onDismiss={() => {}} />).toJSON();
+test('Popover does not render when the anchor is null', () => {
+  const tree = create(<Popover anchor={null} onDismiss={() => {}} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -3,6 +3,7 @@ import React, { type Node } from 'react';
 import { Badge, Box, Flex, Heading, Text, Tooltip } from 'gestalt';
 import Markdown from './Markdown.js';
 import MainSection from './MainSection.js';
+import trackButtonClick from './buttons/trackButtonClick.js';
 
 type Props = {|
   name: string,
@@ -11,6 +12,7 @@ type Props = {|
   fileName?: string, // only use if name !== file name
   showSourceLink?: boolean,
   defaultCode?: string,
+  shadedCodeExample?: boolean,
 |};
 
 const gestaltPath = (component) => {
@@ -28,6 +30,7 @@ export default function ComponentHeader({
   fileName,
   showSourceLink = true,
   defaultCode,
+  shadedCodeExample,
 }: Props): Node {
   return (
     <Box
@@ -52,7 +55,11 @@ export default function ComponentHeader({
             ) : null}
           </Heading>
           {showSourceLink && (
-            <a href={githubUrl(fileName ?? name)} target="blank">
+            <a
+              href={githubUrl(fileName ?? name)}
+              onClick={() => trackButtonClick('View source on GitHub', fileName ?? name)}
+              target="blank"
+            >
               <Text underline>View source on GitHub</Text>
             </a>
           )}
@@ -61,7 +68,12 @@ export default function ComponentHeader({
       {description && <Markdown text={description} />}
       {defaultCode && (
         <Box marginTop={8}>
-          <MainSection.Card cardSize="lg" showCode={false} defaultCode={defaultCode} />
+          <MainSection.Card
+            cardSize="lg"
+            showCode={false}
+            defaultCode={defaultCode}
+            shaded={shadedCodeExample}
+          />
         </Box>
       )}
     </Box>

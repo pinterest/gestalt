@@ -71,6 +71,7 @@
     "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
+    "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "react/state-in-constructor": ["error", "never"],
     "react/static-property-placement": ["error", "static public field"]

@@ -421,7 +421,7 @@ card(
     id="ref"
     name="ref"
     defaultCode={`
-function IconButtonFlyoutExample() {
+function IconButtonPopoverExample() {
   const [open, setOpen] = React.useState(false);
   const [checked, setChecked] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -437,7 +437,7 @@ function IconButtonFlyoutExample() {
         ref={anchorRef}
       />
       {open && checked &&(
-        <Flyout
+        <Popover
           anchor={anchorRef.current}
           idealDirection="right"
           onDismiss={() => setOpen(false)}
@@ -446,7 +446,7 @@ function IconButtonFlyoutExample() {
           <Box padding={3}>
             <Text weight="bold">You loved this pin!</Text>
           </Box>
-        </Flyout>
+        </Popover>
       )}
     </React.Fragment>
   );
@@ -476,7 +476,7 @@ function MenuIconButtonExample() {
       />
       {selected && (
         <Layer>
-          <Flyout
+          <Popover
             anchor={anchorRef.current}
             idealDirection="down"
             onDismiss={() => setSelected(false)}
@@ -500,7 +500,7 @@ function MenuIconButtonExample() {
                 </Text>
               </Box>
             </Box>
-          </Flyout>
+          </Popover>
         </Layer>
       )}
     </React.Fragment>

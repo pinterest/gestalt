@@ -18,7 +18,6 @@ import Container from './Container.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';
-import Flyout from './Flyout.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
@@ -34,7 +33,9 @@ import MasonryDefaultLayout from './layouts/MasonryLayout.js';
 import MasonryUniformRowLayout from './layouts/UniformRowLayout.js';
 import Modal from './Modal.js';
 import Module from './Module.js';
+import PageHeader from './PageHeader.js';
 import Pog from './Pog.js';
+import Popover from './Popover.js';
 import Provider from './Provider.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
@@ -85,7 +86,6 @@ export {
   Dropdown,
   FixedZIndex,
   Flex,
-  Flyout,
   GroupAvatar,
   Heading,
   Icon,
@@ -101,7 +101,9 @@ export {
   MasonryUniformRowLayout,
   Modal,
   Module,
+  PageHeader,
   Pog,
+  Popover,
   Provider,
   Pulsar,
   RadioButton,

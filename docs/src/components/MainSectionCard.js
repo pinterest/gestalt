@@ -104,7 +104,7 @@ const MainSectionCard = ({
   return (
     <Box
       width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      minWidth={cardSize === 'lg' ? 740 : undefined}
+      minWidth={cardSize === 'lg' ? '100%' : undefined}
       marginBottom={12}
     >
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}

@@ -2,7 +2,7 @@
 import React, { Children, cloneElement, useState, useRef, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
-import Flyout from './Flyout.js';
+import Popover from './Popover.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
@@ -172,7 +172,7 @@ export default function Dropdown({
 
   return (
     <Layer zIndex={zIndex}>
-      <Flyout
+      <Popover
         anchor={anchor}
         color="white"
         handleKeyDown={handleKeyDown}
@@ -196,7 +196,7 @@ export default function Dropdown({
             {renderChildrenWithIndex()}
           </DropdownContext.Provider>
         </Box>
-      </Flyout>
+      </Popover>
     </Layer>
   );
 }
