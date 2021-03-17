@@ -89,6 +89,6 @@ Status.propTypes = {
     'canceled',
     'warning',
   ]).isRequired,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   subtext: PropTypes.string,
 };
