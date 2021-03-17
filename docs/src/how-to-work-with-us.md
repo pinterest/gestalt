@@ -6,7 +6,7 @@ The goal of Gestalt is to create a shared library of design best practices, Reac
 
 ## What is the process to request new additions or changes?
 
-What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [partnership meetings](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:h2=Meetings-and-Events) \*\*\*\*to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
+What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [partnership meetings](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:h2=Meetings-and-Events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
 
 We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
 
@@ -62,7 +62,7 @@ We always appreciate the help and contributions of other engineers across Pinter
 3. **Pull request**
    Once the TDD has been finalized, make a pull request for your changes by following the [development guidelines](https://gestalt.netlify.app/Development)[.](https://w.pinadmin.com/display/WT/Gestalt#Gestalt-CreateaPullRequest) Your changes will be reviewed by the gestalt-core GitHub Team and a Gestalt designer. We ensure each component is built to spec, accessible, performant and works well with other components.
 4. **Release**
-   Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100)[gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.
+   Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.
 
 ## Other ways to contribute
 
@@ -81,16 +81,16 @@ We also offer documentation on this site ([go/GestaltWeb](https://gestalt.netlif
 ## Resources, Slack, and Meetings - oh my!
 
 **Dashboards, JIRA, and OKRs**
-If you’re curious what we’re working on, you can check out our Gestalt [Sprint Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29640), our [full backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100), and our [Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639). You can also reference our [go/](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630)[G](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630)[estalt](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630)[T](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630)[racker](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630) [](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630)to see the immediate, larger component changes that are in the pipeline.
+If you’re curious what we’re working on, you can check out our Gestalt [Sprint Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29640), our [full backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100), and our [Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639). You can also reference our [go/GestaltTracker](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630) to see the immediate, larger component changes that are in the pipeline.
 
 To see the bigger picture, you can view our [OKRs](https://coda.io/d/Pinterest-2021-EPD-OKR-Tracker_de-g0jv4ClO/Gestalt-Design_suAbV#_luyId) to understand our roadmap and priorities for each quarter. These priorities are determined through our [partnership meetings](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:h2=Meetings-and-Events), which we use to learn about component needs and coordinate with designers to determine the timelines.
 
 **Slack Channels**
 Before reaching out, take a look at our [documentation](http://gestalt.netlifyapp.com) to see if it answers your question, because it will likely get you the fastest answer. Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. You can also reference our [Communication Guidelines](https://paper.dropbox.com/doc/2CXysUNfbx9mq0b6ge53Y) for more info.
 
-\*\*\*\*#gestalt-design is the best way to reach the Gestalt design team for design focused questions.
+[#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) is the best way to reach the Gestalt design team for design focused questions.
 
-#gestalt-web is for more engineering-focused questions.
+[#gestalt-web](https://pinterest.slack.com/archives/C13KLG5P0) is for more engineering-focused questions.
 
 **Meetings and Events**
 Our meetings, events, and timelines can be found on our [Gestalt Event Calendar](https://calendar.google.com/calendar/u/0?cid=Y19ubnVsdjdjNGRsY3RxbG1jcHVlOWVyaHFuc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
