@@ -1,9 +1,8 @@
 // @flow strict
-
 import React, { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import Box from './Box.js';
+import Flex from './Flex.js';
 import focusStyles from './Focus.css';
 import icons from './icons/index.js';
 import styles from './Button.css';
@@ -93,12 +92,10 @@ const IconEnd = ({
   icon: $Keys<typeof icons>,
   size: string,
 |}): Node => (
-  <Box alignItems="center" display="flex">
+  <Flex alignItems="center" gap={2} justifyContent="center">
     {text}
-    <Box display="inlineBlock" flex="none" marginStart={2}>
-      <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
-    </Box>
-  </Box>
+    <Icon accessibilityLabel="" color={textColor} icon={icon} size={SIZE_NAME_TO_PIXEL[size]} />
+  </Flex>
 );
 
 const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = forwardRef<
