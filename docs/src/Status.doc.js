@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Status"
-    description="Brief description of this component"
+    description="Status is an indicator with an icon that provides information to a user."
     defaultCode={`
 <Flex>
   <Status type='ok' title="OK" subtext="Updated 2 days ago" />
