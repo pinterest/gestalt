@@ -1,3 +1,9 @@
+## 20.3.5 (Mar 17, 2021)
+
+### Patch
+
+- ScrollBoundaryContainer: fix positioning within when no available space condition is met (#1428)
+
 ## 20.3.4 (Mar 17, 2021)
 
 ### Patch
