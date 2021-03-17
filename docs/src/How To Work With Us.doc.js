@@ -1,14 +1,30 @@
 // @flow strict
 import React, { type Node } from 'react';
 import { Box, Flex, Heading, Link, Text } from 'gestalt';
+import Markdown from './components/Markdown.js';
 import PageHeader from './components/PageHeader.js';
+import pageContent from './how-to-work-with-us.md';
 
 const cards: Array<Node> = [];
+
 const card = (c) => cards.push(c);
-function Changelog() {
+function HowToWorkWithUs() {
+  const [content, setContent] = React.useState('');
+
+  React.useEffect(() => {
+    fetch(pageContent)
+      .then((res) => res.text())
+      .then((md) => {
+        setContent(md);
+      });
+  });
+
   return (
     <Box>
       <PageHeader name="How to work with us" showSourceLink={false} />
+
+      <Markdown text={content} />
+
       <Flex alignItems="start" direction="column" gap={4}>
         <Text>
           Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute
@@ -331,6 +347,6 @@ function Changelog() {
   );
 }
 
-card(<Changelog />);
+card(<HowToWorkWithUs />);
 
 export default cards;
