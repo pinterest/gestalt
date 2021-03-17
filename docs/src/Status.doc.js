@@ -65,7 +65,15 @@ card(
         cardSize="md"
         title="Status name"
         defaultCode={`
-        <Status type='ok' title='OK' />
+<Flex direction="column" gap={4}>
+  <Status type='unstarted' title='Unstarted' />
+  <Status type='inProgress' title='In progress' />
+  <Status type='halted' title='Halted' />
+  <Status type='ok' title='OK' />
+  <Status type='canceled' title='Canceled' />
+  <Status type='warning' title='Warning' />
+  <Status type='problem' title='Problem' />
+</Flex>
 `}
       />
       <MainSection.Card
