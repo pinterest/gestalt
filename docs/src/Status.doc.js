@@ -29,7 +29,6 @@ card(
       {
         name: 'type',
         type: `'unstarted' | 'inProgress' | 'halted' | 'ok' | 'problem' | 'canceled' | 'warning'`,
-        defaultValue: 'unstarted',
         required: true,
         description: 'The type of status to display',
       },
