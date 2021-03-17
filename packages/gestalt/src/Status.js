@@ -57,7 +57,10 @@ export default function Status(props: Props): Node {
   }
 
   const textNode = title && (
-    <Flex direction="column">
+    /*
+     * TODO: Tell me how to do this correctly w/in the Gestalt dev workflow
+     */
+    <Flex direction="column" style={subtext ? { marginTop: -1 } : null}>
       <Text size="md">{title}</Text>
       {subtext ? (
         <Text size="md" color="gray">
