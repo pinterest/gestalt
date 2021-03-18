@@ -45,7 +45,7 @@ type Props = {|
   subtext?: string,
 |};
 
-export default function Status({ type = 'unstarted', title, subtext }: Props): Node {
+export default function Status({ type, title, subtext }: Props): Node {
   const { icon, color } = ICON_COLOR_MAP[type];
 
   return (
