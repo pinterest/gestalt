@@ -1,3 +1,9 @@
+## 21.0.0 (Mar 18, 2021)
+
+### Major
+
+- Provider/Link/Button/IconButton/TapArea/+composed components: refactor link logic to support custom navigation within onClick prop in consumers + Codemode (#1398)
+
 ## 20.3.5 (Mar 17, 2021)
 
 ### Patch
