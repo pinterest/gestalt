@@ -13,7 +13,7 @@ exports[`Status renders 1`] = `
       <svg
         aria-hidden={true}
         aria-label=""
-        className="icon darkGray\` iconBlock"
+        className="icon darkGray iconBlock"
         height={16}
         role="img"
         viewBox="0 0 24 24"
