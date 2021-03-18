@@ -11,7 +11,7 @@ export type StatusColor = 'gray' | 'green' | 'orange' | 'red';
 const ICON_COLOR_MAP = {
   unstarted: {
     icon: 'workflow-status-unstarted',
-    color: 'darkGray`',
+    color: 'darkGray',
   },
   inProgress: {
     icon: 'workflow-status-in-progress',
