@@ -1,3 +1,9 @@
+## 21.0.1 (Mar 18, 2021)
+
+### Patch
+
+- Popover: Updated Docs and added Best Practices
+
 ## 21.0.0 (Mar 18, 2021)
 
 ### Major
