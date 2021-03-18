@@ -76,7 +76,7 @@ card(
         cardSize="md"
         title="Status subtext"
         defaultCode={`
-        <Status type='warning' title='Warning' subtext='Updated 2 days ago' />
+<Status type='warning' title='Warning' subtext='Updated 2 days ago' />
 `}
       />
     </MainSection.Subsection>
