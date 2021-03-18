@@ -5,6 +5,7 @@ import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
 import FeedbackCallout from './components/FeedbackCallout.js';
+import { customNavigationDescription } from './components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -70,22 +71,24 @@ card(
       {
         name: 'primaryAction',
         type:
-          '{| accessibilityLabel?: string , href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void',
+          '{| accessibilityLabel?: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation?: () => void |}',
         required: false,
         defaultValue: null,
         description: `
-          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
+          Main action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [custom navigation](#Custom-navigation) variant for examples.
+          If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
       },
       {
         name: 'secondaryAction',
         type:
-          '{| accessibilityLabel?: string , href?: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void, rel: "none" | "nofollow", target: "null" | "self" | "blank" |}',
+          '{| accessibilityLabel?: string, href?: string, label: string, onClick?: AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation?: () => void |}',
         required: false,
         defaultValue: null,
         description: `
-          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. If no \`href\` is supplied, the action will be a button.
+          Secondary action for people to take on Upsell. If \`href\` is supplied, the action will serve as a link. See [custom navigation](#Custom-navigation) variant for examples.
+          If no \`href\` is supplied, the action will be a button.
           The \`accessibilityLabel\` should follow the [Accessibility guidelines](#Accessibility).
         `,
       },
@@ -699,6 +702,101 @@ function Example(props) {
 `}
       />
     </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={customNavigationDescription('Upsell')}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+
+  const onNavigation = ({ href,target }) => {
+    const onNavigationClick = ({ event }) => {
+      event.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  const customOnNavigation = () => {
+    // eslint-disable-next-line no-alert
+    alert('CUSTOM NAVIGATION set on <Upsell primaryAction secondaryAction/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
+    window.open('https://help.pinterest.com', '_blank');
+  }
+
+  const onClickHandler = ({ event, disableOnNavigation }) => {
+    if (onNavigationMode === 'provider_disabled') {
+      disableOnNavigation()
+    } else if (onNavigationMode === 'link_custom') {
+      event.preventDefault();
+      disableOnNavigation();
+      customOnNavigation();
+    }
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    onClick: onClickHandler,
+    target:"blank",
+  }
+
+  return (
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default navigation (disabled custom navigation set on Provider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom navigation set on Provider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom navigation set on Link"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
+        </Flex>
+        <Upsell
+          title="Give $30, get $60 in ads credit"
+          message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
+          primaryAction={
+            { ...linkProps,
+              label: 'Send invite'
+            }}
+          dismissButton={{
+            accessibilityLabel: 'Dismiss banner',
+            onDismiss: () => {},
+          }}
+          imageData={{
+            component: <Icon icon="pinterest" accessibilityLabel="Pin" color="darkGray" size={32}/>
+          }}
+        />
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
   </MainSection>,
 );
 
@@ -711,6 +809,10 @@ card(
 
       **[Toast](/Toast)**
       Toast provides feedback on a user interaction, like a confirmation that appears when a Pin has been saved. Unlike Upsell and Callout, Toasts don’t contain actions. They’re also less persistent, and disappear after a certain duration.
+
+      **[Provider](/Provider)**
+      Provider allows external link navigation control across all children components with link behavior.
+      See [custom navigation](#Custom-navigation) variant for examples.
 
       **[ActivationCard](/ActivationCard)**
       ActivationCards are used in groups to communicate a user’s stage in a series of steps toward an overall action.

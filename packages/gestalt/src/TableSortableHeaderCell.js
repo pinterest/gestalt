@@ -4,17 +4,18 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import TableHeaderCell from './TableHeaderCell.js';
 import TapArea from './TapArea.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   children: Node,
   colSpan?: number,
-  onSortChange: ({|
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-      | SyntheticMouseEvent<HTMLAnchorElement>
-      | SyntheticKeyboardEvent<HTMLAnchorElement>,
-  |}) => void,
+  onSortChange: AbstractEventHandler<
+    | SyntheticMouseEvent<HTMLDivElement>
+    | SyntheticKeyboardEvent<HTMLDivElement>
+    | SyntheticMouseEvent<HTMLAnchorElement>
+    | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation?: () => void |},
+  >,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',
   sortOrder: 'asc' | 'desc',

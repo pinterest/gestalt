@@ -3,6 +3,8 @@ import React, { type Node } from 'react';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
+import { customNavigationDescription } from './components/docsUtils.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -42,18 +44,15 @@ card(
       {
         name: 'link',
         type:
-          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }) => void |}, onNavigationOptions: ({ [string]: Node | ({| +event: SyntheticEvent<> |}) => void }) => void, rel: "none" | "nofollow", target: "null" | "self" | "blank" |}',
+          '{| accessibilityLabel?: string , href: string, label: string, onClick?: ({ event: SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement | SyntheticMouseEvent<HTMLButtonElement> | SyntheticKeyboardEvent<HTMLButtonElement> }, {| disableOnNavigation?: () => void |}) => void |}',
         required: false,
         defaultValue: null,
         description: [
           'Link-role button to render inside the activation card as a call-to-action to the user.',
           '- label: Text to render inside the button to convey the function and purpose of the button. The button text has a fixed size.',
           '- accessibilityLabel: Supply a short, descriptive label for screen-readers to replace button texts that do not provide sufficient context about the button component behavior. Texts like `Click Here,` `Follow,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the button text.',
-          '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard.',
-          `- onNavigationOptions: onNavigationOptions works in conjunction with a Provider. Pass custom props to onNavigation. See Provider for examples. onNavigation's type is flexible. Each key's value is a React.Node or an event handler function.`,
-          'Accessibility: `accessibilityLabel` populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the button `text`.',
+          '- onClick: Callback fired when the button component is clicked (pressed and released) with a mouse or keyboard. See [custom navigation](#Custom-navigation) variant for examples.',
         ],
-        href: '',
       },
       {
         name: 'status',
@@ -156,6 +155,117 @@ card(
 </Box>
   `}
   />,
+);
+
+card(
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Custom navigation"
+      description={customNavigationDescription('ActivationCard')}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+function OnNavigation() {
+  const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
+
+  const onNavigation = ({ href,target }) => {
+    const onNavigationClick = ({ event }) => {
+      event.preventDefault();
+      // eslint-disable-next-line no-alert
+      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
+    }
+    return onNavigationClick;
+  }
+
+  const customOnNavigation = () => {
+    // eslint-disable-next-line no-alert
+    alert('CUSTOM NAVIGATION set on <ActivationCard link/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
+    window.open('https://help.pinterest.com', '_blank');
+  }
+
+  const onClickHandler = ({ event, disableOnNavigation }) => {
+    if (onNavigationMode === 'provider_disabled') {
+      disableOnNavigation()
+    } else if (onNavigationMode === 'link_custom') {
+      event.preventDefault();
+      disableOnNavigation();
+      customOnNavigation();
+    }
+  }
+
+  const linkProps = {
+    href:"https://pinterest.com",
+    onClick: onClickHandler,
+    target:"blank",
+  }
+
+  return (
+    <Provider onNavigation={onNavigation}>
+      <Flex direction="column" gap={2}>
+        <Flex direction="column" gap={2}>
+          <Text>Navigation controller:</Text>
+            <RadioButton
+              checked={onNavigationMode === 'provider_disabled'}
+              id="provider_disabled"
+              label="Default navigation (disabled custom navigation set on Provider)"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_disabled')}
+              value="provider_disabled"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'provider_custom'}
+              id="provider_custom"
+              label="Custom navigation set on Provider"
+              name="navigation"
+              onChange={() => setOnNavigationMode('provider_custom')}
+              value="provider_custom"
+            />
+            <RadioButton
+              checked={onNavigationMode === 'link_custom'}
+              id="link_custom"
+              label="Custom navigation set on Link"
+              name="navigation"
+              onChange={() => setOnNavigationMode('link_custom')}
+              value="link_custom"
+            />
+          <Divider/>
+        </Flex>
+        <ActivationCard
+            status="notStarted"
+            statusMessage="Not started"
+            title="Claim your website"
+            message="Grow distribution and track Pins linked to your website"
+            link={{
+              ...linkProps,
+              label: 'Claim your website now'
+            }}
+            dismissButton={{
+              accessibilityLabel: 'Dismiss card',
+              onDismiss: ()=>{},
+            }}
+          />
+      </Flex>
+    </Provider>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
+card(
+  <MainSection name="Related">
+    <MainSection.Subsection
+      description={`
+**[Provider](/Provider)**
+Provider allows external link navigation control across all children components with link behavior.
+See [custom navigation](#Custom-navigation) variant for examples.
+      `}
+    />
+  </MainSection>,
 );
 
 export default cards;

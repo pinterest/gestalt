@@ -1,10 +1,6 @@
 // @flow strict
 import PropTypes from 'prop-types';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import {
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
 
 export type ActionDataType = {|
   accessibilityLabel?: string,
@@ -15,8 +11,8 @@ export type ActionDataType = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
+    {| disableOnNavigation?: () => void |},
   >,
-  onNavigationOptions?: OnNavigationOptionsType,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',
 |};
@@ -28,12 +24,11 @@ export type DismissButtonType = {|
 
 // $FlowFixMe[incompatible-exact]
 export const ActionDataPropType: React$PropType$Primitive<ActionDataType> = PropTypes.exact({
+  accessibilityLabel: PropTypes.string,
   href: PropTypes.string,
   label: PropTypes.string.isRequired,
   // $FlowFixMe[incompatible-type]
   onClick: PropTypes.func,
-  accessibilityLabel: PropTypes.string,
-  onNavigationOptions: OnNavigationOptionsPropType,
   rel: PropTypes.oneOf(['none', 'nofollow']),
   target: PropTypes.oneOf([null, 'self', 'blank']),
 });

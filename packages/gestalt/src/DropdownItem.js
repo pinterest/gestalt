@@ -3,10 +3,7 @@ import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
 import DropdownContext from './DropdownContextProvider.js';
-import {
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type PublicProps = {|
   badgeText?: string,
@@ -16,10 +13,13 @@ type PublicProps = {|
     item: OptionObject,
   |}) => void,
   isExternal?: boolean,
+  onClick?: AbstractEventHandler<
+    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation?: () => void |},
+  >,
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   href?: string,
-  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 type PrivateProps = {|
@@ -37,10 +37,10 @@ export default function DropdownItem({
   handleSelect,
   index = 0,
   isExternal,
+  onClick,
   option,
   selected,
   href,
-  onNavigationOptions,
 }: Props): Node {
   return (
     <DropdownContext.Consumer>
@@ -53,6 +53,7 @@ export default function DropdownItem({
           id={id}
           index={index}
           isExternal={isExternal}
+          onClick={onClick}
           option={option}
           role="menuitem"
           selected={selected}
@@ -61,7 +62,6 @@ export default function DropdownItem({
           shouldTruncate
           textWeight="bold"
           href={href}
-          onNavigationOptions={onNavigationOptions ?? {}}
         >
           {children}
         </MenuOption>
@@ -75,6 +75,7 @@ DropdownItem.displayName = 'DropdownItem';
 DropdownItem.propTypes = {
   badgeText: PropTypes.string,
   isExternal: PropTypes.bool,
+  onClick: PropTypes.func,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.shape({
     label: PropTypes.string.isRequired,
@@ -98,5 +99,4 @@ DropdownItem.propTypes = {
   ]),
   handleSelect: PropTypes.func,
   href: PropTypes.string,
-  onNavigationOptions: OnNavigationOptionsPropType,
 };

@@ -12,10 +12,7 @@ import getRoundingClassName from './getRoundingClassName.js';
 import Icon from './Icon.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
-import {
-  type OnNavigationOptionsType,
-  OnNavigationOptionsPropType,
-} from './contexts/OnNavigation.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 export type OptionObject = {|
   label: string,
@@ -27,6 +24,10 @@ type Props = {|
   badgeText?: string,
   children?: Node,
   index: number,
+  onClick?: AbstractEventHandler<
+    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation?: () => void |},
+  >,
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   handleSelect?: ({|
@@ -42,7 +43,6 @@ type Props = {|
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
   href?: string,
-  onNavigationOptions?: OnNavigationOptionsType,
 |};
 
 export default function MenuOption({
@@ -53,6 +53,7 @@ export default function MenuOption({
   id,
   index,
   isExternal,
+  onClick,
   option,
   role,
   selected,
@@ -61,7 +62,6 @@ export default function MenuOption({
   shouldTruncate = false,
   textWeight = 'normal',
   href,
-  onNavigationOptions,
 }: Props): Node {
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
@@ -164,12 +164,7 @@ export default function MenuOption({
     >
       <Box padding={2} color={optionStateColor} rounding={2} display="flex" direction="column">
         {href ? (
-          <Link
-            hoverStyle="none"
-            href={href}
-            onNavigationOptions={onNavigationOptions ?? {}}
-            target="blank"
-          >
+          <Link hoverStyle="none" href={href} onClick={onClick} target="blank">
             {menuOptionContents}
           </Link>
         ) : (
@@ -185,6 +180,7 @@ MenuOption.displayName = 'MenuOption';
 MenuOption.propTypes = {
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
@@ -211,5 +207,4 @@ MenuOption.propTypes = {
   setHoveredItem: PropTypes.func,
   setOptionRef: PropTypes.func,
   href: PropTypes.string,
-  onNavigationOptions: OnNavigationOptionsPropType,
 };
