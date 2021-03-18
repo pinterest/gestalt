@@ -53,6 +53,10 @@ function Example() {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef();
 
+  React.useEffect(() => {
+    setOpen(true)
+  }, []);
+
   return (
     <ScrollBoundaryContainer height={200}>
       <Box padding={4} width={600}>
@@ -64,18 +68,24 @@ function Example() {
           </Box>
           <Button
             ref={anchorRef}
+            href="https://help.pinterest.com/en/business/article/data-source-ingestion"
             inline
+            iconEnd="visit"
+            onClick={() => setOpen(false)}
+            role="link"
+            target="blank"
             text="Help"
-            onClick={() => setOpen(!open)}
           />
           {open && (
             <Layer>
               <Popover
                 anchor={anchorRef.current}
+                color="blue"
                 idealDirection="right"
-                onDismiss={() => setOpen(false)}
+                onDismiss={() => {}}
                 positionRelativeToAnchor={false}
-                size="sm"
+                showCaret
+                size="xs"
               >
                 <Box
                   padding={3}
@@ -84,18 +94,9 @@ function Example() {
                   direction="column"
                   column={12}
                 >
-                  <Text align="center">
+                  <Text color="white" align="center">
                     Need help with something? Check out our Help Center.
                   </Text>
-                  <Box paddingX={2} marginTop={3}>
-                    <Button
-                      color="red"
-                      role="link"
-                      target="blank"
-                      text="Visit the help center"
-                      href="https://help.pinterest.com/en/business/article/data-source-ingestion"
-                    />
-                  </Box>
                 </Box>
               </Popover>
             </Layer>

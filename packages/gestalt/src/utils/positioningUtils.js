@@ -173,7 +173,7 @@ export function getPopoverDir({
     down = 0;
   }
 
-  // Chose the main direction for the popover based on available spaces & user preference
+  // Choose the main direction for the popover based on available spaces & user preference
   const spaces = [up, right, down, left];
   const noAvailableSpaceConditionSpaces = [up, down];
 
