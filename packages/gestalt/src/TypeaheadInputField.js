@@ -93,7 +93,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   const handleClick = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     handleFocus(event);
     setContainer(true);
-    ref.current.focus();
+    ref.current?.focus();
   };
 
   const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
