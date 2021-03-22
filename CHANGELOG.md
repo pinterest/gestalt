@@ -1,3 +1,9 @@
+## 21.0.2 (Mar 22, 2021)
+
+### Patch
+
+- Docs: fix example in Popover docs page (#1434)
+
 ## 21.0.1 (Mar 18, 2021)
 
 ### Patch
