@@ -978,7 +978,7 @@ function ScrollBoundaryContainerExample() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState(null);
   const anchorDropdownRef = React.useRef(null);
-  const handleSelect = ({ item }) => setSelected(item)};
+  const handleSelect = ({ item }) => setSelected(item);
 
   const SearchBoardField = () => {
     const ref = React.useRef();
