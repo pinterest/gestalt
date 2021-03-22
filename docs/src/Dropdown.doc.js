@@ -89,14 +89,14 @@ card(
         name: 'anchor',
         type: '?HTMLElement',
         description:
-          'Ref for the element that the Dropdown will attach to, will most likely be a Button. See the [Accessibility](#Accessibility) guidelines to learn more.',
+          'Ref for the element that the Dropdown will attach to, will most likely be a [Button](/Button). See the [Accessibility](#Accessibility) guidelines to learn more.',
       },
       {
         name: 'children',
         required: true,
         type: 'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
         description:
-          'Should consist of Dropdown.Item and/or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
+          'Must be instances of Dropdown.Item and/or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
       },
       {
         name: 'headerContent',
@@ -109,7 +109,7 @@ card(
         type: 'string',
         required: true,
         description:
-          'Unique id to identify this Dropdown. Used for [Accessibility](#Accessibility) purposes.',
+          'Unique id to identify each Dropdown. Used for [Accessibility](#Accessibility) purposes.',
       },
       {
         name: 'idealDirection',
@@ -121,18 +121,19 @@ card(
         name: 'onDismiss',
         type: '() => void',
         required: true,
-        description: 'Callback when the menu is closed.',
+        description: 'Callback fired when the menu is closed.',
       },
       {
         name: 'onSelect',
         type:
-          '({ event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} }) => void',
-        description: 'Callback when you select an item.',
+          '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
+        description: 'Callback fired when you select an item.',
       },
       {
         name: 'zIndex',
         type: 'interface Indexable { index(): number; }',
-        description: 'An object representing the zIndex value of the Dropdown menu.',
+        description:
+          'An object representing the zIndex value of the Dropdown menu. Learn more about [zIndex classes](/ZIndex%20Classes)',
       },
     ]}
   />,
@@ -148,7 +149,7 @@ card(
         name: 'badgeText',
         type: 'string',
         description:
-          "When supplied, will display a Badge next to the item's label. See the [Badges](#Badges) variant to learn more.",
+          "When supplied, will display a [Badge](/Badge) next to the item's label. See the [Badges](#Badges) variant to learn more.",
       },
       {
         name: 'children',
@@ -166,7 +167,7 @@ card(
         name: 'option',
         type: '{| label: string, value: string, subtext?: string |}',
         required: true,
-        description: 'Object detailing the label, value, and (optional) subtext for this item.',
+        description: 'Object detailing the label, value, and optional subtext for this item.',
       },
       {
         name: 'selected',
@@ -229,7 +230,7 @@ card(
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Use Dropdown when additional functionality is needed such as subtext, custom header etc."
+        description="Use Dropdown when features such as subtext, custom headers or badges are needed, since this functionality is not available in [SelectList](/SelectList)."
         defaultCode={`
       function BestPracticeDropdownExample() {
         const [open, setOpen] = React.useState(false);
@@ -599,7 +600,7 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-    <b>Important</b>: remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
+    Remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
 
     * \`aria-controls\`: lets the screen reader know that this element controls the Dropdown menu (should match the \`id\` property passed to Dropdown).
     * \`aria-haspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger.
@@ -624,7 +625,7 @@ card(
     <MainSection.Subsection
       title="Truncation"
       description={`
-      When the text of the DropdownItem becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.
+      When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.
       `}
     >
       <MainSection.Card
@@ -777,7 +778,7 @@ function LinkDropdownExample() {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Sections"
-      description="Dropdown can also be composed of DropdownSections, which simply require a label. Use DropdownSections to create hierarchy within a single Dropdown. DropdownSections and DropdownItems can be mixed as needed."
+      description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Section and Dropdown.Items can be mixed as needed."
     >
       <MainSection.Card
         cardSize="lg"
@@ -803,7 +804,7 @@ function SectionsIconButtonDropdownExample() {
         accessibilityLabel="More Options"
         icon="add"
         iconColor="darkGray"
-        bgColor="gray"
+        bgColor="lightGray"
         selected={open}
         onClick={ () => setOpen((prevVal) => !prevVal) }
         ref={anchorRef}
@@ -1193,7 +1194,7 @@ function OnNavigation() {
     <MainSection.Subsection
       title="Custom item content"
       description={`
-      If needed, users can supply custom content to each Dropdown Item. This can be useful when extra functionality is needed beyond a basic Link, such as supporting React Router. However, please use with caution and only when absolutely necessary.
+      If needed, users can supply custom content to each Dropdown.Item. This can be useful when extra functionality is needed. However, please use with caution and only when absolutely necessary.
 
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
     `}
