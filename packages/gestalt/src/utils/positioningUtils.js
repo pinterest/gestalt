@@ -26,11 +26,6 @@ const SPACES_INDEX_MAP = {
   '3': 'left',
 };
 
-const NO_SPACE_CONDITION_INDEX_MAP = {
-  '0': 'up',
-  '1': 'down',
-};
-
 const DIR_INDEX_MAP = {
   up: 0,
   right: 1,
@@ -175,7 +170,6 @@ export function getPopoverDir({
 
   // Choose the main direction for the popover based on available spaces & user preference
   const spaces = [up, right, down, left];
-  const noAvailableSpaceConditionSpaces = [up, down];
 
   let popoverDir;
 
@@ -184,15 +178,11 @@ export function getPopoverDir({
     popoverDir = idealDirection;
   } else {
     const noAvailableSpaceCondition = up <= 0 && right <= 0 && down <= 0 && left <= 0;
-    const AVAILABLE_SPACES_INDEX_MAP = noAvailableSpaceCondition
-      ? NO_SPACE_CONDITION_INDEX_MAP
-      : SPACES_INDEX_MAP;
-    const availableSpaces = noAvailableSpaceCondition ? noAvailableSpaceConditionSpaces : spaces;
 
     // Identify best direction of available spaces
-    const max = Math.max(...availableSpaces);
+    const max = Math.max(...spaces);
     // If no direction pref, chose the direction in which there is the most space available
-    popoverDir = AVAILABLE_SPACES_INDEX_MAP[availableSpaces.indexOf(max)];
+    popoverDir = noAvailableSpaceCondition ? 'down' : SPACES_INDEX_MAP[spaces.indexOf(max)];
   }
 
   return popoverDir;
