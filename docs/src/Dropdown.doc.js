@@ -602,9 +602,9 @@ card(
       description={`
     Remember to include the following ARIA attributes on the element used for the \`anchor\` prop:
 
-    * \`aria-controls\`: lets the screen reader know that this element controls the Dropdown menu (should match the \`id\` property passed to Dropdown).
-    * \`aria-haspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger.
-    * \`aria-expanded\`: informs the screen reader whether the Dropdown menu is currently open or closed.
+    * \`accessibilityControls\`: lets the screen reader know that this element controls the Dropdown menu (should match the \`id\` property passed to Dropdown). Populates the [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
+    * \`accessibilityHaspopup\`: lets the screen reader know that there is a Dropdown menu linked to the trigger. Populates the [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
+    * \`accessibilityExpanded\`: informs the screen reader whether the Dropdown menu is currently open or closed. Populates the [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) attribute.
   `}
     />
     <MainSection.Subsection
