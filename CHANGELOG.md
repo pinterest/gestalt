@@ -1,3 +1,9 @@
+## 21.0.3 (Mar 23, 2021)
+
+### Patch
+
+- Typeahead: Close container on outside click, focus input (#1436)
+
 ## 21.0.2 (Mar 22, 2021)
 
 ### Patch
