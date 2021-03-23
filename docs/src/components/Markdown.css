@@ -1,3 +1,7 @@
+.Markdown {
+  line-height: 1.5;
+}
+
 .Markdown pre {
   background-color: rgba(236, 236, 236, 0.5);
   overflow: auto;
@@ -18,7 +22,6 @@
 
 .Markdown p {
   background-color: var(--g-colorGray0);
-  line-height: 1.5;
   margin: 0;
 }
 
