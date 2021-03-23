@@ -238,7 +238,9 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
             showCaret={false}
             anchor={positioningRef.current}
             idealDirection="down"
-            onDismiss={() => {}}
+            onDismiss={() => {
+              setContainerOpen(false);
+            }}
             positionRelativeToAnchor={false}
             size="flexible"
             // Forces the popover to re-render and adjust its position correctly
