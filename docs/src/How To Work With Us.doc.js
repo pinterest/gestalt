@@ -29,9 +29,9 @@ card(
   <MainSection name="What is the process to request new additions or changes?">
     <MainSection.Subsection
       description={`
-What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [partnership meetings](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:h2=Meetings-and-Events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
+What we build into Gestalt comes from the teams across Pinterest, so we’d love to pair with you early and often! The process starts in the design phase. Seeing early mocks, wireframes or even product roadmaps in our [**partnership meetings**](#Meetings-and-Events) to learn where your project may be going helps inform our team OKRs. The earlier we see the work, the better we’re able to plan and the higher the likelihood we’ll be able to help.
 We ask that any ideas that change the functionality of an existing Gestalt component or introduce a net-new component go through the following process:
-1. **Present work** **early** **in our** [**partnership meetings**](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:h2=Meetings-and-Events)
+1. **Present work early in our [partnership meetings](#Meetings-and-Events)**
     - Explain project goals and show multiple options explored with and without Gestalt components to help us understand your needs. This does not need to be a polished presentation, but should have enough detail that we understand the ask and why it is needed.
     - Coordinate with other designers if there are overlapping needs to help us better prioritize in our roadmap.
     - Be able to explain how this component should be used or not used. This helps us in testing the component against existing components and product surfaces.
@@ -46,16 +46,16 @@ We ask that any ideas that change the functionality of an existing Gestalt compo
     - Responsive behavior
     - Dark mode support
 3. **Prioritization by the Gestalt team**
-    If our team takes on the work, we will add it to our [backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100) and prioritize it appropriately. Typically the determining factor for taking on work is capacity: if your designers or engineers have the capacity, we’d love for them to [contribute to Gestalt](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:uid=384006891589287519571583&h2=How-can-you-contribute-to-Gest) with our support. Otherwise, the Gestalt designers and engineers will prioritize the work against our current workload based on the following criteria.
-    Some questions we ask ourselves when prioritizing:
-    How many products/surfaces will benefit?
-    - Ideally, we build things into Gestalt that 2 or more teams need with more teams meaning higher priority.
-    How easy or difficult is it to build?
-    - How many engineering hours will it take to build?
-    - Are there accessibility concerns that should ideally be handled by Gestalt?
-    Is it a dependency to other future work we need to do within Gestalt?
-    - Will this unlock additional functionality that other teams need?
-    We prioritize work following the same cycles as product teams within Pinterest. Knowing other teams needs before prioritization starts will help inform our roadmap. If we do no have capacity for the work, but believe we should add it to Gestalt, we may ask if a product team can continue the work. Otherwise, it will go into our [backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100).
+  If our team takes on the work, we will add it to our [backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100) and prioritize it appropriately. Typically the determining factor for taking on work is capacity: if your designers or engineers have the capacity, we’d love for them to [contribute to Gestalt](#How-can-you-contribute-to-gestalt-as-an-engineer) with our support. Otherwise, the Gestalt designers and engineers will prioritize the work against our current workload based on the following criteria.
+  Some questions we ask ourselves when prioritizing:
+    1. How many products/surfaces will benefit?
+      - Ideally, we build things into Gestalt that 2 or more teams need with more teams meaning higher priority.
+    2. How easy or difficult is it to build?
+      - How many engineering hours will it take to build?
+      - Are there accessibility concerns that should ideally be handled by Gestalt?
+    3. Is it a dependency to other future work we need to do within Gestalt?
+      - Will this unlock additional functionality that other teams need?
+We prioritize work following the same cycles as product teams within Pinterest. Knowing other teams needs before prioritization starts will help inform our roadmap. If we do no have capacity for the work, but believe we should add it to Gestalt, we may ask if a product team can continue the work. Otherwise, it will go into our [backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100).
 4. **Build or follow along**
     Our engineering team will pair directly with your engineer if they are the ones who will be taking on the work and help them follow the process below. If the Gestalt team is building the component, we will take on the work and follow the same process. As we develop the documentation, Figma files, and code for the updated or new component, we’d love for you to help review and be part of a final sanity check.`}
     />
@@ -66,14 +66,14 @@ card(
   <MainSection name="How can you contribute to Gestalt as an engineer?">
     <MainSection.Subsection
       description={`
-We always appreciate the help and contributions of other engineers across Pinterest. It could be new variants, simple bug fixes or building out entire components. Before any code happens though, be sure to follow our [request process](https://paper.dropbox.com/doc/How-to-Work-with-Us--BF7v35d55Z5rEPSQVvkaN8vlAg-KSFgsi7Me5kEqhC7sR2VA#:uid=130985289280146283154377&h2=What-is-the-process-to-request).
+We always appreciate the help and contributions of other engineers across Pinterest. It could be new variants, simple bug fixes or building out entire components. Before any code happens though, be sure to follow our [request process](#What-is-the-process-to-request-new-additions-or-changes).
 
 1. **Talk to your designer**
-   Checking in with your designers and assure that changes have been approved by the Gestalt team, via the [request process](https://paper.dropbox.com/doc/How-to-Work-with-Us--BF7v35d55Z5rEPSQVvkaN8vlAg-KSFgsi7Me5kEqhC7sR2VA#:uid=130985289280146283154377&h2=What-is-the-process-to-request). We don’t recommend starting a PR on new functionality, no matter how small, without confirming this, as you may spend time on changes that won’t be approved to merge into Gestalt.
+   Checking in with your designers and assure that changes have been approved by the Gestalt team, via the [request process](#What-is-the-process-to-request-new-additions-or-changes). We don’t recommend starting a PR on new functionality, no matter how small, without confirming this, as you may spend time on changes that won’t be approved to merge into Gestalt.
 2. **Tech Design Doc**
    Create a technical design doc (TDD), using [this template](https://paper.dropbox.com/doc/Gestalt-TDD-ComponentName--BF5cp4OG2JXR_Vo7d5hsnVFEAg-A8wHbLtDhwbGjlyOTIg86), for any net-new components or component additions/updates within Gestalt. This allows everyone to discuss the component API and functionality before starting to build.
 3. **Pull request**
-   Once the TDD has been finalized, make a pull request for your changes by following the [development guidelines](https://gestalt.netlify.app/Development)[.](https://w.pinadmin.com/display/WT/Gestalt#Gestalt-CreateaPullRequest) Your changes will be reviewed by the gestalt-core GitHub Team and a Gestalt designer. We ensure each component is built to spec, accessible, performant and works well with other components.
+   Once the TDD has been finalized, make a pull request for your changes by following the [development guidelines](/Development). Your changes will be reviewed by the gestalt-core GitHub Team and a Gestalt designer. We ensure each component is built to spec, accessible, performant and works well with other components.
 4. **Release**
    Now the fun part - releasing your component! After someone from the Gestalt team merges your change, feel free to announce it on the [#gestalt-web](https://app.slack.com/client/T024LJUGB/C13KLG5P0/thread/C014X9LTRCN-1614382923.009100) slack channel.`}
     />
@@ -102,20 +102,25 @@ We also offer documentation on this site ([go/GestaltWeb](https://gestalt.netlif
 card(
   <MainSection name="Resources, Slack, and Meetings - oh my!">
     <MainSection.Subsection
+      title="Dashboards, JIRA, and OKRs"
       description={`
-**Dashboards, JIRA, and OKRs**
 If you’re curious what we’re working on, you can check out our Gestalt [Sprint Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29640), our [full backlog](https://jira.pinadmin.com/secure/RapidBoard.jspa?rapidView=1936&projectKey=PDS&view=planning.nodetail&issueLimit=100), and our [Bugs Dashboard](https://jira.pinadmin.com/secure/Dashboard.jspa?selectPageId=29639). You can also reference our [go/GestaltTracker](https://docs.google.com/spreadsheets/d/10-s5BfpbesIpRTUhJSGH4tAriI-gdXHsT-eKDCtaMQk/edit#gid=1725470630) to see the immediate, larger component changes that are in the pipeline.
 
-To see the bigger picture, you can view our [OKRs](https://coda.io/d/Pinterest-2021-EPD-OKR-Tracker_de-g0jv4ClO/Gestalt-Design_suAbV#_luyId) to understand our roadmap and priorities for each quarter. These priorities are determined through our [partnership meetings](https://paper.dropbox.com/doc/How-to-Work-with-Us--BGVO2I8uo7TY0t~zzbc5PAY7Ag-KSFgsi7Me5kEqhC7sR2VA#:h2=Meetings-and-Events), which we use to learn about component needs and coordinate with designers to determine the timelines.
-
-**Slack Channels**
+To see the bigger picture, you can view our [OKRs](https://coda.io/d/Pinterest-2021-EPD-OKR-Tracker_de-g0jv4ClO/Gestalt-Design_suAbV#_luyId) to understand our roadmap and priorities for each quarter. These priorities are determined through our [partnership meetings](#Meetings-and-Events), which we use to learn about component needs and coordinate with designers to determine the timelines.
+`}
+    />
+    <MainSection.Subsection
+      title="Slack Channels"
+      description={`
 Before reaching out, take a look at our [documentation](http://gestalt.netlifyapp.com) to see if it answers your question, because it will likely get you the fastest answer. Still need help? Try searching Slack for your question, and then feel free to ask if your question hasn’t been answered in the past. You can also reference our [Communication Guidelines](https://paper.dropbox.com/doc/2CXysUNfbx9mq0b6ge53Y) for more info.
 
 [#gestalt-design](https://pinterest.slack.com/archives/C0HUV5J93) is the best way to reach the Gestalt design team for design focused questions.
 
-[#gestalt-web](https://pinterest.slack.com/archives/C13KLG5P0) is for more engineering-focused questions.
-
-**Meetings and Events**
+[#gestalt-web](https://pinterest.slack.com/archives/C13KLG5P0) is for more engineering-focused questions.`}
+    />
+    <MainSection.Subsection
+      title="Meetings and Events"
+      description={`
 Our meetings, events, and timelines can be found on our [Gestalt Event Calendar](https://calendar.google.com/calendar/u/0?cid=Y19ubnVsdjdjNGRsY3RxbG1jcHVlOWVyaHFuc0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t).
 
 We offer two different meetings for the community to come with questions, comments, ideas, and feedback.
