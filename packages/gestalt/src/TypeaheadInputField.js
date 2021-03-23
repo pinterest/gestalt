@@ -1,5 +1,14 @@
 // @flow strict
-import React, { forwardRef, Fragment, type Element, type Node, type Ref, useState } from 'react';
+import React, {
+  forwardRef,
+  Fragment,
+  type Element,
+  type Node,
+  type Ref,
+  useState,
+  useRef,
+  useImperativeHandle,
+} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
@@ -64,6 +73,9 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState(false);
 
+  const innerRef = useRef(null);
+  useImperativeHandle(ref, () => innerRef.current);
+
   const handleChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     onChange({
       value: event.currentTarget.value,
@@ -93,7 +105,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
   const handleClick = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     handleFocus(event);
     setContainer(true);
-    ref.current?.focus();
+    innerRef.current?.focus();
   };
 
   const handleKeyDown = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
@@ -140,7 +152,7 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 
   const inputElement = (
     <input
-      ref={ref}
+      ref={innerRef}
       autoComplete="off"
       aria-label={label}
       className={tags ? typeaheadStyle.unstyledInput : className}
