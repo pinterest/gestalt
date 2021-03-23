@@ -36,6 +36,7 @@ card(
               inline
               ref={anchorRef}
               selected={open}
+              size="lg"
               onClick={ () => setOpen((prevVal) => !prevVal) }
             />
             {open && (
@@ -250,6 +251,7 @@ card(
               inline
               ref={anchorRef}
               selected={open}
+              size="lg"
               onClick={ () => setOpen((prevVal) => !prevVal) }
             />
             {open && (
@@ -296,16 +298,16 @@ card(
         type="don't"
         description="Use Dropdown for a simple list of items. Use [SelectList](/SelectList) instead for the added native mobile functionality. The exception to this is multiple Dropdowns or SelectLists that could be grouped together to create visual inconsistency, such as filters. In this case, use Dropdowns for all."
         defaultCode={`
-        function SimpleListDropdownExample() {
-          const [open, setOpen] = React.useState(false);
-          const [selected, setSelected] = React.useState(null);
-          const anchorRef = React.useRef(null);
-          const handleSelect = ({item}) => {
-            setSelected(item);
-          };
+    function SimpleListDropdownExample() {
+      const [open, setOpen] = React.useState(false);
+      const [selected, setSelected] = React.useState(null);
+      const anchorRef = React.useRef(null);
+      const handleSelect = ({item}) => {
+        setSelected(item);
+      };
 
-          return (
-            <Box display="flex" justifyContent="center">
+      return (
+        <Box display="flex" justifyContent="center">
 
         <Button
           accessibilityControls="selectlist-dropdown-example"
@@ -383,6 +385,7 @@ function OrderDropdownExample() {
         iconColor="darkGray"
         ref={anchorRef}
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
@@ -438,6 +441,7 @@ function NoTooltipsDropdownExample() {
         inline
         ref={anchorRef}
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
@@ -502,6 +506,7 @@ function ExternalLinksDropdownExample() {
         inline
         ref={anchorRef}
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
@@ -557,6 +562,7 @@ function CustomContentDropdownExample() {
         inline
         ref={anchorRef}
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
@@ -650,6 +656,7 @@ function TruncationDropdownExample() {
         inline
         ref={anchorRef}
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
@@ -707,6 +714,7 @@ function ActionDropdownExample() {
         inline
         ref={anchorRef}
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
@@ -750,6 +758,7 @@ function LinkDropdownExample() {
         icon="arrow-down"
         iconColor="darkGray"
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
         ref={anchorRef}
       />
@@ -806,6 +815,7 @@ function SectionsIconButtonDropdownExample() {
         iconColor="darkGray"
         bgColor="lightGray"
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
         ref={anchorRef}
       />
@@ -874,6 +884,7 @@ function CustomHeaderExample() {
       inline
       ref={ anchorRef }
       selected={ open }
+      size="lg"
       onClick={ () => setOpen((prevVal) => !prevVal) }
     />
       {open && (
@@ -965,6 +976,7 @@ function SubtextDropdownExample() {
         icon="arrow-down"
         iconColor="darkGray"
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
         ref={anchorRef}
       />
@@ -1045,6 +1057,7 @@ function BadgesDropdownExample() {
         icon="add"
         iconColor="darkGray"
         selected={open}
+        size="lg"
         onClick={ () => setOpen((prevVal) => !prevVal) }
         ref={anchorRef}
       />
@@ -1172,6 +1185,7 @@ function OnNavigation() {
           inline
           ref={anchorRef}
           selected={open}
+          size="lg"
           onClick={ () => setOpen((prevVal) => !prevVal) }
         />
         {open && (
@@ -1222,6 +1236,7 @@ function CustomIconButtonPopoverExample() {
         iconColor="darkGray"
         onClick={ () => setOpen((prevVal) => !prevVal) }
         ref={anchorRef}
+        size="lg"
       />
       {open && (
         <Dropdown
