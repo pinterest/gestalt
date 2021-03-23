@@ -1,10 +1,19 @@
 // @flow strict
 import React, { type Node } from 'react';
 import MainSection from './components/MainSection.js';
+import PageHeader from './components/PageHeader.js';
 
 const cards: Array<Node> = [];
 
 const card = (c) => cards.push(c);
+
+card(
+  <PageHeader
+    name="How to work with us"
+    description="Guidelines on how to engage the Gestalt team, when to work with us, and how to contribute"
+    showSourceLink={false}
+  />,
+);
 
 card(
   <MainSection name="What goes into Gestalt?">
