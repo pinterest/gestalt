@@ -1,3 +1,9 @@
+## 21.0.4 (Mar 23, 2021)
+
+### Patch
+
+- Docs: Fix display style of titles (#1438)
+
 ## 21.0.3 (Mar 23, 2021)
 
 ### Patch
