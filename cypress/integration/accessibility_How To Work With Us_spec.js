@@ -1,4 +1,4 @@
-describe("What's New Accessibility check", () => {
+describe('How to Work with Us Accessibility check', () => {
   beforeEach(() => {
     cy.visit('/How to Work with Us');
     cy.injectAxe();
