@@ -1,3 +1,9 @@
+## 21.0.5 (Mar 23, 2021)
+
+### Patch
+
+- Dropdown: Update documentation and add Best Practices (#1433)
+
 ## 21.0.4 (Mar 23, 2021)
 
 ### Patch
