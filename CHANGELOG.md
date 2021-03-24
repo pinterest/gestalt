@@ -1,3 +1,9 @@
+## 21.0.6 (Mar 24, 2021)
+
+### Patch
+
+- Icon: Update `shopping-bag` icon (#1437)
+
 ## 21.0.5 (Mar 23, 2021)
 
 ### Patch
