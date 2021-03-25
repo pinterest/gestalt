@@ -1,3 +1,9 @@
+## 21.1.0 (Mar 25, 2021)
+
+### Minor
+
+- TapArea: Add onMouseDown and onMouseUp handlers (#1439)
+
 ## 21.0.6 (Mar 24, 2021)
 
 ### Patch
