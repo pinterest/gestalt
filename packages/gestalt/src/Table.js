@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node, useState, useCallback, useEffect, useRef } from 'react';
 import Box from './Box.js';
 import styles from './Table.css';
 import TableCell from './TableCell.js';
@@ -21,12 +21,36 @@ type Props = {|
 
 export default function Table(props: Props): Node {
   const { borderStyle, children, maxHeight, stickyColumns } = props;
+  const [showShadowScroll, setShowShadowScroll] = useState(false);
+  const contentRef = useRef<?HTMLDivElement>(null);
+
+  const updateShadows = useCallback(() => {
+    console.log('update shadows');
+    const target = contentRef.current;
+    if (!target) {
+      return;
+    }
+    console.log(target.scrollHeight);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', updateShadows);
+    return () => {
+      window.removeEventListener('scroll', updateShadows);
+    };
+  }, [updateShadows]);
+
+  useEffect(() => {
+    updateShadows();
+  }, [updateShadows]);
 
   return (
     <Box
+      id="testing"
       overflow="auto"
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       maxHeight={maxHeight}
+      ref={contentRef}
     >
       <table className={styles.table}>
         <TableContext.Provider value={{ stickyColumns }}>{children}</TableContext.Provider>
