@@ -27,6 +27,8 @@ type BaseTapArea = {|
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut',
   onBlur?: FocusEventHandler,
   onFocus?: FocusEventHandler,
+  onMouseDown?: MouseEventHandler,
+  onMouseUp?: MouseEventHandler,
   onMouseEnter?: MouseEventHandler,
   onMouseLeave?: MouseEventHandler,
   onTap?: AbstractEventHandler<
@@ -72,6 +74,8 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     mouseCursor = 'pointer',
     onBlur,
     onFocus,
+    onMouseDown,
+    onMouseUp,
     onMouseEnter,
     onMouseLeave,
     onTap,
@@ -169,6 +173,10 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         onClick={handleLinkClick}
         onBlur={handleLinkOnBlur}
         onFocus={handleLinkOnFocus}
+        // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
+        onMouseDown={onMouseDown}
+        // $FlowFixMe[incompatible-type-arg] Need to refine: "`HTMLDivElement` is incompatible with `HTMLAnchorElement`"
+        onMouseUp={onMouseUp}
         onMouseEnter={handleLinkOnMouseEnter}
         onMouseLeave={handleLinkOnMouseLeave}
         ref={innerRef}
@@ -200,10 +208,16 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
         handleBlur();
       }}
       onFocus={handleOnFocus}
+      onMouseDown={(event) => {
+        onMouseDown?.({ event });
+        handleMouseDown();
+      }}
+      onMouseUp={(event) => {
+        onMouseUp?.({ event });
+        handleMouseUp();
+      }}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
       onKeyPress={(event) => {
         // Check to see if space or enter were pressed
         if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
@@ -251,9 +265,11 @@ TapAreaWithForwardRef.propTypes = {
   >),
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
-  onTap: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onMouseUp: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
+  onTap: PropTypes.func,
   rel: (PropTypes.oneOf(['none', 'nofollow']): React$PropType$Primitive<'none' | 'nofollow'>),
   tabIndex: PropTypes.oneOf([-1, 0]),
   role: PropTypes.oneOf(['tapArea', 'link']),

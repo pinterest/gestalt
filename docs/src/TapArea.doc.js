@@ -14,7 +14,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="TapArea"
-    description="TapArea allows components to be clickable & touchable in an accessible way."
+    description="TapArea allows components to be clickable and touchable in an accessible way."
   />,
 );
 
@@ -131,13 +131,28 @@ card(
         href: 'basicExample',
       },
       {
+        name: 'onMouseDown',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| disableOnNavigation?: () => void |}> }) => void',
+        required: false,
+        defaultValue: null,
+        description: ['Callback fired when a click event begins.'],
+      },
+      {
+        name: 'onMouseUp',
+        type:
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> }) => void',
+        required: false,
+        defaultValue: null,
+        description: ['Callback fired when a click event ends.'],
+      },
+      {
         name: 'onMouseEnter',
         type:
           '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| disableOnNavigation?: () => void |}> }) => void',
         required: false,
         defaultValue: null,
         description: ['Callback fired when a mouse pointer moves onto a TapArea component.'],
-        href: 'basicExample',
       },
       {
         name: 'onMouseLeave',
@@ -146,7 +161,6 @@ card(
         required: false,
         defaultValue: null,
         description: ['Callback fired when a mouse pointer moves out a TapArea component.'],
-        href: 'basicExample',
       },
       {
         name: 'onTap',

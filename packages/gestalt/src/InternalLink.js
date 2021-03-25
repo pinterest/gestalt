@@ -37,9 +37,9 @@ type Props = {|
   >,
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
-  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
+  onMouseEnter?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   onMouseLeave?: AbstractEventHandler<SyntheticMouseEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
   tabIndex: -1 | 0,
@@ -68,10 +68,10 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     onClick,
     onBlur,
     onFocus,
-    onMouseEnter,
-    onMouseLeave,
     onMouseDown,
     onMouseUp,
+    onMouseEnter,
+    onMouseLeave,
     rel,
     tabIndex = 0,
     rounding,
@@ -166,47 +166,31 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       id={id}
       onContextMenu={isTapArea ? (event) => event.preventDefault() : null}
       onBlur={(event) => {
-        if (onBlur) {
-          onBlur({ event });
-        }
+        onBlur?.({ event });
         handleBlur();
       }}
       onClick={(event) => {
-        if (onClick) {
-          onClick({
-            event,
-            disableOnNavigation,
-          });
-        }
-        if (defaultOnNavigation) {
-          defaultOnNavigation({ event });
-        }
+        onClick?.({
+          event,
+          disableOnNavigation,
+        });
+        defaultOnNavigation?.({ event });
       }}
       onFocus={(event) => {
-        if (onFocus) {
-          onFocus({ event });
-        }
+        onFocus?.({ event });
       }}
       onMouseEnter={(event) => {
-        if (onMouseEnter) {
-          onMouseEnter({ event });
-        }
+        onMouseEnter?.({ event });
       }}
       onMouseLeave={(event) => {
-        if (onMouseLeave) {
-          onMouseLeave({ event });
-        }
+        onMouseLeave?.({ event });
       }}
       onMouseDown={(event) => {
-        if (onMouseDown) {
-          onMouseDown({ event });
-        }
+        onMouseDown?.({ event });
         handleMouseDown();
       }}
       onMouseUp={(event) => {
-        if (onMouseUp) {
-          onMouseUp({ event });
-        }
+        onMouseUp?.({ event });
         handleMouseUp();
       }}
       onKeyPress={(event) => {
