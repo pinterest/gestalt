@@ -246,7 +246,7 @@ export default function Tabs({
   const TabComponent = _dangerouslyUseV2 ? TabV2 : Tab;
 
   return (
-    <Flex alignItems="center" gap={4} justifyContent="start" wrap={wrap}>
+    <Flex alignItems="center" gap={_dangerouslyUseV2 ? 4 : 0} justifyContent="start" wrap={wrap}>
       {tabs.map(({ id, href, text, indicator }, index) => (
         <TabComponent
           key={id || `${href}_${index}`}
