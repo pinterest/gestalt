@@ -7,7 +7,9 @@ Object {
     style="overflow: hidden;"
   >
     <div>
-      <div>
+      <div
+        name="trap-focus"
+      >
         <div
           aria-label="Test modal"
           class="container"
@@ -37,7 +39,9 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div>
+    <div
+      name="trap-focus"
+    >
       <div
         aria-label="Test modal"
         class="container"

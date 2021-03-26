@@ -2,7 +2,9 @@
 
 exports[`Sheet should render all props with nodes 1`] = `
 <div>
-  <div>
+  <div
+    name="trap-focus"
+  >
     <div
       class="container"
     >
@@ -94,7 +96,9 @@ exports[`Sheet should render all props with nodes 1`] = `
 
 exports[`Sheet should render all props with render props 1`] = `
 <div>
-  <div>
+  <div
+    name="trap-focus"
+  >
     <div
       class="container"
     >
@@ -192,7 +196,9 @@ exports[`Sheet should render all props with render props 1`] = `
 
 exports[`Sheet should render animation in 1`] = `
 <div>
-  <div>
+  <div
+    name="trap-focus"
+  >
     <div
       class="container"
     >
@@ -257,7 +263,9 @@ exports[`Sheet should render animation in 1`] = `
 
 exports[`Sheet should render animation out 1`] = `
 <div>
-  <div>
+  <div
+    name="trap-focus"
+  >
     <div
       class="container"
     >
