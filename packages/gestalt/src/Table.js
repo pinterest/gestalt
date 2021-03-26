@@ -34,9 +34,9 @@ export default function Table(props: Props): Node {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('scroll', updateShadows);
+    document.addEventListener('scroll', updateShadows);
     return () => {
-      window.removeEventListener('scroll', updateShadows);
+      document.removeEventListener('scroll', updateShadows);
     };
   }, [updateShadows]);
 
