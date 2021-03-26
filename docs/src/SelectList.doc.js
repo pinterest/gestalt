@@ -109,7 +109,7 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -151,7 +151,7 @@ card(
 />`}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -190,7 +190,7 @@ card(
 />`}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -329,7 +329,7 @@ card(
 
 card(
   <MainSection name="Variants">
-    <MainSection.Subsection title="Size">
+    <MainSection.Subsection title="Size" columns={2}>
       <MainSection.Card
         cardSize="md"
         title="Large"

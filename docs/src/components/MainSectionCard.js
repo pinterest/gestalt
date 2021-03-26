@@ -102,11 +102,7 @@ const MainSectionCard = ({
   );
 
   return (
-    <Box
-      width={CARD_SIZE_NAME_TO_PIXEL[cardSize]}
-      minWidth={cardSize === 'lg' ? '100%' : undefined}
-      marginBottom={12}
-    >
+    <Box minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginBottom={12}>
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
       {children && <PreviewCard>{children}</PreviewCard>}

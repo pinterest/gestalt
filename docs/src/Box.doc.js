@@ -252,7 +252,7 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -312,6 +312,8 @@ If you need to use these features for animation purposes, use a \`<div>\` instea
 </Box>
 `}
       />
+    </MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
