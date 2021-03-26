@@ -241,8 +241,7 @@ export default function Tabs({
   size = 'md',
   tabs,
   wrap,
-  // TODO: remove this default before merging this PR
-  _dangerouslyUseV2 = true,
+  _dangerouslyUseV2,
 }: Props): Node {
   const TabComponent = _dangerouslyUseV2 ? TabV2 : Tab;
 
