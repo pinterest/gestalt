@@ -174,7 +174,7 @@ function TabV2({
   }
 
   return (
-    <Box id={id} padding={3}>
+    <Box id={id} paddingY={3}>
       <TapArea
         href={href}
         onBlur={() => setFocused(false)}
@@ -247,7 +247,7 @@ export default function Tabs({
   const TabComponent = _dangerouslyUseV2 ? TabV2 : Tab;
 
   return (
-    <Flex alignItems="center" gap={_dangerouslyUseV2 ? 2 : 0} justifyContent="start" wrap={wrap}>
+    <Flex alignItems="center" gap={_dangerouslyUseV2 ? 4 : 0} justifyContent="start" wrap={wrap}>
       {tabs.map(({ id, href, text, indicator }, index) => (
         <TabComponent
           key={id || `${href}_${index}`}
