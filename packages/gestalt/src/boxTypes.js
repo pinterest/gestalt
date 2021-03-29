@@ -23,11 +23,9 @@ export type As =
   | 'footer'
   | 'header'
   | 'main'
-  | 'mark'
   | 'nav'
   | 'section'
-  | 'summary'
-  | 'time';
+  | 'summary';
 export type Bottom = boolean;
 export type BorderStyle = 'sm' | 'lg' | 'shadow' | 'none';
 export type Color =
@@ -139,11 +137,9 @@ export const AsPropType: React$PropType$Primitive<As> = PropTypes.oneOf([
   'footer',
   'header',
   'main',
-  'mark',
   'nav',
   'section',
   'summary',
-  'time',
 ]);
 export const BorderStylePropType: React$PropType$Primitive<BorderStyle> = PropTypes.oneOf([
   'sm',

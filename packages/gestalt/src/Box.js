@@ -212,11 +212,9 @@ type OutputType =
   | Element<'footer'>
   | Element<'header'>
   | Element<'main'>
-  | Element<'mark'>
   | Element<'nav'>
   | Element<'section'>
-  | Element<'summary'>
-  | Element<'time'>;
+  | Element<'summary'>;
 
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }, ref): OutputType {
