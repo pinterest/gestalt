@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 type ScrollBoundaryContainerContextType = {|
   scrollBoundaryContainerRef: ?HTMLDivElement,
-  addRef: (ref: HTMLDivElement) => void,
+  addRef: (ref: HTMLElement) => void,
 |};
 
 type Props = {|
@@ -34,6 +34,8 @@ function ScrollBoundaryContainerProvider({ children }: Props): Element<typeof Pr
   const scrollBoundaryContainerContext = {
     scrollBoundaryContainerRef,
     addRef: useCallback((ref) => {
+      // Cannot call `setScrollBoundaryContainerRef` with `ref` bound to the first parameter because a call signature declaring the expected parameter / return type is missing in  `HTMLElement` [1] but exists in  function type [2].
+      // $FlowFixMe[incompatible-call]
       setScrollBoundaryContainerRef(ref);
     }, []),
   };

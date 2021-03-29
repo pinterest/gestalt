@@ -63,7 +63,7 @@ export default function Tooltip({
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { isOpen } = state;
 
-  const childRef = React.useRef<?HTMLDivElement>(null);
+  const childRef = React.useRef<?HTMLElement>(null);
   const { current: anchor } = childRef;
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;
