@@ -258,6 +258,6 @@ InternalLinkWithForwardRef.propTypes = {
   wrappedComponent: PropTypes.oneOf(['button', 'iconButton', 'tapArea']),
 };
 
-InternalLinkWithForwardRef.displayName = 'ButtonLink';
+InternalLinkWithForwardRef.displayName = 'InternalLink';
 
 export default InternalLinkWithForwardRef;
