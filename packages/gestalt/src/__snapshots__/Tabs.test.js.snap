@@ -37,9 +37,17 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         }
       >
         <div
-          className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
         >
-          News
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+            >
+              News
+            </div>
+          </div>
         </div>
       </div>
     </a>
@@ -77,9 +85,17 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
         >
-          You
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+            >
+              You
+            </div>
+          </div>
         </div>
       </div>
     </a>
@@ -124,20 +140,32 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         }
       >
         <div
-          className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
         >
-          News
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+            >
+              News
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="box circle redBg"
+              style={
+                Object {
+                  "height": 6,
+                  "marginTop": "1px",
+                  "width": 6,
+                }
+              }
+            />
+          </div>
         </div>
-        <div
-          className="box circle marginStart2 redBg"
-          style={
-            Object {
-              "height": 6,
-              "marginTop": "1px",
-              "width": 6,
-            }
-          }
-        />
       </div>
     </a>
   </div>
@@ -174,20 +202,32 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
         >
-          You
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+            >
+              You
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="box circle redBg"
+              style={
+                Object {
+                  "height": 6,
+                  "marginTop": "1px",
+                  "width": 6,
+                }
+              }
+            />
+          </div>
         </div>
-        <div
-          className="box circle marginStart2 redBg"
-          style={
-            Object {
-              "height": 6,
-              "marginTop": "1px",
-              "width": 6,
-            }
-          }
-        />
       </div>
     </a>
   </div>
@@ -231,9 +271,17 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
         }
       >
         <div
-          className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
         >
-          News
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+            >
+              News
+            </div>
+          </div>
         </div>
       </div>
     </a>
@@ -271,9 +319,17 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
         }
       >
         <div
-          className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+          className="Flex rowGap2 itemsCenter justifyCenter xsDirectionRow"
         >
-          You
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+            >
+              You
+            </div>
+          </div>
         </div>
       </div>
     </a>
