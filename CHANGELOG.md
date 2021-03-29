@@ -1,3 +1,9 @@
+## 21.2.0 (Mar 29, 2021)
+
+### Minor
+
+- Tabs: Add experimental redesign (#1440)
+
 ## 21.1.2 (Mar 29, 2021)
 
 ### Patch
