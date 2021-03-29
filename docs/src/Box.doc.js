@@ -643,8 +643,8 @@ function BoxPopoverExample() {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae nisl nec turpis vehicula ultrices. Duis pretium ut ipsum nec interdum. Vestibulum arcu dolor, consectetur ac eros a, varius commodo justo. Maecenas tincidunt neque elit, eu pretium arcu dictum ac. Donec vehicula mauris ut erat dictum, eget tempus elit luctus. In volutpat felis justo, et venenatis arcu viverra in. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin enim lorem, vulputate eget imperdiet nec, dapibus sed diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse rhoncus ut leo non gravida. Nulla tincidunt tellus sit amet ornare venenatis. Sed quis lorem cursus, porttitor tellus sed, commodo ex. Praesent blandit pretium faucibus. Aenean orci tellus, vulputate id sapien sit amet, porta fermentum quam. Praesent sem risus, tristique sit amet pulvinar in, scelerisque sit amet massa.';
 
   return (
-    <Flex gap={4}>
-      <Flex gap={8} direction="column">
+    <Flex gap={4} wrap>
+      <Flex gap={8} direction="column" wrap>
         <Box>
           <Text>Overflow Hidden</Text>
           <Box
@@ -672,7 +672,7 @@ function BoxPopoverExample() {
             <Text color="white">{longText}</Text>
           </Box>
         </Box>
-        <Box>
+        <Box marginBottom={3}>
           <Text>Overflow Visible</Text>
           <Box
             overflow="visible"
@@ -688,7 +688,7 @@ function BoxPopoverExample() {
           </Box>
         </Box>
       </Flex>
-      <Flex gap={8} direction="column">
+      <Flex gap={8} direction="column" wrap>
         <Box>
           <Text>Overflow Auto</Text>
           <Box

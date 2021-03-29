@@ -137,7 +137,7 @@ card(
         description="Use only one primary style action in PageHeader ."
         defaultCode={`
 <PageHeader
-  title="Create Product groups"
+  title="Product groups"
   subtext="S. E. All products USD"
   primaryAction={<Button color="red" size="lg" text="Create group" />}
 />;
