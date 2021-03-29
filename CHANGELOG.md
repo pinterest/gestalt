@@ -1,3 +1,9 @@
+## 21.1.1 (Mar 29, 2021)
+
+### Patch
+
+- Internal: renamed InternalLink disoplayName (#1443)
+
 ## 21.1.0 (Mar 25, 2021)
 
 ### Minor
