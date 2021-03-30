@@ -421,10 +421,10 @@ card(
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<React.Fragment>
+<Box>
   <Text>Enable your screen reader to hear the following text:</Text>
   <Box display="visuallyHidden">In the darkest night, Box will rise to bring the light. The Lloyd has spoken.</Box>
-</React.Fragment>
+</Box>
 `}
       />
     </MainSection.Subsection>
@@ -672,7 +672,7 @@ function BoxPopoverExample() {
             <Text color="white">{longText}</Text>
           </Box>
         </Box>
-        <Box marginBottom={3}>
+        <Box marginBottom={4}>
           <Text>Overflow Visible</Text>
           <Box
             overflow="visible"
