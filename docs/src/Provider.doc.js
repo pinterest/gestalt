@@ -31,7 +31,8 @@ card(
       },
       {
         name: 'onNavigation',
-        type: '({| href: string, target?: null | "self" | "blank" }) => void |}',
+        type:
+          '({| href: string, target?: null | "self" | "blank" }) => ?({|+event: SyntheticEvent<>|}) => void |}',
         description:
           'If passed, it replaces the default link behavior with custom on navigation behavior. See [custom navigation contex](#Custom-navigation-context) variant for examples.',
       },
@@ -93,7 +94,7 @@ Components with links use simple \`<a>\` tags. In order to replace the default l
 
 This example illustrates a custom navigation implementations to externally control the link functionality of Link: setting a default navigation logic with [Provider](/Provider).
 
-If \`onNavigation\` prop is passed to Provider, it's passed down to all children Links and sets a customized default link navigation behavior. \`onNavigation\` is a higher-order function: it takes named arguments: \`href\` and \`target\` and returns a function that gets called last on the \`onClick\` event handler.
+If \`onNavigation\` prop is passed to Provider, it's passed down to all children links and sets a customized default link navigation behavior. \`onNavigation\` is a higher-order function: it takes named arguments: \`href\` and \`target\` and returns an event handler function. In the component's \`onClick\` event handler, the \`onClick\` prop gets called first, followed by the function passed down by the Provider.
 
 If \`onNavigation\` is a hook function, it can contain complex logic, including [React hooks](https://reactjs.org/docs/hooks-reference.html), to perform side effects.
 

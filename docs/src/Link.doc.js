@@ -61,7 +61,7 @@ card(
         required: false,
         defaultValue: null,
         description: [
-          'Supply a short, descriptive label for screen-readers to replace link texts that do not provide sufficient context about the link component behavior. Texts like `Click Here,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text.',
+          "Supply a short, descriptive label for screen-readers to replace link texts that don't provide sufficient context about the link component behavior. Texts like `Click Here,` or `Read More` can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text to replace the link text.",
           'Accessibility: It populates aria-label. Screen readers read the `accessibilityLabel` prop, if present, instead of the link text.',
         ],
         href: 'accessibility',
