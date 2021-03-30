@@ -34,6 +34,12 @@ card(
         href: 'Best-Practices',
       },
       {
+        name: 'as',
+        type: `"article" | "aside" | "details" | "div" | "figcaption" | "figure" | "footer" | "header" | "main" | "nav" | "section" | "summary"`,
+        defaultValue: 'div',
+        description: `Changes the underlying DOM element when needed for accessibility or SEO reasons. Note that currently only block-level elements are available.`,
+      },
+      {
         name: 'display',
         type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
         defaultValue: 'block',

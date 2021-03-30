@@ -203,10 +203,10 @@ const disallowedProps = [
 ];
 
 type OutputType =
-  | Element<'div'>
   | Element<'article'>
   | Element<'aside'>
   | Element<'details'>
+  | Element<'div'>
   | Element<'figcaption'>
   | Element<'figure'>
   | Element<'footer'>

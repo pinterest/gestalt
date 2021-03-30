@@ -18,6 +18,7 @@ export type As =
   | 'article'
   | 'aside'
   | 'details'
+  | 'div'
   | 'figcaption'
   | 'figure'
   | 'footer'
@@ -132,6 +133,7 @@ export const AsPropType: React$PropType$Primitive<As> = PropTypes.oneOf([
   'article',
   'aside',
   'details',
+  'div',
   'figcaption',
   'figure',
   'footer',
