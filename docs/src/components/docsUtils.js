@@ -2,7 +2,7 @@
 export const customNavigationDescription = (cmp: string): string => `
 This example illustrates two custom navigation implementations to externally control the link navigation behavior of ${cmp}: setting a default logic with [Provider](/Provider) and a custom component logic with the \`onClick\` prop.
 
-If \`onNavigation\` prop is passed to Provider, it's passed down to all children links and sets a custom default link navigation behavior. \`onNavigation\` is a higher-order function: it takes named arguments (\`href\` and \`target\`) and returns a event handler function. In the component's \`onClick\` event handler, the \`onClick\` prop gets called first, followed by the function passed down by the Provider.
+If \`onNavigation\` prop is passed to Provider, it's passed down to all children links and sets a custom default link navigation behavior. \`onNavigation\` is a higher-order function: it takes named arguments (\`href\` and \`target\`) and returns an event handler function. In the component's \`onClick\` event handler, the \`onClick\` prop gets called first, followed by the function passed down by the Provider.
 
 ${cmp}'s \`onClick\` prop is an event handler function. This callback takes 2 named parameters: 'event', the 'onClick' event, and \`disableOnNavigation\`, a callback function that disables any default custom navigation logic set by [Provider](/Provider). \`disableOnNavigation\` is only accessible in Provider's link-role children components.
 
