@@ -1,3 +1,9 @@
+## 21.2.1 (Mar 30, 2021)
+
+### Patch
+
+- Docs: fix Provider types and on navigation descriptions (#1446)
+
 ## 21.2.0 (Mar 29, 2021)
 
 ### Minor
