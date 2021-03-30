@@ -31,7 +31,7 @@ type OwnProps = {|
 |};
 
 type HookProps = {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
 |};
 
 type Props = {| ...OwnProps, ...HookProps |};

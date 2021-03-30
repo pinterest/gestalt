@@ -45,7 +45,7 @@ type OwnProps = {|
 |};
 
 type HookProps = {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
 |};
 type ColorSchemeProps = {|
   colorGray100: string,
