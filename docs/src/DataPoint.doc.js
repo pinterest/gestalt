@@ -11,7 +11,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="DataPoint"
-    description="Brief description of this component"
+    description="DataPoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
     <Flex gap={4} direction="column">
     <Flex gap={6}>
@@ -57,7 +57,7 @@ card(
       },
       {
         name: 'size',
-        type: `'sm' | 'lg'`,
+        type: `'md' | 'lg'`,
         defaultValue: 'dummyDefault',
         description: '[Briefly describe the goal of this prop]',
       },

@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataPoint renders 1`] = `
+<div
+  className="Flex columnGap1 xsDirectionColumn"
+>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Flex rowGap1 itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "minHeight": 24,
+        }
+      }
+    >
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Title
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Flex rowGap2 itemsCenter xsDirectionRow"
+    >
+      <div
+        className="FlexItem"
+      >
+        <h3
+          className="Heading fontSize1 darkGray alignLeft breakWord"
+        >
+          1M
+        </h3>
+      </div>
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="Flex rowGap1 xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <svg
+              aria-hidden={null}
+              aria-label="Value change icon accessibility label"
+              className="icon green iconBlock"
+              height={16}
+              role="img"
+              viewBox="0 0 24 24"
+              width={16}
+            >
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize1 green alignLeft breakWord fontWeightBold"
+            >
+              30
+              %
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataPoint renders an accessibility label 1`] = `
+<div
+  className="Flex columnGap1 xsDirectionColumn"
+>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Flex rowGap1 itemsCenter xsDirectionRow"
+      style={
+        Object {
+          "minHeight": 24,
+        }
+      }
+    >
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+        >
+          Title
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Flex rowGap2 itemsCenter xsDirectionRow"
+    >
+      <div
+        className="FlexItem"
+      >
+        <h3
+          className="Heading fontSize1 darkGray alignLeft breakWord"
+        >
+          1M
+        </h3>
+      </div>
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="Flex rowGap1 xsDirectionRow"
+        >
+          <div
+            className="FlexItem"
+          >
+            <svg
+              aria-hidden={null}
+              aria-label="Value change icon accessibility label"
+              className="icon green iconBlock"
+              height={16}
+              role="img"
+              viewBox="0 0 24 24"
+              width={16}
+            >
+              <path
+                d="test-file-stub"
+              />
+            </svg>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize1 green alignLeft breakWord fontWeightBold"
+            >
+              30
+              %
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

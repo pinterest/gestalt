@@ -10,11 +10,11 @@ import Tooltip from './Tooltip.js';
 
 type Props = {|
   percentChangeAccessibilityLabel: string,
-  title?: string,
-  value?: string,
+  title: string,
+  value: string,
   percentChange?: number,
   infoText?: string,
-  size?: 'sm' | 'lg',
+  size?: 'md' | 'lg',
 |};
 
 export default function DataPoint({
@@ -23,7 +23,7 @@ export default function DataPoint({
   value,
   percentChange,
   infoText,
-  size = 'sm',
+  size = 'md',
 }: Props): Node {
   const infoTextNode = infoText ? (
     <Tooltip text={infoText}>
@@ -31,10 +31,7 @@ export default function DataPoint({
     </Tooltip>
   ) : null;
 
-  /*
-   * TODO: We need arrow-up and arrow-down icons added to Gestalt
-   */
-  const valueSize = size === 'lg' ? 'md' : 'sm';
+  const valueSize = size === 'lg' ? 'lg' : 'sm';
   const percentChangeGap = size === 'lg' ? 4 : 2;
 
   let percentChangeNode;
@@ -97,5 +94,5 @@ DataPoint.propTypes = {
   percentChange: PropTypes.number,
   infoText: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['sm', 'lg']),
+  size: PropTypes.oneOf(['md', 'lg']),
 };
