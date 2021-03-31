@@ -42,7 +42,7 @@ type BaseButton = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   tabIndex?: -1 | 0,
   size?: 'sm' | 'md' | 'lg',
@@ -177,7 +177,9 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   );
 
   const handleClick = (event, disableOnNavigation) =>
-    onClick ? onClick(disableOnNavigation ? { event, disableOnNavigation } : { event }) : undefined;
+    onClick
+      ? onClick({ event, disableOnNavigation: disableOnNavigation ?? (() => {}) })
+      : undefined;
 
   const handleLinkClick = ({ event, disableOnNavigation }) =>
     handleClick(event, disableOnNavigation);

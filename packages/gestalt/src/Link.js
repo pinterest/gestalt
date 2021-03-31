@@ -29,7 +29,7 @@ type Props = {|
   onBlur?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   onFocus?: AbstractEventHandler<SyntheticFocusEvent<HTMLAnchorElement>>,
   rel?: 'none' | 'nofollow',
@@ -106,6 +106,15 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     defaultOnNavigation = undefined;
   };
 
+  const handleKeyPress = (event) => {
+    // Check to see if space or enter were pressed
+    if (onClick && keyPressShouldTriggerTap(event)) {
+      // Prevent the default action to stop scrolling when space is pressed
+      event.preventDefault();
+      onClick({ event, disableOnNavigation: () => {} });
+    }
+  };
+
   return (
     <a
       aria-label={accessibilityLabel}
@@ -137,14 +146,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
       }}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onKeyPress={(event) => {
-        // Check to see if space or enter were pressed
-        if (onClick && keyPressShouldTriggerTap(event)) {
-          // Prevent the default action to stop scrolling when space is pressed
-          event.preventDefault();
-          onClick({ event });
-        }
-      }}
+      onKeyPress={handleKeyPress}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}

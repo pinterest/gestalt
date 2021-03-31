@@ -196,7 +196,7 @@ card(
       {
         name: 'onClick',
         type:
-          'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation?: () => void |}',
+          'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         description: [
           'Callback fired when a component is activated with a mouse or keyboard. ',
           'See the [Custom navigation context](#Custom-navigation-context) variant and [Provider](/Provider) for more info.',

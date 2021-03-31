@@ -133,7 +133,7 @@ card(
       {
         name: 'onMouseDown',
         type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| disableOnNavigation?: () => void |}> }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| disableOnNavigation: () => void |}> }) => void',
         required: false,
         defaultValue: null,
         description: ['Callback fired when a click event begins.'],
@@ -149,7 +149,7 @@ card(
       {
         name: 'onMouseEnter',
         type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| disableOnNavigation?: () => void |}> }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>, {| disableOnNavigation: () => void |}> }) => void',
         required: false,
         defaultValue: null,
         description: ['Callback fired when a mouse pointer moves onto a TapArea component.'],
@@ -165,7 +165,7 @@ card(
       {
         name: 'onTap',
         type:
-          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| disableOnNavigation?: () => void |}> }) }) => void',
+          '({ event: SyntheticMouseEvent<HTMLDivElement> | SyntheticKeyboardEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>, {| disableOnNavigation: () => void |}> }) }) => void',
         required: false,
         defaultValue: null,
         description: [
