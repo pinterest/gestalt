@@ -37,11 +37,11 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
-        description="Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
+        description="Description about what you should Do. This will be 2-col layout because of the columns prop on Subsection. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
         defaultCode={`
 Code for this example goes here
 `}
@@ -56,11 +56,13 @@ Code for this example goes here
 Code for this example goes here
 `}
       />
+    </MainSection.Subsection>
+    <MainSection.Subsection>
       <MainSection.Card
         cardSize="md"
         type="do"
         description={`
-        Description about what you should Do. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
+        Description about what you should Do. This will be full-width. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
 
         - You do not need code for these
         - You can instead use bulleted lists of Dos

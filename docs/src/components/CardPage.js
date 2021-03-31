@@ -14,7 +14,7 @@ export default function CardPage({ cards, page }: Props): Node {
 
   return (
     <Flex>
-      <Box flex="grow" maxWidth={800}>
+      <Box flex="grow" maxWidth={1312}>
         <SearchContent>
           <Flex gap={8} direction="column">
             {cards.map((card, i) => (

@@ -100,7 +100,7 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -127,7 +127,7 @@ card(
 `}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -174,7 +174,7 @@ card(
 `}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -223,6 +223,7 @@ card(
       title="Labels"
       description={`
 When using Tooltip with [IconButton](/IconButton), avoid repetitive labeling. The \`accessibilityLabel\` provided to IconButton should describe the intent of the button, not the icon itself. For instance, use “Settings” instead of “Cog icon”. Tooltip \`text\` can expand upon that intention, as seen with the \`cog\` IconButton. If Tooltip \`text\` and IconButton \`accessibilityLabel\` contain the same content, pass an empty string to \`accessibilityLabel\`, as seen with the \`send\` IconButton.`}
+      columns={2}
     >
       <MainSection.Card
         cardSize="md"

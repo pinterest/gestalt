@@ -9,11 +9,12 @@ import { capitalizeFirstLetter } from './utils.js';
 
 type Props = {|
   children?: Node,
+  columns?: 1 | 2,
   description?: string,
   title?: string,
 |};
 
-const MainSectionSubsection = ({ children, description, title }: Props): Node => {
+const MainSectionSubsection = ({ children, columns = 1, description, title }: Props): Node => {
   const slugifiedId = slugify(title || '');
   const arrayChildren = Children.toArray(children);
 
@@ -48,15 +49,29 @@ const MainSectionSubsection = ({ children, description, title }: Props): Node =>
           </Box>
         )}
       </Box>
-      {arrayChildren && (
-        <Flex wrap gap={4}>
-          {arrayChildren.map((child, idx) => (
-            <Flex.Item flex="grow" key={idx}>
-              {child}
-            </Flex.Item>
-          ))}
-        </Flex>
-      )}
+
+      {arrayChildren &&
+        (columns === 1 ? (
+          <Flex direction="column" gap={4}>
+            {arrayChildren.map((child, idx) => (
+              <Flex.Item flex="grow" key={idx}>
+                {child}
+              </Flex.Item>
+            ))}
+          </Flex>
+        ) : (
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat( auto-fit, minmax(362px, 1fr) )',
+                columnGap: '16px',
+              },
+            }}
+          >
+            {arrayChildren}
+          </Box>
+        ))}
     </Box>
   );
 };
