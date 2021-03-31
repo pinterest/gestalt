@@ -1,3 +1,9 @@
+## 21.4.0 (Mar 31, 2021)
+
+### Minor
+
+- Status: new Status component (#1417)
+
 ## 21.3.2 (Mar 31, 2021)
 
 ### Patch
