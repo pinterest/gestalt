@@ -37,9 +37,9 @@ export const getContainerNode = ({
   scrollBoundaryContainerRef,
   initialPositionRef,
 }: {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
   initialPositionRef: ?HTMLElement,
-|}): ?HTMLDivElement => {
+|}): ?HTMLElement => {
   // containerNode references the ScrollBoundaryContainer node to which
   // append the portal
   let containerNode = null;
@@ -75,7 +75,7 @@ export const getTriggerRect = ({
 }: {|
   anchor: HTMLElement,
   positionRelativeToAnchor: boolean,
-  scrollBoundaryContainerRef: ?HTMLDivElement,
+  scrollBoundaryContainerRef: ?HTMLElement,
 |}): * => {
   let triggerBoundingRect;
   let relativeOffset;

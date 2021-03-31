@@ -49,13 +49,13 @@ type InternalProps = {|
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.
 const ScrollBoundaryContainerWithForwardRef: AbstractComponent<
   InternalProps,
-  HTMLDivElement,
-> = forwardRef<InternalProps, HTMLDivElement>(function ScrollBoundaryContainer(
+  HTMLElement,
+> = forwardRef<InternalProps, HTMLElement>(function ScrollBoundaryContainer(
   { children, onScroll, padding = 0, height = '100%', overflow = 'auto' },
   ref,
 ): Node {
   const { addRef } = useScrollBoundaryContainer();
-  const anchorRef = useRef<HTMLDivElement | null>(null);
+  const anchorRef = useRef<HTMLElement | null>(null);
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
   useImperativeHandle(ref, () => anchorRef.current);

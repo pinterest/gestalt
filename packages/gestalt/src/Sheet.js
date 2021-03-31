@@ -134,7 +134,7 @@ const SheetWithForwardRef: React$AbstractComponent<SheetProps, HTMLDivElement> =
   const [showBottomShadow, setShowBottomShadow] = useState<boolean>(false);
   const { animationState, onAnimationEnd } = useAnimation();
   const containerRef = useRef<?HTMLDivElement>(null);
-  const contentRef = useRef<?HTMLDivElement>(null);
+  const contentRef = useRef<?HTMLElement>(null);
 
   // Handle onDismiss triggering from ESC keyup event
   useEffect(() => {

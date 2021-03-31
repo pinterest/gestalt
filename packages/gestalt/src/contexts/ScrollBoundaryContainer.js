@@ -11,8 +11,8 @@ import React, {
 import PropTypes from 'prop-types';
 
 type ScrollBoundaryContainerContextType = {|
-  scrollBoundaryContainerRef: ?HTMLDivElement,
-  addRef: (ref: HTMLDivElement) => void,
+  scrollBoundaryContainerRef: ?HTMLElement,
+  addRef: (ref: HTMLElement) => void,
 |};
 
 type Props = {|

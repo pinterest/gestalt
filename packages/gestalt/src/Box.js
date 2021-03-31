@@ -25,6 +25,7 @@ import {
   type AlignContent,
   type AlignItems,
   type AlignSelf,
+  type As,
   type BorderStyle,
   type Bottom,
   type Column,
@@ -50,6 +51,7 @@ import {
   AlignContentPropType,
   AlignItemsPropType,
   AlignSelfPropType,
+  AsPropType,
   BorderStylePropType,
   ColorPropType,
   ColumnPropType,
@@ -98,6 +100,7 @@ type Props = {
   alignContent?: AlignContent,
   alignItems?: AlignItems,
   alignSelf?: AlignSelf,
+  as?: As,
   bottom?: Bottom,
   borderStyle?: BorderStyle,
   color?: Color,
@@ -199,19 +202,34 @@ const disallowedProps = [
   'lgMarginRight',
 ];
 
-const BoxWithForwardRef: AbstractComponent<Props, HTMLDivElement> = forwardRef<
-  Props,
-  HTMLDivElement,
->(function Box(props, ref): Element<'div'> {
-  const { passthroughProps, propsStyles } = buildStyles<Props>({
-    baseStyles: styles.box,
-    props,
-    blocklistProps: disallowedProps,
-  });
+type OutputType =
+  | Element<'article'>
+  | Element<'aside'>
+  | Element<'details'>
+  | Element<'div'>
+  | Element<'figcaption'>
+  | Element<'figure'>
+  | Element<'footer'>
+  | Element<'header'>
+  | Element<'main'>
+  | Element<'nav'>
+  | Element<'section'>
+  | Element<'summary'>;
 
-  // And... magic!
-  return <div {...passthroughProps} {...propsStyles} ref={ref} />;
-});
+const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
+  function Box({ as, ...props }, ref): OutputType {
+    const { passthroughProps, propsStyles } = buildStyles<$Diff<Props, {| as?: As |}>>({
+      baseStyles: styles.box,
+      props,
+      blocklistProps: disallowedProps,
+    });
+
+    const BoxElement = as ?? 'div';
+
+    // And... magic!
+    return <BoxElement {...passthroughProps} {...propsStyles} ref={ref} />;
+  },
+);
 
 BoxWithForwardRef.displayName = 'Box';
 
@@ -251,6 +269,7 @@ BoxWithForwardRef.propTypes = {
   alignContent: AlignContentPropType,
   alignItems: AlignItemsPropType,
   alignSelf: AlignSelfPropType,
+  as: AsPropType,
   bottom: PropTypes.bool,
   borderStyle: BorderStylePropType,
   color: ColorPropType,

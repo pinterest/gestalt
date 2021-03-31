@@ -77,7 +77,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 
   const [showTopShadow, setShowTopShadow] = useState(false);
   const [showBottomShadow, setShowBottomShadow] = useState(false);
-  const contentRef = useRef<?HTMLDivElement>(null);
+  const contentRef = useRef<?HTMLElement>(null);
 
   useEffect(() => {
     function handleKeyUp(event: {| keyCode: number |}) {

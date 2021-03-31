@@ -14,6 +14,19 @@ export type DangerouslySetInlineStyle = {|
 export type AlignContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly' | 'stretch';
 export type AlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 export type AlignSelf = 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+export type As =
+  | 'article'
+  | 'aside'
+  | 'details'
+  | 'div'
+  | 'figcaption'
+  | 'figure'
+  | 'footer'
+  | 'header'
+  | 'main'
+  | 'nav'
+  | 'section'
+  | 'summary';
 export type Bottom = boolean;
 export type BorderStyle = 'sm' | 'lg' | 'shadow' | 'none';
 export type Color =
@@ -115,6 +128,20 @@ export const AlignSelfPropType: React$PropType$Primitive<AlignSelf> = PropTypes.
   'center',
   'baseline',
   'stretch',
+]);
+export const AsPropType: React$PropType$Primitive<As> = PropTypes.oneOf([
+  'article',
+  'aside',
+  'details',
+  'div',
+  'figcaption',
+  'figure',
+  'footer',
+  'header',
+  'main',
+  'nav',
+  'section',
+  'summary',
 ]);
 export const BorderStylePropType: React$PropType$Primitive<BorderStyle> = PropTypes.oneOf([
   'sm',
