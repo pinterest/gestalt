@@ -1,3 +1,9 @@
+## 21.3.0 (Mar 31, 2021)
+
+### Minor
+
+- Box: add `as` prop to use semantic tags (#1444)
+
 ## 21.2.1 (Mar 30, 2021)
 
 ### Patch
