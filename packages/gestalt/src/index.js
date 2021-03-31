@@ -44,6 +44,7 @@ import SegmentedControl from './SegmentedControl.js';
 import SelectList from './SelectList.js';
 import Sheet from './Sheet.js';
 import Spinner from './Spinner.js';
+import Status from './Status.js';
 import Sticky from './Sticky.js';
 import Switch from './Switch.js';
 import Table from './Table.js';
@@ -111,6 +112,7 @@ export {
   SelectList,
   Sheet,
   Spinner,
+  Status,
   Sticky,
   Switch,
   Table,
