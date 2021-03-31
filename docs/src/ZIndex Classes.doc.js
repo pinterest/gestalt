@@ -21,7 +21,7 @@ card(
   <Card name="FixedZIndex">
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
-        FixedZIndex is used for setting fixed z-index values. Use this class when you want to create an intial zIndex to
+        FixedZIndex is used for setting fixed z-index values. Use this class when you want to create an initial zIndex to
         stack others on top of. FixedZIndex must be instantiated with a number.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
