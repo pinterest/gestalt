@@ -6,8 +6,6 @@ import Icon from './Icon.js';
 import Flex from './Flex.js';
 import Text from './Text.js';
 
-export type StatusColor = 'gray' | 'green' | 'orange' | 'red';
-
 const ICON_COLOR_MAP = {
   unstarted: {
     icon: 'workflow-status-unstarted',

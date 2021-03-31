@@ -4,9 +4,12 @@ import { Status } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
+
+card(<FeedbackCallout componentName="Status" />);
 
 card(
   <PageHeader
@@ -21,7 +24,6 @@ card(
   />,
 );
 
-// Specifying Component gives auto warnings about missing props
 card(
   <PropTable
     Component={Status}
@@ -36,12 +38,12 @@ card(
         name: 'title',
         type: 'string',
         required: true,
-        description: 'A label to reinforce the meaning of the status icon',
+        description: `A label to reinforce the meaning of the status icon. See [localization](#Localization)  to learn more.`,
       },
       {
         name: 'subtext',
         type: 'string',
-        description: 'Additional contextual information around the status',
+        description: `Additional contextual information around the status. See [localization](#Localization)  to learn more.`,
       },
     ]}
   />,
