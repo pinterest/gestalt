@@ -1,8 +1,8 @@
 .table {
   border-collapse: separate;
   border-spacing: 0;
-  width: 100%;
   isolation: isolate;
+  width: 100%;
 }
 
 .th {
@@ -14,7 +14,6 @@
 .td {
   composes: paddingY3 from "./boxWhitespace.css";
   composes: paddingX3 from "./boxWhitespace.css";
-  position: relative;
 }
 
 .sticky tr th {
@@ -26,8 +25,8 @@
 
 .columnSticky {
   background-color: var(--g-colorGray0);
-  position:sticky;
   left: 0;
+  position: sticky;
   z-index: 1;
 }
 
@@ -36,11 +35,11 @@
 }
 
 .horizontalScrollRight .columnStickyShadow {
-  box-shadow: 8px 0px 8px -8px var(--g-colorGray150);
+  box-shadow: 8px 0 8px -8px var(--g-colorGray150);
 }
 
 .horizontalScrollLeft .columnStickyShadow {
-  box-shadow: -8px 0px 8px -8px var(--g-colorGray150);
+  box-shadow: -8px 0 8px -8px var(--g-colorGray150);
 }
 
 .thead tr:last-child th {

@@ -7,8 +7,13 @@ describe('Table Accessibility check', () => {
   it('Tests accessibility on the Table page', () => {
     cy.configureAxe({
       rules: [
+        // Disabled until converted to new docs
         {
-          // Disabled to avoid confusion for sticky header example
+          id: 'color-contrast',
+          enabled: false,
+        },
+        {
+          // Disabled to avoid confusion for sticky header and column examples
           id: 'scrollable-region-focusable',
           enabled: false,
         },

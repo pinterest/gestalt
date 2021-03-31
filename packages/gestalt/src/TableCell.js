@@ -40,5 +40,3 @@ export default function TableCell(props: Props): Node {
     </td>
   );
 }
-
-TableCell.displayName = 'TableCell';
