@@ -56,3 +56,22 @@ exports[`renders correctly with maxHeight 1`] = `
   </table>
 </div>
 `;
+
+exports[`renders correctly with stickyColumns 1`] = `
+<div
+  className="box overflowAuto"
+  style={
+    Object {
+      "maxHeight": undefined,
+    }
+  }
+>
+  <table
+    className="table"
+  >
+    <div>
+      rest of table
+    </div>
+  </table>
+</div>
+`;

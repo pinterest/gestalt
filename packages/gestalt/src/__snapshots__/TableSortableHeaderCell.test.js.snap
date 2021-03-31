@@ -4,6 +4,12 @@ exports[`renders correctly when active 1`] = `
 <th
   className="th"
   scope="col"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
 >
   <div
     className="box xsDisplayInlineBlock"
@@ -63,6 +69,12 @@ exports[`renders correctly when inactive 1`] = `
 <th
   className="th"
   scope="col"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
 >
   <div
     className="box xsDisplayInlineBlock"

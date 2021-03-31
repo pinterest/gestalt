@@ -4,6 +4,12 @@ exports[`renders correctly 1`] = `
 <th
   className="th"
   scope="col"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
 >
   column name
 </th>
@@ -15,6 +21,12 @@ exports[`renders correctly with props 1`] = `
   colSpan={3}
   rowSpan={2}
   scope="row"
+  style={
+    Object {
+      "left": undefined,
+      "right": undefined,
+    }
+  }
 >
   row name
 </th>

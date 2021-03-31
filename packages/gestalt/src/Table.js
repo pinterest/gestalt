@@ -1,5 +1,6 @@
 // @flow strict
 import React, { type Node, useState, useCallback, useEffect, useRef } from 'react';
+import cx from 'classnames';
 import Box from './Box.js';
 import styles from './Table.css';
 import TableCell from './TableCell.js';
@@ -21,21 +22,26 @@ type Props = {|
 
 export default function Table(props: Props): Node {
   const { borderStyle, children, maxHeight, stickyColumns } = props;
-  const [showShadowScroll, setShowShadowScroll] = useState(false);
+  const [showShadowScroll, setShowShadowScroll] = useState(null);
   const contentRef = useRef<?HTMLDivElement>(null);
 
   const updateShadows = useCallback(() => {
-    console.log('update shadows');
     const target = contentRef.current;
     if (!target) {
       return;
     }
-    console.log(target.scrollHeight);
+    if (target.scrollLeft > 0) {
+      setShowShadowScroll('right');
+    } else if (target.scrollLeft < 0) {
+      setShowShadowScroll('left');
+    } else {
+      setShowShadowScroll(null);
+    }
   }, []);
 
   useEffect(() => {
     const target = contentRef.current;
-    target.addEventListener('scroll', updateShadows);
+    target?.addEventListener('scroll', updateShadows);
     return () => {
       target.removeEventListener('scroll', updateShadows);
     };
@@ -45,15 +51,19 @@ export default function Table(props: Props): Node {
     updateShadows();
   }, [updateShadows]);
 
+  const classNames = cx(
+    styles.table,
+    showShadowScroll === 'right' && styles.horizontalScrollRight,
+    showShadowScroll === 'left' && styles.horizontalScrollLeft,
+  );
   return (
     <Box
-      id="testing"
       overflow="auto"
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       maxHeight={maxHeight}
       ref={contentRef}
     >
-      <table className={styles.table}>
+      <table className={classNames}>
         <TableContext.Provider value={{ stickyColumns }}>{children}</TableContext.Provider>
       </table>
     </Box>

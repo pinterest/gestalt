@@ -18,3 +18,14 @@ test('renders correctly with colSpan and rowSpan', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('renders correctly when sticky and with shadows', () => {
+  const tree = renderer
+    .create(
+      <TableCell shouldBeSticky shouldHaveShadow previousTotalWidth={120}>
+        cell content
+      </TableCell>,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
