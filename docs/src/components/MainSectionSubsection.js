@@ -52,7 +52,7 @@ const MainSectionSubsection = ({ children, columns = 1, description, title }: Pr
 
       {arrayChildren &&
         (columns === 1 ? (
-          <Flex wrap gap={4}>
+          <Flex direction="column" gap={4}>
             {arrayChildren.map((child, idx) => (
               <Flex.Item flex="grow" key={idx}>
                 {child}

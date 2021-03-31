@@ -230,7 +230,7 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -364,7 +364,7 @@ card(
         }`}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
@@ -484,7 +484,7 @@ function NoTooltipsDropdownExample() {
 }`}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"

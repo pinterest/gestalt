@@ -169,7 +169,7 @@ card(
         Plan for most PageHeaders to be full width. A \`maxWidth\` should only be supplied when the content of the page is center aligned.
         `}
         defaultCode={`
-<Flex direction="column">
+<Flex direction="column" flex="grow">
   <PageHeader
     title="Settings"
     primaryAction={
