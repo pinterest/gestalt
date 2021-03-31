@@ -63,12 +63,14 @@
 ### Patch
 
 - Docs: Fix display style of titles (#1438)
+- Docs: Added "How to Work with Us" page to docs (#1425)
 
 ## 21.0.3 (Mar 23, 2021)
 
 ### Patch
 
 - Typeahead: Close container on outside click, focus input (#1436)
+- ScrollBoundaryContainer: fix positioning within when no available space condition is met (#1435)
 
 ## 21.0.2 (Mar 22, 2021)
 
