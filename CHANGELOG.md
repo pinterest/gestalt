@@ -1,3 +1,9 @@
+## 21.3.1 (Mar 31, 2021)
+
+### Patch
+
+- Docs: Bump up maxWidth (#1441)
+
 ## 21.3.0 (Mar 31, 2021)
 
 ### Minor
