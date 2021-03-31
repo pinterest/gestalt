@@ -1,3 +1,9 @@
+## 21.3.2 (Mar 31, 2021)
+
+### Patch
+
+- Docs: fix Flow type in Docs for Tabs (#1448)
+
 ## 21.3.1 (Mar 31, 2021)
 
 ### Patch
