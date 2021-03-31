@@ -21,8 +21,8 @@ card(
   <Card name="FixedZIndex">
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
-        FixedZIndex is used for setting fixed z-index values. Use this class when you want to create an initial zIndex to
-        stack others on top of. FixedZIndex must be instantiated with a number.
+        FixedZIndex is used for setting fixed z-index values. Use this class when you want to create
+        an initial zIndex to stack others on top of. FixedZIndex must be instantiated with a number.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
         <Markdown
@@ -42,8 +42,9 @@ card(
   <Card name="CompositeZIndex">
     <Flex alignItems="start" direction="column" gap={4}>
       <Text>
-        CompositeZIndex is used for dynamically composing z-index values. Use this class to layer components on top of an
-        existing zIndex. CompositeZIndex must be instantiated with an array of FixedZIndex or CompositeZIndex instances.
+        CompositeZIndex is used for dynamically composing z-index values. Use this class to layer
+        components on top of an existing zIndex. CompositeZIndex must be instantiated with an
+        array of FixedZIndex or CompositeZIndex instances.
       </Text>
       <Box padding={2} color="lightGray" rounding={2}>
         <Markdown
