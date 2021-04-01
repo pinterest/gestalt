@@ -1,3 +1,9 @@
+## 21.4.1 (Apr 1, 2021)
+
+### Patch
+
+- Link/Button/IconButton/TapArea +composed components: always pass disableOnNavigation to onClick (#1450)
+
 ## 21.4.0 (Mar 31, 2021)
 
 ### Minor
