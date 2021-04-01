@@ -2,7 +2,7 @@
 import { createContext, type Context } from 'react';
 
 type TableContextType = {|
-  stickyColumns?: number,
+  stickyColumns?: ?number,
 |};
 
 const initialState = {

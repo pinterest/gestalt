@@ -23,7 +23,7 @@ type Props = {|
 export default function Table(props: Props): Node {
   const { borderStyle, children, maxHeight, stickyColumns } = props;
   const [showShadowScroll, setShowShadowScroll] = useState(null);
-  const contentRef = useRef<?HTMLDivElement>(null);
+  const contentRef = useRef<?HTMLElement>(null);
 
   const updateShadows = useCallback(() => {
     const target = contentRef.current;
@@ -43,7 +43,7 @@ export default function Table(props: Props): Node {
     const target = contentRef.current;
     target?.addEventListener('scroll', updateShadows);
     return () => {
-      target.removeEventListener('scroll', updateShadows);
+      target?.removeEventListener('scroll', updateShadows);
     };
   }, [updateShadows]);
 
