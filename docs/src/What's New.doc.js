@@ -13,7 +13,7 @@ function Changelog() {
   useEffect(() => {
     const fetchChangelog = async () => {
       const result = await fetch(
-        'https://cdn.jsdelivr.net/gh/pinterest/gestalt@master/CHANGELOG.md',
+        'https://raw.githubusercontent.com/pinterest/gestalt/master/CHANGELOG.md',
       );
       setChangelogData(
         result.ok
