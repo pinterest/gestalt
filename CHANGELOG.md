@@ -1,3 +1,9 @@
+## 21.4.3 (Apr 1, 2021)
+
+### Patch
+
+- Docs: Fix layout for two columns (#1452)
+
 ## 21.4.2 (Apr 1, 2021)
 
 ### Patch
