@@ -149,10 +149,24 @@ Code for this example goes here
 );
 
 card(
-  <MainSection
-    name="Writing"
-    description={`Details about \`Writing Guidelines\` go here. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/). Can also use Do/Don't cards without any code (like Tooltip)`}
-  />,
+  <MainSection name="Writing">
+    <MainSection.Subsection columns={2}>
+      <MainSection.Card
+        cardSize="md"
+        type="do"
+        description={`
+- Examples on what to do for writing
+`}
+      />
+      <MainSection.Card
+        cardSize="md"
+        type="don't"
+        description={`
+- Examples of what not to do for writing
+`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
 );
 
 card(
