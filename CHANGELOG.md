@@ -1,3 +1,9 @@
+## 21.4.2 (Apr 1, 2021)
+
+### Patch
+
+- Docs: Fix outdated What's New Page (#1451)
+
 ## 21.4.1 (Apr 1, 2021)
 
 ### Patch
