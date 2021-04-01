@@ -29,7 +29,7 @@ type BaseIconButton = {|
     | SyntheticKeyboardEvent<HTMLButtonElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white',
   padding?: 1 | 2 | 3 | 4 | 5,
@@ -125,7 +125,9 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   };
 
   const handleClick = (event, disableOnNavigation) =>
-    onClick ? onClick(disableOnNavigation ? { event, disableOnNavigation } : { event }) : undefined;
+    onClick
+      ? onClick({ event, disableOnNavigation: disableOnNavigation ?? (() => {}) })
+      : undefined;
 
   const handleLinkClick = ({ event, disableOnNavigation }) =>
     handleClick(event, disableOnNavigation);

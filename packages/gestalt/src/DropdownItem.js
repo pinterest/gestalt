@@ -15,7 +15,7 @@ type PublicProps = {|
   isExternal?: boolean,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   option: OptionObject,
   selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,

@@ -14,7 +14,7 @@ type Props = {|
     | SyntheticKeyboardEvent<HTMLDivElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   rowSpan?: number,
   scope?: 'col' | 'colgroup' | 'row' | 'rowgroup',

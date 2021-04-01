@@ -11,7 +11,7 @@ export type ActionDataType = {|
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLButtonElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   rel?: 'none' | 'nofollow',
   target?: null | 'self' | 'blank',

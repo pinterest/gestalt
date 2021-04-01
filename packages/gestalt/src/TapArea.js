@@ -36,7 +36,7 @@ type BaseTapArea = {|
     | SyntheticKeyboardEvent<HTMLDivElement>
     | SyntheticMouseEvent<HTMLAnchorElement>
     | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation?: () => void |},
+    {| disableOnNavigation: () => void |},
   >,
   tabIndex?: -1 | 0,
   rounding?: Rounding,
@@ -119,9 +119,18 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
     },
   );
 
+  const handleKeyPress = (event) => {
+    // Check to see if space or enter were pressed
+    if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
+      // Prevent the default action to stop scrolling when space is pressed
+      event.preventDefault();
+      onTap({ event, disableOnNavigation: () => {} });
+    }
+  };
+
   const handleClick = (event, disableOnNavigation) =>
     !disabled && onTap
-      ? onTap(disableOnNavigation ? { event, disableOnNavigation } : { event })
+      ? onTap({ event, disableOnNavigation: disableOnNavigation ?? (() => {}) })
       : undefined;
 
   const handleLinkClick = ({ event, disableOnNavigation }) =>
@@ -218,14 +227,7 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
       }}
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
-      onKeyPress={(event) => {
-        // Check to see if space or enter were pressed
-        if (!disabled && onTap && keyPressShouldTriggerTap(event)) {
-          // Prevent the default action to stop scrolling when space is pressed
-          event.preventDefault();
-          onTap({ event });
-        }
-      }}
+      onKeyPress={handleKeyPress}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchCancel={handleTouchCancel}
