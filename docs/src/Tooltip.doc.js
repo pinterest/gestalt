@@ -808,7 +808,7 @@ function ScrollBoundaryContainerExample() {
 
 card(
   <MainSection name="Writing">
-    <MainSection.Subsection>
+    <MainSection.Subsection columns={2}>
       <MainSection.Card
         cardSize="md"
         type="do"
