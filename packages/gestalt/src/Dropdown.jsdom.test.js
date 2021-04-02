@@ -337,7 +337,7 @@ describe('Dropdown', () => {
       keyCode: DOWN_ARROW,
     });
 
-    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-2');
+    expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com');
 
     fireEvent.keyDown(window.document, {
       keyCode: UP_ARROW,
@@ -400,6 +400,69 @@ describe('Dropdown', () => {
     });
 
     expect(document.activeElement).toHaveAttribute('id', 'ex-7-item-1');
+
+    fireEvent.keyDown(window.document, {
+      keyCode: ENTER,
+    });
+
+    expect(handleSelectMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call link handleSelect when enter key is pressed', () => {
+    const mockOnDismiss = jest.fn();
+    const handleSelectMock = jest.fn();
+    const element = document.createElement('button');
+    render(
+      <Dropdown id="ex-8" anchor={element} onDismiss={mockOnDismiss}>
+        <Dropdown.Item
+          handleSelect={handleSelectMock}
+          option={{ value: 'item 1', label: 'Item 1' }}
+        />
+        <Dropdown.Item
+          isExternal
+          href="https://pinterest.com/today"
+          handleSelect={handleSelectMock}
+          option={{
+            value: 'item 3',
+            label: 'External Item 3 with a really long, detailed, complex name',
+          }}
+        />
+        <Dropdown.Item
+          handleSelect={handleSelectMock}
+          option={{
+            value: 'item 2',
+            label: 'Item 2 with a really long, detailed, complex name',
+          }}
+        />
+        <Dropdown.Item
+          handleSelect={handleSelectMock}
+          badgeText="New"
+          option={{ value: 'item 4', label: 'Item 4' }}
+        />
+        <Dropdown.Item
+          isExternal
+          badgeText="New"
+          option={{
+            value: 'item 5',
+            label: 'Item 5 with a really long, detailed name',
+          }}
+          href="https://pinterest.com"
+        />
+        <Dropdown.Item
+          isExternal
+          option={{ value: 'item 6', label: 'Item 6' }}
+          href="https://pinterest.com"
+        />
+      </Dropdown>,
+    );
+
+    expect(document.activeElement).toHaveAttribute('id', 'ex-8-item-0');
+
+    fireEvent.keyDown(window.document, {
+      keyCode: DOWN_ARROW,
+    });
+
+    expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com/today');
 
     fireEvent.keyDown(window.document, {
       keyCode: ENTER,

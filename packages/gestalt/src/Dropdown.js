@@ -67,7 +67,12 @@ export default function Dropdown({
   let selectedElement;
   const setOptionRef = (optionRef) => {
     selectedElement = optionRef;
-    if (selectedElement) selectedElement.focus();
+    const linkElement = selectedElement?.getElementsByTagName('a')[0];
+    if (linkElement) {
+      linkElement.focus();
+    } else if (selectedElement) {
+      selectedElement.focus();
+    }
   };
 
   const containerRef = useRef();
@@ -118,7 +123,7 @@ export default function Dropdown({
       event.preventDefault();
     } else if (event.keyCode === ENTER) {
       // $FlowFixMe[prop-missing]
-      event.preventDefault();
+      event.stopPropagation();
       handleKeyNavigation(event, KEYS.ENTER);
     } else if (event.keyCode === ESCAPE) {
       if (anchor) anchor.focus();

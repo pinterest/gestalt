@@ -165,7 +165,7 @@ card(
         name: 'isExternal',
         type: 'boolean',
         description:
-          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
+          'When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](#Best-practices) for more info.',
       },
       {
         name: 'option',
@@ -692,7 +692,7 @@ function TruncationDropdownExample() {
 
 card(
   <MainSection name="Variants">
-    <MainSection.Subsection title="Types of items">
+    <MainSection.Subsection title="Types of items" columns={2}>
       <MainSection.Card
         cardSize="md"
         title="Action"

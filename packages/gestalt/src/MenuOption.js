@@ -80,6 +80,7 @@ export default function MenuOption({
 
   const className = classnames(getRoundingClassName(2), focusStyles.hideOutline, {
     [focusStyles.accessibilityOutline]: isFocusVisible,
+    [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
     [styles.fullWidth]: true,
     [styles.pointer]: true,
   });
@@ -164,7 +165,12 @@ export default function MenuOption({
     >
       <Box padding={2} color={optionStateColor} rounding={2} display="flex" direction="column">
         {href ? (
-          <Link hoverStyle="none" href={href} onClick={onClick} target="blank">
+          <Link
+            hoverStyle="none"
+            href={href}
+            onClick={onClick}
+            target={isExternal ? 'blank' : 'self'}
+          >
             {menuOptionContents}
           </Link>
         ) : (
