@@ -80,6 +80,7 @@ export default function MenuOption({
 
   const className = classnames(getRoundingClassName(2), focusStyles.hideOutline, {
     [focusStyles.accessibilityOutline]: isFocusVisible,
+    [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
     [styles.fullWidth]: true,
     [styles.pointer]: true,
   });

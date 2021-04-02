@@ -337,7 +337,7 @@ describe('Dropdown', () => {
       keyCode: DOWN_ARROW,
     });
 
-    expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-2');
+    expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com');
 
     fireEvent.keyDown(window.document, {
       keyCode: UP_ARROW,

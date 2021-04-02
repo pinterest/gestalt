@@ -3,5 +3,6 @@
 declare module.exports: {|
   +'accessibilityOutline': string,
   +'accessibilityOutlineFocus': string,
+  +'accessibilityOutlineFocusWithin': string,
   +'hideOutline': string,
 |};

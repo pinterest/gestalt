@@ -692,7 +692,7 @@ function TruncationDropdownExample() {
 
 card(
   <MainSection name="Variants">
-    <MainSection.Subsection title="Types of items">
+    <MainSection.Subsection title="Types of items" columns={2}>
       <MainSection.Card
         cardSize="md"
         title="Action"

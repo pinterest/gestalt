@@ -107,7 +107,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Navigation',
-    pages: ['Link', 'SegmentedControl', 'Tabs'],
+    pages: ['Dropdown', 'Link', 'SegmentedControl', 'Tabs'],
   },
 ];
 
