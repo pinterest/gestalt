@@ -122,6 +122,7 @@ export default function Dropdown({
       // $FlowFixMe[prop-missing]
       event.preventDefault();
     } else if (event.keyCode === ENTER) {
+      // $FlowFixMe[prop-missing]
       event.stopPropagation();
       handleKeyNavigation(event, KEYS.ENTER);
     } else if (event.keyCode === ESCAPE) {
