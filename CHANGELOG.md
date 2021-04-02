@@ -1,3 +1,9 @@
+## 21.4.4 (Apr 2, 2021)
+
+### Patch
+
+- Dropdown: Fix link access through keyboard (#1453)
+
 ## 21.4.3 (Apr 1, 2021)
 
 ### Patch
