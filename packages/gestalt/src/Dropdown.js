@@ -67,8 +67,9 @@ export default function Dropdown({
   let selectedElement;
   const setOptionRef = (optionRef) => {
     selectedElement = optionRef;
-    if (selectedElement && selectedElement.getElementsByTagName('a')[0]) {
-      selectedElement.getElementsByTagName('a')[0].focus();
+    const linkElement = selectedElement?.getElementsByTagName('a')[0];
+    if (linkElement) {
+      linkElement.focus();
     } else if (selectedElement) {
       selectedElement.focus();
     }
