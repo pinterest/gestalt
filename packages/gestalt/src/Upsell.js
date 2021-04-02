@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
+import Flex from './Flex.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -20,6 +21,46 @@ import {
   type DismissButtonType,
 } from './commonTypes.js';
 
+type UpsellActionProps = {|
+  data: ActionDataType,
+  stacked?: boolean,
+  type: string,
+|};
+
+const UpsellAction = ({ data, stacked, type }: UpsellActionProps): Node => {
+  const color = type === 'primary' ? 'red' : 'gray';
+  const { accessibilityLabel, href, label, onClick, rel, target } = data;
+
+  const sharedProps = {
+    accessibilityLabel,
+    color,
+    onClick,
+    size: 'lg',
+    text: label,
+  };
+
+  return (
+    <Box
+      alignItems="center"
+      display="block"
+      smDisplay="flex"
+      justifyContent="center"
+      marginTop={type === 'secondary' && stacked ? 2 : undefined}
+      smMarginTop="auto"
+      smMarginBottom="auto"
+      paddingX={1}
+    >
+      {href ? (
+        <Button {...sharedProps} href={href} rel={rel} role="link" target={target} />
+      ) : (
+        <Button {...sharedProps} role="button" />
+      )}
+    </Box>
+  );
+};
+
+const CONTENT_MAX_WIDTH = 648;
+
 type Props = {|
   children?: Element<typeof UpsellForm>,
   dismissButton?: DismissButtonType,
@@ -34,57 +75,9 @@ type Props = {|
   message: string,
   primaryAction?: ActionDataType,
   secondaryAction?: ActionDataType,
+  subtext?: string,
   title?: string,
 |};
-
-const UpsellAction = ({
-  data,
-  stacked,
-  type,
-}: {|
-  data: ActionDataType,
-  stacked?: boolean,
-  type: string,
-|}): Node => {
-  const color = type === 'primary' ? 'red' : 'gray';
-  const { accessibilityLabel, href, label, onClick, rel, target } = data;
-
-  return (
-    <Box
-      display="block"
-      smDisplay="flex"
-      alignItems="center"
-      justifyContent="center"
-      paddingX={1}
-      marginTop={type === 'secondary' && stacked ? 2 : undefined}
-      smMarginTop="auto"
-      smMarginBottom="auto"
-    >
-      {href ? (
-        <Button
-          accessibilityLabel={accessibilityLabel}
-          color={color}
-          href={href}
-          onClick={onClick}
-          rel={rel}
-          role="link"
-          size="lg"
-          target={target}
-          text={label}
-        />
-      ) : (
-        <Button
-          accessibilityLabel={accessibilityLabel}
-          color={color}
-          onClick={onClick}
-          role="button"
-          size="lg"
-          text={label}
-        />
-      )}
-    </Box>
-  );
-};
 
 export default function Upsell({
   children,
@@ -93,16 +86,36 @@ export default function Upsell({
   message,
   primaryAction,
   secondaryAction,
+  subtext,
   title,
 }: Props): Node {
-  const isImage = imageData?.component && imageData.component.type === Image;
+  const isImage = imageData?.component.type === Image;
+  const imageWidth = Math.min(imageData?.width || 128, 128);
+
   const responsiveMinWidth = useResponsiveMinWidth();
+  const isXS = responsiveMinWidth === 'xs';
+
+  const subtextDisplay = subtext ? (
+    <Text align={isXS ? 'center' : undefined} color="gray" size="sm">
+      {subtext}
+    </Text>
+  ) : null;
+
+  const buttonsDisplay =
+    primaryAction || secondaryAction ? (
+      <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
+        {secondaryAction && !isXS && <UpsellAction type="secondary" data={secondaryAction} />}
+        {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
+        {secondaryAction && isXS && (
+          <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
+        )}
+      </Box>
+    ) : null;
 
   return (
     <Box
       display="flex"
       direction="column"
-      smDirection="row"
       padding={6}
       smPadding={8}
       position="relative"
@@ -125,15 +138,16 @@ export default function Upsell({
             <Box
               marginBottom={4}
               smMarginBottom={0}
-              width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+              width={isImage ? imageWidth : undefined}
               flex="none"
-              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
+              alignSelf={isXS ? 'center' : undefined}
             >
               <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
                 {imageData.component}
               </Mask>
             </Box>
           )}
+
           <Box
             display="flex"
             flex={children ? 'grow' : 'shrink'}
@@ -147,16 +161,18 @@ export default function Upsell({
             smMarginEnd={6}
             smMarginStart={imageData ? 6 : 0}
           >
-            <Box maxWidth={648}>
+            <Flex direction="column" gap={2} maxWidth={CONTENT_MAX_WIDTH}>
               {title && (
-                <Box marginBottom={2}>
-                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
-                    {title}
-                  </Heading>
-                </Box>
+                <Heading align={isXS ? 'center' : undefined} size="sm">
+                  {title}
+                </Heading>
               )}
-              <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
-            </Box>
+
+              <Text align={isXS ? 'center' : undefined}>{message}</Text>
+
+              {(isXS || isImage) && subtextDisplay && <Box marginTop={2}>{subtextDisplay}</Box>}
+            </Flex>
+
             {children && (
               <Box
                 smDisplay="flex"
@@ -165,25 +181,37 @@ export default function Upsell({
                 justifyContent="end"
                 smMarginEnd={4}
                 smPaddingY={3}
-                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                marginTop={isXS ? 2 : undefined}
               >
                 {children}
               </Box>
             )}
           </Box>
         </Box>
-        {!children && (
-          <Box smDisplay="flex" marginStart="auto" smMarginEnd={4} smPaddingY={3}>
-            {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <UpsellAction type="secondary" data={secondaryAction} />
-            )}
-            {primaryAction && <UpsellAction type="primary" data={primaryAction} />}
-            {secondaryAction && responsiveMinWidth === 'xs' && (
-              <UpsellAction type="secondary" data={secondaryAction} stacked={!!secondaryAction} />
-            )}
-          </Box>
-        )}
+
+        {!children && buttonsDisplay}
       </Box>
+
+      {!isXS && !isImage && subtextDisplay && (
+        <Box marginTop={4}>
+          <Flex gap={6}>
+            {/* ICON/IMAGE SPACER */}
+            {imageData && <Box aria-hidden flex="none" width={isImage ? imageWidth : 32} />}
+
+            <Box maxWidth={CONTENT_MAX_WIDTH}>{subtextDisplay}</Box>
+
+            {/* BUTTON(S) SPACER */}
+            {buttonsDisplay && (
+              <Flex.Item flex="none">
+                <div aria-hidden style={{ height: 0, visibility: 'hidden' }}>
+                  {buttonsDisplay}
+                </div>
+              </Flex.Item>
+            )}
+          </Flex>
+        </Box>
+      )}
+
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
@@ -215,6 +243,7 @@ Upsell.propTypes = {
   message: PropTypes.string.isRequired,
   primaryAction: ActionDataPropType,
   secondaryAction: ActionDataPropType,
+  subtext: PropTypes.string,
   title: PropTypes.string,
 };
 

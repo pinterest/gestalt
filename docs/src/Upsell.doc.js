@@ -18,9 +18,6 @@ card(
     description="Upsells are banners that display short messages that focus on promoting an action or upgrading something the user already has."
     defaultCode={`
       <Upsell
-        title="Give $30, get $60 in ads credit"
-        message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
-        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -28,6 +25,9 @@ card(
         imageData={{
           component: <Icon icon="pinterest" accessibilityLabel="" color="darkGray" size={32} />,
         }}
+        message="When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too"
+        primaryAction={{ href: 'https://pinterest.com', label: 'Send invite', target: 'blank' }}
+        title="Give $30, get $60 in ads credit"
       />;
     `}
   />,
@@ -459,14 +459,6 @@ card(
         cardSize="lg"
         defaultCode={`
 <Upsell
-  title="Stay healthy and safe"
-  message="Check out our resources for adapting to these times."
-  primaryAction={{
-    href: 'https://pinterest.com',
-    label: 'Visit',
-    accessibilityLabel: 'Visit our Stay Safe resources',
-    target: 'blank',
-  }}
   dismissButton={{
     accessibilityLabel: 'Dismiss banner',
     onDismiss: () => {},
@@ -484,6 +476,15 @@ card(
     mask: { rounding: 4 },
     width: 128,
   }}
+  message="Check out our resources for adapting to these times."
+  primaryAction={{
+    href: 'https://pinterest.com',
+    label: 'Visit',
+    accessibilityLabel: 'Visit our Stay Safe resources',
+    target: 'blank',
+  }}
+  subtext="Breathe Breathe Breathe Breathe Breathe Breathe Breathe"
+  title="Stay healthy and safe"
 />;
         `}
       />
@@ -504,7 +505,10 @@ function Example(props) {
   return (
     <Box marginStart={-1} marginEnd={-1}>
       <Upsell
-        title="Give $30, get $60 in ads credit"
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
         message="Earn $60 of ads credit, and give $30 of ads credit to a friend"
         primaryAction={{
           label: 'Send invite',
@@ -518,10 +522,8 @@ function Example(props) {
           target: 'blank',
           accessibilityLabel: 'Learn more: Verified Merchant Program',
         }}
-        dismissButton={{
-          accessibilityLabel: 'Dismiss banner',
-          onDismiss: () => {},
-        }}
+        subtext="Legal copy When your friend spends their first $30 on ads, you’ll earn $60 of ads credit, and they’ll get $30 of ads credit, too"
+        title="Give $30, get $60 in ads credit"
       />
       {showModal && (
         <Layer>
