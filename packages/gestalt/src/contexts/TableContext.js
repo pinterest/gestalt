@@ -5,6 +5,11 @@ type TableContextType = {|
   stickyColumns?: ?number,
 |};
 
+type Props = {|
+  children: Node,
+  value: Object,
+|};
+
 const TableContext: Context<TableContextType> = createContext<TableContextType>({
   stickyColumns: undefined,
 });

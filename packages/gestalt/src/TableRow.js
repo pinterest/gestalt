@@ -19,8 +19,8 @@ export default function TableRow(props: Props): Node {
   }, [rowRef, stickyColumns]);
 
   const renderCellWithIndex = (child, index) => {
-    const shouldBeSticky = stickyColumns >= 0 && index < stickyColumns;
-    const shouldHaveShadow = stickyColumns - 1 === index;
+    const shouldBeSticky = stickyColumns && stickyColumns >= 0 && index < stickyColumns;
+    const shouldHaveShadow = stickyColumns && stickyColumns - 1 === index;
     const previousWidths = columnWidths.slice(0, index);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
@@ -29,7 +29,9 @@ export default function TableRow(props: Props): Node {
 
   return (
     <tr ref={rowRef}>
-      {stickyColumns > 0 ? Children.map(props.children, renderCellWithIndex) : props.children}
+      {stickyColumns && stickyColumns > 0
+        ? Children.map(props.children, renderCellWithIndex)
+        : props.children}
     </tr>
   );
 }
