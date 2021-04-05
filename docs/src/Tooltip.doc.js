@@ -443,7 +443,6 @@ function ScrollBoundaryContainerExample() {
   const [showModal, setShowModal] = React.useState(false);
   const [alignText, setAlignText] = React.useState('left')
   const MODAL_Z_INDEX = new FixedZIndex(11);
-  const TOOLTIP_Z_INDEX = new CompositeZIndex([MODAL_Z_INDEX]);
 
   return (
     <>
@@ -539,7 +538,7 @@ function ScrollBoundaryContainerExample() {
                   <Text size="lg">Add text directly onto your Pin</Text>
                   <Text size="lg" weight="bold">Alignment</Text>
                   <Flex>
-                    <Tooltip text="Align left" zIndex={TOOLTIP_Z_INDEX}>
+                    <Tooltip text="Align left">
                       <IconButton
                         accessibilityLabel="Align left"
                         bgColor="white"
@@ -550,7 +549,7 @@ function ScrollBoundaryContainerExample() {
                         selected={alignText === 'left'}
                       />
                     </Tooltip>
-                    <Tooltip text="Align center" zIndex={TOOLTIP_Z_INDEX}>
+                    <Tooltip text="Align center">
                       <IconButton
                         accessibilityLabel="Align center"
                         bgColor="white"
@@ -561,7 +560,7 @@ function ScrollBoundaryContainerExample() {
                         selected={alignText === 'center'}
                       />
                     </Tooltip>
-                    <Tooltip text="Align right" zIndex={TOOLTIP_Z_INDEX}>
+                    <Tooltip text="Align right">
                       <IconButton
                         accessibilityLabel="Align right"
                         bgColor="white"
