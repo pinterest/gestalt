@@ -1,12 +1,12 @@
 // @flow strict
 import React, {
   Children,
+  cloneElement,
   Fragment,
   type Node,
-  useState,
-  useContext,
   useEffect,
-  cloneElement,
+  useRef,
+  useState,
 } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
@@ -14,7 +14,7 @@ import Box from './Box.js';
 import IconButton from './IconButton.js';
 import TableCell from './TableCell.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
-import TableContext from './TableContextProvider.js';
+import { useTableContext } from './contexts/TableContext.js';
 
 type Props = {|
   accessibilityExpandLabel: string,
@@ -44,8 +44,8 @@ export default function TableRowExpandable(props: Props): Node {
   const [expanded, setExpanded] = useState(false);
   const hoverStyle = props.hoverStyle || 'gray';
   const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
-  const { stickyColumns } = useContext(TableContext);
-  const rowRef = React.useRef();
+  const { stickyColumns } = useTableContext();
+  const rowRef = useRef();
   const [columnWidths, setColumnWidths] = useState([]);
 
   const handleButtonClick = ({ event }) => {
@@ -56,31 +56,20 @@ export default function TableRowExpandable(props: Props): Node {
   };
 
   useEffect(() => {
-    if (rowRef && rowRef.current && stickyColumns) {
-      const colWidths = [];
-      const tableRowChildrenArray = [...rowRef.current.children];
-      tableRowChildrenArray.forEach((child) => {
-        colWidths.push(child.clientWidth);
-      });
+    if (rowRef?.current && stickyColumns) {
+      const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
       setColumnWidths(colWidths);
     }
-  }, [rowRef, stickyColumns]);
+  }, [stickyColumns]);
 
-  const renderCellsWithIndex = () => {
-    const cells = [];
-    const tableRowChildrenArray = Children.toArray(props.children);
-
-    tableRowChildrenArray.forEach((child, index) => {
-      // Account for the extra first column
-      const adjustedIndex = index + 1;
-      const shouldBeSticky = stickyColumns >= 0 && adjustedIndex < stickyColumns;
-      const shouldHaveShadow = stickyColumns - 1 === adjustedIndex;
-      const previousWidths = columnWidths.slice(0, adjustedIndex);
-      const previousTotalWidth =
-        previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
-      cells.push(cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow }));
-    });
-    return cells;
+  const renderCellWithAdjustedIndex = (child, index) => {
+    const adjustedIndex = index + 1;
+    const shouldBeSticky = stickyColumns >= 0 && adjustedIndex < stickyColumns;
+    const shouldHaveShadow = stickyColumns - 1 === adjustedIndex;
+    const previousWidths = columnWidths.slice(0, adjustedIndex);
+    const previousTotalWidth =
+      previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+    return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
   };
 
   return (
@@ -97,7 +86,7 @@ export default function TableRowExpandable(props: Props): Node {
             size="xs"
           />
         </TableCell>
-        {stickyColumns > 0 ? renderCellsWithIndex() : children}
+        {stickyColumns > 0 ? Children.map(props.children, renderCellWithAdjustedIndex) : children}
       </tr>
       {expanded && (
         <tr id={id}>

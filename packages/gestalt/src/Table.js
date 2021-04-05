@@ -11,7 +11,7 @@ import TableHeaderCell from './TableHeaderCell.js';
 import TableRowExpandable from './TableRowExpandable.js';
 import TableRow from './TableRow.js';
 import TableSortableHeaderCell from './TableSortableHeaderCell.js';
-import TableContext from './TableContextProvider.js';
+import { TableContextProvider } from './contexts/TableContext.js';
 
 type Props = {|
   children: Node,
@@ -23,10 +23,10 @@ type Props = {|
 export default function Table(props: Props): Node {
   const { borderStyle, children, maxHeight, stickyColumns } = props;
   const [showShadowScroll, setShowShadowScroll] = useState(null);
-  const contentRef = useRef<?HTMLElement>(null);
+  const tableRef = useRef<?HTMLElement>(null);
 
   const updateShadows = useCallback(() => {
-    const target = contentRef.current;
+    const target = tableRef.current;
     if (!target) {
       return;
     }
@@ -40,16 +40,17 @@ export default function Table(props: Props): Node {
   }, []);
 
   useEffect(() => {
-    const target = contentRef.current;
+    const target = tableRef.current;
     target?.addEventListener('scroll', updateShadows);
+    updateShadows();
     return () => {
       target?.removeEventListener('scroll', updateShadows);
     };
   }, [updateShadows]);
 
-  useEffect(() => {
-    updateShadows();
-  }, [updateShadows]);
+  // useEffect(() => {
+  //   updateShadows();
+  // }, [updateShadows]);
 
   const classNames = cx(
     styles.table,
@@ -61,10 +62,10 @@ export default function Table(props: Props): Node {
       overflow="auto"
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       maxHeight={maxHeight}
-      ref={contentRef}
+      ref={tableRef}
     >
       <table className={classNames}>
-        <TableContext.Provider value={{ stickyColumns }}>{children}</TableContext.Provider>
+        <TableContextProvider value={{ stickyColumns }}>{children}</TableContextProvider>
       </table>
     </Box>
   );

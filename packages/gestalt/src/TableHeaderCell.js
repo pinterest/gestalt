@@ -44,5 +44,3 @@ export default function TableHeaderCell(props: Props): Node {
     </th>
   );
 }
-
-TableHeaderCell.displayName = 'TableHeaderCell';
