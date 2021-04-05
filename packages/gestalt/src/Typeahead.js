@@ -89,7 +89,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   // Track input value
   const defaultOption: OptionObject | null = findDefaultOption(value);
   const displayValue = defaultOption?.label ?? '';
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState<string>(displayValue);
   // Make sure we respect any external changes to `value`
   useEffect(() => {
     setSearch(displayValue);
