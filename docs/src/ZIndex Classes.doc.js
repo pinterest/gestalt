@@ -425,7 +425,6 @@ function ScrollBoundaryContainerExample() {
       {showSheet && (
         <Layer zIndex={SHEET_ZINDEX}>
           <Sheet
-            _dangerousScrollableExperimentEnabled
             accessibilityDismissButtonLabel="Close edit Pin sheet"
             accessibilitySheetLabel="Edit your Pin details"
             heading="Edit Pin"
@@ -539,7 +538,6 @@ function ScrollBoundaryContainerExample() {
       {showModal && (
         <Layer zIndex={MODAL_ZINDEX}>
           <Modal
-            _dangerousScrollableExperimentEnabled
             accessibilityModalLabel="Edit Pin"
             heading="Edit"
             size="lg"
