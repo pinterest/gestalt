@@ -16,7 +16,7 @@ export default function TableRow(props: Props): Node {
       const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
       setColumnWidths(colWidths);
     }
-  }, [rowRef, stickyColumns]);
+  }, [stickyColumns]);
 
   const renderCellWithIndex = (child, index) => {
     const shouldBeSticky = stickyColumns ? stickyColumns >= 0 && index < stickyColumns : false;
