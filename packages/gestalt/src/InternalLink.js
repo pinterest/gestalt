@@ -152,11 +152,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
 
   // useOnNavigation is only accessible with Gestalt Provider
   // and when onNavigation prop is passed to it
-  let defaultOnNavigation = useOnNavigation({ href, target });
-
-  const disableOnNavigation = () => {
-    defaultOnNavigation = undefined;
-  };
+  const defaultOnNavigation = useOnNavigation({ href, target });
 
   const handleKeyPress = (event) => {
     // Check to see if space or enter were pressed
@@ -179,11 +175,18 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
         handleBlur();
       }}
       onClick={(event) => {
+        let defaultOnNavigationIsEnabled = true;
+        const disableOnNavigation = () => {
+          defaultOnNavigationIsEnabled = false;
+        };
+
         onClick?.({
           event,
           disableOnNavigation,
         });
-        defaultOnNavigation?.({ event });
+        if (defaultOnNavigation && defaultOnNavigationIsEnabled) {
+          defaultOnNavigation({ event });
+        }
       }}
       onFocus={(event) => {
         onFocus?.({ event });
