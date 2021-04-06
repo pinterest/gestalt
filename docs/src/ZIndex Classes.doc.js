@@ -19,7 +19,7 @@ card(
 
 card(
   <MainSection name="FixedZIndex">
-    <MainSection.Subsection columns={2}>
+    <MainSection.Subsection>
       <MainSection.Card
         cardSize="lg"
         description={`
@@ -37,7 +37,7 @@ const fixedZindex = new FixedZIndex(1);
 
 card(
   <MainSection name="CompositeZIndex">
-    <MainSection.Subsection columns={2}>
+    <MainSection.Subsection>
       <MainSection.Card
         cardSize="lg"
         description={`
@@ -242,6 +242,38 @@ const modal = (
 ~~~
 `}
       />
+      <MainSection.Card
+        cardSize="lg"
+        type="don't"
+        description={`
+Use Box with high fixed z-index values to position your components at the top of the stacking context or use them redundantly with [Layer](/Layer). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
+~~~jsx
+import { FixedZIndex } from 'gestalt';
+
+const MODAL_ZINDEX = new FixedZIndex(1000000);
+
+const modalA = (
+  <Box zIndex={MODAL_ZINDEX}>
+    <Modal>
+      <Text>Modal A</Text>
+    </Modal>
+  <Box>
+);
+
+const modalB = (
+  <Layer>
+    <Box zIndex={MODAL_ZINDEX}>
+      <Modal>
+        <Text>Modal B</Text>
+      </Modal>
+    <Box zIndex={MODAL_ZINDEX}>
+  </Layer>
+);
+
+
+~~~
+`}
+      />
     </MainSection.Subsection>
   </MainSection>,
 );
@@ -255,7 +287,7 @@ card(
 
 In the case of Layer, this foundational components creates a new stacking context. Unless there's a conflict with another z-index, don't pass unnecessary zIndex to Layer.
 
-The following example sets a z-index in the Layer wrapping [Sheet](/Sheet) to position Sheet over the page header in the Docs. Set \`HeaderPageZIndex\` below 10 to see the importance of z-index in this example.`}
+The following example sets a z-index in the Layer wrapping [Sheet](/Sheet) to position Sheet over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
     >
       <MainSection.Card
         cardSize="lg"
