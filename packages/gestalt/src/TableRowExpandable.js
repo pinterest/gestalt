@@ -65,8 +65,10 @@ export default function TableRowExpandable(props: Props): Node {
   const renderCellWithAdjustedIndex = (child, index) => {
     // Account for initial expandable column
     const adjustedIndex = index + 1;
-    const shouldBeSticky = stickyColumns && stickyColumns >= 0 && adjustedIndex < stickyColumns;
-    const shouldHaveShadow = stickyColumns && stickyColumns - 1 === adjustedIndex;
+    const shouldBeSticky = stickyColumns
+      ? stickyColumns >= 0 && adjustedIndex < stickyColumns
+      : false;
+    const shouldHaveShadow = stickyColumns ? stickyColumns - 1 === adjustedIndex : false;
     const previousWidths = columnWidths.slice(0, adjustedIndex);
     const previousTotalWidth =
       previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
@@ -76,7 +78,10 @@ export default function TableRowExpandable(props: Props): Node {
   return (
     <Fragment>
       <tr className={cs} ref={rowRef}>
-        <TableCell shouldBeSticky={stickyColumns > 0} previousTotalWidth={0}>
+        <TableCell
+          shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
+          previousTotalWidth={0}
+        >
           <IconButton
             accessibilityExpanded={expanded}
             accessibilityControls={id}
@@ -87,7 +92,7 @@ export default function TableRowExpandable(props: Props): Node {
             size="xs"
           />
         </TableCell>
-        {stickyColumns && stickyColumns > 0
+        {Number(stickyColumns) > 0
           ? Children.map(props.children, renderCellWithAdjustedIndex)
           : children}
       </tr>
