@@ -1,3 +1,9 @@
+## 21.4.8 (Apr 6, 2021)
+
+### Patch
+
+- Docs: remove deprecated props from examples (#1460)
+
 ## 21.4.7 (Apr 6, 2021)
 
 ### Patch
