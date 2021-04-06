@@ -696,7 +696,7 @@ card(
         defaultValue: null,
         description: [
           'Supply a short, descriptive label for screen-readers as a text alternative to the Collapse button.',
-          'Accessibility: It populates aria-label on the <button> element for the Collapse button.',
+          'Accessibility: It populates aria-label on the `<button>` element for the Collapse button.',
         ],
       },
       {
@@ -706,7 +706,7 @@ card(
         defaultValue: null,
         description: [
           'Supply a short, descriptive label for screen-readers as a text alternative to the Expand button.',
-          'Accessibility: It populates aria-label on the <button> element for the Expand button.',
+          'Accessibility: It populates aria-label on the `<button>` element for the Expand button.',
         ],
       },
       {
