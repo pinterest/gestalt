@@ -368,7 +368,7 @@ card(
     name="Example: Multiple sticky columns"
     description="Try scrolling horizontally to see the first 3 columns remain in place."
     defaultCode={`
-<Box width="75%" overflow="auto">
+<Box width="60%" overflow="auto">
   <Table maxHeight={200} stickyColumns={3} borderStyle="none">
 
     <Table.Header>
@@ -503,7 +503,7 @@ card(
     name="Example: Sticky header and sticky columns"
     description="Try scrolling horizontally and vertically to see the columns and header remain in place."
     defaultCode={`
-<Box width="75%" overflow="auto">
+<Box width="60%" overflow="auto">
   <Table maxHeight={200} stickyColumns={3} borderStyle="none">
 
     <Table.Header sticky>

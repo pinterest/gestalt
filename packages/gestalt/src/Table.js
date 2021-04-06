@@ -48,10 +48,6 @@ export default function Table(props: Props): Node {
     };
   }, [updateShadows]);
 
-  // useEffect(() => {
-  //   updateShadows();
-  // }, [updateShadows]);
-
   const classNames = cx(
     styles.table,
     showShadowScroll === 'right' && styles.horizontalScrollRight,
