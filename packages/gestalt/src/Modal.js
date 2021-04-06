@@ -15,7 +15,6 @@ import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContai
 import modalStyles from './Modal.css';
 
 type Props = {|
-  _dangerousScrollableExperimentEnabled?: boolean, // Temporary undocumented prop to support experimentation inside Modal and Sheet.
   accessibilityModalLabel: string,
   align?: 'left' | 'center',
   children?: Node,
@@ -62,7 +61,6 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
   HTMLDivElement,
 >(function Modal(props, ref): Node {
   const {
-    _dangerousScrollableExperimentEnabled = false,
     accessibilityModalLabel,
     align = 'center',
     children,
@@ -148,17 +146,11 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
-                {_dangerousScrollableExperimentEnabled ? (
-                  <ScrollBoundaryContainerProvider>
-                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
-                      {children}
-                    </InternalScrollBoundaryContainer>
-                  </ScrollBoundaryContainerProvider>
-                ) : (
-                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
+                <ScrollBoundaryContainerProvider>
+                  <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
                     {children}
-                  </Box>
-                )}
+                  </InternalScrollBoundaryContainer>
+                </ScrollBoundaryContainerProvider>
                 {footer && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
@@ -179,7 +171,6 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
-  _dangerousScrollableExperimentEnabled: PropTypes.bool,
   accessibilityModalLabel: PropTypes.string.isRequired,
   align: PropTypes.oneOf(['left', 'center']),
   children: PropTypes.node,
