@@ -22,7 +22,7 @@ type Props = {|
 
 export default function Table(props: Props): Node {
   const { borderStyle, children, maxHeight, stickyColumns } = props;
-  const [showShadowScroll, setShowShadowScroll] = useState(null);
+  const [showShadowScroll, setShowShadowScroll] = useState<'left' | 'right' | null>(null);
   const tableRef = useRef<?HTMLElement>(null);
 
   const updateShadows = useCallback(() => {
