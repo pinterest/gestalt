@@ -462,7 +462,6 @@ function ScrollBoundaryContainerExample() {
       {showModal && (
         <Layer zIndex={MODAL_Z_INDEX}>
           <Modal
-            _dangerousScrollableExperimentEnabled
             accessibilityModalLabel="Edit Pin"
             heading="Edit"
             size="lg"

@@ -1104,7 +1104,6 @@ function ScrollBoundaryContainerExample() {
       {showSheet && (
         <Layer zIndex={new FixedZIndex(11)}>
           <Sheet
-            _dangerousScrollableExperimentEnabled
             accessibilityDismissButtonLabel="Close edit Pin sheet"
             accessibilitySheetLabel="Edit your Pin details"
             heading="Edit Pin"

@@ -381,7 +381,6 @@ function ScrollBoundaryContainerExample() {
       {showModal && (
         <Layer zIndex={MODAL_Z_INDEX}>
           <ParentComponent
-            _dangerousScrollableExperimentEnabled
             {...props}
             heading="Billing Information"
             footer={
