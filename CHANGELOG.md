@@ -1,3 +1,9 @@
+## 21.4.7 (Apr 6, 2021)
+
+### Patch
+
+- Docs: updated Docs for ZIndex Classes (#1457)
+
 ## 21.4.6 (Apr 6, 2021)
 
 ### Patch
