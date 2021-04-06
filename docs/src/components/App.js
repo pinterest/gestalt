@@ -1,6 +1,7 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { useEffect, type Node } from 'react';
 import { Box, Divider, Provider, Link, Text } from 'gestalt';
+import { useLocation } from 'react-router-dom';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import useTracking from './useTracking.js';
@@ -13,6 +14,11 @@ type Props = {|
 
 export default function App({ children }: Props): Node {
   useTracking('UA-12967896-44');
+  const location = useLocation();
+  useEffect(() => {
+    window.Appcues.page();
+    window.Appcues.anonymous();
+  }, [location.pathname]);
 
   return (
     <AppContextProvider>
