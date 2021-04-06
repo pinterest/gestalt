@@ -17,7 +17,7 @@ type Props = {|
   children: Node,
   borderStyle?: 'sm' | 'none',
   maxHeight?: number | string,
-  stickyColumns?: number,
+  stickyColumns?: ?number,
 |};
 
 export default function Table(props: Props): Node {
@@ -65,7 +65,7 @@ export default function Table(props: Props): Node {
       ref={tableRef}
     >
       <table className={classNames}>
-        <TableContextProvider value={{ stickyColumns }}>{children}</TableContextProvider>
+        <TableContextProvider stickyColumns={stickyColumns}>{children}</TableContextProvider>
       </table>
     </Box>
   );

@@ -1,28 +1,27 @@
 // @flow strict
-import React, { createContext, type Context, useContext } from 'react';
+import React, { createContext, useContext, type Context, type Element, type Node } from 'react';
 
 type TableContextType = {|
-  stickyColumns?: ?number,
+  stickyColumns: ?number,
 |};
 
 type Props = {|
   children: Node,
-  value: Object,
+  stickyColumns: ?number,
 |};
 
 const TableContext: Context<TableContextType> = createContext<TableContextType>({
-  stickyColumns: undefined,
+  stickyColumns: 0,
 });
 
 const { Provider } = TableContext;
 
-function TableContextProvider({ children, value }: Props): Element<typeof Provider> {
-  return <Provider value={value}>{children}</Provider>;
+function TableContextProvider({ children, stickyColumns }: Props): Element<typeof Provider> {
+  return <Provider value={{ stickyColumns }}>{children}</Provider>;
 }
 
 function useTableContext(): TableContextType {
-  const tableContext = useContext(TableContext);
-  return tableContext;
+  const { stickyColumns } = useContext(TableContext);
+  return { stickyColumns };
 }
-
 export { TableContextProvider, useTableContext };
