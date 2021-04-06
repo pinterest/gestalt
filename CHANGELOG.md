@@ -1,3 +1,9 @@
+## 21.4.6 (Apr 6, 2021)
+
+### Patch
+
+- Modal/Sheet: Remove experimental _dangerousScrollableExperimentEnabled to implement ScrollBoundaryContainer (#1456)
+
 ## 21.4.5 (Apr 6, 2021)
 
 ### Patch
