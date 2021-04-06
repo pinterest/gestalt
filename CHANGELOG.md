@@ -1,3 +1,9 @@
+## 21.4.5 (Apr 6, 2021)
+
+### Patch
+
+- Link/Button/IconButton/TapArea +composed components: refactored disableOnNavigation logic inside Link/InternalLink (#1455)
+
 ## 21.4.4 (Apr 2, 2021)
 
 ### Patch
