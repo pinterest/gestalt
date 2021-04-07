@@ -8,6 +8,8 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
+import headingStyles from './Heading.css';
+import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import styles from './Callout.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
@@ -109,6 +111,12 @@ export default function Callout({
   const { name } = useColorScheme();
   const isDarkMode = name === 'darkMode';
   const responsiveMinWidth = useResponsiveMinWidth();
+  const cs = classnames(
+    headingStyles.Heading,
+    headingStyles.fontSize1,
+    responsiveMinWidth === 'xs' && typography.alignCenter,
+    typography.breakWord,
+  );
 
   return (
     <Box
@@ -155,9 +163,7 @@ export default function Callout({
             >
               {title && (
                 <Box marginBottom={2}>
-                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
-                    {title}
-                  </Heading>
+                  <p className={cs}>{title}</p>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
