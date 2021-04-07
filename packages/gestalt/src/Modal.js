@@ -15,6 +15,7 @@ import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContai
 import modalStyles from './Modal.css';
 
 type Props = {|
+  _dangerouslyDisableScrollBoundaryContainer?: boolean, // Temporary undocumented prop to disable ScrollBoundaryContainer.
   accessibilityModalLabel: string,
   align?: 'left' | 'center',
   children?: Node,
@@ -61,6 +62,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
   HTMLDivElement,
 >(function Modal(props, ref): Node {
   const {
+    _dangerouslyDisableScrollBoundaryContainer = false,
     accessibilityModalLabel,
     align = 'center',
     children,
@@ -146,11 +148,17 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
-                <ScrollBoundaryContainerProvider>
-                  <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
+                {_dangerouslyDisableScrollBoundaryContainer ? (
+                  <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
                     {children}
-                  </InternalScrollBoundaryContainer>
-                </ScrollBoundaryContainerProvider>
+                  </Box>
+                ) : (
+                  <ScrollBoundaryContainerProvider>
+                    <InternalScrollBoundaryContainer onScroll={updateShadows} ref={contentRef}>
+                      {children}
+                    </InternalScrollBoundaryContainer>
+                  </ScrollBoundaryContainerProvider>
+                )}
                 {footer && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
@@ -171,6 +179,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 
 // $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
+  _dangerouslyDisableScrollBoundaryContainer: PropTypes.string,
   accessibilityModalLabel: PropTypes.string.isRequired,
   align: PropTypes.oneOf(['left', 'center']),
   children: PropTypes.node,
