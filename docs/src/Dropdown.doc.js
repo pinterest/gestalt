@@ -18,7 +18,7 @@ card(
     description={`
     Dropdown displays a list of actions, options or links. It is triggered when a user interacts with a Button, Textfield or other control. Dropdown allows for complex functionality that can’t be accomplished with SelectList.
     `}
-    pilot
+    badge="pilot"
     defaultCode={`
       function IntroMenuButtonDropdownExample() {
         const [open, setOpen] = React.useState(false);

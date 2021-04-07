@@ -8,7 +8,7 @@ import trackButtonClick from './buttons/trackButtonClick.js';
 type Props = {|
   name: string,
   description?: string,
-  pilot?: boolean,
+  badge?: 'pilot' | 'deprecated',
   fileName?: string, // only use if name !== file name
   showSourceLink?: boolean,
   defaultCode?: string,
@@ -24,7 +24,7 @@ const githubUrl = (component) =>
   ['https://github.com/pinterest/gestalt/blob/master', gestaltPath(component)].join('/');
 
 export default function ComponentHeader({
-  pilot,
+  badge,
   name,
   description = '',
   fileName,
@@ -45,12 +45,17 @@ export default function ComponentHeader({
         <Flex direction="row" gap={2} justifyContent="between" alignItems="baseline">
           <Heading>
             {name}{' '}
-            {pilot ? (
+            {badge === 'pilot' ? (
               <Tooltip
                 inline
                 text={`This is the initial version of ${name}, and additional (non-breaking) functionality is planned for the future. Any feedback is greatly appreciated!`}
               >
                 <Badge text="Pilot" position="top" />
+              </Tooltip>
+            ) : null}
+            {badge === 'deprecated' ? (
+              <Tooltip inline text="This component will be deprecated soon.">
+                <Badge text="Deprecated" position="top" />
               </Tooltip>
             ) : null}
           </Heading>

@@ -12,20 +12,19 @@ exports[`Avatar renders an outline 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg overflowHidden relative"
+    className="box circle lightGrayBg relative"
+    style={
+      Object {
+        "boxShadow": undefined,
+        "paddingBottom": "100%",
+      }
+    }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "paddingBottom": "100%",
-        }
-      }
-    />
-    <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
+        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
@@ -36,7 +35,7 @@ exports[`Avatar renders an outline 1`] = `
           Jenny
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold"
+          className="antialiased sansSerif fontWeightBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -61,20 +60,19 @@ exports[`Avatar renders multi-byte character initial 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg overflowHidden relative"
+    className="box circle lightGrayBg relative"
+    style={
+      Object {
+        "boxShadow": undefined,
+        "paddingBottom": "100%",
+      }
+    }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "paddingBottom": "100%",
-        }
-      }
-    />
-    <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
+        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
@@ -85,7 +83,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold"
+          className="antialiased sansSerif fontWeightBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -462,20 +460,19 @@ exports[`Avatar renders the verified icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg overflowHidden relative"
+    className="box circle lightGrayBg relative"
+    style={
+      Object {
+        "boxShadow": undefined,
+        "paddingBottom": "100%",
+      }
+    }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "paddingBottom": "100%",
-        }
-      }
-    />
-    <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
+        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
@@ -486,7 +483,7 @@ exports[`Avatar renders the verified icon 1`] = `
           Jammy
         </title>
         <text
-          className="antialiased sansSerif fontWeightBold"
+          className="antialiased sansSerif fontWeightBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"
@@ -548,31 +545,27 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
   }
 >
   <div
-    className="box circle lightGrayBg overflowHidden relative"
+    className="box circle lightGrayBg relative"
+    style={
+      Object {
+        "boxShadow": undefined,
+        "paddingBottom": "100%",
+      }
+    }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "paddingBottom": "100%",
-        }
-      }
-    />
-    <div
-      className="absolute bottom0 box left0 right0 top0"
+      className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
+        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
         width="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <title>
-          
-        </title>
         <text
-          className="antialiased sansSerif fontWeightBold"
+          className="antialiased sansSerif fontWeightBold "
           dy="0.35em"
           fill="#111"
           fontSize="40px"

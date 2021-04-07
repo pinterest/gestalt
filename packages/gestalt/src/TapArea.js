@@ -20,6 +20,14 @@ type MouseEventHandler = AbstractEventHandler<
   SyntheticMouseEvent<HTMLDivElement> | SyntheticMouseEvent<HTMLAnchorElement>,
 >;
 
+export type OnTapType = AbstractEventHandler<
+  | SyntheticMouseEvent<HTMLDivElement>
+  | SyntheticKeyboardEvent<HTMLDivElement>
+  | SyntheticMouseEvent<HTMLAnchorElement>
+  | SyntheticKeyboardEvent<HTMLAnchorElement>,
+  {| disableOnNavigation: () => void |},
+>;
+
 type BaseTapArea = {|
   accessibilityLabel?: string,
   children?: Node,
@@ -33,13 +41,7 @@ type BaseTapArea = {|
   onMouseUp?: MouseEventHandler,
   onMouseEnter?: MouseEventHandler,
   onMouseLeave?: MouseEventHandler,
-  onTap?: AbstractEventHandler<
-    | SyntheticMouseEvent<HTMLDivElement>
-    | SyntheticKeyboardEvent<HTMLDivElement>
-    | SyntheticMouseEvent<HTMLAnchorElement>
-    | SyntheticKeyboardEvent<HTMLAnchorElement>,
-    {| disableOnNavigation: () => void |},
-  >,
+  onTap?: OnTapType,
   tabIndex?: -1 | 0,
   rounding?: Rounding,
   tapStyle?: 'none' | 'compress',

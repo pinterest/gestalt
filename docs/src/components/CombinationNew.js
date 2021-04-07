@@ -6,6 +6,7 @@ import MainSectionCard from './MainSectionCard.js';
 type Props = {
   children: (props: { [key: string]: any, ... }, index?: number) => Node, // flowlint-line unclear-type:off
   shaded?: boolean,
+  noTitle?: boolean,
   ...
 };
 
@@ -47,7 +48,7 @@ const toReactAttribute = (key, value) => {
   }
 };
 
-export default function CombinationNew({ children, shaded, ...props }: Props): Node {
+export default function CombinationNew({ children, noTitle, shaded, ...props }: Props): Node {
   const CardArray = combinations(props).map((combination, i) => {
     const combinationTitles = Object.keys(combination).map((key) =>
       toReactAttribute(key, combination[key]),
@@ -58,7 +59,12 @@ export default function CombinationNew({ children, shaded, ...props }: Props): N
         return title.includes('color') && title.includes('white');
       });
     return (
-      <MainSectionCard key={i} cardSize="sm" shaded={shadeCard} title={combinationTitles}>
+      <MainSectionCard
+        key={i}
+        cardSize="sm"
+        shaded={shadeCard}
+        title={noTitle ? undefined : combinationTitles}
+      >
         {children(combination, i)}
       </MainSectionCard>
     );
