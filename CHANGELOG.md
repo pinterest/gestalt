@@ -1,3 +1,9 @@
+## 21.5.1 (Apr 7, 2021)
+
+### Patch
+
+- Modal: temp _dangerouslyDisableScrollBoundaryContainer prop to disable ScrollBoundaryContainer in Modals (#1461)
+
 ## 21.5.0 (Apr 7, 2021)
 
 ### Minor
