@@ -1,8 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box } from 'gestalt';
 import PropTable from './components/PropTable.js';
-import CombinationNew from './components/CombinationNew.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
 
@@ -11,25 +9,43 @@ const card = (c) => cards.push(c);
 
 card(
   <PageHeader
-    name="Component Name"
+    name="AvatarGroup"
     description="Brief description of this component"
     defaultCode={`
-Code for the default, standard example goes here (no code is shown)
+<AvatarGroup size="md"
+  collaborators={[
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Alberto',
+      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+    },
+      {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+  ]}
+  />
 `}
   />,
 );
 
-// Specifying Component gives auto warnings about missing props
 card(
   <PropTable
-    Component={Box}
     props={[
       {
-        name: 'dummyProp',
-        type: 'dummyType',
-        defaultValue: 'dummyDefault',
-        description: '[Briefly describe the goal of this prop]',
-        href: '[Name of the section demonstrating this prop]',
+        name: 'collaborators',
+        type: 'Array<{| name: string, src?: string |}>',
+        required: true,
+      },
+      {
+        name: 'size',
+        type: `"md" | "lg" | "fit"`,
+        defaultValue: 'fit',
+        description:
+          'md: 48px, lg: 64px. If size is `fit`, AvatarPair will fill 100% of the parent container width',
       },
     ]}
   />,
@@ -37,150 +53,107 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Description about what you should Do. This will be 2-col layout because of the columns prop on Subsection. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)"
-        defaultCode={`
-Code for this example goes here
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
-          What not to do goes \`here\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
-        `}
-        defaultCode={`
-Code for this example goes here
-`}
-      />
-    </MainSection.Subsection>
     <MainSection.Subsection>
       <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
-        Description about what you should Do. This will be full-width. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)
-
-        - You do not need code for these
-        - You can instead use bulleted lists of Dos
-        `}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Accessibility"
-    description={`\`Accessibility\` guidelines go here. Can also include SubSections and Cards for detailed examples (see Box). Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-  />,
-);
-
-card(
-  <MainSection
-    name="Localization"
-    description={`\`Localization\` guidelines go here. Can be examples in another language or truncation examples. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-      title="Variant name (sentence case)"
-    >
-      <MainSection.Card
-        cardSize="md"
-        title="Example title (optional)"
+        cardSize="lg"
+        description=""
         defaultCode={`
-Code for this example goes here
+        function AccessibilityExample() {
+  const size = "md"
+  const addMoreCollaborators = true
+  const [collaborators, setCollaborators] = React.useState([
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Shanuce',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Shanuce',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+      {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Shanuce',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Shanuce',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+      {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Shanuce',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+    {
+      name: 'Shanuce',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    },
+  ]);
+
+  return (
+
+<Box><AvatarGroup role="button" onClick={() => setCollaborators([ {
+      name: 'Alberto',
+      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+    },
+     {
+      name: 'Alberto',
+    },  {
+      name: 'Alberto',
+      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+    }])} addCollaborators={addMoreCollaborators} size={size}
+  collaborators={collaborators}
+  /></Box>
+)}
 `}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-      title="Variant name (sentence case)"
-    >
-      <MainSection.Card
-        cardSize="md"
-        title="Example title (optional)"
-        defaultCode={`
-Code for this example goes here
-`}
-      />
-    </MainSection.Subsection>
-
-    <MainSection.Subsection
-      description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-      title="Variant using CombinationNew"
-    >
-      <CombinationNew
-        color={[
-          'red',
-          'white',
-          'lightGray',
-          'gray',
-          'darkGray',
-          'green',
-          'pine',
-          'olive',
-          'blue',
-          'navy',
-          'midnight',
-          'purple',
-          'orchid',
-          'eggplant',
-          'maroon',
-          'watermelon',
-          'orange',
-          'transparent',
-          'transparentDarkGray',
-          'lightWash',
-          'darkWash',
-        ]}
-      >
-        {(props) => <Box width={60} height={60} rounding="circle" {...props} />}
-      </CombinationNew>
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Writing">
-    <MainSection.Subsection columns={2}>
-      <MainSection.Card
-        cardSize="md"
-        type="do"
-        description={`
-- Examples on what to do for writing
-`}
-      />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description={`
-- Examples of what not to do for writing
-`}
-      />
-    </MainSection.Subsection>
-  </MainSection>,
-);
-
-card(
-  <MainSection name="Related">
-    <MainSection.Subsection
-      description={`
-      **[AvatarGroup](/AvatarGroup)**
-      Details about why to use this over current component.
-
-      **[AvatarGroup](/AvatarGroup)**
-      Details about why to use this over current component.
-
-    `}
-    />
   </MainSection>,
 );
 

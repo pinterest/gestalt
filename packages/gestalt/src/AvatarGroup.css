@@ -1,3 +1,25 @@
-.customClass {
-  background: rgba(0, 0, 0, 0.061);
+.overlay {
+  height: 100%;
+
+  /* Parent element
+    Must be positions=relative
+    No z-index allowed
+  */
+  position: relative;
+  width: 100%;
+}
+
+.overlay::after {
+  /* Dark overlay is achieved overposing a pseudo-element with a 6% darker wash */
+  background: var(--g-colorTransparentGray60);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  /* z-index required to position pseudo-elements in fron of the parent */
+  z-index: 1;
 }
