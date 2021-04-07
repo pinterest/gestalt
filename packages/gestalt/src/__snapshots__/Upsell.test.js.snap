@@ -103,7 +103,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>
@@ -297,7 +297,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>
@@ -423,7 +423,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>
@@ -549,7 +549,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>
@@ -660,7 +660,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>
@@ -741,7 +741,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>
@@ -816,7 +816,7 @@ exports[`<Upsell /> message + title 1`] = `
             className="box marginBottom2"
           >
             <p
-              className="Heading fontSize1 breakWord fontWeightBold"
+              className="TextLikeHeadingSm"
             >
               A Title
             </p>

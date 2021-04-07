@@ -7,7 +7,7 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import headingStyles from './headingStyles.js';
+import headingStyles from './Heading.css';
 import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import styles from './Callout.css';
@@ -111,7 +111,7 @@ export default function Callout({
   const isDarkMode = name === 'darkMode';
   const responsiveMinWidth = useResponsiveMinWidth();
   const titleClasses = classnames(
-    headingStyles,
+    headingStyles.TextLikeHeadingSm,
     responsiveMinWidth === 'xs' && typography.alignCenter,
   );
 

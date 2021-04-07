@@ -11,7 +11,7 @@ import Mask from './Mask.js';
 import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
-import headingStyles from './headingStyles.js';
+import headingStyles from './Heading.css';
 import typography from './Typography.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import {
@@ -99,7 +99,7 @@ export default function Upsell({
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
   const titleClasses = classnames(
-    headingStyles,
+    headingStyles.TextLikeHeadingSm,
     responsiveMinWidth === 'xs' && typography.alignCenter,
   );
 
