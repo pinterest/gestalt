@@ -1,11 +1,20 @@
 // @flow strict
-import React, { Children, Fragment, type Node, useState } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  Fragment,
+  type Node,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';
 import IconButton from './IconButton.js';
 import TableCell from './TableCell.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
+import { useTableContext } from './contexts/TableContext.js';
 
 type Props = {|
   accessibilityExpandLabel: string,
@@ -35,6 +44,9 @@ export default function TableRowExpandable(props: Props): Node {
   const [expanded, setExpanded] = useState(false);
   const hoverStyle = props.hoverStyle || 'gray';
   const cs = hoverStyle === 'gray' ? cx(styles.hoverShadeGray) : null;
+  const { stickyColumns } = useTableContext();
+  const rowRef = useRef();
+  const [columnWidths, setColumnWidths] = useState([]);
 
   const handleButtonClick = ({ event }) => {
     setExpanded(!expanded);
@@ -43,10 +55,33 @@ export default function TableRowExpandable(props: Props): Node {
     }
   };
 
+  useEffect(() => {
+    if (rowRef?.current && stickyColumns) {
+      const colWidths = [...rowRef.current.children].map((item) => item.clientWidth);
+      setColumnWidths(colWidths);
+    }
+  }, [stickyColumns]);
+
+  const renderCellWithAdjustedIndex = (child, index) => {
+    // Account for initial expandable column
+    const adjustedIndex = index + 1;
+    const shouldBeSticky = stickyColumns
+      ? stickyColumns >= 0 && adjustedIndex < stickyColumns
+      : false;
+    const shouldHaveShadow = stickyColumns ? stickyColumns - 1 === adjustedIndex : false;
+    const previousWidths = columnWidths.slice(0, adjustedIndex);
+    const previousTotalWidth =
+      previousWidths.length > 0 ? previousWidths.reduce((a, b) => a + b) : 0;
+    return cloneElement(child, { shouldBeSticky, previousTotalWidth, shouldHaveShadow });
+  };
+
   return (
     <Fragment>
-      <tr className={cs}>
-        <TableCell>
+      <tr className={cs} ref={rowRef}>
+        <TableCell
+          shouldBeSticky={stickyColumns ? stickyColumns > 0 : false}
+          previousTotalWidth={0}
+        >
           <IconButton
             accessibilityExpanded={expanded}
             accessibilityControls={id}
@@ -57,7 +92,9 @@ export default function TableRowExpandable(props: Props): Node {
             size="xs"
           />
         </TableCell>
-        {children}
+        {Number(stickyColumns) > 0
+          ? Children.map(props.children, renderCellWithAdjustedIndex)
+          : children}
       </tr>
       {expanded && (
         <tr id={id}>

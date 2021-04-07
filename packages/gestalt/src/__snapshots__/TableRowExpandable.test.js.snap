@@ -6,6 +6,12 @@ exports[`renders correctly 1`] = `
 >
   <td
     className="td"
+    style={
+      Object {
+        "left": undefined,
+        "right": undefined,
+      }
+    }
   >
     <button
       aria-controls="expandableRow"
@@ -63,6 +69,12 @@ exports[`renders correctly with explicit hover 1`] = `
 >
   <td
     className="td"
+    style={
+      Object {
+        "left": undefined,
+        "right": undefined,
+      }
+    }
   >
     <button
       aria-controls="expandableRow"
@@ -120,6 +132,12 @@ exports[`renders correctly without hover 1`] = `
 >
   <td
     className="td"
+    style={
+      Object {
+        "left": undefined,
+        "right": undefined,
+      }
+    }
   >
     <button
       aria-controls="expandableRow"

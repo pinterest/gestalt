@@ -35,3 +35,14 @@ test('renders correctly with maxHeight', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('renders correctly with stickyColumns', () => {
+  const tree = renderer
+    .create(
+      <Table stickyColumns={2}>
+        <div>rest of table</div>
+      </Table>,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
