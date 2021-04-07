@@ -3,12 +3,11 @@ import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Button from './Button.js';
 import Text from './Text.js';
-import headingStyles from './Heading.css';
+import headingStyles from './headingStyles.js';
 import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 import styles from './Callout.css';
@@ -111,11 +110,9 @@ export default function Callout({
   const { name } = useColorScheme();
   const isDarkMode = name === 'darkMode';
   const responsiveMinWidth = useResponsiveMinWidth();
-  const cs = classnames(
-    headingStyles.Heading,
-    headingStyles.fontSize1,
+  const titleClasses = classnames(
+    headingStyles,
     responsiveMinWidth === 'xs' && typography.alignCenter,
-    typography.breakWord,
   );
 
   return (
@@ -163,7 +160,7 @@ export default function Callout({
             >
               {title && (
                 <Box marginBottom={2}>
-                  <p className={cs}>{title}</p>
+                  <p className={titleClasses}>{title}</p>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>

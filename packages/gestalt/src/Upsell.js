@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
 import Button from './Button.js';
-import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Image from './Image.js';
@@ -12,6 +11,8 @@ import Mask from './Mask.js';
 import Text from './Text.js';
 import UpsellForm from './UpsellForm.js';
 import styles from './Upsell.css';
+import headingStyles from './headingStyles.js';
+import typography from './Typography.css';
 import useResponsiveMinWidth from './useResponsiveMinWidth.js';
 import {
   ActionDataPropType,
@@ -97,6 +98,10 @@ export default function Upsell({
 }: Props): Node {
   const isImage = imageData?.component && imageData.component.type === Image;
   const responsiveMinWidth = useResponsiveMinWidth();
+  const titleClasses = classnames(
+    headingStyles,
+    responsiveMinWidth === 'xs' && typography.alignCenter,
+  );
 
   return (
     <Box
@@ -150,9 +155,7 @@ export default function Upsell({
             <Box maxWidth={648}>
               {title && (
                 <Box marginBottom={2}>
-                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="sm">
-                    {title}
-                  </Heading>
+                  <p className={titleClasses}>{title}</p>
                 </Box>
               )}
               <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>

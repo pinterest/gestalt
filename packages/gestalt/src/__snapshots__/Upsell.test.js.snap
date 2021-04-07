@@ -102,11 +102,11 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -296,11 +296,11 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -422,11 +422,11 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -548,11 +548,11 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -659,11 +659,11 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -740,11 +740,11 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
@@ -815,11 +815,11 @@ exports[`<Upsell /> message + title 1`] = `
           <div
             className="box marginBottom2"
           >
-            <h3
-              className="Heading fontSize1 darkGray alignLeft breakWord"
+            <p
+              className="Heading fontSize1 breakWord fontWeightBold"
             >
               A Title
-            </h3>
+            </p>
           </div>
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
