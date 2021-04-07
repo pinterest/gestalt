@@ -1,3 +1,9 @@
+## 21.5.0 (Apr 7, 2021)
+
+### Minor
+
+- Table: Add ability to specify sticky columns (#1395)
+
 ## 21.4.8 (Apr 6, 2021)
 
 ### Patch
