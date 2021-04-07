@@ -90,16 +90,16 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   const defaultOption: OptionObject | null = findDefaultOption(value);
   const displayValue = defaultOption?.label ?? '';
   const [search, setSearch] = useState<string>(displayValue);
-  // Make sure we respect any external changes to `value`
-  useEffect(() => {
-    setSearch(displayValue);
-  }, [displayValue]);
-
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<OptionObject | null>(defaultOption);
 
-  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
+  // Make sure we respect any external changes to `value`
+  useEffect(() => {
+    setSearch(displayValue);
+    setSelected(defaultOption);
+  }, [defaultOption, displayValue]);
 
+  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
   const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
 
   // Ref to the input
