@@ -17,7 +17,7 @@ type Props = {|
   size?: 'md' | 'lg',
 |};
 
-export default function DataPoint({
+export default function Datapoint({
   percentChangeAccessibilityLabel,
   title,
   value,
@@ -87,7 +87,7 @@ export default function DataPoint({
   );
 }
 
-DataPoint.propTypes = {
+Datapoint.propTypes = {
   percentChangeAccessibilityLabel: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

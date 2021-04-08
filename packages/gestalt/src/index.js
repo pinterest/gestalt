@@ -1,5 +1,3 @@
-
-
 // @flow strict
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
@@ -15,7 +13,7 @@ import Collage from './Collage.js';
 import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
-import DataPoint from './DataPoint.js';
+import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';
@@ -81,7 +79,7 @@ export {
   Column,
   CompositeZIndex,
   Container,
-  DataPoint,
+  Datapoint,
   Divider,
   Dropdown,
   FixedZIndex,

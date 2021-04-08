@@ -1,9 +1,9 @@
 // @flow strict
 import React from 'react';
-import DataPoint from './DataPoint.js';
+import Datapoint from './Datapoint.js';
 
 const Valid = (
-  <DataPoint
+  <Datapoint
     percentChangeAccessibilityLabel="Value change icon accessibility label"
     title="Title"
     value="1M"
@@ -12,4 +12,4 @@ const Valid = (
 );
 
 // $FlowExpectedError[prop-missing]
-const InvalidProps = <DataPoint nonexisting={33} />;
+const InvalidProps = <Datapoint nonexisting={33} />;

@@ -1,12 +1,12 @@
 // @flow strict
 import React from 'react';
 import { create } from 'react-test-renderer';
-import DataPoint from './DataPoint.js';
+import Datapoint from './Datapoint.js';
 
 describe('DataPoint', () => {
   it('renders', () => {
     const tree = create(
-      <DataPoint
+      <Datapoint
         percentChangeAccessibilityLabel="Value change icon accessibility label"
         title="Title"
         value="1M"
@@ -18,7 +18,7 @@ describe('DataPoint', () => {
 
   it('renders an accessibility label', () => {
     const tree = create(
-      <DataPoint
+      <Datapoint
         percentChangeAccessibilityLabel="Value change icon accessibility label"
         title="Title"
         value="1M"
