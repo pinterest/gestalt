@@ -275,7 +275,6 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ButtonWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,

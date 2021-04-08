@@ -288,7 +288,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TypeaheadWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,

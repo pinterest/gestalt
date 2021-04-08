@@ -402,8 +402,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  // $FlowFixMe[signature-verification-failure]
-  renderMasonryComponent = (itemData: T, idx: number, position: *) => {
+  renderMasonryComponent: (itemData: T, idx: number, position: *) => Node = (
+    itemData,
+    idx,
+    position,
+  ) => {
     const {
       comp: Component,
       scrollContainer,
@@ -559,10 +562,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
-            {itemsToRender.map((item, i) =>
-              // $FlowFixMe[incompatible-call]
-              this.renderMasonryComponent(item, i, positions[i]),
-            )}
+            {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {

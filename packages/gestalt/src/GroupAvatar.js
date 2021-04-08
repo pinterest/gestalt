@@ -181,6 +181,7 @@ export default function GroupAvatar(props: Props): Node {
       height={avatarHeight}
       position="relative"
       dangerouslySetInlineStyle={{
+        // $FlowFixMe[incompatible-type]
         __style: {
           ...(outline ? { boxShadow: `0 0 0 2px ${colorGray0}` } : {}),
           // willChange: transform fixes a strange behavior where the border of the children

@@ -105,7 +105,7 @@ const MainSectionCard = ({
     <Box minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginBottom={12}>
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
-      {children && <PreviewCard>{children}</PreviewCard>}
+      {Boolean(children) && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
         <LiveProvider code={code} scope={scope} theme={theme}>

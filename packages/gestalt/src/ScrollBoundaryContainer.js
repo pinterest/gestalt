@@ -99,7 +99,6 @@ const ScrollBoundaryContainerOverflowPropType: React$PropType$Primitive<ScrollBo
   ['scroll', 'scrollX', 'scrollY', 'auto'],
 );
 
-// $FlowFixMe[prop-missing]
 ScrollBoundaryContainerWithForwardRef.propTypes = {
   children: PropTypes.node,
   onScroll: PropTypes.func,

@@ -1,6 +1,3 @@
-// flow-typed signature: 0ed73a588759fdbd9b6eb09d5ac062b3
-// flow-typed version: 479edd3152/jest_v26.x.x/flow_>=v0.104.x
-
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
   /**
@@ -259,7 +256,7 @@ type DomTestingLibraryType = {
   // 5.x
   toHaveDisplayValue(value: string | string[]): void,
   toBeChecked(): void,
-  toHaveDescription(value: string | string[]): Result,
+  toHaveDescription(value: string | string[]): void,
   ...
 };
 
@@ -803,6 +800,14 @@ type JestObjectType = {
    */
   getTimerCount(): number,
   /**
+   * Set the current system time used by fake timers.
+   * Simulates a user changing the system clock while your program is running.
+   * It affects the current time but it does not in itself cause
+   * e.g. timers to fire; they will fire exactly as they would have done
+   * without the call to jest.setSystemTime().
+   */
+  setSystemTime(now?: number | Date): void,
+  /**
    * The same as `mock` but not moved to the top of the expectation by
    * babel-jest.
    */
@@ -846,7 +851,7 @@ type JestObjectType = {
    * Returns the actual module instead of a mock, bypassing all checks on
    * whether the module should receive a mock implementation or not.
    */
-  requireActual(moduleName: string): any,
+  requireActual<T>(m: $Flow$ModuleRef<T> | string): T,
   /**
    * Returns a mock module instead of the actual module, bypassing all checks
    * on whether the module should be required normally or not.
@@ -937,7 +942,7 @@ type JestObjectType = {
 type JestSpyType = { calls: JestCallsType, ... };
 
 type JestDoneFn = {|
-  (): void,
+  (error?: Error): void,
   fail: (error: Error) => void,
 |};
 

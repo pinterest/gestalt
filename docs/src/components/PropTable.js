@@ -84,7 +84,6 @@ export default function PropTable({
   const { propTableVariant, setPropTableVariant } = useAppContext();
 
   if (process.env.NODE_ENV === 'development' && Component) {
-    // $FlowIssue[prop-missing]
     const { displayName, propTypes } = Component; // eslint-disable-line react/forbid-foreign-prop-types
     const missingProps = Object.keys(propTypes || {}).reduce((acc, prop) => {
       if (!properties.find((p) => p.name === prop)) {

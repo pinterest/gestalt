@@ -196,7 +196,7 @@ export default function Dropdown({
           margin={2}
           role="menu"
         >
-          {headerContent && <Box padding={2}>{headerContent}</Box>}
+          {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
           <DropdownContext.Provider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
             {renderChildrenWithIndex()}
           </DropdownContext.Provider>

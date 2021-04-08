@@ -65,7 +65,7 @@ export default function ModuleExpandableItem({
               )}
             </Box>
 
-            {children && (
+            {Boolean(children) && (
               <Box id={id} padding={1}>
                 <Icon
                   accessibilityLabel={
