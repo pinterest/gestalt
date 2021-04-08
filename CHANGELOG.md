@@ -1,3 +1,9 @@
+## 21.6.0 (Apr 8, 2021)
+
+### Minor
+
+- Internal: upgrade flow to 0.145.0 & fix 21 flow suppressions (#1463)
+
 ## 21.5.2 (Apr 8, 2021)
 
 ### Patch
