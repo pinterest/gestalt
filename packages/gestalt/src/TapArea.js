@@ -242,7 +242,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TapAreaWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,

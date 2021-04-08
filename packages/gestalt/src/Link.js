@@ -166,7 +166,6 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 LinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   accessibilitySelected: PropTypes.bool,

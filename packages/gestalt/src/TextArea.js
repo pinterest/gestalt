@@ -151,7 +151,6 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TextAreaWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,

@@ -122,7 +122,7 @@ export default function Tooltip({
               <Text color="white" size="sm">
                 {text}
               </Text>
-              {link && <Box marginTop={1}>{link}</Box>}
+              {Boolean(link) && <Box marginTop={1}>{link}</Box>}
             </Box>
           </Controller>
         </Layer>
