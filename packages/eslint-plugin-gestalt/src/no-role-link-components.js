@@ -1,9 +1,8 @@
 /**
  * @fileoverview Disallow role-link on Gestalt components
- * @author Alberto Carreras <acarreras@pinterest.com>
  *
  * We do not allow role='link' on Button, TapArea, and IconButton.
- * Pinboard alternative with additional functionalityp must be used instead.
+ * Pinboard alternative with additional functionality must be used instead.
  */
 
 // @flow strict
@@ -32,8 +31,8 @@ const rule = {
           return;
         }
         importedComponent = decl.specifiers.some((node) => {
-          importedName = node.imported.name;
-          return ['Button', 'TapArea', 'IconButton'].includes(node.imported.name);
+          importedName = node.imported?.name;
+          return ['Button', 'TapArea', 'IconButton'].includes(importedName);
         });
       },
       JSXOpeningElement(node) {

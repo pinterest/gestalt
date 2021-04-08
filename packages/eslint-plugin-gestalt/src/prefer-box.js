@@ -1,6 +1,5 @@
 /**
  * @fileoverview Prevent using inline styles on divs that could be gestalt Box props
- * @author Jenny Steele <jsteele@pinterest.com>
  *
  * We prefer using gestalt Box over divs with inline styling to get styling consistency
  * across the app and shared css classes. This linter checks for usage of inline styling

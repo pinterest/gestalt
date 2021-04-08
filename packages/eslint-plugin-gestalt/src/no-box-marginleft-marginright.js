@@ -1,6 +1,5 @@
 /**
  * @fileoverview Disallow marginLeft/marginRight on Box
- * @author Vincent Tian <vincent@pinterest.com>
  *
  * In order to have consistent usage of marginLeft/marginRight on Box in pinboard,
  * we update all of them to marginStart/marginEnd
@@ -46,7 +45,7 @@ const rule = {
           return;
         }
         importedComponent = decl.specifiers.some((node) => {
-          return node.imported.name === 'Box';
+          return node.imported?.name === 'Box';
         });
       },
       JSXOpeningElement(node) {

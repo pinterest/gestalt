@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
+    "eslint-plugin-gestalt": ">0.0.0",
     "gestalt": ">0.0.0",
     "gestalt-datepicker": ">0.0.0",
     "highlight.js": "^10.4.1",

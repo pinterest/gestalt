@@ -1,6 +1,5 @@
 /**
  * @fileoverview Prevent using dangerouslySetInlineStyle on Box for props that are already directly implemented
- * @author Jenny Steele <jsteele@pinterest.com>
  *
  * Box supports some props already that are not widely known and instead are being
  * implemented with dangerouslySetInlineStyle. This linter checks for usage of already
@@ -285,7 +284,7 @@ const rule = {
           return;
         }
         importedBox = decl.specifiers.some((node) => {
-          const isBox = node.imported.name === 'Box';
+          const isBox = node.imported?.name === 'Box';
           if (isBox) {
             localIdentifierName = node.local.name;
           }

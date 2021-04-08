@@ -1,6 +1,5 @@
 /**
  * @fileoverview Disallow medium form fields
- * @author Christian Vuerings <cvuerings@pinterest.com>
  *
  * In order to have consistent form fields in pinboard, we update all of their sizes to large and disallow medium
  */
@@ -32,7 +31,7 @@ const rule = {
           return;
         }
         importedComponent = decl.specifiers.some((node) => {
-          const isValidComponent = componentNames.includes(node.imported.name);
+          const isValidComponent = componentNames.includes(node.imported?.name);
           if (isValidComponent) {
             localIdentifierName = node.local.name;
           }

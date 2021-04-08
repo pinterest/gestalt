@@ -1,0 +1,37 @@
+{
+  "plugins": ["gestalt"],
+  "rules": {
+    "gestalt/button-icon-restrictions": "error",
+    "gestalt/no-role-link-components": "error",
+    "gestalt/no-medium-formfields": "error",
+    "gestalt/no-box-marginleft-marginright": "error",
+    "gestalt/prefer-box": "error",
+    "gestalt/no-dangerous-style-duplicates": [
+      "error",
+      {
+        "onlyKeys": [
+          "backgroundColor",
+          "border",
+          "borderRadius",
+          "bottom",
+          "left",
+          "margin",
+          "marginBottom",
+          "marginLeft",
+          "marginRight",
+          "marginTop",
+          "maxHeight",
+          "maxWidth",
+          "minHeight",
+          "minWidth",
+          "opacity",
+          "overflow",
+          "padding",
+          "position",
+          "right",
+          "top"
+        ]
+      }
+    ]
+  }
+}

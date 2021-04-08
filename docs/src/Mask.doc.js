@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Mask } from 'gestalt';
+import { Box, Mask } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Example from './components/Example.js';
 import Combination from './components/Combination.js';
@@ -120,7 +120,12 @@ card(
   >
     {(props) => (
       <Mask height={70} width={70} {...props}>
-        <div style={{ backgroundColor: '#e3780c', width: 70, height: 70 }} />
+        <Box
+          color="orange"
+          dangerouslySetInlineStyle={{
+            __style: { width: 70, height: 70 },
+          }}
+        />
       </Mask>
     )}
   </Combination>,

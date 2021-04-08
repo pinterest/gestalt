@@ -1,6 +1,5 @@
 /**
  * @fileoverview Require specific props when using an icon with Button
- * @author Ryan James <rjames@pinterest.com>
  *
  * Gestalt is more permissive than PDS recommends in adding icons to Buttons.
  * Buttons using iconEnd must use:
@@ -50,7 +49,7 @@ const rule = {
           return;
         }
         importedComponent = decl.specifiers.some((node) => {
-          const isValidComponent = node.imported.name === componentName;
+          const isValidComponent = node.imported?.name === componentName;
           if (isValidComponent) {
             localIdentifierName = node.local.name;
           }

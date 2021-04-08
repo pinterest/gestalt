@@ -59,10 +59,7 @@
     ],
     "no-await-in-loop": "off",
     "no-return-await": "off",
-    "prettier/prettier": [
-      "error",
-      { "singleQuote": true }
-    ],
+    "prettier/prettier": ["error", { "singleQuote": true }],
     "react-hooks/exhaustive-deps": "error",
     "react-hooks/rules-of-hooks": "error",
     "react/destructuring-assignment": "off",
@@ -86,7 +83,7 @@
       }
     },
     {
-      "files": [ "docs/**/*.js"],
+      "files": ["docs/**/*.js"],
       "rules": {
         "flowtype/no-mutable-array": "off"
       }
