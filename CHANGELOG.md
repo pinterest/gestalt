@@ -1,3 +1,9 @@
+## 21.5.2 (Apr 8, 2021)
+
+### Patch
+
+- Docs: convert ESLint docs to new format (#1465)
+
 ## 21.5.1 (Apr 7, 2021)
 
 ### Patch
