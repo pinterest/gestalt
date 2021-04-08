@@ -1,3 +1,9 @@
+## 21.6.2 (Apr 8, 2021)
+
+### Patch
+
+- Typeahead: Fix static `value` bug (#1458)
+
 ## 21.6.1 (Apr 8, 2021)
 
 ### Patch
