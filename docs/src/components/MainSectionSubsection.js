@@ -5,7 +5,6 @@ import slugify from 'slugify';
 import CopyLinkButton from './buttons/CopyLinkButton.js';
 import Markdown from './Markdown.js';
 import { copyToClipboard } from './Card.js';
-import { capitalizeFirstLetter } from './utils.js';
 
 type Props = {|
   children?: Node,
@@ -32,7 +31,7 @@ const MainSectionSubsection = ({ children, columns = 1, description, title }: Pr
             data-anchor
           >
             <Flex alignItems="center" gap={2}>
-              <Heading size="sm">{capitalizeFirstLetter(title)}</Heading>
+              <Heading size="sm">{title}</Heading>
               <CopyLinkButton
                 name={title}
                 onClick={() => {
