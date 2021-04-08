@@ -1,3 +1,9 @@
+## 21.6.1 (Apr 8, 2021)
+
+### Patch
+
+- Callout, Upsell: Convert title to text instead of heading (#1462)
+
 ## 21.6.0 (Apr 8, 2021)
 
 ### Minor
