@@ -1,3 +1,9 @@
+## 21.6.3 (Apr 9, 2021)
+
+### Patch
+
+- Docs: Update Meetings on How to Work with Us (#1467)
+
 ## 21.6.2 (Apr 8, 2021)
 
 ### Patch
