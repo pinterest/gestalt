@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import React, { type Node, useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
@@ -11,6 +11,12 @@ type Props = {|
 
 export default function CardPage({ cards, page }: Props): Node {
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/src/${page}.doc.js`;
+
+  useEffect(() => {
+    if (page) {
+      document.title = `${page} - Gestalt`;
+    }
+  }, [page]);
 
   return (
     <Flex>
