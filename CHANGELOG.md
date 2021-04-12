@@ -1,3 +1,9 @@
+## 21.6.4 (Apr 12, 2021)
+
+### Patch
+
+- Docs: Add unique page titles (#1468)
+
 ## 21.6.3 (Apr 9, 2021)
 
 ### Patch
