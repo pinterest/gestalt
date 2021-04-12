@@ -13,7 +13,7 @@ export default function CardPage({ cards, page }: Props): Node {
   const editPageUrl = `https://github.com/pinterest/gestalt/tree/master/docs/src/${page}.doc.js`;
 
   useEffect(() => {
-    if (page) {
+    if (page && document) {
       document.title = `${page} - Gestalt`;
     }
   }, [page]);
