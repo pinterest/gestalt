@@ -1,3 +1,9 @@
+## 21.6.5 (Apr 13, 2021)
+
+### Patch
+
+- Z-Index: copyediting new docs page (#1470)
+
 ## 21.6.4 (Apr 12, 2021)
 
 ### Patch
