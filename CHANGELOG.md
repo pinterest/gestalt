@@ -1,3 +1,9 @@
+## 21.7.1 (Apr 14, 2021)
+
+### Patch
+
+- Docs: Remove popover example in Checkbox doc
+
 ## 21.7.0 (Apr 14, 2021)
 
 ### Minor
