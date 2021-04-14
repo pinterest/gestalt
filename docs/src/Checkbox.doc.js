@@ -351,63 +351,6 @@ function CheckboxExample() {
 );
 
 card(
-  <Example
-    name="Example: Checkbox and Popover"
-    description={`
-    A \`Checkbox\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
-  `}
-    defaultCode={`
-
-function CheckboxPopoverExample() {
-  const [open, setOpen] = React.useState(false);
-  const [checked, setChecked] = React.useState(false);
-  const termsA = React.useRef();
-
-  return (
-    <Box>
-        <Box display="inlineBlock" ref={termsA}>
-          <Checkbox
-            id="a"
-            checked={checked}
-            label="Email me a notification"
-            onChange={() => {
-              setOpen(!checked)
-              setChecked(!checked)
-              }
-            }
-            value="A"
-          />
-        </Box>
-      {open &&
-        <Layer>
-          <Popover
-            anchor={termsA.current}
-            color="red"
-            idealDirection="right"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            shouldFocus={false}
-            size="md"
-          >
-            <Box padding={3}>
-              <Text
-                color="white"
-                weight="bold"
-              >
-                  Change your primary email in Settings
-              </Text>
-            </Box>
-          </Popover>
-        </Layer>
-      }
-    </Box>
-  );
-}
-`}
-  />,
-);
-
-card(
   <Combination
     checked={[false, true]}
     disabled={[false, true]}
