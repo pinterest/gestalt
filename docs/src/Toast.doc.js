@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
+import type { Node } from 'react';
+
+import { Fragment } from 'react';
 import { Button, Link, Image, Text, Toast } from 'gestalt';
 import Combination from './components/Combination.js';
 import Example from './components/Example.js';

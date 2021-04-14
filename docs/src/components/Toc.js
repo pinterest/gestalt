@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { Node } from 'react';
+
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 
 function throttle(func, wait) {

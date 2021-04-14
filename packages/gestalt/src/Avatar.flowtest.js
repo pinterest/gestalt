@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Avatar from './Avatar.js';
 
 const Valid = <Avatar name="Yen-Wei" />;

@@ -1,12 +1,7 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useEffect,
-  useRef,
-  useState,
-  type Node,
-} from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import colors from './Colors.css';

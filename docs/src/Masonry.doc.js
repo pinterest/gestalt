@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
+
+import { Component } from 'react';
 import { Box, Masonry, Image, Label, Text } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
@@ -175,7 +177,7 @@ const getPins = () => {
   return Promise.resolve(pinList);
 };
 
-class ExampleMasonry extends React.Component<Props, State> {
+class ExampleMasonry extends Component<Props, State> {
   // ref on a component gets the mounted instance of the component
   // https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-class-component
   grid: ?Masonry<*>;

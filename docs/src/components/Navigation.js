@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
+import type { Node } from 'react';
+
+import { Fragment } from 'react';
 import { Box } from 'gestalt';
 import HeaderMenu from './HeaderMenu.js';
 import SidebarSection from './SidebarSection.js';

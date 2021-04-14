@@ -1,5 +1,5 @@
 // @flow strict
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { Avatar } from 'gestalt';
 
 export default function Example() {

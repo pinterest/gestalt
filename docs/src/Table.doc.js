@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { Table } from 'gestalt';
 import Card from './components/Card.js';
 import Example from './components/Example.js';

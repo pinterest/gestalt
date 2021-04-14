@@ -1,6 +1,7 @@
 // eslint-disable-next-line flowtype/require-valid-file-annotation
 import babel from '@rollup/plugin-babel';
 import cssnano from 'cssnano';
+import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'postcss';
@@ -131,9 +132,13 @@ const plugins = (name) => [
   }),
   nodeResolve(),
   replace({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    preventAssignment: true,
+    values: {
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+    },
   }),
   svgPath(),
+
   json({
     preferConst: true,
   }),
@@ -141,9 +146,21 @@ const plugins = (name) => [
     babelrc: false,
     babelHelpers: 'bundled',
     presets: [['@babel/preset-env', { modules: false }], '@babel/react', '@babel/flow'],
-    plugins: ['@babel/proposal-class-properties'],
+    plugins: [
+      '@babel/proposal-class-properties',
+      [
+        process.env.NODE_ENV === 'development'
+          ? '@babel/plugin-transform-react-jsx-self'
+          : '@babel/plugin-transform-react-jsx',
+        {
+          runtime: 'automatic',
+          useBuiltIns: true,
+        },
+      ],
+    ],
     exclude: 'node_modules/**',
   }),
+  commonjs(),
 ];
 
 export default plugins;

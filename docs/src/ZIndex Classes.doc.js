@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import PageHeader from './components/PageHeader.js';
 import FeedbackCallout from './components/FeedbackCallout.js';
 import MainSection from './components/MainSection.js';

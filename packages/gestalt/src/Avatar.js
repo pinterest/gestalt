@@ -1,5 +1,5 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
+import { useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Icon from './Icon.js';

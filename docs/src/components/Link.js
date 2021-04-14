@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
+
+import { useCallback } from 'react';
 import { Link as GestaltLink } from 'gestalt';
 import { withRouter } from 'react-router-dom';
 
@@ -20,7 +22,7 @@ const Link = ({ children, history, onClick, replace = false, target, to }: Props
     pathname: to,
   });
 
-  const handleClick = React.useCallback(
+  const handleClick = useCallback(
     ({ event }) => {
       if (onClick) onClick({ event });
 

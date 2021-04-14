@@ -1,13 +1,7 @@
 // @flow strict
-import React, {
-  useContext,
-  useEffect,
-  useState,
-  createContext,
-  type Context,
-  type Element,
-  type Node,
-} from 'react';
+import type { Context, Element, Node } from 'react';
+
+import { useContext, useEffect, useState, createContext } from 'react';
 import PropTypes from 'prop-types';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';

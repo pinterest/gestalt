@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Component as ReactComponent, type ComponentType, type Node } from 'react';
+import type { ComponentType, Node } from 'react';
+
+import { Component as ReactComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';

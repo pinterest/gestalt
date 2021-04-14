@@ -1,13 +1,7 @@
 // @flow strict
-import React, {
-  useContext,
-  useState,
-  useCallback,
-  createContext,
-  type Context,
-  type Element,
-  type Node,
-} from 'react';
+import type { Context, Element, Node } from 'react';
+
+import { useContext, useState, useCallback, createContext } from 'react';
 import PropTypes from 'prop-types';
 
 type ScrollBoundaryContainerContextType = {|

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';

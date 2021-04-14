@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import { buildStyles } from './boxTransforms.js';
 import styles from './Flex.css';

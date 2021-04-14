@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Column, Column as RenamedColumn } from 'gestalt';
 
 export default function TestBox() {

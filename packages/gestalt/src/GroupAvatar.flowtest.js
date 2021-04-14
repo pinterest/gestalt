@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import GroupAvatar from './GroupAvatar.js';
 
 const Valid = <GroupAvatar collaborators={[{ name: '💩 astral' }]} size="md" />;

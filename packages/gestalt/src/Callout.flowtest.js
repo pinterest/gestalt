@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Callout from './Callout.js';
 
 const Valid = (

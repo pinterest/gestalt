@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import MainSectionCard from './MainSectionCard.js';
 import Card from './Card.js';
 import MainSectionSubsection from './MainSectionSubsection.js';

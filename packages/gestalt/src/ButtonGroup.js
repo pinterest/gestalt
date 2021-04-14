@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Children, Fragment, type Node } from 'react';
+import type { Node } from 'react';
+
+import { Children, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 

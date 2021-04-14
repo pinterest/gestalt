@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import { createRef } from 'react';
 import { create } from 'react-test-renderer';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import Tag from './Tag.js';
@@ -111,7 +111,7 @@ describe('Typeahead', () => {
   });
 
   it('forwards a ref to the innermost input element', () => {
-    const ref = React.createRef();
+    const ref = createRef();
     render(
       <Typeahead
         noResultText="No Result"

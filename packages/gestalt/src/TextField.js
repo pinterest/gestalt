@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, useState, type Element, type Node } from 'react';
+import type { Element, Node } from 'react';
+
+import { forwardRef, useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';

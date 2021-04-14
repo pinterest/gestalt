@@ -22,7 +22,9 @@ e. Sheet is the actual component logic which includes the internal components <H
 
 */
 
-import React, { forwardRef, useCallback, useState, useEffect, useRef, type Node } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useCallback, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';

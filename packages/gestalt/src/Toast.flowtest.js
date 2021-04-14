@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Toast from './Toast.js';
 
 const Valid = <Toast text="Warning" />;

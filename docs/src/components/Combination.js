@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { Box, Label, Text } from 'gestalt';
 import Checkerboard from './Checkerboard.js';
 import Card from './Card.js';

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.js';
 import Link from './Link.js';

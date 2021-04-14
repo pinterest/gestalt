@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Checkbox from './Checkbox.js';
 
 const Valid = <Checkbox id="send-emails" onChange={() => {}} />;

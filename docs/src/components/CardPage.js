@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, useEffect } from 'react';
+import type { Node } from 'react';
+
+import { useEffect } from 'react';
 import { Box, Flex, Link, Text } from 'gestalt';
 import SearchContent from './SearchContent.js';
 import Toc from './Toc.js';
