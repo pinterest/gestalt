@@ -1,3 +1,9 @@
+## 21.7.0 (Apr 14, 2021)
+
+### Minor
+
+- Internal: use new JSX transform & remove unnecessary react imports (#1471)
+
 ## 21.6.5 (Apr 13, 2021)
 
 ### Patch
