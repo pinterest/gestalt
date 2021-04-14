@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import renderer from 'react-test-renderer';
 import Module from './Module.js';
 import Text from './Text.js';

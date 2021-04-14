@@ -1,5 +1,5 @@
 // @flow strict
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 import { render } from '@testing-library/react';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';

@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import AppWrapper from './AppWrapper.js';
 
@@ -7,9 +7,9 @@ const container = document.getElementById('root');
 
 if (container instanceof Element) {
   render(
-    <React.StrictMode>
+    <StrictMode>
       <AppWrapper />
-    </React.StrictMode>,
+    </StrictMode>,
     container,
   );
 } else {

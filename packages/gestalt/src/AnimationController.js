@@ -90,16 +90,9 @@ function AnimationExample() {
 }`}
 
 */
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-  type Context,
-  type Element,
-  type Node,
-} from 'react';
+import type { Context, Element, Node } from 'react';
+
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import useReducedMotion from './useReducedMotion.js';
 

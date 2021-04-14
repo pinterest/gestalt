@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { create } from 'react-test-renderer';
 import SearchField from './SearchField.js';

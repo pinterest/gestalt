@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Box, Icon, IconButton, Pog, Button, Icon as RenamedIcon } from 'gestalt';
 
 export default function TestBox() {

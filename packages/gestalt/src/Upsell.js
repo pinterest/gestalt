@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Element, type Node } from 'react';
+import type { Element, Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';

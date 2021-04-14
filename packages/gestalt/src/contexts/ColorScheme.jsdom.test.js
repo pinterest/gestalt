@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { act, render } from '@testing-library/react';
 import { ColorSchemeProvider, useColorScheme } from './ColorScheme.js';
 

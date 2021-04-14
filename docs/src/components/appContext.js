@@ -1,5 +1,7 @@
 // @flow strict
-import React, { useEffect, type Node } from 'react';
+import type { Node } from 'react';
+
+import { useEffect } from 'react';
 import createHydra, { type Hydra } from './createHydra.js';
 import useLocalStorage from './useLocalStorage.js';
 

@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Avatar } from 'gestalt';
 
 export default function Example() {

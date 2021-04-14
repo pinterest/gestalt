@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { fireEvent, getNodeText, render } from '@testing-library/react';
 import AnimationController, { useAnimation } from './AnimationController.js';
 import * as useReducedMotionHook from './useReducedMotion.js'; // eslint-disable-line import/no-namespace

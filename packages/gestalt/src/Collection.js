@@ -39,7 +39,9 @@
   4. The viewport can be any size. Most windowing/recycling solutions implement some sort of overscanning, however Collection leaves this up the the parent.
 
 */
-import React, { PureComponent, type Node } from 'react';
+import type { Node } from 'react';
+
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import layoutStyles from './Layout.css';
 

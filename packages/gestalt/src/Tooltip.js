@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
+
+import { useReducer, useRef } from 'react';
 import useDebouncedCallback from './useDebouncedCallback.js';
 import Controller from './Controller.js';
 import Text from './Text.js';
@@ -60,10 +62,10 @@ export default function Tooltip({
   text,
   zIndex,
 }: Props): Node {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen } = state;
 
-  const childRef = React.useRef<?HTMLElement>(null);
+  const childRef = useRef<?HTMLElement>(null);
   const { current: anchor } = childRef;
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;

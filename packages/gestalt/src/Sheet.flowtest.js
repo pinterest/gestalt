@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import { createRef } from 'react';
 import Sheet from './Sheet.js';
 
 const ValidWithNodeProps = (
@@ -10,7 +10,7 @@ const ValidWithNodeProps = (
     footer={<footer />}
     heading="Sheet title"
     onDismiss={() => {}}
-    ref={React.createRef()}
+    ref={createRef()}
     size="sm"
     subHeading={<nav />}
   >
@@ -26,7 +26,7 @@ const ValidWithRenderProps = (
     footer={({ onDismissStart }) => <footer />}
     heading="Sheet title"
     onDismiss={() => {}}
-    ref={React.createRef()}
+    ref={createRef()}
     size="sm"
     subHeading={({ onDismissStart }) => <nav />}
   >

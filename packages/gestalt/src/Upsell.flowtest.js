@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Upsell from './Upsell.js';
 import Icon from './Icon.js';
 import Box from './Box.js';

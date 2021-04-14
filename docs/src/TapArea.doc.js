@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { Box, TapArea, Text } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import Combination from './components/Combination.js';

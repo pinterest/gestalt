@@ -13,14 +13,9 @@
  * */
 
 // @flow strict
-import React, {
-  forwardRef,
-  useEffect,
-  useRef,
-  useImperativeHandle,
-  type Node,
-  type AbstractComponent,
-} from 'react';
+import type { Node, AbstractComponent } from 'react';
+
+import { forwardRef, useEffect, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import {
   ScrollBoundaryContainerProvider,

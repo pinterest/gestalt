@@ -24,7 +24,10 @@ const rollupConfig = {
   plugins: [
     nodeResolve(),
     replace({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      preventAssignment: true,
+      values: {
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      },
     }),
     babel({
       babelrc: false,

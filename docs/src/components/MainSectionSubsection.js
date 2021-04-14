@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, Children } from 'react';
+import type { Node } from 'react';
+
+import { Children } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import slugify from 'slugify';
 import CopyLinkButton from './buttons/CopyLinkButton.js';

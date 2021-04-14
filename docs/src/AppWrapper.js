@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import App from './components/App.js';
 import CardPage from './components/CardPage.js';

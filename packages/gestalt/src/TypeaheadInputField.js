@@ -1,14 +1,7 @@
 // @flow strict
-import React, {
-  forwardRef,
-  Fragment,
-  type Element,
-  type Node,
-  type Ref,
-  useState,
-  useRef,
-  useImperativeHandle,
-} from 'react';
+import type { Element, Node, Ref } from 'react';
+
+import { forwardRef, Fragment, useState, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';

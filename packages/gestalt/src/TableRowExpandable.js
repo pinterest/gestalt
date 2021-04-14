@@ -1,13 +1,7 @@
 // @flow strict
-import React, {
-  Children,
-  cloneElement,
-  Fragment,
-  type Node,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import type { Node } from 'react';
+
+import { Children, cloneElement, Fragment, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import styles from './Table.css';
 import Box from './Box.js';

@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Modal from './Modal.js';
 import Text from './Text.js';
 

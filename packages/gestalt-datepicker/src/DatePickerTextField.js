@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, type ElementRef } from 'react';
+import type { ElementRef } from 'react';
+
+import { forwardRef } from 'react';
 import { Box, Icon, Label, TextField } from 'gestalt';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
