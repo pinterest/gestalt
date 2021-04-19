@@ -1,6 +1,6 @@
 {
   "name": "gestalt-datepicker",
-  "version": "21.7.1",
+  "version": "21.7.2",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.netlify.app",
   "description": "A React UI datepicker component which enforces Pinterest’s design language",
