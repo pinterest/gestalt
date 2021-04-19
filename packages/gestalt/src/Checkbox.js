@@ -1,12 +1,7 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useEffect,
-  useRef,
-  useState,
-  type Node,
-} from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import colors from './Colors.css';
@@ -162,7 +157,7 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
             </div>
           </Box>
         </Label>
-        {image && <Box paddingX={1}>{image}</Box>}
+        {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Label htmlFor={id}>
             <Box paddingX={1}>
@@ -191,7 +186,6 @@ const CheckboxWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> =
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 CheckboxWithForwardRef.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,

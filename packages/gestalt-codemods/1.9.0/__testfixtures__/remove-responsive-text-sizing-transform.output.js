@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Box, Heading as RenamedHeading, Text } from 'gestalt';
 
 export default function TestText() {

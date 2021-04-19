@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, useEffect, useRef, useState } from 'react';
+import type { Node } from 'react';
+
+import { useEffect, useRef, useState } from 'react';
 import { Box, Flex } from 'gestalt';
 import { LiveEditor } from 'react-live';
 import clipboardCopy from './clipboardCopy.js';

@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Component as ReactComponent, type ComponentType, type Node } from 'react';
+import type { ComponentType, Node } from 'react';
+
+import { Component as ReactComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from './debounce.js';
 import FetchItems from './FetchItems.js';
@@ -402,8 +404,11 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
     this.forceUpdate();
   }
 
-  // $FlowFixMe[signature-verification-failure]
-  renderMasonryComponent = (itemData: T, idx: number, position: *) => {
+  renderMasonryComponent: (itemData: T, idx: number, position: *) => Node = (
+    itemData,
+    idx,
+    position,
+  ) => {
     const {
       comp: Component,
       scrollContainer,
@@ -559,10 +564,7 @@ export default class Masonry<T: { ... }> extends ReactComponent<Props<T>, State<
       gridBody = (
         <div style={{ width: '100%' }} ref={this.setGridWrapperRef}>
           <div className={styles.Masonry} style={{ height, width }}>
-            {itemsToRender.map((item, i) =>
-              // $FlowFixMe[incompatible-call]
-              this.renderMasonryComponent(item, i, positions[i]),
-            )}
+            {itemsToRender.map((item, i) => this.renderMasonryComponent(item, i, positions[i]))}
           </div>
           <div className={styles.Masonry} style={{ width }}>
             {itemsToMeasure.map((data, i) => {

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { IconButton } from 'gestalt';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';

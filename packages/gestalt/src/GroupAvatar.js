@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import styles from './GroupAvatar.css';
 import Box from './Box.js';
@@ -181,6 +181,7 @@ export default function GroupAvatar(props: Props): Node {
       height={avatarHeight}
       position="relative"
       dangerouslySetInlineStyle={{
+        // $FlowFixMe[incompatible-type]
         __style: {
           ...(outline ? { boxShadow: `0 0 0 2px ${colorGray0}` } : {}),
           // willChange: transform fixes a strange behavior where the border of the children

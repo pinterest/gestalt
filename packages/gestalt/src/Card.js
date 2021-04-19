@@ -1,5 +1,7 @@
 // @flow strict
-import React, { useState, type Node } from 'react';
+import type { Node } from 'react';
+
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -40,7 +42,7 @@ export default function Card(props: Props): Node {
 
   return (
     <Box onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} position="relative">
-      {image && <Box marginBottom={1}>{image}</Box>}
+      {Boolean(image) && <Box marginBottom={1}>{image}</Box>}
       <Box>{children}</Box>
       <div className={classes} />
     </Box>

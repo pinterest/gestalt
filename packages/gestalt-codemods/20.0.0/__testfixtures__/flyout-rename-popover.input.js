@@ -1,9 +1,9 @@
 // @flow strict
-import React from 'react';
+import { useRef } from 'react';
 import { Flyout, Box } from 'gestalt';
 
 export default function TestComp() {
-    const anchorRef = React.useRef();
+    const anchorRef = useRef();
 
   return (
     <Flyout onDismiss={() => {}} anchor={anchorRef} >

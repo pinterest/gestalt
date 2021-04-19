@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
@@ -65,7 +65,7 @@ export default function ModuleExpandableItem({
               )}
             </Box>
 
-            {children && (
+            {Boolean(children) && (
               <Box id={id} padding={1}>
                 <Icon
                   accessibilityLabel={

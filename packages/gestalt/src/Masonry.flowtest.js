@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Masonry from './Masonry.js';
 
 const Item = () => <div />;

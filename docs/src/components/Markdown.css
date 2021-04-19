@@ -11,9 +11,14 @@
 .Markdown code {
   background-color: var(--g-colorGray100);
   color: var(--g-colorGray300);
+  display: inline-block;
   font-family: SFMono-Medium, "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas, Courier, monospace;
   font-size: var(--g-text-font-size-2);
   padding: 2px 4px;
+}
+
+.Markdown pre code {
+  display: block;
 }
 
 .Markdown .language-jsx, .Markdown .language-bash {

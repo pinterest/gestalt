@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import styles from './FormLabel.css';
 import Text from './Text.js';

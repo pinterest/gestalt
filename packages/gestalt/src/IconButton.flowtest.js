@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import IconButton from './IconButton.js';
 
 const ValidDefaultIconButton = <IconButton icon="add" accessibilityLabel="Add" />;

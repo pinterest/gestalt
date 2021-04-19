@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, useImperativeHandle, useState, useRef, type Node } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useImperativeHandle, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import icons from './icons/index.js';
@@ -223,7 +225,6 @@ const IconButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> =
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 IconButtonWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,

@@ -21,3 +21,8 @@
 .fontSize3 {
   font-size: var(--g-heading-font-size-3);
 }
+
+.TextLikeHeadingSm {
+  composes: fontSize1 Heading;
+  composes: breakWord fontWeightBold from "./Typography.css"
+}

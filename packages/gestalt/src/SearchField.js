@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, Fragment, type Node, useState } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -180,7 +182,6 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 SearchFieldWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
   autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),

@@ -1,3 +1,57 @@
+## 21.7.1 (Apr 14, 2021)
+
+### Patch
+
+- Docs: Remove popover example in Checkbox doc
+
+## 21.7.0 (Apr 14, 2021)
+
+### Minor
+
+- Internal: use new JSX transform & remove unnecessary react imports (#1471)
+
+## 21.6.5 (Apr 13, 2021)
+
+### Patch
+
+- Z-Index: copyediting new docs page (#1470)
+
+## 21.6.4 (Apr 12, 2021)
+
+### Patch
+
+- Docs: Add unique page titles (#1468)
+
+## 21.6.3 (Apr 9, 2021)
+
+### Patch
+
+- Docs: Update Meetings on How to Work with Us (#1467)
+
+## 21.6.2 (Apr 8, 2021)
+
+### Patch
+
+- Typeahead: Fix static `value` bug (#1458)
+
+## 21.6.1 (Apr 8, 2021)
+
+### Patch
+
+- Callout, Upsell: Convert title to text instead of heading (#1462)
+
+## 21.6.0 (Apr 8, 2021)
+
+### Minor
+
+- Internal: upgrade flow to 0.145.0 & fix 21 flow suppressions (#1463)
+
+## 21.5.2 (Apr 8, 2021)
+
+### Patch
+
+- Docs: convert ESLint docs to new format (#1465)
+
 ## 21.5.1 (Apr 7, 2021)
 
 ### Patch

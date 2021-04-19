@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, useImperativeHandle, useRef, type Node } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Touchable.css';
@@ -242,7 +244,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TapAreaWithForwardRef.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,

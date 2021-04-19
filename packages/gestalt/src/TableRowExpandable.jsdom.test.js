@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Box from './Box.js';
 import Table from './Table.js';

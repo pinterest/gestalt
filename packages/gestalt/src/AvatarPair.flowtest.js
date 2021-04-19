@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import AvatarPair from './AvatarPair.js';
 
 const Valid = (

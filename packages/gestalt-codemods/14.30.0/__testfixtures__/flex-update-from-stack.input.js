@@ -1,5 +1,3 @@
-// @flow strict
-import React from 'react';
 import { Stack } from 'gestalt';
 
 export default function TestComp() {

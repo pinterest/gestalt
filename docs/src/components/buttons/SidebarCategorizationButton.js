@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { Flex, IconButton, Tooltip } from 'gestalt';
 // eslint-disable-next-line import/no-relative-parent-imports
 import { type SidebarOrganisedBy } from '../navigationContext.js';

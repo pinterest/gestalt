@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Sticky from './Sticky.js';
 import { FixedZIndex } from './zIndex.js';
 

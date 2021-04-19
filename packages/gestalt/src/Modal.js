@@ -1,5 +1,7 @@
 // @flow strict
-import React, { useCallback, forwardRef, useState, useEffect, useRef, type Node } from 'react';
+import type { Node } from 'react';
+
+import { useCallback, forwardRef, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { ESCAPE } from './keyCodes.js';
@@ -135,7 +137,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
               ref={ref}
             >
               <Box flex="grow" position="relative" display="flex" direction="column" width="100%">
-                {heading && (
+                {Boolean(heading) && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
                       [modalStyles.shadow]: showTopShadow,
@@ -159,7 +161,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     </InternalScrollBoundaryContainer>
                   </ScrollBoundaryContainerProvider>
                 )}
-                {footer && (
+                {Boolean(footer) && (
                   <div
                     className={classnames(modalStyles.shadowContainer, {
                       [modalStyles.shadow]: showBottomShadow,
@@ -177,7 +179,6 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 ModalWithForwardRef.propTypes = {
   _dangerouslyDisableScrollBoundaryContainer: PropTypes.string,
   accessibilityModalLabel: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@
 import { Box, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace
 import DatePicker from 'gestalt-datepicker';
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import ExampleCode from './ExampleCode.js';
 import theme from './atomDark.js';
@@ -105,7 +105,7 @@ const MainSectionCard = ({
     <Box minWidth={CARD_SIZE_NAME_TO_PIXEL[cardSize]} marginBottom={12}>
       {showTitleAndDescriptionAboveExample && (title || description) && TitleAndDescription}
 
-      {children && <PreviewCard>{children}</PreviewCard>}
+      {Boolean(children) && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
         <LiveProvider code={code} scope={scope} theme={theme}>

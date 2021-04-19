@@ -1,6 +1,3 @@
-// flow-typed signature: 7d8a41f0dbd8e1ea5fde340c71bcef01
-// flow-typed version: fd74ae7788/@testing-library/react_v10.x.x/flow_>=v0.104.x
-
 declare module '@testing-library/react' {
   // This type comes from
   // https://github.com/facebook/flow/blob/v0.104.0/lib/react-dom.js#L64
@@ -137,7 +134,7 @@ declare module '@testing-library/react' {
   ) => Promise<HTMLElement>;
 
   declare type FindAllByRole = (
-    role: Matcher,
+    role: any,
     options?: ByRoleOptions,
     waitForElementOptions?: WaitForElementOptions
   ) => Promise<HTMLElement[]>;
@@ -238,7 +235,7 @@ declare module '@testing-library/react' {
     container?: HTMLElement,
     baseElement?: HTMLElement,
     hydrate?: boolean,
-    wrapper?: React.ComponentType,
+    wrapper?: React$ComponentType<any>,
   |};
 
   declare export type RenderOptionsWithCustomQueries<
@@ -248,17 +245,17 @@ declare module '@testing-library/react' {
     container?: HTMLElement,
     baseElement?: HTMLElement,
     hydrate?: boolean,
-    wrapper?: React.ComponentType,
+    wrapper?: React$ComponentType<any>,
   |};
 
   declare export function render(
-    ui: React.ReactElement<any>,
+    ui: React$Element<any>,
     options?: RenderOptionsWithoutCustomQueries
   ): RenderResult<>;
   declare export function render<
     CustomQueries: { [string]: (...args: Array<any>) => any, ... }
   >(
-    ui: React.ReactElement<any>,
+    ui: React$Element<any>,
     options: RenderOptionsWithCustomQueries<CustomQueries>
   ): RenderResult<CustomQueries>;
 
@@ -403,6 +400,11 @@ declare module '@testing-library/react' {
     id: TextMatch,
     options?: TextMatchOptions
   ): HTMLElement;
+  declare export function getAllByTestId(
+    container: HTMLElement,
+    text: TextMatch,
+    options?: TextMatchOptions
+  ): Array<HTMLElement>;
   declare export function queryByText(
     container: HTMLElement,
     text: TextMatch,

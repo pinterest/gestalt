@@ -15,7 +15,7 @@ I'll explain each part as we go through. Just remember, if you want to make upda
 
 */
 
-import React, { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
+import { forwardRef, type Node, type AbstractComponent, type Element } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Box.css';
 import { buildStyles } from './boxTransforms.js';
@@ -202,19 +202,7 @@ const disallowedProps = [
   'lgMarginRight',
 ];
 
-type OutputType =
-  | Element<'article'>
-  | Element<'aside'>
-  | Element<'details'>
-  | Element<'div'>
-  | Element<'figcaption'>
-  | Element<'figure'>
-  | Element<'footer'>
-  | Element<'header'>
-  | Element<'main'>
-  | Element<'nav'>
-  | Element<'section'>
-  | Element<'summary'>;
+type OutputType = Element<As>;
 
 const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Props, HTMLElement>(
   function Box({ as, ...props }, ref): OutputType {
@@ -224,7 +212,7 @@ const BoxWithForwardRef: AbstractComponent<Props, HTMLElement> = forwardRef<Prop
       blocklistProps: disallowedProps,
     });
 
-    const BoxElement = as ?? 'div';
+    const BoxElement: As = as ?? 'div';
 
     // And... magic!
     return <BoxElement {...passthroughProps} {...propsStyles} ref={ref} />;
@@ -243,7 +231,6 @@ And we're done here :)
 
 */
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 BoxWithForwardRef.propTypes = {
   children: PropTypes.node,
   dangerouslySetInlineStyle: PropTypes.exact({

@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { render } from '@testing-library/react';
 import Layer from './Layer.js';
 import { FixedZIndex } from './zIndex.js';

@@ -1,5 +1,5 @@
 // @flow strict
-import React from 'react';
+import { createRef } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import Sheet from './Sheet.js';
 import * as AnimationControllerModule from './AnimationController.js'; // eslint-disable-line import/no-namespace
@@ -16,7 +16,7 @@ describe('Sheet', () => {
   });
 
   it('should render all props with nodes', () => {
-    const sheetRef = React.createRef();
+    const sheetRef = createRef();
     const { container } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
@@ -37,7 +37,7 @@ describe('Sheet', () => {
   });
 
   it('should render all props with render props', () => {
-    const sheetRef = React.createRef();
+    const sheetRef = createRef();
     const { container } = render(
       <Sheet
         accessibilityDismissButtonLabel="Dismiss"
@@ -94,7 +94,7 @@ describe('Sheet', () => {
   });
 
   it('should attach a ref', () => {
-    const sheetRef = React.createRef();
+    const sheetRef = createRef();
 
     render(
       <Sheet

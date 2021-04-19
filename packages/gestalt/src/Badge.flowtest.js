@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Badge from './Badge.js';
 
 const Valid = <Badge text="new" />;

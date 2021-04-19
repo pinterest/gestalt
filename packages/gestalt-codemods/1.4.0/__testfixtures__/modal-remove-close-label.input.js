@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { Box, Modal } from 'gestalt';
 
 export default function ModalExample() {

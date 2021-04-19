@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import MainSection from './components/MainSection.js';
 import PageHeader from './components/PageHeader.js';
 
@@ -135,8 +135,21 @@ Our meetings, events, and timelines can be found on our [Gestalt Event Calendar]
 
 We offer two different meetings for the community to come with questions, comments, ideas, and feedback.
 
-- Business Component Crit: Geared toward design work for our business products. [Sign up sheet and notes](https://paper.dropbox.com/doc/Meeting-notes-Ads-Design-Component-Crit--A0OnUFBJPWygCqBU2aMrhAaGAQ-9bkQ0frWwmRxkYRRq5fOm)
-- Design System Office Hours: Open space for discussing designs and getting feedback on component usage within the Pinner product. [Sign up sheet](https://paper.dropbox.com/doc/Design-systems-office-hours-signup-sheet--BGF2OO1W31I96Pss5qFZ1Pz1Ag-oBkTKg5JUNO0POAzPxNl6)`}
+1. **Gestalt Office Hours**
+    - Purpose
+      For Product designers looking for feedback on their usage of design systems and visual language. This is also a great time to propose new components or component changes.
+    - Audience
+      The audience for office hours is expanding to include both Pinner and Business design.
+    - Cadence
+      Gestalt office hours are now available twice a week, with a 1 hour slot on both Tuesdays and Thursdays. [Sign up sheet](https://paper.dropbox.com/doc/Design-systems-office-hours-signup-sheet--BIjd4OFguvep2iUsMexRq3hOAg-oBkTKg5JUNO0POAzPxNl6)
+2.  **Component Crit**
+    - Purpose
+      For Systems designers to get feedback from the larger design org on systems-related designs.
+    - Audience
+      A group of designers who represent the design org as a design system council. We decided to create a group in order to keep crits productive and a manageable size across the entire design team. We've worked with all the managers across design to come up with the initial participants. At times, we will invite designers outside of this group to join if their team will be immediate users of the component. Agenda can be found in the meeting invite. Please continue to bring component work to office hours.
+    - Cadence
+      Bi-weekly on Friday 1-2pm. Please sign up through the link in the calendar invite.
+    `}
     />
   </MainSection>,
 );

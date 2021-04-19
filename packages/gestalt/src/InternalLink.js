@@ -1,12 +1,7 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useImperativeHandle,
-  useRef,
-  type AbstractComponent,
-  type Node,
-  type Element,
-} from 'react';
+import type { AbstractComponent, Node, Element } from 'react';
+
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import buttonStyles from './Button.css';
@@ -224,7 +219,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 InternalLinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   children: PropTypes.node,

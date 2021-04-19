@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import Tag from './Tag.js';
 
 const Valid = <Tag text="New" onRemove={() => {}} removeIconAccessibilityLabel="Remove" />;

@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { Table } from 'gestalt';
 import Card from './components/Card.js';
 import Example from './components/Example.js';
@@ -307,7 +307,7 @@ card(
         </Table.Cell>
         <Table.Cell><Text>Tony Stark</Text></Table.Cell>
         <Table.Cell><Text>Iron Man</Text></Table.Cell>
-        <Table.Cell><Text>Shwarma</Text></Table.Cell>
+        <Table.Cell><Text>Shawarma</Text></Table.Cell>
         <Table.Cell><Text>Spiderman</Text></Table.Cell>
         <Table.Cell>
           <Box width={200}><Text>May 29, 1970</Text></Box>
@@ -417,7 +417,7 @@ card(
         <Table.Cell><Text>Tony Stark</Text></Table.Cell>
         <Table.Cell><Text>Iron Man</Text></Table.Cell>
         <Table.Cell><Text>Spiderman</Text></Table.Cell>
-        <Table.Cell><Text>Shwarma</Text></Table.Cell>
+        <Table.Cell><Text>Shawarma</Text></Table.Cell>
         <Table.Cell><Text>Flight, Super strength</Text></Table.Cell>
         <Table.Cell><Text>New York</Text></Table.Cell>
         <Table.Cell><Text>N/A</Text></Table.Cell>
@@ -553,7 +553,7 @@ card(
         <Table.Cell><Text>Tony Stark</Text></Table.Cell>
         <Table.Cell><Text>Iron Man</Text></Table.Cell>
         <Table.Cell><Text>Spiderman</Text></Table.Cell>
-        <Table.Cell><Text>Shwarma</Text></Table.Cell>
+        <Table.Cell><Text>Shawarma</Text></Table.Cell>
         <Table.Cell><Text>Flight, Super strength</Text></Table.Cell>
         <Table.Cell><Text>New York</Text></Table.Cell>
         <Table.Cell><Text>N/A</Text></Table.Cell>
@@ -1035,7 +1035,7 @@ card(
                 <Text>Spiderman</Text>
               </Table.Cell>
               <Table.Cell>
-                <Text>Shwarma</Text>
+                <Text>Shawarma</Text>
               </Table.Cell>
               <Table.Cell>
                 <Text>New York City</Text>

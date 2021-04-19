@@ -1,5 +1,7 @@
 // @flow strict
-import React, { type Node, useState, useCallback, useEffect, useRef } from 'react';
+import type { Node } from 'react';
+
+import { useState, useCallback, useEffect, useRef } from 'react';
 import cx from 'classnames';
 import Box from './Box.js';
 import styles from './Table.css';

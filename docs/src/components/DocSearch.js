@@ -1,5 +1,7 @@
 // @flow strict
-import React, { useEffect, type Node } from 'react';
+import type { Node } from 'react';
+
+import { useEffect } from 'react';
 import './DocSearch.css';
 
 function filterKeyboardEvent(event: KeyboardEvent) {

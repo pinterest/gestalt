@@ -1,5 +1,7 @@
 // @flow strict
-import React, { forwardRef, useState, type Node } from 'react';
+import type { Node } from 'react';
+
+import { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import controlStyles from './RadioButtonCheckbox.css';
@@ -119,7 +121,7 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
           </div>
         </Box>
       </Label>
-      {image && <Box paddingX={1}>{image}</Box>}
+      {Boolean(image) && <Box paddingX={1}>{image}</Box>}
       {label && (
         <Label htmlFor={id}>
           <Box paddingX={1}>
@@ -140,7 +142,6 @@ const RadioButtonWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 RadioButtonWithForwardRef.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,

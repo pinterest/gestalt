@@ -1,5 +1,7 @@
 // @flow strict
-import React, { PureComponent, type Node } from 'react';
+import type { Node } from 'react';
+
+import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
 import { ColorSchemeProvider } from './contexts/ColorScheme.js';
@@ -541,7 +543,7 @@ export default class Video extends PureComponent<Props, State> {
               src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
             <track kind="captions" src={captions} />
           </video>
-          {children && (
+          {Boolean(children) && (
             <Box position="absolute" top left bottom right overflow="hidden">
               {children}
             </Box>

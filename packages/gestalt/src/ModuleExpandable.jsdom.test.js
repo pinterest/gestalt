@@ -1,5 +1,4 @@
 // @flow strict
-import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import ModuleExpandable from './ModuleExpandable.js';
 

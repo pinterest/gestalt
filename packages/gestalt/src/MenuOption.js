@@ -1,5 +1,7 @@
 // @flow strict
-import React, { Fragment, type Node } from 'react';
+import type { Node } from 'react';
+
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';

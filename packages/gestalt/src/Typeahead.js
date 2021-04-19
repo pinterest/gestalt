@@ -1,13 +1,7 @@
 // @flow strict
-import React, {
-  forwardRef,
-  useState,
-  useEffect,
-  useRef,
-  useImperativeHandle,
-  type Element,
-  type Node,
-} from 'react';
+import type { Element, Node } from 'react';
+
+import { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import TypeaheadInputField from './TypeaheadInputField.js';
 import MenuOption, { type OptionObject } from './MenuOption.js';
@@ -88,13 +82,18 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
   // Track input value
   const defaultOption: OptionObject | null = findDefaultOption(value);
-  const [search, setSearch] = useState<string>(defaultOption?.label || '');
-
+  const displayValue = defaultOption?.label ?? '';
+  const [search, setSearch] = useState<string>(displayValue);
   // Track the selected item - could be used to see if someone is selecting the same thing again
   const [selected, setSelected] = useState<OptionObject | null>(defaultOption);
 
-  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
+  // Make sure we respect any external changes to `value`
+  useEffect(() => {
+    setSearch(displayValue);
+    setSelected(defaultOption);
+  }, [defaultOption, displayValue]);
 
+  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
   const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
 
   // Ref to the input
@@ -288,7 +287,6 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   );
 });
 
-// $FlowFixMe[prop-missing] flow 0.135.0 upgrade
 TypeaheadWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,

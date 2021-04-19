@@ -1,5 +1,5 @@
 // @flow strict
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import PageHeader from './components/PageHeader.js';
 import FeedbackCallout from './components/FeedbackCallout.js';
 import MainSection from './components/MainSection.js';
@@ -11,9 +11,9 @@ card(<FeedbackCallout componentName="zIndex Classes" />);
 
 card(
   <PageHeader
-    name="zIndex Classes"
+    name="Z-Index Classes"
     fileName="zIndex"
-    description="FixedZIndex and CompositeZIndex are utility classes that generate z-indexes for Gestalt components."
+    description="FixedZIndex and CompositeZIndex are utility classes that generate z-indices for Gestalt components."
   />,
 );
 
@@ -67,7 +67,7 @@ card(
         cardSize="md"
         type="do"
         description={`
-Export FixedZIndex and CompositeZIndex rather than the z-index values itself
+Export FixedZIndex and CompositeZIndex rather than the z-index values itself.
 ~~~jsx
 // exporting file
 export const BaseZIndex = = new FixedZIndex(1);
@@ -83,7 +83,7 @@ const BoxWithZIndex = <Box zIndex={BaseZIndex}/>
         cardSize="md"
         type="don't"
         description={`
-Export constant z-index values to create FixedZIndex and CompositeZIndex
+Export constant z-index values to create FixedZIndex and CompositeZIndex.
 ~~~jsx
 // exporting file
 export const BaseZIndex = 1;
@@ -103,7 +103,7 @@ const BoxWithZIndex = <Box zIndex={BoxZIndex}/>
         cardSize="md"
         type="do"
         description={`
-Use CompositeZIndex to compose z-Indexes
+Use CompositeZIndex to compose z-indices.
 ~~~jsx
 // exporting file
 export const BaseZIndex = = new FixedZIndex(1);
@@ -121,7 +121,7 @@ const BoxWithZIndex = <Box zIndex={composedZIndex}/>
         cardSize="md"
         type="don't"
         description={`
-Use FixedZIndex to manually compose z-indexes
+Use FixedZIndex to manually compose z-indices.
 ~~~jsx
 // exporting file
 export const BaseZIndex = 1;
@@ -141,7 +141,7 @@ const BoxWithZIndex = <Box zIndex={composedZIndex}/>
         cardSize="md"
         type="do"
         description={`
-Use the lowest possible z-index values and compose them
+Use the lowest possible z-index values and compose them.
 ~~~jsx
 import { FixedZIndex } from 'gestalt';
 
@@ -163,7 +163,7 @@ const ModalWithZIndex = <Layer zIndex={modalZindex}><Modal/></Layer>
         cardSize="md"
         type="don't"
         description={`
-Use unnecessarily high fixed z-index values
+Use unnecessarily high fixed z-index values.
 ~~~jsx
 import { FixedZIndex } from 'gestalt';
 
@@ -185,7 +185,7 @@ const ModalWithZIndex = <Layer zIndex={modalZindex}><Modal/></Layer>
         cardSize="md"
         type="do"
         description={`
-Wrap non-Gestaltifiable HTML tags in Box and pass zIndex classes
+Wrap non-Gestaltifiable HTML tags in Box and pass z-index classes.
 ~~~jsx
 import { FixedZIndex } from 'gestalt';
 
@@ -207,7 +207,7 @@ const canvas = (
         cardSize="md"
         type="don't"
         description={`
-Extract z-index values from both zIndex classes to use in non-Gestaltifiable HTML Tags. See [z-index in non-Gestalt components](#z-index-in-non-Gestalt-components) to learn more.
+Extract z-index values from either z-index classes to use in non-Gestaltifiable HTML Tags. See [z-index in non-Gestalt components](#z-index-in-non-Gestalt-components) to learn more.
 ~~~jsx
 import { FixedZIndex } from 'gestalt';
 
@@ -230,7 +230,7 @@ const canvas = (
         cardSize="lg"
         type="do"
         description={`
-Use Layer instead of zIndex when a component needs to visually break out of its parent container, for example, in the case of [modals](/Modal), [sheets](/Sheet) and [tooltips](/Tooltip). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
+Use Layer instead of z-index when a component needs to visually break out of its parent container, for example, in the case of [modals](/Modal), [sheets](/Sheet) and [tooltips](/Tooltip). See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
 ~~~jsx
 const modal = (
   <Layer>
@@ -281,11 +281,11 @@ const modalB = (
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      title="zIndex in foundational components"
+      title="z-index in foundational components"
       description={`
-[Box](/Box), [Sticky](/Sticky), and [Layer](/Layer) are foundational components that have zIndex props. If any other components need to be positioned within their stacking context, wrap with one of these foundational components to set the z-index.
+[Box](/Box), [Sticky](/Sticky), and [Layer](/Layer) are foundational components that have \`zIndex\` props. If any other components need to be positioned within their stacking context, wrap with one of these foundational components to set the z-index.
 
-In the case of Layer, this foundational components creates a new stacking context. Unless there's a conflict with another z-index, don't pass unnecessary zIndex to Layer.
+Layer creates a new stacking context. Unless there's a conflict with another z-index, don't pass unnecessary \`zIndex\` to Layer.
 
 The following example sets a z-index in the Layer wrapping [Sheet](/Sheet) to position Sheet over the page header in the Docs. Set \`PAGE_HEADER_ZINDEX\` below 10 to see the importance of z-index in this example.`}
     >
@@ -499,15 +499,15 @@ function ScrollBoundaryContainerExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="zIndex in Layer"
+      title="z-index in Layer"
       description={`
-Components like [Modal](/Modal) and [Sheet](/Sheet) always require a parent [Layer](/Layer) to position themselves outside the DOM hierarchy.
+[Modal](/Modal) and [Sheet](/Sheet) always require a parent [Layer](/Layer) to position themselves outside the DOM hierarchy.
 
-Components built on top of [Popover](/Popover), such as [Tooltip](/Tooltip), [Dropdown](/Dropdown), [Typeahead](/Typeahead) have a built-in Layer to position Popover outside the DOM hierarchy.  To access the internal z-index value of Layer, these popover-based components have zIndex props as well. These are necessary in the case of placing the popover-based components within another component wrapped in Layer that has set a z-index.
+Components built on top of [Popover](/Popover), such as [Tooltip](/Tooltip), [Dropdown](/Dropdown) and [Typeahead](/Typeahead), have a built-in Layer to be positioned outside the DOM hierarchy.  To set the internal z-index value of Layer, these Popover-based components have \`zIndex\` props as well. This is used when placing the Popover-based components within another component wrapped in Layer that has a z-index set.
 
-However, Modal and Sheet have a built-in [ScrollBoundaryContainer](/ScrollBoundaryContainer) wrapping their children, so you shouldn’t need to pass z-index values to these popover-based components.
+However, Modal and Sheet have a built-in [ScrollBoundaryContainer](/ScrollBoundaryContainer) wrapping their children, so you shouldn’t need to pass z-index values when using Popover-based children.
 
-The following example sets a z-index in the Layer wrapping [Modal](/Modal) to position Modal over the page header in the Docs. However, thanks to ScrollBoundaryContainer, children tooltips don't require z-index.`}
+The following example sets a z-index in the Layer wrapping [Modal](/Modal) to position Modal over the page header in the Docs. Thanks to ScrollBoundaryContainer, child Tooltips don't require z-index.`}
     >
       <MainSection.Card
         cardSize="lg"
@@ -659,7 +659,7 @@ function ScrollBoundaryContainerExample() {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="z-index in non-Gestalt components"
-      description={`FixedZIndex and CompositeZIndex work with Gestalt components. To stay consistent across the codebase using Gestalt’s zIndex classes, you can extract z-index values from both FixedZIndex and CompositeZIndex in cases where the component doesn’t accept Gestalt’s zIndex classes.
+      description={`FixedZIndex and CompositeZIndex work with Gestalt components. To stay consistent across the codebase using Gestalt’s zIndex classes, you can extract z-index values from both FixedZIndex and CompositeZIndex in cases where the component doesn’t accept Gestalt’s z-index classes.
 
 ~~~jsx
 import { FixedZIndex, CompositeZIndex } from 'gestalt';
@@ -671,7 +671,7 @@ const compositeZIndex = new CompositeZIndex([fixedZindex]);
 const compositeZIndexValue = compositeZIndex.index(); // 2
 ~~~
 
-However, this is an escape hatch that should only be used in cases like needing to work with a third-party library. For any other case, such as custom components using HTML tags, a better approach is to wrap the component that needs a z-index in a Box. See [Best Practices](#Best-practices) for more info.
+However, this is an escape hatch that should only be used when the source code is not accessible, such as working with a third-party library. Otherwise, a better approach is to wrap the component or HTML element that needs a z-index in a Box. See [Best Practices](#Best-practices) for more info.
 `}
     />
   </MainSection>,
@@ -682,7 +682,7 @@ card(
     <MainSection.Subsection
       description={`
 **[Layer](/Layer)**
-Layers allow you to render children outside the DOM hierarchy of the parent. This is particularly useful for places you might have needed to use z-index to overlay the screen before reducing the stacking context complexity in the app. See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
+Layer allows you to render children outside the DOM hierarchy of the parent. This is useful for places you might otherwise need to use z-index to overlay the screen, simplifying the stacking context complexity in the app. See [z-Index in foundational components](#zIndex-in-foundational-components) and [ZIndex in Layer](#zIndex-in-Layer) to learn more.
     `}
     />
   </MainSection>,
