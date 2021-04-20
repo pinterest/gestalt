@@ -1,3 +1,9 @@
+## 21.7.3 (Apr 20, 2021)
+
+### Patch
+
+- TapArea: Allow right clicks (#1473)
+
 ## 21.7.2 (Apr 19, 2021)
 
 ### Patch
