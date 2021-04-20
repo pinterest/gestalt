@@ -61,14 +61,14 @@ card(
       {
         name: 'idealDirection',
         type: `'up' | 'right' | 'down' | 'left'`,
-        description: `Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](#Ideal_direction) variant to learn more.`,
+        description: `Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](#Ideal-direction) variant to learn more.`,
         defaultValue: 'down',
         href: 'Ideal-direction',
       },
       {
         name: 'inline',
         type: 'boolean',
-        description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/IconButton) using the inline property. See the [inline](/Inline) variant to learn more.`,
+        description: `Properly positions Tooltip relative to an inline element, such as [Icon Button](/IconButton) using the inline property. See the [inline](#Inline) variant to learn more.`,
         defaultValue: 'false',
         href: 'Inline',
       },
@@ -77,7 +77,7 @@ card(
         name: 'text',
         type: 'string',
         description:
-          'The text shown in Tooltip to describe its anchor element. See [localization ](#localization) to learn more.',
+          'The text shown in Tooltip to describe its anchor element. See [localization ](#Localization) to learn more.',
         required: true,
       },
       {
