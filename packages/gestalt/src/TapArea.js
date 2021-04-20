@@ -212,7 +212,6 @@ const TapAreaWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = fo
       aria-haspopup={accessibilityHaspopup}
       aria-label={accessibilityLabel}
       className={buttonRoleClasses}
-      onContextMenu={(event) => event.preventDefault()}
       onClick={handleClick}
       onBlur={(event) => {
         handleOnBlur(event);
