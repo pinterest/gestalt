@@ -1,3 +1,9 @@
+## 21.7.5 (Apr 20, 2021)
+
+### Patch
+
+- Docs: Fix Tooltip typos (#1475)
+
 ## 21.7.4 (Apr 20, 2021)
 
 ### Patch
