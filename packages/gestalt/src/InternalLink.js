@@ -169,7 +169,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       className={className}
       href={disabled ? undefined : href}
       id={id}
-      onContextMenu={isTapArea ? (event) => event.preventDefault() : null}
       onBlur={(event) => {
         onBlur?.({ event });
         handleBlur();
