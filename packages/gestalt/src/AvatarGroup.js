@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable react/prop-types */
 // @flow strict
 import React, { useState, type Node } from 'react';
 import PropTypes from 'prop-types';
@@ -13,7 +15,7 @@ import { useColorScheme } from './contexts/ColorScheme.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './AvatarGroup.css';
 
-type Size = 'xs' | 'sm' | 'md';
+type Size = 'xs' | 'sm' | 'md' | 'fit';
 
 type Role = 'link' | 'button' | null;
 
@@ -69,19 +71,17 @@ const COLLABORATOR_COUNT_ZINDEX = new FixedZIndex(2); // hover overlay needs z-i
 
 const ADD_COLLABORATOR_BUTTON_ZINDEX = new CompositeZIndex([COLLABORATOR_COUNT_ZINDEX]);
 
-// eslint-disable-next-line react/prop-types
-const HoverOverlay: HoverOverlayType = ({ children, hovered, size }) => {
-  const sizes = { 'xs': 24, 'sm': 32, 'md': 48 };
+const SIZE_MAP = { 'xs': 24, 'sm': 32, 'md': 48, 'fit': '100%' };
 
+const HoverOverlay: HoverOverlayType = ({ children, hovered, size }) => {
   return (
     // This wrapping Box creates a stacking context so that pseudo-elements can be positioned in front of their parent element
-    <Box position="relative" height={sizes[size]} width={sizes[size]} zIndex={BASE_ZINDEX}>
+    <Box position="relative" height={SIZE_MAP[size]} width={SIZE_MAP[size]} zIndex={BASE_ZINDEX}>
       <div className={hovered && classnames(styles.overlay)}>{children}</div>
     </Box>
   );
 };
 
-// eslint-disable-next-line react/prop-types
 const CollaboratorAvatar: CollaboratorAvatarType = ({ hovered, index, name, size, src }) => {
   const margin = size === 'xs' ? -3 : -4;
 
@@ -94,8 +94,7 @@ const CollaboratorAvatar: CollaboratorAvatarType = ({ hovered, index, name, size
   );
 };
 
-// eslint-disable-next-line react/prop-types
-const AddCollaboratorsBtn: AddCollaboratorsBtnType = ({ hovered }) => {
+const AddCollaboratorsBtn: AddCollaboratorsBtnType = ({ hovered, size }) => {
   const { colorGray0 } = useColorScheme();
 
   return (
@@ -112,18 +111,22 @@ const AddCollaboratorsBtn: AddCollaboratorsBtnType = ({ hovered }) => {
           display="flex"
           justifyContent="center"
           rounding="circle"
-          width={48}
+          width={SIZE_MAP[size]}
           height={48}
         >
-          <Icon accessibilityLabel="" color="darkGray" icon="add" size={20} />
+          <Icon accessibilityLabel="" color="darkGray" icon="add" size="40%" />
         </Box>
       </HoverOverlay>
     </Box>
   );
 };
 
-// eslint-disable-next-line react/prop-types
-const CollaboratorsCount: CollaboratorsCountType = ({ hasAddCollaboratorsBtn, hovered, count }) => {
+const CollaboratorsCount: CollaboratorsCountType = ({
+  count,
+  hasAddCollaboratorsBtn,
+  hovered,
+  size,
+}) => {
   const { colorGray0 } = useColorScheme();
   const isOverNineCount = count > 9;
   const isAbove99Count = count > 99;
@@ -165,9 +168,10 @@ export default function AvatarGroup({
   href,
   onClick,
   role = null,
-  size = 'md',
+  size = 'fit',
 }: Props): Node {
   const [hovered, setHovered] = useState(false);
+
   const MAX_COLLABORATOR_AVATARS = 3;
 
   const isAboveMaxCollaborators = collaborators.length > MAX_COLLABORATOR_AVATARS;
@@ -178,9 +182,11 @@ export default function AvatarGroup({
 
   const isMdSize = size === 'md';
 
-  const addCollaboratorsCount = isMdSize && isAboveMaxCollaborators;
+  const isFitSize = size === 'fit';
 
-  const addCollaboratorsBtn = (isMdSize && isClickable && addCollaborators) ?? false;
+  const addCollaboratorsCount = (isMdSize || isFitSize) && isAboveMaxCollaborators;
+
+  const addCollaboratorsBtn = ((isMdSize || isFitSize) && isClickable && addCollaborators) ?? false;
 
   const collaboratorStack = collaborators
     .slice(0, maxAvatarPileCount)
@@ -204,6 +210,7 @@ export default function AvatarGroup({
         hasAddCollaboratorsBtn={addCollaboratorsBtn}
         hovered={hovered}
         key={`collaboratorStack-count-${collaborators.length - 2}`}
+        size={size}
       />,
     );
   }
@@ -213,6 +220,7 @@ export default function AvatarGroup({
       <AddCollaboratorsBtn
         hovered={hovered}
         key={`collaboratorStack-addButton-${collaborators.length}`}
+        size={size}
       />,
     );
   }
@@ -277,5 +285,5 @@ AvatarGroup.propTypes = {
   href: PropTypes.string,
   onClick: PropTypes.func,
   role: (PropTypes.oneOf(['link', 'button', null]): React$PropType$Primitive<Role>),
-  size: (PropTypes.oneOf(['xs', 'sm', 'md']): React$PropType$Primitive<Size>),
+  size: (PropTypes.oneOf(['xs', 'sm', 'md', 'fit']): React$PropType$Primitive<Size>),
 };
