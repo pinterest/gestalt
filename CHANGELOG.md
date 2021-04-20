@@ -1,3 +1,9 @@
+## 21.7.4 (Apr 20, 2021)
+
+### Patch
+
+- Card: fix rtl hover bug (#1474)
+
 ## 21.7.3 (Apr 20, 2021)
 
 ### Patch
