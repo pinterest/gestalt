@@ -35,8 +35,7 @@ export default function Card(props: Props): Node {
   };
 
   const classes = classnames(styles.card, {
-    // If, like @chrislloyd, you can't remember Javascript equality rules,
-    // == null checks for `null` or `undefined` and leaves out `false`.
+    // JS equality rules == null checks for `null` or `undefined` and leaves out `false`.
     [styles.hover]: active || (active == null && hovered),
   });
 
