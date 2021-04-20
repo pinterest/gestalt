@@ -74,71 +74,11 @@ card(
       name: 'Shanuce',
       src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
     },
-    {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    },
-    {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Shanuce',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-      {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    },
-    {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Shanuce',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    },
-    {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Shanuce',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-      {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    },
-    {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Shanuce',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    },
-    {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-    {
-      name: 'Shanuce',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
   ]);
 
   return (
 
-<Box><AvatarGroup role="button" onClick={() => setCollaborators([ {
+<Box width={200} height={200}><AvatarGroup role="button" onClick={() => setCollaborators([ {
       name: 'Alberto',
       src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
     },

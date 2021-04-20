@@ -7,11 +7,8 @@ import classnames from 'classnames';
 import Avatar from './Avatar.js';
 import Box from './Box.js';
 import Flex from './Flex.js';
-import Text from './Text.js';
-import Icon from './Icon.js';
 import TapArea from './TapArea.js';
-import { CompositeZIndex, FixedZIndex } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
+import { FixedZIndex } from './zIndex.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import styles from './AvatarGroup.css';
 
@@ -29,7 +26,6 @@ type Props = {|
   accessibilityControls?: string,
   accessibilityExpanded?: boolean,
   accessibilityHaspopup?: boolean,
-  addCollaborators?: boolean,
   collaborators: Collaborators,
   href?: string,
   onClick?: AbstractEventHandler<
@@ -44,19 +40,12 @@ type Props = {|
 |};
 
 type CollaboratorAvatarType = ({|
+  count: number,
   hovered: boolean,
   index: number,
   name: string,
   size: Size,
   src: string,
-|}) => Node;
-
-type AddCollaboratorsBtnType = ({| hovered: boolean |}) => Node;
-
-type CollaboratorsCountType = ({|
-  hasAddCollaboratorsBtn: boolean,
-  hovered: boolean,
-  count: number,
 |}) => Node;
 
 type HoverOverlayType = ({|
@@ -67,93 +56,26 @@ type HoverOverlayType = ({|
 
 const BASE_ZINDEX = new FixedZIndex(1); // hover overlay needs z-index = 1
 
-const COLLABORATOR_COUNT_ZINDEX = new FixedZIndex(2); // hover overlay needs z-index = 1
-
-const ADD_COLLABORATOR_BUTTON_ZINDEX = new CompositeZIndex([COLLABORATOR_COUNT_ZINDEX]);
-
 const SIZE_MAP = { 'xs': 24, 'sm': 32, 'md': 48, 'fit': '100%' };
 
-const HoverOverlay: HoverOverlayType = ({ children, hovered, size }) => {
-  return (
-    // This wrapping Box creates a stacking context so that pseudo-elements can be positioned in front of their parent element
-    <Box position="relative" height={SIZE_MAP[size]} width={SIZE_MAP[size]} zIndex={BASE_ZINDEX}>
-      <div className={hovered && classnames(styles.overlay)}>{children}</div>
-    </Box>
-  );
-};
+const FIT_SIZING_DENOMINATOR_MAP = { '1': 3, '2': 5, '3': 7, '4': 9 };
 
-const CollaboratorAvatar: CollaboratorAvatarType = ({ hovered, index, name, size, src }) => {
+const CollaboratorAvatar: CollaboratorAvatarType = ({ count, index, name, size, src }) => {
   const margin = size === 'xs' ? -3 : -4;
 
   return (
-    <Box marginStart={index === 0 ? 0 : margin}>
-      <HoverOverlay hovered={hovered} size={size}>
-        <Avatar name={name} outline size={size} src={src} />
-      </HoverOverlay>
-    </Box>
-  );
-};
-
-const AddCollaboratorsBtn: AddCollaboratorsBtnType = ({ hovered, size }) => {
-  const { colorGray0 } = useColorScheme();
-
-  return (
-    <Box marginStart={-4} rounding="circle" zIndex={ADD_COLLABORATOR_BUTTON_ZINDEX}>
-      <HoverOverlay hovered={hovered} size="md">
-        <Box
-          alignItems="center"
-          color="lightGray"
-          dangerouslySetInlineStyle={{
-            __style: {
-              boxShadow: `0 0 0 1px ${colorGray0}`,
-            },
-          }}
-          display="flex"
-          justifyContent="center"
-          rounding="circle"
-          width={SIZE_MAP[size]}
-          height={48}
-        >
-          <Icon accessibilityLabel="" color="darkGray" icon="add" size="40%" />
-        </Box>
-      </HoverOverlay>
-    </Box>
-  );
-};
-
-const CollaboratorsCount: CollaboratorsCountType = ({
-  count,
-  hasAddCollaboratorsBtn,
-  hovered,
-  size,
-}) => {
-  const { colorGray0 } = useColorScheme();
-  const isOverNineCount = count > 9;
-  const isAbove99Count = count > 99;
-
-  return (
-    <Box marginStart={-4} rounding="circle" zIndex={COLLABORATOR_COUNT_ZINDEX}>
-      <HoverOverlay hovered={hovered} size="md">
-        <Box
-          alignItems="center"
-          color="lightGray"
-          dangerouslySetInlineStyle={{
-            __style: {
-              boxShadow: `0 0 0 1px ${colorGray0}`,
-            },
-          }}
-          display="flex"
-          height={48}
-          justifyContent={hasAddCollaboratorsBtn && isOverNineCount ? 'start' : 'center'}
-          paddingX={hasAddCollaboratorsBtn && isAbove99Count ? 1 : 2}
-          rounding="circle"
-          width={48}
-        >
-          <Text size={hasAddCollaboratorsBtn && isAbove99Count ? 'md' : 'lg'} weight="bold">
-            {isAbove99Count ? '99+' : count}
-          </Text>
-        </Box>
-      </HoverOverlay>
+    <Box
+      position="absolute"
+      width={`calc(${(3 / FIT_SIZING_DENOMINATOR_MAP[count]) * 100}%`}
+      dangerouslySetInlineStyle={{
+        __style: {
+          'margin-inline-start':
+            index === 0 ? 0 : `calc(${((2 * index) / FIT_SIZING_DENOMINATOR_MAP[count]) * 100}%`,
+          top: 0,
+        },
+      }}
+    >
+      <Avatar name={name} outline size={size} src={src} />
     </Box>
   );
 };
@@ -163,7 +85,6 @@ export default function AvatarGroup({
   accessibilityControls,
   accessibilityExpanded,
   accessibilityHaspopup,
-  addCollaborators,
   collaborators,
   href,
   onClick,
@@ -178,56 +99,36 @@ export default function AvatarGroup({
 
   const maxAvatarPileCount = isAboveMaxCollaborators ? 2 : 3;
 
-  const isClickable = onClick && role !== null;
+  const isClickable = !!onClick && role !== null;
 
-  const isMdSize = size === 'md';
+  const slicedCollaborators = collaborators.slice(0, maxAvatarPileCount);
 
-  const isFitSize = size === 'fit';
+  const totalCount = slicedCollaborators.length + isAboveMaxCollaborators + isClickable;
 
-  const addCollaboratorsCount = (isMdSize || isFitSize) && isAboveMaxCollaborators;
-
-  const addCollaboratorsBtn = ((isMdSize || isFitSize) && isClickable && addCollaborators) ?? false;
-
-  const collaboratorStack = collaborators
-    .slice(0, maxAvatarPileCount)
-    .map(({ src, name }, index) => {
-      return (
-        <CollaboratorAvatar
-          key={`collaboratorStack-${name}-${index}`}
-          hovered={hovered}
-          index={index}
-          name={name}
-          size={size}
-          src={src || ''}
-        />
-      );
-    });
-
-  if (addCollaboratorsCount) {
-    collaboratorStack.push(
-      <CollaboratorsCount
-        count={collaborators.length - 2}
-        hasAddCollaboratorsBtn={addCollaboratorsBtn}
+  const collaboratorStack = slicedCollaborators.map(({ src, name }, index) => {
+    return (
+      <CollaboratorAvatar
+        count={totalCount}
+        key={`collaboratorStack-${name}-${index}`}
         hovered={hovered}
-        key={`collaboratorStack-count-${collaborators.length - 2}`}
+        index={index}
+        name={name}
         size={size}
-      />,
+        src={src || ''}
+      />
     );
-  }
-
-  if (addCollaboratorsBtn) {
-    collaboratorStack.push(
-      <AddCollaboratorsBtn
-        hovered={hovered}
-        key={`collaboratorStack-addButton-${collaborators.length}`}
-        size={size}
-      />,
-    );
-  }
+  });
 
   const AvatarGroupStack = () => (
-    <Box dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}>
-      <Flex>{collaboratorStack}</Flex>
+    <Box
+      position="relative"
+      dangerouslySetInlineStyle={{
+        __style: {
+          isolation: 'isolate',
+        },
+      }}
+    >
+      {collaboratorStack}
     </Box>
   );
 
@@ -274,7 +175,6 @@ AvatarGroup.propTypes = {
   accessibilityControls: PropTypes.string,
   accessibilityExpanded: PropTypes.bool,
   accessibilityHaspopup: PropTypes.bool,
-  addCollaborators: PropTypes.bool,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   collaborators: PropTypes.arrayOf(
     PropTypes.shape({
