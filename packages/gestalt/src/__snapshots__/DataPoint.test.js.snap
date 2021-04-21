@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DataPoint renders 1`] = `
+exports[`Datapoint renders 1`] = `
 <div
   className="Flex columnGap1 xsDirectionColumn"
 >
@@ -81,7 +81,7 @@ exports[`DataPoint renders 1`] = `
 </div>
 `;
 
-exports[`DataPoint renders an accessibility label 1`] = `
+exports[`Datapoint renders an accessibility label 1`] = `
 <div
   className="Flex columnGap1 xsDirectionColumn"
 >
