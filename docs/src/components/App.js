@@ -30,7 +30,7 @@ export default function App({ children }: Props): Node {
 
                   <Divider />
 
-                  <Box width="100%">
+                  <Box width="100%" minWidth={0}>
                     <Box padding={4} mdPadding={6} lgPadding={8} width="100%" role="main">
                       {children}
                     </Box>
