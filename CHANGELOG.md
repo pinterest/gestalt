@@ -1,3 +1,9 @@
+## 21.7.6 (Apr 21, 2021)
+
+### Patch
+
+- Docs: Fix responsiveness on PageHeader (#1476)
+
 ## 21.7.5 (Apr 20, 2021)
 
 ### Patch

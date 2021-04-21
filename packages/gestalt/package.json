@@ -1,6 +1,6 @@
 {
   "name": "gestalt",
-  "version": "21.7.5",
+  "version": "21.7.6",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.netlify.app",
   "description": "A set of React UI components which enforce Pinterest’s design language",
