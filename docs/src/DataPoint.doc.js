@@ -71,10 +71,7 @@ card(
 
 card(
   <MainSection name="Variants">
-    <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
-      title="Size"
-    >
+    <MainSection.Subsection title="Size">
       <MainSection.Card
         cardSize="md"
         title="size=md"
@@ -92,12 +89,11 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
+      description={`Use \`percentChange\` to display the delta in the value of a Datapoint over time.`}
       title="Percent change"
     >
       <MainSection.Card
         cardSize="lg"
-        title="size=md"
         defaultCode={`
 <Flex direction="column" gap={4}>
   <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeIconAccessibilityLabel="Downward arrow" />
@@ -109,12 +105,11 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
+      description={`The \`infoText\` prop is intended to provide the user context, detail and/or framing for a Datapoint.`}
       title="Info text"
     >
       <MainSection.Card
         cardSize="lg"
-        title="Example title (optional)"
         defaultCode={`
 <Datapoint title="Datapoint title" value="1.23M" infoText="Datapoint contextual information" />
     `}
