@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { Box } from 'gestalt';
+import { Datapoint } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
@@ -22,7 +22,7 @@ card(
 // Specifying Component gives auto warnings about missing props
 card(
   <PropTable
-    Component={Box}
+    Component={Datapoint}
     props={[
       {
         name: 'percentChangeIconAccessibilityLabel',
@@ -62,8 +62,6 @@ card(
   />,
 );
 
-card(<MainSection name="Accessibility" description="" />);
-
 card(
   <MainSection
     name="Localization"
@@ -96,17 +94,29 @@ card(
     <MainSection.Subsection
       description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
       title="Percent change"
-    />
+    >
+      <MainSection.Card
+        cardSize="lg"
+        title="size=md"
+        defaultCode={`
+<Flex direction="column" gap={4}>
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeIconAccessibilityLabel="Downward arrow" />
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={0} />
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeIconAccessibilityLabel="Upward arrow"  />
+</Flex>
+`}
+      />
+    </MainSection.Subsection>
 
     <MainSection.Subsection
       description={`Description of this \`variant\`. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
       title="Info text"
     >
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
         title="Example title (optional)"
         defaultCode={`
-    Code for this example goes here
+<Datapoint title="Datapoint title" value="1.23M" infoText="Datapoint contextual information" />
     `}
       />
     </MainSection.Subsection>
