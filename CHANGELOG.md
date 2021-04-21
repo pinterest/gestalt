@@ -1,3 +1,9 @@
+## 21.7.7 (Apr 21, 2021)
+
+### Patch
+
+- Internal: Upgrade ssri and is-svg dependencies for security alerts (#1477)
+
 ## 21.7.6 (Apr 21, 2021)
 
 ### Patch
