@@ -78,10 +78,10 @@
   },
   "resolutions": {
     "bl": "4.0.3",
+    "cacache": "15.0.6",
     "cssnano": "4.1.11",
     "immer": "8.0.1",
-    "serialize-javascript": "3.1.0",
-    "ssri": "8.0.1"
+    "serialize-javascript": "3.1.0"
   },
   "scripts": {
     "a11y:generate": "./scripts/generateAccessibilitySpecs.js",
