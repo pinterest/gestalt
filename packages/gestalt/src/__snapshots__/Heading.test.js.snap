@@ -31,6 +31,12 @@ exports[`Heading small with level 3 1`] = `
 />
 `;
 
+exports[`Heading small with level none 1`] = `
+<div
+  className="Heading fontSize1 darkGray alignLeft breakWord"
+/>
+`;
+
 exports[`Heading truncate adds a title when the children are text only 1`] = `
 <h1
   className="Heading fontSize3 darkGray alignLeft breakWord truncate"

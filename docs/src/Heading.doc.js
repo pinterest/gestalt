@@ -21,7 +21,7 @@ card(
     props={[
       {
         name: 'accessibilityLevel',
-        type: '1 | 2 | 3 | 4 | 5 | 6',
+        type: '1 | 2 | 3 | 4 | 5 | 6 | "none"',
         description: 'Allows you to override the default heading level',
         href: 'levels',
       },
@@ -175,7 +175,7 @@ card(
     description="
     For accessibility purposes, we allow you to override the heading level.
 
-    We should have one level 1 per page & levels should be appropriately nested. E.g. level 1 followed by level 2 & level 2 followed by level 2 or level 3.
+    We should have one level 1 per page &amp; levels should be appropriately nested. E.g. level 1 followed by level 2 &amp; level 2 followed by level 2 or level 3. We also allow headings without an accessibility level.
   "
     name="Example: Levels"
     defaultCode={`
@@ -185,6 +185,9 @@ card(
   </Heading>
   <Heading size="sm" accessibilityLevel={3}>
     Small heading level 3
+  </Heading>
+  <Heading size="sm" accessibilityLevel="none">
+    Small heading without a level
   </Heading>
 </Box>
 `}
