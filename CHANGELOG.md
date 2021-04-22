@@ -1,3 +1,9 @@
+## 21.8.0 (Apr 22, 2021)
+
+### Minor
+
+- Heading: add accessibilityLevel='none' option (#1480)
+
 ## 21.7.7 (Apr 21, 2021)
 
 ### Patch
