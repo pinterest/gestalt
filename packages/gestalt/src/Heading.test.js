@@ -10,6 +10,13 @@ test('Heading large', () => {
 test('Heading small with level 3', () => {
   const tree = create(<Heading size="sm" accessibilityLevel={3} />).toJSON();
   expect(tree).toMatchSnapshot();
+  expect(tree?.type).toEqual('h3');
+});
+
+test('Heading small with level none', () => {
+  const tree = create(<Heading size="sm" accessibilityLevel="none" />).toJSON();
+  expect(tree).toMatchSnapshot();
+  expect(tree?.type).toEqual('div');
 });
 
 test('Heading small with id', () => {

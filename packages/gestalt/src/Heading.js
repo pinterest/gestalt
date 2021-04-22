@@ -8,7 +8,7 @@ import typography from './Typography.css';
 
 type Props = {|
   align?: 'left' | 'right' | 'center' | 'justify',
-  accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6,
+  accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 'none',
   children?: Node,
   color?:
     | 'blue'
@@ -78,12 +78,12 @@ export default function Heading(props: Props): Node {
   if (truncate && typeof children === 'string') {
     newProps = { ...newProps, title: children };
   }
-  return createElement(`h${headingLevel}`, newProps, children);
+  return createElement(headingLevel === 'none' ? 'div' : `h${headingLevel}`, newProps, children);
 }
 
 Heading.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
+  accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 'none']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
   children: PropTypes.node,
