@@ -1,3 +1,9 @@
+## 21.8.1 (Apr 23, 2021)
+
+### Patch
+
+- Modal: added comment on temporal prop to prevent confusion
+
 ## 21.8.0 (Apr 22, 2021)
 
 ### Minor
