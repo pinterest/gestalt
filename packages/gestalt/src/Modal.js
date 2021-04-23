@@ -150,6 +150,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
                     )}
                   </div>
                 )}
+                {/* _dangerouslyDisableScrollBoundaryContainer must be kept temporarily until specific surfaces migrate from Modal to Sheet */}
                 {_dangerouslyDisableScrollBoundaryContainer ? (
                   <Box flex="grow" overflow="auto" onScroll={updateShadows} ref={contentRef}>
                     {children}
