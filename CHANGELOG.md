@@ -1,3 +1,9 @@
+## 21.8.2 (Apr 26, 2021)
+
+### Patch
+
+- SegmentedControl: Update text color for accessibility (#1482)
+
 ## 21.8.1 (Apr 23, 2021)
 
 ### Patch
