@@ -41,7 +41,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
   },
   {
     sectionName: 'Data Display',
-    pages: ['Avatar', 'AvatarPair', 'Badge', 'GroupAvatar', 'Status', 'Table'],
+    pages: ['Avatar', 'AvatarPair', 'Badge', 'Datapoint', 'GroupAvatar', 'Status', 'Table'],
   },
   {
     sectionName: 'Feedback',
