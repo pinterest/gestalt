@@ -1,5 +1,3 @@
-
-
 // @flow strict
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
