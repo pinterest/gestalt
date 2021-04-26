@@ -53,7 +53,7 @@ exports[`Datapoint renders 1`] = `
             <svg
               aria-hidden={null}
               aria-label="Value change icon accessibility label"
-              className="icon green iconBlock"
+              className="icon pine iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"
@@ -68,7 +68,7 @@ exports[`Datapoint renders 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize1 green alignLeft breakWord fontWeightBold"
+              className="Text fontSize1 pine alignLeft breakWord fontWeightBold"
             >
               30
               %
@@ -134,7 +134,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
             <svg
               aria-hidden={null}
               aria-label="Value change icon accessibility label"
-              className="icon green iconBlock"
+              className="icon pine iconBlock"
               height={16}
               role="img"
               viewBox="0 0 24 24"
@@ -149,7 +149,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize1 green alignLeft breakWord fontWeightBold"
+              className="Text fontSize1 pine alignLeft breakWord fontWeightBold"
             >
               30
               %
