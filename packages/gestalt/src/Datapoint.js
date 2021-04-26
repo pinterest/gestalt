@@ -44,9 +44,9 @@ export default function Datapoint({
           accessibilityLabel={percentChangeAccessibilityLabel}
           size={16}
           icon="sort-ascending"
-          color="green"
+          color="pine"
         />
-        <Text size="sm" color="green" weight="bold">
+        <Text size="sm" color="pine" weight="bold">
           {percentChange}%
         </Text>
       </Flex>
