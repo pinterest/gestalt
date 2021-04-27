@@ -16,7 +16,7 @@ card(
     name="Datapoint"
     description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
-<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Arrow up" helperText="Datapoint helper text" />
+<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Trending up" helperText="Datapoint helper text" />
 `}
     pilot
   />,
@@ -99,9 +99,9 @@ card(
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" gap={4}>
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Downward arrow" />
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Trending up" />
   <Datapoint title="Datapoint title" value="1.23M" percentChange={0} />
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeAccessibilityLabel="Upward arrow"  />
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeAccessibilityLabel="Trending down"  />
 </Flex>
 `}
       />
