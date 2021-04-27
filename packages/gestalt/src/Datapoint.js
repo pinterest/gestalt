@@ -47,7 +47,7 @@ export default function Datapoint({
           color="pine"
         />
         <Text size="sm" color="pine" weight="bold">
-          {Math.abs(percentChange)}%
+          {percentChange}%
         </Text>
       </Flex>
     );
