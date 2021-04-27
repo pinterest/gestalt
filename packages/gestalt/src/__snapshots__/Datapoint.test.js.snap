@@ -35,11 +35,11 @@ exports[`Datapoint renders 1`] = `
       <div
         className="FlexItem"
       >
-        <h3
+        <div
           className="Heading fontSize1 darkGray alignLeft breakWord"
         >
           1M
-        </h3>
+        </div>
       </div>
       <div
         className="FlexItem"
@@ -116,11 +116,11 @@ exports[`Datapoint renders an accessibility label 1`] = `
       <div
         className="FlexItem"
       >
-        <h3
+        <div
           className="Heading fontSize1 darkGray alignLeft breakWord"
         >
           1M
-        </h3>
+        </div>
       </div>
       <div
         className="FlexItem"

@@ -80,7 +80,9 @@ export default function Datapoint({
         {infoTextNode}
       </Flex>
       <Flex gap={percentChangeGap} alignItems="center">
-        <Heading size={valueSize}>{value}</Heading>
+        <Heading accessibilityLevel="none" size={valueSize}>
+          {value}
+        </Heading>
         {percentChangeNode}
       </Flex>
     </Flex>

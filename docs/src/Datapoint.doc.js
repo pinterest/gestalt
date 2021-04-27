@@ -16,7 +16,7 @@ card(
     name="Datapoint"
     description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
-<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" percentChange={30} percentChangeIconAccessibilityLabel="Arrow up" helperText="Datapoint helper text" infoIconAccessibilityLabel="Info icon" />
+<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Arrow up" helperText="Datapoint helper text" />
 `}
     pilot
   />,
@@ -28,7 +28,7 @@ card(
     Component={Datapoint}
     props={[
       {
-        name: 'percentChangeIconAccessibilityLabel',
+        name: 'percentChangeAccessibilityLabel',
         type: 'string',
         description: ' ',
         required: true,
@@ -68,7 +68,7 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize the \`title\`, \`infoText\` and \`percentChangeIconAccessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+    description={`Be sure to localize the \`title\`, \`infoText\` and \`percentChangeAccessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
   />,
 );
 
@@ -99,9 +99,9 @@ card(
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" gap={4}>
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeIconAccessibilityLabel="Downward arrow" />
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Downward arrow" />
   <Datapoint title="Datapoint title" value="1.23M" percentChange={0} />
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeIconAccessibilityLabel="Upward arrow"  />
+  <Datapoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeAccessibilityLabel="Upward arrow"  />
 </Flex>
 `}
       />
