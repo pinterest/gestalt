@@ -145,7 +145,7 @@ function Example() {
 
     return (
       <SearchField
-        accessibilityLabel="Search other users by name or email"
+        accessibilityLabel="Search other users"
         id="searchField"
         onChange={() => {}}
         placeholder="Search by name or email"
@@ -399,87 +399,6 @@ function Example() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
   const anchorRef = React.useRef();
-
-  const SearchCollaboratorsField = () => {
-    const ref = React.useRef();
-
-    React.useEffect(() => {
-      ref.current.focus();
-    }, []);
-
-    return (
-      <SearchField
-        accessibilityLabel="Search other users by name or email"
-        id="searchField"
-        onChange={() => {}}
-        placeholder="Search by name or email"
-        size="lg"
-        ref={ref}
-      />
-    )
-  }
-
-  return (
-    <React.Fragment>
-      <Box>
-        <AvatarGroup
-          accessibilityLabel="Group collaborators: Keerthi, Alberto, and Shanice. Add collaborators to this board."
-          accessibilityExpanded={open}
-          addCollaborators
-          role="button"
-          onClick={() => setOpen(true)}
-          ref={anchorRef}
-          size="md"
-          collaborators={[
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-              {
-              name: 'Shanice',
-              src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-            },
-          ]}
-          />
-        </Box>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-          >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
-                    Invite collaborators
-                  </Text>
-                  <SearchCollaboratorsField />
-                </Flex>
-              </Box>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
-  `}
-      />
-      <MainSection.Card
-        cardSize="md"
-        defaultCode={`
-function Example() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
-  const anchorRef = React.useRef();
   const collaborators = [
     {
       name: 'Keerthi',
@@ -509,12 +428,11 @@ const List = () => (
       <Box>
         <AvatarGroup
           accessibilityLabel="Click to see group collaborators."
-          role="link"
+          role="button"
           onClick={() => setOpen(true)}
           ref={anchorRef}
-          size="sm"
+          size="md"
           collaborators={collaborators}
-          href="http://localhost:8888/AvatarGroup#Role"
           />
         </Box>
       {open && (
@@ -539,6 +457,42 @@ const List = () => (
           </Popover>
         </Layer>
       )}
+    </React.Fragment>
+  );
+}
+  `}
+      />
+      <MainSection.Card
+        cardSize="md"
+        defaultCode={`
+function Example() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
+  const collaborators = [
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    }, {
+      name: 'Alberto',
+      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+    }, {
+      name: 'Shanice',
+      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+    }
+  ];
+
+  return (
+    <React.Fragment>
+      <Box>
+        <AvatarGroup
+          accessibilityLabel="Visit group activity board."
+          role="link"
+          onClick={() => setOpen(true)}
+          size="md"
+          collaborators={collaborators}
+          href="#Role"
+          />
+        </Box>
     </React.Fragment>
   );
 }
