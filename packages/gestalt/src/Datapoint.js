@@ -8,14 +8,85 @@ import Icon from './Icon.js';
 import IconButton from './IconButton.js';
 import Tooltip from './Tooltip.js';
 
+const CHANGE_COLOR_MAP = {
+  good: 'pine',
+  bad: 'red',
+  neutral: 'darkGray',
+};
+
 type Props = {|
   percentChangeAccessibilityLabel: string,
   title: string,
   value: string,
   percentChange?: number,
+  changeType?: 'good' | 'bad' | 'neutral' | 'auto',
   infoText?: string,
   size?: 'md' | 'lg',
 |};
+
+const DatapointValueChange = ({
+  type = 'auto',
+  value,
+  changeAccessibilityLabel,
+}: {|
+  value: number,
+  changeAccessibilityLabel: string,
+  type?: 'good' | 'bad' | 'neutral' | 'auto',
+|}): Node => {
+  let valueNode;
+  let valueIcon;
+  let valueColor;
+  let valueChangeNode;
+
+  if (value > 0) {
+    valueColor = type !== 'auto' ? CHANGE_COLOR_MAP[type] : 'pine';
+    valueIcon = (
+      <Icon
+        accessibilityLabel={changeAccessibilityLabel}
+        size={16}
+        icon="sort-ascending"
+        color={valueColor}
+      />
+    );
+    valueChangeNode = (
+      <Text size="sm" color={valueColor} weight="bold">
+        +{Math.abs(value)}%
+      </Text>
+    );
+  } else if (value < 0) {
+    valueColor = type !== 'auto' ? CHANGE_COLOR_MAP[type] : 'red';
+    valueIcon = (
+      <Icon
+        accessibilityLabel={changeAccessibilityLabel}
+        size={16}
+        icon="sort-descending"
+        color={valueColor}
+      />
+    );
+    valueChangeNode = (
+      <Text size="sm" color={valueColor} weight="bold">
+        -{Math.abs(value)}%
+      </Text>
+    );
+  } else {
+    valueNode = (
+      <Text size="sm" color={type !== 'auto' ? CHANGE_COLOR_MAP[type] : 'darkGray'} weight="bold">
+        {value}%
+      </Text>
+    );
+  }
+
+  if (valueIcon) {
+    valueNode = (
+      <Flex gap={1}>
+        {valueIcon}
+        {valueChangeNode}
+      </Flex>
+    );
+  }
+
+  return <React.Fragment>{valueNode}</React.Fragment>;
+};
 
 export default function Datapoint({
   percentChangeAccessibilityLabel,
@@ -23,6 +94,7 @@ export default function Datapoint({
   value,
   percentChange,
   infoText,
+  changeType = 'auto',
   size = 'md',
 }: Props): Node {
   const infoTextNode = infoText ? (
@@ -34,45 +106,6 @@ export default function Datapoint({
   const valueSize = size === 'lg' ? 'lg' : 'sm';
   const percentChangeGap = size === 'lg' ? 4 : 2;
 
-  let percentChangeNode;
-  if (percentChange === undefined || percentChange === null) {
-    percentChangeNode = null;
-  } else if (percentChange > 0) {
-    percentChangeNode = (
-      <Flex gap={1}>
-        <Icon
-          accessibilityLabel={percentChangeAccessibilityLabel}
-          size={16}
-          icon="sort-ascending"
-          color="pine"
-        />
-        <Text size="sm" color="pine" weight="bold">
-          {percentChange}%
-        </Text>
-      </Flex>
-    );
-  } else if (percentChange < 0) {
-    percentChangeNode = (
-      <Flex gap={1}>
-        <Icon
-          accessibilityLabel={percentChangeAccessibilityLabel}
-          size={16}
-          icon="sort-descending"
-          color="red"
-        />
-        <Text size="sm" color="red" weight="bold">
-          {Math.abs(percentChange)}%
-        </Text>
-      </Flex>
-    );
-  } else {
-    percentChangeNode = (
-      <Text size="sm" color="darkGray" weight="bold">
-        {percentChange}%
-      </Text>
-    );
-  }
-
   return (
     <Flex gap={1} direction="column">
       <Flex gap={1} alignItems="center" minHeight={24}>
@@ -83,7 +116,13 @@ export default function Datapoint({
         <Heading accessibilityLevel="none" size={valueSize}>
           {value}
         </Heading>
-        {percentChangeNode}
+        {percentChange !== undefined && percentChange !== null ? (
+          <DatapointValueChange
+            type={changeType}
+            value={percentChange}
+            changeAccessibilityLabel={percentChangeAccessibilityLabel}
+          />
+        ) : null}
       </Flex>
     </Flex>
   );
@@ -95,6 +134,8 @@ Datapoint.propTypes = {
   value: PropTypes.string.isRequired,
   percentChange: PropTypes.number,
   infoText: PropTypes.string,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  changeType: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg']),
 };
