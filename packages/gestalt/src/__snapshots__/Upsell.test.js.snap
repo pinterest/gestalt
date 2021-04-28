@@ -317,7 +317,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -442,7 +442,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -567,7 +567,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg gray"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -596,7 +596,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -676,7 +676,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg red"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}

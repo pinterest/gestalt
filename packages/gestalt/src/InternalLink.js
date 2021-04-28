@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import buttonStyles from './Button.css';
 import focusStyles from './Focus.css';
 import linkStyles from './Link.css';
+import layoutStyles from './Layout.css';
 import iconButtonStyles from './IconButton.css';
 import touchableStyles from './Touchable.css';
 import useFocusVisible from './useFocusVisible.js';
@@ -104,7 +105,6 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     linkStyles.link,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
-    inline ? linkStyles.inlineBlock : linkStyles.block,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
@@ -112,7 +112,10 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
     },
     isButton
       ? {
-          [linkStyles.buttonLink]: true,
+          [layoutStyles.inlineFlex]: inline,
+          [layoutStyles.flex]: !inline,
+          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.itemsCenter]: true,
           [buttonStyles.button]: true,
           [buttonStyles.disabled]: disabled,
           [buttonStyles.sm]: size === 'sm',
@@ -127,6 +130,7 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
     isTapArea
       ? {
+          [layoutStyles.block]: true,
           [touchableStyles.fullHeight]: fullHeight,
           [touchableStyles.fullWidth]: fullWidth,
         }

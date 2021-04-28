@@ -73,7 +73,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           Saved to
            
           <a
-            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}
@@ -164,7 +164,7 @@ exports[`<Toast /> Text + Image 1`] = `
           Saved to
            
           <a
-            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
             href="https://www.pinterest.com/search/pins/?q=home%20decor"
             onBlur={[Function]}
             onClick={[Function]}

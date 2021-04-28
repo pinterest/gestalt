@@ -12,6 +12,7 @@ import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoun
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import focusStyles from './Focus.css';
 import useFocusVisible from './useFocusVisible.js';
+import layoutStyles from './Layout.css';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -84,9 +85,10 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     styles.link,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
-    inline ? styles.inlineBlock : styles.block,
     getRoundingClassName(rounding),
     {
+      [layoutStyles.inlineBlock]: inline,
+      [layoutStyles.block]: !inline,
       [styles.hoverUnderline]: hoverStyle === 'underline',
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,

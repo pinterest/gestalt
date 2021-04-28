@@ -252,7 +252,7 @@ exports[`<Callout /> message + title + primaryAction + dismissButton 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -399,7 +399,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg transparent"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg transparent"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -428,7 +428,7 @@ exports[`<Callout /> message + title + primaryAction + secondaryAction 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -530,7 +530,7 @@ exports[`<Callout /> message + title + primaryAction with href 1`] = `
         className="box itemsCenter justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock"
       >
         <a
-          className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button lg white"
+          className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}

@@ -22,6 +22,7 @@ declare module.exports: {|
   +'flexWrap': string,
   +'inline': string,
   +'inlineBlock': string,
+  +'inlineFlex': string,
   +'itemsBaseline': string,
   +'itemsCenter': string,
   +'itemsEnd': string,
