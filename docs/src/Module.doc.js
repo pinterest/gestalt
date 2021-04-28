@@ -168,7 +168,7 @@ card(
     description={`
     An Icon can be provided to be placed before the \`title\`.
 
-    It is recommended that icons be used sparingly to convey additional information, and instead should simply reenforce information in the title. If the icon does provide additional information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.
+    It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
     `}
     id="static-icon"
     defaultCode={`
@@ -193,7 +193,7 @@ function ModuleExample() {
 card(
   <Example
     name="Static - Badge"
-    description={`Badge text can be provided, which will be displayed after the \`title\`.`}
+    description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
     id="static-badge"
     defaultCode={`
 function ModuleExample() {
@@ -251,7 +251,7 @@ card(
   <Example
     name="Expandable"
     id="expandable-default"
-    description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present, the collapsed state shows optional \`summary\` content, and the expanded state shows any content desired.`}
+    description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present. The collapsed state shows optional \`summary\` content, while the expanded state shows any content desired.`}
     defaultCode={`
 function ModuleExample1() {
   return (
@@ -313,8 +313,12 @@ function ModuleExample2() {
 
 card(
   <Example
-    name="Expandable - Icon"
-    description={`An Icon can be provided to be placed before the \`title\`. If the icon provides information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.`}
+    name="Expandable - Icon and Badge"
+    description={`
+    An Icon can be provided to be placed before the \`title\`.
+    It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
+
+    Badge text can also be provided, which will be displayed after the \`title\`.`}
     defaultCode={`
 function ModuleExample3() {
   return (
@@ -326,10 +330,16 @@ function ModuleExample3() {
         items={[
           {
             children: <Text size="md">Children1</Text>,
-            iconAccessibilityLabel: "title icon",
             icon: 'lock',
+            iconAccessibilityLabel: "title icon",
             title: 'Example with icon',
-          }]}>
+          },
+          {
+            badgeText: 'Try it out!',
+            children: <Text size="md">Children1</Text>,
+            title: 'Example with icon',
+          },
+        ]}>
       </Module.Expandable>
     </Box>
   );
