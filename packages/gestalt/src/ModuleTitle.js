@@ -46,7 +46,11 @@ export default function ModuleTitle({
       </Flex.Item>
 
       {badgeText && (
-        <Box marginStart={2}>
+        <Box
+          dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
+          marginStart={2}
+          position="relative"
+        >
           <Badge text={badgeText} />
         </Box>
       )}
