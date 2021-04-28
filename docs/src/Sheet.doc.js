@@ -707,7 +707,7 @@ card(
     - \`accessibilityDismissButtonLabel\` allows us to provide a short, descriptive label for screen-readers as a text alternative to the Dismiss button..
     - \`accessibilitySheetLabel\` allows us to provide a short, descriptive label for screen-readers to contextualize the purpose of Sheet.
 
-    ~~~jsx
+    ~~~html
     <Sheet
       accessibilityDismissButtonLabel="Close"
       accessibilitySheetLabel="Edit the details about your board House and Home"
