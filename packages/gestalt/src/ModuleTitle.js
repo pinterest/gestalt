@@ -39,9 +39,11 @@ export default function ModuleTitle({
         <Icon accessibilityLabel={iconAccessibilityLabel ?? ''} color={color} icon={iconName} />
       )}
 
-      <Text color={color} truncate weight="bold">
-        {title}
-      </Text>
+      <Flex.Item minWidth={0}>
+        <Text color={color} truncate weight="bold">
+          {title}
+        </Text>
+      </Flex.Item>
 
       {badgeText && (
         <Box marginStart={2}>
