@@ -1,3 +1,9 @@
+## 21.8.4 (Apr 28, 2021)
+
+### Patch
+
+- Button: fix inline in role="link" (#1485)
+
 ## 21.8.3 (Apr 28, 2021)
 
 ### Patch
