@@ -84,6 +84,7 @@ export default function ExampleCode({ code, name }: Props): Node {
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                 <label>
                   <LiveEditor
+                    className="live-editor-pane"
                     padding={16}
                     style={{
                       minHeight: '152px',
