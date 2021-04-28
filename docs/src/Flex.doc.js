@@ -200,7 +200,7 @@ card(
     defaultCode={`
 <Box borderStyle="sm" padding={3} rounding={3}>
   <Flex alignItems="center" gap={3}>
-    <Icon icon="lock" />
+    <Icon accessibilityLabel="Private" icon="lock" />
 
     <Flex.Item minWidth={0}>
       <Text truncate>Some really long title text that just keeps going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going</Text>
