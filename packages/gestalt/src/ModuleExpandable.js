@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, type Node, useState, useEffect } from 'react';
 import Box from './Box.js';
 import Divider from './Divider.js';
 import ModuleExpandableItem from './ModuleExpandableItem.js';
@@ -36,31 +34,34 @@ export default function ModuleExpandable({
 
   return (
     <Box borderStyle="shadow" rounding={4}>
-      {items.map(({ children, icon, iconAccessibilityLabel, summary, title, type }, index) => (
-        <Fragment key={index}>
-          <ModuleExpandableItem
-            accessibilityCollapseLabel={accessibilityCollapseLabel}
-            accessibilityExpandLabel={accessibilityExpandLabel}
-            icon={icon}
-            iconAccessibilityLabel={iconAccessibilityLabel}
-            id={`${id}-${index}`}
-            isCollapsed={expandedId !== index}
-            onModuleClicked={(isExpanded) => {
-              if (onExpandedChange) {
-                onExpandedChange(isExpanded ? null : index);
-              }
-              setExpandedId(isExpanded ? null : index);
-            }}
-            summary={summary}
-            title={title}
-            type={type}
-          >
-            {children}
-          </ModuleExpandableItem>
+      {items.map(
+        ({ badgeText, children, icon, iconAccessibilityLabel, summary, title, type }, index) => (
+          <Fragment key={index}>
+            {index > 0 && <Divider />}
 
-          {index !== items.length - 1 && <Divider />}
-        </Fragment>
-      ))}
+            <ModuleExpandableItem
+              accessibilityCollapseLabel={accessibilityCollapseLabel}
+              accessibilityExpandLabel={accessibilityExpandLabel}
+              badgeText={badgeText}
+              icon={icon}
+              iconAccessibilityLabel={iconAccessibilityLabel}
+              id={`${id}-${index}`}
+              isCollapsed={expandedId !== index}
+              onModuleClicked={(isExpanded) => {
+                if (onExpandedChange) {
+                  onExpandedChange(isExpanded ? null : index);
+                }
+                setExpandedId(isExpanded ? null : index);
+              }}
+              summary={summary}
+              title={title}
+              type={type}
+            >
+              {children}
+            </ModuleExpandableItem>
+          </Fragment>
+        ),
+      )}
     </Box>
   );
 }

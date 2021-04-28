@@ -36,6 +36,17 @@ describe('Module', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test('renders a badge correctly', () => {
+    const tree = renderer
+      .create(
+        <Module badgeText="Try it out!" id="module-test" title="Testing">
+          <Text>Testing</Text>
+        </Module>,
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   test('renders an error correctly', () => {
     const tree = renderer
       .create(

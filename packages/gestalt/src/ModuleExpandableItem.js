@@ -20,6 +20,7 @@ type Props = {|
 export default function ModuleExpandableItem({
   accessibilityCollapseLabel,
   accessibilityExpandLabel,
+  badgeText,
   children,
   icon,
   iconAccessibilityLabel,
@@ -45,6 +46,7 @@ export default function ModuleExpandableItem({
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
               <Box column={isCollapsed && summary ? 6 : 12}>
                 <ModuleTitle
+                  badgeText={badgeText}
                   icon={icon}
                   iconAccessibilityLabel={iconAccessibilityLabel}
                   title={title}

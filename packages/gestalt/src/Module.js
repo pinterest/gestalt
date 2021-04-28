@@ -4,14 +4,16 @@ import Box from './Box.js';
 import Flex from './Flex.js';
 import ModuleTitle from './ModuleTitle.js';
 import ModuleExpandable from './ModuleExpandable.js';
-import { type BaseModuleProps } from './moduleTypes.js';
+import { type BaseModuleTitleProps } from './moduleTypes.js';
 
 type Props = {|
-  ...BaseModuleProps,
+  ...BaseModuleTitleProps,
+  children?: Node,
   id: string,
 |};
 
 export default function Module({
+  badgeText,
   children,
   icon,
   iconAccessibilityLabel,
@@ -24,6 +26,7 @@ export default function Module({
       <Flex direction="column" gap={6}>
         {title && (
           <ModuleTitle
+            badgeText={badgeText}
             icon={icon}
             iconAccessibilityLabel={iconAccessibilityLabel}
             title={title}
