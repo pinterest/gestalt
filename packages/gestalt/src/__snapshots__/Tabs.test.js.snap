@@ -9,7 +9,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
   >
     <a
       aria-selected={true}
-      className="link hideOutline tapTransition block pill accessibilityOutline"
+      className="link hideOutline tapTransition pill block accessibilityOutline"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
@@ -57,7 +57,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
   >
     <a
       aria-selected={false}
-      className="link hideOutline tapTransition block pill accessibilityOutline"
+      className="link hideOutline tapTransition pill block accessibilityOutline"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
@@ -112,7 +112,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
   >
     <a
       aria-selected={true}
-      className="link hideOutline tapTransition block pill accessibilityOutline"
+      className="link hideOutline tapTransition pill block accessibilityOutline"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
@@ -174,7 +174,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
   >
     <a
       aria-selected={false}
-      className="link hideOutline tapTransition block pill accessibilityOutline"
+      className="link hideOutline tapTransition pill block accessibilityOutline"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
@@ -243,7 +243,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
   >
     <a
       aria-selected={true}
-      className="link hideOutline tapTransition block pill accessibilityOutline"
+      className="link hideOutline tapTransition pill block accessibilityOutline"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
@@ -291,7 +291,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
   >
     <a
       aria-selected={false}
-      className="link hideOutline tapTransition block pill accessibilityOutline"
+      className="link hideOutline tapTransition pill block accessibilityOutline"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}

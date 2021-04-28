@@ -174,7 +174,7 @@ exports[`PageHeader renders secondary action 1`] = `
           className="FlexItem"
         >
           <a
-            className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+            className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
             href="www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}

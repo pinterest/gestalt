@@ -2,7 +2,7 @@
 
 exports[`default 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -23,7 +23,7 @@ exports[`default 1`] = `
 
 exports[`inline 1`] = `
 <a
-  className="link hideOutline tapTransition inlineBlock rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 inlineBlock hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -44,7 +44,7 @@ exports[`inline 1`] = `
 
 exports[`regular 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -65,7 +65,7 @@ exports[`regular 1`] = `
 
 exports[`target blank 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -86,7 +86,7 @@ exports[`target blank 1`] = `
 
 exports[`target null 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -107,7 +107,7 @@ exports[`target null 1`] = `
 
 exports[`target self 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -129,7 +129,7 @@ exports[`target self 1`] = `
 exports[`with accessibilitySelected and role 1`] = `
 <a
   aria-selected={true}
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -151,7 +151,7 @@ exports[`with accessibilitySelected and role 1`] = `
 
 exports[`with custom rounding, hoverStyle, and tapStyle 1`] = `
 <a
-  className="link hideOutline tapTransition block pill accessibilityOutline"
+  className="link hideOutline tapTransition pill block accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -172,7 +172,7 @@ exports[`with custom rounding, hoverStyle, and tapStyle 1`] = `
 
 exports[`with nofollow 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -193,7 +193,7 @@ exports[`with nofollow 1`] = `
 
 exports[`with onTap 1`] = `
 <a
-  className="link hideOutline tapTransition block rounding0 hoverUnderline accessibilityOutline"
+  className="link hideOutline tapTransition rounding0 block hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}

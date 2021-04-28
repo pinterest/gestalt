@@ -1,56 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`default 1`] = `
+exports[`renders Button & target blank 1`] = `
 <a
-  className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel=""
-  tabIndex={0}
-  target={null}
->
-  InternalLink
-</a>
-`;
-
-exports[`inline 1`] = `
-<a
-  className="link hideOutline tapTransition inlineBlock pill accessibilityOutline buttonLink button"
-  href="https://example.com"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onKeyPress={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  rel=""
-  tabIndex={0}
-  target={null}
->
-  InternalLink
-</a>
-`;
-
-exports[`target blank 1`] = `
-<a
-  className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button"
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -72,9 +24,9 @@ exports[`target blank 1`] = `
 </a>
 `;
 
-exports[`target null 1`] = `
+exports[`renders Button & target null 1`] = `
 <a
-  className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button"
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -96,9 +48,9 @@ exports[`target null 1`] = `
 </a>
 `;
 
-exports[`target self 1`] = `
+exports[`renders Button & target self 1`] = `
 <a
-  className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button"
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -120,9 +72,57 @@ exports[`target self 1`] = `
 </a>
 `;
 
-exports[`with nofollow 1`] = `
+exports[`renders Button 1`] = `
 <a
-  className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button"
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex={0}
+  target={null}
+>
+  InternalLink
+</a>
+`;
+
+exports[`renders Button with inline 1`] = `
+<a
+  className="link hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter itemsCenter button"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex={0}
+  target={null}
+>
+  InternalLink
+</a>
+`;
+
+exports[`renders Button with nofollow 1`] = `
+<a
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -144,9 +144,9 @@ exports[`with nofollow 1`] = `
 </a>
 `;
 
-exports[`with onTap 1`] = `
+exports[`renders Button with onClick 1`] = `
 <a
-  className="link hideOutline tapTransition block pill accessibilityOutline buttonLink button"
+  className="link hideOutline tapTransition pill accessibilityOutline flex justifyCenter itemsCenter button"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -165,5 +165,79 @@ exports[`with onTap 1`] = `
   target={null}
 >
   InternalLink
+</a>
+`;
+
+exports[`renders IconButton 1`] = `
+<a
+  className="link hideOutline tapTransition pill accessibilityOutline button enabled"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex={0}
+  target={null}
+>
+  <div
+    className="pog transparent"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="icon red iconBlock"
+      height={18}
+      role="img"
+      viewBox="0 0 24 24"
+      width={18}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+</a>
+`;
+
+exports[`renders TapArea 1`] = `
+<a
+  className="link hideOutline tapTransition rounding0 accessibilityOutline block"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+  tabIndex={0}
+  target={null}
+>
+  <div
+    className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+  >
+    InternalLink
+  </div>
 </a>
 `;
