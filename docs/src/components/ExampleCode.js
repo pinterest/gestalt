@@ -84,6 +84,7 @@ export default function ExampleCode({ code, name }: Props): Node {
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                 <label>
                   <LiveEditor
+                    // Don't remove this className or all the a11y integration tests will fail
                     className="live-editor-pane"
                     padding={16}
                     style={{
