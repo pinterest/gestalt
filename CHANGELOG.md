@@ -1,3 +1,9 @@
+## 21.8.3 (Apr 28, 2021)
+
+### Patch
+
+- Docs: Make unexpanded code example more obviously interactive (#1484)
+
 ## 21.8.2 (Apr 26, 2021)
 
 ### Patch
