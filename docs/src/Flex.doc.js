@@ -178,7 +178,38 @@ card(
         defaultValue: 'shrink',
         description: `Defines how a flex item will be sized. "grow", equivalent to "flex: 1 1 auto", will size the Flex relative to its parent, growing and shrinking based on available space. "shrink", equivalent to "flex: 0 1 auto" (the browser default), allows the Flex to shrink if compressed but not grow if given extra space. Finally, "none", equivalent to "flex: 0 0 auto", preserves the Flex's size based on child content regardless of its container's size.`,
       },
+      {
+        name: 'minWidth',
+        type: `number | string`,
+        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". Can be used to fix overflowing children; see [the example](#FlexItem-minWidth) to learn more.`,
+      },
     ]}
+  />,
+);
+
+card(
+  <Example
+    name="Example: Overflowing children and minWidth"
+    id="FlexItem-minWidth"
+    description={`
+    Extra-wide children can sometimes overflow the Flex parent container, breaking the layout (and skipping truncation, if applicable).
+    To fix this, simply wrap the wide child in Flex.Item with \`minWidth={0}\`. Voila!
+
+    For more info, check out [this very helpful blog post](https://css-tricks.com/flexbox-truncated-text/#the-solution-is-min-width-0-on-the-flex-child).
+  `}
+    defaultCode={`
+<Box borderStyle="sm" padding={3} rounding={3}>
+  <Flex alignItems="center" gap={3}>
+    <Icon accessibilityLabel="Private" icon="lock" />
+
+    <Flex.Item minWidth={0}>
+      <Text truncate>Some really long title text that just keeps going and going and going and going and going and going and going and going and going and going and going and going and going and going and going and going</Text>
+    </Flex.Item>
+
+    <Badge text="Try it out!" />
+  </Flex>
+</Box>
+`}
   />,
 );
 
