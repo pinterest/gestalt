@@ -1,3 +1,9 @@
+## 21.9.0 (Apr 28, 2021)
+
+### Minor
+
+- Flex: add `minWidth` prop to Flex.Item (#1487)
+
 ## 21.8.4 (Apr 28, 2021)
 
 ### Patch
