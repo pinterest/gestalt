@@ -1,3 +1,9 @@
+## 21.11.0 (Apr 29, 2021)
+
+### Minor
+
+- AvatarGroup: new component (#1466)
+
 ## 21.10.1 (Apr 29, 2021)
 
 ### Patch
