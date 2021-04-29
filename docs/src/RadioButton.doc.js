@@ -110,13 +110,12 @@ card(
     defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState(undefined);
+  const [favoriteFood, setFavoriteFood] = React.useState(undefined);
 
   return (
-    <Box
-      display="flex"
-      direction="column"
-    >
-      <Box paddingY={1}>
+    <Flex gap={4}>
+    <Fieldset legend="What is your favorite pet?">
+      <Flex direction="column" gap={2}>
         <RadioButton
           checked={favorite === 'dogs'}
           id="favoriteDog"
@@ -125,8 +124,6 @@ function RadioButtonExample() {
           onChange={() => setFavorite( 'dogs' )}
           value="dogs"
         />
-      </Box>
-      <Box paddingY={1}>
         <RadioButton
           checked={favorite === 'cats'}
           id="favoriteCat"
@@ -135,8 +132,6 @@ function RadioButtonExample() {
           onChange={() => setFavorite( 'cats' )}
           value="cats"
         />
-      </Box>
-      <Box paddingY={1}>
         <RadioButton
           checked={favorite === 'plants'}
           id="favoritePlants"
@@ -145,8 +140,37 @@ function RadioButtonExample() {
           onChange={() => setFavorite( 'plants' )}
           value="plants"
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Fieldset>
+    <Fieldset legend="What is your favorite food?">
+      <Flex gap={2}>
+        <RadioButton
+          checked={favorite === 'pizza'}
+          id="favoritePizza"
+          label="Pizza"
+          name="favoriteFood"
+          onChange={() => setFavoriteFood( 'pizza' )}
+          value="pizza"
+        />
+        <RadioButton
+          checked={favorite === 'curry'}
+          id="favoriteCurry"
+          label="Curry"
+          name="favoriteFood"
+          onChange={() => setFavoriteFood( 'curry' )}
+          value="curry"
+        />
+        <RadioButton
+          checked={favorite === 'sushi'}
+          id="favoriteSushi"
+          label="Sushi"
+          name="favoriteFood"
+          onChange={() => setFavoriteFood( 'sushi' )}
+          value="sushi"
+        />
+      </Flex>
+    </Fieldset>
+    </Flex>
   );
 }
 `}

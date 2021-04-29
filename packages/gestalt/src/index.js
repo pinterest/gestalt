@@ -1,3 +1,5 @@
+
+
 // @flow strict
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
@@ -16,6 +18,7 @@ import Column from './Column.js';
 import Container from './Container.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
+import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -84,6 +87,7 @@ export {
   Container,
   Divider,
   Dropdown,
+  Fieldset,
   FixedZIndex,
   Flex,
   GroupAvatar,

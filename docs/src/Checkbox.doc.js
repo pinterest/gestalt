@@ -139,8 +139,8 @@ function CheckboxExample() {
     const [checkedCh, setCheckedCh] = React.useState(false);
 
   return (
-    <Box margin={-2}>
-      <Box padding={2}>
+    <Fieldset legend="What languages would you like to learn?">
+      <Flex direction="column" gap={2}>
         <Checkbox
           checked={checkedEn}
           id="english"
@@ -150,8 +150,7 @@ function CheckboxExample() {
             setCheckedEn(checked);
           }}
         />
-      </Box>
-      <Box padding={2}>
+
         <Checkbox
           checked={checkedSp}
           id="spanish"
@@ -161,8 +160,7 @@ function CheckboxExample() {
             setCheckedSp(checked);
           }}
         />
-      </Box>
-      <Box padding={2}>
+
         <Checkbox
           checked={checkedCh}
           id="chinese"
@@ -172,8 +170,8 @@ function CheckboxExample() {
             setCheckedCh(checked);
           }}
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Fieldset>
   );
 }
 `}
