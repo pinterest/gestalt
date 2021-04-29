@@ -33,7 +33,7 @@ export default function Datapoint({
   const infoTextNode = infoText ? (
     <Tooltip text={infoText}>
       <IconButton
-        accessibilityLabel={infoText}
+        accessibilityLabel=" "
         size="sm"
         icon="info-circle"
         iconColor="gray"
