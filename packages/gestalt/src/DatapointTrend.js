@@ -83,6 +83,5 @@ DatapointTrend.propTypes = {
   value: PropTypes.number,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   type: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   trendAccessibilityLabel: PropTypes.string,
 };
