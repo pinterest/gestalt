@@ -27,7 +27,7 @@ type CollaboratorAvatarType = {|
 
 type CollaboratorsCountType = {|
   ...BaseStackType,
-  hasAddCollaboratorsButton: boolean,
+  hasCollaboratorsButton: boolean,
   count: number,
 |};
 
@@ -126,7 +126,7 @@ export function CollaboratorAvatar({
 }
 
 export function CollaboratorsCount({
-  hasAddCollaboratorsButton,
+  hasCollaboratorsButton,
   pileCount,
   hovered,
   count,
@@ -135,22 +135,22 @@ export function CollaboratorsCount({
   const isOverNineCount = count > 9;
   const isAbove99Count = count > 99;
 
-  let translateX;
-  if (isOverNineCount && !isAbove99Count && hasAddCollaboratorsButton) {
-    translateX = 'translateX10';
+  let translate;
+  if (isOverNineCount && !isAbove99Count && hasCollaboratorsButton) {
+    translate = 'translateX10';
   }
-  if (isAbove99Count && hasAddCollaboratorsButton) {
-    translateX = 'translateX15';
+  if (isAbove99Count && hasCollaboratorsButton) {
+    translate = 'translateX15';
   }
 
   return (
     <PositioningWrapper index={2} pileCount={pileCount} size={size}>
       <HoverOverlay hovered={hovered} size={size}>
         <AvatarFoundation
-          fontSize={isAbove99Count && hasAddCollaboratorsButton ? '30px' : '40px'}
+          fontSize={isAbove99Count && hasCollaboratorsButton ? '30px' : '40px'}
           outline
           textAnchor="middle"
-          translateX={translateX}
+          translate={translate}
         >
           {isAbove99Count ? '99+' : count}
         </AvatarFoundation>
@@ -192,7 +192,7 @@ CollaboratorAvatar.propTypes = {
 
 CollaboratorsCount.propTypes = {
   count: PropTypes.number,
-  hasAddCollaboratorsButton: PropTypes.bool,
+  hasCollaboratorsButton: PropTypes.bool,
   hovered: PropTypes.bool,
   pileCount: PropTypes.number,
   size: SizeProptype,

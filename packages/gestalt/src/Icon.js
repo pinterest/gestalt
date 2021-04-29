@@ -37,7 +37,7 @@ type Props = {|
 // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
 const IconNames = Object.keys(icons);
 
-export const flipOnRtlIconNames = [
+const flipOnRtlIconNames = [
   'ads-stats',
   'ads-overview',
   'arrow-back',

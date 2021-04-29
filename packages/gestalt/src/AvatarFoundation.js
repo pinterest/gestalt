@@ -9,6 +9,8 @@ import styles from './Icon.css';
 import colors from './Colors.css';
 import avatarStyles from './AvatarGroup.css';
 
+const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
+
 type ResponsiveFitSizeBoxProps = {| children: Node, outline: boolean |};
 
 function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps): Node {
@@ -19,10 +21,11 @@ function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps):
       color="lightGray"
       dangerouslySetInlineStyle={{
         __style: {
+          // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.s
           paddingBottom: '100%',
           boxShadow: outline ? `0 0 0 1px ${colorGray0}` : undefined,
         },
-      }} // When specifying a padding by percentage, it's always based on the width of the parent container so we get a property that's equal to the width.
+      }}
       position="relative"
       rounding="circle"
     >
@@ -48,7 +51,7 @@ type Props = {|
   outline?: boolean,
   textAnchor?: 'start' | 'middle' | 'end',
   title?: string,
-  translateX?: 'translateX10' | 'translateX15',
+  translate?: 'translateX10' | 'translateX15',
   content?: 'text' | 'icon',
 |};
 
@@ -58,11 +61,9 @@ export default function AvatarFoundation({
   outline = false,
   textAnchor = 'middle',
   title,
-  translateX,
+  translate,
   content = 'text',
 }: Props): Node {
-  const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
-
   const { colorGray300 } = useColorScheme();
 
   const icon = 'add';
@@ -90,7 +91,7 @@ export default function AvatarFoundation({
               typography.antialiased,
               typography.sansSerif,
               typography.fontWeightBold,
-              translateX && avatarStyles[translateX], // if addCollaborator button is present, translateX moves numbers closer to the edge
+              translate && avatarStyles[translate], // if addCollaborator button is present, translateX moves numbers closer to the edge
             ].join(' ')}
           >
             {children}

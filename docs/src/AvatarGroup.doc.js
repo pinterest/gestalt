@@ -15,24 +15,26 @@ card(<FeedbackCallout componentName="AvatarGroup" />);
 card(
   <PageHeader
     name="Avatar Group"
-    description="Avatar Group is a hybrid component used to both display a group of user avatars and, optionally, control actions related to the users group"
+    description="Avatar Group is used to both display a group of user avatars and, optionally, control actions related to the users group."
     defaultCode={`
-<AvatarGroup accessibilityLabel="Group collaborators: Keerthi, Alberto, Shanice." size="md"
-  collaborators={[
-    {
-      name: 'Keerthi',
-      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-    },
-    {
-      name: 'Alberto',
-      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-    },
+<Box width={300} height={125}>
+  <AvatarGroup size="fit" accessibilityLabel="Group collaborators: Keerthi, Alberto, Shanice."
+    collaborators={[
       {
-      name: 'Shanice',
-      src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-    },
-  ]}
+        name: 'Keerthi',
+        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+      },
+      {
+        name: 'Alberto',
+        src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+      },
+        {
+        name: 'Shanice',
+        src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+      },
+    ]}
   />
+</Box>
 `}
   />,
 );
@@ -58,7 +60,7 @@ See the [Accessibility guidelines](#Accessibility) for details on proper usage.`
         name: 'size',
         type: `"xs" | "sm" | "md" | "fit"`,
         defaultValue: 'fit',
-        description: `The maximum width of AvatarGroup. See the [fixed size](#Fixed-sizes) and [responsive size](#Responsive-sizing) variant to learn more.`,
+        description: `The maximum height of AvatarGroup. If size is \`fit\`, AvatarGroup will fill 100% of the parent container width. See the [fixed size](#Fixed-sizes) and [responsive size](#Responsive-sizing) variant to learn more.`,
       },
       {
         name: 'role',
@@ -107,7 +109,6 @@ See the [Accessibility guidelines](#Accessibility) for details on proper usage.`
         name: 'ref',
         type: `React.Ref<'div'> | React.Ref<'a'>`,
         description: `Forward the ref to the underlying div or anchor element. See the [role](#Role) variant to learn more.`,
-        href: 'ref',
       },
     ]}
   />,
@@ -118,7 +119,7 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-AvatarGroup requires \`accessibilityLabel\`. AvatarGroup is a group of elements that require a parent label describing both the data presented and the call to action in the case of button and link roles. As seen in the example below, the screen-reader reads: "Group collaborators: Keerthi, Alberto, and another 10 collaborators. Add collaborators to this board."
+AvatarGroup requires \`accessibilityLabel\`. AvatarGroup is a group of elements that require a parent label describing both the data presented and the call to action in the case of button and link roles. As seen in the example below, the screen-reader reads: "Group collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
 
 
 If AvatarGroup is used as a control button to show/hide Popover-component, we recommend passing the following ARIA attributes to assist screen readers:
@@ -159,11 +160,11 @@ function Example() {
     <React.Fragment>
       <Box>
         <AvatarGroup
-          accessibilityLabel="Group collaborators: Keerthi, Alberto, and another 10 collaborators. Add collaborators to this board."
+          accessibilityLabel="Group collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
           accessibilityExpanded={open}
           addCollaborators
           role="button"
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen( open => !open)}
           ref={anchorRef}
           size="md"
           collaborators={[
@@ -179,7 +180,7 @@ function Example() {
             ...new Array(10),
           ]}
           />
-        </Box>
+      </Box>
       {open && (
         <Layer>
           <Popover
@@ -189,15 +190,20 @@ function Example() {
             positionRelativeToAnchor={false}
             size="xl"
           >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
-                    Invite collaborators
-                  </Text>
-                  <SearchCollaboratorsField />
-                </Flex>
-              </Box>
+            <Box
+              flex="grow"
+              marginEnd={4}
+              marginStart={4}
+              marginTop={6}
+              marginBottom={8}
+              width={360}
+            >
+              <Flex direction="column" gap={6}>
+                <Text align="center" color="darkGray" weight="bold">
+                  Invite collaborators
+                </Text>
+                <SearchCollaboratorsField />
+              </Flex>
             </Box>
           </Popover>
         </Layer>
@@ -217,7 +223,7 @@ card(
   <MainSection name="Variants">
     <MainSection.Subsection
       title="Fixed sizes"
-      description="AvatarGroup is available in 3 fixed width sizes: 'xs' (24px) , 'sm' (32px), and 'md' (48px)."
+      description="AvatarGroup is available in 3 fixed height sizes: 'xs' (24px) , 'sm' (32px), and 'md' (48px)."
     >
       <CombinationNew size={['xs', 'sm', 'md']}>
         {({ size }) => (
@@ -244,7 +250,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Responsive sizing"
-      description="AvatarGroup is a responsive component. AvatarGroups that are not given a size prop or use size=`fit` will expand to fit to the width of their arent container. A common use case is to achieve column-based sizing.
+      description="AvatarGroup is a responsive component. AvatarGroups that are not given a size prop or use size=`fit` will expand to fit to the width of their parent container. A common use case is to achieve column-based sizing.
 
       Resize the width or number of avatars to see the AvatarGroup change to match the width of the Column it's been placed in.
 "
@@ -252,44 +258,46 @@ card(
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Box width={600} height={100} display="flex" direction="row">
-  <Box column={5}>
-    <AvatarGroup
-      accessibilityLabel="Group collaborators: Keerthi, Alberto, and Shanice."
-      size="fit"
-      collaborators={[
-        {
-          name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-        },
-        {
-          name: 'Alberto',
-          src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-        },
+<Box width={600} height={100}>
+  <Flex>
+    <Box column={5}>
+      <AvatarGroup
+        accessibilityLabel="Group collaborators: Keerthi, Alberto, and Shanice."
+        size="fit"
+        collaborators={[
           {
-          name: 'Shanice',
-          src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-        },
-      ]}
-    />
-  </Box>
-  <Box column={7} marginStart={2} height="100%">
-    <Text inline >The </Text>
-    <Text inline weight="bold">
-      <Link inline href="https://www.pinterest.com/search/boards/?q=quick%20vegan%20recipes&rs=typed&term_meta[]=quick%7Ctyped&term_meta[]=vegan%7Ctyped&term_meta[]=recipes%7Ctyped">Quick Vegan Recipes </Link>
-    </Text>
-    <Text inline> board has 3 followers.</Text>
-  </Box>
+            name: 'Keerthi',
+            src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          },
+          {
+            name: 'Alberto',
+            src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+          },
+            {
+            name: 'Shanice',
+            src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
+          },
+        ]}
+      />
+    </Box>
+    <Box column={7} marginStart={2} height="100%">
+      <Text inline >The </Text>
+      <Text inline weight="bold">
+        <Link inline href="https://www.pinterest.com/search/boards/?q=quick%20vegan%20recipes&rs=typed&term_meta[]=quick%7Ctyped&term_meta[]=vegan%7Ctyped&term_meta[]=recipes%7Ctyped">Quick Vegan Recipes </Link>
+      </Text>
+      <Text inline> board has 3 followers.</Text>
+    </Box>
+  </Flex>
 </Box>
  `}
       />
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Collaborators display"
-      description="AvatarGroup displays up to three users in avatars. After that, for `md` and `fit` sizes, it displays the number of additional users."
+      description="AvatarGroup displays up to three user avatars. More users, if present, will be displayed as a numerical count for the `md` and `fit` sizes."
     >
       <CombinationNew
-        noTitle
+        hideTitle
         addCollaborators={[false, true]}
         collaborators={[
           [
@@ -362,9 +370,7 @@ card(
                   .slice(0, 2)
                   .map((x) => x?.name)
                   .join(', ')} ${
-                  collaborators.length > 3
-                    ? `and another ${collaborators.length - 2} collaborators.`
-                    : '.'
+                  collaborators.length > 3 ? `and ${collaborators.length - 2} more.` : '.'
                 }`;
           return addCollaborators ? (
             <Box>
@@ -390,7 +396,7 @@ card(
     <MainSection.Subsection
       columns={2}
       title="Role"
-      description="AvatarGroup can be display only but it can also act as a button or link. AvatarGroup can only be clickable if role is set to `button` or `link`. For `button` role, `onClick` is required. For `link` role, `href` is required."
+      description="AvatarGroup can be display only, but can also act as a button or link. It will only be clickable if role is set to `button` or `link`. For button role, `onClick is required. For link role, `href` is required."
     >
       <MainSection.Card
         cardSize="md"
@@ -429,7 +435,7 @@ const List = () => (
         <AvatarGroup
           accessibilityLabel="Click to see group collaborators."
           role="button"
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen( open => !open)}
           ref={anchorRef}
           size="md"
           collaborators={collaborators}
@@ -444,15 +450,20 @@ const List = () => (
             positionRelativeToAnchor={false}
             size="xs"
           >
-            <Box width={360}>
-              <Box flex="grow" marginEnd={4} marginStart={4} marginTop={6} marginBottom={8}>
-                <Flex direction="column" gap={6}>
-                  <Text align="center" color="darkGray" weight="bold">
-                    Collaborators
-                  </Text>
-                  <List />
-                </Flex>
-              </Box>
+            <Box
+              flex="grow"
+              marginEnd={4}
+              marginStart={4}
+              marginTop={6}
+              marginBottom={8}
+              width={360}
+            >
+              <Flex direction="column" gap={6}>
+                <Text align="center" color="darkGray" weight="bold">
+                  Collaborators
+                </Text>
+                <List />
+              </Flex>
             </Box>
           </Popover>
         </Layer>
@@ -487,7 +498,7 @@ function Example() {
         <AvatarGroup
           accessibilityLabel="Visit group activity board."
           role="link"
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen( open => !open)}
           size="md"
           collaborators={collaborators}
           href="#Role"

@@ -2,7 +2,7 @@
   height: 100%;
 
   /* Parent element
-    Must be positions=relative
+    Must be position=relative
     No z-index allowed
   */
   position: relative;
@@ -20,7 +20,7 @@
   top: 0;
   width: 100%;
 
-  /* z-index required to position pseudo-elements in fron of the parent */
+  /* z-index required to position pseudo-elements in front of the parent */
   z-index: 1;
 }
 

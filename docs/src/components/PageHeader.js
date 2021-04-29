@@ -54,7 +54,7 @@ export default function ComponentHeader({
               </Tooltip>
             ) : null}
             {badge === 'deprecated' ? (
-              <Tooltip inline text="This component will be deprecated soon.">
+              <Tooltip inline text="This component is deprecated and will be removed soon.">
                 <Badge text="Deprecated" position="top" />
               </Tooltip>
             ) : null}

@@ -3,7 +3,6 @@ import { forwardRef, useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
-
 import {
   AddCollaboratorsButton,
   CollaboratorAvatar,
@@ -13,6 +12,8 @@ import {
 } from './AvatarGroupSubcomponents.js';
 import Flex from './Flex.js';
 import { type CollaboratorDataType } from './Avatar.js';
+
+const MAX_COLLABORATOR_AVATARS = 3;
 
 type Role = 'link' | 'button';
 
@@ -51,8 +52,6 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
 ): Node {
   const [hovered, setHovered] = useState(false);
 
-  const MAX_COLLABORATOR_AVATARS = 3;
-
   const isMdSize = size === 'md';
 
   const isFitSize = size === 'fit';
@@ -63,18 +62,18 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
 
   const isAboveMaxCollaborators = collaborators.length > MAX_COLLABORATOR_AVATARS;
 
-  const addCollaboratorsCount = isMdOrFitSize && isAboveMaxCollaborators;
+  const showCollaboratorsCount = isMdOrFitSize && isAboveMaxCollaborators;
 
-  const addCollaboratorsButton = (isMdOrFitSize && !isDisplayOnly && addCollaborators) ?? false;
+  const showAddCollaboratorsButton = (isMdOrFitSize && !isDisplayOnly && addCollaborators) ?? false;
 
-  const slicedCollaborators = collaborators.slice(
+  const displayedCollaborators = collaborators.slice(
     0,
     isAboveMaxCollaborators && isMdOrFitSize ? 2 : MAX_COLLABORATOR_AVATARS,
   );
 
-  const pileCount = slicedCollaborators.length + addCollaboratorsCount + addCollaboratorsButton;
+  const pileCount = displayedCollaborators.length + showCollaboratorsCount + showAddCollaboratorsButton;
 
-  const collaboratorStack = slicedCollaborators.map(({ src, name }, index) => {
+  const collaboratorStack = displayedCollaborators.map(({ src, name }, index) => {
     return (
       <CollaboratorAvatar
         hovered={hovered}
@@ -88,11 +87,11 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     );
   });
 
-  if (addCollaboratorsCount) {
+  if (showCollaboratorsCount) {
     collaboratorStack.push(
       <CollaboratorsCount
         count={collaborators.length - 2}
-        hasAddCollaboratorsButton={addCollaboratorsButton}
+        hasCollaboratorsButton={showAddCollaboratorsButton}
         hovered={hovered}
         key={`collaboratorStack-count-${collaborators.length}`}
         pileCount={pileCount}
@@ -101,7 +100,7 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     );
   }
 
-  if (addCollaboratorsButton) {
+  if (showAddCollaboratorsButton) {
     collaboratorStack.push(
       <AddCollaboratorsButton
         hovered={hovered}
