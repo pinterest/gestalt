@@ -108,7 +108,7 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Use \`trendSignal\` to display the whether the \`trend\` is considered "good", "bad" or "neutral".`}
+      description={`Use \`trendSignal\` to explicitly the whether the \`trend\` is considered "good", "bad" or "neutral". By default, a positive trend will be considered "good", a negative trend "bad" and a trend of 0 "neutral"`}
       title="Trend signal"
     >
       <MainSection.Card
