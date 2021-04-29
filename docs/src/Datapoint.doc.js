@@ -92,7 +92,7 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Use \`trend\` to display the delta in the value of a Datapoint over time.`}
+      description={`Use \`trend\` to display the delta in the value of a Datapoint over time. Make sure to provide an \`accessibilityLabel\` when the trend is above or below zero.`}
       title="Trend"
     >
       <MainSection.Card
