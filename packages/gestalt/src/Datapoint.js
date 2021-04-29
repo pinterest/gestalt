@@ -32,7 +32,13 @@ export default function Datapoint({
 }: Props): Node {
   const infoTextNode = infoText ? (
     <Tooltip text={infoText}>
-      <IconButton accessibilityLabel="" size="sm" icon="info-circle" iconColor="gray" padding={1} />
+      <IconButton
+        accessibilityLabel={infoText}
+        size="sm"
+        icon="info-circle"
+        iconColor="gray"
+        padding={1}
+      />
     </Tooltip>
   ) : null;
 

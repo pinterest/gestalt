@@ -6,7 +6,7 @@ const Valid = (
   <Datapoint
     title="Title"
     value="1M"
-    trend={{value: 30, accessibilityLabel: 'Value change icon accessibility label'}}
+    trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
   />
 );
 

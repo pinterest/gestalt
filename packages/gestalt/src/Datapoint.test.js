@@ -9,7 +9,7 @@ describe('Datapoint', () => {
       <Datapoint
         title="Title"
         value="1M"
-        trend={{value: 30, accessibilityLabel: 'Value change icon accessibility label'}}
+        trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('Datapoint', () => {
       <Datapoint
         title="Title"
         value="1M"
-        trend={{value: 30, accessibilityLabel: 'Value change icon accessibility label'}}
+        trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
