@@ -336,8 +336,8 @@ function ModuleExample3() {
           },
           {
             badgeText: 'Try it out!',
-            children: <Text size="md">Children1</Text>,
-            title: 'Example with icon',
+            children: <Text size="md">Children2</Text>,
+            title: 'Example with badge',
           },
         ]}>
       </Module.Expandable>
