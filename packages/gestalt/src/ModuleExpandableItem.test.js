@@ -39,6 +39,24 @@ describe('ModuleExpandableItem', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test('renders correctly with badge', () => {
+    const tree = renderer
+      .create(
+        <ModuleExpandableItem
+          accessibilityExpandLabel="click to expand"
+          accessibilityCollapseLabel="click to collapse"
+          badgeText="Try it out!"
+          id="uniqueTestID"
+          isCollapsed
+          onModuleClicked={() => {}}
+          title="test title"
+          type="info"
+        />,
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   test('renders correctly with summary', () => {
     const tree = renderer
       .create(

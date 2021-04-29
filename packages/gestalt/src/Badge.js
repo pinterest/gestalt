@@ -1,18 +1,19 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './Badge.css';
 import colors from './Colors.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
 
+type Position = 'middle' | 'top';
+
 type Props = {|
-  position?: 'middle' | 'top',
+  position?: Position,
   text: string,
 |};
 
-export default function Badge(props: Props): Node {
-  const { position = 'middle', text } = props;
+export default function Badge({ position = 'middle', text }: Props): Node {
   const { name: colorSchemeName } = useColorScheme();
 
   const cs = cx(styles.Badge, styles[position], colors.blueBg, {
@@ -23,7 +24,6 @@ export default function Badge(props: Props): Node {
 }
 
 Badge.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  position: PropTypes.oneOf(['middle', 'top']),
+  position: (PropTypes.oneOf(['middle', 'top']): React$PropType$Primitive<Position>),
   text: PropTypes.string.isRequired,
 };

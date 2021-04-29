@@ -48,6 +48,11 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
@@ -147,6 +152,11 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
@@ -263,6 +273,11 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                   </div>
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
@@ -366,6 +381,11 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
@@ -489,6 +509,11 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
@@ -575,6 +600,11 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 >
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
@@ -691,6 +721,11 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                   </div>
                   <div
                     className="FlexItem"
+                    style={
+                      Object {
+                        "minWidth": 0,
+                      }
+                    }
                   >
                     <div
                       className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
