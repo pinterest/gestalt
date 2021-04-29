@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatapointTrend renders 1`] = `
+<div
+  className="Flex rowGap1 xsDirectionRow"
+>
+  <div
+    className="FlexItem"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="Value change icon accessibility label"
+      className="icon pine iconBlock"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Text fontSize1 pine alignLeft breakWord fontWeightBold"
+    >
+      30
+      %
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DatapointTrend renders an accessibility label 1`] = `
+<div
+  className="Flex rowGap1 xsDirectionRow"
+>
+  <div
+    className="FlexItem"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="Value change icon accessibility label"
+      className="icon pine iconBlock"
+      height={16}
+      role="img"
+      viewBox="0 0 24 24"
+      width={16}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="Text fontSize1 pine alignLeft breakWord fontWeightBold"
+    >
+      30
+      %
+    </div>
+  </div>
+</div>
+`;

@@ -16,7 +16,7 @@ card(
     name="Datapoint"
     description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
-<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Trending up" helperText="Datapoint helper text" />
+<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} helperText="Datapoint helper text" />
 `}
     pilot
   />,
@@ -27,12 +27,6 @@ card(
   <PropTable
     Component={Datapoint}
     props={[
-      {
-        name: 'percentChangeAccessibilityLabel',
-        type: 'string',
-        description: ' ',
-        required: true,
-      },
       {
         name: 'title',
         type: 'string',
@@ -46,9 +40,15 @@ card(
         required: true,
       },
       {
-        name: 'percentChange',
-        type: 'number',
-        description: 'The change in value over time (e.g., +30%)',
+        name: 'trend',
+        type: '{| accessibilityLabel: string, value: string |}',
+        description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up")`,
+      },
+      {
+        name: 'trendSignal',
+        type: `'good' | 'bad' | 'neutral' | 'auto'`,
+        defaultValue: 'auto',
+        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSignal\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral"`,
       },
       {
         name: 'infoText',
@@ -68,7 +68,7 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize the \`title\`, \`infoText\` and \`percentChangeAccessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+    description={`Be sure to localize the \`title\`, \`infoText\` and \`trendAccessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
   />,
 );
 
@@ -92,16 +92,32 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Use \`percentChange\` to display the delta in the value of a Datapoint over time.`}
-      title="Percent change"
+      description={`Use \`trend\` to display the delta in the value of a Datapoint over time.`}
+      title="Trend"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" gap={4}>
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={30} percentChangeAccessibilityLabel="Trending up" />
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={0} />
-  <Datapoint title="Datapoint title" value="1.23M" percentChange={-30} percentChangeAccessibilityLabel="Trending down"  />
+  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
+  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 0, accessibilityLabel: ""}} />
+  <Datapoint title="Datapoint title" value="1.23M" trend={{value: -30, accessibilityLabel: "Trending down"}}  />
+</Flex>
+`}
+      />
+    </MainSection.Subsection>
+
+    <MainSection.Subsection
+      description={`Use \`trendSignal\` to display the whether the \`trend\` is considered "good", "bad" or "neutral".`}
+      title="Trend signal"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        defaultCode={`
+<Flex direction="column" gap={4}>
+  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} trendSignal="bad" />
+  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 0, accessibilityLabel: ""}} trendSignal="good" />
+  <Datapoint title="Datapoint title" value="1.23M" trend={{value: -30, accessibilityLabel: "Trending down"}} trendSignal="neutral"  />
 </Flex>
 `}
       />

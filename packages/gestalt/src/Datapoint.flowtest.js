@@ -4,10 +4,9 @@ import Datapoint from './Datapoint.js';
 
 const Valid = (
   <Datapoint
-    percentChangeAccessibilityLabel="Value change icon accessibility label"
     title="Title"
     value="1M"
-    percentChange={30}
+    trend={{value: 30, accessibilityLabel: 'Value change icon accessibility label'}}
   />
 );
 

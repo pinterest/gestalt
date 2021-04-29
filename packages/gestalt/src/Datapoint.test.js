@@ -7,10 +7,9 @@ describe('Datapoint', () => {
   it('renders', () => {
     const tree = create(
       <Datapoint
-        percentChangeAccessibilityLabel="Value change icon accessibility label"
         title="Title"
         value="1M"
-        percentChange={30}
+        trend={{value: 30, accessibilityLabel: 'Value change icon accessibility label'}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -19,10 +18,9 @@ describe('Datapoint', () => {
   it('renders an accessibility label', () => {
     const tree = create(
       <Datapoint
-        percentChangeAccessibilityLabel="Value change icon accessibility label"
         title="Title"
         value="1M"
-        percentChange={30}
+        trend={{value: 30, accessibilityLabel: 'Value change icon accessibility label'}}
       />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
