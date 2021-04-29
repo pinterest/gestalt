@@ -1,3 +1,9 @@
+## 21.10.0 (Apr 29, 2021)
+
+### Minor
+
+- Module: Add badgeText prop (#1486)
+
 ## 21.9.0 (Apr 28, 2021)
 
 ### Minor
