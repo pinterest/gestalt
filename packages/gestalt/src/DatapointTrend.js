@@ -38,7 +38,7 @@ export default function DatapointTrend({
       />
     );
     valueChangeNode = (
-      <Text size="sm" color={valueColor} weight="bold">
+      <Text size="md" color={valueColor} weight="bold">
         {value}%
       </Text>
     );
@@ -53,13 +53,13 @@ export default function DatapointTrend({
       />
     );
     valueChangeNode = (
-      <Text size="sm" color={valueColor} weight="bold">
+      <Text size="md" color={valueColor} weight="bold">
         {Math.abs(value)}%
       </Text>
     );
   } else {
     valueNode = (
-      <Text size="sm" color={type !== 'auto' ? TREND_COLOR_MAP[type] : 'darkGray'} weight="bold">
+      <Text size="md" color={type !== 'auto' ? TREND_COLOR_MAP[type] : 'darkGray'} weight="bold">
         {value}%
       </Text>
     );
