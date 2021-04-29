@@ -4,6 +4,7 @@ docs/build/
 *.log
 stats.html
 screenshots
+.DS_Store
 
 packages/gestalt/dist/*
 packages/gestalt-datepicker/dist/*
