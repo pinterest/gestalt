@@ -1,18 +1,20 @@
+# Description
+
 <!--
 What is the purpose of this PR?
 
-* What is the context surrounding this PR? Include links if possible.
-* What kind of feedback do you want?
 * Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasing)? `ComponentName: Description`
 -->
 
+## Links
+
+- JIRA: https://jira.pinadmin.com/browse/PDS-XXX
+- [TDD](paper doc link)
+- [Figma](link to figma file)
+
 ## Test Plan
 
-<!--
-How can reviewers verify this is good to merge?
-
-* Is it tested?
-* Is it accessible?
-* Is it documented?
-* Have you involved other stakeholders (such as a Pinterest Designer)?
--->
+- [ ] Added Unit Tests
+- [ ] Added Accessibility Tests
+- [ ] Visually checked for regressions
+- [ ] Stakeholder feedback (ex. Gestalt designers)
