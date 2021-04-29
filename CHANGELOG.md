@@ -1,3 +1,9 @@
+## 21.10.1 (Apr 29, 2021)
+
+### Patch
+
+- Internal: Add .DS_Store to .gitignore (#1488)
+
 ## 21.10.0 (Apr 29, 2021)
 
 ### Minor
