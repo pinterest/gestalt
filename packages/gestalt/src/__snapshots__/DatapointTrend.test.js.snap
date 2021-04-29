@@ -9,7 +9,6 @@ exports[`DatapointTrend renders 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="Value change icon accessibility label"
       className="icon pine iconBlock"
       height={16}
       role="img"
@@ -25,10 +24,9 @@ exports[`DatapointTrend renders 1`] = `
     className="FlexItem"
   >
     <div
-      className="Text fontSize1 pine alignLeft breakWord fontWeightBold"
+      className="Text fontSize2 pine alignLeft breakWord fontWeightBold"
     >
-      30
-      %
+      30%
     </div>
   </div>
 </div>
@@ -43,7 +41,6 @@ exports[`DatapointTrend renders an accessibility label 1`] = `
   >
     <svg
       aria-hidden={null}
-      aria-label="Value change icon accessibility label"
       className="icon pine iconBlock"
       height={16}
       role="img"
@@ -59,10 +56,9 @@ exports[`DatapointTrend renders an accessibility label 1`] = `
     className="FlexItem"
   >
     <div
-      className="Text fontSize1 pine alignLeft breakWord fontWeightBold"
+      className="Text fontSize2 pine alignLeft breakWord fontWeightBold"
     >
-      30
-      %
+      30%
     </div>
   </div>
 </div>

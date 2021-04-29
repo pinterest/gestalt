@@ -49,13 +49,13 @@ export default function Datapoint({
         <Heading accessibilityLevel="none" size={valueSize}>
           {value}
         </Heading>
-        {trend !== undefined && trend !== null ? (
+        {trend && (
           <DatapointTrend
-            type={trendSignal}
+            sentiment={trendSignal}
             value={trend.value}
-            trendAccessibilityLabel={trend.accessibilityLabel}
+            iconAccessibilityLabel={trend.accessibilityLabel}
           />
-        ) : null}
+        )}
       </Flex>
     </Flex>
   );

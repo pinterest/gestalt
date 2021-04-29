@@ -11,77 +11,56 @@ const TREND_COLOR_MAP = {
   neutral: 'darkGray',
 };
 
+type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
+
+function getValueColor({ sentiment, value }) {
+  if (sentiment === 'auto') {
+    if (value === 0) {
+      return 'darkGray';
+    }
+    return value > 0 ? 'pine' : 'red';
+  }
+  return TREND_COLOR_MAP[sentiment];
+}
+
 type Props = {|
+  iconAccessibilityLabel: string,
+  sentiment?: Sentiment,
   value: number,
-  trendAccessibilityLabel: string,
-  type?: 'good' | 'bad' | 'neutral' | 'auto',
 |};
 
 export default function DatapointTrend({
-  type = 'auto',
+  iconAccessibilityLabel,
+  sentiment = 'auto',
   value,
-  trendAccessibilityLabel,
 }: Props): Node {
-  let valueNode;
-  let valueIcon;
-  let valueColor;
-  let valueChangeNode;
+  const color = getValueColor({ sentiment, value });
 
-  if (value > 0) {
-    valueColor = type !== 'auto' ? TREND_COLOR_MAP[type] : 'pine';
-    valueIcon = (
-      <Icon
-        accessibilityLabel={trendAccessibilityLabel}
-        size={16}
-        icon="sort-ascending"
-        color={valueColor}
-      />
-    );
-    valueChangeNode = (
-      <Text size="md" color={valueColor} weight="bold">
-        {value}%
-      </Text>
-    );
-  } else if (value < 0) {
-    valueColor = type !== 'auto' ? TREND_COLOR_MAP[type] : 'red';
-    valueIcon = (
-      <Icon
-        accessibilityLabel={trendAccessibilityLabel}
-        size={16}
-        icon="sort-descending"
-        color={valueColor}
-      />
-    );
-    valueChangeNode = (
-      <Text size="md" color={valueColor} weight="bold">
-        {Math.abs(value)}%
-      </Text>
-    );
-  } else {
-    valueNode = (
-      <Text size="md" color={type !== 'auto' ? TREND_COLOR_MAP[type] : 'darkGray'} weight="bold">
-        {value}%
-      </Text>
-    );
-  }
+  return (
+    <Flex gap={1}>
+      {value !== 0 && (
+        <Icon
+          accessibilityLabel={iconAccessibilityLabel}
+          color={color}
+          icon={value > 0 ? 'sort-ascending' : 'sort-descending'}
+          size={16}
+        />
+      )}
 
-  if (valueIcon) {
-    valueNode = (
-      <Flex gap={1}>
-        {valueIcon}
-        {valueChangeNode}
-      </Flex>
-    );
-  }
-
-  return <React.Fragment>{valueNode}</React.Fragment>;
+      <Text size="md" color={color} weight="bold">
+        {`${Math.abs(value)}%`}
+      </Text>
+    </Flex>
+  );
 }
-
-DatapointTrend.displayName = 'DatapointTrend';
 
 DatapointTrend.propTypes = {
   value: PropTypes.number,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  type: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
-  trendAccessibilityLabel: PropTypes.string,
+  sentiment: (PropTypes.oneOf([
+    'good',
+    'bad',
+    'neutral',
+    'auto',
+  ]): React$PropType$Primitive<Sentiment>),
+  iconAccessibilityLabel: PropTypes.string,
 };

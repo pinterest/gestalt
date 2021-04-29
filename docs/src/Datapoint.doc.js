@@ -16,7 +16,7 @@ card(
     name="Datapoint"
     description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
-<Datapoint size="lg" infoText="Contextual information for this Datapoint" title="Datapoint title" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} helperText="Datapoint helper text" />
+<Datapoint size="lg" infoText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
 `}
     pilot
   />,
@@ -108,7 +108,7 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Use \`trendSignal\` to explicitly the whether the \`trend\` is considered "good", "bad" or "neutral". By default, a positive trend will be considered "good", a negative trend "bad" and a trend of 0 "neutral"`}
+      description={`Use \`trendSignal\` to explicitly the whether the \`trend\` is considered "good", "bad" or "neutral". By default, a positive trend will be considered "good", a negative trend "bad" and a trend of 0 "neutral".`}
       title="Trend signal"
     >
       <MainSection.Card
