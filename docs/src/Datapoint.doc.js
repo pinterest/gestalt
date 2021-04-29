@@ -99,9 +99,9 @@ card(
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" gap={4}>
-  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
-  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 0, accessibilityLabel: ""}} />
-  <Datapoint title="Datapoint title" value="1.23M" trend={{value: -30, accessibilityLabel: "Trending down"}}  />
+  <Datapoint title="Pin clicks" value="1.23k" trend={{value: 12, accessibilityLabel: "Trending up"}} />
+  <Datapoint title="Saves" value="123" trend={{value: 0, accessibilityLabel: ""}} />
+  <Datapoint title="Total impressions" value="1.23M" trend={{value: -5, accessibilityLabel: "Trending down"}}  />
 </Flex>
 `}
       />
@@ -115,9 +115,9 @@ card(
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" gap={4}>
-  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} trendSignal="bad" />
-  <Datapoint title="Datapoint title" value="1.23M" trend={{value: 0, accessibilityLabel: ""}} trendSignal="good" />
-  <Datapoint title="Datapoint title" value="1.23M" trend={{value: -30, accessibilityLabel: "Trending down"}} trendSignal="neutral"  />
+  <Datapoint title="Bounce rate" value="86.3%" trend={{value: 29, accessibilityLabel: "Trending up"}} trendSignal="bad" />
+  <Datapoint title="Conversion falloffs" value="92" trend={{value: -10, accessibilityLabel: "Tending down"}} trendSignal="good" />
+  <Datapoint title="Spend" value="$19.3k" trend={{value: -4, accessibilityLabel: "Trending down"}} trendSignal="neutral"  />
 </Flex>
 `}
       />
@@ -130,7 +130,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Datapoint title="Datapoint title" value="1.23M" infoText="Datapoint contextual information" />
+<Datapoint title="Spend" value="$5.7k" infoText="Total ad spend in the selected time period" />
     `}
       />
     </MainSection.Subsection>

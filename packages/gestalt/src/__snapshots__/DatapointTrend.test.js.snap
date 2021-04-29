@@ -9,6 +9,7 @@ exports[`DatapointTrend renders 1`] = `
   >
     <svg
       aria-hidden={null}
+      aria-label="Value change icon accessibility label"
       className="icon pine iconBlock"
       height={16}
       role="img"
@@ -41,6 +42,7 @@ exports[`DatapointTrend renders an accessibility label 1`] = `
   >
     <svg
       aria-hidden={null}
+      aria-label="Value change icon accessibility label"
       className="icon pine iconBlock"
       height={16}
       role="img"
