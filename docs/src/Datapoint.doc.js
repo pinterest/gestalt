@@ -16,7 +16,7 @@ card(
     name="Datapoint"
     description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
-<Datapoint size="lg" infoText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="1.23M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
+<Datapoint size="lg" infoText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="2.34M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
 `}
     pilot
   />,
@@ -79,14 +79,14 @@ card(
         cardSize="md"
         title="size=md"
         defaultCode={`
-        <Datapoint size="md" title="Datapoint title" value="1.23M" />
+        <Datapoint size="md" title="Spend" value="$1.23M" />
 `}
       />
       <MainSection.Card
         cardSize="md"
         title="size=lg"
         defaultCode={`
-        <Datapoint size="lg" title="Datapoint title" value="1.23M" />
+        <Datapoint size="lg" title="Spend" value="$1.23M" />
 `}
       />
     </MainSection.Subsection>
