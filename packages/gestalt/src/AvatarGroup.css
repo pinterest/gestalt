@@ -31,12 +31,3 @@
 html[dir="rtl"] .translateX10 {
   transform: translateX(10%);
 }
-
-.translateX15 {
-  transform: translateX(-15%);
-}
-
-html[dir="rtl"] .translateX15 {
-  transform: translateX(15%);
-}
-

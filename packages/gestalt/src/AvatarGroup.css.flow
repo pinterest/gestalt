@@ -3,5 +3,4 @@
 declare module.exports: {|
   +'overlay': string,
   +'translateX10': string,
-  +'translateX15': string,
 |};

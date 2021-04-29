@@ -13,7 +13,7 @@ card(<FeedbackCallout componentName="PageHeader" />);
 
 card(
   <DocsPageHeader
-    name="Page Header"
+    name="PageHeader"
     description="PageHeader is used to indicate the title of the current page, as well as optional actions."
     shadedCodeExample
     defaultCode={`

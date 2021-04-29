@@ -51,7 +51,7 @@ type Props = {|
   outline?: boolean,
   textAnchor?: 'start' | 'middle' | 'end',
   title?: string,
-  translate?: 'translateX10' | 'translateX15',
+  translate?: 'translateX10',
   content?: 'text' | 'icon',
 |};
 
@@ -65,8 +65,6 @@ export default function AvatarFoundation({
   content = 'text',
 }: Props): Node {
   const { colorGray300 } = useColorScheme();
-
-  const icon = 'add';
 
   const cs = classnames(styles.icon, colors.darkGray);
 
@@ -109,7 +107,7 @@ export default function AvatarFoundation({
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>
-          <path d={icons[icon]} />
+          <path d={icons.add} />
         </svg>
       ) : null}
     </ResponsiveFitSizeBox>

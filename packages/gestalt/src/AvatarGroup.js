@@ -3,15 +3,12 @@ import { forwardRef, useState, type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import TapArea, { type OnTapType } from './TapArea.js';
-import {
-  AddCollaboratorsButton,
-  CollaboratorAvatar,
-  CollaboratorsCount,
-  SizeProptype,
-  type Size,
-} from './AvatarGroupSubcomponents.js';
+import AddCollaboratorsButton from './AvatarGroupAddCollaboratorsButton.js';
+import CollaboratorAvatar from './AvatarGroupCollaboratorAvatar.js';
+import CollaboratorsCount from './AvatarGroupCollaboratorsCount.js';
 import Flex from './Flex.js';
 import { type CollaboratorDataType } from './Avatar.js';
+import { type Size, SizeProptype } from './AvatarGroupConstants.js';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 
@@ -71,7 +68,8 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     isAboveMaxCollaborators && isMdOrFitSize ? 2 : MAX_COLLABORATOR_AVATARS,
   );
 
-  const pileCount = displayedCollaborators.length + showCollaboratorsCount + showAddCollaboratorsButton;
+  const pileCount =
+    displayedCollaborators.length + showCollaboratorsCount + showAddCollaboratorsButton;
 
   const collaboratorStack = displayedCollaborators.map(({ src, name }, index) => {
     return (
@@ -91,7 +89,7 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
     collaboratorStack.push(
       <CollaboratorsCount
         count={collaborators.length - 2}
-        hasCollaboratorsButton={showAddCollaboratorsButton}
+        showAddCollaboratorsButton={showAddCollaboratorsButton}
         hovered={hovered}
         key={`collaboratorStack-count-${collaborators.length}`}
         pileCount={pileCount}
@@ -126,6 +124,7 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
       <TapArea
         accessibilityLabel={accessibilityLabel}
         href={href}
+        fullWidth={false}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onTap={onClick}
@@ -146,6 +145,7 @@ const AvatarGroupWithForwardRef: React$AbstractComponent<Props, UnionRefs> = for
         accessibilityControls={accessibilityControls}
         accessibilityExpanded={accessibilityExpanded}
         accessibilityHaspopup={accessibilityHaspopup}
+        fullWidth={false}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         onTap={onClick}

@@ -1,6 +1,6 @@
 // @flow strict
 import React, { type Node } from 'react';
-import { AvatarGroup, Box } from 'gestalt';
+import { AvatarGroup } from 'gestalt';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
@@ -14,11 +14,11 @@ card(<FeedbackCallout componentName="AvatarGroup" />);
 
 card(
   <PageHeader
-    name="Avatar Group"
-    description="Avatar Group is used to both display a group of user avatars and, optionally, control actions related to the users group."
+    name="AvatarGroup"
+    description="AvatarGroup is used to both display a group of user avatars and, optionally, control actions related to the users group."
     defaultCode={`
 <Box width={300} height={125}>
-  <AvatarGroup size="fit" accessibilityLabel="Group collaborators: Keerthi, Alberto, Shanice."
+  <AvatarGroup size="fit" accessibilityLabel="Collaborators: Keerthi, Alberto, Shanice."
     collaborators={[
       {
         name: 'Keerthi',
@@ -103,7 +103,7 @@ See the [Accessibility guidelines](#Accessibility) for details on proper usage.`
       {
         name: 'addCollaborators',
         type: 'boolean',
-        description: `When supplied, it appends an 'add' icon to the avatar pile as a call to action to the user. See [Best Practices] (#Best-practices) for more info.`,
+        description: `When supplied, it appends an \`add\` [icon](/Icon) to the avatar pile as a call to action to the user. See [Best Practices](#Best-practices) for more info.`,
       },
       {
         name: 'ref',
@@ -119,7 +119,7 @@ card(
     <MainSection.Subsection
       title="ARIA attributes"
       description={`
-AvatarGroup requires \`accessibilityLabel\`. AvatarGroup is a group of elements that require a parent label describing both the data presented and the call to action in the case of button and link roles. As seen in the example below, the screen-reader reads: "Group collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+AvatarGroup requires \`accessibilityLabel\`. AvatarGroup is a group of elements that require a parent label describing both the data presented and the call to action in the case of button and link roles. As seen in the example below, the screen-reader reads: "Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
 
 
 If AvatarGroup is used as a control button to show/hide Popover-component, we recommend passing the following ARIA attributes to assist screen readers:
@@ -158,29 +158,27 @@ function Example() {
 
   return (
     <React.Fragment>
-      <Box>
-        <AvatarGroup
-          accessibilityLabel="Group collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
-          accessibilityExpanded={open}
-          addCollaborators
-          role="button"
-          onClick={() => setOpen( open => !open)}
-          ref={anchorRef}
-          size="md"
-          collaborators={[
+      <AvatarGroup
+        accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+        accessibilityExpanded={open}
+        addCollaborators
+        role="button"
+        onClick={() => setOpen( open => !open)}
+        ref={anchorRef}
+        size="md"
+        collaborators={[
 
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-            ...new Array(10),
-          ]}
-          />
-      </Box>
+          {
+            name: 'Keerthi',
+            src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          },
+          {
+            name: 'Alberto',
+            src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+          },
+          ...new Array(10),
+        ]}
+        />
       {open && (
         <Layer>
           <Popover
@@ -223,12 +221,12 @@ card(
   <MainSection name="Variants">
     <MainSection.Subsection
       title="Fixed sizes"
-      description="AvatarGroup is available in 3 fixed height sizes: 'xs' (24px) , 'sm' (32px), and 'md' (48px)."
+      description="AvatarGroup is available in 3 fixed height sizes: `xs` (24px) , `sm` (32px), and `md` (48px)."
     >
       <CombinationNew size={['xs', 'sm', 'md']}>
         {({ size }) => (
           <AvatarGroup
-            accessibilityLabel="Group collaborators: Keerthi, Alberto, and Shanice."
+            accessibilityLabel="Collaborators: Keerthi, Alberto, and Shanice."
             size={size}
             collaborators={[
               {
@@ -250,7 +248,7 @@ card(
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Responsive sizing"
-      description="AvatarGroup is a responsive component. AvatarGroups that are not given a size prop or use size=`fit` will expand to fit to the width of their parent container. A common use case is to achieve column-based sizing.
+      description="AvatarGroup is a responsive component. Avatar Groups that are not given a size prop or use size `fit` will expand to fit to the width of their parent container. A common use case is to achieve column-based sizing.
 
       Resize the width or number of avatars to see the AvatarGroup change to match the width of the Column it's been placed in.
 "
@@ -262,7 +260,7 @@ card(
   <Flex>
     <Box column={5}>
       <AvatarGroup
-        accessibilityLabel="Group collaborators: Keerthi, Alberto, and Shanice."
+        accessibilityLabel="Collaborators: Keerthi, Alberto, and Shanice."
         size="fit"
         collaborators={[
           {
@@ -365,24 +363,22 @@ card(
         {({ addCollaborators, collaborators }) => {
           const accessibilityLabel =
             collaborators.length <= 3
-              ? `Group collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
-              : `Group collaborators: ${collaborators
+              ? `Collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
+              : `Collaborators: ${collaborators
                   .slice(0, 2)
                   .map((x) => x?.name)
                   .join(', ')} ${
                   collaborators.length > 3 ? `and ${collaborators.length - 2} more.` : '.'
                 }`;
           return addCollaborators ? (
-            <Box>
-              <AvatarGroup
-                accessibilityLabel={`${accessibilityLabel} Add collaborators to this board.`}
-                size="md"
-                collaborators={collaborators}
-                addCollaborators
-                onClick={() => {}}
-                role="button"
-              />
-            </Box>
+            <AvatarGroup
+              accessibilityLabel={`${accessibilityLabel} Add collaborators to this board.`}
+              size="md"
+              collaborators={collaborators}
+              addCollaborators
+              onClick={() => {}}
+              role="button"
+            />
           ) : (
             <AvatarGroup
               accessibilityLabel={accessibilityLabel}
@@ -396,12 +392,12 @@ card(
     <MainSection.Subsection
       columns={2}
       title="Role"
-      description="AvatarGroup can be display only, but can also act as a button or link. It will only be clickable if role is set to `button` or `link`. For button role, `onClick is required. For link role, `href` is required."
+      description="AvatarGroup can be display only, but can also act as a button or link. It will only be clickable if role is set to `button` or `link`. For button role, `onClick` is required. For link role, `href` is required."
     >
       <MainSection.Card
         cardSize="md"
         defaultCode={`
-function Example() {
+function ButtonExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
   const anchorRef = React.useRef();
@@ -431,16 +427,14 @@ const List = () => (
 
   return (
     <React.Fragment>
-      <Box>
-        <AvatarGroup
-          accessibilityLabel="Click to see group collaborators."
-          role="button"
-          onClick={() => setOpen( open => !open)}
-          ref={anchorRef}
-          size="md"
-          collaborators={collaborators}
-          />
-        </Box>
+      <AvatarGroup
+        accessibilityLabel="Click to see group collaborators."
+        role="button"
+        onClick={() => setOpen( open => !open)}
+        ref={anchorRef}
+        size="md"
+        collaborators={collaborators}
+        />
       {open && (
         <Layer>
           <Popover
@@ -476,7 +470,7 @@ const List = () => (
       <MainSection.Card
         cardSize="md"
         defaultCode={`
-function Example() {
+function LinkExample() {
   const [open, setOpen] = React.useState(false);
   const [selectedBoard, setSelectedBoard] = React.useState('Fashion');
   const collaborators = [
@@ -493,18 +487,14 @@ function Example() {
   ];
 
   return (
-    <React.Fragment>
-      <Box>
-        <AvatarGroup
-          accessibilityLabel="Visit group activity board."
-          role="link"
-          onClick={() => setOpen( open => !open)}
-          size="md"
-          collaborators={collaborators}
-          href="#Role"
-          />
-        </Box>
-    </React.Fragment>
+    <AvatarGroup
+      accessibilityLabel="Visit group activity board."
+      role="link"
+      onClick={() => setOpen( open => !open)}
+      size="md"
+      collaborators={collaborators}
+      href="#Role"
+      />
   );
 }
   `}
