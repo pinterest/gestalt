@@ -5,6 +5,14 @@ describe('Datapoint Accessibility check', () => {
   });
 
   it('Tests accessibility on the Datapoint page', () => {
+    cy.configureAxe({
+      rules: [
+        {
+          id: 'button-name',
+          enabled: false,
+        },
+      ],
+    });
     cy.checkA11y();
   });
 });
