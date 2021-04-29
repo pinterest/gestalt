@@ -201,7 +201,7 @@ function ModuleExample() {
     <Box column={12} maxWidth={800} padding={2}>
       <Module
         badgeText="Try it out!"
-        id="ModuleExample - icon"
+        id="ModuleExample - badge"
         title="Title"
         >
         <Text size="md">This is example content.</Text>
