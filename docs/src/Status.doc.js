@@ -20,7 +20,7 @@ card(
   <Status type='ok' title="OK" subtext="Updated 2 days ago" />
 </Flex>
 `}
-    pilot
+    badge="pilot"
   />,
 );
 

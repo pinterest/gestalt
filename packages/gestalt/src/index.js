@@ -1,6 +1,7 @@
 // @flow strict
 import ActivationCard from './ActivationCard.js';
 import Avatar from './Avatar.js';
+import AvatarGroup from './AvatarGroup.js';
 import AvatarPair from './AvatarPair.js';
 import Badge from './Badge.js';
 import Box from './Box.js';
@@ -67,6 +68,7 @@ import { useColorScheme } from './contexts/ColorScheme.js';
 export {
   ActivationCard,
   Avatar,
+  AvatarGroup,
   AvatarPair,
   Badge,
   Box,

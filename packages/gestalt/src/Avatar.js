@@ -5,61 +5,19 @@ import Box from './Box.js';
 import Icon from './Icon.js';
 import Image from './Image.js';
 import Mask from './Mask.js';
-import typography from './Typography.css';
 import { useColorScheme } from './contexts/ColorScheme.js';
+import DefaultAvatar from './DefaultAvatar.js';
 
-const Square = (props: *) => (
-  <Box {...props} position="relative">
-    <Box dangerouslySetInlineStyle={{ __style: { paddingBottom: '100%' } }} position="relative" />
-    <Box position="absolute" top left bottom right>
-      {props.children}
-    </Box>
-  </Box>
-);
-
-const DefaultAvatar = ({
-  accessibilityLabel,
-  name,
-}: {|
-  accessibilityLabel?: string,
+export type CollaboratorDataType = {|
   name: string,
-|}) => {
-  const { colorGray300 } = useColorScheme();
-  const firstInitial = name ? [...name][0].toUpperCase() : '';
-  const title = accessibilityLabel ?? name;
-
-  return (
-    <Square color="lightGray" rounding="circle" overflow="hidden">
-      <svg
-        width="100%"
-        viewBox="-50 -50 100 100"
-        version="1.1"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <title>{title}</title>
-        <text
-          fontSize="40px"
-          fill={colorGray300}
-          dy="0.35em"
-          textAnchor="middle"
-          className={[typography.antialiased, typography.sansSerif, typography.fontWeightBold].join(
-            ' ',
-          )}
-        >
-          {firstInitial}
-        </text>
-      </svg>
-    </Square>
-  );
-};
+  src?: string,
+|};
 
 type Props = {|
+  ...CollaboratorDataType,
   accessibilityLabel?: string,
-  name: string,
   outline?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit',
-  src?: string,
   verified?: boolean,
 |};
 
