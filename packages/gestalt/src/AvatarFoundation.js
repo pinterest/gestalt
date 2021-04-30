@@ -72,7 +72,6 @@ export default function AvatarFoundation({
     <ResponsiveFitSizeBox outline={outline}>
       {content === 'text' ? (
         <svg
-          alignmentBaseline="middle"
           width="100%"
           viewBox="-50 -50 100 100"
           version="1.1"

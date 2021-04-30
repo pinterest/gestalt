@@ -24,7 +24,6 @@ exports[`Avatar renders an outline 1`] = `
       className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
-        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
@@ -72,7 +71,6 @@ exports[`Avatar renders multi-byte character initial 1`] = `
       className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
-        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
@@ -472,7 +470,6 @@ exports[`Avatar renders the verified icon 1`] = `
       className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
-        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"
@@ -557,7 +554,6 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
       className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
     >
       <svg
-        alignmentBaseline="middle"
         preserveAspectRatio="xMidYMid meet"
         version="1.1"
         viewBox="-50 -50 100 100"

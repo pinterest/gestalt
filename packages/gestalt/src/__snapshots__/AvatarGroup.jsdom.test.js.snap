@@ -307,7 +307,6 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                   class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                 >
                   <svg
-                    alignment-baseline="middle"
                     preserveAspectRatio="xMidYMid meet"
                     version="1.1"
                     viewBox="-50 -50 100 100"
@@ -370,7 +369,6 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
                     class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                   >
                     <svg
-                      alignment-baseline="middle"
                       preserveAspectRatio="xMidYMid meet"
                       version="1.1"
                       viewBox="-50 -50 100 100"
