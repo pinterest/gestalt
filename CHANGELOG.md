@@ -1,3 +1,9 @@
+## 21.11.2 (Apr 30, 2021)
+
+### Patch
+
+- AvatarGroup: remove unnecessary attr in svg (#1490)
+
 ## 21.11.1 (Apr 30, 2021)
 
 ### Patch
