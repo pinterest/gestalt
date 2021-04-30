@@ -13,6 +13,8 @@ type TrendObject = {|
   value: number,
 |};
 
+type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
+
 type Props = {|
   infoText?: string,
   size?: 'md' | 'lg',
@@ -30,12 +32,6 @@ export default function Datapoint({
   trendSentiment = 'auto',
   value,
 }: Props): Node {
-  const infoTextNode = infoText ? (
-    <Tooltip text={infoText}>
-      <IconButton accessibilityLabel="" size="sm" icon="info-circle" iconColor="gray" padding={1} />
-    </Tooltip>
-  ) : null;
-
   const valueSize = size === 'lg' ? 'lg' : 'sm';
   const percentChangeGap = size === 'lg' ? 4 : 2;
 
@@ -43,7 +39,17 @@ export default function Datapoint({
     <Flex gap={1} direction="column">
       <Flex gap={1} alignItems="center" minHeight={24}>
         <Text size="sm">{title}</Text>
-        {infoTextNode}
+        {infoText && (
+          <Tooltip text={infoText}>
+            <IconButton
+              accessibilityLabel=""
+              size="sm"
+              icon="info-circle"
+              iconColor="gray"
+              padding={1}
+            />
+          </Tooltip>
+        )}
       </Flex>
       <Flex gap={percentChangeGap} alignItems="center">
         <Heading accessibilityLevel="none" size={valueSize}>
@@ -71,7 +77,11 @@ Datapoint.propTypes = {
     accessibilityLabel: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
   }),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  trendSentiment: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
+  trendSentiment: (PropTypes.oneOf([
+    'good',
+    'bad',
+    'neutral',
+    'auto',
+  ]): React$PropType$Primitive<Sentiment>),
   value: PropTypes.string.isRequired,
 };

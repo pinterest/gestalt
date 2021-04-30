@@ -29,30 +29,32 @@ card(
       {
         name: 'infoText',
         type: 'string',
-        description: 'Contextual information displayed in a tooltip to describe the Datapoint',
+        description:
+          'Contextual information displayed in a tooltip to describe the Datapoint. See the [infoText](#Info-text) variant to learn more.',
       },
       {
         name: 'size',
         type: `'md' | 'lg'`,
         defaultValue: 'md',
-        description: 'Used to set the size of the datapoint',
+        description:
+          'Used to set the size of the datapoint. See the [size](#Size) variant to learn more.',
       },
       {
         name: 'title',
         type: 'string',
-        description: 'The header for the component',
+        description: 'The header for the component.',
         required: true,
       },
       {
         name: 'trend',
         type: '{| accessibilityLabel: string, value: number |}',
-        description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up")`,
+        description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up").  See the [trend](#Trend) variant to learn more.`,
       },
       {
         name: 'trendSentiment',
         type: `'good' | 'bad' | 'neutral' | 'auto'`,
         defaultValue: 'auto',
-        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral"`,
+        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral".  See the [trendSentiment](#Trend-sentiment) variant to learn more.`,
       },
       {
         name: 'value',
