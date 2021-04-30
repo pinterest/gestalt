@@ -12,9 +12,10 @@ What is the purpose of this PR?
 - [TDD](paper doc link)
 - [Figma](link to figma file)
 
-## Test Plan
+## Checklist
 
-- [ ] Added Unit Tests
-- [ ] Added Accessibility Tests
-- [ ] Visually checked for regressions
-- [ ] Stakeholder feedback (ex. Gestalt designers)
+- [ ] Added Unit and Flow Tests
+- [ ] Added documentation + accessibility tests
+- [ ] Verified Accessibility: keyboard & screen reader interaction
+- [ ] Checked Dark Mode, Responsiveness, and Right-to-Left support
+- [ ] Checked Stakeholder feedback (ex. Gestalt designers)
