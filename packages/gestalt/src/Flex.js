@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Children } from 'react';
+import { Children, type Node } from 'react';
 import PropTypes from 'prop-types';
 import FlexItem from './FlexItem.js';
 import styles from './Flex.css';

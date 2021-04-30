@@ -4,8 +4,8 @@ import icons from './icons/index.js';
 
 export type TypeOptions = 'error' | 'info';
 
-export type BaseModuleProps = {|
-  children?: Node,
+export type BaseModuleTitleProps = {|
+  badgeText?: string,
   icon?: $Keys<typeof icons>,
   iconAccessibilityLabel?: string,
   title?: string,
@@ -13,7 +13,8 @@ export type BaseModuleProps = {|
 |};
 
 export type ModuleExpandableItemBaseProps = {|
-  ...BaseModuleProps,
+  ...BaseModuleTitleProps,
+  children?: Node,
   summary?: $ReadOnlyArray<string>,
-  title: string, // overwriting base to be required
+  title: string, // overwriting to be required
 |};

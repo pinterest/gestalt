@@ -24,17 +24,17 @@ card(
     id="static-Module"
     props={[
       {
-        name: 'id',
-        href: 'static-default',
+        name: 'badgeText',
+        href: 'static-badge',
         type: 'string',
-        required: true,
-        description: 'Id to identify this Module',
+        description:
+          'Add a badge displayed after the title. Will not be displayed if `title` is not provided. Be sure to localize the text.',
       },
       {
-        name: 'title',
+        name: 'children',
         href: 'static-default',
-        type: 'string',
-        description: 'Title of this Module',
+        type: 'React.Node',
+        description: 'Content to display underneath Module title',
       },
       {
         name: 'icon',
@@ -46,7 +46,21 @@ card(
         name: 'iconAccessibilityLabel',
         href: 'static-icon',
         type: 'string',
-        description: 'Label to provide information about the icon used for screen readers',
+        description:
+          'Label to provide information about the icon used for screen readers. Be sure to localize the label.',
+      },
+      {
+        name: 'id',
+        href: 'static-default',
+        type: 'string',
+        required: true,
+        description: 'Unique id to identify this Module',
+      },
+      {
+        name: 'title',
+        href: 'static-default',
+        type: 'string',
+        description: 'Title of this Module. Be sure to localize the text.',
       },
       {
         name: 'type',
@@ -54,12 +68,6 @@ card(
         type: '"info" | "error"',
         defaultValue: 'info',
         description: 'If set to `error`, displays error icon and changes title to red text',
-      },
-      {
-        name: 'children',
-        href: 'static-default',
-        type: 'React.Node',
-        description: 'Content to display underneath Module title',
       },
     ]}
   />,
@@ -72,19 +80,12 @@ card(
     id="expandable-module"
     props={[
       {
-        name: 'id',
-        href: 'expandable-default',
-        type: 'string',
-        required: true,
-        description: 'Base Id used to give each item in the Module a unique Id',
-      },
-      {
         name: 'accessibilityExpandLabel',
         href: 'expandable-default',
         type: 'string',
         required: true,
         description:
-          'Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module"',
+          'Label used to communicate to screen readers which module will be expanded when interacting with the title button. Should be something clear, like "Expand Security Policies Module". Be sure to localize the label.',
       },
       {
         name: 'accessibilityCollapseLabel',
@@ -92,7 +93,7 @@ card(
         type: 'string',
         required: true,
         description:
-          'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module"',
+          'Label used to communicate to screen readers which module will be collapsed when interacting with the title button. Should be something clear, like "Collapse Security Policies Module". Be sure to localize the label.',
       },
       {
         name: 'expandedIndex',
@@ -103,21 +104,36 @@ card(
         ],
       },
       {
-        name: 'onExpandedChange',
-        type: '(?number) => void',
-        required: false,
-        description: [
-          'This callback is executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
-        ],
+        name: 'id',
+        href: 'expandable-default',
+        type: 'string',
+        required: true,
+        description: 'Unique id to identify this Module',
       },
       {
         name: 'items',
         href: 'expandable-items',
-        type:
-          'Array<{| title: string, icon?: $Keys<typeof icons>, summary?: Array<string>, type?: "info" | "error", iconAccessibilityLabel?: string, children: ?React.Node |}>',
+        type: `
+        Array<{|
+          badgeText?: string,
+          children: ?React.Node,
+          icon?: $Keys<typeof icons>,
+          iconAccessibilityLabel?: string,
+          summary?: Array<string>,
+          title: string,
+          type?: "info" | "error" |}>
+        `,
         required: true,
         description:
-          'Array of modules to display in a stack - only one item can be expanded at a time',
+          'Array of modules displayed in a stack. Only one item can be expanded at a time.',
+      },
+      {
+        name: 'onExpandedChange',
+        type: '(?number) => void',
+        required: false,
+        description: [
+          'Callback executed whenever any module item is expanded or collapsed. It receives the index of the currently expanded module, or null if none are expanded.',
+        ],
       },
     ]}
   />,
@@ -152,7 +168,7 @@ card(
     description={`
     An Icon can be provided to be placed before the \`title\`.
 
-    It is recommended that icons be used sparingly to convey additional information, and instead should simply reenforce information in the title. If the icon does provide additional information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.
+    It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
     `}
     id="static-icon"
     defaultCode={`
@@ -163,6 +179,29 @@ function ModuleExample() {
         icon="lock"
         iconAccessibilityLabel="Module Locked - check permission settings"
         id="ModuleExample - icon"
+        title="Title"
+        >
+        <Text size="md">This is example content.</Text>
+      </Module>
+    </Box>
+  );
+}
+`}
+  />,
+);
+
+card(
+  <Example
+    name="Static - Badge"
+    description={`Badge text can be provided, which will be displayed after the \`title\`. Note that if no title text is provided, the badge will not be displayed.`}
+    id="static-badge"
+    defaultCode={`
+function ModuleExample() {
+  return (
+    <Box column={12} maxWidth={800} padding={2}>
+      <Module
+        badgeText="Try it out!"
+        id="ModuleExample - badge"
         title="Title"
         >
         <Text size="md">This is example content.</Text>
@@ -212,7 +251,7 @@ card(
   <Example
     name="Expandable"
     id="expandable-default"
-    description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present, the collapsed state shows optional \`summary\` content, and the expanded state shows any content desired.`}
+    description={`Modules can also allow for expanding and collapsing content. The \`title\` is required and always present. The collapsed state shows optional \`summary\` content, while the expanded state shows any content desired.`}
     defaultCode={`
 function ModuleExample1() {
   return (
@@ -274,8 +313,12 @@ function ModuleExample2() {
 
 card(
   <Example
-    name="Expandable - Icon"
-    description={`An Icon can be provided to be placed before the \`title\`. If the icon provides information about this module (locked, disabled, new, etc.), be sure to provide an \`iconAccessibilityLabel\`.`}
+    name="Expandable - Icon and Badge"
+    description={`
+    An Icon can be provided to be placed before the \`title\`.
+    It is recommended that icons be used sparingly to convey additional information, and instead should simply reinforce information in the title. Be sure to provide an \`iconAccessibilityLabel\`.
+
+    Badge text can also be provided, which will be displayed after the \`title\`.`}
     defaultCode={`
 function ModuleExample3() {
   return (
@@ -287,10 +330,16 @@ function ModuleExample3() {
         items={[
           {
             children: <Text size="md">Children1</Text>,
-            iconAccessibilityLabel: "title icon",
             icon: 'lock',
+            iconAccessibilityLabel: "title icon",
             title: 'Example with icon',
-          }]}>
+          },
+          {
+            badgeText: 'Try it out!',
+            children: <Text size="md">Children2</Text>,
+            title: 'Example with badge',
+          },
+        ]}>
       </Module.Expandable>
     </Box>
   );

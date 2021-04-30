@@ -1,5 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Module renders a badge correctly 1`] = `
+<div
+  className="box paddingX6 paddingY6 rounding4 shadow"
+  id="module-test"
+>
+  <div
+    className="Flex columnGap6 xsDirectionColumn"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="Flex rowGap2 xsDirectionRow"
+      >
+        <div
+          className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
+        >
+          <div
+            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+            title="Testing"
+          >
+            Testing
+          </div>
+        </div>
+        <div
+          className="FlexItem"
+        >
+          <div
+            className="box marginStart2 relative"
+            style={
+              Object {
+                "top": "1px",
+              }
+            }
+          >
+            <span
+              className="Badge middle blueBg"
+            >
+              Try it out!
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+      >
+        Testing
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Module renders a title correctly 1`] = `
 <div
   className="box paddingX6 paddingY6 rounding4 shadow"
@@ -16,6 +78,11 @@ exports[`Module renders a title correctly 1`] = `
       >
         <div
           className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
         >
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
@@ -66,6 +133,11 @@ exports[`Module renders an error correctly 1`] = `
         </div>
         <div
           className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
         >
           <div
             className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
@@ -122,6 +194,11 @@ exports[`Module renders an icon correctly 1`] = `
         </div>
         <div
           className="FlexItem"
+          style={
+            Object {
+              "minWidth": 0,
+            }
+          }
         >
           <div
             className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"

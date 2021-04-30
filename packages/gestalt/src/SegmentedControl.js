@@ -54,7 +54,7 @@ function SegmentedControlItem({
       style={{ width }}
     >
       {typeof item === 'string' ? (
-        <Text color={isSelected ? 'darkGray' : 'gray'} align="center" size={size} weight="bold">
+        <Text color="darkGray" align="center" size={size} weight="bold">
           {item}
         </Text>
       ) : (

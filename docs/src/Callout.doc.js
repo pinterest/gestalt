@@ -288,7 +288,7 @@ card(
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      title="info"
+      title="Info"
       description="Info Callouts communicate helpful messages to users about the product. In most cases, they should provide an action for users to take."
     >
       <MainSection.Card

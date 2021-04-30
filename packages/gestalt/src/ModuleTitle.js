@@ -1,25 +1,26 @@
 // @flow strict
-import type { Node } from 'react';
+import { type Node } from 'react';
+import Badge from './Badge.js';
+import Box from './Box.js';
 import Flex from './Flex.js';
 import Icon from './Icon.js';
 import Text from './Text.js';
-import icons from './icons/index.js';
-import { type TypeOptions } from './moduleTypes.js';
+import { type BaseModuleTitleProps, type TypeOptions } from './moduleTypes.js';
 
-type TitleProps = {|
-  icon?: $Keys<typeof icons>,
-  iconAccessibilityLabel?: string,
-  title: string,
-  type: TypeOptions,
+type Props = {|
+  ...BaseModuleTitleProps,
+  title: string, // overwriting to be required
+  type: TypeOptions, // overwriting to be required
 |};
 
 export default function ModuleTitle({
+  badgeText,
   icon,
   iconAccessibilityLabel,
   title,
   type = 'info',
-}: TitleProps): Node {
-  const MODULE_TYPE_ATTRIBUTES = {
+}: Props): Node {
+  const TYPE_ICON_ATTRIBUTES = {
     info: {
       icon,
       color: 'darkGray',
@@ -30,7 +31,7 @@ export default function ModuleTitle({
     },
   };
 
-  const { color, icon: iconName } = MODULE_TYPE_ATTRIBUTES[type];
+  const { color, icon: iconName } = TYPE_ICON_ATTRIBUTES[type];
 
   return (
     <Flex gap={2}>
@@ -38,9 +39,21 @@ export default function ModuleTitle({
         <Icon accessibilityLabel={iconAccessibilityLabel ?? ''} color={color} icon={iconName} />
       )}
 
-      <Text color={color} truncate weight="bold">
-        {title}
-      </Text>
+      <Flex.Item minWidth={0}>
+        <Text color={color} truncate weight="bold">
+          {title}
+        </Text>
+      </Flex.Item>
+
+      {badgeText && (
+        <Box
+          dangerouslySetInlineStyle={{ __style: { top: '1px' } }}
+          marginStart={2}
+          position="relative"
+        >
+          <Badge text={badgeText} />
+        </Box>
+      )}
     </Flex>
   );
 }

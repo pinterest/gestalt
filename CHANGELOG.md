@@ -1,3 +1,51 @@
+## 21.11.1 (Apr 30, 2021)
+
+### Patch
+
+- Internal: Update PR template (#1489)
+
+## 21.11.0 (Apr 29, 2021)
+
+### Minor
+
+- AvatarGroup: new component (#1466)
+
+## 21.10.1 (Apr 29, 2021)
+
+### Patch
+
+- Internal: Add .DS_Store to .gitignore (#1488)
+
+## 21.10.0 (Apr 29, 2021)
+
+### Minor
+
+- Module: Add badgeText prop (#1486)
+
+## 21.9.0 (Apr 28, 2021)
+
+### Minor
+
+- Flex: add `minWidth` prop to Flex.Item (#1487)
+
+## 21.8.4 (Apr 28, 2021)
+
+### Patch
+
+- Button: fix inline in role="link" (#1485)
+
+## 21.8.3 (Apr 28, 2021)
+
+### Patch
+
+- Docs: Make unexpanded code example more obviously interactive (#1484)
+
+## 21.8.2 (Apr 26, 2021)
+
+### Patch
+
+- SegmentedControl: Update text color for accessibility (#1482)
+
 ## 21.8.1 (Apr 23, 2021)
 
 ### Patch

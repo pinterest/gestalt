@@ -77,7 +77,7 @@ function SegmentedControlExample() {
     <Icon
       icon="pin"
       accessibilityLabel="Pin"
-      color={itemIndex === 3 ? 'darkGray' : 'gray'}
+      color="darkGray"
     />,
   ];
 

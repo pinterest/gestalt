@@ -1,14 +1,11 @@
 // @flow strict
 import type { Node } from 'react';
 import PropTypes from 'prop-types';
-import Avatar from './Avatar.js';
+import Avatar, { type CollaboratorDataType } from './Avatar.js';
 import Box from './Box.js';
 
 type Props = {|
-  collaborators: $ReadOnlyArray<{|
-    name: string,
-    src?: string,
-  |}>,
+  collaborators: $ReadOnlyArray<CollaboratorDataType>,
   size?: 'md' | 'lg' | 'fit',
 |};
 

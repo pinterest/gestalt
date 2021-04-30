@@ -1,6 +1,5 @@
 // @flow strict
 import type { Node } from 'react';
-
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
