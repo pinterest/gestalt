@@ -1,3 +1,9 @@
+## 21.12.0 (Apr 30, 2021)
+
+### Minor
+
+- Internal: Fix setExtraStackFrame exception (#1492)
+
 ## 21.11.2 (Apr 30, 2021)
 
 ### Patch
