@@ -55,12 +55,12 @@ export default function DatapointTrend({
 }
 
 DatapointTrend.propTypes = {
-  value: PropTypes.number,
+  iconAccessibilityLabel: PropTypes.string,
   sentiment: (PropTypes.oneOf([
     'good',
     'bad',
     'neutral',
     'auto',
   ]): React$PropType$Primitive<Sentiment>),
-  iconAccessibilityLabel: PropTypes.string,
+  value: PropTypes.number,
 };

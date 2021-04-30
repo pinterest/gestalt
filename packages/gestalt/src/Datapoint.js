@@ -14,21 +14,21 @@ type TrendObject = {|
 |};
 
 type Props = {|
-  title: string,
-  value: string,
-  trend?: TrendObject,
-  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
   infoText?: string,
   size?: 'md' | 'lg',
+  title: string,
+  trend?: TrendObject,
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
+  value: string,
 |};
 
 export default function Datapoint({
-  title,
-  value,
-  trend,
   infoText,
-  trendSentiment = 'auto',
   size = 'md',
+  title,
+  trend,
+  trendSentiment = 'auto',
+  value,
 }: Props): Node {
   const infoTextNode = infoText ? (
     <Tooltip text={infoText}>
@@ -62,16 +62,16 @@ export default function Datapoint({
 }
 
 Datapoint.propTypes = {
+  infoText: PropTypes.string,
+  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  size: PropTypes.oneOf(['md', 'lg']),
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   trend: PropTypes.shape({
     accessibilityLabel: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
   }),
-  infoText: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   trendSentiment: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOf(['md', 'lg']),
+  value: PropTypes.string.isRequired,
 };

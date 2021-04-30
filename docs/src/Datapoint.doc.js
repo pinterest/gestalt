@@ -18,38 +18,14 @@ card(
     defaultCode={`
 <Datapoint size="lg" infoText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="2.34M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
 `}
-    pilot
+    badge="pilot"
   />,
 );
 
-// Specifying Component gives auto warnings about missing props
 card(
   <PropTable
     Component={Datapoint}
     props={[
-      {
-        name: 'title',
-        type: 'string',
-        description: 'The header for the component',
-        required: true,
-      },
-      {
-        name: 'value',
-        type: 'string',
-        description: 'The main datapoint value (e.g., 1.23M)',
-        required: true,
-      },
-      {
-        name: 'trend',
-        type: '{| accessibilityLabel: string, value: string |}',
-        description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up")`,
-      },
-      {
-        name: 'trendSentiment',
-        type: `'good' | 'bad' | 'neutral' | 'auto'`,
-        defaultValue: 'auto',
-        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral"`,
-      },
       {
         name: 'infoText',
         type: 'string',
@@ -60,6 +36,29 @@ card(
         type: `'md' | 'lg'`,
         defaultValue: 'md',
         description: 'Used to set the size of the datapoint',
+      },
+      {
+        name: 'title',
+        type: 'string',
+        description: 'The header for the component',
+        required: true,
+      },
+      {
+        name: 'trend',
+        type: '{| accessibilityLabel: string, value: number |}',
+        description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up")`,
+      },
+      {
+        name: 'trendSentiment',
+        type: `'good' | 'bad' | 'neutral' | 'auto'`,
+        defaultValue: 'auto',
+        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral"`,
+      },
+      {
+        name: 'value',
+        type: 'string',
+        description: 'The main datapoint value (e.g., 1.23M)',
+        required: true,
       },
     ]}
   />,
