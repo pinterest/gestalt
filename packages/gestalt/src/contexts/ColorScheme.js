@@ -117,14 +117,20 @@ const themeToStyles = (theme) => {
   return styles;
 };
 
-const getTheme = (colorScheme: ?ColorScheme) =>
+const getTheme = (colorScheme: ?ColorScheme, parentalTheme: ColorScheme) =>
   colorScheme === 'dark' ||
   (colorScheme === 'userPreference' &&
     typeof window !== 'undefined' &&
     window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches)
+    window.matchMedia('(prefers-color-scheme: dark)').matches) ||
+  parentalTheme === darkModeTheme
     ? darkModeTheme
     : lightModeTheme;
+
+export function useColorScheme(): Theme {
+  const theme = useContext(ThemeContext);
+  return theme || lightModeTheme;
+}
 
 export function ColorSchemeProvider({
   children,
@@ -137,8 +143,11 @@ export function ColorSchemeProvider({
   const handlePrefChange = (e) => {
     setTheme(getTheme(e.matches ? 'dark' : 'light'));
   };
+
+  const parentalTheme = useColorScheme();
+
   useEffect(() => {
-    setTheme(getTheme(colorScheme));
+    setTheme(getTheme(colorScheme, parentalTheme));
     if (colorScheme === 'userPreference' && window.matchMedia) {
       window.matchMedia('(prefers-color-scheme: dark)').addListener(handlePrefChange);
       return () =>
@@ -170,8 +179,3 @@ ColorSchemeProvider.propTypes = {
   children: PropTypes.node,
   colorScheme: ColorSchemePropType,
 };
-
-export function useColorScheme(): Theme {
-  const theme = useContext(ThemeContext);
-  return theme || lightModeTheme;
-}
