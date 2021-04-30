@@ -3,16 +3,16 @@
 <!--
 What is the purpose of this PR?
 
-* Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasing)? `ComponentName: Description`
+Have you [formatted the PR title](https://github.com/pinterest/gestalt/#releasing)? `ComponentName: Description`
 -->
 
-## Links
+### Links
 
 - JIRA: https://jira.pinadmin.com/browse/PDS-XXX
 - [TDD](paper doc link)
 - [Figma](link to figma file)
 
-## Checklist
+### Checklist
 
 - [ ] Added Unit and Flow Tests
 - [ ] Added documentation + accessibility tests
