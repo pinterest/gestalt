@@ -1,3 +1,9 @@
+## 21.11.1 (Apr 30, 2021)
+
+### Patch
+
+- Internal: Update PR template (#1489)
+
 ## 21.11.0 (Apr 29, 2021)
 
 ### Minor
