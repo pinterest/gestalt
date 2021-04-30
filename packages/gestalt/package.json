@@ -24,7 +24,7 @@
     "build": "rollup -c rollup.config.js",
     "postpack": "rm README.md",
     "prepack": "cp ../../README.md .",
-    "prepublish": "rollup -c rollup.config.js",
+    "prepublish": "NODE_ENV=production rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   },
   "browserslist": [
