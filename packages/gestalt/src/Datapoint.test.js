@@ -16,13 +16,7 @@ describe('Datapoint', () => {
   });
 
   it('renders an accessibility label', () => {
-    const tree = create(
-      <Datapoint
-        title="Title"
-        value="1M"
-        trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
-      />,
-    ).toJSON();
+    const tree = create(<Datapoint title="Title" value="1M" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

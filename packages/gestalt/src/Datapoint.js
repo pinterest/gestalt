@@ -17,7 +17,7 @@ type Props = {|
   title: string,
   value: string,
   trend?: TrendObject,
-  trendSignal?: 'good' | 'bad' | 'neutral' | 'auto',
+  trendSentiment?: 'good' | 'bad' | 'neutral' | 'auto',
   infoText?: string,
   size?: 'md' | 'lg',
 |};
@@ -27,7 +27,7 @@ export default function Datapoint({
   value,
   trend,
   infoText,
-  trendSignal = 'auto',
+  trendSentiment = 'auto',
   size = 'md',
 }: Props): Node {
   const infoTextNode = infoText ? (
@@ -51,7 +51,7 @@ export default function Datapoint({
         </Heading>
         {trend && (
           <DatapointTrend
-            sentiment={trendSignal}
+            sentiment={trendSentiment}
             value={trend.value}
             iconAccessibilityLabel={trend.accessibilityLabel}
           />
@@ -71,7 +71,7 @@ Datapoint.propTypes = {
   }),
   infoText: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  trendSignal: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
+  trendSentiment: PropTypes.oneOf(['good', 'bad', 'neutral', 'auto']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg']),
 };

@@ -45,10 +45,10 @@ card(
         description: `Object detailing the trend value (change in time - e.g., +30%), and accessibilityLabel to describe the trend's icon (e.g., "Trending up")`,
       },
       {
-        name: 'trendSignal',
+        name: 'trendSentiment',
         type: `'good' | 'bad' | 'neutral' | 'auto'`,
         defaultValue: 'auto',
-        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSignal\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral"`,
+        description: `A visual indicator whether the trend is considered "good", "bad" or "neutral". By setting \`trendSentiment\` to \`auto\`, a positive trend will be considered "good", a negative trend will be considered "bad" and a trend of zero will be considered "neutral"`,
       },
       {
         name: 'infoText',
@@ -68,7 +68,7 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize the \`title\`, \`infoText\` and \`trendAccessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+    description={`Be sure to localize the \`title\`, \`infoText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
   />,
 );
 
@@ -92,7 +92,7 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Use \`trend\` to display the delta in the value of a Datapoint over time. Make sure to provide an \`accessibilityLabel\` when the trend is above or below zero.`}
+      description={`Use \`trend\` to display the change in the value of a Datapoint over time. Make sure to provide an \`accessibilityLabel\` when the trend is above or below zero.`}
       title="Trend"
     >
       <MainSection.Card
@@ -108,23 +108,23 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`Use \`trendSignal\` to explicitly the whether the \`trend\` is considered "good", "bad" or "neutral". By default, a positive trend will be considered "good", a negative trend "bad" and a trend of 0 "neutral".`}
-      title="Trend signal"
+      description={`By default, a positive trend will be considered "good", a negative trend "bad" and a trend of 0 "neutral". However, the \`trendSentiment\` property can be used to explicitly set whether the \`trend\` is considered "good", "bad" or "neutral", as demonstrated below.`}
+      title="Trend sentiment"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
 <Flex direction="column" gap={4}>
-  <Datapoint title="Bounce rate" value="86.3%" trend={{value: 29, accessibilityLabel: "Trending up"}} trendSignal="bad" />
-  <Datapoint title="Conversion falloffs" value="92" trend={{value: -10, accessibilityLabel: "Tending down"}} trendSignal="good" />
-  <Datapoint title="Spend" value="$19.3k" trend={{value: -4, accessibilityLabel: "Trending down"}} trendSignal="neutral"  />
+  <Datapoint title="Bounce rate" value="86.3%" trend={{value: 29, accessibilityLabel: "Trending up"}} trendSentiment="bad" />
+  <Datapoint title="Conversion falloffs" value="92" trend={{value: -10, accessibilityLabel: "Tending down"}} trendSentiment="good" />
+  <Datapoint title="Spend" value="$19.3k" trend={{value: -4, accessibilityLabel: "Trending down"}} trendSentiment="neutral"  />
 </Flex>
 `}
       />
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`The \`infoText\` prop is intended to provide the user context, detail and/or framing for a Datapoint.`}
+      description={`The \`infoText\` prop is intended to provide the user context, detail and/or framing for a Datapoint through a [Tooltip](/Tooltip).`}
       title="Info text"
     >
       <MainSection.Card
