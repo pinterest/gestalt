@@ -14,6 +14,7 @@ import Collage from './Collage.js';
 import Collection from './Collection.js';
 import Column from './Column.js';
 import Container from './Container.js';
+import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
 import Flex from './Flex.js';
@@ -82,6 +83,7 @@ export {
   Column,
   CompositeZIndex,
   Container,
+  Datapoint,
   Divider,
   Dropdown,
   FixedZIndex,
