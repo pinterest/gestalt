@@ -16,7 +16,7 @@ card(
     name="Datapoint"
     description="Datapoint displays at-a-glance data for a user to quickly view key metrics."
     defaultCode={`
-<Datapoint size="lg" infoText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="2.34M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
+<Datapoint size="lg" tooltipText="The number of times your ads were seen, including earned impressions" title="Total impressions" value="2.34M" trend={{value: 30, accessibilityLabel: "Trending up"}} />
 `}
     badge="pilot"
   />,
@@ -27,10 +27,10 @@ card(
     Component={Datapoint}
     props={[
       {
-        name: 'infoText',
+        name: 'tooltipText',
         type: 'string',
         description:
-          'Contextual information displayed in a tooltip to describe the Datapoint. See the [infoText](#Info-text) variant to learn more.',
+          'Contextual information displayed in a tooltip to describe the Datapoint. See the [tooltipText](#Tooltip-text) variant to learn more.',
       },
       {
         name: 'size',
@@ -69,7 +69,7 @@ card(
 card(
   <MainSection
     name="Localization"
-    description={`Be sure to localize the \`title\`, \`infoText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+    description={`Be sure to localize the \`title\`, \`tooltipText\` and trend \`accessibilityLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
   />,
 );
 
@@ -125,13 +125,13 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`The \`infoText\` prop is intended to provide the user context, detail and/or framing for a Datapoint through a [Tooltip](/Tooltip).`}
-      title="Info text"
+      description={`The \`tooltipText\` prop is intended to provide the user context, detail and/or framing for a Datapoint through a [Tooltip](/Tooltip).`}
+      title="Tooltip text"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-<Datapoint title="Spend" value="$5.7k" infoText="Total ad spend in the selected time period" />
+<Datapoint title="Spend" value="$5.7k" tooltipText="Total ad spend in the selected time period" />
     `}
       />
     </MainSection.Subsection>

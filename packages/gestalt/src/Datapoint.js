@@ -16,7 +16,7 @@ type TrendObject = {|
 type Sentiment = 'good' | 'bad' | 'neutral' | 'auto';
 
 type Props = {|
-  infoText?: string,
+  tooltipText?: string,
   size?: 'md' | 'lg',
   title: string,
   trend?: TrendObject,
@@ -25,7 +25,7 @@ type Props = {|
 |};
 
 export default function Datapoint({
-  infoText,
+  tooltipText,
   size = 'md',
   title,
   trend,
@@ -39,8 +39,8 @@ export default function Datapoint({
     <Flex gap={1} direction="column">
       <Flex gap={1} alignItems="center" minHeight={24}>
         <Text size="sm">{title}</Text>
-        {infoText && (
-          <Tooltip text={infoText}>
+        {tooltipText && (
+          <Tooltip text={tooltipText} idealDirection="up">
             <IconButton
               accessibilityLabel=""
               size="sm"
@@ -68,7 +68,7 @@ export default function Datapoint({
 }
 
 Datapoint.propTypes = {
-  infoText: PropTypes.string,
+  tooltipText: PropTypes.string,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   size: PropTypes.oneOf(['md', 'lg']),
   title: PropTypes.string.isRequired,

@@ -6,7 +6,11 @@ import DatapointTrend from './DatapointTrend.js';
 describe('DatapointTrend', () => {
   it('renders', () => {
     const tree = create(
-      <DatapointTrend iconAccessibilityLabel="Value change icon accessibility label" value={30} />,
+      <DatapointTrend
+        iconAccessibilityLabel="Value change icon accessibility label"
+        value={30}
+        sentiment="good"
+      />,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
