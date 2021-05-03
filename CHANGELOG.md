@@ -1,3 +1,9 @@
+## 21.13.0 (May 3, 2021)
+
+### Minor
+
+- Datapoint: New component for data display (#1483)
+
 ## 21.12.0 (Apr 30, 2021)
 
 ### Minor
