@@ -1,29 +1,29 @@
 // @flow strict
 import type { Node } from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Text from './Text.js';
 import labelStyles from './Label.css';
 import formStyles from './FormElement.css';
 import formLabelStyles from './FormLabel.css';
-import whitespaceStyles from './boxWhitespace.css';
+import boxWhitespaceStyles from './boxWhitespace.css';
+import whitespaceStyles from './whitespace.css';
 import boxStyles from './Box.css';
 
 type Props = {|
-  legend: string,
-  legendDisplay?: 'visible' | 'visuallyHidden',
   children: Node,
+  legend: string,
+  legendDisplay?: 'visible' | 'hidden',
 |};
 
 export default function Fieldset({ legend, legendDisplay = 'visible', children }: Props): Node {
   return (
-    <fieldset className={formStyles.unstyled}>
+    <fieldset className={cx(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>
       <legend
         className={cx(
           labelStyles.label,
           formLabelStyles.formLabel,
-          whitespaceStyles.paddingX0,
-          legendDisplay === 'visuallyHidden' && boxStyles.xsDisplayVisuallyHidden,
+          boxWhitespaceStyles.paddingX0,
+          legendDisplay === 'hidden' && boxStyles.xsDisplayVisuallyHidden,
         )}
       >
         <Text size="sm">{legend}</Text>
@@ -32,7 +32,3 @@ export default function Fieldset({ legend, legendDisplay = 'visible', children }
     </fieldset>
   );
 }
-
-Fieldset.propTypes = {
-  legend: PropTypes.string,
-};

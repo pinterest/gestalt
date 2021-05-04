@@ -130,7 +130,7 @@ function CheckboxExample() {
 card(
   <Example
     id="group"
-    description="Here is an example of an accessible group of checkboxes."
+    description="Here is an example of an accessible group of checkboxes. When creating a group of Checkboxes, be sure to wrap them in a [Fieldset](/Fieldset)."
     name="Example: Group"
     defaultCode={`
 function CheckboxExample() {
@@ -190,8 +190,8 @@ function CheckboxExample() {
     const [checkedCh, setCheckedCh] = React.useState(false);
 
   return (
-    <Box margin={-2}>
-      <Box padding={2}>
+    <Fieldset legend="What languages would you like to learn?">
+      <Flex direction="column" gap={2}>
         <Checkbox
           checked={checkedEn}
           id="english-info"
@@ -202,8 +202,6 @@ function CheckboxExample() {
             setCheckedEn(checked);
           }}
         />
-      </Box>
-      <Box padding={2}>
         <Checkbox
           checked={checkedSp}
           id="spanish-info"
@@ -214,8 +212,6 @@ function CheckboxExample() {
             setCheckedSp(checked);
           }}
         />
-      </Box>
-      <Box padding={2}>
         <Checkbox
           checked={checkedCh}
           id="chinese-info"
@@ -226,8 +222,8 @@ function CheckboxExample() {
             setCheckedCh(checked);
           }}
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Fieldset>
   );
 }
 `}
@@ -246,8 +242,8 @@ function CheckboxExample() {
     const [checkedCh, setCheckedCh] = React.useState(false);
 
   return (
-    <Box margin={-2}>
-      <Box padding={2}>
+    <Fieldset legend="Which backgrounds would you like to use?" legendDisplay="hidden">
+      <Flex direction="column" gap={4}>
         <Checkbox
           checked={checkedEn}
           id="coral"
@@ -259,8 +255,6 @@ function CheckboxExample() {
             setCheckedEn(checked);
           }}
         />
-      </Box>
-      <Box padding={2}>
         <Checkbox
           checked={checkedSp}
           id="blue"
@@ -272,8 +266,8 @@ function CheckboxExample() {
             setCheckedSp(checked);
           }}
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Fieldset>
   );
 }
 `}
