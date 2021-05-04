@@ -6,7 +6,7 @@ import labelStyles from './Label.css';
 import formStyles from './FormElement.css';
 import formLabelStyles from './FormLabel.css';
 import boxWhitespaceStyles from './boxWhitespace.css';
-import whitespaceStyles from './whitespace.css';
+import whitespaceStyles from './Whitespace.css';
 import boxStyles from './Box.css';
 
 type Props = {|
