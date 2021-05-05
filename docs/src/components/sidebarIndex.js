@@ -22,9 +22,12 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'Installation',
       'Development',
       'Eslint Plugin',
-      'Layouts',
       'Faq',
     ],
+  },
+  {
+    sectionName: 'Guidelines',
+    pages: ['Screen Sizes', 'Layouts'],
   },
   {
     sectionName: 'Foundation',
