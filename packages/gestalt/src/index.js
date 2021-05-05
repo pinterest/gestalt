@@ -17,6 +17,7 @@ import Container from './Container.js';
 import Datapoint from './Datapoint.js';
 import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
+import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
 import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
@@ -86,6 +87,7 @@ export {
   Datapoint,
   Divider,
   Dropdown,
+  Fieldset,
   FixedZIndex,
   Flex,
   GroupAvatar,

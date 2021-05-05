@@ -195,7 +195,7 @@ git checkout -b <feature-branch> upstream/master
                 &lsquo;ComponentName&lsquo; with the name of your component.
                 <Markdown
                   text="
-~~~js
+~~~bash
 yarn generate ComponentName
 ~~~"
                 />

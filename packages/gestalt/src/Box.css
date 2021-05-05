@@ -7,6 +7,17 @@
   user-select: none;
 }
 
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 /* Display */
 
 .xsDisplayNone {
@@ -27,14 +38,7 @@
 }
 
 .xsDisplayVisuallyHidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+  composes: visuallyHidden;
 }
 
 @media (--g-sm) {
@@ -56,14 +60,7 @@
   }
 
   .smDisplayVisuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    composes: visuallyHidden;
   }
 }
 
@@ -86,14 +83,7 @@
   }
 
   .mdDisplayVisuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    composes: visuallyHidden;
   }
 }
 
@@ -116,14 +106,7 @@
   }
 
   .lgDisplayVisuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+    composes: visuallyHidden;
   }
 }
 

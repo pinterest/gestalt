@@ -89,64 +89,74 @@ card(
 
 card(
   <Example
-    name="Example"
-    defaultCode={`
-<RadioButton
-  id="usa"
-  checked
-  label="United States of America"
-  onChange={() => {}}
-  value="usa"
-/>`}
-  />,
-);
-
-card(
-  <Example
     description="
-    Here is an example of an accessible group of radio buttons.
+    Here is an example of an accessible group of radio buttons. All radio buttons should be wrapped in a [Fieldset](/Fieldset).
   "
-    name="Example: Group"
+    name="RadioButton Group"
     defaultCode={`
 function RadioButtonExample() {
   const [favorite, setFavorite] = React.useState(undefined);
+  const [favoriteFood, setFavoriteFood] = React.useState(undefined);
 
   return (
-    <Box
-      display="flex"
-      direction="column"
-    >
-      <Box paddingY={1}>
-        <RadioButton
-          checked={favorite === 'dogs'}
-          id="favoriteDog"
-          label="Dogs"
-          name="favorite"
-          onChange={() => setFavorite( 'dogs' )}
-          value="dogs"
-        />
-      </Box>
-      <Box paddingY={1}>
-        <RadioButton
-          checked={favorite === 'cats'}
-          id="favoriteCat"
-          label="Cats"
-          name="favorite"
-          onChange={() => setFavorite( 'cats' )}
-          value="cats"
-        />
-      </Box>
-      <Box paddingY={1}>
-        <RadioButton
-          checked={favorite === 'plants'}
-          id="favoritePlants"
-          label="Plants"
-          name="favorite"
-          onChange={() => setFavorite( 'plants' )}
-          value="plants"
-        />
-      </Box>
-    </Box>
+    <Flex gap={4}>
+      <Fieldset legend="What is your favorite pet?">
+        <Flex direction="column" gap={2}>
+          <RadioButton
+            checked={favorite === 'dogs'}
+            id="favoriteDog"
+            label="Dogs"
+            name="favorite"
+            onChange={() => setFavorite( 'dogs' )}
+            value="dogs"
+          />
+          <RadioButton
+            checked={favorite === 'cats'}
+            id="favoriteCat"
+            label="Cats"
+            name="favorite"
+            onChange={() => setFavorite( 'cats' )}
+            value="cats"
+          />
+          <RadioButton
+            checked={favorite === 'plants'}
+            id="favoritePlants"
+            label="Plants"
+            name="favorite"
+            onChange={() => setFavorite( 'plants' )}
+            value="plants"
+          />
+        </Flex>
+      </Fieldset>
+      <Fieldset legend="What is your favorite food?">
+        <Flex gap={2}>
+          <RadioButton
+            checked={favoriteFood === 'pizza'}
+            id="favoritePizza"
+            label="Pizza"
+            name="favoriteFood"
+            onChange={() => setFavoriteFood( 'pizza' )}
+            value="pizza"
+          />
+          <RadioButton
+            checked={favoriteFood === 'curry'}
+            id="favoriteCurry"
+            label="Curry"
+            name="favoriteFood"
+            onChange={() => setFavoriteFood( 'curry' )}
+            value="curry"
+          />
+          <RadioButton
+            checked={favoriteFood === 'sushi'}
+            id="favoriteSushi"
+            label="Sushi"
+            name="favoriteFood"
+            onChange={() => setFavoriteFood( 'sushi' )}
+            value="sushi"
+          />
+        </Flex>
+      </Fieldset>
+    </Flex>
   );
 }
 `}
@@ -165,11 +175,8 @@ function RadioButtonExample() {
   const [availability, setAvailability] = React.useState(undefined);
 
   return (
-    <Box
-      display="flex"
-      direction="column"
-    >
-      <Box paddingY={1}>
+    <Fieldset legend="Which time slot works best for you?">
+      <Flex direction="column" gap={2}>
         <RadioButton
           checked={availability === 'monday'}
           id="monday"
@@ -179,8 +186,6 @@ function RadioButtonExample() {
           onChange={() => setAvailability( 'monday' )}
           value="monday"
         />
-      </Box>
-      <Box paddingY={1}>
         <RadioButton
           checked={availability === 'tuesday'}
           id="tuesday"
@@ -190,8 +195,6 @@ function RadioButtonExample() {
           onChange={() => setAvailability( 'tuesday' )}
           value="tuesday"
         />
-      </Box>
-      <Box paddingY={1}>
         <RadioButton
           checked={availability === 'wednesday'}
           id="Wednesday"
@@ -201,8 +204,8 @@ function RadioButtonExample() {
           onChange={() => setAvailability( 'wednesday' )}
           value="wednesday"
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Fieldset>
   );
 }
 `}
@@ -221,11 +224,8 @@ function RadioButtonExample() {
   const [artPreference, setArtPreference] = React.useState(undefined);
 
   return (
-    <Box
-      display="flex"
-      direction="column"
-    >
-      <Box paddingY={1}>
+    <Fieldset legend="Which illustration is you favorite?">
+      <Flex direction="column" gap={2}>
         <RadioButton
           checked={artPreference === 'coral'}
           id="coral"
@@ -237,8 +237,6 @@ function RadioButtonExample() {
           onChange={() => setArtPreference( 'coral' )}
           value="coral"
         />
-      </Box>
-      <Box paddingY={1}>
         <RadioButton
           checked={artPreference === 'blue'}
           id="blue"
@@ -249,8 +247,6 @@ function RadioButtonExample() {
           onChange={() => setArtPreference( 'blue' )}
           value="blue"
         />
-      </Box>
-      <Box paddingY={1}>
         <RadioButton
           checked={artPreference === 'green'}
           id="green"
@@ -261,8 +257,8 @@ function RadioButtonExample() {
           onChange={() => setArtPreference( 'green' )}
           value="green"
         />
-      </Box>
-    </Box>
+      </Flex>
+    </Fieldset>
   );
 }
 `}
@@ -331,7 +327,7 @@ function RadioButtonPopoverExample() {
   const anchorDogRef = React.useRef();
 
   return (
-    <Box>
+    <Fieldset legend="Tell us about yourself" legendDisplay="hidden">
       <Flex alignItems="start" direction="column" gap={4}>
         <Box display="inlineBlock" ref={anchorCatRef}>
           <RadioButton
@@ -392,7 +388,7 @@ function RadioButtonPopoverExample() {
           </Popover>
         </Layer>
       }
-    </Box>
+    </Fieldset>
   );
 }
 `}
