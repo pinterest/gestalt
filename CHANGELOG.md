@@ -1,3 +1,9 @@
+## 21.14.0 (May 5, 2021)
+
+### Minor
+
+- Fieldset: New component for form accessibility (#1493)
+
 ## 21.13.0 (May 3, 2021)
 
 ### Minor
