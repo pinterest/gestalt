@@ -77,7 +77,7 @@ card(
         type: "'visible' | 'hidden'",
         defaultValue: 'visible',
         description:
-          'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](/#Legend-visibility) for more info.',
+          'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](#Legend-visibility) for more info.',
       },
       {
         name: 'children',
