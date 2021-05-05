@@ -11,7 +11,8 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Fieldset"
-    description="Creates an accessible fieldset and legend for a group of related form items"
+    badge="pilot"
+    description="Fieldset creates a fieldset and legend for a group of related form items, like RadioButtons or Checkboxes, in order to clearly indicate related form items."
     defaultCode={`
       function RadioButtonExample() {
         const [favorite, setFavorite] = React.useState(undefined);
@@ -43,6 +44,14 @@ card(
                 onChange={() => setFavorite( 'plants' )}
                 value="plants"
               />
+              <RadioButton
+                checked={favorite === 'peeves'}
+                id="favoritePeeves"
+                label="Peeves"
+                name="favorite"
+                onChange={() => setFavorite( 'peeves' )}
+                value="peeves"
+              />
             </Flex>
           </Fieldset>
 
@@ -61,14 +70,14 @@ card(
         type: 'string',
         required: true,
         description:
-          "Content for this fieldset's legend that clearly and concisely describes the question being asked.",
+          'Caption that clearly and concisely describes the form elements grouped in the fieldset.',
       },
       {
         name: 'legendDisplay',
         type: "'visible' | 'hidden'",
         defaultValue: 'visible',
         description:
-          'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually.',
+          'Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](/#Legend-visibility) for more info.',
       },
       {
         name: 'children',
@@ -83,69 +92,70 @@ card(
 card(
   <MainSection name="Accessibility">
     <MainSection.Subsection
-      title="When to use Fieldset"
-      description={`Wrapping form fields in a fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField). Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
+      description={`
+      Wrapping form fields in Fieldset creates an accessible grouping that signals to users when certain form items are related. The \`legend\` should clearly describe what information is needed from the group of items, whether they're [RadioButtons](/RadioButton), [Checkboxes](/Checkbox) or [TextFields](/TextField).
+
+      In the example below, the pet RadioButtons are surrounded by a fieldset and include a \`legend\` of "Favorite pet". Learn more about the [use of fieldset and legend](https://www.w3.org/WAI/tutorials/forms/grouping/#associating-related-controls-with-fieldset).`}
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-      function RadioButtonExample() {
-        const [favorite, setFavorite] = React.useState(undefined);
-        const [name, setName] = React.useState('')
-        const [email, setEmail] = React.useState('')
+function RadioButtonExample() {
+  const [favorite, setFavorite] = React.useState(undefined);
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
 
-        return (
-          <form>
-            <Flex direction="column" gap={4}>
-              <Text>Profile Details</Text>
-              <TextField
-                id="name"
-                onChange={({ value }) => setName(value)}
-                placeholder="First and last name"
-                label="Name"
-                value={name}
-                type="email"
-              />
-              <TextField
-                id="email"
-                onChange={({ value }) => setEmail(value)}
-                placeholder="example@test.com"
-                label="Email"
-                value={email}
-                type="email"
-              />
-              <Fieldset legend="What is your favorite pet?">
-                <Flex direction="column" gap={2}>
-                  <RadioButton
-                    checked={favorite === 'dogs'}
-                    id="favoriteDogA11y"
-                    label="Dogs"
-                    name="favorite"
-                    onChange={() => setFavorite( 'dogs' )}
-                    value="dogs"
-                  />
-                  <RadioButton
-                    checked={favorite === 'cats'}
-                    id="favoriteCatA11y"
-                    label="Cats"
-                    name="favorite"
-                    onChange={() => setFavorite( 'cats' )}
-                    value="cats"
-                  />
-                  <RadioButton
-                    checked={favorite === 'plants'}
-                    id="favoritePlantsA11y"
-                    label="Plants"
-                    name="favorite"
-                    onChange={() => setFavorite( 'plants' )}
-                    value="plants"
-                  />
-                </Flex>
-              </Fieldset>
-            </Flex>
-          </form>
-        );
-      }
+  return (
+    <form>
+      <Flex direction="column" gap={4}>
+        <TextField
+          id="name"
+          onChange={({ value }) => setName(value)}
+          placeholder="First and last name"
+          label="Name"
+          value={name}
+          type="email"
+        />
+        <TextField
+          id="email"
+          onChange={({ value }) => setEmail(value)}
+          placeholder="example@test.com"
+          label="Email"
+          value={email}
+          type="email"
+        />
+        <Fieldset legend="Favorite pet">
+          <Flex direction="column" gap={2}>
+            <RadioButton
+              checked={favorite === 'dogs'}
+              id="favoriteDogA11y"
+              label="Dogs"
+              name="favorite"
+              onChange={() => setFavorite( 'dogs' )}
+              value="dogs"
+            />
+            <RadioButton
+              checked={favorite === 'cats'}
+              id="favoriteCatA11y"
+              label="Cats"
+              name="favorite"
+              onChange={() => setFavorite( 'cats' )}
+              value="cats"
+            />
+            <RadioButton
+              checked={favorite === 'plants'}
+              id="favoritePlantsA11y"
+              label="Plants"
+              name="favorite"
+              onChange={() => setFavorite( 'plants' )}
+              value="plants"
+            />
+          </Flex>
+        </Fieldset>
+      </Flex>
+    </form>
+  );
+}
 `}
       />
     </MainSection.Subsection>
@@ -157,44 +167,81 @@ card(<MainSection name="Localization" description={`Be sure to localize the \`le
 card(
   <MainSection name="Variants">
     <MainSection.Subsection
-      description={`Be default, the \`legend\` is visible above the items in the Fieldset. However, if the form items are labelled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
+      description={`
+      By default, the \`legend\` is visible above the items in the Fieldset. However, if the form items are labelled by content elsewhere on the page, or a more complex legend is needed, the \`legendDisplay\` prop can be used to visually hide the legend. In this case, it is still available to screen reader users, but will not appear visually on the screen.
+
+      In the example below, the "Company Account Goals" text is acting as a heading and a legend for the checkboxes, so instead of repeating another legend, we visually hide the Fieldset \`legend\`. When a user focuses on the first checkbox, a screen reader will announce "Sell more products, unchecked, checkbox, Choose up to 3 company account goals, group".
+      `}
       title="Legend visibility"
     >
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
 function CheckboxExample() {
-  const [checkedBotanical, setCheckedBotanical] = React.useState(false);
-  const [checkedTypo, setCheckedTypo] = React.useState(false);
+  const [checkedSell, setCheckedSell] = React.useState(false);
+  const [checkedLeads, setCheckedLeads] = React.useState(false);
+  const [checkedAudience, setCheckedAudience] = React.useState(false);
+  const [checkedBrand, setCheckedBrand] = React.useState(false);
+  const [checkedNotSure, setCheckedNotSure] = React.useState(false);
 
   return (
     <Flex direction="column" gap={4}>
-      <Box>
-        <Text weight="bold">Design options</Text>
-        <Text size="md">Choose which backgrounds to use as placeholders when creating content</Text>
-      </Box>
-      <Fieldset legend="Which backgrounds would you like to use?" legendDisplay="hidden">
+      <Flex direction="column" gap={2}>
+        <Heading size="sm">Company Account Goals</Heading>
+        <Text size="md">
+          Choose up to 3.
+          <Text inline size="md" weight="bold">
+            <Link inline target="blank" href="www.pinterest.com">
+              Additional information
+            </Link>
+          </Text>
+        </Text>
+      </Flex>
+      <Fieldset legend="Choose up to 3 company account goals" legendDisplay="hidden">
         <Flex direction="column" gap={4}>
           <Checkbox
-            checked={checkedBotanical}
-            id="coral"
-            label="Coral"
-            subtext="Botanical art in coral and green"
-            image={<Box height={100} width={80}><Image alt="Botanical art in coral and green" src="https://i.ibb.co/7bQQYkX/stock2.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
-            name="favorite art"
+            checked={checkedSell}
+            id="sell"
+            label="Sell more products"
+            name="account goals"
             onChange={({ checked }) => {
-              setCheckedBotanical(checked);
+              setCheckedSell(checked);
             }}
           />
           <Checkbox
-            checked={checkedTypo}
-            id="blue"
-            label="Blue"
-            subtext="Typography and shoe in blue"
-            image={<Box height={100} width={80}><Image alt="Typography and shoe in blue" src="https://i.ibb.co/jVR29XV/stock5.jpg" fit="contain" naturalWidth={1} naturalHeight={1}/></Box>}
-            name="favorite art"
+            checked={checkedLeads}
+            id="leads"
+            label="Generate more leads for the company"
+            name="account goals"
             onChange={({ checked }) => {
-              setCheckedTypo(checked);
+              setCheckedLeads(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedAudience}
+            id="audience"
+            label="Create content on Pinterest to attract an audience"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedAudience(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedBrand}
+            id="brand"
+            label="Increase brand awareness"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedBrand(checked);
+            }}
+          />
+          <Checkbox
+            checked={checkedNotSure}
+            id="notSure"
+            label="Not sure yet"
+            name="account goals"
+            onChange={({ checked }) => {
+              setCheckedNotSure(checked);
             }}
           />
         </Flex>

@@ -23,4 +23,14 @@ describe('Fieldset', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('renders a visually hidden legend', () => {
+    const tree = create(
+      <Fieldset legend="What is your favorite dog?" legendDisplay="hidden">
+        <Checkbox id="Schnauzer" label="Schnauzer" onChange={() => {}} />
+        <Checkbox id="Aussie" label="Aussie" onChange={() => {}} />
+      </Fieldset>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

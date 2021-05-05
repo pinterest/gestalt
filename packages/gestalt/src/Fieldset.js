@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import cx from 'classnames';
+import classnames from 'classnames';
 import Text from './Text.js';
 import labelStyles from './Label.css';
 import formStyles from './FormElement.css';
@@ -17,13 +17,15 @@ type Props = {|
 
 export default function Fieldset({ legend, legendDisplay = 'visible', children }: Props): Node {
   return (
-    <fieldset className={cx(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>
+    <fieldset className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}>
       <legend
-        className={cx(
+        className={classnames(
           labelStyles.label,
           formLabelStyles.formLabel,
-          boxWhitespaceStyles.paddingX0,
-          legendDisplay === 'hidden' && boxStyles.xsDisplayVisuallyHidden,
+          boxWhitespaceStyles.paddingX0, // Needed to remove the default legend  padding
+          {
+            [boxStyles.visuallyHidden]: legendDisplay === 'hidden',
+          },
         )}
       >
         <Text size="sm">{legend}</Text>

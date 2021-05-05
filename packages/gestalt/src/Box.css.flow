@@ -74,6 +74,7 @@ declare module.exports: {|
   +'smDisplayNone': string,
   +'smDisplayVisuallyHidden': string,
   +'userSelectNone': string,
+  +'visuallyHidden': string,
   +'xsCol0': string,
   +'xsCol1': string,
   +'xsCol10': string,
