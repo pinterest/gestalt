@@ -1,3 +1,9 @@
+## 21.14.1 (May 9, 2021)
+
+### Patch
+
+- Bump ua-parser-js from 0.7.21 to 0.7.28 (#1496)
+
 ## 21.14.0 (May 5, 2021)
 
 ### Minor
