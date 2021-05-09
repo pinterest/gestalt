@@ -8,7 +8,7 @@
   composes: xsCol12 from "./Column.css";
   appearance: none;
   min-width: 180px;
-  padding: calc(2 * var(--g-boint)) calc(10 * var(--g-boint)) calc(2 * var(--g-boint)) calc(8px + calc(8 * var(--g-boint)));
+  padding: 8px 40px;
 }
 
 .input::-webkit-search-decoration,

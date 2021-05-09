@@ -6,11 +6,11 @@
 }
 
 html[dir="rtl"] .button {
-  border-radius: calc(var(--g-boint) * 2) 0 0 calc(var(--g-boint) * 2);
+  border-radius: 8px 0 0 8px;
 }
 
 html:not([dir="rtl"]) .button {
-  border-radius: 0 calc(var(--g-boint) * 2) calc(var(--g-boint) * 2) 0;
+  border-radius: 0 8px 8px 0;
 }
 
 .lightGray {

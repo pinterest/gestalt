@@ -69,39 +69,39 @@ html[dir="rtl"] .borderLeft {
 }
 
 .rounding0 {
-  border-radius: calc(var(--g-boint) * 0);
+  border-radius: 0;
 }
 
 .rounding1 {
-  border-radius: calc(var(--g-boint) * 1);
+  border-radius: 4;
 }
 
 .rounding2 {
-  border-radius: calc(var(--g-boint) * 2);
+  border-radius: 8;
 }
 
 .rounding3 {
-  border-radius: calc(var(--g-boint) * 3);
+  border-radius: 12;
 }
 
 .rounding4 {
-  border-radius: calc(var(--g-boint) * 4);
+  border-radius: 16;
 }
 
 .rounding5 {
-  border-radius: calc(var(--g-boint) * 5);
+  border-radius: 20;
 }
 
 .rounding6 {
-  border-radius: calc(var(--g-boint) * 6);
+  border-radius: 24;
 }
 
 .rounding7 {
-  border-radius: calc(var(--g-boint) * 7);
+  border-radius: 28;
 }
 
 .rounding8 {
-  border-radius: calc(var(--g-boint) * 8);
+  border-radius: 32;
 }
 
 .noBorder {

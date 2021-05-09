@@ -1,7 +1,7 @@
 .base {
   composes: accessibilityOutline from "./Focus.css";
   appearance: none;
-  border-radius: calc(var(--g-boint) * 4);
+  border-radius: 16px;
   border-style: solid;
   border-width: 2px;
 }
@@ -42,6 +42,6 @@
   appearance: none;
   background: none;
   border: none;
-  border-radius: calc(var(--g-boint) * 2);
+  border-radius: 8px;
   color: inherit;
 }
