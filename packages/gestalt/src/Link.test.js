@@ -74,11 +74,17 @@ it('with onTap', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('with custom rounding, hoverStyle, and tapStyle', () =>
+it('with custom rounding, hoverColor, hoverStyle, and tapStyle', () =>
   expect(
     renderer
       .create(
-        <Link href="https://example.com" rounding="pill" hoverStyle="none" tapStyle="compress">
+        <Link
+          href="https://example.com"
+          rounding="pill"
+          hoverColor="red"
+          hoverStyle="none"
+          tapStyle="compress"
+        >
           Link
         </Link>,
       )

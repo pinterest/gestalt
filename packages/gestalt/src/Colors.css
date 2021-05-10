@@ -246,6 +246,56 @@
   background-color: var(--g-orange);
 }
 
+/* hover colors */
+
+.hoverInherit:hover{
+  color: inherit;
+}
+
+.hoverInheritBg:hover{
+  background-color: inherit;
+}
+
+.hoverWhite:hover{
+  color: var(--g-colorGray0Hovered);
+}
+
+.hoverWhiteBg:hover{
+  background-color: var(--g-colorGray0Hovered);
+}
+
+.hoverLightGray:hover{
+  color: var(--g-colorGray100Hovered);
+}
+
+.hoverLightGrayBg:hover{
+  background-color: var(--g-colorGray100Hovered);
+}
+
+.hoverGray:hover{
+  color: var(--g-colorGray200Hovered);
+}
+
+.hoverGrayBg:hover{
+  background-color: var(--g-colorGray200Hovered);
+}
+
+.hoverRed:hover{
+  color: var(--g-colorRed100Hovered);
+}
+
+.hoverRedBg:hover{
+  background-color: var(--g-colorRed100Hovered);
+}
+
+.hoverBlue:hover{
+  color: var(--g-blueHovered);
+}
+
+.hoverBlueBg:hover{
+  background-color: var(--g-blueHovered);
+}
+
 /* transparent */
 
 .transparentBg {

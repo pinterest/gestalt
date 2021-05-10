@@ -4,6 +4,7 @@ import type { AbstractComponent, Node, Element } from 'react';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import colors from './Colors.css';
 import { useOnNavigation } from './contexts/OnNavigation.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
@@ -18,6 +19,7 @@ type Props = {|
   accessibilityLabel?: string,
   accessibilitySelected?: boolean,
   children?: Node,
+  hoverColor?: 'inherit' | 'white' | 'lightGray' | 'gray' | 'red' | 'blue',
   hoverStyle?: 'none' | 'underline',
   href: string,
   id?: string,
@@ -54,6 +56,7 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     rel = 'none',
     role,
     rounding = 0,
+    hoverColor,
     hoverStyle = 'underline',
     tapStyle = 'none',
     target = null,
@@ -85,6 +88,12 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     styles.link,
     focusStyles.hideOutline,
     touchableStyles.tapTransition,
+    hoverColor === 'inherit' && colors.hoverInherit,
+    hoverColor === 'white' && colors.hoverWhite,
+    hoverColor === 'lightGray' && colors.hoverLightGray,
+    hoverColor === 'gray' && colors.hoverGray,
+    hoverColor === 'red' && colors.hoverRed,
+    hoverColor === 'blue' && colors.hoverBlue,
     getRoundingClassName(rounding),
     {
       [layoutStyles.inlineBlock]: inline,
@@ -167,6 +176,14 @@ LinkWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string,
   accessibilitySelected: PropTypes.bool,
   children: PropTypes.node,
+  hoverColor: (PropTypes.oneOf([
+    'inherit',
+    'white',
+    'lightGray',
+    'gray',
+    'red',
+    'blue',
+  ]): React$PropType$Primitive<'inherit' | 'white' | 'lightGray' | 'gray' | 'red' | 'blue'>),
   hoverStyle: (PropTypes.oneOf(['none', 'underline']): React$PropType$Primitive<
     'none' | 'underline',
   >),

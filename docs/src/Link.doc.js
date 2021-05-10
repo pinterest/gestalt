@@ -29,6 +29,12 @@ card(
         type: 'React.Node',
       },
       {
+        name: 'hoverColor',
+        type: `'undefined' | 'inherit' | 'white' | 'lightGray' | 'gray' | 'red' | 'blue'`,
+        defaultValue: 'undefined',
+        href: 'Example',
+      },
+      {
         name: 'hoverStyle',
         type: `'none' | 'underline'`,
         defaultValue: 'underline',
