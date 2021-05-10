@@ -36,6 +36,11 @@ card(
         description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
         href: 'stickyHeader',
       },
+      {
+        name: 'stickyColumns',
+        type: `number`,
+        description: `Specify how many columns from the start of the Table should be sticky when scrolling horizontally. See the [sticky column](#stickyColumn) example for details.`,
+      },
     ]}
   />,
 );
