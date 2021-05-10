@@ -70,7 +70,7 @@
     "semver": "^7.3.2",
     "shelljs": "^0.8.4",
     "slugify": "^1.4.5",
-    "stylelint": "^13.7.2",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
