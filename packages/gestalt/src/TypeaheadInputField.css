@@ -16,8 +16,8 @@
 .unstyledInput, .inputSpacer {
   composes: unstyled from "./FormElement.css";
   composes: Text fontSize3 from "./Text.css";
-  margin-bottom: var(--g-boint);
-  padding: var(--g-boint) calc(var(--g-boint) * 2);
+  margin-bottom: 4px;
+  padding: 4px 8px;
 }
 
 .unstyledInput {
@@ -58,5 +58,5 @@ html[dir="rtl"] .icon {
 html:not([dir="rtl"]) .inputWrapper,
 html[dir="rtl"] .inputWrapper {
   /* Increase specificity for the padding to override SearchField defaults */
-  padding-bottom: var(--g-boint);
+  padding-bottom: 4px;
 }

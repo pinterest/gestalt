@@ -3,7 +3,7 @@
 }
 
 .DropdownSection:not(:first-child){
-  margin-top:  calc(var(--g-boint) * 4);
+  margin-top: 16;
 }
 
 
