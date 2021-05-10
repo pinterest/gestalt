@@ -1,3 +1,9 @@
+## 21.15.0 (May 10, 2021)
+
+### Minor
+
+- Internal: reduce CSS bundle size by 31% (#1499)
+
 ## 21.14.1 (May 9, 2021)
 
 ### Patch
