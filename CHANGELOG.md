@@ -1,3 +1,9 @@
+## 21.15.1 (May 10, 2021)
+
+### Patch
+
+- Bump hosted-git-info from 2.8.8 to 2.8.9 (#1502)
+
 ## 21.15.0 (May 10, 2021)
 
 ### Minor
