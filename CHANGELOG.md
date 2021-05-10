@@ -1,3 +1,9 @@
+## 21.15.3 (May 10, 2021)
+
+### Patch
+
+- Internal: Upgrade `stylelint` dependency to obviate `trim` security vulnerability (#1504)
+
 ## 21.15.2 (May 10, 2021)
 
 ### Patch
