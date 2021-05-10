@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="Screen sizes"
-    description="There are a multitude of screen sizes that Pinterest operates on. Our design system is built to flex to any and all screen sizes across platforms but for consistency and ease of handoff we only design for a handful of screen sizes per platform. Our screen sizes are always at 1x."
+    description="There are a multitude of screen sizes that Pinterest operates on. Our design system is built to flex to any and all screen sizes across platforms, but for consistency and ease of handoff, we only design for a handful of screen sizes per platform. Our screen sizes are always at 1x."
     showSourceLink={false}
   />,
 );
