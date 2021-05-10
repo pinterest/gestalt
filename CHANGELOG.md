@@ -1,3 +1,9 @@
+## 21.15.2 (May 10, 2021)
+
+### Patch
+
+- Docs: Add page about screen size support (#1494)
+
 ## 21.15.1 (May 10, 2021)
 
 ### Patch
