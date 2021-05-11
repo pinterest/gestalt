@@ -1,3 +1,9 @@
+## 21.15.5 (May 11, 2021)
+
+### Patch
+
+- Internal: Add resolution to latest version of `lodash` (#1505)
+
 ## 21.15.4 (May 11, 2021)
 
 ### Patch
