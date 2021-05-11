@@ -73,35 +73,35 @@ html[dir="rtl"] .borderLeft {
 }
 
 .rounding1 {
-  border-radius: 4;
+  border-radius: 4px;
 }
 
 .rounding2 {
-  border-radius: 8;
+  border-radius: 8px;
 }
 
 .rounding3 {
-  border-radius: 12;
+  border-radius: 12px;
 }
 
 .rounding4 {
-  border-radius: 16;
+  border-radius: 16px;
 }
 
 .rounding5 {
-  border-radius: 20;
+  border-radius: 20px;
 }
 
 .rounding6 {
-  border-radius: 24;
+  border-radius: 24px;
 }
 
 .rounding7 {
-  border-radius: 28;
+  border-radius: 28px;
 }
 
 .rounding8 {
-  border-radius: 32;
+  border-radius: 32px;
 }
 
 .noBorder {
