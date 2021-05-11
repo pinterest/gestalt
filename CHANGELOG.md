@@ -1,3 +1,9 @@
+## 21.15.4 (May 11, 2021)
+
+### Patch
+
+- Bugfix: Add units to `border-radius` values (#1506)
+
 ## 21.15.3 (May 10, 2021)
 
 ### Patch
