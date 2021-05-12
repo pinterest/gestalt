@@ -80,6 +80,7 @@ extra runtime typechecks in the transformers for performance.
 
 */
 
+// Please update `eslint-plugin-gestalt/no-box-disallowed-props` if you make changes to these props
 type Props = {
   children?: Node,
   dangerouslySetInlineStyle?: DangerouslySetInlineStyle,
