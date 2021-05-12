@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-gestalt",
-  "version": "21.15.5",
+  "version": "21.16.0",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.netlify.app",
   "description": "Eslint rules for Pinterest’s design language Gestalt",

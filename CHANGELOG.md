@@ -1,3 +1,9 @@
+## 21.16.0 (May 12, 2021)
+
+### Minor
+
+- ESLint: add rule to disallow non-standard Box props (#1501)
+
 ## 21.15.5 (May 11, 2021)
 
 ### Patch
