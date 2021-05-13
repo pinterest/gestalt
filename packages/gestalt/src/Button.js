@@ -22,6 +22,7 @@ const DEFAULT_TEXT_COLORS = {
   gray: 'darkGray',
   red: 'white',
   transparent: 'darkGray',
+  semiTransparentWhite: 'darkGray',
   transparentWhiteText: 'white',
   white: 'darkGray',
 };
@@ -34,7 +35,14 @@ const SIZE_NAME_TO_PIXEL = {
 
 type BaseButton = {|
   accessibilityLabel?: string,
-  color?: 'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white',
+  color?:
+    | 'gray'
+    | 'red'
+    | 'blue'
+    | 'transparent'
+    | 'semiTransparentWhite'
+    | 'transparentWhiteText'
+    | 'white',
   disabled?: boolean,
   iconEnd?: $Keys<typeof icons>,
   inline?: boolean,
@@ -205,7 +213,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         wrappedComponent="button"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd text={buttonText} textColor="darkGray" icon={iconEnd} size={size} />
         ) : (
           buttonText
         )}
@@ -236,7 +244,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         type="submit"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
+          <IconEnd text={buttonText} textColor="darkGray" icon={iconEnd} size={size} />
         ) : (
           buttonText
         )}

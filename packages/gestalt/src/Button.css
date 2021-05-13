@@ -104,15 +104,22 @@
   background-color: var(--g-colorTransparentGray100);
 }
 
+.semiTransparentWhite {
+  composes: transparentWhiteBg from "./Colors.css";
+}
+
 .white {
   composes: whiteBg from "./Colors.css";
 }
 
+.semiTransparentWhite:hover,
+.semiTransparentWhite:focus,
 .white:hover,
 .white:focus {
   background-color: var(--g-colorGray0Hovered);
 }
 
+.semiTransparentWhite:active,
 .white:active {
   background-color: var(--g-colorGray0Active);
 }
