@@ -71,7 +71,7 @@ card(
       },
       {
         name: 'color',
-        type: `'gray' | 'red' | 'blue' | 'transparent' |  'transparentWhite' | 'transparentWhiteText' | 'white'`,
+        type: `'gray' | 'red' | 'blue' | 'transparent' |  'semiTransparentWhite' | 'transparentWhiteText' | 'white'`,
         required: false,
         defaultValue: 'gray',
         description: [
@@ -330,7 +330,7 @@ card(
   <Combination
     id="color"
     name="Color"
-    color={['gray', 'red', 'blue', 'white', 'transparent', 'transparentWhite']}
+    color={['gray', 'red', 'blue', 'white', 'transparent', 'semiTransparentWhite']}
   >
     {(props, i) => <Button id={`example-${i}`} onChange={() => {}} {...props} text="Button" />}
   </Combination>,

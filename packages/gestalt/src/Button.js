@@ -213,7 +213,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         wrappedComponent="button"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor="darkGray" icon={iconEnd} size={size} />
+          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
         ) : (
           buttonText
         )}
@@ -244,7 +244,7 @@ const ButtonWithForwardRef: React$AbstractComponent<unionProps, unionRefs> = for
         type="submit"
       >
         {iconEnd ? (
-          <IconEnd text={buttonText} textColor="darkGray" icon={iconEnd} size={size} />
+          <IconEnd text={buttonText} textColor={textColor} icon={iconEnd} size={size} />
         ) : (
           buttonText
         )}
