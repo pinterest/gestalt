@@ -13,6 +13,7 @@ declare module.exports: {|
   +'md': string,
   +'red': string,
   +'selected': string,
+  +'semiTransparentWhite': string,
   +'sm': string,
   +'transparent': string,
   +'white': string,

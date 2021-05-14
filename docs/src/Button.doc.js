@@ -71,7 +71,7 @@ card(
       },
       {
         name: 'color',
-        type: `'gray' | 'red' | 'blue' | 'transparent' | 'transparentWhiteText' | 'white'`,
+        type: `'gray' | 'red' | 'blue' | 'transparent' |  'semiTransparentWhite' | 'transparentWhiteText' | 'white'`,
         required: false,
         defaultValue: 'gray',
         description: [
@@ -327,48 +327,86 @@ card(
 );
 
 card(
-  <Combination id="color" name="Color" color={['gray', 'red', 'blue', 'white', 'transparent']}>
+  <Combination
+    id="color"
+    name="Color"
+    color={['gray', 'red', 'blue', 'white', 'transparent', 'semiTransparentWhite']}
+  >
     {(props, i) => <Button id={`example-${i}`} onChange={() => {}} {...props} text="Button" />}
   </Combination>,
 );
 
 card(
   <Example
-    name="Color: transparent"
+    name="Color: transparent and semiTransparentWhite"
     id="transparent"
     defaultCode={`function Example() {
-  const [selected, setSelected] = React.useState(false);
+  const [selectedTransparent, setSelectedTransparent] = React.useState(false);
+  const [selectedSemiTransparentWhite, setSelectedSemiTransparentWhite] = React.useState(false);
+
   return (
-    <Box column={3}>
-      <Box margin={3}>
-        <Button
-          text="Toggle text color & compare contrast"
-          onClick={() => setSelected(!selected)}
-          selected={selected}/>
-      </Box>
-      <Image
-        alt="Image to compare contrast between text color and background."
-        color="rgb(231, 186, 176)"
-        naturalHeight={751}
-        naturalWidth={564}
-        src="https://i.ibb.co/7bQQYkX/stock2.jpg"
-      >
-        <Box padding={2}>
-        <Button
-          color={selected ? 'transparentWhiteText' : 'transparent'}
-          iconEnd="add-pin"
-          text="Save this image"
-          inline />
-        </Box>
-        <Box padding={2} position="absolute" bottom right>
+    <Flex>
+      <Box column={4} padding={2}>
+        <Box margin={3}>
           <Button
-          color={selected ? 'transparent' : 'transparentWhiteText'}
-          iconEnd="pin-hide"
-          text="Hide this image"
-          inline />
+            text="Toggle text color & compare contrast"
+            onClick={() => setSelectedTransparent((currentValue) => !currentValue)}
+            selected={selectedTransparent}/>
         </Box>
-      </Image>
-    </Box>
+        <Image
+          alt="Image to compare contrast between text color and background."
+          color="rgb(231, 186, 176)"
+          naturalHeight={751}
+          naturalWidth={564}
+          src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+        >
+          <Box padding={2}>
+          <Button
+            color={selectedTransparent ? 'transparentWhiteText' : 'transparent'}
+            iconEnd="add-pin"
+            text="Save this image"
+            inline />
+          </Box>
+          <Box padding={2} position="absolute" bottom right>
+            <Button
+            color={selectedTransparent ? 'transparent' : 'transparentWhiteText'}
+            iconEnd="pin-hide"
+            text="Hide this image"
+            inline />
+          </Box>
+        </Image>
+      </Box>
+      <Box column={4} padding={2}>
+        <Box margin={3}>
+          <Button
+            text="Toggle button color & compare transparency"
+            onClick={() => setSelectedSemiTransparentWhite((currentValue) => !currentValue)}
+            selected={selectedSemiTransparentWhite}/>
+        </Box>
+        <Image
+        alt="Image to compare contrast between button color and background."
+          color="rgb(231, 186, 176)"
+          naturalHeight={751}
+          naturalWidth={564}
+          src="https://i.ibb.co/7bQQYkX/stock2.jpg"
+        >
+          <Box padding={2}>
+          <Button
+            color={selectedSemiTransparentWhite ? 'semiTransparentWhite' : 'white'}
+            iconEnd="add-pin"
+            text="Save this image"
+            inline />
+          </Box>
+          <Box padding={2} position="absolute" bottom right>
+            <Button
+            color={selectedSemiTransparentWhite ? 'white' : 'semiTransparentWhite'}
+            iconEnd="pin-hide"
+            text="Hide this image"
+            inline />
+          </Box>
+        </Image>
+      </Box>
+    </Flex>
   )
 };
 `}
