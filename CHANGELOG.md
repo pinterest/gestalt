@@ -1,3 +1,9 @@
+## 21.17.5 (May 17, 2021)
+
+### Patch
+
+- Video: Add missing video event handlers (#1515)
+
 ## 21.17.4 (May 17, 2021)
 
 ### Patch
