@@ -118,6 +118,11 @@ card(
         description: 'Sent when playback of the video completes',
       },
       {
+        name: 'onError',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when an error occurs',
+      },
+      {
         name: 'onFullscreenChange',
         type: '({ event: Event, fullscreen: boolean }) => void',
         description: 'Sent when the video full screen status changes',
@@ -128,9 +133,20 @@ card(
         description: 'Sent when progress happens on downloading the media',
       },
       {
+        name: 'onLoadStart',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when the media has started to load',
+      },
+      {
         name: 'onPlay',
         type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
         description: 'Sent when playback of the media starts after having been paused',
+        href: 'videoUpdatesExample',
+      },
+      {
+        name: 'onPlaying',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when playback of the media is ready to start after having been paused',
         href: 'videoUpdatesExample',
       },
       {
@@ -160,6 +176,16 @@ card(
         description: 'Sent when a seek operation completes from the playhead',
       },
       {
+        name: 'onSeeking',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when a seek operation begins',
+      },
+      {
+        name: 'onStalled',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when trying to fetch data but the data is unexpectedly not forthcoming',
+      },
+      {
         name: 'onTimeChange',
         type: '({ event: SyntheticEvent<HTMLVideoElement>, time: number }) => void',
         description:
@@ -169,6 +195,12 @@ card(
         name: 'onVolumeChange',
         type: '({ event: SyntheticEvent<HTMLDivElement>, volume: number }) => void',
         description: 'Sent when the audio volume changes',
+        href: 'videoUpdatesExample',
+      },
+      {
+        name: 'onWaiting',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
+        description: 'Sent when playback has stopped because of a temporary lack of data',
         href: 'videoUpdatesExample',
       },
       {

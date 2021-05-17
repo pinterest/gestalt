@@ -40,9 +40,12 @@ type Props = {|
     duration: number,
   |}) => void,
   onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onError?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
   onLoadedChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| loaded: number |}>,
+  onLoadStart?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
+  onPlaying?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPause?: AbstractEventHandler<
@@ -50,11 +53,14 @@ type Props = {|
   >,
   onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onSeeking?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onStalled?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onTimeChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| time: number |}>,
   onVolumeChange?: AbstractEventHandler<
     SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
     {| volume: number |},
   >,
+  onWaiting?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -183,14 +189,20 @@ export default class Video extends PureComponent<Props, State> {
     loop: PropTypes.bool,
     onDurationChange: PropTypes.func,
     onEnded: PropTypes.func,
+    onError: PropTypes.func,
     onFullscreenChange: PropTypes.func,
     onLoadedChange: PropTypes.func,
-    onPlay: PropTypes.func,
+    onLoadStart: PropTypes.func,
     onPause: PropTypes.func,
+    onPlay: PropTypes.func,
+    onPlaying: PropTypes.func,
     onReady: PropTypes.func,
     onSeek: PropTypes.func,
+    onSeeking: PropTypes.func,
+    onStalled: PropTypes.func,
     onTimeChange: PropTypes.func,
     onVolumeChange: PropTypes.func,
+    onWaiting: PropTypes.func,
     playbackRate: PropTypes.number,
     playing: PropTypes.bool,
     playsInline: PropTypes.bool,
@@ -400,6 +412,13 @@ export default class Video extends PureComponent<Props, State> {
     }
   };
 
+  // Sent when an error occurs.
+  handleError: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onError } = this.props;
+
+    onError?.({ event });
+  };
+
   // Sent when the video is switched to/out-of fullscreen mode
   handleFullscreenChange: EventListener = (event) => {
     const { onFullscreenChange } = this.props;
@@ -411,6 +430,13 @@ export default class Video extends PureComponent<Props, State> {
     }
   };
 
+  // Sent when the video has started to load
+  handleLoadStart: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onLoadStart } = this.props;
+
+    onLoadStart?.({ event });
+  };
+
   // Sent when playback of the media starts after having been paused.
   handlePlay: (
     event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
@@ -420,6 +446,13 @@ export default class Video extends PureComponent<Props, State> {
     if (onPlay) {
       onPlay({ event });
     }
+  };
+
+  // Sent when playback of the media is ready to start after having been paused.
+  handlePlaying: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onPlaying } = this.props;
+
+    onPlaying?.({ event });
   };
 
   // Sent when mouse down event happens on playhead
@@ -471,6 +504,20 @@ export default class Video extends PureComponent<Props, State> {
     }
   };
 
+  // Sent when a seek operation beings.
+  handleSeeking: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onSeeking } = this.props;
+
+    onSeeking?.({ event });
+  };
+
+  // Sent when trying to fetch data but the data is unexpectedly not forthcoming.
+  handleStalled: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onStalled } = this.props;
+
+    onStalled?.({ event });
+  };
+
   // The time indicated by the element's currentTime attribute has changed
   handleTimeUpdate: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onTimeChange } = this.props;
@@ -492,6 +539,13 @@ export default class Video extends PureComponent<Props, State> {
     if (onVolumeChange) {
       onVolumeChange({ event, volume: muted ? 1 : 0 });
     }
+  };
+
+  // Sent when playback has stopped because of a temporary lack of data.
+  handleWaiting: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
+    const { onWaiting } = this.props;
+
+    onWaiting?.({ event });
   };
 
   render(): Node {
@@ -531,9 +585,15 @@ export default class Video extends PureComponent<Props, State> {
             onCanPlay={this.handleCanPlay}
             onDurationChange={this.handleDurationChange}
             onEnded={this.handleEnded}
+            onError={this.handleError}
+            onLoadStart={this.handleLoadStart}
+            onPlaying={this.handlePlaying}
             onSeeked={this.handleSeek}
+            onSeeking={this.handleSeeking}
+            onStalled={this.handleStalled}
             onTimeUpdate={this.handleTimeUpdate}
             onProgress={this.handleProgress}
+            onWaiting={this.handleWaiting}
             {...(objectFit ? { style: { 'object-fit': objectFit } } : null)}
             {...((crossOrigin ? { crossOrigin } : { ...null }): {|
               crossOrigin?: CrossOrigin,
