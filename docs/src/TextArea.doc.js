@@ -168,6 +168,31 @@ function Example(props) {
 
 card(
   <Example
+    id="errorMessageExample"
+    name="Example: Error message"
+    description={`
+    A TextArea can display its own error message.
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <TextArea
+      id="witherror"
+      onChange={({value}) => setValue(value)}
+      errorMessage={!value ? "This field can't be blank!" : null}
+      placeholder="Write something about yourself..."
+      label="With an error message"
+      value={value}
+    />
+  );
+}
+`}
+  />,
+);
+
+card(
+  <Example
     id="refExample"
     name="Example: ref"
     description={`
@@ -201,31 +226,6 @@ function TextAreaPopoverExample() {
         </Popover>
       )}
     </Box>
-  );
-}
-`}
-  />,
-);
-
-card(
-  <Example
-    id="errorMessageExample"
-    name="Example: Error message"
-    description={`
-    A TextArea can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
-    defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <TextArea
-      id="witherror"
-      onChange={({value}) => setValue(value)}
-      errorMessage={!value ? "This field can't be blank!" : null}
-      placeholder="Write something about yourself..."
-      label="With an error message"
-      value={value}
-    />
   );
 }
 `}
