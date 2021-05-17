@@ -202,26 +202,24 @@ card(
 
 card(
   <MainSection name="Best practices">
-    <MainSection.Subsection columns={2}>
+    <MainSection.Subsection>
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
+        showCode={false}
         type="do"
         description="Use Sheet for sub-tasks within a large workflow that are optional."
         defaultCode={`
+   <iframe src="https://codesandbox.io/embed/frosty-voice-vk4qf?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+   style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
+   title="Sheets for sub-tasks"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 `}
       />
-      <MainSection.Card
-        cardSize="md"
-        type="don't"
-        description="Use Sheet for required tasks or main tasks. Put those tasks within the content of the page instead"
-        defaultCode={`
 
-`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
         type="do"
         description="Use Sheet for quick edits within libraries or tables of content where you expect users to be making multiple edits in one session."
         defaultCode={`
@@ -229,18 +227,26 @@ card(
       />
       <MainSection.Card
         cardSize="md"
-        type="don't"
-        description="Use Sheet if these edits require more than two steps. Bring users to a full page experience or consider using Modules to section out content."
+        type="do"
+        description="Use the same size Sheet on a product surface. For example, if filling out a form requires multiple Sheets to be opened to complete different subtasks, then all Sheets in that form should be the same width. When in doubt, pick the widest size needed for the entire flow."
         defaultCode={`
 
 `}
       />
     </MainSection.Subsection>
-    <MainSection.Subsection columns={2}>
+    <MainSection.Subsection>
       <MainSection.Card
-        cardSize="md"
-        type="do"
-        description="Use the same size Sheet on a product surface. For example, if filling out a form requires multiple Sheets to be opened to complete different subtasks, then all Sheets in that form should be the same width. When in doubt, pick the widest size needed for the entire flow."
+        cardSize="lg"
+        type="don't"
+        description="Use Sheet for required tasks or main tasks. Put those tasks within the content of the page instead"
+        defaultCode={`
+
+`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        type="don't"
+        description="Use Sheet if these edits require more than two steps. Bring users to a full page experience or consider using Modules to section out content."
         defaultCode={`
 
 `}
@@ -251,6 +257,35 @@ card(
         description="Use Sheet to confirm actions or display alerts. Use a [Modal](/Modal) or [Toast](/Toast) instead."
         defaultCode={`
 
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection>
+      <MainSection.Card
+        cardSize="lg"
+        showCode={false}
+        description="Here's an example of ideal Sheets"
+        defaultCode={`
+        <iframe src="https://codesandbox.io/embed/default-padding-styling-y7hj9?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
+     title="Default padding &amp; styling"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        showCode={false}
+        description="Here's an example of bad Sheets"
+        defaultCode={`
+        <iframe src="https://codesandbox.io/embed/default-padding-styling-y7hj9?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+     style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+     title="Default padding &amp; styling"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
 `}
       />
     </MainSection.Subsection>
@@ -656,7 +691,94 @@ function SizesExample(props) {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function CloseOnOutsideExample(props) {
+function SubheadingExample(props) {
+  const SheetWithSubheading = ({
+    onDismiss,
+  }) => {
+
+    return (
+      <Sheet
+        accessibilityDismissButtonLabel="Close"
+        accessibilitySheetLabel="Example sheet for demonstration"
+        heading="Create new audience list"
+        closeOnOutsideClick={false}
+        onDismiss={onDismiss}
+        footer={({ onDismissStart }) => (<Flex alignItems="center" justifyContent="end"><Button inline color="red" text="Create" onClick={onDismissStart}/></Flex>)}
+        size="md"
+      >
+        <Flex direction="column" gap={12}>
+          <Flex direction="column" gap={4}>
+            <Box>
+              <Text inline weight="bold">Step 1:</Text>
+              <Text inline> Audience list details</Text>
+            </Box>
+            <TextField label="Audience name" placeholder="Name your audience"/>
+            <TextField label="Audience description" placeholder="Describe your audience"/>
+            <Fieldset legend="When adding this audience list to an ad group:">
+              <Flex direction="column" gap={3}>
+                <RadioButton
+                  label="Include list"
+                  name="audience"
+                  value="include"
+                  onChange={() => {}}
+                />
+                <RadioButton
+                  label="Exclude list"
+                  name="audience"
+                  value="include"
+                  onChange={() => {}}
+                />
+              </Flex>
+            </Fieldset>
+          </Flex>
+          <Flex direction="column" gap={4}>
+            <Box>
+              <Text inline weight="bold">Step 2:</Text>
+              <Text inline> Select conversion source</Text>
+            </Box>
+            <Text>To use a conversion source other than a Pinterest Tag, add a filter and configure the source of this event.</Text>
+            <Fieldset legend="Select conversion source:" legendDisplay="hidden">
+              <Flex direction="column" gap={3}>
+                <RadioButton
+                  label="Pinterest Tag"
+                  name="source"
+                  value="pin"
+                  onChange={() => {}}
+                />
+                <RadioButton
+                  label="Mobile Measurement Partners (MMP)"
+                  name="source"
+                  value="mmp"
+                  onChange={() => {}}
+                />
+                <RadioButton
+                  label="Conversion Upload"
+                  name="source"
+                  value="conversion"
+                  onChange={() => {}}
+                />
+                <RadioButton
+                  label="API"
+                  name="source"
+                  value="api"
+                  onChange={() => {}}
+                />
+              </Flex>
+            </Fieldset>
+          </Flex>
+          <Flex direction="column" gap={4}>
+            <Box>
+              <Text inline weight="bold">Step 3:</Text>
+              <Text inline> Set a filter</Text>
+            </Box>
+            <TextField label="Users in the past few days" placeholder="Ex. 4"/>
+            <Checkbox label="Include past traffic data" name="traffic"/>
+          </Flex>
+        </Flex>
+      </Sheet>
+    );
+  };
+
   const [shouldShow, setShouldShow] = React.useState(false);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
@@ -665,21 +787,12 @@ function CloseOnOutsideExample(props) {
     <React.Fragment>
       <Button
         inline
-        text="Open example Sheet"
+        text="View Sheet"
         onClick={() => setShouldShow(true)}
       />
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <Sheet
-            accessibilityDismissButtonLabel="Dismiss"
-            accessibilitySheetLabel="Example sheet to demonstrate preventing close on outside click"
-            closeOnOutsideClick={false}
-            heading="Sheet that can't be closed by clicking outside"
-            onDismiss={() => setShouldShow(false)}
-            size="lg"
-          >
-            <Text>Click on the dismiss button or press the ESC key to close the sheet.</Text>
-          </Sheet>
+          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
         </Layer>
       )}
     </React.Fragment>

@@ -110,7 +110,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="do"
-        description="Use Callouts for messages coming from the product or user interaction."
+        description="Use Callouts for messages coming from the product or user interaction. Can be used in both Business and Pinner products."
         defaultCode={`
           <Callout
             type="error"
