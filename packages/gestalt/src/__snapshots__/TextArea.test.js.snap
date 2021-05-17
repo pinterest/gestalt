@@ -38,6 +38,7 @@ exports[`TextArea TextArea with error 1`] = `
       className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
     >
       <span
+        className="formErrorMessage"
         id="test-error"
       >
         error message
