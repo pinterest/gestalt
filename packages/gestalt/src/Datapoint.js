@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import Text from './Text.js';
 import Heading from './Heading.js';
 import Flex from './Flex.js';
-import IconButton from './IconButton.js';
+import Icon from './Icon.js';
 import Tooltip from './Tooltip.js';
+import TapArea from './TapArea.js';
 import DatapointTrend from './DatapointTrend.js';
 
 type TrendObject = {|
@@ -41,13 +42,12 @@ export default function Datapoint({
         <Text size="sm">{title}</Text>
         {tooltipText && (
           <Tooltip text={tooltipText} idealDirection="up">
-            <IconButton
-              accessibilityLabel=""
-              size="sm"
-              icon="info-circle"
-              iconColor="gray"
-              padding={1}
-            />
+            {/* Interactive elements require an a11yLabel on them or their children. In this particular case,
+            screenreaders do read the Tooltip text that provides the context to the interactive children.
+            Therefore no a11yLabel is needed and integration tests can be safely disabled. */}
+            <TapArea accessibilityLabel="" rounding="circle" tapStyle="none">
+              <Icon accessibilityLabel="" size={16} icon="info-circle" color="gray" />
+            </TapArea>
           </Tooltip>
         )}
       </Flex>

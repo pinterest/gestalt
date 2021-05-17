@@ -8,7 +8,7 @@ describe('Datapoint Accessibility check', () => {
     cy.configureAxe({
       rules: [
         {
-          id: 'button-name',
+          id: 'aria-command-name', // Tooltip provides description to the button
           enabled: false,
         },
       ],
