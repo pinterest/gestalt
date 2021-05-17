@@ -1,8 +1,5 @@
 // @flow strict
-
-import type { Element, Node } from 'react';
-
-import { forwardRef, useState } from 'react';
+import { forwardRef, type Element, type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Box from './Box.js';
@@ -19,8 +16,8 @@ const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
 
 type Props = {|
-  errorMessage?: string,
   disabled?: boolean,
+  errorMessage?: Node,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -44,8 +41,8 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
   HTMLTextAreaElement,
 >(function TextArea(props, ref): Node {
   const {
-    errorMessage,
     disabled = false,
+    errorMessage,
     hasError = false,
     helperText,
     id,
@@ -86,11 +83,13 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
     }
   };
 
+  const hasErrorMessage = Boolean(errorMessage);
+
   const classes = classnames(
     styles.textArea,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
-    (hasError || errorMessage) && !focused ? formElement.errored : formElement.normal,
+    (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     tags
       ? {
           [focusStyles.accessibilityOutlineFocus]: focused,
@@ -101,8 +100,8 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
 
   const inputElement = (
     <textarea
-      aria-describedby={errorMessage && focused ? `${id}-error` : null}
-      aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+      aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
+      aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       className={tags ? styles.unstyledTextArea : classes}
       disabled={disabled}
       id={id}
@@ -148,14 +147,14 @@ const TextAreaWithForwardRef: React$AbstractComponent<Props, HTMLTextAreaElement
         inputElement
       )}
       {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {hasErrorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );
 });
 
 TextAreaWithForwardRef.propTypes = {
   disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
+  errorMessage: PropTypes.node,
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
