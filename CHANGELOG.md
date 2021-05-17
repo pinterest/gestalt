@@ -1,3 +1,9 @@
+## 21.17.1 (May 17, 2021)
+
+### Patch
+
+- ESLint: improve performance & bug fix for box-no-disallowed-props (#1510)
+
 ## 21.17.0 (May 14, 2021)
 
 ### Minor
