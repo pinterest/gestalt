@@ -19,6 +19,15 @@ ruleTester.run('no-box-disallowedProps', rule, {
 import { Box } from 'gestalt';
 
 export default function TestElement() {
+  return <Box id="box" tabIndex={1}>Test</Box>;
+}
+    `,
+    },
+    {
+      code: `
+import { Box } from 'gestalt';
+
+export default function TestElement() {
   return <Box as="main">Test</Box>;
 }
     `,
