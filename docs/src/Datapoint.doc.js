@@ -37,7 +37,7 @@ card(
         type: `'md' | 'lg'`,
         defaultValue: 'md',
         description:
-          'Used to set the size of the datapoint. See the [size](#Size) variant to learn more.',
+          'Used to set the size of the datapoint. the [size](#Size) variant to learn more.',
       },
       {
         name: 'title',
