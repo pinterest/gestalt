@@ -1,3 +1,9 @@
+## 21.17.7 (May 17, 2021)
+
+### Patch
+
+- Docs: Link to zIndex documentation in relevant components (#1514)
+
 ## 21.17.6 (May 17, 2021)
 
 ### Patch
