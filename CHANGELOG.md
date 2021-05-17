@@ -1,3 +1,9 @@
+## 21.17.3 (May 17, 2021)
+
+### Patch
+
+- ESLint: add native React props to no-box-disallowed-props (#1511)
+
 ## 21.17.2 (May 17, 2021)
 
 ### Patch
