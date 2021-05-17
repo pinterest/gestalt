@@ -1,3 +1,9 @@
+## 21.17.4 (May 17, 2021)
+
+### Patch
+
+- Updated trendSentiment docs to explicitly call out color treatments. (#1512)
+
 ## 21.17.3 (May 17, 2021)
 
 ### Patch
