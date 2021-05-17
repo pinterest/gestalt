@@ -1,3 +1,9 @@
+## 21.17.2 (May 17, 2021)
+
+### Patch
+
+- Datapoint: remove compression on click (#1508)
+
 ## 21.17.1 (May 17, 2021)
 
 ### Patch
