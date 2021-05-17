@@ -80,10 +80,10 @@ const allowedBaseProps = [
 
 const allowedPrefixProps = ['data-', 'aria-'];
 
-const errorMessage = (props: $ReadOnlyArray<string>): string =>
-  `${
-    props.length === 1 ? `${props[0]} is` : `${props.join(', ')} are`
-  } not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.`;
+const errorMessage = (props: $ReadOnlyArray<string>, localBoxName: string): string =>
+  `${props.length === 1 ? `${props[0]} is` : `${props.join(', ')} are`} not allowed on Box${
+    localBoxName !== 'Box' ? ` (imported as ${localBoxName})` : ''
+  }. Please see https://gestalt.netlify.app/Box for all allowed props.`;
 
 const rule = {
   meta: {
@@ -101,19 +101,19 @@ const rule = {
 
   // $FlowFixMe[unclear-type]
   create(context: Object): Object {
-    let importedComponent = false;
+    let localBoxName = false;
 
     return {
       ImportDeclaration(decl) {
         if (decl.source.value !== 'gestalt') {
           return;
         }
-        importedComponent = decl.specifiers.some((node) => {
+        localBoxName = decl.specifiers.find((node) => {
           return node.imported.name === 'Box';
-        });
+        })?.local?.name;
       },
       JSXOpeningElement(node) {
-        if (!importedComponent) {
+        if (!localBoxName || node?.name?.name !== localBoxName) {
           return;
         }
 
@@ -129,7 +129,7 @@ const rule = {
           );
 
         if (disallowedProps.length) {
-          const message = errorMessage(disallowedProps);
+          const message = errorMessage(disallowedProps, localBoxName);
           context.report(node, message);
         }
       },

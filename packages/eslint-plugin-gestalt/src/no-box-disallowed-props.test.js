@@ -34,6 +34,15 @@ export default function TestElement() {
     },
     {
       code: `
+import { Box as GestaltBox } from 'gestalt';
+
+export default function TestElement() {
+  return <GestaltBox as="main">Test</GestaltBox>;
+}
+    `,
+    },
+    {
+      code: `
 import { Box } from 'gestalt';
 
 export default function TestElement() {
@@ -55,6 +64,21 @@ export default function TestElement() {
         {
           message:
             'backgroundColor is not allowed on Box. Please see https://gestalt.netlify.app/Box for all allowed props.',
+        },
+      ],
+    },
+    {
+      code: `
+import { Box as GestaltBox } from 'gestalt';
+
+export default function TestElement() {
+  return <GestaltBox backgroundColor="#fff">Test</GestaltBox>;
+}
+      `,
+      errors: [
+        {
+          message:
+            'backgroundColor is not allowed on Box (imported as GestaltBox). Please see https://gestalt.netlify.app/Box for all allowed props.',
         },
       ],
     },
