@@ -362,7 +362,7 @@ card(
     id="zIndex"
     name="With ZIndex"
     description={`
-    When Typeahead is used within a parent component that has a z-index set, a z-index will also need to be set on the Typeahead. Otherwise the Typeahead will render behind the parent component in the stacking context.`}
+    When Typeahead is used within a parent component that has a z-index set, a z-index will also need to be set on the Typeahead. Otherwise the Typeahead will render behind the parent component in the stacking context. Visit our [Z-Index documentation](/ZIndex%20Classes) for more details on how to use these utility classes.`}
     defaultCode={`
 function Example(props) {
   const [open, setOpen] = React.useState(false);

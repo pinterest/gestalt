@@ -860,7 +860,7 @@ function BoxPopoverExample() {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it.`}
+      description={`It's possible to use Box with external elements using the CSS \`z-index\` property by capturing those values in controlled objects. The example below shows using a \`FixedZIndex\` for a value that comes from somewhere else, and a \`CompositeZIndex\` to layer the Box on top of it. Visit our [Z-Index documentation](/ZIndex%20Classes) for more details on how to use these utility classes.`}
       title="Z-Index"
     >
       <MainSection.Card
