@@ -21,8 +21,10 @@ card(
       },
       {
         name: 'errorMessage',
-        type: 'string',
+        type: 'React.Node',
         href: 'errorMessageExample',
+        description:
+          'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
       },
       {
         name: 'ref',
