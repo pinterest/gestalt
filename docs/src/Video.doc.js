@@ -119,7 +119,7 @@ card(
       },
       {
         name: 'onError',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description: 'Sent when an error occurs',
       },
       {
@@ -134,7 +134,7 @@ card(
       },
       {
         name: 'onLoadStart',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description: 'Sent when the media has started to load',
       },
       {
@@ -145,7 +145,7 @@ card(
       },
       {
         name: 'onPlaying',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description: 'Sent when playback of the media is ready to start after having been paused',
         href: 'videoUpdatesExample',
       },
@@ -177,12 +177,12 @@ card(
       },
       {
         name: 'onSeeking',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description: 'Sent when a seek operation begins',
       },
       {
         name: 'onStalled',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description: 'Sent when trying to fetch data but the data is unexpectedly not forthcoming',
       },
       {
@@ -199,7 +199,7 @@ card(
       },
       {
         name: 'onWaiting',
-        type: '({ event: SyntheticEvent<HTMLDivElement> }) => void',
+        type: '({ event: SyntheticEvent<HTMLVideoElement> }) => void',
         description: 'Sent when playback has stopped because of a temporary lack of data',
         href: 'videoUpdatesExample',
       },

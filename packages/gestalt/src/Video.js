@@ -40,12 +40,12 @@ type Props = {|
     duration: number,
   |}) => void,
   onEnded?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onError?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
+  onError?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onFullscreenChange?: AbstractEventHandler<Event, {| fullscreen: boolean |}>,
   onLoadedChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| loaded: number |}>,
-  onLoadStart?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
+  onLoadStart?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onPlay?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
-  onPlaying?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
+  onPlaying?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onPlayheadDown?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPlayheadUp?: AbstractEventHandler<SyntheticMouseEvent<HTMLDivElement>>,
   onPause?: AbstractEventHandler<
@@ -53,14 +53,14 @@ type Props = {|
   >,
   onReady?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onSeek?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
-  onSeeking?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
-  onStalled?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
+  onSeeking?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
+  onStalled?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   onTimeChange?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>, {| time: number |}>,
   onVolumeChange?: AbstractEventHandler<
     SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
     {| volume: number |},
   >,
-  onWaiting?: AbstractEventHandler<SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>>,
+  onWaiting?: AbstractEventHandler<SyntheticEvent<HTMLVideoElement>>,
   playbackRate: number,
   playing: boolean,
   playsInline?: boolean,
@@ -413,7 +413,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when an error occurs.
-  handleError: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
+  handleError: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onError } = this.props;
 
     if (onError) {
@@ -434,7 +434,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Sent when the video has started to load
   handleLoadStart: (
-    event: SyntheticEvent<HTMLDivElement>,
+    event: SyntheticEvent<HTMLVideoElement>,
   ) => void = (event) => {
     const { onLoadStart } = this.props;
 
@@ -456,7 +456,7 @@ export default class Video extends PureComponent<Props, State> {
 
   // Sent when playback of the media is ready to start after having been paused.
   handlePlaying: (
-    event: SyntheticEvent<HTMLDivElement> | SyntheticEvent<HTMLAnchorElement>,
+    event: SyntheticEvent<HTMLVideoElement>,
   ) => void = (event) => {
     const { onPlaying } = this.props;
 
@@ -515,7 +515,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when a seek operation beings.
-  handleSeeking: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
+  handleSeeking: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onSeeking } = this.props;
 
     if (onSeeking) {
@@ -524,7 +524,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when trying to fetch data but the data is unexpectedly not forthcoming.
-  handleStalled: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
+  handleStalled: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onStalled } = this.props;
 
     if (onStalled) {
@@ -556,7 +556,7 @@ export default class Video extends PureComponent<Props, State> {
   };
 
   // Sent when playback has stopped because of a temporary lack of data.
-  handleWaiting: (event: SyntheticEvent<HTMLDivElement>) => void = (event) => {
+  handleWaiting: (event: SyntheticEvent<HTMLVideoElement>) => void = (event) => {
     const { onWaiting } = this.props;
 
     if (onWaiting) {
