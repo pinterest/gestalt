@@ -479,6 +479,7 @@ exports[`Checkbox with error 1`] = `
           className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
         >
           <span
+            className="formErrorMessage"
             id="id-error"
           >
             Error message

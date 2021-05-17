@@ -1,15 +1,23 @@
 // @flow strict
-
-import type { Node } from 'react';
+import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Text from './Text.js';
+import styles from './FormErrorMessage.css';
 
-export default function FormErrorMessage({ id, text = '' }: {| id: string, text?: string |}): Node {
+type Props = {|
+  id: string,
+  text?: Node,
+|};
+
+export default function FormErrorMessage({ id, text = '' }: Props): Node {
   return (
     <Box marginTop={2}>
       <Text color="red" size="sm">
-        <span id={`${id}-error`}>{text}</span>
+        {/* Class used to ensure all children are font size "sm" */}
+        <span className={styles.formErrorMessage} id={`${id}-error`}>
+          {text}
+        </span>
       </Text>
     </Box>
   );
@@ -17,5 +25,5 @@ export default function FormErrorMessage({ id, text = '' }: {| id: string, text?
 
 FormErrorMessage.propTypes = {
   id: PropTypes.string.isRequired,
-  text: PropTypes.string,
+  text: PropTypes.node,
 };

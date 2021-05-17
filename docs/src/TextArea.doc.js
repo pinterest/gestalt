@@ -21,8 +21,10 @@ card(
       },
       {
         name: 'errorMessage',
-        type: 'string',
+        type: 'React.Node',
         href: 'errorMessageExample',
+        description:
+          'For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in Link or TapArea.',
       },
       {
         name: 'ref',
@@ -168,6 +170,31 @@ function Example(props) {
 
 card(
   <Example
+    id="errorMessageExample"
+    name="Example: Error message"
+    description={`
+    A TextArea can display its own error message.
+    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
+    defaultCode={`
+function Example(props) {
+  const [value, setValue] = React.useState('')
+  return (
+    <TextArea
+      id="witherror"
+      onChange={({value}) => setValue(value)}
+      errorMessage={!value ? "This field can't be blank!" : null}
+      placeholder="Write something about yourself..."
+      label="With an error message"
+      value={value}
+    />
+  );
+}
+`}
+  />,
+);
+
+card(
+  <Example
     id="refExample"
     name="Example: ref"
     description={`
@@ -201,31 +228,6 @@ function TextAreaPopoverExample() {
         </Popover>
       )}
     </Box>
-  );
-}
-`}
-  />,
-);
-
-card(
-  <Example
-    id="errorMessageExample"
-    name="Example: Error message"
-    description={`
-    A TextArea can display its own error message.
-    To use our errors, simply pass in an \`errorMessage\` when there is an error present and we will     handle the rest.`}
-    defaultCode={`
-function Example(props) {
-  const [value, setValue] = React.useState('')
-  return (
-    <TextArea
-      id="witherror"
-      onChange={({value}) => setValue(value)}
-      errorMessage={!value ? "This field can't be blank!" : null}
-      placeholder="Write something about yourself..."
-      label="With an error message"
-      value={value}
-    />
   );
 }
 `}

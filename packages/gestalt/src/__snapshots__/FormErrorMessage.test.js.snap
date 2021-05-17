@@ -8,6 +8,7 @@ exports[`FormErrorMessage with errorMessage 1`] = `
     className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
   >
     <span
+      className="formErrorMessage"
       id="test-error"
     >
       some error message
@@ -24,6 +25,7 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
     className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
   >
     <span
+      className="formErrorMessage"
       id="test-error"
     >
       

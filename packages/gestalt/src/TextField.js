@@ -1,7 +1,5 @@
 // @flow strict
-import type { Element, Node } from 'react';
-
-import { forwardRef, useState } from 'react';
+import { forwardRef, type Element, type Node, useState } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
@@ -17,7 +15,7 @@ import styles from './TextField.css';
 type Props = {|
   autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username',
   disabled?: boolean,
-  errorMessage?: string,
+  errorMessage?: Node,
   hasError?: boolean,
   helperText?: string,
   id: string,
@@ -95,11 +93,13 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
     }
   };
 
+  const hasErrorMessage = Boolean(errorMessage);
+
   const classes = classnames(
     styles.textField,
     formElement.base,
     disabled ? formElement.disabled : formElement.enabled,
-    (hasError || errorMessage) && !focused ? formElement.errored : formElement.normal,
+    (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     size === 'md' ? layout.medium : layout.large,
     tags
       ? {
@@ -115,8 +115,8 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 
   const inputElement = (
     <input
-      aria-describedby={errorMessage && focused ? `${id}-error` : null}
-      aria-invalid={errorMessage || hasError ? 'true' : 'false'}
+      aria-describedby={hasErrorMessage && focused ? `${id}-error` : null}
+      aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       autoComplete={autoComplete}
       className={tags ? styles.unstyledTextField : classes}
       disabled={disabled}
@@ -159,7 +159,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
         inputElement
       )}
       {helperText && !errorMessage ? <FormHelperText text={helperText} /> : null}
-      {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
+      {hasErrorMessage && <FormErrorMessage id={id} text={errorMessage} />}
     </span>
   );
 });
@@ -167,7 +167,7 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 TextFieldWithForwardRef.propTypes = {
   autoComplete: PropTypes.oneOf(['current-password', 'new-password', 'on', 'off', 'username']),
   disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
+  errorMessage: PropTypes.node,
   hasError: PropTypes.bool,
   helperText: PropTypes.string,
   id: PropTypes.string.isRequired,
