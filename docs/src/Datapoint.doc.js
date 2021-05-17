@@ -109,7 +109,7 @@ card(
     </MainSection.Subsection>
 
     <MainSection.Subsection
-      description={`By default, a positive trend will be considered "good", a negative trend "bad" and a trend of 0 "neutral". However, the \`trendSentiment\` property can be used to explicitly set whether the \`trend\` is considered "good", "bad" or "neutral", as demonstrated below.`}
+      description={`By default, a positive trend will be considered "good" (displayed as a green trend), a negative trend "bad" (displayed as a red trend) and a trend of 0 "neutral" (displayed as a dark gray trend). However, the \`trendSentiment\` property can be used to explicitly set whether the \`trend\` is considered "good", "bad" or "neutral", as demonstrated below.`}
       title="Trend sentiment"
     >
       <MainSection.Card
