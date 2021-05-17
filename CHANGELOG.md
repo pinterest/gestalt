@@ -1,3 +1,9 @@
+## 21.17.6 (May 17, 2021)
+
+### Patch
+
+- TextField, TextArea: Open errorMessage type to accept Node (#1513)
+
 ## 21.17.5 (May 17, 2021)
 
 ### Patch
