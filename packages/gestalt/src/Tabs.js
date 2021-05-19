@@ -279,10 +279,8 @@ Tabs.propTypes = {
       id: PropTypes.string,
       indicator: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       // type from this SO answer: https://stackoverflow.com/a/51127130/5253702
-      ref: PropTypes.oneOfType([
-        PropTypes.func,
-        PropTypes.shape({ current: PropTypes.instanceOf(HTMLElement) }),
-      ]),
+      // eslint-disable-next-line react/forbid-prop-types
+      ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
       text: PropTypes.node.isRequired,
     }),
   ).isRequired,
