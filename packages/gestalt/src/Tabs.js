@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useState } from 'react';
+import { forwardRef, type AbstractComponent, type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flex from './Flex.js';
@@ -84,27 +82,23 @@ type TabType = {|
   text: Node,
 |};
 
-function Tab({
-  href,
-  id,
-  index,
-  indicator,
-  isActive,
-  onChange,
-  size,
-  text,
-}: {|
+type TabProps = {|
   ...TabType,
   index: number,
   isActive: boolean,
   onChange: OnChangeHandler,
   size: 'md' | 'lg',
-|}) {
+|};
+
+const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
+  TabProps,
+  HTMLElement,
+>(function Tab({ href, id, index, indicator, isActive, onChange, size, text }, ref) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
 
   return (
-    <Box position={focused ? 'relative' : undefined}>
+    <Box position={focused ? 'relative' : undefined} ref={ref}>
       <Link
         accessibilitySelected={isActive}
         hoverStyle="none"
@@ -141,29 +135,31 @@ function Tab({
       </Link>
     </Box>
   );
-}
+});
+
+TabWithForwardRef.displayName = 'Tab';
 
 const TAB_ROUNDING = 2;
 const TAB_INNER_PADDING = 1;
 
-function TabV2({
-  href,
-  indicator,
-  id,
-  index,
-  isActive,
-  onChange,
-  // No longer supported, will be removed when this variant ships
-  // eslint-disable-next-line no-unused-vars
-  size,
-  text,
-}: {|
-  ...TabType,
-  index: number,
-  isActive: boolean,
-  onChange: OnChangeHandler,
-  size: 'md' | 'lg',
-|}) {
+const TabV2WithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
+  TabProps,
+  HTMLElement,
+>(function TabV2(
+  {
+    href,
+    indicator,
+    id,
+    index,
+    isActive,
+    onChange,
+    // No longer supported, will be removed when this variant ships
+    // eslint-disable-next-line no-unused-vars
+    size,
+    text,
+  },
+  ref,
+) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -176,7 +172,7 @@ function TabV2({
   }
 
   return (
-    <Box id={id} paddingY={3}>
+    <Box id={id} paddingY={3} ref={ref}>
       <TapArea
         href={href}
         onBlur={() => setFocused(false)}
@@ -225,13 +221,15 @@ function TabV2({
       </TapArea>
     </Box>
   );
-}
+});
+
+TabV2WithForwardRef.displayName = 'TabV2';
 
 type Props = {|
   activeTabIndex: number,
   onChange: OnChangeHandler,
   size?: 'md' | 'lg',
-  tabs: $ReadOnlyArray<TabType>,
+  tabs: $ReadOnlyArray<{| ...TabType, ref?: {| current: ?HTMLElement |} |}>,
   wrap?: boolean,
   // Temporary prop for the Tabs Redesign project experiments
   _dangerouslyUseV2?: boolean,
@@ -245,11 +243,11 @@ export default function Tabs({
   wrap,
   _dangerouslyUseV2,
 }: Props): Node {
-  const TabComponent = _dangerouslyUseV2 ? TabV2 : Tab;
+  const TabComponent = _dangerouslyUseV2 ? TabV2WithForwardRef : TabWithForwardRef;
 
   return (
     <Flex alignItems="center" gap={_dangerouslyUseV2 ? 4 : 0} justifyContent="start" wrap={wrap}>
-      {tabs.map(({ id, href, text, indicator }, index) => (
+      {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <TabComponent
           key={id || `${href}_${index}`}
           href={href}
@@ -258,6 +256,7 @@ export default function Tabs({
           isActive={activeTabIndex === index}
           indicator={indicator}
           onChange={onChange}
+          ref={ref}
           size={size}
           text={text}
         />
@@ -265,6 +264,24 @@ export default function Tabs({
     </Flex>
   );
 }
+
+const TabItemPropType = {
+  href: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  indicator: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  text: PropTypes.node.isRequired,
+};
+
+const TabPropType = {
+  ...TabItemPropType,
+  index: PropTypes.number.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  size: PropTypes.oneOf(['md', 'lg']),
+};
+
+TabWithForwardRef.propTypes = TabPropType;
+TabV2WithForwardRef.propTypes = TabPropType;
 
 Tabs.propTypes = {
   activeTabIndex: PropTypes.number.isRequired,
@@ -274,10 +291,10 @@ Tabs.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      href: PropTypes.string.isRequired,
-      id: PropTypes.string,
-      indicator: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      text: PropTypes.node.isRequired,
+      ...TabItemPropType,
+      // type from this SO answer: https://stackoverflow.com/a/51127130/5253702
+      // eslint-disable-next-line react/forbid-prop-types
+      ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
     }),
   ).isRequired,
   wrap: PropTypes.bool,
