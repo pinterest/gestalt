@@ -125,7 +125,7 @@ const MainSectionCard = ({
           </Box>
         </LiveProvider>
       )}
-      {iframeContent && (
+      {iframeContent && code && (
         <LiveProvider code={code} scope={scope} theme={theme}>
           {shouldShowCode && <ExampleCode code={code} name={cardTitle || ''} />}
         </LiveProvider>
