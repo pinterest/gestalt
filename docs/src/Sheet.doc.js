@@ -12,112 +12,12 @@ card(
     name="Sheet"
     description="Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have a default internal padding for content."
     defaultCode={`
-function SubheadingExample(props) {
-  const SheetWithSubheading = ({
-    onDismiss,
-  }) => {
-
-    return (
-      <Sheet
-        accessibilityDismissButtonLabel="Close"
-        accessibilitySheetLabel="Example sheet for demonstration"
-        heading="Create new audience list"
-        onDismiss={onDismiss}
-        footer={({ onDismissStart }) => (<Flex alignItems="center" justifyContent="end"><Button inline color="red" text="Create" onClick={onDismissStart}/></Flex>)}
-        size="md"
-      >
-        <Flex direction="column" gap={12}>
-          <Flex direction="column" gap={4}>
-            <Box>
-              <Text inline weight="bold">Step 1:</Text>
-              <Text inline> Audience list details</Text>
-            </Box>
-            <TextField label="Audience name" placeholder="Name your audience"/>
-            <TextField label="Audience description" placeholder="Describe your audience"/>
-            <Fieldset legend="When adding this audience list to an ad group:">
-              <Flex direction="column" gap={3}>
-                <RadioButton
-                  label="Include list"
-                  name="audience"
-                  value="include"
-                  onChange={() => {}}
-                />
-                <RadioButton
-                  label="Exclude list"
-                  name="audience"
-                  value="include"
-                  onChange={() => {}}
-                />
-              </Flex>
-            </Fieldset>
-          </Flex>
-          <Flex direction="column" gap={4}>
-            <Box>
-              <Text inline weight="bold">Step 2:</Text>
-              <Text inline> Select conversion source</Text>
-            </Box>
-            <Text>To use a conversion source other than a Pinterest Tag, add a filter and configure the source of this event.</Text>
-            <Fieldset legend="Select conversion source:" legendDisplay="hidden">
-              <Flex direction="column" gap={3}>
-                <RadioButton
-                  label="Pinterest Tag"
-                  name="source"
-                  value="pin"
-                  onChange={() => {}}
-                />
-                <RadioButton
-                  label="Mobile Measurement Partners (MMP)"
-                  name="source"
-                  value="mmp"
-                  onChange={() => {}}
-                />
-                <RadioButton
-                  label="Conversion Upload"
-                  name="source"
-                  value="conversion"
-                  onChange={() => {}}
-                />
-                <RadioButton
-                  label="API"
-                  name="source"
-                  value="api"
-                  onChange={() => {}}
-                />
-              </Flex>
-            </Fieldset>
-          </Flex>
-          <Flex direction="column" gap={4}>
-            <Box>
-              <Text inline weight="bold">Step 3:</Text>
-              <Text inline> Set a filter</Text>
-            </Box>
-            <TextField label="Users in the past few days" placeholder="Ex. 4"/>
-            <Checkbox label="Include past traffic data" name="traffic"/>
-          </Flex>
-        </Flex>
-      </Sheet>
-    );
-  };
-
-  const [shouldShow, setShouldShow] = React.useState(false);
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
-
-  return (
-    <React.Fragment>
-      <Button
-        inline
-        text="View Sheet"
-        onClick={() => setShouldShow(true)}
-      />
-      {shouldShow && (
-        <Layer zIndex={sheetZIndex}>
-          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}
+    <iframe src="https://codesandbox.io/embed/magical-christian-2kk1c?fontsize=14&hidenavigation=1&theme=light&view=preview"
+    style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
+    title="Main Sheet Demo"
+      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
 `}
   />,
 );
@@ -207,15 +107,15 @@ card(
         cardSize="lg"
         showCode={false}
         type="do"
-        description="Use Sheet for sub-tasks within a large workflow that are optional."
+        description="Use Sheet for sub-tasks within a large workflow that are optional, like creating a new audience list while creating a campaign."
         defaultCode={`
-   <iframe src="https://codesandbox.io/embed/frosty-voice-vk4qf?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-   style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
-   title="Sheets for sub-tasks"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-`}
+          <iframe src="https://codesandbox.io/embed/magical-christian-2kk1c?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
+          title="Sheets for sub-tasks"
+            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          ></iframe>
+        `}
       />
 
       <MainSection.Card
@@ -223,6 +123,12 @@ card(
         type="do"
         description="Use Sheet for quick edits within libraries or tables of content where you expect users to be making multiple edits in one session."
         defaultCode={`
+        <iframe src="https://codesandbox.io/embed/compassionate-darkness-vpsc9?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+          title="Sheets for quick edits"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
 `}
       />
       <MainSection.Card
@@ -238,7 +144,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="don't"
-        description="Use Sheet for required tasks or main tasks. Put those tasks within the content of the page instead"
+        description="Use Sheet for required tasks or main tasks, like logging in. Put those tasks within the content of the page instead."
         defaultCode={`
 
 `}
@@ -246,7 +152,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="don't"
-        description="Use Sheet if these edits require more than two steps. Bring users to a full page experience or consider using Modules to section out content."
+        description="Use Sheet if edits or sub-tasks require more than two steps. Bring users to a full page experience or consider using [Modules](/Module) to section out content."
         defaultCode={`
 
 `}
@@ -257,35 +163,6 @@ card(
         description="Use Sheet to confirm actions or display alerts. Use a [Modal](/Modal) or [Toast](/Toast) instead."
         defaultCode={`
 
-`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection>
-      <MainSection.Card
-        cardSize="lg"
-        showCode={false}
-        description="Here's an example of ideal Sheets"
-        defaultCode={`
-        <iframe src="https://codesandbox.io/embed/default-padding-styling-y7hj9?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-     style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
-     title="Default padding &amp; styling"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-
-`}
-      />
-      <MainSection.Card
-        cardSize="lg"
-        showCode={false}
-        description="Here's an example of bad Sheets"
-        defaultCode={`
-        <iframe src="https://codesandbox.io/embed/default-padding-styling-y7hj9?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-     style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-     title="Default padding &amp; styling"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
 `}
       />
     </MainSection.Subsection>
@@ -303,9 +180,17 @@ card(
     >
       <MainSection.Card
         cardSize="lg"
+        iframeContent={`
+        <iframe src="https://codesandbox.io/embed/magical-christian-2kk1c?fontsize=14&hidenavigation=1&theme=light&view=preview"
+        style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+        title="Accessibility Labels"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      ></iframe>
+        `}
         defaultCode={`
 function AccessibilityExample(props) {
-  const SheetWithSubheading = ({
+  const SheetWithAccessibilityLabels = ({
     onDismiss,
   }) => {
 
@@ -315,7 +200,163 @@ function AccessibilityExample(props) {
         accessibilitySheetLabel="Audience list creation for new campaign"
         heading="Create a new audience list"
         onDismiss={onDismiss}
-        footer={({ onDismissStart }) => (<Flex alignItems="center" justifyContent="end"><Button inline color="red" text="Create" onClick={onDismissStart}/></Flex>)}
+        footer={({ onDismissStart }) => (
+          <Flex alignItems="center" justifyContent="end">
+            <Button inline color="red" text="Create" onClick={onDismissStart} />
+          </Flex>
+        )}
+        size="md"
+      >
+        <Flex direction="column" gap={12}>
+          <Flex direction="column" gap={4}>
+            <Box>
+              <Text inline weight="bold">Step 1:</Text>
+              <Text inline> Audience list details</Text>
+            </Box>
+            <TextField id="audience-name" label="Audience name" placeholder="Name your audience" onChange={() => {}}/>
+            <TextField id="desc" label="Audience description" placeholder="Describe your audience" onChange={() => {}}/>
+            <Fieldset legend="When adding this audience list to an ad group:">
+              <Flex direction="column" gap={3}>
+                <RadioButton
+                  label="Include list"
+                  name="audience"
+                  value="include"
+                  onChange={() => {}}
+                  id="include"
+                />
+                <RadioButton
+                  label="Exclude list"
+                  name="audience"
+                  value="include"
+                  onChange={() => {}}
+                  id="exclude"
+                />
+              </Flex>
+            </Fieldset>
+          </Flex>
+          <Flex direction="column" gap={4}>
+            <Box>
+              <Text inline weight="bold">Step 2:</Text>
+              <Text inline> Select conversion source</Text>
+            </Box>
+            <Text>To use a conversion source other than a Pinterest Tag, add a filter and configure the source of this event.</Text>
+            <Fieldset legend="Select conversion source:" legendDisplay="hidden">
+              <Flex direction="column" gap={3}>
+                <RadioButton
+                  label="Pinterest Tag"
+                  name="source"
+                  value="pin"
+                  onChange={() => {}}
+                  id="tag"
+                />
+                <RadioButton
+                  label="Mobile Measurement Partners (MMP)"
+                  name="source"
+                  value="mmp"
+                  onChange={() => {}}
+                  id="mmp"
+                />
+                <RadioButton
+                  label="Conversion Upload"
+                  name="source"
+                  value="conversion"
+                  onChange={() => {}}
+                  id="upload"
+                />
+                <RadioButton
+                  label="API"
+                  name="source"
+                  value="api"
+                  onChange={() => {}}
+                  id="api"
+                />
+              </Flex>
+            </Fieldset>
+          </Flex>
+          <Flex direction="column" gap={4}>
+            <Box>
+              <Text inline weight="bold">Step 3:</Text>
+              <Text inline> Set a filter</Text>
+            </Box>
+            <TextField id="users" label="Users in the past few days" placeholder="Ex. 4" onChange={() => {}}/>
+            <Checkbox label="Include past traffic data" name="traffic" id="traffic" onChange={() => {}}/>
+          </Flex>
+        </Flex>
+      </Sheet>
+    );
+  };
+
+  const [shouldShow, setShouldShow] = React.useState(true);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <React.Fragment>
+      <Button
+        inline
+        text="View example Sheet"
+        onClick={() => setShouldShow(true)}
+      />
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <SheetWithAccessibilityLabels onDismiss={() => setShouldShow(false)} />
+        </Layer>
+      )}
+    </React.Fragment>
+  );
+}
+`}
+      />
+    </MainSection.Subsection>
+    <MainSection.Subsection
+      title="Focus management"
+      description={`
+When Sheet opens, focus should be placed on the first interactive element within the Sheet. When Sheet is closed, focus should be placed back on the button that triggered the Sheet.
+`}
+    />
+  </MainSection>,
+);
+
+card(
+  <MainSection
+    name="Localization"
+    description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\` and \`accessibilitySheetLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
+  />,
+);
+
+card(
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      title="Heading"
+      description={`As a default, Sheet consists of a \`heading\` and content passed as \`children\`. The \`heading\` of Sheet will have a drop shadow when content scrolls under it.`}
+    >
+      <MainSection.Card
+        cardSize="lg"
+        iframeContent={`
+        <iframe src="https://codesandbox.io/embed/magical-christian-2kk1c?fontsize=14&hidenavigation=1&theme=light&view=preview"
+        style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+        title="Sheet with Heading"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+      ></iframe>
+        `}
+        defaultCode={`
+function AccessibilityExample(props) {
+  const SheetWithAccessibilityLabels = ({
+    onDismiss,
+  }) => {
+
+    return (
+      <Sheet
+        accessibilityDismissButtonLabel="Close audience creation sheet"
+        accessibilitySheetLabel="Audience list creation for new campaign"
+        heading="Create a new audience list"
+        onDismiss={onDismiss}
+        footer={({ onDismissStart }) => (
+          <Flex alignItems="center" justifyContent="end">
+            <Button inline color="red" text="Create" onClick={onDismissStart}/>
+          </Flex>
+        )}
         size="md"
       >
         <Flex direction="column" gap={12}>
@@ -391,7 +432,7 @@ function AccessibilityExample(props) {
     );
   };
 
-  const [shouldShow, setShouldShow] = React.useState(false);
+  const [shouldShow, setShouldShow] = React.useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
@@ -404,7 +445,7 @@ function AccessibilityExample(props) {
       />
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
+          <SheetWithAccessibilityLabels onDismiss={() => setShouldShow(false)} />
         </Layer>
       )}
     </React.Fragment>
@@ -414,40 +455,19 @@ function AccessibilityExample(props) {
       />
     </MainSection.Subsection>
     <MainSection.Subsection
-      title="Focus management"
-      description={`
-When Sheet opens, focus should be placed on the first interactive element within the Sheet. When Sheet is closed, focus should be placed back on the button that triggered the Sheet.
-`}
-    />
-  </MainSection>,
-);
-
-card(
-  <MainSection
-    name="Localization"
-    description={`Be sure to localize the \`heading\`, \`accessibilityDismissButtonLabel\` and \`accessibilitySheetLabel\` props. Note that localization can lengthen text by 20 to 30 percent.`}
-  />,
-);
-
-card(
-  <MainSection name="Variants">
-    <MainSection.Subsection
-      title="Heading"
-      description={`As a default, Sheet consists of a \`heading\` and content passed as \`children\`. The \`heading\` of Sheet will have a drop shadow when content scrolls under it.`}
-    >
-      <MainSection.Card
-        cardSize="lg"
-        defaultCode={`
-
-`}
-      />
-    </MainSection.Subsection>
-    <MainSection.Subsection
       title="Sub-heading"
       description={`A \`subHeading\` is a container that can be used for additional navigation or sub-text. The sub-heading sits at the top under the heading, and will always remain visible if the content scrolls.`}
     >
       <MainSection.Card
         cardSize="lg"
+        iframeContent={`
+          <iframe src="https://codesandbox.io/embed/wonderful-thunder-y2fr6?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+          title="Sheet with sub-heading"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+        `}
         defaultCode={`
 function SubheadingExample(props) {
   const SheetWithSubheading = ({
@@ -474,7 +494,11 @@ function SubheadingExample(props) {
         accessibilitySheetLabel="Example sheet to demonstrate subHeading"
         heading="Sheet with subHeading"
         onDismiss={onDismiss}
-        footer={<Heading size="md">Footer</Heading>}
+        footer={
+          <Flex justifyContent="end">
+            <Button inline color="red" text="Apply changes"/>
+          </Flex>
+        }
         size="md"
         subHeading={
           <Box marginBottom={4} marginStart={8} marginEnd={8}>
@@ -575,7 +599,7 @@ function SubheadingExample(props) {
     );
   };
 
-  const [shouldShow, setShouldShow] = React.useState(false);
+  const [shouldShow, setShouldShow] = React.useState(true);
   const HEADER_ZINDEX = new FixedZIndex(10);
   const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
 
@@ -588,7 +612,7 @@ function SubheadingExample(props) {
       />
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
+          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />
         </Layer>
       )}
     </React.Fragment>
@@ -603,8 +627,118 @@ function SubheadingExample(props) {
     >
       <MainSection.Card
         cardSize="lg"
+        iframeContent={`
+          <iframe src="https://codesandbox.io/embed/compassionate-darkness-vpsc9?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'600px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+          title="Sheet with Footer"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+        `}
         defaultCode={`
+function FooterExample(props) {
+  const SheetWithFooter = ({
+    onDismiss,
+  }) => {
 
+    return (
+      <Sheet
+        accessibilityDismissButtonLabel="Close"
+        accessibilitySheetLabel="Bulk edit for 5 ad groups of Nordstrom Account"
+        heading="Editing 5 ad groups"
+        onDismiss={onDismiss}
+        footer={({ onDismissStart }) => (
+          <Flex alignItems="center" justifyContent="between">
+            <Button inline color="transparent" text="Delete"/>
+            <Button inline color="red" text="Apply changes" onClick={onDismissStart}/>
+          </Flex>
+        )}
+        size="md"
+      >
+        <Flex direction="column" gap={8}>
+          <Text weight="bold">Bids</Text>
+          <Flex gap={4}>
+            <Text>Adjust bids for the selected ad groups below. Changes made here will apply to all selected ad groups.</Text>
+            <Flex.Item flex="none">
+              <Button text="Reset bids" disabled/>
+            </Flex.Item>
+          </Flex>
+          <Module.Expandable
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            id="ModuleExample - default"
+            expandedIndex={0}
+            items={[
+              {
+                children: <Fieldset legend="What bid campaign do you want to run?" legendDisplay="hidden">
+                    <Flex direction="column" gap={2}>
+                      <RadioButton
+                        checked={true}
+                        id="favoriteDog"
+                        label="No change"
+                        name="favorite"
+                        onChange={() => {}}
+                        value="dogs"
+                      />
+                      <RadioButton
+                        checked={false}
+                        id="favoriteCat"
+                        label="Automatic (recommended)"
+                        subtext="Pinterest aims to get the most clicks for your budget"
+                        name="favorite"
+                        onChange={() => {}}
+                        value="cats"
+                      />
+                      <RadioButton
+                        checked={false}
+                        id="favoritePlants"
+                        label="Custom"
+                        subtext="You control how much to bid at auctions"
+                        name="favorite"
+                        onChange={() => {}}
+                        value="plants"
+                      />
+                    </Flex>
+                  </Fieldset>,
+                summary: ['Custom'],
+                title: 'Bid',
+              }]}>
+          </Module.Expandable>
+          <Module.Expandable
+            accessibilityExpandLabel="Expand the module"
+            accessibilityCollapseLabel="Collapse the module"
+            id="ModuleExample - preview"
+            items={[
+              {
+                children: <Text> Preview table of changes here</Text>,
+                summary: ['5 ad groups changing'],
+                title: 'Preview bid changes',
+              }]}>
+          </Module.Expandable>
+        </Flex>
+      </Sheet>
+    );
+  };
+
+  const [shouldShow, setShouldShow] = React.useState(true);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <React.Fragment>
+      <Button
+        inline
+        text="View footer example"
+        onClick={() => setShouldShow(true)}
+      />
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <SheetWithFooter onDismiss={() => setShouldShow(false)} />
+        </Layer>
+      )}
+    </React.Fragment>
+  );
+}
 `}
       />
     </MainSection.Subsection>
@@ -668,12 +802,76 @@ function SizesExample(props) {
           <Sheet
             accessibilityDismissButtonLabel="Dismiss"
             accessibilitySheetLabel="Example sheet to demonstrate different sizes"
-            footer={<Heading size="md">Footer</Heading>}
+            footer={
+              <Flex justifyContent="end">
+                <Button text="Apply changes" inline color="red"/>
+              </Flex>
+            }
             heading={state.heading}
             onDismiss={() => { dispatch({ type: 'none' }) }}
             size={state.size}
           >
-            <Heading size="md">Children</Heading>
+          <Flex direction="column" gap={8}>
+            <Text weight="bold">Bids</Text>
+            <Flex gap={4}>
+              <Text>Adjust bids for the selected ad groups below. Changes made here will apply to all selected ad groups.</Text>
+              <Flex.Item flex="none">
+                <Button text="Reset bids" disabled/>
+              </Flex.Item>
+            </Flex>
+            <Module.Expandable
+              accessibilityExpandLabel="Expand the module"
+              accessibilityCollapseLabel="Collapse the module"
+              id="ModuleExample - default"
+              expandedIndex={0}
+              items={[
+                {
+                  children: <Fieldset legend="What bid campaign do you want to run?" legendDisplay="hidden">
+                      <Flex direction="column" gap={2}>
+                        <RadioButton
+                          checked={true}
+                          id="favoriteDog"
+                          label="No change"
+                          name="favorite"
+                          onChange={() => {}}
+                          value="dogs"
+                        />
+                        <RadioButton
+                          checked={false}
+                          id="favoriteCat"
+                          label="Automatic (recommended)"
+                          subtext="Pinterest aims to get the most clicks for your budget"
+                          name="favorite"
+                          onChange={() => {}}
+                          value="cats"
+                        />
+                        <RadioButton
+                          checked={false}
+                          id="favoritePlants"
+                          label="Custom"
+                          subtext="You control how much to bid at auctions"
+                          name="favorite"
+                          onChange={() => {}}
+                          value="plants"
+                        />
+                      </Flex>
+                    </Fieldset>,
+                  summary: ['Custom'],
+                  title: 'Bid',
+                }]}>
+            </Module.Expandable>
+            <Module.Expandable
+              accessibilityExpandLabel="Expand the module"
+              accessibilityCollapseLabel="Collapse the module"
+              id="ModuleExample - preview"
+              items={[
+                {
+                  children: <Text> Preview table of changes here</Text>,
+                  summary: ['5 ad groups changing'],
+                  title: 'Preview bid changes',
+                }]}>
+            </Module.Expandable>
+          </Flex>
           </Sheet>
         </Layer>
       )}
@@ -691,8 +889,8 @@ function SizesExample(props) {
       <MainSection.Card
         cardSize="lg"
         defaultCode={`
-function SubheadingExample(props) {
-  const SheetWithSubheading = ({
+function ClosingExample(props) {
+  const SheetWithoutOutsideClick = ({
     onDismiss,
   }) => {
 
@@ -792,7 +990,7 @@ function SubheadingExample(props) {
       />
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <SheetWithSubheading onDismiss={() => setShouldShow(false)} />}
+          <SheetWithoutOutsideClick onDismiss={() => setShouldShow(false)} />
         </Layer>
       )}
     </React.Fragment>
@@ -839,9 +1037,9 @@ function AnimationExample() {
             accessibilityDismissButtonLabel="Close"
             accessibilitySheetLabel="Animated sheet"
             footer={({ onDismissStart }) => (
-              <Heading size="md">
+              <Flex justifyContent="end">
                 <Button inline onClick={onDismissStart} text="Close on Footer" />
-              </Heading>
+              </Flex>
             )}
             heading="Animated Sheet"
             onDismiss={() => setShouldShow(false)}
