@@ -111,6 +111,13 @@ card(
         href: 'refExample',
       },
       {
+        name: 'shouldCloseOnKeyEvent',
+        type: `boolean`,
+        defaultValue: 'true',
+        description: ['Determine if component should close on key event'],
+        href: 'shouldCloseOnKeyEventExample',
+      },
+      {
         name: 'size',
         type: `"sm" | "md" | "lg"`,
         defaultValue: 'sm',
@@ -696,6 +703,73 @@ function RefExample() {
   );
 }`}
   />,
+);
+
+card(
+  <Example
+    id="shouldCloseOnKeyEventExample"
+    name="Example: shouldCloseOnKeyEvent"
+    description={`\`shouldCloseOnKeyEvent\` may need to be \`false\` if the Sheet contains components that rely on the ESC key.
+                  When this prop is \`false\`, using the ESC key to close a component will not inadvertently close the Sheet.
+                  This prop should be restored to \`true\` to allow for the ESC key to close the Sheet.`}
+    defaultCode={`
+function ShouldCloseOnKeyEventExample() {
+  const [shouldShow, setShouldShow] = React.useState(false);
+  const [shouldCloseOnKeyEvent, setShouldCloseOnKeyEvent] = React.useState(false);
+  const HEADER_ZINDEX = new FixedZIndex(10);
+  const sheetZIndex = new CompositeZIndex([HEADER_ZINDEX]);
+
+  return (
+    <>
+      <Box
+        display="inlineBlock">
+        <Button
+          inline
+          text="Open sheet"
+          onClick={() => setShouldShow(true)}
+        />
+      </Box>
+      <Box
+        paddingX={3}
+        display="inlineBlock">
+        <Button
+          inline
+          text={\`shouldCloseOnKeyEvent: \${shouldCloseOnKeyEvent ? 'Enabled' : 'Disabled'}\`}
+          onClick={() => setShouldCloseOnKeyEvent(!shouldCloseOnKeyEvent)}
+        />
+      </Box>
+      {shouldShow && (
+        <Layer zIndex={sheetZIndex}>
+          <>
+            <Sheet
+              accessibilityDismissButtonLabel="Close"
+              accessibilitySheetLabel="Focused sheet"
+              onDismiss={() => setShouldShow(false)}
+              shouldCloseOnKeyEvent={shouldCloseOnKeyEvent}
+              size="md"
+            >
+              <Box color="white" minHeight={400} padding={8}>
+                <Box marginBottom={4}>
+                  <Heading size="md">Sheet</Heading>
+                </Box>
+                <Text>
+                  This sheet {shouldCloseOnKeyEvent ? "CAN" : "CAN'T"} be closed with ESC key.
+                </Text>
+                <DatePicker
+                  id="dp-test"
+                  label="Close DatePicker with ESC key"
+                  onChange={() => {}}
+                />
+              </Box>
+            </Sheet>
+            <div />
+          </>
+        </Layer>
+      )}
+    </>
+  );
+}`}
+  />
 );
 
 card(
