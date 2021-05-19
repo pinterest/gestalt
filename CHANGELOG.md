@@ -1,3 +1,9 @@
+## 21.17.8 (May 19, 2021)
+
+### Patch
+
+- Tabs: Add ref to tab items (#1516)
+
 ## 21.17.7 (May 17, 2021)
 
 ### Patch
