@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { useState } from 'react';
+import { type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Flex from './Flex.js';
@@ -81,6 +79,7 @@ type TabType = {|
   href: string,
   id?: string,
   indicator?: 'dot' | number,
+  ref?: {| current: ?HTMLElement |},
   text: Node,
 |};
 
@@ -91,6 +90,7 @@ function Tab({
   indicator,
   isActive,
   onChange,
+  ref,
   size,
   text,
 }: {|
@@ -104,7 +104,7 @@ function Tab({
   const [focused, setFocused] = useState(false);
 
   return (
-    <Box position={focused ? 'relative' : undefined}>
+    <Box position={focused ? 'relative' : undefined} ref={ref}>
       <Link
         accessibilitySelected={isActive}
         hoverStyle="none"
@@ -153,6 +153,7 @@ function TabV2({
   index,
   isActive,
   onChange,
+  ref,
   // No longer supported, will be removed when this variant ships
   // eslint-disable-next-line no-unused-vars
   size,
@@ -176,7 +177,7 @@ function TabV2({
   }
 
   return (
-    <Box id={id} paddingY={3}>
+    <Box id={id} paddingY={3} ref={ref}>
       <TapArea
         href={href}
         onBlur={() => setFocused(false)}
@@ -277,6 +278,11 @@ Tabs.propTypes = {
       href: PropTypes.string.isRequired,
       id: PropTypes.string,
       indicator: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      // type from this SO answer: https://stackoverflow.com/a/51127130/5253702
+      ref: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.shape({ current: PropTypes.instanceOf(HTMLElement) }),
+      ]),
       text: PropTypes.node.isRequired,
     }),
   ).isRequired,
