@@ -109,9 +109,6 @@ export default function Dropdown({
         });
       }
     }
-
-    // Scrolling
-    handleContainerScrolling({ direction, selectedElement });
   };
 
   const handleKeyDown = (event) => {
