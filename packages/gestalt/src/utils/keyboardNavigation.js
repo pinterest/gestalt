@@ -26,9 +26,10 @@ const handleContainerScrolling = (
   const overScroll = selectedOption instanceof HTMLElement && selectedOption?.offsetHeight / 3;
 
   const scrollPos =
-    selectedOption instanceof HTMLElement &&
-    selectedOption.offsetTop + selectedOption.clientHeight - containerHeight + overScroll;
-  // $FlowFixMe[incompatible-type] flow 0.135.0 upgrade
+    selectedOption instanceof HTMLElement
+      ? selectedOption.offsetTop + selectedOption.clientHeight - containerHeight + overScroll
+      : 0;
+
   container.scrollTop = scrollPos;
 };
 
