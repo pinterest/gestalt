@@ -1,6 +1,6 @@
 // @flow strict
 import { type Node, useEffect, useRef, useState } from 'react';
-import { Box, Flex } from 'gestalt';
+import { Box, Flex, Text } from 'gestalt';
 import { LiveEditor } from 'react-live';
 import clipboardCopy from './clipboardCopy.js';
 import handleCodeSandbox from './handleCodeSandbox.js';
@@ -23,9 +23,10 @@ async function copyCode({ code }: {| code: string |}) {
 type Props = {|
   code: string,
   name: string,
+  readOnly?: boolean,
 |};
 
-export default function ExampleCode({ code, name }: Props): Node {
+export default function ExampleCode({ code, readOnly, name }: Props): Node {
   const [expanded, setExpanded] = useState(true);
   const [showExpandButton, setShowExpandButton] = useState(false);
   const codeExampleRef = useRef(null);
@@ -41,28 +42,37 @@ export default function ExampleCode({ code, name }: Props): Node {
   return (
     <Box marginTop={2}>
       <Flex direction="column" gap={2}>
-        <Flex justifyContent="start">
-          <OpenSandboxButton
-            onClick={() => {
-              handleCodeSandbox({ code, title: name });
-            }}
-          />
-
-          <CopyCodeButton
-            onClick={() => {
-              copyCode({ code });
-            }}
-          />
-
-          {showExpandButton && (
-            <CollapseExpandCodeButton
-              expanded={expanded}
-              name={name}
-              onClick={() => setExpanded(!expanded)}
+        <Flex justifyContent="between" alignItems="center" gap={2}>
+          <Flex justifyContent="start">
+            <OpenSandboxButton
+              onClick={() => {
+                handleCodeSandbox({ code, title: name });
+              }}
             />
+
+            <CopyCodeButton
+              onClick={() => {
+                copyCode({ code });
+              }}
+            />
+
+            {showExpandButton && (
+              <CollapseExpandCodeButton
+                expanded={expanded}
+                name={name}
+                onClick={() => setExpanded(!expanded)}
+              />
+            )}
+          </Flex>
+          {readOnly && (
+            <Box>
+              <Text size="sm" italic>
+                Edits made below will not be reflected in the example above, open the sandbox
+                instead.
+              </Text>
+            </Box>
           )}
         </Flex>
-
         <Flex direction="column" width="100%">
           <Box
             borderStyle="sm"

@@ -14,6 +14,7 @@ type Props = {|
   children?: Node,
   defaultCode?: string,
   description?: string,
+  iframeContent?: string,
   shaded?: boolean,
   showCode?: boolean,
   title?: string | Array<string>,
@@ -47,6 +48,7 @@ const MainSectionCard = ({
   children,
   defaultCode,
   description,
+  iframeContent,
   shaded = false,
   showCode = true,
   title,
@@ -57,6 +59,7 @@ const MainSectionCard = ({
   const borderStyle =
     type !== 'info' ? `3px solid ${COLOR_TO_HEX[TYPE_TO_COLOR[type]]}` : undefined;
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
+  // Only show code if it's a md or lg card and it's not a Do/Don't
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
   const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
 
@@ -108,18 +111,23 @@ const MainSectionCard = ({
       {Boolean(children) && <PreviewCard>{children}</PreviewCard>}
 
       {code && (
-        <LiveProvider code={code} scope={scope} theme={theme}>
+        <LiveProvider code={iframeContent || code} scope={scope} theme={theme}>
           <PreviewCard>
             <LivePreview style={{ display: 'contents' }} />
           </PreviewCard>
-
-          {shouldShowCode && <ExampleCode code={code} name={cardTitle || ''} />}
+          {/* If it uses an iframe, show the original code (below), instead of the iframe code */}
+          {shouldShowCode && !iframeContent && <ExampleCode code={code} name={cardTitle || ''} />}
 
           <Box paddingX={2}>
             <Text color="watermelon">
               <LiveError />
             </Text>
           </Box>
+        </LiveProvider>
+      )}
+      {iframeContent && code && (
+        <LiveProvider code={code} scope={scope} theme={theme}>
+          {shouldShowCode && <ExampleCode readOnly code={code} name={cardTitle || ''} />}
         </LiveProvider>
       )}
       {!showTitleAndDescriptionAboveExample && TitleAndDescription}
