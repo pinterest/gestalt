@@ -15,6 +15,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import { type OptionObject } from './MenuOption.js';
 
+type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
@@ -215,8 +216,12 @@ Dropdown.propTypes = {
   children: PropTypes.node,
   headerContent: PropTypes.node,
   id: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  idealDirection: (PropTypes.oneOf([
+    'up',
+    'right',
+    'down',
+    'left',
+  ]): React$PropType$Primitive<IdealDirection>),
   onDismiss: PropTypes.func.isRequired,
   onSelect: PropTypes.func,
   zIndex: UnsafeIndexablePropType,
