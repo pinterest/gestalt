@@ -23,7 +23,7 @@ async function copyCode({ code }: {| code: string |}) {
 type Props = {|
   code: string,
   name: string,
-  readOnly: boolean,
+  readOnly?: boolean,
 |};
 
 export default function ExampleCode({ code, readOnly, name }: Props): Node {
