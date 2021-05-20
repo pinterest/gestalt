@@ -23,7 +23,7 @@ type OwnProps = {|
   border?: boolean,
   caret?: boolean,
   children?: ReactNode,
-  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement> | {| keyCode: number |}) => void,
+  handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
@@ -102,7 +102,7 @@ class Controller extends Component<Props, State> {
     this.updateTriggerRect(this.props);
   }
 
-  handleKeyDown: (event: {| keyCode: number |}) => void = (event) => {
+  handleKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void = (event) => {
     const { handleKeyDown, onDismiss } = this.props;
     if (event.keyCode === ESCAPE) {
       onDismiss();

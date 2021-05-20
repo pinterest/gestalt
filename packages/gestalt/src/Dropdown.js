@@ -34,6 +34,7 @@ const KEYS = {
   DOWN: 1,
   ENTER: 0,
 };
+
 export default function Dropdown({
   anchor,
   children,
@@ -97,7 +98,6 @@ export default function Dropdown({
       setHoveredItem(cursorIndex);
 
       if (direction === KEYS.ENTER) {
-        // $FlowFixMe[incompatible-call]
         if (onSelect) onSelect({ event, item: newItem });
         if (availableOptions[cursorIndex].props.handleSelect)
           availableOptions[cursorIndex].props.handleSelect({
@@ -114,14 +114,11 @@ export default function Dropdown({
   const handleKeyDown = (event) => {
     if (event.keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
-      // $FlowFixMe[prop-missing]
       event.preventDefault();
     } else if (event.keyCode === DOWN_ARROW) {
       handleKeyNavigation(event, KEYS.DOWN);
-      // $FlowFixMe[prop-missing]
       event.preventDefault();
     } else if (event.keyCode === ENTER) {
-      // $FlowFixMe[prop-missing]
       event.stopPropagation();
       handleKeyNavigation(event, KEYS.ENTER);
     } else if (event.keyCode === ESCAPE) {
@@ -131,7 +128,6 @@ export default function Dropdown({
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
     } else if (event.keyCode === SPACE) {
-      // $FlowFixMe[prop-missing]
       event.preventDefault();
     }
   };
