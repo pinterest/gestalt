@@ -3,14 +3,17 @@ import type { Node } from 'react';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
+import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
+card(<FeedbackCallout componentName="Sheet" />);
+
 card(
   <PageHeader
     name="Sheet"
-    description="Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have a default internal padding for content."
+    description="Sheets are surfaces that allow users to view optional information or complete sub-tasks in a workflow while keeping the context of the current page. The most common example of Sheet displays content in a panel that opens from the side of the screen for the user to read or input information. Sheets have default, internal padding for content."
     defaultCode={`
     <iframe src="https://codesandbox.io/embed/magical-christian-2kk1c?fontsize=14&hidenavigation=1&theme=light&view=preview"
     style={{width: '100%', height:'600px', border:'1', borderRadius: '4px', overflow:'hidden'}}
@@ -47,7 +50,7 @@ card(
         required: false,
         defaultValue: null,
         description:
-          "Supply the container element(s) or render prop that will be used as the Sheet's main content. See the [animation variant](#Animation) for info on how to add exit animations to Sheet content.",
+          "Supply the container element(s) or render prop that will be used as Sheet's main content. See the [animation variant](#Animation) for info on how to add exit animations to Sheet content.",
       },
       {
         name: 'closeOnOutsideClick',
@@ -55,7 +58,7 @@ card(
         required: false,
         defaultValue: true,
         description:
-          'Indicate whether clicking on the backdrop (gray area) outside of the Sheet will automatically close it. See the [outside click variant](#Preventing-close-on-outside-click) for more info.',
+          'Indicate whether clicking on the backdrop (gray area) outside of Sheet will automatically close it. See the [outside click variant](#Preventing-close-on-outside-click) for more info.',
       },
       {
         name: 'footer',
@@ -63,7 +66,7 @@ card(
         required: false,
         defaultValue: null,
         description:
-          "Supply the container element(s) or render prop that will be used as the Sheet's custom footer. See the [footer variant](#Footer) for more info.",
+          "Supply the container element(s) or render prop that will be used as Sheet's custom footer. See the [footer variant](#Footer) for more info.",
       },
       {
         name: 'heading',
@@ -71,7 +74,7 @@ card(
         required: false,
         defaultValue: null,
         description:
-          "Supply the text that is going to be placed as the Sheet's text heading. Be sure to localize this text. See the [heading variant](#Heading) for more info.",
+          "The text used for Sheet's heading. Be sure to localize this text. See the [heading variant](#Heading) for more info.",
       },
       {
         name: 'onDismiss',
@@ -94,7 +97,7 @@ card(
         required: false,
         defaultValue: null,
         description:
-          'Supply the container element(s) or render prop that will be used as the Sheet sub-heading docked under the heading. See the [sub-heading variant](#Sub-heading) for more info.',
+          "Supply the container element(s) or render prop that will be used as Sheet's sub-heading docked under the heading. See the [sub-heading variant](#Sub-heading) for more info.",
       },
     ]}
   />,
@@ -341,8 +344,8 @@ card(
       ></iframe>
         `}
         defaultCode={`
-function AccessibilityExample(props) {
-  const SheetWithAccessibilityLabels = ({
+function HeadingExample(props) {
+  const SheetWithHeading = ({
     onDismiss,
   }) => {
 
@@ -445,7 +448,7 @@ function AccessibilityExample(props) {
       />
       {shouldShow && (
         <Layer zIndex={sheetZIndex}>
-          <SheetWithAccessibilityLabels onDismiss={() => setShouldShow(false)} />
+          <SheetWithHeading onDismiss={() => setShouldShow(false)} />
         </Layer>
       )}
     </React.Fragment>

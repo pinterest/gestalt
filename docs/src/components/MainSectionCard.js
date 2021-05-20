@@ -127,7 +127,7 @@ const MainSectionCard = ({
       )}
       {iframeContent && code && (
         <LiveProvider code={code} scope={scope} theme={theme}>
-          {shouldShowCode && <ExampleCode code={code} name={cardTitle || ''} />}
+          {shouldShowCode && <ExampleCode readOnly code={code} name={cardTitle || ''} />}
         </LiveProvider>
       )}
       {!showTitleAndDescriptionAboveExample && TitleAndDescription}
