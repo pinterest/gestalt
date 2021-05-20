@@ -52,6 +52,7 @@ export default function MenuOption({
   children,
   handleSelect,
   hoveredItem,
+  href,
   id,
   index,
   isExternal,
@@ -63,7 +64,6 @@ export default function MenuOption({
   setOptionRef,
   shouldTruncate = false,
   textWeight = 'normal',
-  href,
 }: Props): Node {
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,

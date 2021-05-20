@@ -50,6 +50,7 @@ export default function DropdownItem({
           badgeText={badgeText}
           handleSelect={handleSelect}
           hoveredItem={hoveredItem}
+          href={href}
           id={id}
           index={index}
           isExternal={isExternal}
@@ -61,7 +62,6 @@ export default function DropdownItem({
           setOptionRef={setOptionRef}
           shouldTruncate
           textWeight="bold"
-          href={href}
         >
           {children}
         </MenuOption>
@@ -70,6 +70,7 @@ export default function DropdownItem({
   );
 }
 
+// displayName is necessary for children identification in Dropdown
 DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
