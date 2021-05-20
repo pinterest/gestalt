@@ -8,9 +8,9 @@ import Popover from './Popover.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
-import DropdownContext from './DropdownContextProvider.js';
+import { DropdownContextProvider } from './DropdownContext.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
-import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
+import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import { type OptionObject } from './MenuOption.js';
@@ -194,9 +194,9 @@ export default function Dropdown({
           role="menu"
         >
           {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
-          <DropdownContext.Provider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+          <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
             {renderChildrenWithIndex()}
-          </DropdownContext.Provider>
+          </DropdownContextProvider>
         </Box>
       </Popover>
     </Layer>

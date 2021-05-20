@@ -8,15 +8,18 @@ type DropdownContextType = {|
   setOptionRef: (?HTMLElement) => void,
 |};
 
-const initialState = {
+const initialContextState = {
   id: '',
   hoveredItem: -1,
   setHoveredItem: () => {},
   setOptionRef: () => {},
 };
 
-const DropdownContext: Context<DropdownContextType> = createContext<DropdownContextType>(
-  initialState,
+const context: Context<DropdownContextType> = createContext<DropdownContextType>(
+  initialContextState,
 );
 
-export default DropdownContext;
+const DropdownContextProvider = context.Provider;
+const DropdownContextConsumer = context.Consumer;
+
+export { DropdownContextProvider, DropdownContextConsumer };

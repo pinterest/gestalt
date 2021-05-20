@@ -2,7 +2,7 @@
 import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
-import DropdownContext from './DropdownContextProvider.js';
+import { DropdownContextConsumer } from './DropdownContext.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type PublicProps = {|
@@ -43,7 +43,7 @@ export default function DropdownItem({
   href,
 }: Props): Node {
   return (
-    <DropdownContext.Consumer>
+    <DropdownContextConsumer>
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <MenuOption
           key={`${option.value + index}`}
@@ -66,7 +66,7 @@ export default function DropdownItem({
           {children}
         </MenuOption>
       )}
-    </DropdownContext.Consumer>
+    </DropdownContextConsumer>
   );
 }
 
