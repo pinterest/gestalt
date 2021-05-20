@@ -47,20 +47,23 @@ export default function Dropdown({
 }: Props): Node {
   const dropdownChildrenArray = Children.toArray(children);
 
-  const availableOptions = dropdownChildrenArray.reduce((accumulatedChildren, currentChild) => {
-    const {
-      props: { children: currentItemChildren },
-      type: { displayName },
-    } = currentChild;
-    if (currentItemChildren && displayName === 'DropdownSection') {
-      return [...accumulatedChildren, ...currentItemChildren];
-    }
-    if (displayName === 'DropdownItem') {
-      return [...accumulatedChildren, currentChild];
-    }
-    console.error('Only children of type DropdownItem or DropdownSection are allowed.'); // eslint-disable-line no-console
-    return [...accumulatedChildren];
-  }, []);
+  const allowedChildrenOptions = dropdownChildrenArray.reduce(
+    (accumulatedChildren, currentChild) => {
+      const {
+        props: { children: currentItemChildren },
+        type: { displayName },
+      } = currentChild;
+      if (currentItemChildren && displayName === 'DropdownSection') {
+        return [...accumulatedChildren, ...currentItemChildren];
+      }
+      if (displayName === 'DropdownItem') {
+        return [...accumulatedChildren, currentChild];
+      }
+      console.error('Only children of type DropdownItem or DropdownSection are allowed.'); // eslint-disable-line no-console
+      return [...accumulatedChildren];
+    },
+    [],
+  );
 
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
@@ -79,7 +82,7 @@ export default function Dropdown({
 
   const handleKeyNavigation = (event, direction: DirectionOptionType) => {
     const newIndex = direction + hoveredItem;
-    const optionsCount = availableOptions.length - 1;
+    const optionsCount = allowedChildrenOptions.length - 1;
 
     // If there's an existing item, navigate from that position
     let cursorIndex = newIndex;
@@ -93,17 +96,18 @@ export default function Dropdown({
       cursorIndex = optionsCount;
     }
 
-    if (availableOptions[cursorIndex] && availableOptions[cursorIndex].props) {
-      const newItem = availableOptions[cursorIndex].props.option;
+    const { props: cursorOption } = allowedChildrenOptions[cursorIndex];
+
+    if (cursorOption) {
+      const item = cursorOption.option;
       setHoveredItem(cursorIndex);
 
       if (direction === KEYS.ENTER) {
-        if (onSelect) onSelect({ event, item: newItem });
-        if (availableOptions[cursorIndex].props.handleSelect)
-          availableOptions[cursorIndex].props.handleSelect({
-            event,
-            item: newItem,
-          });
+        onSelect?.({ event, item });
+        cursorOption.handleSelect?.({
+          event,
+          item,
+        });
       }
     }
 

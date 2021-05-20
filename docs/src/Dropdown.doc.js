@@ -249,6 +249,7 @@ card(
             <Button
               accessibilityHaspopup
               accessibilityExpanded={open}
+              accessibilityControls="selectlist-dropdown-example1"
               iconEnd="arrow-down"
               text="Menu"
               inline
@@ -258,7 +259,7 @@ card(
               onClick={ () => setOpen((prevVal) => !prevVal) }
             />
             {open && (
-              <Dropdown onSelect={(event, item) => {console.log("Selecting", event, item);}} anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+              <Dropdown id="selectlist-dropdown-example1" onSelect={(event, item) => {console.log("Selecting", event, item);}} anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
                 <Dropdown.Item
                   handleSelect={handleSelect}
                   selected={selected}
@@ -313,7 +314,7 @@ card(
         <Box display="flex" justifyContent="center">
 
         <Button
-          accessibilityControls="selectlist-dropdown-example"
+          accessibilityControls="selectlist-dropdown-example2"
           accessibilityHaspopup
           accessibilityExpanded={ open }
           iconEnd="arrow-down"
@@ -326,7 +327,7 @@ card(
           ref={anchorRef}
         />
         {open && (
-          <Dropdown id="selectlist-dropdown-example" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+          <Dropdown id="selectlist-dropdown-example2" anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
             <Dropdown.Item
               handleSelect={handleSelect}
               selected={selected}
@@ -384,6 +385,7 @@ function OrderDropdownExample() {
         accessibilityLabel="Menu"
         accessibilityHaspopup
         accessibilityExpanded={open}
+        accessibilityControls="selectlist-dropdown-example3"
         icon="ellipsis"
         iconColor="darkGray"
         ref={anchorRef}
@@ -392,7 +394,7 @@ function OrderDropdownExample() {
         onClick={ () => setOpen((prevVal) => !prevVal) }
       />
       {open && (
-        <Dropdown onSelect={(event, item) => {console.log("Selecting", event, item);}} anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
+        <Dropdown id="selectlist-dropdown-example3" onSelect={(event, item) => {console.log("Selecting", event, item);}} anchor={anchorRef.current} onDismiss={() => {setOpen(false)}}>
           <Dropdown.Item
             handleSelect={handleSelect}
             selected={selected}
