@@ -1,7 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 
-import { Children, cloneElement, useState, useRef } from 'react';
+import { Children, cloneElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Popover from './Popover.js';
@@ -78,8 +78,6 @@ export default function Dropdown({
     }
   };
 
-  const containerRef = useRef();
-
   const handleKeyNavigation = (event, direction: DirectionOptionType) => {
     const newIndex = direction + hoveredItem;
     const optionsCount = allowedChildrenOptions.length - 1;
@@ -112,26 +110,27 @@ export default function Dropdown({
     }
 
     // Scrolling
-    handleContainerScrolling(direction, containerRef, selectedElement);
+    handleContainerScrolling({ direction, selectedElement });
   };
 
   const handleKeyDown = (event) => {
-    if (event.keyCode === UP_ARROW) {
+    const { keyCode } = event;
+    if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
       event.preventDefault();
-    } else if (event.keyCode === DOWN_ARROW) {
+    } else if (keyCode === DOWN_ARROW) {
       handleKeyNavigation(event, KEYS.DOWN);
       event.preventDefault();
-    } else if (event.keyCode === ENTER) {
+    } else if (keyCode === ENTER) {
       event.stopPropagation();
       handleKeyNavigation(event, KEYS.ENTER);
-    } else if (event.keyCode === ESCAPE) {
+    } else if (keyCode === ESCAPE) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
-    } else if (event.keyCode === TAB) {
+    } else if (keyCode === TAB) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
-    } else if (event.keyCode === SPACE) {
+    } else if (keyCode === SPACE) {
       event.preventDefault();
     }
   };

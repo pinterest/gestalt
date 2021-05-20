@@ -1,12 +1,16 @@
 // @flow strict
 export type DirectionOptionType = -1 | 0 | 1;
 
-const handleContainerScrolling = (
+const handleContainerScrolling = ({
+  direction,
+  containerRef = {},
+  selectedElement,
+}: {|
   direction: DirectionOptionType,
-  containerRef: {| current: ?HTMLElement |},
+  containerRef?: {| current: ?HTMLElement |},
   selectedElement: ?HTMLElement,
-) => {
-  const container = containerRef.current;
+|}) => {
+  const container = containerRef?.current;
 
   // Based on keyboard navigation we get the next or previous option
   // When we reach the start or end of the list, move to the start or end of the list based on the direction
