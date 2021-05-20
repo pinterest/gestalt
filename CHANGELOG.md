@@ -1,3 +1,9 @@
+## 21.17.9 (May 20, 2021)
+
+### Patch
+
+- Sheet: New docs and best practices (#1495)
+
 ## 21.17.8 (May 19, 2021)
 
 ### Patch
