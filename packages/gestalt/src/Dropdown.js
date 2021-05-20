@@ -44,26 +44,23 @@ export default function Dropdown({
   onSelect,
   zIndex,
 }: Props): Node {
-  const flattenedChildren = Children.toArray(children).reduce(
-    (accumulatedChildren, currentChild) => {
-      const {
-        props: { children: currentItemChildren },
-        type: { displayName },
-      } = currentChild;
-      if (currentItemChildren && displayName === 'DropdownSection') {
-        return [...accumulatedChildren, ...currentItemChildren];
-      }
-      if (displayName === 'DropdownItem') {
-        return [...accumulatedChildren, currentChild];
-      }
-      // eslint-disable-next-line no-console
-      console.warn('Only children of type DropdownItem or DropdownSection are allowed.');
-      return [];
-    },
-    [],
-  );
+  const dropdownChildrenArray = Children.toArray(children);
 
-  const availableOptions = flattenedChildren;
+  const availableOptions = dropdownChildrenArray.reduce((accumulatedChildren, currentChild) => {
+    const {
+      props: { children: currentItemChildren },
+      type: { displayName },
+    } = currentChild;
+    if (currentItemChildren && displayName === 'DropdownSection') {
+      return [...accumulatedChildren, ...currentItemChildren];
+    }
+    if (displayName === 'DropdownItem') {
+      return [...accumulatedChildren, currentChild];
+    }
+    console.error('Only children of type DropdownItem or DropdownSection are allowed.'); // eslint-disable-line no-console
+    return [...accumulatedChildren];
+  }, []);
+
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
   let selectedElement;
@@ -157,9 +154,7 @@ export default function Dropdown({
     let numItemsRendered = 0;
     const items = [];
 
-    const dropdownChildrenArray = Children.toArray(children);
-
-    dropdownChildrenArray.forEach((child, index) => {
+    dropdownChildrenArray.forEach((child) => {
       if (child.props.children && child.type.displayName === 'DropdownSection') {
         const sectionChildrenArray = Children.toArray(child.props.children);
         items.push(
@@ -169,7 +164,7 @@ export default function Dropdown({
         );
         numItemsRendered += child.props.children.length;
       } else if (child.type.displayName === 'DropdownItem') {
-        items.push(cloneElement(child, { index }));
+        items.push(cloneElement(child, { index: numItemsRendered }));
         numItemsRendered += 1;
       }
     });
