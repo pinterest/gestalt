@@ -154,15 +154,18 @@ export default function Dropdown({
     const items = [];
 
     dropdownChildrenArray.forEach((child) => {
-      if (child.props.children && child.type.displayName === 'DropdownSection') {
-        const sectionChildrenArray = Children.toArray(child.props.children);
+      const subSectionChildren = child.props.children;
+      const childrenDisplayName = child.type.displayName;
+
+      if (subSectionChildren && childrenDisplayName === 'DropdownSection') {
+        const sectionChildrenArray = Children.toArray(subSectionChildren);
         items.push(
           cloneElement(child, {
             children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
           }),
         );
-        numItemsRendered += child.props.children.length;
-      } else if (child.type.displayName === 'DropdownItem') {
+        numItemsRendered += subSectionChildren.length;
+      } else if (childrenDisplayName === 'DropdownItem') {
         items.push(cloneElement(child, { index: numItemsRendered }));
         numItemsRendered += 1;
       }
