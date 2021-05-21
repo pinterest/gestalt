@@ -1,12 +1,16 @@
 // @flow strict
 export type DirectionOptionType = -1 | 0 | 1;
 
-const handleContainerScrolling = (
+const handleContainerScrolling = ({
+  direction,
+  containerRef = {},
+  selectedElement,
+}: {|
   direction: DirectionOptionType,
-  containerRef: {| current: ?HTMLElement |},
+  containerRef?: {| current: ?HTMLElement |},
   selectedElement: ?HTMLElement,
-) => {
-  const container = containerRef.current;
+|}) => {
+  const container = containerRef?.current;
 
   // Based on keyboard navigation we get the next or previous option
   // When we reach the start or end of the list, move to the start or end of the list based on the direction
@@ -26,9 +30,10 @@ const handleContainerScrolling = (
   const overScroll = selectedOption instanceof HTMLElement && selectedOption?.offsetHeight / 3;
 
   const scrollPos =
-    selectedOption instanceof HTMLElement &&
-    selectedOption.offsetTop + selectedOption.clientHeight - containerHeight + overScroll;
-  // $FlowFixMe[incompatible-type] flow 0.135.0 upgrade
+    selectedOption instanceof HTMLElement
+      ? selectedOption.offsetTop + selectedOption.clientHeight - containerHeight + overScroll
+      : 0;
+
   container.scrollTop = scrollPos;
 };
 

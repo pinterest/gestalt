@@ -1,20 +1,21 @@
 // @flow strict
 import type { Node } from 'react';
 
-import { Children, cloneElement, useState, useRef } from 'react';
+import { Children, cloneElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
 import DropdownSection from './DropdownSection.js';
-import DropdownContext from './DropdownContextProvider.js';
+import { DropdownContextProvider } from './DropdownContext.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
-import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
+import { type DirectionOptionType } from './utils/keyboardNavigation.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
 import { type OptionObject } from './MenuOption.js';
 
+type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Props = {|
   anchor?: ?HTMLElement,
   children: Node,
@@ -34,6 +35,7 @@ const KEYS = {
   DOWN: 1,
   ENTER: 0,
 };
+
 export default function Dropdown({
   anchor,
   children,
@@ -44,7 +46,9 @@ export default function Dropdown({
   onSelect,
   zIndex,
 }: Props): Node {
-  const flattenedChildren = Children.toArray(children).reduce(
+  const dropdownChildrenArray = Children.toArray(children);
+
+  const allowedChildrenOptions = dropdownChildrenArray.reduce(
     (accumulatedChildren, currentChild) => {
       const {
         props: { children: currentItemChildren },
@@ -56,14 +60,12 @@ export default function Dropdown({
       if (displayName === 'DropdownItem') {
         return [...accumulatedChildren, currentChild];
       }
-      // eslint-disable-next-line no-console
-      console.warn('Only children of type DropdownItem or DropdownSection are allowed.');
-      return [];
+      console.error('Only children of type DropdownItem or DropdownSection are allowed.'); // eslint-disable-line no-console
+      return [...accumulatedChildren];
     },
     [],
   );
 
-  const availableOptions = flattenedChildren;
   const [hoveredItem, setHoveredItem] = useState<number>(0);
 
   let selectedElement;
@@ -77,11 +79,9 @@ export default function Dropdown({
     }
   };
 
-  const containerRef = useRef();
-
   const handleKeyNavigation = (event, direction: DirectionOptionType) => {
     const newIndex = direction + hoveredItem;
-    const optionsCount = availableOptions.length - 1;
+    const optionsCount = allowedChildrenOptions.length - 1;
 
     // If there's an existing item, navigate from that position
     let cursorIndex = newIndex;
@@ -95,46 +95,40 @@ export default function Dropdown({
       cursorIndex = optionsCount;
     }
 
-    if (availableOptions[cursorIndex] && availableOptions[cursorIndex].props) {
-      const newItem = availableOptions[cursorIndex].props.option;
+    const { props: cursorOption } = allowedChildrenOptions[cursorIndex];
+
+    if (cursorOption) {
+      const item = cursorOption.option;
       setHoveredItem(cursorIndex);
 
       if (direction === KEYS.ENTER) {
-        // $FlowFixMe[incompatible-call]
-        if (onSelect) onSelect({ event, item: newItem });
-        if (availableOptions[cursorIndex].props.handleSelect)
-          availableOptions[cursorIndex].props.handleSelect({
-            event,
-            item: newItem,
-          });
+        onSelect?.({ event, item });
+        cursorOption.handleSelect?.({
+          event,
+          item,
+        });
       }
     }
-
-    // Scrolling
-    handleContainerScrolling(direction, containerRef, selectedElement);
   };
 
   const handleKeyDown = (event) => {
-    if (event.keyCode === UP_ARROW) {
+    const { keyCode } = event;
+    if (keyCode === UP_ARROW) {
       handleKeyNavigation(event, KEYS.UP);
-      // $FlowFixMe[prop-missing]
       event.preventDefault();
-    } else if (event.keyCode === DOWN_ARROW) {
+    } else if (keyCode === DOWN_ARROW) {
       handleKeyNavigation(event, KEYS.DOWN);
-      // $FlowFixMe[prop-missing]
       event.preventDefault();
-    } else if (event.keyCode === ENTER) {
-      // $FlowFixMe[prop-missing]
+    } else if (keyCode === ENTER) {
       event.stopPropagation();
       handleKeyNavigation(event, KEYS.ENTER);
-    } else if (event.keyCode === ESCAPE) {
+    } else if (keyCode === ESCAPE) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
-    } else if (event.keyCode === TAB) {
+    } else if (keyCode === TAB) {
       if (anchor) anchor.focus();
       if (onDismiss) onDismiss();
-    } else if (event.keyCode === SPACE) {
-      // $FlowFixMe[prop-missing]
+    } else if (keyCode === SPACE) {
       event.preventDefault();
     }
   };
@@ -157,19 +151,20 @@ export default function Dropdown({
     let numItemsRendered = 0;
     const items = [];
 
-    const dropdownChildrenArray = Children.toArray(children);
+    dropdownChildrenArray.forEach((child) => {
+      const subSectionChildren = child.props.children;
+      const childDisplayName = child.type.displayName;
 
-    dropdownChildrenArray.forEach((child, index) => {
-      if (child.props.children && child.type.displayName === 'DropdownSection') {
-        const sectionChildrenArray = Children.toArray(child.props.children);
+      if (subSectionChildren && childDisplayName === 'DropdownSection') {
+        const sectionChildrenArray = Children.toArray(subSectionChildren);
         items.push(
           cloneElement(child, {
             children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
           }),
         );
-        numItemsRendered += child.props.children.length;
-      } else if (child.type.displayName === 'DropdownItem') {
-        items.push(cloneElement(child, { index }));
+        numItemsRendered += subSectionChildren.length;
+      } else if (childDisplayName === 'DropdownItem') {
+        items.push(cloneElement(child, { index: numItemsRendered }));
         numItemsRendered += 1;
       }
     });
@@ -199,9 +194,9 @@ export default function Dropdown({
           role="menu"
         >
           {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
-          <DropdownContext.Provider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
+          <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
             {renderChildrenWithIndex()}
-          </DropdownContext.Provider>
+          </DropdownContextProvider>
         </Box>
       </Popover>
     </Layer>
@@ -218,8 +213,12 @@ Dropdown.propTypes = {
   children: PropTypes.node,
   headerContent: PropTypes.node,
   id: PropTypes.string.isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  idealDirection: (PropTypes.oneOf([
+    'up',
+    'right',
+    'down',
+    'left',
+  ]): React$PropType$Primitive<IdealDirection>),
   onDismiss: PropTypes.func.isRequired,
   onSelect: PropTypes.func,
   zIndex: UnsafeIndexablePropType,

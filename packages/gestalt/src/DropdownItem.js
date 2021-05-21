@@ -2,7 +2,7 @@
 import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
-import DropdownContext from './DropdownContextProvider.js';
+import { DropdownContextConsumer } from './DropdownContext.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type PublicProps = {|
@@ -43,13 +43,14 @@ export default function DropdownItem({
   href,
 }: Props): Node {
   return (
-    <DropdownContext.Consumer>
+    <DropdownContextConsumer>
       {({ id, hoveredItem, setHoveredItem, setOptionRef }) => (
         <MenuOption
           key={`${option.value + index}`}
           badgeText={badgeText}
           handleSelect={handleSelect}
           hoveredItem={hoveredItem}
+          href={href}
           id={id}
           index={index}
           isExternal={isExternal}
@@ -61,15 +62,15 @@ export default function DropdownItem({
           setOptionRef={setOptionRef}
           shouldTruncate
           textWeight="bold"
-          href={href}
         >
           {children}
         </MenuOption>
       )}
-    </DropdownContext.Consumer>
+    </DropdownContextConsumer>
   );
 }
 
+// displayName is necessary for children identification in Dropdown
 DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {

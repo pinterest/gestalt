@@ -207,7 +207,7 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
-    handleContainerScrolling(direction, containerRef, selectedElement);
+    handleContainerScrolling({ direction, containerRef, selectedElement });
   };
 
   const positioningRef = tags ? wrapperRef : inputRef;

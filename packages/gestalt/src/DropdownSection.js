@@ -21,6 +21,7 @@ export default function DropdownSection({ label, children }: Props): Node {
   );
 }
 
+// displayName is necessary for children identification in Dropdown
 DropdownSection.displayName = 'DropdownSection';
 
 DropdownSection.propTypes = {

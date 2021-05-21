@@ -36,7 +36,7 @@ type OwnProps = {|
   caret?: boolean,
   children?: Node,
   idealDirection?: MainDirections,
-  onKeyDown: (event: {| keyCode: number |}) => void,
+  onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
   relativeOffset: Coordinates,
