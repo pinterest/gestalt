@@ -1,3 +1,9 @@
+## 21.17.10 (May 21, 2021)
+
+### Patch
+
+- Dropdown: fixes and cleanup (#1517)
+
 ## 21.17.9 (May 20, 2021)
 
 ### Patch
