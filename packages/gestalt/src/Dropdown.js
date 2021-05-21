@@ -153,9 +153,9 @@ export default function Dropdown({
 
     dropdownChildrenArray.forEach((child) => {
       const subSectionChildren = child.props.children;
-      const childrenDisplayName = child.type.displayName;
+      const childDisplayName = child.type.displayName;
 
-      if (subSectionChildren && childrenDisplayName === 'DropdownSection') {
+      if (subSectionChildren && childDisplayName === 'DropdownSection') {
         const sectionChildrenArray = Children.toArray(subSectionChildren);
         items.push(
           cloneElement(child, {
@@ -163,7 +163,7 @@ export default function Dropdown({
           }),
         );
         numItemsRendered += subSectionChildren.length;
-      } else if (childrenDisplayName === 'DropdownItem') {
+      } else if (childDisplayName === 'DropdownItem') {
         items.push(cloneElement(child, { index: numItemsRendered }));
         numItemsRendered += 1;
       }
