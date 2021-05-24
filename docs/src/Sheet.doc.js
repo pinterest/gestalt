@@ -135,7 +135,7 @@ card(
 `}
       />
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
         type="do"
         description="Use the same size Sheet on a product surface. For example, if filling out a form requires multiple Sheets to be opened to complete different subtasks, then all Sheets in that form should be the same width. When in doubt, pick the widest size needed for the entire flow."
         defaultCode={`
@@ -161,7 +161,7 @@ card(
 `}
       />
       <MainSection.Card
-        cardSize="md"
+        cardSize="lg"
         type="don't"
         description="Use Sheet to confirm actions or display alerts. Use a [Modal](/Modal) or [Toast](/Toast) instead."
         defaultCode={`
