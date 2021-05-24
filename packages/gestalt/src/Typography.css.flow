@@ -3,8 +3,10 @@
 declare module.exports: {|
   +'alignCenter': string,
   +'alignJustify': string,
-  +'alignLeft': string,
-  +'alignRight': string,
+  +'alignStart': string,
+  +'alignEnd': string,
+  +'alignForceLeft': string,
+  +'alignForceRight': string,
   +'antialiased': string,
   +'breakWord': string,
   +'fontStyleItalic': string,
