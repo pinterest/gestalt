@@ -8,7 +8,7 @@ import FeedbackCallout from './components/FeedbackCallout.js';
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
 
-card(<FeedbackCallout componentName="Sheet" />);
+card(<FeedbackCallout componentName="Modal" />);
 
 card(
   <PageHeader
