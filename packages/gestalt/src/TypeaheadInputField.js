@@ -1,6 +1,5 @@
 // @flow strict
 import type { Element, Node, Ref } from 'react';
-
 import { forwardRef, Fragment, useState, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -145,19 +144,19 @@ const TypeaheadInputFieldWithForwardRef: React$AbstractComponent<
 
   const inputElement = (
     <input
-      ref={innerRef}
-      autoComplete="off"
       aria-label={label}
+      autoComplete="off"
       className={tags ? typeaheadStyle.unstyledInput : className}
       id={id}
-      onFocus={handleFocus}
       onBlur={handleBlur}
       onClick={() => setContainer(true)}
       onChange={handleChange}
+      onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
       placeholder={placeholder}
+      ref={innerRef}
       type="text"
       value={value}
-      onKeyDown={handleKeyDown}
     />
   );
 

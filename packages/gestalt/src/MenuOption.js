@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Fragment } from 'react';
+import { forwardRef, Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';
@@ -36,35 +34,38 @@ type Props = {|
     item: OptionObject,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
-  hoveredItem: ?number,
+  hoveredItemIndex: ?number,
   id: string,
   isExternal?: boolean,
   role?: 'option' | 'menuitem',
-  setHoveredItem: (number) => void,
-  setOptionRef: (?HTMLElement) => void,
+  setHoveredItemIndex: (number) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
   href?: string,
 |};
 
-export default function MenuOption({
-  badgeText,
-  children,
-  handleSelect,
-  hoveredItem,
-  href,
-  id,
-  index,
-  isExternal,
-  onClick,
-  option,
-  role,
-  selected,
-  setHoveredItem,
-  setOptionRef,
-  shouldTruncate = false,
-  textWeight = 'normal',
-}: Props): Node {
+const MenuOptionWithForwardRef: React$AbstractComponent<Props, ?HTMLElement> = forwardRef<
+  Props,
+  ?HTMLElement,
+>(function MenuOption(props, ref): Node {
+  const {
+    badgeText, // eslint-disable-line react/prop-types
+    children, // eslint-disable-line react/prop-types
+    handleSelect,
+    hoveredItemIndex,
+    href,
+    id,
+    index,
+    isExternal, // eslint-disable-line react/prop-types
+    onClick,
+    option,
+    role, // eslint-disable-line react/prop-types
+    selected,
+    setHoveredItemIndex,
+    shouldTruncate = false, // eslint-disable-line react/prop-types
+    textWeight = 'normal', // eslint-disable-line react/prop-types
+  } = props;
+
   const matches = (Array.isArray(selected) ? selected : []).filter(
     ({ value }) => value === option.value,
   );
@@ -88,7 +89,7 @@ export default function MenuOption({
   });
 
   // Set color on item hover
-  const optionStateColor = index === hoveredItem ? 'lightGray' : 'transparent';
+  const optionStateColor = index === hoveredItemIndex ? 'lightGray' : 'transparent';
 
   const menuOptionContents = (
     <Flex>
@@ -99,9 +100,9 @@ export default function MenuOption({
               <Text truncate={shouldTruncate} weight={textWeight} color="darkGray" inline>
                 {option?.label}
               </Text>
+              {/* Adds a pause for screen reader users between the text content */}
               {badgeText && (
                 <Box marginStart={2} marginTop={1}>
-                  {/* Adds a pause for screen reader users between the item content and the badge content */}
                   <Box display="visuallyHidden">{`, `}</Box>
                   <Badge text={badgeText} />
                 </Box>
@@ -146,23 +147,20 @@ export default function MenuOption({
 
   return (
     <div
-      ref={(ref) => {
-        if (index === hoveredItem) setOptionRef(ref);
-      }}
+      aria-selected={isSelectedItem}
       className={className}
-      key={option.value}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
-      onMouseDown={(event) => {
-        event.preventDefault();
-      }}
       onKeyPress={(event) => {
         event.preventDefault();
       }}
-      rounding={2}
-      onMouseEnter={() => setHoveredItem(index)}
+      onMouseDown={(event) => {
+        event.preventDefault();
+      }}
+      onMouseEnter={() => setHoveredItemIndex(index)}
+      ref={index === hoveredItemIndex ? ref : null}
       role={role}
-      aria-selected={isSelectedItem}
+      rounding={2}
       tabIndex={-1}
     >
       <Box padding={2} color={optionStateColor} rounding={2} display="flex" direction="column">
@@ -181,21 +179,21 @@ export default function MenuOption({
       </Box>
     </div>
   );
-}
+});
 
-MenuOption.displayName = 'MenuOption';
+MenuOptionWithForwardRef.displayName = 'MenuOption';
 
-MenuOption.propTypes = {
+export default MenuOptionWithForwardRef;
+
+MenuOptionWithForwardRef.propTypes = {
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onClick: PropTypes.func,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   option: PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
   }).isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   selected: PropTypes.oneOfType([
     PropTypes.exact({
       label: PropTypes.string.isRequired,
@@ -211,8 +209,7 @@ MenuOption.propTypes = {
     ),
   ]),
   handleSelect: PropTypes.func,
-  hoveredItem: PropTypes.number,
-  setHoveredItem: PropTypes.func,
-  setOptionRef: PropTypes.func,
+  hoveredItemIndex: PropTypes.number,
+  setHoveredItemIndex: PropTypes.func,
   href: PropTypes.string,
 };

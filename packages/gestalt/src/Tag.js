@@ -25,7 +25,7 @@ type Props = {|
         removeIconAccessibilityLabel?: string,
       |}
     | {|
-        disabled?: false,
+        disabled?: boolean,
         onRemove: ({|
           event: SyntheticMouseEvent<HTMLButtonElement>,
         |}) => void,

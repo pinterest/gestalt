@@ -49,17 +49,17 @@ export default function DropdownItem({
           key={`${option.value + index}`}
           badgeText={badgeText}
           handleSelect={handleSelect}
-          hoveredItem={hoveredItem}
+          hoveredItemIndex={hoveredItem}
           href={href}
           id={id}
           index={index}
           isExternal={isExternal}
           onClick={onClick}
           option={option}
+          ref={setOptionRef}
           role="menuitem"
           selected={selected}
-          setHoveredItem={setHoveredItem}
-          setOptionRef={setOptionRef}
+          setHoveredItemIndex={setHoveredItem}
           shouldTruncate
           textWeight="bold"
         >

@@ -92,6 +92,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
       'TextField',
       'Tooltip',
       'Typeahead',
+      'TypeaheadV2',
     ],
   },
   {

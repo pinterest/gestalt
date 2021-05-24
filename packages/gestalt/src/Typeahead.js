@@ -207,7 +207,11 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
       handleBlur({ event, value: event.currentTarget.value });
     }
     // Scrolling
-    handleContainerScrolling({ direction, containerRef, selectedElement });
+    handleContainerScrolling({
+      direction,
+      containerRef,
+      currentHoveredMenuOption: selectedElement,
+    });
   };
 
   const positioningRef = tags ? wrapperRef : inputRef;
@@ -269,10 +273,10 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
                       key={`${option.value + index}`}
                       option={option}
                       selected={selected}
-                      hoveredItem={hoveredItem}
-                      setHoveredItem={setHoveredItem}
+                      hoveredItemIndex={hoveredItem}
+                      setHoveredItemIndex={setHoveredItem}
                       handleSelect={handleSelect}
-                      setOptionRef={setOptionRef}
+                      ref={setOptionRef}
                       textWeight="normal"
                       role="option"
                     />
