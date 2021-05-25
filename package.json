@@ -82,6 +82,7 @@
     "cssnano": "4.1.11",
     "immer": "8.0.1",
     "lodash": "4.17.21",
+    "multicast-dns": "7.2.3",
     "serialize-javascript": "3.1.0"
   },
   "scripts": {
