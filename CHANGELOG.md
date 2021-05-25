@@ -1,3 +1,9 @@
+## 21.17.11 (May 25, 2021)
+
+### Patch
+
+- Box: update links in API table (#1519)
+
 ## 21.17.10 (May 21, 2021)
 
 ### Patch
