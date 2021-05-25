@@ -50,7 +50,9 @@ export default function transformer(file, api) {
       node.openingElement.attributes = attrs
         .map((attr) => {
           if (attr?.name?.name === 'align' && ['left', 'right'].includes(attr?.value?.value)) {
-            attr.value.value = attr.value.value === 'left' ? 'start' : 'end';
+            const newAttr = attr;
+            newAttr.value.value = attr.value.value === 'left' ? 'start' : 'end';
+            return newAttr;
           }
           return attr;
         })
