@@ -26,12 +26,10 @@ card(
       {
         name: 'dangerouslySetInlineStyle',
         type: '{ __style: { [key: string]: string | number | void } }',
-        href: 'Best-Practices',
       },
       {
         name: 'children',
         type: 'React.Node',
-        href: 'Best-Practices',
       },
       {
         name: 'as',
@@ -44,7 +42,6 @@ card(
         type: `"none" | "flex" | "block" | "inlineBlock" | "visuallyHidden"`,
         defaultValue: 'block',
         responsive: true,
-        href: 'Column-Layout',
         description: `The display style, which can be customized at different breakpoints. See the [Accessibility guidelines](#Visually-hidden-content) to learn more about using \`visuallyHidden\`.`,
       },
       {
@@ -80,21 +77,20 @@ card(
         name: 'borderStyle',
         type: `"sm" | "lg" | "shadow" | "none"`,
         defaultValue: 'none',
-        description: `Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the Borders section for more details.`,
-        href: 'Borders',
+        description: `Specify a border style for the box. For sizes, "sm" is 1px and "lg" is 2px. Setting a size will always default the border style to solid and color to lightGray. See the [borders](#Borders) variant for more details.`,
       },
       {
         name: 'color',
         type: `"blue" | "darkGray" | "darkWash" | "eggplant" | "gray" | "green" | "lightGray" | "lightWash" | "maroon" | "midnight" | "navy" | "olive" | "orange" | "orchid" | "pine" | "purple" | "red" | "transparent" | "transparentDarkGray" | "watermelon" | "white"`,
         defaultValue: 'transparent',
-        href: 'Colors',
+        description: 'See the [color](#Color) variant for more info.',
       },
       {
         name: 'fit',
         type: 'boolean',
         defaultValue: false,
-        description: 'Sets the max-width of the Box to 100%',
-        href: 'Sizing',
+        description:
+          'Sets the max-width of the Box to 100%. See the [sizing](#Sizing) variant for more info.',
       },
       {
         name: 'flex',
@@ -113,8 +109,8 @@ card(
         name,
         type: 'boolean',
         defaultValue: false,
-        href: 'Absolute-Positioning',
-        description: 'Helper to specify location when using absolute positioning.',
+        description:
+          'Helper to specify location when using absolute positioning. See the [absolute positioning](#Absolute-positioning) variant for more info.',
       })),
       ...[
         {
@@ -127,12 +123,12 @@ card(
         {
           name: 'marginStart',
           description:
-            'Applies margin to the left in left-to-right languages, and to the right in right-to-left languages.',
+            'Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](#Page-direction) to learn more about using `marginStart`.',
         },
         {
           name: 'marginEnd',
           description:
-            'Applies margin to the right in left-to-right languages, and to the left in right-to-left languages.',
+            'Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](#Page-direction) to learn more about using `marginEnd`.',
         },
       ].map((prop: {| name: string, description?: string |}) => ({
         name: prop.name,
@@ -140,66 +136,59 @@ card(
         defaultValue: 0,
         responsive: true,
         description: prop.description,
-        href: 'Auto-Margins',
       })),
       {
         name: 'column',
         type: `0 .. 12`,
         responsive: true,
-        href: 'Column-Layout',
+        description: 'See the [column layout](#Column-layout) variant for more info.',
       },
       {
         name: 'maxHeight',
         type: `number | string`,
-        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%"`,
-        href: 'Sizing',
+        description: `Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%". See the [sizing](#Sizing) variant for more info.`,
       },
       {
         name: 'maxWidth',
         type: `number | string`,
-        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%"`,
-        href: 'Sizing',
+        description: `Use numbers for pixels: maxWidth={100} and strings for percentages: maxWidth="100%". See the [sizing](#Sizing) variant for more info.`,
       },
       {
         name: 'minHeight',
         type: `number | string`,
-        description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%"`,
-        href: 'Sizing',
+        description: `Use numbers for pixels: minHeight={100} and strings for percentages: minHeight="100%". See the [sizing](#Sizing) variant for more info.`,
       },
       {
         name: 'minWidth',
         type: `number | string`,
-        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%"`,
-        href: 'Sizing',
+        description: `Use numbers for pixels: minWidth={100} and strings for percentages: minWidth="100%". See the [sizing](#Sizing) variant for more info.`,
       },
       {
         name: 'height',
         type: `number | string`,
-        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%"`,
-        href: 'Sizing',
+        description: `Use numbers for pixels: height={100} and strings for percentages: height="100%". See the [sizing](#Sizing) variant for more info.`,
       },
       {
         name: 'width',
         type: `number | string`,
-        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%"`,
-        href: 'Sizing',
+        description: `Use numbers for pixels: width={100} and strings for percentages: width="100%". See the [sizing](#Sizing) variant for more info.`,
       },
       {
         name: 'opacity',
         type: `0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1`,
-        href: 'Opacity',
+        description: 'See the [opacity](#Opacity) variant for more info.',
       },
       {
         name: 'overflow',
         type: `"visible" | "hidden" | "scroll" | "scrollX" | "scrollY" | "auto"`,
         defaultValue: 'visible',
-        href: 'Overflow',
+        description: 'See the [overflow](#Overflow) variant for more info.',
       },
       ...[
         {
           name: 'padding',
           description:
-            'Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up.',
+            'Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](#Responsive-padding) variant for more info.',
         },
         { name: 'paddingX', description: 'Horizontal padding (left/right)' },
         { name: 'paddingY', description: 'Vertical padding (top/bottom)' },
@@ -209,30 +198,29 @@ card(
         type: '0 .. 12',
         defaultValue: 0,
         responsive: true,
-        href: 'Responsive-Padding',
       })),
       {
         name: 'position',
         type: `"static" | "absolute" | "relative" | "fixed"`,
         defaultValue: 'static',
-        href: 'Absolute-Positioning',
+        description: 'See the [absolute positioning](#Absolute-positioning) variant for more info.',
       },
       {
         name: 'ref',
         type: "React.Ref<'div'>",
-        description: 'Forward the ref to the underlying div element',
-        href: 'Using-as-a-ref',
+        description:
+          'Forward the ref to the underlying div element. See the [using as a ref](#Using-as-a-ref) variant for more info.',
       },
       {
         name: 'role',
         type: 'string',
-        href: 'Using-Role',
-        description: 'Used to designate the Box as a type of element or landmark using ARIA roles.',
+        description:
+          'Used to designate the Box as a type of element or landmark using ARIA roles. See the [Accessibility guidelines](#Using-role) to learn more about using `role`.',
       },
       {
         name: 'rounding',
         type: `"pill" | "circle" | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8`,
-        href: 'Rounding',
+        description: 'See the [rounding](#Rounding) variant for more info.',
       },
       {
         name: 'userSelect',
@@ -248,9 +236,8 @@ card(
       },
       {
         name: 'zIndex',
-        href: 'Z-Index',
         type: 'interface Indexable { index(): number; }',
-        description: `An object representing the zIndex value of the Box.`,
+        description: `An object representing the zIndex value of the Box. See the [Z-Index](#Z-Index) variant for more info.`,
       },
     ]}
   />,
