@@ -13,14 +13,13 @@ card(<FeedbackCallout componentName="Modal" />);
 card(
   <PageHeader
     name="Modal"
-    description="Modals display content that requires user interaction on a layer above the page content. Modals block the content underneath, preventing users from interacting with anything else besides the Modal.
+    description="Modals display content that requires user interaction. They appear on a layer above the page and therefore block the content underneath, preventing users from interacting with anything else besides the Modal.
 
-    The most common example of Modal is confirming an action the user has taken. Modal also provides some of the padding required for styling out of the box."
+    The most common example of Modal is confirming an action the user has taken."
     defaultCode={`
       <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
       style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
       title="Modal Main Example"
-      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     ></iframe>
     `}
@@ -61,7 +60,7 @@ card(
         name: 'footer',
         type: 'React.Node',
         description:
-          "Supply the container element(s) or render prop that will be used as Modal's custom footer. See the [Best Practices](#Best-practices) for more info.",
+          "Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](#Best-practices) for more info.",
       },
       {
         name: 'heading',
@@ -74,12 +73,12 @@ card(
         type: '() => void',
         required: true,
         description:
-          'Callback fired when Modal is dismissed by clicking on the a dismiss-type Footer button or clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).',
+          'Callback fired when Modal is dismissed by clicking on the backdrop outside of the Modal (if `closeOnOutsideClick` is true).',
       },
       {
         name: 'ref',
         type: "React.Ref<'div'>",
-        description: 'Forward the ref to the underlying div element',
+        description: 'Ref that will be set on the underlying div element',
       },
       {
         name: 'role',
@@ -116,7 +115,6 @@ card(
           <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal required response"
-          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
         `}
@@ -130,7 +128,6 @@ card(
           <iframe src="https://codesandbox.io/embed/cool-hill-ngdjx?fontsize=14&hidenavigation=1&theme=light&view=preview"
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal with actions"
-          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
         `}
@@ -143,7 +140,6 @@ card(
           <iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal without scrolling"
-          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
         `}
@@ -153,7 +149,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="don't"
-        description="Use Modal for content that should have a dedicated surface, like log in flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using a [Sheet](/Sheet)."
+        description="Use Modal for content that should have a dedicated surface, like login flows. Think about the core areas of your product that could appear in navigation. If a dedicated URL would be beneficial, use a full page instead. If the user interaction is an optional sub-task, consider using a [Sheet](/Sheet)."
         defaultCode={`
 
 `}
@@ -169,7 +165,7 @@ card(
       <MainSection.Card
         cardSize="lg"
         type="don't"
-        description="Avoid adding additional Modals to the product. While these are currently used in some Pinner surfaces for editing, consider using a full page, Sheet, Flyout or inline editing for a better user experience."
+        description="Add additional task-based Modals to the Pinner product. While these are currently used in some Pinner surfaces for editing, consider using a full page, Sheet, Flyout or inline editing for a better user experience."
         defaultCode={`
 
 `}
@@ -384,7 +380,6 @@ card(
           <iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal with Heading"
-          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
         `}
@@ -463,7 +458,6 @@ function HeadingExample(props) {
           <iframe src="https://codesandbox.io/embed/cool-hill-ngdjx?fontsize=14&hidenavigation=1&theme=light&view=preview"
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal with Sub Heading"
-          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
         ></iframe>
         `}
@@ -519,8 +513,8 @@ function SubHeadingExample(props) {
     </MainSection.Subsection>
     <MainSection.Subsection
       title="Sizes"
-      description={`Modal has 4 size options: small (\`sm\`), medium (\`md\`), large (\`lg\`) or a number representing a custom width.
-      All Modals have a max width of 100%.`}
+      description={`Modal has 3 size options: small (\`sm\`), medium (\`md\`) and large (\`lg\`). If absolutely necessary, a number representing a custom width can be provided instead, but we recommend using one of the standard sizes.
+      All Modals have a max-width of 100%.`}
     >
       <MainSection.Card
         cardSize="lg"
