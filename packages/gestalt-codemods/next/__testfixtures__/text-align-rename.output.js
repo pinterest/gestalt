@@ -10,7 +10,7 @@ export default function TestBox() {
       <Heading align="start">Heading</Heading>
       <Heading align="end" />
       <RenamedText align="start">Text</RenamedText>
-      <Modal accessibilityModalLabel="Label" onDismiss={() => {}} align="left" />
+      <Modal accessibilityModalLabel="Label" onDismiss={() => {}} align="start" />
     </Box>
   );
 }

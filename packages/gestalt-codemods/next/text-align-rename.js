@@ -3,7 +3,7 @@
  *   align="left"|"right"
  * to
  *   align="start"|"end"
- * for Heading and Text elements.
+ * for Heading, Modal, and Text elements.
  */
 
 // yarn codemod --parser=flow -t=packages/gestalt-codemods/next/text-align-rename.js relative/path/to/your/code
@@ -20,7 +20,7 @@ export default function transformer(file, api) {
     }
 
     localIdentifierNames = decl.specifiers
-      .filter((node) => ['Heading', 'Text'].includes(node.imported?.name))
+      .filter((node) => ['Heading', 'Modal', 'Text'].includes(node.imported?.name))
       .map((node) => node.local?.name);
 
     return null;
