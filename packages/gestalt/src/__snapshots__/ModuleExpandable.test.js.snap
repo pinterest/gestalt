@@ -55,7 +55,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
                       title="Title1"
                     >
                       Title1
@@ -73,7 +73,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary1"
                     >
                       summary1
@@ -159,7 +159,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
                       title="Title2"
                     >
                       Title2
@@ -177,7 +177,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary2"
                     >
                       summary2
@@ -280,7 +280,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 red alignStart breakWord fontWeightBold truncate"
                       title="Title3"
                     >
                       Title3
@@ -298,7 +298,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary3"
                     >
                       summary3
@@ -388,7 +388,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
                       title="Title"
                     >
                       Title
@@ -406,7 +406,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary1"
                     >
                       summary1
@@ -416,7 +416,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary2"
                     >
                       summary2
@@ -426,7 +426,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary3"
                     >
                       summary3
@@ -516,7 +516,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
                       title="Title1"
                     >
                       Title1
@@ -607,7 +607,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
                       title="Title2"
                     >
                       Title2
@@ -625,7 +625,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary2"
                     >
                       summary2
@@ -728,7 +728,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
+                      className="Text fontSize3 red alignStart breakWord fontWeightBold truncate"
                       title="Title3"
                     >
                       Title3
@@ -746,7 +746,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                     className="FlexItem"
                   >
                     <div
-                      className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal truncate"
+                      className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal truncate"
                       title="summary3"
                     >
                       summary3

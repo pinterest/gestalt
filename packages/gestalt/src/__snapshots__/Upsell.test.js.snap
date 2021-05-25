@@ -27,7 +27,7 @@ exports[`<Upsell /> Basic Upsell 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -109,7 +109,7 @@ exports[`<Upsell /> message + title + dismissButton + image + form 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -303,7 +303,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton + image 1`] 
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -428,7 +428,7 @@ exports[`<Upsell /> message + title + primaryAction + dismissButton 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -553,7 +553,7 @@ exports[`<Upsell /> message + title + primaryAction + secondaryAction 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -662,7 +662,7 @@ exports[`<Upsell /> message + title + primaryAction with href 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -742,7 +742,7 @@ exports[`<Upsell /> message + title + primaryAction without href 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -817,7 +817,7 @@ exports[`<Upsell /> message + title 1`] = `
             </p>
           </div>
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>

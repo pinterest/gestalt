@@ -53,7 +53,7 @@ exports[`TextField TextField with error 1`] = `
     className="box marginTop2"
   >
     <div
-      className="Text fontSize1 red alignLeft breakWord fontWeightNormal"
+      className="Text fontSize1 red alignStart breakWord fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -135,7 +135,7 @@ exports[`TextField TextField with tags 1`] = `
             title="a@pinterest.com"
           >
             <span
-              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+              className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
             >
               a@pinterest.com
             </span>
@@ -195,7 +195,7 @@ exports[`TextField TextField with tags 1`] = `
             title="b@pinterest.com"
           >
             <span
-              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+              className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
             >
               b@pinterest.com
             </span>
@@ -255,7 +255,7 @@ exports[`TextField TextField with tags 1`] = `
             title="c@pinterest.com"
           >
             <span
-              className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+              className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
             >
               c@pinterest.com
             </span>

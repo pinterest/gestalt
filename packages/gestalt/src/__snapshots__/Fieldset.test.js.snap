@@ -8,7 +8,7 @@ exports[`Fieldset renders 1`] = `
     className="label formLabel paddingX0"
   >
     <div
-      className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -52,7 +52,7 @@ exports[`Fieldset renders 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Schnauzer
           </div>
@@ -99,7 +99,7 @@ exports[`Fieldset renders 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Aussie
           </div>
@@ -118,7 +118,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+      className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -162,7 +162,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Schnauzer
           </div>
@@ -209,7 +209,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           className="box paddingX1"
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
           >
             Aussie
           </div>
