@@ -68,7 +68,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 darkGray breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
         >
           Saved to
            
@@ -159,7 +159,7 @@ exports[`<Toast /> Text + Image 1`] = `
         className="box flexGrow justifyCenter paddingX2 xsDirectionColumn xsDisplayFlex"
       >
         <div
-          className="Text fontSize3 darkGray breakWord fontWeightNormal"
+          className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
         >
           Saved to
            
