@@ -1,3 +1,9 @@
+## 21.17.12 (May 25, 2021)
+
+### Patch
+
+- Internal: bump resolved version of multicast-dns due to security concern for dns-packet (#1523)
+
 ## 21.17.11 (May 25, 2021)
 
 ### Patch
