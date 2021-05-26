@@ -11,6 +11,9 @@ const { getOctokit, context } = require('@actions/github');
 function packageJSONPath(item) {
   return path.join(__dirname, '..', 'packages', item, 'package.json');
 }
+function srcDirectory(item) {
+  return path.join(__dirname, '..', 'packages', item, 'src');
+}
 
 const packages = ['gestalt', 'gestalt-datepicker', 'eslint-plugin-gestalt'];
 const packageJSON = packageJSONPath('gestalt');
@@ -88,11 +91,14 @@ ${previousChangelog}`,
   );
 }
 
-async function commitChanges({ newVersion }) {
+function commitChanges({ message }) {
   shell.exec('git add .');
   shell.exec('git config --global user.email "pinterest.gestalt@gmail.com"');
   shell.exec('git config --global user.name "Gestalt Bot"');
-  shell.exec(`git commit -am "Version bump: v${newVersion}"`);
+  shell.exec(`git commit -am "${message}"`);
+}
+
+function pushChanges() {
   shell.exec('git push --set-upstream origin master');
 }
 
@@ -113,6 +119,20 @@ async function createGitHubRelease({ newVersion, releaseNotes }) {
   } = createReleaseResponse;
 
   return { releaseId, htmlUrl, uploadUrl };
+}
+
+function cleanSource() {
+  packages.forEach((packageName) => {
+    const src = srcDirectory(packageName);
+    shell.exec(`find ${src} -type f -name "*.flowtest.js" -delete`);
+    shell.exec(`find ${src} -type f -name "*.test.js" -delete`);
+    shell.exec(`find ${src} -type d -name "__fixtures__" -exec rm -rf {} +`);
+    shell.exec(`find ${src} -type d -name "__snapshots__" -exec rm -rf {} +`);
+
+    shell.exec(
+      `find ${src} -type f -name "*.js" -exec sh -c 'mv "$1" "\${1%.js}.js.flow"' _ {} \\;`,
+    );
+  });
 }
 
 (async () => {
@@ -141,7 +161,12 @@ async function createGitHubRelease({ newVersion, releaseNotes }) {
   await updateChangelog({ releaseNotes });
 
   console.log('\nCommit Changes');
-  await commitChanges({ newVersion });
+  commitChanges({ message: `Version bump: v${newVersion}` });
+  pushChanges();
+
+  console.log('\nClean src/ directories & Convert .js to .js.flow');
+  cleanSource();
+  commitChanges({ message: `v${newVersion}: Clean source` });
 
   console.log('\nCreate GitHub Release');
   const { releaseId, htmlUrl, uploadUrl } = await createGitHubRelease({
