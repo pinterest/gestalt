@@ -1,3 +1,9 @@
+## 22.1.0 (May 26, 2021)
+
+### Minor
+
+- Internal: upgrade to Node.js 14 & add 16 to our CI test matrix (#1526)
+
 ## 22.0.0 (May 26, 2021)
 
 ### Major
