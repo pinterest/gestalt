@@ -46,12 +46,12 @@ html[dir="rtl"] .inputActive {
 
 .clear {
   composes: marginEnd2 from "./boxWhitespace.css";
-  composes: noBorder from "./Borders.css";
+  composes: noBorder pill from "./Borders.css";
   composes: paddingX1 from "./boxWhitespace.css";
   composes: paddingY1 from "./boxWhitespace.css";
   composes: pointer from "./Cursor.css";
   composes: transparentBg from "./Colors.css";
-  outline: none;
+  composes: accessibilityOutline from "./Focus.css";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
