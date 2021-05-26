@@ -6,7 +6,7 @@
  * for Heading, Modal, and Text elements.
  */
 
-// yarn codemod --parser=flow -t=packages/gestalt-codemods/next/text-align-rename.js relative/path/to/your/code
+// yarn codemod --parser=flow -t=packages/gestalt-codemods/22.0.0/text-align-rename.js relative/path/to/your/code
 
 export default function transformer(file, api) {
   const j = api.jscodeshift;
