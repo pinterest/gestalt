@@ -1,3 +1,9 @@
+## 22.0.0 (May 26, 2021)
+
+### Major
+
+- Text/Heading: update align values (#1522)
+
 ## 21.17.13 (May 26, 2021)
 
 ### Patch
