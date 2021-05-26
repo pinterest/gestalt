@@ -146,16 +146,14 @@ card(
     const [value, setValue] = React.useState('');
 
     return (
-      <Box padding={3} display="flex" alignItems="center" flex="grow">
-        <Box padding={3}>
-          <Icon
-            icon="pinterest"
-            color="red"
-            size={20}
-            accessibilityLabel="Pinterest"
-          />
-        </Box>
-        <Box flex="grow" paddingX={2}>
+      <Flex gap={4} alignItems="center" flex="grow">
+        <Icon
+          icon="pinterest"
+          color="red"
+          size={20}
+          accessibilityLabel="Pinterest"
+        />
+        <Flex.Item flex="grow">
           <SearchField
             accessibilityLabel="Search all of Pinterest"
             accessibilityClearButtonLabel="Clear search field"
@@ -164,18 +162,14 @@ card(
             placeholder="Search and explore"
             value={value}
           />
-        </Box>
-        <Box paddingX={2}>
-          <IconButton
-            accessibilityLabel="Notifications"
-            icon="speech-ellipsis"
-            size="md"
-          />
-        </Box>
-        <Box paddingX={2}>
-          <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-        </Box>
-      </Box>
+        </Flex.Item>
+        <IconButton
+          accessibilityLabel="Notifications"
+          icon="speech-ellipsis"
+          size="md"
+        />
+        <IconButton accessibilityLabel="Profile" icon="person" size="md" />
+      </Flex>
     );
   }
 `}
@@ -197,19 +191,19 @@ function SearchFieldExample() {
   const [value, setValue] = React.useState('');
 
   return (
-    <Box padding={3} display="flex" alignItems="center">
-      <Box flex="grow" paddingX={2}>
-        <SearchField
-          accessibilityLabel=""
-          accessibilityClearButtonLabel="Clear search field"
-          label="Search Messages"
-          id="searchMessagesLabelExample"
-          onChange={({value}) => setValue(value)}
-          placeholder="Search by name"
-          value={value}
-        />
-      </Box>
-    </Box>
+    <Flex alignItems="center" flex="grow">
+    <Flex.Item flex="grow">
+      <SearchField
+        accessibilityLabel=""
+        accessibilityClearButtonLabel="Clear search field"
+        label="Search Messages"
+        id="searchMessagesLabelExample"
+        onChange={({value}) => setValue(value)}
+        placeholder="Search by name"
+        value={value}
+      />
+      </Flex.Item>
+    </Flex>
   );
 }
 `}
@@ -224,10 +218,11 @@ function SearchFieldExample() {
         defaultCode={`
 function SearchFieldExample() {
   const [value, setValue] = React.useState('');
+  const [lgValue, setLgValue] = React.useState('');
 
   return (
     <Flex gap={8} alignItems="center">
-      <Flex gap={4} direction="column">
+      <Flex gap={4} direction="column" flex="grow">
         <Text>Medium (md)</Text>
         <SearchField
           accessibilityLabel=""
@@ -239,16 +234,16 @@ function SearchFieldExample() {
           value={value}
         />
       </Flex>
-      <Flex gap={4} direction="column">
+      <Flex gap={4} direction="column" flex="grow">
         <Text>Large (lg)</Text>
         <SearchField
           accessibilityLabel=""
           accessibilityClearButtonLabel="Clear search field"
           label="Search Messages"
           id="searchMessagesLarge"
-          onChange={({value}) => setValue(value)}
+          onChange={({value}) => setLgValue(value)}
           placeholder="Search by name"
-          value={value}
+          value={lgValue}
           size="lg"
         />
       </Flex>
@@ -269,8 +264,8 @@ function SearchFieldExample() {
   const [value, setValue] = React.useState('pepper#$%');
 
   return (
-    <Box padding={3} display="flex" alignItems="center">
-      <Box flex="grow" paddingX={2}>
+    <Flex flex="grow" alignItems="center">
+      <Flex.Item flex="grow">
         <SearchField
           accessibilityLabel=""
           accessibilityClearButtonLabel="Clear search field"
@@ -281,8 +276,8 @@ function SearchFieldExample() {
           value={value}
           errorMessage="Invalid search term, please avoid special characters."
         />
-      </Box>
-    </Box>
+      </Flex.Item>
+    </Flex>
   );
 }
 `}

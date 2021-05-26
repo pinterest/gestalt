@@ -122,7 +122,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <Fragment>
+    <span>
       {label && <FormLabel id={id} label={label} />}
       <Box
         alignItems="center"
@@ -189,7 +189,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         )}
       </Box>
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-    </Fragment>
+    </span>
   );
 });
 
