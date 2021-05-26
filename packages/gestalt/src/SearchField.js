@@ -87,7 +87,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   };
 
   const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
-    inputRef?.current.focus();
+    inputRef?.current?.focus();
     onChange({ value: '', syntheticEvent: event });
   };
 
@@ -179,7 +179,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
               width={clearButtonSize}
             >
               <Icon
-                accessibilityLabel={accessibilityClearButtonLabel}
+                accessibilityLabel={accessibilityClearButtonLabel || ''}
                 color={focused ? 'white' : 'darkGray'}
                 icon="cancel"
                 size={clearIconSize}
