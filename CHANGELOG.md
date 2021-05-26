@@ -1,3 +1,9 @@
+## 21.17.13 (May 26, 2021)
+
+### Patch
+
+- Internal: Update browserslist dependency resolution (#1524)
+
 ## 21.17.12 (May 25, 2021)
 
 ### Patch
