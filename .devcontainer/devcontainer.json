@@ -1,7 +1,7 @@
 {
-  "name": "Gestalt: Node.js 12",
-  // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/
-  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:12",
+  "name": "Gestalt: Node.js 14",
+  // https://github.com/microsoft/vscode-dev-containers/tree/main/containers/javascript-node
+  "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:14",
 
   // Set *default* container specific settings.json values on container create.
   "settings": {
