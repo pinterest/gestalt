@@ -2,44 +2,44 @@
 
 exports[`Heading default overflow 1`] = `
 <h3
-  className="Heading fontSize1 darkGray alignLeft breakWord"
+  className="Heading fontSize1 darkGray alignStart breakWord"
 />
 `;
 
 exports[`Heading large 1`] = `
 <h1
-  className="Heading fontSize3 darkGray alignLeft breakWord"
+  className="Heading fontSize3 darkGray alignStart breakWord"
 />
 `;
 
 exports[`Heading overflow normal 1`] = `
 <h3
-  className="Heading fontSize1 darkGray alignLeft"
+  className="Heading fontSize1 darkGray alignStart"
 />
 `;
 
 exports[`Heading small with id 1`] = `
 <h3
-  className="Heading fontSize1 darkGray alignLeft breakWord"
+  className="Heading fontSize1 darkGray alignStart breakWord"
   id="account-basics"
 />
 `;
 
 exports[`Heading small with level 3 1`] = `
 <h3
-  className="Heading fontSize1 darkGray alignLeft breakWord"
+  className="Heading fontSize1 darkGray alignStart breakWord"
 />
 `;
 
 exports[`Heading small with level none 1`] = `
 <div
-  className="Heading fontSize1 darkGray alignLeft breakWord"
+  className="Heading fontSize1 darkGray alignStart breakWord"
 />
 `;
 
 exports[`Heading truncate adds a title when the children are text only 1`] = `
 <h1
-  className="Heading fontSize3 darkGray alignLeft breakWord truncate"
+  className="Heading fontSize3 darkGray alignStart breakWord truncate"
   title="When we two parted - Lord Byron"
 >
   When we two parted - Lord Byron
@@ -48,7 +48,7 @@ exports[`Heading truncate adds a title when the children are text only 1`] = `
 
 exports[`Heading truncate does not add a title when the children are objects 1`] = `
 <h1
-  className="Heading fontSize3 darkGray alignLeft breakWord truncate"
+  className="Heading fontSize3 darkGray alignStart breakWord truncate"
 >
   <div>
     Breakup reading:

@@ -19,9 +19,11 @@ card(
     props={[
       {
         name: 'align',
-        type: `"left" | "right" | "center" | "justify"`,
-        defaultValue: 'left',
+        type: `"start" | "end" | "center" | "justify" | "forceLeft" | "forceRight"`,
+        defaultValue: 'start',
         href: 'align',
+        description:
+          '`"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.',
       },
       {
         name: 'children',
@@ -88,11 +90,13 @@ card(
     id="align"
     name="Alignment"
     defaultCode={`
-<Box maxWidth="8em">
-  <Text align="left">Left (default)</Text>
-  <Text align="right">Right</Text>
+<Box maxWidth="16em">
+  <Text align="start">Start (default)</Text>
+  <Text align="end">End</Text>
   <Text align="center">Center</Text>
   <Text align="justify">Justify</Text>
+  <Text align="forceLeft">Force left</Text>
+  <Text align="forceRight">Force right</Text>
 </Box>
 `}
   />,

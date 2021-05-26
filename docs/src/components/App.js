@@ -39,7 +39,7 @@ export default function App({ children }: Props): Node {
 
                     <Box padding={4} mdPadding={6} lgPadding={8} role="contentinfo">
                       <Box paddingX={2} paddingY={1}>
-                        <Text align="right">
+                        <Text align="end">
                           <Link href="https://www.netlify.com/">
                             This site is powered by Netlify
                           </Link>

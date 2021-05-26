@@ -405,7 +405,7 @@ function Example(props) {
                 <Box paddingY={2} paddingX={8} display="flex">
                   <Column span={4}>
                     <Label htmlFor="name">
-                      <Text align="left" weight="bold">
+                      <Text align="start" weight="bold">
                         Name
                       </Text>
                     </Label>
@@ -417,7 +417,7 @@ function Example(props) {
                 <Box paddingY={2} paddingX={8} display="flex">
                   <Column span={4}>
                     <Label htmlFor="desc">
-                      <Text align="left" weight="bold">
+                      <Text align="start" weight="bold">
                         Business Description
                       </Text>
                     </Label>

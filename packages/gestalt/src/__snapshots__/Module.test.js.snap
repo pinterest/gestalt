@@ -23,7 +23,7 @@ exports[`Module renders a badge correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
             title="Testing"
           >
             Testing
@@ -53,7 +53,7 @@ exports[`Module renders a badge correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -85,7 +85,7 @@ exports[`Module renders a title correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
             title="Module Test"
           >
             Module Test
@@ -140,7 +140,7 @@ exports[`Module renders an error correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 red alignLeft breakWord fontWeightBold truncate"
+            className="Text fontSize3 red alignStart breakWord fontWeightBold truncate"
             title="Testing"
           >
             Testing
@@ -152,7 +152,7 @@ exports[`Module renders an error correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -201,7 +201,7 @@ exports[`Module renders an icon correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize3 darkGray alignLeft breakWord fontWeightBold truncate"
+            className="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
             title="Testing"
           >
             Testing
@@ -213,7 +213,7 @@ exports[`Module renders an icon correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>
@@ -234,7 +234,7 @@ exports[`Module renders content correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize3 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize3 darkGray alignStart breakWord fontWeightNormal"
       >
         Testing
       </div>

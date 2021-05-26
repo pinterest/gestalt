@@ -28,7 +28,7 @@ card(
       },
       {
         name: 'align',
-        type: `"center" | "left"`,
+        type: `"center" | "start"`,
         defaultValue: 'center',
         description: 'Use to specify the alignment of `heading` & `subHeading` strings',
         href: 'headingOptions',
@@ -297,8 +297,8 @@ card(
 function Example(props) {
   function reducer(state, action) {
     switch (action.type) {
-      case 'left':
-        return {modal: 'left'};
+      case 'start':
+        return {modal: 'start'};
       case 'center':
         return {modal: 'center'};
       case 'none':
@@ -319,13 +319,13 @@ function Example(props) {
         <Button
           inline
           text="Left aligned heading"
-          onClick={() => { dispatch({type: 'left'}) }}
+          onClick={() => { dispatch({type: 'start'}) }}
         />
-        {state.modal === 'left' && (
+        {state.modal === 'start' && (
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
-              align="left"
+              align="start"
               heading="Heading"
               onDismiss={() => { dispatch({type: 'none'}) }}
               footer={<Heading size="md">Footer</Heading>}
@@ -612,7 +612,7 @@ function Example(props) {
                   <Box paddingY={2} paddingX={8} display="flex">
                     <Column span={4}>
                       <Label htmlFor="name">
-                        <Text align="left" weight="bold">
+                        <Text align="start" weight="bold">
                           Name
                         </Text>
                       </Label>
@@ -624,7 +624,7 @@ function Example(props) {
                   <Box paddingY={2} paddingX={8} display="flex">
                     <Column span={4}>
                       <Label htmlFor="desc">
-                        <Text align="left" weight="bold">
+                        <Text align="start" weight="bold">
                           Description
                         </Text>
                       </Label>
@@ -636,7 +636,7 @@ function Example(props) {
                   <Box paddingY={2} paddingX={8} display="flex">
                     <Column span={4}>
                       <Label htmlFor="notifications">
-                        <Text align="left" weight="bold">
+                        <Text align="start" weight="bold">
                           Email Notifications
                         </Text>
                       </Label>

@@ -27,9 +27,11 @@ card(
       },
       {
         name: 'align',
-        type: `"left" | "right" | "center" | "justify"`,
-        defaultValue: 'left',
+        type: `"start" | "end" | "center" | "justify" | "forceLeft" | "forceRight"`,
+        defaultValue: 'start',
         href: 'align',
+        description:
+          '`"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text.',
       },
       {
         name: 'children',
@@ -160,10 +162,12 @@ card(
     name="Example: Alignment"
     defaultCode={`
 <Box maxWidth="24em">
-  <Heading align="left" size="sm">Left-aligned heading (default)</Heading>
-  <Heading align="right" size="sm">Right-aligned heading</Heading>
+  <Heading align="start" size="sm">Start-aligned heading (default)</Heading>
+  <Heading align="end" size="sm">End-aligned heading</Heading>
   <Heading align="center" size="sm">Center-aligned heading</Heading>
   <Heading align="justify" size="sm">Justify-aligned heading</Heading>
+  <Heading align="forceLeft" size="sm">Forced left-aligned heading</Heading>
+  <Heading align="forceRight" size="sm">Forced right-aligned heading</Heading>
 </Box>
 `}
   />,

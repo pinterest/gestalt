@@ -7,7 +7,7 @@ import styles from './Heading.css';
 import typography from './Typography.css';
 
 type Props = {|
-  align?: 'left' | 'right' | 'center' | 'justify',
+  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   accessibilityLevel?: 1 | 2 | 3 | 4 | 5 | 6 | 'none',
   children?: Node,
   color?:
@@ -49,7 +49,7 @@ const SIZE_SCALE = {
 export default function Heading(props: Props): Node {
   const {
     accessibilityLevel,
-    align = 'left',
+    align = 'start',
     children,
     color = 'darkGray',
     id = null,
@@ -64,8 +64,10 @@ export default function Heading(props: Props): Node {
     colors[color],
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
-    align === 'left' && typography.alignLeft,
-    align === 'right' && typography.alignRight,
+    align === 'start' && typography.alignStart,
+    align === 'end' && typography.alignEnd,
+    align === 'forceLeft' && typography.alignForceLeft,
+    align === 'forceRight' && typography.alignForceRight,
     overflow === 'breakWord' && typography.breakWord,
     truncate && typography.truncate,
   );
@@ -85,7 +87,7 @@ Heading.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   accessibilityLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 'none']),
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
+  align: PropTypes.oneOf(['start', 'end', 'center', 'justify', 'forceLeft', 'forceRight']),
   children: PropTypes.node,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf([

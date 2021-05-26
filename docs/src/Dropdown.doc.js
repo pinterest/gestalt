@@ -916,7 +916,7 @@ function CustomHeaderExample() {
           id="header-dropdown-example"
           anchor={anchorRef.current}
           headerContent={
-            <Text align="left" size="sm">
+            <Text align="start" size="sm">
               This Pin was inspired by your{' '}
               <Text weight="bold" size="sm">
                 <Link href="https://pinterest.com">recent activity</Link>

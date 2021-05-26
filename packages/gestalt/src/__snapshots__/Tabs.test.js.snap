@@ -43,7 +43,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 white alignStart noWrap fontWeightBold"
             >
               News
             </div>
@@ -91,7 +91,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
             >
               You
             </div>
@@ -146,7 +146,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 white alignStart noWrap fontWeightBold"
             >
               News
             </div>
@@ -208,7 +208,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
             >
               You
             </div>
@@ -277,7 +277,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize3 white alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 white alignStart noWrap fontWeightBold"
             >
               News
             </div>
@@ -325,7 +325,7 @@ exports[`<Tabs /> matches snapshot with lg size and wrap 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize3 darkGray alignLeft noWrap fontWeightBold"
+              className="Text fontSize3 darkGray alignStart noWrap fontWeightBold"
             >
               You
             </div>

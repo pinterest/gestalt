@@ -16,7 +16,7 @@ const SIZE_SCALE = {
 export type FontWeight = 'bold' | 'normal';
 
 type Props = {|
-  align?: 'left' | 'right' | 'center' | 'justify',
+  align?: 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forceRight',
   children?: Node,
   color?:
     | 'green'
@@ -46,7 +46,7 @@ type Props = {|
 |};
 
 export default function Text({
-  align = 'left',
+  align = 'start',
   children,
   color = 'darkGray',
   inline = false,
@@ -81,8 +81,10 @@ export default function Text({
     color === 'white' && colors.white,
     align === 'center' && typography.alignCenter,
     align === 'justify' && typography.alignJustify,
-    align === 'left' && typography.alignLeft,
-    align === 'right' && typography.alignRight,
+    align === 'start' && typography.alignStart,
+    align === 'end' && typography.alignEnd,
+    align === 'forceLeft' && typography.alignForceLeft,
+    align === 'forceRight' && typography.alignForceRight,
     overflow === 'breakWord' && typography.breakWord,
     overflow === 'noWrap' && typography.noWrap,
     italic && typography.fontStyleItalic,
@@ -105,7 +107,7 @@ export default function Text({
 
 Text.propTypes = {
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  align: PropTypes.oneOf(['left', 'right', 'center', 'justify']),
+  align: PropTypes.oneOf(['start', 'end', 'center', 'justify', 'forceLeft', 'forceRight']),
   children: PropTypes.node,
   // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
   color: PropTypes.oneOf([

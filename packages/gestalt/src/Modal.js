@@ -19,7 +19,7 @@ import modalStyles from './Modal.css';
 type Props = {|
   _dangerouslyDisableScrollBoundaryContainer?: boolean, // Temporary undocumented prop to disable ScrollBoundaryContainer.
   accessibilityModalLabel: string,
-  align?: 'left' | 'center',
+  align?: 'start' | 'center',
   children?: Node,
   closeOnOutsideClick?: boolean,
   footer?: Node,
@@ -41,12 +41,12 @@ function Header({
   heading,
   subHeading,
 }: {|
-  align: 'left' | 'center',
+  align: 'start' | 'center',
   heading: string,
   subHeading?: string,
 |}) {
   return (
-    <Box justifyContent={align === 'left' ? 'start' : 'center'} padding={8}>
+    <Box justifyContent={align} padding={8}>
       <Heading size="md" accessibilityLevel={1} align={align}>
         {heading}
       </Heading>
@@ -183,7 +183,7 @@ const ModalWithForwardRef: React$AbstractComponent<Props, HTMLDivElement> = forw
 ModalWithForwardRef.propTypes = {
   _dangerouslyDisableScrollBoundaryContainer: PropTypes.string,
   accessibilityModalLabel: PropTypes.string.isRequired,
-  align: PropTypes.oneOf(['left', 'center']),
+  align: PropTypes.oneOf(['start', 'center']),
   children: PropTypes.node,
   closeOnOutsideClick: PropTypes.bool,
   footer: PropTypes.node,

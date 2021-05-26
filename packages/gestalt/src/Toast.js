@@ -38,7 +38,7 @@ export default function Toast({
           <Box display="flex" direction="column" flex="grow" justifyContent="center" paddingX={2}>
             <Text
               color={color === 'red' ? 'white' : undefined}
-              align={!thumbnail && !button ? 'center' : 'left'}
+              align={!thumbnail && !button ? 'center' : 'start'}
             >
               {text}
             </Text>

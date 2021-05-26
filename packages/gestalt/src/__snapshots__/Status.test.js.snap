@@ -28,7 +28,7 @@ exports[`Status renders 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
       >
         Unstarted
       </div>

@@ -6,7 +6,7 @@
 }
 
 .th {
-  composes: alignLeft from "./Typography.css";
+  composes: alignStart from "./Typography.css";
   composes: paddingY3 from "./boxWhitespace.css";
   composes: paddingX3 from "./boxWhitespace.css";
 }

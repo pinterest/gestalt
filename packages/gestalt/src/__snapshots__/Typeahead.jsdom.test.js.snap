@@ -12,7 +12,7 @@ exports[`Typeahead renders Typeahead normal 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
       >
         Typeahead Example
       </div>
@@ -83,7 +83,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
       className="formLabel"
     >
       <div
-        className="Text fontSize1 darkGray alignLeft breakWord fontWeightNormal"
+        className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
       >
         Tag Example
       </div>
@@ -126,7 +126,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
               title="a"
             >
               <span
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
               >
                 a
               </span>
@@ -186,7 +186,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
               title="b"
             >
               <span
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
               >
                 b
               </span>
@@ -246,7 +246,7 @@ exports[`Typeahead renders tags when supplied 1`] = `
               title="c"
             >
               <span
-                className="Text fontSize2 darkGray alignLeft breakWord fontWeightNormal"
+                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
               >
                 c
               </span>
