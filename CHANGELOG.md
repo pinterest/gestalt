@@ -1,3 +1,9 @@
+## 22.3.0 (May 27, 2021)
+
+### Minor
+
+- SearchField: Add label option and improve keyboard accessibility (#1527)
+
 ## 22.2.1 (May 27, 2021)
 
 ### Patch
