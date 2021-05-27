@@ -1,3 +1,9 @@
+## 22.4.0 (May 27, 2021)
+
+### Minor
+
+- Revert "Internal: src/ directories: remove test files &  only publish .js.flow (#1525)" (#1528)
+
 ## 22.3.0 (May 27, 2021)
 
 ### Minor
