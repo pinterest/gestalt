@@ -15,7 +15,7 @@ card(
     props={[
       {
         name: 'autoComplete',
-        type: `"current-password" | "new-password" | "on" | "off" | "username"`,
+        type: `"current-password" | "new-password" | "on" | "off" | "username" | "email"`,
       },
       {
         name: 'disabled',
@@ -124,6 +124,7 @@ function Example(props) {
       label="Email"
       value={value}
       type="email"
+      autoComplete="email"
     />
   );
 }

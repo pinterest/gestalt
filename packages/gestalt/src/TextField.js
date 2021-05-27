@@ -13,7 +13,7 @@ import layout from './Layout.css';
 import styles from './TextField.css';
 
 type Props = {|
-  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username',
+  autoComplete?: 'current-password' | 'new-password' | 'on' | 'off' | 'username' | 'email',
   disabled?: boolean,
   errorMessage?: Node,
   hasError?: boolean,
@@ -165,7 +165,14 @@ const TextFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
 });
 
 TextFieldWithForwardRef.propTypes = {
-  autoComplete: PropTypes.oneOf(['current-password', 'new-password', 'on', 'off', 'username']),
+  autoComplete: PropTypes.oneOf([
+    'current-password',
+    'new-password',
+    'on',
+    'off',
+    'username',
+    'email',
+  ]),
   disabled: PropTypes.bool,
   errorMessage: PropTypes.node,
   hasError: PropTypes.bool,
