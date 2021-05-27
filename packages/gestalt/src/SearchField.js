@@ -1,7 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 
-import { forwardRef, Fragment, useState } from 'react';
+import { forwardRef, useState, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
@@ -10,12 +10,15 @@ import formElement from './FormElement.css';
 import Box from './Box.js';
 import Icon from './Icon.js';
 import FormErrorMessage from './FormErrorMessage.js';
+import FormLabel from './FormLabel.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type Props = {|
   accessibilityLabel: string,
+  accessibilityClearButtonLabel?: string,
   autoComplete?: 'on' | 'off' | 'username' | 'name',
   id: string,
+  label?: string,
   onBlur?: AbstractEventHandler<SyntheticEvent<HTMLInputElement>>,
   onChange: ({|
     value: string,
@@ -41,8 +44,10 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
 >(function SearchField(props, ref): Node {
   const {
     accessibilityLabel,
+    accessibilityClearButtonLabel,
     autoComplete,
     id,
+    label,
     onBlur,
     onChange,
     onFocus,
@@ -56,15 +61,15 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
+  // Ref to the input
+  const inputRef = useRef(null);
+  useImperativeHandle(ref, () => inputRef.current);
+
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     onChange({
       value: event.currentTarget.value,
       syntheticEvent: event,
     });
-  };
-
-  const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
-    onChange({ value: '', syntheticEvent: event });
   };
 
   const handleMouseEnter = () => setHovered(true);
@@ -79,6 +84,11 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         syntheticEvent: event,
       });
     }
+  };
+
+  const handleClear = (event: SyntheticEvent<HTMLInputElement>) => {
+    inputRef?.current?.focus();
+    onChange({ value: '', syntheticEvent: event });
   };
 
   const handleBlur = (event) => {
@@ -112,7 +122,8 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
   const clearIconSize = size === 'lg' ? 12 : 10;
 
   return (
-    <Fragment>
+    <span>
+      {label && <FormLabel id={id} label={label} />}
       <Box
         alignItems="center"
         display="flex"
@@ -143,7 +154,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         <input
           aria-describedby={errorMessage && focused ? `${id}-error` : null}
           aria-invalid={errorMessage ? 'true' : 'false'}
-          ref={ref}
+          ref={inputRef}
           aria-label={accessibilityLabel}
           autoComplete={autoComplete}
           className={className}
@@ -157,7 +168,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         />
 
         {hasValue && (
-          <button className={styles.clear} onClick={handleClear} tabIndex={-1} type="button">
+          <button className={styles.clear} onClick={handleClear} type="button">
             <Box
               alignItems="center"
               color={focused ? 'darkGray' : 'transparent'}
@@ -168,7 +179,7 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
               width={clearButtonSize}
             >
               <Icon
-                accessibilityLabel=""
+                accessibilityLabel={accessibilityClearButtonLabel || ''}
                 color={focused ? 'white' : 'darkGray'}
                 icon="cancel"
                 size={clearIconSize}
@@ -178,14 +189,16 @@ const SearchFieldWithForwardRef: React$AbstractComponent<Props, HTMLInputElement
         )}
       </Box>
       {errorMessage && <FormErrorMessage id={id} text={errorMessage} />}
-    </Fragment>
+    </span>
   );
 });
 
 SearchFieldWithForwardRef.propTypes = {
   accessibilityLabel: PropTypes.string.isRequired,
+  accessibilityClearButtonLabel: PropTypes.string,
   autoComplete: PropTypes.oneOf(['on', 'off', 'username', 'name']),
   id: PropTypes.string.isRequired,
+  label: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   onFocus: PropTypes.func,
