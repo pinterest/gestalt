@@ -1,3 +1,9 @@
+## 22.5.0 (May 27, 2021)
+
+### Minor
+
+- Internal: src/ directories: remove test files & only publish .js.flow (second try) (#1529)
+
 ## 22.4.0 (May 27, 2021)
 
 ### Minor
