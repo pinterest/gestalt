@@ -1,3 +1,9 @@
+## 22.2.1 (May 27, 2021)
+
+### Patch
+
+- Modal: New docs and Best Practices (#1521)
+
 ## 22.2.0 (May 27, 2021)
 
 ### Minor
