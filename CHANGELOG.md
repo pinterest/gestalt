@@ -1,3 +1,9 @@
+## 22.6.0 (May 27, 2021)
+
+### Minor
+
+- TextField: Add email option for autocomplete (#1530)
+
 ## 22.5.0 (May 27, 2021)
 
 ### Minor
