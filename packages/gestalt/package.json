@@ -22,9 +22,9 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
+    "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
     "postpack": "rm README.md",
     "prepack": "cp ../../README.md .",
-    "prepublish": "NODE_ENV=production rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch"
   },
   "browserslist": [
