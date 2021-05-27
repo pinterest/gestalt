@@ -21,7 +21,7 @@ card(
       style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
       title="Modal Main Example"
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-    ></iframe>
+      ></iframe>
     `}
   />,
 );
@@ -116,7 +116,7 @@ card(
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal required response"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        ></iframe>
+          ></iframe>
         `}
       />
 
@@ -129,7 +129,7 @@ card(
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal with actions"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        ></iframe>
+          ></iframe>
         `}
       />
       <MainSection.Card
@@ -141,7 +141,7 @@ card(
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal without scrolling"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        ></iframe>
+          ></iframe>
         `}
       />
     </MainSection.Subsection>
@@ -184,12 +184,11 @@ card(
       <MainSection.Card
         cardSize="lg"
         iframeContent={`
-        <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-        style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-        title="Accessibility Labels"
-        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-      ></iframe>
+          <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+          title="Accessibility Labels"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          ></iframe>
         `}
         defaultCode={`
 function AccessibilityExample(props) {
@@ -232,13 +231,12 @@ function AccessibilityExample(props) {
         title='role="alertdialog"'
         cardSize="lg"
         iframeContent={`
-    <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
-    style={{width: '100%', height:'400px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-    title="Accessibility Role ex1"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  ></iframe>
-    `}
+          <iframe src="https://codesandbox.io/embed/trusting-wu-c8514?fontsize=14&hidenavigation=1&theme=light&view=preview"
+            style={{width: '100%', height:'400px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+            title="Accessibility Role ex1"
+            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          ></iframe>
+        `}
         defaultCode={`
 function AlertDialogAccessibilityExample(props) {
 const [showModal, setShowModal] = React.useState(false);
@@ -274,13 +272,12 @@ return (
         title='role="dialog" (default)'
         cardSize="lg"
         iframeContent={`
-    <iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
-    style={{width: '100%', height:'450px', border:'0', borderRadius: '4px', overflow:'hidden'}}
-    title="Accessibility Role ex2"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  ></iframe>
-    `}
+          <iframe src="https://codesandbox.io/embed/fervent-rosalind-xrzm5?fontsize=14&hidenavigation=1&theme=light&view=preview"
+          style={{width: '100%', height:'450px', border:'0', borderRadius: '4px', overflow:'hidden'}}
+          title="Accessibility Role ex2"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          ></iframe>
+        `}
         defaultCode={`
     function DialogExample(props) {
       const ModalWithHeading = ({
@@ -363,8 +360,8 @@ card(
       description={`
       The \`heading\` will render an H1 when a string is passed in and supports multiple alignment options with the \`align\` prop.
 
-      - **Left**
-        \`left\` aligned text is the primary alignment for our Business products.
+      - **Start**
+        \`start\` aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages.
 
       - **Center**
         \`center\` aligned text is the primary alignment for our Pinner products.
@@ -381,7 +378,7 @@ card(
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal with Heading"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        ></iframe>
+          ></iframe>
         `}
         defaultCode={`
 function HeadingExample(props) {
@@ -459,7 +456,7 @@ function HeadingExample(props) {
           style={{width: '100%', height:'500px', border:'0', borderRadius: '4px', overflow:'hidden'}}
           title="Modal with Sub Heading"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-        ></iframe>
+          ></iframe>
         `}
         defaultCode={`
 function SubHeadingExample(props) {
@@ -472,7 +469,7 @@ function SubHeadingExample(props) {
         accessibilityModalLabel="Resume account creation"
         heading="Resume your work?"
         subHeading="Welcome back to the business account creation process!"
-        align="left"
+        align="start"
         onDismiss={onDismiss}
         footer={
           <Flex alignItems="center" justifyContent="end" gap={2}>
