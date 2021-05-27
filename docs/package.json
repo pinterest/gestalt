@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "license": "Apache-2.0",
-  "homepage": "https://gestalt.netlify.app",
+  "homepage": "https://gestalt.pinterest.systems/",
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",

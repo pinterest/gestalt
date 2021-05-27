@@ -2,7 +2,7 @@
   "name": "gestalt",
   "version": "22.6.0",
   "license": "Apache-2.0",
-  "homepage": "https://gestalt.netlify.app",
+  "homepage": "https://gestalt.pinterest.systems/",
   "description": "A set of React UI components which enforce Pinterest’s design language",
   "main": "dist/gestalt.js",
   "jsnext:main": "dist/gestalt.es.js",
