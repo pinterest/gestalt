@@ -1,7 +1,7 @@
 // @flow strict
 import type { Node } from 'react';
 
-import { forwardRef, Fragment, useState, useRef, useImperativeHandle } from 'react';
+import { forwardRef, useState, useRef, useImperativeHandle } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import layout from './Layout.css';
