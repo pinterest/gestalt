@@ -27,7 +27,7 @@ card(
           <SearchField
             accessibilityLabel="Search all of Pinterest"
             accessibilityClearButtonLabel="Clear search field"
-            id="searchFieldA11yExample"
+            id="searchFieldMainExample"
             onChange={({value}) => setValue(value)}
             placeholder="Search and explore"
             value={value}
