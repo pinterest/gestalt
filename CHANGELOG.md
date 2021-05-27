@@ -1,3 +1,9 @@
+## 22.6.1 (May 27, 2021)
+
+### Patch
+
+- Internal: update links to new docs domain (#1531)
+
 ## 22.6.0 (May 27, 2021)
 
 ### Minor
