@@ -12,42 +12,36 @@ card(
   <PageHeader
     name="SearchField"
     defaultCode={`
-function SearchFieldExample() {
-  const [value, setValue] = React.useState('');
+  function SearchFieldExample() {
+    const [value, setValue] = React.useState('');
 
-  return (
-    <Box padding={3} display="flex" alignItems="center" flex="grow">
-      <Box padding={3}>
+    return (
+      <Flex gap={4} alignItems="center" flex="grow">
         <Icon
           icon="pinterest"
           color="red"
           size={20}
           accessibilityLabel="Pinterest"
         />
-      </Box>
-      <Box flex="grow" paddingX={2}>
-        <SearchField
-          accessibilityLabel="Search all of Pinterest"
-          accessibilityClearButtonLabel="Clear search field"
-          id="searchField1"
-          onChange={({value}) => setValue(value)}
-          placeholder="Search and explore"
-          value={value}
-        />
-      </Box>
-      <Box paddingX={2}>
+        <Flex.Item flex="grow">
+          <SearchField
+            accessibilityLabel="Search all of Pinterest"
+            accessibilityClearButtonLabel="Clear search field"
+            id="searchFieldA11yExample"
+            onChange={({value}) => setValue(value)}
+            placeholder="Search and explore"
+            value={value}
+          />
+        </Flex.Item>
         <IconButton
           accessibilityLabel="Notifications"
           icon="speech-ellipsis"
           size="md"
         />
-      </Box>
-      <Box paddingX={2}>
         <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-      </Box>
-    </Box>
-  );
-}
+      </Flex>
+    );
+  }
 `}
   />,
 );
