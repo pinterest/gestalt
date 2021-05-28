@@ -1,29 +1,54 @@
 // @flow strict
-import type { Element, Node } from 'react';
-
-import { forwardRef, useState, useEffect, useRef, useImperativeHandle } from 'react';
+import {
+  cloneElement,
+  forwardRef,
+  Fragment,
+  useEffect,
+  useRef,
+  useImperativeHandle,
+  useState,
+  type Element,
+  type Node,
+} from 'react';
 import PropTypes from 'prop-types';
-import TypeaheadInputField from './TypeaheadInputField.js';
-import MenuOption, { type OptionObject } from './MenuOption.js';
 import Box from './Box.js';
-import Text from './Text.js';
-import Popover from './Popover.js';
 import Layer from './Layer.js';
+import Popover from './Popover.js';
+import Text from './Text.js';
+import InternalTextfield from './InternalTextField.js';
 import Tag from './Tag.js';
-import handleContainerScrolling, { type DirectionOptionType } from './utils/keyboardNavigation.js';
-import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
+import MenuOption, { type OptionObject } from './MenuOption.js';
+import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
+import handleContainerScrolling, {
+  KEYS,
+  type DirectionOptionType,
+} from './utils/keyboardNavigation.js';
+
+type TypeaheadSize = 'md' | 'lg';
 
 type Props = {|
+  // REQUIRED
+  clearOptionsLabel: string,
   id: string,
-  label?: string,
+  options: $ReadOnlyArray<OptionObject>,
   noResultText: string,
+  showOptionsLabel: string,
+  // OPTIONAL
+  disabled?: boolean,
+  errorMessage?: Node,
+  helperText?: string,
+  label?: string,
   onBlur?: ({|
     event: SyntheticFocusEvent<HTMLInputElement> | SyntheticEvent<HTMLInputElement>,
     value: string,
   |}) => void,
   onChange?: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
     value: string,
+    event: SyntheticInputEvent<HTMLInputElement>,
+  |}) => void,
+  onSelect?: ({|
+    event: SyntheticInputEvent<HTMLElement> | SyntheticKeyboardEvent<HTMLElement>,
+    item: OptionObject,
   |}) => void,
   onFocus?: ({|
     event: SyntheticFocusEvent<HTMLInputElement>,
@@ -33,16 +58,10 @@ type Props = {|
     event: SyntheticKeyboardEvent<HTMLInputElement>,
     value: string,
   |}) => void,
-  onSelect?: ({|
-    event: SyntheticInputEvent<HTMLInputElement> | SyntheticKeyboardEvent<HTMLInputElement>,
-    item: ?OptionObject,
-  |}) => void,
-  options: $ReadOnlyArray<OptionObject>,
   placeholder?: string,
-  size?: 'md' | 'lg',
+  size?: TypeaheadSize,
   tags?: $ReadOnlyArray<Element<typeof Tag>>,
   value?: string,
-  zIndex?: Indexable,
 |};
 
 const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> = forwardRef<
@@ -50,269 +69,291 @@ const TypeaheadWithForwardRef: React$AbstractComponent<Props, HTMLInputElement> 
   HTMLInputElement,
 >(function Typeahead(props, ref): Node {
   const {
+    clearOptionsLabel,
+    disabled,
+    errorMessage,
+    helperText,
     id,
     label,
     noResultText,
     onBlur,
     onChange,
+    onSelect,
     onFocus,
     onKeyDown,
-    onSelect,
     options,
     placeholder,
+    showOptionsLabel,
     size,
     tags,
-    value = null,
-    zIndex,
+    value: defaultValue,
   } = props;
 
-  // Parent ref for positioning
-  const wrapperRef = useRef(null);
+  // ==== REFS ====
+  const innerRef = useRef(null);
+  const optionRef = useRef(null);
+  const dropdownRef = useRef(null);
+  const innerTagsRef = useRef(null);
+  // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
+  useImperativeHandle(ref, () => innerRef.current);
 
-  // Utility function for filtering data by value
-  const filterOriginalData = (filterValue: string): $ReadOnlyArray<OptionObject> =>
-    options.filter((item) => item.label.toLowerCase().includes(filterValue.toLowerCase()));
+  // ==== STATE ====
 
-  // Utility function to find default value
-  const findDefaultOption = (defaultValue: string | null): OptionObject | null => {
-    if (defaultValue === null) return defaultValue;
+  const [controlledTextfieldInput, setControlledTextfieldInput] = useState<string>('');
+  const [hoveredItemIndex, setHoveredItemIndex] = useState<number>(0);
+  const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<?OptionObject>(null);
+  const [suggestedOptions, setSuggestedOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
 
-    return options.find((item) => item.value.toLowerCase() === defaultValue.toLowerCase()) || null;
-  };
+  let selectedTags = tags;
+  if (disabled && !!tags && tags.length > 0) {
+    selectedTags = tags?.map((tag) => cloneElement(tag, { disabled: true }));
+  }
 
-  // Track input value
-  const defaultOption: OptionObject | null = findDefaultOption(value);
-  const displayValue = defaultOption?.label ?? '';
-  const [search, setSearch] = useState<string>(displayValue);
-  // Track the selected item - could be used to see if someone is selecting the same thing again
-  const [selected, setSelected] = useState<OptionObject | null>(defaultOption);
+  // ==== AUTOCOMPLETE LOGIC ====
 
-  // Make sure we respect any external changes to `value`
   useEffect(() => {
-    setSearch(displayValue);
-    setSelected(defaultOption);
-  }, [defaultOption, displayValue]);
+    if (showOptionsList && !selectedItem) {
+      const filteredOptions = options.filter((item) =>
+        item.label.toLowerCase().includes(controlledTextfieldInput.toLowerCase()),
+      );
 
-  const [hoveredItem, setHoveredItem] = useState<number | null>(0);
-  const [availableOptions, setAvailableOptions] = useState<$ReadOnlyArray<OptionObject>>(options);
-
-  // Ref to the input
-  const inputRef = useRef(null);
-  useImperativeHandle(ref, () => inputRef.current);
-
-  const [containerOpen, setContainerOpen] = useState<boolean>(false);
-
-  // Reset search options when the container is closed
-  useEffect(() => {
-    if (containerOpen === false) setAvailableOptions(options);
-  }, [containerOpen, options]);
-
-  const handleFocus = ({ event }) => {
-    // Run focus callback
-    if (onFocus) onFocus({ event, value: event.currentTarget.value });
-  };
-
-  const handleBlur = ({ event }) => {
-    // Clear input and reset options when no results
-    if (availableOptions.length === 0) {
-      setSearch('');
-      setAvailableOptions(options);
+      setSuggestedOptions(filteredOptions);
     }
+  }, [options, controlledTextfieldInput, selectedItem, showOptionsList]);
 
-    setContainerOpen(false);
+  // ==== SET DEFAULT VALUE / NEW OPTIONS LOGIC ====
 
-    // Run blur callback
-    if (onBlur) onBlur({ event, value: event.currentTarget.value });
+  useEffect(() => {
+    setSuggestedOptions(options);
+
+    if (defaultValue) {
+      const matchedOptionArray = options.filter(({ value: optionValue }, index) => {
+        if (optionValue === defaultValue) {
+          setHoveredItemIndex(index);
+          return true;
+        }
+        return false;
+      });
+
+      const matchedOption = matchedOptionArray?.[0];
+      if (matchedOption) {
+        setSelectedItem(matchedOption);
+        setControlledTextfieldInput(matchedOption.label);
+      }
+    }
+  }, [defaultValue, options]);
+
+  const resetSuggestedOptions = () => {
+    setShowOptionsList(false);
+    setSuggestedOptions(options);
   };
 
-  // Handler for when text is typed
-  const handleChange = ({ event, value: newValue }) => {
-    if (containerOpen === false) setContainerOpen(true);
-
-    // Filter the available options using original data
-    const updatedOptions = filterOriginalData(newValue);
-
-    // Update the available options
-    setAvailableOptions(updatedOptions);
-
-    // Update the search value
-    setSearch(newValue);
-
-    // Run onChange callback
-    if (onChange) onChange({ event, value: newValue });
+  const handleSelectOptionItem = ({ event, item }) => {
+    setSelectedItem(item);
+    if (!tags) setControlledTextfieldInput(item.label);
+    onSelect?.({ event, item });
   };
 
-  const handleClear = () => {
-    setSelected(null);
-    setSearch('');
-    setContainerOpen(false);
-    if (inputRef.current) inputRef.current.focus();
-  };
+  // ==== KEYBOARD NAVIGATION LOGIC ====
 
-  // Handler for when an item is clicked
-  const handleSelect = ({ event, item }) => {
-    setSelected(item);
-
-    setSearch(item.label);
-    setContainerOpen(false);
-    if (inputRef.current) inputRef.current.focus();
-    if (onSelect) onSelect({ event, item });
-  };
-
-  let selectedElement;
-  const setOptionRef = (optionRef) => {
-    selectedElement = optionRef;
-  };
-
-  const containerRef = useRef();
-
-  const handleKeyNavigation = (
-    event: SyntheticKeyboardEvent<HTMLInputElement>,
-    direction: DirectionOptionType,
-  ) => {
-    // $FlowFixMe[unsafe-addition] flow 0.135.0 upgrade
-    const newIndex = direction + hoveredItem;
-    const optionsCount = availableOptions.length - 1;
-
-    const KEYS = {
-      ENTER: 0,
-    };
+  // keyboard navigation is handled by Typeahead while onClick selection is handled in MenuOption
+  const handleKeyNavigation = (event, direction: DirectionOptionType) => {
+    const newIndex = direction + hoveredItemIndex;
+    const optionsCount = suggestedOptions.length - 1;
 
     // If there's an existing item, navigate from that position
-
     let cursorIndex = newIndex;
 
     // If we've reached the end, start at the top
     if (newIndex > optionsCount) {
       cursorIndex = 0;
     }
+
     // If we're at the top going backwards, start at the last item
     else if (newIndex < 0) {
       cursorIndex = optionsCount;
     }
 
-    const newItem = availableOptions[cursorIndex];
-
-    setHoveredItem(cursorIndex);
-
-    if (direction === KEYS.ENTER) {
-      // Only set state when there are options.
-      // handleBlur will take care of clear empty results
-      if (availableOptions.length > 0) {
-        setSelected(newItem);
-        setSearch(newItem.label);
-        if (onSelect) onSelect({ event, item: newItem });
-      }
-
-      handleBlur({ event, value: event.currentTarget.value });
-    }
-    // Scrolling
+    // handleContainerScrolling must be placed before we update hoveredItemIndex
     handleContainerScrolling({
       direction,
-      containerRef,
-      currentHoveredMenuOption: selectedElement,
+      containerRef: dropdownRef,
+      currentHoveredMenuOption: optionRef.current,
     });
+
+    setHoveredItemIndex(cursorIndex);
+
+    const optionItem = suggestedOptions[cursorIndex];
+
+    if (optionItem && direction === KEYS.ENTER) {
+      handleSelectOptionItem({ event, item: optionItem });
+      resetSuggestedOptions();
+    }
   };
 
-  const positioningRef = tags ? wrapperRef : inputRef;
+  const handleKeyDown = (event) => {
+    const { keyCode } = event;
+
+    if (keyCode === UP_ARROW) {
+      handleKeyNavigation(event, KEYS.UP);
+      event.preventDefault();
+    } else if (keyCode === DOWN_ARROW) {
+      handleKeyNavigation(event, KEYS.DOWN);
+      event.preventDefault();
+    } else if (keyCode === ENTER) {
+      handleKeyNavigation(event, KEYS.ENTER);
+      event.stopPropagation();
+    } else if (keyCode === ESCAPE) {
+      if (innerRef) innerRef.current?.focus();
+    } else if (keyCode === TAB) {
+      setShowOptionsList(false);
+    } else if (keyCode === SPACE) {
+      event.preventDefault();
+    }
+  };
 
   return (
-    <Box position="relative" ref={wrapperRef}>
-      <TypeaheadInputField
-        label={label}
-        id={id}
-        value={search}
-        placeholder={placeholder}
-        size={size}
-        onChange={handleChange}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onClear={handleClear}
-        onKeyDown={onKeyDown}
-        onKeyNavigation={handleKeyNavigation}
-        setContainer={setContainerOpen}
-        tags={tags}
-        ref={inputRef}
-      />
+    <Fragment>
+      <Box minWidth={280} position="relative" ref={innerTagsRef}>
+        <InternalTextfield
+          accessibilityControls={id}
+          accessibilityExpanded={showOptionsList}
+          accessibilityHaspopup
+          accessibilityActivedescendant={`${id}-item-${hoveredItemIndex}`}
+          accessibilityOwns={id}
+          accessibilityRole="combobox"
+          autoComplete="list"
+          clearOptionsLabel={clearOptionsLabel}
+          disabled={disabled}
+          endButton={controlledTextfieldInput ? 'clear' : 'dropdown'}
+          hasError={!!errorMessage}
+          helperText={helperText}
+          id={`typeahead-${id}`}
+          errorMessage={errorMessage}
+          label={label}
+          onBlur={({ event, value }) => {
+            if (!selectedItem) setControlledTextfieldInput('');
+            if (onBlur) onBlur({ event, value });
+          }}
+          onChange={({ event, value }) => {
+            setSelectedItem(null);
+            setControlledTextfieldInput(value);
+            if (onChange) onChange({ event, value });
+            if (showOptionsList === false) setShowOptionsList(true);
+          }}
+          onClear={() => {
+            setSelectedItem(null);
+            setControlledTextfieldInput('');
+            setSuggestedOptions(options);
+            setHoveredItemIndex(0);
+            if (innerRef) innerRef.current?.focus();
+          }}
+          onClick={() => setShowOptionsList(true)}
+          onFocus={({ event, value }) => {
+            if (onFocus) onFocus({ event, value });
+          }}
+          onKeyDown={({ event, value }) => {
+            if (event.keyCode !== TAB) setShowOptionsList(true);
+            if (onKeyDown) onKeyDown({ event, value });
+          }}
+          onShowOptions={() => setShowOptionsList(true)}
+          placeholder={tags && tags.length > 0 ? '' : placeholder}
+          ref={innerRef}
+          showOptionsLabel={showOptionsLabel}
+          size={size}
+          tags={selectedTags}
+          type="text"
+          value={controlledTextfieldInput}
+        />
+      </Box>
 
-      {containerOpen && positioningRef.current && (
-        <Layer zIndex={zIndex}>
+      {showOptionsList && innerRef.current && (
+        <Layer>
           <Popover
-            showCaret={false}
-            anchor={positioningRef.current}
+            anchor={(tags ? innerTagsRef : innerRef).current}
+            handleKeyDown={handleKeyDown}
             idealDirection="down"
-            onDismiss={() => {
-              setContainerOpen(false);
-            }}
+            onDismiss={() => setShowOptionsList(false)}
             positionRelativeToAnchor={false}
             size="flexible"
-            // Forces the popover to re-render and adjust its position correctly
-            key={availableOptions.length}
           >
             <Box
-              // The returned element is Node which is incompatible with HTMLElement type
-              ref={containerRef}
-              position="relative"
+              aria-expanded={showOptionsList}
+              alignItems="center"
+              direction="column"
+              display="flex"
+              flex="grow"
+              id={id}
               overflow="auto"
               padding={2}
-              maxHeight="50vh"
-              width={positioningRef.current?.offsetWidth}
-              role="combobox"
+              maxHeight="30vh"
+              ref={dropdownRef}
+              role="listbox"
+              rounding={4}
+              width={(tags ? innerTagsRef : innerRef).current?.offsetWidth}
             >
-              <Box alignItems="center" direction="column" display="flex">
-                {/* Handle when no results */}
-                {availableOptions.length === 0 ? (
-                  <Box margin={2}>
-                    <Text color="gray">{noResultText}</Text>
-                  </Box>
-                ) : (
-                  availableOptions.map((option, index) => (
-                    <MenuOption
-                      id={id}
-                      index={index}
-                      key={`${option.value + index}`}
-                      option={option}
-                      selected={selected}
-                      hoveredItemIndex={hoveredItem}
-                      setHoveredItemIndex={setHoveredItem}
-                      handleSelect={handleSelect}
-                      ref={setOptionRef}
-                      textWeight="normal"
-                      role="option"
-                    />
-                  ))
-                )}
-              </Box>
+              {suggestedOptions.length > 0 ? (
+                suggestedOptions.map((option, index) => (
+                  <MenuOption
+                    handleSelect={({ event, item }) => {
+                      handleSelectOptionItem({ event, item });
+                      resetSuggestedOptions();
+                      if (document.activeElement !== innerRef.current) innerRef.current?.focus();
+                    }}
+                    hoveredItemIndex={hoveredItemIndex}
+                    id={id}
+                    index={index}
+                    key={`${option.value}${index}`}
+                    option={option}
+                    role="option"
+                    selected={selectedItem}
+                    setHoveredItemIndex={setHoveredItemIndex}
+                    ref={optionRef}
+                    shouldTruncate
+                    textWeight="normal"
+                  />
+                ))
+              ) : (
+                <Box margin={2}>
+                  <Text color="gray">{noResultText}</Text>
+                </Box>
+              )}
             </Box>
           </Popover>
         </Layer>
       )}
-    </Box>
+    </Fragment>
   );
 });
 
 TypeaheadWithForwardRef.propTypes = {
+  // REQUIRED
+  clearOptionsLabel: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  noResultText: PropTypes.string.isRequired,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  onSelect: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-      // eslint-disable-next-line react/no-unused-prop-types
-      subtext: PropTypes.string,
+      subtext: PropTypes.string, // eslint-disable-line react/no-unused-prop-types
     }),
   ).isRequired,
+  noResultText: PropTypes.string.isRequired,
+  showOptionsLabel: PropTypes.string.isRequired,
+  // OPTIONAL
+  disabled: PropTypes.bool,
+  errorMessage: PropTypes.string,
+  helperText: PropTypes.string,
+  label: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onSelect: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   placeholder: PropTypes.string,
-  size: PropTypes.oneOf(['md', 'lg']),
+  size: (PropTypes.oneOf(['md', 'lg']): React$PropType$Primitive<TypeaheadSize>),
   tags: PropTypes.arrayOf(PropTypes.node),
   value: PropTypes.string,
-  zIndex: UnsafeIndexablePropType,
 };
 
 TypeaheadWithForwardRef.displayName = 'Typeahead';

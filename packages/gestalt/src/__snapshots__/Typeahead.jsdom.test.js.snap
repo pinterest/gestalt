@@ -3,339 +3,410 @@
 exports[`Typeahead renders Typeahead normal 1`] = `
 <div
   className="box relative"
+  style={
+    Object {
+      "minWidth": 280,
+    }
+  }
 >
-  <label
-    className="label"
-    htmlFor="Typeahead"
-  >
-    <div
-      className="formLabel"
+  <span>
+    <label
+      className="label"
+      htmlFor="typeahead-test"
     >
       <div
-        className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+        className="formLabel"
       >
-        Typeahead Example
+        <div
+          className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+        >
+          Typeahead Example
+        </div>
+      </div>
+    </label>
+    <div
+      className="box relative"
+    >
+      <input
+        aria-activedescendant="test-item-0"
+        aria-autocomplete="list"
+        aria-controls="test"
+        aria-describedby={null}
+        aria-expanded={false}
+        aria-haspopup={true}
+        aria-invalid="false"
+        aria-owns="test"
+        autoComplete="list"
+        className="textField base enabled normal medium actionButton truncate"
+        disabled={false}
+        id="typeahead-test"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Select a Label"
+        role="combobox"
+        type="text"
+        value=""
+      />
+      <div
+        className="actionButtonContainer"
+      >
+        <div
+          className="box circle itemsCenter marginEnd2 xsDisplayFlex"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            aria-disabled={false}
+            aria-label="Show popup"
+            className="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            <div
+              className="box circle paddingX1 paddingY1"
+            >
+              <svg
+                aria-hidden={true}
+                aria-label=""
+                className="icon darkGray iconBlock"
+                height={12}
+                role="img"
+                viewBox="0 0 24 24"
+                width={12}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </label>
-  <div
-    className="box itemsCenter relative xsDisplayFlex"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
-    <input
-      aria-label="Typeahead Example"
-      autoComplete="off"
-      className="input inputActive inputRadius medium"
-      id="Typeahead"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      placeholder="Select a Label"
-      type="text"
-      value=""
-    />
-    <button
-      className="icon"
-      onClick={[Function]}
-      tabIndex={-1}
-      type="button"
-    >
-      <div
-        className="box circle itemsCenter justifyCenter left0 right0 xsDisplayFlex"
-        style={
-          Object {
-            "height": 20,
-            "width": 20,
-          }
-        }
-      >
-        <svg
-          aria-hidden={true}
-          aria-label=""
-          className="icon darkGray iconBlock"
-          height={10}
-          role="img"
-          viewBox="0 0 24 24"
-          width={10}
-        >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
-      </div>
-    </button>
-  </div>
+  </span>
 </div>
 `;
 
 exports[`Typeahead renders tags when supplied 1`] = `
 <div
   className="box relative"
+  style={
+    Object {
+      "minWidth": 280,
+    }
+  }
 >
-  <label
-    className="label"
-    htmlFor="test"
-  >
-    <div
-      className="formLabel"
+  <span>
+    <label
+      className="label"
+      htmlFor="typeahead-test"
     >
       <div
-        className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+        className="formLabel"
       >
-        Tag Example
+        <div
+          className="Text fontSize1 darkGray alignStart breakWord fontWeightNormal"
+        >
+          Tag Example
+        </div>
       </div>
-    </div>
-  </label>
-  <div
-    className="box itemsCenter relative xsDisplayFlex"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-  >
+    </label>
     <div
-      className="input inputActive inputRadius medium inputWrapper"
+      className="box relative"
     >
       <div
-        className="box marginBottom1 marginEnd1"
+        className="textField base enabled normal large actionButton textFieldWrapper"
       >
         <div
-          aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
-          style={
-            Object {
-              "height": 32,
-              "maxWidth": 300,
-            }
-          }
+          className="box marginBottom1 marginEnd1"
         >
           <div
-            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            aria-disabled={false}
+            className="box lightGrayBg rounding2 xsDisplayInlineBlock"
             style={
               Object {
-                "height": "100%",
+                "height": 32,
+                "maxWidth": 300,
               }
             }
           >
             <div
-              className="box marginEnd2 marginStart0"
-            />
-            <div
-              className="truncate"
-              title="a"
+              className="Flex rowGap0 itemsCenter xsDirectionRow"
+              style={
+                Object {
+                  "height": "100%",
+                }
+              }
             >
-              <span
-                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+              <div
+                className="box marginEnd2 marginStart0"
+              />
+              <div
+                className="truncate"
+                title="a"
               >
-                a
-              </span>
-            </div>
-            <div
-              className="box marginStart1"
-            >
-              <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
-                onClick={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={null}
-                  aria-label="Remove a tag"
-                  className="icon darkGray iconBlock"
-                  height={8}
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width={8}
+                <span
+                  className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
                 >
-                  <path
-                    d="test-file-stub"
-                  />
-                </svg>
-              </button>
+                  a
+                </span>
+              </div>
+              <div
+                className="box marginStart1"
+              >
+                <button
+                  className="button lightGray hideOutline tapTransition accessibilityOutline"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={null}
+                    aria-label="Remove a tag"
+                    className="icon darkGray iconBlock"
+                    height={8}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={8}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className="box marginBottom1 marginEnd1"
-      >
         <div
-          aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
-          style={
-            Object {
-              "height": 32,
-              "maxWidth": 300,
-            }
-          }
+          className="box marginBottom1 marginEnd1"
         >
           <div
-            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            aria-disabled={false}
+            className="box lightGrayBg rounding2 xsDisplayInlineBlock"
             style={
               Object {
-                "height": "100%",
+                "height": 32,
+                "maxWidth": 300,
               }
             }
           >
             <div
-              className="box marginEnd2 marginStart0"
-            />
-            <div
-              className="truncate"
-              title="b"
+              className="Flex rowGap0 itemsCenter xsDirectionRow"
+              style={
+                Object {
+                  "height": "100%",
+                }
+              }
             >
-              <span
-                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+              <div
+                className="box marginEnd2 marginStart0"
+              />
+              <div
+                className="truncate"
+                title="b"
               >
-                b
-              </span>
-            </div>
-            <div
-              className="box marginStart1"
-            >
-              <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
-                onClick={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={null}
-                  aria-label="Remove b tag"
-                  className="icon darkGray iconBlock"
-                  height={8}
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width={8}
+                <span
+                  className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
                 >
-                  <path
-                    d="test-file-stub"
-                  />
-                </svg>
-              </button>
+                  b
+                </span>
+              </div>
+              <div
+                className="box marginStart1"
+              >
+                <button
+                  className="button lightGray hideOutline tapTransition accessibilityOutline"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={null}
+                    aria-label="Remove b tag"
+                    className="icon darkGray iconBlock"
+                    height={8}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={8}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className="box marginBottom1 marginEnd1"
-      >
         <div
-          aria-disabled={false}
-          className="box lightGrayBg rounding2 xsDisplayInlineBlock"
-          style={
-            Object {
-              "height": 32,
-              "maxWidth": 300,
-            }
-          }
+          className="box marginBottom1 marginEnd1"
         >
           <div
-            className="Flex rowGap0 itemsCenter xsDirectionRow"
+            aria-disabled={false}
+            className="box lightGrayBg rounding2 xsDisplayInlineBlock"
             style={
               Object {
-                "height": "100%",
+                "height": 32,
+                "maxWidth": 300,
               }
             }
           >
             <div
-              className="box marginEnd2 marginStart0"
-            />
-            <div
-              className="truncate"
-              title="c"
+              className="Flex rowGap0 itemsCenter xsDirectionRow"
+              style={
+                Object {
+                  "height": "100%",
+                }
+              }
             >
-              <span
-                className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
+              <div
+                className="box marginEnd2 marginStart0"
+              />
+              <div
+                className="truncate"
+                title="c"
               >
-                c
-              </span>
-            </div>
-            <div
-              className="box marginStart1"
-            >
-              <button
-                className="button lightGray hideOutline tapTransition accessibilityOutline"
-                onClick={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden={null}
-                  aria-label="Remove c tag"
-                  className="icon darkGray iconBlock"
-                  height={8}
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width={8}
+                <span
+                  className="Text fontSize2 darkGray alignStart breakWord fontWeightNormal"
                 >
-                  <path
-                    d="test-file-stub"
-                  />
-                </svg>
-              </button>
+                  c
+                </span>
+              </div>
+              <div
+                className="box marginStart1"
+              >
+                <button
+                  className="button lightGray hideOutline tapTransition accessibilityOutline"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <svg
+                    aria-hidden={null}
+                    aria-label="Remove c tag"
+                    className="icon darkGray iconBlock"
+                    height={8}
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width={8}
+                  >
+                    <path
+                      d="test-file-stub"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className="box flexGrow marginEnd2 relative"
-        style={
-          Object {
-            "maxWidth": "100%",
-          }
-        }
-      >
         <div
-          aria-hidden={true}
-          className="inputSpacer"
-        >
-          test
-        </div>
-        <input
-          aria-label="Tag Example"
-          autoComplete="off"
-          className="unstyledInput"
-          id="test"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          type="text"
-          value="test"
-        />
-      </div>
-      <button
-        className="clear"
-        onClick={[Function]}
-        tabIndex={-1}
-        type="button"
-      >
-        <div
-          className="box circle itemsCenter justifyCenter left0 right0 xsDisplayFlex"
+          className="box flexGrow marginEnd2 relative"
           style={
             Object {
-              "height": 20,
-              "width": 20,
+              "maxWidth": "100%",
             }
           }
         >
-          <svg
+          <div
             aria-hidden={true}
-            aria-label=""
-            className="icon darkGray iconBlock"
-            height={10}
-            role="img"
-            viewBox="0 0 24 24"
-            width={10}
+            className="textFieldSpacer"
           >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
+            
+          </div>
+          <input
+            aria-activedescendant="test-item-0"
+            aria-autocomplete="list"
+            aria-controls="test"
+            aria-describedby={null}
+            aria-expanded={false}
+            aria-haspopup={true}
+            aria-invalid="false"
+            aria-owns="test"
+            autoComplete="list"
+            className="unstyledTextField"
+            disabled={false}
+            id="typeahead-test"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder=""
+            role="combobox"
+            type="text"
+            value=""
+          />
         </div>
-      </button>
+      </div>
+      <div
+        className="actionButtonContainer"
+      >
+        <div
+          className="box circle itemsCenter marginEnd2 xsDisplayFlex"
+          style={
+            Object {
+              "height": "100%",
+            }
+          }
+        >
+          <div
+            aria-disabled={false}
+            aria-label="Show popup"
+            className="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={-1}
+          >
+            <div
+              className="box circle paddingX1 paddingY1"
+            >
+              <svg
+                aria-hidden={true}
+                aria-label=""
+                className="icon darkGray iconBlock"
+                height={12}
+                role="img"
+                viewBox="0 0 24 24"
+                width={12}
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </span>
 </div>
 `;

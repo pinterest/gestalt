@@ -3,6 +3,7 @@ import type { Node } from 'react';
 import Example from './components/Example.js';
 import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
+import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
@@ -13,6 +14,135 @@ card(
     description={`Use a \`Typeahead\` when you want to let the user filter a list when selecting.`}
   />,
 );
+
+card(
+  <MainSection name="Variants">
+    <MainSection.Subsection
+      description={`To showcase repetitive examples (colors, borders, etc.), use the \`CombinationNew\` component as a child of \`MainSection.Subsection\` to render cards in the new style. Using backticks instead of quotes allows you to use [Markdown](https://www.markdownguide.org/)`}
+      title="Variant using CombinationNew"
+    >
+      <MainSection.Card
+        cardSize="lg"
+        description={`
+- Examples on what to do for writing
+`}
+        defaultCode={`
+function Example(props) {
+  const [givenValue, setGivenValue] = React.useState('Value-1');
+  const [options, setOptions] = React.useState(Array.from(Array(20).keys()).map((item) => ({
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1),
+  })));
+
+ const newOptions = Array.from(Array(5).keys()).map((item) => ({
+    value: "Value-" + (item + 1),
+    label: "Label-" + (item + 1),
+  }));
+
+  return (
+    <Box width={400}>
+      <Flex gap={2}>
+        <Button
+          onClick={() => setGivenValue((prevValue) => prevValue === 'Value-5' ? 'Value-1' : 'Value-5')}
+          text="Set value"
+          inline
+        />
+        <Button
+          onClick={() => setOptions(newOptions)}
+          text="Set new options"
+          inline
+        />
+      </Flex>
+      <Typeahead
+        clearOptionsLabel="Clear options"
+        showOptionsLabel="Show popup"
+        label="Typeahead Example 1"
+        id="Typeahead-example"
+        noResultText="No Results"
+        options={options}
+        placeholder="Select a Label"
+        size="lg"
+        value={givenValue}
+      />
+    </Box>
+  );
+}`}
+      />
+      <MainSection.Card
+        cardSize="lg"
+        description={`
+- Examples on what to do for writing
+`}
+        defaultCode={`
+ function Example(props) {
+  const colors = ['blue', 'green', 'orange', 'purple', 'red', 'yellow'];
+  const ref = React.useRef();
+  const [selected, setSelected] = React.useState([]);
+
+  const setFocus = () => {
+    // Focus needs to happen after selection is complete
+    setTimeout(() => {
+      ref.current.focus();
+    }, 0);
+  };
+
+  const onSelectTagManagement = ({ item: { value } }) => {
+    if (!selected.includes(value)) {
+      setSelected([...selected, value]);
+    }
+    setFocus();
+  }
+
+  const onRemoveTagManagement = (value) => {
+    setSelected(selected.filter(color => color !== value));
+    setFocus();
+  }
+
+  const onKeyDownTagManagement = ({ event: { keyCode, target: { selectionEnd } } }) => {
+    if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
+      // Remove tag on backspace if the cursor is at the beginning of the field
+      setSelected([...selected.slice(0, -1)]);
+      setFocus();
+    }
+  }
+
+  const options = colors
+    .filter(color => !selected.includes(color))
+    .map(color => ({ label: color, value: color }));
+
+  const renderedTags = selected.map(color => (
+      <Tag
+        key={color}
+        onRemove={() => onRemoveTagManagement(color)}
+        removeIconAccessibilityLabel="Remove tag"
+        text={color}
+      />
+    ));
+
+  return (
+    <Box width={300}>
+      <Typeahead
+        clearOptionsLabel="Clear options"
+        showOptionsLabel="Show popup"
+        key={JSON.stringify(selected) /* force update when the options change */}
+        ref={ref}
+        id="favorite-colors"
+        label="Select your favorite colors"
+        noResultText="No Results"
+        onKeyDown={onKeyDownTagManagement}
+        onSelect={onSelectTagManagement}
+        options={options}
+        placeholder={selected.length > 0 ? '' : 'Select colors'}
+        tags={renderedTags}
+      />
+    </Box>
+  );
+}`}
+      />
+    </MainSection.Subsection>
+  </MainSection>,
+);
+
 card(
   <PropTable
     props={[
@@ -145,6 +275,8 @@ function Example(props) {
       </Box>
 
       <Typeahead
+        clearOptionsLabel=""
+        showOptionsLabel=""
         label="Typeahead Example 1"
         id="Typeahead-example"
         noResultText="No Results"
@@ -189,6 +321,8 @@ function Example(props) {
       </Box>
 
       <Typeahead
+        clearOptionsLabel=""
+        showOptionsLabel=""
         label="Typeahead Example 2"
         id="Typeahead-example-defaultItem"
         noResultText="No Results"
@@ -234,8 +368,9 @@ function Example(props) {
       <Box marginBottom={4}>
        <Text>{ label }</Text>
       </Box>
-
       <Typeahead
+        clearOptionsLabel=""
+        showOptionsLabel=""
         label="Typeahead Example 3"
         id="Typeahead-example-subtext"
         noResultText="No Results"
@@ -261,14 +396,18 @@ function TypeaheadExample() {
   return (
     <Flex gap={4}>
       <Typeahead
+        clearOptionsLabel=""
+        showOptionsLabel=""
         label="Select your favorite shape"
         id="favorite-shape"
         noResultText="No Results"
         options={[{label:'square', value:'square'}, {label:'circle', value:'circle'}]}
-        onSelect={p => ref.current.focus()}
+        onSelect={() => ref.current.focus()}
         placeholder="Select a shape"
       />
       <Typeahead
+        clearOptionsLabel=""
+        showOptionsLabel=""
         label="Select your favorite color"
         id="favorite-color"
         noResultText="No Results"
@@ -340,6 +479,8 @@ function Example(props) {
 
   return (
     <Typeahead
+      clearOptionsLabel=""
+      showOptionsLabel=""
       key={JSON.stringify(selected) /* force update when the options change */}
       ref={ref}
       id="favorite-colors"
@@ -354,73 +495,6 @@ function Example(props) {
   );
 }
 `}
-  />,
-);
-
-card(
-  <Example
-    id="zIndex"
-    name="With ZIndex"
-    description={`
-    When Typeahead is used within a parent component that has a z-index set, a z-index will also need to be set on the Typeahead. Otherwise the Typeahead will render behind the parent component in the stacking context. Visit our [Z-Index documentation](/ZIndex%20Classes) for more details on how to use these utility classes.`}
-    defaultCode={`
-function Example(props) {
-  const [open, setOpen] = React.useState(false);
-  const [option, setOption] = React.useState();
-
-  const HEADER_ZINDEX = new FixedZIndex(10);
-  const MODAL_ZINDEX = new CompositeZIndex([HEADER_ZINDEX]);
-  const TYPEAHEAD_ZINDEX = new CompositeZIndex([MODAL_ZINDEX]);
-
-  return (
-    <React.Fragment>
-      <Button
-        inline
-        text="Report a stolen account"
-        onClick={() => setOpen(true)}
-      />
-      {open && (
-        <Layer zIndex={MODAL_ZINDEX}>
-          <Modal
-            accessibilityModalLabel="Select the account being reported"
-            onDismiss={() => setOpen(false)}
-            size="sm"
-            heading="Report a stolen account"
-            footer={
-              <Button
-                onClick={() => setOpen(false)}
-                text="Submit"
-                color="red"
-                size="lg"
-                type="submit"
-              />
-            }
-          >
-            <Box padding={8}>
-              <Typeahead
-                zIndex={TYPEAHEAD_ZINDEX}
-                label="Select the account being reported"
-                id="reported_account"
-                noResultText="No Results"
-                options={[
-                  {
-                    label: "basic_user@email.com",
-                    value: "basic_user@email.com"
-                  },
-                  {
-                    label: "business_user@email.com",
-                    value: "business_user@email.com"
-                  },
-                ]}
-                placeholder="Select an account"
-              />
-            </Box>
-          </Modal>
-        </Layer>
-      )}
-    </React.Fragment>
-  );
-}`}
   />,
 );
 

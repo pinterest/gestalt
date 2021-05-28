@@ -2,7 +2,13 @@
 import Typeahead from './Typeahead.js';
 
 const Valid = (
-  <Typeahead id="Typeahead" noResultText="No Result" options={[{ value: '1', label: 'label' }]} />
+  <Typeahead
+    clearOptionsLabel=""
+    showOptionsLabel=""
+    id="Typeahead"
+    noResultText="No Result"
+    options={[{ value: '1', label: 'label' }]}
+  />
 );
 
 // $FlowExpectedError[prop-missing]
