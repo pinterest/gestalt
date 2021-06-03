@@ -1,3 +1,9 @@
+## 23.0.0 (Jun 3, 2021)
+
+### Major
+
+- ColorSchemeProvider, OnLinkNavigationProvider: split Provider into individual providers (#1534)
+
 ## 22.6.1 (May 27, 2021)
 
 ### Patch
