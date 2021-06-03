@@ -1,10 +1,10 @@
-describe('Provider Accessibility check', () => {
+describe('ColorSchemeProvider Accessibility check', () => {
   beforeEach(() => {
-    cy.visit('/Provider');
+    cy.visit('/ColorSchemeProvider');
     cy.injectAxe();
   });
 
-  it('Tests accessibility on the Provider page', () => {
+  it('Tests accessibility on the ColorSchemeProvider page', () => {
     cy.configureAxe({
       rules: [
         {

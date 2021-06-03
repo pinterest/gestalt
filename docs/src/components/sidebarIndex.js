@@ -36,7 +36,7 @@ const sidebarIndex: Array<sidebarIndexType> = [
 
   {
     sectionName: 'Configuration',
-    pages: ['Provider'],
+    pages: ['ColorSchemeProvider', 'OnLinkNavigationProvider'],
   },
   {
     sectionName: 'Accessibility',

@@ -4,7 +4,7 @@ import type { Node } from 'react';
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import VideoControls from './VideoControls.js';
-import { ColorSchemeProvider } from './contexts/ColorScheme.js';
+import ColorSchemeProvider from './contexts/ColorScheme.js';
 import styles from './Video.css';
 import Box from './Box.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';

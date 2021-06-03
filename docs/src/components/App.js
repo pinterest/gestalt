@@ -1,6 +1,6 @@
 // @flow strict
 import type { Node } from 'react';
-import { Box, Divider, Provider, Link, Text } from 'gestalt';
+import { Box, Divider, ColorSchemeProvider, Link, Text } from 'gestalt';
 import Header from './Header.js';
 import Navigation from './Navigation.js';
 import useTracking from './useTracking.js';
@@ -18,7 +18,7 @@ export default function App({ children }: Props): Node {
     <AppContextProvider>
       <AppContextConsumer>
         {({ colorScheme }) => (
-          <Provider colorScheme={colorScheme}>
+          <ColorSchemeProvider colorScheme={colorScheme} id="gestalt-docs">
             <NavigationContextProvider>
               <Box minHeight="100vh" color="white">
                 <Header />
@@ -50,7 +50,7 @@ export default function App({ children }: Props): Node {
                 </Box>
               </Box>
             </NavigationContextProvider>
-          </Provider>
+          </ColorSchemeProvider>
         )}
       </AppContextConsumer>
     </AppContextProvider>

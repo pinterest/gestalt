@@ -14,7 +14,7 @@ import useFocusVisible from './useFocusVisible.js';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
 import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import getRoundingClassName, { RoundingPropType, type Rounding } from './getRoundingClassName.js';
-import { useOnNavigation } from './contexts/OnNavigation.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 
 type Props = {|
   accessibilityLabel?: string,
@@ -149,9 +149,9 @@ const InternalLinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = 
       : {},
   );
 
-  // useOnNavigation is only accessible with Gestalt Provider
+  // useOnNavigation is only accessible with Gestalt OnLinkNavigationProvider
   // and when onNavigation prop is passed to it
-  const defaultOnNavigation = useOnNavigation({ href, target });
+  const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
   const handleKeyPress = (event) => {
     // Check to see if space or enter were pressed
