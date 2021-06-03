@@ -10,7 +10,7 @@ const card = (c) => cards.push(c);
 card(
   <PageHeader
     name="ColorSchemeProvider"
-    description="An app may optionally have a `ColorSchemeProvider`to enable dark mode in the application."
+    description="ColorSchemeProvider is an optional [React context provider](https://reactjs.org/docs/context.html#contextprovider) to enable dark mode"
   />,
 );
 
