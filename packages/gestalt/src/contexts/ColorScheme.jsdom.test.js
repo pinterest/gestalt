@@ -1,6 +1,6 @@
 // @flow strict
 import { act, render } from '@testing-library/react';
-import { ColorSchemeProvider, useColorScheme } from './ColorScheme.js';
+import ColorSchemeProvider, { useColorScheme } from './ColorScheme.js';
 
 function ThemeAwareComponent() {
   const theme = useColorScheme();

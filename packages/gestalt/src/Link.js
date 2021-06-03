@@ -4,7 +4,7 @@ import type { AbstractComponent, Node, Element } from 'react';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { useOnNavigation } from './contexts/OnNavigation.js';
+import { useOnLinkNavigation } from './contexts/OnLinkNavigation.js';
 import touchableStyles from './Touchable.css';
 import styles from './Link.css';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback.js';
@@ -95,9 +95,9 @@ const LinkWithForwardRef: AbstractComponent<Props, HTMLAnchorElement> = forwardR
     },
   );
 
-  // useOnNavigation is only accessible with Gestalt Provider
+  // useOnNavigation is only accessible with Gestalt OnLinkNavigationProvider
   // and when onNavigation prop is passed to it
-  const defaultOnNavigation = useOnNavigation({ href, target });
+  const defaultOnNavigation = useOnLinkNavigation({ href, target });
 
   const handleKeyPress = (event) => {
     // Check to see if space or enter were pressed

@@ -126,7 +126,7 @@ const getTheme = (colorScheme: ?ColorScheme) =>
     ? darkModeTheme
     : lightModeTheme;
 
-export function ColorSchemeProvider({
+export default function ColorSchemeProvider({
   children,
   colorScheme,
   id,

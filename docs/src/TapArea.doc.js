@@ -636,7 +636,7 @@ function OnNavigation() {
     const onNavigationClick = ({ event }) => {
       event.preventDefault();
       // eslint-disable-next-line no-alert
-      alert('CUSTOM NAVIGATION set on <Provider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
+      alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
       window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
     }
     return onNavigationClick;
@@ -665,14 +665,14 @@ function OnNavigation() {
   }
 
   return (
-    <Provider onNavigation={onNavigation}>
+    <OnLinkNavigationProvider onNavigation={onNavigation}>
       <Flex direction="column" gap={2}>
         <Flex direction="column" gap={2}>
           <Text>Navigation controller:</Text>
             <RadioButton
               checked={onNavigationMode === 'provider_disabled'}
               id="provider_disabled"
-              label="Default navigation (disabled custom navigation set on Provider)"
+              label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
               name="navigation"
               onChange={() => setOnNavigationMode('provider_disabled')}
               value="provider_disabled"
@@ -680,7 +680,7 @@ function OnNavigation() {
             <RadioButton
               checked={onNavigationMode === 'provider_custom'}
               id="provider_custom"
-              label="Custom navigation set on Provider"
+              label="Custom navigation set on OnLinkNavigationProvider"
               name="navigation"
               onChange={() => setOnNavigationMode('provider_custom')}
               value="provider_custom"
@@ -714,7 +714,7 @@ function OnNavigation() {
           </TapArea>
         </Box>
       </Flex>
-    </Provider>
+    </OnLinkNavigationProvider>
   );
 }
 `}
@@ -727,7 +727,7 @@ card(
   <MainSection name="Related">
     <MainSection.Subsection
       description={`
-**[Provider](/Provider)**
+**[OnLinkNavigationProvider](/OnLinkNavigationProvider)**
 Provider allows external link navigation control across all children components with link behavior.
 See [custom navigation](#Custom-navigation) variant for examples.
       `}

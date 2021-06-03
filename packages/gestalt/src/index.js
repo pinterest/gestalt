@@ -37,7 +37,8 @@ import Module from './Module.js';
 import PageHeader from './PageHeader.js';
 import Pog from './Pog.js';
 import Popover from './Popover.js';
-import Provider from './Provider.js';
+import ColorSchemeProvider, { useColorScheme } from './contexts/ColorScheme.js';
+import OnLinkNavigationProvider from './contexts/OnLinkNavigation.js';
 import Pulsar from './Pulsar.js';
 import RadioButton from './RadioButton.js';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer.js';
@@ -65,7 +66,6 @@ import Video from './Video.js';
 import useFocusVisible from './useFocusVisible.js';
 import useReducedMotion from './useReducedMotion.js';
 import { FixedZIndex, CompositeZIndex } from './zIndex.js';
-import { useColorScheme } from './contexts/ColorScheme.js';
 
 export {
   ActivationCard,
@@ -81,6 +81,7 @@ export {
   Checkbox,
   Collage,
   Collection,
+  ColorSchemeProvider,
   Column,
   CompositeZIndex,
   Container,
@@ -105,10 +106,10 @@ export {
   MasonryUniformRowLayout,
   Modal,
   Module,
+  OnLinkNavigationProvider,
   PageHeader,
   Pog,
   Popover,
-  Provider,
   Pulsar,
   RadioButton,
   ScrollBoundaryContainer,
