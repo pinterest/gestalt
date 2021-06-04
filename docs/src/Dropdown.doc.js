@@ -5,12 +5,9 @@ import PropTable from './components/PropTable.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
 import { customNavigationDescription } from './components/docsUtils.js';
-import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
-
-card(<FeedbackCallout componentName="Dropdown" />);
 
 card(
   <PageHeader
