@@ -4,7 +4,7 @@ import type { Node as ReactNode } from 'react';
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ESCAPE } from './keyCodes.js';
-import Contents from './Contents.js';
+import Contents, { type Role } from './Contents.js';
 import OutsideEventBehavior from './behaviors/OutsideEventBehavior.js';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainer.js';
 import type { ClientRect, Coordinates } from './utils/positioningTypes.js';
@@ -24,9 +24,11 @@ type OwnProps = {|
   caret?: boolean,
   children?: ReactNode,
   handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
+  id?: ?string,
   idealDirection?: 'up' | 'right' | 'down' | 'left',
   onDismiss: () => void,
   positionRelativeToAnchor: boolean,
+  role?: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null,
@@ -53,10 +55,12 @@ const ControllerProptypes = {
   caret: PropTypes.bool,
   children: PropTypes.node,
   handleKeyDown: PropTypes.func,
+  id: PropTypes.string,
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
   rounding: PropTypes.oneOf([2, 4]),
+  role: (PropTypes.oneOf(['dialog', 'listbox']): React$PropType$Primitive<Role>),
   shouldFocus: PropTypes.bool,
   size: PropTypes.oneOfType([
     PropTypes.number,
@@ -141,8 +145,10 @@ class Controller extends Component<Props, State> {
       border,
       caret,
       children,
+      id,
       idealDirection,
       positionRelativeToAnchor,
+      role,
       rounding,
       shouldFocus,
       size,
@@ -158,11 +164,13 @@ class Controller extends Component<Props, State> {
           bgColor={bgColor}
           border={border}
           caret={caret}
+          id={id}
           idealDirection={idealDirection}
           onKeyDown={this.handleKeyDown}
           onResize={this.handleResize}
           positionRelativeToAnchor={positionRelativeToAnchor}
           relativeOffset={relativeOffset}
+          role={role}
           rounding={rounding}
           shouldFocus={shouldFocus}
           triggerRect={triggerBoundingRect}
