@@ -84,6 +84,7 @@ function PopoverExample() {
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
+          accessibilityControls="main-example"
           color="white"
           inline
           iconEnd="arrow-down"
@@ -99,6 +100,7 @@ function PopoverExample() {
         <Layer>
           <Popover
             anchor={anchorRef.current}
+            id="main-example"
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
@@ -150,7 +152,12 @@ card(
         description: `Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.`,
         required: true,
       },
-
+      {
+        name: 'id',
+        type: 'string',
+        description:
+          'Unique id to identify each Popover. Used for [accessibility](#ARIA-attributes) purposes.',
+      },
       {
         name: 'idealDirection',
         type: `'up' | 'right' | 'down' | 'left'`,
@@ -175,6 +182,12 @@ card(
         defaultValue: 'white',
         description:
           'The background color of Popover. See the [color and caret](#Color-and-caret) variant to learn more.',
+      },
+      {
+        name: 'role',
+        type: `"dialog" | "menu" | "listbox"`,
+        description:
+          'The underlying ARIA role for Popover. See the [accessibility](#ARIA-attributes) section for more info.',
       },
       {
         name: 'shouldFocus',
@@ -275,6 +288,7 @@ function PopoverExample() {
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
+          accessibilityControls="popover-search"
           color="white"
           inline
           iconEnd="arrow-down"
@@ -290,6 +304,7 @@ function PopoverExample() {
         <Layer>
           <Popover
             anchor={anchorRef.current}
+            id="popover-search"
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
@@ -502,6 +517,7 @@ function PopoverExample() {
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
+          accessibilityControls="popover-search-boards"
           color="white"
           inline
           iconEnd="arrow-down"
@@ -517,6 +533,7 @@ function PopoverExample() {
         <Layer>
           <Popover
             anchor={anchorRef.current}
+            id="popover-search-boards"
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
@@ -571,6 +588,12 @@ To assist screen readers, we recommend passing the following ARIA attributes to 
 
 - \`accessibilityHaspopup\`: informs the screen reader that there’s a Popover attached to the anchor element. It populates [aria-haspopup](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 - \`accessibilityExpanded\`: informs the screen reader whether Popover is currently open or closed. It populates [aria-expanded](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+- \`accessibilityControls\`: match with the \`id\` of the associated Popover whose contents or visibility are controlled by the interactive component so that screen reader users can identify the relationship between elements. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
+
+For role attribute, use:
+- 'dialog' if Popover is a dialog that prompts the user to enter information or require a response.
+- 'menu' if Popover list of choices to the user.
+- 'listbox' if Popover is a list box is a widget that allows the user to select one or more items (whose role is option)from a list.
 `}
     >
       <MainSection.Card
@@ -643,6 +666,7 @@ function PopoverExample() {
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
+          accessibilityControls="example-a11y"
           color="white"
           inline
           iconEnd="arrow-down"
@@ -658,6 +682,7 @@ function PopoverExample() {
         <Layer>
           <Popover
             anchor={anchorRef.current}
+            id="example-a11y"
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
@@ -736,34 +761,37 @@ function PopoverExample() {
   }, []);
 
   return (
-    <React.Fragment>
-      <IconButton
-        accessibilityLabel="Default IconButton"
-        icon="filter"
-        iconColor="darkGray"
-        onClick={() => {}}
-        ref={anchorRef}
-        size="lg"
-      />
-      {open &&
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            color="blue"
-            idealDirection="down"
-            showCaret
-            onDismiss={() => {}}
-            positionRelativeToAnchor={false}
-            size="xs"
-          >
-            <Box padding={3}>
-              <Text color="white" align="center">
-                Filter your board to see your favorite Pins, and more
-              </Text>
-            </Box>
-          </Popover>
-        </Layer>}
-    </React.Fragment>
+    <ScrollBoundaryContainer>
+      <Flex width={400} justifyContent="center">
+        <IconButton
+          accessibilityLabel="Default IconButton"
+          icon="filter"
+          iconColor="darkGray"
+          onClick={() => {}}
+          ref={anchorRef}
+          size="lg"
+        />
+        {open &&
+          <Layer>
+            <Popover
+              anchor={anchorRef.current}
+              color="blue"
+              id="popover-educate-2"
+              idealDirection="down"
+              showCaret
+              onDismiss={() => {}}
+              positionRelativeToAnchor={false}
+              size="xs"
+            >
+              <Box padding={3}>
+                <Text color="white" align="center">
+                  Filter your board to see your favorite Pins, and more
+                </Text>
+              </Box>
+            </Popover>
+          </Layer>}
+      </Flex>
+    </ScrollBoundaryContainer>
   );
 }`}
       />
@@ -837,6 +865,7 @@ function PopoverExample() {
         <Button
           accessibilityHaspopup={true}
           accessibilityExpanded={open}
+          accessibilityControls="popover-search-board-2"
           color="white"
           inline
           iconEnd="arrow-down"
@@ -852,6 +881,7 @@ function PopoverExample() {
         <Layer>
           <Popover
             anchor={anchorRef.current}
+            id="popover-search-board-2"
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
@@ -1052,6 +1082,9 @@ function ScrollBoundaryContainerExample() {
           <Flex direction="column" gap={2}>
             <Text size="sm">Board</Text>
             <Button
+              accessibilityHaspopup={true}
+              accessibilityExpanded={openPopover}
+              accessibilityControls="popover-search-board-3"
               iconEnd="arrow-down"
               label="Select Board"
               onClick={() => setOpenPopover(!openPopover)}
@@ -1063,6 +1096,7 @@ function ScrollBoundaryContainerExample() {
           <Layer>
             <Popover
               anchor={anchorRef.current}
+              id="popover-search-board-3"
               idealDirection="down"
               onDismiss={() => setOpenPopover(false)}
               positionRelativeToAnchor={false}
@@ -1096,6 +1130,9 @@ function ScrollBoundaryContainerExample() {
   return (
     <React.Fragment>
       <Button
+        accessibilityHaspopup={true}
+        accessibilityExpanded={showSheet}
+        accessibilityControls="popover-sheet"
         inline
         text="Edit Pin"
         onClick={() => setShowSheet(true)}
@@ -1141,7 +1178,7 @@ function ScrollBoundaryContainerExample() {
             onDismiss={() => setShowSheet(false)}
             size="lg"
           >
-            <Box display="flex" height={400} paddingX={8}>
+            <Box id="popover-sheet" display="flex" height={400} paddingX={8}>
               <Flex gap={8} width="100%">
                 <Box width={200} paddingX={2} rounding={4}>
                   <Mask rounding={4}>
@@ -1230,8 +1267,6 @@ function Example() {
             </Text>
           </Box>
           <Button
-            accessibilityHaspopup={true}
-            accessibilityExpanded={open}
             ref={anchorRef}
             href="https://help.pinterest.com/en/business/article/data-source-ingestion"
             inline

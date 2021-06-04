@@ -178,21 +178,15 @@ export default function Dropdown({
         anchor={anchor}
         color="white"
         handleKeyDown={handleKeyDown}
+        id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
+        role="menu"
         positionRelativeToAnchor={false}
         shouldFocus
         size="xl"
       >
-        <Box
-          id={id}
-          alignItems="center"
-          direction="column"
-          display="flex"
-          flex="grow"
-          margin={2}
-          role="menu"
-        >
+        <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
           {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
           <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
             {renderChildrenWithIndex()}

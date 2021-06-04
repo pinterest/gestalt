@@ -29,7 +29,7 @@ import {
   getPopoverDir,
 } from './utils/positioningUtils.js';
 
-export type Role = 'dialog' | 'listbox';
+export type Role = 'dialog' | 'listbox' | 'menu';
 
 type OwnProps = {|
   anchor: HTMLElement,
