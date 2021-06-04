@@ -84,7 +84,7 @@ const ContentProptypes = {
     y: PropTypes.number,
   }),
   positionRelativeToAnchor: PropTypes.bool,
-  role: (PropTypes.oneOf(['dialog', 'listbox']): React$PropType$Primitive<Role>),
+  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
   rounding: PropTypes.oneOf([2, 4]),
   shouldFocus: PropTypes.bool,
   triggerBoundingClientRect: PropTypes.shape({
@@ -261,8 +261,6 @@ class Contents extends Component<Props, State> {
 
     return (
       <div
-        id={id}
-        role={role}
         className={styles.container}
         // popoverOffset positions the Popover component
         style={{ stroke, visibility, ...popoverOffset }}
@@ -292,6 +290,8 @@ class Contents extends Component<Props, State> {
             </div>
           )}
           <div
+            id={id}
+            role={role}
             className={classnames(
               border && styles.border,
               colors[background],

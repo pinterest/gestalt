@@ -87,7 +87,7 @@ Popover.propTypes = {
     'white',
     'darkGray',
   ]): React$PropType$Primitive<Color>),
-  role: (PropTypes.oneOf(['dialog', 'listbox']): React$PropType$Primitive<Role>),
+  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
   size: (PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'flexible']), // default: sm

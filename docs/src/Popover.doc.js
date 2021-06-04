@@ -591,9 +591,9 @@ To assist screen readers, we recommend passing the following ARIA attributes to 
 - \`accessibilityControls\`: match with the \`id\` of the associated Popover whose contents or visibility are controlled by the interactive component so that screen reader users can identify the relationship between elements. It populates [aria-controls](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html).
 
 For role attribute, use:
-- 'dialog' if Popover is a dialog that prompts the user to enter information or require a response.
-- 'menu' if Popover list of choices to the user.
-- 'listbox' if Popover is a list box is a widget that allows the user to select one or more items (whose role is option)from a list.
+- 'dialog' if the Popover is a dialog that prompts the user to enter information or require a response.
+- 'menu' if the Popover list of choices to the user.
+- 'listbox' if the Popover is a widget that allows the user to select one or more items (whose role is option) from a list. May also include a search option.
 `}
     >
       <MainSection.Card

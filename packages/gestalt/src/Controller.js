@@ -60,7 +60,7 @@ const ControllerProptypes = {
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
   rounding: PropTypes.oneOf([2, 4]),
-  role: (PropTypes.oneOf(['dialog', 'listbox']): React$PropType$Primitive<Role>),
+  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
   shouldFocus: PropTypes.bool,
   size: PropTypes.oneOfType([
     PropTypes.number,
