@@ -1,3 +1,9 @@
+## 23.0.2 (Jun 7, 2021)
+
+### Patch
+
+- Docs: Remove feedback callout (#1537)
+
 ## 23.0.1 (Jun 3, 2021)
 
 ### Patch
