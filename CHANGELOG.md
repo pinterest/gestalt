@@ -1,3 +1,9 @@
+## 23.0.4 (Jun 7, 2021)
+
+### Patch
+
+- Internal: add resolution for vulnerable `ws` package (#1539)
+
 ## 23.0.3 (Jun 7, 2021)
 
 ### Patch
