@@ -5,7 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'postcss';
-import postcssCssnext from 'postcss-cssnext';
+import postcssPresetEnv from 'postcss-preset-env';
 import postcssModules from 'postcss-modules';
 import replace from '@rollup/plugin-replace';
 import { parseString } from 'xml2js';
@@ -42,9 +42,9 @@ const cssModules = (options = {}) => {
   const cssCache = {};
 
   const breakpoints = {
-    'g-sm': '(min-width: 576px)',
-    'g-md': '(min-width: 768px)',
-    'g-lg': '(min-width: 1312px)',
+    '--g-sm': '(min-width: 576px)',
+    '--g-md': '(min-width: 768px)',
+    '--g-lg': '(min-width: 1312px)',
   };
 
   const modulesPlugin = postcssModules({
@@ -70,11 +70,11 @@ const cssModules = (options = {}) => {
   });
 
   const plugins = [
-    postcssCssnext({
+    postcssPresetEnv({
       features: {
-        customProperties: false,
-        customMedia: {
-          extensions: breakpoints,
+        'custom-properties': false,
+        'custom-media-queries': {
+          importFrom: [{ customMedia: breakpoints }],
         },
       },
     }),
