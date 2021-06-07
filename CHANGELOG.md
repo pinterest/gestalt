@@ -1,3 +1,9 @@
+## 23.0.3 (Jun 7, 2021)
+
+### Patch
+
+- Internal: replace deprecated `postcss-cssnext` with `postcss-preset-env` (#1538)
+
 ## 23.0.2 (Jun 7, 2021)
 
 ### Patch
