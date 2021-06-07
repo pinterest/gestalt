@@ -5,12 +5,9 @@ import PropTable from './components/PropTable.js';
 import CombinationNew from './components/CombinationNew.js';
 import PageHeader from './components/PageHeader.js';
 import MainSection from './components/MainSection.js';
-import FeedbackCallout from './components/FeedbackCallout.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
-
-card(<FeedbackCallout componentName="Box" />);
 
 card(
   <PageHeader

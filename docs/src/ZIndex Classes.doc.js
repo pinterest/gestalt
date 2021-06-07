@@ -1,13 +1,10 @@
 // @flow strict
 import type { Node } from 'react';
 import PageHeader from './components/PageHeader.js';
-import FeedbackCallout from './components/FeedbackCallout.js';
 import MainSection from './components/MainSection.js';
 
 const cards: Array<Node> = [];
 const card = (c) => cards.push(c);
-
-card(<FeedbackCallout componentName="zIndex Classes" />);
 
 card(
   <PageHeader
