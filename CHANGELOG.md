@@ -1,3 +1,9 @@
+## 23.1.0 (Jun 8, 2021)
+
+### Minor
+
+- Tabs: pass disableOnNavigation arg in onChange for link behavior management (#1540)
+
 ## 23.0.4 (Jun 7, 2021)
 
 ### Patch
