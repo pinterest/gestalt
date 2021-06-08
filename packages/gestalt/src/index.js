@@ -19,7 +19,6 @@ import Divider from './Divider.js';
 import Dropdown from './Dropdown.js';
 import Fieldset from './Fieldset.js';
 import Flex from './Flex.js';
-import GroupAvatar from './GroupAvatar.js';
 import Heading from './Heading.js';
 import Icon from './Icon.js';
 import IconButton from './IconButton.js';
@@ -91,7 +90,6 @@ export {
   Fieldset,
   FixedZIndex,
   Flex,
-  GroupAvatar,
   Heading,
   Icon,
   IconButton,
