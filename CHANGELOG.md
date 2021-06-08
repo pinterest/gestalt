@@ -1,3 +1,9 @@
+## 23.2.0 (Jun 8, 2021)
+
+### Minor
+
+- Popover: new id and role props for accessibility (#1536)
+
 ## 23.1.0 (Jun 8, 2021)
 
 ### Minor
