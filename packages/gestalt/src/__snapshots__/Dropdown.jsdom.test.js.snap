@@ -17,12 +17,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
         >
           <div
             class="border whiteBgElevated whiteElevated rounding4 innerContents maxDimensions minDimensions"
+            id="ex-1"
+            role="menu"
             style="max-width: 360px;"
           >
             <div
               class="box flexGrow itemsCenter marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex"
-              id="ex-1"
-              role="menu"
             >
               <div
                 aria-selected="false"

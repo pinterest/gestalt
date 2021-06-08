@@ -29,17 +29,21 @@ import {
   getPopoverDir,
 } from './utils/positioningUtils.js';
 
+export type Role = 'dialog' | 'listbox' | 'menu';
+
 type OwnProps = {|
   anchor: HTMLElement,
   bgColor: 'blue' | 'darkGray' | 'orange' | 'red' | 'white',
   border?: boolean,
   caret?: boolean,
   children?: Node,
+  id: ?string,
   idealDirection?: MainDirections,
   onKeyDown: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
   onResize: () => void,
   positionRelativeToAnchor?: boolean,
   relativeOffset: Coordinates,
+  role: ?Role,
   rounding?: 2 | 4,
   shouldFocus?: boolean,
   triggerRect: ClientRect,
@@ -71,6 +75,7 @@ const ContentProptypes = {
   border: PropTypes.bool,
   caret: PropTypes.bool,
   children: PropTypes.node,
+  id: PropTypes.string,
   idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
   onKeyDown: PropTypes.func.isRequired,
   onResize: PropTypes.func.isRequired,
@@ -79,6 +84,7 @@ const ContentProptypes = {
     y: PropTypes.number,
   }),
   positionRelativeToAnchor: PropTypes.bool,
+  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
   rounding: PropTypes.oneOf([2, 4]),
   shouldFocus: PropTypes.bool,
   triggerBoundingClientRect: PropTypes.shape({
@@ -238,7 +244,9 @@ class Contents extends Component<Props, State> {
       caret,
       children,
       colorGray100,
+      id,
       isDarkMode,
+      role,
       rounding,
       width,
     } = this.props;
@@ -282,6 +290,8 @@ class Contents extends Component<Props, State> {
             </div>
           )}
           <div
+            id={id}
+            role={role}
             className={classnames(
               border && styles.border,
               colors[background],

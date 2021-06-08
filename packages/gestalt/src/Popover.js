@@ -2,18 +2,25 @@
 import type { Node } from 'react';
 import PropTypes from 'prop-types';
 import Controller from './Controller.js';
+import { type Role } from './Contents.js';
+
+type Color = 'blue' | 'orange' | 'red' | 'white' | 'darkGray';
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
+type IdealDirection = 'up' | 'right' | 'down' | 'left';
 
 type Props = {|
   anchor: ?HTMLElement,
   children?: Node,
-  color?: 'blue' | 'orange' | 'red' | 'white' | 'darkGray',
+  color?: Color,
   handleKeyDown?: (event: SyntheticKeyboardEvent<HTMLElement>) => void,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
+  id?: string,
+  idealDirection?: IdealDirection,
   onDismiss: () => void,
   positionRelativeToAnchor?: boolean,
+  role?: Role,
   shouldFocus?: boolean,
   showCaret?: boolean,
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number,
+  size?: Size,
 |};
 
 export default function Popover(props: Props): null | Node {
@@ -21,10 +28,12 @@ export default function Popover(props: Props): null | Node {
     anchor,
     children,
     handleKeyDown,
+    id,
     idealDirection,
     onDismiss,
     positionRelativeToAnchor = true,
     color = 'white',
+    role,
     shouldFocus = true,
     showCaret = false,
     size = 'sm',
@@ -41,9 +50,11 @@ export default function Popover(props: Props): null | Node {
       border
       caret={showCaret}
       handleKeyDown={handleKeyDown}
+      id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
       positionRelativeToAnchor={positionRelativeToAnchor}
+      role={role}
       rounding={4}
       shouldFocus={shouldFocus}
       size={size === 'flexible' ? null : size}
@@ -60,16 +71,26 @@ Popover.propTypes = {
     getBoundingClientRect: PropTypes.func,
   }),
   children: PropTypes.node,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  idealDirection: PropTypes.oneOf(['up', 'right', 'down', 'left']),
+  id: PropTypes.string,
+  idealDirection: (PropTypes.oneOf([
+    'up',
+    'right',
+    'down',
+    'left',
+  ]): React$PropType$Primitive<IdealDirection>),
   onDismiss: PropTypes.func.isRequired,
   positionRelativeToAnchor: PropTypes.bool,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  color: PropTypes.oneOf(['blue', 'orange', 'red', 'white', 'darkGray']),
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  size: PropTypes.oneOfType([
+  color: (PropTypes.oneOf([
+    'blue',
+    'orange',
+    'red',
+    'white',
+    'darkGray',
+  ]): React$PropType$Primitive<Color>),
+  role: (PropTypes.oneOf(['dialog', 'listbox', 'menu']): React$PropType$Primitive<Role>),
+  size: (PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'flexible']), // default: sm
-  ]),
+  ]): React$PropType$Primitive<Size>),
   showCaret: PropTypes.bool,
 };
