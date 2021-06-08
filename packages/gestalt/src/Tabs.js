@@ -13,7 +13,7 @@ type OnChangeHandler = AbstractEventHandler<
   | SyntheticKeyboardEvent<HTMLAnchorElement>
   | SyntheticMouseEvent<HTMLDivElement>
   | SyntheticKeyboardEvent<HTMLDivElement>,
-  {| +activeTabIndex: number |},
+  {| +activeTabIndex: number, disableOnNavigation: () => void |},
 >;
 
 function Dot() {
@@ -105,7 +105,9 @@ const TabWithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef<
         href={href}
         id={id}
         onBlur={() => setFocused(false)}
-        onClick={({ event }) => onChange({ activeTabIndex: index, event })}
+        onClick={({ event, disableOnNavigation }) =>
+          onChange({ activeTabIndex: index, event, disableOnNavigation })
+        }
         onFocus={() => setFocused(true)}
         role="tab"
         rounding="pill"
@@ -181,7 +183,9 @@ const TabV2WithForwardRef: AbstractComponent<TabProps, HTMLElement> = forwardRef
         onMouseUp={() => setPressed(false)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onTap={({ event }) => onChange({ activeTabIndex: index, event })}
+        onTap={({ event, disableOnNavigation }) =>
+          onChange({ activeTabIndex: index, event, disableOnNavigation })
+        }
         role="link"
         rounding={TAB_ROUNDING}
         tapStyle="compress"
