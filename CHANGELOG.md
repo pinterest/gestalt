@@ -1,3 +1,9 @@
+## 24.0.4 (Jun 9, 2021)
+
+### Patch
+
+- Link: fix indentation in Docs code examples (#1549)
+
 ## 24.0.3 (Jun 9, 2021)
 
 ### Patch
