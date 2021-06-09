@@ -1,3 +1,9 @@
+## 24.0.3 (Jun 9, 2021)
+
+### Patch
+
+- Internal: add resolution for `css-select` to fix `css-what` vulnerability (#1543)
+
 ## 24.0.2 (Jun 9, 2021)
 
 ### Patch
