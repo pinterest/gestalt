@@ -125,16 +125,16 @@ card(
 <Box>
   <Link href="https://pinterest.com">
     <Box padding={2}>
-      <Text color='red' weight="bold">Incorrect underline color: Pinterest.com</Text>
+      <Text color="red" weight="bold">
+        Incorrect underline color: Pinterest.com
+      </Text>
     </Box>
   </Link>
-    <Text color="red" weight="bold">
-      <Link href="https://pinterest.com">
-        <Box padding={2}>
-          Correct underline color: Pinterest.com
-        </Box>
-      </Link>
-    </Text>
+  <Text color="red" weight="bold">
+    <Link href="https://pinterest.com">
+      <Box padding={2}>Correct underline color: Pinterest.com</Box>
+    </Link>
+  </Text>
 </Box>`}
   />,
 );
@@ -148,30 +148,25 @@ card(
     name="Accessible Content"
     defaultCode={`
 <Box>
-  <Heading>
-    Bad ❌
-  </Heading>
+  <Heading>Bad ❌</Heading>
   <Text>
     For more information,{' '}
     <Text inline weight="bold">
       <Link accessibilityLabel="visit https://pinterest.com" inline href="https://pinterest.com">
         click here
       </Link>
-    </Text>.
+    </Text>
+    .
   </Text>
   <Box paddingY={4}>
-    <Heading>
-      Good ✅
-    </Heading>
+    <Heading>Good ✅</Heading>
     <Text>
-      Visit
-      {' '}
+      Visit{' '}
       <Text inline weight="bold">
         <Link inline href="https://pinterest.com">
           Pinterest.com
         </Link>
-      </Text>
-      {' '}
+      </Text>{' '}
       for more information.
     </Text>
   </Box>
@@ -194,7 +189,7 @@ function TabExample() {
     <Box display="flex" alignItems="center" role="tablist">
       {['Boards', 'Pins'].map((text, index) => (
         <Box
-          color={index === activeIndex ? "darkGray" : undefined}
+          color={index === activeIndex ? 'darkGray' : undefined}
           display="inlineBlock"
           key={text}
           rounding="pill"
@@ -211,17 +206,14 @@ function TabExample() {
             role="tab"
           >
             <Box padding={3} rounding="pill">
-              <Text color={index === activeIndex ? "white" : "darkGray"}>
-                {text}
-              </Text>
+              <Text color={index === activeIndex ? 'white' : 'darkGray'}>{text}</Text>
             </Box>
           </Link>
         </Box>
       ))}
     </Box>
   );
-}
-`}
+}`}
   />,
 );
 
@@ -233,30 +225,28 @@ card(
 function PermutationsExample() {
   return (
     <Box>
-      {
-        [
-          { text: 'Link without compress nor underline', hoverStyle: 'none', tapStyle: 'none' },
-          { text: 'Link with compress only', hoverStyle: 'none', tapStyle: 'compress' },
-          { text: 'Link with underline only', hoverStyle: 'underline', tapStyle: 'none' },
-          { text: 'Link with compress and underline', hoverStyle: 'underline', tapStyle: 'compress' },
-        ]
-        .map(
-          ({ text, hoverStyle, tapStyle }) => (
-            <Box key={text} padding={2}>
-              <Text>
-              <Link
-                hoverStyle={hoverStyle}
-                href="https://pinterest.com"
-                onClick={ ({ event }) => { event.preventDefault() }}
-                tapStyle={tapStyle}
-                target="blank"
-              >
-               {text}
-               </Link>
-             </Text>
-            </Box>
-          )
-        )}
+      {[
+        { text: 'Link without compress nor underline', hoverStyle: 'none', tapStyle: 'none' },
+        { text: 'Link with compress only', hoverStyle: 'none', tapStyle: 'compress' },
+        { text: 'Link with underline only', hoverStyle: 'underline', tapStyle: 'none' },
+        { text: 'Link with compress and underline', hoverStyle: 'underline', tapStyle: 'compress' },
+      ].map(({ text, hoverStyle, tapStyle }) => (
+        <Box key={text} padding={2}>
+          <Text>
+            <Link
+              hoverStyle={hoverStyle}
+              href="https://pinterest.com"
+              onClick={({ event }) => {
+                event.preventDefault();
+              }}
+              tapStyle={tapStyle}
+              target="blank"
+            >
+              {text}
+            </Link>
+          </Text>
+        </Box>
+      ))}
     </Box>
   );
 }
@@ -276,79 +266,78 @@ card(
 function OnNavigation() {
   const [onNavigationMode, setOnNavigationMode] = React.useState('provider_disabled');
 
-  const onNavigation = ({ href,target }) => {
+  const onNavigation = ({ href, target }) => {
     const onNavigationClick = ({ event }) => {
       event.preventDefault();
       // eslint-disable-next-line no-alert
       alert('CUSTOM NAVIGATION set on <OnLinkNavigationProvider onNavigation/>. Disabled link: '+href+'. Opening business.pinterest.com instead.');
       window.open('https://business.pinterest.com', target === 'blank' ? '_blank' : '_self');
-    }
+    };
     return onNavigationClick;
-  }
+  };
 
   const customOnNavigation = () => {
     // eslint-disable-next-line no-alert
-    alert('CUSTOM NAVIGATION set on <Link onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.');
+    alert(
+      'CUSTOM NAVIGATION set on <Link onClick/>. Disabled link: https://pinterest.com. Opening help.pinterest.com instead.',
+    );
     window.open('https://help.pinterest.com', '_blank');
-  }
+  };
 
   const onClickHandler = ({ event, disableOnNavigation }) => {
     if (onNavigationMode === 'provider_disabled') {
-      disableOnNavigation()
+      disableOnNavigation();
     } else if (onNavigationMode === 'link_custom') {
       event.preventDefault();
       disableOnNavigation();
       customOnNavigation();
     }
-  }
+  };
 
   const linkProps = {
-    href:"https://pinterest.com",
+    href: 'https://pinterest.com',
     onClick: onClickHandler,
-    target:"blank",
-  }
+    target: 'blank',
+  };
 
   return (
     <OnLinkNavigationProvider onNavigation={onNavigation}>
       <Flex direction="column" gap={2}>
         <Flex direction="column" gap={2}>
           <Text>Navigation controller:</Text>
-            <RadioButton
-              checked={onNavigationMode === 'provider_disabled'}
-              id="provider_disabled"
-              label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_disabled')}
-              value="provider_disabled"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'provider_custom'}
-              id="provider_custom"
-              label="Custom navigation set on OnLinkNavigationProvider"
-              name="navigation"
-              onChange={() => setOnNavigationMode('provider_custom')}
-              value="provider_custom"
-            />
-            <RadioButton
-              checked={onNavigationMode === 'link_custom'}
-              id="link_custom"
-              label="Custom navigation set on Link"
-              name="navigation"
-              onChange={() => setOnNavigationMode('link_custom')}
-              value="link_custom"
-            />
-          <Divider/>
+          <RadioButton
+            checked={onNavigationMode === 'provider_disabled'}
+            id="provider_disabled"
+            label="Default navigation (disabled custom navigation set on OnLinkNavigationProvider)"
+            name="navigation"
+            onChange={() => setOnNavigationMode('provider_disabled')}
+            value="provider_disabled"
+          />
+          <RadioButton
+            checked={onNavigationMode === 'provider_custom'}
+            id="provider_custom"
+            label="Custom navigation set on OnLinkNavigationProvider"
+            name="navigation"
+            onChange={() => setOnNavigationMode('provider_custom')}
+            value="provider_custom"
+          />
+          <RadioButton
+            checked={onNavigationMode === 'link_custom'}
+            id="link_custom"
+            label="Custom navigation set on Link"
+            name="navigation"
+            onChange={() => setOnNavigationMode('link_custom')}
+            value="link_custom"
+          />
+          <Divider />
         </Flex>
-          <Text>
-            <Link {...linkProps}>
-              Visit pinterest.com
-            </Link>
-          </Text>
+        <Text>
+          <Link {...linkProps}>Visit pinterest.com</Link>
+        </Text>
       </Flex>
     </OnLinkNavigationProvider>
   );
-}
-`}
+}`}
       />
     </MainSection.Subsection>
   </MainSection>,
