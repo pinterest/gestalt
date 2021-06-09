@@ -24,7 +24,7 @@ export default function PositioningWrapper({ size, pileCount, index, children }:
     marginStart = `${((2 * index) / FIT_SIZING_DENOMINATOR) * 100}%`;
   }
 
-  // To provide a perfect-pixel width for each responsive avatar, we use the ratio of 3 parts of the total parts of the whole GroupAvatar. A 4-avatar component has 9 total parts, and each avatar's witdh is 3/9 of the total width.
+  // To provide a perfect-pixel width for each responsive avatar, we use the ratio of 3 parts of the total parts of the whole AvatarGroup. A 4-avatar component has 9 total parts, and each avatar's witdh is 3/9 of the total width.
   const width = isFitSize ? `${(3 / FIT_SIZING_DENOMINATOR) * 100}%` : undefined;
 
   return (
