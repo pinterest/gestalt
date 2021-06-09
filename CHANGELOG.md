@@ -1,3 +1,9 @@
+## 24.0.0 (Jun 9, 2021)
+
+### Major
+
+- GroupAvatar: cmp deprecation from Gestalt library (#1542)
+
 ## 23.2.0 (Jun 8, 2021)
 
 ### Minor
