@@ -86,6 +86,7 @@
     "lodash": "4.17.21",
     "multicast-dns": "7.2.3",
     "normalize-url": "4.5.1",
+    "postcss": "8.2.10",
     "serialize-javascript": "3.1.0",
     "trim-newlines": "3.0.1",
     "ws": "7.4.6"
