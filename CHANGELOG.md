@@ -1,3 +1,9 @@
+## 24.0.1 (Jun 9, 2021)
+
+### Patch
+
+- Internal: add resolution for `normalize-url` to fix vulnerability (#1545)
+
 ## 24.0.0 (Jun 9, 2021)
 
 ### Major
