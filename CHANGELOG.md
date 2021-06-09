@@ -1,3 +1,9 @@
+## 24.0.5 (Jun 9, 2021)
+
+### Patch
+
+- Internal: add resolution for `glob-parent` to fix vulnerability (#1551)
+
 ## 24.0.4 (Jun 9, 2021)
 
 ### Patch
