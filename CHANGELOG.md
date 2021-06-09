@@ -1,3 +1,9 @@
+## 24.0.2 (Jun 9, 2021)
+
+### Patch
+
+- Internal: add resolution for `trim-newlines` to fix vulnerability (#1546)
+
 ## 24.0.1 (Jun 9, 2021)
 
 ### Patch
