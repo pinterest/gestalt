@@ -83,6 +83,7 @@
     "cssnano": "4.1.11",
     "immer": "8.0.1",
     "lodash": "4.17.21",
+    "meow": "10.0.1",
     "multicast-dns": "7.2.3",
     "serialize-javascript": "3.1.0",
     "ws": "7.4.6"
