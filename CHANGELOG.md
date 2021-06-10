@@ -1,3 +1,9 @@
+## 24.1.0 (Jun 10, 2021)
+
+### Minor
+
+- Video: Use objectFit instead of object-fit (#1553)
+
 ## 24.0.5 (Jun 9, 2021)
 
 ### Patch
