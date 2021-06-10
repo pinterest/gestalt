@@ -594,7 +594,7 @@ export default class Video extends PureComponent<Props, State> {
             onTimeUpdate={this.handleTimeUpdate}
             onProgress={this.handleProgress}
             onWaiting={this.handleWaiting}
-            {...(objectFit ? { style: { 'object-fit': objectFit } } : null)}
+            {...(objectFit ? { style: { objectFit } } : null)}
             {...((crossOrigin ? { crossOrigin } : { ...null }): {|
               crossOrigin?: CrossOrigin,
             |})}

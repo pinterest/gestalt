@@ -646,7 +646,7 @@ exports[`Video with objectFit 1`] = `
       src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
       style={
         Object {
-          "object-fit": "contain",
+          "objectFit": "contain",
         }
       }
     >
