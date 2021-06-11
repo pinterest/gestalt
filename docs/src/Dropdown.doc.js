@@ -165,7 +165,7 @@ card(
         type:
           '({| event: SyntheticInputEvent<>, item: {label: string, value: string, subtext?: string} |}) => void',
         required: true,
-        description: 'Callback when the user selects an item.',
+        description: 'Callback when the user selects an item using the mouse or keyboard.',
       },
       {
         name: 'selected',
@@ -188,8 +188,9 @@ card(
       {
         name: 'href',
         type: 'string',
+        required: true,
         description:
-          'When supplied, wraps the item in a Link, and directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
+          'Directs users to the url when item is selected. See the [Types of items](#Types-of-items) variant to learn more.',
       },
       {
         name: 'isExternal',
@@ -202,7 +203,7 @@ card(
         type:
           'AbstractEventHandler<| SyntheticMouseEvent<HTMLButtonElement> | SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLButtonElement>, {| disableOnNavigation: () => void |}',
         description: [
-          'Callback fired when a component is activated with a mouse or keyboard. ',
+          'Callback fired when clicked (pressed and released) with a mouse or keyboard. ',
           'See the [Custom navigation context](#Custom-navigation-context) variant and [OnLinkNavigationProvider](/OnLinkNavigationProvider) for more info.',
         ],
       },

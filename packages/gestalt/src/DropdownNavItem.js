@@ -8,7 +8,7 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 type PublicProps = {|
   badgeText?: string,
   children?: Node,
-  href?: string,
+  href: string,
   isExternal?: boolean,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,

@@ -8,8 +8,9 @@ describe('Dropdown.NavItem', () => {
   test('calls onClick when Item clicked', () => {
     render(
       <Dropdown.NavItem
-        onClick={onClickMock}
         badgeText="New"
+        href="/somePath"
+        onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
@@ -35,9 +36,10 @@ describe('Dropdown.NavItem', () => {
   test('adds badge and external icon', () => {
     render(
       <Dropdown.NavItem
-        onClick={onClickMock}
         badgeText="Beta Badge"
+        href="http://www.pinterest.com"
         isExternal
+        onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
