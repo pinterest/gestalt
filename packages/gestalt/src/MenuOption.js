@@ -86,7 +86,7 @@ export default function MenuOption({
   });
 
   const menuOptionContents = (
-    <Flex gap={2}>
+    <Flex>
       <Flex direction="column" flex="grow" gap={1}>
         <Flex alignItems="center">
           {children || (
@@ -123,7 +123,14 @@ export default function MenuOption({
         )}
       </Box>
       {isExternal && (
-        <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
+        <Box
+          alignItems="center"
+          color="transparent"
+          display="flex"
+          justifyContent="center"
+          // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
+          marginStart={2}
+        >
           {/* TODO: this label needs to be translated */}
           <Icon accessibilityLabel=", External" color="darkGray" icon="arrow-up-right" size={12} />
         </Box>
