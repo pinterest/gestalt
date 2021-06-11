@@ -3,16 +3,18 @@ import { type Node } from 'react';
 import PropTypes from 'prop-types';
 import MenuOption, { type OptionObject } from './MenuOption.js';
 import { DropdownContextConsumer } from './DropdownContext.js';
+import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 type PublicProps = {|
   badgeText?: string,
   children?: Node,
-  onSelect?: ({|
-    event: SyntheticInputEvent<HTMLInputElement>,
-    item: OptionObject,
-  |}) => void,
+  href?: string,
+  isExternal?: boolean,
+  onClick?: AbstractEventHandler<
+    SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
+    {| disableOnNavigation: () => void |},
+  >,
   option: OptionObject,
-  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
 |};
 
 type PrivateProps = {|
@@ -24,16 +26,14 @@ type Props = {|
   ...PrivateProps,
 |};
 
-/**
- * https://gestalt.pinterest.systems/Dropdown
- */
-export default function DropdownItem({
+export default function DropdownNavItem({
   badgeText,
   children,
-  onSelect,
+  href,
   index = 0,
+  isExternal,
+  onClick,
   option,
-  selected,
 }: Props): Node {
   return (
     <DropdownContextConsumer>
@@ -41,13 +41,14 @@ export default function DropdownItem({
         <MenuOption
           badgeText={badgeText}
           hoveredItem={hoveredItem}
+          href={href}
           id={id}
           index={index}
+          isExternal={isExternal}
           key={`${option.value + index}`}
-          onSelect={onSelect}
+          onClick={onClick}
           option={option}
           role="menuitem"
-          selected={selected}
           setHoveredItem={setHoveredItem}
           setOptionRef={setOptionRef}
           shouldTruncate
@@ -61,30 +62,17 @@ export default function DropdownItem({
 }
 
 // displayName is necessary for children identification in Dropdown
-DropdownItem.displayName = 'DropdownItem';
+DropdownNavItem.displayName = 'DropdownNavItem';
 
-DropdownItem.propTypes = {
+DropdownNavItem.propTypes = {
   badgeText: PropTypes.string,
-  onSelect: PropTypes.func,
+  href: PropTypes.string,
+  isExternal: PropTypes.bool,
+  onClick: PropTypes.func,
   // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
   option: (PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
   }).isRequired: React$PropType$Primitive<OptionObject>),
-  // $FlowFixMe[signature-verification-failure] Beware, this thing is a mess to properly type
-  selected: PropTypes.oneOfType([
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      subtext: PropTypes.string,
-    }),
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        subtext: PropTypes.string,
-      }),
-    ),
-  ]),
 };

@@ -1,40 +1,36 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Children, cloneElement, useState } from 'react';
+import { Children, cloneElement, type Node, useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
+import DropdownNavItem from './DropdownNavItem.js';
 import DropdownSection from './DropdownSection.js';
 import { DropdownContextProvider } from './DropdownContext.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
 import { type DirectionOptionType } from './utils/keyboardNavigation.js';
-import { type AbstractEventHandler } from './AbstractEventHandler.js';
 import { ESCAPE, SPACE, TAB, ENTER, UP_ARROW, DOWN_ARROW } from './keyCodes.js';
-import { type OptionObject } from './MenuOption.js';
-
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
-type Props = {|
-  anchor?: ?HTMLElement,
-  children: Node,
-  headerContent?: Node,
-  id: string,
-  idealDirection?: 'up' | 'right' | 'down' | 'left',
-  onDismiss: () => void,
-  onSelect?: AbstractEventHandler<
-    SyntheticKeyboardEvent<HTMLElement> | SyntheticMouseEvent<HTMLElement>,
-    {| item: OptionObject |},
-  >,
-  zIndex?: Indexable,
-|};
 
 const KEYS = {
   UP: -1,
   DOWN: 1,
   ENTER: 0,
 };
+
+const dropdownItemDisplayNames = ['DropdownItem', 'DropdownNavItem'];
+
+type IdealDirection = 'up' | 'right' | 'down' | 'left';
+
+type Props = {|
+  anchor?: ?HTMLElement,
+  children: Node,
+  headerContent?: Node,
+  id: string,
+  idealDirection?: IdealDirection,
+  onDismiss: () => void,
+  zIndex?: Indexable,
+|};
 
 /**
  * https://gestalt.pinterest.systems/Dropdown
@@ -46,7 +42,6 @@ export default function Dropdown({
   id,
   idealDirection = 'down',
   onDismiss,
-  onSelect,
   zIndex,
 }: Props): Node {
   const dropdownChildrenArray = Children.toArray(children);
@@ -60,10 +55,13 @@ export default function Dropdown({
       if (currentItemChildren && displayName === 'DropdownSection') {
         return [...accumulatedChildren, ...currentItemChildren];
       }
-      if (displayName === 'DropdownItem') {
+      if (dropdownItemDisplayNames.includes(displayName)) {
         return [...accumulatedChildren, currentChild];
       }
-      console.error('Only children of type DropdownItem or DropdownSection are allowed.'); // eslint-disable-line no-console
+      // eslint-disable-next-line no-console
+      console.error(
+        'Only children of type DropdownItem, DropdownNavItem, or DropdownSection are allowed.',
+      );
       return [...accumulatedChildren];
     },
     [],
@@ -105,7 +103,6 @@ export default function Dropdown({
       setHoveredItem(cursorIndex);
 
       if (direction === KEYS.ENTER) {
-        onSelect?.({ event, item });
         cursorOption.handleSelect?.({
           event,
           item,
@@ -125,12 +122,9 @@ export default function Dropdown({
     } else if (keyCode === ENTER) {
       event.stopPropagation();
       handleKeyNavigation(event, KEYS.ENTER);
-    } else if (keyCode === ESCAPE) {
-      if (anchor) anchor.focus();
-      if (onDismiss) onDismiss();
-    } else if (keyCode === TAB) {
-      if (anchor) anchor.focus();
-      if (onDismiss) onDismiss();
+    } else if ([ESCAPE, TAB].includes(keyCode)) {
+      anchor?.focus();
+      onDismiss?.();
     } else if (keyCode === SPACE) {
       event.preventDefault();
     }
@@ -138,7 +132,7 @@ export default function Dropdown({
 
   const renderDropdownItemsWithIndex = (dropdownChildren, idxBase) => {
     return dropdownChildren.map((child, idx) => {
-      if (child.type.displayName === 'DropdownItem') {
+      if (dropdownItemDisplayNames.includes(child.type.displayName)) {
         const index = idx + idxBase;
         return cloneElement(child, { index });
       }
@@ -152,27 +146,27 @@ export default function Dropdown({
    */
   const renderChildrenWithIndex = () => {
     let numItemsRendered = 0;
-    const items = [];
 
-    dropdownChildrenArray.forEach((child) => {
+    return dropdownChildrenArray.reduce((acc, child) => {
       const subSectionChildren = child.props.children;
       const childDisplayName = child.type.displayName;
 
       if (subSectionChildren && childDisplayName === 'DropdownSection') {
         const sectionChildrenArray = Children.toArray(subSectionChildren);
-        items.push(
+        numItemsRendered += subSectionChildren.length;
+        return [
+          ...acc,
           cloneElement(child, {
             children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
           }),
-        );
-        numItemsRendered += subSectionChildren.length;
-      } else if (childDisplayName === 'DropdownItem') {
-        items.push(cloneElement(child, { index: numItemsRendered }));
-        numItemsRendered += 1;
+        ];
       }
-    });
-
-    return items;
+      if (dropdownItemDisplayNames.includes(childDisplayName)) {
+        numItemsRendered += 1;
+        return [...acc, cloneElement(child, { index: numItemsRendered })];
+      }
+      return acc;
+    }, []);
   };
 
   return (
@@ -184,13 +178,14 @@ export default function Dropdown({
         id={id}
         idealDirection={idealDirection}
         onDismiss={onDismiss}
-        role="menu"
         positionRelativeToAnchor={false}
+        role="menu"
         shouldFocus
         size="xl"
       >
         <Box alignItems="center" direction="column" display="flex" flex="grow" margin={2}>
           {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
+
           <DropdownContextProvider value={{ id, hoveredItem, setHoveredItem, setOptionRef }}>
             {renderChildrenWithIndex()}
           </DropdownContextProvider>
@@ -201,12 +196,12 @@ export default function Dropdown({
 }
 
 Dropdown.propTypes = {
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  anchor: PropTypes.shape({
+  // $FlowFixMe[incompatible-cast]
+  anchor: (PropTypes.shape({
     contains: PropTypes.func,
-    getBoundingClientRect: PropTypes.func,
     focus: PropTypes.func,
-  }),
+    getBoundingClientRect: PropTypes.func,
+  }): ?HTMLElement),
   children: PropTypes.node,
   headerContent: PropTypes.node,
   id: PropTypes.string.isRequired,
@@ -217,10 +212,9 @@ Dropdown.propTypes = {
     'left',
   ]): React$PropType$Primitive<IdealDirection>),
   onDismiss: PropTypes.func.isRequired,
-  onSelect: PropTypes.func,
   zIndex: UnsafeIndexablePropType,
 };
 
 Dropdown.Item = DropdownItem;
-
+Dropdown.NavItem = DropdownNavItem;
 Dropdown.Section = DropdownSection;

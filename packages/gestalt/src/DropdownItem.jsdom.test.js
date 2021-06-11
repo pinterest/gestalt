@@ -2,41 +2,26 @@
 import { render, screen } from '@testing-library/react';
 import Dropdown from './Dropdown.js';
 
-describe('DropdownItem', () => {
-  const handleSelectMock = jest.fn();
-  test('calls handleSelect when Item clicked', () => {
+describe('Dropdown.Item', () => {
+  const onSelectMock = jest.fn();
+
+  test('calls onSelect when Item clicked', () => {
     render(
       <Dropdown.Item
-        handleSelect={handleSelectMock}
         badgeText="New"
+        onSelect={onSelectMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
     screen.getByText('Item 4').click();
-    expect(handleSelectMock).toHaveBeenCalled();
+    expect(onSelectMock).toHaveBeenCalled();
   });
 
-  test('creates an anchor when href is passed', () => {
+  test('adds badge', () => {
     render(
       <Dropdown.Item
-        handleSelect={handleSelectMock}
-        badgeText="New"
-        href="https://www.pinterest.com"
-        option={{ value: 'item 4', label: 'Item 4' }}
-      />,
-    );
-    expect(screen.getByText('Item 4').closest('a')).toHaveAttribute(
-      'href',
-      'https://www.pinterest.com',
-    );
-  });
-
-  test('adds badge and external icon', () => {
-    render(
-      <Dropdown.Item
-        handleSelect={handleSelectMock}
         badgeText="Beta Badge"
-        isExternal
+        onSelect={onSelectMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
@@ -47,10 +32,10 @@ describe('DropdownItem', () => {
   test('adds selected icon when item is selected', () => {
     render(
       <Dropdown.Item
-        handleSelect={handleSelectMock}
         badgeText="New"
-        selected={{ value: 'item 4', label: 'Item 4' }}
+        onSelect={onSelectMock}
         option={{ value: 'item 4', label: 'Item 4' }}
+        selected={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
     expect(screen.getByRole('img', { name: /Selected Item/i })).toBeInTheDocument();

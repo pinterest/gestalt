@@ -1,7 +1,5 @@
 // @flow strict
-import type { Node } from 'react';
-
-import { Fragment } from 'react';
+import { Fragment, type Node } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Badge from './Badge.js';
@@ -18,45 +16,45 @@ import { type AbstractEventHandler } from './AbstractEventHandler.js';
 
 export type OptionObject = {|
   label: string,
-  value: string,
   subtext?: string,
+  value: string,
 |};
 
 type Props = {|
   badgeText?: string,
   children?: Node,
+  hoveredItem: ?number,
+  href?: string,
+  id: string,
   index: number,
+  isExternal?: boolean,
   onClick?: AbstractEventHandler<
     SyntheticMouseEvent<HTMLAnchorElement> | SyntheticKeyboardEvent<HTMLAnchorElement>,
     {| disableOnNavigation: () => void |},
   >,
-  option: OptionObject,
-  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
-  handleSelect?: ({|
+  onSelect?: ({|
     item: OptionObject,
     event: SyntheticInputEvent<HTMLInputElement>,
   |}) => void,
-  hoveredItem: ?number,
-  id: string,
-  isExternal?: boolean,
+  option: OptionObject,
   role?: 'option' | 'menuitem',
+  selected?: OptionObject | $ReadOnlyArray<OptionObject> | null,
   setHoveredItem: (number) => void,
   setOptionRef: (?HTMLElement) => void,
   shouldTruncate?: boolean,
   textWeight?: FontWeight,
-  href?: string,
 |};
 
 export default function MenuOption({
   badgeText,
   children,
-  handleSelect,
   hoveredItem,
   href,
   id,
   index,
   isExternal,
   onClick,
+  onSelect,
   option,
   role,
   selected,
@@ -75,7 +73,7 @@ export default function MenuOption({
     if (!href && !children) {
       event.preventDefault();
     }
-    if (handleSelect) handleSelect({ event, item: option });
+    onSelect?.({ event, item: option });
   };
 
   const { isFocusVisible } = useFocusVisible();
@@ -87,12 +85,9 @@ export default function MenuOption({
     [styles.pointer]: true,
   });
 
-  // Set color on item hover
-  const optionStateColor = index === hoveredItem ? 'lightGray' : 'transparent';
-
   const menuOptionContents = (
-    <Flex>
-      <Flex flex="grow" direction="column">
+    <Flex gap={2}>
+      <Flex direction="column" flex="grow" gap={1}>
         <Flex alignItems="center">
           {children || (
             <Fragment>
@@ -110,19 +105,16 @@ export default function MenuOption({
           )}
         </Flex>
         {option.subtext && (
-          <Box marginTop={1}>
-            <Text size="md" color="gray">
-              {option.subtext}
-            </Text>
-          </Box>
+          <Text size="md" color="gray">
+            {option.subtext}
+          </Text>
         )}
       </Flex>
       <Box
-        display={!isExternal ? 'flex' : 'none'}
-        color="transparent"
-        justifyContent="center"
         alignItems="center"
-        marginStart={2}
+        color="transparent"
+        display={!isExternal ? 'flex' : 'none'}
+        justifyContent="center"
       >
         {isSelectedItem && !isExternal ? (
           <Icon accessibilityLabel="Selected item" color="darkGray" icon="check" size={12} />
@@ -131,13 +123,8 @@ export default function MenuOption({
         )}
       </Box>
       {isExternal && (
-        <Box
-          display="flex"
-          color="transparent"
-          justifyContent="center"
-          alignItems="center"
-          marginStart={2}
-        >
+        <Box alignItems="center" color="transparent" display="flex" justifyContent="center">
+          {/* TODO: this label needs to be translated */}
           <Icon accessibilityLabel=", External" color="darkGray" icon="arrow-up-right" size={12} />
         </Box>
       )}
@@ -146,26 +133,32 @@ export default function MenuOption({
 
   return (
     <div
-      ref={(ref) => {
-        if (index === hoveredItem) setOptionRef(ref);
-      }}
+      aria-selected={isSelectedItem}
       className={className}
       key={option.value}
       id={`${id}-item-${index}`}
       onClick={handleOnTap}
-      onMouseDown={(event) => {
-        event.preventDefault();
-      }}
       onKeyPress={(event) => {
         event.preventDefault();
       }}
-      rounding={2}
+      onMouseDown={(event) => {
+        event.preventDefault();
+      }}
       onMouseEnter={() => setHoveredItem(index)}
+      ref={(ref) => {
+        if (index === hoveredItem) setOptionRef(ref);
+      }}
+      rounding={2}
       role={role}
-      aria-selected={isSelectedItem}
       tabIndex={-1}
     >
-      <Box padding={2} color={optionStateColor} rounding={2} display="flex" direction="column">
+      <Box
+        color={index === hoveredItem ? 'lightGray' : 'transparent'}
+        direction="column"
+        display="flex"
+        padding={2}
+        rounding={2}
+      >
         {href ? (
           <Link
             hoverStyle="none"
@@ -186,16 +179,19 @@ export default function MenuOption({
 MenuOption.displayName = 'MenuOption';
 
 MenuOption.propTypes = {
+  hoveredItem: PropTypes.number,
+  href: PropTypes.string,
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   onClick: PropTypes.func,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
-  option: PropTypes.exact({
+  onSelect: PropTypes.func,
+  // $FlowFixMe[incompatible-exact] Why Flow doesn't accept this as exact is beyond me
+  option: (PropTypes.exact({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     subtext: PropTypes.string,
-  }).isRequired,
-  // $FlowFixMe[signature-verification-failure] flow 0.135.0 upgrade
+  }).isRequired: React$PropType$Primitive<OptionObject>),
+  // $FlowFixMe[signature-verification-failure] Beware, this thing is a mess to properly type
   selected: PropTypes.oneOfType([
     PropTypes.exact({
       label: PropTypes.string.isRequired,
@@ -210,9 +206,6 @@ MenuOption.propTypes = {
       }),
     ),
   ]),
-  handleSelect: PropTypes.func,
-  hoveredItem: PropTypes.number,
   setHoveredItem: PropTypes.func,
   setOptionRef: PropTypes.func,
-  href: PropTypes.string,
 };
