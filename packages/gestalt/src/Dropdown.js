@@ -103,7 +103,7 @@ export default function Dropdown({
       setHoveredItem(cursorIndex);
 
       if (direction === KEYS.ENTER) {
-        cursorOption.handleSelect?.({
+        cursorOption.onSelect?.({
           event,
           item,
         });
@@ -153,17 +153,16 @@ export default function Dropdown({
 
       if (subSectionChildren && childDisplayName === 'DropdownSection') {
         const sectionChildrenArray = Children.toArray(subSectionChildren);
+        const childWithIndex = cloneElement(child, {
+          children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
+        });
         numItemsRendered += subSectionChildren.length;
-        return [
-          ...acc,
-          cloneElement(child, {
-            children: renderDropdownItemsWithIndex(sectionChildrenArray, numItemsRendered),
-          }),
-        ];
+        return [...acc, childWithIndex];
       }
       if (dropdownItemDisplayNames.includes(childDisplayName)) {
+        const childWithIndex = cloneElement(child, { index: numItemsRendered });
         numItemsRendered += 1;
-        return [...acc, cloneElement(child, { index: numItemsRendered })];
+        return [...acc, childWithIndex];
       }
       return acc;
     }, []);
