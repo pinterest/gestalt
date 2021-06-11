@@ -49,7 +49,7 @@ card(
                   option={{ value: "item 2", label: "Item 2 with a really long, detailed, complex name" }}
                   selected={selected}
                 />
-                <Dropdown.NavItem
+                <Dropdown.Link
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
@@ -60,13 +60,13 @@ card(
                   option={{ value: "item 4", label: "Item 4" }}
                   selected={selected}
                 />
-                <Dropdown.NavItem
+                <Dropdown.Link
                   badgeText="New"
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
                 />
-                <Dropdown.NavItem
+                <Dropdown.Link
                   href="/typeahead"
                   option={{ value: "item 6", label: "Item 6 navigates internally" }}
                 />
@@ -95,7 +95,7 @@ card(
         required: true,
         type: 'React.ChildrenArray<React.Element<typeof DropdownItem | typeof DropdownSection>>',
         description:
-          'Must be instances of Dropdown.Item, Dropdown.NavItem or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
+          'Must be instances of Dropdown.Item, Dropdown.Link or Dropdown.Section components. See the [Types of items](#Types-of-items) variant to learn more.',
       },
       {
         name: 'headerContent',
@@ -180,9 +180,9 @@ card(
 
 card(
   <PropTable
-    Component={Dropdown.NavItem}
-    name="Dropdown.NavItem"
-    id="Dropdown.NavItem"
+    Component={Dropdown.Link}
+    name="Dropdown.Link"
+    id="Dropdown.Link"
     props={[
       ...commonDropdownItemProps,
       {
@@ -221,7 +221,7 @@ card(
         name: 'children',
         type: 'React.ChildrenArray<React.Element<typeof DropdownItem>>',
         required: true,
-        description: 'Any Dropdown.Items and/or Dropdown.NavItems to be rendered',
+        description: 'Any Dropdown.Items and/or Dropdown.Links to be rendered',
       },
       {
         name: 'label',
@@ -273,7 +273,7 @@ card(
                   option={{ value: "item 2", label: "Item 2 with a really long, detailed, complex name" }}
                   selected={selected}
                 />
-                <Dropdown.NavItem
+                <Dropdown.Link
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 3", label: "Item 3 with a really long, detailed, complex name" }}
@@ -284,13 +284,13 @@ card(
                   option={{ value: "item 4", label: "Item 4" }}
                   selected={selected}
                 />
-                <Dropdown.NavItem
+                <Dropdown.Link
                   badgeText="New"
                   href="https://pinterest.com"
                   isExternal
                   option={{ value: "item 5", label: "Item 5 with a really long, detailed name" }}
                 />
-                <Dropdown.NavItem
+                <Dropdown.Link
                   href="/typeahead"
                   option={{ value: "item 6", label: "Item 6 navigates internally" }}
                 />
@@ -406,7 +406,7 @@ function OrderDropdownExample() {
             option={{ value: "Hide Pin", label: "Hide Pin" }}
             selected={selected}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{ value: "Report Pin", label: "Report Pin" }}
@@ -466,7 +466,7 @@ function NoTooltipsDropdownExample() {
               </Tooltip>
             </Box>
           </Dropdown.Item>
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{ value: "Report Pin", label: "Report Pin" }}
@@ -522,12 +522,12 @@ function ExternalLinksDropdownExample() {
             option={{ value: "Report a bug", label: "Report a bug" }}
             selected={selected}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
             isExternal
             option={{ value: "Get help", label: "Get help" }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
             isExternal
             option={{ value: "See terms and privacy", label: "See terms and privacy" }}
@@ -541,7 +541,7 @@ function ExternalLinksDropdownExample() {
       <MainSection.Card
         cardSize="md"
         type="don't"
-        description="Avoid adding custom elements within Dropdown. While some custom elements may be technically possible, it is best to avoid customization that becomes difficult to maintain."
+        description="Add custom elements within Dropdown. While some custom elements may be technically possible, it is best to avoid customization that becomes difficult to maintain."
         defaultCode={`
 function CustomContentDropdownExample() {
   const [open, setOpen] = React.useState(false);
@@ -576,15 +576,15 @@ function CustomContentDropdownExample() {
             option={{ value: "Report a bug", label: "Report a bug" }}
             selected={selected}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
             isExternal
             option={{ value: "Get help", label: "Get help" }}
           >
             <Icon accessibilityLabel="Ad" color="darkGray" icon="ad"/>
             <Text>Get help</Text>
-          </Dropdown.Item>
-          <Dropdown.NavItem
+          </Dropdown.Link>
+          <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
             isExternal
             option={{ value: "See terms and privacy", label: "See terms and privacy" }}
@@ -668,12 +668,12 @@ function TruncationDropdownExample() {
             }}
             selected={selected}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
             isExternal
             option={{ value: 'Hilfe anfordern', label: 'Hilfe anfordern' }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
             isExternal
             option={{
@@ -696,8 +696,8 @@ card(
     <MainSection.Subsection title="Types of items" columns={2}>
       <MainSection.Card
         cardSize="md"
-        title="Action"
-        description="Typically a Dropdown item triggers an action, like “Hide a Pin”, or makes a selection, like “Cozy” for a layout setting."
+        title="Action/Selection"
+        description={`Typically a Dropdown item triggers an action, like “Hide a Pin”, or makes a selection, like “Cozy” for a layout setting. Use Dropdown.Item for these use cases. \`onSelect\` handles the user interaction, with the optional \`selected\` indicating the currently-selected item.`}
         defaultCode={`
 function ActionDropdownExample() {
   const [open, setOpen] = React.useState(false);
@@ -740,7 +740,7 @@ function ActionDropdownExample() {
       <MainSection.Card
         cardSize="md"
         title="Link"
-        description={`If an item navigates to a new page, an \`href\` should be provided. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon.`}
+        description={`If an item navigates to a new page, use Dropdown.Link with the required \`href\` prop. If the item navigates to a page outside of the current context, (either a non-Pinterest site or a different Pinterest sub-site), the \`isExternal\` prop should also be specified to display the "up-right" icon. Optional additional actions to be taken on navigation are handled by \`onClick\`.`}
         defaultCode={`
 function LinkDropdownExample() {
   const [open, setOpen] = React.useState(false);
@@ -764,16 +764,17 @@ function LinkDropdownExample() {
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="link-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             option={{ value: 'Create new board', label: 'Create new board' }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
             isExternal
+            onClick={() => { /* log click here */ }}
             option={{ value: 'Get help', label: 'Get help' }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
             isExternal
             option={{ value: 'See terms and privacy', label: 'See terms and privacy' }}
@@ -788,7 +789,7 @@ function LinkDropdownExample() {
 
     <MainSection.Subsection
       title="Sections"
-      description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Sections, Dropdown.Items and Dropdown.NavItems can be mixed as needed."
+      description="Dropdown can also be composed of Dropdown.Section(s), which simply require a label. Use Dropdown.Section(s) to create hierarchy within a single Dropdown. Dropdown.Sections, Dropdown.Items and Dropdown.Links can be mixed as needed."
     >
       <MainSection.Card
         cardSize="lg"
@@ -904,7 +905,7 @@ function CustomHeaderExample() {
             option={{ value: 'item 1', label: 'Hide Pin' }}
             selected={selected}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{
@@ -1008,7 +1009,7 @@ function SubtextDropdownExample() {
               option={{ value: 'Tune your home feed', label: 'Tune your home feed' }}
               selected={selected}
             />
-            <Dropdown.NavItem
+            <Dropdown.Link
               href="https://pinterest.com"
               isExternal
               option={{ value: 'Get help', label: 'Get help' }}
@@ -1175,7 +1176,7 @@ function OnNavigation() {
           />
           {open && (
             <Dropdown anchor={anchorRef.current} id="basic-dropdown-example" onDismiss={() => setOpen(false)}>
-              <Dropdown.NavItem
+              <Dropdown.Link
                 href="https://pinterest.com"
                 isExternal
                 onClick={onClickHandler}
@@ -1195,7 +1196,7 @@ function OnNavigation() {
     <MainSection.Subsection
       title="Custom item content"
       description={`
-      If needed, users can supply custom content to each Dropdown.Item or Dropdown.NavItem. This can be useful when extra functionality is needed. However, please use with caution and only when absolutely necessary.
+      If needed, users can supply custom content to each Dropdown.Item or Dropdown.Link. This can be useful when extra functionality is needed. However, please use with caution and only when absolutely necessary.
 
       To ensure the entire width of the item is clickable, you will likely need to surround your custom content with a full-width Box.
     `}
@@ -1225,7 +1226,7 @@ function CustomIconButtonPopoverExample() {
       />
       {open && (
         <Dropdown anchor={anchorRef.current} id="custom-dropdown-example" onDismiss={() => setOpen(false)}>
-          <Dropdown.NavItem
+          <Dropdown.Link
             isExternal
             option={{ value: 'item 1', label: 'Custom link 1' }}
           >
@@ -1236,8 +1237,8 @@ function CustomIconButtonPopoverExample() {
                 </Link>
               </Text>
             </Box>
-          </Dropdown.NavItem>
-          <Dropdown.NavItem
+          </Dropdown.Link>
+          <Dropdown.Link
             isExternal
             option={{ value: 'item 2', label: 'Another custom link' }}
           >
@@ -1248,10 +1249,10 @@ function CustomIconButtonPopoverExample() {
                 </Link>
               </Text>
             </Box>
-          </Dropdown.NavItem>
+          </Dropdown.Link>
         </Dropdown>
       )}
-    </Box>
+    </Flex>
   );
 }
       `}

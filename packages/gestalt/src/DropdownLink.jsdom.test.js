@@ -2,12 +2,12 @@
 import { render, screen } from '@testing-library/react';
 import Dropdown from './Dropdown.js';
 
-describe('Dropdown.NavItem', () => {
+describe('Dropdown.Link', () => {
   const onClickMock = jest.fn();
 
   test('calls onClick when Item clicked', () => {
     render(
-      <Dropdown.NavItem
+      <Dropdown.Link
         badgeText="New"
         href="/somePath"
         onClick={onClickMock}
@@ -20,7 +20,7 @@ describe('Dropdown.NavItem', () => {
 
   test('creates an anchor when href is passed', () => {
     render(
-      <Dropdown.NavItem
+      <Dropdown.Link
         onClick={onClickMock}
         badgeText="New"
         href="https://www.pinterest.com"
@@ -35,7 +35,7 @@ describe('Dropdown.NavItem', () => {
 
   test('adds badge and external icon', () => {
     render(
-      <Dropdown.NavItem
+      <Dropdown.Link
         badgeText="Beta Badge"
         href="http://www.pinterest.com"
         isExternal

@@ -26,7 +26,7 @@ type Props = {|
   ...PrivateProps,
 |};
 
-export default function DropdownNavItem({
+export default function DropdownLink({
   badgeText,
   children,
   href,
@@ -62,9 +62,9 @@ export default function DropdownNavItem({
 }
 
 // displayName is necessary for children identification in Dropdown
-DropdownNavItem.displayName = 'DropdownNavItem';
+DropdownLink.displayName = 'DropdownLink';
 
-DropdownNavItem.propTypes = {
+DropdownLink.propTypes = {
   badgeText: PropTypes.string,
   href: PropTypes.string,
   isExternal: PropTypes.bool,

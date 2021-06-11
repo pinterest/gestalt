@@ -23,7 +23,7 @@ describe('Dropdown', () => {
             label: 'Item 2 with a really long, detailed, complex name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{
@@ -36,7 +36,7 @@ describe('Dropdown', () => {
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           badgeText="New"
           href="https://pinterest.com"
           isExternal
@@ -45,7 +45,7 @@ describe('Dropdown', () => {
             label: 'Item 5 with a really long, detailed name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
@@ -74,7 +74,7 @@ describe('Dropdown', () => {
           />
         </Dropdown.Section>
         <Dropdown.Section label="Section 2">
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{
@@ -87,7 +87,7 @@ describe('Dropdown', () => {
             onSelect={onSelectMock}
             option={{ value: 'item 4', label: 'Item 4' }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             badgeText="New"
             href="https://pinterest.com"
             isExternal
@@ -96,7 +96,7 @@ describe('Dropdown', () => {
               label: 'Item 5 with a really long, detailed name',
             }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{ value: 'item 6', label: 'Item 6' }}
@@ -132,7 +132,7 @@ describe('Dropdown', () => {
           />
         </Dropdown.Section>
         <Dropdown.Section label="Section 2">
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{
@@ -145,7 +145,7 @@ describe('Dropdown', () => {
             onSelect={onSelectMock}
             option={{ value: 'item 4', label: 'Item 4' }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             badgeText="New"
             href="https://pinterest.com"
             isExternal
@@ -154,7 +154,7 @@ describe('Dropdown', () => {
               label: 'Item 5 with a really long, detailed name',
             }}
           />
-          <Dropdown.NavItem
+          <Dropdown.Link
             href="https://pinterest.com"
             isExternal
             option={{ value: 'item 6', label: 'Item 6' }}
@@ -181,7 +181,7 @@ describe('Dropdown', () => {
             label: 'Item 2 with a really long, detailed, complex name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{
@@ -194,7 +194,7 @@ describe('Dropdown', () => {
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           badgeText="New"
           href="https://pinterest.com"
           isExternal
@@ -203,7 +203,7 @@ describe('Dropdown', () => {
             label: 'Item 5 with a really long, detailed name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
@@ -232,7 +232,7 @@ describe('Dropdown', () => {
             label: 'Item 2 with a really long, detailed, complex name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{
@@ -245,7 +245,7 @@ describe('Dropdown', () => {
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           badgeText="New"
           href="https://pinterest.com"
           isExternal
@@ -254,7 +254,7 @@ describe('Dropdown', () => {
             label: 'Item 5 with a really long, detailed name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
@@ -283,7 +283,7 @@ describe('Dropdown', () => {
             label: 'Item 2 with a really long, detailed, complex name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{
@@ -296,7 +296,7 @@ describe('Dropdown', () => {
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           badgeText="New"
           href="https://pinterest.com"
           isExternal
@@ -305,7 +305,7 @@ describe('Dropdown', () => {
             label: 'Item 5 with a really long, detailed name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
@@ -346,7 +346,7 @@ describe('Dropdown', () => {
             label: 'Item 2 with a really long, detailed, complex name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{
@@ -359,7 +359,7 @@ describe('Dropdown', () => {
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           badgeText="New"
           href="https://pinterest.com"
           isExternal
@@ -368,7 +368,7 @@ describe('Dropdown', () => {
             label: 'Item 5 with a really long, detailed name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}
@@ -398,7 +398,7 @@ describe('Dropdown', () => {
     render(
       <Dropdown anchor={element} id="ex-8" onDismiss={mockOnDismiss}>
         <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com/today"
           isExternal
           onClick={onClickMock}
@@ -419,7 +419,7 @@ describe('Dropdown', () => {
           onSelect={onSelectMock}
           option={{ value: 'item 4', label: 'Item 4' }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           badgeText="New"
           href="https://pinterest.com"
           isExternal
@@ -428,7 +428,7 @@ describe('Dropdown', () => {
             label: 'Item 5 with a really long, detailed name',
           }}
         />
-        <Dropdown.NavItem
+        <Dropdown.Link
           href="https://pinterest.com"
           isExternal
           option={{ value: 'item 6', label: 'Item 6' }}

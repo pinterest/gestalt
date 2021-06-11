@@ -5,7 +5,7 @@ import Box from './Box.js';
 import Popover from './Popover.js';
 import Layer from './Layer.js';
 import DropdownItem from './DropdownItem.js';
-import DropdownNavItem from './DropdownNavItem.js';
+import DropdownLink from './DropdownLink.js';
 import DropdownSection from './DropdownSection.js';
 import { DropdownContextProvider } from './DropdownContext.js';
 import { type Indexable, UnsafeIndexablePropType } from './zIndex.js';
@@ -18,7 +18,7 @@ const KEYS = {
   ENTER: 0,
 };
 
-const dropdownItemDisplayNames = ['DropdownItem', 'DropdownNavItem'];
+const dropdownItemDisplayNames = ['DropdownItem', 'DropdownLink'];
 
 type IdealDirection = 'up' | 'right' | 'down' | 'left';
 
@@ -60,7 +60,7 @@ export default function Dropdown({
       }
       // eslint-disable-next-line no-console
       console.error(
-        'Only children of type DropdownItem, DropdownNavItem, or DropdownSection are allowed.',
+        'Only children of type DropdownItem, DropdownLink, or DropdownSection are allowed.',
       );
       return [...accumulatedChildren];
     },
@@ -215,5 +215,5 @@ Dropdown.propTypes = {
 };
 
 Dropdown.Item = DropdownItem;
-Dropdown.NavItem = DropdownNavItem;
+Dropdown.Link = DropdownLink;
 Dropdown.Section = DropdownSection;
