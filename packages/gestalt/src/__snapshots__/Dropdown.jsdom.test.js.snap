@@ -39,21 +39,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap0 flexGrow xsDirectionColumn"
+                      class="Flex columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="FlexItem"
                       >
-                        <span
-                          class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
-                          title="Item 1"
+                        <div
+                          class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
-                          Item 1
-                        </span>
+                          <span
+                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                            title="Item 1"
+                          >
+                            Item 1
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
+                      class="box itemsCenter justifyCenter xsDisplayFlex"
                     >
                       <div
                         class="box"
@@ -78,21 +82,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap0 flexGrow xsDirectionColumn"
+                      class="Flex columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="FlexItem"
                       >
-                        <span
-                          class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
-                          title="Item 2 with a really long, detailed, complex name"
+                        <div
+                          class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
-                          Item 2 with a really long, detailed, complex name
-                        </span>
+                          <span
+                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                            title="Item 2 with a really long, detailed, complex name"
+                          >
+                            Item 2 with a really long, detailed, complex name
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
+                      class="box itemsCenter justifyCenter xsDisplayFlex"
                     >
                       <div
                         class="box"
@@ -123,21 +131,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       class="Flex rowGap0 xsDirectionRow"
                     >
                       <div
-                        class="Flex columnGap0 flexGrow xsDirectionColumn"
+                        class="Flex columnGap1 flexGrow xsDirectionColumn"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="FlexItem"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
-                            title="External Item 3 with a really long, detailed, complex name"
+                          <div
+                            class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
-                            External Item 3 with a really long, detailed, complex name
-                          </span>
+                            <span
+                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                              title="External Item 3 with a really long, detailed, complex name"
+                            >
+                              External Item 3 with a really long, detailed, complex name
+                            </span>
+                          </div>
                         </div>
                       </div>
                       <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayNone"
+                        class="box itemsCenter justifyCenter xsDisplayNone"
                       >
                         <div
                           class="box"
@@ -179,35 +191,39 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex columnGap0 flexGrow xsDirectionColumn"
+                      class="Flex columnGap1 flexGrow xsDirectionColumn"
                     >
                       <div
-                        class="Flex rowGap0 itemsCenter xsDirectionRow"
+                        class="FlexItem"
                       >
-                        <span
-                          class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
-                          title="Item 4"
-                        >
-                          Item 4
-                        </span>
                         <div
-                          class="box marginStart2 marginTop1"
+                          class="Flex rowGap0 itemsCenter xsDirectionRow"
                         >
-                          <div
-                            class="box xsDisplayVisuallyHidden"
-                          >
-                            , 
-                          </div>
                           <span
-                            class="Badge middle blueBg"
+                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                            title="Item 4"
                           >
-                            New
+                            Item 4
                           </span>
+                          <div
+                            class="box marginStart2 marginTop1"
+                          >
+                            <div
+                              class="box xsDisplayVisuallyHidden"
+                            >
+                              , 
+                            </div>
+                            <span
+                              class="Badge middle blueBg"
+                            >
+                              New
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                     <div
-                      class="box itemsCenter justifyCenter marginStart2 xsDisplayFlex"
+                      class="box itemsCenter justifyCenter xsDisplayFlex"
                     >
                       <div
                         class="box"
@@ -238,35 +254,39 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       class="Flex rowGap0 xsDirectionRow"
                     >
                       <div
-                        class="Flex columnGap0 flexGrow xsDirectionColumn"
+                        class="Flex columnGap1 flexGrow xsDirectionColumn"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="FlexItem"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
-                            title="Item 5 with a really long, detailed name"
-                          >
-                            Item 5 with a really long, detailed name
-                          </span>
                           <div
-                            class="box marginStart2 marginTop1"
+                            class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
-                            <div
-                              class="box xsDisplayVisuallyHidden"
-                            >
-                              , 
-                            </div>
                             <span
-                              class="Badge middle blueBg"
+                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                              title="Item 5 with a really long, detailed name"
                             >
-                              New
+                              Item 5 with a really long, detailed name
                             </span>
+                            <div
+                              class="box marginStart2 marginTop1"
+                            >
+                              <div
+                                class="box xsDisplayVisuallyHidden"
+                              >
+                                , 
+                              </div>
+                              <span
+                                class="Badge middle blueBg"
+                              >
+                                New
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayNone"
+                        class="box itemsCenter justifyCenter xsDisplayNone"
                       >
                         <div
                           class="box"
@@ -314,21 +334,25 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       class="Flex rowGap0 xsDirectionRow"
                     >
                       <div
-                        class="Flex columnGap0 flexGrow xsDirectionColumn"
+                        class="Flex columnGap1 flexGrow xsDirectionColumn"
                       >
                         <div
-                          class="Flex rowGap0 itemsCenter xsDirectionRow"
+                          class="FlexItem"
                         >
-                          <span
-                            class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
-                            title="Item 6"
+                          <div
+                            class="Flex rowGap0 itemsCenter xsDirectionRow"
                           >
-                            Item 6
-                          </span>
+                            <span
+                              class="Text fontSize3 darkGray alignStart breakWord fontWeightBold truncate"
+                              title="Item 6"
+                            >
+                              Item 6
+                            </span>
+                          </div>
                         </div>
                       </div>
                       <div
-                        class="box itemsCenter justifyCenter marginStart2 xsDisplayNone"
+                        class="box itemsCenter justifyCenter xsDisplayNone"
                       >
                         <div
                           class="box"

@@ -25,7 +25,6 @@ describe('Dropdown.Item', () => {
         option={{ value: 'item 4', label: 'Item 4' }}
       />,
     );
-    expect(screen.getByRole('img', { name: /, External/i })).toBeInTheDocument();
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
   });
 

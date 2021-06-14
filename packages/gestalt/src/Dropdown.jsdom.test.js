@@ -331,7 +331,7 @@ describe('Dropdown', () => {
     expect(document.activeElement).toHaveAttribute('id', 'ex-6-item-1');
   });
 
-  it('should call onSelect when enter key is pressed', () => {
+  it('should call item onSelect when enter key is pressed', () => {
     const mockOnDismiss = jest.fn();
     const onSelectMock = jest.fn();
     const element = document.createElement('button');
@@ -389,7 +389,7 @@ describe('Dropdown', () => {
     expect(onSelectMock).toHaveBeenCalledTimes(1);
   });
 
-  it('should call link onSelect when enter key is pressed', () => {
+  it('should call link onClick when enter key is pressed', () => {
     const mockOnDismiss = jest.fn();
     const onSelectMock = jest.fn();
     const onClickMock = jest.fn();
@@ -446,6 +446,6 @@ describe('Dropdown', () => {
     fireEvent.keyDown(window.document, {
       keyCode: ENTER,
     });
-    expect(onSelectMock).toHaveBeenCalledTimes(1);
+    expect(onClickMock).toHaveBeenCalledTimes(1);
   });
 });
